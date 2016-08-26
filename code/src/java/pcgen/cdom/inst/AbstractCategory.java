@@ -40,7 +40,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	private URI sourceURI;
 
 	@Override
-	public String toString()
+	public final String toString()
 	{
 		return categoryName;
 	}
@@ -52,13 +52,13 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public String getKeyName()
+	public final String getKeyName()
 	{
 		return categoryName;
 	}
 
 	@Override
-	public String getDisplayName()
+	public final String getDisplayName()
 	{
 		return categoryName;
 	}
@@ -154,7 +154,7 @@ public abstract class AbstractCategory<T extends Categorized<T>> implements
 		return returnGood;
 	}
 
-	protected boolean report(UnconstructedValidator validator, String key)
+	protected final boolean report(UnconstructedValidator validator, String key)
 	{
 		return validator != null && validator.allow(getReferenceClass(), this, key);
 	}

@@ -108,7 +108,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 		}
 	}
 
-	private float checkCRField(javax.swing.JTextField tf, float def)
+	private static float checkCRField(javax.swing.JTextField tf, float def)
 	{
 		float value;
 

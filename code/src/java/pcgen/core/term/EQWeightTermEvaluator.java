@@ -79,7 +79,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -51,7 +52,7 @@ import pcgen.util.Logging;
  * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class EquipmentList {
+public final class EquipmentList {
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;
@@ -268,18 +269,21 @@ public class EquipmentList {
 			//
 			// Now attempt to add all the modifiers.
 			//
-			for (Iterator<String> e = modList.iterator(); e.hasNext();) {
-				final String namePart = e.next();
+			for (final String namePart : modList)
+			{
 				final EquipmentModifier eqMod = getQualifiedModifierNamed(namePart, eq);
 
-				if (eqMod != null) {
+				if (eqMod != null)
+				{
 					eq.addEqModifier(eqMod, true, aPC);
 
-					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble()) {
+					if (eqMod.getSafe(ObjectKey.ASSIGN_TO_ALL) && eq.isDouble())
+					{
 						eq.addEqModifier(eqMod, false, aPC);
 						bModified = true;
 					}
-				} else {
+				} else
+				{
 					Logging.errorPrint("Could not find a qualified modifier named: " + namePart + " for " + eq.getName() + ":"
 							+ eq.typeList());
 					bError = true;
@@ -523,7 +527,11 @@ public class EquipmentList {
 			// was being thrown) - Bug 937586
 			//
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			for (final Race race : ref.getConstructedCDOMObjects(Race.class))
+			/*
+			 * SIZE: in Race LST files enforces that the formula is fixed,
+			 * so no isStatic() check needed here
+			 */
+			ref.getConstructedCDOMObjects(Race.class).forEach(race ->
 			{
 				/*
 				 * SIZE: in Race LST files enforces that the formula is fixed,
@@ -531,17 +539,13 @@ public class EquipmentList {
 				 */
 				final int iSize =
 						race.getSafe(FormulaKey.SIZE).resolveStatic()
-							.intValue();
+								.intValue();
 				gensizesid.add(iSize);
-			}
+			});
 
 			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
-			Set<SizeAdjustment> gensizes = new HashSet<>();
-			for (Integer i : gensizesid)
-			{
-				gensizes.add(ref.getSortedList(SizeAdjustment.class,
-					IntegerKey.SIZEORDER).get(i));
-			}
+			Set<SizeAdjustment> gensizes = gensizesid.stream().map(i -> ref.getSortedList(SizeAdjustment.class,
+					IntegerKey.SIZEORDER).get(i)).collect(Collectors.toSet());
 			// skip over default size
 			gensizes.remove(defaultSize);
 
@@ -556,10 +560,10 @@ public class EquipmentList {
 					continue;
 				}
 
-				for (SizeAdjustment sa : gensizes)
+				gensizes.forEach(sa ->
 				{
 					createItem(eq, sa, dummyPc);
-				}
+				});
 			}
 		}
 	}

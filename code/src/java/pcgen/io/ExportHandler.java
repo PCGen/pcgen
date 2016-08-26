@@ -52,6 +52,7 @@ import freemarker.template.ObjectWrapper;
 import freemarker.template.Template;
 import freemarker.template.TemplateException;
 import freemarker.template.Version;
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -384,7 +385,7 @@ public final class ExportHandler
 	 * @param br The BufferedReader containing the template
 	 * @throws IOException
 	 */
-	private StringBuilder prepareTemplate(BufferedReader br) throws IOException
+	private static StringBuilder prepareTemplate(BufferedReader br) throws IOException
 	{
 		// A pattern to replace || with | | to stop StringTokenizer from merging them
 		Pattern pat = Pattern.compile(Pattern.quote("||"));
@@ -921,8 +922,8 @@ public final class ExportHandler
 	 * @param aPC PC containing values to help evaluate the expression
 	 * @return true if the expression was evaluated successfully, else false
 	 */
-	private boolean processSpellcasterExpression(String expr1,
-		PlayerCharacter aPC)
+	private static boolean processSpellcasterExpression(String expr1,
+	                                                    PlayerCharacter aPC)
 	{
 		final String fString = expr1.substring(12).trim();
 
@@ -2124,7 +2125,7 @@ public final class ExportHandler
 	 * @param aString token to evaluate
 	 * @return true if it is a filter token
 	 */
-	private boolean isFilterToken(String aString)
+	private static boolean isFilterToken(String aString)
 	{
 		if ((aString.length() > 0) && (aString.charAt(0) == '%')
 			&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
@@ -2141,7 +2142,7 @@ public final class ExportHandler
 	 * @param tokenString token to evaluate
 	 * @return true if it is a valid SUB token
 	 */
-	private boolean isValidSubToken(String tokenString)
+	private static boolean isValidSubToken(String tokenString)
 	{
 		if (tokenString.indexOf("SUB") == 0 && (tokenString.indexOf(".") > 3))
 		{
@@ -2156,7 +2157,7 @@ public final class ExportHandler
 	 * @param tokenString token to check
 	 * @return true if it is a DFOR or FOR token 
 	 */
-	boolean isForOrDForToken(String tokenString)
+	static boolean isForOrDForToken(String tokenString)
 	{
 		if (tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR."))
 		{
@@ -2171,7 +2172,7 @@ public final class ExportHandler
 	 * @param testString String to test
 	 * @return true if it 
 	 */
-	private boolean containsMathematicalToken(String testString)
+	private static boolean containsMathematicalToken(String testString)
 	{
 		if ((testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
 			|| (testString.indexOf(".INTVAL") >= 0)
@@ -2191,7 +2192,7 @@ public final class ExportHandler
 	 * @param tokenString the SUB token
 	 * @return The altered SUB token
 	 */
-	private String replaceSubToken(String tokenString)
+	private static String replaceSubToken(String tokenString)
 	{
 		int iEnd = tokenString.indexOf(".");
 		int maxLength;
@@ -2366,18 +2367,14 @@ public final class ExportHandler
 		{
 			List<Follower> aList = new ArrayList<>();
 
-			for (Follower follower : aPC.getFollowerList())
+			// only allow followers that currently loaded
+// Otherwise the stats a zero
+			aPC.getFollowerList().forEach(follower ->
 			{
 				// only allow followers that currently loaded
 				// Otherwise the stats a zero
-				for (PlayerCharacter pc : Globals.getPCList())
-				{
-					if (pc.getFileName().equals(follower.getFileName()))
-					{
-						aList.add(follower);
-					}
-				}
-			}
+				aList.addAll(Globals.getPCList().stream().filter(pc -> pc.getFileName().equals(follower.getFileName())).map(pc -> follower).collect(Collectors.toList()));
+			});
 
 			StringTokenizer aTok = new StringTokenizer(aString, ".");
 			aTok.nextToken(); // FOLLOWERTYPE
@@ -2660,16 +2657,8 @@ public final class ExportHandler
 			aTok.nextToken(); // ARMOR
 
 			String fString = aTok.nextToken();
-			final Collection<Equipment> aArrayList = new ArrayList<>();
-
-			for (Equipment eq : aPC.getEquipmentListInOutputOrder())
-			{
-				if (eq.altersAC(aPC)
-					&& (!eq.isArmor() && !eq.isShield()))
-				{
-					aArrayList.add(eq);
-				}
-			}
+			final Collection<Equipment> aArrayList = aPC.getEquipmentListInOutputOrder().stream().filter(eq -> eq.altersAC(aPC)
+					&& (!eq.isArmor() && !eq.isShield())).collect(Collectors.toCollection(ArrayList::new));
 
 			// When removing old syntax, remove the else and leave the if
 			final int count;
@@ -2958,7 +2947,7 @@ public final class ExportHandler
 	 * @param aString
 	 * @return merging strategy constant
 	 */
-	private int getEquipmentMergingStrategy(String aString)
+	private static int getEquipmentMergingStrategy(String aString)
 	{
 		// Set how we are merging equipment, default is to merge all
 		int merge = Constants.MERGE_ALL;
@@ -3748,7 +3737,7 @@ public final class ExportHandler
 	/**
 	 * @param canWrite The canWrite flag to set.
 	 */
-	public final void setCanWrite(boolean canWrite)
+	public void setCanWrite(boolean canWrite)
 	{
 		this.canWrite = canWrite;
 	}
@@ -3756,7 +3745,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the checkBefore flag.
 	 */
-	public final boolean getCheckBefore()
+	public boolean getCheckBefore()
 	{
 		return checkBefore;
 	}
@@ -3764,7 +3753,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the inLabel flag.
 	 */
-	public final boolean getInLabel()
+	public boolean getInLabel()
 	{
 		return inLabel;
 	}
@@ -3772,7 +3761,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the existsOnly flag.
 	 */
-	public final boolean getExistsOnly()
+	public boolean getExistsOnly()
 	{
 		return existsOnly;
 	}
@@ -3780,7 +3769,7 @@ public final class ExportHandler
 	/**
 	 * @param noMoreItems The noMoreItems flag to set.
 	 */
-	public final void setNoMoreItems(boolean noMoreItems)
+	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
 	}
@@ -3788,7 +3777,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the manualWhitespace flag.
 	 */
-	public final boolean isManualWhitespace()
+	public boolean isManualWhitespace()
 	{
 		return manualWhitespace;
 	}
@@ -3796,7 +3785,7 @@ public final class ExportHandler
 	/**
 	 * @param manualWhitespace Set the manualWhitespace flag.
 	 */
-	public final void setManualWhitespace(boolean manualWhitespace)
+	public void setManualWhitespace(boolean manualWhitespace)
 	{
 		this.manualWhitespace = manualWhitespace;
 	}

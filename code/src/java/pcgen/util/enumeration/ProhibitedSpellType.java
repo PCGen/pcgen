@@ -25,6 +25,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.spell.Spell;
@@ -66,11 +67,7 @@ public enum ProhibitedSpellType
 			 * Long method for now
 			 * TODO Clean up
 			 */
-			List<String> list = new ArrayList<>();
-			for (SpellSchool ss : s.getSafeListFor(ListKey.SPELL_SCHOOL))
-			{
-				list.add(ss.toString());
-			}
+			List<String> list = s.getSafeListFor(ListKey.SPELL_SCHOOL).stream().map(SpellSchool::toString).collect(Collectors.toList());
 			return list;
 		}
 		@Override

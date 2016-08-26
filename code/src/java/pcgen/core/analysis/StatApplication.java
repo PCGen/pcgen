@@ -37,7 +37,7 @@ import pcgen.gui2.util.PrettyIntegerFormat;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class StatApplication
+public final class StatApplication
 {
 
 	//
@@ -46,8 +46,8 @@ public class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static final int askForStatIncrease(final PlayerCharacter aPC, 
-		final int statsToChoose, final boolean isPre)
+	public static int askForStatIncrease(final PlayerCharacter aPC,
+	                                     final int statsToChoose, final boolean isPre)
 	{
 		//
 		// If 1st time here (checks for preincrement), then will only ask if
@@ -82,8 +82,8 @@ public class StatApplication
 		for (int ix = 0; ix < statsToChoose; ++ix)
 		{
 			final List<String> selectableStats = new ArrayList<>();
-	
-			for (PCStat aStat : aPC.getDisplay().getStatSet())
+
+			aPC.getDisplay().getStatSet().forEach(aStat ->
 			{
 				final StringBuilder sStats = new StringBuilder(100);
 				final int iAdjStat =
@@ -91,26 +91,25 @@ public class StatApplication
 				final int iCurStat =
 						aPC.getBaseStatFor(aStat);
 				sStats.append(aStat.getDisplayName()).append(":  ").append(iCurStat);
-	
+
 				if (iCurStat != iAdjStat)
 				{
 					sStats.append(" adjusted: ").append(iAdjStat);
 				}
-	
+
 				sStats.append(" (").append(formatter.format(
-					aPC.getStatModFor(aStat))).append(
-					")");
-	
+						aPC.getStatModFor(aStat))).append(
+						")");
+
 				if (allowStacks || !statsAlreadyBonused.contains(aStat))
 				{
 					selectableStats.add(sStats.toString());
-				}
-				else
+				} else
 				{
 					sStats.append(" * Already incremented.");
 					selectableStats.add(sStats.toString());
 				}
-			}
+			});
 	
 			CDOMChooserFacadeImpl<String> chooserFacade =
                     new CDOMChooserFacadeImpl<>(

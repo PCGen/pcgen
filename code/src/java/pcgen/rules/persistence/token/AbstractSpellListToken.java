@@ -96,9 +96,9 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 				// TODO Error message - unexpected?
 				continue;
 			}
-			for (CDOMReference<Spell> added : mtl.getKeySet())
+			mtl.getKeySet().forEach(added ->
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
+				mtl.getListFor(added).forEach(assoc ->
 				{
 					Integer lvl = assoc
 							.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -110,8 +110,8 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 					{
 						map.addToListFor(prereqString, lvl, listRef, added);
 					}
-				}
-			}
+				});
+			});
 		}
 		return map;
 	}
@@ -125,7 +125,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 *
 	 * @return the string builder
 	 */
-	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
+	protected static StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
 	{
 		StringBuilder sb = new StringBuilder(type);
 		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);

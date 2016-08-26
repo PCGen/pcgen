@@ -70,7 +70,7 @@ public class CharacterSheetFrame extends JFrame
 		getContentPane().add(sheetPanel, BorderLayout.CENTER);
 	}
 
-	private JToolBar createToolBar()
+	private static JToolBar createToolBar()
 	{
 		JToolBar toolBar = new JToolBar();
 		return toolBar;

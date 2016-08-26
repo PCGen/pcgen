@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
@@ -128,23 +129,20 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 	@Override
 	public void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
-		for (CDOMReference<? extends CDOMList<?>> ref : masterList.getKeySet())
+		masterList.getKeySet().forEach(ref ->
 		{
-			for (CDOMObject allowed : masterList.getSecondaryKeySet(ref))
+			masterList.getSecondaryKeySet(ref).forEach(allowed ->
 			{
-				for (AssociatedPrereqObject assoc : masterList.getListFor(ref,
-					allowed))
-				{
-					if (owner
+				masterList.getListFor(ref,
+						allowed).stream().filter(assoc -> owner
 						.equals(assoc.getAssociation(AssociationKey.OWNER))
 						&& tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						masterList.removeFromListFor(ref, allowed, assoc);
-					}
-				}
-			}
-		}
+						.getAssociation(AssociationKey.TOKEN))).forEach(assoc ->
+				{
+					masterList.removeFromListFor(ref, allowed, assoc);
+				});
+			});
+		});
 	}
 
 	@Override
@@ -209,15 +207,8 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		ArrayList<CDOMReference<? extends CDOMList<?>>> list =
-                new ArrayList<>();
-		for (CDOMReference<? extends CDOMList<?>> ref : owner
-			.getModifiedLists())
-		{
-			if (cl.equals(ref.getReferenceClass()))
-			{
-				list.add(ref);
-			}
-		}
+				owner
+						.getModifiedLists().stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toCollection(ArrayList::new));
 		return list;
 	}
 
@@ -247,17 +238,14 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 			CDOMList<T> key1, T key2)
 	{
 		List<AssociatedPrereqObject> list = new ArrayList<>();
-		for (CDOMReference ref : masterList.getKeySet())
+		masterList.getKeySet().stream().filter(ref -> ref.contains(key1)).forEach(ref ->
 		{
-			if (ref.contains(key1))
+			List<AssociatedPrereqObject> tempList = masterList.getListFor(ref, key2);
+			if (tempList != null)
 			{
-				List<AssociatedPrereqObject> tempList = masterList.getListFor(ref, key2);
-				if (tempList != null)
-				{
-					list.addAll(tempList);
-				}
+				list.addAll(tempList);
 			}
-		}
+		});
 		return list;
 	}
 

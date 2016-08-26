@@ -111,15 +111,15 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor csa : actors)
+			actors.forEach(csa ->
 			{
 				applyChoice(owner, pc, choice, csa);
-			}
+			});
 		}
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
-		ChooseSelectionActor<String> csa)
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
+	                                ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}
@@ -131,10 +131,10 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor csa : actors)
+			actors.forEach(csa ->
 			{
 				csa.removeChoice(owner, choice, pc);
-			}
+			});
 		}
 	}
 
@@ -173,7 +173,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		title = chooseTitle;
 	}
 
-	private AssociationListKey<String> getListKey()
+	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
 	}

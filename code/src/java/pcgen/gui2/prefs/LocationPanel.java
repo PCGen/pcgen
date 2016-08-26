@@ -459,32 +459,20 @@ public class LocationPanel extends PCGenPrefsPanel
 		groupFilesDir.add(usersFilesDirRadio);
 		groupFilesDir.add(selectFilesDirRadio);
 
-		pcgenFilesDirRadio.addActionListener(new ActionListener()
+		pcgenFilesDirRadio.addActionListener(evt ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
-				pcgenFilesDirButton.setEnabled(false);
-			}
+			pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
+			pcgenFilesDirButton.setEnabled(false);
 		});
-		usersFilesDirRadio.addActionListener(new ActionListener()
+		usersFilesDirRadio.addActionListener(evt ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
-				pcgenFilesDirButton.setEnabled(false);
-			}
+			pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
+			pcgenFilesDirButton.setEnabled(false);
 		});
-		selectFilesDirRadio.addActionListener(new ActionListener()
+		selectFilesDirRadio.addActionListener(evt ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText("");
-				pcgenFilesDirButton.setEnabled(true);
-			}
+			pcgenFilesDir.setText("");
+			pcgenFilesDirButton.setEnabled(true);
 		});
 
 		Utility.buildConstraints(c, 0, 16, 1, 1, 0, 0);

@@ -190,9 +190,9 @@ public class EquipmentModels
 	{
 		int[] rows = equipmentSetTable.getSelectedRows();
 		List<EquipNode> paths = new ArrayList<>();
-		for (int i = 0; i < rows.length; i++)
+		for (final int row : rows)
 		{
-			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+			EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
 			if (path.getNodeType() == NodeType.EQUIPMENT)
 			{
 				paths.add(path);
@@ -429,9 +429,9 @@ public class EquipmentModels
 			EquipmentSetFacade equipSet = character.getEquipmentSetRef().get();
 			List<EquipmentFacade> equipment = new ArrayList<>();
 
-			for (int i = 0; i < selectedRows.length; i++)
+			for (final int selectedRow : selectedRows)
 			{
-				EquipmentFacade equipmentFacade = selectedModel.getValue(selectedRows[i]);
+				EquipmentFacade equipmentFacade = selectedModel.getValue(selectedRow);
 				for (EquipNode path : equipSet.getNodes())
 				{
 					if (equipSet.canEquip(path, equipmentFacade))
@@ -525,9 +525,9 @@ public class EquipmentModels
 			List<EquipNode> possibleNodeList = equipMap.getListFor(equipmentFacade);
 			int[] rows = equipmentSetTable.getSelectedRows();
 			List<EquipNode> paths = new ArrayList<>();
-			for (int i = 0; i < rows.length; i++)
+			for (final int row : rows)
 			{
-				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(rows[i], 0);
+				EquipNode path = (EquipNode) equipmentSetTable.getValueAt(row, 0);
 				if (possibleNodeList.contains(path))
 				{
 					return path;
@@ -670,10 +670,10 @@ public class EquipmentModels
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
-				for (EquipNode node : paths)
+				paths.forEach(node ->
 				{
 					equipSet.moveEquipment(node, -1);
-				}
+				});
 				selectNodeInEquipmentSetTable(paths.get(0));
 			}
 		}
@@ -707,10 +707,10 @@ public class EquipmentModels
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
-				for (EquipNode node : paths)
+				paths.forEach(node ->
 				{
 					equipSet.moveEquipment(node, 1);
-				}
+				});
 				selectNodeInEquipmentSetTable(paths.get(0));
 			}
 		}

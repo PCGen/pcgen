@@ -34,16 +34,16 @@ public class ConditionallyGrantedAvailableSpellFacet
 	{
 		Collection<AvailableSpell> set =
 				conditionallyAvailableSpellFacet.getQualifiedSet(id);
-		for (AvailableSpell as : set)
+		set.forEach(as ->
 		{
 			Collection<Object> sources =
 					conditionallyAvailableSpellFacet.getSources(id, as);
-			for (Object source : sources)
+			sources.forEach(source ->
 			{
 				availableSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-					as.getSpell(), source);
-			}
-		}
+						as.getSpell(), source);
+			});
+		});
 	}
 
 	public void setConditionallyAvailableSpellFacet(

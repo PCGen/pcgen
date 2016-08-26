@@ -95,12 +95,12 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 			{
 				// Need to do selection
 				BioSet bioSet = bioSetFacet.get(id);
-				for (TransitionChoice<Kit> kit : ageSet.getKits())
+				ageSet.getKits().forEach(kit ->
 				{
 					Collection<? extends Kit> choice = kit.driveChoice(pc);
 					cache.put(ageSet, choice);
 					kit.act(choice, bioSet, pc);
-				}
+				});
 			}
 			pc.setHasMadeKitSelectionForAgeSet(ageSetIndex, true);
 		}

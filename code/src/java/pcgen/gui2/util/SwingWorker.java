@@ -149,31 +149,20 @@ public abstract class SwingWorker<T>
 	 */
 	public SwingWorker()
 	{
-		final Runnable doFinished = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				finished();
-			}
-		};
+		final Runnable doFinished = this::finished;
 
-		Runnable doConstruct = new Runnable()
+		Runnable doConstruct = () ->
 		{
-			@Override
-			public void run()
+			try
 			{
-				try
-				{
-					setValue(construct());
-				}
-				finally
-				{
-					threadVar.clear();
-				}
-
-				SwingUtilities.invokeLater(doFinished);
+				setValue(construct());
 			}
+			finally
+			{
+				threadVar.clear();
+			}
+
+			SwingUtilities.invokeLater(doFinished);
 		};
 
 		Thread t = new Thread(doConstruct);

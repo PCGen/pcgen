@@ -36,6 +36,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.nfunk.jep.ParseException;
 
 import pcgen.base.lang.UnreachableError;
@@ -175,14 +176,7 @@ public abstract class JepCountType
 
 					boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
 					final Set<ChronicleEntry> cs =
-                            new HashSet<>();
-					for (ChronicleEntry ce : coll)
-					{
-						if (ce.isOutputEntry() == wantExport)
-						{
-							cs.add(ce);
-						}
-					}
+							coll.stream().filter(ce -> ce.isOutputEntry() == wantExport).collect(Collectors.toSet());
 					return cs;
 				}
 
@@ -215,8 +209,8 @@ public abstract class JepCountType
 		}
 
 		@Override
-		protected Set<? extends Equipment> filterSetP(final String c,
-			Collection<Equipment> coll) throws ParseException
+		protected Set<Equipment> filterSetP(final String c,
+		                                    Collection<Equipment> coll) throws ParseException
 		{
 			final String[] keyValue = c.split("=");
 
@@ -234,7 +228,7 @@ public abstract class JepCountType
 			}
 
 			final Set<Equipment> cs = new HashSet<>(coll);
-			final Iterator<? extends Equipment> it = cs.iterator();
+			final Iterator<Equipment> it = cs.iterator();
 
 			switch (en)
 			{
@@ -493,7 +487,7 @@ public abstract class JepCountType
 		// By adding this it means that we can call count with just the object to be
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
-		protected Object[] validateParams(final Object[] params)
+		protected static Object[] validateParams(final Object[] params)
 			throws ParseException
 		{
 			Object[] p = new Object[1];
@@ -759,29 +753,27 @@ public abstract class JepCountType
 		public boolean accept(T o);
 	}
 
-	private static final void buildMap()
+	private static void buildMap()
 	{
 		typeMap = new CaseInsensitiveMap<>();
 		Field[] fields = JepCountType.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
 					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof JepCountType)
 					{
-						typeMap.put(fields[i].getName(), (JepCountType) obj);
+						typeMap.put(field.getName(), (JepCountType) obj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}
@@ -920,7 +912,7 @@ public abstract class JepCountType
 			return Double.valueOf(count);
 		}
 
-		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
+		private static SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
 		{
 			if (pc == null)
 			{

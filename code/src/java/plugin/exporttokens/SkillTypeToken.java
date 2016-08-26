@@ -93,8 +93,8 @@ public class SkillTypeToken extends SkillToken
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(String tokenSource, PlayerCharacter pc,
-		SkillDetails details, ExportHandler eh)
+	private static Skill getSkill(String tokenSource, PlayerCharacter pc,
+	                              SkillDetails details, ExportHandler eh)
 	{
 		int skillIndex;
 

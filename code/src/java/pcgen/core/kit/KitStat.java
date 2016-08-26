@@ -29,6 +29,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
@@ -52,11 +53,7 @@ public class KitStat extends BaseKit
 	@Override
 	public String toString()
 	{
-		Set<String> set = new TreeSet<>();
-		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
-		{
-			set.add(me.getKey().getLSTformat(false) + '='+ me.getValue());
-		}
+		Set<String> set = statMap.entrySet().stream().map(me -> me.getKey().getLSTformat(false) + '=' + me.getValue()).collect(Collectors.toCollection(TreeSet::new));
 		return StringUtil.join(set, Constants.PIPE);
 	}
 
@@ -97,7 +94,7 @@ public class KitStat extends BaseKit
 		return "Stats";
 	}
 
-	private void recalculateSkillPoints(PlayerCharacter aPC)
+	private static void recalculateSkillPoints(PlayerCharacter aPC)
 	{
 		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();

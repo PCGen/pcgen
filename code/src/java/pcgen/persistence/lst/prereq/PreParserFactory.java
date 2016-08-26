@@ -79,7 +79,7 @@ public class PreParserFactory implements PluginLoader
 		return instance;
 	}
 
-	public PrerequisiteParserInterface getParser(String kind)
+	public static PrerequisiteParserInterface getParser(String kind)
 	{
 		return parserLookup.get(kind.toLowerCase());
 	}
@@ -89,45 +89,46 @@ public class PreParserFactory implements PluginLoader
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
-		for (int i = 0; i < kindsHandled.length; i++)
+		for (final String aKindsHandled : kindsHandled)
 		{
-			Object test = parserLookup.get(kindsHandled[i].toLowerCase());
+			Object test = parserLookup.get(aKindsHandled.toLowerCase());
 
 			if (test != null)
 			{
 				throw new PersistenceLayerException("Error registering '"
-					+ testClass.getClass().getName() + "' as test '"
-					+ kindsHandled[i]
-					+ "'. The test is already registered to '"
-					+ test.getClass().getName() + "'");
+						+ testClass.getClass().getName() + "' as test '"
+						+ aKindsHandled
+						+ "'. The test is already registered to '"
+						+ test.getClass().getName() + "'");
 			}
 
-			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
+			parserLookup.put(aKindsHandled.toLowerCase(), testClass);
 		}
 	}
 
-	public List<Prerequisite> parse(final List<String> preStrings)
+	public static List<Prerequisite> parse(final List<String> preStrings)
 	{
 		final List<Prerequisite> ret =
                 new ArrayList<>(preStrings.size());
-		for (String prestr : preStrings)
+		//The message is now produced at a lower level, and thus has to be localised there.
+//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+		preStrings.forEach(prestr ->
 		{
 			try
 			{
 				final PreParserFactory factory = PreParserFactory.getInstance();
 				final Prerequisite prereq = factory.parse(prestr);
 				ret.add(prereq);
-			}
-			catch (PersistenceLayerException ple)
+			} catch (PersistenceLayerException ple)
 			{
 				Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
 				//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
 			}
-		}
+		});
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr)
+	public static Prerequisite parse(String prereqStr)
 		throws PersistenceLayerException
 	{
 

@@ -91,17 +91,17 @@ public class PreCompatibilityToken implements
 		return tokenName;
 	}
 
-	public int compatibilityLevel()
+	public static int compatibilityLevel()
 	{
 		return 5;
 	}
 
-	public int compatibilityPriority()
+	public static int compatibilityPriority()
 	{
 		return 0;
 	}
 
-	public int compatibilitySubLevel()
+	public static int compatibilitySubLevel()
 	{
 		return 14;
 	}
@@ -127,7 +127,7 @@ public class PreCompatibilityToken implements
 			final StringWriter capture = new StringWriter();
 			try
 			{
-				PrerequisiteWriterInterface writer = factory.getWriter(kind);
+				PrerequisiteWriterInterface writer = PrerequisiteWriterFactory.getWriter(kind);
 				writer.write(capture, p);
 			}
 			catch (PersistenceLayerException e)

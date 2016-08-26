@@ -64,39 +64,18 @@ public abstract class AbstractDialog extends JDialog
 	{
 		okButton = new JButton(LanguageBundle.getString(getOkKey()));
 		okButton.setMnemonic(LanguageBundle.getMnemonic(getOkMnKey()));
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		JButton cancelButton = new JButton(LanguageBundle.getString(getCancelKey()));
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic(getCancelMnKey()));
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		JButton bApply = null;
 		if (includeApplyButton())
 		{
 			bApply = new JButton(LanguageBundle.getString("in_apply")); //$NON-NLS-1$
 			bApply.setMnemonic(LanguageBundle.getMnemonic("in_mn_apply")); //$NON-NLS-1$
-			bApply.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					applyButtonActionPerformed();
-				}
-			});
+			bApply.addActionListener(evt -> applyButtonActionPerformed());
 		}
 
 		// initialize button panel
@@ -163,7 +142,7 @@ public abstract class AbstractDialog extends JDialog
 	 * Set the ok default button as default. Use for dialog that need some field to be entered before allowing ok to be
 	 * the default, like a username/password dialog.
 	 */
-	protected void setOkAsDefault()
+	protected final void setOkAsDefault()
 	{
 		getRootPane().setDefaultButton(okButton);
 	}
@@ -172,7 +151,7 @@ public abstract class AbstractDialog extends JDialog
 	 * {@code true} if the ok button should be set as default during init
 	 * @return {@code true} by default
 	 */
-	protected boolean shouldSetOkAsDefault()
+	protected static final boolean shouldSetOkAsDefault()
 	{
 		return true;
 	}
@@ -181,17 +160,17 @@ public abstract class AbstractDialog extends JDialog
 	 * Indicate if Esc should be installed as close window (not cancel) during init
 	 * @return {@code true} by default
 	 */
-	protected boolean shouldInstallEsc()
+	protected static final boolean shouldInstallEsc()
 	{
 		return true;
 	}
 
-	protected String getCancelMnKey()
+	protected static final String getCancelMnKey()
 	{
 		return "in_mn_cancel"; //$NON-NLS-1$
 	}
 
-	protected String getCancelKey()
+	protected static final String getCancelKey()
 	{
 		return "in_cancel"; //$NON-NLS-1$
 	}
@@ -216,7 +195,7 @@ public abstract class AbstractDialog extends JDialog
 	/**
 	 * Defaults to calling apply and closing.
 	 */
-	public void okButtonActionPerformed()
+	public final void okButtonActionPerformed()
 	{
 		applyButtonActionPerformed();
 		close();

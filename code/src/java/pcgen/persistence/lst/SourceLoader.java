@@ -31,7 +31,7 @@ import pcgen.util.Logging;
 /**
  * Loads SOURCE
  */
-public class SourceLoader
+public final class SourceLoader
 {
 
 	public static void parseLine(LoadContext context, String lstLine,

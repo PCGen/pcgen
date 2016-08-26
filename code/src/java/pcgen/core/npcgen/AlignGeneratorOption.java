@@ -51,13 +51,10 @@ public class AlignGeneratorOption extends GeneratorOption
 		
 		if ( aValue.equals("*") ) //$NON-NLS-1$
 		{
-			for ( final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class) )
+			Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class).stream().filter(align -> align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && !theChoices.contains(align)).forEach(align ->
 			{
-				if ( align.getSafe(ObjectKey.VALID_FOR_FOLLOWER) && ! theChoices.contains(align) )
-				{
-					theChoices.add(align, aWeight);
-				}
-			}
+				theChoices.add(align, aWeight);
+			});
 			return;
 		}
 		final PCAlignment align = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCAlignment.class, aValue);

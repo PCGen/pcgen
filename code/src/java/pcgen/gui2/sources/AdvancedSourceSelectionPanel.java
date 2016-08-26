@@ -477,13 +477,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<Object> list = selectedTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (Object obj : list)
+				list.stream().filter(obj -> obj instanceof CampaignFacade).forEach(obj ->
 				{
-					if (obj instanceof CampaignFacade)
-					{
-						selectedCampaigns.removeElement((CampaignFacade) obj);
-					}
-				}
+					selectedCampaigns.removeElement((CampaignFacade) obj);
+				});
 				rememberSelectedSources();
 			}
 		}
@@ -646,7 +643,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		PUBLISHER_NAME("in_src_pubName"), //$NON-NLS-1$
 		PUBLISHER_SETTING_NAME("in_src_pubSetName"), //$NON-NLS-1$
 		PUBLISHER_FORMAT_SETTING_NAME("in_src_pubFmtSetName"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private SourceTreeView(String name)
 		{

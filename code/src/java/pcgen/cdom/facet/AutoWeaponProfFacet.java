@@ -117,10 +117,10 @@ public class AutoWeaponProfFacet extends
 	public Collection<WeaponProf> getWeaponProfs(CharID id)
 	{
 		Collection<WeaponProf> profs = new ArrayList<>();
-		for (WeaponProfProvider wpp : getQualifiedSet(id))
+		getQualifiedSet(id).forEach(wpp ->
 		{
 			profs.addAll(wpp.getContainedProficiencies(id));
-		}
+		});
 		return profs;
 	}
 

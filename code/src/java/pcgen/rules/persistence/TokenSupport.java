@@ -201,7 +201,7 @@ public class TokenSupport
 			}
 		}
 		Set<CDOMSecondaryToken<? super T>> local = localTokens.getSubTokens(cl, tokenName);
-		for (CDOMSecondaryToken<? super T> token : local)
+		local.forEach(token ->
 		{
 			String[] s = token.unparse(context, cdo);
 			if (s != null)
@@ -211,7 +211,7 @@ public class TokenSupport
 					set.add(token.getTokenName() + separator + aString);
 				}
 			}
-		}
+		});
 
 		if (set.isEmpty())
 		{
@@ -220,7 +220,7 @@ public class TokenSupport
 		return set.toArray(new String[set.size()]);
 	}
 
-	public <T> Collection<String> unparse(LoadContext context, T cdo)
+	public static <T> Collection<String> unparse(LoadContext context, T cdo)
 	{
 		Collection<String> set = new WeightedCollection<>(
                 String.CASE_INSENSITIVE_ORDER);
@@ -256,7 +256,7 @@ public class TokenSupport
 	 * @param <T> The type of object to be processed, generally a CDOMObject.
 	 * @return An array of LST code 'fields' being each occurrence of the token for the target object.
 	 */
-	public <T> String[] unparseToken(LoadContext loadContext, T cdo, String tokenName)
+	public static <T> String[] unparseToken(LoadContext loadContext, T cdo, String tokenName)
 	{
 		Class<? super T> cl = (Class<T>) cdo.getClass();
 		CDOMToken<?> token = null;

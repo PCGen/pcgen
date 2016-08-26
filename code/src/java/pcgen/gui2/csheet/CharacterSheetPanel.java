@@ -103,16 +103,12 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 
 		// KAW TODO rewrite to use StatusWorker and PCGenTask for better progress display
 
-		refreshService = Executors.newSingleThreadExecutor(new ThreadFactory()
+		refreshService = Executors.newSingleThreadExecutor(r ->
 		{
-			@Override
-			public Thread newThread(Runnable r)
-			{
-				Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
-				thread.setDaemon(true);
-				thread.setPriority(Thread.NORM_PRIORITY);
-				return thread;
-			}
+			Thread thread = new Thread(r, "Character-Sheet-Refresher-Thread");
+			thread.setDaemon(true);
+			thread.setPriority(Thread.NORM_PRIORITY);
+			return thread;
 		});
 	}
 
@@ -166,35 +162,31 @@ public class CharacterSheetPanel extends HtmlPanel implements CharacterSelection
 		{
 			if (!isCancelled())
 			{
-				SwingUtilities.invokeLater(new Runnable()
+				SwingUtilities.invokeLater(() ->
 				{
-					@Override
-					public void run()
+					Document doc = null;
+					try
 					{
-						Document doc = null;
-						try
-						{
-							doc = get();
-						}
-						catch (Throwable e)
-						{
-							final String errorMsg = String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
-							try (ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes())) {
-								doc = theDocBuilder.parse(instream);
-							} catch (IOException | SAXException e1) {
-								e1.printStackTrace();
-							}
-							Logging.errorPrint("Unable to process sheet: ", e);
-						}
-						if (doc != null)
-						{
-							setDocument(doc, theRendererContext);
-						}
-
-						// Re-set status bar and end progress bar display
-						final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
-						statusBar.endShowingProgress();
+						doc = get();
 					}
+					catch (Throwable e)
+					{
+						final String errorMsg = String.format("<html><body>Unable to process sheet<br>%s</body></html>", e);
+						try (ByteArrayInputStream instream = new ByteArrayInputStream(errorMsg.getBytes())) {
+							doc = theDocBuilder.parse(instream);
+						} catch (IOException | SAXException e1) {
+							e1.printStackTrace();
+						}
+						Logging.errorPrint("Unable to process sheet: ", e);
+					}
+					if (doc != null)
+					{
+						setDocument(doc, theRendererContext);
+					}
+
+					// Re-set status bar and end progress bar display
+					final PCGenStatusBar statusBar = ((PCGenFrame) Globals.getRootFrame()).getStatusBar();
+					statusBar.endShowingProgress();
 				});
 			}
 		}

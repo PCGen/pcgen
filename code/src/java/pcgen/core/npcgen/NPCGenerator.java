@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
@@ -184,8 +185,8 @@ public class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectSkills(final PlayerCharacter aPC, final WeightedCollection<SkillChoice> skillList,
-									 final PCClass aClass, final int level)
+	private static void selectSkills(final PlayerCharacter aPC, final WeightedCollection<SkillChoice> skillList,
+	                                 final PCClass aClass, final int level)
 	{
 		// Select a potential skill
 
@@ -270,7 +271,7 @@ public class NPCGenerator
 		}
 	}
 
-	private PCAlignment getAlignment(final AlignGeneratorOption option)
+	private static PCAlignment getAlignment(final AlignGeneratorOption option)
 	{
 		if (option == null)
 		{
@@ -279,22 +280,22 @@ public class NPCGenerator
 		return option.getList().getRandomValue();
 	}
 
-	private Race getRace(final RaceGeneratorOption option)
+	private static Race getRace(final RaceGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private Gender getGender(final GenderGeneratorOption option)
+	private static Gender getGender(final GenderGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private PCClass getClass(final ClassGeneratorOption option)
+	private static PCClass getClass(final ClassGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private int getLevel(final LevelGeneratorOption option)
+	private static int getLevel(final LevelGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
@@ -320,12 +321,13 @@ public class NPCGenerator
 		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
 		aPC.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED, statOrder, aRollMethod, true);
-		for (PCStat stat : aPC.getStatSet())
+		//$NON-NLS-1$//$NON-NLS-2$
+		aPC.getStatSet().forEach(stat ->
 		{
-			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getKeyName()
-				+ " to " + aPC.getStat(stat) );  //$NON-NLS-1$//$NON-NLS-2$
+			Logging.debugPrint("NPCGenerator: Setting stat " + stat.getKeyName()
+					+ " to " + aPC.getStat(stat));  //$NON-NLS-1$//$NON-NLS-2$
 			aPC.setStat(stat, aPC.getStat(stat));
-		}
+		});
 	}
 
 	private WeightedCollection<Ability> getFeatWeights(final PCClass aClass)
@@ -356,7 +358,7 @@ public class NPCGenerator
 		return weightedCollection;
 	}
 
-	private void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
+	private static void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
 	{
 		while ((int)aPC.getRemainingFeatPoolPoints() > 0)
 		{
@@ -455,22 +457,15 @@ public class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectDomainSpell( final PlayerCharacter aPC, final PCClass aClass, final int aLevel )
+	private static void selectDomainSpell(final PlayerCharacter aPC, final PCClass aClass, final int aLevel)
 	{
 		if (!aPC.hasDomains())
 		{
 			return;
 		}
-		final WeightedCollection<Domain> domains = new WeightedCollection<>();
-		for (Domain d : aPC.getDomainSet())
-		{
-			// if any domains have this class as a source
-			// and is a valid domain, add them
-			if (aClass.equals(aPC.getDomainSource(d).getPcclass()))
-			{
-				domains.add(d);
-			}
-		}
+		final WeightedCollection<Domain> domains = aPC.getDomainSet().stream().filter(d -> aClass.equals(aPC.getDomainSource(d).getPcclass())).collect(Collectors.toCollection(WeightedCollection::new));
+		// if any domains have this class as a source
+// and is a valid domain, add them
 		final Domain domain = domains.getRandomValue();
 		final WeightedCollection<Spell> domainSpells =
                 new WeightedCollection<>(aPC.getSpellsIn(domain.get(ObjectKey.DOMAIN_SPELLLIST),
@@ -478,7 +473,7 @@ public class NPCGenerator
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
-	private void selectSpell( final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel )
+	private static void selectSpell(final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel)
 	{
 		boolean added = false;
 		while ( !added )

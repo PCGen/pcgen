@@ -63,7 +63,7 @@ public class DataSetTest extends PCGenTestCase
 	 */
 	public final void getEquipmentLocationsDefaultOnly()
 	{
-		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<CampaignFacade>());
+		DataSet dataset = new DataSet(Globals.getContext(), SettingsHandler.getGame(), new DefaultListFacade<>());
 		ListFacade<BodyStructureFacade> locations = dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
 		assertTrue("Expected to find Equipped", checkBodyStructurePresent(locations, Constants.EQUIP_LOCATION_EQUIPPED));
@@ -82,7 +82,7 @@ public class DataSetTest extends PCGenTestCase
 		SystemCollections.addToBodyStructureList(structName, SettingsHandler.getGame().getName());
 		DataSet dataset =
 				new DataSet(Globals.getContext(), SettingsHandler.getGame(),
-					new DefaultListFacade<CampaignFacade>());
+						new DefaultListFacade<>());
 		ListFacade<BodyStructureFacade> locations =
 				dataset.getEquipmentLocations();
 		assertNotNull("Body Structure should not be null", locations);
@@ -122,7 +122,7 @@ public class DataSetTest extends PCGenTestCase
 
 		DataSet dataset =
 			new DataSet(Globals.getContext(), SettingsHandler.getGame(),
-				new DefaultListFacade<CampaignFacade>());
+					new DefaultListFacade<>());
 		List<AbilityFacade> abilities = dataset.getPrereqAbilities(acrobatics);
 		assertEquals("Acrobatics prereq should be empty", 0, abilities.size());
 		abilities = dataset.getPrereqAbilities(dodge);

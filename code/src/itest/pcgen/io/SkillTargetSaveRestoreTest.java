@@ -80,22 +80,17 @@ public class SkillTargetSaveRestoreTest extends
 	protected Runnable getPreEqualityCleanup()
 	{
 		final Runnable sup = super.getPreEqualityCleanup();
-		return new Runnable()
+		return () ->
 		{
-
-			public void run()
+			if (sup != null)
 			{
-				if (sup != null)
-				{
-					sup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MyClass");
-				reloadedPC.getSpellSupport(cl);
+				sup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MyClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 	}
 

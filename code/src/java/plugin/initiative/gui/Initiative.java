@@ -850,7 +850,7 @@ public class Initiative extends javax.swing.JPanel
 			int dc = dialog.getDC();
 
 			//Create a message out with the results
-			sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+			sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 			sb.append(" save DC " + dc);
 
 			if (roll > 0)
@@ -979,7 +979,7 @@ public class Initiative extends javax.swing.JPanel
 				int dc = dialog.getDC();
 
 				//Create a message out with the results
-				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+				sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
 				if (roll > 0)
@@ -1164,7 +1164,7 @@ public class Initiative extends javax.swing.JPanel
 	 *  Initialization of the bulk of preferences.  sets the defaults
 	 *  if this is the first time you have used this version
 	 */
-	public void initPrefs()
+	public static void initPrefs()
 	{
 		boolean prefsSet =
 				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
@@ -1834,7 +1834,7 @@ public class Initiative extends javax.swing.JPanel
 		model = dialog.getSaveModel();
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+		sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 		sb.append(" save DC " + model.getDc());
 
 		if (roll > 0)
@@ -2084,7 +2084,7 @@ public class Initiative extends javax.swing.JPanel
 	 *
 	 * @param model The dice roll model
 	 */
-	private void performDiceRoll(DiceRollModel model)
+	private static void performDiceRoll(DiceRollModel model)
 	{
 		DiceRollDialog dlg = new DiceRollDialog(model);
 		dlg.setModal(true);
@@ -2363,7 +2363,7 @@ public class Initiative extends javax.swing.JPanel
 
 				//Create a message out with the results
 				StringBuilder sb = new StringBuilder();
-				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+				sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
 				if (roll > 0)
@@ -2431,7 +2431,7 @@ public class Initiative extends javax.swing.JPanel
 	 * @param model
 	 *             The skill model to roll with.
 	 */
-	private void performCheck(CheckModel model)
+	private static void performCheck(CheckModel model)
 	{
 		CheckDialog dlg = new CheckDialog(model);
 		dlg.setModal(true);

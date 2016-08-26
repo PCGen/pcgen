@@ -200,14 +200,11 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 * @param langList The source list of languages
 	 * @param langListFacade The list facade to be populated
 	 */
-	private void refreshLangListContents(List<? extends Language> langList, DefaultListFacade<LanguageFacade> langListFacade)
+	private static void refreshLangListContents(List<Language> langList, DefaultListFacade<LanguageFacade> langListFacade)
 	{
 		Collections.sort(langList);
 		langListFacade.clearContents();
-		for (Language language : langList)
-		{
-			langListFacade.addElement(language);
-		}
+		langList.forEach(langListFacade::addElement);
 	}
 
 	/* (non-Javadoc)

@@ -22,6 +22,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.GroupingState;
@@ -91,7 +92,7 @@ public class AbilityFromClassChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (obj instanceof AbilityFromClassChoiceSet)
 		{
@@ -108,7 +109,7 @@ public class AbilityFromClassChoiceSet implements
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return classRef.hashCode();
 	}
@@ -151,11 +152,8 @@ public class AbilityFromClassChoiceSet implements
 			List<Ability> abilityList = Collections.emptyList();
 			if (abilityList != null)
 			{
-				for (Ability aFeat : abilityList)
-				{
-					set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-						AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
-				}
+				set.addAll(abilityList.stream().map(aFeat -> new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+						AbilityCategory.FEAT, Nature.VIRTUAL, aFeat))).collect(Collectors.toList()));
 			}
 			for (int lvl = 0; lvl < pc.getLevel(aClass); lvl++)
 			{
@@ -164,11 +162,8 @@ public class AbilityFromClassChoiceSet implements
 				abilityList = Collections.emptyList();
 				if (abilityList != null)
 				{
-					for (Ability aFeat : abilityList)
-					{
-						set.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-							AbilityCategory.FEAT, Nature.VIRTUAL, aFeat)));
-					}
+					set.addAll(abilityList.stream().map(aFeat -> new CNAbilitySelection(CNAbilityFactory.getCNAbility(
+							AbilityCategory.FEAT, Nature.VIRTUAL, aFeat))).collect(Collectors.toList()));
 				}
 			}
 		}

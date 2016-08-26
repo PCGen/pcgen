@@ -103,24 +103,24 @@ public class DataTest
 		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
 		
 		Set<String> allowedNames =
-				new HashSet<String>(Arrays.asList(
-					"cotct_pg_abilities_pfrpg.lst",
-					"fortress_of_the_stone_giants_pfrpg.pcc",
-					"rise_of_the_runelords_players_guide_pfrpg.pcc"));
-		List<File> newLongPaths = new ArrayList<File>();
+				new HashSet<>(Arrays.asList(
+						"cotct_pg_abilities_pfrpg.lst",
+						"fortress_of_the_stone_giants_pfrpg.pcc",
+						"rise_of_the_runelords_players_guide_pfrpg.pcc"));
+		List<File> newLongPaths = new ArrayList<>();
 		
 		int dataPathLen = new File(dataPath).getAbsolutePath().length();
-		List<String> longPaths = new ArrayList<String>();
+		List<String> longPaths = new ArrayList<>();
 		
 		File dataFolder = new File(dataPath);
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"pcc", "lst"},
 					true);
-		for (File file : listFiles)
+		listFiles.forEach(file ->
 		{
 			String path = file.getAbsolutePath();
 			int pathLen = path.length() - dataPathLen;
-			
+
 			if (pathLen > 150)
 			{
 				longPaths.add(pathLen + " .. " + path.substring(dataPathLen));
@@ -129,14 +129,11 @@ public class DataTest
 					newLongPaths.add(file);
 				}
 			}
-		}
+		});
 		
 		// Output the list
 		Collections.sort(longPaths);
-		for (String msg : longPaths)
-		{
-			System.out.println(msg);
-		}
+		longPaths.forEach(System.out::println);
 				
 		// Flag any change for the worse.
 		assertEquals(
@@ -152,18 +149,18 @@ public class DataTest
 	public void produceVariableReport() throws Exception
 	{
 		Map<ReportFormat, String> reportNameMap =
-				new HashMap<VariableReport.ReportFormat, String>();
+				new HashMap<>();
 		reportNameMap.put(ReportFormat.HTML, "variable_report.html");
 		reportNameMap.put(ReportFormat.CSV, "variable_report.csv");
 		VariableReport vReport = new VariableReport();
 		vReport.runReport(reportNameMap);
-		
-		for (Entry<ReportFormat, String> repType : reportNameMap.entrySet())
+
+		reportNameMap.entrySet().forEach(repType ->
 		{
 			System.out.println("Variable report in " + repType.getKey()
-				+ " format output to "
-				+ new File(repType.getValue()).getAbsolutePath());
-		}
+					+ " format output to "
+					+ new File(repType.getValue()).getAbsolutePath());
+		});
 	}
 	
 	/**
@@ -176,31 +173,31 @@ public class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		int dataPathLen = dataFolder.getCanonicalPath().length();
 
-		List<Object[]> missingLstFiles = new ArrayList<Object[]>();
+		List<Object[]> missingLstFiles = new ArrayList<>();
 
-		for (Campaign campaign : Globals.getCampaignList())
+		Globals.getCampaignList().forEach(campaign ->
 		{
 			List<CampaignSourceEntry> cseList =
 					getLstFilesForCampaign(campaign);
-			for (CampaignSourceEntry cse : cseList)
+			cseList.forEach(cse ->
 			{
 				File lstFile = new File(cse.getURI());
 				if (!lstFile.exists())
 				{
 					missingLstFiles.add(new Object[]{campaign, lstFile});
 				}
-			}
-		}
+			});
+		});
 
 		StringBuilder report = new StringBuilder();
-		for (Object[] missing : missingLstFiles)
+		missingLstFiles.forEach(missing ->
 		{
 			report.append("Missing file ");
-			report.append(((File)missing[1]).getPath().substring(dataPathLen+1));
+			report.append(((File) missing[1]).getPath().substring(dataPathLen + 1));
 			report.append(" used by ");
-			report.append((new File(((Campaign) missing[0]).getSourceURI())).getPath().substring(dataPathLen+1));
+			report.append((new File(((Campaign) missing[0]).getSourceURI())).getPath().substring(dataPathLen + 1));
 			report.append("<br>\r\n");
-		}
+		});
 		
 		// Flag any missing files
 		assertEquals(
@@ -219,7 +216,7 @@ public class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
-		List<String> fileNames = new ArrayList<String>(listFiles.size());
+		List<String> fileNames = new ArrayList<>(listFiles.size());
 		for (File file : listFiles)
 		{
 			fileNames.add(file.getCanonicalPath());
@@ -238,15 +235,15 @@ public class DataTest
 		}
 
 		StringBuilder report = new StringBuilder();
-		for (String orphan : fileNames)
+		fileNames.forEach(orphan ->
 		{
-			String srcRelPath = orphan.substring(dataPathLen+1);
+			String srcRelPath = orphan.substring(dataPathLen + 1);
 			if (!srcRelPath.startsWith("customsources"))
 			{
 				report.append(srcRelPath);
 				report.append("\r\n");
 			}
-		}
+		});
 		
 		// Flag any missing files
 		assertEquals(
@@ -257,7 +254,7 @@ public class DataTest
 	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
 	{
 		List<CampaignSourceEntry> cseList =
-				new ArrayList<CampaignSourceEntry>();
+				new ArrayList<>();
 		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
 		{
 			cseList.addAll(campaign.getSafeListFor(lk));

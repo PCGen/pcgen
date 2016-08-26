@@ -38,7 +38,7 @@ import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.BonusCalc;
 
-public class TemplateModifier
+public final class TemplateModifier
 {
 
 	private static DamageReductionFacet drFacet = FacetLibrary.getFacet(DamageReductionFacet.class);
@@ -59,13 +59,12 @@ public class TemplateModifier
 		// (the default)
 
 		CharID id = aPC.getCharID();
-		for (PCStat stat : statFacet.getSet(id))
+		statFacet.getSet(id).forEach(stat ->
 		{
 			if (NonAbilityDisplay.isNonAbilityForObject(stat, pct))
 			{
 				mods.append(stat.getKeyName()).append(":nonability ");
-			}
-			else
+			} else
 			{
 				int statMod = BonusCalc.getStatMod(pct, stat, aPC);
 
@@ -75,7 +74,7 @@ public class TemplateModifier
 							statMod).append(' ');
 				}
 			}
-		}
+		});
 
 		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<>();
 		CharacterDisplay display = aPC.getDisplay();

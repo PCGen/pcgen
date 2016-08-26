@@ -29,7 +29,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.spell.Spell;
 import pcgen.util.Delta;
 
-public class EqModSpellInfo
+public final class EqModSpellInfo
 {
 	private static final String s_CHARGES = "CHARGES";
 
@@ -89,10 +89,10 @@ public class EqModSpellInfo
 						+ Integer.toString(remainingCharges) + ']');
 				assoc.set(0, listEntry);
 			}
-			for (String s : assoc)
+			assoc.forEach(s ->
 			{
 				parent.addAssociation(eqMod, s);
-			}
+			});
 		}
 	}
 

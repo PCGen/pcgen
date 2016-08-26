@@ -28,16 +28,16 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
-public class AddObjectActions
+public final class AddObjectActions
 {
 
-	public static final void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);
-		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
+		po.getSafeListFor(ListKey.KIT_CHOICE).forEach(kit ->
 		{
 			kit.act(kit.driveChoice(aPC), po, aPC);
-		}
+		});
 		TransitionChoice<Region> region = po.get(ObjectKey.REGION_CHOICE);
 		if (region != null)
 		{
@@ -45,7 +45,7 @@ public class AddObjectActions
 		}
 	}
 
-	public static final void globalChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void globalChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		doBaseChecks(po, aPC);
 		CDOMObjectUtilities.addAdds(po, aPC);

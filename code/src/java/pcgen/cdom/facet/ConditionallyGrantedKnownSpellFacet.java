@@ -32,16 +32,16 @@ public class ConditionallyGrantedKnownSpellFacet
 	{
 		Collection<AvailableSpell> set =
 				conditionallyKnownSpellFacet.getQualifiedSet(id);
-		for (AvailableSpell as : set)
+		set.forEach(as ->
 		{
 			Collection<Object> sources =
 					conditionallyKnownSpellFacet.getSources(id, as);
-			for (Object source : sources)
+			sources.forEach(source ->
 			{
 				knownSpellFacet.add(id, as.getSpelllist(), as.getLevel(),
-					as.getSpell(), source);
-			}
-		}
+						as.getSpell(), source);
+			});
+		});
 	}
 
 	public void setConditionallyKnownSpellFacet(

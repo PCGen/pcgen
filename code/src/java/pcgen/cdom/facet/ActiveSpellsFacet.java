@@ -122,12 +122,12 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 		Race race = raceFacet.get(id);
 		removeAll(id, race);
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))
+		spellsFacet.getQualifiedSet(id).forEach(sla ->
 		{
 			Formula times = sla.getCastTimes();
 			int resolvedTimes =
 					formulaResolvingFacet.resolve(id, times,
-						sla.getQualifiedKey()).intValue();
+							sla.getQualifiedKey()).intValue();
 			String book = sla.getSpellBook();
 
 			final CharacterSpell cs = new CharacterSpell(race, sla.getSpell());
@@ -138,7 +138,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 
 			pc.addSpellBook(new SpellBook(book, SpellBook.TYPE_INNATE_SPELLS));
 			add(id, cs, race);
-		}
+		});
 	}
 
 	/**

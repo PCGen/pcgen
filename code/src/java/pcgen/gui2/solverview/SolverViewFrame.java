@@ -218,10 +218,10 @@ public class SolverViewFrame extends JFrame
 			activeIdentifier = ((PCRef) item).id;
 			SplitFormulaSetup formulaSetup =
 					formulaSetupFacet.get(activeIdentifier.getDatasetID());
-			for (LegalScope lvs : formulaSetup.getLegalScopeLibrary().getLegalScopes())
+			formulaSetup.getLegalScopeLibrary().getLegalScopes().forEach(lvs ->
 			{
 				scopeChooser.addItem(new LegalScopeWrapper(lvs));
-			}
+			});
 			update();
 		}
 
@@ -235,16 +235,10 @@ public class SolverViewFrame extends JFrame
 					scopeFacet.getObjectsWithVariables(activeIdentifier);
 			objectChooser.removeAllItems();
 			String scopeName = selectedScope.getName();
-			for (VarScoped cdo : objects)
+			objects.stream().filter(cdo -> cdo.getLocalScopeName().equals(scopeName)).filter(cdo -> scopeFacet.get(activeIdentifier, selectedScope, cdo) != null).forEach(cdo ->
 			{
-				if (cdo.getLocalScopeName().equals(scopeName))
-				{
-					if (scopeFacet.get(activeIdentifier, selectedScope, cdo) != null)
-					{
-						objectChooser.addItem(new ObjectNameDisplayer(cdo));
-					}
-				}
-			}
+				objectChooser.addItem(new ObjectNameDisplayer(cdo));
+			});
 			if (objectChooser.getItemCount() != 0)
 			{
 				objectChooser.setSelectedIndex(0);

@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -74,16 +75,16 @@ public class MasterAvailableSpellFacet extends
 				}
 			}
 		}
-		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+		useLists.forEach(ref ->
 		{
-			for (Spell spell : masterLists.getObjects(ref))
+			masterLists.getObjects(ref).forEach(spell ->
 			{
 				Collection<AssociatedPrereqObject> assoc =
 						masterLists.getAssociations(ref, spell);
-				for (AssociatedPrereqObject apo : assoc)
+				assoc.forEach(apo ->
 				{
 					int lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
-					for (CDOMList<Spell> list : ref.getContainedObjects())
+					ref.getContainedObjects().forEach(list ->
 					{
 						AvailableSpell as = new AvailableSpell(list, spell, lvl);
 						if (apo.hasPrerequisites())
@@ -91,10 +92,10 @@ public class MasterAvailableSpellFacet extends
 							as.addAllPrerequisites(apo.getPrerequisiteList());
 						}
 						add(dsID, as);
-					}
-				}
-			}
-		}
+					});
+				});
+			});
+		});
 	}
 	
 	/**
@@ -107,13 +108,7 @@ public class MasterAvailableSpellFacet extends
 	{
 		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList.addAll(spells.stream().filter(as -> as.getSpelllist().equals(spellList)).collect(Collectors.toList()));
 
 		return spellsInList;
 	}
@@ -130,14 +125,8 @@ public class MasterAvailableSpellFacet extends
 	{
 		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
-		for (AvailableSpell as : spells)
-		{
-			if (as.getSpelllist().equals(spellList)
-				&& as.getSpell().equals(spell))
-			{
-				spellsInList.add(as);
-			}
-		}
+		spellsInList.addAll(spells.stream().filter(as -> as.getSpelllist().equals(spellList)
+				&& as.getSpell().equals(spell)).collect(Collectors.toList()));
 
 		return spellsInList;
 	}

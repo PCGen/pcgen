@@ -105,18 +105,18 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();
 		chronicleEntries = new DefaultListFacade<>();
-		for (ChronicleEntryFacade entry : charDisplay.getChronicleEntries())
+		charDisplay.getChronicleEntries().forEach(entry ->
 		{
 			chronicleEntries.addElement(entry);
-		}
+		});
 		
 		notes = new DefaultListFacade<>();
 		addDefaultNotes();
-		
-		for (NoteItem item : charDisplay.getNotesList())
+
+		charDisplay.getNotesList().forEach(item ->
 		{
 			notes.addElement(item);
-		}
+		});
 
 		birthday = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY));
 		location = new DefaultReferenceFacade<>(charDisplay.getSafeStringFor(PCStringKey.LOCATION));
@@ -153,7 +153,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	 * @param bio
 	 * @return
 	 */
-	private NoteFacade createDefaultNote(String noteName, String value)
+	private static NoteFacade createDefaultNote(String noteName, String value)
 	{
 		NoteItem note = new NoteItem(0, -1, noteName, value);
 		note.setRequired(true);
@@ -165,13 +165,10 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	 */
 	private void addCharacterCustomFields()
 	{
-		for (BiographyField field : EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE))
+		EnumSet.range(BiographyField.SPEECH_PATTERN, BiographyField.CATCH_PHRASE).stream().filter(field -> StringUtils.isNotEmpty(getBiographyField(field).get())).forEach(field ->
 		{
-			if (StringUtils.isNotEmpty(getBiographyField(field).get()))
-			{
-				customBiographyFields.addElement(field);
-			}
-		}
+			customBiographyFields.addElement(field);
+		});
 	}
 
 	/* (non-Javadoc)

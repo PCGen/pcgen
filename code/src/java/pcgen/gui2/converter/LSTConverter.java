@@ -124,7 +124,10 @@ public class LSTConverter extends Observable
 	public void initCampaigns(List<Campaign> campaigns)
 	{
 		List<CampaignSourceEntry> dataDefFileList = new ArrayList<>();
-		for (Campaign campaign : campaigns)
+		// load ability categories first as they used to only be at the game
+// mode
+// TODO Auto-generated catch block
+		campaigns.forEach(campaign ->
 		{
 			// load ability categories first as they used to only be at the game
 			// mode
@@ -133,26 +136,25 @@ public class LSTConverter extends Observable
 				catLoader.loadLstFiles(context, campaign
 						.getSafeListFor(ListKey.FILE_ABILITY_CATEGORY));
 				sizeLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_SIZE));
+						campaign.getSafeListFor(ListKey.FILE_SIZE));
 				statLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_STAT));
+						campaign.getSafeListFor(ListKey.FILE_STAT));
 				savesLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_SAVE));
+						campaign.getSafeListFor(ListKey.FILE_SAVE));
 				alignmentLoader.loadLstFiles(context,
-					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+						campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
 				alignmentLoader.loadLstFiles(Globals.getContext(),
-					campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
-				
-			}
-			catch (PersistenceLayerException e)
+						campaign.getSafeListFor(ListKey.FILE_ALIGNMENT));
+
+			} catch (PersistenceLayerException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			dataDefFileList.addAll(campaign
-				.getSafeListFor(ListKey.FILE_DATACTRL));
+					.getSafeListFor(ListKey.FILE_DATACTRL));
 
-		}
+		});
 		
 
 		// Load using the new LstFileLoaders
@@ -271,7 +273,7 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
+	private static List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
 	{
 		List<Loader> loaderList = new ArrayList<>();
 		loaderList.add(new BasicLoader<>(context, WeaponProf.class,
@@ -319,7 +321,7 @@ public class LSTConverter extends Observable
 		return loaderList;
 	}
 
-	private void ensureParents(File parentFile)
+	private static void ensureParents(File parentFile)
 	{
 		if (!parentFile.exists())
 		{
@@ -328,7 +330,7 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private File findSubRoot(File root, File in)
+	private static File findSubRoot(File root, File in)
 	{
 		File parent = in.getParentFile();
 		if (parent == null)
@@ -380,10 +382,10 @@ public class LSTConverter extends Observable
 						lineString, decider);
 				if (newObj != null)
 				{
-					for (CDOMObject cdo : newObj)
+					newObj.forEach(cdo ->
 					{
 						injected.addToListFor(loader, uri, cdo);
-					}
+					});
 				}
 			}
 			resultBuffer.append("\n");

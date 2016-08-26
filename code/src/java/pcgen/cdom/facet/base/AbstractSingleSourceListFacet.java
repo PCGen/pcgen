@@ -104,10 +104,10 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	public void addAll(CharID id, Collection<? extends T> c, ST source)
 	{
-		for (T obj : c)
+		c.forEach(obj ->
 		{
 			add(id, obj, source);
-		}
+		});
 	}
 
 	/**
@@ -176,10 +176,10 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (T obj : c)
+			c.forEach(obj ->
 			{
 				processRemoval(id, componentMap, obj, source);
-			}
+			});
 		}
 	}
 
@@ -214,10 +214,10 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			return Collections.emptyMap();
 		}
 		removeCache(id);
-		for (T obj : componentMap.keySet())
+		componentMap.keySet().forEach(obj ->
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentMap;
 	}
 
@@ -502,11 +502,11 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			{
 				removeCache(id);
 			}
-			for (T obj : removedKeys)
+			removedKeys.forEach(obj ->
 			{
 				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
-			}
+						DataFacetChangeEvent.DATA_REMOVED);
+			});
 		}
 	}
 
@@ -543,16 +543,14 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			componentMap.entrySet().forEach(me ->
 			{
-				Entry<T, ST> me = it.next();
 				Object source = me.getValue();
 				if (source.equals(owner))
 				{
 					list.add(me.getKey());
 				}
-			}
+			});
 		}
 		return Collections.unmodifiableList(list);
 	}

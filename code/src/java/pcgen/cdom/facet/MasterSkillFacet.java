@@ -51,17 +51,14 @@ public class MasterSkillFacet extends
 		if (getCache(dsID) == null)
 		{
 			MasterListInterface masterLists = Globals.getMasterLists();
-			for (CDOMReference ref : masterLists.getActiveLists())
+			masterLists.getActiveLists().forEach(ref ->
 			{
 				Collection objects = masterLists.getObjects(ref);
-				for (Object cl : ref.getContainedObjects())
+				ref.getContainedObjects().stream().filter(cl -> cl instanceof ClassSkillList).forEach(cl ->
 				{
-					if (cl instanceof ClassSkillList)
-					{
-						addAll(dsID, (ClassSkillList) cl, objects, cl);
-					}
-				}
-			}
+					addAll(dsID, (ClassSkillList) cl, objects, cl);
+				});
+			});
 		}
 	}
 

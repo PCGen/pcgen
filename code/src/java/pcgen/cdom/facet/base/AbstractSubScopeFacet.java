@@ -328,23 +328,23 @@ public class AbstractSubScopeFacet<S1, S2, T> extends
 		Map<S1, Map<S2, Map<T, Set<Object>>>> map = getInfo(source);
 		if (map != null)
 		{
-			for (Entry<S1, Map<S2, Map<T, Set<Object>>>> l1me : map.entrySet())
+			map.entrySet().forEach(l1me ->
 			{
 				S1 scope1 = l1me.getKey();
-				for (Entry<S2, Map<T, Set<Object>>> l2me : l1me.getValue()
-					.entrySet())
+				l1me.getValue()
+						.entrySet().forEach(l2me ->
 				{
 					S2 scope2 = l2me.getKey();
-					for (Entry<T, Set<Object>> ome : l2me.getValue().entrySet())
+					l2me.getValue().entrySet().forEach(ome ->
 					{
 						T sp = ome.getKey();
-						for (Object spsource : ome.getValue())
+						ome.getValue().forEach(spsource ->
 						{
 							add(copy, scope1, scope2, sp, spsource);
-						}
-					}
-				}
-			}
+						});
+					});
+				});
+			});
 		}
 	}
 

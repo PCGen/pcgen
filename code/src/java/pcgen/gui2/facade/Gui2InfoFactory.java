@@ -37,11 +37,13 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -578,7 +580,8 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
 			StringBuilder buff = new StringBuilder(100);
-			for (AspectName key : aspectKeys)
+			//Assert here that the actual text displayed is not critical
+			aspectKeys.forEach(key ->
 			{
 				if (buff.length() > 0)
 				{
@@ -586,7 +589,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 				//Assert here that the actual text displayed is not critical
 				buff.append(Aspect.printAspect(pc, key, wrappedAbility));
-			}
+			});
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Aspects", //$NON-NLS-1$
 				buff.toString());
@@ -1035,12 +1038,8 @@ public class Gui2InfoFactory implements InfoFactory
 		Map<String, String> qualityMap = equip.getMapFor(MapKey.QUALITY);
 		if (qualityMap != null && !qualityMap.isEmpty())
 		{
-			Set<String> qualities = new TreeSet<>();
-			for (Map.Entry<String, String> me : qualityMap.entrySet())
-			{
-				qualities.add(new StringBuilder(50).append(me.getKey()).append(
-					": ").append(me.getValue()).toString());
-			}
+			Set<String> qualities = qualityMap.entrySet().stream().map(me -> new StringBuilder(50).append(me.getKey()).append(
+					": ").append(me.getValue()).toString()).collect(Collectors.toCollection(TreeSet::new));
 
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextQualities", StringUtil.join( //$NON-NLS-1$
@@ -1170,7 +1169,7 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @param equipMod
 	 * @return Object
 	 */
-	protected String getCostValue(EquipmentModifier equipMod)
+	protected static String getCostValue(EquipmentModifier equipMod)
 	{
 		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
 		StringBuilder eCost = new StringBuilder(20);
@@ -1644,7 +1643,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Race race = (Race) raceFacade;
 		final StringBuilder retString = new StringBuilder(100);
 
-		for (PCStat stat : charDisplay.getStatSet())
+		charDisplay.getStatSet().forEach(stat ->
 		{
 			if (charDisplay.isNonAbility(stat))
 			{
@@ -1654,8 +1653,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 
 				retString.append(stat.getKeyName() + ":Nonability");
-			}
-			else
+			} else
 			{
 				if (BonusCalc.getStatMod(race, stat, pc) != 0)
 				{
@@ -1665,10 +1663,10 @@ public class Gui2InfoFactory implements InfoFactory
 					}
 
 					retString.append(stat.getKeyName() + ":"
-						+ BonusCalc.getStatMod(race, stat, pc));
+							+ BonusCalc.getStatMod(race, stat, pc));
 				}
 			}
-		}
+		});
 
 		return retString.toString();
 	}
@@ -1914,7 +1912,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Map<Integer, Integer> spellCountMap = new TreeMap<>();
 			int highestSpellLevel = -1;
-			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
+			Collection<CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
 			List<CharacterSpell> classSpells = new ArrayList<>(sp);
 			// Add in the spells granted by objects
 			pc.addBonusKnownSpellsToList(pcClass, classSpells);
@@ -2314,13 +2312,10 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		Deity deity = (Deity) deityFacade;
 		Set<String> set = new TreeSet<>();
-		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
+		deity.getSafeListMods(Deity.DOMAINLIST).forEach(ref ->
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				set.add(OutputNameFormatting.piString(d, false));
-			}
-		}
+			set.addAll(ref.getContainedObjects().stream().map(d -> OutputNameFormatting.piString(d, false)).collect(Collectors.toList()));
+		});
 		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
 		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
@@ -2341,10 +2336,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-			{
-				set.add(indirect.get());
-			}
+			set.addAll(deity.getSafeSetFor(fk).stream().map(Reference::get).collect(Collectors.toList()));
 		}
 		final StringBuilder piString = new StringBuilder(100);
 		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
@@ -2402,7 +2394,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		List<T> choices = new ArrayList<>();
-		for (CNAbility ab : targetAbilities)
+		targetAbilities.forEach(ab ->
 		{
 			List<? extends T> sel =
 					(List<? extends T>) pc.getDetailedAssociations(ab);
@@ -2410,7 +2402,7 @@ public class Gui2InfoFactory implements InfoFactory
 			{
 				choices.addAll(sel);
 			}
-		}
+		});
 
 		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
 		if (choiceInfo.length() > 0)
@@ -2443,10 +2435,11 @@ public class Gui2InfoFactory implements InfoFactory
 			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
 		}
 		StringBuilder target = new StringBuilder(40);
-		for (String string : targetSet)
+		//$NON-NLS-1$
+		targetSet.forEach(string ->
 		{
 			target.append(string).append(";"); //$NON-NLS-1$
-		}
+		});
 		if (target.length() > 0)
 		{
 			target.deleteCharAt(target.length()-1);
@@ -2469,58 +2462,46 @@ public class Gui2InfoFactory implements InfoFactory
 		return EMPTY_STRING;
 	}
 
-	private void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)
+	private static void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)
 	{
 		Class<? extends CDOMObject> cl = cdo.getClass();
 		LoadContext context = Globals.getContext();
 		Collection<FactDefinition> defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactDefinition.class);
-		for (FactDefinition<?, ?> def : defs)
+		defs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).filter(def -> def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			FactKey<?> fk = def.getFactKey();
+			Indirect<?> fact = cdo.get(fk);
+			if (fact != null)
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
-				{
-					FactKey<?> fk = def.getFactKey();
-					Indirect<?> fact = cdo.get(fk);
-					if (fact != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(fact.getUnconverted());
-					}
-				}
+				infoText.appendSpacer();
+				infoText.append("<b>");
+				infoText.append(fk.toString());
+				infoText.append(":</b>&nbsp;");
+				infoText.append(fact.getUnconverted());
 			}
-		}
+		});
 		Collection<FactSetDefinition> setdefs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactSetDefinition.class);
-		for (FactSetDefinition<?, ?> def : setdefs)
+		setdefs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).filter(def -> def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			FactSetKey<?> fk = def.getFactSetKey();
+			String s = getSetString(cdo, fk);
+			if (s != null)
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
-				{
-					FactSetKey<?> fk = def.getFactSetKey();
-					String s = getSetString(cdo, fk);
-					if (s != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(s);
-					}
-				}
+				infoText.appendSpacer();
+				infoText.append("<b>");
+				infoText.append(fk.toString());
+				infoText.append(":</b>&nbsp;");
+				infoText.append(s);
 			}
-		}
+		});
 		
 	}
 
-	private <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
+	private static <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
 	{
 		List<Indirect<T>> set = cdo.getSetFor(fk);
 		if (set == null)

@@ -257,13 +257,10 @@ public class ConsolidatedObjectCommitStrategy implements ObjectCommitStrategy
 			return;
 		}
 		Pattern p = Pattern.compile(pattern);
-		for (T obj : list)
+		list.stream().filter(obj -> p.matcher(obj.toString()).find()).forEach(obj ->
 		{
-			if (p.matcher(obj.toString()).find())
-			{
-				cdo.removeFromListFor(lk, obj);
-			}
-		}
+			cdo.removeFromListFor(lk, obj);
+		});
 	}
 
 	@Override

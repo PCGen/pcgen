@@ -151,7 +151,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				{
 					if (preReqList == null)
 					{
-						preReqList = new ArrayList<String>();
+						preReqList = new ArrayList<>();
 					}
 
 					preReqList.add(colString);
@@ -165,9 +165,9 @@ public final class BioSetLoader extends LstLineFileLoader
 						final StringBuilder sBuf = new StringBuilder(100+colString.length());
 						sBuf.append(colString);
 
-						for (int i = 0, x = preReqList.size(); i < x; ++i)
+						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(preReqList.get(i)).append(
+							sBuf.append('[').append(aPreReqList).append(
 									']');
 						}
 
@@ -181,7 +181,7 @@ public final class BioSetLoader extends LstLineFileLoader
 		}
 	}
 
-	private void parseTokens(LoadContext context, AgeSet ageSet, StringTokenizer tok)
+	private static void parseTokens(LoadContext context, AgeSet ageSet, StringTokenizer tok)
 	{
 		final PObject dummy = new PObject();
 		try

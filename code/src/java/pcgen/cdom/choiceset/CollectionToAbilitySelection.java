@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -89,10 +91,10 @@ public class CollectionToAbilitySelection implements
 		Collection<? extends AbilityWithChoice> aColl =
 				collection.getCollection(pc, new ExpandingConverter(pc));
 		Set<AbilitySelection> returnSet = new HashSet<>();
-		for (AbilityWithChoice a : aColl)
+		aColl.forEach(a ->
 		{
 			processAbility(pc, returnSet, a);
-		}
+		});
 		return returnSet;
 	}
 
@@ -127,8 +129,8 @@ public class CollectionToAbilitySelection implements
 		}
 	}
 
-	private Collection<AbilitySelection> addMultiplySelectableAbility(
-		final PlayerCharacter aPC, Ability ability, String subName)
+	private static Collection<AbilitySelection> addMultiplySelectableAbility(
+			final PlayerCharacter aPC, Ability ability, String subName)
 	{
 		boolean isPattern = false;
 		String nameRoot = null;
@@ -181,28 +183,22 @@ public class CollectionToAbilitySelection implements
 
 		List<AbilitySelection> returnList =
                 new ArrayList<>(availableList.size());
-		for (String s : availableList)
-		{
-			returnList.add(new AbilitySelection(ability, s));
-		}
+		returnList.addAll(availableList.stream().map(s -> new AbilitySelection(ability, s)).collect(Collectors.toList()));
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
-		ChooseInformation<T> chooseInfo)
+	private static <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	                                                 ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here
-		for (T o : tempAvailList)
-		{
-			availableList.add(chooseInfo.encodeChoice(o));
-		}
+		availableList.addAll(tempAvailList.stream().map((Function<T, String>) chooseInfo::encodeChoice).collect(Collectors.toList()));
 		return availableList;
 	}
 
-	private String reportCircularExpansion(Stack<Ability> s)
+	private static String reportCircularExpansion(Stack<Ability> s)
 	{
 		StringBuilder sb = new StringBuilder(2000);
 		processCircularExpansion(sb, s);
@@ -210,7 +206,7 @@ public class CollectionToAbilitySelection implements
 		return sb.toString();
 	}
 
-	private void processCircularExpansion(StringBuilder sb, Stack<Ability> s)
+	private static void processCircularExpansion(StringBuilder sb, Stack<Ability> s)
 	{
 		Ability a = s.pop();
 		if (!s.isEmpty())
@@ -271,15 +267,15 @@ public class CollectionToAbilitySelection implements
 		public Collection<AbilityWithChoice> convert(ObjectContainer<Ability> ref)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(a ->
 			{
 				processAbility(ref, returnSet, a);
-			}
+			});
 			return returnSet;
 		}
 
-		private void processAbility(ObjectContainer<Ability> ref,
-			Set<AbilityWithChoice> returnSet, Ability a)
+		private static void processAbility(ObjectContainer<Ability> ref,
+		                                   Set<AbilityWithChoice> returnSet, Ability a)
 		{
 			String choice = null;
 			if (ref instanceof CDOMReference)
@@ -294,13 +290,10 @@ public class CollectionToAbilitySelection implements
 			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().stream().filter(a -> lim.allow(character, a)).forEach(a ->
 			{
-				if (lim.allow(character, a))
-				{
-					processAbility(ref, returnSet, a);
-				}
-			}
+				processAbility(ref, returnSet, a);
+			});
 			return returnSet;
 		}
 	}

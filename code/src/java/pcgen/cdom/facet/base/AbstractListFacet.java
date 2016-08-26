@@ -60,7 +60,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *            given PCGenIdentifier
 	 * @return true if the object was added; false otherwise
 	 */
-	public boolean add(IDT id, T obj)
+	public final boolean add(IDT id, T obj)
 	{
 		if (obj == null)
 		{
@@ -93,7 +93,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void addAll(IDT id, Collection<T> c)
+	public final void addAll(IDT id, Collection<T> c)
 	{
 		if (c.isEmpty())
 		{
@@ -130,7 +130,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return true if an element was removed as a result of this call; false
 	 *         otherwise
 	 */
-	public boolean remove(IDT id, T obj)
+	public final boolean remove(IDT id, T obj)
 	{
 		if (obj == null)
 		{
@@ -170,7 +170,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * @throws NullPointerException
 	 *             if the given Collection is null
 	 */
-	public void removeAll(IDT id, Collection<T> c)
+	public final void removeAll(IDT id, Collection<T> c)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null)
@@ -213,17 +213,17 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         in this AbstractListFacet for the Player Character represented by
 	 *         the given PCGenIdentifier
 	 */
-	public Collection<T> removeAll(IDT id)
+	public final Collection<T> removeAll(IDT id)
 	{
 		Collection<T> componentSet = (Collection<T>) removeCache(id);
 		if (componentSet == null)
 		{
 			return Collections.emptySet();
 		}
-		for (T obj : componentSet)
+		componentSet.forEach(obj ->
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentSet;
 	}
 
@@ -249,7 +249,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return A non-null Collection of objects in this AbstractListFacet for
 	 *         the Player Character represented by the given PCGenIdentifier
 	 */
-	public Collection<T> getSet(IDT id)
+	public final Collection<T> getSet(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
@@ -269,7 +269,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return The count of items in this AbstractListFacet for the Player
 	 *         Character represented by the given PCGenIdentifier
 	 */
-	public int getCount(IDT id)
+	public final int getCount(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null)
@@ -290,7 +290,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         Player Character represented by the given PCGenIdentifier; false
 	 *         otherwise (if it does contain items for the Player Character)
 	 */
-	public boolean isEmpty(IDT id)
+	public final boolean isEmpty(IDT id)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		return componentSet == null || componentSet.isEmpty();
@@ -312,7 +312,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         Player Character represented by the given PCGenIdentifier; false
 	 *         otherwise
 	 */
-	public boolean contains(IDT id, T obj)
+	public final boolean contains(IDT id, T obj)
 	{
 		/*
 		 * TODO obj == null? - log an error?
@@ -336,7 +336,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         PCGenIdentifier; null if no information has been set in this
 	 *         AbstractListFacet for the Player Character.
 	 */
-	protected Collection<T> getCachedSet(IDT id)
+	protected final Collection<T> getCachedSet(IDT id)
 	{
 		return (Collection<T>) getCache(id);
 	}
@@ -470,7 +470,7 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *         thus true if a replacement was successfully made); false
 	 *         otherwise
 	 */
-	public boolean replace(IDT id, T old, T replacement)
+	public final boolean replace(IDT id, T old, T replacement)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet == null || !componentSet.contains(old))
@@ -478,17 +478,16 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 			return false;
 		}
 		Collection<T> replaceSet = getComponentSet();
-		for (T obj : componentSet)
+		componentSet.forEach(obj ->
 		{
 			if (obj == old)
 			{
 				replaceSet.add(replacement);
-			}
-			else
+			} else
 			{
 				replaceSet.add(obj);
 			}
-		}
+		});
 		setCache(id, componentSet);
 		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		fireDataFacetChangeEvent(id, replacement,
@@ -524,20 +523,20 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The object to be added to the Collection for the Player
 	 *            Character represented by the given PCGenIdentifier
 	 */
-	public void addAfter(IDT id, T trigger, T added)
+	public final void addAfter(IDT id, T trigger, T added)
 	{
 		Collection<T> componentSet = getCachedSet(id);
 		if (componentSet != null && componentSet.contains(trigger))
 		{
 			Collection<T> replaceSet = getComponentSet();
-			for (T obj : componentSet)
+			componentSet.forEach(obj ->
 			{
 				replaceSet.add(obj);
 				if (obj == trigger)
 				{
 					replaceSet.add(added);
 				}
-			}
+			});
 			setCache(id, componentSet);
 			fireDataFacetChangeEvent(id, added, DataFacetChangeEvent.DATA_ADDED);
 		}

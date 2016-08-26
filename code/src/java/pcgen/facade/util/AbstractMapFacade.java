@@ -33,7 +33,7 @@ import pcgen.facade.util.event.MapListener;
 public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 
 	@Override
 	public void addMapListener(MapListener<? super K, ? super V> listener)
@@ -75,7 +75,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param value the value associated with the new key
 	 * @see EventListenerList
 	 */
-	protected void fireKeyAdded(Object source, K key, V value)
+	protected final void fireKeyAdded(Object source, K key, V value)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;
@@ -102,7 +102,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param value the value associated with the key
 	 * @see EventListenerList
 	 */
-	protected void fireKeyRemoved(Object source, K key, V value)
+	protected final void fireKeyRemoved(Object source, K key, V value)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;
@@ -130,7 +130,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
 	 * @see EventListenerList
 	 */
-	protected void fireKeyModified(Object source, K key, V value, FacadeEvent cause)
+	protected final void fireKeyModified(Object source, K key, V value, FacadeEvent cause)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;
@@ -158,7 +158,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param newValue the new value associated with the key
 	 * @see EventListenerList
 	 */
-	protected void fireValueChanged(Object source, K key, V oldValue, V newValue)
+	protected final void fireValueChanged(Object source, K key, V oldValue, V newValue)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;
@@ -186,7 +186,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
 	 * @see EventListenerList
 	 */
-	protected void fireValueModified(Object source, K key, V value, FacadeEvent cause)
+	protected final void fireValueModified(Object source, K key, V value, FacadeEvent cause)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;
@@ -211,7 +211,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * <code>MapFacade</code> that changed, typically "this"
 	 * @see EventListenerList
 	 */
-	protected void fireKeysChanged(Object source)
+	protected final void fireKeysChanged(Object source)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;

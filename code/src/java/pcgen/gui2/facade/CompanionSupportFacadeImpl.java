@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
@@ -112,51 +113,39 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private void addMasterListeners(ReferenceFacade<String> nameRef,
 		ReferenceFacade<File> fileRef)
 	{
-		nameRef.addReferenceListener(new ReferenceListener<String>()
+		nameRef.addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<String> e)
+			String newName = e.getNewReference();
+			for (CompanionFacadeDelegate delegate : companionList)
 			{
-				String newName = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
+				CharacterFacade companion =
+						CharacterManager.getCharacterMatching(delegate);
+				if (companion != null)
 				{
-					CharacterFacade companion =
-							CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl =
-								(CharacterFacadeImpl) companion;
-						Follower follower =
-								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setName(newName);
-					}
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+					follower.setName(newName);
 				}
-
 			}
 
 		});
-		fileRef.addReferenceListener(new ReferenceListener<File>()
+		fileRef.addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<File> e)
+			File newFile = e.getNewReference();
+			for (CompanionFacadeDelegate delegate : companionList)
 			{
-				File newFile = e.getNewReference();
-				for (CompanionFacadeDelegate delegate : companionList)
+				CharacterFacade companion =
+						CharacterManager.getCharacterMatching(delegate);
+				if (companion != null)
 				{
-					CharacterFacade companion =
-							CharacterManager.getCharacterMatching(delegate);
-					if (companion != null)
-					{
-						CharacterFacadeImpl compFacadeImpl =
-								(CharacterFacadeImpl) companion;
-						Follower follower =
-								compFacadeImpl.getTheCharacter().getDisplay().getMaster();
-						follower.setFileName(newFile.getAbsolutePath());
-					}
+					CharacterFacadeImpl compFacadeImpl =
+							(CharacterFacadeImpl) companion;
+					Follower follower =
+							compFacadeImpl.getTheCharacter().getDisplay().getMaster();
+					follower.setFileName(newFile.getAbsolutePath());
 				}
-
 			}
 
 		});
@@ -190,51 +179,44 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private void initCompData(boolean rebuildCompanionList)
 	{
 		List<CompanionStub> companions = new ArrayList<>();
-		for (CompanionList compList : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(CompanionList.class))
+		Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(CompanionList.class).forEach(compList ->
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
 			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
-			for (FollowerOption followerOpt : fMap.keySet())
-			{
-				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
-				{
-					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
-				}
-			}
+			companions.addAll(fMap.keySet().stream().filter(followerOpt -> followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null)).map(followerOpt -> new CompanionStub(followerOpt.getRace(), compList.getKeyName())).collect(Collectors.toList()));
 			int maxVal = theCharacter.getMaxFollowers(compList);
 			if (maxVal == 0)
 			{
 				maxCompanionsMap.removeKey(compList.toString());
-			}
-			else
+			} else
 			{
 				maxCompanionsMap.putValue(compList.toString(), maxVal);
 			}
-		}
+		});
 		availCompList.updateContents(companions);
 		//Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		
 		if (rebuildCompanionList)
 		{
-			for (Follower follower : charDisplay.getFollowerList())
+			charDisplay.getFollowerList().forEach(follower ->
 			{
 				CompanionFacade comp =
 						new CompanionNotLoaded(follower.getName(), new File(
-							follower.getFileName()), follower.getRace(), follower
-							.getType().toString());
+								follower.getFileName()), follower.getRace(), follower
+								.getType().toString());
 				CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 				delegate.setCompanionFacade(comp);
 				companionList.addElement(delegate);
-			}
+			});
 		}
 		//Logging.debugPrint("Companion list " + companionList);
-		for (CompanionList compList : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(CompanionList.class))
+		Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(CompanionList.class).forEach(compList ->
 		{
 			updateCompanionTodo(compList.toString());
-		}
+		});
 	}
 
 

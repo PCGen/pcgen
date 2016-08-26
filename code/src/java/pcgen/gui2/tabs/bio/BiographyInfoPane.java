@@ -239,16 +239,16 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane = parent;
 			itemsPanel.removeAll();
 			// 
-			for (BioItem bioItem : bioItems)
+			bioItems.forEach(bioItem ->
 			{
 				bioItem.addComponents(itemsPanel);
 				bioItem.install(parent);
-			}
-			for (BioItem bioItem : customFieldMap.values())
+			});
+			customFieldMap.values().forEach(bioItem ->
 			{
 				bioItem.addComponents(itemsPanel);
 				bioItem.install(parent);
-			}
+			});
 
 			customFields.addListListener(this);
 			detailsScroll.setPreferredSize(itemsPanel.getPreferredSize());
@@ -257,14 +257,14 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		public void uninstall(BiographyInfoPane parent)
 		{
-			for (BioItem bioItem : bioItems)
+			bioItems.forEach(bioItem ->
 			{
 				bioItem.uninstall(parent);
-			}
-			for (BioItem bioItem : customFieldMap.values())
+			});
+			customFieldMap.values().forEach(bioItem ->
 			{
 				bioItem.uninstall(parent);
-			}
+			});
 			detailsPane = null;
 			customFields.removeListListener(this);
 		}

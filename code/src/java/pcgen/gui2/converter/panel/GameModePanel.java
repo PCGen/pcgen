@@ -137,14 +137,10 @@ public class GameModePanel extends ConvertSubPanel
 
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
 		gameModeCombo = new JComboBoxEx(games.toArray());
-		gameModeCombo.addActionListener(new ActionListener()
+		gameModeCombo.addActionListener(arg0 ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
-			{
-				getSelection(pc);
-				saveGameMode(pc);
-			}
+			getSelection(pc);
+			saveGameMode(pc);
 		});
 		PCGenSettings context = PCGenSettings.getInstance();
 		SettingsHandler.setGame(context

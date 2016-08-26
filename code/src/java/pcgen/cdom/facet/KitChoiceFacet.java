@@ -73,11 +73,11 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
-			for (TransitionChoice<Kit> kit : cdo
-				.getSafeListFor(ListKey.KIT_CHOICE))
+			cdo
+					.getSafeListFor(ListKey.KIT_CHOICE).forEach(kit ->
 			{
 				kit.act(kit.driveChoice(aPC), cdo, aPC);
-			}
+			});
 		}
 	}
 

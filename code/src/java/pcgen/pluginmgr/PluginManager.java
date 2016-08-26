@@ -62,15 +62,8 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	/**
 	 * A Comparator to sort interactive plugins by their priority.
 	 */
-	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<InteractivePlugin>()
-	{
-		@Override
-		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
-		{
-			return Integer.valueOf(arg0.getPriority()).compareTo(
-				Integer.valueOf(arg1.getPriority()));
-		}
-	};
+	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = (arg0, arg1) -> Integer.valueOf(arg0.getPriority()).compareTo(
+		Integer.valueOf(arg1.getPriority()));
 
 	public List<PluginInfo> getPluginInfoList()
 	{
@@ -80,17 +73,14 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	public void startAllPlugins()
 	{
 		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		for(InteractivePlugin plugin : pluginMap.keySet())
+		pluginMap.keySet().stream().filter(pluginMap::get).forEach(plugin ->
 		{
-			if(pluginMap.get(plugin))
-			{
-				plugin.start(dispatcher);
-				msgHandlerMgr.addMember(plugin);
-			}
-		}
+			plugin.start(dispatcher);
+			msgHandlerMgr.addMember(plugin);
+		});
 	}
 
-	private String getLogName(Class<?> clazz, InteractivePlugin pl)
+	private static String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
 		String logName = null;
 		try

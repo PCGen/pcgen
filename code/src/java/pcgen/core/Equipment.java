@@ -45,6 +45,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
@@ -563,29 +564,21 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
 	{
-		final List<BonusObj> aList = new ArrayList<>();
-
-		for (BonusObj bonus : getRawBonusList(aPC))
-		{
-			if (aPC.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
+		final List<BonusObj> aList = getRawBonusList(aPC).stream().filter(aPC::isApplied).collect(Collectors.toList());
 
 		List<EquipmentModifier> eqModList = getEqModifierList(true);
 
-		for (EquipmentModifier eqMod : eqModList)
+		eqModList.forEach(eqMod ->
 		{
 			aList.addAll(eqMod.getActiveBonuses(this, aPC));
-		}
+		});
 
 		eqModList = getEqModifierList(false);
 
-		for (EquipmentModifier eqMod : eqModList)
+		eqModList.forEach(eqMod ->
 		{
 			aList.addAll(eqMod.getActiveBonuses(this, aPC));
-		}
+		});
 
 		return aList;
 	}
@@ -612,11 +605,11 @@ public final class Equipment extends PObject implements Serializable,
 		aList.addAll(BonusUtilities.getBonusFromList(getBonusList(pc), aType,
 			aName));
 
-		for (EquipmentModifier eqMod : getEqModifierList(bPrimary))
+		getEqModifierList(bPrimary).forEach(eqMod ->
 		{
 			aList.addAll(BonusUtilities.getBonusFromList(eqMod
-				.getBonusList(this), aType, aName));
-		}
+					.getBonusList(this), aType, aName));
+		});
 
 		return aList;
 	}
@@ -1083,7 +1076,7 @@ public final class Equipment extends PObject implements Serializable,
 			t = "";
 		}
 
-		for (BonusObj aBonus : getActiveBonuses(aPC))
+		getActiveBonuses(aPC).forEach(aBonus ->
 		{
 			final String eqBonus = aBonus.toString();
 
@@ -1096,7 +1089,7 @@ public final class Equipment extends PObject implements Serializable,
 
 				s.append(eqBonus);
 			}
-		}
+		});
 
 		// for (final Iterator<EquipmentModifier> e = eqModifierList.iterator();
 		// e.hasNext();)
@@ -1927,7 +1920,7 @@ public final class Equipment extends PObject implements Serializable,
 	public void setRemainingCharges(final int remainingCharges)
 	{
 
-		for (EquipmentModifier eqMod : getEqModifierList(true))
+		getEqModifierList(true).forEach(eqMod ->
 		{
 
 			Integer min = eqMod.get(IntegerKey.MIN_CHARGES);
@@ -1935,9 +1928,9 @@ public final class Equipment extends PObject implements Serializable,
 			if (min != null && min > 0)
 			{
 				EqModSpellInfo.setRemainingCharges(this, eqMod,
-					remainingCharges);
+						remainingCharges);
 			}
-		}
+		});
 	}
 
 	/**
@@ -2521,69 +2514,57 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			// Remove any modifiers that this one will replace
 			//
-			for (CDOMSingleRef<EquipmentModifier> ref : replaces)
+			replaces.forEach(ref ->
 			{
 				EquipmentModifier mod = ref.get();
 				String key = mod.getKeyName();
-				for (EquipmentModifier aMod : head
-					.getSafeListFor(ListKey.EQMOD))
-				{
-					if (key.equalsIgnoreCase(aMod.getKeyName()))
-					{
-						head.removeFromListFor(ListKey.EQMOD, aMod);
-						head.removeVarModifiers(aPC.getCharID(), aMod);
-						if (bPrimary)
-						{
-							usePrimaryCache = false;
-						}
-						else
-						{
-							useSecondaryCache = false;
-						}
-						setDirty(true);
-					}
-				}
-			}
-		}
-
-		if (eqMod.isType("BaseMaterial"))
-		{
-			for (EquipmentModifier aMod : head.getSafeListFor(ListKey.EQMOD))
-			{
-				if (aMod.isType("BaseMaterial"))
+				head
+						.getSafeListFor(ListKey.EQMOD).stream().filter(aMod -> key.equalsIgnoreCase(aMod.getKeyName())).forEach(aMod ->
 				{
 					head.removeFromListFor(ListKey.EQMOD, aMod);
 					head.removeVarModifiers(aPC.getCharID(), aMod);
 					if (bPrimary)
 					{
 						usePrimaryCache = false;
-					}
-					else
+					} else
 					{
 						useSecondaryCache = false;
 					}
 					setDirty(true);
+				});
+			});
+		}
+
+		if (eqMod.isType("BaseMaterial"))
+		{
+			head.getSafeListFor(ListKey.EQMOD).stream().filter(aMod -> aMod.isType("BaseMaterial")).forEach(aMod ->
+			{
+				head.removeFromListFor(ListKey.EQMOD, aMod);
+				head.removeVarModifiers(aPC.getCharID(), aMod);
+				if (bPrimary)
+				{
+					usePrimaryCache = false;
+				} else
+				{
+					useSecondaryCache = false;
 				}
-			}
+				setDirty(true);
+			});
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
-			for (EquipmentModifier aMod : head.getSafeListFor(ListKey.EQMOD))
+			head.getSafeListFor(ListKey.EQMOD).stream().filter(aMod -> aMod.isType("MagicalEnhancement")).forEach(aMod ->
 			{
-				if (aMod.isType("MagicalEnhancement"))
+				head.removeFromListFor(ListKey.EQMOD, aMod);
+				head.removeVarModifiers(aPC.getCharID(), aMod);
+				if (bPrimary)
 				{
-					head.removeFromListFor(ListKey.EQMOD, aMod);
-					head.removeVarModifiers(aPC.getCharID(), aMod);
-					if (bPrimary)
-					{
-						usePrimaryCache = false;
-					}
-					else
-					{
-						useSecondaryCache = false;
-					}
+					usePrimaryCache = false;
+				} else
+				{
+					useSecondaryCache = false;
 				}
-			}
+			});
 		}
 
 		//
@@ -2754,13 +2735,10 @@ public final class Equipment extends PObject implements Serializable,
 
 		// go through bonus hashmap and zero out all
 		// entries that deal with this bonus request
-		for (String aKey : getBonusMap().keySet())
+		getBonusMap().keySet().stream().filter(aKey -> aKey.startsWith(aBonusKey)).forEach(aKey ->
 		{
-			if (aKey.startsWith(aBonusKey))
-			{
-				putBonusMap(aKey, "0");
-			}
-		}
+			putBonusMap(aKey, "0");
+		});
 
 		bonusPrimary = bPrimary;
 
@@ -2771,13 +2749,7 @@ public final class Equipment extends PObject implements Serializable,
 			// now do temp bonuses
 			final List<BonusObj> tbList = new ArrayList<>();
 
-			for (BonusObj aBonus : getTempBonusList())
-			{
-				if (!tbList.contains(aBonus))
-				{
-					tbList.add(aBonus);
-				}
-			}
+			getTempBonusList().stream().filter(aBonus -> !tbList.contains(aBonus)).forEach(tbList::add);
 
 			BonusCalc.bonusTo(this, aType, aName, anObj, tbList, aPC);
 		}
@@ -2785,20 +2757,20 @@ public final class Equipment extends PObject implements Serializable,
 		// If using 3.5 weapon penalties, add them in also
 		if (Globals.checkRule(RuleConstants.SYS_35WP))
 		{
-			for (EqSizePenalty esp : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(EqSizePenalty.class))
+			Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(EqSizePenalty.class).forEach(esp ->
 			{
 				BonusCalc.bonusTo(this, aType, aName, this, esp.getBonuses(),
-					aPC);
-			}
+						aPC);
+			});
 		}
 
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 
-		for (EquipmentModifier eqMod : eqModList)
+		eqModList.forEach(eqMod ->
 		{
 			eqMod.bonusTo(aPC, aType, aName, this);
-		}
+		});
 
 		double iBonus = 0;
 		for (String key : getBonusMap().keySet())
@@ -3614,48 +3586,39 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			// Add back in modifiers that this one previously removed
 			//
-			for (CDOMSingleRef<EquipmentModifier> ref : replaces)
+			replaces.forEach(ref ->
 			{
 				EquipmentModifier mod = ref.get();
 				String key = mod.getKeyName();
-				for (EquipmentModifier baseMod : baseItem.get()
-					.getEquipmentHead(bPrimary ? 1 : 2)
-					.getSafeListFor(ListKey.EQMOD))
+				baseItem.get()
+						.getEquipmentHead(bPrimary ? 1 : 2)
+						.getSafeListFor(ListKey.EQMOD).stream().filter(baseMod -> key.equalsIgnoreCase(baseMod.getKeyName())).forEach(baseMod ->
 				{
-					if (key.equalsIgnoreCase(baseMod.getKeyName()))
-					{
-						head.addToListFor(ListKey.EQMOD, baseMod);
-						head.addVarModifiers(pc.getCharID(), baseMod);
-					}
-				}
-			}
+					head.addToListFor(ListKey.EQMOD, baseMod);
+					head.addVarModifiers(pc.getCharID(), baseMod);
+				});
+			});
 		}
 
 		if (eqMod.isType("BaseMaterial"))
 		{
-			for (EquipmentModifier baseMod : baseItem.get()
-				.getEquipmentHead(bPrimary ? 1 : 2)
-				.getSafeListFor(ListKey.EQMOD))
+			baseItem.get()
+					.getEquipmentHead(bPrimary ? 1 : 2)
+					.getSafeListFor(ListKey.EQMOD).stream().filter(baseMod -> baseMod.isType("BaseMaterial")).forEach(baseMod ->
 			{
-				if (baseMod.isType("BaseMaterial"))
-				{
-					head.addToListFor(ListKey.EQMOD, baseMod);
-					head.addVarModifiers(pc.getCharID(), baseMod);
-				}
-			}
+				head.addToListFor(ListKey.EQMOD, baseMod);
+				head.addVarModifiers(pc.getCharID(), baseMod);
+			});
 		}
 		else if (eqMod.isType("MagicalEnhancement"))
 		{
-			for (EquipmentModifier baseMod : baseItem.get()
-				.getEquipmentHead(bPrimary ? 1 : 2)
-				.getSafeListFor(ListKey.EQMOD))
+			baseItem.get()
+					.getEquipmentHead(bPrimary ? 1 : 2)
+					.getSafeListFor(ListKey.EQMOD).stream().filter(baseMod -> baseMod.isType("MagicalEnhancement")).forEach(baseMod ->
 			{
-				if (baseMod.isType("MagicalEnhancement"))
-				{
-					head.addToListFor(ListKey.EQMOD, baseMod);
-					head.addVarModifiers(pc.getCharID(), baseMod);
-				}
-			}
+				head.addToListFor(ListKey.EQMOD, baseMod);
+				head.addVarModifiers(pc.getCharID(), baseMod);
+			});
 		}
 	}
 
@@ -4020,7 +3983,7 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuilder aType = new StringBuilder(typeSize * 5); // Just a
 		// guess.
 
-		for (String s : typeList)
+		typeList.forEach(s ->
 		{
 			if (aType.length() != 0)
 			{
@@ -4028,7 +3991,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			aType.append(s);
-		}
+		});
 
 		return aType.toString();
 	}
@@ -4199,7 +4162,8 @@ public final class Equipment extends PObject implements Serializable,
 		final List<EquipmentModifier> eqModList = getEqModifierList(bPrimary);
 		final StringBuilder aString = new StringBuilder(eqModList.size() * 10);
 
-		for (EquipmentModifier eqMod : eqModList)
+		// Add the modifiers
+		eqModList.forEach(eqMod ->
 		{
 			if (aString.length() != 0)
 			{
@@ -4209,11 +4173,11 @@ public final class Equipment extends PObject implements Serializable,
 			aString.append(eqMod.getKeyName());
 
 			// Add the modifiers
-			for (String strMod : getAssociationList(eqMod))
+			getAssociationList(eqMod).forEach(strMod ->
 			{
 				aString.append('|').append(strMod.replace('|', '='));
-			}
-		}
+			});
+		});
 
 		if (bPrimary)
 		{
@@ -4308,7 +4272,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		final StringBuilder sMod = new StringBuilder(70);
 
-		for (EquipmentModifier eqMod : eqList)
+		eqList.forEach(eqMod ->
 		{
 			final String modDesc =
 					eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod);
@@ -4318,7 +4282,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 
 			sMod.append(modDesc);
-		}
+		});
 
 		return sMod.toString();
 	}
@@ -4382,12 +4346,12 @@ public final class Equipment extends PObject implements Serializable,
 				BigDecimal maxCost = null;
 				final List<String> itemTypes = typeList();
 
-				for (int idx = 0; idx < itemTypes.size(); ++idx)
+				for (String itemType : itemTypes)
 				{
-					typeMatched = itemTypes.get(idx);
+					typeMatched = itemType;
 					costExpr =
 							SettingsHandler.getGame().getPlusCalculation(
-								typeMatched);
+									typeMatched);
 
 					if (costExpr != null)
 					{
@@ -4395,7 +4359,7 @@ public final class Equipment extends PObject implements Serializable,
 								evaluateCost(myParser, costExpr);
 
 						if ((maxCost == null)
-							|| (thisCost.compareTo(maxCost) > 1))
+								|| (thisCost.compareTo(maxCost) > 1))
 						{
 							maxCost = thisCost;
 						}
@@ -4456,8 +4420,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param abilityList The list of abilities
 	 * @return The specialAbilityTimesList value
 	 */
-	private List<String> getSpecialAbilityTimesList(
-		final List<String> abilityList)
+	private static List<String> getSpecialAbilityTimesList(
+			final List<String> abilityList)
 	{
 
 		final List<String> sortList = new ArrayList<>();
@@ -4748,7 +4712,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 	}
 
-	private BigDecimal evaluateCost(final PJEP myParser, final String costExpr)
+	private static BigDecimal evaluateCost(final PJEP myParser, final String costExpr)
 	{
 		myParser.parseExpression(costExpr);
 
@@ -4858,8 +4822,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param commonList The list of modifiers common between the two heads
 	 * @param errMsg the error message to print if something goes wrong
 	 */
-	private void removeCommonFromList(final List<EquipmentModifier> altList,
-		final List<EquipmentModifier> commonList, final String errMsg)
+	private static void removeCommonFromList(final List<EquipmentModifier> altList,
+	                                         final List<EquipmentModifier> commonList, final String errMsg)
 	{
 
 		for (int i = altList.size() - 1; i >= 0; --i)
@@ -4890,7 +4854,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return An array of equipmod lists.
 	 */
-	private List<List<EquipmentModifier>> initSplitModList()
+	private static List<List<EquipmentModifier>> initSplitModList()
 	{
 
 		List<List<EquipmentModifier>> modListArray =
@@ -4911,15 +4875,15 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param splitModList
 	 *            The array of receiving lists, one for each format cat.
 	 */
-	private void splitModListByFormatCat(final List<EquipmentModifier> modList,
-		final List<List<EquipmentModifier>> splitModList)
+	private static void splitModListByFormatCat(final List<EquipmentModifier> modList,
+	                                            final List<List<EquipmentModifier>> splitModList)
 	{
 
-		for (EquipmentModifier aModList : modList)
+		modList.forEach(aModList ->
 		{
 			int o = aModList.getSafe(ObjectKey.FORMAT).ordinal();
 			splitModList.get(o).add(aModList);
-		}
+		});
 	}
 
 	/**
@@ -4964,13 +4928,10 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String x = aTok.nextToken().replace('=', '|');
 
-			for (String aChoice : getAssociationList(eqMod))
+			getAssociationList(eqMod).stream().filter(aChoice -> aChoice.startsWith(x)).forEach(aChoice ->
 			{
-				if (aChoice.startsWith(x))
-				{
-					removeAssociation(eqMod, aChoice);
-				}
-			}
+				removeAssociation(eqMod, aChoice);
+			});
 		}
 
 		if (!hasAssociations(eqMod))
@@ -5188,11 +5149,11 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (final BonusObj bonus : getRawBonusList(aPC))
+		getRawBonusList(aPC).forEach(bonus ->
 		{
 			aPC.setApplied(bonus, PrereqHandler.passesAll(bonus
-				.getPrerequisiteList(), this, aPC));
-		}
+					.getPrerequisiteList(), this, aPC));
+		});
 	}
 
 	public boolean isCalculatingCost()
@@ -6110,13 +6071,7 @@ public final class Equipment extends PObject implements Serializable,
 			typeIndex = -1;
 		}
 
-		for (Equipment eq : contents)
-		{
-			if (!eq.isType(type))
-			{
-				contents.remove(eq);
-			}
-		}
+		contents.stream().filter(eq -> !eq.isType(type)).forEach(contents::remove);
 
 		if (typeIndex < contents.size())
 		{
@@ -6419,18 +6374,17 @@ public final class Equipment extends PObject implements Serializable,
 				assocSupt.getAssocList(obj, AssociationListKey.CHOICES);
 		if (assocList != null)
 		{
-			for (FixedStringList ac : assocList)
+			assocList.forEach(ac ->
 			{
 				final String choiceStr = ac.get(0);
 				if (Constants.EMPTY_STRING.equals(choiceStr))
 				{
 					list.add(null);
-				}
-				else
+				} else
 				{
 					list.add(choiceStr);
 				}
-			}
+			});
 		}
 		return list;
 	}
@@ -6747,10 +6701,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		List<String> result = new ArrayList<>(trueTypeList.size());
-		for (Type type : trueTypeList)
-		{
-			result.add(type.toString());
-		}
+		result.addAll(trueTypeList.stream().map(Type::toString).collect(Collectors.toList()));
 		return result;
 	}
 	

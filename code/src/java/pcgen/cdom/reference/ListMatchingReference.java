@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.Objects;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.GroupingState;
@@ -148,7 +149,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 		{
 			for (V actual : actualList)
 			{
-				if (value != null && value.equals(actual))
+				if (Objects.equals(value, actual))
 				{
 					return true;
 				}
@@ -177,21 +178,21 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	public Collection<T> getContainedObjects()
 	{
 		List<T> list = new ArrayList<>();
-		for (T obj : all.getContainedObjects())
+		all.getContainedObjects().forEach(obj ->
 		{
 			List<V> actualList = obj.getListFor(key);
 			if (actualList != null)
 			{
 				for (V actual : actualList)
 				{
-					if (value != null && value.equals(actual))
+					if (Objects.equals(value, actual))
 					{
 						list.add(obj);
 						continue;
 					}
 				}
 			}
-		}
+		});
 		return list;
 	}
 
@@ -233,7 +234,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 			{
 				for (V actual : actualList)
 				{
-					if (value != null && value.equals(actual))
+					if (Objects.equals(value, actual))
 					{
 						count++;
 						continue;

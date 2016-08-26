@@ -90,22 +90,17 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
+		Runnable fullcleanup = () ->
 		{
-
-			public void run()
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MonClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MonClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
@@ -142,22 +137,17 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, monclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
+		Runnable fullcleanup = () ->
 		{
-
-			public void run()
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MonClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MonClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,
@@ -193,22 +183,17 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
+		Runnable fullcleanup = () ->
 		{
-
-			public void run()
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"SomeClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"SomeClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,
@@ -242,22 +227,17 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 		assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
+		Runnable fullcleanup = () ->
 		{
-
-			public void run()
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"SomeClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"SomeClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CROSS_CLASS,

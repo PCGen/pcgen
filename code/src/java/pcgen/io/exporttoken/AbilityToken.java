@@ -150,9 +150,9 @@ public class AbilityToken extends Token
 	 *            The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(String tokenSource,
-		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
-		final String tokenString, final AbilityCategory aCategory)
+	protected final String getTokenForCategory(String tokenSource,
+	                                           PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
+	                                           final String tokenString, final AbilityCategory aCategory)
 	{
 		boolean cacheAbilityProcessingData =
 				(cachedPC != pc || !aCategory.equals(lastCategory)
@@ -352,10 +352,10 @@ public class AbilityToken extends Token
 			MapToList<Ability, CNAbility> mtl =
                     new GenericMapToList<>(
                             LinkedHashMap.class);
-			for (Ability a : bList)
+			bList.forEach(a ->
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			});
 			return mtl;
 		}
 		catch (InstantiationException e)
@@ -406,10 +406,10 @@ public class AbilityToken extends Token
 			MapToList<Ability, CNAbility> mtl =
                     new GenericMapToList<>(
                             LinkedHashMap.class);
-			for (Ability a : bList)
+			bList.forEach(a ->
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			});
 			return mtl;
 		}
 		catch (InstantiationException e)
@@ -517,8 +517,8 @@ public class AbilityToken extends Token
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
-	private String getRetString(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
+	private static String getRetString(String tokenSource, PlayerCharacter pc,
+	                                   ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
 	{
 		String retString = "";
 		Ability aAbility;
@@ -556,10 +556,10 @@ public class AbilityToken extends Token
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
 				List<String> assocs = new ArrayList<>();
-				for (CNAbility cna : abilities)
+				abilities.forEach(cna ->
 				{
 					assocs.addAll(pc.getAssociationExportList(cna));
-				}
+				});
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
@@ -647,8 +647,8 @@ public class AbilityToken extends Token
 		return Nature.NORMAL;
 	}
 
-	private String getAssociationString(PlayerCharacter pc,
-		List<CNAbility> abilities, String key)
+	private static String getAssociationString(PlayerCharacter pc,
+	                                           List<CNAbility> abilities, String key)
 	{
 		int index = Integer.parseInt(key);
 		if (index < 0)
@@ -656,10 +656,10 @@ public class AbilityToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 		List<String> assocs  = new ArrayList<>();
-		for (CNAbility cna : abilities)
+		abilities.forEach(cna ->
 		{
 			assocs.addAll(pc.getAssociationExportList(cna));
-		}
+		});
 		Collections.sort(assocs);
 		int count = assocs.size();
 		if (index < count)
@@ -680,7 +680,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
+	private static String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
 	{
 		if (abilities.size() == 0)
 		{
@@ -690,14 +690,14 @@ public class AbilityToken extends Token
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
 		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
 		StringBuilder buff = new StringBuilder();
-		for (AspectName key : sortedKeys)
+		sortedKeys.forEach(key ->
 		{
 			if (buff.length() > 0)
 			{
 				buff.append(", ");
 			}
 			buff.append(Aspect.printAspect(pc, key, abilities));
-		}
+		});
 		return buff.toString();
 	}
 
@@ -713,8 +713,8 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc,
-		List<CNAbility> abilities, String key)
+	private static String getAspectString(PlayerCharacter pc,
+	                                      List<CNAbility> abilities, String key)
 	{
 		if (key == null)
 		{
@@ -761,7 +761,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return Y if the aspect is present, N if not.
 	 */
-	private String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
+	private static String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
 	{
 		List<Aspect> aspects = ability.get(MapKey.ASPECT, key);
 		Aspect aspect = Aspect.lastPassingAspect(aspects, pc, ability);
@@ -789,16 +789,13 @@ public class AbilityToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
+		allCats.stream().filter(aCat -> AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory)).forEach(aCat ->
 		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+			pc.getPoolAbilities(aCat, Nature.NORMAL).forEach(cna ->
 			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+				listOfAbilities.addToListFor(cna.getAbility(), cna);
+			});
+		});
 		return listOfAbilities;
 	}
 
@@ -813,7 +810,7 @@ public class AbilityToken extends Token
 	/**
 	 * @param v the view to set
 	 */
-	protected void setView(View v)
+	protected final void setView(View v)
 	{
 		this.view = v;
 	}

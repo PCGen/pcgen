@@ -78,10 +78,10 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 					.getListFor(ListKey.REMOVE);
 			if (removeList != null)
 			{
-				for (PersistentTransitionChoice<?> tc : removeList)
+				removeList.forEach(tc ->
 				{
 					driveChoice(cdo, tc, aPC);
-				}
+				});
 			}
 		}
 	}

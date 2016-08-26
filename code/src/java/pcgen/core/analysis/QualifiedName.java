@@ -32,7 +32,7 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-public class QualifiedName
+public final class QualifiedName
 {
 
 	/**
@@ -72,15 +72,12 @@ public class QualifiedName
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
 		List<T> allSelections = new ArrayList<>();
-		for (CNAbility cna : list)
+		list.stream().filter(pc::hasAssociations).forEach(cna ->
 		{
-			if (pc.hasAssociations(cna))
-			{
-				List<? extends T> selections =
-						(List<? extends T>) pc.getDetailedAssociations(cna);
-				allSelections.addAll(selections);
-			}
-		}
+			List<? extends T> selections =
+					(List<? extends T>) pc.getDetailedAssociations(cna);
+			allSelections.addAll(selections);
+		});
 		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
 		if (choiceInfo.length() > 0)
 		{

@@ -29,6 +29,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.WeightedCollection;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.Gender;
@@ -53,19 +54,19 @@ import pcgen.system.ConfigurationSettings;
  */
 public class Configuration
 {
-	private static List<Configuration> theConfigurations = new ArrayList<>();
-	private static Configuration theDefaultConfiguration = new Configuration();
+	private static final List<Configuration> theConfigurations = new ArrayList<>();
+	private static final Configuration theDefaultConfiguration = new Configuration();
 	
 	private GameMode theMode = null;
 	
 	private List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
 	private Map<String, ClassData> theClassData = new HashMap<>();
 	
-	private static File optionsDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File optionsDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "options"); //$NON-NLS-1$
 	
-	private static File classDataDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File classDataDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "classdata"); //$NON-NLS-1$
 	
@@ -86,16 +87,13 @@ public class Configuration
 		{
 			final OptionsParser parser = new OptionsParser( aMode );
 			
-			final File[] fileNames = optionsDir.listFiles(new FilenameFilter() {
-                @Override
-				public boolean accept(final File aDir, final String aName)
+			final File[] fileNames = optionsDir.listFiles((aDir, aName) ->
+			{
+				if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
 				{
-					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
-					{
-						return true;
-					}
-					return false;
+					return true;
 				}
+				return false;
 			});
 	
 			for ( final File file : fileNames )
@@ -106,25 +104,22 @@ public class Configuration
 			
 			final ClassDataParser classParser = new ClassDataParser( aMode );
 			
-			final File[] classDataFiles = classDataDir.listFiles(new FilenameFilter() {
-                @Override
-				public boolean accept(final File aDir, final String aName)
+			final File[] classDataFiles = classDataDir.listFiles((aDir, aName) ->
+			{
+				if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
 				{
-					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
-					{
-						return true;
-					}
-					return false;
+					return true;
 				}
+				return false;
 			});
 	
 			for ( final File file : classDataFiles )
 			{
 				final List<ClassData> classData = classParser.parse(file);
-				for ( final ClassData cd : classData )
+				classData.forEach(cd ->
 				{
 					config.theClassData.put(cd.getPCClass().getKeyName(), cd);
-				}
+				});
 			}
 		}
 		catch (Exception ex)
@@ -139,15 +134,8 @@ public class Configuration
 	
 	public List<AlignGeneratorOption> getAlignmentOptions()
 	{
-		final List<AlignGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof AlignGeneratorOption )
-			{
-				ret.add((AlignGeneratorOption)opt);
-			}
-		}
+		final List<AlignGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof AlignGeneratorOption).map(opt -> (AlignGeneratorOption) opt).collect(Collectors.toList());
+
 		for (final PCAlignment align : Globals.getContext().getReferenceContext().getOrderSortedCDOMObjects(PCAlignment.class))
 		{
 			boolean included = false;
@@ -172,36 +160,22 @@ public class Configuration
 	
 	public List<RaceGeneratorOption> getRaceOptions()
 	{
-		final List<RaceGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof RaceGeneratorOption )
-			{
-				ret.add((RaceGeneratorOption)opt);
-			}
-		}
-		for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
+		final List<RaceGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof RaceGeneratorOption).map(opt -> (RaceGeneratorOption) opt).collect(Collectors.toList());
+
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).forEach(race ->
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
 			opt.setName(race.getDisplayName());
 			opt.addChoice(1, race.getKeyName());
-			ret.add( opt );
-		}
+			ret.add(opt);
+		});
 		return ret;
 	}
 
 	public List<GenderGeneratorOption> getGenderOptions()
 	{
-		final List<GenderGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof GenderGeneratorOption )
-			{
-				ret.add((GenderGeneratorOption)opt);
-			}
-		}
+		final List<GenderGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof GenderGeneratorOption).map(opt -> (GenderGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( final Gender gender : Gender.values() )
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
@@ -214,36 +188,22 @@ public class Configuration
 
 	public List<ClassGeneratorOption> getClassOptions()
 	{
-		final List<ClassGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof ClassGeneratorOption )
-			{
-				ret.add((ClassGeneratorOption)opt);
-			}
-		}
-		for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
+		final List<ClassGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof ClassGeneratorOption).map(opt -> (ClassGeneratorOption) opt).collect(Collectors.toList());
+
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).forEach(pcClass ->
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
 			opt.setName(pcClass.getDisplayName());
 			opt.addChoice(1, pcClass.getKeyName());
 			ret.add(opt);
-		}
+		});
 		return ret;
 	}
 
 	public List<LevelGeneratorOption> getLevelOptions()
 	{
-		final List<LevelGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof LevelGeneratorOption )
-			{
-				ret.add((LevelGeneratorOption)opt);
-			}
-		}
+		final List<LevelGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof LevelGeneratorOption).map(opt -> (LevelGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( int i = 1; i <= 20; i++ )
 		{
 			final LevelGeneratorOption opt = new LevelGeneratorOption();

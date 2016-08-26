@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -222,8 +223,7 @@ public abstract class AbstractReferenceContext
 		T obj)
 	{
 		Category<T> oldCat = obj.getCDOMCategory();
-		if (oldCat == null && cat == null || oldCat != null
-				&& oldCat.equals(cat))
+		if (oldCat == null && cat == null || Objects.equals(oldCat, cat))
 		{
 			Logging.errorPrint("Worthless Category change encountered: "
 					+ obj.getDisplayName() + " " + oldCat);
@@ -232,7 +232,7 @@ public abstract class AbstractReferenceContext
 	}
 
 	@SuppressWarnings("unchecked")
-	protected <T> Class<T> getGenericClass(T obj)
+	protected static <T> Class<T> getGenericClass(T obj)
 	{
 		return (Class<T>) obj.getClass();
 	}
@@ -311,10 +311,10 @@ public abstract class AbstractReferenceContext
 	public Set<Object> getAllConstructedObjects()
 	{
 		Set<Object> set = new HashSet<>();
-		for (ReferenceManufacturer<?> ref : getAllManufacturers())
+		getAllManufacturers().forEach(ref ->
 		{
 			set.addAll(ref.getAllObjects());
-		}
+		});
 		// Collection otherSet = categorized.getAllConstructedCDOMObjects();
 		// set.addAll(otherSet);
 		return set;
@@ -329,12 +329,12 @@ public abstract class AbstractReferenceContext
 	public void buildDerivedObjects()
 	{
 		Collection<Domain> domains = getConstructedCDOMObjects(Domain.class);
-		for (Domain d : domains)
+		domains.forEach(d ->
 		{
 			DomainSpellList dsl = constructCDOMObject(DOMAINSPELLLIST_CLASS, d.getKeyName());
 			dsl.addType(Type.DIVINE);
 			d.put(ObjectKey.DOMAIN_SPELLLIST, dsl);
-		}
+		});
 		Collection<PCClass> classes = getConstructedCDOMObjects(PCClass.class);
 		for (PCClass pcc : classes)
 		{
@@ -464,10 +464,7 @@ public abstract class AbstractReferenceContext
 
 	public void buildDeferredObjects()
 	{
-		for (ReferenceManufacturer<?> rs : getAllManufacturers())
-		{
-			rs.buildDeferredObjects();
-		}
+		getAllManufacturers().forEach(ReferenceManufacturer::buildDeferredObjects);
 	}
 
 	public <T extends Loadable> T constructNowIfNecessary(Class<T> cl, String name)

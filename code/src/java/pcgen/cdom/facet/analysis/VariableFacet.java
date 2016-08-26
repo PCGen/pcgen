@@ -67,10 +67,10 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		CDOMObject cdo = dfce.getCDOMObject();
 		Set<VariableKey> keys = cdo.getVariableKeys();
 		CharID id = dfce.getCharID();
-		for (VariableKey vk : keys)
+		keys.forEach(vk ->
 		{
 			add(id, vk, cdo.get(vk), cdo);
-		}
+		});
 	}
 
 	/**
@@ -326,20 +326,20 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		Map<VariableKey, Map<Formula, Set<CDOMObject>>> cm = getCachedMap(source);
 		if (cm != null)
 		{
-			for (Map.Entry<VariableKey, Map<Formula, Set<CDOMObject>>> me : cm
-				.entrySet())
+			cm
+					.entrySet().forEach(me ->
 			{
 				VariableKey vk = me.getKey();
-				for (Map.Entry<Formula, Set<CDOMObject>> fme : me.getValue()
-					.entrySet())
+				me.getValue()
+						.entrySet().forEach(fme ->
 				{
 					Formula f = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
+					fme.getValue().forEach(cdo ->
 					{
 						add(copy, vk, f, cdo);
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 	}
 }

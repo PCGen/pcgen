@@ -277,10 +277,10 @@ public class Aspect extends ConcretePrereqObject
 				else if (var.equals(VAR_LIST))
 				{
 					List<String> assocList = new ArrayList<>();
-					for (CNAbility cna : abilities)
+					abilities.forEach(cna ->
 					{
 						assocList.addAll(aPC.getAssociationList(cna));
-					}
+					});
 					String joinString;
 					if (assocList.size() == 2)
 					{
@@ -321,31 +321,30 @@ public class Aspect extends ConcretePrereqObject
 	{
 		final StringBuilder buf = new StringBuilder();
 
-		for (final String str : theComponents)
+		//reescape
+		theComponents.forEach(str ->
 		{
 			if (str.startsWith(VAR_MARKER))
 			{
 				final int ind =
 						Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%').append(ind);
-			}
-			else if (str.equals("%"))
+			} else if (str.equals("%"))
 			{
 				//reescape
 				buf.append("%%");
-			}
-			else
+			} else
 			{
 				buf.append(EntityEncoder.encode(str));
 			}
-		}
+		});
 		if (theVariables != null)
 		{
-			for (final String var : theVariables)
+			theVariables.forEach(var ->
 			{
 				buf.append(Constants.PIPE);
 				buf.append(var);
-			}
+			});
 		}
 		
 		if (hasPrerequisites())
@@ -432,9 +431,8 @@ public class Aspect extends ConcretePrereqObject
 		Aspect retAspect = null;
 		if (aspects != null)
 		{
-			for (int i = 0; i < aspects.size(); i++)
+			for (Aspect testAspect : aspects)
 			{
-				Aspect testAspect = aspects.get(i);
 				if (testAspect.qualifies(pc, a))
 				{
 					retAspect = testAspect;

@@ -138,7 +138,7 @@ public class PortraitToken extends AbstractExportToken
 	 * @param pc The character being output.
 	 * @return The thumbnail image, or null if not defined.
 	 */
-	private BufferedImage generateThumb(CharacterDisplay display)
+	private static BufferedImage generateThumb(CharacterDisplay display)
 	{
 		Rectangle cropRect = display.getPortraitThumbnailRect();
 		BufferedImage portrait = null;
@@ -190,11 +190,11 @@ public class PortraitToken extends AbstractExportToken
      *    the {@code BILINEAR} hint is specified)
      * @return a scaled version of the original {@code BufferedImage}
      */
-    public BufferedImage getScaledInstance(BufferedImage img,
-                                           int targetWidth,
-                                           int targetHeight,
-                                           Object hint,
-                                           boolean higherQuality)
+    public static BufferedImage getScaledInstance(BufferedImage img,
+                                                  int targetWidth,
+                                                  int targetHeight,
+                                                  Object hint,
+                                                  boolean higherQuality)
     {
         int type = (img.getTransparency() == Transparency.OPAQUE) ?
             BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;

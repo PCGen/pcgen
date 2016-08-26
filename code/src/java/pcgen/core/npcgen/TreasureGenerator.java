@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
-public class TreasureGenerator 
+public final class TreasureGenerator
 {
 	private static TreasureGenerator theInstance = new TreasureGenerator();
 	
@@ -54,7 +54,7 @@ public class TreasureGenerator
 		return theInstance;
 	}
 	
-	public List<EquipmentTable> getTables( final GameMode aMode )
+	public static List<EquipmentTable> getTables(final GameMode aMode)
 	{
 		List<EquipmentTable> tables = theTreasureTables.get( aMode );
 		
@@ -63,16 +63,13 @@ public class TreasureGenerator
 			try
 			{
 				final EquipmentTableParser parser = new EquipmentTableParser( aMode );
-				final File[] fileNames = tablesDir.listFiles(new FilenameFilter() {
-                    @Override
-					public boolean accept(final File aDir, final String aName)
+				final File[] fileNames = tablesDir.listFiles((aDir, aName) ->
+				{
+					if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
 					{
-						if (aName.toLowerCase().endsWith(".xml")) //$NON-NLS-1$
-						{
-							return true;
-						}
-						return false;
+						return true;
 					}
+					return false;
 				});
 		
 				tables = new ArrayList<>();

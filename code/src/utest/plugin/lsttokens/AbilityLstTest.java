@@ -330,7 +330,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	}
 
 	//  
-	private Ability construct(LoadContext context, String name)
+	private static Ability construct(LoadContext context, String name)
 	{
 		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, name);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
@@ -560,7 +560,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		assertNoSideEffects();
 	}
 
-	private String getJoinCharacter()
+	private static String getJoinCharacter()
 	{
 		return Constants.PIPE;
 	}

@@ -67,10 +67,10 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 
 		if (qualList != null)
 		{
-			for (Qualifier q : qualList)
+			qualList.forEach(q ->
 			{
 				ci.add(q, cdo);
-			}
+			});
 		}
 	}
 
@@ -184,10 +184,10 @@ public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 			List<Qualifier> list = sourceMap.removeListFor(object);
 			if (list != null)
 			{
-				for (Qualifier q : list)
+				list.forEach(q ->
 				{
 					hml.removeFromListFor(q.getQualifiedClass(), q);
-				}
+				});
 			}
 		}
 

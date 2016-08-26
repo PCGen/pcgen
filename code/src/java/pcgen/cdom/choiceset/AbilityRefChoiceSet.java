@@ -30,6 +30,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
@@ -142,10 +144,7 @@ public class AbilityRefChoiceSet implements
 	{
 		Set<CDOMReference<?>> sortedSet = new TreeSet<>(
                 ReferenceUtilities.REFERENCE_SORTER);
-		for (CDOMReference<Ability> ar : abilityRefSet)
-		{
-			sortedSet.add(ar);
-		}
+		sortedSet.addAll(abilityRefSet);
 		return ReferenceUtilities.joinLstFormat(sortedSet, Constants.COMMA,
 				useAny);
 	}
@@ -189,22 +188,21 @@ public class AbilityRefChoiceSet implements
 	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
 	{
 		Set<CNAbilitySelection> returnSet = new LinkedHashSet<>();
-		for (CDOMReference<Ability> ref : abilityRefSet)
+		abilityRefSet.forEach(ref ->
 		{
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(a ->
 			{
 				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue())
 				{
 					returnSet.addAll(addMultiplySelectableAbility(pc, a, ref
 							.getChoice()));
-				}
-				else
+				} else
 				{
 					returnSet.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(
-						category.get(), nature, a)));
+							category.get(), nature, a)));
 				}
-			}
-		}
+			});
+		});
 		return returnSet;
 	}
 
@@ -251,13 +249,13 @@ public class AbilityRefChoiceSet implements
 				List<CDOMReference<WeaponProf>> dwp = deity
 						.getSafeListFor(ListKey.DEITYWEAPON);
 				Set<String> set = new HashSet<>();
-				for (CDOMReference<WeaponProf> ref : dwp)
+				dwp.forEach(ref ->
 				{
 					for (WeaponProf wp : ref.getContainedObjects())
 					{
 						set.add(wp.getKeyName());
 					}
-				}
+				});
 				availableList.retainAll(set);
 			}
 		}
@@ -288,25 +286,19 @@ public class AbilityRefChoiceSet implements
 
 		List<CNAbilitySelection> returnList = new ArrayList<>(
                 availableList.size());
-		for (String s : availableList)
-		{
-			returnList.add(new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.get(),
-				nature, ability), s));
-		}
+		returnList.addAll(availableList.stream().map(s -> new CNAbilitySelection(CNAbilityFactory.getCNAbility(category.get(),
+				nature, ability), s)).collect(Collectors.toList()));
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
-		ChooseInformation<T> chooseInfo)
+	private static <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	                                                 ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here
-		for (T o : tempAvailList)
-		{
-			availableList.add(chooseInfo.encodeChoice(o));
-		}
+		availableList.addAll(tempAvailList.stream().map((Function<T, String>) chooseInfo::encodeChoice).collect(Collectors.toList()));
 		return availableList;
 	}
 
@@ -316,7 +308,7 @@ public class AbilityRefChoiceSet implements
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return abilityRefSet.size();
 	}
@@ -329,7 +321,7 @@ public class AbilityRefChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -348,7 +340,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Category for this AbilityRefChoiceSet
 	 */
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public final CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}
@@ -358,7 +350,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Nature for this AbilityRefChoiceSet
 	 */
-	public Nature getNature()
+	public final Nature getNature()
 	{
 		return nature;
 	}
@@ -371,7 +363,7 @@ public class AbilityRefChoiceSet implements
 	 * @return The GroupingState for this AbilityRefChoiceSet.
 	 */
 	@Override
-	public GroupingState getGroupingState()
+	public final GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;
 		for (CDOMReference<Ability> ref : abilityRefSet)

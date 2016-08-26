@@ -82,7 +82,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	{
 		SettingsHandler.getGame().setCRSteps("1/2|1/3|1/4|1/6|1/8");
 		SettingsHandler.getGame().setCRThreshold("BASECR");
-		SettingsHandler.getGame().setMonsterRoleList(new ArrayList<String>(Arrays.asList("Combat","Skill","Druid")));
+		SettingsHandler.getGame().setMonsterRoleList(new ArrayList<>(Arrays.asList("Combat", "Skill", "Druid")));
 		SettingsHandler.getGame().addClassType("PC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-1	CRMODPRIORITY:1");
 		SettingsHandler.getGame().addClassType("NPC			CRFORMULA:CL	ISMONSTER:NO	CRMOD:-2	CRMODPRIORITY:2");
 		SettingsHandler.getGame().addClassType("Monster		CRFORMULA:0		ISMONSTER:YES");
@@ -94,7 +94,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 		SourceFileLoader.processFactDefinitions(context);
 
 		CampaignSourceEntry source = TestHelper.createSource(getClass());
-		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 		PCClassLoader classLoader = new PCClassLoader();
 
 		final String standardRaceLine = "Standard Race";

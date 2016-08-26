@@ -28,6 +28,7 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
@@ -93,33 +94,15 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	{
 		List<PCTemplate> returnList = new ArrayList<>();
 
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES).forEach(rlt ->
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
-			{
-				if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-				{
-					returnList.add(lt);
-				}
-			}
-		}
+			returnList.addAll(rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
+		});
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.LEVEL) <= totalLevels)
-			{
-				returnList.add(lt);
-			}
-		}
+		returnList.addAll(getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
-		{
-			if (lt.get(IntegerKey.HD_MAX) >= totalHitDice
-					&& lt.get(IntegerKey.HD_MIN) <= totalHitDice)
-			{
-				returnList.add(lt);
-			}
-		}
+		returnList.addAll(getSafeListFor(ListKey.HD_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.HD_MAX) >= totalHitDice
+				&& lt.get(IntegerKey.HD_MIN) <= totalHitDice).collect(Collectors.toList()));
 		return returnList;
 	}
 
@@ -134,23 +117,23 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 		 * for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(),
 		 * pc.totalHitDice())) { list.addAll(pct.getRawBonusList(pc); }
 		 */
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES).forEach(rlt ->
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES).forEach(lt ->
 			{
 				list.addAll(lt.getRawBonusList(pc));
-			}
-		}
+			});
+		});
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		getSafeListFor(ListKey.LEVEL_TEMPLATES).forEach(lt ->
 		{
 			list.addAll(lt.getRawBonusList(pc));
-		}
+		});
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
+		getSafeListFor(ListKey.HD_TEMPLATES).forEach(lt ->
 		{
 			list.addAll(lt.getRawBonusList(pc));
-		}
+		});
 		// end potential TO-DO change
 		return list;
 	}

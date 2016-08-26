@@ -342,31 +342,30 @@ public class Description extends ConcretePrereqObject
 	public String getPCCText()
 	{
 		final StringBuilder buf = new StringBuilder(250);
-		
-		for ( final String str : theComponents )
+
+		//reescape
+		theComponents.forEach(str ->
 		{
-			if ( str.startsWith(VAR_MARKER) )
+			if (str.startsWith(VAR_MARKER))
 			{
 				final int ind = Integer.parseInt(str.substring(VAR_MARKER.length()));
 				buf.append('%' + String.valueOf(ind));
-			}
-			else if (str.equals("%"))
+			} else if (str.equals("%"))
 			{
 				//reescape
 				buf.append("%%");
-			}
-			else
+			} else
 			{
 				buf.append(EntityEncoder.encodeLight(str));
 			}
-		}
+		});
 		if ( theVariables != null )
 		{
-			for ( final String var : theVariables )
+			theVariables.forEach(var ->
 			{
 				buf.append(Constants.PIPE);
 				buf.append(var);
-			}
+			});
 		}
 		
 		if (hasPrerequisites())

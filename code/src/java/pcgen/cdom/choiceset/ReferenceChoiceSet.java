@@ -152,10 +152,10 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<>();
-		for (CDOMReference<T> ref : refCollection)
+		refCollection.forEach(ref ->
 		{
 			returnSet.addAll(ref.getContainedObjects());
-		}
+		});
 		return returnSet;
 	}
 

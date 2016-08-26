@@ -25,24 +25,23 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.bonus.BonusObj;
 
-public class BonusActivation
+public final class BonusActivation
 {
 
 	public static void deactivateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
-		for (BonusObj bonus : po.getRawBonusList(aPC))
+		po.getRawBonusList(aPC).forEach(bonus ->
 		{
 			aPC.setApplied(bonus, false);
-		}
+		});
 	}
 
 	public static void activateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
-		for (Iterator<BonusObj> ab = po.getRawBonusList(aPC).iterator(); ab.hasNext();)
+		po.getRawBonusList(aPC).forEach(aBonus ->
 		{
-			final BonusObj aBonus = ab.next();
 			aPC.setApplied(aBonus, aBonus.qualifies(aPC, po));
-		}
+		});
 	}
 
 }

@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -85,19 +86,19 @@ public class VisionFacet extends
 		if (mods != null)
 		{
 			CharID id = dfce.getCharID();
-			for (CDOMReference<Vision> ref : mods)
+			mods.forEach(ref ->
 			{
 				Collection<AssociatedPrereqObject> assoc = cdo
 						.getListAssociations(Vision.VISIONLIST, ref);
-				for (AssociatedPrereqObject apo : assoc)
+				assoc.forEach(apo ->
 				{
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
-					for (Vision v : ref.getContainedObjects())
+					ref.getContainedObjects().forEach(v ->
 					{
 						add(id, new QualifiedObject<>(v, prereqs), cdo);
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 	}
 
@@ -148,37 +149,34 @@ public class VisionFacet extends
 			return Collections.emptyList();
 		}
 		Map<VisionType, Integer> map = new HashMap<>();
-		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap
-				.entrySet())
+		componentMap
+				.entrySet().forEach(me ->
 		{
 			QualifiedObject<Vision> qo = me.getKey();
-			for (Object source : me.getValue())
+			me.getValue().stream().filter(source -> prerequisiteFacet.qualifies(id, qo, source)).forEach(source ->
 			{
-				if (prerequisiteFacet.qualifies(id, qo, source))
+				String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
+						.getQualifiedKey()
+						: "";
+				Vision v = qo.getRawObject();
+				Formula distance = v.getDistance();
+				int a = formulaResolvingFacet.resolve(id, distance, sourceString)
+						.intValue();
+				VisionType visType = v.getType();
+				Integer current = map.get(visType);
+				if (current == null || current < a)
 				{
-					String sourceString = (source instanceof CDOMObject) ? ((CDOMObject) source)
-							.getQualifiedKey()
-							: "";
-					Vision v = qo.getRawObject();
-					Formula distance = v.getDistance();
-					int a = formulaResolvingFacet.resolve(id, distance, sourceString)
-							.intValue();
-					VisionType visType = v.getType();
-					Integer current = map.get(visType);
-					if (current == null || current < a)
-					{
-						map.put(visType, a);
-					}
+					map.put(visType, a);
 				}
-			}
-		}
+			});
+		});
 
 		/*
 		 * parse through the global list of vision tags and see if this PC has
 		 * any BONUS:VISION tags which will create a new visionMap entry, and
 		 * add any BONUS to existing entries in the map
 		 */
-		for (VisionType vType : VisionType.getAllVisionTypes())
+		VisionType.getAllVisionTypes().forEach(vType ->
 		{
 			int aVal = (int) bonusCheckingFacet
 					.getBonus(id, "VISION", vType.toString());
@@ -188,13 +186,9 @@ public class VisionFacet extends
 				Integer current = map.get(vType);
 				map.put(vType, aVal + (current == null ? 0 : current));
 			}
-		}
-		TreeSet<Vision> returnSet = new TreeSet<>();
-		for (Map.Entry<VisionType, Integer> me : map.entrySet())
-		{
-			returnSet.add(new Vision(me.getKey(), FormulaFactory
-					.getFormulaFor(me.getValue().intValue())));
-		}
+		});
+		TreeSet<Vision> returnSet = map.entrySet().stream().map(me -> new Vision(me.getKey(), FormulaFactory
+				.getFormulaFor(me.getValue().intValue()))).collect(Collectors.toCollection(TreeSet::new));
 		return returnSet;
 	}
 

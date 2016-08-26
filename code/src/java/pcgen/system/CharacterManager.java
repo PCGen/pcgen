@@ -72,7 +72,7 @@ import pcgen.util.Logging;
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class CharacterManager
+public final class CharacterManager
 {
 
 	private static final PartyFacadeImpl characters;
@@ -276,14 +276,17 @@ public class CharacterManager
 		}
 		warningMsg.appendLineBreak();
 		warningMsg.append("<UL>"); //$NON-NLS-1$
-		for (String string : warnings)
+		//$NON-NLS-1$
+//$NON-NLS-1$
+//$NON-NLS-1$
+		warnings.forEach(string ->
 		{
 			warningMsg.appendLineBreak();
 			warningMsg.append("<li>"); //$NON-NLS-1$
 			warningMsg.append(string);
 			warningMsg.append("</li>"); //$NON-NLS-1$
 			Logging.log(lvl, "* " + string); //$NON-NLS-1$
-		}
+		});
 		warningMsg.append("</UL>"); //$NON-NLS-1$
 		warningMsg.appendLineBreak();
 		if (errors)
@@ -311,10 +314,10 @@ public class CharacterManager
 	{
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		for (File charFile : ioHandler.readCharacterFileList(file))
+		PCGIOHandler.readCharacterFileList(file).forEach(charFile ->
 		{
 			openCharacter(charFile, delegate, dataset);
-		}
+		});
 		characters.setFile(file);
 		return characters;
 	}
@@ -322,7 +325,7 @@ public class CharacterManager
 	public static SourceSelectionFacade getRequiredSourcesForParty(File pcpFile, UIDelegate delegate)
 	{
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		List<File> files = ioHandler.readCharacterFileList(pcpFile);
+		List<File> files = PCGIOHandler.readCharacterFileList(pcpFile);
 		if (files == null || files.isEmpty())
 		{
 			return null;
@@ -376,11 +379,11 @@ public class CharacterManager
 		SourceSelectionFacade selection = ioHandler.readSources(pcgFile);
 		if (!ioHandler.getErrors().isEmpty())
 		{
-			for (String msg : ioHandler.getErrors())
+			ioHandler.getErrors().forEach(msg ->
 			{
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, msg);
 				Logging.errorPrint(msg);
-			}
+			});
 			return null;
 		}
 		return selection;
@@ -606,11 +609,11 @@ final class RecentFileList extends AbstractListFacade<File>
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
 		List<String> uris = new ArrayList<>(fileList.size());
-		for (File file : fileList)
+		fileList.forEach(file ->
 		{
 			URI uri = userdir.relativize(file.toURI());
 			uris.add(uri.toString());
-		}
+		});
 		PCGenSettings.getInstance().setStringArray(contextProp, uris);
 	}
 

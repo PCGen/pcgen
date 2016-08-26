@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.util.HashMapToList;
@@ -345,13 +346,10 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			for (Spell spell : Globals.getSpellMap().values())
+			Globals.getSpellMap().values().stream().filter(this::isSpellOfSubType).forEach(spell ->
 			{
-				if (isSpellOfSubType(spell))
-				{
-					addSpellInfoToList(spell, classes, domains, reqSpellType);
-				}
-			}
+				addSpellInfoToList(spell, classes, domains, reqSpellType);
+			});
 
 			for (PCClass aClass : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class))
@@ -440,15 +438,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		//Metamagic
 		if (metaAllowed)
 		{
-			List<Ability> metamagicFeats = new ArrayList<>();
-			for (Ability anAbility : Globals.getContext().getReferenceContext().getManufacturer(
-				Ability.class, AbilityCategory.FEAT).getAllObjects())
-			{
-				if (anAbility.isType("Metamagic"))
-				{
-					metamagicFeats.add(anAbility);
-				}
-			}
+			List<Ability> metamagicFeats = Globals.getContext().getReferenceContext().getManufacturer(
+					Ability.class, AbilityCategory.FEAT).getAllObjects().stream().filter(anAbility -> anAbility.isType("Metamagic")).collect(Collectors.toList());
 			Globals.sortPObjectListByName(metamagicFeats);
 			availMetamagicFeats.setContents(metamagicFeats);
 		}
@@ -636,15 +627,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		int baseSpellLevel = spellLevel.get();
 
 		// List of available spells
-		List<Spell> spellsOfLevel = new ArrayList<>();
-		for (AvailableSpell availSpell : classSpells)
-		{
-			if (availSpell.getLevel() == baseSpellLevel)
-			{
-				spellsOfLevel.add(availSpell.getSpell());
-			}
-
-		}
+		List<Spell> spellsOfLevel = classSpells.stream().filter(availSpell -> availSpell.getLevel() == baseSpellLevel).map(AvailableSpell::getSpell).collect(Collectors.toList());
 		Globals.sortPObjectListByName(spellsOfLevel);
 		availSpells.setContents(spellsOfLevel);
 		InfoFacade selSpell = spell.get();
@@ -803,13 +786,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 
 		classSpells = new ArrayList<>();
-		for (AvailableSpell availSpell : masterAvailableSpellFacet.getAllSpellsInList(spellList, datasetID))
-		{
-			if (canCreateItem(availSpell.getSpell()))
-			{
-				classSpells.add(availSpell);
-			}
-		}
+		classSpells.addAll(masterAvailableSpellFacet.getAllSpellsInList(spellList, datasetID).stream().filter(availSpell -> canCreateItem(availSpell.getSpell())).collect(Collectors.toList()));
 
 		if (spellLevel.get() == null)
 		{

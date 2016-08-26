@@ -86,18 +86,17 @@ public class AutoLanguageFacet extends
 	private void separateAll(CharID id,
 		List<QualifiedObject<CDOMReference<Language>>> list, CDOMObject cdo)
 	{
-		for (QualifiedObject<CDOMReference<Language>> qRef : list)
+		list.forEach(qRef ->
 		{
 			if (qRef.hasPrerequisites())
 			{
 				add(id, qRef, cdo);
-			}
-			else
+			} else
 			{
 				autoLanguageUnconditionalFacet.addAll(id, qRef.getRawObject()
-					.getContainedObjects(), cdo);
+						.getContainedObjects(), cdo);
 			}
-		}
+		});
 	}
 
 	/**
@@ -148,15 +147,12 @@ public class AutoLanguageFacet extends
 	public List<Language> getAutoLanguage(CharID id)
 	{
 		List<Language> list = new ArrayList<>();
-		for (QualifiedObject<CDOMReference<Language>> qo : getQualifiedSet(id))
+		getQualifiedSet(id).forEach(qo ->
 		{
 			Collection<Language> langList =
 					qo.getRawObject().getContainedObjects();
-			for (Language l : langList)
-			{
-				list.add(l);
-			}
-		}
+			list.addAll(langList);
+		});
 		return list;
 	}
 

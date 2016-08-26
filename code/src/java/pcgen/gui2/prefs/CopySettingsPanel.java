@@ -60,7 +60,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
 {
-	private static String in_copy_settings =
+	private static final String in_copy_settings =
 		LanguageBundle.getString("in_Prefs_copy");
 	
 	private JComboBoxEx gameModeSelect = new JComboBoxEx();
@@ -206,10 +206,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 
 			
 			// Refresh the affected settings panels
-			for (PCGenPrefsPanel panel : affectedPanels)
-			{
-				panel.applyOptionValuesToControls();
-			}
+			affectedPanels.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 
 			// Let the user know it is done
 			ShowMessageDelegate.showMessageDialog(

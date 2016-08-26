@@ -143,7 +143,7 @@ public final class PrereqHandler
 			return true;
 		}
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-		final PrerequisiteTest test = factory.getTest(prereq.getKind());
+		final PrerequisiteTest test = PrerequisiteTestFactory.getTest(prereq.getKind());
 
 		if (test == null)
 		{
@@ -208,7 +208,7 @@ public final class PrereqHandler
 			return true;
 		}
 		final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-		final PrerequisiteTest test = factory.getTest(preReq.getKind());
+		final PrerequisiteTest test = PrerequisiteTestFactory.getTest(preReq.getKind());
 
 		if (test == null)
 		{
@@ -249,7 +249,7 @@ public final class PrereqHandler
 
 		for (Prerequisite preReq : anArrayList)
 		{
-			final PrerequisiteTest preReqTest = factory.getTest(preReq.getKind());
+			final PrerequisiteTest preReqTest = PrerequisiteTestFactory.getTest(preReq.getKind());
 
 			if (preReqTest == null)
 			{

@@ -66,7 +66,7 @@ import pcgen.system.LanguageBundle;
 public class CharacterStatsPanel extends PCGenPrefsPanel
 {
 	
-	private static String in_abilities =
+	private static final String in_abilities =
 		LanguageBundle.getString("in_Prefs_abilities");
 	private String[] pMode;
 	private String[] pModeMethodName;
@@ -181,10 +181,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 			abilityRolledModeCombo = new JComboBoxEx();
 
-			for (RollMethod rm : rollMethods)
+			rollMethods.forEach(rm ->
 			{
 				abilityRolledModeCombo.addItem(rm.getDisplayName());
-			}
+			});
 
 			gridbag.setConstraints(abilityRolledModeCombo, c);
 			this.add(abilityRolledModeCombo);
@@ -416,32 +416,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	 */
 	private void addAbilitiesPanelListeners()
 	{
-		scoreListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesAllSameButton.setSelected(true);
-			}
-		};
+		scoreListener = evt -> abilitiesAllSameButton.setSelected(true);
 
-		purchaseModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesPurchasedButton.setSelected(true);
-			}
-		};
+		purchaseModeListener = evt -> abilitiesPurchasedButton.setSelected(true);
 
-		rolledModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesRolledButton.setSelected(true);
-			}
-		};
+		rolledModeListener = evt -> abilitiesRolledButton.setSelected(true);
 
 		startListeners();
 	}

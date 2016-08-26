@@ -192,7 +192,7 @@ public class NotesView extends JPanel
 	 *@param  name           name of the action to get
 	 *@return                the action
 	 */
-	public Action getActionByName(JTextComponent textComponent, String name)
+	public static Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
 		for (Action a : textComponent.getActions())
@@ -219,7 +219,7 @@ public class NotesView extends JPanel
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
-		for (FileFilter filter : plugin.getFileTypes())
+		for (FileFilter filter : NotesPlugin.getFileTypes())
 		{
 			chooser.addChoosableFileFilter(filter);
 			chooser.setFileFilter(filter);
@@ -451,7 +451,7 @@ public class NotesView extends JPanel
 	 *@param  count  File to count the children of
 	 *@return        count of all files in this dir
 	 */
-	protected int fileCount(File count)
+	protected static int fileCount(File count)
 	{
 		// TODO: Shouldn't this really be a static method in MiscUtils?
 		int num = 0;
@@ -476,7 +476,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  Button to highlight
 	 */
-	protected void highlightButton(JButton button)
+	protected static void highlightButton(JButton button)
 	{
 		button.setBorder(new BevelBorder(BevelBorder.LOWERED));
 	}
@@ -506,7 +506,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  button to set in standard mode
 	 */
-	protected void stdButton(JButton button)
+	protected static void stdButton(JButton button)
 	{
 		button.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
@@ -519,7 +519,7 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	protected void unzip(ZipInputStream zin, String entry, File homeDir)
+	protected static void unzip(ZipInputStream zin, String entry, File homeDir)
 		throws IOException
 	{
 		// TODO: This function really should be in MiscUtils as a static
@@ -625,8 +625,8 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	protected int writeNotesDir(ZipOutputStream out, File parentDir,
-		File currentDir, ProgressMonitor pm, int progress) throws IOException
+	protected static int writeNotesDir(ZipOutputStream out, File parentDir,
+	                                   File currentDir, ProgressMonitor pm, int progress) throws IOException
 	{
 		byte[] buffer = new byte[4096];
 		int bytes_read;
@@ -689,7 +689,7 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	protected void writeNotesFile(File exportFile, NotesTreeNode node)
+	protected static void writeNotesFile(File exportFile, NotesTreeNode node)
 		throws IOException
 	{
 		File dir = node.getDir();

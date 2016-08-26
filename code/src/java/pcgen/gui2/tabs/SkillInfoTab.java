@@ -425,20 +425,14 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 
 		};
 
-		private final Filter<CharacterFacade, SkillFacade> gainedFilter = new Filter<CharacterFacade, SkillFacade>()
+		private final Filter<CharacterFacade, SkillFacade> gainedFilter = (context, element) ->
 		{
-
-			@Override
-			public boolean accept(CharacterFacade context, SkillFacade element)
+			if (context == null)
 			{
-				if (context == null)
-				{
-					return false;
-				}
-				CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
-				return levels.getSkillRanks(null, element) > 0.0f;
+				return false;
 			}
-
+			CharacterLevelsFacade levels = context.getCharacterLevelsFacade();
+			return levels.getSkillRanks(null, element) > 0.0f;
 		};
 		private final ListSelectionModel model;
 		private final CharacterFacade character;
@@ -549,9 +543,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			MouseListener[] listeners
 					= component.getMouseListeners();
-			for (int i = 0; i < listeners.length; i++)
+			for (MouseListener listener : listeners)
 			{
-				MouseListener listener = listeners[i];
 				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED,
 						System.currentTimeMillis(), 0, 0, 0, 1, false));
 			}

@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -477,23 +478,16 @@ public class DataInstaller extends JFrame
 	 */
 	private boolean checkNonStandardOK(Collection<String> files)
 	{
-		Collection<String> nonStandardFiles = new ArrayList<>();
-		for (String filename : files)
-		{
-			if (!filename.toLowerCase().startsWith(DATA_FOLDER)
-				&& !filename.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
-			{
-				nonStandardFiles.add(filename);
-			}
-		}
+		Collection<String> nonStandardFiles = files.stream().filter(filename -> !filename.toLowerCase().startsWith(DATA_FOLDER)
+				&& !filename.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER)).collect(Collectors.toCollection(ArrayList::new));
 
 		if (!nonStandardFiles.isEmpty())
 		{
 			StringBuilder msg = new StringBuilder();
-			for (String filename : nonStandardFiles)
+			nonStandardFiles.forEach(filename ->
 			{
 				msg.append(' ').append(filename).append("\n");
-			}
+			});
 			DIWarningDialog dialog =
 					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diNonStandardFiles"));
@@ -505,10 +499,7 @@ public class DataInstaller extends JFrame
 			}
 			if (result == JOptionPane.NO_OPTION)
 			{
-				for (String filename : nonStandardFiles)
-				{
-					files.remove(filename);
-				}
+				nonStandardFiles.forEach(files::remove);
 			}
 		}
 
@@ -528,23 +519,23 @@ public class DataInstaller extends JFrame
 	{
 		Collection<String> existingFiles = new ArrayList<>();
 		Collection<String> existingFilesCorr = new ArrayList<>();
-		for (String filename : files)
+		files.forEach(filename ->
 		{
-			String correctedFilename = correctFileName(destDir, filename); 
+			String correctedFilename = correctFileName(destDir, filename);
 			if (new File(correctedFilename).exists())
 			{
 				existingFiles.add(filename);
 				existingFilesCorr.add(correctedFilename);
 			}
-		}
+		});
 
 		if (!existingFiles.isEmpty())
 		{
 			StringBuilder msg = new StringBuilder();
-			for (String filename : existingFilesCorr)
+			existingFilesCorr.forEach(filename ->
 			{
 				msg.append(' ').append(filename).append("\n");
-			}
+			});
 			DIWarningDialog dialog =
 					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diOverwriteFiles"));
@@ -556,10 +547,7 @@ public class DataInstaller extends JFrame
 			}
 			if (result == JOptionPane.NO_OPTION)
 			{
-				for (String filename : existingFiles)
-				{
-					files.remove(filename);
-				}
+				existingFiles.forEach(files::remove);
 			}
 		}
 
@@ -575,7 +563,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private void copyInputStream(InputStream in, OutputStream out)
+	private static void copyInputStream(InputStream in, OutputStream out)
 		throws IOException
 	{
 		byte[] buffer = new byte[1024];
@@ -599,7 +587,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return the corrected file name.
 	 */
-	private String correctFileName(File destDir, String fileName)
+	private static String correctFileName(File destDir, String fileName)
 	{
 		if (fileName.toLowerCase().startsWith(DATA_FOLDER))
 		{
@@ -623,7 +611,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean createDirectories(Iterable<String> directories, File destDir)
+	private static boolean createDirectories(Iterable<String> directories, File destDir)
 	{
 		for (String dirname : directories)
 		{
@@ -653,7 +641,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if all files created ok
 	 */
-	private boolean createFiles(File dataSet, File destDir, Iterable<String> files)
+	private static boolean createFiles(File dataSet, File destDir, Iterable<String> files)
 	{
 		String corrFilename = "";
 		try (ZipFile in = new ZipFile(dataSet)) {
@@ -792,8 +780,8 @@ public class DataInstaller extends JFrame
 	 * @return true, if populate file and dir lists
 	 */
 	@SuppressWarnings("rawtypes")
-	private boolean populateFileAndDirLists(File dataSet,
-		Collection<String> directories, Collection<String> files)
+	private static boolean populateFileAndDirLists(File dataSet,
+	                                               Collection<String> directories, Collection<String> files)
 	{
 		// Navigate through the zip file, processing each file
 		// Open the ZIP file

@@ -1023,16 +1023,18 @@ public final class SettingsHandler
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
 		List<URI> uriList = new ArrayList<>(uriStringList.size());
-		for (String str : uriStringList)
+		uriStringList.forEach(str ->
 		{
-			try {
+			try
+			{
 				uriList.add(new URI(str));
-			} catch (URISyntaxException e) {
+			} catch (URISyntaxException e)
+			{
 				Logging.errorPrint("Settings error: Unable to convert " + str
 						+ " to a URI: " + e.getLocalizedMessage());
 			}
-		}
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
+		});
+		PersistenceManager.setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)
@@ -1058,7 +1060,7 @@ public final class SettingsHandler
 			retractRelativePath(getSelectedPartyPDFOutputSheet()));
 		getOptions().setProperty("pcgen.files.selectedEqSetTemplate", retractRelativePath(getSelectedEqSetTemplate())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
-			StringUtil.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), ", "));
+			StringUtil.join(PersistenceManager.getChosenCampaignSourcefiles(), ", "));
 
 		getOptions().setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 
@@ -2331,16 +2333,14 @@ public final class SettingsHandler
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
+		for (final String aKey : ruleCheckMap.keySet())
 		{
-			final String aKey = i.next();
 			final String aVal = ruleCheckMap.get(aKey);
 
 			if (value.length() == 0)
 			{
 				value = aKey + "|" + aVal; //$NON-NLS-1$
-			}
-			else
+			} else
 			{
 				value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
 			}

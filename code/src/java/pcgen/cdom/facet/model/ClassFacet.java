@@ -195,13 +195,13 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		ClassInfo info = (ClassInfo) removeCache(id);
 		if (info != null)
 		{
-			for (PCClass obj : info.getClassSet())
+			info.getClassSet().forEach(obj ->
 			{
 				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
+						DataFacetChangeEvent.DATA_REMOVED);
 				int oldLevel = info.getLevel(obj);
 				support.fireClassLevelChangeEvent(id, obj, oldLevel, 0);
-			}
+			});
 		}
 		return info;
 	}
@@ -432,12 +432,12 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 
 		public ClassInfo(ClassInfo info)
 		{
-			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map
-				.entrySet())
+			info.map
+					.entrySet().forEach(me ->
 			{
 				map.put(me.getKey(), new HashMap<>(me
-                        .getValue()));
-			}
+						.getValue()));
+			});
 			levelmap.putAll(info.levelmap);
 		}
 
@@ -473,19 +473,18 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		{
 			Map<PCClass, Map<Integer, PCClassLevel>> oldMap = map;
 			map = new LinkedHashMap<>();
-			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : oldMap
-				.entrySet())
+			oldMap
+					.entrySet().forEach(me ->
 			{
 				PCClass currentClass = me.getKey();
 				if (oldClass.equals(currentClass))
 				{
 					addClass(newClass);
-				}
-				else
+				} else
 				{
 					map.put(currentClass, me.getValue());
 				}
-			}
+			});
 		}
 
 		public boolean addClass(PCClass pcc)

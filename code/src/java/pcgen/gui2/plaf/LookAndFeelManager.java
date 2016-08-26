@@ -69,34 +69,28 @@ public final class LookAndFeelManager
 		{
 			//not much we can do can do about this
 		}
-		Comparator<LookAndFeelInfo> lafcomp = new Comparator<LookAndFeelInfo>()
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
 		{
-
-			@Override
-			public int compare(LookAndFeelInfo o1, LookAndFeelInfo o2)
+			//System laf goes first
+			if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
 			{
-				//System laf goes first
-				if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return 1;
-				}
-				//Cross Platfrom laf goes second
-				if (o1.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return 1;
-				}
-				//the rest don't matter
-				return 0;
+				return -1;
 			}
-
+			if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+			{
+				return 1;
+			}
+			//Cross Platfrom laf goes second
+			if (o1.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return -1;
+			}
+			if (o2.getClassName().equals(CROSS_LAF_CLASS))
+			{
+				return 1;
+			}
+			//the rest don't matter
+			return 0;
 		};
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order

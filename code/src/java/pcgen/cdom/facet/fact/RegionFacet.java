@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import java.util.Objects;
 import pcgen.base.lang.ObjectUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
@@ -189,7 +190,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		return region;
 	}
 
-	private String getTemplateRegion(PCTemplate template)
+	private static String getTemplateRegion(PCTemplate template)
 	{
 		/*
 		 * TODO This should be made type safe to return a Region. Will require a
@@ -300,7 +301,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		return s;
 	}
 
-	private String getTemplateSubRegion(PCTemplate template)
+	private static String getTemplateSubRegion(PCTemplate template)
 	{
 		/*
 		 * TODO This should be made type safe to return a SubRegion. Will
@@ -444,7 +445,7 @@ public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		RegionCacheInfo rci = getInfo(id);
 		String current = rci.cachedRegion;
 		String newRegion = getRegion(id);
-		if (current == null || !current.equals(newRegion))
+		if (!Objects.equals(current, newRegion))
 		{
 			if (current != null)
 			{

@@ -301,10 +301,10 @@ public class Prerequisite implements Cloneable
 
 		if (prerequisites != null)
 		{
-			for ( Prerequisite prereq : prerequisites )
+			prerequisites.forEach(prereq ->
 			{
 				buf.append(prereq.toString());
-			}
+			});
 		}
 
 		buf.append("</"); //$NON-NLS-1$
@@ -415,10 +415,10 @@ public class Prerequisite implements Cloneable
 		if (prerequisites != null && prerequisites.size() > 0 && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
-			for ( Prerequisite subreq : prerequisites )
+			prerequisites.forEach(subreq ->
 			{
 				buf.append(subreq.getDescription(shortForm));
-			}
+			});
 			buf.append(')'); //$NON-NLS-1$
 		}
 

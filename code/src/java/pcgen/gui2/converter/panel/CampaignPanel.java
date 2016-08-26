@@ -30,6 +30,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -100,16 +101,7 @@ public class CampaignPanel extends ConvertSubPanel
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
 		gameModeCampaigns = new ArrayList<>();
-		for (Campaign campaign : allCampaigns)
-		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
-			{
-				if (campaign.getSourceURI().toString().startsWith(folderName))
-				{
-					gameModeCampaigns.add(campaign);
-				}
-			}
-		}
+		gameModeCampaigns.addAll(allCampaigns.stream().filter(campaign -> campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList)).filter(campaign -> campaign.getSourceURI().toString().startsWith(folderName)).collect(Collectors.toList()));
 		return false;
 	}
 
@@ -144,10 +136,7 @@ public class CampaignPanel extends ConvertSubPanel
 		    }
 		};
 		table.getSelectionModel().addListSelectionListener(
-			new ListSelectionListener()
-			{
-				@Override
-				public void valueChanged(ListSelectionEvent event)
+				event ->
 				{
 					pc.removeListFor(ListKey.CAMPAIGN);
 					int[] selRows = table.getSelectedRows();
@@ -168,7 +157,6 @@ public class CampaignPanel extends ConvertSubPanel
 						fireProgressEvent(ProgressEvent.ALLOWED);
 					}
 				}
-			}
 		);
 
 		JScrollPane listScroller = new JScrollPane(table);
@@ -210,7 +198,7 @@ public class CampaignPanel extends ConvertSubPanel
 		}
 	}
 	
-	private void saveSourceSelection(CDOMObject pc)
+	private static void saveSourceSelection(CDOMObject pc)
 	{
 		List<Campaign> selCampaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		PCGenSettings context = PCGenSettings.getInstance();

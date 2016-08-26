@@ -127,18 +127,17 @@ public class CDOMSubLineLoader<T extends Loadable>
 		StringBuilder temp = new StringBuilder();
 		if (unparse != null)
 		{
-			for (String s : unparse)
+			unparse.forEach(s ->
 			{
 				if (s.startsWith(targetPrefixColon))
 				{
 					sb.append(s);
-				}
-				else
+				} else
 				{
 					temp.append('\t');
 					temp.append(s);
 				}
-			}
+			});
 			sb.append(temp);
 			sb.append('\n');
 		}

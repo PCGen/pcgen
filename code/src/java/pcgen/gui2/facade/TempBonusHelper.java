@@ -30,6 +30,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -63,7 +64,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class TempBonusHelper
+public final class TempBonusHelper
 {
 
 	/** An empty string. */
@@ -603,10 +604,7 @@ public class TempBonusHelper
 	{
 		Set<String> set = new HashSet<>();
 		//Should use hasEquipmentTempBonus first, so we do NOT do getSafeListFor
-		for (EquipBonus bonus : obj.getListFor(ListKey.BONUS_EQUIP))
-		{
-			set.add(bonus.conditions);
-		}
+		set.addAll(obj.getListFor(ListKey.BONUS_EQUIP).stream().map(bonus -> bonus.conditions).collect(Collectors.toList()));
 		return set;
 	}
 

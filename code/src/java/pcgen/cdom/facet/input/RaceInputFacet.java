@@ -82,10 +82,10 @@ public class RaceInputFacet
 			//Error?
 			return false;
 		}
-		for (T sel : newSelections)
+		newSelections.forEach(sel ->
 		{
 			directSet(id, race, sel);
-		}
+		});
 		return true;
 	}
 

@@ -40,7 +40,7 @@ import java.awt.Font;
  * </ul>
  * @author Vincent Lhote
  */
-public class FontManipulation
+public final class FontManipulation
 {
 
 	public static Font title(Font f)

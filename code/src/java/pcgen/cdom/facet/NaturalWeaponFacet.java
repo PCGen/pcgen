@@ -59,10 +59,10 @@ public class NaturalWeaponFacet extends AbstractSourcedListFacet<CharID, Equipme
 		if (weapons != null)
 		{
 			CharID id = dfce.getCharID();
-			for (Equipment e : weapons)
+			weapons.forEach(e ->
 			{
 				add(id, e, cdo);
-			}
+			});
 		}
 	}
 
@@ -88,10 +88,10 @@ public class NaturalWeaponFacet extends AbstractSourcedListFacet<CharID, Equipme
 		if (weapons != null)
 		{
 			CharID id = dfce.getCharID();
-			for (Equipment e : weapons)
+			weapons.forEach(e ->
 			{
 				remove(id, e, cdo);
-			}
+			});
 		}
 	}
 }

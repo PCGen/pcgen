@@ -143,9 +143,9 @@ public final class OutputDB
 	public static Map<String, Object> buildDataModel(CharID id)
 	{
 		Map<String, Object> input = new HashMap<>();
-		for (Object k1 : outModels.getKeySet())
+		outModels.getKeySet().forEach(k1 ->
 		{
-			for (Object k2 : outModels.getSecondaryKeySet(k1))
+			outModels.getSecondaryKeySet(k1).forEach(k2 ->
 			{
 				ModelFactory modelFactory = outModels.get(k1, k2);
 				TemplateModel model = modelFactory.generate(id);
@@ -153,8 +153,7 @@ public final class OutputDB
 				if ("".equals(k2.toString()))
 				{
 					input.put(k1String, model);
-				}
-				else
+				} else
 				{
 					ensureMap(input, k1String);
 					@SuppressWarnings("unchecked")
@@ -162,8 +161,8 @@ public final class OutputDB
 							(Map<Object, Object>) input.get(k1String);
 					m.put(k2.toString(), model);
 				}
-			}
-		}
+			});
+		});
 		return input;
 	}
 
@@ -183,11 +182,11 @@ public final class OutputDB
 	public static Map<String, Object> buildModeDataModel(GameMode mode)
 	{
 		Map<String, Object> input = new HashMap<>();
-		for (Object key : modeModels.keySet())
+		modeModels.keySet().forEach(key ->
 		{
 			ModeModelFactory modelFactory = modeModels.get(key);
 			input.put(key.toString(), modelFactory.generate(mode));
-		}
+		});
 		return input;
 	}
 	

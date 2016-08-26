@@ -236,8 +236,8 @@ public class SkillSitToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Object skillSit, int property,
-		String propertyText, PlayerCharacter pc)
+	private static String getSkillPropValue(Object skillSit, int property,
+	                                        String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 

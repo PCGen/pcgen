@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -189,13 +190,10 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				for (Object object : data)
+				data.stream().filter(object -> object instanceof LanguageFacade).forEach(object ->
 				{
-					if (object instanceof LanguageFacade)
-					{
-						chooser.addSelected((LanguageFacade) object);
-					}
-				}
+					chooser.addSelected((LanguageFacade) object);
+				});
 			}
 			return;
 		}
@@ -282,7 +280,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		NAME("in_nameLabel"), //$NON-NLS-1$
 		TYPE_NAME("in_typeName"); //$NON-NLS-1$
 		
-		private String name;
+		private final String name;
 
 		private LanguageTreeView(String name)
 		{
@@ -304,10 +302,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 				case NAME:
 					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
-					for(String type : pobj.getTypes())
-					{
-						paths.add(new TreeViewPath<>(pobj, type));
-					}
+					paths.addAll(pobj.getTypes().stream().map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 					return paths;
 				default:
 					throw new InternalError();

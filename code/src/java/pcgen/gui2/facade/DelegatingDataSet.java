@@ -151,10 +151,10 @@ public class DelegatingDataSet implements DataSetFacade
 		public void detach()
 		{
 			abilitiesDelegate.removeMapListener(this);
-			for (DelegatingListFacade<AbilityFacade> list : abilitiesMap.values())
+			abilitiesMap.values().forEach(list ->
 			{
 				list.setDelegate(null);
-			}
+			});
 		}
 
 		@Override
@@ -212,11 +212,11 @@ public class DelegatingDataSet implements DataSetFacade
 
 		private void populateMap()
 		{
-			for (AbilityCategoryFacade key : abilitiesDelegate.getKeys())
+			abilitiesDelegate.getKeys().forEach(key ->
 			{
 				DelegatingListFacade<AbilityFacade> value = new DelegatingListFacade<>(abilitiesDelegate.getValue(key));
 				abilitiesMap.put(key, value);
-			}
+			});
 		}
 
 		@Override
@@ -225,10 +225,10 @@ public class DelegatingDataSet implements DataSetFacade
 			ArrayList<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<>(abilitiesMap.values());
 			abilitiesMap.clear();
 			populateMap();
-			for (DelegatingListFacade<AbilityFacade> delegatingListFacade : deadLists)
+			deadLists.forEach(delegatingListFacade ->
 			{
 				delegatingListFacade.setDelegate(null);
-			}
+			});
 		}
 
 	}

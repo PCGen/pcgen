@@ -28,6 +28,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.ArrayUtils;
 
 import pcgen.cdom.base.CDOMObject;
@@ -56,7 +57,7 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class FacadeFactory
+public final class FacadeFactory
 {
 
 	private static PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");
@@ -370,23 +371,19 @@ public class FacadeFactory
 	public static boolean passesPrereqs(List<CampaignFacade> campaigns)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
-		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : campaigns)
-		{
-			uris.add(((Campaign)campaignFacade).getSourceURI());
-		}
-		pman.setChosenCampaignSourcefiles(uris);
+		List<URI> oldList = PersistenceManager.getChosenCampaignSourcefiles();
+		List<URI> uris = campaigns.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		for (CampaignFacade campaignFacade : campaigns)
 		{
 			Campaign camp = ((Campaign)campaignFacade);
 			if(!camp.qualifies(null, camp))
 			{
-				pman.setChosenCampaignSourcefiles(oldList);
+				PersistenceManager.setChosenCampaignSourcefiles(oldList);
 				return false;
 			}
 		}
-		pman.setChosenCampaignSourcefiles(oldList);
+		PersistenceManager.setChosenCampaignSourcefiles(oldList);
 		return true;
 	}
 	
@@ -492,11 +489,7 @@ public class FacadeFactory
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			campaigns.setContents(campaign);
-			List<String> camps = new ArrayList<>();
-			for (CampaignFacade camp : campaign)
-			{
-				camps.add(camp.getName());
-			}
+			List<String> camps = campaign.stream().map(CampaignFacade::getName).collect(Collectors.toList());
 			context.setStringArray("campaigns", camps);
 		}
 

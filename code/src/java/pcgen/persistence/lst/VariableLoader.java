@@ -38,8 +38,8 @@ import pcgen.util.Logging;
 public class VariableLoader extends Observable
 {
 
-	public final void parseLine(LoadContext context, String lstLine,
-		SourceEntry source) throws PersistenceLayerException
+	public static void parseLine(LoadContext context, String lstLine,
+	                             SourceEntry source) throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);
@@ -82,18 +82,15 @@ public class VariableLoader extends Observable
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles =
-				new HashSet<CampaignSourceEntry>();
+				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
-		for (CampaignSourceEntry sourceEntry : fileList)
+		// Check if the CSE has already been loaded before loading it
+		fileList.stream().filter(sourceEntry -> !loadedFiles.contains(sourceEntry)).forEach(sourceEntry ->
 		{
-			// Check if the CSE has already been loaded before loading it
-			if (!loadedFiles.contains(sourceEntry))
-			{
-				loadLstFile(context, sourceEntry);
-				loadedFiles.add(sourceEntry);
-			}
-		}
+			loadLstFile(context, sourceEntry);
+			loadedFiles.add(sourceEntry);
+		});
 	}
 
 	/**

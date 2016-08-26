@@ -42,7 +42,7 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
-public class TokenConverter
+public final class TokenConverter
 {
 
 	private static final DoubleKeyMap<Class<?>, String, TokenProcessorPlugin> map = new DoubleKeyMap<>();
@@ -183,7 +183,7 @@ public class TokenConverter
 			}
 		}
 
-		protected TokenProcessorPlugin grabToken(Class<?> cl, String key)
+		protected static TokenProcessorPlugin grabToken(Class<?> cl, String key)
 		{
 			return map.get(cl, key);
 		}

@@ -30,6 +30,7 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
@@ -47,7 +48,7 @@ import pcgen.core.utils.CoreUtility;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class EquipSetMigration
+public final class EquipSetMigration
 {
 
 	private static EquipSetOutputOrderComparator comparator =
@@ -78,12 +79,12 @@ public class EquipSetMigration
 	{
 		Collection<EquipSet> allEquipSets = pc.getDisplay().getEquipSet();
 		List<EquipSet> sortedChildrenEs = getSortedChildren(allEquipSets, "0");
-		for (EquipSet equipSet : sortedChildrenEs)
+		sortedChildrenEs.forEach(equipSet ->
 		{
 			List<EquipSet> children =
 					getSortedChildren(allEquipSets, equipSet.getIdPath());
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
-		}
+		});
 	}
 
 	/**
@@ -95,14 +96,7 @@ public class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<>();
-		for (EquipSet equipSet : allEquipSets)
-		{
-			if (equipSet.getParentIdPath().equals(parentIdPath))
-			{
-				children.add(equipSet);
-			}
-		}
+		List<EquipSet> children = allEquipSets.stream().filter(equipSet -> equipSet.getParentIdPath().equals(parentIdPath)).collect(Collectors.toList());
 
 		Collections.sort(children, comparator);
 		return children;
@@ -170,7 +164,7 @@ public class EquipSetMigration
 			return arg0.getIdPath().compareTo(arg1.getIdPath());
 		}
 
-		private String getSortKey(Equipment equip)
+		private static String getSortKey(Equipment equip)
 		{
 			if (equip == null)
 			{

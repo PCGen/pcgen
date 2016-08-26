@@ -304,10 +304,10 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 			SkillRankChangeEvent bce =
 					new SkillRankChangeEvent(id, skill, oldValue, newValue);
 
-			for (SkillRankChangeListener target : listeners)
+			listeners.forEach(target ->
 			{
 				target.bonusChange(bce);
-			}
+			});
 		}
 	}
 

@@ -32,7 +32,7 @@ public final class CNAbilityFactory
 		//Do not instantiate
 	}
 
-	private static Map<CNAbility, CNAbility> map = new HashMap<>();
+	private static final Map<CNAbility, CNAbility> map = new HashMap<>();
 
 	public static CNAbility getCNAbility(Category<Ability> cat, Nature n, Ability a)
 	{

@@ -102,7 +102,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 		return passes(prereq, character, equipment);
 	}
 
-	protected int countedTotal(final Prerequisite prereq, final int runningTotal)
+	protected static int countedTotal(final Prerequisite prereq, final int runningTotal)
 	{
 		if (prereq.isCountMultiples() || prereq.isTotalValues())
 		{

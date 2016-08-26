@@ -45,7 +45,7 @@ import org.apache.commons.lang.time.DateFormatUtils;
  * @author Vincent Lhote
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
-public class Tips
+public final class Tips
 {
 	/** Quote char */
 	private static final char QUOTE = '"';

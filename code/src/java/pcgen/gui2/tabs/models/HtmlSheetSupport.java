@@ -60,18 +60,12 @@ import pcgen.util.Logging;
 public class HtmlSheetSupport
 {
 
-	private static final ThreadFactory threadFactory = new ThreadFactory()
+	private static final ThreadFactory threadFactory = r ->
 	{
-
-		@Override
-		public Thread newThread(Runnable r)
-		{
-			Thread thread = new Thread(r);
-			thread.setDaemon(true);
-			thread.setName("html-sheet-thread");
-			return thread;
-		}
-
+		Thread thread = new Thread(r);
+		thread.setDaemon(true);
+		thread.setName("html-sheet-thread");
+		return thread;
 	};
 	private ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
 
@@ -160,16 +154,7 @@ public class HtmlSheetSupport
 			try
 			{
 				final HTMLDocument doc = get();
-				SwingUtilities.invokeAndWait(new Runnable()
-				{
-
-					@Override
-					public void run()
-					{
-						htmlPane.setDocument(doc);
-					}
-
-				});
+				SwingUtilities.invokeAndWait(() -> htmlPane.setDocument(doc));
 			}
 			catch (InvocationTargetException ex)
 			{

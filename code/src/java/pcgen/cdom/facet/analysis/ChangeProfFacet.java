@@ -130,18 +130,17 @@ public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf
 		// initialized, see 2001287
 		Collection<WeaponProf> weaponProfsOfType = Globals.getPObjectsOfType(
 				ref.getConstructedCDOMObjects(WeaponProf.class), type);
-		for (ChangeProf cp : getSet(id))
+		getSet(id).forEach(cp ->
 		{
 			if (cp.getResult().equals(master))
 			{
 				aList.addAll(cp.getSource().getContainedObjects());
-			}
-			else if (weaponProfsOfType != null)
+			} else if (weaponProfsOfType != null)
 			{
 				weaponProfsOfType.removeAll(cp.getSource()
 						.getContainedObjects());
 			}
-		}
+		});
 		aList.addAll(weaponProfsOfType);
 		return aList;
 	}

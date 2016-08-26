@@ -29,9 +29,9 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
 public class ChooseConvertPlugin implements TokenProcessorPlugin
 {
-	public static Map<String, String> featAnswered = new HashMap<String, String>();
-	public static Map<String, String> spelllistAnswered = new HashMap<String, String>();
-	public static List<String> CHOICES = Arrays.asList(new String[] {
+	public static final Map<String, String> featAnswered = new HashMap<String, String>();
+	public static final Map<String, String> spelllistAnswered = new HashMap<String, String>();
+	public static final List<String> CHOICES = Arrays.asList(new String[] {
 			"ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
 			"FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS", "SHIELDPROFICIENCY",
 			"SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY" });
@@ -75,7 +75,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		tpe.consume();
 	}
 
-	private List<String> buildDescriptions(String feat)
+	private static List<String> buildDescriptions(String feat)
 	{
 		List<String> list = new ArrayList<String>();
 		list.add("Underlying Feat " + feat + " is CHOOSE:ABILITY");
@@ -97,7 +97,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		return list;
 	}
 
-	private void processSpellList(TokenProcessEvent tpe)
+	private static void processSpellList(TokenProcessEvent tpe)
 	{
 		String decision = tpe.getDecider().getConversionInput(
 				"Please provide class spell list which " + tpe.getObjectName()

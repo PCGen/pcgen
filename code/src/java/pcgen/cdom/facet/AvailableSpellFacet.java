@@ -93,33 +93,29 @@ public class AvailableSpellFacet extends
 				continue;
 			}
 			Map<Integer, Map<Spell, Set<Object>>> levelMap = me.getValue();
-			for (Map.Entry<Integer, Map<Spell, Set<Object>>> lme : levelMap
-				.entrySet())
+			levelMap
+					.entrySet().forEach(lme ->
 			{
 				Integer level = lme.getKey();
 				Map<Spell, Set<Object>> spellMap = lme.getValue();
 				if (spellMap.containsKey(sp))
 				{
 					levelInfo.addToListFor(list, level);
-				}
-				else
+				} else
 				{
-					for (Spell spell : spellMap.keySet())
+					spellMap.keySet().stream().filter(spell -> spell.getKeyName().equals(sp.getKeyName())).forEach(spell ->
 					{
-						if (spell.getKeyName().equals(sp.getKeyName()))
+						if (Logging.isLoggable(Logging.INFO))
 						{
-							if (Logging.isLoggable(Logging.INFO))
-							{
-								Logging.log(Logging.INFO,
+							Logging.log(Logging.INFO,
 									"Found alternate spell of same key: "
-										+ spell + " from " + spell.getSource()
-										+ " rather than " + sp.getSource());
-							}
-							levelInfo.addToListFor(list, level);
+											+ spell + " from " + spell.getSource()
+											+ " rather than " + sp.getSource());
 						}
-					}
+						levelInfo.addToListFor(list, level);
+					});
 				}
-			}
+			});
 		}
 		return levelInfo;
 	}

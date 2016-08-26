@@ -54,10 +54,10 @@ public class KitKit extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for (Map.Entry<Kit, List<BaseKit>> me : appliedKits.entrySet())
+		appliedKits.entrySet().forEach(me ->
 		{
 			me.getKey().processKit(aPC, me.getValue());
-		}
+		});
 	}
 
 	/**
@@ -72,13 +72,13 @@ public class KitKit extends BaseKit
 		List<String> warnings)
 	{
 		appliedKits = new HashMap<>();
-		for (CDOMSingleRef<Kit> ref : availableKits)
+		availableKits.forEach(ref ->
 		{
 			Kit addedKit = ref.get();
 			ArrayList<BaseKit> thingsToAdd = new ArrayList<>();
 			addedKit.testApplyKit(aPC, thingsToAdd, warnings, true);
 			appliedKits.put(addedKit, thingsToAdd);
-		}
+		});
 		return true;
 	}
 

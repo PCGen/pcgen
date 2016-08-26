@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.cdom.base.Constants;
@@ -50,13 +51,7 @@ public class PCCountContainersTermEvaluator
 		final Collection<Equipment> aList = new ArrayList<>();
 		final List<Equipment> eList = pc.getEquipmentListInOutputOrder(merge);
 
-		for ( Equipment eq : eList )
-		{
-			if (eq.acceptsChildren())
-			{
-				aList.add(eq);
-			}
-		}
+		aList.addAll(eList.stream().filter(Equipment::acceptsChildren).collect(Collectors.toList()));
 
 		return (float) aList.size();
 	}
@@ -67,7 +62,7 @@ public class PCCountContainersTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

@@ -67,7 +67,7 @@ import freemarker.template.TemplateException;
  * @version $Revision$
  */
 
-public class VariableReport
+public final class VariableReport
 {
 
 	/**
@@ -78,7 +78,7 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the file cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void runReport(Map<ReportFormat, String> reportNameMap)
+	public static void runReport(Map<ReportFormat, String> reportNameMap)
 		throws IOException, TemplateException
 	{
 		List<GameMode> games = SystemCollections.getUnmodifiableGameModeList();
@@ -129,9 +129,9 @@ public class VariableReport
 	 * @throws IOException If the template cannot be accessed or the writer cannot be written to.
 	 * @throws TemplateException If there is an error in processing the template.
 	 */
-	public void outputReport(Map<String, List<VarDefine>> gameModeVarMap,
-		Map<String, Integer> gameModeVarCountMap, ReportFormat reportFormat,
-		Writer outputWriter) throws IOException, TemplateException
+	public static void outputReport(Map<String, List<VarDefine>> gameModeVarMap,
+	                                Map<String, Integer> gameModeVarCountMap, ReportFormat reportFormat,
+	                                Writer outputWriter) throws IOException, TemplateException
 	{
 		// Configuration
 		Writer file = null;
@@ -172,7 +172,7 @@ public class VariableReport
 		}
 	}
 
-	private List<Campaign> getCampaignsForGameMode(GameMode game)
+	private static List<Campaign> getCampaignsForGameMode(GameMode game)
 	{
 		List<String> gameModeList = new ArrayList<>();
 		gameModeList.addAll(game.getAllowedModes());
@@ -180,33 +180,30 @@ public class VariableReport
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
 		Set<Campaign> gameModeCampaigns = new HashSet<>();
-		for (Campaign campaign : allCampaigns)
+		allCampaigns.stream().filter(campaign -> campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList)).forEach(campaign ->
 		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
+			gameModeCampaigns.add(campaign);
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
-				gameModeCampaigns.add(campaign);
-				for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+				URI uri = fName.getURI();
+				if (PCGFile.isPCGenCampaignFile(uri))
 				{
-					URI uri = fName.getURI();
-					if (PCGFile.isPCGenCampaignFile(uri))
+					Campaign c = Globals.getCampaignByURI(uri, false);
+					if (c != null)
 					{
-						Campaign c = Globals.getCampaignByURI(uri, false);
-						if (c != null)
-						{
-							gameModeCampaigns.add(c);
-						}
+						gameModeCampaigns.add(c);
 					}
 				}
-			}
-		}
+			});
+		});
 
 		return new ArrayList<>(gameModeCampaigns);
 	}
 
-	private List<File> processCampaign(Campaign campaign,
-		List<VarDefine> varList, Map<String, Integer> varCountMap,
-		Set<File> processedLstFiles) throws FileNotFoundException, IOException
+	private static List<File> processCampaign(Campaign campaign,
+	                                          List<VarDefine> varList, Map<String, Integer> varCountMap,
+	                                          Set<File> processedLstFiles) throws FileNotFoundException, IOException
 	{
 		List<CampaignSourceEntry> cseList =
                 new ArrayList<>();
@@ -256,12 +253,11 @@ public class VariableReport
 		return missingLstFiles;
 	}
 
-	private void processLstFile(List<VarDefine> varList,
-		Map<String, Integer> varCountMap, File file)
+	private static void processLstFile(List<VarDefine> varList,
+	                                   Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		try
+		try (BufferedReader br = new BufferedReader(new FileReader(file)))
 		{
 			Map<String, String> varUseMap = new HashMap<>();
 			String line = br.readLine();
@@ -276,8 +272,7 @@ public class VariableReport
 					{
 						varUseMap.put(varUse[0].substring(7), varUse[1].substring(4));
 					}
-				}
-				else if (!line.startsWith("#") && StringUtils.isNotBlank(line))
+				} else if (!line.startsWith("#") && StringUtils.isNotBlank(line))
 				{
 					String tokens[] = line.split("\t");
 					String object = tokens[0];
@@ -288,11 +283,11 @@ public class VariableReport
 							String define[] = tok.split("[:|]");
 							String varName = define[1];
 							if (define.length > 1
-								&& !varName.startsWith("LOCK.")
-								&& !varName.startsWith("UNLOCK."))
+									&& !varName.startsWith("LOCK.")
+									&& !varName.startsWith("UNLOCK."))
 							{
 								varList.add(new VarDefine(varName, object,
-									file, varUseMap.get(varName)));
+										file, varUseMap.get(varName)));
 								Integer count = varCountMap.get(varName);
 								if (count == null)
 								{
@@ -307,10 +302,6 @@ public class VariableReport
 
 				line = br.readLine();
 			}
-		}
-		finally
-		{
-			br.close();
 		}
 	}
 

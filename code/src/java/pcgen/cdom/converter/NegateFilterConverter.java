@@ -38,14 +38,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 		converter = conv;
 	}
 
-	private static final PrimitiveFilter PREVENT = new PrimitiveFilter()
-	{
-		@Override
-		public boolean allow(PlayerCharacter pc, Object obj)
-		{
-			return false;
-		}
-	};
+	private static final PrimitiveFilter PREVENT = (pc, obj) -> false;
 
 	@Override
 	public Collection<? extends R> convert(ObjectContainer<B> orig)

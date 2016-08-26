@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.facade.core.AbilityFacade;
@@ -38,7 +39,7 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class AbilityTreeViews
+public final class AbilityTreeViews
 {
 
 	public static List<TreeView<AbilityFacade>> createTreeViewList(CharacterFacade character)
@@ -88,10 +89,7 @@ public class AbilityTreeViews
 			}
 			else
 			{
-				for (String type : types)
-				{
-					list.add(new TreeViewPath<>(pobj, type));
-				}
+				list.addAll(types.stream().map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 			}
 			return list;
 		}
@@ -119,7 +117,7 @@ public class AbilityTreeViews
 	private static class PreReqTreeView implements TreeView<AbilityFacade>
 	{
 
-		private DataSetFacade dataset;
+		private final DataSetFacade dataset;
 
 		public PreReqTreeView(DataSetFacade dataset)
 		{
@@ -144,11 +142,11 @@ public class AbilityTreeViews
 			}
 
 			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<>();
-			for (List<AbilityFacade> path : abilityPaths)
+			abilityPaths.forEach(path ->
 			{
 				Collections.reverse(path);
 				paths.add(new TreeViewPath<AbilityFacade>(path.toArray(), pobj));
-			}
+			});
 			return paths;
 		}
 
@@ -164,7 +162,8 @@ public class AbilityTreeViews
 					+ StringUtils.join(preAbilities, ",") + "]. Skipping.");
 				return;
 			}
-			for (AbilityFacade preAbility : preAbilities)
+			// Don't include self references in the path
+			preAbilities.forEach(preAbility ->
 			{
 				@SuppressWarnings("unchecked")
 				ArrayList<AbilityFacade> pathclone = (ArrayList<AbilityFacade>) path.clone();
@@ -176,12 +175,11 @@ public class AbilityTreeViews
 				if (preAbilities2.isEmpty())
 				{
 					abilityPaths.add(pathclone);
-				}
-				else
+				} else
 				{
 					addPaths(abilityPaths, preAbilities2, pathclone);
 				}
-			}
+			});
 		}
 
 	}

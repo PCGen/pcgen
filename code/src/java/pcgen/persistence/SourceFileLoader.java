@@ -37,6 +37,7 @@ import java.util.TreeSet;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
@@ -133,7 +134,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private PCClassLoader classLoader = new PCClassLoader();
 	private GenericLoader<Language> languageLoader =
-			new GenericLoader<Language>(Language.class);
+			new GenericLoader<>(Language.class);
 	private AbilityCategoryLoader abilityCategoryLoader =
 			new AbilityCategoryLoader();
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
@@ -142,20 +143,20 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private AbilityLoader abilityLoader = new AbilityLoader();
 	private FeatLoader featLoader = new FeatLoader();
-	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<PCTemplate>(PCTemplate.class);
-	private GenericLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<Equipment>(Equipment.class, "EQUIPMENT");
-	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<EquipmentModifier>(EquipmentModifier.class, "EQUIPMENT.PART");
-	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
-	private GenericLoader<Skill> skillLoader = new GenericLoader<Skill>(Skill.class);
-	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<WeaponProf>(WeaponProf.class);
-	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<ArmorProf>(ArmorProf.class);
-	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<ShieldProf>(ShieldProf.class);
-	private GenericLoader<Deity> deityLoader = new GenericLoader<Deity>(Deity.class);
-	private GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
-	private GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
-	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
-	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
-	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
+	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
+	private GenericLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "EQUIPMENT");
+	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "EQUIPMENT.PART");
+	private GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
+	private GenericLoader<Skill> skillLoader = new GenericLoader<>(Skill.class);
+	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
+	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
+	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
+	private GenericLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
+	private GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
+	private GenericLoader<PCCheck> savesLoader = new GenericLoader<>(PCCheck.class);
+	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
+	private GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
+	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<>(SizeAdjustment.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
@@ -165,9 +166,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	/*
 	 * Other properties
 	 */
-	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<CampaignSourceEntry>();
-	private final Set<String> sourcesSet = new TreeSet<String>();
-	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
+	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<>();
+	private final Set<String> sourcesSet = new TreeSet<>();
+	private List<Campaign> loadedCampaigns = new ArrayList<>();
 	private StringBuilder sec15 = new StringBuilder(500);
 	private StringBuilder licensesToDisplayString = new StringBuilder(500);
 	private StringBuilder matureCampaigns = new StringBuilder(100);
@@ -190,7 +191,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			fileLists.initializeListFor(lk);
 		}
 		this.uiDelegate = delegate;
-		selectedCampaigns = new ArrayList<Campaign>();
+		selectedCampaigns = new ArrayList<>();
 		for (CampaignFacade campaign : selection.getCampaigns())
 		{
 			Campaign camp = Globals.getCampaignKeyed(campaign.getName());
@@ -266,21 +267,20 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	public List<String> getOtherLicenses()
 	{
-		List<String> licenses = new ArrayList<String>();
-		for (CampaignSourceEntry licenseFile : licenseFiles)
+		List<String> licenses = new ArrayList<>();
+		licenseFiles.forEach(licenseFile ->
 		{
 			try
 			{
 				StringBuilder dataBuffer =
 						LstFileLoader.readFromURI(licenseFile.getURI());
 				licenses.add(dataBuffer.toString());
-			}
-			catch (PersistenceLayerException e)
+			} catch (PersistenceLayerException e)
 			{
 				Logging.errorPrint("Could not read license at " + licenseFile,
-					e);
+						e);
 			}
-		}
+		});
 		return licenses;
 	}
 
@@ -478,12 +478,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// Unload the existing campaigns and load our selected campaign
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
-		for (CampaignFacade campaignFacade : selectedCampaigns)
-		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
-		}
-		pManager.setChosenCampaignSourcefiles(uris);
+		List<URI> uris = selectedCampaigns.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		sourcesSet.clear();
 		licenseFiles.clear();
@@ -518,11 +514,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				EquipmentList.autoGenerateEquipment();
 			}
 
-			for (Campaign campaign : selectedCampaigns)
-			{
-				sourcesSet.add(SourceFormat.getFormattedString(campaign,
-					SourceFormat.MEDIUM, true));
-			}
+			sourcesSet.addAll(selectedCampaigns.stream().map(campaign -> SourceFormat.getFormattedString(campaign,
+					SourceFormat.MEDIUM, true)).collect(Collectors.toList()));
 			context.setLoaded(selectedCampaigns);
 
 			/*
@@ -535,7 +528,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					new DataSet(
 						context,
 						selectedGame,
-						new DefaultListFacade<CampaignFacade>(selectedCampaigns));
+							new DefaultListFacade<>(selectedCampaigns));
 //			//  Show the licenses
 //			showLicensesIfNeeded();
 //			showSponsorsIfNeeded();
@@ -609,10 +602,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_ABILITY_CATEGORY));
 
-		for (Campaign c : loaded)
+		loaded.forEach(c ->
 		{
 			c.applyTo(context.getReferenceContext());
-		}
+		});
 
 		sizeLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SIZE));
 		//Now load PCC stat, check, alignment
@@ -688,7 +681,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		System.gc();
 	}
 
-	private void defineBuiltinVariables(LoadContext context)
+	private static void defineBuiltinVariables(LoadContext context)
 	{
 		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
@@ -699,8 +692,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	private void defineVariable(VariableContext varContext,
-		FormatManager<?> formatManager, String varName)
+	private static void defineVariable(VariableContext varContext,
+	                                   FormatManager<?> formatManager, String varName)
 	{
 		LegalScope varScope = varContext.getScope("Global");
 		varContext.assertLegalVariableID(varScope, formatManager, varName);
@@ -716,7 +709,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	{
 		if (dataDefFileList == null)
 		{
-			dataDefFileList = new ArrayList<CampaignSourceEntry>();
+			dataDefFileList = new ArrayList<>();
 		}
 		if (dataDefFileList.isEmpty())
 		{
@@ -738,21 +731,21 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Collection<? extends ContentDefinition> defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
+		defs.forEach(fd ->
 		{
 			fd.activate(context);
-		}
+		});
 		defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactSetDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
+		defs.forEach(fd ->
 		{
 			fd.activate(context);
-		}
+		});
 	}
 
-	private void finishLoad(final List<Campaign> aSelectedCampaignsList,
-		LoadContext context)
+	private static void finishLoad(final List<Campaign> aSelectedCampaignsList,
+	                               LoadContext context)
 	{
 		createLangBonusObject(context);
 		AbstractReferenceContext refContext = context.getReferenceContext();
@@ -766,25 +759,29 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
-		for (Equipment eq : refContext
-			.getConstructedCDOMObjects(Equipment.class))
+		refContext
+				.getConstructedCDOMObjects(Equipment.class).forEach(eq ->
 		{
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
-		}
+		});
 	}
 
-	private void referenceAllCategories(LoadContext context)
+	private static void referenceAllCategories(LoadContext context)
 	{
 		GameMode gamemode = SettingsHandler.getGame();
-		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
+		/*
+		 * Yes, these are thrown away... just need to make sure the
+		 * manufacturer was built.
+		 */
+		gamemode.getAllAbilityCategories().forEach(cat ->
 		{
 			/*
 			 * Yes, these are thrown away... just need to make sure the
 			 * manufacturer was built.
 			 */
 			context.getReferenceContext().getManufacturer(Ability.class, cat);
-		}
+		});
 	}
 
 	public static void createLangBonusObject(LoadContext context)
@@ -925,7 +922,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *             if a weapon is neither melee or ranged, indicating the name
 	 *             of the weapon that caused the error
 	 */
-	private void verifyWeaponsMeleeOrRanged(LoadContext context)
+	private static void verifyWeaponsMeleeOrRanged(LoadContext context)
 		throws PersistenceLayerException
 	{
 		//
@@ -956,19 +953,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param aSelectedCampaignsList
 	 *            List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
-		{
-
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK)
-					- c2.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
-
-		});
+		Collections.sort(aSelectedCampaignsList, (c1, c2) -> c1.getSafe(IntegerKey.CAMPAIGN_RANK)
+			- c2.getSafe(IntegerKey.CAMPAIGN_RANK));
 
 	}
 
@@ -981,7 +969,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *            the error to notify listeners about
 	 * @param e
 	 */
-	private void logError(String message, Throwable e)
+	private static void logError(String message, Throwable e)
 	{
 		Logging.errorPrint(message, e);
 		//setChanged();
@@ -1001,11 +989,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private Collection<Campaign> readPccFiles(
 		List<Campaign> aSelectedCampaignsList)
 	{
-		Set<Campaign> loadedSet = new HashSet<Campaign>();
+		Set<Campaign> loadedSet = new HashSet<>();
 
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...
-		for (Campaign campaign : aSelectedCampaignsList)
+		// Update whether licenses need shown
+// check if maturity warning needs to be shown
+// Load the LST files to be loaded for the campaign
+// Add all sub-files to the main campaign, regardless of exclusions
+		aSelectedCampaignsList.forEach(campaign ->
 		{
 			if (Logging.isDebugMode())
 			{
@@ -1019,13 +1011,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				sec15.append("<br><b>Source Material:</b>");
 				sec15.append(SourceFormat.getFormattedString(campaign,
-					SourceFormat.LONG, true));
+						SourceFormat.LONG, true));
 				sec15.append("<br>");
 				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-				for (String license : copyright)
+				copyright.forEach(license ->
 				{
 					sec15.append(license).append("<br>");
-				}
+				});
 			}
 
 			// Update whether licenses need shown
@@ -1056,8 +1048,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			if (campaign.getSafe(ObjectKey.IS_MATURE))
 			{
 				matureCampaigns.append(SourceFormat.LONG.getField(campaign)
-					+ " (" + campaign.getSafe(StringKey.PUB_NAME_LONG)
-					+ ")<br>");
+						+ " (" + campaign.getSafe(StringKey.PUB_NAME_LONG)
+						+ ")<br>");
 			}
 
 			// Load the LST files to be loaded for the campaign
@@ -1069,28 +1061,27 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			loadedSet.add(campaign);
 
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-				PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true))
+					PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true))
 			{
 				setCampaignOptions(campaign);
 			}
 
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-				.getSafeListFor(ListKey.FILE_PCC))
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
 				{
 					loadedSet.add(Globals.getCampaignByURI(uri, false));
-				}
-				else
+				} else
 				{
 					Logging.errorPrint("The referenced source " + uri
-						+ " is not valid.");
+							+ " is not valid.");
 				}
-			}
+			});
 
-		}
+		});
 
 		// ...but make sure to remove those files specified by LSTEXCLUDE;
 		// LSTEXCLUDE should be treated as a global exclusion.
@@ -1111,15 +1102,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private void addQualifiedSources(Campaign c, ListKey<CampaignSourceEntry> lk)
 	{
-		for (CampaignSourceEntry cse : c.getSafeListFor(lk))
+		c.getSafeListFor(lk).forEach(cse ->
 		{
 			List<Prerequisite> prerequisites = cse.getPrerequisites();
 			if (prerequisites.isEmpty()
-				|| PrereqHandler.passesAll(prerequisites, null, cse))
+					|| PrereqHandler.passesAll(prerequisites, null, cse))
 			{
 				fileLists.addToListFor(lk, cse);
 			}
-		}
+		});
 	}
 
 	/**
@@ -1132,26 +1123,23 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
 		if (keys != null)
 		{
-			for (String key : keys)
+			// Note: This is just until we transition all settings from the legacy settings
+			keys.forEach(key ->
 			{
 				String value = aCamp.get(MapKey.PROPERTY, key);
 				if (key.contains("."))
 				{
 					PCGenSettings.getInstance().setProperty(key, value);
-				}
-				else
+				} else
 				{
 					PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
 				}
 				// Note: This is just until we transition all settings from the legacy settings
 				SettingsHandler.setPCGenOption(key, value);
-			}
+			});
 			// Make sure any game mode settings are applied.
-			for (GameMode game : SystemCollections
-				.getUnmodifiableGameModeList())
-			{
-				game.applyPreferences();
-			}
+			SystemCollections
+					.getUnmodifiableGameModeList().forEach(GameMode::applyPreferences);
 		}
 	}
 
@@ -1161,13 +1149,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private void stripLstExcludes()
 	{
-		for (ListKey<?> lk : fileLists.getKeySet())
-		{
-			if (!ListKey.FILE_LST_EXCLUDE.equals(lk))
-			{
-				stripLstExcludes(lk);
-			}
-		}
+		fileLists.getKeySet().stream().filter(lk -> !ListKey.FILE_LST_EXCLUDE.equals(lk)).forEach(this::stripLstExcludes);
 	}
 
 	private void stripLstExcludes(ListKey<?> lk)
@@ -1175,17 +1157,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		List<CampaignSourceEntry> excludes = fileLists.getListFor(ListKey.FILE_LST_EXCLUDE);
 		if (excludes != null)
 		{
-			for (CampaignSourceEntry exc : excludes)
+			excludes.forEach(exc ->
 			{
 				URI uri = exc.getURI();
-				for (CampaignSourceEntry cse : fileLists.getListFor(lk))
+				fileLists.getListFor(lk).stream().filter(cse -> cse.getURI().equals(uri)).forEach(cse ->
 				{
-					if (cse.getURI().equals(uri))
-					{
-						fileLists.removeFromListFor(lk, cse);
-					}
-				}
-			}
+					fileLists.removeFromListFor(lk, cse);
+				});
+			});
 		}
 	}
 

@@ -68,15 +68,15 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<Campaign> ret = new ArrayList<>(pccFiles.size());
-		
-		for ( final CampaignSourceEntry fileName : pccFiles )
+
+		pccFiles.forEach(fileName ->
 		{
 			final Campaign campaign = Globals.getCampaignByURI(fileName.getURI(), true);
 			if (campaign != null)
 			{
 				ret.add(campaign);
 			}
-		}
+		});
 		return ret;
 	}
 
@@ -91,15 +91,15 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		final List<CampaignSourceEntry> pccFiles = getSafeListFor(ListKey.FILE_PCC);
 
 		final List<CampaignSourceEntry> ret = new ArrayList<>();
-		
-		for ( final CampaignSourceEntry cse : pccFiles )
+
+		pccFiles.forEach(cse ->
 		{
 			final Campaign campaign = Globals.getCampaignByURI(cse.getURI(), true);
 			if (campaign == null)
 			{
 				ret.add(cse);
 			}
-		}
+		});
 		return ret;
 	}
 
@@ -114,10 +114,10 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 	
 	public void applyTo(AbstractReferenceContext rc)
 	{
-		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
+		gameRefContext.getAllManufacturers().forEach(rm ->
 		{
 			GameMode.resolveReferenceManufacturer(rc, rm);
-		}
+		});
 	}
 
     @Override
@@ -135,16 +135,13 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		{
 			gameModes = new DefaultListFacade<>();
 			List<String> modes = getSafeListFor(ListKey.GAME_MODE);
-			for (String string : modes)
+			modes.forEach(string ->
 			{
-				for (GameMode game : SystemCollections.getUnmodifiableGameModeList())
+				SystemCollections.getUnmodifiableGameModeList().stream().filter(game -> game.getAllowedModes().contains(string)).forEach(game ->
 				{
-					if (game.getAllowedModes().contains(string))
-					{
-						gameModes.addElement(game);
-					}
-				}
-			}
+					gameModes.addElement(game);
+				});
+			});
 		}
 		return gameModes;
 	}

@@ -277,10 +277,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 		public void install()
 		{
-			for (TreePath path : expandedPaths)
-			{
-				tree.expandPath(path);
-			}
+			expandedPaths.forEach(tree::expandPath);
 			tree.addTreeExpansionListener(this);
 		}
 		
@@ -682,17 +679,12 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				final ListSelectionModel selectionModel = raceTable.getSelectionModel();
 				selectionModel.setSelectionMode(ListSelectionModel.SINGLE_SELECTION);
-				selectionModel.addListSelectionListener(new ListSelectionListener()
+				selectionModel.addListSelectionListener(e ->
 				{
-					@Override
-					public void valueChanged(ListSelectionEvent e)
+					if (!e.getValueIsAdjusting())
 					{
-						if (!e.getValueIsAdjusting())
-						{
-							selectButton.setEnabled(!selectionModel.isSelectionEmpty());
-						}
+						selectButton.setEnabled(!selectionModel.isSelectionEmpty());
 					}
-					
 				});
 			}
 			SearchFilterPanel searchBar = new SearchFilterPanel();
@@ -816,7 +808,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		
 		NAME("in_race"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 		
 		private CompanionTreeView(String name)
 		{
@@ -1045,11 +1037,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				types.addAll(maxMap.getKeys());
 				Collections.sort(types, Comparators.toStringIgnoreCaseCollator());
 				removeAllChildren();
-				for (String key : types)
+				types.forEach(key ->
 				{
 					CompanionTypeNode child = new CompanionTypeNode(key);
 					add(child);
-				}
+				});
 				for (CompanionFacade companion : companions)
 				{
 					addCompanion(companion, true);

@@ -35,7 +35,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
 
-public class ExchangeLevelApplication
+public final class ExchangeLevelApplication
 {
 
 	public static void exchangeLevels(final PlayerCharacter aPC, PCClass newcl)

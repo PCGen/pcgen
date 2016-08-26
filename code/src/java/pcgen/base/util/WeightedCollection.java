@@ -24,6 +24,7 @@ import java.util.AbstractCollection;
 import java.util.Collection;
 import java.util.Comparator;
 import java.util.Iterator;
+import java.util.Objects;
 import java.util.TreeSet;
 
 /**
@@ -192,8 +193,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || Objects.equals(wiElement, element))
 			{
 				item.addWeight(weight);
 				return true;
@@ -301,8 +301,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || Objects.equals(wiElement, element))
 			{
 				return true;
 			}
@@ -325,8 +324,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		for (WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || Objects.equals(wiElement, element))
 			{
 				return item.theWeight;
 			}
@@ -355,8 +353,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		{
 			WeightedItem<E> item = it.next();
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (wiElement == null && element == null || Objects.equals(wiElement, element))
 			{
 				it.remove();
 				return true;
@@ -562,8 +559,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 			{
 				WeightedItem<?> item = (WeightedItem<?>) obj;
 				return theWeight == item.theWeight
-						&& (theElement == null && item.theElement == null || theElement != null
-								&& theElement.equals(item.theElement));
+						&& (theElement == null && item.theElement == null || Objects.equals(theElement, theElement));
 			}
 			//Arguably unreachable code
 			return false;

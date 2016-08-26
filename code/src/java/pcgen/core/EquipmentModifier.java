@@ -75,15 +75,12 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
-		for (BonusObj bonus : getBonusList(caller))
+		getBonusList(caller).stream().filter(bonus -> PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
+				aPC)).forEach(bonus ->
 		{
-			if (PrereqHandler.passesAll(bonus.getPrerequisiteList(), caller,
-					aPC))
-			{
-				aPC.setApplied(bonus, true);
-				aList.add(bonus);
-			}
-		}
+			aPC.setApplied(bonus, true);
+			aList.add(bonus);
+		});
 
 		return aList;
 	}
@@ -119,8 +116,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
 	}
 	
-	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
-		List<String> associations)
+	private static List<BonusObj> getBonusList(List<BonusObj> bonusList,
+	                                           List<String> associations)
 	{
 		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)
@@ -133,7 +130,9 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 			if (idx >= 0)
 			{
 				// Add an entry for each of the associated list entries
-				for (String assoc : associations)
+				// TODO Handle this?
+// TODO Handle this?
+				associations.forEach(assoc ->
 				{
 					final BonusObj newBonus = Bonus.newBonus(Globals.getContext(), aString
 							.replaceAll(PERCENT_CHOICE_PATTERN, assoc));
@@ -141,21 +140,21 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 					if (aBonus.hasPrerequisites())
 					{
 						newBonus.clearPrerequisiteList();
-						for (Prerequisite prereq : aBonus.getPrerequisiteList())
+						// TODO Handle this?
+						aBonus.getPrerequisiteList().forEach(prereq ->
 						{
 							try
 							{
 								newBonus.addPrerequisite(prereq.specify(assoc));
-							}
-							catch (CloneNotSupportedException e)
+							} catch (CloneNotSupportedException e)
 							{
 								// TODO Handle this?
 							}
-						}
+						});
 					}
 
 					myBonusList.add(newBonus);
-				}
+				});
 
 				myBonusList.remove(aBonus);
 			}

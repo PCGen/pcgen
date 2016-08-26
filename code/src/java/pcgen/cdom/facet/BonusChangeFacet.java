@@ -55,9 +55,9 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	public void reset(CharID id)
 	{
 		DoubleKeyMap<String, String, Double> map = getConstructingInfo(id);
-		for (String type : support.getBonusTypes())
+		support.getBonusTypes().forEach(type ->
 		{
-			for (String name : support.getBonusNames(type))
+			support.getBonusNames(type).forEach(name ->
 			{
 				Double newValue = bonusCheckingFacet.getBonus(id, type, name);
 				Double oldValue = map.get(type, name);
@@ -66,8 +66,8 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 					map.put(type, name, newValue);
 					support.fireBonusChange(id, type, name, oldValue, newValue);
 				}
-			}
-		}
+			});
+		});
 	}
 
 	/**
@@ -340,10 +340,10 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 					type, name);
 			if (localListeners != null)
 			{
-				for (BonusChangeListener target : localListeners)
+				localListeners.forEach(target ->
 				{
 					target.bonusChange(bce);
-				}
+				});
 			}
 		}
 	}

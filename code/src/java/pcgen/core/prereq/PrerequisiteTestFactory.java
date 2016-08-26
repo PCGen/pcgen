@@ -75,7 +75,7 @@ public class PrerequisiteTestFactory implements PluginLoader{
 	 * @param kind The kind of prereq this is (e.g. CLASS)
 	 * @return PrerequisiteTest for this kind
 	 */
-	public PrerequisiteTest getTest(final String kind) {
+	public static PrerequisiteTest getTest(final String kind) {
 		PrerequisiteTest test;
 		if (kind == null)
 		{

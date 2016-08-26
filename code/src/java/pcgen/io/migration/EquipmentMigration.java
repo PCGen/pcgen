@@ -37,7 +37,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class EquipmentMigration
+public final class EquipmentMigration
 {
 	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<>();
 

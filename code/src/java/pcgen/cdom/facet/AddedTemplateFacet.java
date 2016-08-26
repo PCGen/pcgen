@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
@@ -73,23 +74,23 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE))
+			po
+					.getSafeListFor(ListKey.TEMPLATE).forEach(ref ->
 			{
-				for (PCTemplate pct : ref.getContainedObjects())
+				ref.getContainedObjects().forEach(pct ->
 				{
 					add(id, pct, po);
 					list.add(pct);
-				}
-			}
+				});
+			});
 			List<PCTemplate> added = new ArrayList<>();
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
+			po
+					.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE).forEach(ref ->
 			{
 				added.addAll(ref.getContainedObjects());
-			}
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
+			});
+			po
+					.getSafeListFor(ListKey.TEMPLATE_CHOOSE).forEach(ref ->
 			{
 				List<PCTemplate> chooseList = new ArrayList<>(added);
 				chooseList.addAll(ref.getContainedObjects());
@@ -99,7 +100,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 					add(id, selected, po);
 					list.add(selected);
 				}
-			}
+			});
 		}
 		return list;
 	}
@@ -123,14 +124,8 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
-			{
-				for (PCTemplate pct : ref.getContainedObjects())
-				{
-					list.add(pct);
-				}
-			}
+			po.getSafeListFor(ListKey.REMOVE_TEMPLATES).forEach(ref ->
+					list.addAll(ref.getContainedObjects()));
 		}
 		return list;
 	}
@@ -152,14 +147,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list,
 			boolean forceChoice, CharID id)
 	{
-		final List<PCTemplate> availableList = new ArrayList<>();
-		for (PCTemplate pct : list)
-		{
-			if (prerequisiteFacet.qualifies(id, pct, anOwner))
-			{
-				availableList.add(pct);
-			}
-		}
+		final List<PCTemplate> availableList = list.stream().filter(pct -> prerequisiteFacet.qualifies(id, pct, anOwner)).collect(Collectors.toList());
 		if (availableList.size() == 1)
 		{
 			return availableList.get(0);
@@ -206,14 +194,14 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		Map<PCTemplate, Set<Object>> map = getCachedMap(id);
 		if (map != null)
 		{
-			for (Map.Entry<PCTemplate, Set<Object>> me : map.entrySet())
+			map.entrySet().forEach(me ->
 			{
 				Set<Object> sourceSet = me.getValue();
 				if (sourceSet.contains(cdo))
 				{
 					list.add(me.getKey());
 				}
-			}
+			});
 		}
 		return list;
 	}
@@ -245,21 +233,12 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		 */
 		if (list.isEmpty())
 		{
-			for (PCTemplate pct : select(id, cdo))
-			{
-				pc.addTemplate(pct);
-			}
-			for (PCTemplate pct : remove(id, cdo))
-			{
-				pc.removeTemplate(pct);
-			}
+			select(id, cdo).forEach(pc::addTemplate);
+			remove(id, cdo).forEach(pc::removeTemplate);
 		}
 		else
 		{
-			for (PCTemplate pct : list)
-			{
-				pc.addTemplate(pct);
-			}
+			list.forEach(pc::addTemplate);
 		}
 	}
 
@@ -287,10 +266,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		Collection<PCTemplate> list = getFromSource(id, cdo);
 		if (list != null)
 		{
-			for (PCTemplate pct : list)
-			{
-				pc.removeTemplate(pct);
-			}
+			list.forEach(pc::removeTemplate);
 		}
 		removeAll(id, cdo);
 
@@ -298,13 +274,10 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 				cdo.getListFor(ListKey.TEMPLATE);
 		if (refList != null)
 		{
-			for (CDOMReference<PCTemplate> pctr : refList)
+			refList.forEach(pctr ->
 			{
-				for (PCTemplate pct : pctr.getContainedObjects())
-				{
-					pc.removeTemplate(pct);
-				}
-			}
+				pctr.getContainedObjects().forEach(pc::removeTemplate);
+			});
 		}
 	}
 

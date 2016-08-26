@@ -390,7 +390,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		List<Ability> characterMetaMagicFeats = new ArrayList<>();
 		List<CNAbility> feats = pc.getCNAbilities(AbilityCategory.FEAT);
 
-		for (CNAbility cna : feats)
+		//$NON-NLS-1$
+		feats.forEach(cna ->
 		{
 			Ability aFeat = cna.getAbility();
 			if (aFeat.isType("Metamagic") //$NON-NLS-1$
@@ -398,7 +399,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			{
 				characterMetaMagicFeats.add(aFeat);
 			}
-		}
+		});
 		Globals.sortPObjectListByName(characterMetaMagicFeats);
 
 		if (!(spellNode.getSpell() instanceof SpellFacadeImplem))
@@ -453,13 +454,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		if (spellListEmpty)
 		{
-			for (SpellNode listNode : preparedSpellLists)
+			preparedSpellLists.stream().filter(listNode -> spellList.equals(listNode.getRootNode().getName())).forEach(listNode ->
 			{
-				if (spellList.equals(listNode.getRootNode().getName()))
-				{
-					preparedSpellNodes.addElement(listNode);
-				}
-			}
+				preparedSpellNodes.addElement(listNode);
+			});
 		}
 	}
 
@@ -633,13 +631,10 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 		if (spellListEmpty)
 		{
-			for (SpellNode listNode : spellBooks)
+			spellBooks.stream().filter(listNode -> spellBook.equals(listNode.getRootNode().getName())).forEach(listNode ->
 			{
-				if (spellBook.equals(listNode.getRootNode().getName()))
-				{
-					bookSpellNodes.addElement(listNode);
-				}
-			}
+				bookSpellNodes.addElement(listNode);
+			});
 		}
 	}
 
@@ -751,20 +746,20 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		}
 
 		Set<String> set = new TreeSet<>();
-		for (SpellProhibitor sp : aClass
-			.getSafeListFor(ListKey.PROHIBITED_SPELLS))
+		aClass
+				.getSafeListFor(ListKey.PROHIBITED_SPELLS).forEach(sp ->
 		{
 			set.addAll(sp.getValueList());
-		}
+		});
 
 		Collection<? extends SpellProhibitor> prohibList = charDisplay
 				.getProhibitedSchools(aClass);
 		if (prohibList != null)
 		{
-			for (SpellProhibitor sp : prohibList)
+			prohibList.forEach(sp ->
 			{
 				set.addAll(sp.getValueList());
-			}
+			});
 		}
 		if (!set.isEmpty())
 		{
@@ -784,8 +779,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return b.toString();
 	}
 
-	private static final String getNumCast(PCClass aClass, int level,
-		PlayerCharacter pc)
+	private static String getNumCast(PCClass aClass, int level,
+	                                 PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
 		final String cast =
@@ -810,12 +805,27 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		List<PCClass> classList = getCharactersSpellcastingClasses();
 
 		// Look at each spell on each spellcasting class
-		for (PCClass pcClass : classList)
+		// Create SpellNodeImpl for each spell
+// Add to list
+// Add to list
+// Add to list
+// Add to list
+// Create SpellNodeImpl for each spell
+// Add to list
+// Add to list
+// Add to list
+// Add to list
+		classList.forEach(pcClass ->
 		{
 			DoubleKeyMapToList<SpellFacade, String, SpellNode> existingSpells =
 					buildExistingSpellMap(availableSpellNodes, pcClass);
-			
-			for (Spell spell : pc.getAllSpellsInLists(charDisplay.getSpellLists(pcClass)))
+
+			// Create SpellNodeImpl for each spell
+// Add to list
+// Add to list
+// Add to list
+// Add to list
+			pc.getAllSpellsInLists(charDisplay.getSpellLists(pcClass)).forEach(spell ->
 			{
 				// Create SpellNodeImpl for each spell
 				CharacterSpell charSpell = new CharacterSpell(pcClass, spell);
@@ -823,28 +833,31 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 						new SpellFacadeImplem(pc, spell, charSpell, null);
 
 				HashMapToList<CDOMList<Spell>, Integer> levelInfo = pc.getSpellLevelInfo(spell);
-				
-				for (CDOMList<Spell> spellList : charDisplay.getSpellLists(pcClass))
+
+				// Add to list
+// Add to list
+				charDisplay.getSpellLists(pcClass).forEach(spellList ->
 				{
 					List<Integer> levels = levelInfo.getListFor(spellList);
 					if (levels != null)
 					{
-						for (Integer level : levels)
+						// Add to list
+						levels.forEach(level ->
 						{
 							SpellNodeImpl node =
 									new SpellNodeImpl(spellImplem, pcClass,
-										String.valueOf(level), null);
+											String.valueOf(level), null);
 							if (!existingSpells.containsInList(spellImplem,
-								node.getSpellLevel(), node))
+									node.getSpellLevel(), node))
 							{
 								// Add to list
 								availableSpellNodes.addElement(node);
 							}
-						}
+						});
 					}
-				}
-			}
-		}	
+				});
+			});
+		});
 	}
 
 	/**
@@ -856,8 +869,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * @param pcClass The class to filter the map by
 	 * @return A double map to the class' spells from the list. 
 	 */
-	private DoubleKeyMapToList<SpellFacade, String, SpellNode> buildExistingSpellMap(
-		DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
+	private static DoubleKeyMapToList<SpellFacade, String, SpellNode> buildExistingSpellMap(
+			DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
 	{
 		DoubleKeyMapToList<SpellFacade, String, SpellNode> spellMap =
                 new DoubleKeyMapToList<>();
@@ -897,14 +910,11 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 		
 		// Look at each spell on each spellcasting class
-		for (PObject pcClass : pobjList)
-		{
-			buildKnownPreparedSpellsForCDOMObject(pcClass);
-		}
+		pobjList.forEach(this::buildKnownPreparedSpellsForCDOMObject);
 		
 		spellBooks.clear();
 		spellBookNames.clearContents();
-		for (SpellBook spellBook : charDisplay.getSpellBooks())
+		charDisplay.getSpellBooks().forEach(spellBook ->
 		{
 			if (spellBook.getType() == SpellBook.TYPE_PREPARED_LIST)
 			{
@@ -912,21 +922,20 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 						new DummySpellNodeImpl(getRootNode(spellBook.getName()));
 				preparedSpellLists.add(spellListNode);
 				addDummyNodeIfSpellListEmpty(spellBook.getName());
-			}
-			else if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
+			} else if (spellBook.getType() == SpellBook.TYPE_SPELL_BOOK)
 			{
 				DummySpellNodeImpl spellListNode =
 						new DummySpellNodeImpl(getRootNode(spellBook.getName()));
 				spellBooks.add(spellListNode);
 				addDummyNodeIfSpellBookEmpty(spellBook.getName());
 				spellBookNames.addElement(spellBook.getName());
-			} 
-		}
+			}
+		});
 	}
 
 	private void buildKnownPreparedSpellsForCDOMObject(CDOMObject pObject)
 	{
-		Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
+		Collection<CharacterSpell> sp = charDisplay.getCharacterSpells(pObject);
 		List<CharacterSpell> cSpells = new ArrayList<>(sp);
 
 		// Add in the spells granted by objects
@@ -1101,18 +1110,14 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	{
 		List<PCClass> castingClasses = new ArrayList<>();
 		Collection<PCClass> classes = charDisplay.getClassSet();
-		for (PCClass pcClass : classes)
+		classes.stream().filter(pcClass -> pcClass.get(FactKey.valueOf("SpellType")) != null).forEach(pcClass ->
 		{
-			if (pcClass.get(FactKey.valueOf("SpellType")) != null)
+			SpellSupportForPCClass spellSupport = pc.getSpellSupport(pcClass);
+			if (spellSupport.canCastSpells(pc) || spellSupport.hasKnownList())
 			{
-				SpellSupportForPCClass spellSupport = pc.getSpellSupport(pcClass);
-				if (spellSupport.canCastSpells(pc) || spellSupport.hasKnownList())
-				{
-					castingClasses.add(pcClass);
-				}
+				castingClasses.add(pcClass);
 			}
-			
-		}
+		});
 
 		return castingClasses;
 	}

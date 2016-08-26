@@ -149,8 +149,8 @@ public class FollowerTypeToken extends Token
 	 * @param typeString The follower type being looked for
 	 * @return The list of qualifying followers.
 	 */
-	private List<Follower> getFollowersOfType(CharacterDisplay display,
-		String typeString)
+	private static List<Follower> getFollowersOfType(CharacterDisplay display,
+	                                                 String typeString)
 	{
 		List<Follower> aList = new ArrayList<Follower>();
 		for (Follower fol : display.getFollowerList())

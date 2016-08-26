@@ -35,14 +35,7 @@ public final class CDOMObjectUtilities
 	 * Provides a Comparator that is capable of sorting CDOMObjects. This
 	 * sorting is performed based on the Key name of the CDOMObjects.
 	 */
-	public static final Comparator<Loadable> CDOM_SORTER = new Comparator<Loadable>()
-	{
-		@Override
-		public int compare(Loadable cdo1, Loadable cdo2)
-		{
-			return compareKeys(cdo1, cdo2);
-		}
-	};
+	public static final Comparator<Loadable> CDOM_SORTER = CDOMObjectUtilities::compareKeys;
 
 	private CDOMObjectUtilities()
 	{
@@ -147,10 +140,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.ADD);
 		if (addList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : addList)
+			addList.forEach(tc ->
 			{
 				driveChoice(cdo, tc, pc);
-			}
+			});
 		}
 	}
 
@@ -164,10 +157,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.ADD);
 		if (addList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : addList)
+			addList.forEach(tc ->
 			{
 				tc.remove(cdo, pc);
-			}
+			});
 		}
 	}
 
@@ -181,10 +174,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : removeList)
+			removeList.forEach(tc ->
 			{
 				driveChoice(cdo, tc, pc);
-			}
+			});
 		}
 	}
 
@@ -198,10 +191,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : removeList)
+			removeList.forEach(tc ->
 			{
 				tc.remove(cdo, pc);
-			}
+			});
 		}
 	}
 

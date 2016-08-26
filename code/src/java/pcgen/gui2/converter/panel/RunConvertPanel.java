@@ -134,11 +134,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
-		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
+		// Add all sub-files to the main campaign, regardless of exclusions
+		pc.getSafeListFor(ListKey.CAMPAIGN).forEach(campaign ->
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
@@ -149,100 +150,93 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 						totalCampaigns.add(c);
 					}
 				}
-			}
-		}
+			});
+		});
 		sortCampaignsByRank(totalCampaigns);
 		
-		new Thread(new Runnable()
+		new Thread(() ->
 		{
-			@Override
-			public void run()
+			Logging.registerHandler( getHandler() );
+			SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
+			GameMode mode = SettingsHandler.getGame();
+			//Necessary for "good" behavior
+			mode.resolveInto(context.getReferenceContext());
+			//Necessary for those still using Globals.getContext
+			mode.resolveInto(mode.getContext().getReferenceContext());
+			LSTConverter converter;
+			Writer changeLogWriter;
+			try
 			{
-				Logging.registerHandler( getHandler() );
-				SettingsHandler.setGame(pc.get(ObjectKey.GAME_MODE).getName());
-				GameMode mode = SettingsHandler.getGame();
-				//Necessary for "good" behavior
-				mode.resolveInto(context.getReferenceContext());
-				//Necessary for those still using Globals.getContext
-				mode.resolveInto(mode.getContext().getReferenceContext());
-				LSTConverter converter;
-				Writer changeLogWriter;
-				try
-				{
-					changeLogWriter = new FileWriter(changeLogFile);
+				changeLogWriter = new FileWriter(changeLogFile);
 
-					SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
-			        String startTime = simpleDateFormat.format(new Date());
-					changeLogWriter.append("PCGen Data Converter v"
-						+ PCGenPropBundle.getVersionNumber()
-						+ " - conversion started at " + startTime + "\n");
-					changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
-				}
-				catch (IOException e1)
-				{
-					Logging.errorPrint("Failed to initialise LSTConverter", e1);
-					return;
-				}
-				converter = new LSTConverter(context, rootDir,
-						outDir.getAbsolutePath(), RunConvertPanel.this, changeLogWriter);
-				converter.addObserver(RunConvertPanel.this);
-				int numFiles = 0;
-				for (Campaign campaign : totalCampaigns)
-				{
-					numFiles += converter.getNumFilesInCampaign(campaign);
-				}
-				setTotalFileCount(numFiles);
-				converter.initCampaigns(totalCampaigns);
-				for (Campaign campaign : totalCampaigns)
-				{
-					converter.processCampaign(campaign);
-				}
-				ObjectInjector oi = new ObjectInjector(context, outDir,
-						rootDir, converter);
-				try
-				{
-					oi.writeInjectedObjects(totalCampaigns);
-				}
-				catch (IOException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-
-				try
-				{
-					changeLogWriter.close();
-				}
-				catch (IOException e)
-				{
-					Logging.errorPrint("LSTConverter.wrapUp failed", e);
-					
-				}
-				converter.deleteObserver( RunConvertPanel.this );
-				Logging.removeHandler( getHandler() );
-				try
-				{
-					// Wait for any left over messages to catch up
-					Thread.sleep(1000);
-				}
-				catch (InterruptedException e)
-				{
-					// Ignore exception
-				}
-				setCurrentFilename("");
-				addMessage("\nConversion complete.");
-				if (getHandler().getNumErrors() > 0)
-				{
-					JOptionPane.showMessageDialog(null, LanguageBundle
-						.getFormattedString("in_lstConvErrorsFound", //$NON-NLS-1$
-							getHandler().getNumErrors()), LanguageBundle
-						.getString("in_lstConvErrorsTitle"), //$NON-NLS-1$
-						JOptionPane.ERROR_MESSAGE);
-				}
-				progressBar.setValue(progressBar.getMaximum());
-		        
-				fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
+				SimpleDateFormat simpleDateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		        String startTime = simpleDateFormat.format(new Date());
+				changeLogWriter.append("PCGen Data Converter v"
+					+ PCGenPropBundle.getVersionNumber()
+					+ " - conversion started at " + startTime + "\n");
+				changeLogWriter.append("Outputting files to " + outDir.getAbsolutePath() + "\n");
 			}
+			catch (IOException e1)
+			{
+				Logging.errorPrint("Failed to initialise LSTConverter", e1);
+				return;
+			}
+			converter = new LSTConverter(context, rootDir,
+					outDir.getAbsolutePath(), RunConvertPanel.this, changeLogWriter);
+			converter.addObserver(RunConvertPanel.this);
+			int numFiles = 0;
+			for (Campaign campaign : totalCampaigns)
+			{
+				numFiles += converter.getNumFilesInCampaign(campaign);
+			}
+			setTotalFileCount(numFiles);
+			converter.initCampaigns(totalCampaigns);
+			totalCampaigns.forEach(converter::processCampaign);
+			ObjectInjector oi = new ObjectInjector(context, outDir,
+					rootDir, converter);
+			try
+			{
+				oi.writeInjectedObjects(totalCampaigns);
+			}
+			catch (IOException e)
+			{
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+
+			try
+			{
+				changeLogWriter.close();
+			}
+			catch (IOException e)
+			{
+				Logging.errorPrint("LSTConverter.wrapUp failed", e);
+
+			}
+			converter.deleteObserver( RunConvertPanel.this );
+			Logging.removeHandler( getHandler() );
+			try
+			{
+				// Wait for any left over messages to catch up
+				Thread.sleep(1000);
+			}
+			catch (InterruptedException e)
+			{
+				// Ignore exception
+			}
+			setCurrentFilename("");
+			addMessage("\nConversion complete.");
+			if (getHandler().getNumErrors() > 0)
+			{
+				JOptionPane.showMessageDialog(null, LanguageBundle
+					.getFormattedString("in_lstConvErrorsFound", //$NON-NLS-1$
+						getHandler().getNumErrors()), LanguageBundle
+					.getString("in_lstConvErrorsTitle"), //$NON-NLS-1$
+					JOptionPane.ERROR_MESSAGE);
+			}
+			progressBar.setValue(progressBar.getMaximum());
+
+			fireProgressEvent(ProgressEvent.AUTO_ADVANCE);
 		}).start();
 		return true;
 	}
@@ -393,14 +387,10 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		else if (arg instanceof Exception)
 		{
 			final Exception e = (Exception) arg;
-			Runnable doWork = new Runnable()
+			Runnable doWork = () ->
 			{
-				@Override
-				public void run()
-				{
-					addMessage(e.getMessage());
-					setErrorState(true);
-				}
+				addMessage(e.getMessage());
+				setErrorState(true);
 			};
 			SwingUtilities.invokeLater(doWork);
 			System.out.println("Persistence Observer: ERROR: " + e.getMessage());
@@ -417,13 +407,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	protected void setTotalFileCount(final int iFileCount)
 	{
 		totalFileCount = iFileCount;
-		Runnable doWork = new Runnable() {
-			@Override
-			public void run()
-			{
-				getProgressBar().setMaximum(iFileCount);
-			}
-		};
+		Runnable doWork = () -> getProgressBar().setMaximum(iFileCount);
 		SwingUtilities.invokeLater(doWork);
 	}
 
@@ -463,22 +447,18 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		@Override
 		public void publish(final LogRecord logRecord)
 		{
-			Runnable doWork = new Runnable()
+			Runnable doWork = () ->
 			{
-				@Override
-				public void run()
+				if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
 				{
-					if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
-					{
-						numErrors++;
-					}
-					else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
-					{
-						numWarnings++;
-					}
-					addMessage(logRecord.getLevel() + " " + logRecord.getMessage());
-					setErrorState(true);
+					numErrors++;
 				}
+				else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
+				{
+					numWarnings++;
+				}
+				addMessage(logRecord.getLevel() + " " + logRecord.getMessage());
+				setErrorState(true);
 			};
 			SwingUtilities.invokeLater(doWork);
 		}
@@ -515,14 +495,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 					choiceDescriptions, defaultChoice);
 		int result = 0;
 
-		Runnable showDialog = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				ccd.setVisible(true);
-			}
-		};
+		Runnable showDialog = () -> ccd.setVisible(true);
 		try
 		{
 			SwingUtilities.invokeAndWait(showDialog);
@@ -545,14 +518,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		final ConversionInputDialog ccd = new ConversionInputDialog(null,
 				overallDescription);
 
-		Runnable showDialog = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				ccd.setVisible(true);
-			}
-		};
+		Runnable showDialog = () -> ccd.setVisible(true);
 		try
 		{
 			SwingUtilities.invokeAndWait(showDialog);
@@ -573,17 +539,9 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 *
 	 * @param aSelectedCampaignsList List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
-		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
-		{
-			@Override
-			public int compare(Campaign c1, Campaign c2)
-			{
-				return c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK);
-			}
-
-		});
+		Collections.sort(aSelectedCampaignsList, (c1, c2) -> c1.getSafe(IntegerKey.CAMPAIGN_RANK) - c2.getSafe(IntegerKey.CAMPAIGN_RANK));
 
 	}
 
@@ -596,11 +554,11 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		Logging.log(Logging.INFO, "Game mode: " + pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		StringBuilder campDisplay = new StringBuilder("");
-		for (int i = 0; i < campaigns.size(); i++)
+		campaigns.forEach(campaign ->
 		{
-			campDisplay.append(campaigns.get(i).getDisplayName());
+			campDisplay.append(campaign.getDisplayName());
 			campDisplay.append("\n");
-		}
+		});
 		Logging.log(Logging.INFO, "Sources: " + campDisplay.toString());
 		Logging.log(Logging.INFO, "Logging changes to " + changeLogFile.getAbsolutePath());
 	}

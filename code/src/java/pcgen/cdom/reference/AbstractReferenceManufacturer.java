@@ -460,11 +460,11 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				StringBuilder sb = new StringBuilder(1000);
 				sb.append("Locations: ");
 				sb.append(po.getSourceURI());
-				for (T dupe : list)
+				list.forEach(dupe ->
 				{
 					sb.append(", ");
 					sb.append(dupe.getSourceURI());
-				}
+				});
 				Logging.errorPrint(sb.toString());
 			}
 			return po;
@@ -897,13 +897,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			if (good instanceof CDOMObject)
 			{
 				CDOMObject cdo = (CDOMObject) good;
-				for (int i = 0; i < list.size(); i++)
+				for (T dupe : list)
 				{
-					T dupe = list.get(i);
 					if (cdo.isCDOMEqual((CDOMObject) dupe))
 					{
 						for (Iterator<WeakReference<T>> it = manufactured
-								.iterator(); it.hasNext();)
+								.iterator(); it.hasNext(); )
 						{
 							WeakReference<T> wr = it.next();
 							T mfg = wr.get();
@@ -929,14 +928,14 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 				StringBuilder sb = new StringBuilder(1000);
 				sb.append("Sources: ");
 				sb.append(good.isInternal() ? "<internal>" : good.getSourceURI());
-				for (T dupe : dupes)
+				dupes.forEach(dupe ->
 				{
 					sb.append(", ").append(dupe.isInternal() ? "<internal>" : dupe.getSourceURI());
 					if (!dupe.getKeyName().equals(good.getKeyName()))
 					{
 						Logging.errorPrint("Key case differed for " + dupe.getKeyName());
 					}
-				}
+				});
 				Logging.errorPrint(sb.toString());
 				returnGood = false;
 			}
@@ -1021,13 +1020,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	@Override
 	public void buildDeferredObjects()
 	{
-		for (String cis : deferred)
-		{
-			if (!active.containsKey(cis))
-			{
-				constructObject(cis);
-			}
-		}
+		deferred.stream().filter(cis -> !active.containsKey(cis)).forEach(this::constructObject);
 	}
 
 	/**
@@ -1088,14 +1081,14 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public Collection<CDOMSingleRef<T>> getReferenced()
 	{
 		List<CDOMSingleRef<T>> list = new ArrayList<>();
-		for (WeakReference<CDOMSingleRef<T>> wr : referenced.values())
+		referenced.values().forEach(wr ->
 		{
 			CDOMSingleRef<T> ref = wr.get();
 			if (ref != null)
 			{
 				list.add(ref);
 			}
-		}
+		});
 		return list;
 	}
 
@@ -1117,21 +1110,18 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	public void injectConstructed(ReferenceManufacturer<T> arm)
 	{
 		// Must maintain order
-		for (T value : active.insertOrderValues())
+		active.insertOrderValues().forEach(value ->
 		{
 			arm.addObject(value, active.getKeyFor(value));
-		}
-		for (CaseInsensitiveString cis : duplicates.getKeySet())
+		});
+		duplicates.getKeySet().forEach(cis ->
 		{
-			for (T obj : duplicates.getListFor(cis))
+			duplicates.getListFor(cis).forEach(obj ->
 			{
 				arm.addObject(obj, cis.toString());
-			}
-		}
-		for (String s : deferred)
-		{
-			arm.constructIfNecessary(s);
-		}
+			});
+		});
+		deferred.forEach(arm::constructIfNecessary);
 	}
 
 	/**

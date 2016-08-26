@@ -457,10 +457,10 @@ public class PCClass extends PObject implements ClassFacade
 			SubstitutionClassApplication.checkForSubstitutionClass(this, newLevel, aPC);
 		}
 
-		for (PCClass pcClass : aPC.getClassSet())
+		aPC.getClassSet().forEach(pcClass ->
 		{
 			aPC.calculateKnownSpellsForClassLevel(this);
-		}
+		});
 	}
 
 	/**
@@ -559,14 +559,14 @@ public class PCClass extends PObject implements ClassFacade
 		// now all the level-based stuff
 		final String lineSep = System.getProperty("line.separator");
 
-		for (Map.Entry<Integer, PCClassLevel> me : levelMap.entrySet())
+		levelMap.entrySet().forEach(me ->
 		{
 			pccTxt.append(lineSep).append(me.getKey()).append('\t');
 			pccTxt.append(PrerequisiteWriter.prereqsToString(me.getValue()));
 			pccTxt.append("\t");
 			pccTxt.append(StringUtil.joinToStringBuilder(Globals.getContext()
 					.unparse(me.getValue()), "\t"));
-		}
+		});
 
 		return pccTxt.toString();
 	}
@@ -1077,11 +1077,11 @@ public class PCClass extends PObject implements ClassFacade
 				CDOMObjectUtilities.checkRemovals(this, aPC);
 			}
 
-			for (TransitionChoice<Kit> kit : classLevel
-					.getSafeListFor(ListKey.KIT_CHOICE))
+			classLevel
+					.getSafeListFor(ListKey.KIT_CHOICE).forEach(kit ->
 			{
 				kit.act(kit.driveChoice(aPC), classLevel, aPC);
-			}
+			});
 			TransitionChoice<Region> region = classLevel
 					.get(ObjectKey.REGION_CHOICE);
 			if (region != null)
@@ -1198,10 +1198,10 @@ public class PCClass extends PObject implements ClassFacade
 				//
 				// Remove all skills associated with this class
 				//
-				for (Skill skill : aPC.getSkillSet())
+				aPC.getSkillSet().forEach(skill ->
 				{
 					SkillRankControl.setZeroRanks(this, aPC, skill);
-				}
+				});
 
 				Integer currentPool = aPC.getSkillPool(this);
 				spMod = currentPool == null ? 0 : currentPool;
@@ -1370,10 +1370,10 @@ public class PCClass extends PObject implements ClassFacade
 			ce.printStackTrace();
 		}
 
-		for (VariableKey vk : otherClass.getVariableKeys())
+		otherClass.getVariableKeys().forEach(vk ->
 		{
 			put(vk, otherClass.get(vk));
-		}
+		});
 
 		if (otherClass.containsListFor(ListKey.CSKILL))
 		{
@@ -1411,15 +1411,15 @@ public class PCClass extends PObject implements ClassFacade
 		addAllToListFor(ListKey.DAMAGE_REDUCTION, otherClass
 				.getListFor(ListKey.DAMAGE_REDUCTION));
 
-		for (CDOMReference<Vision> ref : otherClass
-				.getSafeListMods(Vision.VISIONLIST))
+		otherClass
+				.getSafeListMods(Vision.VISIONLIST).forEach(ref ->
 		{
-			for (AssociatedPrereqObject apo : otherClass.getListAssociations(
-					Vision.VISIONLIST, ref))
+			otherClass.getListAssociations(
+					Vision.VISIONLIST, ref).forEach(apo ->
 			{
 				putToList(Vision.VISIONLIST, ref, apo);
-			}
-		}
+			});
+		});
 
 		/*
 		 * TODO This is a clone problem, but works for now - thpr 10/3/08
@@ -1470,7 +1470,8 @@ public class PCClass extends PObject implements ClassFacade
 
 	public void copyLevelsFrom(PCClass cl)
 	{
-		for (Map.Entry<Integer, PCClassLevel> me : cl.levelMap.entrySet())
+		// TODO Auto-generated catch block
+		cl.levelMap.entrySet().forEach(me ->
 		{
 			try
 			{
@@ -1486,13 +1487,12 @@ public class PCClass extends PObject implements ClassFacade
 				lvl.setName(getDisplayName() + "(" + lvl.get(IntegerKey.LEVEL) + ")");
 				lvl.ownBonuses(this);
 				levelMap.put(me.getKey(), lvl);
-			}
-			catch (CloneNotSupportedException e)
+			} catch (CloneNotSupportedException e)
 			{
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
-		}
+		});
 	}
 
 	/**

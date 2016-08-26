@@ -247,10 +247,10 @@ public class NameGenPanel extends JPanel
 	{
 		StringBuilder nameBuffer = new StringBuilder();
 
-		for (DataValue val : data)
+		data.forEach(val ->
 		{
 			nameBuffer.append(val.getValue());
-		}
+		});
 
 		setNameText(nameBuffer.toString());
 	}
@@ -367,7 +367,7 @@ public class NameGenPanel extends JPanel
 	{
 		clearButtons();
 
-		for (String key : rule)
+		rule.forEach(key ->
 		{
 			try
 			{
@@ -376,22 +376,14 @@ public class NameGenPanel extends JPanel
 				if (ele.getTitle() != null)
 				{
 					NameButton nb = new NameButton(ele);
-					nb.addActionListener(new ActionListener()
-					{
-						@Override
-						public void actionPerformed(ActionEvent evt)
-						{
-							NameButtonActionPerformed(evt);
-						}
-					});
+					nb.addActionListener(this::NameButtonActionPerformed);
 					buttonPanel.add(nb);
 				}
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				Logging.errorPrint(e.getMessage(), e);
 			}
-		}
+		});
 
 		buttonPanel.repaint();
 	}
@@ -467,14 +459,7 @@ public class NameGenPanel extends JPanel
 		jLabel4.setText(LanguageBundle.getString("in_rndNameCatalog")); //$NON-NLS-1$
 		jPanel10.add(jLabel4);
 
-		cbCatalog.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCatalogActionPerformed(evt);
-			}
-		});
+		cbCatalog.addActionListener(this::cbCatalogActionPerformed);
 
 		jPanel10.add(cbCatalog);
 
@@ -485,14 +470,7 @@ public class NameGenPanel extends JPanel
 		jLabel1.setText(LanguageBundle.getString("in_rndNameCategory")); //$NON-NLS-1$
 		jPanel8.add(jLabel1);
 
-		cbCategory.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCategoryActionPerformed(evt);
-			}
-		});
+		cbCategory.addActionListener(this::cbCategoryActionPerformed);
 
 		jPanel8.add(cbCategory);
 
@@ -505,14 +483,7 @@ public class NameGenPanel extends JPanel
 		jPanel11.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		generateButton.setText(LanguageBundle.getString("in_rndNameGenerate")); //$NON-NLS-1$
-		generateButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				generateButtonActionPerformed(evt);
-			}
-		});
+		generateButton.addActionListener(this::generateButtonActionPerformed);
 
 		jPanel11.add(generateButton);
 
@@ -523,14 +494,7 @@ public class NameGenPanel extends JPanel
 		jLabel5.setText(LanguageBundle.getString("in_rndNameSex")); //$NON-NLS-1$
 		jPanel9.add(jLabel5);
 
-		cbSex.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbSexActionPerformed(evt);
-			}
-		});
+		cbSex.addActionListener(this::cbSexActionPerformed);
 
 		jPanel9.add(cbSex);
 
@@ -550,26 +514,12 @@ public class NameGenPanel extends JPanel
 		jPanel12.add(jLabel6);
 
 		cbStructure.setEnabled(false);
-		cbStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbStructureActionPerformed(evt);
-			}
-		});
+		cbStructure.addActionListener(this::cbStructureActionPerformed);
 		jPanel12.add(cbStructure);
 
 		chkStructure.setSelected(true);
 		chkStructure.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
-		chkStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				chkStructureActionPerformed(evt);
-			}
-		});
+		chkStructure.addActionListener(this::chkStructureActionPerformed);
 
 		jPanel12.add(chkStructure);
 
@@ -639,14 +589,7 @@ public class NameGenPanel extends JPanel
 		jButton1.setAlignmentY(0.0F);
 		jButton1.setIconTextGap(0);
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				jButton1ActionPerformed(evt);
-			}
-		});
+		jButton1.addActionListener(this::jButton1ActionPerformed);
 		nameActionPanel.add(jButton1);
 
 		namePanel.add(nameActionPanel);
@@ -694,10 +637,8 @@ public class NameGenPanel extends JPanel
 			int oldSelected = -1;
 			int n = 0;
 
-			for (int i = 0; i < join.size(); i++)
+			for (RuleSet rs : join)
 			{
-				RuleSet rs = join.get(i);
-
 				if (rs.getUsage().equals("final"))
 				{
 					catalogs.add(rs);
@@ -762,20 +703,18 @@ public class NameGenPanel extends JPanel
 		//	we need to determine if the selected category is supported by the 
 		//	available genders
 		//	loop through the available genders
-		for (int i = 0; i < genders.size(); ++i)
+		for (String genderString : genders)
 		{
-			String genderString = genders.get(i);
-
 			//	Get the list of rules for the current gender
 			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
-			for (int j = 0; j < categoryRules.size(); ++j)
+			for (RuleSet categoryRule : categoryRules)
 			{
 				//	if the category rule is in the list of gender rules
 				//	add the current gender to the selectable gender list
 				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRules.get(j)))
+				if (genderRules.contains(categoryRule))
 				{
 					selectable.add(genderString);
 					break;
@@ -821,11 +760,11 @@ public class NameGenPanel extends JPanel
 			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (final File dataFile : dataFiles)
 			{
 				try
 				{
-					URL url = dataFiles[i].toURI().toURL();
+					URL url = dataFile.toURI().toURL();
 					Document nameSet = builder.build(url);
 					DocType dt = nameSet.getDocType();
 
@@ -836,12 +775,11 @@ public class NameGenPanel extends JPanel
 
 					nameSet = null;
 					dt = null;
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
+							+ dataFile.getName());
 				}
 			}
 
@@ -1045,17 +983,16 @@ public class NameGenPanel extends JPanel
 		{
 			Vector<DataElement> struct = new Vector<>();
 
-			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
+			((RuleSet) cbCatalog.getSelectedItem()).forEach(key ->
 			{
 				try
 				{
 					struct.add(allVars.getDataElement(key));
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 				}
-			}
+			});
 
 			DefaultComboBoxModel structModel = new DefaultComboBoxModel(struct);
 			cbStructure.setModel(structModel);

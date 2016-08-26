@@ -25,6 +25,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.WeakHashMap;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Categorized;
@@ -105,29 +106,22 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			// Shouldn't happen, but this is reporting, not critical, so be safe
 			return;
 		}
-		for (URI uri : uris)
+		uris.forEach(uri ->
 		{
 			List<String> tokens = track.getListFor(ref, uri);
-			Set<String> tokenNames = new TreeSet<>();
-			for (String tok : tokens)
-			{
-				if (tok != null)
-				{
-					tokenNames.add(tok);
-				}
-			}
+			Set<String> tokenNames = tokens.stream().filter(tok -> tok != null).collect(Collectors.toCollection(TreeSet::new));
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
-		}
+		});
 	}
 
-	private String getSource()
+	private static String getSource()
 	{
 		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		String source = null;
-		for (int i = 0; i < stackTrace.length; i++)
+		for (final StackTraceElement aStackTrace : stackTrace)
 		{
-			String className = stackTrace[i].getClassName();
+			String className = aStackTrace.getClassName();
 			if (className.startsWith("plugin.lsttokens"))
 			{
 				source = className;

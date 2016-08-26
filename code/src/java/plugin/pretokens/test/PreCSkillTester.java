@@ -53,7 +53,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 		int runningTotal = 0;
 		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();
 		Set<Skill> imitators = new HashSet<Skill>();
-		this.getImitators(serveAsSkills, imitators);
+		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
 		String requiredSkillKey = prereq.getKey().toUpperCase();
@@ -140,8 +140,8 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	 * @param imitators
 	 * @param character
 	 */
-	private void getImitators(
-		HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
+	private static void getImitators(
+			HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
 	{
 		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{

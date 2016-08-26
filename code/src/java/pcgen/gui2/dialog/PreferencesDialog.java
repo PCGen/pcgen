@@ -207,10 +207,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	private void applyOptionValuesToControls()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.applyOptionValuesToControls();
-		}
+		panelList.forEach(PCGenPrefsPanel::applyOptionValuesToControls);
 		
 		// Copy Settings
 		copySettingsPanel.registerAffectedPanel(characterStatsPanel);
@@ -219,7 +216,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private JPanel buildEmptyPanel(String title, String messageText)
+	private static JPanel buildEmptyPanel(String title, String messageText)
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
@@ -374,23 +371,19 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
 
 		// Add the listener which switches panels when a node of the tree is selected
-		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
+		settingsTree.addTreeSelectionListener(e ->
 		{
-			@Override
-			public void valueChanged(TreeSelectionEvent e)
+			DefaultMutableTreeNode node =
+					(DefaultMutableTreeNode) settingsTree
+						.getLastSelectedPathComponent();
+
+			if (node == null)
 			{
-				DefaultMutableTreeNode node =
-						(DefaultMutableTreeNode) settingsTree
-							.getLastSelectedPathComponent();
-
-				if (node == null)
-				{
-					return;
-				}
-
-				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-				cl.show(settingsPanel, String.valueOf(node));
+				return;
 			}
+
+			CardLayout cl = (CardLayout) (settingsPanel.getLayout());
+			cl.show(settingsPanel, String.valueOf(node));
 		});
 
 		// Build the split pane
@@ -429,10 +422,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	
 	private void resetOptionValues()
 	{
-		for (PCGenPrefsPanel prefsPanel : panelList)
-		{
-			prefsPanel.resetOptionValues();
-		}
+		panelList.forEach(PCGenPrefsPanel::resetOptionValues);
 	}
 
     @Override
@@ -461,10 +451,10 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	/** Creates new form PreferencesDamagePanel */
 	public PreferencesPluginsPanel()
 	{
-		for(PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
+		PluginManager.getInstance().getPluginInfoList().forEach(info ->
 		{
 			addPanel(info.logName, info.pluginName, Constants.SYSTEM_GMGEN);
-		}
+		});
 		initComponents();
 		initPreferences();
 	}
@@ -472,19 +462,19 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 	@Override
 	public void applyPreferences()
 	{
-		for ( String key : pluginMap.keySet() )
+		pluginMap.keySet().forEach(key ->
 		{
 			pluginMap.get(key).applyPreferences();
-		}
+		});
 	}
 
 	@Override
 	public void initPreferences() 
 	{
-		for ( String key : pluginMap.keySet() )
+		pluginMap.keySet().forEach(key ->
 		{
 			pluginMap.get(key).initPreferences();
-		}
+		});
 	}
 
 	@Override
@@ -502,10 +492,10 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		for ( String key : pluginMap.keySet() )
+		pluginMap.keySet().forEach(key ->
 		{
-			mainPanel.add( pluginMap.get(key) );
-		}
+			mainPanel.add(pluginMap.get(key));
+		});
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);

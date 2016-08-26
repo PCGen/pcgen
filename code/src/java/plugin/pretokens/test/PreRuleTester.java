@@ -82,7 +82,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 		{
 			final PrerequisiteTestFactory factory =
 					PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			if (test != null)
 			{
 				runningTotal += test.passes(element, equipment, aPC);
@@ -121,7 +121,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 				PrerequisiteTestFactory.getInstance();
 		for (Prerequisite element : prereq.getPrerequisites())
 		{
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			if (test != null)
 			{
 				runningTotal += test.passes(element, character, source);

@@ -199,7 +199,7 @@ public abstract class PObjectModel
 	 * @param index Index to get from array
 	 * @return The requested string entry, or ""
 	 */
-	protected String getStringValue(String[] values, int index)
+	protected static String getStringValue(String[] values, int index)
 	{
 		String returnValue = "";
 

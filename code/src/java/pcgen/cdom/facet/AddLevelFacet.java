@@ -72,11 +72,11 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		// character so don't apply them again.
 		if (!pc.isImporting())
 		{
-			for (LevelCommandFactory lcf : template
-					.getSafeListFor(ListKey.ADD_LEVEL))
+			template
+					.getSafeListFor(ListKey.ADD_LEVEL).forEach(lcf ->
 			{
 				add(lcf.getLevelCount(), lcf.getPCClass(), pc);
-			}
+			});
 		}
 	}
 
@@ -131,7 +131,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	private void add(Formula levels, PCClass cl, PlayerCharacter pc)
+	private static void add(Formula levels, PCClass cl, PlayerCharacter pc)
 	{
 		apply(pc, cl, levels.resolve(pc, "").intValue());
 	}
@@ -152,7 +152,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	public void remove(Formula levels, PCClass cl, PlayerCharacter pc)
+	public static void remove(Formula levels, PCClass cl, PlayerCharacter pc)
 	{
 		apply(pc, cl, -levels.resolve(pc, "").intValue());
 	}
@@ -175,7 +175,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	private void apply(PlayerCharacter pc, PCClass pcClass, int levels)
+	private static void apply(PlayerCharacter pc, PCClass pcClass, int levels)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);

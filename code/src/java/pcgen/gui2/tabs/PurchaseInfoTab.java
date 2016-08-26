@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.tabs;
 
+import java.util.stream.Collectors;
 import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 import java.awt.BorderLayout;
@@ -171,29 +172,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
 						= new FilterButton<>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
-				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.isQualifiedFor(element);
-					}
-
-				});
+				premadeFilter.setFilter(CharacterFacade::isQualifiedFor);
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
 						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
-				customFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue();
-					}
-
-				});
+				customFilter.setFilter((context, element) -> context.getInfoFactory().getCost(element) <= context.getFundsRef().get().floatValue());
 				filterBar.addDisplayableFilter(premadeFilter);
 				filterBar.addDisplayableFilter(customFilter);
 			}
@@ -432,7 +415,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return new TabTitle(Tab.PURCHASE);
 	}
 
-	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
+	private static List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))
@@ -611,14 +594,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<?> data = availableTable.getSelectedData();
 			if (data != null)
 			{
-				for (Object object : data)
+				data.stream().filter(object -> object instanceof EquipmentFacade).forEach(object ->
 				{
-					if (object instanceof EquipmentFacade)
-					{
-						EquipmentFacade equip = (EquipmentFacade) object;
-						character.deleteCustomEquipment(equip);
-					}
-				}
+					EquipmentFacade equip = (EquipmentFacade) object;
+					character.deleteCustomEquipment(equip);
+				});
 			}
 		}
 
@@ -666,10 +646,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<?> data = purchasedTable.getSelectedData();
 			if (data != null)
 			{
-				for (Object object : data)
+				data.forEach(object ->
 				{
 					character.removePurchasedEquipment((EquipmentFacade) object, 1, false);
-				}
+				});
 				availableTable.refilter();
 			}
 		}
@@ -828,10 +808,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				}
 				oldList = newList;
 				StringBuilder sb = new StringBuilder(2000);
-				for (EquipmentFacade equip : newList)
+				newList.forEach(equip ->
 				{
 					sb.append(character.getInfoFactory().getHTMLInfo(equip));
-				}
+				});
 				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
 				infoPane.setText(text);
 			}
@@ -857,10 +837,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			String currencyDisplay
 					= character.getDataSet().getGameMode().getCurrencyDisplay();
-			for (JLabel label : currencyLabels)
+			currencyLabels.forEach(label ->
 			{
 				label.setText(currencyDisplay);
-			}
+			});
 		}
 
 	}
@@ -1073,7 +1053,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		//SOURCE_NAME("Source/Name");
-		private String name;
+		private final String name;
 
 		private EquipmentTreeView(String name)
 		{
@@ -1101,14 +1081,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						{
 							if (primaryTypes.contains(type))
 							{
-								for (String subType : types)
-								{
-									if (!type.equals(subType))
-									{
-										paths.add(new TreeViewPath<>(
-                                                pobj, type, subType));
-									}
-								}
+								paths.addAll(types.stream().filter(subType -> !type.equals(subType)).map(subType -> new TreeViewPath<>(
+										pobj, type, subType)).collect(Collectors.toList()));
 							}
 						}
 						return paths;
@@ -1120,13 +1094,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
                                 types.size());
-						for (String type : types)
-						{
-							if (primaryTypes.contains(type))
-							{
-								paths.add(new TreeViewPath<>(pobj, type));
-							}
-						}
+						paths.addAll(types.stream().filter(primaryTypes::contains).map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 						return paths;
 					}
 				// No types, fall through and treat it as just a name.
@@ -1712,11 +1680,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			for (EquipmentFacade item : targets)
+			targets.forEach(item ->
 			{
 				character.removePurchasedEquipment(item, 1, true);
 				destination.addPurchasedEquipment(item, 1, false, true);
-			}
+			});
 		}
 
 	}
@@ -1744,10 +1712,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			for (EquipmentFacade item : targets)
+			targets.forEach(item ->
 			{
 				destination.addPurchasedEquipment(item, 1, false, true);
-			}
+			});
 		}
 
 	}

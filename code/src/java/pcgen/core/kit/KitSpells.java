@@ -100,7 +100,7 @@ public final class KitSpells extends BaseKit
 			sb.append(ksi.getLSTformat());
 			Set<List<CDOMSingleRef<Ability>>> abilities =
 					spells.getSecondaryKeySet(ksi);
-			for (List<CDOMSingleRef<Ability>> list : abilities)
+			abilities.forEach(list ->
 			{
 				if (list != null)
 				{
@@ -114,7 +114,7 @@ public final class KitSpells extends BaseKit
 					sb.append(" (").append(count).append(")");
 				}
 
-			}
+			});
 		}
 
 		return sb.toString();
@@ -145,22 +145,22 @@ public final class KitSpells extends BaseKit
 			return false;
 		}
 
-		for (KnownSpellIdentifier ksi : spells.getKeySet())
+		spells.getKeySet().forEach(ksi ->
 		{
 			Collection<Spell> allSpells =
 					ksi.getContainedSpells(aPC, Collections.singletonList(aClass
-						.get(ObjectKey.CLASS_SPELLLIST)));
+							.get(ObjectKey.CLASS_SPELLLIST)));
 			Set<List<CDOMSingleRef<Ability>>> feats = spells.getSecondaryKeySet(ksi);
-			for (Spell sp : allSpells)
+			allSpells.forEach(sp ->
 			{
-				for (List<CDOMSingleRef<Ability>> list : feats)
+				feats.forEach(list ->
 				{
 					Integer count = spells.get(ksi, list);
 					aSpellList.add(new KitSpellBookEntry(
 							spellBook, sp, list, count));
-				}
-			}
-		}
+				});
+			});
+		});
 
 		final Formula choiceFormula = getCount();
 		int numberOfChoices;
@@ -214,7 +214,7 @@ public final class KitSpells extends BaseKit
 		//
 		// Add to list of things to add to the character
 		//
-		for (KitSpellBookEntry obj : xs)
+		xs.forEach(obj ->
 		{
 			if (obj != null)
 			{
@@ -224,12 +224,11 @@ public final class KitSpells extends BaseKit
 					theSpells = new ArrayList<>();
 				}
 				theSpells.add(obj);
-			}
-			else
+			} else
 			{
 				warnings.add("SPELLS: Non-existant spell chosen");
 			}
-		}
+		});
 
 		if (theSpells != null && theSpells.size() > 0)
 		{
@@ -241,11 +240,11 @@ public final class KitSpells extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for (KitSpellBookEntry sbe : theSpells)
+		theSpells.forEach(sbe ->
 		{
 			updatePCSpells(aPC, sbe, aPC.getClassKeyed(sbe.getPCClass()
-				.getKeyName()));
-		}
+					.getKeyName()));
+		});
 	}
 
 	private PCClass findDefaultSpellClass(final CDOMSingleRef<PCClass> ref,
@@ -274,8 +273,8 @@ public final class KitSpells extends BaseKit
 	 * @param  aSpell   A Spell to add to the PC
 	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
-	private void updatePCSpells(final PlayerCharacter pc,
-		final KitSpellBookEntry aSpell, final PCClass pcClass)
+	private static void updatePCSpells(final PlayerCharacter pc,
+	                                   final KitSpellBookEntry aSpell, final PCClass pcClass)
 	{
 		Spell spell = aSpell.getSpell();
 

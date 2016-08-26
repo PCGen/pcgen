@@ -61,7 +61,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 		return true;
 	}
 
-	public boolean parse(LoadContext context, String line, URI source)
+	public static boolean parse(LoadContext context, String line, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try
@@ -82,7 +82,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITYCATEGORY"; //$NON-NLS-1$
 	}

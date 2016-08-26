@@ -97,10 +97,10 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	public void addAll(CharID id, Category<Ability> cat, Nature nature,
 			Collection<Ability> abilities)
 	{
-		for (Ability a : abilities)
+		abilities.forEach(a ->
 		{
 			add(id, cat, nature, a);
-		}
+		});
 	}
 
 	/**
@@ -322,13 +322,14 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 					id);
 		if (catMap != null)
 		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
-					.entrySet())
+			// Category<Ability> cat = catME.getKey();
+			catMap
+					.entrySet().forEach(catME ->
 			{
 				// Category<Ability> cat = catME.getKey();
 				Map<Nature, Set<Ability>> natMap = catME.getValue();
 				processRemoveNatureMap(id, natMap);
-			}
+			});
 		}
 	}
 
@@ -402,11 +403,12 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 	private void processRemoveNatureMap(CharID id,
 			Map<Nature, Set<Ability>> natMap)
 	{
-		for (Map.Entry<Nature, Set<Ability>> natME : natMap.entrySet())
+		// Nature nature = natME.getKey();
+		natMap.entrySet().forEach(natME ->
 		{
 			// Nature nature = natME.getKey();
 			processRemoveAbilityMap(id, natME.getValue());
-		}
+		});
 	}
 
 	/**
@@ -430,8 +432,9 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> catMap = getCachedMap(id);
 		if (catMap != null)
 		{
-			for (Map.Entry<Category<Ability>, Map<Nature, Set<Ability>>> catME : catMap
-					.entrySet())
+			// Category<Ability> cat = catME.getKey();
+			catMap
+					.entrySet().forEach(catME ->
 			{
 				// Category<Ability> cat = catME.getKey();
 				Set<Ability> abilitySet = catME.getValue().remove(nature);
@@ -439,16 +442,16 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 				{
 					processRemoveAbilityMap(id, abilitySet);
 				}
-			}
+			});
 		}
 	}
 
 	private void processRemoveAbilityMap(CharID id, Set<Ability> abilitySet)
 	{
-		for (Ability a : abilitySet)
+		abilitySet.forEach(a ->
 		{
 			fireDataFacetChangeEvent(id, a, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 	}
 
 	/**
@@ -514,17 +517,17 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		Map<Category<Ability>, Map<Nature, Set<Ability>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Entry<Category<Ability>, Map<Nature, Set<Ability>>> me : map
-				.entrySet())
+			map
+					.entrySet().forEach(me ->
 			{
 				Category<Ability> cat = me.getKey();
-				for (Entry<Nature, Set<Ability>> nme : me.getValue().entrySet())
+				me.getValue().entrySet().forEach(nme ->
 				{
 					Nature nat = nme.getKey();
 					ensureCachedSet(copy, cat, nat);
 					getCachedSet(copy, cat, nat).addAll(nme.getValue());
-				}
-			}
+				});
+			});
 		}
 	}
 }

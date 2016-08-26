@@ -75,7 +75,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	 * 
 	 * @return The Category for the Ability in this AbilitySelection.
 	 */
-	public CDOMSingleRef<AbilityCategory> getAbilityCategory()
+	public final CDOMSingleRef<AbilityCategory> getAbilityCategory()
 	{
 		return category;
 	}
@@ -87,7 +87,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	 * @return The Nature of the Ability as it should be applied to a
 	 *         PlayerCharacter
 	 */
-	public Nature getNature()
+	public final Nature getNature()
 	{
 		return nature;
 	}
@@ -103,7 +103,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public String getLstFormat() throws PersistenceLayerException
+	public final String getLstFormat() throws PersistenceLayerException
 	{
 		return "%LIST";
 	}
@@ -131,13 +131,13 @@ public class AbilitySelector extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return category.hashCode() ^ nature.hashCode();
 	}
 
 	@Override
-	public boolean equals(Object o)
+	public final boolean equals(Object o)
 	{
 		if (o instanceof AbilitySelector)
 		{

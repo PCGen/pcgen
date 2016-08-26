@@ -34,7 +34,7 @@ import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
-public class SkillInfoUtilities
+public final class SkillInfoUtilities
 {
 
 	/**
@@ -52,14 +52,14 @@ public class SkillInfoUtilities
 				List<PCStat> statList = SkillInfoUtilities.getKeyStatList(pc, sk, null);
 				StringBuilder sb = new StringBuilder(50);
 				boolean needSlash = false;
-				for (PCStat s : statList)
+				statList.forEach(s ->
 				{
 					if (needSlash)
 					{
 						sb.append('/');
 					}
 					sb.append(s.getKeyName());
-				}
+				});
 				return sb.toString();
 			}
 			else

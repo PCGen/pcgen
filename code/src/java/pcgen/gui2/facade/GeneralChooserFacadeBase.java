@@ -25,6 +25,7 @@ package pcgen.gui2.facade;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PObject;
 import pcgen.facade.core.ChooserFacade;
@@ -272,10 +273,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		if (item instanceof PObject)
 		{
 			PObject pObject = (PObject) item;
-			for (Type type : pObject.getTrueTypeList(true))
-			{
-				branches.add(type.toString());
-			}
+			branches.addAll(pObject.getTrueTypeList(true).stream().map(Type::toString).collect(Collectors.toList()));
 		}
 		return branches;
 	}

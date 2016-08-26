@@ -28,6 +28,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.base.QualifyingObject;
@@ -136,10 +137,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public void addAll(CharID id, Collection<? extends T> c, Object source)
 	{
-		for (T obj : c)
+		c.forEach(obj ->
 		{
 			add(id, obj, source);
-		}
+		});
 	}
 
 	/**
@@ -194,10 +195,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (T obj : c)
+			c.forEach(obj ->
 			{
 				processRemoval(id, componentMap, obj, source);
-			}
+			});
 		}
 	}
 
@@ -232,10 +233,10 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			return Collections.emptyMap();
 		}
 		removeCache(id);
-		for (T obj : componentMap.keySet())
+		componentMap.keySet().forEach(obj ->
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentMap;
 	}
 
@@ -467,14 +468,14 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> sourceMap = getCachedMap(source);
 		if (sourceMap != null)
 		{
-			for (Map.Entry<T, Set<Object>> me : sourceMap.entrySet())
+			sourceMap.entrySet().forEach(me ->
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
 				Set<Object> targetSet = getConstructingCachedSetFor(
 						destination, obj);
 				targetSet.addAll(sourceSet);
-			}
+			});
 		}
 	}
 
@@ -560,11 +561,11 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				removeCache(id);
 			}
-			for (T obj : removedKeys)
+			removedKeys.forEach(obj ->
 			{
 				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
-			}
+						DataFacetChangeEvent.DATA_REMOVED);
+			});
 		}
 	}
 
@@ -600,16 +601,14 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			componentMap.entrySet().forEach(me ->
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
 					list.add(me.getKey());
 				}
-			}
+			});
 		}
 		return list;
 	}
@@ -700,7 +699,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Map.Entry<T, Set<Object>> me : componentMap.entrySet())
+			componentMap.entrySet().forEach(me ->
 			{
 				T obj = me.getKey();
 				Set<Object> sources = me.getValue();
@@ -711,7 +710,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 						set.add(obj);
 					}
 				}
-			}
+			});
 		}
 		return set;
 	}
@@ -757,18 +756,12 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Map.Entry<T, Set<Object>> me : componentMap.entrySet())
+			componentMap.entrySet().forEach(me ->
 			{
 				T obj = me.getKey();
 				Set<Object> sources = me.getValue();
-				for (Object source : sources)
-				{
-					if (prereqFacet.qualifies(id, obj, source))
-					{
-						list.add(qa.act(obj, source));
-					}
-				}
-			}
+				list.addAll(sources.stream().filter(source -> prereqFacet.qualifies(id, obj, source)).map(source -> qa.act(obj, source)).collect(Collectors.toList()));
+			});
 		}
 		return list;
 	}

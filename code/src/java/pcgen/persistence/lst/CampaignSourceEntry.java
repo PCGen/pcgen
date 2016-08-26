@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
@@ -50,9 +51,9 @@ import pcgen.util.Logging;
 public class CampaignSourceEntry implements SourceEntry
 {
 	private Campaign campaign = null;
-	private List<String> excludeItems = new ArrayList<String>();
-	private List<String> includeItems = new ArrayList<String>();
-	private List<Prerequisite> prerequisites = new ArrayList<Prerequisite>();
+	private List<String> excludeItems = new ArrayList<>();
+	private List<String> includeItems = new ArrayList<>();
+	private List<Prerequisite> prerequisites = new ArrayList<>();
 	private URIEntry uri = null;
 
 	/**
@@ -294,7 +295,7 @@ public class CampaignSourceEntry implements SourceEntry
 	static List<String> parseSuffix(String suffix, URI sourceUri,
 		String value)
 	{
-		List<String> tagList = new ArrayList<String>();
+		List<String> tagList = new ArrayList<>();
 		String currentTag = "";
 		int bracketLevel = 0;
 
@@ -369,27 +370,26 @@ public class CampaignSourceEntry implements SourceEntry
 		{
 			return;
 		}
-		
-		for (Prerequisite prereq : prereqList)
+
+		prereqList.forEach(prereq ->
 		{
 			if (prereq.isCharacterRequired())
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
+								Constants.TAB);
 				Logging.log(Logging.LST_ERROR, "Prereq '" + prereq.getKind()
-					+ "' is not supported in PCC files. Prereq was '" + lstString
-					+ "' in " + sourceUri + ". Prereq will be ignored.");
-			}
-			else
+						+ "' is not supported in PCC files. Prereq was '" + lstString
+						+ "' in " + sourceUri + ". Prereq will be ignored.");
+			} else
 			{
 				validatePrereqs(prereq.getPrerequisites(), sourceUri);
 			}
-		}
+		});
 	}
 
 	/**
@@ -402,7 +402,7 @@ public class CampaignSourceEntry implements SourceEntry
 	{
 		boolean hasCategory = false;
 		boolean hasKeyOnly = false;
-		List<String> catKeyList = new ArrayList<String>();
+		List<String> catKeyList = new ArrayList<>();
 		String target = inExString.substring(8);
 		if (target == null || target.length() == 0)
 		{
@@ -419,10 +419,7 @@ public class CampaignSourceEntry implements SourceEntry
 						CoreUtility.split(key.substring(9), ',');
 				String category = abilityKeyList.get(0);
 				abilityKeyList.remove(0);
-				for (String string : abilityKeyList)
-				{
-					catKeyList.add(category + ',' + string);
-				}
+				catKeyList.addAll(abilityKeyList.stream().map(string -> category + ',' + string).collect(Collectors.toList()));
 			}
 			else
 			{
@@ -467,9 +464,9 @@ public class CampaignSourceEntry implements SourceEntry
 		return sb.toString();
 	}
 
-	private StringBuilder joinIncExcList(List<String> list)
+	private static StringBuilder joinIncExcList(List<String> list)
 	{
-		MapToList<String, String> map = new HashMapToList<String, String>();
+		MapToList<String, String> map = new HashMapToList<>();
 		for (String s : list)
 		{
 			int commaLoc = s.indexOf(',');

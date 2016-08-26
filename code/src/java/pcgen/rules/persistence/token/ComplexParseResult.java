@@ -69,28 +69,25 @@ public class ComplexParseResult implements ParseResult
 
 	public void addMessages(ComplexParseResult pr)
 	{
-		for (QueuedMessage msg : pr.queuedMessages)
-		{
-			queuedMessages.add(msg);
-		}
+		queuedMessages.addAll(pr.queuedMessages);
 	}
 
 	@Override
 	public void printMessages()
 	{
-		for (QueuedMessage msg : queuedMessages)
+		queuedMessages.forEach(msg ->
 		{
 			Logging.log(msg.level, msg.message, msg.stackTrace);
-		}
+		});
 	}
 
 	@Override
 	public void addMessagesToLog()
 	{
-		for (QueuedMessage msg : queuedMessages)
+		queuedMessages.forEach(msg ->
 		{
 			Logging.addParseMessage(msg.level, msg.message, msg.stackTrace);
-		}
+		});
 	}
 
 	@Override
@@ -115,10 +112,7 @@ public class ComplexParseResult implements ParseResult
 		if (pr instanceof ComplexParseResult)
 		{
 			ComplexParseResult cpr = (ComplexParseResult) pr;
-			for (QueuedMessage msg : cpr.queuedMessages)
-			{
-				queuedMessages.add(msg);
-			}
+			queuedMessages.addAll(cpr.queuedMessages);
 		}
 		else if (pr instanceof ParseResult.Fail)
 		{

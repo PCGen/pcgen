@@ -149,10 +149,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			thePrereqs = new ListSet<>(prereqs.size());
 		}
-		for (final Prerequisite pre : prereqs)
-		{
-			addPrerequisite(pre);
-		}
+		prereqs.forEach(this::addPrerequisite);
 	}
 
 	/**

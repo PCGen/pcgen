@@ -95,8 +95,8 @@ public class DefaultVariableValueToken extends
 		return subProcess(context, dvv, formatValue, fmtManager);
 	}
 
-	private <T> ParseResult subProcess(LoadContext context,
-		DefaultVarValue dvv, String defaultValue, FormatManager<T> fmtManager)
+	private static <T> ParseResult subProcess(LoadContext context,
+	                                          DefaultVarValue dvv, String defaultValue, FormatManager<T> fmtManager)
 	{
 		Class<T> cl = fmtManager.getManagedClass();
 		ModifierFactory<T> m = TokenLibrary.getModifier(cl, "SET");

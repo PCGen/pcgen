@@ -155,7 +155,7 @@ public class PropertyContextFactory
 		}
 	}
 
-	private void savePropertyContext(File settingsDir, PropertyContext context)
+	private static void savePropertyContext(File settingsDir, PropertyContext context)
 	{
 		File file = new File(settingsDir, context.getName());
 		if (file.exists() && !file.canWrite())
@@ -204,10 +204,10 @@ public class PropertyContextFactory
 		}
 		if (settingsDir.exists() || settingsDir.mkdirs())
 		{
-			for (PropertyContext context : contextMap.values())
+			contextMap.values().forEach(context ->
 			{
 				savePropertyContext(settingsDir, context);
-			}
+			});
 		}
 		else
 		{

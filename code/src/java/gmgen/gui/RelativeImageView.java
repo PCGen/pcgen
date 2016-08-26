@@ -835,7 +835,7 @@ public class RelativeImageView extends View implements ImageObserver
 		return (anImage != null) && (anImage.getHeight(imageObserver) > 0) && (anImage.getWidth(imageObserver) > 0);
 	}
 
-	private void loadDefaultIconsIfNecessary()
+	private static void loadDefaultIconsIfNecessary()
 	{
 		try
 		{
@@ -909,7 +909,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 	}
 
-	private Icon makeIcon(final String gifFile) throws IOException
+	private static Icon makeIcon(final String gifFile) throws IOException
 	{
 		/* 
 		 * Copy resource into a byte array.  This is

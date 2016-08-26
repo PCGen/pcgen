@@ -106,7 +106,7 @@ public class NotesPlugin implements InteractivePlugin
 		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_notes_file")); //$NON-NLS-1$
 	}
 
-	public FileFilter[] getFileTypes()
+	public static FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
 
@@ -154,12 +154,12 @@ public class NotesPlugin implements InteractivePlugin
 		return NAME;
 	}
 
-	public String getLocalizedName()
+	public static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
 
-	public boolean isRecognizedFileType(File launch)
+	public static boolean isRecognizedFileType(File launch)
 	{
 		return PCGFile.isPCGenCharacterOrPartyFile(launch);
 	}
@@ -207,7 +207,7 @@ public class NotesPlugin implements InteractivePlugin
 	 * @param evt
 	 *          Action Event of a click on the tool menu item
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

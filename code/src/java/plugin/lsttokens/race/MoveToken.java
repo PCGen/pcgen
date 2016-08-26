@@ -42,7 +42,7 @@ public class MoveToken extends AbstractTokenWithSeparator<Race> implements
 		return "MOVE";
 	}
 
-	private ParseResult validateMove(String value, String mod)
+	private static ParseResult validateMove(String value, String mod)
 	{
 		try
 		{

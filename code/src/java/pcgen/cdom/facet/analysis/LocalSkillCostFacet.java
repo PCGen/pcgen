@@ -88,20 +88,20 @@ public class LocalSkillCostFacet extends
 				+ " which is not an expected object type");
 			return;
 		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCSKILL))
+		cdo.getSafeListFor(ListKey.LOCALCSKILL).forEach(ref ->
 		{
-			for (Skill sk : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(sk ->
 			{
 				add(id, owner, SkillCost.CLASS, sk, cdo);
-			}
-		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.LOCALCCSKILL))
+			});
+		});
+		cdo.getSafeListFor(ListKey.LOCALCCSKILL).forEach(ref ->
 		{
-			for (Skill sk : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(sk ->
 			{
 				add(id, owner, SkillCost.CROSS_CLASS, sk, cdo);
-			}
-		}
+			});
+		});
 	}
 
 	/**

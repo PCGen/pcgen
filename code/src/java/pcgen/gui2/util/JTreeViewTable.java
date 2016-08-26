@@ -110,7 +110,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		this.cornerButton = new JTableMenuButton(this, cornerPopupMenu);
 	}
 
-	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
+	protected static <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
 		return new TreeViewTableModel<>(dataView);
 	}
@@ -152,27 +152,27 @@ public class JTreeViewTable<T> extends JTreeTable
 		viewColumn.setIdentifier(TREE_VIEW_COL_PREFS_KEY);
 		model.addColumn(viewColumn, true, 150);
 
-		for (TableColumn column : columns)
+		columns.forEach(column ->
 		{
 			model.addColumn(column, true, 75);
-		}
+		});
 
 		columns = listMap.get(Visibility.INITIALLY_VISIBLE);
 		if (columns != null)
 		{
-			for (TableColumn column : columns)
+			columns.forEach(column ->
 			{
 				model.addColumn(column, true, 75);
-			}
+			});
 		}
 
 		columns = listMap.get(Visibility.INITIALLY_INVISIBLE);
 		if (columns != null)
 		{
-			for (TableColumn column : columns)
+			columns.forEach(column ->
 			{
 				model.addColumn(column, false, 75);
-			}
+			});
 		}
 		return model;
 	}
@@ -493,12 +493,12 @@ public class JTreeViewTable<T> extends JTreeTable
 			columnLabel.setBorder(BorderFactory.createEmptyBorder(0, 4, 0, 0));
 			add(columnLabel);
 			List<TableColumn> columns = dynamicColumnModel.getAvailableColumns();
-			for (TableColumn column : columns)
+			columns.forEach(column ->
 			{
 				JMenuItem item = createMenuItem(column);
 				item.setEnabled(tableColumnsEnabled);
 				add(item);
-			}
+			});
 			cornerButton.setVisible(!columns.isEmpty() || !views.isEmpty());
 		}
 

@@ -26,6 +26,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.ListSet;
@@ -54,7 +55,7 @@ public abstract class AbstractListContext
 		return edits.getSourceURI();
 	}
 
-	void setSourceURI(URI sourceURI)
+	final void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
@@ -65,27 +66,27 @@ public abstract class AbstractListContext
 		return edits.getExtractURI();
 	}
 
-	void setExtractURI(URI extractURI)
+	final void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
 		getCommitStrategy().setExtractURI(extractURI);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
+	public final <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)
 	{
 		return edits.addToMasterList(tokenName, owner, list, allowed);
 	}
 
-	public <T extends CDOMObject> void removeFromMasterList(
+	public final <T extends CDOMObject> void removeFromMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)
 	{
 		edits.removeFromMasterList(tokenName, owner, list, allowed);
 	}
 
-	public void clearAllMasterLists(String tokenName, CDOMObject owner)
+	public final void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
 		edits.clearAllMasterLists(tokenName, owner);
 	}
@@ -96,7 +97,7 @@ public abstract class AbstractListContext
 		edits.clearMasterList(tokenName, owner, list);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToList(
+	public final <T extends CDOMObject> AssociatedPrereqObject addToList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<? super T>> list,
 			CDOMReference<T> allowed)
@@ -104,7 +105,7 @@ public abstract class AbstractListContext
 		return edits.addToList(tokenName, owner, list, allowed);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(
+	public final <T extends CDOMObject> AssociatedPrereqObject removeFromList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<? super T>> list,
 			CDOMReference<T> ref)
@@ -112,76 +113,92 @@ public abstract class AbstractListContext
 		return edits.removeFromList(tokenName, owner, list, ref);
 	}
 
-	public void removeAllFromList(String tokenName, CDOMObject owner,
-			CDOMReference<? extends CDOMList<?>> swl)
+	public final void removeAllFromList(String tokenName, CDOMObject owner,
+	                                    CDOMReference<? extends CDOMList<?>> swl)
 	{
 		edits.removeAllFromList(tokenName, owner, swl);
 	}
 
-	void commit()
+	final void commit()
 	{
 		ListCommitStrategy commit = getCommitStrategy();
-		for (CDOMReference<? extends CDOMList<?>> list : edits.positiveMasterMap.getKeySet())
+		//Note: Intentional Generics Violation due to Sun Compiler
+		edits.positiveMasterMap.getKeySet().forEach(list ->
 		{
 			//Note: Intentional Generics Violation due to Sun Compiler
 			commitDirect((CDOMReference) list);
-		}
-		for (CDOMReference<? extends CDOMList<?>> list : edits.negativeMasterMap.getKeySet())
+		});
+		//Note: Intentional Generics Violation due to Sun Compiler
+		edits.negativeMasterMap.getKeySet().forEach(list ->
 		{
 			//Note: Intentional Generics Violation due to Sun Compiler
 			removeDirect((CDOMReference) list);
-		}
-		for (URI uri : edits.globalClearSet.getKeySet())
+		});
+		edits.globalClearSet.getKeySet().forEach(uri ->
 		{
-			for (CDOMObject owner : edits.globalClearSet
-				.getSecondaryKeySet(uri))
+			edits.globalClearSet
+					.getSecondaryKeySet(uri).forEach(owner ->
 			{
-				for (String tokenName : edits.globalClearSet.getTertiaryKeySet(
-					uri, owner))
+				edits.globalClearSet.getTertiaryKeySet(
+						uri, owner).forEach(tokenName ->
 				{
-					for (CDOMReference<? extends CDOMList<?>> list : edits.globalClearSet
-						.getListFor(uri, owner, tokenName))
+					edits.globalClearSet
+							.getListFor(uri, owner, tokenName).forEach(list ->
 					{
 						commit.removeAllFromList(tokenName, owner, list);
-					}
-				}
-			}
-		}
-		for (URI uri : edits.negativeMap.getKeySet())
+					});
+				});
+			});
+		});
+		//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+		edits.negativeMap.getKeySet().forEach(uri ->
 		{
-			for (CDOMObject owner : edits.negativeMap.getSecondaryKeySet(uri))
+			//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+			edits.negativeMap.getSecondaryKeySet(uri).forEach(owner ->
 			{
 				CDOMObject neg = edits.negativeMap.get(uri, owner);
 				Collection<CDOMReference<? extends CDOMList<?>>> modifiedLists =
 						neg.getModifiedLists();
-				for (CDOMReference<? extends CDOMList<?>> list : modifiedLists)
+				//Note: Intentional Generics Violation due to Sun Compiler
+				modifiedLists.forEach(list ->
 				{
 					//Note: Intentional Generics Violation due to Sun Compiler
 					remove(owner, neg, (CDOMReference) list);
-				}
-			}
-		}
-		for (URI uri : edits.positiveMap.getKeySet())
+				});
+			});
+		});
+		//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+		edits.positiveMap.getKeySet().forEach(uri ->
 		{
-			for (CDOMObject owner : edits.positiveMap.getSecondaryKeySet(uri))
+			//Note: Intentional Generics Violation due to Sun Compiler
+//Note: Intentional Generics Violation due to Sun Compiler
+			edits.positiveMap.getSecondaryKeySet(uri).forEach(owner ->
 			{
 				CDOMObject neg = edits.positiveMap.get(uri, owner);
 				Collection<CDOMReference<? extends CDOMList<?>>> modifiedLists = neg
 						.getModifiedLists();
-				for (CDOMReference<? extends CDOMList<?>> list : modifiedLists)
+				//Note: Intentional Generics Violation due to Sun Compiler
+				modifiedLists.forEach(list ->
 				{
 					//Note: Intentional Generics Violation due to Sun Compiler
 					add(owner, neg, (CDOMReference) list);
-				}
-			}
-		}
-		for (String token : edits.masterAllClear.getKeySet())
+				});
+			});
+		});
+		edits.masterAllClear.getKeySet().forEach(token ->
 		{
-			for (OwnerURI ou : edits.masterAllClear.getListFor(token))
+			edits.masterAllClear.getListFor(token).forEach(ou ->
 			{
 				commit.clearAllMasterLists(token, ou.owner);
-			}
-		}
+			});
+		});
 		rollback();
 	}
 
@@ -189,72 +206,72 @@ public abstract class AbstractListContext
 		CDOMReference<L> list)
 	{
 		ListCommitStrategy commit = getCommitStrategy();
-		for (OwnerURI ou : edits.positiveMasterMap.getSecondaryKeySet(list))
+		edits.positiveMasterMap.getSecondaryKeySet(list).forEach(ou ->
 		{
-			for (CDOMObject child : edits.positiveMasterMap.getTertiaryKeySet(
-					list, ou))
+			edits.positiveMasterMap.getTertiaryKeySet(
+					list, ou).forEach(child ->
 			{
 				AssociatedPrereqObject assoc = edits.positiveMasterMap.get(
 						list, ou, child);
 				AssociatedPrereqObject edge = commit.addToMasterList(assoc
-						.getAssociation(AssociationKey.TOKEN), ou.owner, list,
+								.getAssociation(AssociationKey.TOKEN), ou.owner, list,
 						(T) child);
 				Collection<AssociationKey<?>> associationKeys = assoc
 						.getAssociationKeys();
-				for (AssociationKey<?> ak : associationKeys)
+				associationKeys.forEach(ak ->
 				{
 					setAssoc(assoc, edge, ak);
-				}
+				});
 				edge.addAllPrerequisites(assoc.getPrerequisiteList());
-			}
-		}
+			});
+		});
 	}
 
 	private <T extends CDOMObject, U extends CDOMList<T>> void removeDirect(
 			CDOMReference<U> list)
 	{
 		ListCommitStrategy commit = getCommitStrategy();
-		for (OwnerURI ou : edits.negativeMasterMap.getSecondaryKeySet(list))
+		edits.negativeMasterMap.getSecondaryKeySet(list).forEach(ou ->
 		{
-			for (CDOMObject child : edits.negativeMasterMap.getTertiaryKeySet(
-					list, ou))
+			edits.negativeMasterMap.getTertiaryKeySet(
+					list, ou).forEach(child ->
 			{
 				AssociatedPrereqObject assoc = edits.negativeMasterMap.get(
 						list, ou, child);
 				commit.removeFromMasterList(assoc
-						.getAssociation(AssociationKey.TOKEN), ou.owner, list,
+								.getAssociation(AssociationKey.TOKEN), ou.owner, list,
 						(T) child);
-			}
-		}
+			});
+		});
 	}
 
-	void rollback()
+	final void rollback()
 	{
 		edits.decommit();
 	}
 
-	public Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
+	public final Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
 			CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		return getCommitStrategy().getChangedLists(owner, cl);
 	}
 
-	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+	public final <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
 		return getCommitStrategy().getChangesInList(tokenName, owner, swl);
 	}
 
-	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
+	public final <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
 		return getCommitStrategy().getChangesInMasterList(tokenName, owner, swl);
 	}
 
-	public <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(String tokenName,
-			CDOMObject owner, Class<T> cl)
+	public final <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(String tokenName,
+	                                                                                    CDOMObject owner, Class<T> cl)
 	{
 		return getCommitStrategy().getMasterListChanges(tokenName, owner, cl);
 	}
@@ -269,23 +286,23 @@ public abstract class AbstractListContext
 	{
 		ListCommitStrategy commit = getCommitStrategy();
 		Collection<CDOMReference<BT>> mods = neg.getListMods(list);
-		for (CDOMReference<BT> ref : mods)
+		mods.forEach(ref ->
 		{
-			for (AssociatedPrereqObject assoc : neg.getListAssociations(list,
-					ref))
+			neg.getListAssociations(list,
+					ref).forEach(assoc ->
 			{
 				String token = assoc.getAssociation(AssociationKey.TOKEN);
 				AssociatedPrereqObject edge = commit.removeFromList(token, owner,
 						list, ref);
 				Collection<AssociationKey<?>> associationKeys = assoc
 						.getAssociationKeys();
-				for (AssociationKey<?> ak : associationKeys)
+				associationKeys.forEach(ak ->
 				{
 					setAssoc(assoc, edge, ak);
-				}
+				});
 				edge.addAllPrerequisites(assoc.getPrerequisiteList());
-			}
-		}
+			});
+		});
 	}
 
 	private <BT extends CDOMObject, L extends CDOMList<BT>> void add(
@@ -293,27 +310,27 @@ public abstract class AbstractListContext
 	{
 		ListCommitStrategy commit = getCommitStrategy();
 		Collection<CDOMReference<BT>> mods = neg.getListMods(list);
-		for (CDOMReference<BT> ref : mods)
+		mods.forEach(ref ->
 		{
-			for (AssociatedPrereqObject assoc : neg.getListAssociations(list,
-					ref))
+			neg.getListAssociations(list,
+					ref).forEach(assoc ->
 			{
 				String token = assoc.getAssociation(AssociationKey.TOKEN);
 				AssociatedPrereqObject edge = commit.addToList(token, owner,
 						list, ref);
 				Collection<AssociationKey<?>> associationKeys = assoc
 						.getAssociationKeys();
-				for (AssociationKey<?> ak : associationKeys)
+				associationKeys.forEach(ak ->
 				{
 					setAssoc(assoc, edge, ak);
-				}
+				});
 				edge.addAllPrerequisites(assoc.getPrerequisiteList());
-			}
-		}
+			});
+		});
 	}
 
-	private <T> void setAssoc(AssociatedPrereqObject assoc,
-			AssociatedPrereqObject edge, AssociationKey<T> ak)
+	private static <T> void setAssoc(AssociatedPrereqObject assoc,
+	                                 AssociatedPrereqObject edge, AssociationKey<T> ak)
 	{
 		edge.setAssociation(ak, assoc.getAssociation(ak));
 	}
@@ -356,7 +373,7 @@ public abstract class AbstractListContext
 		protected static class CDOMShell extends CDOMObject
 		{
 			@Override
-			public CDOMObject clone() throws CloneNotSupportedException
+			public final CDOMObject clone() throws CloneNotSupportedException
 			{
 				throw new CloneNotSupportedException();
 			}
@@ -368,32 +385,32 @@ public abstract class AbstractListContext
 			}
 		}
 
-		public URI getExtractURI()
+		public final URI getExtractURI()
 		{
 			return extractURI;
 		}
 
 		@Override
-		public void setExtractURI(URI extractURI)
+		public final void setExtractURI(URI extractURI)
 		{
 			this.extractURI = extractURI;
 		}
 
-		public URI getSourceURI()
+		public final URI getSourceURI()
 		{
 			return sourceURI;
 		}
 
 		@Override
-		public void setSourceURI(URI sourceURI)
+		public final void setSourceURI(URI sourceURI)
 		{
 			this.sourceURI = sourceURI;
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
-			String tokenName, CDOMObject owner,
-			CDOMReference<? extends CDOMList<T>> list, T allowed)
+		public final <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
+				String tokenName, CDOMObject owner,
+				CDOMReference<? extends CDOMList<T>> list, T allowed)
 		{
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.OWNER, owner);
@@ -404,7 +421,7 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> void removeFromMasterList(
+		public final <T extends CDOMObject> void removeFromMasterList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<T>> list, T allowed)
 		{
@@ -492,38 +509,38 @@ public abstract class AbstractListContext
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			Set<CDOMObject> added = positiveMasterMap
 					.getTertiaryKeySet(swl, lo);
-			for (CDOMObject lw : added)
+			added.forEach(lw ->
 			{
 				AssociatedPrereqObject apo = positiveMasterMap.get(swl, lo, lw);
 				if (tokenName.equals(apo.getAssociation(AssociationKey.TOKEN)))
 				{
 					map.addToListFor((T) lw, apo);
 				}
-			}
+			});
 			MapToList<T, AssociatedPrereqObject> rmap = new TreeMapToList<>(
                     CDOMObjectUtilities.CDOM_SORTER);
 			Set<CDOMObject> removed = negativeMasterMap
 					.getTertiaryKeySet(swl, lo);
-			for (CDOMObject lw : removed)
+			removed.forEach(lw ->
 			{
 				AssociatedPrereqObject apo = negativeMasterMap.get(swl, lo, lw);
 				if (tokenName.equals(apo.getAssociation(AssociationKey.TOKEN)))
 				{
 					rmap.addToListFor((T) lw, apo);
 				}
-			}
+			});
 			return new AssociatedCollectionChanges<>(map, rmap, masterClearSet
                     .containsInList(swl, lo));
 		}
 
-		public <T extends CDOMObject> void clearMasterList(String tokenName,
-				CDOMObject owner, CDOMReference<? extends CDOMList<T>> list)
+		public final <T extends CDOMObject> void clearMasterList(String tokenName,
+		                                                         CDOMObject owner, CDOMReference<? extends CDOMList<T>> list)
 		{
 			masterClearSet.addToListFor(list, new OwnerURI(sourceURI, owner));
 		}
 
 		@Override
-		public void clearAllMasterLists(String tokenName, CDOMObject owner)
+		public final void clearAllMasterLists(String tokenName, CDOMObject owner)
 		{
 			masterAllClear.addToListFor(tokenName, new OwnerURI(sourceURI,
 					owner));
@@ -552,7 +569,7 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject addToList(
+		public final <T extends CDOMObject> AssociatedPrereqObject addToList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<? super T>> list,
 				CDOMReference<T> allowed)
@@ -564,10 +581,10 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
-				CDOMObject owner,
-				CDOMReference<? extends CDOMList<? super T>> list,
-				CDOMReference<T> ref)
+		public final <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
+		                                                                          CDOMObject owner,
+		                                                                          CDOMReference<? extends CDOMList<? super T>> list,
+		                                                                          CDOMReference<T> ref)
 		{
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.TOKEN, tokenName);
@@ -580,46 +597,27 @@ public abstract class AbstractListContext
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
 			Set<CDOMReference<? extends CDOMList<?>>> list =
-                    new ListSet<>();
-			for (CDOMReference<? extends CDOMList<?>> ref : getPositive(
-				extractURI, owner).getModifiedLists())
-			{
-				if (cl.equals(ref.getReferenceClass()))
-				{
-					list.add(ref);
-				}
-			}
-			for (CDOMReference<? extends CDOMList<?>> ref : getNegative(
-				extractURI, owner).getModifiedLists())
-			{
-				if (cl.equals(ref.getReferenceClass()))
-				{
-					list.add(ref);
-				}
-			}
+					getPositive(
+							extractURI, owner).getModifiedLists().stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toCollection(ListSet::new));
+			list.addAll(getNegative(
+					extractURI, owner).getModifiedLists().stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toList()));
 			
 			Set<String> globalClearTokenKeys = globalClearSet.getTertiaryKeySet(extractURI, owner);
-			for (String key : globalClearTokenKeys)
+			globalClearTokenKeys.forEach(key ->
 			{
 				List<CDOMReference<? extends CDOMList<?>>> globalClearList = globalClearSet
 						.getListFor(extractURI, owner, key);
 				if (globalClearList != null)
 				{
-					for (CDOMReference<? extends CDOMList<?>> ref : globalClearList)
-					{
-						if (cl.equals(ref.getReferenceClass()))
-						{
-							list.add(ref);
-						}
-					}
+					list.addAll(globalClearList.stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toList()));
 				}
-			}
+			});
 			return list;
 		}
 
 		@Override
-		public void removeAllFromList(String tokenName, CDOMObject owner,
-				CDOMReference<? extends CDOMList<?>> swl)
+		public final void removeAllFromList(String tokenName, CDOMObject owner,
+		                                    CDOMReference<? extends CDOMList<?>> swl)
 		{
 			globalClearSet.addToListFor(sourceURI, owner, tokenName, swl);
 		}
@@ -647,7 +645,7 @@ public abstract class AbstractListContext
 					&& !masterAllClear.isEmpty();
 		}
 
-		public void decommit()
+		public final void decommit()
 		{
 			masterAllClear.clear();
 			masterClearSet.clear();
@@ -672,7 +670,7 @@ public abstract class AbstractListContext
 			return false;
 		}
 
-		public void purge(CDOMObject cdo)
+		public final void purge(CDOMObject cdo)
 		{
 			positiveMap.remove(sourceURI, cdo);
 			negativeMap.remove(sourceURI, cdo);
@@ -692,13 +690,13 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public int hashCode()
+		public final int hashCode()
 		{
 			return owner.hashCode();
 		}
 
 		@Override
-		public boolean equals(Object o)
+		public final boolean equals(Object o)
 		{
 			if (o instanceof OwnerURI)
 			{
@@ -742,16 +740,25 @@ public abstract class AbstractListContext
 	 * @param cdoNew The new object to be linked in.
 	 */
 	@SuppressWarnings("unchecked")
-	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
+	final <T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
 		MasterListInterface masterLists = Globals.getMasterLists();
-		for (CDOMReference ref : masterLists.getActiveLists())
+		//					Logging.debugPrint("Found assoc from " + ref + " to "
+//							+ apo.getAssociationKeys() + " / "
+//							+ apo.getAssociation(AssociationKey.OWNER));
+//					Logging.debugPrint("Found assoc from " + ref + " to "
+//							+ apo.getAssociationKeys() + " / "
+//							+ apo.getAssociation(AssociationKey.OWNER));
+		masterLists.getActiveLists().forEach(ref ->
 		{
 			Collection<AssociatedPrereqObject> assocs = masterLists
 					.getAssociations(ref, cdoOld);
 			if (assocs != null)
 			{
-				for (AssociatedPrereqObject apo : assocs)
+				//					Logging.debugPrint("Found assoc from " + ref + " to "
+//							+ apo.getAssociationKeys() + " / "
+//							+ apo.getAssociation(AssociationKey.OWNER));
+				assocs.forEach(apo ->
 				{
 //					Logging.debugPrint("Found assoc from " + ref + " to "
 //							+ apo.getAssociationKeys() + " / "
@@ -761,17 +768,14 @@ public abstract class AbstractListContext
 									apo.getAssociation(AssociationKey.TOKEN),
 									cdoNew, ref, cdoNew);
 					newapo.addAllPrerequisites(apo.getPrerequisiteList());
-					for (AssociationKey assocKey : apo.getAssociationKeys())
+					apo.getAssociationKeys().stream().filter(assocKey -> assocKey != AssociationKey.TOKEN
+							&& assocKey != AssociationKey.OWNER).forEach(assocKey ->
 					{
-						if (assocKey != AssociationKey.TOKEN
-								&& assocKey != AssociationKey.OWNER)
-						{
-							newapo.setAssociation(assocKey, apo
-									.getAssociation(assocKey));
-						}
-					}
-				}
+						newapo.setAssociation(assocKey, apo
+								.getAssociation(assocKey));
+					});
+				});
 			}
-		}
+		});
 	}
 }

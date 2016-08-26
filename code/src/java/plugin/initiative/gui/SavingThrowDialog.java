@@ -223,7 +223,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param save
 	 * @return A string representing the save constant.
 	 */
-	public String getSaveAbbrev(int save)
+	public static String getSaveAbbrev(int save)
 	{
 		if (save == FORT_SAVE)
 		{
@@ -402,7 +402,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param field
 	 * @return value
 	 */
-	private int getFieldValue(JTextField field)
+	private static int getFieldValue(JTextField field)
 	{
 		try
 		{
@@ -544,7 +544,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param number
 	 * @return int
 	 */
-	private int parseInt(String number)
+	private static int parseInt(String number)
 	{
 		try
 		{

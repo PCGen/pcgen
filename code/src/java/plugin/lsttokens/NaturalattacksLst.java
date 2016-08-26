@@ -463,7 +463,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 	 * @param obj The defining object. 
 	 * @return The size integer, or null if none (or multiple) specified.
 	 */
-	private Integer getRequiredSize(CDOMObject obj)
+	private static Integer getRequiredSize(CDOMObject obj)
 	{
 		Set<Prerequisite> sizePrereqs = new HashSet<Prerequisite>();
 		for (Prerequisite prereq : obj.getPrerequisiteList())

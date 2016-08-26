@@ -93,21 +93,23 @@ public class EquipmentItem
 			
 			if ( theEqMods != null )
 			{
-				for ( final Equipment eq : ret )
+				// We need setBase() called.  The only way to do that is to resize.
+// We will set the size to itself.
+				ret.forEach(eq ->
 				{
-					for ( final EqmodItem eqmodItem : theEqMods )
+					theEqMods.forEach(eqmodItem ->
 					{
-						for ( final String eqmod : eqmodItem.getEqMods() )
+						eqmodItem.getEqMods().forEach(eqmod ->
 						{
 							Logging.debugPrint("Adding eqmod: " + eqmod);
 							eq.addEqModifiers(eqmod, true);
-						}
-					}
+						});
+					});
 					// We need setBase() called.  The only way to do that is to resize.
 					// We will set the size to itself.
 					eq.resizeItem(null, eq.getSafe(ObjectKey.SIZE).get());
 					eq.nameItemFromModifiers(null);
-				}
+				});
 			}
 		}
 		return ret;

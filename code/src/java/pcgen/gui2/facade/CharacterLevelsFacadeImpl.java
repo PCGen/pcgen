@@ -192,11 +192,11 @@ public class CharacterLevelsFacadeImpl extends
 
 		Map<String, Integer> levelCount = new HashMap<>();
 		Map<String, PCClass> classMap = new HashMap<>();
-		for (PCClass pcClass : newClasses)
+		newClasses.forEach(pcClass ->
 		{
 			levelCount.put(pcClass.getKeyName(), 1);
 			classMap.put(pcClass.getKeyName(), pcClass);
-		}
+		});
 
 		classLevels.clear();
 		clearContents();
@@ -318,7 +318,7 @@ public class CharacterLevelsFacadeImpl extends
 		return charDisplay.getLevelInfo(getLevelIndex(level));
 	}
 	
-	private int getLevelIndex(CharacterLevelFacade level)
+	private static int getLevelIndex(CharacterLevelFacade level)
 	{
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		if (levelImpl == null)

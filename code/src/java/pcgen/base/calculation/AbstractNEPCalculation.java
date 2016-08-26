@@ -94,7 +94,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 * 
 	 * @return The BasicCalculation underlying this AbstractNEPCalculation
 	 */
-	public BasicCalculation<T> getBasicCalculation()
+	public final BasicCalculation<T> getBasicCalculation()
 	{
 		return basicCalc;
 	}

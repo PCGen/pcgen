@@ -34,7 +34,7 @@ import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 import pcgen.util.Logging;
 
-public class SubstitutionLevelSupport
+public final class SubstitutionLevelSupport
 {
 
 	private static boolean levelArrayQualifies(int level,
@@ -69,12 +69,12 @@ public class SubstitutionLevelSupport
 		}
 	
 		List<DeferredLine> newLevels = new ArrayList<>();
-		for (DeferredLine line : levelArray)
+		levelArray.forEach(line ->
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
 					.indexOf("\t")));
-	
+
 			if (aLevel == modLevel)
 			{
 				if (levelArrayQualifies(aLevel, aPC, aLine, line.source, aClass))
@@ -82,7 +82,7 @@ public class SubstitutionLevelSupport
 					newLevels.add(line);
 				}
 			}
-		}
+		});
 	
 		// find all qualifying level lines for this level
 		// and put into newLevels list.

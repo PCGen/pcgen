@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.Collection;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -71,18 +72,12 @@ public class ListChanges<T extends CDOMObject> implements
 		Collection<CDOMReference<T>> listMods = positive.getListMods(list);
 		if (listMods != null)
 		{
-			for (CDOMReference<T> ref : listMods)
+			listMods.forEach(ref ->
 			{
-				for (AssociatedPrereqObject assoc : positive
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
-			}
+				set.addAll(positive
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+								.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).collect(Collectors.toList()));
+			});
 		}
 		return set;
 	}
@@ -108,18 +103,12 @@ public class ListChanges<T extends CDOMObject> implements
 		Collection<CDOMReference<T>> listMods = negative.getListMods(list);
 		if (listMods != null)
 		{
-			for (CDOMReference<T> ref : listMods)
+			listMods.forEach(ref ->
 			{
-				for (AssociatedPrereqObject assoc : negative
-						.getListAssociations(list, ref))
-				{
-					if (tokenName.equals(assoc
-							.getAssociation(AssociationKey.TOKEN)))
-					{
-						set.add(ref);
-					}
-				}
-			}
+				set.addAll(negative
+						.getListAssociations(list, ref).stream().filter(assoc -> tokenName.equals(assoc
+								.getAssociation(AssociationKey.TOKEN))).map(assoc -> ref).collect(Collectors.toList()));
+			});
 		}
 		return set;
 	}
@@ -144,19 +133,16 @@ public class ListChanges<T extends CDOMObject> implements
 		MapToList<CDOMReference<T>, AssociatedPrereqObject> owned =
                 new TreeMapToList<>(
                         ReferenceUtilities.REFERENCE_SORTER);
-		for (CDOMReference<T> lw : mods)
+		mods.forEach(lw ->
 		{
 			Collection<AssociatedPrereqObject> assocs = positive
 					.getListAssociations(list, lw);
-			for (AssociatedPrereqObject assoc : assocs)
+			assocs.stream().filter(assoc -> tokenName
+					.equals(assoc.getAssociation(AssociationKey.TOKEN))).forEach(assoc ->
 			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
-				{
-					owned.addToListFor(lw, assoc);
-				}
-			}
-		}
+				owned.addToListFor(lw, assoc);
+			});
+		});
 		if (owned.isEmpty())
 		{
 			return null;
@@ -178,19 +164,16 @@ public class ListChanges<T extends CDOMObject> implements
 		{
 			return owned;
 		}
-		for (CDOMReference<T> lw : mods)
+		mods.forEach(lw ->
 		{
 			Collection<AssociatedPrereqObject> assocs = negative
 					.getListAssociations(list, lw);
-			for (AssociatedPrereqObject assoc : assocs)
+			assocs.stream().filter(assoc -> tokenName
+					.equals(assoc.getAssociation(AssociationKey.TOKEN))).forEach(assoc ->
 			{
-				if (tokenName
-						.equals(assoc.getAssociation(AssociationKey.TOKEN)))
-				{
-					owned.addToListFor(lw, assoc);
-				}
-			}
-		}
+				owned.addToListFor(lw, assoc);
+			});
+		});
 		if (owned.isEmpty())
 		{
 			return null;

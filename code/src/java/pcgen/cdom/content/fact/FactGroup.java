@@ -22,6 +22,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMObject;
@@ -104,14 +106,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<>();
-			for (T obj : allObjects.getContainedObjects())
-			{
-				if (contains(obj))
-				{
-					setupCache.add(obj);
-				}
-			}
+			List<T> setupCache = allObjects.getContainedObjects().stream().filter((Predicate<T>) this::contains).collect(Collectors.toList());
 			cache = setupCache;
 		}
 		return Collections.unmodifiableCollection(cache);

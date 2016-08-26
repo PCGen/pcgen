@@ -90,7 +90,7 @@ public class JIcon extends JPanel
 	 *@param  filename  File name that this represents
 	 *@return           The icon
 	 */
-	public ImageIcon getIconForType(String filename)
+	public static ImageIcon getIconForType(String filename)
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
@@ -181,7 +181,7 @@ public class JIcon extends JPanel
 	 */
 	protected void launchFile()
 	{
-		if (plugin.isRecognizedFileType(launch))
+		if (NotesPlugin.isRecognizedFileType(launch))
 		{
 			plugin.loadRecognizedFileType(launch);
 		}

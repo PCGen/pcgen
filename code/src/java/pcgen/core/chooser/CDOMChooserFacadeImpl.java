@@ -25,6 +25,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
@@ -186,32 +187,29 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private List<InfoFacade> createInfoFacadeList(List<? extends T> origAvailable2, String stringDelimiter)
 	{
 		List<InfoFacade> infoFacadeList = new ArrayList<>(origAvailable2.size());
-		for (T object : origAvailable2)
+		origAvailable2.forEach(object ->
 		{
 			if (object instanceof InfoFacade)
 			{
 				infoFacadeList.add((InfoFacade) object);
 				infoAvailable = true;
-			}
-			else if (object instanceof CDOMObject)
+			} else if (object instanceof CDOMObject)
 			{
 				CDOMInfoWrapper wrapper = new CDOMInfoWrapper((CDOMObject) object);
 				infoFacadeList.add(wrapper);
-			}
-			else if (!StringUtils.isEmpty(stringDelimiter)
-				&& (object instanceof String))
+			} else if (!StringUtils.isEmpty(stringDelimiter)
+					&& (object instanceof String))
 			{
 				DelimitedStringInfoWrapper wrapper =
 						new DelimitedStringInfoWrapper((String) object,
-							stringDelimiter);
+								stringDelimiter);
 				infoFacadeList.add(wrapper);
-			}
-			else
+			} else
 			{
 				InfoWrapper wrapper = new InfoWrapper(object);
 				infoFacadeList.add(wrapper);
 			}
-		}
+		});
 		return infoFacadeList;
 	}
 	
@@ -372,10 +370,7 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 		if (item instanceof PObject)
 		{
 			PObject pObject = (PObject) item;
-			for (Type type : pObject.getTrueTypeList(true))
-			{
-				branches.add(type.toString());
-			}
+			branches.addAll(pObject.getTrueTypeList(true).stream().map(Type::toString).collect(Collectors.toList()));
 		}
 		return branches;
 	}

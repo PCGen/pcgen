@@ -43,7 +43,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
-public class DomainApplication
+public final class DomainApplication
 {
 	/**
 	 * Sets the locked flag on a PC
@@ -91,7 +91,7 @@ public class DomainApplication
 		}
 
 		Collection<CDOMReference<Spell>> mods = d.getSafeListMods(Spell.SPELLS);
-		for (CDOMReference<Spell> ref : mods)
+		mods.forEach(ref ->
 		{
 			Collection<Spell> spells = ref.getContainedObjects();
 			Collection<AssociatedPrereqObject> assoc = d.getListAssociations(Spell.SPELLS, ref);
@@ -101,7 +101,7 @@ public class DomainApplication
 				{
 					continue;
 				}
-				for (Spell s : spells)
+				spells.forEach(s ->
 				{
 					String book = apo.getAssociation(AssociationKey.SPELLBOOK);
 					List<CharacterSpell> aList = pc
@@ -117,9 +117,9 @@ public class DomainApplication
 						cs.addInfo(1, resolvedTimes, book);
 						pc.addCharacterSpell(aClass, cs);
 					}
-				}
+				});
 			}
-		}
+		});
 	}
 
 	/**
@@ -189,13 +189,10 @@ public class DomainApplication
 		}
 
 		Collection<? extends CharacterSpell> characterSpells = pc.getCharacterSpells(aClass);
-		for (CharacterSpell characterSpell : characterSpells)
+		characterSpells.stream().filter(characterSpell -> characterSpell.getOwner() == domain).forEach(characterSpell ->
 		{
-			if (characterSpell.getOwner() == domain)
-			{
-				pc.removeCharacterSpell(aClass, characterSpell);
-			}
-		}
+			pc.removeCharacterSpell(aClass, characterSpell);
+		});
 	}
 	
 	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
@@ -267,28 +264,28 @@ public class DomainApplication
 		 * only applied at the time of level increase, but I think that quirk
 		 * should be resolved by a CDOM system around 6.0 - thpr 10/23/06
 		 */
-		for (QualifiedObject<CDOMSingleRef<Domain>> qo : cl.getSafeListFor(ListKey.DOMAIN))
+		cl.getSafeListFor(ListKey.DOMAIN).forEach(qo ->
 		{
 			CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 			if (ref != null)
 			{
 				addDomain(aPC, cl, ref.get());
 			}
-		}
+		});
 		for (int i = 0 ; i <= aLevel; i++)
 		{
 			// TODO This stinks for really high level characters - can this ever
 			// get null back?
 			PCClassLevel pcl = aPC.getActiveClassLevel(cl, i);
-			for (QualifiedObject<CDOMSingleRef<Domain>> qo : pcl
-					.getSafeListFor(ListKey.DOMAIN))
+			pcl
+					.getSafeListFor(ListKey.DOMAIN).forEach(qo ->
 			{
 				CDOMSingleRef<Domain> ref = qo.getObject(aPC, cl);
 				if (ref != null)
 				{
 					addDomain(aPC, cl, ref.get());
 				}
-			}
+			});
 		}
 	}
 

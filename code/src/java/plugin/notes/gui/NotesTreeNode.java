@@ -1062,7 +1062,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param childDir
 	 * @return true if the file is to be included
 	 */
-	private boolean include(File f)
+	private static boolean include(File f)
 	{
 		return f.isDirectory()
 			&& !f.getName().equals(CVS_DIR)

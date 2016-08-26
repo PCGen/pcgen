@@ -101,18 +101,12 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		if (!dirty)
 		{
 			dirty = true;
-			SwingUtilities.invokeLater(new Runnable()
+			SwingUtilities.invokeLater(() ->
 			{
-
-				@Override
-				public void run()
-				{
-					PCGenTask task = event.getSource();
-					loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-					loadingLabel.setText(task.getMessage());
-					dirty = false;
-				}
-
+				PCGenTask task = event.getSource();
+				loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+				loadingLabel.setText(task.getMessage());
+				dirty = false;
 			});
 		}
 

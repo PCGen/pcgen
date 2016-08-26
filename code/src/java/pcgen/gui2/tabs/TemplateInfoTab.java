@@ -546,7 +546,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 		NAME("in_nameLabel"), //$NON-NLS-1$
 		TYPE_NAME("in_typeName"), //$NON-NLS-1$
 		SOURCE_NAME("in_sourceName"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private TemplateTreeView(String name)
 		{

@@ -45,17 +45,16 @@ public class ChronicleEntryFacet extends
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
 		List<ChronicleEntry> newCopies = new ArrayList<>();
-		for (ChronicleEntry entry : componentSet)
+		componentSet.forEach(entry ->
 		{
 			try
 			{
 				newCopies.add(entry.clone());
-			}
-			catch (CloneNotSupportedException e)
+			} catch (CloneNotSupportedException e)
 			{
 				Logging.errorPrint("ChronicleEntryFacet.getCopyForNewOwner failed for " + entry, e);
 			}
-		}
+		});
 		return newCopies;
 	}
 

@@ -40,7 +40,7 @@ import pcgen.util.Logging;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
-public class SubClassApplication
+public final class SubClassApplication
 {
 
 	public static void checkForSubClass(PlayerCharacter aPC, PCClass cl)

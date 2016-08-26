@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -115,9 +116,9 @@ public final class EquipmentChoice
 		if (getMinValue() < getMaxValue())
 		{
 			finalList = new ArrayList<>();
-			for (int i = 0; i < availableList.size(); i++)
+			for (Object anAvailableList : availableList)
 			{
-				final String choice = String.valueOf(availableList.get(i));
+				final String choice = String.valueOf(anAvailableList);
 				if (choice.indexOf('|') < 0)
 				{
 					for (int j = getMinValue(); j <= getMaxValue(); j += getIncValue())
@@ -127,8 +128,7 @@ public final class EquipmentChoice
 							finalList.add(choice + '|' + Delta.toString(j));
 						}
 					}
-				}
-				else
+				} else
 				{
 					finalList.add(choice);
 				}
@@ -144,35 +144,35 @@ public final class EquipmentChoice
 	/**
 	 * @return Returns the pool.
 	 */
-	final int getPool()
+	int getPool()
 	{
 		return pool;
 	}
 	/**
 	 * @param pool The pool to set.
 	 */
-	final void setPool(final int pool)
+	void setPool(final int pool)
 	{
 		this.pool = pool;
 	}
 	/**
 	 * @return Returns the bAdd.
 	 */
-	public final boolean isBAdd()
+	public boolean isBAdd()
 	{
 		return bAdd;
 	}
 	/**
 	 * @param add The bAdd to set.
 	 */
-	final void setBAdd(final boolean add)
+	void setBAdd(final boolean add)
 	{
 		bAdd = add;
 	}
 	/**
 	 * @return Returns the availableList.
 	 */
-	public final List<Object> getAvailableList()
+	public List<Object> getAvailableList()
 	{
 		return availableList;
 	}
@@ -180,98 +180,98 @@ public final class EquipmentChoice
 	/**
 	 * @return Returns the allowDuplicates.
 	 */
-	public final boolean isAllowDuplicates()
+	public boolean isAllowDuplicates()
 	{
 		return allowDuplicates;
 	}
 	/**
 	 * @param allowDuplicates The allowDuplicates to set.
 	 */
-	final void setAllowDuplicates(final boolean allowDuplicates)
+	void setAllowDuplicates(final boolean allowDuplicates)
 	{
 		this.allowDuplicates = allowDuplicates;
 	}
 	/**
 	 * @return Returns the incValue.
 	 */
-	public final int getIncValue()
+	public int getIncValue()
 	{
 		return incValue;
 	}
 	/**
 	 * @param incValue The incValue to set.
 	 */
-	final void setIncValue(final int incValue)
+	void setIncValue(final int incValue)
 	{
 		this.incValue = incValue;
 	}
 	/**
 	 * @return Returns the maxSelect.
 	 */
-	public final int getMaxSelect()
+	public int getMaxSelect()
 	{
 		return maxSelect;
 	}
 	/**
 	 * @param maxSelect The maxSelect to set.
 	 */
-	final void setMaxSelect(final int maxSelect)
+	void setMaxSelect(final int maxSelect)
 	{
 		this.maxSelect = maxSelect;
 	}
 	/**
 	 * @return Returns the maxValue.
 	 */
-	public final int getMaxValue()
+	public int getMaxValue()
 	{
 		return maxValue;
 	}
 	/**
 	 * @param maxValue The maxValue to set.
 	 */
-	final void setMaxValue(final int maxValue)
+	void setMaxValue(final int maxValue)
 	{
 		this.maxValue = maxValue;
 	}
 	/**
 	 * @return Returns the minValue.
 	 */
-	public final int getMinValue()
+	public int getMinValue()
 	{
 		return minValue;
 	}
 	/**
 	 * @param minValue The minValue to set.
 	 */
-	final void setMinValue(final int minValue)
+	void setMinValue(final int minValue)
 	{
 		this.minValue = minValue;
 	}
 	/**
 	 * @return Returns the noSign.
 	 */
-	final boolean isNoSign()
+	boolean isNoSign()
 	{
 		return noSign;
 	}
 	/**
 	 * @param noSign The noSign to set.
 	 */
-	final void setNoSign(final boolean noSign)
+	void setNoSign(final boolean noSign)
 	{
 		this.noSign = noSign;
 	}
 	/**
 	 * @return Returns the title.
 	 */
-	public final String getTitle()
+	public String getTitle()
 	{
 		return title;
 	}
 	/**
 	 * @param title The title to set.
 	 */
-	final void setTitle(final String title)
+	void setTitle(final String title)
 	{
 		this.title = title;
 	}
@@ -280,10 +280,10 @@ public final class EquipmentChoice
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
 	public void addSkills() {
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).forEach(skill ->
 		{
 			this.getAvailableList().add(skill.getKeyName());
-		}
+		});
 	}
 
 	/**
@@ -350,13 +350,13 @@ public final class EquipmentChoice
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
-		for (Ability anAbility : ref.getManufacturer(
-				Ability.class, cat).getAllObjects())
+		ref.getManufacturer(
+				Ability.class, cat).getAllObjects().forEach(anAbility ->
 		{
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||
-					anAbility.isType(typeString)
-								  );
+							anAbility.isType(typeString)
+			);
 
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
@@ -366,7 +366,7 @@ public final class EquipmentChoice
 					this.getAvailableList().add(anAbility.getKeyName());
 				}
 			}
-		}
+		});
 	}
 
 	/**
@@ -377,15 +377,11 @@ public final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).stream().filter(aEquip -> aEquip.isType(typeString) &&
+				!this.getAvailableList().contains(aEquip.getName())).forEach(aEquip ->
 		{
-			if (
-				aEquip.isType(typeString) &&
-				!this.getAvailableList().contains(aEquip.getName()))
-			{
-				this.getAvailableList().add(aEquip.getName());
-			}
-		}
+			this.getAvailableList().add(aEquip.getName());
+		});
 	}
 
 	/**
@@ -396,16 +392,12 @@ public final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).stream().filter(skill -> (typeString.equalsIgnoreCase("ALL") ||
+				skill.isType(typeString)) &&
+				!this.getAvailableList().contains(skill.getKeyName())).forEach(skill ->
 		{
-			if (
-				(typeString.equalsIgnoreCase("ALL") ||
-					skill.isType(typeString)) &&
-				!this.getAvailableList().contains(skill.getKeyName()))
-			{
-				this.getAvailableList().add(skill.getKeyName());
-			}
-		}
+			this.getAvailableList().add(skill.getKeyName());
+		});
 	}
 
 	/**
@@ -416,19 +408,15 @@ public final class EquipmentChoice
 		final Equipment       parent,
 		String                choiceType)
 	{
-		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
+		/*
+		 * TODO sibling can't be this - different classes... so this is a
+		 * bug of some form.
+		 */
+		parent.getEqModifierList(true).stream().filter(sibling -> !(sibling.equals(this)) &&
+				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType)).forEach(sibling ->
 		{
-			/*
-			 * TODO sibling can't be this - different classes... so this is a
-			 * bug of some form.
-			 */
-			if (
-				!(sibling.equals(this)) &&
-				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
-			{
-				getAvailableList().addAll(parent.getAssociationList(sibling));
-			}
-		}
+			getAvailableList().addAll(parent.getAssociationList(sibling));
+		});
 	}
 
 	/**
@@ -490,10 +478,7 @@ public final class EquipmentChoice
 					equipmentTypeFacet.getSet(Globals.getContext()
 						.getDataSetID());
 			List<Object> list = getAvailableList();
-			for (Type t : types)
-			{
-				list.add(t.toString());
-			}
+			list.addAll(types.stream().map(Type::toString).collect(Collectors.toList()));
 		}
 		else
 		{
@@ -506,10 +491,10 @@ public final class EquipmentChoice
 	 * Add the current character stats as defined in the game mode to the chooser
 	 */
 	public void addStats() {
-		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class).forEach(stat ->
 		{
 			this.getAvailableList().add(stat.getKeyName());
-		}
+		});
 	}
 
 	/**

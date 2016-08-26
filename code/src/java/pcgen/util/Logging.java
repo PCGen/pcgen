@@ -50,7 +50,7 @@ import pcgen.core.SettingsHandler;
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
-public class Logging
+public final class Logging
 {
 	private static boolean debugMode = false;
 	private static final Toolkit s_TOOLKIT = Toolkit.getDefaultToolkit();
@@ -612,7 +612,7 @@ public class Logging
 		Map<Thread, StackTraceElement[]> allThreads =
 				Thread.getAllStackTraces();
 		StringBuilder b = new StringBuilder();
-		for (Thread t : allThreads.keySet())
+		allThreads.keySet().forEach(t ->
 		{
 			b.append("Thread: ");
 			b.append(t.getName());
@@ -625,7 +625,7 @@ public class Logging
 				b.append("\n");
 			}
 
-		}
+		});
 		System.out.println("==== Thread listing ====");
 		System.out.println(b);
 		System.out.println("===== end listing  =====");
@@ -724,14 +724,10 @@ public class Logging
 	public static void replayParsedMessages()
 	{
 		Logger l = getLogger();
-		for (QueuedMessage msg : queuedMessages)
+		queuedMessages.stream().filter(msg -> l.isLoggable(msg.level)).forEach(msg ->
 		{
-			if (l.isLoggable(msg.level))
-			{
-				l.log(msg.level, msg.message, msg.stackTrace);
-			}
-
-		}
+			l.log(msg.level, msg.message, msg.stackTrace);
+		});
 		queuedMessageMark = -1;
 	}
 

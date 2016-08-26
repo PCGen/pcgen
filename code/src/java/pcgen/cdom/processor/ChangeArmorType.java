@@ -189,14 +189,14 @@ public class ChangeArmorType implements Processor<String>
 	public List<String> applyProcessor(Collection<String> armorTypes)
 	{
 		List<String> returnList = new ArrayList<>();
-		for (String type : armorTypes)
+		armorTypes.forEach(type ->
 		{
 			String mod = applyProcessor(type, null);
 			if (mod != null)
 			{
 				returnList.add(mod.toUpperCase());
 			}
-		}
+		});
 		return returnList;
 	}
 

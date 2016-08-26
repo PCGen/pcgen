@@ -65,30 +65,21 @@ public class RacialSubTypesFacet
 		Race race = raceFacet.get(id);
 		if (race != null)
 		{
-			for (RaceSubType st : race.getSafeListFor(ListKey.RACESUBTYPE))
-			{
-				racialSubTypes.add(st);
-			}
+			racialSubTypes.addAll(race.getSafeListFor(ListKey.RACESUBTYPE));
 		}
 		Collection<PCTemplate> templates = templateFacet.getSet(id);
 		if (!templates.isEmpty())
 		{
 			List<RaceSubType> added = new ArrayList<>();
 			List<RaceSubType> removed = new ArrayList<>();
-			for (PCTemplate aTemplate : templates)
+			templates.forEach(aTemplate ->
 			{
 				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
 				removed.addAll(aTemplate
 						.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
-			}
-			for (RaceSubType st : added)
-			{
-				racialSubTypes.add(st);
-			}
-			for (RaceSubType st : removed)
-			{
-				racialSubTypes.remove(st);
-			}
+			});
+			racialSubTypes.addAll(added);
+			removed.forEach(racialSubTypes::remove);
 		}
 
 		return Collections.unmodifiableList(racialSubTypes);

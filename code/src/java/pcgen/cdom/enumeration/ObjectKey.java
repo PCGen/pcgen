@@ -25,6 +25,7 @@ package pcgen.cdom.enumeration;
 
 import java.io.File;
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collection;
@@ -397,27 +398,25 @@ public class ObjectKey<T>
 	{
 		map = new CaseInsensitiveMap<>();
 		Field[] fields = ObjectKey.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod)
-					&& java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod)
+					&& Modifier.isFinal(mod)
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof ObjectKey)
 					{
-						map.put(fields[i].getName(), (ObjectKey<?>) obj);
+						map.put(field.getName(), (ObjectKey<?>) obj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

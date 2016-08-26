@@ -170,7 +170,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 					StringWriter swriter = new StringWriter();
 					try
 					{
-						prereqWriter.write(swriter, prereq);
+						PrerequisiteWriter.write(swriter, prereq);
 					}
 					catch (PersistenceLayerException e)
 					{

@@ -38,11 +38,11 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	{
 		Collection<S> sources = facet.getSourceObjects(id);
 		ArrayList<SourceDest> list = new ArrayList<SourceDest>(sources.size());
-		for (S src : sources)
+		sources.forEach(src ->
 		{
 			D dest = facet.getResultFor(id, src);
 			list.add(new SourceDest(src, dest));
-		}
+		});
 		return list;
 	}
 

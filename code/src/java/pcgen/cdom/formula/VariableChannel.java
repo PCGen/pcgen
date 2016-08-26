@@ -111,7 +111,7 @@ public class VariableChannel<T> implements VariableListener<T>,
 		manager.solveFromNode(inputID);
 	}
 
-	private String createInputVarName(String varName)
+	private static String createInputVarName(String varName)
 	{
 		return "INPUT*" + varName;
 	}

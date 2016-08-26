@@ -40,14 +40,14 @@ public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
 	public void initialize(LoadContext context)
 	{
 		DataSetID id = context.getDataSetID();
-		for (Equipment e : context.getReferenceContext()
-			.getConstructedCDOMObjects(Equipment.class))
+		context.getReferenceContext()
+				.getConstructedCDOMObjects(Equipment.class).forEach(e ->
 		{
-			for (Type t : e.getTrueTypeList(false))
+			e.getTrueTypeList(false).forEach(t ->
 			{
 				add(id, t);
-			}
-		}
+			});
+		});
 	}
 
 	public void setDataSetInitializationFacet(

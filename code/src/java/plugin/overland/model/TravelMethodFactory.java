@@ -48,7 +48,7 @@ import plugin.overland.util.Localized;
  * 
  * @author Vincent Lhote
  */
-public class TravelMethodFactory
+public final class TravelMethodFactory
 {
 	/** Default locale for number parsing */
 	public static final Locale DEFAULT_LOCALE = Locale.UK;
@@ -80,7 +80,7 @@ public class TravelMethodFactory
 
 	// ### Factory methods ###
 
-	public static final Vector<TravelMethod> load(File datadir)
+	public static Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods
 		Vector<TravelMethod> tms = new Vector<TravelMethod>();

@@ -59,7 +59,7 @@ public final class PCGenUIManager
 		}
 	}
 
-	private boolean checkBounds()
+	private static boolean checkBounds()
 	{
 		return false;
 	}
@@ -78,16 +78,7 @@ public final class PCGenUIManager
 
 	public static void startGUI()
 	{
-		SwingUtilities.invokeLater(new Runnable()
-		{
-
-			@Override
-			public void run()
-			{
-				pcgenFrame.startPCGenFrame();
-			}
-
-		});
+		SwingUtilities.invokeLater(() -> pcgenFrame.startPCGenFrame());
 	}
 
 	public static void displayPreferencesDialog()

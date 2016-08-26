@@ -60,7 +60,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 	}
 
 	@Override
-	public boolean isMultYes()
+	public final boolean isMultYes()
 	{
 		return ability.getSafe(ObjectKey.MULTIPLE_ALLOWED);
 	}
@@ -72,7 +72,7 @@ public class AbilityChooseController extends ChooseController<Ability>
 	}
 
 	@Override
-	public double getCost()
+	public final double getCost()
 	{
 		return ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
 	}

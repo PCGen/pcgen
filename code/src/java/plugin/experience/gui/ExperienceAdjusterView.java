@@ -500,7 +500,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		add(jPanel6);
 	}
 
-	private double calculateRealValue(int i) {
+	private static double calculateRealValue(int i) {
 		return 1.0 + (i * 0.1);
 	}
 

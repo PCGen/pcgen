@@ -46,7 +46,7 @@ public abstract class AbstractPrerequisiteListParser
 	implements PrerequisiteParserInterface
 {
 
-	protected void convertKeysToSubKeys(Prerequisite prereq, String kind)
+	protected static void convertKeysToSubKeys(Prerequisite prereq, String kind)
 	{
 		if (prereq == null)
 		{
@@ -69,10 +69,10 @@ public abstract class AbstractPrerequisiteListParser
 			}
 		}
 
-		for (Prerequisite element : prereq.getPrerequisites())
+		prereq.getPrerequisites().forEach(element ->
 		{
 			convertKeysToSubKeys(element, kind);
-		}
+		});
 	}
 
 	/**
@@ -286,13 +286,10 @@ public abstract class AbstractPrerequisiteListParser
 				subreq.setOperand(Integer.toString(min));
 				prereq.addPrerequisite(subreq);
 			}
-			for (Prerequisite element : prereq.getPrerequisites())
+			prereq.getPrerequisites().stream().filter(element -> element.getOperand().equals("-99")).forEach(element ->
 			{
-				if (element.getOperand().equals("-99"))
-				{
-					element.setOperand("1");
-				}
-			}
+				element.setOperand("1");
+			});
 			if (hasKeyOnly && hasKeyValue)
 			{
 				Logging
@@ -406,7 +403,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
-	private String getRequirementKey(String[] tokens)
+	private static String getRequirementKey(String[] tokens)
 	{
 		String reqKey;
 		if (tokens.length == 2)
@@ -461,17 +458,14 @@ public abstract class AbstractPrerequisiteListParser
 	 * 
 	 * @param prereq the new no need for char
 	 */
-	protected void setNoNeedForChar(Prerequisite prereq)
+	protected static void setNoNeedForChar(Prerequisite prereq)
 	{
 		if (prereq == null)
 		{
 			return;
 		}
 		prereq.setCharacterRequired(false);
-	
-		for (Prerequisite element : prereq.getPrerequisites())
-		{
-			setNoNeedForChar(element);
-		}
+
+		prereq.getPrerequisites().forEach(AbstractPrerequisiteListParser::setNoNeedForChar);
 	}
 }

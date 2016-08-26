@@ -66,7 +66,7 @@ import pcgen.util.Logging;
 public class DebugDialog extends JDialog
 {
 
-	private static MemoryMXBean memoryBean = ManagementFactory
+	private static final MemoryMXBean memoryBean = ManagementFactory
 		.getMemoryMXBean();
 	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
@@ -179,7 +179,7 @@ public class DebugDialog extends JDialog
 				logText.repaint();
 			}
 		}
-		private void openFile(File file) throws IOException
+		private static void openFile(File file) throws IOException
 		{
 			if (Desktop.isDesktopSupported())
 			{
@@ -244,7 +244,7 @@ public class DebugDialog extends JDialog
 			return file;
 		}
 
-		private URI extractFileURIFromLinePart(String part)
+		private static URI extractFileURIFromLinePart(String part)
 			throws URISyntaxException
 		{
 			String filePart = part;
@@ -415,7 +415,7 @@ public class DebugDialog extends JDialog
 	private static class MemoryTableModel extends AbstractTableModel
 	{
 
-		private static long megaByte = 1024 * 1024;
+		private static final long megaByte = 1024 * 1024;
 
 		@Override
 		public int getRowCount()

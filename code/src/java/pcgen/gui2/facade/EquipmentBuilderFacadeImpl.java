@@ -111,14 +111,14 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
                 new HashMap<>();
 		selectedListMap =
                 new HashMap<>();
-		for (EquipmentHead head : equipHeads)
+		equipHeads.forEach(head ->
 		{
 			availListMap.put(head, new DefaultListFacade<>());
 			DefaultListFacade<EquipModFacade> selectedList =
-                    new DefaultListFacade<>();
+					new DefaultListFacade<>();
 			selectedList.setContents(equip.getEqModifierList(head.isPrimary()));
 			selectedListMap.put(head, selectedList);
-		}
+		});
 		refreshAvailList();
 	}
 	
@@ -381,19 +381,18 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	{
 		List<String> aFilter = equip.typeList();
 
-		for (EquipmentHead head : equipHeads)
+		equipHeads.forEach(head ->
 		{
 			List<EquipModFacade> newEqMods = new ArrayList<>();
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(EquipmentModifier.class))
+					.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
 				if (equip.isVisible(character, aEqMod, head.isPrimary(), View.VISIBLE_DISPLAY))
 				{
 					if (aEqMod.isType("ALL"))
 					{
 						newEqMods.add(aEqMod);
-					}
-					else
+					} else
 					{
 						for (String aType : aFilter)
 						{
@@ -407,16 +406,16 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 				}
 			}
 			availListMap.get(head).updateContents(newEqMods);
-		}
+		});
 	}
 
 	private void refreshSelectedList()
 	{
-		for (EquipmentHead eqHead : equipHeads)
+		equipHeads.forEach(eqHead ->
 		{
 			selectedListMap.get(eqHead).updateContents(
-				equip.getEqModifierList(eqHead.isPrimary()));
-		}
+					equip.getEqModifierList(eqHead.isPrimary()));
+		});
 	}
 
 	/**

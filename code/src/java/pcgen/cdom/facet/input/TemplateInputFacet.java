@@ -84,10 +84,10 @@ public class TemplateInputFacet
 			//Error?
 			return false;
 		}
-		for (T sel : newSelections)
+		newSelections.forEach(sel ->
 		{
 			directAdd(id, obj, sel);
-		}
+		});
 		return true;
 	}
 

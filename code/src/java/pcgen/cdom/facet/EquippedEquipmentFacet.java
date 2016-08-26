@@ -61,16 +61,15 @@ public class EquippedEquipmentFacet extends
 		if (oldEquipped != null)
 		{
 			// Delete items that the PC no longer has at all
-			for (Equipment e : oldEquipped)
+			oldEquipped.stream().filter(e -> !currentEquipment.contains(e)).forEach(e ->
 			{
-				if (!currentEquipment.contains(e))
-				{
-					fireDataFacetChangeEvent(id, e,
-							DataFacetChangeEvent.DATA_REMOVED);
-				}
-			}
+				fireDataFacetChangeEvent(id, e,
+						DataFacetChangeEvent.DATA_REMOVED);
+			});
 		}
-		for (Equipment e : currentEquipment)
+		// If not old, it's added
+// If old, it's removed
+		currentEquipment.forEach(e ->
 		{
 			if (e.isEquipped())
 			{
@@ -81,8 +80,7 @@ public class EquippedEquipmentFacet extends
 					fireDataFacetChangeEvent(id, e,
 							DataFacetChangeEvent.DATA_ADDED);
 				}
-			}
-			else
+			} else
 			{
 				// If old, it's removed
 				if (oldEquipped != null && oldEquipped.contains(e))
@@ -91,7 +89,7 @@ public class EquippedEquipmentFacet extends
 							DataFacetChangeEvent.DATA_REMOVED);
 				}
 			}
-		}
+		});
 	}
 
 	/**

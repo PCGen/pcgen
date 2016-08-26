@@ -59,7 +59,7 @@ import pcgen.system.LanguageBundle;
 public class DefaultsPanel extends PCGenPrefsPanel
 {
 	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
-	private static String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
+	private static final String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
 	private JComboBoxEx xpTableCombo = new JComboBoxEx();
 	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
 	private JComboBoxEx previewSheetCombo = new JComboBoxEx();
@@ -157,19 +157,19 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		final String xpTableName = gameMode.getDefaultXPTableName();
 		List<String> xpTableNames = gameMode.getXPTableNames();
 		xpTableCombo.removeAllItems();
-		for (String name : xpTableNames)
+		xpTableNames.forEach(name ->
 		{
 			xpTableCombo.addItem(name);
-		}
+		});
 		xpTableCombo.setSelectedItem(xpTableName);
 
 		final String characterType = gameMode.getDefaultCharacterType();
 		List<String> characterTypes = gameMode.getCharacterTypeList();
 		characterTypeCombo.removeAllItems();
-		for (String name : characterTypes)
+		characterTypes.forEach(name ->
 		{
 			characterTypeCombo.addItem(name);
-		}
+		});
 		characterTypeCombo.setSelectedItem(characterType);
 		
 		final String previewSheet = UIPropertyContext.getInstance().initProperty(
@@ -179,14 +179,10 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
 		if (sheetDir.exists() && sheetDir.isDirectory())
 		{
-			String[] files = sheetDir.list(new FilenameFilter()
+			String[] files = sheetDir.list((path, filename) ->
 			{
-				@Override
-				public boolean accept(File path, String filename)
-				{
-					File file = new File(path, filename);
-					return file.isFile() && !file.isHidden();
-				}
+				File file = new File(path, filename);
+				return file.isFile() && !file.isHidden();
 			});
 			//String[] files = sheetDir.list();
 			previewSheetCombo.removeAllItems();

@@ -21,13 +21,14 @@
 package pcgen.util;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 
 /**
  * This contains helper functions for BigDecimal.
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
-public class BigDecimalHelper
+public final class BigDecimalHelper
 {
 	/**
 	 * Sets [n] to [dp] decimal places.
@@ -37,7 +38,7 @@ public class BigDecimalHelper
 	 */
 	public static BigDecimal formatBigDecimal(BigDecimal n, int dp)
 	{
-		return n.setScale(dp, BigDecimal.ROUND_HALF_UP); // Sets scale and rounds up if most significant (cut off) number >= 5
+		return n.setScale(dp, RoundingMode.HALF_UP); // Sets scale and rounds up if most significant (cut off) number >= 5
 	}
 
 	/**

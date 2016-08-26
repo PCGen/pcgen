@@ -40,6 +40,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.logging.Level;
 
+import java.util.stream.Collectors;
 import javax.swing.JFrame;
 
 import org.apache.commons.lang.SystemUtils;
@@ -128,45 +129,34 @@ public final class Globals
 	/** default location for options.ini on a Mac */
 	public static final String defaultMacOptionsPath = System.getProperty("user.home") + "/Library/Preferences/pcgen";
 
-	private static final Comparator<CDOMObject> pObjectComp = new Comparator<CDOMObject>()
-		{
-        @Override
-			public int compare(final CDOMObject o1, final CDOMObject o2)
-			{
-				return o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
-			}
-		};
+	private static final Comparator<CDOMObject> pObjectComp = (o1, o2) -> o1.getKeyName().compareToIgnoreCase(o2.getKeyName());
 
-	public static final Comparator<CDOMObject> pObjectNameComp = new Comparator<CDOMObject>()
+	public static final Comparator<CDOMObject> pObjectNameComp = (o1, o2) ->
+	{
+		final Collator collator = Collator.getInstance();
+
+		// Check sort keys first
+		String key1 = o1.get(StringKey.SORT_KEY);
+		if (key1 == null)
 		{
-        @Override
-			public int compare(final CDOMObject o1, final CDOMObject o2)
-			{
-				final Collator collator = Collator.getInstance();
-				
-				// Check sort keys first
-				String key1 = o1.get(StringKey.SORT_KEY);
-				if (key1 == null)
-				{
-					key1 = o1.getDisplayName();
-				}
-				String key2 = o2.get(StringKey.SORT_KEY);
-				if (key2 == null)
-				{
-					key2 = o2.getDisplayName();
-				}
-				if (!key1.equals(key2))
-				{
-					return collator.compare(key1, key2);
-				}
-				if (!o1.getDisplayName().equals(o2.getDisplayName()))
-				{
-					return collator.compare(o1.getDisplayName(), o2.getDisplayName());
-				}
-				// Fall back to keyname if the displayname is the same
-				return collator.compare(o1.getKeyName(), o2.getKeyName());
-			}
-		};
+			key1 = o1.getDisplayName();
+		}
+		String key2 = o2.get(StringKey.SORT_KEY);
+		if (key2 == null)
+		{
+			key2 = o2.getDisplayName();
+		}
+		if (!key1.equals(key2))
+		{
+			return collator.compare(key1, key2);
+		}
+		if (!o1.getDisplayName().equals(o2.getDisplayName()))
+		{
+			return collator.compare(o1.getDisplayName(), o2.getDisplayName());
+		}
+		// Fall back to keyname if the displayname is the same
+		return collator.compare(o1.getKeyName(), o2.getKeyName());
+	};
 
 	// Optimizations used by any code needing empty arrays.  All empty arrays
 	// of the same type are idempotent.
@@ -853,10 +843,7 @@ public final class Globals
 			typeList = aEq.typeList();
 		}
 		List<String> upperTypeList = new ArrayList<>(typeList.size());
-		for (String type : typeList)
-		{
-			upperTypeList.add(type.toUpperCase());
-		}
+		upperTypeList.addAll(typeList.stream().map(String::toUpperCase).collect(Collectors.toList()));
 
 		List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
 		for (String rType : resizeTypeList)

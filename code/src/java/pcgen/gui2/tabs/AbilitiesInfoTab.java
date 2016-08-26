@@ -100,7 +100,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		private final CharacterFacade character;
 		private boolean isInstalled = false;
 		private String selectedTitle = null;
-		private ListFacade<AbilityCategoryFacade> activeCategories;
+		private final ListFacade<AbilityCategoryFacade> activeCategories;
 
 		public AbilityTabsModel(CharacterFacade character)
 		{
@@ -129,13 +129,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		private void populateFullCategoryList(String type, TabInfo tabInfo)
 		{
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
-			{
-				if (type.equals(category.getType()))
-				{
-					tabInfo.fullCategoryList.addElement(category);
-				}
-			}
+			categoryMap.getKeys().stream().filter(category -> type.equals(category.getType())).forEach(tabInfo.fullCategoryList::addElement);
 		}
 
 		@Override
@@ -189,7 +183,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 			Map<String, List<AbilityCategoryFacade>> tempMap;
 			tempMap = new HashMap<>();
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
+			categoryMap.getKeys().forEach(category ->
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))
@@ -197,8 +191,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 					tempMap.put(type, new ArrayList<>());
 				}
 				tempMap.get(type).add(category);
-			}
-			for (String type : tempMap.keySet())
+			});
+			tempMap.keySet().forEach(type ->
 			{
 				if (!typeMap.containsKey(type))
 				{
@@ -210,7 +204,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 					}
 				}
 				typeMap.get(type).categoryList.updateContents(tempMap.get(type));
-			}
+			});
 			Iterator<String> oldTypes = typeMap.keySet().iterator();
 			while (oldTypes.hasNext())
 			{
@@ -233,20 +227,20 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			//TODO: do something
 		}
 
-		public void install()
+		public final void install()
 		{
 			activeCategories.addListListener(this);
-			for (TabInfo tabInfo : tabs)
+			tabs.forEach(tabInfo ->
 			{
 				addTab(tabInfo.title);
-			}
+			});
 			setSelectedIndex(indexOfTab(selectedTitle));
 			abilityTab.restoreState(typeMap.get(selectedTitle).tabData);
 			addChangeListener(this);
 			isInstalled = true;
 		}
 
-		public void uninstall()
+		public final void uninstall()
 		{
 			abilityTab.storeState(typeMap.get(selectedTitle).tabData);
 			removeChangeListener(this);
@@ -256,7 +250,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		}
 
 		@Override
-		public void stateChanged(ChangeEvent e)
+		public final void stateChanged(ChangeEvent e)
 		{
 			TabInfo tabInfo = typeMap.get(selectedTitle);
 			if (tabInfo != null)
@@ -301,7 +295,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 			 */
 			@SuppressWarnings("nls")
 			@Override
-			public String toString()
+			public final String toString()
 			{
 				return "TabInfo [title=" + title + ", categoryList="
 					+ categoryList + "]";
@@ -314,7 +308,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		@SuppressWarnings("nls")
 		@Override
-		public String toString()
+		public final String toString()
 		{
 			return "AbilityTabsModel [tabs=" + tabs + ", isInstalled="
 				+ isInstalled + ", selectedTitle=" + selectedTitle + "]";

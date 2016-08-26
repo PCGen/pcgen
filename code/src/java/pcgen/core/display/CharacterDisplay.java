@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
@@ -494,13 +495,7 @@ public class CharacterDisplay
 		List<PCTemplate> tl = new ArrayList<>();
 
 		TreeSet<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				treeSet.add(template);
-			}
-		}
+		treeSet.addAll(templateFacet.getSet(id).stream().filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v)).collect(Collectors.toList()));
 		tl.addAll(treeSet);
 		return tl;
 	}
@@ -763,14 +758,7 @@ public class CharacterDisplay
 	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<>();
-		for (Skill po : skillFacet.getSet(id))
-		{
-			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				aList.add(po);
-			}
-		}
+		ArrayList<Skill> aList = skillFacet.getSet(id).stream().filter(po -> po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v)).collect(Collectors.toCollection(ArrayList::new));
 		return aList;
 	}
 
@@ -1300,7 +1288,7 @@ public class CharacterDisplay
 		return activeSpellsFacet.containsFrom(id, cdo);
 	}
 
-	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	public Collection<CharacterSpell> getCharacterSpells(CDOMObject cdo)
 	{
 		return activeSpellsFacet.getSet(id, cdo);
 	}
@@ -1395,7 +1383,7 @@ public class CharacterDisplay
 				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
 	}
 
-	private String getOrdinal(final int cardinal)
+	private static String getOrdinal(final int cardinal)
 	{
 		switch (cardinal)
 		{
@@ -1569,7 +1557,7 @@ public class CharacterDisplay
 		return weaponProfFacet.getSet(id);
 	}
 
-	public List<? extends SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
+	public List<SpecialAbility> getUserSpecialAbilityList(CDOMObject source)
 	{
 		return userSpecialAbilityFacet.getSet(id, source);
 	}

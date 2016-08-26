@@ -65,7 +65,7 @@ public class PrerequisiteWriterFactory implements PluginLoader
 	 * @param kind
 	 * @return PrerequisiteWriterInterface
 	 */
-	public PrerequisiteWriterInterface getWriter(String kind)
+	public static PrerequisiteWriterInterface getWriter(String kind)
 	{
 		PrerequisiteWriterInterface test = null;
 		if (kind == null)

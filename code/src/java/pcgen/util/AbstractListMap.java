@@ -52,7 +52,7 @@ public abstract class AbstractListMap<K, V, L extends List<V>>
     }
 
     @Override
-    public void addAll(K key, int index, Collection<? extends V> values)
+    public final void addAll(K key, int index, Collection<? extends V> values)
     {
 	throw new UnsupportedOperationException("Not supported yet.");
     }
@@ -102,7 +102,7 @@ public abstract class AbstractListMap<K, V, L extends List<V>>
     }
 
     @Override
-    public boolean remove(Object key, Object value)
+    public final boolean remove(Object key, Object value)
     {
 	L list = get(key);
 

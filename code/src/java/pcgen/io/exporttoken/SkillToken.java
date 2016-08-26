@@ -28,8 +28,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -355,8 +357,8 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Skill aSkill, int property,
-		String propertyText, PlayerCharacter pc)
+	private static String getSkillPropValue(Skill aSkill, int property,
+	                                        String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 
@@ -493,14 +495,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_CLASSES:
-					List<String> classes = new ArrayList<>();
-					for (PCClass aClass : pc.getClassList())
-					{
-						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)
-						{
-							classes.add(aClass.getDisplayName());
-						}
-					}
+					List<String> classes = pc.getClassList().stream().filter(aClass -> pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS).map(CDOMObject::getDisplayName).collect(Collectors.toList());
 					retValue.append(StringUtils.join(classes, "."));
 					break;
 					
@@ -600,11 +595,11 @@ public class SkillToken extends Token
 	public final static class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
-		final protected String skillId;
+		private final String skillId;
 		/** The list of properties for the token. */
-		final protected List<String> properties;
+		private final List<String> properties;
 		/** The skilll list filter */
-		final protected SkillFilter filter;
+		private final SkillFilter filter;
 
 		/**
 		 * Constructor for skill details. Creates an immutable instance

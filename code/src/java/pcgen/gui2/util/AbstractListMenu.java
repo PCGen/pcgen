@@ -80,7 +80,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	}
 
 	@Override
-	public Point getToolTipLocation(MouseEvent event)
+	public final Point getToolTipLocation(MouseEvent event)
 	{
 		Dimension size = getSize();
 		double oneRowUpHeight = size.getHeight() *-1 - 5;
@@ -104,12 +104,12 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	/**
 	 * @param offset the offset to set
 	 */
-	public void setOffset(int offset)
+	public final void setOffset(int offset)
 	{
 		this.offset = offset;
 	}
 
-	public void setListModel(ListFacade<E> listModel)
+	public final void setListModel(ListFacade<E> listModel)
 	{
 		ListFacade<E> oldModel = this.listModel;
 		if (oldModel != null)
@@ -142,7 +142,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 	 */
 	protected abstract JMenuItem createMenuItem(E item, int index);
 
-	protected void checkEnabled()
+	protected final void checkEnabled()
 	{
 		setEnabled(getMenuComponentCount() != 0);
 	}
@@ -161,13 +161,13 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		}
 
 		@Override
-		public String getText()
+		public final String getText()
 		{
 			return item.toString();
 		}
 
 		@Override
-		public Object[] getSelectedObjects()
+		public final Object[] getSelectedObjects()
 		{
 			return new Object[]
 					{
@@ -176,7 +176,7 @@ public abstract class AbstractListMenu<E> extends JMenu implements ListListener<
 		}
 
 		@Override
-		public Point getToolTipLocation(MouseEvent event)
+		public final Point getToolTipLocation(MouseEvent event)
 		{
 			Dimension size = getSize();
 			double halfheight = size.getHeight() / 2;

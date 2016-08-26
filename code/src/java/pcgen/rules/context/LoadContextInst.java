@@ -203,11 +203,8 @@ public abstract class LoadContextInst implements LoadContext
 	@Override
 	public void resolveDeferredTokens()
 	{
-		for (DeferredToken<? extends Loadable> token : support.
-				getDeferredTokens())
-		{
-			processRes(token);
-		}
+		support.
+				getDeferredTokens().forEach(this::processRes);
 		commit();
 	}
 
@@ -216,23 +213,20 @@ public abstract class LoadContextInst implements LoadContext
 		Class<T> cl = token.getDeferredTokenClass();
 		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (ReferenceManufacturer<?> rm : mfgs)
+		mfgs.stream().filter(rm -> cl.isAssignableFrom(rm.getReferenceClass())).forEach(rm ->
 		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			@SuppressWarnings("unchecked")
+			ReferenceManufacturer<? extends T> trm =
+					(ReferenceManufacturer<? extends T>) rm;
+			trm.getAllObjects().forEach(po ->
 			{
-				@SuppressWarnings("unchecked")
-				ReferenceManufacturer<? extends T> trm =
-						(ReferenceManufacturer<? extends T>) rm;
-				for (T po : trm.getAllObjects())
-				{
-					token.process(this, po);
-				}
-				for (T po : trm.getDerivativeObjects())
-				{
-					token.process(this, po);
-				}
-			}
-		}
+				token.process(this, po);
+			});
+			trm.getDerivativeObjects().forEach(po ->
+			{
+				token.process(this, po);
+			});
+		});
 	}
 
 	@Override
@@ -240,30 +234,27 @@ public abstract class LoadContextInst implements LoadContext
 	{
 		Collection<? extends ReferenceManufacturer<?>> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostDeferredToken<? extends Loadable> token : TokenLibrary.getPostDeferredTokens())
+		TokenLibrary.getPostDeferredTokens().forEach(token ->
 		{
 			processPostRes(token, mfgs);
-		}
+		});
 	}
 
 	private <T extends Loadable> void processPostRes(PostDeferredToken<T> token,
 			Collection<? extends ReferenceManufacturer<?>> mfgs)
 	{
 		Class<T> cl = token.getDeferredTokenClass();
-		for (ReferenceManufacturer<?> rm : mfgs)
+		mfgs.stream().filter(rm -> cl.isAssignableFrom(rm.getReferenceClass())).forEach(rm ->
 		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
+			@SuppressWarnings("unchecked")
+			ReferenceManufacturer<? extends T> trm =
+					(ReferenceManufacturer<? extends T>) rm;
+			trm.getAllObjects().forEach(po ->
 			{
-				@SuppressWarnings("unchecked")
-				ReferenceManufacturer<? extends T> trm =
-						(ReferenceManufacturer<? extends T>) rm;
-				for (T po : trm.getAllObjects())
-				{
-					this.setSourceURI(po.getSourceURI());
-					token.process(this, po);
-				}
-			}
-		}
+				this.setSourceURI(po.getSourceURI());
+				token.process(this, po);
+			});
+		});
 	}
 
 	@Override
@@ -271,24 +262,21 @@ public abstract class LoadContextInst implements LoadContext
 	{
 		Collection<? extends ReferenceManufacturer> mfgs = getReferenceContext()
 				.getAllManufacturers();
-		for (PostValidationToken<? extends Loadable> token : TokenLibrary.getPostValidationTokens())
+		TokenLibrary.getPostValidationTokens().forEach(token ->
 		{
 			processPostVal(token, mfgs);
-		}
+		});
 	}
 
 	private <T extends Loadable> void processPostVal(PostValidationToken<T> token,
 			Collection<? extends ReferenceManufacturer> mfgs)
 	{
 		Class<T> cl = token.getValidationTokenClass();
-		for (ReferenceManufacturer<? extends T> rm : mfgs)
+		mfgs.stream().filter(rm -> cl.isAssignableFrom(rm.getReferenceClass())).forEach(rm ->
 		{
-			if (cl.isAssignableFrom(rm.getReferenceClass()))
-			{
-				setSourceURI(null);
-				token.process(this, rm.getAllObjects());
-			}
-		}
+			setSourceURI(null);
+			token.process(this, rm.getAllObjects());
+		});
 	}
 
 	@Override
@@ -368,7 +356,7 @@ public abstract class LoadContextInst implements LoadContext
 	@Override
 	public <T> Collection<String> unparse(T cdo)
 	{
-		return support.unparse(this, cdo);
+		return TokenSupport.unparse(this, cdo);
 	}
 
 	@Override
@@ -774,7 +762,7 @@ public abstract class LoadContextInst implements LoadContext
 		@Override
 		public <T> Collection<String> unparse(T cdo)
 		{
-			return support.unparse(this, cdo);
+			return TokenSupport.unparse(this, cdo);
 		}
 
 		@Override

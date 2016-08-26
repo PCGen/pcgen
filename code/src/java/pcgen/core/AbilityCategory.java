@@ -128,7 +128,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * ability category. 
 	 * @param srcCat The category to be copied.
 	 */
-	public void copyFields(AbilityCategory srcCat)
+	public final void copyFields(AbilityCategory srcCat)
 	{
 		sourceURI = srcCat.sourceURI;
 		keyName = srcCat.keyName;
@@ -184,7 +184,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param category A Reference to an AbilityCategory.
 	 */
-	public void setAbilityCategory(CDOMSingleRef<AbilityCategory> category)
+	public final void setAbilityCategory(CDOMSingleRef<AbilityCategory> category)
 	{
 		/*
 		 * Note: This makes an assumption that keyName will not change. We
@@ -209,7 +209,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return A reference to the AbilityCategory.
 	 */
-	public CDOMSingleRef<AbilityCategory> getAbilityCatRef()
+	public final CDOMSingleRef<AbilityCategory> getAbilityCatRef()
 	{
 		return parentCategory;
 	}
@@ -219,7 +219,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param type A type string.
 	 */
-	public void addAbilityType(final Type type)
+	public final void addAbilityType(final Type type)
 	{
 		if (types == null)
 		{
@@ -234,7 +234,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return An unmodifiable <tt>Set</tt> of type strings.
 	 */
-	public Set<Type> getTypes()
+	public final Set<Type> getTypes()
 	{
 		if (types == null)
 		{
@@ -248,7 +248,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @return true if all types should be included, 
 	 *         false if only those listed should be.
 	 */
-	public boolean isAllAbilityTypes()
+	public final boolean isAllAbilityTypes()
 	{
 		return isAllAbilityTypes;
 	}
@@ -258,7 +258,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param allAbilityTypes true if all types should be included, 
 	 *         false if only those listed should be.
 	 */
-	public void setAllAbilityTypes(boolean allAbilityTypes)
+	public final void setAllAbilityTypes(boolean allAbilityTypes)
 	{
 		this.isAllAbilityTypes = allAbilityTypes;
 	}
@@ -266,7 +266,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	/**
 	 * @param key the Ability Key to add to the set
 	 */
-	public void addAbilityKey(CDOMSingleRef<Ability> key)
+	public final void addAbilityKey(CDOMSingleRef<Ability> key)
 	{
 		if ( containedAbilities == null )
 		{
@@ -281,7 +281,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return A formula
 	 */
-	public Formula getPoolFormula()
+	public final Formula getPoolFormula()
 	{
 		return poolFormula;
 	}
@@ -292,7 +292,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param formula A valid formula or variable.
 	 */
-	public void setPoolFormula(Formula formula)
+	public final void setPoolFormula(Formula formula)
 	{
 		poolFormula = formula;
 	}
@@ -302,7 +302,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param aName A plural name.
 	 */
-	public void setPluralName(final String aName)
+	public final void setPluralName(final String aName)
 	{
 		pluralName = aName;
 	}
@@ -312,7 +312,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return The pluralized name
 	 */
-	public String getPluralName()
+	public final String getPluralName()
 	{
 		String name = pluralName;
 		if (name == null)
@@ -329,7 +329,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 	}
 
-	public String getRawPluralName()
+	public final String getRawPluralName()
 	{
 		return pluralName;
 	}
@@ -339,7 +339,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return The display location.
 	 */
-	public DisplayLocation getDisplayLocation()
+	public final DisplayLocation getDisplayLocation()
 	{
 		if (displayLocation == null)
 		{
@@ -354,7 +354,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param location
 	 *            The new displayLocation
 	 */
-	public void setDisplayLocation(DisplayLocation location)
+	public final void setDisplayLocation(DisplayLocation location)
 	{
 		displayLocation = location;
 	}
@@ -365,7 +365,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param visible the visibility for abilities, i.e. hidden, visible, etc. 
 	 * @see pcgen.util.enumeration.Visibility
 	 */
-	public void setVisible(Visibility visible)
+	public final void setVisible(Visibility visible)
 	{
 		visibility = visible;
 	}
@@ -375,7 +375,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return <tt>true</tt> if these abilities should be displayed.
 	 */
-	public boolean isVisibleTo(View v)
+	public final boolean isVisibleTo(View v)
 	{
 		return isVisibleTo(null, v);
 	}
@@ -387,7 +387,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param pc The character to be tested.
 	 * @return <tt>true</tt> if these abilities should be displayed.
 	 */
-	public boolean isVisibleTo(PlayerCharacter pc, View v)
+	public final boolean isVisibleTo(PlayerCharacter pc, View v)
 	{
 		if (visibility.equals(Visibility.QUALIFY))
 		{
@@ -415,7 +415,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param yesNo <tt>true</tt> if the user should be able to add and remove
 	 * abilities of this category.
 	 */
-	public void setEditable(final boolean yesNo)
+	public final void setEditable(final boolean yesNo)
 	{
 		isEditable = yesNo;
 	}
@@ -425,7 +425,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return <tt>true</tt> if these abilities are editable.
 	 */
-	public boolean isEditable()
+	public final boolean isEditable()
 	{
 		return isEditable;
 	}
@@ -435,7 +435,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param yesNo Set to <tt>true</tt> to allow user editing.
 	 */
-	public void setModPool(final boolean yesNo)
+	public final void setModPool(final boolean yesNo)
 	{
 		isPoolModifiable = yesNo;
 	}
@@ -445,7 +445,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return <tt>true</tt> to allow user editing.
 	 */
-	public boolean allowPoolMod()
+	public final boolean allowPoolMod()
 	{
 		return isPoolModifiable;
 	}
@@ -455,7 +455,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @param yesNo <tt>true</tt> to allow fractions.
 	 */
-	public void setAllowFractionalPool(final boolean yesNo)
+	public final void setAllowFractionalPool(final boolean yesNo)
 	{
 		isPoolFractional = yesNo;
 	}
@@ -465,7 +465,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return <tt>true</tt> if fractional pool amounts are valid.
 	 */
-	public boolean allowFractionalPool()
+	public final boolean allowFractionalPool()
 	{
 		return isPoolFractional;
 	}
@@ -477,7 +477,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see pcgen.cdom.base.Category#getDisplayName()
 	 */
     @Override
-	public String getDisplayName()
+	public final String getDisplayName()
 	{
 		if (displayName.startsWith("in_"))
 		{
@@ -489,7 +489,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		}
 	}
 
-	public String getRawDisplayName()
+	public final String getRawDisplayName()
 	{
 		return displayName;
 	}
@@ -498,7 +498,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see pcgen.cdom.base.Category#getKeyName()
 	 */
     @Override
-	public String getKeyName()
+	public final String getKeyName()
 	{
 		return keyName;
 	}
@@ -507,7 +507,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
 	 */
     @Override
-	public void setName(final String aName)
+	public final void setName(final String aName)
 	{
 		if ("".equals(keyName))
 		{
@@ -522,7 +522,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
-	public String toString()
+	public final String toString()
 	{
 		return getDisplayName();
 	}
@@ -533,7 +533,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		final int PRIME = 31;
 		int result = 1;
@@ -545,7 +545,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (this == obj)
 			return true;
@@ -565,7 +565,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
     @Override
-	public Category<Ability> getParentCategory()
+	public final Category<Ability> getParentCategory()
 	{
 		return parentCategory.get();
 	}
@@ -576,7 +576,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * 
 	 * @return the collection of references
 	 */
-	public Collection<CDOMSingleRef<Ability>> getAbilityRefs()
+	public final Collection<CDOMSingleRef<Ability>> getAbilityRefs()
 	{
 		if (containedAbilities == null)
 		{
@@ -585,12 +585,12 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return Collections.unmodifiableCollection(containedAbilities);
 	}
 
-	public boolean hasDirectReferences()
+	public final boolean hasDirectReferences()
 	{
 		return (containedAbilities != null) && !containedAbilities.isEmpty();
 	}
 
-	public Visibility getVisibility()
+	public final Visibility getVisibility()
 	{
 		return visibility;
 	}
@@ -613,7 +613,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return getKeyName();
 	}
 
-	public void setInternal(boolean internal)
+	public final void setInternal(boolean internal)
 	{
 		isInternal = internal;
 	}
@@ -670,13 +670,13 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	}
 
     @Override
-	public Class<Ability> getReferenceClass()
+	public final Class<Ability> getReferenceClass()
 	{
 		return Ability.class;
 	}
 
     @Override
-	public String getReferenceDescription()
+	public final String getReferenceDescription()
 	{
 		return "Ability Category " + this.getKeyName();
 	}
@@ -859,7 +859,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @see pcgen.core.facade.AbilityCategoryFacade#getType()
 	 */
     @Override
-	public String getType()
+	public final String getType()
 	{
 		return String.valueOf(getDisplayLocation());
 	}

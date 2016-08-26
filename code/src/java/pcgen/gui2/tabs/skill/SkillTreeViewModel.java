@@ -239,7 +239,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		TYPE_NAME("in_typeName"), //$NON-NLS-1$
 		KEYSTAT_NAME("in_keyStatName"), //$NON-NLS-1$
 		KEYSTAT_TYPE_NAME("in_keyStatTypeName"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private SkillTreeView(String nameKey)
 		{

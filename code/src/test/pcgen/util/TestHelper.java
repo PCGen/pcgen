@@ -91,10 +91,10 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Helps Junit tests
  */
 @SuppressWarnings("nls")
-public class TestHelper
+public final class TestHelper
 {
 	private static boolean loaded = false;
-	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<Equipment>(Equipment.class);
+	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source = null;
 
@@ -446,10 +446,10 @@ public class TestHelper
 	public static void addType(CDOMObject cdo, String string)
 	{
 		List<String> stringList = Arrays.asList(string.split("\\."));
-		for (String s : stringList)
+		stringList.forEach(s ->
 		{
 			cdo.addToListFor(ListKey.TYPE, Type.getConstant(s));
-		}
+		});
 	}
 
 	/**

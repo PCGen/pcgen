@@ -91,8 +91,8 @@ public abstract class BasePCTermEvaluator
 		return retVal;
 	}
 
-	public Float localToFloat(PlayerCharacter pc, String localVar,
-		CDOMObject owner)
+	public static Float localToFloat(PlayerCharacter pc, String localVar,
+	                                 CDOMObject owner)
 	{
 		Object o = pc.getLocal(owner, localVar);
 		if (o instanceof Float)

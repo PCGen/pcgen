@@ -81,22 +81,17 @@ public class RaceTargetSaveRestoreTest extends
 		pc.incrementClassLevel(1,  monclass);
 		pc.setHP(pc.getActiveClassLevel(monclass, 0), 3);
 		final Runnable cleanup = getPreEqualityCleanup();
-		Runnable fullcleanup = new Runnable()
+		Runnable fullcleanup = () ->
 		{
-
-			public void run()
+			if (cleanup != null)
 			{
-				if (cleanup != null)
-				{
-					cleanup.run();
-				}
-				//TODO need this to create the spell support :/
-				PCClass cl =
-						context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-							"MonClass");
-				reloadedPC.getSpellSupport(cl);
+				cleanup.run();
 			}
-			
+			//TODO need this to create the spell support :/
+			PCClass cl =
+					context.getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
+						"MonClass");
+			reloadedPC.getSpellSupport(cl);
 		};
 		runRoundRobin(fullcleanup);
 		assertEquals(SkillCost.CLASS,

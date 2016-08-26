@@ -55,7 +55,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param hidden  Count hidden abilities @return  An int containing the number of feats in the list
 	 * @return the number of matching abilities
 	 */
-	protected Float countVisibleAbilities(
+	protected static Float countVisibleAbilities(
 			PlayerCharacter pc,
 			final Iterable<CNAbility> aList,
 			final boolean visible,
@@ -85,7 +85,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @param onceOnly Should it be counted as one if was taken multiple times?
 	 * @return The number of occurrences of the ability.
 	 */
-	protected Float countVisibleAbility(
+	protected static Float countVisibleAbility(
 			PlayerCharacter pc,
 			final CNAbility cna,
 			final boolean visible,

@@ -30,7 +30,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author Vincent Lhote
  */
-public class CommonMenuText
+public final class CommonMenuText
 {
 	private static final String MNEMONIC_SUFFIX = LanguageBundle.KEY_PREFIX
 		+ "mn_"; //$NON-NLS-1$

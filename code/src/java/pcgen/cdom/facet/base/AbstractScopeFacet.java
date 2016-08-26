@@ -234,14 +234,14 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			{
 				removeCache(id);
 			}
-			for (S scope : removed.getKeySet())
+			removed.getKeySet().forEach(scope ->
 			{
-				for (T obj : removed.getListFor(scope))
+				removed.getListFor(scope).forEach(obj ->
 				{
 					fireScopeFacetChangeEvent(id, scope, obj,
-						ScopeFacetChangeEvent.DATA_REMOVED);
-				}
-			}
+							ScopeFacetChangeEvent.DATA_REMOVED);
+				});
+			});
 		}
 	}
 
@@ -272,18 +272,18 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		Map<S, Map<T, Set<Object>>> map = getInfo(source);
 		if (map != null)
 		{
-			for (Entry<S, Map<T, Set<Object>>> lme : map.entrySet())
+			map.entrySet().forEach(lme ->
 			{
 				S scope = lme.getKey();
-				for (Entry<T, Set<Object>> ome : lme.getValue().entrySet())
+				lme.getValue().entrySet().forEach(ome ->
 				{
 					T sp = ome.getKey();
-					for (Object spsource : ome.getValue())
+					ome.getValue().forEach(spsource ->
 					{
 						add(copy, scope, sp, spsource);
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 	}
 

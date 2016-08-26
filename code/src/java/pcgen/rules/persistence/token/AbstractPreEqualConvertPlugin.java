@@ -203,7 +203,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 		return null;
 	}
 
-	private void doPrefix(TokenProcessEvent tpe, String num)
+	private static void doPrefix(TokenProcessEvent tpe, String num)
 	{
 		tpe.append(tpe.getKey());
 		tpe.append(':');
@@ -211,7 +211,7 @@ public abstract class AbstractPreEqualConvertPlugin implements
 		tpe.append(',');
 	}
 
-	private int getNextValue(String[] strings, int i)
+	private static int getNextValue(String[] strings, int i)
 	{
 		for (int j = i + 1; j < strings.length; j++)
 		{

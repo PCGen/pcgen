@@ -58,8 +58,8 @@ public abstract class AbstractNumberModifierFactory<T> implements
 	}
 
 	@Override
-	public PCGenModifier<T> getFixedModifier(int userPriority,
-		FormatManager<T> fmtManager, String instructions)
+	public final PCGenModifier<T> getFixedModifier(int userPriority,
+	                                               FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);

@@ -52,34 +52,22 @@ import pcgen.util.Logging;
 public class PluginClassLoader extends PCGenTask
 {
 
-	private static FilenameFilter pluginFilter = new FilenameFilter()
+	private static FilenameFilter pluginFilter = (dir, name) ->
 	{
-
-        @Override
-		public boolean accept(File dir, String name)
+		if (name.indexOf("plugin") > -1)
 		{
-			if (name.indexOf("plugin") > -1)
-			{
-				return true;
-			}
-			return StringUtils.endsWithIgnoreCase(name, ".jar");
+			return true;
 		}
-
+		return StringUtils.endsWithIgnoreCase(name, ".jar");
 	};
 	private final File pluginDir;
 	private final MapToList<Class<?>, PluginLoader> loaderMap;
-	private ExecutorService dispatcher = Executors.newSingleThreadExecutor(new ThreadFactory()
+	private ExecutorService dispatcher = Executors.newSingleThreadExecutor(r ->
 	{
-
-        @Override
-		public Thread newThread(Runnable r)
-		{
-			Thread thread = new Thread(r, "Plugin-loading-thread");
-			thread.setDaemon(true);
-			thread.setPriority(Thread.NORM_PRIORITY);
-			return thread;
-		}
-
+		Thread thread = new Thread(r, "Plugin-loading-thread");
+		thread.setDaemon(true);
+		thread.setPriority(Thread.NORM_PRIORITY);
+		return thread;
 	});
 	private LinkedList<File> jarFiles = new LinkedList<>();
 	private int progress = 0;
@@ -144,38 +132,32 @@ public class PluginClassLoader extends PCGenTask
 		 * so that class loading occurs in another thread thus allowing both processes to
 		 * operate at the same time.
 		 */
-		dispatcher.execute(new Runnable()
+		dispatcher.execute(() ->
 		{
-
-            @Override
-			public void run()
+			boolean pluginFound = false;
+			for (String string : classList)
 			{
-				boolean pluginFound = false;
-				for (String string : classList)
+				try
 				{
-					try
-					{
-						pluginFound |= processClass(Class.forName(string, true, loader));
-					}
-					catch (ClassNotFoundException ex)
-					{
-						Logging.errorPrint("Error occurred while loading plugin: " +
-								pluginJar.getName(), ex);
-					}
-					catch (NoClassDefFoundError e)
-					{
-						Logging.errorPrint("Error occurred while loading plugin: " +
-								pluginJar.getName(), e);
-					}
+					pluginFound |= processClass(Class.forName(string, true, loader));
 				}
-				if (!pluginFound)
+				catch (ClassNotFoundException ex)
 				{
-					Logging.log(Logging.WARNING, "Plugin not found in " + pluginJar.getName());
+					Logging.errorPrint("Error occurred while loading plugin: " +
+							pluginJar.getName(), ex);
 				}
-				progress++;
-				setProgress(progress);
+				catch (NoClassDefFoundError e)
+				{
+					Logging.errorPrint("Error occurred while loading plugin: " +
+							pluginJar.getName(), e);
+				}
 			}
-
+			if (!pluginFound)
+			{
+				Logging.log(Logging.WARNING, "Plugin not found in " + pluginJar.getName());
+			}
+			progress++;
+			setProgress(progress);
 		});
 	}
 
@@ -225,16 +207,7 @@ public class PluginClassLoader extends PCGenTask
 		findJarFiles(pluginDir);
 		setMaximum(jarFiles.size());
 		loadClasses();
-		Future<?> future = dispatcher.submit(new Runnable()
-		{
-
-            @Override
-			public void run()
-			{
-				dispatcher.shutdown();
-			}
-
-		});
+		Future<?> future = dispatcher.submit(() -> dispatcher.shutdown());
 		try
 		{
 			//This is done to cause this thread to wait until the shutdown task

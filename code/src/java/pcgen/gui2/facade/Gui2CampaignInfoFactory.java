@@ -26,6 +26,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.lang.StringUtil;
@@ -70,20 +71,16 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
 		String htmlInfo = getHTMLInfo(campaign);
-		pman.setChosenCampaignSourcefiles(oldList);
+		PersistenceManager.setChosenCampaignSourcefiles(oldList);
 		return htmlInfo;
 	}
 
-	private List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList,
-		PersistenceManager pman)
+	private static List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList,
+	                                                    PersistenceManager pman)
 	{
-		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : testList)
-		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
-		}
-		pman.setChosenCampaignSourcefiles(uris);
+		List<URI> oldList = PersistenceManager.getChosenCampaignSourcefiles();
+		List<URI> uris = testList.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		return oldList;
 	}
 	
@@ -105,7 +102,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return infoText.toString();
 	}
 
-	private void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
+	private static void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
 	{
 		infoText.appendLineBreak();
 		if (aCamp.getSizeOfListFor(ListKey.FILE_COVER) > 0)
@@ -205,11 +202,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (String infotext : info)
+			info.forEach(infotext ->
 			{
 				infoText.append(infotext);
 				infoText.appendLineBreak();
-			}
+			});
 			infoDisplayed = true;
 		}
 
@@ -223,11 +220,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infCopyright")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (String license : copyright)
+			copyright.forEach(license ->
 			{
 				infoText.append(license);
 				infoText.appendLineBreak();
-			}
+			});
 		}
 		
 		List<Campaign> subCampaigns = aCamp.getSubCampaigns();
@@ -240,17 +237,17 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			infoText.appendSmallTitleElement(LanguageBundle
 				.getString("in_infIncludedCampaigns")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (Campaign subCamp : subCampaigns)
+			subCampaigns.forEach(subCamp ->
 			{
 				infoText.append(subCamp.getDisplayName());
 				infoText.appendLineBreak();
-			}
-			for (CampaignSourceEntry subCse : notFoundSubCampaigns)
+			});
+			notFoundSubCampaigns.forEach(subCse ->
 			{
 				infoText.append(LanguageBundle.getFormattedString(
-					"in_infMissingCampaign", subCse.getURI()));
+						"in_infMissingCampaign", subCse.getURI()));
 				infoText.appendLineBreak();
-			}
+			});
 		}
 
 		infoText.appendLineBreak();
@@ -316,14 +313,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	
 	public static List<CampaignURL> getUrlListForKind(Campaign c, URLKind kind)
 	{
-		List<CampaignURL> kindList = new ArrayList<>();
-		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))
-		{
-			if (url.getUrlKind() == kind)
-			{
-				kindList.add(url);
-			}
-		}
+		List<CampaignURL> kindList = c.getSafeListFor(ListKey.CAMPAIGN_URL).stream().filter(url -> url.getUrlKind() == kind).collect(Collectors.toList());
 		return kindList;
 	}
 
@@ -344,7 +334,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		List<URI> oldList = setSourcesForPrereqTesting(testList, pman);
 		String preReqHtml = PrerequisiteUtilities.preReqHTMLStringsForList(null,
 			null, aCamp.getPrerequisiteList(), false);
-		pman.setChosenCampaignSourcefiles(oldList);
+		PersistenceManager.setChosenCampaignSourcefiles(oldList);
 		
 		return preReqHtml;
 	}

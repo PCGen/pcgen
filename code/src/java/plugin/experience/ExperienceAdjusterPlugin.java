@@ -150,7 +150,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -201,7 +201,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Adjust the CR
 	 * @param cbt
 	 */
-	public void adjustCR(Combatant cbt)
+	public static void adjustCR(Combatant cbt)
 	{
 		String inputValue =
 				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
@@ -247,7 +247,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 
 				for (int i = 0; i < list.length; i++)
 				{
-					eaModel.addExperienceToCharacter(
+					ExperienceAdjusterModel.addExperienceToCharacter(
 						(ExperienceListItem) list[i], Integer.parseInt(eaView
 							.getExperienceField().getText()));
 				}
@@ -443,7 +443,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Tool menu item
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

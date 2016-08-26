@@ -139,9 +139,9 @@ public final class KitProf extends BaseKit
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext();)
+			for (final PCClass pcClass1 : pcClasses)
 			{
-				pcClass = i.next();
+				pcClass = pcClass1;
 				wpPTC = getPTC(pcClass);
 				if (wpPTC != null)
 				{
@@ -225,18 +225,18 @@ public final class KitProf extends BaseKit
 		//
 		// Add to list of things to add to the character
 		//
-		for (WeaponProf prof : xs)
+		xs.forEach(prof ->
 		{
 			if (weaponProfs == null)
 			{
 				weaponProfs = new ArrayList<>();
 			}
 			weaponProfs.add(prof);
-		}
+		});
 		return false;
 	}
 
-	private PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
+	private static PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
 	{
 		List<PersistentTransitionChoice<?>> adds =
 				cdo.getListFor(ListKey.ADD);
@@ -255,14 +255,14 @@ public final class KitProf extends BaseKit
 	{
 		PersistentTransitionChoice<WeaponProf> wpPTC = getPTC(thePObject);
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
-		for (CDOMSingleRef<WeaponProf> profKey : profList)
+		profList.forEach(profKey ->
 		{
 			WeaponProf wp = profKey.get();
 			if (choices.contains(wp))
 			{
 				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
 			}
-		}
+		});
 	}
 
 	@Override

@@ -370,7 +370,7 @@ public class NetworkModel
 		return list.getSelectedValue().toString();
 	}
 
-	private Color getLineColor(int num)
+	private static Color getLineColor(int num)
 	{
 		return colorList.get(num >= colorList.size() ? num % colorList.size()
 			: num);

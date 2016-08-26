@@ -1867,14 +1867,14 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	
 	};
 
-	static String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
-	static Pattern subtokenPat = Pattern.compile(subtokenString);
+	static final String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
+	static final Pattern subtokenPat = Pattern.compile(subtokenString);
 
-	static Pattern numPat = Pattern.compile("\\d+");
+	static final Pattern numPat = Pattern.compile("\\d+");
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderPCVar(
 			String pattern,

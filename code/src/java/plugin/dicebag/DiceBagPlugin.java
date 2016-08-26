@@ -98,7 +98,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes()
+	public static FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
 
@@ -109,7 +109,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * Get File type
 	 * @return FileFilter
 	 */
-	public FileFilter getFileType()
+	public static FileFilter getFileType()
 	{
 		String[] fileExt = new String[]{"dbg"}; //$NON-NLS-1$
 		return new SimpleFileFilter(fileExt, LanguageBundle.getString("in_plugin_dicebag_filter")); //$NON-NLS-1$
@@ -336,7 +336,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}

@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class OutputNameFormatting
+public final class OutputNameFormatting
 {
 
 	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)
@@ -173,7 +173,7 @@ public class OutputNameFormatting
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
-	public static final String getOutputName(CDOMObject po)
+	public static String getOutputName(CDOMObject po)
 	{
 		String outputName = po.get(StringKey.OUTPUT_NAME);
 		String displayName = po.getDisplayName();

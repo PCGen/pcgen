@@ -51,10 +51,10 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 	{
 		equipmentList = new ArrayList<>(list);
 		quantityMap = new HashMap<>();
-		for (Equipment equipment : list)
+		list.forEach(equipment ->
 		{
 			quantityMap.put(equipment, equipment.getQty().intValue());
-		}
+		});
 	}
 
 	/**
@@ -65,10 +65,10 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 	{
 		equipmentList = new ArrayList<>(list);
 		quantityMap = new HashMap<>();
-		for (Equipment equipment : list)
+		list.forEach(equipment ->
 		{
 			quantityMap.put(equipment, equipment.getQty().intValue());
-		}
+		});
 		fireElementsChanged(this);
 	}
 	@Override

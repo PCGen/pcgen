@@ -42,6 +42,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -82,17 +83,13 @@ public class ScanForUnusedIl8nKeys
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
 		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
-		Set<String> keys = new TreeSet<String>();
-		for (Entry e : p.entrySet())
-		{
-			keys.add((String)e.getKey());
-		}
+		Set<String> keys = p.entrySet().stream().map(e -> (String) e.getKey()).collect(Collectors.toCollection(TreeSet::new));
 
 		// Grab a list of files to be scanned
 		List<File> fileList = buildFileList();
 		
 		// Scan each file marking each found entry
-		Set<String> missingKeys = new TreeSet<String>(keys);
+		Set<String> missingKeys = new TreeSet<>(keys);
 		actionWhitelistedKeys(missingKeys);
 		for (File file : fileList)
 		{
@@ -100,10 +97,11 @@ public class ScanForUnusedIl8nKeys
 		}
 		
 		// Report all missing entries
-		for (String key : missingKeys)
+		//System.out.println("Found unused key '" + key + "'.");
+		missingKeys.forEach(key ->
 		{
 			//System.out.println("Found unused key '" + key + "'.");
-		}
+		});
 		System.out.println("Total unused keys: " + missingKeys.size()
 			+ " from a set of " + keys.size() + " defined keys. "
 			+ ((missingKeys.size() * 100.0) / keys.size()) + "%");
@@ -151,9 +149,9 @@ public class ScanForUnusedIl8nKeys
 		Reader reader = new BufferedReader(new FileReader(file));
 		List<String> lines = IOUtils.readLines(reader);
 		reader.close();
-		for (String line : lines)
+		lines.forEach(line ->
 		{
-			for (Iterator<String> i = missingKeys.iterator(); i.hasNext();)
+			for (Iterator<String> i = missingKeys.iterator(); i.hasNext(); )
 			{
 				String key = i.next();
 				if (line.contains("\"" + key + "\""))
@@ -161,8 +159,8 @@ public class ScanForUnusedIl8nKeys
 					i.remove();
 				}
 			}
-			
-		}
+
+		});
 	}
 
 	/**
@@ -270,7 +268,7 @@ public class ScanForUnusedIl8nKeys
 	 */
 	private List<File> buildFileList() throws IOException
 	{
-		List<File> allFiles = new ArrayList<File>();
+		List<File> allFiles = new ArrayList<>();
 		JavaFileLister lister = new JavaFileLister();
 		
 		for (String pkg : PACKAGES)

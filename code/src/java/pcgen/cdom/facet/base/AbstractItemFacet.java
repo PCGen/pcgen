@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.base;
 
+import java.util.Objects;
 import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.util.Logging;
@@ -54,7 +55,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 *            represented by the given PCGenIdentifier.
 	 * @return true if the item was set; false otherwise
 	 */
-	public boolean set(IDT id, T obj)
+	public final boolean set(IDT id, T obj)
 	{
 		if (obj == null)
 		{
@@ -89,7 +90,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The PCGenIdentifier representing the Player Character for
 	 *            which the item value should be removed
 	 */
-	public T remove(IDT id)
+	public final T remove(IDT id)
 	{
 		T old = (T) removeCache(id);
 		if (old != null)
@@ -110,7 +111,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
-	public T get(IDT id)
+	public final T get(IDT id)
 	{
 		return (T) getCache(id);
 	}
@@ -133,11 +134,11 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 *         Character represented by the given PCGenIdentifier matches the
 	 *         given value; false otherwise
 	 */
-	public boolean matches(IDT id, T obj)
+	public final boolean matches(IDT id, T obj)
 	{
 		T current = get(id);
 		return (obj == null && current == null)
-			|| (obj != null && obj.equals(current));
+			|| (Objects.equals(obj, current));
 	}
 
 	/**

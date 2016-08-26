@@ -113,11 +113,11 @@ public class EquipmentModifierTest extends PCGenTestCase
 
 		final Equipment e = new Equipment();
 		e.addAssociation(eqMod, "+13");
-		
-		for (BonusObj bonusObj : eqMod.getBonusList(e))
+
+		eqMod.getBonusList(e).forEach(bonusObj ->
 		{
 			assertEquals("((+13)MIN(STR))", bonusObj.getValue());
-		}
+		});
 		assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
 	}
 
@@ -137,14 +137,14 @@ public class EquipmentModifierTest extends PCGenTestCase
 		e.addAssociation(eqMod, "+13");
 		eqMod.addToListFor(ListKey.BONUS, aBonus);
 
-		for (BonusObj bonusObj : eqMod.getBonusList(e))
+		eqMod.getBonusList(e).forEach(bonusObj ->
 		{
 			assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
 			assertEquals("+13", prereq.getKey());
 			assertEquals("STR", prereq.getOperand());
-		}
+		});
 		assertEquals("-2", aBonus.getValue());
 		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
 		assertEquals("%CHOICE", prereq.getKey());

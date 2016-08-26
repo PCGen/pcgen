@@ -32,7 +32,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public class PCClassKeyChange
+public final class PCClassKeyChange
 {
 	public static void changeReferences(String oldClass, PCClass pcc)
 	{
@@ -48,11 +48,11 @@ public class PCClassKeyChange
 		renameBonusTarget(pcc, oldClass, newClass);
 
 		// Repeat for Class Levels
-		for (PCClassLevel pcl : pcc.getOriginalClassLevelCollection())
+		pcc.getOriginalClassLevelCollection().forEach(pcl ->
 		{
 			renameVariables(oldClass, pcl, newClass);
 			renameBonusTarget(pcl, oldClass, newClass);
-		}
+		});
 	}
 
 	private static void renameVariables(String oldClass, CDOMObject pcc,
@@ -62,11 +62,11 @@ public class PCClassKeyChange
 		// Go through the variable list (DEFINE) and adjust the class to the new
 		// name
 		//
-		for (VariableKey vk : pcc.getVariableKeys())
+		pcc.getVariableKeys().forEach(vk ->
 		{
 			pcc.put(vk, FormulaFactory.getFormulaFor(pcc.get(vk).toString()
 					.replaceAll("=" + oldClass, "=" + newClass)));
-		}
+		});
 	}
 
 	private static void renameBonusTarget(CDOMObject cdo, String oldClass,

@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -40,7 +41,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
-public class SpellLevel
+public final class SpellLevel
 {
 
 	public static boolean levelForKeyContains(Spell sp,
@@ -53,14 +54,14 @@ public class SpellLevel
 		}
 		Set<Integer> resultList = new TreeSet<>();
 		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getSpellLevelInfo(sp);
-		for (CDOMList<Spell> spellList : lists)
+		lists.forEach(spellList ->
 		{
 			List<Integer> levels = pcli.getListFor(spellList);
 			if (levels != null)
 			{
 				resultList.addAll(levels);
 			}
-		}
+		});
 		return levelMatch == -1 && !resultList.isEmpty() || levelMatch >= 0
 				&& resultList.contains(levelMatch);
 	}
@@ -72,10 +73,7 @@ public class SpellLevel
 
 		if (lists != null)
 		{
-			for (CDOMList<Spell> spellList : lists)
-			{
-				list.add(getFirstLvlForKey(sp, spellList, aPC));
-			}
+			list.addAll(lists.stream().map(spellList -> getFirstLvlForKey(sp, spellList, aPC)).collect(Collectors.toList()));
 		}
 
 		return list.toArray(new Integer[list.size()]);
@@ -171,11 +169,11 @@ public class SpellLevel
 
 		if (levelInt.length > 0)
 		{
-			for (int i = 0; i < levelInt.length; i++)
+			for (final Integer aLevelInt : levelInt)
 			{
-				if (levelInt[i] > -1)
+				if (aLevelInt > -1)
 				{
-					return levelInt[i];
+					return aLevelInt;
 				}
 			}
 		}

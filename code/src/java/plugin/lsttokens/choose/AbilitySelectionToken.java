@@ -61,7 +61,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 			AbilityCategory.class;
 
 	@Override
-	public String getParentToken()
+	public final String getParentToken()
 	{
 		return "CHOOSE";
 	}
@@ -72,9 +72,9 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		return '|';
 	}
 	
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
-		CDOMObject obj, String value)
+	protected final ParseResult parseTokenWithSeparator(LoadContext context,
+	                                                    ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
+	                                                    CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -206,8 +206,8 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public final void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
+	                                AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -240,7 +240,7 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITYSELECTION";
 	}
@@ -278,12 +278,12 @@ public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	protected static final String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<AbilitySelection> getListKey()
+	protected static final AssociationListKey<AbilitySelection> getListKey()
 	{
 		return AssociationListKey.getKeyFor(AbilitySelection.class, "CHOOSE*ABILITYSELECTION");
 	}

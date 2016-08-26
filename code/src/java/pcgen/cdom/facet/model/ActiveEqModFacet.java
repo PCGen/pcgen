@@ -60,14 +60,14 @@ public class ActiveEqModFacet extends
 		 */
 		CharID id = dfce.getCharID();
 		Equipment eq = dfce.getCDOMObject();
-		for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+		eq.getEqModifierList(true).forEach(eqMod ->
 		{
 			add(id, eqMod, eq);
-		}
-		for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+		});
+		eq.getEqModifierList(false).forEach(eqMod ->
 		{
 			add(id, eqMod, eq);
-		}
+		});
 	}
 
 	/**
@@ -89,13 +89,13 @@ public class ActiveEqModFacet extends
 	{
 		CharID id = dfce.getCharID();
 		Equipment eq = dfce.getCDOMObject();
-		for (EquipmentModifier eqMod : eq.getEqModifierList(true))
+		eq.getEqModifierList(true).forEach(eqMod ->
 		{
 			remove(id, eqMod, eq);
-		}
-		for (EquipmentModifier eqMod : eq.getEqModifierList(false))
+		});
+		eq.getEqModifierList(false).forEach(eqMod ->
 		{
 			remove(id, eqMod, eq);
-		}
+		});
 	}
 }

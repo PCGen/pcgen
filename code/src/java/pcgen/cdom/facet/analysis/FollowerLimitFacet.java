@@ -99,10 +99,10 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 
 	private void addAll(CharID id, List<FollowerLimit> list, CDOMObject cdo)
 	{
-		for (FollowerLimit fo : list)
+		list.forEach(fo ->
 		{
 			add(id, fo, cdo);
-		}
+		});
 	}
 
 	private void add(CharID id, FollowerLimit fo, CDOMObject cdo)
@@ -302,17 +302,17 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		Map<CompanionList, Map<FollowerLimit, Set<CDOMObject>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Map<FollowerLimit, Set<CDOMObject>> fm : map.values())
+			map.values().forEach(fm ->
 			{
-				for (Map.Entry<FollowerLimit, Set<CDOMObject>> fme : fm.entrySet())
+				fm.entrySet().forEach(fme ->
 				{
 					FollowerLimit fl = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
+					fme.getValue().forEach(cdo ->
 					{
 						add(copy, fl, cdo);
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 	}
 

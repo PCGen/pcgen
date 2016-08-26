@@ -57,18 +57,18 @@ public class KitTemplate extends BaseKit
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);
 
-		for (PCTemplate template : selectedMap.getKeySet())
+		selectedMap.getKeySet().forEach(template ->
 		{
 			List<PCTemplate> added = selectedMap.getListFor(template);
 			if (added != null)
 			{
-				for (PCTemplate subtemplate : added)
+				added.forEach(subtemplate ->
 				{
 					aPC.setTemplatesAdded(template, subtemplate);
-				}
+				});
 			}
 			aPC.addTemplate(template);
-		}
+		});
 
 		SettingsHandler.setShowHPDialogAtLevelUp(tempShowHP);
 	}
@@ -113,7 +113,7 @@ public class KitTemplate extends BaseKit
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
                 new HashMapToList<>();
 
-		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
+		templateList.getKeySet().forEach(ref ->
 		{
 			PCTemplate templateToAdd = ref.get();
 			List<CDOMSingleRef<PCTemplate>> subList =
@@ -121,18 +121,18 @@ public class KitTemplate extends BaseKit
 			List<PCTemplate> subAdded = new ArrayList<>();
 			if (subList != null)
 			{
-				for (CDOMSingleRef<PCTemplate> subRef : subList)
+				subList.forEach(subRef ->
 				{
 					PCTemplate ownedTemplate = subRef.get();
 					subAdded.add(ownedTemplate);
 					aPC.setTemplatesAdded(templateToAdd, ownedTemplate);
-				}
+				});
 			}
 
 			aPC.addTemplate(templateToAdd);
 			selectedMap.initializeListFor(templateToAdd);
 			selectedMap.addAllToListFor(templateToAdd, subAdded);
-		}
+		});
 
 		if (!apply)
 		{
@@ -165,12 +165,12 @@ public class KitTemplate extends BaseKit
 					templateList.getListFor(ref);
 			if (subList != null)
 			{
-				for (CDOMSingleRef<PCTemplate> subref : subList)
+				subList.forEach(subref ->
 				{
 					sb.append("[TEMPLATE:");
 					sb.append(subref.getLSTformat(false));
 					sb.append(']');
-				}
+				});
 			}
 		}
 		return sb.toString();

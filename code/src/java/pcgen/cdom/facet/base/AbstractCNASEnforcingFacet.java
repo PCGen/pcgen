@@ -23,6 +23,7 @@ import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
@@ -39,7 +40,7 @@ public class AbstractCNASEnforcingFacet extends
 		return (list == null) || list.isEmpty();
 	}
 
-	public boolean add(CharID id, CNAbilitySelection cnas, Object source)
+	public final boolean add(CharID id, CNAbilitySelection cnas, Object source)
 	{
 		if (cnas == null)
 		{
@@ -67,7 +68,7 @@ public class AbstractCNASEnforcingFacet extends
 		return true;
 	}
 
-	public boolean remove(CharID id, CNAbilitySelection cnas, Object source)
+	public final boolean remove(CharID id, CNAbilitySelection cnas, Object source)
 	{
 		if (cnas == null)
 		{
@@ -130,15 +131,11 @@ public class AbstractCNASEnforcingFacet extends
 		{
 			return Collections.emptyList();
 		}
-		List<CNAbilitySelection> returnList = new ArrayList<>();
-		for (List<SourcedCNAS> array : list)
-		{
-			returnList.add(array.get(0).cnas);
-		}
+		List<CNAbilitySelection> returnList = list.stream().map(array -> array.get(0).cnas).collect(Collectors.toList());
 		return returnList;
 	}
 
-	protected List<List<SourcedCNAS>> getList(CharID id)
+	protected final List<List<SourcedCNAS>> getList(CharID id)
 	{
 		return (List<List<SourcedCNAS>>) this.getCache(id);
 	}
@@ -161,13 +158,13 @@ public class AbstractCNASEnforcingFacet extends
 		if (list != null)
 		{
 			List<List<SourcedCNAS>> constructingList = getConstructingList(copy);
-			for (List<SourcedCNAS> orig : list)
+			list.forEach(orig ->
 			{
 				List<SourcedCNAS> newCnasList =
-                        new ArrayList<>(
-                                orig);
+						new ArrayList<>(
+								orig);
 				constructingList.add(newCnasList);
-			}
+			});
 		}
 	}
 
@@ -202,19 +199,19 @@ public class AbstractCNASEnforcingFacet extends
 		}
 
 		@Override
-		public String toString()
+		public final String toString()
 		{
 			return cnas + " (src: " + source + ")";
 		}
 		
 		@Override
-		public int hashCode()
+		public final int hashCode()
 		{
 			return source.hashCode() ^ cnas.hashCode();
 		}
 		
 		@Override
-		public boolean equals(Object o)
+		public final boolean equals(Object o)
 		{
 			if (o == this)
 			{

@@ -42,11 +42,11 @@ public class EquipmentTable extends Table
 		final TableEntry entry = getEntry();
 		Logging.debugPrint("Table: " + this + " -> " + entry);
 		final List<Object> items = entry.getData();
-		for ( final Object item : items )
+		items.forEach(item ->
 		{
-			final EquipmentItem eqItem = (EquipmentItem)item;
+			final EquipmentItem eqItem = (EquipmentItem) item;
 			ret.addAll(eqItem.getEquipment());
-		}
+		});
 		return ret;
 	}
 	

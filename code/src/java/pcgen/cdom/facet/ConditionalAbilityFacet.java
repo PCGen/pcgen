@@ -70,14 +70,14 @@ public class ConditionalAbilityFacet extends
 		Map<CNAbilitySelection, Object> cached = getCachedMap(id);
 		if (cached != null)
 		{
-			for (Map.Entry<CNAbilitySelection, Object> me : cached.entrySet())
+			cached.entrySet().forEach(me ->
 			{
 				CNAbilitySelection cnas = me.getKey();
 				if (prerequisiteFacet.qualifies(id, cnas, me.getValue()))
 				{
 					set.add(cnas);
 				}
-			}
+			});
 		}
 		return set;
 	}

@@ -78,7 +78,7 @@ public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implemen
 		{
 			characterFiles.add(character.getFileRef().get());
 		}
-		(new PCGIOHandler()).write(partyFile, characterFiles);
+		PCGIOHandler.write(partyFile, characterFiles);
 	}
 
 }

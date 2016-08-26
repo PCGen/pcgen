@@ -409,13 +409,10 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
-			for (Object eqMod : data)
+			data.stream().filter(eqMod -> eqMod instanceof EquipModFacade).forEach(eqMod ->
 			{
-				if (eqMod instanceof EquipModFacade)
-				{
-					builder.addModToEquipment((EquipModFacade) eqMod, currentHead);
-				}
-			}
+				builder.addModToEquipment((EquipModFacade) eqMod, currentHead);
+			});
 			equipInfoHandler.refreshInfo();
 			availableTable.refilter();
 		}
@@ -434,14 +431,11 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = selectedTable.getSelectedData();
-			for (Object eqMod : data)
+			data.stream().filter(eqMod -> eqMod instanceof EquipModFacade).forEach(eqMod ->
 			{
-				if (eqMod instanceof EquipModFacade)
-				{
-					builder.removeModFromEquipment((EquipModFacade) eqMod,
+				builder.removeModFromEquipment((EquipModFacade) eqMod,
 						currentHead);
-				}
-			}
+			});
 			equipInfoHandler.refreshInfo();
 			availableTable.refilter();
 		}
@@ -699,7 +693,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private EquipModTreeView(String name)
 		{
@@ -738,8 +732,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 		 * @param path The paths under which the equipment modifier should be shown.
 		 * @return The TreeViewPath.
 		 */
-		protected static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj,
-																	Object... path)
+		private static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj,
+		                                                               Object... path)
 		{
 			if (path.length == 0)
 			{

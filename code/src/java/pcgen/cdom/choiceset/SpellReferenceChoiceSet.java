@@ -192,10 +192,10 @@ public class SpellReferenceChoiceSet implements
 	public Set<CDOMListObject<Spell>> getSet(PlayerCharacter pc)
 	{
 		Set<CDOMListObject<Spell>> returnSet = new HashSet<>();
-		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)
+		set.forEach(ref ->
 		{
 			returnSet.addAll(ref.getContainedObjects());
-		}
+		});
 		return returnSet;
 	}
 

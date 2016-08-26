@@ -498,26 +498,22 @@ public class BatchExporter
 
 		final String aDirectory =
 				SettingsHandler.getTempPath() + File.separator;
-		new File(aDirectory).list(new FilenameFilter()
+		new File(aDirectory).list((aFile, aString) ->
 		{
-            @Override
-			public boolean accept(File aFile, String aString)
+			try
 			{
-				try
+				if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
 				{
-					if (aString.startsWith(Constants.TEMPORARY_FILE_NAME))
-					{
-						final File tf = new File(aFile, aString);
-						tf.delete();
-					}
+					final File tf = new File(aFile, aString);
+					tf.delete();
 				}
-				catch (Exception e)
-				{
-					Logging.errorPrint("removeTemporaryFiles", e);
-				}
-
-				return false;
 			}
+			catch (Exception e)
+			{
+				Logging.errorPrint("removeTemporaryFiles", e);
+			}
+
+			return false;
 		});
 	}
 

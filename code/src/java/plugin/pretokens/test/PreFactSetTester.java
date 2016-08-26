@@ -77,8 +77,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private <T> int getRunningTotal(final Prerequisite prereq, final int number,
-		Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
+	private static <T> int getRunningTotal(final Prerequisite prereq, final int number,
+	                                       Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
 	{
 		T targetVal = fk.getFormatManager().convert(factval);
 		int runningTotal = 0;

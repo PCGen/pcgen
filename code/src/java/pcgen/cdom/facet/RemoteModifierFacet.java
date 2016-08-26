@@ -56,19 +56,19 @@ public class RemoteModifierFacet extends
 		 * If this can have local variables, find what may have been modified by
 		 * previous objects
 		 */
-		for (RemoteModifier<?> rm : getSet(id))
+		getSet(id).forEach(rm ->
 		{
 			Object src = get(id, rm);
 			processAdd(id, rm, vs, src);
 			if (vs instanceof Equipment)
 			{
 				Equipment e = (Equipment) vs;
-				for (EquipmentHead head : e.getEquipmentHeads())
+				e.getEquipmentHeads().forEach(head ->
 				{
 					processAdd(id, rm, head, src);
-				}
+				});
 			}
-		}
+		});
 		/*
 		 * Look at what newly added object can modify on others
 		 */
@@ -79,23 +79,24 @@ public class RemoteModifierFacet extends
 			if (list != null)
 			{
 				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> rm : list)
+				//Apply to existing as necessary
+				list.forEach(rm ->
 				{
 					set(id, rm, vs);
 					//Apply to existing as necessary
-					for (VarScoped obj : targets)
+					targets.forEach(obj ->
 					{
 						processAdd(id, rm, obj, vs);
 						if (obj instanceof Equipment)
 						{
 							Equipment e = (Equipment) obj;
-							for (EquipmentHead head : e.getEquipmentHeads())
+							e.getEquipmentHeads().forEach(head ->
 							{
 								processAdd(id, rm, head, vs);
-							}
+							});
 						}
-					}
-				}
+					});
+				});
 			}
 		}
 	}
@@ -119,19 +120,19 @@ public class RemoteModifierFacet extends
 		 * If this can have local variables, find what had been modified by
 		 * previous objects
 		 */
-		for (RemoteModifier<?> rm : getSet(id))
+		getSet(id).forEach(rm ->
 		{
 			Object src = get(id, rm);
 			processRemove(id, rm, vs, src);
 			if (vs instanceof Equipment)
 			{
 				Equipment e = (Equipment) vs;
-				for (EquipmentHead head : e.getEquipmentHeads())
+				e.getEquipmentHeads().forEach(head ->
 				{
 					processRemove(id, rm, head, src);
-				}
+				});
 			}
-		}
+		});
 		/*
 		 * Look at what newly added object can modify on others
 		 */
@@ -142,23 +143,24 @@ public class RemoteModifierFacet extends
 			if (list != null)
 			{
 				Set<? extends VarScoped> targets = varScopedFacet.getSet(id);
-				for (RemoteModifier<?> rm : list)
+				//RemoveFrom existing as necessary
+				list.forEach(rm ->
 				{
 					remove(id, rm);
 					//RemoveFrom existing as necessary
-					for (VarScoped obj : targets)
+					targets.forEach(obj ->
 					{
 						processRemove(id, rm, obj, vs);
 						if (obj instanceof Equipment)
 						{
 							Equipment e = (Equipment) obj;
-							for (EquipmentHead head : e.getEquipmentHeads())
+							e.getEquipmentHeads().forEach(head ->
 							{
 								processRemove(id, rm, head, vs);
-							}
+							});
 						}
-					}
-				}
+					});
+				});
 			}
 		}
 	}

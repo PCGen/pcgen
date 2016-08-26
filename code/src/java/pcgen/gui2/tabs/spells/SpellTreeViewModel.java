@@ -87,7 +87,7 @@ public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 		CLASS_LEVEL_SPELL("in_spellClassLevelSpell"), //$NON-NLS-1$
 		CLASS_LEVEL_SCHOOL_SPELL("in_spellClassLevelSchoolSpell"); //$NON-NLS-1$
 		
-		private String name;
+		private final String name;
 
 		private SpellTreeView(String name)
 		{

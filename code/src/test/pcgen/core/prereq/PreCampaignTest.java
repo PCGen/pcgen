@@ -89,23 +89,23 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
-		pmgr.setChosenCampaignSourcefiles(uris);
+		List<URI> uris = new ArrayList<>();
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,Camp1");
 		assertFalse("Nonpresent campaign should not be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
-		uris = new ArrayList<URI>();
+		uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		assertTrue("Present campaign should be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
 		uris.add(camp2KeyParent.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		Prerequisite preCamp3 = factory.parse("PRECAMPAIGN:1,Camp3");
 		assertFalse("Present but nested campaign should not be found",
@@ -122,9 +122,9 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,BOOKTYPE=Wild");
@@ -132,13 +132,13 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
 		uris.add(camp6TypeParent.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		assertFalse("Nested typed campaign should not be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
 		uris.add(camp4Wild.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		assertTrue("Typed campaign should be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
@@ -154,9 +154,9 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCampaign = factory.parse("PRECAMPAIGN:1,INCLUDES=Camp3");
@@ -164,7 +164,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(preCampaign, (PlayerCharacter) null, sourceCamp));
 
 		uris.add(camp2KeyParent.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		assertTrue("Present but nested campaign should be found",
 			PrereqHandler.passes(preCampaign, (PlayerCharacter) null, sourceCamp));
@@ -181,9 +181,9 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite preCamp1 = factory.parse("PRECAMPAIGN:1,INCLUDESBOOKTYPE=Wild");
@@ -191,7 +191,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
 		uris.add(camp6TypeParent.getSourceURI());
-		pmgr.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		assertTrue("Nested typed campaign should be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));

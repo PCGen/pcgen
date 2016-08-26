@@ -56,7 +56,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			AbilityCategory.class;
 
 	@Override
-	public String getParentToken()
+	public final String getParentToken()
 	{
 		return "CHOOSE";
 	}
@@ -67,9 +67,9 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
-		CDOMObject obj, String value)
+	protected final ParseResult parseTokenWithSeparator(LoadContext context,
+	                                                    ReferenceManufacturer<Ability> rm, CDOMSingleRef<AbilityCategory> acRef,
+	                                                    CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -191,8 +191,8 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		Ability choice)
+	public final void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
+	                                Ability choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -225,7 +225,7 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITY";
 	}
@@ -263,12 +263,12 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	protected static final String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<Ability> getListKey()
+	protected static final AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*ABILITY");
 	}

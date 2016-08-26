@@ -51,7 +51,7 @@ public class CampaignLoader extends LstLineFileLoader
      * The {@link pcgen.core.Campaign Campaign} being loaded by {@link #loadCampaignLstFile(java.net.URI) loadCampaignLstFile}.
      */
 	private Campaign campaign = null;
-	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
+	private final List<Campaign> inittedCampaigns = new ArrayList<>();
 	
 	public static final ListKey[] OTHER_FILE_LISTKEY = {
 		ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER};
@@ -130,8 +130,8 @@ public class CampaignLoader extends LstLineFileLoader
      * @param baseCampaign Campaign that includes another campaign
      * @param subCampaign  Campaign included by the baseCampaign
      */
-    private void initRecursivePccFiles(Campaign baseCampaign,
-                                       Campaign subCampaign)
+    private static void initRecursivePccFiles(Campaign baseCampaign,
+                                              Campaign subCampaign)
     {
         if (subCampaign == null)
         {
@@ -148,8 +148,8 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 	}
 
-	private <T> void addToBaseCampaign(Campaign baseCampaign,
-		Campaign subCampaign, ListKey<T> lk)
+	private static <T> void addToBaseCampaign(Campaign baseCampaign,
+	                                          Campaign subCampaign, ListKey<T> lk)
 	{
 		baseCampaign.addAllToListFor(lk, subCampaign.getSafeListFor(lk));
 	}
@@ -183,10 +183,10 @@ public class CampaignLoader extends LstLineFileLoader
                         SourceFormat.LONG, true));
                 sec15.append("<br>");
                 sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-                for (String license : copyright)
-                {
-                    sec15.append(license).append("<br>");
-                }
+	            copyright.forEach(license ->
+	            {
+		            sec15.append(license).append("<br>");
+	            });
             }
 
             // Adds this campaign to the Global container.
@@ -215,26 +215,25 @@ public class CampaignLoader extends LstLineFileLoader
 		{
 			return;
 		}
-		
-		for (Prerequisite prereq : prereqList)
+
+		prereqList.forEach(prereq ->
 		{
 			if (prereq.isCharacterRequired())
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
+								Constants.TAB);
 				Logging.log(Logging.LST_ERROR, "Prereq " + prereq.getKind()
-					+ " is not supported in PCC files. Prereq was " + lstString
-					+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
-			}
-			else
+						+ " is not supported in PCC files. Prereq was " + lstString
+						+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
+			} else
 			{
 				validatePrereqs(prereq.getPrerequisites());
 			}
-		}
+		});
 	}
 }

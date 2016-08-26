@@ -68,7 +68,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

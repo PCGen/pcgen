@@ -190,7 +190,7 @@ public class TextToken extends Token
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
-	private String changeToSentenceCase(String value)
+	private static String changeToSentenceCase(String value)
 	{
 		String temp = value.toLowerCase();
 		String sentence[] = temp.split("\\.");
@@ -231,7 +231,7 @@ public class TextToken extends Token
 	 * @param value The value to be modified. 
 	 * @return The value in sentence case.
 	 */
-	private String changeToTitleCase(String value)
+	private static String changeToTitleCase(String value)
 	{
 		String temp = value.toLowerCase();
 		char[] chars = temp.toCharArray();
@@ -262,7 +262,7 @@ public class TextToken extends Token
 	 * @param number The number to generate the suffix for.
 	 * @return The suffix (or an empty string if not a number)
 	 */
-	private String buildNumSuffix(String number)
+	private static String buildNumSuffix(String number)
 	{
 		String result = "";
 		int intVal = 0;

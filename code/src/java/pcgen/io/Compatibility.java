@@ -12,7 +12,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class Compatibility
+public final class Compatibility
 {
 
 	public static PCTemplate getTemplateFor(PCTemplate template,

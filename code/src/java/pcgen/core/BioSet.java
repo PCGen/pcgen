@@ -36,6 +36,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
@@ -163,10 +164,10 @@ public final class BioSet extends PObject implements NonInteractive
 	{
 		Region oldr = Region.getConstant(origRegion);
 		Region newr = Region.getConstant(copyRegion);
-		for (String key : userMap.getTertiaryKeySet(oldr, origRace))
+		userMap.getTertiaryKeySet(oldr, origRace).forEach(key ->
 		{
 			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, origRace, key));
-		}
+		});
 		final int idx = origRace.indexOf('(');
 		String otherRace;
 		if (idx >= 0)
@@ -177,10 +178,10 @@ public final class BioSet extends PObject implements NonInteractive
 		{
 			otherRace = origRace + '%';
 		}
-		for (String key : userMap.getTertiaryKeySet(oldr, otherRace))
+		userMap.getTertiaryKeySet(oldr, otherRace).forEach(key ->
 		{
 			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, otherRace, key));
-		}
+		});
 	}
 
 	/**
@@ -303,10 +304,10 @@ public final class BioSet extends PObject implements NonInteractive
 		// setup a mapped structure
 		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<>();
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
-		for (String key : userMap.getTertiaryKeySet(region, race))
+		userMap.getTertiaryKeySet(region, race).forEach(key ->
 		{
 			addTagToAgeSet(ageSets, race, key, userMap.getListFor(region, race, key));
-		}
+		});
 
 		return ageSets;
 	}
@@ -411,22 +412,16 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
+			races.keySet().stream().filter(aRaceName -> !"AGESET".equals(aRaceName)).forEach(aRaceName ->
 			{
-				final String aRaceName = raceIt.next();
+				final SortedMap<String, String> tags = races.get(aRaceName);
 
-				if (!"AGESET".equals(aRaceName))
+				tags.keySet().forEach(tagName ->
 				{
-					final SortedMap<String, String> tags = races.get(aRaceName);
-
-					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
-					{
-						final String tagName = tagIt.next();
-						sb.append("RACENAME:").append(aRaceName).append("\t\t");
-						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
-					}
-				}
-			}
+					sb.append("RACENAME:").append(aRaceName).append("\t\t");
+					sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
+				});
+			});
 
 			sb.append("\n");
 		}
@@ -619,7 +614,7 @@ public final class BioSet extends PObject implements NonInteractive
 		}
 	}
 
-	private List<String> mapFind(
+	private static List<String> mapFind(
 			final TripleKeyMapToList<Region, String, String, String> argMap,
 			final String argRegionName, final String argRaceName,
 			final String addKey, final String altRaceName)
@@ -691,11 +686,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Set<String> getAgeCategories()
 	{
-		Set<String> set = new TreeSet<>();
-		for (Object o : ageNames.keySet())
-		{
-			set.add(o.toString());
-		}
+		Set<String> set = ageNames.keySet().stream().map(Object::toString).collect(Collectors.toCollection(TreeSet::new));
 		return set;
 	}
 

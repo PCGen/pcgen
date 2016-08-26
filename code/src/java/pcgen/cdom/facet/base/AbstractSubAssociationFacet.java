@@ -145,11 +145,11 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 		Map<S1, Map<S2, A>> sourceMap = getCachedMap(source);
 		if (sourceMap != null)
 		{
-			for (Map.Entry<S1, Map<S2, A>> me : sourceMap.entrySet())
+			sourceMap.entrySet().forEach(me ->
 			{
 				getConstructingCachedMap(destination, me.getKey()).putAll(
-					me.getValue());
-			}
+						me.getValue());
+			});
 		}
 	}
 	

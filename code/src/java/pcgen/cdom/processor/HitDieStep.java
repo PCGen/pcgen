@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.processor;
 
+import java.util.Objects;
 import pcgen.cdom.content.HitDie;
 import pcgen.cdom.content.Processor;
 
@@ -203,8 +204,7 @@ public class HitDieStep implements Processor<HitDie>
 		{
 			HitDieStep other = (HitDieStep) obj;
 			return other.numSteps == numSteps
-					&& (dieLimit == null && other.dieLimit == null || dieLimit != null
-							&& dieLimit.equals(other.dieLimit));
+					&& (dieLimit == null && other.dieLimit == null || Objects.equals(dieLimit, dieLimit));
 		}
 		return false;
 	}

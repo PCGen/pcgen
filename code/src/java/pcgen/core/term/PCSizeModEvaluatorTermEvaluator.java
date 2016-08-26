@@ -55,7 +55,7 @@ public class PCSizeModEvaluatorTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

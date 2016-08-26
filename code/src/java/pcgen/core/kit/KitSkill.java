@@ -173,13 +173,7 @@ public final class KitSkill extends BaseKit
 						+ classKey + " in PC to add ranks from.");
 				}
 			}
-			for (PCClass pcClass : aPC.getClassSet())
-			{
-				if (!classList.contains(pcClass))
-				{
-					classList.add(pcClass);
-				}
-			}
+			aPC.getClassSet().stream().filter(pcClass -> !classList.contains(pcClass)).forEach(classList::add);
 
 			// Try and find a class we can add them from.
 			boolean oldImporting = aPC.isImporting();
@@ -214,11 +208,11 @@ public final class KitSkill extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		/** @todo Fix this to return what panes need to be refreshed */
-		for (KitSkillAdd ksa : skillsToAdd)
+		skillsToAdd.forEach(ksa ->
 		{
 			updatePCSkills(aPC, ksa.getSkill(), (int) ksa.getRanks(), ksa
-				.getCost(), ksa.getLanguages(), ksa.getPCClass());
-		}
+					.getCost(), ksa.getLanguages(), ksa.getPCClass());
+		});
 	}
 
 	/**
@@ -234,9 +228,9 @@ public final class KitSkill extends BaseKit
 	 * @return <code>true</code> for success
 	 * TODO What about throwing on failure?
 	 */
-	private boolean updatePCSkills(final PlayerCharacter pc,
-		final Skill aSkill, final int aRank, final double aCost,
-		List<Language> langList, final PCClass pcClass)
+	private static boolean updatePCSkills(final PlayerCharacter pc,
+	                                      final Skill aSkill, final int aRank, final double aCost,
+	                                      List<Language> langList, final PCClass pcClass)
 	{
 		boolean oldImporting = pc.isImporting();
 		pc.setImporting(true);
@@ -254,14 +248,11 @@ public final class KitSkill extends BaseKit
 		ChoiceManagerList<Language> controller = ChooserUtilities
 				.getConfiguredController(aSkill, pc, null,
                         new ArrayList<>());
-		for (Language lang : langList)
+		langList.stream().filter(lang -> !controller.conditionallyApply(pc, lang)).forEach(lang ->
 		{
-			if (!controller.conditionallyApply(pc, lang))
-			{
-				Logging.errorPrint("Failed to apply Language into Skill: "
-						+ lang.getLSTformat());
-			}
-		}
+			Logging.errorPrint("Failed to apply Language into Skill: "
+					+ lang.getLSTformat());
+		});
 
 		//
 		// Fix up the skill pools to reflect what we just spent.
@@ -303,10 +294,10 @@ public final class KitSkill extends BaseKit
 	{
 		final List<Skill> skillsOfType = new ArrayList<>();
 
-		for (CDOMReference<Skill> ref : skillList)
+		skillList.forEach(ref ->
 		{
 			skillsOfType.addAll(ref.getContainedObjects());
-		}
+		});
 
 		if (skillsOfType.size() == 0)
 		{

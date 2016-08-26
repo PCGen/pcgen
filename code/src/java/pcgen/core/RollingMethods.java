@@ -95,10 +95,10 @@ public final class RollingMethods
 
         int total = keep.length; // keep the +1 at the end
 
-        for (int i = 0; i < keep.length; ++i)
-        {
-            total += rolls[keep[i]]; // 0-indexed
-        }
+	    for (final int aKeep : keep)
+	    {
+		    total += rolls[aKeep]; // 0-indexed
+	    }
 
         return total;
     }
@@ -146,10 +146,10 @@ public final class RollingMethods
 
         int total = 0;
 
-        for (int i = 0; i < keep.length; ++i)
-        {
-            total += rolls[keep[i]]; // 0-indexed
-        }
+	    for (final int aKeep : keep)
+	    {
+		    total += rolls[aKeep]; // 0-indexed
+	    }
 
         return total;
     }
