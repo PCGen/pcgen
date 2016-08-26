@@ -172,7 +172,7 @@ public final class PurchaseModeFrame extends JDialog
 		this.dispose();
 	}
 
-	private int convertStringToInt(String valueString)
+	private static int convertStringToInt(String valueString)
 	{
 		int value;
 

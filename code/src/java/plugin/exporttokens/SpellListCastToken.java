@@ -88,7 +88,7 @@ public class SpellListCastToken extends SpellListToken
 	 * @param pc The character being queried
 	 * @return The number of spells allowed to be cast.
 	 */
-	private String getCastNum(CDOMObject aObject, int level, PlayerCharacter pc)
+	private static String getCastNum(CDOMObject aObject, int level, PlayerCharacter pc)
 	{
 		String castNum = "--";
 

@@ -38,8 +38,8 @@ import pcgen.util.Logging;
 public class VariableLoader extends Observable
 {
 
-	public final void parseLine(LoadContext context, String lstLine,
-		SourceEntry source) throws PersistenceLayerException
+	public static void parseLine(LoadContext context, String lstLine,
+	                             SourceEntry source) throws PersistenceLayerException
 	{
 		final StringTokenizer colToken =
 				new StringTokenizer(lstLine, SystemLoader.TAB_DELIM);

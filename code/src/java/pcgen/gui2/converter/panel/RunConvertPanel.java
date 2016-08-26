@@ -573,7 +573,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	 *
 	 * @param aSelectedCampaignsList List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
 		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{

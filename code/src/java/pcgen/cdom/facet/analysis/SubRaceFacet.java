@@ -58,7 +58,7 @@ public class SubRaceFacet
 		return subRace;
 	}
 
-	private String getTemplateSubRace(PCTemplate template)
+	private static String getTemplateSubRace(PCTemplate template)
 	{
 		/*
 		 * TODO This should be type safe to return a SubRace

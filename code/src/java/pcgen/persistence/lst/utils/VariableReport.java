@@ -172,7 +172,7 @@ public class VariableReport
 		}
 	}
 
-	private List<Campaign> getCampaignsForGameMode(GameMode game)
+	private static List<Campaign> getCampaignsForGameMode(GameMode game)
 	{
 		List<String> gameModeList = new ArrayList<>();
 		gameModeList.addAll(game.getAllowedModes());
@@ -204,9 +204,9 @@ public class VariableReport
 		return new ArrayList<>(gameModeCampaigns);
 	}
 
-	private List<File> processCampaign(Campaign campaign,
-		List<VarDefine> varList, Map<String, Integer> varCountMap,
-		Set<File> processedLstFiles) throws FileNotFoundException, IOException
+	private static List<File> processCampaign(Campaign campaign,
+	                                          List<VarDefine> varList, Map<String, Integer> varCountMap,
+	                                          Set<File> processedLstFiles) throws FileNotFoundException, IOException
 	{
 		List<CampaignSourceEntry> cseList =
                 new ArrayList<>();
@@ -256,8 +256,8 @@ public class VariableReport
 		return missingLstFiles;
 	}
 
-	private void processLstFile(List<VarDefine> varList,
-		Map<String, Integer> varCountMap, File file)
+	private static void processLstFile(List<VarDefine> varList,
+	                                   Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
 		BufferedReader br = new BufferedReader(new FileReader(file));

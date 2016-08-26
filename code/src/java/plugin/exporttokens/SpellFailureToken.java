@@ -59,7 +59,7 @@ public class SpellFailureToken extends Token
 		return Integer.toString(getSpellFailure(pc));
 	}
 
-	private int getSpellFailure(PlayerCharacter pc)
+	private static int getSpellFailure(PlayerCharacter pc)
 	{
 		String spellFailVar =
 				ControlUtilities.getControlToken(Globals.getContext(),

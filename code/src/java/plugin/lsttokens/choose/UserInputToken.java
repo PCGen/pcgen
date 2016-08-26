@@ -124,7 +124,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 		return new String[]{result};
 	}
 
-	private String getDefaultTitle()
+	private static String getDefaultTitle()
 	{
 		return "Provide User Input";
 	}

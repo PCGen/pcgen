@@ -131,7 +131,7 @@ public class RandomNameDialog extends JDialog
 	/**
 	 * @return The directory where the random name data is held
 	 */
-	private String getDataDir()
+	private static String getDataDir()
 	{
 		String pluginDirectory = SettingsHandler.getGmgenPluginDir().toString();
 

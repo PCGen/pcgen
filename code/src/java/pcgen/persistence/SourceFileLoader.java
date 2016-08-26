@@ -688,7 +688,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		System.gc();
 	}
 
-	private void defineBuiltinVariables(LoadContext context)
+	private static void defineBuiltinVariables(LoadContext context)
 	{
 		if (!ControlUtilities.hasControlToken(context, CControl.FACE))
 		{
@@ -699,8 +699,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	private void defineVariable(VariableContext varContext,
-		FormatManager<?> formatManager, String varName)
+	private static void defineVariable(VariableContext varContext,
+	                                   FormatManager<?> formatManager, String varName)
 	{
 		LegalScope varScope = varContext.getScope("Global");
 		varContext.assertLegalVariableID(varScope, formatManager, varName);
@@ -751,8 +751,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	private void finishLoad(final List<Campaign> aSelectedCampaignsList,
-		LoadContext context)
+	private static void finishLoad(final List<Campaign> aSelectedCampaignsList,
+	                               LoadContext context)
 	{
 		createLangBonusObject(context);
 		AbstractReferenceContext refContext = context.getReferenceContext();
@@ -774,7 +774,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		}
 	}
 
-	private void referenceAllCategories(LoadContext context)
+	private static void referenceAllCategories(LoadContext context)
 	{
 		GameMode gamemode = SettingsHandler.getGame();
 		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
@@ -925,7 +925,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *             if a weapon is neither melee or ranged, indicating the name
 	 *             of the weapon that caused the error
 	 */
-	private void verifyWeaponsMeleeOrRanged(LoadContext context)
+	private static void verifyWeaponsMeleeOrRanged(LoadContext context)
 		throws PersistenceLayerException
 	{
 		//
@@ -956,7 +956,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 * @param aSelectedCampaignsList
 	 *            List of Campaign objects to sort
 	 */
-	private void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
+	private static void sortCampaignsByRank(final List<Campaign> aSelectedCampaignsList)
 	{
 		Collections.sort(aSelectedCampaignsList, new Comparator<Campaign>()
 		{
@@ -981,7 +981,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *            the error to notify listeners about
 	 * @param e
 	 */
-	private void logError(String message, Throwable e)
+	private static void logError(String message, Throwable e)
 	{
 		Logging.errorPrint(message, e);
 		//setChanged();
