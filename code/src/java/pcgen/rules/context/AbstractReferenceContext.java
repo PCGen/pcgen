@@ -232,7 +232,7 @@ public abstract class AbstractReferenceContext
 	}
 
 	@SuppressWarnings("unchecked")
-	protected <T> Class<T> getGenericClass(T obj)
+	protected static <T> Class<T> getGenericClass(T obj)
 	{
 		return (Class<T>) obj.getClass();
 	}

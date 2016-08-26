@@ -341,8 +341,8 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return list.toArray(new String[list.size()]);
 	}
 
-	private Collection<String> processAdds(LoadContext context,
-	                                       MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl)
+	private static Collection<String> processAdds(LoadContext context,
+	                                              MapToList<CDOMReference<Spell>, AssociatedPrereqObject> mtl)
 	{
 		TripleKeyMap<Set<Prerequisite>, Map<AssociationKey<?>, Object>, CDOMReference<Spell>, String> m =
 				new TripleKeyMap<Set<Prerequisite>, Map<AssociationKey<?>, Object>, CDOMReference<Spell>, String>();

@@ -600,7 +600,7 @@ public class AddCombatant extends AbstractDialog
 	 * @param defaultValue
 	 * @return int
 	 */
-	private int getIntegerValue(JFormattedTextField field, int defaultValue)
+	private static int getIntegerValue(JFormattedTextField field, int defaultValue)
 	{
 		int returnValue = defaultValue;
 		if (field.isValid() && field.getValue() instanceof Integer)
@@ -616,7 +616,7 @@ public class AddCombatant extends AbstractDialog
 	 * @param defaultValue
 	 * @return float
 	 */
-	private float getFloatValue(JFormattedTextField field, float defaultValue)
+	private static float getFloatValue(JFormattedTextField field, float defaultValue)
 	{
 		float returnValue = defaultValue;
 		if (field.isValid() && field.getValue() instanceof Float)

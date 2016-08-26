@@ -42,8 +42,8 @@ import pcgen.persistence.PersistenceLayerException;
 public class AbstractPrerequisiteWriter
 {
 
-	protected void checkValidOperator(Prerequisite prereq,
-		PrerequisiteOperator[] comparators) throws PersistenceLayerException
+	protected static void checkValidOperator(Prerequisite prereq,
+	                                         PrerequisiteOperator[] comparators) throws PersistenceLayerException
 	{
 		StringBuilder comparatorString = new StringBuilder(25);
 		for (int i = 0; i < comparators.length; i++)
@@ -71,8 +71,8 @@ public class AbstractPrerequisiteWriter
 				+ kind.toUpperCase() + ": " + prereq.toString());
 	}
 
-	protected boolean checkForPremultOfKind(final Prerequisite prereq,
-		final String kind, final boolean multiplesOnly)
+	protected static boolean checkForPremultOfKind(final Prerequisite prereq,
+	                                               final String kind, final boolean multiplesOnly)
 	{
 		//
 		// PREMULT ?
@@ -120,8 +120,8 @@ public class AbstractPrerequisiteWriter
 		}
 	}
 	
-	protected PrerequisiteOperator getConsolidateMethod(String handled,
-			Prerequisite prereq, boolean ranked)
+	protected static PrerequisiteOperator getConsolidateMethod(String handled,
+	                                                           Prerequisite prereq, boolean ranked)
 	{
 		// If this is NOT a PREMULT... fail
 		if (prereq.getKind() != null)

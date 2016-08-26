@@ -125,7 +125,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	 *
 	 * @return the string builder
 	 */
-	protected StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
+	protected static StringBuilder processUnparse(String type, TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> domainMap, String prereqs)
 	{
 		StringBuilder sb = new StringBuilder(type);
 		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);

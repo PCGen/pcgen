@@ -48,7 +48,7 @@ public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 	 * @return the number that did not pass
 	 * @throws PrerequisiteException
 	 */
-	public int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final EquipmentLocation equippedType) throws PrerequisiteException
+	public static int passesPreEquipHandleTokens(final Prerequisite prereq, final PlayerCharacter character, final EquipmentLocation equippedType) throws PrerequisiteException
 	{
 		// TODO refactor this code with PreEquipTester
 		boolean isEquipped = false;

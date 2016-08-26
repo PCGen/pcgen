@@ -102,7 +102,7 @@ public class ActypeToken implements GameModeLstToken
 		return true;
 	}
 
-	private Collection<ACControl> parseACControl(String str)
+	private static Collection<ACControl> parseACControl(String str)
 	{
 		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
 		List<ACControl> acTypes = new ArrayList<ACControl>();

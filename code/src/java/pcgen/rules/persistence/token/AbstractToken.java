@@ -46,7 +46,7 @@ public abstract class AbstractToken
 		}
 	}
 
-	protected boolean looksLikeAPrerequisite(String activeValue)
+	protected static boolean looksLikeAPrerequisite(String activeValue)
 	{
 		return (activeValue.startsWith("PRE") || activeValue.startsWith("!PRE"))
 			&& activeValue.contains(":");
@@ -160,7 +160,7 @@ public abstract class AbstractToken
 	 * @param value     The string to check.
 	 * @return  A parse result of success if the string uses only valid characters.
 	 */
-	protected ParseResult checkForInvalidXMLChars(String value)
+	protected static ParseResult checkForInvalidXMLChars(String value)
 	{
 		for (char character : value.toCharArray())
 		{
@@ -177,8 +177,8 @@ public abstract class AbstractToken
 	/** Return the token name */
 	public abstract String getTokenName();
 
-	protected String getPrerequisiteString(LoadContext context,
-		Collection<Prerequisite> prereqs)
+	protected static String getPrerequisiteString(LoadContext context,
+	                                              Collection<Prerequisite> prereqs)
 	{
 		return context.getPrerequisiteString(prereqs);
 	}
