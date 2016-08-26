@@ -30,14 +30,14 @@ import gmgen.plugin.dice.SystemDieConfig;
  */
 class SystemDie extends Die
 {
-	private final DiceConfig d;
+	private final DiceConfig dc;
 
 	/** Constructor for the SystemDie object
 	 * @param modifier Modifier to each roll
 	 */
 	private SystemDie(final int modifier)
 	{
-		this.d = new SystemDieConfig(1, 20, modifier, Die.random);
+		this.dc = new SystemDieConfig(1, 20, modifier, Die.random);
 	}
 
 	/**  Constructor for the SystemDie object */
@@ -52,7 +52,7 @@ class SystemDie extends Die
     @Override
 	public int roll()
 	{
-		return d.roll();
+		return dc.roll();
 	}
 
 	/** Name of the die in nds+m form
@@ -61,6 +61,6 @@ class SystemDie extends Die
 	@Override
 	public String toString()
 	{
-		return d.toFormula();
+		return dc.toFormula();
 	}
 }

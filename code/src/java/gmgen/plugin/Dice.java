@@ -23,10 +23,8 @@
 package gmgen.plugin;
 
 
-import gmgen.plugin.dice.AppendModifier;
-import gmgen.plugin.dice.ResultModifier;
-import gmgen.plugin.dice.SimpleModifier;
-import gmgen.plugin.dice.SimpleSumCounter;
+import gmgen.plugin.dice.DiceConfig;
+import gmgen.plugin.dice.NSidedModifiedDieConfig;
 
 /** A normal die
  * @author Soulcatcher
@@ -34,21 +32,17 @@ import gmgen.plugin.dice.SimpleSumCounter;
  */
 public class Dice extends Die
 {
-	/** Die modifier */
-	private final int aModifier;
+	private final DiceConfig dc;
 
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides
-	 * @param modifier Modifier to the die roll
+	 * @param bias Modifier to the die roll
 	 */
-	public Dice(final int num, final int sides, final int modifier)
+	public Dice(final int num, final int sides, final int bias)
 	{
-		this.num = num;
-		this.sides = sides;
-		this.aModifier = modifier;
 		/* Holds the rolls of each die */
-		roll();
+		dc = new NSidedModifiedDieConfig(num, sides, bias, Die.random);
 	}
 
 	/** Constructor for the Dice object
@@ -66,12 +60,7 @@ public class Dice extends Die
     @Override
 	public int roll()
 	{
-		return new SimpleSumCounter().totalCount(
-				ResultModifier.modify(
-						new AppendModifier(num, sides, Die.random),
-						new SimpleModifier(aModifier)
-				)
-		);
+		return dc.roll();
 	}
 
 	/** Name of the die in the nds+m format
@@ -80,10 +69,6 @@ public class Dice extends Die
 	@Override
 	public String toString()
 	{
-		if (aModifier == 0)
-		{
-			return num + "d" + sides;
-		}
-		return num + "d" + sides + "+" + aModifier;
+		return dc.toFormula();
 	}
 }

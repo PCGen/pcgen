@@ -9,7 +9,6 @@ public class NSidedModifiedDieConfig implements DiceConfig
 	private final int n;
 	private final int sides;
 	private final int bias;
-	private final Random random;
 
 	private final ResultCounter counter;
 	private final ResultModifier[] modifiers;
@@ -18,7 +17,6 @@ public class NSidedModifiedDieConfig implements DiceConfig
 		this.n = n;
 		this.sides = sides;
 		this.bias = bias;
-		this.random = random;
 		counter = new SimpleSumCounter();
 		modifiers = new ResultModifier[] {
 			new AppendModifier(n, sides, random),

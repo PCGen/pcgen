@@ -24,39 +24,19 @@ package gmgen.plugin;
 
 import java.util.Random;
 
-/** Abstract class describing a die of any kind
- * @author Soulcatcher
- * @since May 24, 2003
+/**
+ * Abstract class describing a die of any kind
  */
 public abstract class Die
 {
-
 	/** Random number seed */
 
-	static Random rand = new Random();
-
-	/** Holds the rolls of each die */
-	public int[] rolls;
-
-	/** Die modifier */
-	public int modifier;
-
-	/** Number of dice */
-	public int num;
-
-	/** Number of sides */
-	public int sides;
-
+	static Random random = new Random();
+	
 	/** Roll the die, and get back a value
 	 * @return Result of the die roll
 	 */
 	public abstract int roll();
-
-	/** Writes out the die name (like 2d6+1)
-	 * @return Die name
-	 */
-	@Override
-	public abstract String toString();
 
 	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.
 	 * @param rand Random
@@ -65,4 +45,6 @@ public abstract class Die
 	{
 		random = rand;
 	}
+
+
 }

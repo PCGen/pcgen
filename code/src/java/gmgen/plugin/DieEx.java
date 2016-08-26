@@ -33,6 +33,16 @@ import java.util.StringTokenizer;
 public class DieEx extends Die
 {
 
+
+	/** Number of sides */
+	public int sides;
+
+	/** Total from last die roll */
+	public int total;
+
+	/** Number of dice */
+	public int num;
+
 	/** Drop high roll */
 	private boolean highDrop;
 
@@ -114,8 +124,7 @@ public class DieEx extends Die
 
 		for (int x = 0; x < num; x++)
 		{
-
-			rolls[x] = rand.nextInt(sides) + 1;
+			rolls[x] = Die.rand.nextInt(sides) + 1;
 			total += rolls[x];
 		}
 
@@ -141,6 +150,7 @@ public class DieEx extends Die
 
 		return total;
 	}
+
 
 	/** Creates a {@code String} representation of this class
 	 * @return This class as a {@code String}.
