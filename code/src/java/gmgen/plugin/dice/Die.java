@@ -30,7 +30,7 @@ import java.util.Random;
 public abstract class Die
 {
 
-	private DiceConfig dc;
+	private final DiceConfig dc;
 
 	/** Random number seed */
 	protected static final Random rand = new Random();
@@ -45,5 +45,9 @@ public abstract class Die
 	public String toString()
 	{
 		return dc.toFormula();
+	}
+
+	public int roll() {
+		return dc.roll();
 	}
 }
