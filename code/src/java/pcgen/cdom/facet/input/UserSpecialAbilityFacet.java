@@ -20,6 +20,7 @@ package pcgen.cdom.facet.input;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.QualifiedActor;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
@@ -81,10 +82,7 @@ public class UserSpecialAbilityFacet extends
 	{
 		List<SpecialAbility> returnList = new ArrayList<>();
 		SAProcessor proc = new SAProcessor(trackingFacet.getPC(id));
-		for (SpecialAbility sa : getQualifiedSet(id, source))
-		{
-			returnList.add(proc.act(sa, source));
-		}
+		returnList.addAll(getQualifiedSet(id, source).stream().map(sa -> proc.act(sa, source)).collect(Collectors.toList()));
 		return returnList;
 	}
 

@@ -120,10 +120,10 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	public Set<T> getSet(PlayerCharacter pc)
 	{
 		Set<T> returnSet = new HashSet<>();
-		for (PrimitiveChoiceSet<T> cs : pcsSet)
+		pcsSet.forEach(cs ->
 		{
 			returnSet.addAll(cs.getSet(pc));
-		}
+		});
 		return returnSet;
 	}
 

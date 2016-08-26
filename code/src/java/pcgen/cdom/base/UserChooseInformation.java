@@ -111,10 +111,10 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor csa : actors)
+			actors.forEach(csa ->
 			{
 				applyChoice(owner, pc, choice, csa);
-			}
+			});
 		}
 	}
 
@@ -131,10 +131,10 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor csa : actors)
+			actors.forEach(csa ->
 			{
 				csa.removeChoice(owner, choice, pc);
-			}
+			});
 		}
 	}
 

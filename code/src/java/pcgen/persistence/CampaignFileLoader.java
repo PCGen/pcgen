@@ -151,10 +151,7 @@ public class CampaignFileLoader extends PCGenTask
 				new ArrayList<>(Globals.getCampaignList());
 
         CampaignLoader campaignLoader = new CampaignLoader();
-		for (final Campaign c : initialCampaigns)
-		{
-			campaignLoader.initRecursivePccFiles(c);
-		}
+		initialCampaigns.forEach(campaignLoader::initRecursivePccFiles);
 	}
 
 	/**

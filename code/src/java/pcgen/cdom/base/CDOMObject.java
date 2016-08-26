@@ -29,6 +29,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.lang.StringUtil;
@@ -1144,15 +1145,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<>();
-
-		for (BonusObj bonus : getRawBonusList(pc))
-		{
-			if (pc.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
+		final List<BonusObj> aList = getRawBonusList(pc).stream().filter(pc::isApplied).collect(Collectors.toList());
 
 		return aList;
 	}

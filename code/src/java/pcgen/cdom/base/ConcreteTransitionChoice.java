@@ -283,11 +283,11 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 			throw new IllegalStateException(
 					"Cannot act without a defined ChoiceActor");
 		}
-		for (T choice : choicesMade)
+		choicesMade.forEach(choice ->
 		{
 			choiceActor.applyChoice(owner, choice, apc);
 			apc.addAssoc(this, AssociationListKey.ADD, choice);
-		}
+		});
 	}
 
 	/**

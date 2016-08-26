@@ -52,14 +52,14 @@ public class AutoLanguageGrantedFacet extends
 		toRemove.removeAll(qualified);
 		List<Language> toAdd = new ArrayList<>(qualified);
 		toAdd.removeAll(current);
-		for (Language lang : toRemove)
+		toRemove.forEach(lang ->
 		{
 			remove(id, lang, autoLanguageFacet);
-		}
-		for (Language lang : toAdd)
+		});
+		toAdd.forEach(lang ->
 		{
 			add(id, lang, autoLanguageFacet);
-		}
+		});
 		return !toRemove.isEmpty() || !toAdd.isEmpty();
 	}
 

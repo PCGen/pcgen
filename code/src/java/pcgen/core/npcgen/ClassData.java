@@ -95,14 +95,11 @@ public class ClassData
 	public WeightedCollection<PCStat> getStatWeights()
 	{
 		// Make sure that we have all the stats
-		for (final PCStat stat : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(PCStat.class))
+		Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(PCStat.class).stream().filter(stat -> theStatWeights == null || !theStatWeights.contains(stat)).forEach(stat ->
 		{
-			if (theStatWeights == null || !theStatWeights.contains(stat))
-			{
-				addStat(stat, 1);
-			}
-		}
+			addStat(stat, 1);
+		});
 		return theStatWeights;
 	}
 	
@@ -221,10 +218,10 @@ public class ClassData
 	{
 		if ( theDeityWeights == null )
 		{
-			for ( final Deity deity : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Deity.class) )
+			Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Deity.class).forEach(deity ->
 			{
 				addDeity(deity, 1);
-			}
+			});
 		}
 		return theDeityWeights;
 	}
@@ -384,10 +381,10 @@ public class ClassData
 		{
 			if (theClass != null)
 			{
-				for ( final SubClass subClass : theClass.getListFor(ListKey.SUB_CLASS) )
+				theClass.getListFor(ListKey.SUB_CLASS).forEach(subClass ->
 				{
-					addSubClass( subClass.getKeyName(), 1 );
-				}
+					addSubClass(subClass.getKeyName(), 1);
+				});
 			}
 		}
 		return theSubClassWeights;

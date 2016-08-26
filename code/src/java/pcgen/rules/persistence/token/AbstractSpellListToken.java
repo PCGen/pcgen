@@ -96,9 +96,9 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 				// TODO Error message - unexpected?
 				continue;
 			}
-			for (CDOMReference<Spell> added : mtl.getKeySet())
+			mtl.getKeySet().forEach(added ->
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(added))
+				mtl.getListFor(added).forEach(assoc ->
 				{
 					Integer lvl = assoc
 							.getAssociation(AssociationKey.SPELL_LEVEL);
@@ -110,8 +110,8 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 					{
 						map.addToListFor(prereqString, lvl, listRef, added);
 					}
-				}
-			}
+				});
+			});
 		}
 		return map;
 	}

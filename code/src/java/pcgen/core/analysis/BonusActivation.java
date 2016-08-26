@@ -30,10 +30,10 @@ public final class BonusActivation
 
 	public static void deactivateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
-		for (BonusObj bonus : po.getRawBonusList(aPC))
+		po.getRawBonusList(aPC).forEach(bonus ->
 		{
 			aPC.setApplied(bonus, false);
-		}
+		});
 	}
 
 	public static void activateBonuses(CDOMObject po, PlayerCharacter aPC)

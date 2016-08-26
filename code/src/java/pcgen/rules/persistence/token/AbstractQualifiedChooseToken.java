@@ -167,10 +167,10 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			actors.forEach(ca ->
 			{
 				ca.removeChoice(owner, choice, pc);
-			}
+			});
 		}
 	}
 
@@ -181,10 +181,10 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			actors.forEach(ca ->
 			{
 				ca.applyChoice(owner, choice, pc);
-			}
+			});
 		}
 	}
 

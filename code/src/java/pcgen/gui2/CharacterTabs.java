@@ -160,10 +160,10 @@ public final class CharacterTabs extends SharedTabPane
 	public void elementsChanged(ListEvent<CharacterFacade> e)
 	{
 		removeAll();
-		for (CharacterFacade character : characters)
+		characters.forEach(character ->
 		{
 			listenerMap.remove(character).removeListeners();
-		}
+		});
 		characters.clear();
 		for (CharacterFacade character : (ListFacade<CharacterFacade>) e.getSource())
 		{

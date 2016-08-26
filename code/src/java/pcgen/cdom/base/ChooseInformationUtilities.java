@@ -22,6 +22,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 
 public final class ChooseInformationUtilities
@@ -40,10 +42,7 @@ public final class ChooseInformationUtilities
 			return Constants.EMPTY_STRING;
 		}
 		List<String> list = new ArrayList<>(collection.size());
-		for (T sl : collection)
-		{
-			list.add(String.valueOf(sl));
-		}
+		list.addAll(collection.stream().map((Function<T, String>) String::valueOf).collect(Collectors.toList()));
 		Collections.sort(list);
 		return StringUtil.joinToStringBuilder(list, ", ");
 	}

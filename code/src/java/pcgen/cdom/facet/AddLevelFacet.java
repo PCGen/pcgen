@@ -72,11 +72,11 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 		// character so don't apply them again.
 		if (!pc.isImporting())
 		{
-			for (LevelCommandFactory lcf : template
-					.getSafeListFor(ListKey.ADD_LEVEL))
+			template
+					.getSafeListFor(ListKey.ADD_LEVEL).forEach(lcf ->
 			{
 				add(lcf.getLevelCount(), lcf.getPCClass(), pc);
-			}
+			});
 		}
 	}
 

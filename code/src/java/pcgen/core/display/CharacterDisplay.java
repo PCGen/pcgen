@@ -29,6 +29,7 @@ import java.util.Set;
 import java.util.SortedSet;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.NamedValue;
 import pcgen.cdom.base.CDOMList;
@@ -494,13 +495,7 @@ public class CharacterDisplay
 		List<PCTemplate> tl = new ArrayList<>();
 
 		TreeSet<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
-		for (PCTemplate template : templateFacet.getSet(id))
-		{
-			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				treeSet.add(template);
-			}
-		}
+		treeSet.addAll(templateFacet.getSet(id).stream().filter(template -> template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v)).collect(Collectors.toList()));
 		tl.addAll(treeSet);
 		return tl;
 	}
@@ -763,14 +758,7 @@ public class CharacterDisplay
 	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<>();
-		for (Skill po : skillFacet.getSet(id))
-		{
-			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
-			{
-				aList.add(po);
-			}
-		}
+		ArrayList<Skill> aList = skillFacet.getSet(id).stream().filter(po -> po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v)).collect(Collectors.toCollection(ArrayList::new));
 		return aList;
 	}
 

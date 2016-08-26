@@ -277,10 +277,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 		public void install()
 		{
-			for (TreePath path : expandedPaths)
-			{
-				tree.expandPath(path);
-			}
+			expandedPaths.forEach(tree::expandPath);
 			tree.addTreeExpansionListener(this);
 		}
 		
@@ -1040,11 +1037,11 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				types.addAll(maxMap.getKeys());
 				Collections.sort(types, Comparators.toStringIgnoreCaseCollator());
 				removeAllChildren();
-				for (String key : types)
+				types.forEach(key ->
 				{
 					CompanionTypeNode child = new CompanionTypeNode(key);
 					add(child);
-				}
+				});
 				for (CompanionFacade companion : companions)
 				{
 					addCompanion(companion, true);

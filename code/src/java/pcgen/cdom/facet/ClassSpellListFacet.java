@@ -69,10 +69,10 @@ public class ClassSpellListFacet
 		else
 		{
 			PlayerCharacter pc = trackingFacet.getPC(id);
-			for (CDOMListObject<Spell> st : csc.driveChoice(pc))
+			csc.driveChoice(pc).forEach(st ->
 			{
 				spellListFacet.add(id, st, pcc);
-			}
+			});
 		}
 	}
 

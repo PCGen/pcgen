@@ -159,10 +159,10 @@ public class ConcretePersistentTransitionChoice<T> extends
 		List<Object> ch = pc.removeAllAssocs(this, AssociationListKey.ADD);
 		if (ch != null)
 		{
-			for (Object o : ch)
+			ch.forEach(o ->
 			{
 				choiceActor.removeChoice(pc, owner, castChoice(o));
-			}
+			});
 		}
 	}
 

@@ -62,10 +62,10 @@ public class AvailableSpellInputFacet implements
 		Collection<CDOMReference<? extends CDOMList<?>>> listrefs =
 				cdo.getModifiedLists();
 		CharID id = dfce.getCharID();
-		for (CDOMReference<? extends CDOMList<?>> ref : listrefs)
+		listrefs.forEach(ref ->
 		{
 			processListRef(id, cdo, ref);
-		}
+		});
 	}
 
 	private void processListRef(CharID id, CDOMObject cdo,
@@ -87,34 +87,33 @@ public class AvailableSpellInputFacet implements
 	private void processList(CharID id, CDOMList<Spell> spelllist,
 		CDOMReference<? extends CDOMList<?>> listref, CDOMObject cdo)
 	{
-		for (CDOMReference<Spell> objref : cdo
-			.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref))
+		cdo
+				.getListMods((CDOMReference<? extends CDOMList<Spell>>) listref).forEach(objref ->
 		{
-			for (AssociatedPrereqObject apo : cdo.getListAssociations(listref,
-				objref))
+			cdo.getListAssociations(listref,
+					objref).forEach(apo ->
 			{
 				Collection<Spell> spells = objref.getContainedObjects();
 				Integer lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
 				if (apo.hasPrerequisites())
 				{
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
-					for (Spell spell : spells)
+					spells.forEach(spell ->
 					{
 						AvailableSpell as =
 								new AvailableSpell(spelllist, spell, lvl);
 						as.addAllPrerequisites(prereqs);
 						conditionallyAvailableSpellFacet.add(id, as, cdo);
-					}
-				}
-				else
+					});
+				} else
 				{
-					for (Spell spell : spells)
+					spells.forEach(spell ->
 					{
 						availableSpellFacet.add(id, spelllist, lvl, spell, cdo);
-					}
+					});
 				}
-			}
-		}
+			});
+		});
 	}
 
 	/**

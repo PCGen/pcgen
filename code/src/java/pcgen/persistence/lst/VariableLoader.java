@@ -85,15 +85,12 @@ public class VariableLoader extends Observable
 				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
-		for (CampaignSourceEntry sourceEntry : fileList)
+		// Check if the CSE has already been loaded before loading it
+		fileList.stream().filter(sourceEntry -> !loadedFiles.contains(sourceEntry)).forEach(sourceEntry ->
 		{
-			// Check if the CSE has already been loaded before loading it
-			if (!loadedFiles.contains(sourceEntry))
-			{
-				loadLstFile(context, sourceEntry);
-				loadedFiles.add(sourceEntry);
-			}
-		}
+			loadLstFile(context, sourceEntry);
+			loadedFiles.add(sourceEntry);
+		});
 	}
 
 	/**

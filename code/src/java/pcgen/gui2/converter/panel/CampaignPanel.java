@@ -30,6 +30,7 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
@@ -100,16 +101,7 @@ public class CampaignPanel extends ConvertSubPanel
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
 		gameModeCampaigns = new ArrayList<>();
-		for (Campaign campaign : allCampaigns)
-		{
-			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))
-			{
-				if (campaign.getSourceURI().toString().startsWith(folderName))
-				{
-					gameModeCampaigns.add(campaign);
-				}
-			}
-		}
+		gameModeCampaigns.addAll(allCampaigns.stream().filter(campaign -> campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList)).filter(campaign -> campaign.getSourceURI().toString().startsWith(folderName)).collect(Collectors.toList()));
 		return false;
 	}
 

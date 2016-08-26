@@ -495,19 +495,16 @@ class ClassDataHandler extends DefaultHandler
 			if (remainingWeight > 0)
 			{
 				// Add all remaining skills at this weight.
-				for ( final Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+				Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).stream().filter(skill -> skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT).forEach(skill ->
 				{
-					if (skill.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-					{
-						theCurrentData.addSkill(skill.getKeyName(), remainingWeight);
-					}
-				}
+					theCurrentData.addSkill(skill.getKeyName(), remainingWeight);
+				});
 				remainingWeight = -1;
 			}
-			for ( final String remove : removeList )
+			removeList.forEach(remove ->
 			{
 				theCurrentData.removeSkill(remove);
-			}
+			});
 			removeList = new ArrayList<>();
 			theState = ParserState.CLASSDATA;
 		}
@@ -516,24 +513,21 @@ class ClassDataHandler extends DefaultHandler
 			if ( remainingWeight > 0 )
 			{
 				// Add all abilities at this weight.
-				for (Ability ability : Globals.getContext().getReferenceContext()
+				Globals.getContext().getReferenceContext()
 						.getManufacturer(Ability.class, theCurrentCategory)
-						.getAllObjects())
+						.getAllObjects().stream().filter(ability -> ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT).forEach(ability ->
 				{
-					if ( ability.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
-					{
-						theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight);
-					}
-				}
+					theCurrentData.addAbility(theCurrentCategory, ability, remainingWeight);
+				});
 				remainingWeight = -1;
 			}
-			for ( final String remove : removeList )
+			removeList.forEach(remove ->
 			{
 				Ability ability = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(Ability.class,
 								theCurrentCategory, remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);
-			}
+			});
 			removeList = new ArrayList<>();
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
@@ -553,31 +547,29 @@ class ClassDataHandler extends DefaultHandler
 			{
 				// Add all spells at this weight.
 				final List<Spell> allSpells = getSpellsIn(theCurrentLevel,  Collections.singletonList(theCurrentData.getPCClass().get(ObjectKey.CLASS_SPELLLIST)));
-				for ( final Spell spell : allSpells )
+				allSpells.forEach(spell ->
 				{
-					if ( theCurrentSpellType == SpellType.KNOWN )
+					if (theCurrentSpellType == SpellType.KNOWN)
 					{
-						theCurrentData.addKnownSpell( theCurrentLevel, spell, remainingWeight );
-					}
-					else if ( theCurrentSpellType == SpellType.PREPARED )
+						theCurrentData.addKnownSpell(theCurrentLevel, spell, remainingWeight);
+					} else if (theCurrentSpellType == SpellType.PREPARED)
 					{
-						theCurrentData.addPreparedSpell( theCurrentLevel, spell, remainingWeight );
+						theCurrentData.addPreparedSpell(theCurrentLevel, spell, remainingWeight);
 					}
-				}
+				});
 				remainingWeight = -1;
 			}
-			for ( final String remove : removeList )
+			removeList.forEach(remove ->
 			{
-				final Spell spell = Globals.getSpellKeyed( remove );
-				if ( theCurrentSpellType == SpellType.KNOWN )
+				final Spell spell = Globals.getSpellKeyed(remove);
+				if (theCurrentSpellType == SpellType.KNOWN)
+				{
+					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
+				} else if (theCurrentSpellType == SpellType.PREPARED)
 				{
 					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
 				}
-				else if ( theCurrentSpellType == SpellType.PREPARED )
-				{
-					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
-				}
-			}
+			});
 			removeList = new ArrayList<>();
 			theCurrentLevel = -1;
 			theState = ParserState.SPELLDATA;
@@ -629,7 +621,9 @@ class ClassDataHandler extends DefaultHandler
 		}
 		boolean allLevels = level == -1;
 		Set<Spell> spellList = new HashSet<>();
-		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+		// TODO This null for source is incorrect!
+// TODO Not sure if effect of null for PC
+		useLists.forEach(ref ->
 		{
 			for (Spell spell : masterLists.getObjects(ref))
 			{
@@ -652,7 +646,7 @@ class ClassDataHandler extends DefaultHandler
 					}
 				}
 			}
-		}
+		});
 		return new ArrayList<>(spellList);
 	}
 }

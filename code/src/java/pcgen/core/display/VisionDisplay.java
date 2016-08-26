@@ -40,17 +40,17 @@ public final class VisionDisplay
 		}
 	
 		StringBuilder visionString = new StringBuilder(25);
-		for (CDOMReference<Vision> ref : mods)
+		mods.forEach(ref ->
 		{
-			for (Vision v : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(v ->
 			{
 				if (visionString.length() > 0)
 				{
 					visionString.append(';');
 				}
 				visionString.append(v.toString(aPC));
-			}
-		}
+			});
+		});
 	
 		return visionString.toString();
 	}
@@ -58,16 +58,16 @@ public final class VisionDisplay
 	public static String getVision(CharacterDisplay display)
 	{
 		final StringBuilder visionString = new StringBuilder();
-	
-		for (Vision vision : display.getVisionList())
+
+		display.getVisionList().forEach(vision ->
 		{
 			if (visionString.length() > 0)
 			{
 				visionString.append(", ");
 			}
-	
+
 			visionString.append(vision);
-		}
+		});
 	
 		return visionString.toString();
 	}

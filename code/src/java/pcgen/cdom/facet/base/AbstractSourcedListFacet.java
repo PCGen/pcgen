@@ -118,10 +118,10 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 	 */
 	public void addAll(IDT id, Collection<? extends T> c, Object source)
 	{
-		for (T obj : c)
+		c.forEach(obj ->
 		{
 			add(id, obj, source);
-		}
+		});
 	}
 
 	/**
@@ -174,10 +174,10 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (T obj : c)
+			c.forEach(obj ->
 			{
 				processRemoval(id, componentMap, obj, source);
-			}
+			});
 		}
 	}
 
@@ -212,10 +212,10 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			return Collections.emptyMap();
 		}
 		removeCache(id);
-		for (T obj : componentMap.keySet())
+		componentMap.keySet().forEach(obj ->
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentMap;
 	}
 
@@ -449,14 +449,14 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> sourceMap = getCachedMap(source);
 		if (sourceMap != null)
 		{
-			for (Map.Entry<T, Set<Object>> me : sourceMap.entrySet())
+			sourceMap.entrySet().forEach(me ->
 			{
 				T obj = me.getKey();
 				Set<Object> sourceSet = me.getValue();
 				Set<Object> targetSet =
 						getConstructingCachedSetFor(destination, obj);
 				targetSet.addAll(sourceSet);
-			}
+			});
 		}
 	}
 
@@ -548,11 +548,11 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 			{
 				removeCache(id);
 			}
-			for (T obj : removedKeys)
+			removedKeys.forEach(obj ->
 			{
 				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
-			}
+						DataFacetChangeEvent.DATA_REMOVED);
+			});
 		}
 	}
 

@@ -78,10 +78,10 @@ public class ClassSkillListFacet extends
 			else
 			{
 				PlayerCharacter pc = trackingFacet.getPC(id);
-				for (ClassSkillList st : csc.driveChoice(pc))
+				csc.driveChoice(pc).forEach(st ->
 				{
 					add(id, cl, st, cl);
-				}
+				});
 			}
 		}
 		else if ((lce.getOldLevel() > 0) && (lce.getNewLevel() == 0))

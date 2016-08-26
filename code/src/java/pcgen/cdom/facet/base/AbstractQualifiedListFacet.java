@@ -755,7 +755,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Map.Entry<T, Set<Object>> me : componentMap.entrySet())
+			componentMap.entrySet().forEach(me ->
 			{
 				T obj = me.getKey();
 				Set<Object> sources = me.getValue();
@@ -766,7 +766,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 						list.add(qa.act(obj, source));
 					}
 				}
-			}
+			});
 		}
 		return list;
 	}

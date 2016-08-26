@@ -276,14 +276,17 @@ public final class CharacterManager
 		}
 		warningMsg.appendLineBreak();
 		warningMsg.append("<UL>"); //$NON-NLS-1$
-		for (String string : warnings)
+		//$NON-NLS-1$
+//$NON-NLS-1$
+//$NON-NLS-1$
+		warnings.forEach(string ->
 		{
 			warningMsg.appendLineBreak();
 			warningMsg.append("<li>"); //$NON-NLS-1$
 			warningMsg.append(string);
 			warningMsg.append("</li>"); //$NON-NLS-1$
 			Logging.log(lvl, "* " + string); //$NON-NLS-1$
-		}
+		});
 		warningMsg.append("</UL>"); //$NON-NLS-1$
 		warningMsg.appendLineBreak();
 		if (errors)
@@ -311,10 +314,10 @@ public final class CharacterManager
 	{
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		for (File charFile : PCGIOHandler.readCharacterFileList(file))
+		PCGIOHandler.readCharacterFileList(file).forEach(charFile ->
 		{
 			openCharacter(charFile, delegate, dataset);
-		}
+		});
 		characters.setFile(file);
 		return characters;
 	}
@@ -376,11 +379,11 @@ public final class CharacterManager
 		SourceSelectionFacade selection = ioHandler.readSources(pcgFile);
 		if (!ioHandler.getErrors().isEmpty())
 		{
-			for (String msg : ioHandler.getErrors())
+			ioHandler.getErrors().forEach(msg ->
 			{
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, msg);
 				Logging.errorPrint(msg);
-			}
+			});
 			return null;
 		}
 		return selection;

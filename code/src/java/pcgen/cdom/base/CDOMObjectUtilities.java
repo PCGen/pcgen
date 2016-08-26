@@ -140,10 +140,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.ADD);
 		if (addList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : addList)
+			addList.forEach(tc ->
 			{
 				driveChoice(cdo, tc, pc);
-			}
+			});
 		}
 	}
 
@@ -157,10 +157,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.ADD);
 		if (addList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : addList)
+			addList.forEach(tc ->
 			{
 				tc.remove(cdo, pc);
-			}
+			});
 		}
 	}
 
@@ -174,10 +174,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : removeList)
+			removeList.forEach(tc ->
 			{
 				driveChoice(cdo, tc, pc);
-			}
+			});
 		}
 	}
 
@@ -191,10 +191,10 @@ public final class CDOMObjectUtilities
 				.getListFor(ListKey.REMOVE);
 		if (removeList != null)
 		{
-			for (PersistentTransitionChoice<?> tc : removeList)
+			removeList.forEach(tc ->
 			{
 				tc.remove(cdo, pc);
-			}
+			});
 		}
 	}
 

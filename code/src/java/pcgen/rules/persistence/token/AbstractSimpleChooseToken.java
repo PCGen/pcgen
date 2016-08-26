@@ -218,10 +218,10 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			actors.forEach(ca ->
 			{
 				ca.removeChoice(owner, choice, pc);
-			}
+			});
 		}
 	}
 
@@ -232,10 +232,10 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
-			for (ChooseSelectionActor ca : actors)
+			actors.forEach(ca ->
 			{
 				applyChoice(owner, choice, pc, ca);
-			}
+			});
 		}
 	}
 

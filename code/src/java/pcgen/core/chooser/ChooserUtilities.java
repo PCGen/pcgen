@@ -136,10 +136,10 @@ public final class ChooserUtilities
 			}
 			aMan.setController(new AbilityChooseController(a, cat, aPC, aMan));
 			List<CNAbility> abilities = aPC.getMatchingCNAbilities(a);
-			for (CNAbility cna : abilities)
+			abilities.forEach(cna ->
 			{
 				reservedList.addAll(aPC.getAssociationList(cna));
-			}
+			});
 		}
 		else if (aPObject instanceof Skill)
 		{
@@ -182,15 +182,12 @@ public final class ChooserUtilities
 		}
 
 		Set<String> allowedSet = new HashSet<>();
-		for (CDOMSingleRef<Ability> ref : cat.getAbilityRefs())
+		cat.getAbilityRefs().stream().filter(ref -> ref.contains(ability)).forEach(ref ->
 		{
-			if (ref.contains(ability))
-			{
-				List<String> choices = new ArrayList<>();
-				AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
-				allowedSet.addAll(choices);
-			}
-		}
+			List<String> choices = new ArrayList<>();
+			AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
+			allowedSet.addAll(choices);
+		});
 
 		if (allowedSet.isEmpty())
 		{

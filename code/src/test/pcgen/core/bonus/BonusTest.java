@@ -307,17 +307,16 @@ public class BonusTest extends AbstractCharacterTestCase
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
 		assertEquals(2, bonusPairs.size());
-		for (BonusPair bp : bonusPairs)
+		bonusPairs.forEach(bp ->
 		{
 			if (bp.fullyQualifiedBonusType.equals("STAT.INT"))
 			{
 				assertEquals(5, bp.resolve(character).intValue());
-			}
-			else
+			} else
 			{
 				assertEquals(4, bp.resolve(character).intValue());
 			}
-		}
+		});
 	}
 
 	/**

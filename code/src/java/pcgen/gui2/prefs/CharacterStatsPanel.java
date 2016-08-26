@@ -181,10 +181,10 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 
 			abilityRolledModeCombo = new JComboBoxEx();
 
-			for (RollMethod rm : rollMethods)
+			rollMethods.forEach(rm ->
 			{
 				abilityRolledModeCombo.addItem(rm.getDisplayName());
-			}
+			});
 
 			gridbag.setConstraints(abilityRolledModeCombo, c);
 			this.add(abilityRolledModeCombo);
