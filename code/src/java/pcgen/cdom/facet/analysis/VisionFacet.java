@@ -25,6 +25,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -189,12 +190,8 @@ public class VisionFacet extends
 				map.put(vType, aVal + (current == null ? 0 : current));
 			}
 		}
-		TreeSet<Vision> returnSet = new TreeSet<>();
-		for (Map.Entry<VisionType, Integer> me : map.entrySet())
-		{
-			returnSet.add(new Vision(me.getKey(), FormulaFactory
-					.getFormulaFor(me.getValue().intValue())));
-		}
+		TreeSet<Vision> returnSet = map.entrySet().stream().map(me -> new Vision(me.getKey(), FormulaFactory
+				.getFormulaFor(me.getValue().intValue()))).collect(Collectors.toCollection(TreeSet::new));
 		return returnSet;
 	}
 
