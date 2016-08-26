@@ -18,31 +18,31 @@
 
 package gmgen.plugin.dice;
 
-/**
- * If the original value was 1, produces -9
- * If the original value was 20, producds 30
- * Otherwise produces results unchanged
- */
-public class SystemModifier implements ResultModifier
-{
-	@Override
-	public int[] resultAsModified(final int[] in)
-	{
-		int[] result = new int[in.length];
-		for (int i = 0; i < in.length; ++i)
-		{
-			switch (in[i]) {
-				case 1:
-					result[i] = -9;
-					break;
-				case 20:
-					result[i] = 30;
-					break;
-				default:
-					result[i] = in[i];
-			}
-		}
-		return result;
+import java.util.Random;
 
+public class AppendModifier implements ResultModifier
+{
+
+	private final int count;
+	private final int max;
+	private final Random rand;
+
+	public AppendModifier(final int count, final int max, final Random rand) {
+		this.count = count;
+		this.max = max;
+		this.rand = rand;
+	}
+
+	@Override
+	public int[] resultAsModified(int[] in)
+	{
+		int[] newResults = new int[count + in.length];
+		System.arraycopy(in, 0, newResults, 0, in.length);
+		for (int i = 0; i < count; ++i)
+		{
+			int thisRoll = rand.nextInt(max) + 1;
+			newResults[in.length + i] = thisRoll;
+		}
+		return newResults;
 	}
 }
