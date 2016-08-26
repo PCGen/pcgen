@@ -191,7 +191,7 @@ public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 		return true;
 	}
 
-	private boolean hasSubordinateCheckMult(Prerequisite prereq)
+	private static boolean hasSubordinateCheckMult(Prerequisite prereq)
 	{
 		for (Prerequisite p : prereq.getPrerequisites())
 		{

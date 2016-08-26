@@ -90,7 +90,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		}
 	}
 
-	private String getLogName(Class<?> clazz, InteractivePlugin pl)
+	private static String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
 		String logName = null;
 		try

@@ -59,7 +59,7 @@ public class PCVerbatimTextTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return true;
 	}

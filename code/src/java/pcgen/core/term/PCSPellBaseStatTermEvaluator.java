@@ -69,7 +69,7 @@ public class PCSPellBaseStatTermEvaluator
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

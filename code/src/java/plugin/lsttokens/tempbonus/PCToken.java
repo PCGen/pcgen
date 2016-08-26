@@ -91,7 +91,7 @@ public class PCToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		return "TEMPBONUS";
 	}
 
-	private String getFullTokenName()
+	private static String getFullTokenName()
 	{
 		return "TEMPBONUS:PC";
 	}

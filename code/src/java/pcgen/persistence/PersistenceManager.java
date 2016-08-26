@@ -66,7 +66,7 @@ public final class PersistenceManager
 	 * 
 	 * CODE-1889 to remove use of this method
 	 */
-	public void setChosenCampaignSourcefiles(List<URI> l)
+	public static void setChosenCampaignSourcefiles(List<URI> l)
 	{
 		instance.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
 	}
@@ -78,7 +78,7 @@ public final class PersistenceManager
 	 * 
 	 * CODE-1889 to remove use of this method
 	 */
-	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
+	public static void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
 		instance.setChosenCampaignSourcefiles(l, game);
 	}
@@ -89,7 +89,7 @@ public final class PersistenceManager
 	 * 
 	 * CODE-1889 to remove use of this method
 	 */
-	public List<URI> getChosenCampaignSourcefiles()
+	public static List<URI> getChosenCampaignSourcefiles()
 	{
 		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
 	}

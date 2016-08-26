@@ -79,7 +79,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
