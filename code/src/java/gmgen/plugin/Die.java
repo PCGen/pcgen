@@ -32,10 +32,14 @@ public abstract class Die
 {
 
 	/** Random number seed */
+
 	static Random rand = new Random();
 
 	/** Holds the rolls of each die */
 	public int[] rolls;
+
+	/** Die modifier */
+	public int modifier;
 
 	/** Number of dice */
 	public int num;
@@ -57,8 +61,8 @@ public abstract class Die
 	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.
 	 * @param rand Random
 	 */
-	public static void setRandom(Random rand)
+	public static void setRandom(final Random rand)
 	{
-		Die.rand = rand;
+		random = rand;
 	}
 }

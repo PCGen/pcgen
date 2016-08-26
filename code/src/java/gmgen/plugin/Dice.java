@@ -23,6 +23,11 @@
 package gmgen.plugin;
 
 
+import gmgen.plugin.dice.AppendModifier;
+import gmgen.plugin.dice.ResultModifier;
+import gmgen.plugin.dice.SimpleModifier;
+import gmgen.plugin.dice.SimpleSumCounter;
+
 /** A normal die
  * @author Soulcatcher
  * @since May 24, 2003
@@ -42,14 +47,15 @@ public class Dice extends Die
 		this.num = num;
 		this.sides = sides;
 		this.aModifier = modifier;
-		rolls = new int[num];
+		/* Holds the rolls of each die */
+		roll();
 	}
 
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides per die
 	 */
-	public Dice(int num, int sides)
+	public Dice(final int num, final int sides)
 	{
 		this(num, sides, 0);
 	}
@@ -60,14 +66,12 @@ public class Dice extends Die
     @Override
 	public int roll()
 	{
-		int value = 0;
-		for (int i = 0; i < num; i++)
-		{
-			rolls[i] = Die.rand.nextInt(sides) + 1;
-			value = rolls[i] + value;
-		}
-
-		return value + aModifier;
+		return new SimpleSumCounter().totalCount(
+				ResultModifier.modify(
+						new AppendModifier(num, sides, Die.random),
+						new SimpleModifier(aModifier)
+				)
+		);
 	}
 
 	/** Name of the die in the nds+m format

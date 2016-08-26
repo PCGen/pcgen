@@ -36,6 +36,9 @@ public class DieEx extends Die
 	/** Drop high roll */
 	private boolean highDrop;
 
+	/** Holds the rolls of each die */
+	public int[] rolls;
+
 	/** Dice roll that is dropped */
 	private int drops;
 
@@ -111,7 +114,8 @@ public class DieEx extends Die
 
 		for (int x = 0; x < num; x++)
 		{
-			rolls[x] = Die.rand.nextInt(sides) + 1;
+
+			rolls[x] = rand.nextInt(sides) + 1;
 			total += rolls[x];
 		}
 

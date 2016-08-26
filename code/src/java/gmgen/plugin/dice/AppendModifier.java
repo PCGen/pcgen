@@ -19,6 +19,8 @@
 package gmgen.plugin.dice;
 
 import java.util.Random;
+import java.util.function.Function;
+import static org.apache.fop.fonts.type1.AdobeStandardEncoding.z;
 
 public class AppendModifier implements ResultModifier
 {
@@ -34,7 +36,7 @@ public class AppendModifier implements ResultModifier
 	}
 
 	@Override
-	public int[] resultAsModified(int[] in)
+	public int[] apply(final int[] in)
 	{
 		int[] newResults = new int[count + in.length];
 		System.arraycopy(in, 0, newResults, 0, in.length);
@@ -43,6 +45,7 @@ public class AppendModifier implements ResultModifier
 			int thisRoll = rand.nextInt(max) + 1;
 			newResults[in.length + i] = thisRoll;
 		}
+
 		return newResults;
 	}
 }

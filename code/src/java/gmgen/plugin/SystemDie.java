@@ -21,11 +21,8 @@
 package gmgen.plugin;
 
 
-import gmgen.plugin.dice.AppendModifier;
-import gmgen.plugin.dice.ResultModifier;
-import gmgen.plugin.dice.SimpleModifier;
-import gmgen.plugin.dice.SimpleSumCounter;
-import gmgen.plugin.dice.SystemModifier;
+import gmgen.plugin.dice.DiceConfig;
+import gmgen.plugin.dice.SystemDieConfig;
 
 /** A d20 die, applies a +10 on a 20, and a -10 on a 1
  * @author Soulcatcher
@@ -33,17 +30,14 @@ import gmgen.plugin.dice.SystemModifier;
  */
 class SystemDie extends Die
 {
-	/**  Modifier to each roll. */
-	private final int aModifier;
+	private final DiceConfig d;
 
 	/** Constructor for the SystemDie object
 	 * @param modifier Modifier to each roll
 	 */
 	private SystemDie(final int modifier)
 	{
-		this.num = 1;
-		this.sides = 20;
-		this.aModifier = modifier;
+		this.d = new SystemDieConfig(1, 20, modifier, Die.random);
 	}
 
 	/**  Constructor for the SystemDie object */
@@ -58,14 +52,7 @@ class SystemDie extends Die
     @Override
 	public int roll()
 	{
-		return new SimpleSumCounter().totalCount(
-				ResultModifier.modify(
-						new AppendModifier(num, sides, Die.rand),
-						new SystemModifier(),
-						new SimpleModifier(aModifier)
-				)
-		);
-
+		return d.roll();
 	}
 
 	/** Name of the die in nds+m form
@@ -74,10 +61,6 @@ class SystemDie extends Die
 	@Override
 	public String toString()
 	{
-		if (aModifier == 0)
-		{
-			return num + "d" + sides;
-		}
-		return num + "d" + sides + "+" + aModifier;
+		return d.toFormula();
 	}
 }
