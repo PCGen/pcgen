@@ -1780,7 +1780,7 @@ public final class PCGVer2Creator implements IOConstants
 		buffer.append(LINE_SEP);
 	}
 
-	private void appendOutputSheetsLines(StringBuilder buffer)
+	private static void appendOutputSheetsLines(StringBuilder buffer)
 	{
 		if (SettingsHandler.getSaveOutputSheetWithPC())
 		{
@@ -2591,8 +2591,8 @@ public final class PCGVer2Creator implements IOConstants
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
-		List<? extends CNAbilitySelection> featList)
+	private static void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
+	                                      List<? extends CNAbilitySelection> featList)
 	{
 		for (CNAbilitySelection s : featList)
 		{
@@ -2664,7 +2664,7 @@ public final class PCGVer2Creator implements IOConstants
 	 * @param target
 	 * @return temp bonus name
 	 **/
-	private String tempBonusName(final Object creator, Object target)
+	private static String tempBonusName(final Object creator, Object target)
 	{
 		final StringBuilder cb = new StringBuilder(100);
 
