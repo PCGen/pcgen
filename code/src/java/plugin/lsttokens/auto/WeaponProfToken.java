@@ -217,7 +217,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	 * @param prereq The prerequisite to be checked.
 	 * @return A ParseResult.Fail if there is a possible, loop, or null if all is ok.
 	 */
-	private ParseResult checkForLoopPrereqs(Prerequisite prereq, LoadContext context)
+	private static ParseResult checkForLoopPrereqs(Prerequisite prereq, LoadContext context)
 	{
 		if ("WEAPONPROF".equalsIgnoreCase(prereq.getKind()))
 		{
