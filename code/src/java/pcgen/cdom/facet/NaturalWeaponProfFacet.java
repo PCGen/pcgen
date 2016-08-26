@@ -64,10 +64,10 @@ public class NaturalWeaponProfFacet extends
 		if (iwp != null)
 		{
 			CharID id = dfce.getCharID();
-			for (CDOMSingleRef<WeaponProf> ref : iwp)
+			iwp.forEach(ref ->
 			{
 				add(id, ref.get(), cdo);
-			}
+			});
 		}
 	}
 

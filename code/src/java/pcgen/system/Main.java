@@ -117,10 +117,11 @@ public final class Main
 		pwriter.println("-- listing properties --"); //$NON-NLS-1$
 		// Manually output the property values to avoid them being cut off at 40 characters
 		Set<String> keys = props.stringPropertyNames();
-		for (String key : keys)
+		//$NON-NLS-1$
+		keys.forEach(key ->
 		{
 			pwriter.println(key + "=" + props.getProperty(key)); //$NON-NLS-1$
-		}
+		});
 		Logging.log(Level.CONFIG, writer.toString());
 	}
 

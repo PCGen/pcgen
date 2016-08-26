@@ -59,10 +59,10 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			for (VarModifier<?> vm : modifiers)
+			modifiers.forEach(vm ->
 			{
 				processAddition(id, obj, vm);
-			}
+			});
 		}
 		if (obj instanceof Equipment)
 		{
@@ -72,10 +72,10 @@ public class ModifierFacet implements
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{
-					for (VarModifier<?> vm : modifiers)
+					modifiers.forEach(vm ->
 					{
 						processAddition(id, head, vm);
-					}
+					});
 				}
 			}
 		}
@@ -107,10 +107,10 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			for (VarModifier<?> vm : modifiers)
+			modifiers.forEach(vm ->
 			{
 				processRemoval(id, obj, vm);
-			}
+			});
 		}
 		if (obj instanceof Equipment)
 		{
@@ -120,10 +120,10 @@ public class ModifierFacet implements
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{
-					for (VarModifier<?> vm : modifiers)
+					modifiers.forEach(vm ->
 					{
 						processRemoval(id, equip, vm);
-					}
+					});
 				}
 			}
 		}

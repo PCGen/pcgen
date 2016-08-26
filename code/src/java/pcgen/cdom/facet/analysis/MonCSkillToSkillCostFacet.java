@@ -45,13 +45,10 @@ public class MonCSkillToSkillCostFacet extends
 		SkillCost cost = SkillCost.CLASS;
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getSet(id))
+		classFacet.getSet(id).stream().filter(PCClass::isMonster).forEach(cl ->
 		{
-			if (cl.isMonster())
-			{
-				add(id, cl, cost, sk, source);
-			}
-		}
+			add(id, cl, cost, sk, source);
+		});
 	}
 
 	public void skillRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
@@ -60,13 +57,10 @@ public class MonCSkillToSkillCostFacet extends
 		SkillCost cost = SkillCost.CLASS;
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getSet(id))
+		classFacet.getSet(id).stream().filter(PCClass::isMonster).forEach(cl ->
 		{
-			if (cl.isMonster())
-			{
-				remove(id, cl, cost, sk, source);
-			}
-		}
+			remove(id, cl, cost, sk, source);
+		});
 	}
 
 	@Override
@@ -77,10 +71,10 @@ public class MonCSkillToSkillCostFacet extends
 		{
 			CharID id = dfce.getCharID();
 			SkillCost cost = SkillCost.CLASS;
-			for (Skill sk : monsterCSkillFacet.getSet(id))
+			monsterCSkillFacet.getSet(id).forEach(sk ->
 			{
 				add(id, cl, cost, sk, monsterCSkillFacet);
-			}
+			});
 		}
 	}
 
@@ -92,10 +86,10 @@ public class MonCSkillToSkillCostFacet extends
 		{
 			CharID id = dfce.getCharID();
 			SkillCost cost = SkillCost.CLASS;
-			for (Skill sk : monsterCSkillFacet.getSet(id))
+			monsterCSkillFacet.getSet(id).forEach(sk ->
 			{
 				remove(id, cl, cost, sk, monsterCSkillFacet);
-			}
+			});
 		}
 	}
 

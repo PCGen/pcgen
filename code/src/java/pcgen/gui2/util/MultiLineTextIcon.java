@@ -58,13 +58,13 @@ public class MultiLineTextIcon implements Icon
         this.icons = new ArrayList<>(lines.size());
         this.width = 0;
         this.height = 0;
-        for (Object line : lines)
-        {
-            SimpleTextIcon icon = new SimpleTextIcon(c, line.toString());
-            width = Math.max(width, icon.getIconWidth());
-            height += icon.getIconHeight();
-            icons.add(icon);
-        }
+	    lines.forEach(line ->
+	    {
+		    SimpleTextIcon icon = new SimpleTextIcon(c, line.toString());
+		    width = Math.max(width, icon.getIconWidth());
+		    height += icon.getIconHeight();
+		    icons.add(icon);
+	    });
     }
 
 	@Override
