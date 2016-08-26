@@ -61,7 +61,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 		return true;
 	}
 
-	public boolean parse(LoadContext context, String line, URI source)
+	public static boolean parse(LoadContext context, String line, URI source)
 	{
 		final AbilityCategoryLoader loader = new AbilityCategoryLoader();
 		try

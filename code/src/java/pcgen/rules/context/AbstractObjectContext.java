@@ -463,7 +463,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 
 	<T extends CDOMObject> T cloneConstructedCDOMObject(T obj, String newName)
 	{
-		return edits.cloneConstructedCDOMObject(obj, newName);
+		return TrackingObjectCommitStrategy.cloneConstructedCDOMObject(obj, newName);
 	}
 
 	private static class SimpleCDOMObject extends CDOMObject
@@ -783,8 +783,8 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 			patternClearSet.clear();
 		}
 
-		public <T extends CDOMObject> T cloneConstructedCDOMObject(T obj,
-				String newName)
+		public static <T extends CDOMObject> T cloneConstructedCDOMObject(T obj,
+		                                                                  String newName)
 		{
 			Class<T> cl = (Class<T>) obj.getClass();
 			try

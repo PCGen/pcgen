@@ -517,8 +517,8 @@ public class AbilityToken extends Token
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
-	private String getRetString(String tokenSource, PlayerCharacter pc,
-		ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
+	private static String getRetString(String tokenSource, PlayerCharacter pc,
+	                                   ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
 	{
 		String retString = "";
 		Ability aAbility;
@@ -647,8 +647,8 @@ public class AbilityToken extends Token
 		return Nature.NORMAL;
 	}
 
-	private String getAssociationString(PlayerCharacter pc,
-		List<CNAbility> abilities, String key)
+	private static String getAssociationString(PlayerCharacter pc,
+	                                           List<CNAbility> abilities, String key)
 	{
 		int index = Integer.parseInt(key);
 		if (index < 0)
@@ -680,7 +680,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
+	private static String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
 	{
 		if (abilities.size() == 0)
 		{
@@ -713,8 +713,8 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc,
-		List<CNAbility> abilities, String key)
+	private static String getAspectString(PlayerCharacter pc,
+	                                      List<CNAbility> abilities, String key)
 	{
 		if (key == null)
 		{
@@ -761,7 +761,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return Y if the aspect is present, N if not.
 	 */
-	private String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
+	private static String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
 	{
 		List<Aspect> aspects = ability.get(MapKey.ASPECT, key);
 		Aspect aspect = Aspect.lastPassingAspect(aspects, pc, ability);

@@ -96,7 +96,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	 * @return an array of Objects in reverse order, i.e. the last param popped is element
 	 *         0 of the array.
 	 */
-	protected Object[] paramStackToArray(final Stack inStack, final int maxParam)
+	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
 	{
 		final Object[] par = new Object[maxParam];
 	
