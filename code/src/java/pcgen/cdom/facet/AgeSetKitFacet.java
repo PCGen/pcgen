@@ -189,7 +189,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 			return kitMap.getListFor(ageSet);
 		}
 
-		public void put(AgeSet ageSet, Collection<Kit> choice)
+		public void put(AgeSet ageSet, Collection<? extends Kit> choice)
 		{
 			kitMap.addAllToListFor(ageSet, choice);
 		}
