@@ -469,16 +469,7 @@ public class JTreeTable extends JTableEx
 		 */
 		private void fireDelayedTableDataChanged()
 		{
-			SwingUtilities.invokeLater(new Runnable()
-			{
-
-				@Override
-				public void run()
-				{
-					fireTableDataChangedPreservingSelection();					
-				}
-
-			});
+			SwingUtilities.invokeLater(this::fireTableDataChangedPreservingSelection);
 		}
 
 		@Override

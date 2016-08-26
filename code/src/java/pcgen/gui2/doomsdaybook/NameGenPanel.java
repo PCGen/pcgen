@@ -376,14 +376,7 @@ public class NameGenPanel extends JPanel
 				if (ele.getTitle() != null)
 				{
 					NameButton nb = new NameButton(ele);
-					nb.addActionListener(new ActionListener()
-					{
-						@Override
-						public void actionPerformed(ActionEvent evt)
-						{
-							NameButtonActionPerformed(evt);
-						}
-					});
+					nb.addActionListener(this::NameButtonActionPerformed);
 					buttonPanel.add(nb);
 				}
 			}
@@ -467,14 +460,7 @@ public class NameGenPanel extends JPanel
 		jLabel4.setText(LanguageBundle.getString("in_rndNameCatalog")); //$NON-NLS-1$
 		jPanel10.add(jLabel4);
 
-		cbCatalog.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCatalogActionPerformed(evt);
-			}
-		});
+		cbCatalog.addActionListener(this::cbCatalogActionPerformed);
 
 		jPanel10.add(cbCatalog);
 
@@ -485,14 +471,7 @@ public class NameGenPanel extends JPanel
 		jLabel1.setText(LanguageBundle.getString("in_rndNameCategory")); //$NON-NLS-1$
 		jPanel8.add(jLabel1);
 
-		cbCategory.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCategoryActionPerformed(evt);
-			}
-		});
+		cbCategory.addActionListener(this::cbCategoryActionPerformed);
 
 		jPanel8.add(cbCategory);
 
@@ -505,14 +484,7 @@ public class NameGenPanel extends JPanel
 		jPanel11.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		generateButton.setText(LanguageBundle.getString("in_rndNameGenerate")); //$NON-NLS-1$
-		generateButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				generateButtonActionPerformed(evt);
-			}
-		});
+		generateButton.addActionListener(this::generateButtonActionPerformed);
 
 		jPanel11.add(generateButton);
 
@@ -523,14 +495,7 @@ public class NameGenPanel extends JPanel
 		jLabel5.setText(LanguageBundle.getString("in_rndNameSex")); //$NON-NLS-1$
 		jPanel9.add(jLabel5);
 
-		cbSex.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbSexActionPerformed(evt);
-			}
-		});
+		cbSex.addActionListener(this::cbSexActionPerformed);
 
 		jPanel9.add(cbSex);
 
@@ -550,26 +515,12 @@ public class NameGenPanel extends JPanel
 		jPanel12.add(jLabel6);
 
 		cbStructure.setEnabled(false);
-		cbStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbStructureActionPerformed(evt);
-			}
-		});
+		cbStructure.addActionListener(this::cbStructureActionPerformed);
 		jPanel12.add(cbStructure);
 
 		chkStructure.setSelected(true);
 		chkStructure.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
-		chkStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				chkStructureActionPerformed(evt);
-			}
-		});
+		chkStructure.addActionListener(this::chkStructureActionPerformed);
 
 		jPanel12.add(chkStructure);
 
@@ -639,14 +590,7 @@ public class NameGenPanel extends JPanel
 		jButton1.setAlignmentY(0.0F);
 		jButton1.setIconTextGap(0);
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				jButton1ActionPerformed(evt);
-			}
-		});
+		jButton1.addActionListener(this::jButton1ActionPerformed);
 		nameActionPanel.add(jButton1);
 
 		namePanel.add(nameActionPanel);

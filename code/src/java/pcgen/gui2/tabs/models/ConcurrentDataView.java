@@ -55,16 +55,7 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 		}
 
 	});
-	private final Runnable refreshRunnable = new Runnable()
-	{
-
-		@Override
-		public void run()
-		{
-			refreshTableData();
-		}
-
-	};
+	private final Runnable refreshRunnable = this::refreshTableData;
 	private final Map<E, List<?>> dataMap;
 	private boolean installed = false;
 
