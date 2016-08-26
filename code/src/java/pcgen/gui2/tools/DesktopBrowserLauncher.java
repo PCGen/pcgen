@@ -37,7 +37,7 @@ import java.net.URI;
  * @author Vincent Lhote
  *
  */
-class DesktopBrowserLauncher
+final class DesktopBrowserLauncher
 {
 
 	private static Boolean isDesktopSupported = null;

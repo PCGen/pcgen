@@ -32,7 +32,7 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public class PCClassKeyChange
+public final class PCClassKeyChange
 {
 	public static void changeReferences(String oldClass, PCClass pcc)
 	{

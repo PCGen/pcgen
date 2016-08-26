@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 
-public class OutputNameFormatting
+public final class OutputNameFormatting
 {
 
 	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)

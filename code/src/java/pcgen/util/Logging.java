@@ -50,7 +50,7 @@ import pcgen.core.SettingsHandler;
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
-public class Logging
+public final class Logging
 {
 	private static boolean debugMode = false;
 	private static final Toolkit s_TOOLKIT = Toolkit.getDefaultToolkit();

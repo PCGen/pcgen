@@ -24,7 +24,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Vision;
 
-public class VisionDisplay
+public final class VisionDisplay
 {
 
 	public static String getVision(final PlayerCharacter aPC, CDOMObject cdo)

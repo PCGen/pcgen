@@ -30,7 +30,7 @@ import java.util.regex.Pattern;
 
 import pcgen.core.term.TermEvaulatorException;
 
-public class TermUtilities {
+public final class TermUtilities {
 	public static final String dString = "(?:NOT|ADD|IS)";
 	public static final Pattern dPat = Pattern.compile(dString);
 	public static final String sString = "(?:EQUIPPED|NOTEQUIPPED)";

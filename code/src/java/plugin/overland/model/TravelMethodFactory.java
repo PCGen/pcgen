@@ -48,7 +48,7 @@ import plugin.overland.util.Localized;
  * 
  * @author Vincent Lhote
  */
-public class TravelMethodFactory
+public final class TravelMethodFactory
 {
 	/** Default locale for number parsing */
 	public static final Locale DEFAULT_LOCALE = Locale.UK;
