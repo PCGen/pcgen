@@ -816,7 +816,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		
 		NAME("in_race"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 		
 		private CompanionTreeView(String name)
 		{

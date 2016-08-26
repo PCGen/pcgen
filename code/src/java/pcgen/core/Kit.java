@@ -255,7 +255,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 *
 	 * @return  Whether the kit is visible
 	 */
-	public final boolean isVisible(PlayerCharacter aPC, View v)
+	public boolean isVisible(PlayerCharacter aPC, View v)
 	{
 		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);
 		if (kitVisible == Visibility.QUALIFY)

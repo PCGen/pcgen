@@ -285,9 +285,9 @@ public enum TermEvaluatorBuilderEQVar implements TermEvaluatorBuilder
 		}
 	};
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderEQVar(
 			String pattern,

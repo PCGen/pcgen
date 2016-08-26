@@ -461,7 +461,7 @@ public final class Utility
 	 * This method is used to set the name of the application for the window manager, especially X11.
 	 * @param title Title to use
 	 */
-	public static final void setApplicationTitle(String title)
+	public static void setApplicationTitle(String title)
 	{
 		Toolkit xToolkit = Toolkit.getDefaultToolkit();
 

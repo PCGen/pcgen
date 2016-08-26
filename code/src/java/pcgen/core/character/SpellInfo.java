@@ -135,12 +135,12 @@ public final class SpellInfo implements Comparable<SpellInfo>
 		this.timeUnit = timeUnit;
 	}
 
-	public final int getNumPages()
+	public int getNumPages()
 	{
 		return numPages;
 	}
 
-	public final void setNumPages(int numPages)
+	public void setNumPages(int numPages)
 	{
 		this.numPages = numPages;
 	}
