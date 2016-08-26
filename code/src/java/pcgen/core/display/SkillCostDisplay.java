@@ -39,7 +39,7 @@ import pcgen.core.bonus.BonusPair;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 
-public class SkillCostDisplay
+public final class SkillCostDisplay
 {
 
 	/**

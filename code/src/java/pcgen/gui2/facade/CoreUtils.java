@@ -40,7 +40,7 @@ import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.util.Logging;
 
-public class CoreUtils
+public final class CoreUtils
 {
 	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
 		CorePerspective pers)

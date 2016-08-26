@@ -32,7 +32,7 @@ import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-public class QualifiedName
+public final class QualifiedName
 {
 
 	/**

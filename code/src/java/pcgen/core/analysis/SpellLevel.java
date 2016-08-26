@@ -40,7 +40,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
-public class SpellLevel
+public final class SpellLevel
 {
 
 	public static boolean levelForKeyContains(Spell sp,

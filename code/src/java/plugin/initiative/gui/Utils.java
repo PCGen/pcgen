@@ -37,7 +37,7 @@ import javax.swing.text.NumberFormatter;
  * @author Ross M. Lodge
  *
  */
-public class Utils
+public final class Utils
 {
 
 	/**

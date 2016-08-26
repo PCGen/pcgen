@@ -60,7 +60,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
 {
-	private static String in_copy_settings =
+	private static final String in_copy_settings =
 		LanguageBundle.getString("in_Prefs_copy");
 	
 	private JComboBoxEx gameModeSelect = new JComboBoxEx();

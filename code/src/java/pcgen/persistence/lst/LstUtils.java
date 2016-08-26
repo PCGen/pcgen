@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 /**
  * Utility class to assist with LST files
  */
-public class LstUtils
+public final class LstUtils
 {
 
 	/** Constant representing the pipe "|" character */

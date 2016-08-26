@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ObjectKey;
  *
  * @author  Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
-public class PlayerCharacterUtilities
+public final class PlayerCharacterUtilities
 {
 	/**
 	 * Set the Weapon proficiency of one piece of Equipment to the same as the

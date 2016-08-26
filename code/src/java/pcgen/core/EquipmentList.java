@@ -51,7 +51,7 @@ import pcgen.util.Logging;
  * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class EquipmentList {
+public final class EquipmentList {
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;

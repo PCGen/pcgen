@@ -59,7 +59,7 @@ import pcgen.system.LanguageBundle;
 public class DefaultsPanel extends PCGenPrefsPanel
 {
 	private static final String DEFAULT_PREVIEW_SHEET_KEY = "CharacterSheetInfoTab.defaultPreviewSheet.";
-	private static String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
+	private static final String in_defaults = LanguageBundle.getString("in_Prefs_defaults");
 	private JComboBoxEx xpTableCombo = new JComboBoxEx();
 	private JComboBoxEx characterTypeCombo = new JComboBoxEx();
 	private JComboBoxEx previewSheetCombo = new JComboBoxEx();

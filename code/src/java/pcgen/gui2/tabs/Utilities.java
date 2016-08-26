@@ -32,7 +32,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class Utilities
+public final class Utilities
 {
 
 	public static JButton createSignButton(Sign sign)

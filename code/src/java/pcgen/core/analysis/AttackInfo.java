@@ -30,7 +30,7 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
 
-public class AttackInfo
+public final class AttackInfo
 {
 
 	/**

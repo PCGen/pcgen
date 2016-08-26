@@ -49,7 +49,7 @@ import pcgen.core.Skill;
  * @version $Revision$
  */
 
-public class ChooserUtilities
+public final class ChooserUtilities
 {
 	/**
 	 * Deal with CHOOSE tags. The actual items the choice will be made from are

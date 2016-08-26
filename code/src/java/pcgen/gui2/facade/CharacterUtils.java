@@ -34,7 +34,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
-public class CharacterUtils
+public final class CharacterUtils
 {
 	public static void selectClothes(final PlayerCharacter aPC)
 	{

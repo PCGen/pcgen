@@ -34,7 +34,7 @@ import pcgen.core.SkillComparator;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public class SkillDisplay
+public final class SkillDisplay
 {
 
 	/**

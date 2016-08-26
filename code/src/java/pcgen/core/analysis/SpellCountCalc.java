@@ -32,7 +32,7 @@ import pcgen.core.SpellProhibitor;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
-public class SpellCountCalc
+public final class SpellCountCalc
 {
 
 	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel,

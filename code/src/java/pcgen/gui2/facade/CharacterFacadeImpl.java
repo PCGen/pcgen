@@ -212,7 +212,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		HitPointListener 
 {
 
-	private static PlayerCharacter DUMMY_PC = new PlayerCharacter();
+	private static final PlayerCharacter DUMMY_PC = new PlayerCharacter();
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
