@@ -271,7 +271,7 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
+	private static List<Loader> setupLoaders(EditorLoadContext context, Writer changeLogWriter)
 	{
 		List<Loader> loaderList = new ArrayList<>();
 		loaderList.add(new BasicLoader<>(context, WeaponProf.class,
@@ -319,7 +319,7 @@ public class LSTConverter extends Observable
 		return loaderList;
 	}
 
-	private void ensureParents(File parentFile)
+	private static void ensureParents(File parentFile)
 	{
 		if (!parentFile.exists())
 		{
@@ -328,7 +328,7 @@ public class LSTConverter extends Observable
 		}
 	}
 
-	private File findSubRoot(File root, File in)
+	private static File findSubRoot(File root, File in)
 	{
 		File parent = in.getParentFile();
 		if (parent == null)

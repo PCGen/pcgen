@@ -274,8 +274,8 @@ public final class KitSpells extends BaseKit
 	 * @param  aSpell   A Spell to add to the PC
 	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
-	private void updatePCSpells(final PlayerCharacter pc,
-		final KitSpellBookEntry aSpell, final PCClass pcClass)
+	private static void updatePCSpells(final PlayerCharacter pc,
+	                                   final KitSpellBookEntry aSpell, final PCClass pcClass)
 	{
 		Spell spell = aSpell.getSpell();
 

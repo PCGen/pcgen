@@ -127,8 +127,8 @@ public class KitClass extends BaseKit
 		theClass = null;
 	}
 
-	private void addLevel(final PlayerCharacter pc, final int numLevels,
-		final PCClass aClass, final boolean doLevelAbilitiesIn)
+	private static void addLevel(final PlayerCharacter pc, final int numLevels,
+	                             final PCClass aClass, final boolean doLevelAbilitiesIn)
 	{
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();

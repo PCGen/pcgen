@@ -109,7 +109,7 @@ public class InitiativePlugin implements InteractivePlugin
 		// Do Nothing
 	}
 
-	public FileFilter[] getFileTypes()
+	public static FileFilter[] getFileTypes()
 	{
 		FileFilter[] ff = {getFileType()};
 
@@ -120,7 +120,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Get the file type
 	 * @return the file type
 	 */
-	public FileFilter getFileType()
+	public static FileFilter getFileType()
 	{
 		String[] init = new String[]{"gmi", "init"};
 		return new SimpleFileFilter(init, "Initiative Export");
@@ -485,7 +485,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param evt
 	 */
-	public void initMenuItem(ActionEvent evt)
+	public static void initMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

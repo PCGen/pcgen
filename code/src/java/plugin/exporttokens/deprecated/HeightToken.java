@@ -77,17 +77,17 @@ public class HeightToken extends AbstractExportToken
 		return retString;
 	}
 
-	private String getHeightInchPart(CharacterDisplay display)
+	private static String getHeightInchPart(CharacterDisplay display)
 	{
 		return Integer.toString(display.getHeight() % 12);
 	}
 
-	private String getHeightFootPart(CharacterDisplay display)
+	private static String getHeightFootPart(CharacterDisplay display)
 	{
 		return Integer.toString(display.getHeight() / 12);
 	}
 
-	private String getHeightString(CharacterDisplay display)
+	private static String getHeightString(CharacterDisplay display)
 	{
 		String retString;
 		

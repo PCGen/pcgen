@@ -130,7 +130,7 @@ public class InfoCharacterDetails
 	 * @param cbt
 	 * @param aPane
 	 */
-	public void setStatText(Combatant cbt, JTextPane aPane)
+	public static void setStatText(Combatant cbt, JTextPane aPane)
 	{
 		aPane.setEditorKit(aPane.getEditorKitForContentType("text/html"));
 		String htmlString = cbt.toHtmlString();

@@ -110,7 +110,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		this.cornerButton = new JTableMenuButton(this, cornerPopupMenu);
 	}
 
-	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
+	protected static <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
 		return new TreeViewTableModel<>(dataView);
 	}

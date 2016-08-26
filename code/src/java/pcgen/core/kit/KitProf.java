@@ -236,7 +236,7 @@ public final class KitProf extends BaseKit
 		return false;
 	}
 
-	private PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
+	private static PersistentTransitionChoice<WeaponProf> getPTC(CDOMObject cdo)
 	{
 		List<PersistentTransitionChoice<?>> adds =
 				cdo.getListFor(ListKey.ADD);

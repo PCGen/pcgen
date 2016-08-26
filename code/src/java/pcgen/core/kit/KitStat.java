@@ -97,7 +97,7 @@ public class KitStat extends BaseKit
 		return "Stats";
 	}
 
-	private void recalculateSkillPoints(PlayerCharacter aPC)
+	private static void recalculateSkillPoints(PlayerCharacter aPC)
 	{
 		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();

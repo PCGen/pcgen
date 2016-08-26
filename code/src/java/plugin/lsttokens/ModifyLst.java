@@ -196,7 +196,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 		return modifiers.toArray(new String[modifiers.size()]);
 	}
 
-	private String unparseModifier(VarModifier<?> vm)
+	private static String unparseModifier(VarModifier<?> vm)
 	{
 		PCGenModifier<?> modifier = vm.modifier;
 		String type = modifier.getIdentification();

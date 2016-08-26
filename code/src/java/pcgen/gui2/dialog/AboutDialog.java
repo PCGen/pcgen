@@ -307,7 +307,7 @@ final class MainAbout extends JPanel
 	 * @param monkeys The names of the monkeys
 	 * @return A JScrollPane to display the monkeys.
 	 */
-	private JScrollPane buildMonkeyList(String monkeys)
+	private static JScrollPane buildMonkeyList(String monkeys)
 	{
 		JTextArea textArea = new JTextArea();
 		JScrollPane scroller = new JScrollPane();
@@ -331,7 +331,7 @@ final class MainAbout extends JPanel
 	 * @param anchor Where the field should be positioned.
 	 * @return A GridBagConstraints object.
 	 */
-	private GridBagConstraints buildConstraints(int xPos, int yPos, int anchor)
+	private static GridBagConstraints buildConstraints(int xPos, int yPos, int anchor)
 	{
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.gridx = xPos;
@@ -349,7 +349,7 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The includes panel.
 	 */
-	private JPanel buildIncludesPanel()
+	private static JPanel buildIncludesPanel()
 	{
 		JPanel iPanel = new JPanel();
 
@@ -377,7 +377,7 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The awards panel.
 	 */
-	private JPanel buildAwardsPanel()
+	private static JPanel buildAwardsPanel()
 	{
 		JScrollPane sp = new JScrollPane();
 		JPanel panel = new JPanel();
@@ -418,7 +418,7 @@ final class MainAbout extends JPanel
 		return panel;
 	}
 
-	private JPanel buildSponsorsPanel()
+	private static JPanel buildSponsorsPanel()
 	{
 		TitledBorder title =
 				BorderFactory.createTitledBorder(null,
@@ -455,7 +455,7 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The license panel.
 	 */
-	private JPanel buildLicensePanel()
+	private static JPanel buildLicensePanel()
 	{
 		JPanel lPanel = new JPanel();
 

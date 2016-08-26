@@ -234,9 +234,9 @@ public final class KitSkill extends BaseKit
 	 * @return <code>true</code> for success
 	 * TODO What about throwing on failure?
 	 */
-	private boolean updatePCSkills(final PlayerCharacter pc,
-		final Skill aSkill, final int aRank, final double aCost,
-		List<Language> langList, final PCClass pcClass)
+	private static boolean updatePCSkills(final PlayerCharacter pc,
+	                                      final Skill aSkill, final int aRank, final double aCost,
+	                                      List<Language> langList, final PCClass pcClass)
 	{
 		boolean oldImporting = pc.isImporting();
 		pc.setImporting(true);

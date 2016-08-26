@@ -174,8 +174,8 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		restoreChoice(pc, owner, "");
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc,
-		ChooseSelectionActor<String> ca)
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc,
+	                                ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, "", pc);
 	}
@@ -216,7 +216,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	private AssociationListKey<String> getListKey()
+	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*NOCHOICE");
 	}

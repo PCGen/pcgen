@@ -142,8 +142,8 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		processApplication(pc, choice, choice.getChooseInfo());
 	}
 
-	private <T> void processApplication(PlayerCharacter pc, CNAbility choice,
-		ChooseInformation<T> chooseInfo)
+	private static <T> void processApplication(PlayerCharacter pc, CNAbility choice,
+	                                           ChooseInformation<T> chooseInfo)
 	{
 		List<T> available = new ArrayList<T>(chooseInfo.getSet(pc));
 		List<? extends T> selected =

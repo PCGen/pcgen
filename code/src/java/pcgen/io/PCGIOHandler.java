@@ -374,7 +374,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param campaigns     The character's sources.
 	 * @param outFile       The file to write the character to.
 	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
+	public static void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();

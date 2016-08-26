@@ -493,7 +493,7 @@ public abstract class JepCountType
 		// By adding this it means that we can call count with just the object to be
 		// counted and get a count of all e.g. count("ABILITIES") will return a
 		// count of all abilities with no filtering at all.
-		protected Object[] validateParams(final Object[] params)
+		protected static Object[] validateParams(final Object[] params)
 			throws ParseException
 		{
 			Object[] p = new Object[1];
@@ -920,7 +920,7 @@ public abstract class JepCountType
 			return Double.valueOf(count);
 		}
 
-		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
+		private static SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
 		{
 			if (pc == null)
 			{

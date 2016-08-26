@@ -1170,7 +1170,7 @@ public class Gui2InfoFactory implements InfoFactory
 	 * @param equipMod
 	 * @return Object
 	 */
-	protected String getCostValue(EquipmentModifier equipMod)
+	protected static String getCostValue(EquipmentModifier equipMod)
 	{
 		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
 		StringBuilder eCost = new StringBuilder(20);
@@ -2469,7 +2469,7 @@ public class Gui2InfoFactory implements InfoFactory
 		return EMPTY_STRING;
 	}
 
-	private void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)
+	private static void appendFacts(HtmlInfoBuilder infoText, CDOMObject cdo)
 	{
 		Class<? extends CDOMObject> cl = cdo.getClass();
 		LoadContext context = Globals.getContext();
@@ -2520,7 +2520,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 	}
 
-	private <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
+	private static <T> String getSetString(CDOMObject cdo, FactSetKey<T> fk)
 	{
 		List<Indirect<T>> set = cdo.getSetFor(fk);
 		if (set == null)
