@@ -19,10 +19,12 @@
 package gmgen.io;
 
 import java.util.AbstractList;
+import java.util.Collection;
+import java.util.List;
 import java.util.Vector;
 
 /**
- * <code>VectorTable</code> holds 2 dimensional tables.  It is used by GMGen
+ * {@code VectorTable} holds 2 dimensional tables.  It is used by GMGen
  * to hold the XML tables that are being loaded<p>
  * Created on February 26, 2003
  * @author  Expires 2003
@@ -33,18 +35,18 @@ public class VectorTable extends AbstractList
 	/** The name of the external table that is being held in this class. */
 	private String name;
 
-	/** The <code>Vector</code> that holds the header row of the tables. */
-	private Vector header;
+	/** The {@code Vector} that holds the header row of the tables. */
+	private final List header;
 
-	/** The <code>Vector</code> that holds the data of the tables. */
-	private Vector rows;
+	/** The {@code Vector} that holds the data of the tables. */
+	private final Vector rows;
 
 	/**
 	 * Creates an instance of this class with a table's name being passed to it.
 	 * @param s the <code>name</code> of the table that is being held in this
 	 *          class.
 	 */
-	public VectorTable(String s)
+	private VectorTable(String s)
 	{
 		this.name = s;
 		rows = new Vector();
@@ -55,7 +57,7 @@ public class VectorTable extends AbstractList
 	 * Creates an instance of this class with a default <code>String</code> as
 	 * the <code>name</code> of the table that is being held.
 	 */
-	public VectorTable()
+	VectorTable()
 	{
 		this("");
 	}
@@ -110,43 +112,6 @@ public class VectorTable extends AbstractList
 			return true;
 		}
 		return false;
-	}
-
-	/**
-	 * Gets the correct <code>Object</code> that is referenced by the
-	 * paramaters.
-	 * @param Y
-	 * @param Z
-	 * @return the <code>Object</code> that is referenced by the two
-	 *         paramaters.
-	 */
-	public Object backReferenceForX(Object Y, Object Z)
-	{
-		int x;
-		int y;
-
-		if (rows.isEmpty())
-		{
-			return null;
-		}
-		y = ((Vector) rows.firstElement()).indexOf(Y);
-
-		try
-		{
-			x = ((Vector) rows.elementAt(y)).indexOf(Z);
-		}
-		catch (Exception e)
-		{
-			return null;
-		}
-		try
-		{
-			return ((Vector) rows.elementAt(y)).elementAt(x);
-		}
-		catch (Exception e)
-		{
-			return null;
-		}
 	}
 
 	/**
@@ -267,20 +232,6 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Finds the item at the specified cell in the table given two
-	 * <code>index</code> values.
-	 * @param x
-	 * @param y
-	 * @return the item at the specified <code>index</code>.
-	 * @exception ArrayIndexOutOfBoundsException if the array index does not
-	 *            exist.
-	 */
-	public Object elementAt(int x, int y) throws ArrayIndexOutOfBoundsException
-	{
-		return ((Vector) rows.elementAt(x)).elementAt(y);
-	}
-
-	/**
 	 * Tests whether the paramater passed in is equal to the <code>String</code>
 	 * representation of this class.
 	 * @param o the <code>Object</code> that needs to be compared.
@@ -381,15 +332,6 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the <code>header</code> <code>Vector</code>.
-	 * @return the number of items in the <code>header</code>.
-	 */
-	public int sizeX()
-	{
-		return ((Vector) header.firstElement()).size();
-	}
-
-	/**
 	 * Gets the number of items in the <code>row</code> <code>Vector</code>.
 	 * It is the same as the <code>size()</code> method in this class.
 	 * @return the number of items in the <code>row</code>.
@@ -424,7 +366,7 @@ public class VectorTable extends AbstractList
 			return null;
 		}
 
-		return ((Vector) rows.elementAt(x)).toArray();
+		return ((Collection) rows.elementAt(x)).toArray();
 	}
 
 	/**

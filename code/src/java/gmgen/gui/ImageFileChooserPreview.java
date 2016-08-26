@@ -39,7 +39,7 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	 * be notified when a new file is selected in the browser.
 	 * @param parent that this preview window is used in.
 	 */
-	public ImageFileChooserPreview(JFileChooser parent)
+	ImageFileChooserPreview(JFileChooser parent)
 	{
 		setPreferredSize(new Dimension(previewWidth, previewHeight));
 		parent.addPropertyChangeListener(this);
@@ -47,7 +47,7 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 
 	/** Loads a new image into the preview window, and scales it if necessary.
 	 */
-	public void loadImage()
+	private void loadImage()
 	{
 		if (imageFile == null)
 		{
@@ -114,14 +114,14 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	/** Callback (event handler) to indicate that a property of the
 	 * JFileChooser has changed. If the selected file has changed cause a new
 	 * thumbnail to load.
-	 * @param e
+	 * @param evt
 	 */
     @Override
-	public void propertyChange(PropertyChangeEvent e)
+	public void propertyChange(final PropertyChangeEvent evt)
 	{
-		if (e.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))
+		if (evt.getPropertyName().equals(JFileChooser.SELECTED_FILE_CHANGED_PROPERTY))
 		{
-			imageFile = (File) e.getNewValue();
+			imageFile = (File) evt.getNewValue();
 
 			if (isShowing())
 			{
