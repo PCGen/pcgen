@@ -221,10 +221,7 @@ public class GameModeFileLoader extends PCGenTask
 				
 				// Load pointbuymethods.lst
 				loadPointBuyFile(context, gameFile, gmName);
-				for (PointBuyCost pbc : context.getReferenceContext().getConstructedCDOMObjects(PointBuyCost.class))
-				{
-					gm.addPointBuyStatCost(pbc);
-				}
+				context.getReferenceContext().getConstructedCDOMObjects(PointBuyCost.class).forEach(gm::addPointBuyStatCost);
 
 				// Load migration.lst
 				loadGameModeLstFile(context, migrationLoader, gmName, gameFile,

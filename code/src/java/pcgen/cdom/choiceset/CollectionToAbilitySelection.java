@@ -24,6 +24,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.Stack;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -181,10 +183,7 @@ public class CollectionToAbilitySelection implements
 
 		List<AbilitySelection> returnList =
                 new ArrayList<>(availableList.size());
-		for (String s : availableList)
-		{
-			returnList.add(new AbilitySelection(ability, s));
-		}
+		returnList.addAll(availableList.stream().map(s -> new AbilitySelection(ability, s)).collect(Collectors.toList()));
 		return returnList;
 	}
 
@@ -195,10 +194,7 @@ public class CollectionToAbilitySelection implements
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
 		// chooseInfo may have sent us back weaponprofs, abilities or
 		// strings, so we have to do a conversion here
-		for (T o : tempAvailList)
-		{
-			availableList.add(chooseInfo.encodeChoice(o));
-		}
+		availableList.addAll(tempAvailList.stream().map((Function<T, String>) chooseInfo::encodeChoice).collect(Collectors.toList()));
 		return availableList;
 	}
 

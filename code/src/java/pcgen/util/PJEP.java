@@ -90,7 +90,7 @@ public final class PJEP extends JEP
 		setAllowUndeclared(true);
 		addStandardFunctions();
 
-		for (Class<PCGenCommand> aClass : commandList)
+		commandList.forEach(aClass ->
 		{
 			try
 			{
@@ -98,16 +98,14 @@ public final class PJEP extends JEP
 				localCommandList.add(com);
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
-			}
-			catch (InstantiationException e)
+			} catch (InstantiationException e)
+			{
+				e.printStackTrace();
+			} catch (IllegalAccessException e)
 			{
 				e.printStackTrace();
 			}
-			catch (IllegalAccessException e)
-			{
-				e.printStackTrace();
-			}
-		}
+		});
 
 		addFunction("cl", new ClassLevel());
 
@@ -312,10 +310,10 @@ public final class PJEP extends JEP
 	protected void setVariableSource(String variableSource)
 	{
 		this.variableSource = variableSource;
-		for (PCGenCommand com : localCommandList)
+		localCommandList.forEach(com ->
 		{
 			com.setVariableSource(variableSource);
-		}
+		});
 	}
 
 	/**
@@ -324,10 +322,10 @@ public final class PJEP extends JEP
 	public void setParent(Object parent)
 	{
 		this.parent = parent;
-		for (PCGenCommand com : localCommandList)
+		localCommandList.forEach(com ->
 		{
 			com.setParent(parent);
-		}
+		});
 	}
 
 }

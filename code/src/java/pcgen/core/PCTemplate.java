@@ -94,10 +94,10 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	{
 		List<PCTemplate> returnList = new ArrayList<>();
 
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES).forEach(rlt ->
 		{
 			returnList.addAll(rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
-		}
+		});
 
 		returnList.addAll(getSafeListFor(ListKey.LEVEL_TEMPLATES).stream().filter(lt -> lt.get(IntegerKey.LEVEL) <= totalLevels).collect(Collectors.toList()));
 
@@ -117,23 +117,23 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 		 * for (PCTemplate pct : getConditionalTemplates(pc.getTotalLevels(),
 		 * pc.totalHitDice())) { list.addAll(pct.getRawBonusList(pc); }
 		 */
-		for (PCTemplate rlt : getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
+		getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES).forEach(rlt ->
 		{
-			for (PCTemplate lt : rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES))
+			rlt.getSafeListFor(ListKey.LEVEL_TEMPLATES).forEach(lt ->
 			{
 				list.addAll(lt.getRawBonusList(pc));
-			}
-		}
+			});
+		});
 
-		for (PCTemplate lt : getSafeListFor(ListKey.LEVEL_TEMPLATES))
+		getSafeListFor(ListKey.LEVEL_TEMPLATES).forEach(lt ->
 		{
 			list.addAll(lt.getRawBonusList(pc));
-		}
+		});
 
-		for (PCTemplate lt : getSafeListFor(ListKey.HD_TEMPLATES))
+		getSafeListFor(ListKey.HD_TEMPLATES).forEach(lt ->
 		{
 			list.addAll(lt.getRawBonusList(pc));
-		}
+		});
 		// end potential TO-DO change
 		return list;
 	}

@@ -732,11 +732,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				|| showMessageConfirm(Constants.APPLICATION_NAME,
 					LanguageBundle.getString("in_unsavedCompanions"))) //$NON-NLS-1$
 			{
-				for (CompanionFacade companionFacade : tobeSaved)
+				tobeSaved.forEach(companionFacade ->
 				{
 					CharacterFacade compChar = CharacterManager.getCharacterMatching(companionFacade);
 					showSaveCharacterChooser(compChar);
-				}
+				});
 			}
 		}
 		CharacterStubFacade master = character.getMaster();
@@ -856,10 +856,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			}
 		}
 
-		for (CharacterFacade character : characterList)
-		{
-			CharacterManager.removeCharacter(character);
-		}
+		characterList.forEach(CharacterManager::removeCharacter);
 		return characters.isEmpty();
 	}
 
@@ -1814,10 +1811,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					{
 						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), licenses); //$NON-NLS-1$
 					}
-					for (String license : loader.getOtherLicenses())
+					//$NON-NLS-1$
+					loader.getOtherLicenses().forEach(license ->
 					{
 						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), license); //$NON-NLS-1$
-					}
+					});
 
 				}
 			}

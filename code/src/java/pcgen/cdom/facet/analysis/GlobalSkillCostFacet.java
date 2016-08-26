@@ -59,20 +59,20 @@ public class GlobalSkillCostFacet extends
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.CSKILL))
+		cdo.getSafeListFor(ListKey.CSKILL).forEach(ref ->
 		{
-			for (Skill sk : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(sk ->
 			{
 				add(id, SkillCost.CLASS, sk, cdo);
-			}
-		}
-		for (CDOMReference<Skill> ref : cdo.getSafeListFor(ListKey.CCSKILL))
+			});
+		});
+		cdo.getSafeListFor(ListKey.CCSKILL).forEach(ref ->
 		{
-			for (Skill sk : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(sk ->
 			{
 				add(id, SkillCost.CROSS_CLASS, sk, cdo);
-			}
-		}
+			});
+		});
 	}
 
 	/**

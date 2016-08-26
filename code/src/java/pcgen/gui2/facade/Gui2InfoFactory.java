@@ -580,7 +580,8 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			Set<AspectName> aspectKeys = ability.getKeysFor(MapKey.ASPECT);
 			StringBuilder buff = new StringBuilder(100);
-			for (AspectName key : aspectKeys)
+			//Assert here that the actual text displayed is not critical
+			aspectKeys.forEach(key ->
 			{
 				if (buff.length() > 0)
 				{
@@ -588,7 +589,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 				//Assert here that the actual text displayed is not critical
 				buff.append(Aspect.printAspect(pc, key, wrappedAbility));
-			}
+			});
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Aspects", //$NON-NLS-1$
 				buff.toString());
@@ -1642,7 +1643,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Race race = (Race) raceFacade;
 		final StringBuilder retString = new StringBuilder(100);
 
-		for (PCStat stat : charDisplay.getStatSet())
+		charDisplay.getStatSet().forEach(stat ->
 		{
 			if (charDisplay.isNonAbility(stat))
 			{
@@ -1652,8 +1653,7 @@ public class Gui2InfoFactory implements InfoFactory
 				}
 
 				retString.append(stat.getKeyName() + ":Nonability");
-			}
-			else
+			} else
 			{
 				if (BonusCalc.getStatMod(race, stat, pc) != 0)
 				{
@@ -1663,10 +1663,10 @@ public class Gui2InfoFactory implements InfoFactory
 					}
 
 					retString.append(stat.getKeyName() + ":"
-						+ BonusCalc.getStatMod(race, stat, pc));
+							+ BonusCalc.getStatMod(race, stat, pc));
 				}
 			}
-		}
+		});
 
 		return retString.toString();
 	}
@@ -2312,10 +2312,10 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		Deity deity = (Deity) deityFacade;
 		Set<String> set = new TreeSet<>();
-		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
+		deity.getSafeListMods(Deity.DOMAINLIST).forEach(ref ->
 		{
 			set.addAll(ref.getContainedObjects().stream().map(d -> OutputNameFormatting.piString(d, false)).collect(Collectors.toList()));
-		}
+		});
 		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
 		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
@@ -2394,7 +2394,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		List<T> choices = new ArrayList<>();
-		for (CNAbility ab : targetAbilities)
+		targetAbilities.forEach(ab ->
 		{
 			List<? extends T> sel =
 					(List<? extends T>) pc.getDetailedAssociations(ab);
@@ -2402,7 +2402,7 @@ public class Gui2InfoFactory implements InfoFactory
 			{
 				choices.addAll(sel);
 			}
-		}
+		});
 
 		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
 		if (choiceInfo.length() > 0)
@@ -2435,10 +2435,11 @@ public class Gui2InfoFactory implements InfoFactory
 			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
 		}
 		StringBuilder target = new StringBuilder(40);
-		for (String string : targetSet)
+		//$NON-NLS-1$
+		targetSet.forEach(string ->
 		{
 			target.append(string).append(";"); //$NON-NLS-1$
-		}
+		});
 		if (target.length() > 0)
 		{
 			target.deleteCharAt(target.length()-1);
@@ -2468,47 +2469,35 @@ public class Gui2InfoFactory implements InfoFactory
 		Collection<FactDefinition> defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactDefinition.class);
-		for (FactDefinition<?, ?> def : defs)
+		defs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).filter(def -> def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			FactKey<?> fk = def.getFactKey();
+			Indirect<?> fact = cdo.get(fk);
+			if (fact != null)
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
-				{
-					FactKey<?> fk = def.getFactKey();
-					Indirect<?> fact = cdo.get(fk);
-					if (fact != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(fact.getUnconverted());
-					}
-				}
+				infoText.appendSpacer();
+				infoText.append("<b>");
+				infoText.append(fk.toString());
+				infoText.append(":</b>&nbsp;");
+				infoText.append(fact.getUnconverted());
 			}
-		}
+		});
 		Collection<FactSetDefinition> setdefs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactSetDefinition.class);
-		for (FactSetDefinition<?, ?> def : setdefs)
+		setdefs.stream().filter(def -> def.getUsableLocation().isAssignableFrom(cl)).filter(def -> def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY)).forEach(def ->
 		{
-			if (def.getUsableLocation().isAssignableFrom(cl))
+			FactSetKey<?> fk = def.getFactSetKey();
+			String s = getSetString(cdo, fk);
+			if (s != null)
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
-				{
-					FactSetKey<?> fk = def.getFactSetKey();
-					String s = getSetString(cdo, fk);
-					if (s != null)
-					{
-						infoText.appendSpacer();
-						infoText.append("<b>");
-						infoText.append(fk.toString());
-						infoText.append(":</b>&nbsp;");
-						infoText.append(s);
-					}
-				}
+				infoText.appendSpacer();
+				infoText.append("<b>");
+				infoText.append(fk.toString());
+				infoText.append(":</b>&nbsp;");
+				infoText.append(s);
 			}
-		}
+		});
 		
 	}
 

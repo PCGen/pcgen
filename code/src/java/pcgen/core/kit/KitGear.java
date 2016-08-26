@@ -121,10 +121,10 @@ public final class KitGear extends BaseKit
 				}
 				needsSlash = true;
 				info.append(modRef.getRef().getLSTformat(false));
-				for (String s : modRef.getChoices())
+				modRef.getChoices().forEach(s ->
 				{
 					info.append(Constants.PIPE).append(s);
-				}
+				});
 			}
 			info.append(')');
 		}
@@ -139,15 +139,15 @@ public final class KitGear extends BaseKit
 		{
 			return;
 		}
-		for (NamedFormula lookup : lookups)
+		lookups.forEach(lookup ->
 		{
 			KitTable kt = aKit.getTable(lookup.getName());
 			KitGear gear =
 					kt.getEntry(aPC, lookup.getFormula().resolve(aPC, "")
-						.intValue());
+							.intValue());
 			gear.processLookups(aKit, aPC);
 			overlayGear(gear);
-		}
+		});
 	}
 
 	private void overlayGear(KitGear gear)
@@ -283,7 +283,10 @@ public final class KitGear extends BaseKit
 		//
 		if (actingMods != null)
 		{
-			for (EqModRef modref : actingMods)
+			/*
+			 * Going to do this the long way for now to avoid ugly entanglements
+			 */
+			actingMods.forEach(modref ->
 			{
 				/*
 				 * Going to do this the long way for now to avoid ugly entanglements
@@ -291,12 +294,12 @@ public final class KitGear extends BaseKit
 				StringBuilder sb = new StringBuilder(50);
 				EquipmentModifier eqMod = modref.getRef().get();
 				sb.append(eqMod.getKeyName());
-				for (String assoc : modref.getChoices())
+				modref.getChoices().forEach(assoc ->
 				{
 					sb.append(Constants.PIPE).append(eval(aPC, assoc));
-				}
+				});
 				theEquipment.addEqModifiers(sb.toString(), true);
-			}
+			});
 		}
 
 		if (tryResize || (actingMods != null))

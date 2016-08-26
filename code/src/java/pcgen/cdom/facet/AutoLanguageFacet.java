@@ -152,10 +152,7 @@ public class AutoLanguageFacet extends
 		{
 			Collection<Language> langList =
 					qo.getRawObject().getContainedObjects();
-			for (Language l : langList)
-			{
-				list.add(l);
-			}
+			list.addAll(langList);
 		}
 		return list;
 	}

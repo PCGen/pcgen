@@ -23,6 +23,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
@@ -146,14 +147,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list,
 			boolean forceChoice, CharID id)
 	{
-		final List<PCTemplate> availableList = new ArrayList<>();
-		for (PCTemplate pct : list)
-		{
-			if (prerequisiteFacet.qualifies(id, pct, anOwner))
-			{
-				availableList.add(pct);
-			}
-		}
+		final List<PCTemplate> availableList = list.stream().filter(pct -> prerequisiteFacet.qualifies(id, pct, anOwner)).collect(Collectors.toList());
 		if (availableList.size() == 1)
 		{
 			return availableList.get(0);

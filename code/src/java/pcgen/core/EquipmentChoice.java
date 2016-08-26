@@ -280,10 +280,10 @@ public final class EquipmentChoice
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
 	public void addSkills() {
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).forEach(skill ->
 		{
 			this.getAvailableList().add(skill.getKeyName());
-		}
+		});
 	}
 
 	/**
@@ -350,13 +350,13 @@ public final class EquipmentChoice
 	{
 		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
 		AbilityCategory cat = ref.silentlyGetConstructedCDOMObject(AbilityCategory.class, aCategory);
-		for (Ability anAbility : ref.getManufacturer(
-				Ability.class, cat).getAllObjects())
+		ref.getManufacturer(
+				Ability.class, cat).getAllObjects().forEach(anAbility ->
 		{
 			boolean matchesType = (
 					typeString.equalsIgnoreCase("ALL") ||
-					anAbility.isType(typeString)
-								  );
+							anAbility.isType(typeString)
+			);
 
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
 					&& !this.getAvailableList().contains(anAbility.getKeyName()))
@@ -366,7 +366,7 @@ public final class EquipmentChoice
 					this.getAvailableList().add(anAbility.getKeyName());
 				}
 			}
-		}
+		});
 	}
 
 	/**
@@ -377,15 +377,11 @@ public final class EquipmentChoice
 	public void addSelectableEquipment(
 		final String          typeString)
 	{
-		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).stream().filter(aEquip -> aEquip.isType(typeString) &&
+				!this.getAvailableList().contains(aEquip.getName())).forEach(aEquip ->
 		{
-			if (
-				aEquip.isType(typeString) &&
-				!this.getAvailableList().contains(aEquip.getName()))
-			{
-				this.getAvailableList().add(aEquip.getName());
-			}
-		}
+			this.getAvailableList().add(aEquip.getName());
+		});
 	}
 
 	/**
@@ -396,16 +392,12 @@ public final class EquipmentChoice
 	public void addSelectableSkills(
 		final String          typeString)
 	{
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class).stream().filter(skill -> (typeString.equalsIgnoreCase("ALL") ||
+				skill.isType(typeString)) &&
+				!this.getAvailableList().contains(skill.getKeyName())).forEach(skill ->
 		{
-			if (
-				(typeString.equalsIgnoreCase("ALL") ||
-					skill.isType(typeString)) &&
-				!this.getAvailableList().contains(skill.getKeyName()))
-			{
-				this.getAvailableList().add(skill.getKeyName());
-			}
-		}
+			this.getAvailableList().add(skill.getKeyName());
+		});
 	}
 
 	/**
@@ -416,19 +408,15 @@ public final class EquipmentChoice
 		final Equipment       parent,
 		String                choiceType)
 	{
-		for ( EquipmentModifier sibling : parent.getEqModifierList(true) )
+		/*
+		 * TODO sibling can't be this - different classes... so this is a
+		 * bug of some form.
+		 */
+		parent.getEqModifierList(true).stream().filter(sibling -> !(sibling.equals(this)) &&
+				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType)).forEach(sibling ->
 		{
-			/*
-			 * TODO sibling can't be this - different classes... so this is a
-			 * bug of some form.
-			 */
-			if (
-				!(sibling.equals(this)) &&
-				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
-			{
-				getAvailableList().addAll(parent.getAssociationList(sibling));
-			}
-		}
+			getAvailableList().addAll(parent.getAssociationList(sibling));
+		});
 	}
 
 	/**
@@ -503,10 +491,10 @@ public final class EquipmentChoice
 	 * Add the current character stats as defined in the game mode to the chooser
 	 */
 	public void addStats() {
-		for (PCStat stat : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class))
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCStat.class).forEach(stat ->
 		{
 			this.getAvailableList().add(stat.getKeyName());
-		}
+		});
 	}
 
 	/**

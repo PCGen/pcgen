@@ -69,9 +69,9 @@ public class LoadValidator implements UnconstructedValidator
 	private void buildSimpleMap()
 	{
 		simpleMap = new HashMapToList<>();
-		for (Campaign c : campaignList)
+		campaignList.forEach(c ->
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			c.getSafeListFor(ListKey.FORWARDREF).forEach(q ->
 			{
 				Class<? extends Loadable> qcl = q.getQualifiedClass();
 				if (!CATEGORIZED_CLASS.isAssignableFrom(qcl))
@@ -79,16 +79,16 @@ public class LoadValidator implements UnconstructedValidator
 					simpleMap.addToListFor(qcl, q.getQualifiedReference()
 							.getLSTformat(false));
 				}
-			}
-		}
+			});
+		});
 	}
 
 	private void buildCategoryMap()
 	{
 		categoryMap = new DoubleKeyMapToList<>();
-		for (Campaign c : campaignList)
+		campaignList.forEach(c ->
 		{
-			for (Qualifier q : c.getSafeListFor(ListKey.FORWARDREF))
+			c.getSafeListFor(ListKey.FORWARDREF).forEach(q ->
 			{
 				Class<? extends Loadable> qcl = q.getQualifiedClass();
 				if (CATEGORIZED_CLASS.isAssignableFrom(qcl))
@@ -98,8 +98,8 @@ public class LoadValidator implements UnconstructedValidator
 							.getLSTCategory();
 					categoryMap.addToListFor(qcl, cat, ref.getLSTformat(false));
 				}
-			}
-		}
+			});
+		});
 	}
 
 	@Override

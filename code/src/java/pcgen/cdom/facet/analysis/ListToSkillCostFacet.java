@@ -51,16 +51,16 @@ public class ListToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass pcc = dfce.getScope();
 		ClassSkillList skilllist = dfce.getCDOMObject();
-		for (Skill sk : listSkillCostFacet.getSet(id, skilllist,
-			SkillCost.CLASS))
+		listSkillCostFacet.getSet(id, skilllist,
+				SkillCost.CLASS).forEach(sk ->
 		{
 			add(id, pcc, SkillCost.CLASS, sk, pcc);
-		}
-		for (Skill sk : listSkillCostFacet.getSet(id, skilllist,
-			SkillCost.CROSS_CLASS))
+		});
+		listSkillCostFacet.getSet(id, skilllist,
+				SkillCost.CROSS_CLASS).forEach(sk ->
 		{
 			add(id, pcc, SkillCost.CROSS_CLASS, sk, pcc);
-		}
+		});
 	}
 
 	@Override
@@ -93,13 +93,10 @@ public class ListToSkillCostFacet extends
 		ClassSkillList skilllist = dfce.getScope1();
 		SkillCost cost = dfce.getScope2();
 		Skill sk = dfce.getCDOMObject();
-		for (PCClass cl : skillListFacet.getScopes(id))
+		skillListFacet.getScopes(id).stream().filter(cl -> skillListFacet.contains(id, cl, skilllist)).forEach(cl ->
 		{
-			if (skillListFacet.contains(id, cl, skilllist))
-			{
-				add(id, cl, cost, sk, cl);
-			}
-		}
+			add(id, cl, cost, sk, cl);
+		});
 	}
 
 	@Override
@@ -110,12 +107,9 @@ public class ListToSkillCostFacet extends
 		ClassSkillList skilllist = dfce.getScope1();
 		SkillCost cost = dfce.getScope2();
 		Skill sk = dfce.getCDOMObject();
-		for (PCClass cl : skillListFacet.getScopes(id))
+		skillListFacet.getScopes(id).stream().filter(cl -> skillListFacet.contains(id, cl, skilllist)).forEach(cl ->
 		{
-			if (skillListFacet.contains(id, cl, skilllist))
-			{
-				remove(id, cl, cost, sk, cl);
-			}
-		}
+			remove(id, cl, cost, sk, cl);
+		});
 	}
 }

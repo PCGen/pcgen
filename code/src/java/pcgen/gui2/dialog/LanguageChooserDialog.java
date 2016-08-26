@@ -190,13 +190,10 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				for (Object object : data)
+				data.stream().filter(object -> object instanceof LanguageFacade).forEach(object ->
 				{
-					if (object instanceof LanguageFacade)
-					{
-						chooser.addSelected((LanguageFacade) object);
-					}
-				}
+					chooser.addSelected((LanguageFacade) object);
+				});
 			}
 			return;
 		}

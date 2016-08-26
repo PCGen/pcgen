@@ -107,10 +107,10 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
-		for (DisplayableFilter<? super C, ? super E> displayableFilter : filters)
+		filters.forEach(displayableFilter ->
 		{
 			displayableFilter.setFilterHandler(handler);
-		}
+		});
 	}
 
 	@Override

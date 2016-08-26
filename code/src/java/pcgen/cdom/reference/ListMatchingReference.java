@@ -178,7 +178,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	public Collection<T> getContainedObjects()
 	{
 		List<T> list = new ArrayList<>();
-		for (T obj : all.getContainedObjects())
+		all.getContainedObjects().forEach(obj ->
 		{
 			List<V> actualList = obj.getListFor(key);
 			if (actualList != null)
@@ -192,7 +192,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 					}
 				}
 			}
-		}
+		});
 		return list;
 	}
 

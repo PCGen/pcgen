@@ -96,10 +96,10 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 
 	private void addAll(CharID id, List<FollowerOption> list, CDOMObject cdo)
 	{
-		for (FollowerOption fo : list)
+		list.forEach(fo ->
 		{
 			add(id, fo, cdo);
-		}
+		});
 	}
 
 	private void add(CharID id, FollowerOption fo, CDOMObject cdo)
@@ -244,23 +244,47 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		}
 		Map<FollowerOption, CDOMObject> ret = new TreeMap<>(
                 comp);
-		for (Map.Entry<FollowerOption, Set<CDOMObject>> me : foMap.entrySet())
+		/*
+		 * TODO This is a bug, and will overwrite the first source
+		 * :(
+		 *//*
+		  * TODO This is a bug, and will overwrite the first source
+		  * :(
+		  *//*
+		   * TODO This is a bug, and will overwrite the first source
+		   * :(
+		   *//*
+		    * TODO This is a bug, and will overwrite the first source
+		    * :(
+		    */
+		foMap.entrySet().forEach(me ->
 		{
 			FollowerOption fo = me.getKey();
 			Set<CDOMObject> target = me.getValue();
 			Collection<FollowerOption> expanded = fo.getExpandedOptions();
-			for (CDOMObject source : target)
+			/*
+			 * TODO This is a bug, and will overwrite the first source
+			 * :(
+			 *//*
+			  * TODO This is a bug, and will overwrite the first source
+			  * :(
+			  */
+			target.forEach(source ->
 			{
-				for (FollowerOption efo : expanded)
+				/*
+				 * TODO This is a bug, and will overwrite the first source
+				 * :(
+				 */
+				expanded.forEach(efo ->
 				{
 					/*
 					 * TODO This is a bug, and will overwrite the first source
 					 * :(
 					 */
 					ret.put(efo, source);
-				}
-			}
-		}
+				});
+			});
+		});
 		return ret;
 	}
 
@@ -309,17 +333,17 @@ public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		CaseInsensitiveMap<Map<FollowerOption, Set<CDOMObject>>> map = getCachedMap(source);
 		if (map != null)
 		{
-			for (Map<FollowerOption, Set<CDOMObject>> fm : map.values())
+			map.values().forEach(fm ->
 			{
-				for (Map.Entry<FollowerOption, Set<CDOMObject>> fme : fm.entrySet())
+				fm.entrySet().forEach(fme ->
 				{
 					FollowerOption fl = fme.getKey();
-					for (CDOMObject cdo : fme.getValue())
+					fme.getValue().forEach(cdo ->
 					{
 						add(copy, fl, cdo);
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 	}
 

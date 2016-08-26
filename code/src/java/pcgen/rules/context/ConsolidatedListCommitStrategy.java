@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.base.util.TreeMapToList;
@@ -209,15 +210,8 @@ public class ConsolidatedListCommitStrategy implements ListCommitStrategy,
 		CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		ArrayList<CDOMReference<? extends CDOMList<?>>> list =
-                new ArrayList<>();
-		for (CDOMReference<? extends CDOMList<?>> ref : owner
-			.getModifiedLists())
-		{
-			if (cl.equals(ref.getReferenceClass()))
-			{
-				list.add(ref);
-			}
-		}
+				owner
+						.getModifiedLists().stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toCollection(ArrayList::new));
 		return list;
 	}
 

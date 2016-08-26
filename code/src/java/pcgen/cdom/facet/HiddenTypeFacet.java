@@ -39,10 +39,10 @@ public class HiddenTypeFacet extends
 	@Override
 	public void initialize(LoadContext context)
 	{
-		for (Campaign c : context.getLoadedCampaigns())
+		context.getLoadedCampaigns().forEach(c ->
 		{
 			loadCampaignHiddenTypes(context.getDataSetID(), c);
-		}
+		});
 	}
 
 	private void loadCampaignHiddenTypes(DataSetID id, Campaign c)
@@ -50,20 +50,20 @@ public class HiddenTypeFacet extends
 		loadHiddenTypes(id, ListKey.HIDDEN_Equipment, Equipment.class, c);
 		loadHiddenTypes(id, ListKey.HIDDEN_Ability, Ability.class, c);
 		loadHiddenTypes(id, ListKey.HIDDEN_Skill, Skill.class, c);
-		for (Campaign subCamp : c.getSubCampaigns())
+		c.getSubCampaigns().forEach(subCamp ->
 		{
 			loadCampaignHiddenTypes(id, subCamp);
-		}
+		});
 	}
 
 	private void loadHiddenTypes(DataSetID id, ListKey<String> listKey,
 		Class<?> cl, Campaign c)
 	{
 		List<String> hiddentypes = c.getSafeListFor(listKey);
-		for (String s : hiddentypes)
+		hiddentypes.forEach(s ->
 		{
 			add(id, cl, Type.getConstant(s), c);
-		}
+		});
 	}
 
 	public void setDataSetInitializationFacet(

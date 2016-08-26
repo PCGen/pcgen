@@ -75,16 +75,16 @@ public class MasterAvailableSpellFacet extends
 				}
 			}
 		}
-		for (CDOMReference<CDOMList<Spell>> ref : useLists)
+		useLists.forEach(ref ->
 		{
-			for (Spell spell : masterLists.getObjects(ref))
+			masterLists.getObjects(ref).forEach(spell ->
 			{
 				Collection<AssociatedPrereqObject> assoc =
 						masterLists.getAssociations(ref, spell);
-				for (AssociatedPrereqObject apo : assoc)
+				assoc.forEach(apo ->
 				{
 					int lvl = apo.getAssociation(AssociationKey.SPELL_LEVEL);
-					for (CDOMList<Spell> list : ref.getContainedObjects())
+					ref.getContainedObjects().forEach(list ->
 					{
 						AvailableSpell as = new AvailableSpell(list, spell, lvl);
 						if (apo.hasPrerequisites())
@@ -92,10 +92,10 @@ public class MasterAvailableSpellFacet extends
 							as.addAllPrerequisites(apo.getPrerequisiteList());
 						}
 						add(dsID, as);
-					}
-				}
-			}
-		}
+					});
+				});
+			});
+		});
 	}
 	
 	/**

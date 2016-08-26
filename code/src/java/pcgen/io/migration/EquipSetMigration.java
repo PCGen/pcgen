@@ -79,12 +79,12 @@ public final class EquipSetMigration
 	{
 		Collection<EquipSet> allEquipSets = pc.getDisplay().getEquipSet();
 		List<EquipSet> sortedChildrenEs = getSortedChildren(allEquipSets, "0");
-		for (EquipSet equipSet : sortedChildrenEs)
+		sortedChildrenEs.forEach(equipSet ->
 		{
 			List<EquipSet> children =
 					getSortedChildren(allEquipSets, equipSet.getIdPath());
 			renumberChildren(children, allEquipSets, equipSet.getIdPath());
-		}
+		});
 	}
 
 	/**

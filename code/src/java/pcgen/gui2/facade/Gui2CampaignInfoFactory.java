@@ -202,11 +202,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infInf")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (String infotext : info)
+			info.forEach(infotext ->
 			{
 				infoText.append(infotext);
 				infoText.appendLineBreak();
-			}
+			});
 			infoDisplayed = true;
 		}
 
@@ -220,11 +220,11 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 			infoText.appendSmallTitleElement(LanguageBundle.getString("in_infCopyright")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (String license : copyright)
+			copyright.forEach(license ->
 			{
 				infoText.append(license);
 				infoText.appendLineBreak();
-			}
+			});
 		}
 		
 		List<Campaign> subCampaigns = aCamp.getSubCampaigns();
@@ -237,17 +237,17 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			infoText.appendSmallTitleElement(LanguageBundle
 				.getString("in_infIncludedCampaigns")); //$NON-NLS-1$
 			infoText.appendLineBreak();
-			for (Campaign subCamp : subCampaigns)
+			subCampaigns.forEach(subCamp ->
 			{
 				infoText.append(subCamp.getDisplayName());
 				infoText.appendLineBreak();
-			}
-			for (CampaignSourceEntry subCse : notFoundSubCampaigns)
+			});
+			notFoundSubCampaigns.forEach(subCse ->
 			{
 				infoText.append(LanguageBundle.getFormattedString(
-					"in_infMissingCampaign", subCse.getURI()));
+						"in_infMissingCampaign", subCse.getURI()));
 				infoText.appendLineBreak();
-			}
+			});
 		}
 
 		infoText.appendLineBreak();

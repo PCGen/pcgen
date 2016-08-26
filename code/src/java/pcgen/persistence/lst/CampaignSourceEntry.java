@@ -31,6 +31,7 @@ import java.util.List;
 import java.util.Objects;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
@@ -419,10 +420,7 @@ public class CampaignSourceEntry implements SourceEntry
 						CoreUtility.split(key.substring(9), ',');
 				String category = abilityKeyList.get(0);
 				abilityKeyList.remove(0);
-				for (String string : abilityKeyList)
-				{
-					catKeyList.add(category + ',' + string);
-				}
+				catKeyList.addAll(abilityKeyList.stream().map(string -> category + ',' + string).collect(Collectors.toList()));
 			}
 			else
 			{

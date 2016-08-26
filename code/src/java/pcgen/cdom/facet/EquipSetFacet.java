@@ -92,7 +92,7 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 		final List<EquipSet> tmpList = new ArrayList<>();
 
 		// find all oldItem EquipSet's
-		for (EquipSet es : getSet(id))
+		getSet(id).forEach(es ->
 		{
 			final Equipment eqI = es.getItem();
 
@@ -100,13 +100,13 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 			{
 				tmpList.add(es);
 			}
-		}
+		});
 
-		for (EquipSet es : tmpList)
+		tmpList.forEach(es ->
 		{
 			es.setValue(newItem.getName());
 			es.setItem(newItem);
-		}
+		});
 	}
 
 	/**
@@ -124,7 +124,7 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 		final List<EquipSet> tmpList = new ArrayList<>();
 
 		// now find and remove equipment from all EquipSet's
-		for (EquipSet es : getSet(id))
+		getSet(id).forEach(es ->
 		{
 			final Equipment eqI = es.getItem();
 
@@ -132,12 +132,12 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 			{
 				tmpList.add(es);
 			}
-		}
+		});
 
-		for (EquipSet es : tmpList)
+		tmpList.forEach(es ->
 		{
 			delEquipSet(id, es);
-		}
+		});
 	}
 
 	/**

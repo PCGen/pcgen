@@ -163,14 +163,14 @@ public class ObjectMatchingReference<T extends CDOMObject, V> extends
 	public Collection<T> getContainedObjects()
 	{
 		List<T> list = new ArrayList<>();
-		for (T obj : all.getContainedObjects())
+		all.getContainedObjects().forEach(obj ->
 		{
 			V actual = obj.get(key);
 			if (actual == null && (value == null || allowNull) || Objects.equals(value, actual))
 			{
 				list.add(obj);
 			}
-		}
+		});
 		return list;
 	}
 

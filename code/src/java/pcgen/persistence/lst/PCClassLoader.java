@@ -500,26 +500,26 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 	{
 		Collection<PCClass> allClasses = context.getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class);
-		for (PCClass cl : allClasses)
+		allClasses.forEach(cl ->
 		{
 			List<SubClass> subClasses = cl.getListFor(ListKey.SUB_CLASS);
 			if (subClasses != null)
 			{
-				for (SubClass sc : subClasses)
+				subClasses.forEach(sc ->
 				{
 					sc.copyLevelsFrom(cl);
 					processSubLevelLines(context, cl, sc);
-				}
+				});
 			}
 			List<SubstitutionClass> substClasses = cl.getListFor(ListKey.SUBSTITUTION_CLASS);
 			if (substClasses != null)
 			{
-				for (SubstitutionClass sc : substClasses)
+				substClasses.forEach(sc ->
 				{
 					processSubLevelLines(context, cl, sc);
-				}
+				});
 			}
-		}
+		});
 	}
 
 	private void processSubLevelLines(LoadContext context, PCClass cl,

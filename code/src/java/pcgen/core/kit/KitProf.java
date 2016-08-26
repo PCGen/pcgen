@@ -225,14 +225,14 @@ public final class KitProf extends BaseKit
 		//
 		// Add to list of things to add to the character
 		//
-		for (WeaponProf prof : xs)
+		xs.forEach(prof ->
 		{
 			if (weaponProfs == null)
 			{
 				weaponProfs = new ArrayList<>();
 			}
 			weaponProfs.add(prof);
-		}
+		});
 		return false;
 	}
 
@@ -255,14 +255,14 @@ public final class KitProf extends BaseKit
 	{
 		PersistentTransitionChoice<WeaponProf> wpPTC = getPTC(thePObject);
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
-		for (CDOMSingleRef<WeaponProf> profKey : profList)
+		profList.forEach(profKey ->
 		{
 			WeaponProf wp = profKey.get();
 			if (choices.contains(wp))
 			{
 				wpPTC.act(Collections.singleton(wp), thePObject, aPC);
 			}
-		}
+		});
 	}
 
 	@Override

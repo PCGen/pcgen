@@ -204,10 +204,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	{
 		Collections.sort(langList);
 		langListFacade.clearContents();
-		for (Language language : langList)
-		{
-			langListFacade.addElement(language);
-		}
+		langList.forEach(langListFacade::addElement);
 	}
 
 	/* (non-Javadoc)

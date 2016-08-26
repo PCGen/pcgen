@@ -33,6 +33,7 @@ import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.SettingsHandler;
@@ -422,10 +423,7 @@ public final class CoreUtility
 			return temp;
 		}
 
-		for (final String s : Arrays.asList(aString.split(sepStr)))
-		{
-			temp.add(s.trim());
-		}
+		temp.addAll(Arrays.asList(aString.split(sepStr)).stream().map(String::trim).collect(Collectors.toList()));
 
 		return temp;
 	}
@@ -455,11 +453,7 @@ public final class CoreUtility
 	public static List<Equipment> mergeEquipmentList(
 			final Collection<Equipment> equip, final int merge)
 	{
-		List<Equipment> workingList = new ArrayList<>();
-		for (Equipment e : equip)
-		{
-			workingList.add(e.clone());
-		}
+		List<Equipment> workingList = equip.stream().map(Equipment::clone).collect(Collectors.toList());
 		Collections.sort(workingList, equipmentComparator);
 		 
 

@@ -234,11 +234,11 @@ public class KitDeity extends BaseKit
 
 		if (domainsToAdd != null)
 		{
-			for (Domain domain : domainsToAdd)
+			domainsToAdd.forEach(domain ->
 			{
 				aPC.addDomain(domain);
 				DomainApplication.applyDomain(aPC, domain);
-			}
+			});
 		}
 		aPC.calcActiveBonuses();
 

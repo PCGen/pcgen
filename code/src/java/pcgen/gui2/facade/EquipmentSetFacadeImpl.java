@@ -338,10 +338,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 						&& getNumFreeSlots(slotNode) <= 0)
 					{
 						nodeList.removeElement(slotNode);
-						for (EquipNode inompatNode : getIncompatibleWeaponSlots(slotNode))
+						getIncompatibleWeaponSlots(slotNode).forEach(inompatNode ->
 						{
 							nodeList.removeElement(inompatNode);
-						}
+						});
 					}
 					
 					updateTotalQuantity(es.getItem(), es.getItem().getQty()
@@ -367,10 +367,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 
 		// Now process the children
-		for (EquipNodeImpl equipNodeImpl : children)
+		children.forEach(equipNodeImpl ->
 		{
 			addChildrenToPath(equipNodeImpl.getIdPath(), equipList, equipNodeImpl);
-		}
+		});
 	}
 
 	/**
@@ -508,13 +508,13 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		String parentNewPath, Map<String, EquipNodeImpl> origPathToNode,
 		Map<String, EquipSet> origPathToEquipSet)
 	{
-		for (Entry<String, EquipSet> entry : origPathToEquipSet.entrySet())
+		origPathToEquipSet.entrySet().forEach(entry ->
 		{
 			String origItemPath = entry.getKey();
 			EquipSet itemEs = entry.getValue();
 
 			if (origItemPath.startsWith(parentOrigPath)
-				&& !origItemPath.equals(parentOrigPath))
+					&& !origItemPath.equals(parentOrigPath))
 			{
 				String newItemPath =
 						origItemPath.replace(parentOrigPath, parentNewPath);
@@ -526,7 +526,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 					nodeList.modifyElement(node);
 				}
 			}
-		}
+		});
 	}
 
 	/**
@@ -556,10 +556,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	private Map<String, EquipSet> buildPathEquipSetMap()
 	{
 		Map<String, EquipSet> esMap = new HashMap<>();
-		for (EquipSet es : charDisplay.getEquipSet())
+		charDisplay.getEquipSet().forEach(es ->
 		{
 			esMap.put(es.getIdPath(), es);
-		}
+		});
 		return esMap;
 	}
 	
@@ -700,10 +700,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			&& getNumFreeSlots(targetNode) <= 0)
 		{
 			nodeList.removeElement(targetNode);
-			for (EquipNode inompatNode : getIncompatibleWeaponSlots(targetNode))
+			getIncompatibleWeaponSlots(targetNode).forEach(inompatNode ->
 			{
 				nodeList.removeElement(inompatNode);
-			}
+			});
 		}
 		
 		updateTotalWeight(newItem, quantity, parent.getBodyStructure());
@@ -1097,10 +1097,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 
-		for (EquipNode node : equipToBeRemoved)
+		equipToBeRemoved.forEach(node ->
 		{
 			removeEquipment(node, getQuantity(node));
-		}
+		});
 	}
 
 	/**
@@ -1183,10 +1183,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 		weaponSlots.removeAll(incompatNodes);
-		for (EquipNode node : weaponSlots)
+		weaponSlots.forEach(node ->
 		{
 			nodeList.addElement(0, node);
-		}
+		});
 	}
 
 	private static boolean affectsWeaponSlots(EquipNode equipNode)
@@ -1237,24 +1237,18 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		if (pcHasUnequippedNaturalWeapons())
 		{
 			// Ensure natural weapon locations are visible
-			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
+			naturalWeaponNodes.values().stream().filter(natWpnEquipNode -> !nodeList.containsElement(natWpnEquipNode)).forEach(natWpnEquipNode ->
 			{
-				if (!nodeList.containsElement(natWpnEquipNode))
-				{
-					nodeList.addElement(natWpnEquipNode);
-				}
-			}
+				nodeList.addElement(natWpnEquipNode);
+			});
 		}
 		else
 		{
 			// Ensure natural weapon locations are not visible
-			for (EquipNodeImpl natWpnEquipNode : naturalWeaponNodes.values())
+			naturalWeaponNodes.values().stream().filter(natWpnEquipNode -> nodeList.containsElement(natWpnEquipNode)).forEach(natWpnEquipNode ->
 			{
-				if (nodeList.containsElement(natWpnEquipNode))
-				{
-					nodeList.removeElement(natWpnEquipNode);
-				}
-			}
+				nodeList.removeElement(natWpnEquipNode);
+			});
 		}
 	}
 	
@@ -1321,23 +1315,23 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		neededPNs.addAll(hiddenPhantomNodes.stream().filter(node -> getNumFreeSlots(node) > 0).map(node -> (EquipNodeImpl) node).collect(Collectors.toList()));
 		
 		// Remove the phantom nodes flagged, add to hiddenPNs as needed
-		for (EquipNode node : nodesToBeRemoved)
+		nodesToBeRemoved.forEach(node ->
 		{
 			nodeList.removeElement(node);
 			if (getQuantity(node) <= 0)
 			{
 				hiddenPhantomNodes.add((EquipNodeImpl) node);
 			}
-		}
+		});
 		
 		// Add any now needed phantom nodes to the visible list
 		neededPNs.removeAll(presentPNs);
-		for (EquipNodeImpl restoredNode : neededPNs)
+		neededPNs.forEach(restoredNode ->
 		{
 			nodeList.addElement(0, restoredNode);
 			addCompatWeaponSlots(restoredNode);
 			hiddenPhantomNodes.remove(restoredNode);
-		}
+		});
 	}
 
 
@@ -1660,10 +1654,10 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 
-		for (EquipNode node : equipToBeRemoved)
+		equipToBeRemoved.forEach(node ->
 		{
 			removeEquipment(node, getQuantity(node));
-		}
+		});
 	}
 
 	@Override
@@ -2057,14 +2051,14 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 			}
 		}
 		List<EquipNodeImpl> affectedList = findEquipmentNodes(equipmentFacade);
-		for (EquipNodeImpl equipNode : affectedList)
+		affectedList.forEach(equipNode ->
 		{
 			EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());
 			if (eSet != null)
 			{
 				removeEquipment(equipNode, eSet.getQty().intValue());
 			}
-		}
+		});
 	}
 
 

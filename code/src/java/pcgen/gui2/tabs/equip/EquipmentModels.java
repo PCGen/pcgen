@@ -670,10 +670,10 @@ public class EquipmentModels
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
-				for (EquipNode node : paths)
+				paths.forEach(node ->
 				{
 					equipSet.moveEquipment(node, -1);
-				}
+				});
 				selectNodeInEquipmentSetTable(paths.get(0));
 			}
 		}
@@ -707,10 +707,10 @@ public class EquipmentModels
 			List<EquipNode> paths = getSelectedEquipmentSetNodes();
 			if (!paths.isEmpty())
 			{
-				for (EquipNode node : paths)
+				paths.forEach(node ->
 				{
 					equipSet.moveEquipment(node, 1);
-				}
+				});
 				selectNodeInEquipmentSetTable(paths.get(0));
 			}
 		}

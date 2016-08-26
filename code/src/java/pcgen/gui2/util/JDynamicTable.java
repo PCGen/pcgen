@@ -165,10 +165,10 @@ public class JDynamicTable extends JTableEx
 		menu.removeAll();
 		if (!columns.isEmpty())
 		{
-			for (TableColumn column : columns)
+			columns.forEach(column ->
 			{
 				menu.add(createMenuItem(column));
-			}
+			});
 			cornerButton.setVisible(true);
 		}
 		else

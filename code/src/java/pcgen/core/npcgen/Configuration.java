@@ -174,15 +174,8 @@ public class Configuration
 
 	public List<GenderGeneratorOption> getGenderOptions()
 	{
-		final List<GenderGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof GenderGeneratorOption )
-			{
-				ret.add((GenderGeneratorOption)opt);
-			}
-		}
+		final List<GenderGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof GenderGeneratorOption).map(opt -> (GenderGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( final Gender gender : Gender.values() )
 		{
 			final GenderGeneratorOption opt = new GenderGeneratorOption();
@@ -195,15 +188,8 @@ public class Configuration
 
 	public List<ClassGeneratorOption> getClassOptions()
 	{
-		final List<ClassGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof ClassGeneratorOption )
-			{
-				ret.add((ClassGeneratorOption)opt);
-			}
-		}
+		final List<ClassGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof ClassGeneratorOption).map(opt -> (ClassGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
@@ -216,15 +202,8 @@ public class Configuration
 
 	public List<LevelGeneratorOption> getLevelOptions()
 	{
-		final List<LevelGeneratorOption> ret = new ArrayList<>();
-		
-		for ( final GeneratorOption opt : theGeneratorOptions )
-		{
-			if ( opt instanceof LevelGeneratorOption )
-			{
-				ret.add((LevelGeneratorOption)opt);
-			}
-		}
+		final List<LevelGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof LevelGeneratorOption).map(opt -> (LevelGeneratorOption) opt).collect(Collectors.toList());
+
 		for ( int i = 1; i <= 20; i++ )
 		{
 			final LevelGeneratorOption opt = new LevelGeneratorOption();

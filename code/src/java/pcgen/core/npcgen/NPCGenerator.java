@@ -321,12 +321,13 @@ public class NPCGenerator
 		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
 		aPC.rollStats(Constants.CHARACTER_STAT_METHOD_ROLLED, statOrder, aRollMethod, true);
-		for (PCStat stat : aPC.getStatSet())
+		//$NON-NLS-1$//$NON-NLS-2$
+		aPC.getStatSet().forEach(stat ->
 		{
-			Logging.debugPrint( "NPCGenerator: Setting stat " + stat.getKeyName()
-				+ " to " + aPC.getStat(stat) );  //$NON-NLS-1$//$NON-NLS-2$
+			Logging.debugPrint("NPCGenerator: Setting stat " + stat.getKeyName()
+					+ " to " + aPC.getStat(stat));  //$NON-NLS-1$//$NON-NLS-2$
 			aPC.setStat(stat, aPC.getStat(stat));
-		}
+		});
 	}
 
 	private WeightedCollection<Ability> getFeatWeights(final PCClass aClass)

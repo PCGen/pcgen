@@ -75,10 +75,10 @@ public class FavoredClassFacet extends
 				.getListFor(ListKey.FAVORED_CLASS);
 		if (list != null)
 		{
-			for (CDOMReference<? extends PCClass> ref : list)
+			list.forEach(ref ->
 			{
 				addAll(dfce.getCharID(), ref.getContainedObjects(), cdo);
-			}
+			});
 		}
 	}
 

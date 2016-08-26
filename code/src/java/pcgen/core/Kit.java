@@ -160,15 +160,15 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			pc.setGold(pc.getGold().subtract(totalCostToBeCharged));
 		}
 
-		for (KitStat kStat : getStats())
+		getStats().forEach(kStat ->
 		{
 			kStat.apply(pc);
-		}
+		});
 
-		for (BaseKit bk : thingsToAdd)
+		thingsToAdd.forEach(bk ->
 		{
 			bk.apply(pc);
-		}
+		});
 		pc.setCalcEquipmentList();
 
 		if (getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT)
@@ -304,11 +304,11 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
 		PlayerCharacter tempPC = subkit ? aPC : (PlayerCharacter) aPC.clone();
-		
-		for (KitStat kStat : getStats())
+
+		getStats().forEach(kStat ->
 		{
 			kStat.testApply(this, tempPC, warnings);
-		}
+		});
 
 		for (BaseKit bk : getSafeListFor(ListKey.KIT_TASKS))
 		{
@@ -434,10 +434,10 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 				Logging.log(Logging.WARNING,
 					"The following warnings were encountered when applying the kit "
 						+ aKit.getKeyName());
-				for (String string : warnings)
+				warnings.forEach(string ->
 				{
 					Logging.log(Logging.WARNING, "  " + string);
-				}
+				});
 			}
 		}
 		aKit.processKit(aPC, thingsToAdd, 0);

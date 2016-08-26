@@ -100,19 +100,16 @@ public final class KitAbilities extends BaseKit
 			firstDone = true;
 
 			String choice = ref.getChoice();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().stream().filter(a -> a != null).forEach(a ->
 			{
-				if (a != null)
+				sb.append(a.getKeyName());
+				if (choice != null)
 				{
-					sb.append(a.getKeyName());
-					if (choice != null)
-					{
-						sb.append(" (");
-						sb.append(choice);
-						sb.append(')');
-					}
+					sb.append(" (");
+					sb.append(choice);
+					sb.append(')');
 				}
-			}
+			});
 		}
 
 		if (isFree())
@@ -252,16 +249,16 @@ public final class KitAbilities extends BaseKit
 	@Override
 	public void apply(PlayerCharacter aPC)
 	{
-		for (CNAbilitySelection cnas : abilitiesToAdd)
+		abilitiesToAdd.forEach(cnas ->
 		{
 			aPC.addAbility(cnas, UserSelection.getInstance(), UserSelection.getInstance());
-			
+
 			if (isFree())
 			{
 				AbilityCategory category = catRef.get();
 				aPC.adjustAbilities(category, new BigDecimal(1));
 			}
-		}
+		});
 	}
 
 	/**

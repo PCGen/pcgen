@@ -457,14 +457,7 @@ public class BonusManager
 		// TypedBonus.totalBonusesByType(bonuses);
 		// return CoreUtility.commaDelimit(bonusStrings);
 
-		final Set<String> keys = new TreeSet<>();
-		for (String fullyQualifiedBonusType : activeBonusMap.keySet())
-		{
-			if (fullyQualifiedBonusType.startsWith(prefix))
-			{
-				keys.add(fullyQualifiedBonusType);
-			}
-		}
+		final Set<String> keys = activeBonusMap.keySet().stream().filter(fullyQualifiedBonusType -> fullyQualifiedBonusType.startsWith(prefix)).collect(Collectors.toCollection(TreeSet::new));
 		for (String fullyQualifiedBonusType : keys)
 		{
 			// make a list of keys that end with .REPLACE

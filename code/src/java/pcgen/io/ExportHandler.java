@@ -2367,12 +2367,14 @@ public final class ExportHandler
 		{
 			List<Follower> aList = new ArrayList<>();
 
-			for (Follower follower : aPC.getFollowerList())
+			// only allow followers that currently loaded
+// Otherwise the stats a zero
+			aPC.getFollowerList().forEach(follower ->
 			{
 				// only allow followers that currently loaded
 				// Otherwise the stats a zero
 				aList.addAll(Globals.getPCList().stream().filter(pc -> pc.getFileName().equals(follower.getFileName())).map(pc -> follower).collect(Collectors.toList()));
-			}
+			});
 
 			StringTokenizer aTok = new StringTokenizer(aString, ".");
 			aTok.nextToken(); // FOLLOWERTYPE

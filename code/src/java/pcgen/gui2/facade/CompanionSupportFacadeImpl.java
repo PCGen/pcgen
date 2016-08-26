@@ -26,6 +26,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
@@ -183,13 +184,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
 			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
-			for (FollowerOption followerOpt : fMap.keySet())
-			{
-				if (followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null))
-				{
-					companions.add(new CompanionStub(followerOpt.getRace(), compList.getKeyName()));
-				}
-			}
+			companions.addAll(fMap.keySet().stream().filter(followerOpt -> followerOpt.getRace() != Globals.s_EMPTYRACE && followerOpt.qualifies(theCharacter, null)).map(followerOpt -> new CompanionStub(followerOpt.getRace(), compList.getKeyName())).collect(Collectors.toList()));
 			int maxVal = theCharacter.getMaxFollowers(compList);
 			if (maxVal == 0)
 			{
