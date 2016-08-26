@@ -52,28 +52,22 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 	private final JLabel fileLabel;
 	private final JLabel warningLabel;
 
-	private FilenameFilter pccFileFilter = new FilenameFilter()
+	private FilenameFilter pccFileFilter = (parentDir, fileName) ->
 	{
-
-        @Override
-		public boolean accept(File parentDir, String fileName)
+		/*
+		 * This is a specific "hack" in order to speed loading when
+		 * in a development (Subversion-based) environment - Tom
+		 * Parker 1/17/07
+		 */
+		if (".svn".equals(fileName))
 		{
-			/*
-			 * This is a specific "hack" in order to speed loading when
-			 * in a development (Subversion-based) environment - Tom
-			 * Parker 1/17/07
-			 */
-			if (".svn".equals(fileName))
-			{
-				return false;
-			}
-			if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
-			{
-				return true;
-			}
-			return new File(parentDir, fileName).isDirectory();
+			return false;
 		}
-
+		if (StringUtils.endsWithIgnoreCase(fileName, ".pcc"))
+		{
+			return true;
+		}
+		return new File(parentDir, fileName).isDirectory();
 	};
 
 	private List<Campaign> campaignList;
@@ -137,44 +131,40 @@ public class WriteDirectoryPanel extends ConvertSubPanel
 				"Please select the Directory where Converted files should be written: ");
 		JButton button = new JButton("Browse...");
 		button.setMnemonic('r');
-		button.addActionListener(new ActionListener()
+		button.addActionListener(arg0 ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent arg0)
+			JFileChooser chooser = new JFileChooser();
+			chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
+			chooser.setDialogType(JFileChooser.OPEN_DIALOG);
+			chooser.setCurrentDirectory(path.getParentFile());
+			chooser.setSelectedFile(path);
+			while (true)
 			{
-				JFileChooser chooser = new JFileChooser();
-				chooser.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
-				chooser.setDialogType(JFileChooser.OPEN_DIALOG);
-				chooser.setCurrentDirectory(path.getParentFile());
-				chooser.setSelectedFile(path);
-				while (true)
+				int open = chooser.showOpenDialog(null);
+				if (open == JFileChooser.APPROVE_OPTION)
 				{
-					int open = chooser.showOpenDialog(null);
-					if (open == JFileChooser.APPROVE_OPTION)
+					File fileToOpen = chooser.getSelectedFile();
+					if (fileToOpen.isDirectory() && fileToOpen.canRead()
+							&& fileToOpen.canWrite())
 					{
-						File fileToOpen = chooser.getSelectedFile();
-						if (fileToOpen.isDirectory() && fileToOpen.canRead()
-								&& fileToOpen.canWrite())
-						{
-							path = fileToOpen;
-							pc.put(ObjectKey.WRITE_DIRECTORY, path);
-							fileLabel.setText(path.getAbsolutePath());
-							PCGenSettings context = PCGenSettings.getInstance();
-							context.setProperty(
-								PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
-								path.getAbsolutePath());
-							showWarning();
-							break;
-						}
-						JOptionPane.showMessageDialog(null,
-								"Selection must be a valid "
-										+ "(readable & writeable) Directory");
-						chooser.setCurrentDirectory(path.getParentFile());
-					}
-					else if (open == JFileChooser.CANCEL_OPTION)
-					{
+						path = fileToOpen;
+						pc.put(ObjectKey.WRITE_DIRECTORY, path);
+						fileLabel.setText(path.getAbsolutePath());
+						PCGenSettings context = PCGenSettings.getInstance();
+						context.setProperty(
+							PCGenSettings.CONVERT_OUTPUT_SAVE_PATH,
+							path.getAbsolutePath());
+						showWarning();
 						break;
 					}
+					JOptionPane.showMessageDialog(null,
+							"Selection must be a valid "
+									+ "(readable & writeable) Directory");
+					chooser.setCurrentDirectory(path.getParentFile());
+				}
+				else if (open == JFileChooser.CANCEL_OPTION)
+				{
+					break;
 				}
 			}
 		});

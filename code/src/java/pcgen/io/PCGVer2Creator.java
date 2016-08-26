@@ -1378,13 +1378,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
-		Collections.sort(categories, new Comparator<AbilityCategory>() {
-			@Override
-			public int compare(AbilityCategory  a, AbilityCategory  b)
-			{
-				return  a.getKeyName().compareTo(b.getKeyName());
-			}
-		});
+		Collections.sort(categories, (a, b) -> a.getKeyName().compareTo(b.getKeyName()));
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -2285,20 +2279,18 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		final List<String> trackList = new ArrayList<>();
 		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<>(
-                new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
-                    @Override
-                    public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo> a, Map.Entry<BonusObj, BonusManager.TempBonusInfo> b) {
-                        BonusObj keyA = a.getKey();
-                        BonusObj keyB = b.getKey();
-                        if (!keyA.getBonusName().equals(keyB.getBonusName())) {
-                            return keyA.getBonusName().compareTo(keyB.getBonusName());
-                        }
-                        if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
-                            return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
-                        }
-                        return keyA.getPCCText().compareTo(keyB.getPCCText());
-                    }
-                });
+				(a, b) ->
+				{
+				    BonusObj keyA = a.getKey();
+				    BonusObj keyB = b.getKey();
+				    if (!keyA.getBonusName().equals(keyB.getBonusName())) {
+				        return keyA.getBonusName().compareTo(keyB.getBonusName());
+				    }
+				    if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
+				        return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
+				    }
+				    return keyA.getPCCText().compareTo(keyB.getPCCText());
+				});
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
 		
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())

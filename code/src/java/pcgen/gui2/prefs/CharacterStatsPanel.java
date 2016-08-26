@@ -416,32 +416,11 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	 */
 	private void addAbilitiesPanelListeners()
 	{
-		scoreListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesAllSameButton.setSelected(true);
-			}
-		};
+		scoreListener = evt -> abilitiesAllSameButton.setSelected(true);
 
-		purchaseModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesPurchasedButton.setSelected(true);
-			}
-		};
+		purchaseModeListener = evt -> abilitiesPurchasedButton.setSelected(true);
 
-		rolledModeListener = new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				abilitiesRolledButton.setSelected(true);
-			}
-		};
+		rolledModeListener = evt -> abilitiesRolledButton.setSelected(true);
 
 		startListeners();
 	}

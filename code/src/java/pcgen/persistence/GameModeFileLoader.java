@@ -77,34 +77,28 @@ public class GameModeFileLoader extends PCGenTask
 {
 
 	private static final FilenameFilter gameModeFileFilter =
-			new FilenameFilter()
+			(aFile, aString) ->
 			{
-
-        @Override
-				public boolean accept(File aFile, String aString)
+				try
 				{
-					try
-					{
-						final File d = new File(aFile, aString);
+					final File d = new File(aFile, aString);
 
-						if (d.isDirectory())
-						{
-							// the directory must contain
-							// a "miscinfo.lst" file and a
-							// "statsandchecks.lst" file to be
-							// a complete gameMode
-							return new File(d, "statsandchecks.lst").exists() &&
-									new File(d, "miscinfo.lst").exists();
-						}
-					}
-					catch (SecurityException e)
+					if (d.isDirectory())
 					{
-						Logging.errorPrint("GameModes.listGameFiles", e);
+						// the directory must contain
+						// a "miscinfo.lst" file and a
+						// "statsandchecks.lst" file to be
+						// a complete gameMode
+						return new File(d, "statsandchecks.lst").exists() &&
+								new File(d, "miscinfo.lst").exists();
 					}
-
-					return false;
+				}
+				catch (SecurityException e)
+				{
+					Logging.errorPrint("GameModes.listGameFiles", e);
 				}
 
+				return false;
 			};
 
 	@Override

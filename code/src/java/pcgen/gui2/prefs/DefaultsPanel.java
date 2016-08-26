@@ -179,14 +179,10 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
 		if (sheetDir.exists() && sheetDir.isDirectory())
 		{
-			String[] files = sheetDir.list(new FilenameFilter()
+			String[] files = sheetDir.list((path, filename) ->
 			{
-				@Override
-				public boolean accept(File path, String filename)
-				{
-					File file = new File(path, filename);
-					return file.isFile() && !file.isHidden();
-				}
+				File file = new File(path, filename);
+				return file.isFile() && !file.isHidden();
 			});
 			//String[] files = sheetDir.list();
 			previewSheetCombo.removeAllItems();

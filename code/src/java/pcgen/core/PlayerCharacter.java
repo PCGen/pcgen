@@ -5676,59 +5676,56 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
 	{
-		new File(aDirectory).list(new FilenameFilter() {
-			@Override
-			public boolean accept(final File parentDir, final String fileName)
+		new File(aDirectory).list((parentDir, fileName) ->
+		{
+			final File descriptionFile = new File(parentDir, fileName);
+
+			if (PCGFile.isPCGenListFile(descriptionFile))
 			{
-				final File descriptionFile = new File(parentDir, fileName);
+				BufferedReader descriptionReader = null;
 
-				if (PCGFile.isPCGenListFile(descriptionFile))
+				try
 				{
-					BufferedReader descriptionReader = null;
-
-					try
+					if (descriptionFile.exists())
 					{
-						if (descriptionFile.exists())
+						final char[] inputLine;
+
+						// final BufferedReader descriptionReader = new
+						// BufferedReader(new FileReader(descriptionFile));
+						descriptionReader = new BufferedReader(new InputStreamReader(new FileInputStream(
+								descriptionFile), "UTF-8"));
+
+						final int length = (int) descriptionFile.length();
+						inputLine = new char[length];
+						descriptionReader.read(inputLine, 0, length);
+						setDescriptionLst(getDescriptionLst() + new String(inputLine));
+					}
+				} catch (IOException exception)
+				{
+					Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
+				} finally
+				{
+					if (descriptionReader != null)
+					{
+						try
 						{
-							final char[] inputLine;
-
-							// final BufferedReader descriptionReader = new
-							// BufferedReader(new FileReader(descriptionFile));
-							descriptionReader = new BufferedReader(new InputStreamReader(new FileInputStream(
-									descriptionFile), "UTF-8"));
-
-							final int length = (int) descriptionFile.length();
-							inputLine = new char[length];
-							descriptionReader.read(inputLine, 0, length);
-							setDescriptionLst(getDescriptionLst() + new String(inputLine));
-						}
-					} catch (IOException exception)
-					{
-						Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
-					} finally
-					{
-						if (descriptionReader != null)
+							descriptionReader.close();
+						} catch (IOException e)
 						{
-							try
-							{
-								descriptionReader.close();
-							} catch (IOException e)
-							{
-								Logging.errorPrint(
-										"Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
-										e);
+							Logging.errorPrint(
+									"Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
+									e);
 
-								// Not much to do...
-							}
+							// Not much to do...
 						}
 					}
-				} else if (parentDir.isDirectory())
-				{
-					loadDescriptionFilesInDirectory(parentDir.getPath() + File.separator + fileName);
 				}
-
-				return false;
+			} else if (parentDir.isDirectory())
+			{
+				loadDescriptionFilesInDirectory(parentDir.getPath() + File.separator + fileName);
 			}
+
+			return false;
 		});
 
 		return false;

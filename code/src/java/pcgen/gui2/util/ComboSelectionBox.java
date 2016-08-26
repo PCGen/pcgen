@@ -143,16 +143,7 @@ public class ComboSelectionBox extends JPanel implements ItemSelectable
         {
 
             SwingUtilities.invokeLater(
-                    new Runnable()
-                    {
-
-                    	@Override
-                        public void run()
-                        {
-                            dialog.display();
-                        }
-
-                    });
+		            () -> dialog.display());
         }
 
     }

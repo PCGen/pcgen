@@ -146,14 +146,7 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		}
 
 		// Focus was really lost; commit the update but do it after the focus is lost
-		final Runnable doUpdate = new Runnable()
-		{
-			@Override
-			public void run()
-			{
-				commitSelectedItem(selectedItem);
-			}
-		};
+		final Runnable doUpdate = () -> commitSelectedItem(selectedItem);
 
 		SwingUtilities.invokeLater(doUpdate);
 	}

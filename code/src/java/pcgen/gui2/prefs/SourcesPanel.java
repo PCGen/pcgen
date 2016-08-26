@@ -148,17 +148,13 @@ public class SourcesPanel extends PCGenPrefsPanel
 		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs")); //$NON-NLS-1$
 		gridbag.setConstraints(loadURL, c);
 		this.add(loadURL);
-		loadURL.addActionListener(new ActionListener()
+		loadURL.addActionListener(evt ->
 		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
+			if (((JCheckBox) evt.getSource()).isSelected())
 			{
-				if (((JCheckBox) evt.getSource()).isSelected())
-				{
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
-						MessageType.WARNING);
-				}
+				ShowMessageDelegate.showMessageDialog(LanguageBundle
+					.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+					MessageType.WARNING);
 			}
 		});
 

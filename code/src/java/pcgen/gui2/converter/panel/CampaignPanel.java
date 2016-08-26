@@ -144,10 +144,7 @@ public class CampaignPanel extends ConvertSubPanel
 		    }
 		};
 		table.getSelectionModel().addListSelectionListener(
-			new ListSelectionListener()
-			{
-				@Override
-				public void valueChanged(ListSelectionEvent event)
+				event ->
 				{
 					pc.removeListFor(ListKey.CAMPAIGN);
 					int[] selRows = table.getSelectedRows();
@@ -168,7 +165,6 @@ public class CampaignPanel extends ConvertSubPanel
 						fireProgressEvent(ProgressEvent.ALLOWED);
 					}
 				}
-			}
 		);
 
 		JScrollPane listScroller = new JScrollPane(table);

@@ -245,14 +245,7 @@ public final class PurchaseModeFrame extends JDialog
 
 		jPanel3 = new JPanel();
 		okButton = new JButton();
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent e)
-				{
-					CustomData.writePurchaseModeConfiguration();
-				}
-			});
+		okButton.addActionListener(e -> CustomData.writePurchaseModeConfiguration());
 
 		jScrollPane1 = new JScrollPane();
 
@@ -277,14 +270,7 @@ public final class PurchaseModeFrame extends JDialog
 		jPanel1.add(purchaseScoreMinLabel);
 
 		purchaseScoreMinEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMinEdit.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				purchaseScoreMinValueActionPerformed();
-			}
-		});
+		purchaseScoreMinEdit.addActionListener(evt -> purchaseScoreMinValueActionPerformed());
 		purchaseScoreMinEdit.addFocusListener(new FocusAdapter()
 		{
 			@Override
@@ -298,27 +284,13 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMinIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMinIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMin")); //$NON-NLS-1$
-		purchaseScoreMinIncreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMinIncreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMinIncreaseButton.addActionListener(evt -> purchaseScoreMinIncreaseButtonActionPerformed());
 
 		jPanel1.add(purchaseScoreMinIncreaseButton);
 
 		purchaseScoreMinDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMinDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMin")); //$NON-NLS-1$
-		purchaseScoreMinDecreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMinDecreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMinDecreaseButton.addActionListener(evt -> purchaseScoreMinDecreaseButtonActionPerformed());
 
 		jPanel1.add(purchaseScoreMinDecreaseButton);
 
@@ -338,14 +310,7 @@ public final class PurchaseModeFrame extends JDialog
 		jPanel2.add(purchaseScoreMaxLabel);
 
 		purchaseScoreMaxEdit.setHorizontalAlignment(SwingConstants.RIGHT);
-		purchaseScoreMaxEdit.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				purchaseScoreMaxValueActionPerformed();
-			}
-		});
+		purchaseScoreMaxEdit.addActionListener(evt -> purchaseScoreMaxValueActionPerformed());
 		purchaseScoreMaxEdit.addFocusListener(new FocusAdapter()
 		{
 			@Override
@@ -359,27 +324,13 @@ public final class PurchaseModeFrame extends JDialog
 
 		purchaseScoreMaxIncreaseButton.setText(LanguageBundle.getString("in_Prefs_plus")); //$NON-NLS-1$
 		purchaseScoreMaxIncreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_incMax")); //$NON-NLS-1$
-		purchaseScoreMaxIncreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMaxIncreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMaxIncreaseButton.addActionListener(evt -> purchaseScoreMaxIncreaseButtonActionPerformed());
 
 		jPanel2.add(purchaseScoreMaxIncreaseButton);
 
 		purchaseScoreMaxDecreaseButton.setText(LanguageBundle.getString("in_Prefs_minus")); //$NON-NLS-1$
 		purchaseScoreMaxDecreaseButton.setToolTipText(LanguageBundle.getString("in_Prefs_decMax")); //$NON-NLS-1$
-		purchaseScoreMaxDecreaseButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					purchaseScoreMaxDecreaseButtonActionPerformed();
-				}
-			});
+		purchaseScoreMaxDecreaseButton.addActionListener(evt -> purchaseScoreMaxDecreaseButtonActionPerformed());
 
 		jPanel2.add(purchaseScoreMaxDecreaseButton);
 
@@ -439,35 +390,14 @@ public final class PurchaseModeFrame extends JDialog
 		purchaseMethodPanel.add(purchaseMethodPointsPanel, gridBagConstraints);
 
 		currentPurchaseMethods.setPreferredSize(new Dimension(140, 21));
-		currentPurchaseMethods.addItemListener(new ItemListener()
-			{
-				@Override
-				public void itemStateChanged(ItemEvent evt)
-				{
-					currentPurchaseMethodsActionPerformed();
-				}
-			});
+		currentPurchaseMethods.addItemListener(evt -> currentPurchaseMethodsActionPerformed());
 
 		purchaseMethodButtonPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 		addMethodButton.setText(LanguageBundle.getString("in_Prefs_new")); //$NON-NLS-1$
-		addMethodButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					addMethodButtonActionPerformed();
-				}
-			});
+		addMethodButton.addActionListener(evt -> addMethodButtonActionPerformed());
 		purchaseMethodButtonPanel.add(addMethodButton);
 		removeMethodButton.setText(LanguageBundle.getString("in_Prefs_remove")); //$NON-NLS-1$
-		removeMethodButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					removeMethodButtonActionPerformed();
-				}
-			});
+		removeMethodButton.addActionListener(evt -> removeMethodButtonActionPerformed());
 		purchaseMethodButtonPanel.add(removeMethodButton);
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -494,39 +424,18 @@ public final class PurchaseModeFrame extends JDialog
 
 		okButton.setText(LanguageBundle.getString("in_Prefs_OK")); //$NON-NLS-1$
 		okButton.setToolTipText(LanguageBundle.getString("in_Prefs_OKTip")); //$NON-NLS-1$
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		jPanel3.add(okButton);
 
 		resetButton.setText(LanguageBundle.getString("in_Prefs_Reset")); //$NON-NLS-1$
 		resetButton.setToolTipText(LanguageBundle.getString("in_Prefs_ResetTip")); //$NON-NLS-1$
-		resetButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					resetButtonActionPerformed();
-				}
-			});
+		resetButton.addActionListener(evt -> resetButtonActionPerformed());
 
 		jPanel3.add(resetButton);
 		cancelButton.setText(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setToolTipText(LanguageBundle.getString("in_Prefs_CancelTip")); //$NON-NLS-1$
-		cancelButton.addActionListener(new ActionListener()
-			{
-			@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		jPanel3.add(cancelButton);
 
