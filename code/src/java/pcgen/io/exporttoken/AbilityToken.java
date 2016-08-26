@@ -352,10 +352,10 @@ public class AbilityToken extends Token
 			MapToList<Ability, CNAbility> mtl =
                     new GenericMapToList<>(
                             LinkedHashMap.class);
-			for (Ability a : bList)
+			bList.forEach(a ->
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			});
 			return mtl;
 		}
 		catch (InstantiationException e)
@@ -406,10 +406,10 @@ public class AbilityToken extends Token
 			MapToList<Ability, CNAbility> mtl =
                     new GenericMapToList<>(
                             LinkedHashMap.class);
-			for (Ability a : bList)
+			bList.forEach(a ->
 			{
 				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			});
 			return mtl;
 		}
 		catch (InstantiationException e)
@@ -556,10 +556,10 @@ public class AbilityToken extends Token
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
 				List<String> assocs = new ArrayList<>();
-				for (CNAbility cna : abilities)
+				abilities.forEach(cna ->
 				{
 					assocs.addAll(pc.getAssociationExportList(cna));
-				}
+				});
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
@@ -656,10 +656,10 @@ public class AbilityToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 		List<String> assocs  = new ArrayList<>();
-		for (CNAbility cna : abilities)
+		abilities.forEach(cna ->
 		{
 			assocs.addAll(pc.getAssociationExportList(cna));
-		}
+		});
 		Collections.sort(assocs);
 		int count = assocs.size();
 		if (index < count)
@@ -690,14 +690,14 @@ public class AbilityToken extends Token
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
 		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
 		StringBuilder buff = new StringBuilder();
-		for (AspectName key : sortedKeys)
+		sortedKeys.forEach(key ->
 		{
 			if (buff.length() > 0)
 			{
 				buff.append(", ");
 			}
 			buff.append(Aspect.printAspect(pc, key, abilities));
-		}
+		});
 		return buff.toString();
 	}
 
@@ -789,16 +789,13 @@ public class AbilityToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
+		allCats.stream().filter(aCat -> AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory)).forEach(aCat ->
 		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
+			pc.getPoolAbilities(aCat, Nature.NORMAL).forEach(cna ->
 			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+				listOfAbilities.addToListFor(cna.getAbility(), cna);
+			});
+		});
 		return listOfAbilities;
 	}
 

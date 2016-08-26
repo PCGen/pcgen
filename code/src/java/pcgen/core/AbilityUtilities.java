@@ -70,11 +70,11 @@ public class AbilityUtilities
 			mc.act(mc.driveChoice(aPC), ability, aPC);
 		}
 
-		for (TransitionChoice<Kit> kit : ability
-			.getSafeListFor(ListKey.KIT_CHOICE))
+		ability
+				.getSafeListFor(ListKey.KIT_CHOICE).forEach(kit ->
 		{
 			kit.act(kit.driveChoice(aPC), ability, aPC);
-		}
+		});
 
 		aPC.adjustMoveRates();
 
@@ -289,30 +289,24 @@ public class AbilityUtilities
 		}
 
 		//Need to use only the new ones
-		for (T obj : newSelections)
-		{
-			removedSelections.remove(obj);
-		}
+		newSelections.forEach(removedSelections::remove);
 		//removedSelections.removeAll(newSelections);
-		for (T obj : origSelections)
-		{
-			newSelections.remove(obj);
-		}
+		origSelections.forEach(newSelections::remove);
 		//newSelections.removeAll(origSelections);
 
-		for (T sel : newSelections)
+		newSelections.forEach(sel ->
 		{
 			String selection = aMan.encodeChoice(sel);
 			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
 			pc.addAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
-		}
-		for (T sel : removedSelections)
+					UserSelection.getInstance());
+		});
+		removedSelections.forEach(sel ->
 		{
 			String selection = aMan.encodeChoice(sel);
 			CNAbilitySelection cnas = new CNAbilitySelection(cna, selection);
 			pc.removeAbility(cnas, UserSelection.getInstance(),
-				UserSelection.getInstance());
-		}
+					UserSelection.getInstance());
+		});
 	}
 }

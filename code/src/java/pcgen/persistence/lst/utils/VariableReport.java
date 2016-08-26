@@ -67,7 +67,7 @@ import freemarker.template.TemplateException;
  * @version $Revision$
  */
 
-public class VariableReport
+public final class VariableReport
 {
 
 	/**
