@@ -91,7 +91,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Helps Junit tests
  */
 @SuppressWarnings("nls")
-public class TestHelper
+public final class TestHelper
 {
 	private static boolean loaded = false;
 	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);

@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
-public class TreasureGenerator 
+public final class TreasureGenerator
 {
 	private static TreasureGenerator theInstance = new TreasureGenerator();
 	

@@ -129,13 +129,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		 */
 		private void populateFullCategoryList(String type, TabInfo tabInfo)
 		{
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
-			{
-				if (type.equals(category.getType()))
-				{
-					tabInfo.fullCategoryList.addElement(category);
-				}
-			}
+			categoryMap.getKeys().stream().filter(category -> type.equals(category.getType())).forEach(tabInfo.fullCategoryList::addElement);
 		}
 
 		@Override
@@ -189,7 +183,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		{
 			Map<String, List<AbilityCategoryFacade>> tempMap;
 			tempMap = new HashMap<>();
-			for (AbilityCategoryFacade category : categoryMap.getKeys())
+			categoryMap.getKeys().forEach(category ->
 			{
 				String type = category.getType();
 				if (!tempMap.containsKey(type))
@@ -197,8 +191,8 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 					tempMap.put(type, new ArrayList<>());
 				}
 				tempMap.get(type).add(category);
-			}
-			for (String type : tempMap.keySet())
+			});
+			tempMap.keySet().forEach(type ->
 			{
 				if (!typeMap.containsKey(type))
 				{
@@ -210,7 +204,7 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 					}
 				}
 				typeMap.get(type).categoryList.updateContents(tempMap.get(type));
-			}
+			});
 			Iterator<String> oldTypes = typeMap.keySet().iterator();
 			while (oldTypes.hasNext())
 			{
@@ -236,10 +230,10 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 		public final void install()
 		{
 			activeCategories.addListListener(this);
-			for (TabInfo tabInfo : tabs)
+			tabs.forEach(tabInfo ->
 			{
 				addTab(tabInfo.title);
-			}
+			});
 			setSelectedIndex(indexOfTab(selectedTitle));
 			abilityTab.restoreState(typeMap.get(selectedTitle).tabData);
 			addChangeListener(this);
