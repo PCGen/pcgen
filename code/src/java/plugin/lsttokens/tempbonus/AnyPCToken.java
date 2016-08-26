@@ -91,7 +91,7 @@ public class AnyPCToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "TEMPBONUS";
 	}
 
-	private String getFullTokenName()
+	private static String getFullTokenName()
 	{
 		return "TEMPBONUS:ANYPC";
 	}
