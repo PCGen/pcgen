@@ -56,8 +56,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
+						"B", "C", "E"}));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList(new String[]{"A",
 					"C", "D", "E"});
@@ -77,8 +77,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
+						"B", "C", "E"}));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList(new String[]{"F",
 					"G", "H", "I", "M"});
@@ -98,7 +98,7 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>();
+				new DefaultListFacade<>();
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList(new String[]{"A",
 					"C", "D", "E"});
@@ -118,8 +118,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
+						"B", "C", "E"}));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList();
 		theList.updateContents(newElements);
@@ -138,8 +138,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
+						"B", "C", "E"}));
 		theList.addListListener(listener);
 		List<String> newElements =
 				Arrays.asList(new String[]{"A", "C", "D", "E", "F", "G", "H",
@@ -161,10 +161,10 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(
-					Arrays.asList(new String[]{"A", "C", "D", "E", "F", "G",
-						"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-						"S", "T", "U", "V", "W", "X", "Y", "Z"}));
+				new DefaultListFacade<>(
+						Arrays.asList(new String[]{"A", "C", "D", "E", "F", "G",
+								"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+								"S", "T", "U", "V", "W", "X", "Y", "Z"}));
 		theList.addListListener(listener);
 		List<String> newElements =
 				Arrays.asList(new String[]{"A", "B", "C", "E"});

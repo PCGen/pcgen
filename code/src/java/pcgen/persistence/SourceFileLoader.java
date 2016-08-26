@@ -133,7 +133,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private PCClassLoader classLoader = new PCClassLoader();
 	private GenericLoader<Language> languageLoader =
-			new GenericLoader<Language>(Language.class);
+			new GenericLoader<>(Language.class);
 	private AbilityCategoryLoader abilityCategoryLoader =
 			new AbilityCategoryLoader();
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
@@ -142,20 +142,20 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private AbilityLoader abilityLoader = new AbilityLoader();
 	private FeatLoader featLoader = new FeatLoader();
-	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<PCTemplate>(PCTemplate.class);
-	private GenericLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<Equipment>(Equipment.class, "EQUIPMENT");
-	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<EquipmentModifier>(EquipmentModifier.class, "EQUIPMENT.PART");
-	private GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
-	private GenericLoader<Skill> skillLoader = new GenericLoader<Skill>(Skill.class);
-	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<WeaponProf>(WeaponProf.class);
-	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<ArmorProf>(ArmorProf.class);
-	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<ShieldProf>(ShieldProf.class);
-	private GenericLoader<Deity> deityLoader = new GenericLoader<Deity>(Deity.class);
-	private GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
-	private GenericLoader<PCCheck> savesLoader = new GenericLoader<PCCheck>(PCCheck.class);
-	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<PCAlignment>(PCAlignment.class);
-	private GenericLoader<PCStat> statLoader = new GenericLoader<PCStat>(PCStat.class);
-	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<SizeAdjustment>(SizeAdjustment.class);
+	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
+	private GenericLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "EQUIPMENT");
+	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "EQUIPMENT.PART");
+	private GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
+	private GenericLoader<Skill> skillLoader = new GenericLoader<>(Skill.class);
+	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
+	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
+	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
+	private GenericLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
+	private GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
+	private GenericLoader<PCCheck> savesLoader = new GenericLoader<>(PCCheck.class);
+	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
+	private GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
+	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<>(SizeAdjustment.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
@@ -165,9 +165,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	/*
 	 * Other properties
 	 */
-	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<CampaignSourceEntry>();
-	private final Set<String> sourcesSet = new TreeSet<String>();
-	private List<Campaign> loadedCampaigns = new ArrayList<Campaign>();
+	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<>();
+	private final Set<String> sourcesSet = new TreeSet<>();
+	private List<Campaign> loadedCampaigns = new ArrayList<>();
 	private StringBuilder sec15 = new StringBuilder(500);
 	private StringBuilder licensesToDisplayString = new StringBuilder(500);
 	private StringBuilder matureCampaigns = new StringBuilder(100);
@@ -190,7 +190,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			fileLists.initializeListFor(lk);
 		}
 		this.uiDelegate = delegate;
-		selectedCampaigns = new ArrayList<Campaign>();
+		selectedCampaigns = new ArrayList<>();
 		for (CampaignFacade campaign : selection.getCampaigns())
 		{
 			Campaign camp = Globals.getCampaignKeyed(campaign.getName());
@@ -266,7 +266,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	public List<String> getOtherLicenses()
 	{
-		List<String> licenses = new ArrayList<String>();
+		List<String> licenses = new ArrayList<>();
 		for (CampaignSourceEntry licenseFile : licenseFiles)
 		{
 			try
@@ -478,7 +478,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// Unload the existing campaigns and load our selected campaign
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		for (CampaignFacade campaignFacade : selectedCampaigns)
 		{
 			uris.add(((Campaign) campaignFacade).getSourceURI());
@@ -535,7 +535,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 					new DataSet(
 						context,
 						selectedGame,
-						new DefaultListFacade<CampaignFacade>(selectedCampaigns));
+							new DefaultListFacade<>(selectedCampaigns));
 //			//  Show the licenses
 //			showLicensesIfNeeded();
 //			showSponsorsIfNeeded();
@@ -716,7 +716,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	{
 		if (dataDefFileList == null)
 		{
-			dataDefFileList = new ArrayList<CampaignSourceEntry>();
+			dataDefFileList = new ArrayList<>();
 		}
 		if (dataDefFileList.isEmpty())
 		{
@@ -992,7 +992,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private Collection<Campaign> readPccFiles(
 		List<Campaign> aSelectedCampaignsList)
 	{
-		Set<Campaign> loadedSet = new HashSet<Campaign>();
+		Set<Campaign> loadedSet = new HashSet<>();
 
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...

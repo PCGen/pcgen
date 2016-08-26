@@ -63,7 +63,7 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 	 */
 	public void testGetUndecoratedName()
 	{
-		final List<String> specifics = new ArrayList<String>();
+		final List<String> specifics = new ArrayList<>();
 		specifics.add("quxx");
 
 		final String name = "foo (bar, baz)";

@@ -82,7 +82,7 @@ public class VariableLoader extends Observable
 	{
 		// Track which sources have been loaded already
 		Set<CampaignSourceEntry> loadedFiles =
-				new HashSet<CampaignSourceEntry>();
+				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)

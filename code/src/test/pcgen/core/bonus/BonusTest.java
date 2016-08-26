@@ -229,7 +229,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		setPCStat(character, intel, 18);
 		BonusObj bonus =
 				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
-		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		ArrayList<BonusObj> bonusList = new ArrayList<>();
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");
@@ -257,7 +257,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		setPCStat(character, str, 16);
 		BonusObj bonus =
 				Bonus.newBonus(context, "VISION|Darkvision|%LIST+10|TYPE=Magical Boon");
-		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		ArrayList<BonusObj> bonusList = new ArrayList<>();
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB2Assoc");
@@ -291,7 +291,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		setPCStat(character, intel, 18);
 		setPCStat(character, str, 16);
 		BonusObj bonus = Bonus.newBonus(context, "STAT|%LIST|%LIST+1");
-		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		ArrayList<BonusObj> bonusList = new ArrayList<>();
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB2AssocList");
@@ -331,7 +331,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		context.getReferenceContext().constructNowIfNecessary(PCClass.class, "Wizard");
 
 		BonusObj bonus = Bonus.newBonus(context, "SPELLKNOWN|%LIST|1");
-		ArrayList<BonusObj> bonusList = new ArrayList<BonusObj>();
+		ArrayList<BonusObj> bonusList = new ArrayList<>();
 		bonusList.add(bonus);
 		Ability testBonus = new Ability();
 		testBonus.setName("TB1Assoc");

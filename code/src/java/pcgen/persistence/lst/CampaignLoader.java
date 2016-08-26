@@ -51,7 +51,7 @@ public class CampaignLoader extends LstLineFileLoader
      * The {@link pcgen.core.Campaign Campaign} being loaded by {@link #loadCampaignLstFile(java.net.URI) loadCampaignLstFile}.
      */
 	private Campaign campaign = null;
-	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
+	private final List<Campaign> inittedCampaigns = new ArrayList<>();
 	
 	public static final ListKey[] OTHER_FILE_LISTKEY = {
 		ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER};
@@ -222,7 +222,7 @@ public class CampaignLoader extends LstLineFileLoader
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,

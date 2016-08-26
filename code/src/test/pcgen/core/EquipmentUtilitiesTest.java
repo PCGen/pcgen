@@ -75,7 +75,7 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		backpackSml.setName(newName);
 		backpackSml.setKeyName(backpackSml.createKeyForAutoResize(small));
 
-		List<Equipment> eqList = new ArrayList<Equipment>();
+		List<Equipment> eqList = new ArrayList<>();
 		eqList.add(towel);
 		eqList.add(backpackSml);
 		assertEquals("Expected to find backpack", backpackSml,

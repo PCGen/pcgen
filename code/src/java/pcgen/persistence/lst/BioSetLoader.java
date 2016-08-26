@@ -151,7 +151,7 @@ public final class BioSetLoader extends LstLineFileLoader
 				{
 					if (preReqList == null)
 					{
-						preReqList = new ArrayList<String>();
+						preReqList = new ArrayList<>();
 					}
 
 					preReqList.add(colString);

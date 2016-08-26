@@ -82,7 +82,7 @@ public class ScanForUnusedIl8nKeys
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
 		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
-		Set<String> keys = new TreeSet<String>();
+		Set<String> keys = new TreeSet<>();
 		for (Entry e : p.entrySet())
 		{
 			keys.add((String)e.getKey());
@@ -92,7 +92,7 @@ public class ScanForUnusedIl8nKeys
 		List<File> fileList = buildFileList();
 		
 		// Scan each file marking each found entry
-		Set<String> missingKeys = new TreeSet<String>(keys);
+		Set<String> missingKeys = new TreeSet<>(keys);
 		actionWhitelistedKeys(missingKeys);
 		for (File file : fileList)
 		{
@@ -270,7 +270,7 @@ public class ScanForUnusedIl8nKeys
 	 */
 	private List<File> buildFileList() throws IOException
 	{
-		List<File> allFiles = new ArrayList<File>();
+		List<File> allFiles = new ArrayList<>();
 		JavaFileLister lister = new JavaFileLister();
 		
 		for (String pkg : PACKAGES)

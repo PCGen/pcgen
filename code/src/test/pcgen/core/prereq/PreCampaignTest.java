@@ -89,7 +89,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -97,7 +97,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		assertFalse("Nonpresent campaign should not be found",
 			PrereqHandler.passes(preCamp1, (PlayerCharacter) null, sourceCamp));
 
-		uris = new ArrayList<URI>();
+		uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
@@ -122,7 +122,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
@@ -154,7 +154,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		
@@ -181,7 +181,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		

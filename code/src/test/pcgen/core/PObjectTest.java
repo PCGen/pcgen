@@ -163,7 +163,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
-		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 		CampaignSourceEntry source;
 		try
 		{
@@ -382,7 +382,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		GenericLoader<Race> loader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> loader = new GenericLoader<>(Race.class);
 		loader
 			.parseLine(
 				context,

@@ -59,7 +59,7 @@ import pcgen.rules.context.LoadContext;
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
-	private GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 	
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.

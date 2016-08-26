@@ -182,7 +182,7 @@ public class CoreUtilityTest extends PCGenTestCase
 	
 	private List<String> constructList()
 	{
-		final List<String> list = new ArrayList<String>();
+		final List<String> list = new ArrayList<>();
 		list.add("one");
 		list.add("two");
 		list.add("three");

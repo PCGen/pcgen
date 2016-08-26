@@ -33,7 +33,7 @@ import pcgen.util.Logging;
  */
 public class AbilityCategoryLoader extends LstLineFileLoader
 {
-	private final OverlapLoader<AbilityCategory> loader = new OverlapLoader<AbilityCategory>(
+	private final OverlapLoader<AbilityCategory> loader = new OverlapLoader<>(
 			AbilityCategory.class);
 
 	@Override
