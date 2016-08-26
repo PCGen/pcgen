@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -497,10 +498,7 @@ public final class PrerequisiteUtilities
 			{
 				Logging.errorPrint("Invalid use of child category in PREABILITY");
 			}
-			for (CNAbility cna : character.getCNAbilities(cat))
-			{
-				abilityList.add(cna.getAbility());
-			}
+			abilityList.addAll(character.getCNAbilities(cat).stream().map(CNAbility::getAbility).collect(Collectors.toList()));
 
 			Collection<AbilityCategory> allCats =
 					SettingsHandler.getGame().getAllAbilityCategories();
@@ -512,10 +510,7 @@ public final class PrerequisiteUtilities
 					for(CDOMReference<Ability> ref
 						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
 					{
-						for (Ability ab : ref.getContainedObjects())
-						{
-								abilityList.add(ab);
-						}
+						abilityList.addAll(ref.getContainedObjects());
 					}
 				}
 			}

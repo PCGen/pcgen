@@ -23,6 +23,8 @@ import java.util.Comparator;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -111,10 +113,7 @@ public final class ReferenceUtilities
 		Set<String> resultSet = new TreeSet<>();
 		for (CDOMReference<? extends CDOMObject> ref : refCollection)
 		{
-			for (CDOMObject obj : ref.getContainedObjects())
-			{
-				resultSet.add(obj.getDisplayName());
-			}
+			resultSet.addAll(ref.getContainedObjects().stream().map((Function<CDOMObject, String>) CDOMObject::getDisplayName).collect(Collectors.toList()));
 		}
 
 		return StringUtil.join(resultSet, separator);

@@ -42,6 +42,7 @@ import java.util.Properties;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
 import org.apache.commons.lang.StringUtils;
@@ -82,11 +83,7 @@ public class ScanForUnusedIl8nKeys
 		//Read in bundle, grab all keys
 		Properties p = new Properties();
 		p.load(new FileInputStream(CODE_PATH + PROPERTIES_PATH + PROPERTIES_FILE));
-		Set<String> keys = new TreeSet<>();
-		for (Entry e : p.entrySet())
-		{
-			keys.add((String)e.getKey());
-		}
+		Set<String> keys = p.entrySet().stream().map(e -> (String) e.getKey()).collect(Collectors.toCollection(TreeSet::new));
 
 		// Grab a list of files to be scanned
 		List<File> fileList = buildFileList();

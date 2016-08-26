@@ -20,6 +20,7 @@
  */
 package pcgen.gui2.tabs;
 
+import java.util.stream.Collectors;
 import static pcgen.gui2.tabs.equip.EquipmentSelection.equipmentArrayFlavor;
 
 import java.awt.BorderLayout;
@@ -1083,14 +1084,8 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 						{
 							if (primaryTypes.contains(type))
 							{
-								for (String subType : types)
-								{
-									if (!type.equals(subType))
-									{
-										paths.add(new TreeViewPath<>(
-                                                pobj, type, subType));
-									}
-								}
+								paths.addAll(types.stream().filter(subType -> !type.equals(subType)).map(subType -> new TreeViewPath<>(
+										pobj, type, subType)).collect(Collectors.toList()));
 							}
 						}
 						return paths;
@@ -1102,13 +1097,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
                                 types.size());
-						for (String type : types)
-						{
-							if (primaryTypes.contains(type))
-							{
-								paths.add(new TreeViewPath<>(pobj, type));
-							}
-						}
+						paths.addAll(types.stream().filter(primaryTypes::contains).map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 						return paths;
 					}
 				// No types, fall through and treat it as just a name.
