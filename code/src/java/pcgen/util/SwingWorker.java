@@ -147,14 +147,7 @@ public abstract class SwingWorker
 	 */
 	public SwingWorker()
 	{
-		final Runnable doFinished = new Runnable()
-		{
-            @Override
-			public void run()
-			{
-				finished();
-			}
-		};
+		final Runnable doFinished = this::finished;
 
 		Runnable doConstruct = new Runnable()
 		{

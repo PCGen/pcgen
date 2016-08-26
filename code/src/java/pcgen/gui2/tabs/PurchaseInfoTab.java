@@ -171,16 +171,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
 						= new FilterButton<>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
-				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.isQualifiedFor(element);
-					}
-
-				});
+				premadeFilter.setFilter(CharacterFacade::isQualifiedFor);
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
 						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$

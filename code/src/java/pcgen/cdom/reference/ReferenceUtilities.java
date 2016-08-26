@@ -44,14 +44,7 @@ public final class ReferenceUtilities
 	 * A Comparator to consistently sort CDOMReference objects. This is done
 	 * using the ReferenceUtilities.compareRefs method.
 	 */
-	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = new Comparator<CDOMReference<?>>()
-	{
-		@Override
-		public int compare(CDOMReference<?> arg0, CDOMReference<?> arg1)
-		{
-			return compareRefs(arg0, arg1);
-		}
-	};
+	public static final Comparator<CDOMReference<?>> REFERENCE_SORTER = ReferenceUtilities::compareRefs;
 
 	private ReferenceUtilities()
 	{
