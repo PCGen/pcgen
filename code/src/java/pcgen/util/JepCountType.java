@@ -759,7 +759,7 @@ public abstract class JepCountType
 		public boolean accept(T o);
 	}
 
-	private static final void buildMap()
+	private static void buildMap()
 	{
 		typeMap = new CaseInsensitiveMap<>();
 		Field[] fields = JepCountType.class.getDeclaredFields();
