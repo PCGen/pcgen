@@ -106,13 +106,13 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 			// Shouldn't happen, but this is reporting, not critical, so be safe
 			return;
 		}
-		for (URI uri : uris)
+		uris.forEach(uri ->
 		{
 			List<String> tokens = track.getListFor(ref, uri);
 			Set<String> tokenNames = tokens.stream().filter(tok -> tok != null).collect(Collectors.toCollection(TreeSet::new));
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
-		}
+		});
 	}
 
 	private static String getSource()

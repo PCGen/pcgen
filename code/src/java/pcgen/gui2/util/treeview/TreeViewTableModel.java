@@ -159,21 +159,9 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 	private void setElements(Collection<E> data)
 	{
 		Set<E> newData = new HashSet<>(data);
-		for (E newKey : newData)
-		{
-			if (!dataElements.contains(newKey))
-			{
-				addElement(newKey);
-			}
-		}
+		newData.stream().filter(newKey -> !dataElements.contains(newKey)).forEach(this::addElement);
 		Set<E> oldData = new HashSet<>(dataElements);
-		for (E oldKey : oldData)
-		{
-			if (!newData.contains(oldKey))
-			{
-				removeElement(oldKey);
-			}
-		}
+		oldData.stream().filter(oldKey -> !newData.contains(oldKey)).forEach(this::removeElement);
 	}
 
 	private void removeElement(E elem)
@@ -181,10 +169,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		if (dataElements.contains(elem) && selectedView != null)
 		{
 			TreeViewNode rootNode = (TreeViewNode) getRoot();
-			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-			{
-				rootNode.removeTreeViewPath(path);
-			}
+			selectedView.getPaths(elem).forEach(rootNode::removeTreeViewPath);
 			dataElements.remove(elem);
 		}
 	}
@@ -195,10 +180,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		{
 			dataElements.add(elem);
 			TreeViewNode rootNode = (TreeViewNode) getRoot();
-			for (TreeViewPath<? super E> path : selectedView.getPaths(elem))
-			{
-				rootNode.insertTreeViewPath(path);
-			}
+			selectedView.getPaths(elem).forEach(rootNode::insertTreeViewPath);
 		}
 	}
 
@@ -226,10 +208,10 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		{
 			this.selectedView = view;
 			Vector<TreeViewPath<? super E>> paths = new Vector<>();
-			for (E element : dataElements)
+			dataElements.forEach(element ->
 			{
 				paths.addAll(view.getPaths(element));
-			}
+			});
 			setRoot(new TreeViewNode(paths));
 		}
 	}
@@ -317,14 +299,11 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 						HashMap.class,
 						Vector.class);
 				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
-				for (TreeViewPath<? super E> path : vector)
+				vector.stream().filter(path -> path.getPathCount() > level).forEach(path ->
 				{
-					if (path.getPathCount() > level)
-					{
-						Object key = path.getPathComponent(level);
-						vectorMap.add(key, path);
-					}
-				}
+					Object key = path.getPathComponent(level);
+					vectorMap.add(key, path);
+				});
 				for (Object key : vectorMap.keySet())
 				{
 					vector = vectorMap.get(key);
@@ -498,7 +477,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			if (children != null)
 			{
 				Collections.sort(children, comparator);
-				for (Object obj : children)
+				children.forEach(obj ->
 				{
 					TreeViewNode child = (TreeViewNode) obj;
 					child.setComparator(mostRecentComparator);
@@ -506,7 +485,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 					{
 						child.sortChildren(comparator);
 					}
-				}
+				});
 			}
 		}
 

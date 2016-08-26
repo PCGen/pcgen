@@ -54,14 +54,14 @@ public final class SpellLevel
 		}
 		Set<Integer> resultList = new TreeSet<>();
 		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getSpellLevelInfo(sp);
-		for (CDOMList<Spell> spellList : lists)
+		lists.forEach(spellList ->
 		{
 			List<Integer> levels = pcli.getListFor(spellList);
 			if (levels != null)
 			{
 				resultList.addAll(levels);
 			}
-		}
+		});
 		return levelMatch == -1 && !resultList.isEmpty() || levelMatch >= 0
 				&& resultList.contains(levelMatch);
 	}

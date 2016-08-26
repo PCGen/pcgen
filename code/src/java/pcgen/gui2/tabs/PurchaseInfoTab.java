@@ -594,14 +594,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<?> data = availableTable.getSelectedData();
 			if (data != null)
 			{
-				for (Object object : data)
+				data.stream().filter(object -> object instanceof EquipmentFacade).forEach(object ->
 				{
-					if (object instanceof EquipmentFacade)
-					{
-						EquipmentFacade equip = (EquipmentFacade) object;
-						character.deleteCustomEquipment(equip);
-					}
-				}
+					EquipmentFacade equip = (EquipmentFacade) object;
+					character.deleteCustomEquipment(equip);
+				});
 			}
 		}
 
@@ -649,10 +646,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			List<?> data = purchasedTable.getSelectedData();
 			if (data != null)
 			{
-				for (Object object : data)
+				data.forEach(object ->
 				{
 					character.removePurchasedEquipment((EquipmentFacade) object, 1, false);
-				}
+				});
 				availableTable.refilter();
 			}
 		}
@@ -811,10 +808,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				}
 				oldList = newList;
 				StringBuilder sb = new StringBuilder(2000);
-				for (EquipmentFacade equip : newList)
+				newList.forEach(equip ->
 				{
 					sb.append(character.getInfoFactory().getHTMLInfo(equip));
-				}
+				});
 				text = "<html>" + sb.toString() + "</html>"; //$NON-NLS-1$ //$NON-NLS-2$
 				infoPane.setText(text);
 			}
@@ -840,10 +837,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		{
 			String currencyDisplay
 					= character.getDataSet().getGameMode().getCurrencyDisplay();
-			for (JLabel label : currencyLabels)
+			currencyLabels.forEach(label ->
 			{
 				label.setText(currencyDisplay);
-			}
+			});
 		}
 
 	}
@@ -1683,11 +1680,11 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			for (EquipmentFacade item : targets)
+			targets.forEach(item ->
 			{
 				character.removePurchasedEquipment(item, 1, true);
 				destination.addPurchasedEquipment(item, 1, false, true);
-			}
+			});
 		}
 
 	}
@@ -1715,10 +1712,10 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			for (EquipmentFacade item : targets)
+			targets.forEach(item ->
 			{
 				destination.addPurchasedEquipment(item, 1, false, true);
-			}
+			});
 		}
 
 	}

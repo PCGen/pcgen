@@ -139,10 +139,10 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 			}
 			if (type != null)
 			{
-				for (CDOMGroupRef<WeaponProf> ref : type)
+				type.forEach(ref ->
 				{
 					list.addAll(getWeaponProfsInTarget(id, ref));
-				}
+				});
 			}
 		}
 		else

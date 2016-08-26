@@ -609,11 +609,11 @@ final class RecentFileList extends AbstractListFacade<File>
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
 		List<String> uris = new ArrayList<>(fileList.size());
-		for (File file : fileList)
+		fileList.forEach(file ->
 		{
 			URI uri = userdir.relativize(file.toURI());
 			uris.add(uri.toString());
-		}
+		});
 		PCGenSettings.getInstance().setStringArray(contextProp, uris);
 	}
 

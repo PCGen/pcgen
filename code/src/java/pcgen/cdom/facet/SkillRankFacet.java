@@ -138,14 +138,14 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		Map<Skill, Map<PCClass, Double>> map = getInfo(source);
 		if (map != null)
 		{
-			for (Entry<Skill, Map<PCClass, Double>> fme : map.entrySet())
+			map.entrySet().forEach(fme ->
 			{
 				Skill sk = fme.getKey();
-				for (Entry<PCClass, Double> clEntry : fme.getValue().entrySet())
+				fme.getValue().entrySet().forEach(clEntry ->
 				{
 					set(copy, sk, clEntry.getKey(), clEntry.getValue());
-				}
-			}
+				});
+			});
 		}
 	}
 

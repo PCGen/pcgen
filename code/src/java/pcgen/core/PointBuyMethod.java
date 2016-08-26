@@ -124,10 +124,10 @@ public final class PointBuyMethod implements BonusContainer, Loadable
     @Override
 	public void activateBonuses(final PlayerCharacter aPC)
 	{
-		for (BonusObj bonus : getBonuses())
+		getBonuses().forEach(bonus ->
 		{
 			aPC.setApplied(bonus, bonus.qualifies(aPC, null));
-		}
+		});
 	}
 
     @Override

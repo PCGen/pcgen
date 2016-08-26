@@ -49,7 +49,9 @@ public final class ReferenceContextUtilities
 	public static void validateAssociations(AbstractReferenceContext refContext,
 		LoadValidator validator)
 	{
-		for (ReferenceManufacturer<?> rm : refContext.getAllManufacturers())
+		//patterns or %LIST are OK
+//See CollectionToAbilitySelection.ExpandingConverter
+		refContext.getAllManufacturers().forEach(rm ->
 		{
 			for (CDOMSingleRef<?> singleRef : rm.getReferenced())
 			{
@@ -61,10 +63,10 @@ public final class ReferenceContextUtilities
 					if (ci == null)
 					{
 						Logging.errorPrint("Found "
-							+ rm.getReferenceDescription() + " "
-							+ cdo.getKeyName() + " "
-							+ " that had association: " + choice
-							+ " but was not an object with CHOOSE");
+								+ rm.getReferenceDescription() + " "
+								+ cdo.getKeyName() + " "
+								+ " that had association: " + choice
+								+ " but was not an object with CHOOSE");
 						rm.fireUnconstuctedEvent(singleRef);
 						continue;
 					}
@@ -80,26 +82,26 @@ public final class ReferenceContextUtilities
 					{
 						ReferenceManufacturer<? extends Loadable> mfg =
 								refContext
-									.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
+										.getManufacturer((ClassIdentity<? extends Loadable>) clIdentity);
 						if (!mfg.containsObject(choice)
-							&& (TokenLibrary.getPrimitive(cl, choice) == null)
-							&& !report(validator, clIdentity.getChoiceClass(),
+								&& (TokenLibrary.getPrimitive(cl, choice) == null)
+								&& !report(validator, clIdentity.getChoiceClass(),
 								choice))
 						{
 							Logging.errorPrint("Found "
-								+ rm.getReferenceDescription() + " "
-								+ cdo.getKeyName() + " "
-								+ " that had association: " + choice
-								+ " but no such "
-								+ mfg.getReferenceDescription()
-								+ " was ever defined");
+									+ rm.getReferenceDescription() + " "
+									+ cdo.getKeyName() + " "
+									+ " that had association: " + choice
+									+ " but no such "
+									+ mfg.getReferenceDescription()
+									+ " was ever defined");
 							rm.fireUnconstuctedEvent(singleRef);
 							continue;
 						}
 					}
 				}
 			}
-		}
+		});
 	}
 
 	private static boolean report(UnconstructedValidator validator,

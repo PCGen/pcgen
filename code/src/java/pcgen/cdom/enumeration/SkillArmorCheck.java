@@ -161,13 +161,7 @@ public enum SkillArmorCheck
 	{
 		int max = 0;
 		final List<Equipment> itemList = pc.getEquipmentOfType("Armor", 1);
-		for (Equipment eq : pc.getEquipmentOfType("Shield", 1))
-		{
-			if (!itemList.contains(eq))
-			{
-				itemList.add(eq);
-			}
-		}
+		pc.getEquipmentOfType("Shield", 1).stream().filter(eq -> !itemList.contains(eq)).forEach(itemList::add);
 		for (Equipment eq : itemList)
 		{
 			if (useEquipment(pc, eq))

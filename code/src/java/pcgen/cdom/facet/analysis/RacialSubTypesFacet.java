@@ -72,17 +72,14 @@ public class RacialSubTypesFacet
 		{
 			List<RaceSubType> added = new ArrayList<>();
 			List<RaceSubType> removed = new ArrayList<>();
-			for (PCTemplate aTemplate : templates)
+			templates.forEach(aTemplate ->
 			{
 				added.addAll(aTemplate.getSafeListFor(ListKey.RACESUBTYPE));
 				removed.addAll(aTemplate
 						.getSafeListFor(ListKey.REMOVED_RACESUBTYPE));
-			}
+			});
 			racialSubTypes.addAll(added);
-			for (RaceSubType st : removed)
-			{
-				racialSubTypes.remove(st);
-			}
+			removed.forEach(racialSubTypes::remove);
 		}
 
 		return Collections.unmodifiableList(racialSubTypes);

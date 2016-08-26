@@ -1023,15 +1023,17 @@ public final class SettingsHandler
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
 		List<URI> uriList = new ArrayList<>(uriStringList.size());
-		for (String str : uriStringList)
+		uriStringList.forEach(str ->
 		{
-			try {
+			try
+			{
 				uriList.add(new URI(str));
-			} catch (URISyntaxException e) {
+			} catch (URISyntaxException e)
+			{
 				Logging.errorPrint("Settings error: Unable to convert " + str
 						+ " to a URI: " + e.getLocalizedMessage());
 			}
-		}
+		});
 		PersistenceManager.setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 

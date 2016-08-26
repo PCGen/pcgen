@@ -97,10 +97,11 @@ public class ScanForUnusedIl8nKeys
 		}
 		
 		// Report all missing entries
-		for (String key : missingKeys)
+		//System.out.println("Found unused key '" + key + "'.");
+		missingKeys.forEach(key ->
 		{
 			//System.out.println("Found unused key '" + key + "'.");
-		}
+		});
 		System.out.println("Total unused keys: " + missingKeys.size()
 			+ " from a set of " + keys.size() + " defined keys. "
 			+ ((missingKeys.size() * 100.0) / keys.size()) + "%");
@@ -148,9 +149,9 @@ public class ScanForUnusedIl8nKeys
 		Reader reader = new BufferedReader(new FileReader(file));
 		List<String> lines = IOUtils.readLines(reader);
 		reader.close();
-		for (String line : lines)
+		lines.forEach(line ->
 		{
-			for (Iterator<String> i = missingKeys.iterator(); i.hasNext();)
+			for (Iterator<String> i = missingKeys.iterator(); i.hasNext(); )
 			{
 				String key = i.next();
 				if (line.contains("\"" + key + "\""))
@@ -158,8 +159,8 @@ public class ScanForUnusedIl8nKeys
 					i.remove();
 				}
 			}
-			
-		}
+
+		});
 	}
 
 	/**

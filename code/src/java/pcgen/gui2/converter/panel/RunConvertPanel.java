@@ -134,11 +134,12 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
 		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
-		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
+		// Add all sub-files to the main campaign, regardless of exclusions
+		pc.getSafeListFor(ListKey.CAMPAIGN).forEach(campaign ->
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-					.getSafeListFor(ListKey.FILE_PCC))
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
@@ -149,8 +150,8 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 						totalCampaigns.add(c);
 					}
 				}
-			}
-		}
+			});
+		});
 		sortCampaignsByRank(totalCampaigns);
 		
 		new Thread(() ->
@@ -190,10 +191,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 			}
 			setTotalFileCount(numFiles);
 			converter.initCampaigns(totalCampaigns);
-			for (Campaign campaign : totalCampaigns)
-			{
-				converter.processCampaign(campaign);
-			}
+			totalCampaigns.forEach(converter::processCampaign);
 			ObjectInjector oi = new ObjectInjector(context, outDir,
 					rootDir, converter);
 			try
@@ -556,11 +554,11 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		Logging.log(Logging.INFO, "Game mode: " + pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		StringBuilder campDisplay = new StringBuilder("");
-		for (Campaign campaign : campaigns)
+		campaigns.forEach(campaign ->
 		{
 			campDisplay.append(campaign.getDisplayName());
 			campDisplay.append("\n");
-		}
+		});
 		Logging.log(Logging.INFO, "Sources: " + campDisplay.toString());
 		Logging.log(Logging.INFO, "Logging changes to " + changeLogFile.getAbsolutePath());
 	}

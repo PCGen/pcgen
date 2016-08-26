@@ -53,10 +53,10 @@ public class SkillListToCostFacet extends
 		if (set != null)
 		{
 			PCClass pcc = dfce.getScope();
-			for (Skill s : set)
+			set.forEach(s ->
 			{
 				add(id, pcc, SkillCost.CLASS, s, skilllist);
-			}
+			});
 		}
 	}
 

@@ -111,10 +111,10 @@ public final class ReferenceUtilities
 		}
 
 		Set<String> resultSet = new TreeSet<>();
-		for (CDOMReference<? extends CDOMObject> ref : refCollection)
+		refCollection.forEach(ref ->
 		{
-			resultSet.addAll(ref.getContainedObjects().stream().map((Function<CDOMObject, String>) CDOMObject::getDisplayName).collect(Collectors.toList()));
-		}
+			resultSet.addAll(ref.getContainedObjects().stream().map(CDOMObject::getDisplayName).collect(Collectors.toList()));
+		});
 
 		return StringUtil.join(resultSet, separator);
 	}

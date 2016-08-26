@@ -268,20 +268,19 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	public List<String> getOtherLicenses()
 	{
 		List<String> licenses = new ArrayList<>();
-		for (CampaignSourceEntry licenseFile : licenseFiles)
+		licenseFiles.forEach(licenseFile ->
 		{
 			try
 			{
 				StringBuilder dataBuffer =
 						LstFileLoader.readFromURI(licenseFile.getURI());
 				licenses.add(dataBuffer.toString());
-			}
-			catch (PersistenceLayerException e)
+			} catch (PersistenceLayerException e)
 			{
 				Logging.errorPrint("Could not read license at " + licenseFile,
-					e);
+						e);
 			}
-		}
+		});
 		return licenses;
 	}
 
@@ -603,10 +602,10 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// load ability categories first as they used to only be at the game mode
 		abilityCategoryLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_ABILITY_CATEGORY));
 
-		for (Campaign c : loaded)
+		loaded.forEach(c ->
 		{
 			c.applyTo(context.getReferenceContext());
-		}
+		});
 
 		sizeLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_SIZE));
 		//Now load PCC stat, check, alignment
@@ -732,17 +731,17 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Collection<? extends ContentDefinition> defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
+		defs.forEach(fd ->
 		{
 			fd.activate(context);
-		}
+		});
 		defs =
 				context.getReferenceContext().getConstructedCDOMObjects(
 					FactSetDefinition.class);
-		for (ContentDefinition<?, ?> fd : defs)
+		defs.forEach(fd ->
 		{
 			fd.activate(context);
-		}
+		});
 	}
 
 	private static void finishLoad(final List<Campaign> aSelectedCampaignsList,
@@ -760,25 +759,29 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		ReferenceContextUtilities.validateAssociations(refContext, validator);
-		for (Equipment eq : refContext
-			.getConstructedCDOMObjects(Equipment.class))
+		refContext
+				.getConstructedCDOMObjects(Equipment.class).forEach(eq ->
 		{
 			eq.setToCustomSize(null);
 			EqModAttachment.finishEquipment(eq);
-		}
+		});
 	}
 
 	private static void referenceAllCategories(LoadContext context)
 	{
 		GameMode gamemode = SettingsHandler.getGame();
-		for (AbilityCategory cat : gamemode.getAllAbilityCategories())
+		/*
+		 * Yes, these are thrown away... just need to make sure the
+		 * manufacturer was built.
+		 */
+		gamemode.getAllAbilityCategories().forEach(cat ->
 		{
 			/*
 			 * Yes, these are thrown away... just need to make sure the
 			 * manufacturer was built.
 			 */
 			context.getReferenceContext().getManufacturer(Ability.class, cat);
-		}
+		});
 	}
 
 	public static void createLangBonusObject(LoadContext context)
@@ -990,7 +993,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...
-		for (Campaign campaign : aSelectedCampaignsList)
+		// Update whether licenses need shown
+// check if maturity warning needs to be shown
+// Load the LST files to be loaded for the campaign
+// Add all sub-files to the main campaign, regardless of exclusions
+		aSelectedCampaignsList.forEach(campaign ->
 		{
 			if (Logging.isDebugMode())
 			{
@@ -1004,13 +1011,13 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				sec15.append("<br><b>Source Material:</b>");
 				sec15.append(SourceFormat.getFormattedString(campaign,
-					SourceFormat.LONG, true));
+						SourceFormat.LONG, true));
 				sec15.append("<br>");
 				sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-				for (String license : copyright)
+				copyright.forEach(license ->
 				{
 					sec15.append(license).append("<br>");
-				}
+				});
 			}
 
 			// Update whether licenses need shown
@@ -1041,8 +1048,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			if (campaign.getSafe(ObjectKey.IS_MATURE))
 			{
 				matureCampaigns.append(SourceFormat.LONG.getField(campaign)
-					+ " (" + campaign.getSafe(StringKey.PUB_NAME_LONG)
-					+ ")<br>");
+						+ " (" + campaign.getSafe(StringKey.PUB_NAME_LONG)
+						+ ")<br>");
 			}
 
 			// Load the LST files to be loaded for the campaign
@@ -1054,28 +1061,27 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			loadedSet.add(campaign);
 
 			if (PCGenSettings.OPTIONS_CONTEXT.initBoolean(
-				PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true))
+					PCGenSettings.OPTION_ALLOWED_IN_SOURCES, true))
 			{
 				setCampaignOptions(campaign);
 			}
 
 			// Add all sub-files to the main campaign, regardless of exclusions
-			for (CampaignSourceEntry fName : campaign
-				.getSafeListFor(ListKey.FILE_PCC))
+			campaign
+					.getSafeListFor(ListKey.FILE_PCC).forEach(fName ->
 			{
 				URI uri = fName.getURI();
 				if (PCGFile.isPCGenCampaignFile(uri))
 				{
 					loadedSet.add(Globals.getCampaignByURI(uri, false));
-				}
-				else
+				} else
 				{
 					Logging.errorPrint("The referenced source " + uri
-						+ " is not valid.");
+							+ " is not valid.");
 				}
-			}
+			});
 
-		}
+		});
 
 		// ...but make sure to remove those files specified by LSTEXCLUDE;
 		// LSTEXCLUDE should be treated as a global exclusion.
@@ -1096,15 +1102,15 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private void addQualifiedSources(Campaign c, ListKey<CampaignSourceEntry> lk)
 	{
-		for (CampaignSourceEntry cse : c.getSafeListFor(lk))
+		c.getSafeListFor(lk).forEach(cse ->
 		{
 			List<Prerequisite> prerequisites = cse.getPrerequisites();
 			if (prerequisites.isEmpty()
-				|| PrereqHandler.passesAll(prerequisites, null, cse))
+					|| PrereqHandler.passesAll(prerequisites, null, cse))
 			{
 				fileLists.addToListFor(lk, cse);
 			}
-		}
+		});
 	}
 
 	/**
@@ -1117,26 +1123,23 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
 		if (keys != null)
 		{
-			for (String key : keys)
+			// Note: This is just until we transition all settings from the legacy settings
+			keys.forEach(key ->
 			{
 				String value = aCamp.get(MapKey.PROPERTY, key);
 				if (key.contains("."))
 				{
 					PCGenSettings.getInstance().setProperty(key, value);
-				}
-				else
+				} else
 				{
 					PCGenSettings.OPTIONS_CONTEXT.setProperty(key, value);
 				}
 				// Note: This is just until we transition all settings from the legacy settings
 				SettingsHandler.setPCGenOption(key, value);
-			}
+			});
 			// Make sure any game mode settings are applied.
-			for (GameMode game : SystemCollections
-				.getUnmodifiableGameModeList())
-			{
-				game.applyPreferences();
-			}
+			SystemCollections
+					.getUnmodifiableGameModeList().forEach(GameMode::applyPreferences);
 		}
 	}
 
@@ -1146,13 +1149,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 */
 	private void stripLstExcludes()
 	{
-		for (ListKey<?> lk : fileLists.getKeySet())
-		{
-			if (!ListKey.FILE_LST_EXCLUDE.equals(lk))
-			{
-				stripLstExcludes(lk);
-			}
-		}
+		fileLists.getKeySet().stream().filter(lk -> !ListKey.FILE_LST_EXCLUDE.equals(lk)).forEach(this::stripLstExcludes);
 	}
 
 	private void stripLstExcludes(ListKey<?> lk)
@@ -1160,17 +1157,14 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		List<CampaignSourceEntry> excludes = fileLists.getListFor(ListKey.FILE_LST_EXCLUDE);
 		if (excludes != null)
 		{
-			for (CampaignSourceEntry exc : excludes)
+			excludes.forEach(exc ->
 			{
 				URI uri = exc.getURI();
-				for (CampaignSourceEntry cse : fileLists.getListFor(lk))
+				fileLists.getListFor(lk).stream().filter(cse -> cse.getURI().equals(uri)).forEach(cse ->
 				{
-					if (cse.getURI().equals(uri))
-					{
-						fileLists.removeFromListFor(lk, cse);
-					}
-				}
-			}
+					fileLists.removeFromListFor(lk, cse);
+				});
+			});
 		}
 	}
 

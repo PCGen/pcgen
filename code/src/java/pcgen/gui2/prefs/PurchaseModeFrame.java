@@ -1089,10 +1089,7 @@ public final class PurchaseModeFrame extends JDialog
 					masterPBM.setPointFormula(pbm.getPointFormula());
 				}
 			}
-			for (PointBuyMethod pbm : methods)
-			{
-				ref.forget(pbm);
-			}
+			methods.forEach(ref::forget);
 		}
 
 		void prependRows(int nrRows)

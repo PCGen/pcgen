@@ -134,7 +134,7 @@ public class Rule extends ArrayList<String> implements DataElement
 	{
 		StringBuilder sb = new StringBuilder();
 
-		for (String key : this)
+		this.forEach(key ->
 		{
 			try
 			{
@@ -144,12 +144,11 @@ public class Rule extends ArrayList<String> implements DataElement
 				{
 					sb.append("[" + ele.getTitle() + "] ");
 				}
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				Logging.errorPrint(e.getMessage(), e);
 			}
-		}
+		});
 
 		return sb.toString();
 	}

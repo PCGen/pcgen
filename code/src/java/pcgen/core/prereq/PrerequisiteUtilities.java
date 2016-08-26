@@ -503,17 +503,16 @@ public final class PrerequisiteUtilities
 			Collection<AbilityCategory> allCats =
 					SettingsHandler.getGame().getAllAbilityCategories();
 			// Now scan for relevant SERVESAS occurrences
-			for (AbilityCategory aCat : allCats)
+			allCats.forEach(aCat ->
 			{
-				for (CNAbility cna : character.getPoolAbilities(aCat))
+				character.getPoolAbilities(aCat).forEach(cna ->
 				{
-					for(CDOMReference<Ability> ref
-						: cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY))
+					cna.getAbility().getSafeListFor(ListKey.SERVES_AS_ABILITY).forEach(ref ->
 					{
 						abilityList.addAll(ref.getContainedObjects());
-					}
-				}
-			}
+					});
+				});
+			});
 		}
 		return abilityList;
 	}
@@ -733,11 +732,11 @@ public final class PrerequisiteUtilities
 		{
 			matchingPrereqs.add(prereq);
 		}
-		
-		for (Prerequisite childPrereq : prereq.getPrerequisites())
+
+		prereq.getPrerequisites().forEach(childPrereq ->
 		{
 			matchingPrereqs.addAll(getPreReqsOfKind(childPrereq, matchKind));
-		}
+		});
 	
 		return matchingPrereqs;
 	}

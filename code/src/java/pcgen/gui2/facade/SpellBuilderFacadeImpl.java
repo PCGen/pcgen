@@ -346,13 +346,10 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			for (Spell spell : Globals.getSpellMap().values())
+			Globals.getSpellMap().values().stream().filter(this::isSpellOfSubType).forEach(spell ->
 			{
-				if (isSpellOfSubType(spell))
-				{
-					addSpellInfoToList(spell, classes, domains, reqSpellType);
-				}
-			}
+				addSpellInfoToList(spell, classes, domains, reqSpellType);
+			});
 
 			for (PCClass aClass : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(PCClass.class))
