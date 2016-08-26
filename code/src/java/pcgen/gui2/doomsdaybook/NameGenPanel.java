@@ -247,10 +247,10 @@ public class NameGenPanel extends JPanel
 	{
 		StringBuilder nameBuffer = new StringBuilder();
 
-		for (DataValue val : data)
+		data.forEach(val ->
 		{
 			nameBuffer.append(val.getValue());
-		}
+		});
 
 		setNameText(nameBuffer.toString());
 	}
@@ -367,7 +367,7 @@ public class NameGenPanel extends JPanel
 	{
 		clearButtons();
 
-		for (String key : rule)
+		rule.forEach(key ->
 		{
 			try
 			{
@@ -379,12 +379,11 @@ public class NameGenPanel extends JPanel
 					nb.addActionListener(this::NameButtonActionPerformed);
 					buttonPanel.add(nb);
 				}
-			}
-			catch (Exception e)
+			} catch (Exception e)
 			{
 				Logging.errorPrint(e.getMessage(), e);
 			}
-		}
+		});
 
 		buttonPanel.repaint();
 	}
@@ -984,17 +983,16 @@ public class NameGenPanel extends JPanel
 		{
 			Vector<DataElement> struct = new Vector<>();
 
-			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
+			((RuleSet) cbCatalog.getSelectedItem()).forEach(key ->
 			{
 				try
 				{
 					struct.add(allVars.getDataElement(key));
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 				}
-			}
+			});
 
 			DefaultComboBoxModel structModel = new DefaultComboBoxModel(struct);
 			cbStructure.setModel(structModel);
