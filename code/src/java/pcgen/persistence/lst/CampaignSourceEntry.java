@@ -370,8 +370,8 @@ public class CampaignSourceEntry implements SourceEntry
 		{
 			return;
 		}
-		
-		for (Prerequisite prereq : prereqList)
+
+		prereqList.forEach(prereq ->
 		{
 			if (prereq.isCharacterRequired())
 			{
@@ -381,16 +381,15 @@ public class CampaignSourceEntry implements SourceEntry
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
+								Constants.TAB);
 				Logging.log(Logging.LST_ERROR, "Prereq '" + prereq.getKind()
-					+ "' is not supported in PCC files. Prereq was '" + lstString
-					+ "' in " + sourceUri + ". Prereq will be ignored.");
-			}
-			else
+						+ "' is not supported in PCC files. Prereq was '" + lstString
+						+ "' in " + sourceUri + ". Prereq will be ignored.");
+			} else
 			{
 				validatePrereqs(prereq.getPrerequisites(), sourceUri);
 			}
-		}
+		});
 	}
 
 	/**

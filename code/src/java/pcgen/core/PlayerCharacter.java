@@ -9337,10 +9337,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	{
 		Set<Ability> newSet = new HashSet<>();
 		Collection<CNAbility> cnas = grantedAbilityFacet.getPoolAbilities(id, cat, nature);
-		for (CNAbility cna : cnas)
-		{
-			newSet.add(cna.getAbility());
-		}
+		newSet.addAll(cnas.stream().map(CNAbility::getAbility).collect(Collectors.toList()));
 		return newSet;
 	}
 
@@ -10195,10 +10192,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			{
 				for (int lvl : availSpellFacet.getScopes2(id, list))
 				{
-					for (Spell spell : availSpellFacet.getSet(id, list, lvl))
-					{
-						spellList.add(spell);
-					}
+					spellList.addAll(availSpellFacet.getSet(id, list, lvl));
 				}
 			}
 		}

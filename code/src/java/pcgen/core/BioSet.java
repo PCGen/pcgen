@@ -164,10 +164,10 @@ public final class BioSet extends PObject implements NonInteractive
 	{
 		Region oldr = Region.getConstant(origRegion);
 		Region newr = Region.getConstant(copyRegion);
-		for (String key : userMap.getTertiaryKeySet(oldr, origRace))
+		userMap.getTertiaryKeySet(oldr, origRace).forEach(key ->
 		{
 			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, origRace, key));
-		}
+		});
 		final int idx = origRace.indexOf('(');
 		String otherRace;
 		if (idx >= 0)
@@ -178,10 +178,10 @@ public final class BioSet extends PObject implements NonInteractive
 		{
 			otherRace = origRace + '%';
 		}
-		for (String key : userMap.getTertiaryKeySet(oldr, otherRace))
+		userMap.getTertiaryKeySet(oldr, otherRace).forEach(key ->
 		{
 			userMap.addAllToListFor(newr, copyRace, key, userMap.getListFor(oldr, otherRace, key));
-		}
+		});
 	}
 
 	/**
@@ -304,10 +304,10 @@ public final class BioSet extends PObject implements NonInteractive
 		// setup a mapped structure
 		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<>();
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
-		for (String key : userMap.getTertiaryKeySet(region, race))
+		userMap.getTertiaryKeySet(region, race).forEach(key ->
 		{
 			addTagToAgeSet(ageSets, race, key, userMap.getListFor(region, race, key));
-		}
+		});
 
 		return ageSets;
 	}
@@ -412,19 +412,16 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (final String aRaceName : races.keySet())
+			races.keySet().stream().filter(aRaceName -> !"AGESET".equals(aRaceName)).forEach(aRaceName ->
 			{
-				if (!"AGESET".equals(aRaceName))
-				{
-					final SortedMap<String, String> tags = races.get(aRaceName);
+				final SortedMap<String, String> tags = races.get(aRaceName);
 
-					for (final String tagName : tags.keySet())
-					{
-						sb.append("RACENAME:").append(aRaceName).append("\t\t");
-						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
-					}
-				}
-			}
+				tags.keySet().forEach(tagName ->
+				{
+					sb.append("RACENAME:").append(aRaceName).append("\t\t");
+					sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
+				});
+			});
 
 			sb.append("\n");
 		}

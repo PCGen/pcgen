@@ -1219,10 +1219,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			EquipmentSetFacade equipSet
 					= character.getEquipmentSetRef().get();
-			for (EquipNode equipNode : targets)
+			targets.forEach(equipNode ->
 			{
 				equipSet.moveEquipment(equipNode, -1);
-			}
+			});
 		}
 
 	}
@@ -1258,10 +1258,10 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			EquipmentSetFacade equipSet
 					= character.getEquipmentSetRef().get();
-			for (EquipNode equipNode : targets)
+			targets.forEach(equipNode ->
 			{
 				equipSet.moveEquipment(equipNode, 1);
-			}
+			});
 		}
 
 	}
@@ -1295,10 +1295,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			EquipmentSetFacade equipSet
 					= character.getEquipmentSetRef().get();
-			for (EquipNode equipNode : targets)
-			{
-				equipSet.sortEquipment(equipNode);
-			}
+			targets.forEach(equipSet::sortEquipment);
 		}
 
 	}

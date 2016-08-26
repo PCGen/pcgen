@@ -187,32 +187,29 @@ public class CDOMChooserFacadeImpl<T> implements ChooserFacade
 	private List<InfoFacade> createInfoFacadeList(List<? extends T> origAvailable2, String stringDelimiter)
 	{
 		List<InfoFacade> infoFacadeList = new ArrayList<>(origAvailable2.size());
-		for (T object : origAvailable2)
+		origAvailable2.forEach(object ->
 		{
 			if (object instanceof InfoFacade)
 			{
 				infoFacadeList.add((InfoFacade) object);
 				infoAvailable = true;
-			}
-			else if (object instanceof CDOMObject)
+			} else if (object instanceof CDOMObject)
 			{
 				CDOMInfoWrapper wrapper = new CDOMInfoWrapper((CDOMObject) object);
 				infoFacadeList.add(wrapper);
-			}
-			else if (!StringUtils.isEmpty(stringDelimiter)
-				&& (object instanceof String))
+			} else if (!StringUtils.isEmpty(stringDelimiter)
+					&& (object instanceof String))
 			{
 				DelimitedStringInfoWrapper wrapper =
 						new DelimitedStringInfoWrapper((String) object,
-							stringDelimiter);
+								stringDelimiter);
 				infoFacadeList.add(wrapper);
-			}
-			else
+			} else
 			{
 				InfoWrapper wrapper = new InfoWrapper(object);
 				infoFacadeList.add(wrapper);
 			}
-		}
+		});
 		return infoFacadeList;
 	}
 	

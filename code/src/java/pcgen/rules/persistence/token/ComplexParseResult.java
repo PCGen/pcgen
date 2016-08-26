@@ -75,19 +75,19 @@ public class ComplexParseResult implements ParseResult
 	@Override
 	public void printMessages()
 	{
-		for (QueuedMessage msg : queuedMessages)
+		queuedMessages.forEach(msg ->
 		{
 			Logging.log(msg.level, msg.message, msg.stackTrace);
-		}
+		});
 	}
 
 	@Override
 	public void addMessagesToLog()
 	{
-		for (QueuedMessage msg : queuedMessages)
+		queuedMessages.forEach(msg ->
 		{
 			Logging.addParseMessage(msg.level, msg.message, msg.stackTrace);
-		}
+		});
 	}
 
 	@Override

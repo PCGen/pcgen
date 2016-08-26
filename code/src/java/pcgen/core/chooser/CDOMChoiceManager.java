@@ -117,15 +117,15 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		if (oldSelections != null)
 		{
 			oldSize = oldSelections.size();
-			for (T obj : oldSelections)
+			oldSelections.forEach(obj ->
 			{
 				info.getChoiceActor().removeChoice(pc, owner, obj);
-			}
+			});
 		}
-		for (T obj : toAdd)
+		toAdd.forEach(obj ->
 		{
 			info.getChoiceActor().applyChoice(owner, obj, pc);
-		}
+		});
 		adjustPool(selected);
 		return oldSize != selected.size();
 	}

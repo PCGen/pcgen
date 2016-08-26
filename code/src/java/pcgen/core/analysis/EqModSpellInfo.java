@@ -89,10 +89,10 @@ public final class EqModSpellInfo
 						+ Integer.toString(remainingCharges) + ']');
 				assoc.set(0, listEntry);
 			}
-			for (String s : assoc)
+			assoc.forEach(s ->
 			{
 				parent.addAssociation(eqMod, s);
-			}
+			});
 		}
 	}
 

@@ -87,14 +87,14 @@ public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 				listIT.remove();
 			}
 		}
-		for (CNAbilitySelection cnas : removed)
+		removed.forEach(cnas ->
 		{
 			fireDataFacetChangeEvent(id, cnas,
-				DataFacetChangeEvent.DATA_REMOVED);
-		}
-		for (CNAbilitySelection cnas : added)
+					DataFacetChangeEvent.DATA_REMOVED);
+		});
+		added.forEach(cnas ->
 		{
 			fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_ADDED);
-		}
+		});
 	}
 }

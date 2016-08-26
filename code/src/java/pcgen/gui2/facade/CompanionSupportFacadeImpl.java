@@ -179,8 +179,8 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	private void initCompData(boolean rebuildCompanionList)
 	{
 		List<CompanionStub> companions = new ArrayList<>();
-		for (CompanionList compList : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(CompanionList.class))
+		Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(CompanionList.class).forEach(compList ->
 		{
 			keyToCompanionListMap.put(compList.getKeyName(), compList);
 			Map<FollowerOption, CDOMObject> fMap = charDisplay.getAvailableFollowers(compList.getKeyName(), null);
@@ -189,35 +189,34 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			if (maxVal == 0)
 			{
 				maxCompanionsMap.removeKey(compList.toString());
-			}
-			else
+			} else
 			{
 				maxCompanionsMap.putValue(compList.toString(), maxVal);
 			}
-		}
+		});
 		availCompList.updateContents(companions);
 		//Logging.debugPrint("Available comps " + availCompList);
 		//Logging.debugPrint("Max comps " + maxCompanionsMap);
 		
 		if (rebuildCompanionList)
 		{
-			for (Follower follower : charDisplay.getFollowerList())
+			charDisplay.getFollowerList().forEach(follower ->
 			{
 				CompanionFacade comp =
 						new CompanionNotLoaded(follower.getName(), new File(
-							follower.getFileName()), follower.getRace(), follower
-							.getType().toString());
+								follower.getFileName()), follower.getRace(), follower
+								.getType().toString());
 				CompanionFacadeDelegate delegate = new CompanionFacadeDelegate();
 				delegate.setCompanionFacade(comp);
 				companionList.addElement(delegate);
-			}
+			});
 		}
 		//Logging.debugPrint("Companion list " + companionList);
-		for (CompanionList compList : Globals.getContext().getReferenceContext()
-				.getConstructedCDOMObjects(CompanionList.class))
+		Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(CompanionList.class).forEach(compList ->
 		{
 			updateCompanionTodo(compList.toString());
-		}
+		});
 	}
 
 

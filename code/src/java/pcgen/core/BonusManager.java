@@ -594,12 +594,13 @@ public class BonusManager
 
 		// go through all the BonusObj's that aBonus depends on
 		// and process them first
-		for (BonusObj newBonus : aList)
+		// Recursively call itself
+		aList.forEach(newBonus ->
 		{
 			// Recursively call itself
 			processBonus(newBonus, prevProcessed, processedBonuses,
-				nonStackMap, stackMap);
-		}
+					nonStackMap, stackMap);
+		});
 
 		// Double check that it hasn't been processed yet
 		if (processedBonuses.contains(aBonus))
@@ -620,15 +621,17 @@ public class BonusManager
 		}
 
 		// calculate bonus and add to activeBonusMap
-		for (BonusPair bp : getStringListFromBonus(aBonus))
+		//			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
+//					+ iBonus + " : " + bp.fullyQualifiedBonusType);
+		getStringListFromBonus(aBonus).forEach(bp ->
 		{
 			final double iBonus = bp.resolve(pc).doubleValue();
 			setActiveBonusStack(iBonus, bp.fullyQualifiedBonusType, nonStackMap, stackMap);
 			totalBonusesForType(nonStackMap, stackMap,
-				bp.fullyQualifiedBonusType, activeBonusMap);
+					bp.fullyQualifiedBonusType, activeBonusMap);
 //			Logging.debugPrint("vBONUS: " + anObj.getDisplayName() + " : "
 //					+ iBonus + " : " + bp.fullyQualifiedBonusType);
-		}
+		});
 		prevProcessed.remove(aBonus);
 	}
 
@@ -856,16 +859,13 @@ public class BonusManager
 					// Grab the list of relevant types so that we can build up
 					// the
 					// bonuses with the stacking rules applied.
-					for (BonusPair bp : getStringListFromBonus(bonus))
+					getStringListFromBonus(bonus).stream().filter(bp -> bp.fullyQualifiedBonusType.startsWith(prefix)).forEach(bp ->
 					{
-						if (bp.fullyQualifiedBonusType.startsWith(prefix))
-						{
-							setActiveBonusStack(bp.resolve(pc).doubleValue(),
-									bp.fullyQualifiedBonusType, nonStackMap, stackMap);
-							totalBonusesForType(nonStackMap, stackMap,
+						setActiveBonusStack(bp.resolve(pc).doubleValue(),
+								bp.fullyQualifiedBonusType, nonStackMap, stackMap);
+						totalBonusesForType(nonStackMap, stackMap,
 								bp.fullyQualifiedBonusType, bonusMap);
-						}
-					}
+					});
 				}
 			}
 		}
@@ -908,7 +908,7 @@ public class BonusManager
 		Map<String, String> returnMap = new HashMap<>();
 		String prefix = bonusName + "." + bonusInfo + ".";
 
-		for (Map.Entry<String, String> entry : activeBonusMap.entrySet())
+		activeBonusMap.entrySet().forEach(entry ->
 		{
 			String fullyQualifiedBonusType = entry.getKey();
 
@@ -916,7 +916,7 @@ public class BonusManager
 			{
 				returnMap.put(fullyQualifiedBonusType, entry.getValue());
 			}
-		}
+		});
 		return returnMap;
 	}
 
@@ -1053,8 +1053,8 @@ public class BonusManager
 	public Map<BonusObj, TempBonusInfo> getFilteredTempBonusList()
 	{
 		final Map<BonusObj, TempBonusInfo> ret = new IdentityHashMap<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
+		tempBonusBySource
+				.entrySet().forEach(me ->
 		{
 			BonusObj bonus = me.getKey();
 			TempBonusInfo ti = me.getValue();
@@ -1062,7 +1062,7 @@ public class BonusManager
 			{
 				ret.put(bonus, ti);
 			}
-		}
+		});
 		return ret;
 	}
 
@@ -1084,8 +1084,8 @@ public class BonusManager
 	public Map<BonusObj, Object> getTempBonuses()
 	{
 		Map<BonusObj, Object> map = new IdentityHashMap<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : getFilteredTempBonusList()
-				.entrySet())
+		getFilteredTempBonusList()
+				.entrySet().forEach(me ->
 		{
 			final BonusObj bonus = me.getKey();
 			pc.setApplied(bonus, false);
@@ -1102,7 +1102,7 @@ public class BonusManager
 			{
 				map.put(bonus, source);
 			}
-		}
+		});
 		return map;
 	}
 
@@ -1314,7 +1314,7 @@ public class BonusManager
 				}
 				newFormula = FormulaFactory.getFormulaFor(thisValue);
 			}
-			for (String replacedInfo : replacedInfoList)
+			replacedInfoList.forEach(replacedInfo ->
 			{
 				StringBuilder sb = new StringBuilder(100);
 				sb.append(replacedName).append('.').append(replacedInfo);
@@ -1324,7 +1324,7 @@ public class BonusManager
 				}
 				bonusList.add(new BonusPair(sb.toString(), newFormula,
 						creatorObj));
-			}
+			});
 		}
 
 		return bonusList;
@@ -1428,10 +1428,10 @@ public class BonusManager
 				{
 					pobj.activateBonuses(pc);
 					List<BonusObj> abs = pobj.getActiveBonuses(pc);
-					for (BonusObj bo : abs)
+					abs.forEach(bo ->
 					{
 						ret.put(bo, pobj);
-					}
+					});
 				}
 			}
 		}
@@ -1449,23 +1449,23 @@ public class BonusManager
 	public void logChangeFromCheckpoint()
 	{
 		Map<String, String> addedMap = new HashMap<>(activeBonusMap);
-		for (Entry<String, String> prevEntry : checkpointMap.entrySet())
+		checkpointMap.entrySet().forEach(prevEntry ->
 		{
 			String addedValue = addedMap.get(prevEntry.getKey());
 			if (prevEntry.getValue().equals(addedValue))
 			{
 				addedMap.remove(prevEntry.getKey());
 			}
-		}
+		});
 		Map<String, String> removedMap = new HashMap<>(checkpointMap);
-		for (Entry<String, String> prevEntry : activeBonusMap.entrySet())
+		activeBonusMap.entrySet().forEach(prevEntry ->
 		{
 			String addedValue = removedMap.get(prevEntry.getKey());
 			if (prevEntry.getValue().equals(addedValue))
 			{
 				removedMap.remove(prevEntry.getKey());
 			}
-		}
+		});
 
 		Logging.errorPrint("..Bonuses removed last round: " + removedMap);
 		Logging.errorPrint("..Bonuses added last round: " + addedMap);

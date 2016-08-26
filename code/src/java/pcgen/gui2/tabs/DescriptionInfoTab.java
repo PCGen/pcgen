@@ -229,20 +229,14 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		{
 			notes.addListListener(this);
 
-			for (NoteInfoPane noteInfoPane : notePaneList)
-			{
-				addPage(noteInfoPane);
-			}
+			notePaneList.forEach(DescriptionInfoTab.this::addPage);
 		}
 
 		public void uninstall()
 		{
 			notes.removeListListener(this);
 
-			for (NoteInfoPane noteInfoPane : notePaneList)
-			{
-				removePage(noteInfoPane);
-			}
+			notePaneList.forEach(DescriptionInfoTab.this::removePage);
 		}
 
 		/**
@@ -309,10 +303,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 		@Override
 		public void elementsChanged(ListEvent<NoteFacade> e)
 		{
-			for (NoteInfoPane pane : notePaneList)
-			{
-				listModel.removeElement(pane);
-			}
+			notePaneList.forEach(listModel::removeElement);
 			notePaneList.clear();
 			for (NoteFacade note : notes)
 			{

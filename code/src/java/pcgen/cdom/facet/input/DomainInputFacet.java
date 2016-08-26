@@ -85,10 +85,10 @@ public class DomainInputFacet
 			//Error?
 			return false;
 		}
-		for (T sel : newSelections)
+		newSelections.forEach(sel ->
 		{
 			directSet(id, obj, sel, source);
-		}
+		});
 		return true;
 	}
 

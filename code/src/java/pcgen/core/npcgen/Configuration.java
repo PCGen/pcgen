@@ -116,10 +116,10 @@ public class Configuration
 			for ( final File file : classDataFiles )
 			{
 				final List<ClassData> classData = classParser.parse(file);
-				for ( final ClassData cd : classData )
+				classData.forEach(cd ->
 				{
 					config.theClassData.put(cd.getPCClass().getKeyName(), cd);
-				}
+				});
 			}
 		}
 		catch (Exception ex)
@@ -162,13 +162,13 @@ public class Configuration
 	{
 		final List<RaceGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof RaceGeneratorOption).map(opt -> (RaceGeneratorOption) opt).collect(Collectors.toList());
 
-		for ( final Race race : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Race.class).forEach(race ->
 		{
 			final RaceGeneratorOption opt = new RaceGeneratorOption();
 			opt.setName(race.getDisplayName());
 			opt.addChoice(1, race.getKeyName());
-			ret.add( opt );
-		}
+			ret.add(opt);
+		});
 		return ret;
 	}
 
@@ -190,13 +190,13 @@ public class Configuration
 	{
 		final List<ClassGeneratorOption> ret = theGeneratorOptions.stream().filter(opt -> opt instanceof ClassGeneratorOption).map(opt -> (ClassGeneratorOption) opt).collect(Collectors.toList());
 
-		for ( final PCClass pcClass : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class) )
+		Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCClass.class).forEach(pcClass ->
 		{
 			final ClassGeneratorOption opt = new ClassGeneratorOption();
 			opt.setName(pcClass.getDisplayName());
 			opt.addChoice(1, pcClass.getKeyName());
 			ret.add(opt);
-		}
+		});
 		return ret;
 	}
 

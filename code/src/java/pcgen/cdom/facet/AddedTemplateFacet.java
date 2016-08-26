@@ -77,11 +77,11 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 			po
 					.getSafeListFor(ListKey.TEMPLATE).forEach(ref ->
 			{
-				for (PCTemplate pct : ref.getContainedObjects())
+				ref.getContainedObjects().forEach(pct ->
 				{
 					add(id, pct, po);
 					list.add(pct);
-				}
+				});
 			});
 			List<PCTemplate> added = new ArrayList<>();
 			po
@@ -276,10 +276,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		{
 			refList.forEach(pctr ->
 			{
-				for (PCTemplate pct : pctr.getContainedObjects())
-				{
-					pc.removeTemplate(pct);
-				}
+				pctr.getContainedObjects().forEach(pc::removeTemplate);
 			});
 		}
 	}

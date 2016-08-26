@@ -176,14 +176,14 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	public String listDependsMap()
 	{
 		StringBuilder buff = new StringBuilder("[");
-		for (String key : dependMap.keySet())
+		dependMap.keySet().forEach(key ->
 		{
-			if (buff.length()> 1)
+			if (buff.length() > 1)
 			{
 				buff.append(", ");
 			}
 			buff.append(key);
-		}
+		});
 		buff.append("]");
 		return buff.toString();
 	}

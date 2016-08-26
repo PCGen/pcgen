@@ -409,13 +409,10 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = availableTable.getSelectedData();
-			for (Object eqMod : data)
+			data.stream().filter(eqMod -> eqMod instanceof EquipModFacade).forEach(eqMod ->
 			{
-				if (eqMod instanceof EquipModFacade)
-				{
-					builder.addModToEquipment((EquipModFacade) eqMod, currentHead);
-				}
-			}
+				builder.addModToEquipment((EquipModFacade) eqMod, currentHead);
+			});
 			equipInfoHandler.refreshInfo();
 			availableTable.refilter();
 		}
@@ -434,14 +431,11 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public void actionPerformed(ActionEvent e)
 		{
 			List<Object> data = selectedTable.getSelectedData();
-			for (Object eqMod : data)
+			data.stream().filter(eqMod -> eqMod instanceof EquipModFacade).forEach(eqMod ->
 			{
-				if (eqMod instanceof EquipModFacade)
-				{
-					builder.removeModFromEquipment((EquipModFacade) eqMod,
+				builder.removeModFromEquipment((EquipModFacade) eqMod,
 						currentHead);
-				}
-			}
+			});
 			equipInfoHandler.refreshInfo();
 			availableTable.refilter();
 		}

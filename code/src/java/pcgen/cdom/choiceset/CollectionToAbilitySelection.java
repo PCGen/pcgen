@@ -91,10 +91,10 @@ public class CollectionToAbilitySelection implements
 		Collection<? extends AbilityWithChoice> aColl =
 				collection.getCollection(pc, new ExpandingConverter(pc));
 		Set<AbilitySelection> returnSet = new HashSet<>();
-		for (AbilityWithChoice a : aColl)
+		aColl.forEach(a ->
 		{
 			processAbility(pc, returnSet, a);
-		}
+		});
 		return returnSet;
 	}
 
@@ -267,10 +267,10 @@ public class CollectionToAbilitySelection implements
 		public Collection<AbilityWithChoice> convert(ObjectContainer<Ability> ref)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().forEach(a ->
 			{
 				processAbility(ref, returnSet, a);
-			}
+			});
 			return returnSet;
 		}
 
@@ -290,13 +290,10 @@ public class CollectionToAbilitySelection implements
 			ObjectContainer<Ability> ref, PrimitiveFilter<Ability> lim)
 		{
 			Set<AbilityWithChoice> returnSet = new HashSet<>();
-			for (Ability a : ref.getContainedObjects())
+			ref.getContainedObjects().stream().filter(a -> lim.allow(character, a)).forEach(a ->
 			{
-				if (lim.allow(character, a))
-				{
-					processAbility(ref, returnSet, a);
-				}
-			}
+				processAbility(ref, returnSet, a);
+			});
 			return returnSet;
 		}
 	}

@@ -332,13 +332,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			List<Object> data = availTable.getSelectedData();
 			if (!data.isEmpty())
 			{
-				for (Object object : data)
+				data.stream().filter(object -> object instanceof InfoFacade).forEach(object ->
 				{
-					if (object instanceof InfoFacade)
-					{
-						chooser.addSelected((InfoFacade) object);
-					}
-				}
+					chooser.addSelected((InfoFacade) object);
+				});
 			}
 			return;
 		}

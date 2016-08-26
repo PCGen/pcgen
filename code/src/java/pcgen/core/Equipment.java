@@ -564,15 +564,7 @@ public final class Equipment extends PObject implements Serializable,
 	@Override
 	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
 	{
-		final List<BonusObj> aList = new ArrayList<>();
-
-		for (BonusObj bonus : getRawBonusList(aPC))
-		{
-			if (aPC.isApplied(bonus))
-			{
-				aList.add(bonus);
-			}
-		}
+		final List<BonusObj> aList = getRawBonusList(aPC).stream().filter(aPC::isApplied).collect(Collectors.toList());
 
 		List<EquipmentModifier> eqModList = getEqModifierList(true);
 
