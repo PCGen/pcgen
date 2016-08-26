@@ -140,7 +140,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -339,7 +339,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	public static boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -446,7 +446,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
