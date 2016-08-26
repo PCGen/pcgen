@@ -162,11 +162,11 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 		{
 			return Collections.emptyMap();
 		}
-		for (Map.Entry<S, A> entry : componentMap.entrySet())
+		componentMap.entrySet().forEach(entry ->
 		{
 			fireScopeFacetChangeEvent(id, entry.getKey(), entry.getValue(),
-				DataFacetChangeEvent.DATA_REMOVED);
-		}
+					DataFacetChangeEvent.DATA_REMOVED);
+		});
 		return componentMap;
 	}
 

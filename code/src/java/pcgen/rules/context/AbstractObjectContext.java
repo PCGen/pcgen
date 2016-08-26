@@ -194,112 +194,123 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	void commit()
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (URI uri : edits.preClearSet.getKeySet())
+		edits.preClearSet.getKeySet().forEach(uri ->
 		{
-			for (ConcretePrereqObject cpo : edits.preClearSet.getListFor(uri))
-			{
-				commit.clearPrerequisiteList(cpo);
-			}
-		}
-		for (URI uri : edits.globalClearSet.getKeySet())
+			edits.preClearSet.getListFor(uri).forEach(commit::clearPrerequisiteList);
+		});
+		edits.globalClearSet.getKeySet().forEach(uri ->
 		{
-			for (CDOMObject cdo : edits.globalClearSet.getSecondaryKeySet(uri))
+			edits.globalClearSet.getSecondaryKeySet(uri).forEach(cdo ->
 			{
-				for (ListKey<?> lk : edits.globalClearSet.getListFor(uri, cdo))
+				edits.globalClearSet.getListFor(uri, cdo).forEach(lk ->
 				{
 					commit.removeList(cdo, lk);
-				}
-			}
-		}
-		for (URI uri : edits.negativeMap.getKeySet())
+				});
+			});
+		});
+		edits.negativeMap.getKeySet().forEach(uri ->
 		{
-			for (ConcretePrereqObject cpo : edits.negativeMap
-					.getSecondaryKeySet(uri))
+			edits.negativeMap
+					.getSecondaryKeySet(uri).stream().filter(cpo -> cpo instanceof CDOMObject).forEach(cpo ->
 			{
-				if (cpo instanceof CDOMObject)
+				CDOMObject cdo = (CDOMObject) cpo;
+				CDOMObject neg = edits.negativeMap.get(uri, cdo);
+				neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY).forEach(ok ->
 				{
-					CDOMObject cdo = (CDOMObject) cpo;
-					CDOMObject neg = edits.negativeMap.get(uri, cdo);
-					for (ObjectKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_OBJECTKEY))
-					{
-						commit.remove(cdo, ok);
-					}
-					for (FactKey<?> ok : neg.getSafeListFor(ListKey.REMOVED_FACTKEY))
-					{
-						commit.remove(cdo, ok);
-					}
-					for (StringKey sk : neg.getSafeListFor(ListKey.REMOVED_STRINGKEY))
-					{
-						commit.remove(cdo, sk);
-					}
-					for (IntegerKey ik : neg.getSafeListFor(ListKey.REMOVED_INTEGERKEY))
-					{
-						commit.remove(cdo, ik);
-					}
-					for (FactSetKey<?> key : neg.getFactSetKeys())
-					{
-						removeFactSetKey(cdo, key, neg);
-					}
-					for (ListKey<?> key : neg.getListKeys())
-					{
-						removeListKey(cdo, key, neg);
-					}
-					for (MapKey<?, ?> key1 : neg.getMapKeys())
-					{
-						removeMapKey(cdo, key1, neg);
-					}
-				}
-			}
-		}
-		for (URI uri : edits.positiveMap.getKeySet())
+					commit.remove(cdo, ok);
+				});
+				neg.getSafeListFor(ListKey.REMOVED_FACTKEY).forEach(ok ->
+				{
+					commit.remove(cdo, ok);
+				});
+				neg.getSafeListFor(ListKey.REMOVED_STRINGKEY).forEach(sk ->
+				{
+					commit.remove(cdo, sk);
+				});
+				neg.getSafeListFor(ListKey.REMOVED_INTEGERKEY).forEach(ik ->
+				{
+					commit.remove(cdo, ik);
+				});
+				neg.getFactSetKeys().forEach(key ->
+				{
+					removeFactSetKey(cdo, key, neg);
+				});
+				neg.getListKeys().forEach(key ->
+				{
+					removeListKey(cdo, key, neg);
+				});
+				neg.getMapKeys().forEach(key1 ->
+				{
+					removeMapKey(cdo, key1, neg);
+				});
+			});
+		});
+		/*
+		 * No need to deal with ListMods because that's done in
+		 * listContext
+		 *//*
+		  * TODO Deal with cloned objects
+		  *//*
+		   * No need to deal with ListMods because that's done in
+		   * listContext
+		   *//*
+		    * TODO Deal with cloned objects
+		    */
+		edits.positiveMap.getKeySet().forEach(uri ->
 		{
-			for (ConcretePrereqObject cpo : edits.positiveMap
-					.getSecondaryKeySet(uri))
+			/*
+			 * No need to deal with ListMods because that's done in
+			 * listContext
+			 *//*
+			  * TODO Deal with cloned objects
+			  */
+			edits.positiveMap
+					.getSecondaryKeySet(uri).forEach(cpo ->
 			{
 				CDOMObject pos = edits.positiveMap.get(uri, cpo);
-				for (Prerequisite p : pos.getPrerequisiteList())
+				pos.getPrerequisiteList().forEach(p ->
 				{
 					commit.put(cpo, p);
-				}
+				});
 				if (cpo instanceof CDOMObject)
 				{
 					CDOMObject cdo = (CDOMObject) cpo;
-					for (StringKey key : pos.getStringKeys())
+					pos.getStringKeys().forEach(key ->
 					{
 						commit.put(cdo, key, pos.get(key));
-					}
-					for (IntegerKey key : pos.getIntegerKeys())
+					});
+					pos.getIntegerKeys().forEach(key ->
 					{
 						commit.put(cdo, key, pos.get(key));
-					}
-					for (FormulaKey key : pos.getFormulaKeys())
+					});
+					pos.getFormulaKeys().forEach(key ->
 					{
 						commit.put(cdo, key, pos.get(key));
-					}
-					for (VariableKey key : pos.getVariableKeys())
+					});
+					pos.getVariableKeys().forEach(key ->
 					{
 						commit.put(cdo, key, pos.get(key));
-					}
-					for (ObjectKey<?> key : pos.getObjectKeys())
+					});
+					pos.getObjectKeys().forEach(key ->
 					{
 						putObjectKey(cdo, key, pos);
-					}
-					for (FactKey<?> key : pos.getFactKeys())
+					});
+					pos.getFactKeys().forEach(key ->
 					{
 						putFactKey(cdo, key, pos);
-					}
-					for (ListKey<?> key : pos.getListKeys())
+					});
+					pos.getListKeys().forEach(key ->
 					{
 						putListKey(cdo, key, pos);
-					}
-					for (FactSetKey<?> key : pos.getFactSetKeys())
+					});
+					pos.getFactSetKeys().forEach(key ->
 					{
 						putFactSetKey(cdo, key, pos);
-					}
-					for (MapKey<?, ?> key1 : pos.getMapKeys())
+					});
+					pos.getMapKeys().forEach(key1 ->
 					{
 						putMapKey(cdo, key1, pos);
-					}
+					});
 					/*
 					 * No need to deal with ListMods because that's done in
 					 * listContext
@@ -308,60 +319,60 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 					 * TODO Deal with cloned objects
 					 */
 				}
-			}
-		}
-		for (URI uri : edits.patternClearSet.getKeySet())
+			});
+		});
+		edits.patternClearSet.getKeySet().forEach(uri ->
 		{
-			for (CDOMObject cdo : edits.patternClearSet.getSecondaryKeySet(uri))
+			edits.patternClearSet.getSecondaryKeySet(uri).forEach(cdo ->
 			{
-				for (ListKey<?> lk : edits.patternClearSet.getTertiaryKeySet(
-						uri, cdo))
+				edits.patternClearSet.getTertiaryKeySet(
+						uri, cdo).forEach(lk ->
 				{
-					for (String s : edits.patternClearSet.getListFor(uri, cdo,
-							lk))
+					edits.patternClearSet.getListFor(uri, cdo,
+							lk).forEach(s ->
 					{
 						commit.removePatternFromList(cdo, lk, s);
-					}
-				}
-			}
-		}
+					});
+				});
+			});
+		});
 		rollback();
 	}
 
 	private <T> void removeListKey(CDOMObject cdo, ListKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (T obj : neg.getListFor(key))
+		neg.getListFor(key).forEach(obj ->
 		{
 			commit.removeFromList(cdo, key, obj);
-		}
+		});
 	}
 
 	private <T> void removeFactSetKey(CDOMObject cdo, FactSetKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (Indirect<T> obj : neg.getSetFor(key))
+		neg.getSetFor(key).forEach(obj ->
 		{
 			commit.removeFromSet(cdo, key, obj);
-		}
+		});
 	}
 
 	private <T> void putListKey(CDOMObject cdo, ListKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (T obj : neg.getListFor(key))
+		neg.getListFor(key).forEach(obj ->
 		{
 			commit.addToList(cdo, key, obj);
-		}
+		});
 	}
 
 	private <T> void putFactSetKey(CDOMObject cdo, FactSetKey<T> key, CDOMObject neg)
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
-		for (Indirect<T> obj : neg.getSetFor(key))
+		neg.getSetFor(key).forEach(obj ->
 		{
 			commit.addToSet(cdo, key, obj);
-		}
+		});
 	}
 
 	private <T> void putObjectKey(CDOMObject cdo, ObjectKey<T> key, CDOMObject neg)
@@ -379,10 +390,10 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
 		Set<K> secKeys = neg.getKeysFor(key1);
-		for (K key2 : secKeys)
+		secKeys.forEach(key2 ->
 		{
 			commit.remove(cdo, key1, key2);
-		}
+		});
 	}
 
 	private <K, V> void putMapKey(CDOMObject cdo, MapKey<K, V> key1,
@@ -390,10 +401,10 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 	{
 		ObjectCommitStrategy commit = getCommitStrategy();
 		Set<K> secKeys = pos.getKeysFor(key1);
-		for (K key2 : secKeys)
+		secKeys.forEach(key2 ->
 		{
 			commit.put(cdo, key1, key2, pos.get(key1, key2));
-		}
+		});
 	}
 
 	void rollback()

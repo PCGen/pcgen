@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -79,11 +80,7 @@ public abstract class AbstractBasicCampaignToken extends
 			//empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<>();
-		for (CampaignSourceEntry cse : added)
-		{
-			set.add(cse.getLSTformat());
-		}
+		Set<String> set = added.stream().map(CampaignSourceEntry::getLSTformat).collect(Collectors.toCollection(TreeSet::new));
 		return set.toArray(new String[set.size()]);
 	}
 
