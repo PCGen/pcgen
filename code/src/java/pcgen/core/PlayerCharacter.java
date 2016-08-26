@@ -9407,7 +9407,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		wpBonusFacet.add(id, choice, owner);
 	}
 
-	public List<? extends WeaponProf> getBonusWeaponProfs(CDOMObject owner)
+	public List<WeaponProf> getBonusWeaponProfs(CDOMObject owner)
 	{
 		return wpBonusFacet.getSet(id, owner);
 	}
@@ -9547,7 +9547,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return activeSpellsFacet.containsFrom(id, cdo);
 	}
 
-	public Collection<? extends CharacterSpell> getCharacterSpells(CDOMObject cdo)
+	public Collection<CharacterSpell> getCharacterSpells(CDOMObject cdo)
 	{
 		return activeSpellsFacet.getSet(id, cdo);
 	}
