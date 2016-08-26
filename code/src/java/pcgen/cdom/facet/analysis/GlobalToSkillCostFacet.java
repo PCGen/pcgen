@@ -55,10 +55,10 @@ public class GlobalToSkillCostFacet extends
 		SkillCost cost = dfce.getScope();
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getSet(id))
+		classFacet.getSet(id).forEach(cl ->
 		{
 			add(id, cl, cost, sk, source);
-		}
+		});
 	}
 
 	@Override
@@ -68,10 +68,10 @@ public class GlobalToSkillCostFacet extends
 		SkillCost cost = dfce.getScope();
 		Skill sk = dfce.getCDOMObject();
 		Object source = dfce.getSource();
-		for (PCClass cl : classFacet.getSet(id))
+		classFacet.getSet(id).forEach(cl ->
 		{
 			remove(id, cl, cost, sk, source);
-		}
+		});
 	}
 
 	@Override
@@ -80,24 +80,24 @@ public class GlobalToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
 		DataSetID dsID = id.getDatasetID();
-		for (Skill sk : masterUsableSkillFacet.getSet(dsID))
+		masterUsableSkillFacet.getSet(dsID).forEach(sk ->
 		{
 			add(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);
-		}
-		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
+		});
+		globalSkillCostFacet.getScopes(id).forEach(cost ->
 		{
-			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
+			globalSkillCostFacet.getSet(id, cost).forEach(sk ->
 			{
 				add(id, cl, cost, sk, globalSkillCostFacet);
-			}
-		}
-		for (SkillCost cost : globalAddedSkillCostFacet.getScopes(id))
+			});
+		});
+		globalAddedSkillCostFacet.getScopes(id).forEach(cost ->
 		{
-			for (Skill sk : globalAddedSkillCostFacet.getSet(id, cost))
+			globalAddedSkillCostFacet.getSet(id, cost).forEach(sk ->
 			{
 				add(id, cl, cost, sk, globalAddedSkillCostFacet);
-			}
-		}
+			});
+		});
 	}
 
 	@Override
@@ -106,24 +106,24 @@ public class GlobalToSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		PCClass cl = dfce.getCDOMObject();
 		DataSetID dsID = id.getDatasetID();
-		for (Skill sk : masterUsableSkillFacet.getSet(dsID))
+		masterUsableSkillFacet.getSet(dsID).forEach(sk ->
 		{
 			remove(id, cl, SkillCost.CROSS_CLASS, sk, masterUsableSkillFacet);
-		}
-		for (SkillCost cost : globalSkillCostFacet.getScopes(id))
+		});
+		globalSkillCostFacet.getScopes(id).forEach(cost ->
 		{
-			for (Skill sk : globalSkillCostFacet.getSet(id, cost))
+			globalSkillCostFacet.getSet(id, cost).forEach(sk ->
 			{
 				remove(id, cl, cost, sk, globalSkillCostFacet);
-			}
-		}
-		for (SkillCost cost : globalAddedSkillCostFacet.getScopes(id))
+			});
+		});
+		globalAddedSkillCostFacet.getScopes(id).forEach(cost ->
 		{
-			for (Skill sk : globalAddedSkillCostFacet.getSet(id, cost))
+			globalAddedSkillCostFacet.getSet(id, cost).forEach(sk ->
 			{
 				remove(id, cl, cost, sk, globalAddedSkillCostFacet);
-			}
-		}
+			});
+		});
 	}
 
 	public void setGlobalSkillCostFacet(
