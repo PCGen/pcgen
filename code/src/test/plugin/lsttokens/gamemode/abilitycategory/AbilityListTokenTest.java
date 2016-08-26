@@ -62,7 +62,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}
 
-	private Ability buildFeat(RuntimeLoadContext context, String abName)
+	private static Ability buildFeat(RuntimeLoadContext context, String abName)
 	{
 		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, abName);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
