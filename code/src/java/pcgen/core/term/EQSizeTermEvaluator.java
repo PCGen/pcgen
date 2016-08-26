@@ -58,7 +58,7 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

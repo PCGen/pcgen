@@ -211,7 +211,7 @@ public final class Comparators
 			return collator.compare(String.valueOf(o1), String.valueOf(o2));
 		}
 
-		private String getSortKey(Object obj1)
+		private static String getSortKey(Object obj1)
 		{
 			String key;
 			if (obj1 == null)

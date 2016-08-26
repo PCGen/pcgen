@@ -180,7 +180,6 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.output.channel.compat.StatAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -662,7 +661,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param charName The name to be checked.
 	 * @return True if the name is a default.
 	 */
-	private boolean isNewCharName(String charName)
+	private static boolean isNewCharName(String charName)
 	{
 		if (charName == null)
 		{
@@ -2409,7 +2408,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param qualDomain The domain to search for.
 	 * @return tue if the domain is in the list 
 	 */
-	private boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
+	private static boolean isDomainInList(List<DomainFacadeImpl> qualDomainList, Domain domain)
 	{
 		for (DomainFacadeImpl row : qualDomainList)
 		{
@@ -2421,7 +2420,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return false;
 	}
 
-	private void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
+	private static void processAddDomains(CDOMObject cdo, final List<DomainFacadeImpl> availDomainList)
 	{
 		Collection<CDOMReference<Domain>> domainRefs = cdo.getListMods(PCClass.ALLOWED_DOMAINS);
 		if (domainRefs != null)
@@ -2448,7 +2447,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 	}
 
-	private void processDomainList(CDOMObject obj, final List<DomainFacadeImpl> availDomainList)
+	private static void processDomainList(CDOMObject obj, final List<DomainFacadeImpl> availDomainList)
 	{
 		for (QualifiedObject<CDOMSingleRef<Domain>> qo : obj.getSafeListFor(ListKey.DOMAIN))
 		{
@@ -3567,7 +3566,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
-	private boolean hasBeenAdjusted(Equipment equipItemToAdjust)
+	private static boolean hasBeenAdjusted(Equipment equipItemToAdjust)
 	{
 		Set<EquipmentModifier> allEqMods = new HashSet<>(equipItemToAdjust.getEqModifierList(true));
 		allEqMods.addAll(equipItemToAdjust.getEqModifierList(false));

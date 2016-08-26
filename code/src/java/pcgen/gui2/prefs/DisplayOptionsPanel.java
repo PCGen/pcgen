@@ -153,9 +153,9 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private int addDisplayOption(final int line,
-		final GridBagConstraints constraints, final GridBagLayout gridbag,
-		final JPanel panel, final String labelText, final JComponent c)
+	private static int addDisplayOption(final int line,
+	                                    final GridBagConstraints constraints, final GridBagLayout gridbag,
+	                                    final JPanel panel, final String labelText, final JComponent c)
 	{
 		if (c instanceof JCheckBox)
 		{

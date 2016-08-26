@@ -233,7 +233,7 @@ class DiceBagModel extends Observable
 	 * @param expression Die expression to parse
 	 * @return The double value of the expression.
 	 */
-	public double rollDie(String expression)
+	public static double rollDie(String expression)
 	{
 		double returnValue = RollingMethods.roll(expression);
 		return returnValue;

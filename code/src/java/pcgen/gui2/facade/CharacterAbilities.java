@@ -708,7 +708,7 @@ public class CharacterAbilities
 		return true;
 	}
 
-	private void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CNAbilitySelection cnas)
+	private static void addElement(Map<AbilityCategoryFacade, DefaultListFacade<AbilityFacade>> workingAbilityListMap, CNAbilitySelection cnas)
 	{
 		CNAbility cas = cnas.getCNAbility();
 		Ability ability = cas.getAbility();

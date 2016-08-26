@@ -60,7 +60,7 @@ public class EQHandsTermEvaluator extends BaseEQTermEvaluator implements TermEva
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

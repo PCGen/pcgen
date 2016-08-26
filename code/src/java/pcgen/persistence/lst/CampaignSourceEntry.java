@@ -467,7 +467,7 @@ public class CampaignSourceEntry implements SourceEntry
 		return sb.toString();
 	}
 
-	private StringBuilder joinIncExcList(List<String> list)
+	private static StringBuilder joinIncExcList(List<String> list)
 	{
 		MapToList<String, String> map = new HashMapToList<String, String>();
 		for (String s : list)

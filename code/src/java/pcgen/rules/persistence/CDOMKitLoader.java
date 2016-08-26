@@ -81,8 +81,8 @@ public class CDOMKitLoader
 		return true;
 	}
 
-	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
-			CDOMSubLineLoader<CC> loader, String line)
+	private static <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
+	                                                     CDOMSubLineLoader<CC> loader, String line)
 			throws PersistenceLayerException
 	{
 		CC obj = loader.getCDOMObject();

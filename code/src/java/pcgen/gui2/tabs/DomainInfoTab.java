@@ -184,7 +184,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		setResizeWeight(.65);
 	}
 
-	public DynamicTableColumnModel createDomainColumnModel()
+	public static DynamicTableColumnModel createDomainColumnModel()
 	{
 		PrefTableColumnModel model = new PrefTableColumnModel("DomainList", 1);
 		TableColumn column = new TableColumn(0);

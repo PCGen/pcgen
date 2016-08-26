@@ -526,7 +526,7 @@ public class EqContainerToken extends Token
 		return retString;
 	}
 
-	private Equipment getContainer(PlayerCharacter pc, int no)
+	private static Equipment getContainer(PlayerCharacter pc, int no)
 	{
 		for (Equipment eq : pc.getEquipmentListInOutputOrder())
 		{

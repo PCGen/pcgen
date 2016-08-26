@@ -59,7 +59,7 @@ public class EQEquipSizeTermEvaluator extends BaseEQTermEvaluator implements Ter
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
