@@ -73,9 +73,9 @@ public class ChooserUtilities
 	 * @return true if we processed the list of choices, false if we used the
 	 *         routine to build the list of choices without processing them.
 	 */
-	public static final boolean modChoices(final ChooseDriver aPObject,
-		List availableList, final List selectedList, final PlayerCharacter aPC,
-		final boolean addIt, final AbilityCategory category)
+	public static boolean modChoices(final ChooseDriver aPObject,
+	                                 List availableList, final List selectedList, final PlayerCharacter aPC,
+	                                 final boolean addIt, final AbilityCategory category)
 	{
 		availableList.clear();
 		selectedList.clear();

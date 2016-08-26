@@ -50,7 +50,7 @@ class DesktopBrowserLauncher
 	 * @param uri the URI to browse
 	 * @throws IOException if {@link Desktop} is not supported and {@link BrowserLauncher#openURL} throws an exception
 	 */
-	static final void browse(URI uri) throws IOException
+	static void browse(URI uri) throws IOException
 	{
 		if (isDesktopSupported())
 		{
@@ -82,7 +82,7 @@ class DesktopBrowserLauncher
 	 * @param file the file to browse
 	 * @throws IOException if {@link Desktop} is not supported and {@link BrowserLauncher#openURL} throws an exception
 	 */
-	static final void browse(File file) throws IOException
+	static void browse(File file) throws IOException
 	{
 		browse(file.toURI());
 	}
