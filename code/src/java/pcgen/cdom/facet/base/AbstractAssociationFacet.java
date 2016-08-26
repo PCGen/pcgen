@@ -58,7 +58,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 * @return The association for the item (identified by the given
 	 *         PCGenIdentifier) and the given source object
 	 */
-	public A get(IDT id, S obj)
+	public final A get(IDT id, S obj)
 	{
 		if (obj == null)
 		{
@@ -86,7 +86,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 * @param association
 	 *            The association for the given object
 	 */
-	public void set(IDT id, S obj, A association)
+	public final void set(IDT id, S obj, A association)
 	{
 		if (obj == null)
 		{
@@ -117,7 +117,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 * @param obj
 	 *            The object for which the association should be removed
 	 */
-	public void remove(IDT id, S obj)
+	public final void remove(IDT id, S obj)
 	{
 		Map<S, A> map = getCachedMap(id);
 		if (map != null)
@@ -194,7 +194,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 *         AbstractAssociationFacet for the item represented by the given
 	 *         PCGenIdentifier
 	 */
-	public Set<S> getSet(IDT id)
+	public final Set<S> getSet(IDT id)
 	{
 		Map<S, A> componentMap = getCachedMap(id);
 		if (componentMap == null)
@@ -281,7 +281,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 *         null if no information has been set in this
 	 *         AbstractAssociationFacet for the item.
 	 */
-	protected Map<S, A> getCachedMap(IDT id)
+	protected final Map<S, A> getCachedMap(IDT id)
 	{
 		return (Map<S, A>) getCache(id);
 	}
@@ -330,7 +330,7 @@ public abstract class AbstractAssociationFacet<IDT extends PCGenIdentifier, S, A
 	 * 
 	 * @return A new (empty) Map for use in this AbstractAssociationFacet.
 	 */
-	protected Map<S, A> getComponentMap()
+	protected final Map<S, A> getComponentMap()
 	{
 		return new IdentityHashMap<>();
 	}

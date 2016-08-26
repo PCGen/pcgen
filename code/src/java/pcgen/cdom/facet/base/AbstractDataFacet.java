@@ -71,8 +71,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
-	public void addDataFacetChangeListener(
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public final void addDataFacetChangeListener(
+			DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		addDataFacetChangeListener(0, listener);
 	}
@@ -95,8 +95,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The DataFacetChangeListener to receive DataFacetChangeEvents
 	 *            from this AbstractDataFacet
 	 */
-	public void addDataFacetChangeListener(int priority,
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public final void addDataFacetChangeListener(int priority,
+	                                             DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		DataFacetChangeListener<IDT, ? super T>[] dfcl =
 				listeners.get(priority);
@@ -123,8 +123,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * @param listener
 	 *            The DataFacetChangeListener to be removed
 	 */
-	public void removeDataFacetChangeListener(
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public final void removeDataFacetChangeListener(
+			DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		removeDataFacetChangeListener(0, listener);
 	}
@@ -141,8 +141,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 * @param listener
 	 *            The DataFacetChangeListener to be removed
 	 */
-	public void removeDataFacetChangeListener(int priority,
-		DataFacetChangeListener<IDT, ? super T> listener)
+	public final void removeDataFacetChangeListener(int priority,
+	                                                DataFacetChangeListener<IDT, ? super T> listener)
 	{
 		DataFacetChangeListener<IDT, ? super T>[] dfcl =
 				listeners.get(priority);
@@ -199,7 +199,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            An identifier indicating whether the given CDOMObject was
 	 *            added to or removed from the source DataFacet
 	 */
-	protected void fireDataFacetChangeEvent(IDT id, T node, int type)
+	protected final void fireDataFacetChangeEvent(IDT id, T node, int type)
 	{
 		fireDataFacetChangeEvent(id, node, type, null, null);
 	}
@@ -224,8 +224,8 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	 *            The optional nature in which the node has been changed.
 	 */
 	@SuppressWarnings("rawtypes")
-	protected void fireDataFacetChangeEvent(IDT id, T node, int type,
-		Category category, Nature nature)
+	protected final void fireDataFacetChangeEvent(IDT id, T node, int type,
+	                                              Category category, Nature nature)
 	{
 		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
 			.values())
@@ -272,7 +272,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		}
 	}
 
-	public DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
+	public final DataFacetChangeListener<IDT, ? super T>[] getDataFacetChangeListeners()
 	{
 		List<DataFacetChangeListener<IDT, ? super T>> list =
                 new ArrayList<>();

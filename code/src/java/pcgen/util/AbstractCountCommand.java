@@ -71,7 +71,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	 *
 	 * @return the pc
 	 */
-	protected PlayerCharacter getPC()
+	protected final PlayerCharacter getPC()
 	{
 		PlayerCharacter pc = null;
 		if (parent instanceof VariableProcessor)
@@ -96,7 +96,7 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	 * @return an array of Objects in reverse order, i.e. the last param popped is element
 	 *         0 of the array.
 	 */
-	protected static Object[] paramStackToArray(final Stack inStack, final int maxParam)
+	protected static final Object[] paramStackToArray(final Stack inStack, final int maxParam)
 	{
 		final Object[] par = new Object[maxParam];
 	

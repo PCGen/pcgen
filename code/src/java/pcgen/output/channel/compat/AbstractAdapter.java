@@ -40,7 +40,7 @@ public class AbstractAdapter<T>
 		listenerList.remove(ReferenceListener.class, listener);
 	}
 
-	protected void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
+	protected final void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ReferenceEvent<T> e = null;

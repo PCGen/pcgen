@@ -31,7 +31,7 @@ public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	@Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITY";
 	}

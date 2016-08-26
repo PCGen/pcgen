@@ -316,7 +316,7 @@ public class AbilityRefChoiceSet implements
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return abilityRefSet.size();
 	}
@@ -329,7 +329,7 @@ public class AbilityRefChoiceSet implements
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -348,7 +348,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Category for this AbilityRefChoiceSet
 	 */
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public final CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}
@@ -358,7 +358,7 @@ public class AbilityRefChoiceSet implements
 	 * 
 	 * @return The underlying Ability Nature for this AbilityRefChoiceSet
 	 */
-	public Nature getNature()
+	public final Nature getNature()
 	{
 		return nature;
 	}
@@ -371,7 +371,7 @@ public class AbilityRefChoiceSet implements
 	 * @return The GroupingState for this AbilityRefChoiceSet.
 	 */
 	@Override
-	public GroupingState getGroupingState()
+	public final GroupingState getGroupingState()
 	{
 		GroupingState state = GroupingState.EMPTY;
 		for (CDOMReference<Ability> ref : abilityRefSet)

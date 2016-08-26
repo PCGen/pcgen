@@ -83,7 +83,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 * 
 	 * @return The key for the Ability in this AbilitySelection.
 	 */
-	public String getAbilityKey()
+	public final String getAbilityKey()
 	{
 		return ability.get().getKeyName();
 	}
@@ -93,7 +93,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 * 
 	 * @return The Category for the Ability in this AbilitySelection.
 	 */
-	public CDOMSingleRef<AbilityCategory> getAbilityCategory()
+	public final CDOMSingleRef<AbilityCategory> getAbilityCategory()
 	{
 		return category;
 	}
@@ -131,7 +131,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 * @return A String representation of this AbilitySelection.
 	 */
 	@Override
-	public String toString()
+	public final String toString()
 	{
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(ability.get().getDisplayName());
@@ -148,7 +148,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	 * @return The Nature of the Ability as it should be applied to a
 	 *         PlayerCharacter
 	 */
-	public Nature getNature()
+	public final Nature getNature()
 	{
 		return nature;
 	}
@@ -211,13 +211,13 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return ability.hashCode();
 	}
 	
 	@Override
-	public boolean equals(Object o)
+	public final boolean equals(Object o)
 	{
 		if (o instanceof AbilityTargetSelector)
 		{

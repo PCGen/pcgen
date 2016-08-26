@@ -39,7 +39,7 @@ public class AbstractCNASEnforcingFacet extends
 		return (list == null) || list.isEmpty();
 	}
 
-	public boolean add(CharID id, CNAbilitySelection cnas, Object source)
+	public final boolean add(CharID id, CNAbilitySelection cnas, Object source)
 	{
 		if (cnas == null)
 		{
@@ -67,7 +67,7 @@ public class AbstractCNASEnforcingFacet extends
 		return true;
 	}
 
-	public boolean remove(CharID id, CNAbilitySelection cnas, Object source)
+	public final boolean remove(CharID id, CNAbilitySelection cnas, Object source)
 	{
 		if (cnas == null)
 		{
@@ -138,7 +138,7 @@ public class AbstractCNASEnforcingFacet extends
 		return returnList;
 	}
 
-	protected List<List<SourcedCNAS>> getList(CharID id)
+	protected final List<List<SourcedCNAS>> getList(CharID id)
 	{
 		return (List<List<SourcedCNAS>>) this.getCache(id);
 	}
@@ -202,19 +202,19 @@ public class AbstractCNASEnforcingFacet extends
 		}
 
 		@Override
-		public String toString()
+		public final String toString()
 		{
 			return cnas + " (src: " + source + ")";
 		}
 		
 		@Override
-		public int hashCode()
+		public final int hashCode()
 		{
 			return source.hashCode() ^ cnas.hashCode();
 		}
 		
 		@Override
-		public boolean equals(Object o)
+		public final boolean equals(Object o)
 		{
 			if (o == this)
 			{

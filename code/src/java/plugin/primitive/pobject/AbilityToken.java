@@ -132,7 +132,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	}
 
 	@Override
-	public boolean equals(Object obj)
+	public final boolean equals(Object obj)
 	{
 		if (obj == this)
 		{
@@ -152,7 +152,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 	}
 
 	@Override
-	public int hashCode()
+	public final int hashCode()
 	{
 		return ref == null ? -57 : ref.hashCode();
 	}

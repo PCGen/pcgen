@@ -35,11 +35,11 @@ import pcgen.facade.util.event.ListListener;
 public abstract class AbstractListFacade<E> implements ListFacade<E>
 {
 
-	protected EventListenerList listenerList = new EventListenerList();
+	protected final EventListenerList listenerList = new EventListenerList();
 	private Iterable<E> iteratorWrapper = null;
 
     @Override
-	public void addListListener(ListListener<? super E> listener)
+	public final void addListListener(ListListener<? super E> listener)
 	{
 		listenerList.add(ListListener.class, listener);
 	}
@@ -51,7 +51,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
     @Override
-	public boolean isEmpty()
+	public final boolean isEmpty()
 	{
 		return getSize() == 0;
 	}
@@ -104,7 +104,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param index the index of the element that was added.
 	 * @see EventListenerList
 	 */
-	protected void fireElementAdded(Object source, E element, int index)
+	protected final void fireElementAdded(Object source, E element, int index)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ListEvent<E> e = null;
@@ -131,7 +131,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param index the index of the element that was removed.
 	 * @see EventListenerList
 	 */
-	protected void fireElementRemoved(Object source, E element, int index)
+	protected final void fireElementRemoved(Object source, E element, int index)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ListEvent<E> e = null;
@@ -155,7 +155,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param source the <code>ListFacade</code> that changed, typically "this"
 	 * @see EventListenerList
 	 */
-	protected void fireElementsChanged(Object source)
+	protected final void fireElementsChanged(Object source)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ListEvent<E> e = null;
@@ -182,7 +182,7 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	 * @param index the index of the element that was modified.
 	 * @see EventListenerList
 	 */
-	protected void fireElementModified(Object source, E element, int index)
+	protected final void fireElementModified(Object source, E element, int index)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ListEvent<E> e = null;

@@ -33,11 +33,11 @@ import pcgen.util.Logging;
  */
 public class AbilityCategoryLoader extends LstLineFileLoader
 {
-	private OverlapLoader<AbilityCategory> loader = new OverlapLoader<AbilityCategory>(
+	private final OverlapLoader<AbilityCategory> loader = new OverlapLoader<AbilityCategory>(
 			AbilityCategory.class);
 
 	@Override
-	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
+	public final void parseLine(LoadContext context, String lstLine, URI sourceURI)
 			throws PersistenceLayerException
 	{
 		final int colonLoc = lstLine.indexOf(':');

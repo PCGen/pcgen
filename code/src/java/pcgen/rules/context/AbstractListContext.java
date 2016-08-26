@@ -54,7 +54,7 @@ public abstract class AbstractListContext
 		return edits.getSourceURI();
 	}
 
-	void setSourceURI(URI sourceURI)
+	final void setSourceURI(URI sourceURI)
 	{
 		edits.setSourceURI(sourceURI);
 		getCommitStrategy().setSourceURI(sourceURI);
@@ -65,27 +65,27 @@ public abstract class AbstractListContext
 		return edits.getExtractURI();
 	}
 
-	void setExtractURI(URI extractURI)
+	final void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
 		getCommitStrategy().setExtractURI(extractURI);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
+	public final <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)
 	{
 		return edits.addToMasterList(tokenName, owner, list, allowed);
 	}
 
-	public <T extends CDOMObject> void removeFromMasterList(
+	public final <T extends CDOMObject> void removeFromMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> list, T allowed)
 	{
 		edits.removeFromMasterList(tokenName, owner, list, allowed);
 	}
 
-	public void clearAllMasterLists(String tokenName, CDOMObject owner)
+	public final void clearAllMasterLists(String tokenName, CDOMObject owner)
 	{
 		edits.clearAllMasterLists(tokenName, owner);
 	}
@@ -96,7 +96,7 @@ public abstract class AbstractListContext
 		edits.clearMasterList(tokenName, owner, list);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject addToList(
+	public final <T extends CDOMObject> AssociatedPrereqObject addToList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<? super T>> list,
 			CDOMReference<T> allowed)
@@ -104,7 +104,7 @@ public abstract class AbstractListContext
 		return edits.addToList(tokenName, owner, list, allowed);
 	}
 
-	public <T extends CDOMObject> AssociatedPrereqObject removeFromList(
+	public final <T extends CDOMObject> AssociatedPrereqObject removeFromList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<? super T>> list,
 			CDOMReference<T> ref)
@@ -112,13 +112,13 @@ public abstract class AbstractListContext
 		return edits.removeFromList(tokenName, owner, list, ref);
 	}
 
-	public void removeAllFromList(String tokenName, CDOMObject owner,
-			CDOMReference<? extends CDOMList<?>> swl)
+	public final void removeAllFromList(String tokenName, CDOMObject owner,
+	                                    CDOMReference<? extends CDOMList<?>> swl)
 	{
 		edits.removeAllFromList(tokenName, owner, swl);
 	}
 
-	void commit()
+	final void commit()
 	{
 		ListCommitStrategy commit = getCommitStrategy();
 		for (CDOMReference<? extends CDOMList<?>> list : edits.positiveMasterMap.getKeySet())
@@ -228,33 +228,33 @@ public abstract class AbstractListContext
 		}
 	}
 
-	void rollback()
+	final void rollback()
 	{
 		edits.decommit();
 	}
 
-	public Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
+	public final Collection<CDOMReference<? extends CDOMList<?>>> getChangedLists(
 			CDOMObject owner, Class<? extends CDOMList<?>> cl)
 	{
 		return getCommitStrategy().getChangedLists(owner, cl);
 	}
 
-	public <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
+	public final <T extends CDOMObject> AssociatedChanges<CDOMReference<T>> getChangesInList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
 		return getCommitStrategy().getChangesInList(tokenName, owner, swl);
 	}
 
-	public <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
+	public final <T extends CDOMObject> AssociatedChanges<T> getChangesInMasterList(
 			String tokenName, CDOMObject owner,
 			CDOMReference<? extends CDOMList<T>> swl)
 	{
 		return getCommitStrategy().getChangesInMasterList(tokenName, owner, swl);
 	}
 
-	public <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(String tokenName,
-			CDOMObject owner, Class<T> cl)
+	public final <T extends CDOMList<?>> Changes<CDOMReference<T>> getMasterListChanges(String tokenName,
+	                                                                                    CDOMObject owner, Class<T> cl)
 	{
 		return getCommitStrategy().getMasterListChanges(tokenName, owner, cl);
 	}
@@ -356,7 +356,7 @@ public abstract class AbstractListContext
 		protected static class CDOMShell extends CDOMObject
 		{
 			@Override
-			public CDOMObject clone() throws CloneNotSupportedException
+			public final CDOMObject clone() throws CloneNotSupportedException
 			{
 				throw new CloneNotSupportedException();
 			}
@@ -368,32 +368,32 @@ public abstract class AbstractListContext
 			}
 		}
 
-		public URI getExtractURI()
+		public final URI getExtractURI()
 		{
 			return extractURI;
 		}
 
 		@Override
-		public void setExtractURI(URI extractURI)
+		public final void setExtractURI(URI extractURI)
 		{
 			this.extractURI = extractURI;
 		}
 
-		public URI getSourceURI()
+		public final URI getSourceURI()
 		{
 			return sourceURI;
 		}
 
 		@Override
-		public void setSourceURI(URI sourceURI)
+		public final void setSourceURI(URI sourceURI)
 		{
 			this.sourceURI = sourceURI;
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
-			String tokenName, CDOMObject owner,
-			CDOMReference<? extends CDOMList<T>> list, T allowed)
+		public final <T extends CDOMObject> AssociatedPrereqObject addToMasterList(
+				String tokenName, CDOMObject owner,
+				CDOMReference<? extends CDOMList<T>> list, T allowed)
 		{
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.OWNER, owner);
@@ -404,7 +404,7 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> void removeFromMasterList(
+		public final <T extends CDOMObject> void removeFromMasterList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<T>> list, T allowed)
 		{
@@ -516,14 +516,14 @@ public abstract class AbstractListContext
                     .containsInList(swl, lo));
 		}
 
-		public <T extends CDOMObject> void clearMasterList(String tokenName,
-				CDOMObject owner, CDOMReference<? extends CDOMList<T>> list)
+		public final <T extends CDOMObject> void clearMasterList(String tokenName,
+		                                                         CDOMObject owner, CDOMReference<? extends CDOMList<T>> list)
 		{
 			masterClearSet.addToListFor(list, new OwnerURI(sourceURI, owner));
 		}
 
 		@Override
-		public void clearAllMasterLists(String tokenName, CDOMObject owner)
+		public final void clearAllMasterLists(String tokenName, CDOMObject owner)
 		{
 			masterAllClear.addToListFor(tokenName, new OwnerURI(sourceURI,
 					owner));
@@ -552,7 +552,7 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject addToList(
+		public final <T extends CDOMObject> AssociatedPrereqObject addToList(
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<? super T>> list,
 				CDOMReference<T> allowed)
@@ -564,10 +564,10 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
-				CDOMObject owner,
-				CDOMReference<? extends CDOMList<? super T>> list,
-				CDOMReference<T> ref)
+		public final <T extends CDOMObject> AssociatedPrereqObject removeFromList(String tokenName,
+		                                                                          CDOMObject owner,
+		                                                                          CDOMReference<? extends CDOMList<? super T>> list,
+		                                                                          CDOMReference<T> ref)
 		{
 			SimpleAssociatedObject a = new SimpleAssociatedObject();
 			a.setAssociation(AssociationKey.TOKEN, tokenName);
@@ -618,8 +618,8 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public void removeAllFromList(String tokenName, CDOMObject owner,
-				CDOMReference<? extends CDOMList<?>> swl)
+		public final void removeAllFromList(String tokenName, CDOMObject owner,
+		                                    CDOMReference<? extends CDOMList<?>> swl)
 		{
 			globalClearSet.addToListFor(sourceURI, owner, tokenName, swl);
 		}
@@ -647,7 +647,7 @@ public abstract class AbstractListContext
 					&& !masterAllClear.isEmpty();
 		}
 
-		public void decommit()
+		public final void decommit()
 		{
 			masterAllClear.clear();
 			masterClearSet.clear();
@@ -672,7 +672,7 @@ public abstract class AbstractListContext
 			return false;
 		}
 
-		public void purge(CDOMObject cdo)
+		public final void purge(CDOMObject cdo)
 		{
 			positiveMap.remove(sourceURI, cdo);
 			negativeMap.remove(sourceURI, cdo);
@@ -692,13 +692,13 @@ public abstract class AbstractListContext
 		}
 
 		@Override
-		public int hashCode()
+		public final int hashCode()
 		{
 			return owner.hashCode();
 		}
 
 		@Override
-		public boolean equals(Object o)
+		public final boolean equals(Object o)
 		{
 			if (o instanceof OwnerURI)
 			{
@@ -742,7 +742,7 @@ public abstract class AbstractListContext
 	 * @param cdoNew The new object to be linked in.
 	 */
 	@SuppressWarnings("unchecked")
-	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
+	final <T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
 		MasterListInterface masterLists = Globals.getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())

@@ -150,9 +150,9 @@ public class AbilityToken extends Token
 	 *            The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(String tokenSource,
-		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
-		final String tokenString, final AbilityCategory aCategory)
+	protected final String getTokenForCategory(String tokenSource,
+	                                           PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
+	                                           final String tokenString, final AbilityCategory aCategory)
 	{
 		boolean cacheAbilityProcessingData =
 				(cachedPC != pc || !aCategory.equals(lastCategory)
@@ -813,7 +813,7 @@ public class AbilityToken extends Token
 	/**
 	 * @param v the view to set
 	 */
-	protected void setView(View v)
+	protected final void setView(View v)
 	{
 		this.view = v;
 	}

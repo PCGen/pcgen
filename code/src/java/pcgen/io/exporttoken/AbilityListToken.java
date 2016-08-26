@@ -105,9 +105,9 @@ public class AbilityListToken extends Token
 	 * @param aCategory The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(PlayerCharacter pc,
-		final StringTokenizer aTok, final String tokenString,
-		final AbilityCategory aCategory)
+	protected final String getTokenForCategory(PlayerCharacter pc,
+	                                           final StringTokenizer aTok, final String tokenString,
+	                                           final AbilityCategory aCategory)
 	{
 		if (aCategory == null)
 		{

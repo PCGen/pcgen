@@ -89,12 +89,12 @@ public final class AbilityMigration
 			this.key = key;
 		}
 
-		public String getCategory()
+		public final String getCategory()
 		{
 			return category;
 		}
 
-		public String getKey()
+		public final String getKey()
 		{
 			return key;
 		}

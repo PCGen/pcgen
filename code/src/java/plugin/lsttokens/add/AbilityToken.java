@@ -99,7 +99,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 
 	@Override
-	public String getParentToken()
+	public final String getParentToken()
 	{
 		return "ADD";
 	}
@@ -110,7 +110,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITY";
 	}

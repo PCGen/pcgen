@@ -49,7 +49,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
     }
 
     @Override
-    public boolean containsValue(Object value)
+    public final boolean containsValue(Object value)
     {
 	for (K key : keySet())
 	{
@@ -89,7 +89,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
     }
     
     @Override
-    public int size(Object key)
+    public final int size(Object key)
     {
 	C collection = get(key);
 	if(collection != null)
@@ -111,7 +111,7 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 		    return new Iterator<V>()
 		    {
 
-			private Iterator<C> ci = values().iterator();
+			private final Iterator<C> ci = values().iterator();
 			private Iterator<V> vi = null;
 
                         @Override

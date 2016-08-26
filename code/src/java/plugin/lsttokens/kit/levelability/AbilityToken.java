@@ -49,7 +49,7 @@ public class AbilityToken extends AbstractToken implements
 	 * @return Name of the tag this class handles
 	 */
 	@Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITY";
 	}

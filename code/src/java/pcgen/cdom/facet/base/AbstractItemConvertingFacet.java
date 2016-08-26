@@ -76,7 +76,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * @param source
 	 *            The source for the given object
 	 */
-	public void add(CharID id, S obj, Object source)
+	public final void add(CharID id, S obj, Object source)
 	{
 		if (obj == null)
 		{
@@ -138,7 +138,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *            The source for the given object is to be removed from the list
 	 *            of sources for the converted version of the given object
 	 */
-	public void remove(CharID id, S obj, Object source)
+	public final void remove(CharID id, S obj, Object source)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
@@ -338,7 +338,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 *         null if no information has been set in this
 	 *         AbstractItemConvertingFacet for the Player Character.
 	 */
-	protected Map<S, Target> getCachedMap(CharID id)
+	protected final Map<S, Target> getCachedMap(CharID id)
 	{
 		return (Map<S, Target>) getCache(id);
 	}
@@ -387,7 +387,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * 
 	 * @return A new (empty) Map for use in this AbstractItemConvertingFacet.
 	 */
-	protected Map<S, Target> getComponentMap()
+	protected final Map<S, Target> getComponentMap()
 	{
 		return new IdentityHashMap<S, Target>();
 	}
@@ -567,7 +567,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		/**
 		 * The set of objects from which the converted object has been received
 		 */
-		public Set<Object> set =
+		public final Set<Object> set =
                 new WrappedMapSet<>(IdentityHashMap.class);
 
 		/**
@@ -576,13 +576,13 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		public D dest;
 
 		@Override
-		public int hashCode()
+		public final int hashCode()
 		{
 			return dest.hashCode();
 		}
 
 		@Override
-		public boolean equals(Object o)
+		public final boolean equals(Object o)
 		{
 			if (o == this)
 			{
@@ -609,7 +609,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	protected abstract D convert(S obj);
 
-	public Collection<S> getSourceObjects(CharID id)
+	public final Collection<S> getSourceObjects(CharID id)
 	{
 		Set<S> set = new WrappedMapSet<>(IdentityHashMap.class);
 		Map<S, Target> componentMap = getCachedMap(id);
@@ -620,13 +620,13 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		return set;
 	}
 	
-	public D getResultFor(CharID id, S obj)
+	public final D getResultFor(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
 		return (componentMap == null) ? null : componentMap.get(obj).dest;
 	}
 
-	public Collection<Object> getSourcesFor(CharID id, S obj)
+	public final Collection<Object> getSourcesFor(CharID id, S obj)
 	{
 		Map<S, Target> componentMap = getCachedMap(id);
 		Set<Object> set = new WrappedMapSet<>(IdentityHashMap.class);

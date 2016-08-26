@@ -82,7 +82,7 @@ public class AbilityCategoryToken implements GameModeLstToken
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
-	public String getTokenName()
+	public final String getTokenName()
 	{
 		return "ABILITYCATEGORY"; //$NON-NLS-1$
 	}

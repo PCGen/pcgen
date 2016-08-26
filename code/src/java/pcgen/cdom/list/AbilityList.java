@@ -124,12 +124,12 @@ public class AbilityList extends CDOMListObject<Ability>
 		return list;
 	}
 
-	public CDOMSingleRef<AbilityCategory> getCategory()
+	public final CDOMSingleRef<AbilityCategory> getCategory()
 	{
 		return category;
 	}
 
-	public Nature getNature()
+	public final Nature getNature()
 	{
 		return nature;
 	}
