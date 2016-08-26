@@ -541,7 +541,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Constructor.
 	 */
 	public PlayerCharacter() {
-		this(true, Collections.EMPTY_LIST);
+		this(true, Collections.<Campaign>emptyList());
 	}
 
 	/**
