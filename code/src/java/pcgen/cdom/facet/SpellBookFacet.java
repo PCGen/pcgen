@@ -122,10 +122,10 @@ public class SpellBookFacet extends AbstractStorageFacet<CharID> implements
 	 */
 	public void addAll(CharID id, Collection<SpellBook> list)
 	{
-		for (SpellBook sb : list)
+		list.forEach(sb ->
 		{
 			add(id, sb);
-		}
+		});
 	}
 
 	/**

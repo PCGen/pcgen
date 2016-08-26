@@ -829,10 +829,10 @@ public final class PCGVer2Creator implements IOConstants
 			if (prohib != null)
 			{
 				Set<String> set = new TreeSet<>();
-				for (SpellProhibitor sp : prohib)
+				prohib.forEach(sp ->
 				{
 					set.addAll(sp.getValueList());
-				}
+				});
 				if (!set.isEmpty())
 				{
 					buffer.append('|');

@@ -28,6 +28,7 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChoiceSet;
 import pcgen.cdom.base.Constants;
@@ -244,14 +245,8 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		Set<PCClass> returnSet = new HashSet<>();
 		if (types != null)
 		{
-			for (PCClass pcc : types.getSet(pc))
-			{
-				if ((pcc.get(fk) != null)
-					&& (pc.getClassKeyed(pcc.getKeyName()) != null))
-				{
-					returnSet.add(pcc);
-				}
-			}
+			returnSet.addAll(types.getSet(pc).stream().filter(pcc -> (pcc.get(fk) != null)
+					&& (pc.getClassKeyed(pcc.getKeyName()) != null)).collect(Collectors.toList()));
 		}
 		if (primitives != null)
 		{

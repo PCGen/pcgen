@@ -37,6 +37,7 @@ import java.util.TreeSet;
 import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
@@ -478,11 +479,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		// Unload the existing campaigns and load our selected campaign
 		Globals.emptyLists();
 		PersistenceManager pManager = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<>();
-		for (CampaignFacade campaignFacade : selectedCampaigns)
-		{
-			uris.add(((Campaign) campaignFacade).getSourceURI());
-		}
+		List<URI> uris = selectedCampaigns.stream().map(campaignFacade -> ((Campaign) campaignFacade).getSourceURI()).collect(Collectors.toList());
 		PersistenceManager.setChosenCampaignSourcefiles(uris);
 
 		sourcesSet.clear();
@@ -518,11 +515,8 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				EquipmentList.autoGenerateEquipment();
 			}
 
-			for (Campaign campaign : selectedCampaigns)
-			{
-				sourcesSet.add(SourceFormat.getFormattedString(campaign,
-					SourceFormat.MEDIUM, true));
-			}
+			sourcesSet.addAll(selectedCampaigns.stream().map(campaign -> SourceFormat.getFormattedString(campaign,
+					SourceFormat.MEDIUM, true)).collect(Collectors.toList()));
 			context.setLoaded(selectedCampaigns);
 
 			/*

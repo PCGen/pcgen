@@ -319,25 +319,25 @@ public final class PCLevelInfo implements Cloneable
 		PCLevelInfo clone = new PCLevelInfo(classKeyName);
 		if (statsPostModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPostModified )
+			statsPostModified.forEach(stat ->
 			{
 				if (clone.statsPostModified == null)
 				{
 					clone.statsPostModified = new ArrayList<>();
 				}
 				clone.statsPostModified.add(stat);
-			}
+			});
 		}
 		if (statsPreModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPreModified )
+			statsPreModified.forEach(stat ->
 			{
 				if (clone.statsPreModified == null)
 				{
 					clone.statsPreModified = new ArrayList<>();
 				}
 				clone.statsPreModified.add(stat);
-			}
+			});
 		}
 		clone.classLevel = classLevel;
 		clone.skillPointsGained = skillPointsGained;

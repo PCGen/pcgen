@@ -300,14 +300,11 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		{
 			List<?> data = availableTable.getSelectedData();
 			String bookname = getCurrentSpellBookName(character);
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().addToSpellBook(
-							(SpellNode) object, bookname);
-				}
-			}
+				character.getSpellSupport().addToSpellBook(
+						(SpellNode) object, bookname);
+			});
 		}
 
 		public void install()
@@ -338,15 +335,12 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					SpellNode node = (SpellNode) object;
-					character.getSpellSupport().removeFromSpellBook(node,
-							node.getRootNode().getName());
-				}
-			}
+				SpellNode node = (SpellNode) object;
+				character.getSpellSupport().removeFromSpellBook(node,
+						node.getRootNode().getName());
+			});
 		}
 
 		public void install()

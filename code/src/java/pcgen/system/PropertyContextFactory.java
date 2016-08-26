@@ -204,10 +204,10 @@ public class PropertyContextFactory
 		}
 		if (settingsDir.exists() || settingsDir.mkdirs())
 		{
-			for (PropertyContext context : contextMap.values())
+			contextMap.values().forEach(context ->
 			{
 				savePropertyContext(settingsDir, context);
-			}
+			});
 		}
 		else
 		{

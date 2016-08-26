@@ -110,20 +110,21 @@ public class PreParserFactory implements PluginLoader
 	{
 		final List<Prerequisite> ret =
                 new ArrayList<>(preStrings.size());
-		for (String prestr : preStrings)
+		//The message is now produced at a lower level, and thus has to be localised there.
+//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
+		preStrings.forEach(prestr ->
 		{
 			try
 			{
 				final PreParserFactory factory = PreParserFactory.getInstance();
 				final Prerequisite prereq = factory.parse(prestr);
 				ret.add(prereq);
-			}
-			catch (PersistenceLayerException ple)
+			} catch (PersistenceLayerException ple)
 			{
 				Logging.errorPrint(ple.getMessage(), ple); //The message is now produced at a lower level, and thus has to be localised there.
 				//Logging.errorPrintLocalised(PropertyFactory.getString("PrereqHandler.Unable_to_parse"), object); //$NON-NLS-1$
 			}
-		}
+		});
 		return ret;
 	}
 
