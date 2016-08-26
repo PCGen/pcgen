@@ -28,7 +28,7 @@ import javax.swing.JScrollPane;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class FilterUtilities
+public final class FilterUtilities
 {
 
 	public static FilterBar<Object, Object> createDefaultFilterBar()

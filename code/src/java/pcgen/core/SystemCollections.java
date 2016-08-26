@@ -42,7 +42,7 @@ import pcgen.core.system.MigrationRule;
  * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version    $Revision$
  **/
-public class SystemCollections
+public final class SystemCollections
 {
 	/** The following are loaded from system files.
 	 * <ul>

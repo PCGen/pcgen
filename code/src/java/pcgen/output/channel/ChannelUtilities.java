@@ -34,7 +34,7 @@ import pcgen.cdom.formula.VariableChannel;
  * ChannelUtilities are a class for setting up communication channels from the
  * core to other objects via get(), set(...) and events.
  */
-public class ChannelUtilities
+public final class ChannelUtilities
 {
 	private static final VariableLibraryFacet VARLIB_FACET = FacetLibrary
 		.getFacet(VariableLibraryFacet.class);

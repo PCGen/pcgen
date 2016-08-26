@@ -56,7 +56,7 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class FacadeFactory
+public final class FacadeFactory
 {
 
 	private static PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");

@@ -24,7 +24,7 @@ package pcgen.util;
 /**
  * A Factory class that generates Input Interfaces
  */
-public class InputFactory
+public final class InputFactory
 {
 
 	private static String interfaceClassname = null;

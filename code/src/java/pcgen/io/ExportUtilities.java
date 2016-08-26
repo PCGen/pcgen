@@ -32,7 +32,7 @@ import org.apache.commons.lang.StringUtils;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class ExportUtilities
+public final class ExportUtilities
 {
 	/**
 	 * This class should not be constructed. 

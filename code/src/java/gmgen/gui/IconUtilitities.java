@@ -30,7 +30,7 @@ import java.net.URL;
 /**
  * A Utility class to assist with the loading etc of Icons
  */
-public class IconUtilitities
+public final class IconUtilitities
 {
 	/** The URL to the resource folder of pcgen */
 	public static final String RESOURCE_URL = "/pcgen/gui/resource/";

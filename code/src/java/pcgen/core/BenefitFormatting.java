@@ -26,7 +26,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.util.Logging;
 
-public class BenefitFormatting
+public final class BenefitFormatting
 {
 
 	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)

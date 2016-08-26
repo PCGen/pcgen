@@ -22,7 +22,7 @@ package pcgen.core.analysis;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 
-public class StatAnalysis
+public final class StatAnalysis
 {
 	/**
 	 * Retrieve a correctly calculated attribute value where one or more

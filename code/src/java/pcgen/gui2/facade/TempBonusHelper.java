@@ -63,7 +63,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class TempBonusHelper
+public final class TempBonusHelper
 {
 
 	/** An empty string. */

@@ -35,7 +35,7 @@ import freemarker.template.TemplateModelException;
  * SimpleWrapperLibrary stores information on simple wrappers used to wrap
  * objects into TemplateModel objects for FreeMarker.
  */
-public class SimpleWrapperLibrary
+public final class SimpleWrapperLibrary
 {
 
 	private static List<SimpleObjectWrapper> list =

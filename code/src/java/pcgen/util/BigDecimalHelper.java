@@ -28,7 +28,7 @@ import java.math.RoundingMode;
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  * @version    $Revision$
  */
-public class BigDecimalHelper
+public final class BigDecimalHelper
 {
 	/**
 	 * Sets [n] to [dp] decimal places.

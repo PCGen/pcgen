@@ -37,7 +37,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * @author Andrew Maitland <drew0500@yahoo.com>
  * @version $Revision$
  */
-public class SpellMigration
+public final class SpellMigration
 {
 	private static Map<int[], List<MigrationRule>> spellChangesForVer = new HashMap<>();
 

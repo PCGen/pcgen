@@ -22,7 +22,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCStat;
 
-public class NonAbilityDisplay
+public final class NonAbilityDisplay
 {
 
 	/**

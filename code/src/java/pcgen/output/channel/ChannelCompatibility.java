@@ -25,7 +25,7 @@ import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.output.channel.compat.StatAdapter;
 
-public class ChannelCompatibility
+public final class ChannelCompatibility
 {
 
 	public static WriteableReferenceFacade<Integer> getStatScore(CharID id,
