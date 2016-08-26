@@ -113,8 +113,8 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 	 * @param charAlignment The character's alignment
 	 * @return true if the alignment matches, false if not.
 	 */
-	private boolean alignMatches(final CharacterDisplay display,
-		String desiredAlignment, final PCAlignment charAlignment)
+	private static boolean alignMatches(final CharacterDisplay display,
+	                                    String desiredAlignment, final PCAlignment charAlignment)
 	{
 		PCAlignment al = getPCAlignment(desiredAlignment);
 		if (al.equals(charAlignment))
@@ -157,7 +157,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 				"PreAlign.toHtml", prereq.getOperator().toDisplayString(), al.getKeyName()); //$NON-NLS-1$
 	}
 
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
 		PCAlignment desiredAlign =
 				Globals
