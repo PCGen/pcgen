@@ -259,17 +259,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
             ActionListener[] listenerArray = preferencesEditItem
                     .getActionListeners();
 
-            for (int i = 0; i < listenerArray.length; i++) {
-                preferencesEditItem.removeActionListener(listenerArray[i]);
+            for (final ActionListener aListenerArray : listenerArray)
+            {
+                preferencesEditItem.removeActionListener(aListenerArray);
             }
             preferencesEditItem
-                    .addActionListener(new java.awt.event.ActionListener() {
-                        @Override
-                        public void actionPerformed(
-                                java.awt.event.ActionEvent evt) {
-                            mPreferencesActionPerformed(evt);
-                        }
-                    });
+                    .addActionListener(evt -> mPreferencesActionPerformed(evt));
         }
     }
 
@@ -366,18 +361,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
                 Object[] args = { Boolean.TRUE };
                 prefsEnableMethod.invoke(osxAdapter, args);
             }
-        } catch (NoClassDefFoundError e) {
+        } catch (NoClassDefFoundError | ClassNotFoundException e) {
             // This will be thrown first if the OSXAdapter is loaded on a system
             // without the EAWT
             // because OSXAdapter extends ApplicationAdapter in its def
-        	// TODO Use Logging
-            System.err
-                    .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-                            + e + ")");
-        } catch (ClassNotFoundException e) {
-            // This shouldn't be reached; if there's a problem with the
-            // OSXAdapter we should get the
-            // above NoClassDefFoundError first.
         	// TODO Use Logging
             System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
@@ -476,7 +463,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         try {
             GMGenSystemView.getTabPane().setSelectedIndex(0);
             theView.showPane();
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             // TODO
         }
     }
@@ -553,16 +540,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 
             ActionListener[] listenerArray = preferencesEditItem
                     .getActionListeners();
-            for (int i = 0; i < listenerArray.length; i++) {
-                preferencesEditItem.removeActionListener(listenerArray[i]);
+            for (final ActionListener aListenerArray : listenerArray)
+            {
+                preferencesEditItem.removeActionListener(aListenerArray);
             }
 
-            preferencesEditItem.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    mPreferencesActionPerformed(evt);
-                }
-            });
+            preferencesEditItem.addActionListener(evt -> mPreferencesActionPerformed(evt));
         }
 
         systemMenuBar.add(editMenu);
