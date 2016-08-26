@@ -63,7 +63,7 @@ public class ServesAsToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "SERVESAS";
 	}
 
-	public List<Class<? extends PObject>> getLegalTypes()
+	public static List<Class<? extends PObject>> getLegalTypes()
 	{
 		return Arrays.asList(
 			(Class<? extends PObject>) PCClass.class, Ability.class, Skill.class, Race.class

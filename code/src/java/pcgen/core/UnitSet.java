@@ -193,7 +193,7 @@ public final class UnitSet implements Loadable
 		return getUnit(weightUnit);
 	}
 
-	private String getUnit(final String unitString)
+	private static String getUnit(final String unitString)
 	{
 		if ("ftin".equals(unitString))
 		{

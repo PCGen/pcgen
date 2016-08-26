@@ -121,7 +121,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		}
 	}
 
-	private String getSource()
+	private static String getSource()
 	{
 		StackTraceElement[] stackTrace = Thread.currentThread().getStackTrace();
 		String source = null;

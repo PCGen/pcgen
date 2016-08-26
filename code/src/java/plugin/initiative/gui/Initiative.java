@@ -850,7 +850,7 @@ public class Initiative extends javax.swing.JPanel
 			int dc = dialog.getDC();
 
 			//Create a message out with the results
-			sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+			sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 			sb.append(" save DC " + dc);
 
 			if (roll > 0)
@@ -979,7 +979,7 @@ public class Initiative extends javax.swing.JPanel
 				int dc = dialog.getDC();
 
 				//Create a message out with the results
-				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+				sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
 				if (roll > 0)
@@ -1834,7 +1834,7 @@ public class Initiative extends javax.swing.JPanel
 		model = dialog.getSaveModel();
 
 		StringBuilder sb = new StringBuilder();
-		sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+		sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 		sb.append(" save DC " + model.getDc());
 
 		if (roll > 0)
@@ -2363,7 +2363,7 @@ public class Initiative extends javax.swing.JPanel
 
 				//Create a message out with the results
 				StringBuilder sb = new StringBuilder();
-				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
+				sb.append(SavingThrowDialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
 				if (roll > 0)

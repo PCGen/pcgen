@@ -54,7 +54,7 @@ public class TreasureGenerator
 		return theInstance;
 	}
 	
-	public List<EquipmentTable> getTables( final GameMode aMode )
+	public static List<EquipmentTable> getTables(final GameMode aMode)
 	{
 		List<EquipmentTable> tables = theTreasureTables.get( aMode );
 		

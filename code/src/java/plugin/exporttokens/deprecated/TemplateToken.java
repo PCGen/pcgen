@@ -147,7 +147,7 @@ public class TemplateToken extends Token
 		return retString;
 	}
 
-	private String getAppliedName(PCTemplate template)
+	private static String getAppliedName(PCTemplate template)
 	{
 		FactKey<String> fk = FactKey.valueOf("AppliedName");
 		String retValue = template.getResolved(fk);

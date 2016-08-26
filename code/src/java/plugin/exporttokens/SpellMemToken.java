@@ -470,7 +470,7 @@ public class SpellMemToken extends Token
 		return retValue.toString();
 	}
 
-	private String getAppliedName(final SpellInfo si)
+	private static String getAppliedName(final SpellInfo si)
 	{
 		List<Ability> featList = si.getFeatList();
 		if (featList == null || featList.isEmpty())
@@ -508,9 +508,9 @@ public class SpellMemToken extends Token
 	 * @param aSpell The generic spell.
 	 * @return The annotation string indicating domain/specialty status
 	 */
-	private String getBonusSpellValue(PlayerCharacter aPC,
-		final int spellLevel, String sString, String altLabel,
-		final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
+	private static String getBonusSpellValue(PlayerCharacter aPC,
+	                                         final int spellLevel, String sString, String altLabel,
+	                                         final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
 	{
 		StringBuilder retValue = new StringBuilder();
 

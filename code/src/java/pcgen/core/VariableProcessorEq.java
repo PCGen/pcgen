@@ -90,7 +90,7 @@ public class VariableProcessorEq extends VariableProcessor
 		return evaluator == null ? null : evaluator.resolve(eq, primaryHead, pc);
 	}
 	
-	TermEvaluator getTermEvaluator(String valString, String src)
+	static TermEvaluator getTermEvaluator(String valString, String src)
 	{
 		TermEvaluator evaluator = EvaluatorFactory.EQ.getTermEvaluator(valString, src);
 

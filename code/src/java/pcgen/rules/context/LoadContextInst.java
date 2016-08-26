@@ -368,7 +368,7 @@ public abstract class LoadContextInst implements LoadContext
 	@Override
 	public <T> Collection<String> unparse(T cdo)
 	{
-		return support.unparse(this, cdo);
+		return TokenSupport.unparse(this, cdo);
 	}
 
 	@Override
@@ -774,7 +774,7 @@ public abstract class LoadContextInst implements LoadContext
 		@Override
 		public <T> Collection<String> unparse(T cdo)
 		{
-			return support.unparse(this, cdo);
+			return TokenSupport.unparse(this, cdo);
 		}
 
 		@Override

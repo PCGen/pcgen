@@ -46,7 +46,7 @@ public class SelfCopyLoader implements Loader
 				.getSourceURI()));
 	}
 
-	public String getLoadName()
+	public static String getLoadName()
 	{
 		return "Self";
 	}

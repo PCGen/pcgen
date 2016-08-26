@@ -194,8 +194,8 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		restoreChoice(pc, owner, choice);
 	}
 
-	private void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc,
-		ChooseSelectionActor<String> ca)
+	private static void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc,
+	                                ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
@@ -207,7 +207,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	protected AssociationListKey<String> getListKey()
+	protected static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*STRING");
 	}

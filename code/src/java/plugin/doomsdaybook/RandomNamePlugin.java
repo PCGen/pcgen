@@ -112,7 +112,7 @@ public class RandomNamePlugin implements InteractivePlugin
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -179,7 +179,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	 * Set the tool menu item
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

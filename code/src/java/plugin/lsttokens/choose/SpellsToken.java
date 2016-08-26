@@ -85,7 +85,7 @@ public class SpellsToken extends AbstractQualifiedChooseToken<Spell>
 			.getManufacturer(SPELL_CLASS), obj, processMagicalWords(value));
 	}
 
-	private String processMagicalWords(String value)
+	private static String processMagicalWords(String value)
 	{
 		StringTokenizer st = new StringTokenizer(value, Constants.PIPE, true);
 		StringBuilder sb = new StringBuilder(value.length() + 40);
