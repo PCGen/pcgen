@@ -169,9 +169,9 @@ public class CoreViewFrame extends JFrame
 			return paths;
 		}
 
-		private void addPaths(List<List<CoreViewNodeFacade>> abilityPaths,
-				List<CoreViewNodeFacade> grantedByNodes,
-				ArrayList<CoreViewNodeFacade> path)
+		private static void addPaths(List<List<CoreViewNodeFacade>> abilityPaths,
+		                             List<CoreViewNodeFacade> grantedByNodes,
+		                             ArrayList<CoreViewNodeFacade> path)
 		{
 			if (path.size() > 20)
 			{

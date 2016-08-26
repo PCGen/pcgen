@@ -67,7 +67,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

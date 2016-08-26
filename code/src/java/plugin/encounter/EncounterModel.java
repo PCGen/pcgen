@@ -124,7 +124,7 @@ public class EncounterModel extends DefaultListModel
 	 * @param x
 	 * @return "power level"
 	 */
-	public float mCRtoPL(float x)
+	public static float mCRtoPL(float x)
 	{
 		float iReturn = 0;
 
@@ -145,7 +145,7 @@ public class EncounterModel extends DefaultListModel
 	 * @param x
 	 * @return "power level"
 	 */
-	public int mPLtoCR(float x)
+	public static int mPLtoCR(float x)
 	{
 		return (int) ((2 * Math.log(x)) + 1);
 	}

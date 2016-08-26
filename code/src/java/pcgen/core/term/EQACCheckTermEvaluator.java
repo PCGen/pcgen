@@ -70,7 +70,7 @@ public class EQACCheckTermEvaluator extends BaseEQTermEvaluator implements TermE
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

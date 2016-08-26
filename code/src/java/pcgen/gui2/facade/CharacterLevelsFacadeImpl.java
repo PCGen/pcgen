@@ -318,7 +318,7 @@ public class CharacterLevelsFacadeImpl extends
 		return charDisplay.getLevelInfo(getLevelIndex(level));
 	}
 	
-	private int getLevelIndex(CharacterLevelFacade level)
+	private static int getLevelIndex(CharacterLevelFacade level)
 	{
 		CharacterLevelFacadeImpl levelImpl = (CharacterLevelFacadeImpl) level;
 		if (levelImpl == null)

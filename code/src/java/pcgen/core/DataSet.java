@@ -261,7 +261,7 @@ public class DataSet implements DataSetFacade
 	/**
 	 * @return
 	 */
-	private Set<Type> buildSlottedTypeList()
+	private static Set<Type> buildSlottedTypeList()
 	{
 		Set<Type> typeList = new HashSet<>();
 		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
@@ -319,7 +319,7 @@ public class DataSet implements DataSetFacade
 		return prereqList;
 	}
 	
-	private List<AbilityFacade> getAbilitiesFromPrereq(Prerequisite prereq, Category<Ability> cat)
+	private static List<AbilityFacade> getAbilitiesFromPrereq(Prerequisite prereq, Category<Ability> cat)
 	{
 		List<AbilityFacade> prereqList = new ArrayList<>();
 		// Exclude negated prereqs

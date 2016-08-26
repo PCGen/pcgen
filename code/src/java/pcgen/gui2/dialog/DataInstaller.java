@@ -575,7 +575,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @throws IOException Signals that an I/O exception has occurred.
 	 */
-	private void copyInputStream(InputStream in, OutputStream out)
+	private static void copyInputStream(InputStream in, OutputStream out)
 		throws IOException
 	{
 		byte[] buffer = new byte[1024];
@@ -599,7 +599,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return the corrected file name.
 	 */
-	private String correctFileName(File destDir, String fileName)
+	private static String correctFileName(File destDir, String fileName)
 	{
 		if (fileName.toLowerCase().startsWith(DATA_FOLDER))
 		{
@@ -623,7 +623,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if successful
 	 */
-	private boolean createDirectories(Iterable<String> directories, File destDir)
+	private static boolean createDirectories(Iterable<String> directories, File destDir)
 	{
 		for (String dirname : directories)
 		{
@@ -653,7 +653,7 @@ public class DataInstaller extends JFrame
 	 * 
 	 * @return true, if all files created ok
 	 */
-	private boolean createFiles(File dataSet, File destDir, Iterable<String> files)
+	private static boolean createFiles(File dataSet, File destDir, Iterable<String> files)
 	{
 		String corrFilename = "";
 		try (ZipFile in = new ZipFile(dataSet)) {
@@ -792,8 +792,8 @@ public class DataInstaller extends JFrame
 	 * @return true, if populate file and dir lists
 	 */
 	@SuppressWarnings("rawtypes")
-	private boolean populateFileAndDirLists(File dataSet,
-		Collection<String> directories, Collection<String> files)
+	private static boolean populateFileAndDirLists(File dataSet,
+	                                               Collection<String> directories, Collection<String> files)
 	{
 		// Navigate through the zip file, processing each file
 		// Open the ZIP file

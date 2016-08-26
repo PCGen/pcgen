@@ -1395,7 +1395,7 @@ public class CharacterDisplay
 				.append(" level ").append(getDisplayRaceName()).append(' ').append(displayClass).toString();
 	}
 
-	private String getOrdinal(final int cardinal)
+	private static String getOrdinal(final int cardinal)
 	{
 		switch (cardinal)
 		{

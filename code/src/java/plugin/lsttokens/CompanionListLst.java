@@ -296,9 +296,9 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 		return ParseResult.SUCCESS;
 	}
 
-	private void finish(LoadContext context, CDOMObject obj,
-			String companionType, Set<CDOMReference<Race>> races,
-			Integer followerAdjustment, List<Prerequisite> prereqs)
+	private static void finish(LoadContext context, CDOMObject obj,
+	                           String companionType, Set<CDOMReference<Race>> races,
+	                           Integer followerAdjustment, List<Prerequisite> prereqs)
 	{
 		context.getReferenceContext().constructIfNecessary(CompanionList.class, companionType);
 		CDOMSingleRef<CompanionList> ref = context.getReferenceContext().getCDOMReference(

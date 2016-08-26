@@ -130,8 +130,8 @@ public class CampaignLoader extends LstLineFileLoader
      * @param baseCampaign Campaign that includes another campaign
      * @param subCampaign  Campaign included by the baseCampaign
      */
-    private void initRecursivePccFiles(Campaign baseCampaign,
-                                       Campaign subCampaign)
+    private static void initRecursivePccFiles(Campaign baseCampaign,
+                                              Campaign subCampaign)
     {
         if (subCampaign == null)
         {
@@ -148,8 +148,8 @@ public class CampaignLoader extends LstLineFileLoader
 		}
 	}
 
-	private <T> void addToBaseCampaign(Campaign baseCampaign,
-		Campaign subCampaign, ListKey<T> lk)
+	private static <T> void addToBaseCampaign(Campaign baseCampaign,
+	                                          Campaign subCampaign, ListKey<T> lk)
 	{
 		baseCampaign.addAllToListFor(lk, subCampaign.getSafeListFor(lk));
 	}

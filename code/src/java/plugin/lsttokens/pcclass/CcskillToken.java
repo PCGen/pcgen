@@ -143,8 +143,8 @@ public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		return ParseResult.SUCCESS;
 	}
 
-	private CDOMReference<Skill> getSkillReference(LoadContext context,
-			String tokText)
+	private static CDOMReference<Skill> getSkillReference(LoadContext context,
+	                                                      String tokText)
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{

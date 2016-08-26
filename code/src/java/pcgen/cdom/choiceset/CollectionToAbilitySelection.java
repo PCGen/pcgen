@@ -127,8 +127,8 @@ public class CollectionToAbilitySelection implements
 		}
 	}
 
-	private Collection<AbilitySelection> addMultiplySelectableAbility(
-		final PlayerCharacter aPC, Ability ability, String subName)
+	private static Collection<AbilitySelection> addMultiplySelectableAbility(
+			final PlayerCharacter aPC, Ability ability, String subName)
 	{
 		boolean isPattern = false;
 		String nameRoot = null;
@@ -188,8 +188,8 @@ public class CollectionToAbilitySelection implements
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
-		ChooseInformation<T> chooseInfo)
+	private static <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	                                                 ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
 		Collection<? extends T> tempAvailList = chooseInfo.getSet(aPC);
@@ -202,7 +202,7 @@ public class CollectionToAbilitySelection implements
 		return availableList;
 	}
 
-	private String reportCircularExpansion(Stack<Ability> s)
+	private static String reportCircularExpansion(Stack<Ability> s)
 	{
 		StringBuilder sb = new StringBuilder(2000);
 		processCircularExpansion(sb, s);
@@ -210,7 +210,7 @@ public class CollectionToAbilitySelection implements
 		return sb.toString();
 	}
 
-	private void processCircularExpansion(StringBuilder sb, Stack<Ability> s)
+	private static void processCircularExpansion(StringBuilder sb, Stack<Ability> s)
 	{
 		Ability a = s.pop();
 		if (!s.isEmpty())
@@ -278,8 +278,8 @@ public class CollectionToAbilitySelection implements
 			return returnSet;
 		}
 
-		private void processAbility(ObjectContainer<Ability> ref,
-			Set<AbilityWithChoice> returnSet, Ability a)
+		private static void processAbility(ObjectContainer<Ability> ref,
+		                                   Set<AbilityWithChoice> returnSet, Ability a)
 		{
 			String choice = null;
 			if (ref instanceof CDOMReference)

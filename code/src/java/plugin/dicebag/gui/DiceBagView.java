@@ -499,7 +499,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
+				setRollResult(m_exprField.getText(), DiceBagModel.rollDie(m_exprField
 					.getText()));
 			}
 			else if ("EDIT".equals(command))

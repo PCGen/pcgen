@@ -86,7 +86,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

@@ -210,7 +210,7 @@ public class CampaignPanel extends ConvertSubPanel
 		}
 	}
 	
-	private void saveSourceSelection(CDOMObject pc)
+	private static void saveSourceSelection(CDOMObject pc)
 	{
 		List<Campaign> selCampaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		PCGenSettings context = PCGenSettings.getInstance();

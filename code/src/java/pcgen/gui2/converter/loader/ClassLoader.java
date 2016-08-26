@@ -200,7 +200,7 @@ public class ClassLoader implements Loader
 		return c.getSafeListFor(ListKey.FILE_CLASS);
 	}
 
-	public String getLoadName()
+	public static String getLoadName()
 	{
 		return "Class";
 	}

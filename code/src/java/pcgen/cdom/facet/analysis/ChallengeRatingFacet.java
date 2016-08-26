@@ -405,7 +405,7 @@ public class ChallengeRatingFacet
 		return crMod;
 	}
 
-	private int getClassCRModPriority(PCClass cl)
+	private static int getClassCRModPriority(PCClass cl)
 	{
 		int crModPriority = 0;
 		

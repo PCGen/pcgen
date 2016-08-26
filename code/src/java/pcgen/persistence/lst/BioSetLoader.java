@@ -181,7 +181,7 @@ public final class BioSetLoader extends LstLineFileLoader
 		}
 	}
 
-	private void parseTokens(LoadContext context, AgeSet ageSet, StringTokenizer tok)
+	private static void parseTokens(LoadContext context, AgeSet ageSet, StringTokenizer tok)
 	{
 		final PObject dummy = new PObject();
 		try
