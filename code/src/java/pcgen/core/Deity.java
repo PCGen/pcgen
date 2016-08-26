@@ -66,10 +66,10 @@ public final class Deity extends PObject implements DeityFacade
 	public List<String> getDomainNames()
 	{
 		List<String> domains = new ArrayList<>();
-		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
+		getSafeListMods(Deity.DOMAINLIST).forEach(ref ->
 		{
 			domains.addAll(ref.getContainedObjects().stream().map(String::valueOf).collect(Collectors.toList()));
-		}
+		});
 		return domains;
 	}
 

@@ -484,10 +484,10 @@ public class DataInstaller extends JFrame
 		if (!nonStandardFiles.isEmpty())
 		{
 			StringBuilder msg = new StringBuilder();
-			for (String filename : nonStandardFiles)
+			nonStandardFiles.forEach(filename ->
 			{
 				msg.append(' ').append(filename).append("\n");
-			}
+			});
 			DIWarningDialog dialog =
 					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diNonStandardFiles"));
@@ -499,10 +499,7 @@ public class DataInstaller extends JFrame
 			}
 			if (result == JOptionPane.NO_OPTION)
 			{
-				for (String filename : nonStandardFiles)
-				{
-					files.remove(filename);
-				}
+				nonStandardFiles.forEach(files::remove);
 			}
 		}
 
@@ -522,23 +519,23 @@ public class DataInstaller extends JFrame
 	{
 		Collection<String> existingFiles = new ArrayList<>();
 		Collection<String> existingFilesCorr = new ArrayList<>();
-		for (String filename : files)
+		files.forEach(filename ->
 		{
-			String correctedFilename = correctFileName(destDir, filename); 
+			String correctedFilename = correctFileName(destDir, filename);
 			if (new File(correctedFilename).exists())
 			{
 				existingFiles.add(filename);
 				existingFilesCorr.add(correctedFilename);
 			}
-		}
+		});
 
 		if (!existingFiles.isEmpty())
 		{
 			StringBuilder msg = new StringBuilder();
-			for (String filename : existingFilesCorr)
+			existingFilesCorr.forEach(filename ->
 			{
 				msg.append(' ').append(filename).append("\n");
-			}
+			});
 			DIWarningDialog dialog =
 					new DIWarningDialog(this, msg.toString(), LanguageBundle
 						.getFormattedString("in_diOverwriteFiles"));
@@ -550,10 +547,7 @@ public class DataInstaller extends JFrame
 			}
 			if (result == JOptionPane.NO_OPTION)
 			{
-				for (String filename : existingFiles)
-				{
-					files.remove(filename);
-				}
+				existingFiles.forEach(files::remove);
 			}
 		}
 

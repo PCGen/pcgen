@@ -118,14 +118,14 @@ public class DataLoadTest implements PCGenTaskListener
 		List<SourceSelectionFacade> basicSources = getBasicSources();
 		assertFalse("No sources found", basicSources.isEmpty());
 		List<Object[]> params = new ArrayList<>();
-		for (SourceSelectionFacade ssf : basicSources)
+		basicSources.forEach(ssf ->
 		{
 			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
 			if (!exclusions.contains(testName))
 			{
 				params.add(new Object[]{ssf, testName});
 			}
-		}
+		});
 		return params;
 	}
 
@@ -155,17 +155,16 @@ public class DataLoadTest implements PCGenTaskListener
 
 		List<String> errorList = new ArrayList<>();
 		List<String> warningList = new ArrayList<>();
-		for (LogRecord logRecord : errors)
+		errors.forEach(logRecord ->
 		{
 			if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
 			{
 				errorList.add(logRecord.getMessage());
-			}
-			else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
+			} else if (logRecord.getLevel().intValue() > Logging.INFO.intValue())
 			{
 				warningList.add(logRecord.getMessage());
 			}
-		}
+		});
 		assertEquals("Errors encountered while loading " + sourceSelection, "",
 			StringUtils.join(errorList, ",\n"));
 		assertEquals("Warnings encountered while loading " + sourceSelection, "",
@@ -203,17 +202,14 @@ public class DataLoadTest implements PCGenTaskListener
 	private static List<SourceSelectionFacade> getBasicSources()
 	{
 		List<SourceSelectionFacade> basicSources = new ArrayList<>();
-		for (Campaign campaign : Globals.getCampaignList())
+		Globals.getCampaignList().stream().filter(Campaign::showInMenu).forEach(campaign ->
 		{
-			if (campaign.showInMenu())
-			{
-				SourceSelectionFacade sourceSelection =
-						FacadeFactory.createSourceSelection(campaign.getGameModes()
+			SourceSelectionFacade sourceSelection =
+					FacadeFactory.createSourceSelection(campaign.getGameModes()
 							.getElementAt(0), Collections.singletonList(campaign), campaign.getName());
-				
-				basicSources.add(sourceSelection);
-			}
-		}
+
+			basicSources.add(sourceSelection);
+		});
 		for (GameMode mode : SystemCollections.getUnmodifiableGameModeList())
 		{
 			String title = mode.getDefaultSourceTitle();
@@ -226,13 +222,13 @@ public class DataLoadTest implements PCGenTaskListener
 			{
 				List<CampaignFacade> qcamps = new ArrayList<>();
 				List<String> sources = mode.getDefaultDataSetList();
-				for (String string : sources)
+				sources.forEach(string ->
 				{
 					Campaign camp = Globals.getCampaignKeyed(string);
 					assertNotNull("Cannot find source " + string
-						+ " for game mode " + mode, camp);
+							+ " for game mode " + mode, camp);
 					qcamps.add(camp);
-				}
+				});
 				basicSources.add(FacadeFactory.createSourceSelection(
 					mode, qcamps, mode.getDefaultSourceTitle()));
 			}
