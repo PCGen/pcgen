@@ -114,10 +114,10 @@ public class ConversionChoiceDialog extends JDialog implements
 		add(introLabel, gbc);
 
 		choiceCombo = new JComboBox();
-		for (String choice : choices)
+		choices.forEach(choice ->
 		{
 			choiceCombo.addItem(choice);
-		}
+		});
 		if (defaultChoice >=0 && defaultChoice < choices.size())
 		{
 			choiceCombo.setSelectedIndex(defaultChoice);

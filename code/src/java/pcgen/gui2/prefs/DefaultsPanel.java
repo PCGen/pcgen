@@ -157,19 +157,19 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		final String xpTableName = gameMode.getDefaultXPTableName();
 		List<String> xpTableNames = gameMode.getXPTableNames();
 		xpTableCombo.removeAllItems();
-		for (String name : xpTableNames)
+		xpTableNames.forEach(name ->
 		{
 			xpTableCombo.addItem(name);
-		}
+		});
 		xpTableCombo.setSelectedItem(xpTableName);
 
 		final String characterType = gameMode.getDefaultCharacterType();
 		List<String> characterTypes = gameMode.getCharacterTypeList();
 		characterTypeCombo.removeAllItems();
-		for (String name : characterTypes)
+		characterTypes.forEach(name ->
 		{
 			characterTypeCombo.addItem(name);
-		}
+		});
 		characterTypeCombo.setSelectedItem(characterType);
 		
 		final String previewSheet = UIPropertyContext.getInstance().initProperty(

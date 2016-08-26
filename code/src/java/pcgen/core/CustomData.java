@@ -285,14 +285,11 @@ public final class CustomData
 			bw.newLine();
 			bw.write(AUTO_GEN_WARN_LINE_2);
 			bw.newLine();
-			
-			for (Equipment aEq : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
+
+			Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class).stream().filter(aEq -> aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN")).forEach(aEq ->
 			{
-				if (aEq.isType(Constants.TYPE_CUSTOM) && !aEq.isType("AUTO_GEN"))
-				{
-					aEq.save(bw);
-				}
-			}
+				aEq.save(bw);
+			});
 		}
 		catch (IOException e)
 		{
@@ -351,19 +348,18 @@ public final class CustomData
 					if (iCount != 0)
 					{
 						final StringWriter writer = new StringWriter();
-						for (Prerequisite prereq : pbc.getPrerequisiteList())
+						pbc.getPrerequisiteList().forEach(prereq ->
 						{
 							final PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 							try
 							{
 								writer.write("\t");
 								PrerequisiteWriter.write(writer, prereq);
-							}
-							catch (Exception e1)
+							} catch (Exception e1)
 							{
 								e1.printStackTrace();
 							}
-						}
+						});
 						bw.write(writer.toString());
 					}
 					bw.newLine();
@@ -561,12 +557,12 @@ public final class CustomData
 
 	private static void writeCustomAbilities()
 	{
-		for (AbilityCategory ac : SettingsHandler.getGame().getAllAbilityCategories())
+		SettingsHandler.getGame().getAllAbilityCategories().forEach(ac ->
 		{
 			writeCustomPObjects(customAbilityFilePath(true), Globals
 					.getContext().getReferenceContext().getManufacturer(Ability.class, ac)
 					.getAllObjects().iterator());
-		}
+		});
 	}
 
 	private static void writeCustomFeats()
@@ -653,13 +649,10 @@ public final class CustomData
 
 	private static void writeCustomSources()
 	{
-		for ( Campaign c : Globals.getCampaignList() )
+		Globals.getCampaignList().stream().filter(c -> c.getSafe(StringKey.DESTINATION).length() > 0).forEach(c ->
 		{
-			if (c.getSafe(StringKey.DESTINATION).length() > 0)
-			{
-				CampaignOutput.output(Globals.getContext(), c);
-			}
-		}
+			CampaignOutput.output(Globals.getContext(), c);
+		});
 	}
 
 	private static void writeCustomSpells()

@@ -65,10 +65,10 @@ public class CoreViewFrame extends JFrame
 		viewTable = new JTreeViewTable<>();
 
 		perspectiveChooser = new JComboBoxEx();
-		for (CorePerspective pers : CorePerspective.getAllConstants())
+		CorePerspective.getAllConstants().forEach(pers ->
 		{
 			perspectiveChooser.addItem(pers);
-		}
+		});
 		final CoreViewTreeViewModel coreViewTreeViewModel = new CoreViewTreeViewModel(character);
 
 		PerspectiveActionListener pal = new PerspectiveActionListener(coreViewTreeViewModel);
@@ -161,11 +161,11 @@ public class CoreViewFrame extends JFrame
 			}
 
 			List<TreeViewPath<CoreViewNodeFacade>> paths = new ArrayList<>();
-			for (List<CoreViewNodeFacade> path : abilityPaths)
+			abilityPaths.forEach(path ->
 			{
 				Collections.reverse(path);
 				paths.add(new TreeViewPath<CoreViewNodeFacade>(path.toArray(), pobj));
-			}
+			});
 			return paths;
 		}
 
@@ -180,7 +180,8 @@ public class CoreViewFrame extends JFrame
 						+ StringUtils.join(grantedByNodes, ",") + "]. Skipping.");
 				return;
 			}
-			for (CoreViewNodeFacade node : grantedByNodes)
+			// Don't include self references in the path
+			grantedByNodes.forEach(node ->
 			{
 				@SuppressWarnings("unchecked")
 				ArrayList<CoreViewNodeFacade> pathclone = (ArrayList<CoreViewNodeFacade>) path.clone();
@@ -192,12 +193,11 @@ public class CoreViewFrame extends JFrame
 				if (preAbilities2.isEmpty())
 				{
 					abilityPaths.add(pathclone);
-				}
-				else
+				} else
 				{
 					addPaths(abilityPaths, preAbilities2, pathclone);
 				}
-			}
+			});
 		}
 
 	}

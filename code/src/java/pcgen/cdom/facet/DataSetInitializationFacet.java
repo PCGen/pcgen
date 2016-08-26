@@ -35,9 +35,9 @@ public class DataSetInitializationFacet
 	
 	public void initialize(LoadContext context)
 	{
-		for (DataSetInitializedFacet cif : facetList)
+		facetList.forEach(cif ->
 		{
 			cif.initialize(context);
-		}
+		});
 	}
 }
