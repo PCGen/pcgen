@@ -25,16 +25,10 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
-import javax.swing.table.DefaultTableColumnModel;
-import javax.swing.table.JTableHeader;
-import javax.swing.table.TableCellRenderer;
-import javax.swing.table.TableColumnModel;
-
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.CharacterLevelsFacade;
-import pcgen.gui2.tabs.Utilities;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -44,38 +38,14 @@ import pcgen.system.LanguageBundle;
 public class SkillCostTableModel extends AbstractTableModel implements ListSelectionListener
 {
 
-	private final CharacterFacade character;
 	private final CharacterLevelsFacade levels;
 	private ListSelectionModel selectionModel;
 
 	public SkillCostTableModel(CharacterFacade character, ListSelectionModel selectionModel)
 	{
-		this.character = character;
 		this.levels = character.getCharacterLevelsFacade();
 		this.selectionModel = selectionModel;
 		selectionModel.addListSelectionListener(this);
-	}
-
-	public static void initializeTable(JTable table)
-	{
-		table.setAutoCreateColumnsFromModel(false);
-		JTableHeader header = table.getTableHeader();
-		TableColumnModel columns = new DefaultTableColumnModel();
-		TableCellRenderer headerRenderer = header.getDefaultRenderer();
-		columns.addColumn(Utilities.createTableColumn(0,
-			LanguageBundle.getString("in_skillSkillCost"), //$NON-NLS-1$
-			headerRenderer, true));
-		columns.addColumn(Utilities.createTableColumn(1,
-			LanguageBundle.getString("in_skillRankCost"), //$NON-NLS-1$
-			headerRenderer, false));
-		columns.addColumn(Utilities.createTableColumn(2,
-			LanguageBundle.getString("in_skillMaxRanks"), //$NON-NLS-1$
-			headerRenderer, false));
-		table.setColumnModel(columns);
-		table.setFocusable(false);
-		table.setCellSelectionEnabled(false);
-		header.setReorderingAllowed(false);
-		header.setResizingAllowed(false);
 	}
 
 	public void install(JTable table)

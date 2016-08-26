@@ -289,7 +289,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
+		private AddSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -326,7 +326,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		private RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -363,7 +363,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public AutoAddSpellsAction(CharacterFacade character)
+		private AutoAddSpellsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.autoload"));
 			this.character = character;
@@ -388,7 +388,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public UseHigherSlotsAction(CharacterFacade character)
+		private UseHigherSlotsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoKnownSpells.canUseHigherSlots"));
 			this.character = character;
@@ -413,7 +413,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public PreviewSpellsAction(CharacterFacade character)
+		private PreviewSpellsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.PrintPreview16.getImageIcon());
@@ -432,7 +432,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public ExportSpellsAction(CharacterFacade character)
+		private ExportSpellsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Print16.getImageIcon());
@@ -453,7 +453,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		private final SpellTreeViewModel selectedModel;
 		private final CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		private TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getAvailableSpellNodes(), 
@@ -481,7 +481,7 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		private SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}

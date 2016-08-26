@@ -21,6 +21,7 @@
 package pcgen.gui2.tabs.spells;
 
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
 
 import org.apache.commons.lang.StringUtils;
@@ -40,7 +41,7 @@ class SpellNodeDataView implements DataView<SuperNode>
 	private final String prefsKey;
 	private final InfoFactory infoFactory;
 
-	public SpellNodeDataView(boolean initiallyVisible, String prefsKey, InfoFactory infoFactory)
+	SpellNodeDataView(boolean initiallyVisible, String prefsKey, InfoFactory infoFactory)
 	{
 		super();
 		this.prefsKey = prefsKey;
@@ -96,12 +97,9 @@ class SpellNodeDataView implements DataView<SuperNode>
 	@Override
 	public List<? extends DataViewColumn> getDataColumns()
 	{
-		return columns;
+		return Collections.unmodifiableList(columns);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getPrefsKey()
 	{

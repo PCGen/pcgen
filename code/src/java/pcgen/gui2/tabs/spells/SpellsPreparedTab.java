@@ -374,7 +374,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		private RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
@@ -413,7 +413,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public UseHigherSlotsAction(CharacterFacade character)
+		private UseHigherSlotsAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoPreparedSpells.canUseHigherSlots"));
 			this.character = character;
@@ -438,7 +438,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public AddSpellListAction(CharacterFacade character)
+		private AddSpellListAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.add"));
 			this.character = character;
@@ -457,7 +457,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private CharacterFacade character;
 
-		public RemoveSpellListAction(CharacterFacade character)
+		private RemoveSpellListAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("InfoSpells.delete"));
 			this.character = character;
@@ -478,7 +478,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		private SpellTreeViewModel selectedModel;
 		private CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		private TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(),
@@ -506,7 +506,7 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		private SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}

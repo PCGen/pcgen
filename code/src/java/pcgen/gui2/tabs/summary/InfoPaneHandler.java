@@ -49,9 +49,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>
 {
 
-	private boolean installed = false;
 	private HtmlSheetSupport support;
-	private String currentInfoTemplateFile;
 	private CharacterFacade character;
 
 	/**
@@ -92,7 +90,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	public void install()
 	{
 		support.install();
-		installed = true;
 		scheduleRefresh();
 	}
 
@@ -118,7 +115,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	 * update will happen in a new thread and will not be started if one is 
 	 * already running.  
 	 */
-	public void scheduleRefresh()
+	private void scheduleRefresh()
 	{
 		support.refresh();
 	}
@@ -129,7 +126,6 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 	public void uninstall()
 	{
 		support.uninstall();
-		installed = false;
 	}
 
 	/* (non-Javadoc)

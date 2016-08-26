@@ -41,7 +41,7 @@ public class CategoryTableModel extends
 		ChangeListener
 {
 
-	boolean installed = false;
+	private boolean installed = false;
 	private final JTable categoryTable;
 	
 	public CategoryTableModel(CharacterFacade character,
@@ -124,9 +124,6 @@ public class CategoryTableModel extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void ItemChanged(ChangeEvent event)
 	{

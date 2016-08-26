@@ -202,7 +202,7 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 			}
 		}
 		currPos = 0;
-		for (E e : newElements)
+		for (final E e : newElements)
 		{
 			if (elementList.size() <= currPos
 				|| !e.equals(elementList.get(currPos)))

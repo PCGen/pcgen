@@ -23,8 +23,8 @@ package pcgen.gui2.tabs.spells;
 import java.awt.BorderLayout;
 import java.awt.event.ActionEvent;
 import java.util.List;
-
 import javax.swing.AbstractAction;
+import javax.swing.Action;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JComboBox;
@@ -33,9 +33,7 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTree;
 import javax.swing.tree.TreePath;
-
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.ClassFacade;
 import pcgen.facade.core.SpellFacade;
@@ -270,7 +268,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final SpellSupportFacade spellSupport;
 
-		public SpellBookModel(CharacterFacade character)
+		private SpellBookModel(CharacterFacade character)
 		{
 			this.spellSupport = character.getSpellSupport();
 			setListFacade(spellSupport.getSpellbooks());
@@ -289,7 +287,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public AddSpellAction(CharacterFacade character)
+		private AddSpellAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, Icons.Forward16.getImageIcon());
@@ -328,10 +326,10 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public RemoveSpellAction(CharacterFacade character)
+		private RemoveSpellAction(CharacterFacade character)
 		{
 			this.character = character;
-			putValue(SMALL_ICON, Icons.Back16.getImageIcon());
+			putValue(Action.SMALL_ICON, Icons.Back16.getImageIcon());
 		}
 
 		@Override
@@ -369,7 +367,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		private final SpellTreeViewModel selectedModel;
 		private final CharacterFacade character;
 
-		public TreeViewModelHandler(CharacterFacade character)
+		private TreeViewModelHandler(CharacterFacade character)
 		{
 			this.character = character;
 			availableModel = new SpellTreeViewModel(character.getSpellSupport().getKnownSpellNodes(), false, "SpellBooksAva", character.getInfoFactory());
@@ -395,7 +393,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public SpellFilterHandler(CharacterFacade character)
+		private SpellFilterHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}

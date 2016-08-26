@@ -1,6 +1,6 @@
 /*
- * PurchaseMethodFacade.java
- * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
+ * StatGenerationFacade.java
+ * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public
@@ -16,39 +16,15 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 9, 2008, 3:30:17 PM
+ * Created on Feb 10, 2009, 4:12:15 PM
  */
-package pcgen.facade.core.generator;
+package pcgen.facade.core;
 
 /**
- *
+ * This is the super class of all stat generators
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public interface PurchaseMethodFacade extends StatGenerationFacade
+public interface StatGenerationFacade extends LoadableFacade
 {
-
-	public int getMinScore();
-
-	public int getMaxScore();
-
-	/**
-	 * @return the number of points that can be distributed
-	 */
-	public int getPoints();
-
-	/**
-	 * 
-	 * @param score
-	 * @return the cost for the give score
-	 */
-	public int getScoreCost(int score);
-
-	public void setMaxScore(int score);
-
-	public void setMinScore(int score);
-
-	public void setPoints(int points);
-
-	public void setScoreCost(int score, int cost);
 
 }

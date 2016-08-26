@@ -211,7 +211,7 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	 * <code>MapFacade</code> that changed, typically "this"
 	 * @see EventListenerList
 	 */
-	protected void fireKeysChanged(Object source)
+	void fireKeysChanged(Object source)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		MapEvent<K, V> e = null;

@@ -52,7 +52,7 @@ public final class PCGenStatusBar extends JPanel
 	private JProgressBar progressBar;
 	private JLabel loadStatusLabel;
 
-	public PCGenStatusBar(PCGenFrame frame)
+	PCGenStatusBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.messageLabel = new JLabel();
@@ -88,7 +88,7 @@ public final class PCGenStatusBar extends JPanel
 		return progressBar;
 	}
 
-	public void setSourceLoadErrors(List<LogRecord> errors)
+	void setSourceLoadErrors(List<LogRecord> errors)
 	{
 		if (errors != null && !errors.isEmpty())
 		{
@@ -134,7 +134,7 @@ public final class PCGenStatusBar extends JPanel
 	 * @param task a PCGenTask
 	 * @return a SwingWorker
 	 */
-	public SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
+	SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
 	{
 		return new StatusWorker(taskName, task, this);
 	}
@@ -183,7 +183,7 @@ public final class PCGenStatusBar extends JPanel
 	private class LoadStatusMouseAdapter extends MouseAdapter
 	{
 		@Override
-		public void mouseReleased(MouseEvent arg0)
+		public void mouseReleased(MouseEvent e)
 		{
 			frame.getActionMap().get(PCGenActionMap.LOG_COMMAND).actionPerformed(null);
 		}

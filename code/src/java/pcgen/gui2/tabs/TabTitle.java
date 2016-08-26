@@ -23,7 +23,7 @@ package pcgen.gui2.tabs;
 import java.beans.PropertyChangeListener;
 import java.beans.PropertyChangeSupport;
 import java.util.Hashtable;
-
+import java.util.Map;
 import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
@@ -37,15 +37,13 @@ import pcgen.util.enumeration.Tab;
 public class TabTitle
 {
 
-	public static final String FOREGROUND = "foreground"; //$NON-NLS-1$
-	public static final String BACKGROUND = "background"; //$NON-NLS-1$
-	public static final String ENABLED = "enabled"; //$NON-NLS-1$
 	public static final String TITLE = "title"; //$NON-NLS-1$
-	public static final String ICON = "icon"; //$NON-NLS-1$
-	public static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
 	public static final String TAB = "tab"; //$NON-NLS-1$
-	private PropertyChangeSupport support;
-	private Hashtable<String, Object> table;
+	static final String ENABLED = "enabled"; //$NON-NLS-1$
+	static final String ICON = "icon"; //$NON-NLS-1$
+	static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
+	private final PropertyChangeSupport support;
+	private final Map<String, Object> table;
 
 	/**
 	 * Create a new TabTitle instance for a specific tab.

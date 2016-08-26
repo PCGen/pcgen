@@ -41,8 +41,7 @@ import pcgen.util.enumeration.Tab;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 13208 $
  */
-@SuppressWarnings("serial")
-public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
+class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
 {
 
 	private final TabTitle tabTitle = new TabTitle(Tab.SPELLS);
@@ -50,7 +49,7 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 	private final SpellsPreparedTab preparedTab = new SpellsPreparedTab();
 	private final SpellBooksTab booksTab = new SpellBooksTab();
 
-	public SpellsInfoTab()
+	SpellsInfoTab()
 	{
 		addTab(LanguageBundle.getString("in_InfoKnown"), knownTab); //$NON-NLS-1$
 		addTab(LanguageBundle.getString("in_InfoPrepared"), preparedTab); //$NON-NLS-1$

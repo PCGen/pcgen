@@ -483,7 +483,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private ListSelectionModel listModel;
 		private CharacterFacade character;
 
-		public SkillRankSpinnerEditor(CharacterFacade character, ListSelectionModel listModel)
+		private SkillRankSpinnerEditor(CharacterFacade character, ListSelectionModel listModel)
 		{
 			this(new SkillRankSpinnerModel(character));
 			this.listModel = listModel;
@@ -549,9 +549,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			MouseListener[] listeners
 					= component.getMouseListeners();
-			for (int i = 0; i < listeners.length; i++)
+			for (MouseListener listener : listeners)
 			{
-				MouseListener listener = listeners[i];
 				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED,
 						System.currentTimeMillis(), 0, 0, 0, 1, false));
 			}
@@ -566,7 +565,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private CharacterLevelFacade level;
 		private SkillFacade skill;
 
-		public SkillRankSpinnerModel(CharacterFacade character)
+		private SkillRankSpinnerModel(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -577,7 +576,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			return character.getCharacterLevelsFacade().getSkillRanks(level, skill);
 		}
 
-		public void configureModel(SkillFacade sk, CharacterLevelFacade charLevel)
+		void configureModel(SkillFacade sk, CharacterLevelFacade charLevel)
 		{
 			this.skill = sk;
 			this.level = charLevel;
@@ -688,7 +687,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private CharacterFacade character;
 		private String text;
 
-		public InfoHandler(CharacterFacade character)
+		private InfoHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.text = ""; //$NON-NLS-1$
@@ -733,7 +732,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		private SkillSheetHandler skillSheetHandler;
 		private ComboBoxModel model;
 
-		public SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
+		private SkillFilterHandler(CharacterFacade character, SkillSheetHandler skillSheetHandler)
 		{
 			this.character = character;
 			this.skillSheetHandler = skillSheetHandler;

@@ -568,10 +568,9 @@ public class Logging
 	 * this name should be either the fully qualified class name, 
 	 * or the package name.
 	 * 
-	 * @param name The name of the logger
 	 * @return An instance of Logger that deals with the specified name.
 	 */
-	private static java.util.logging.Logger getLogger()
+	private static Logger getLogger()
 	{
 		StackTraceElement[] stack = new Throwable().getStackTrace();
 		StackTraceElement caller = null;
@@ -593,7 +592,7 @@ public class Logging
 		int retries = 0;
 		while (l == null && retries < maxRetries)
 		{
-			l = java.util.logging.Logger.getLogger(name);
+			l = Logger.getLogger(name);
 			retries++;
 		}
 		if (l == null)

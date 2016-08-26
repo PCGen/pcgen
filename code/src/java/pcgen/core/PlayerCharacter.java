@@ -595,8 +595,26 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 	}
-	
-	private final void doFormulaSetup()
+
+	/**
+	 * Set the Weapon proficiency of one piece of Equipment to the same as the
+	 * Proficiency in another piece of Equipment.  For some bizarre reason, as
+	 * well as setting the proficiency,  this zeros out the Weight and cost of
+	 * the equipment.
+	 *
+	 * @param  equip  the Weapon to get the proficiency from
+	 * @param  eqm    the weapon to set the proficiency in
+	 */
+	static void setProf(final Equipment equip, final Equipment eqm)
+	{
+		eqm.put(ObjectKey.WEAPON_PROF, equip.get(ObjectKey.WEAPON_PROF));
+		// In case this is used somewhere it shouldn't be used,
+		// set weight and cost to 0
+		eqm.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+		eqm.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
+	}
+
+	private void doFormulaSetup()
 	{
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
@@ -608,9 +626,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -784,7 +799,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 		// loop through all equipment and make sure that
 		// containers contents are updated
-		for (Equipment eq : getEquipmentSet())
+		for (final Equipment eq : getEquipmentSet())
 		{
 			if (eq.isContainer())
 			{
@@ -3403,7 +3418,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.add(idx + 1, eqm);
 
 				eqm = equip.clone();
@@ -3440,7 +3455,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.add(idx + 2, eqm);
 			}
 
@@ -3459,7 +3474,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 				eqm.removeType(Type.RANGED);
 				eqm.removeType(Type.THROWN);
 				eqm.put(IntegerKey.RANGE, 0);
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.set(idx, eqm);
 
 				boolean replacedPrimary = primaryWeaponFacet.replace(id, equip, eqm);
@@ -3482,7 +3497,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 					eqr.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqr.getOutputName(), "Thrown"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqr);
+				setProf(equip, eqr);
 				weapList.add(++idx, eqr);
 
 				if (replacedPrimary)
@@ -9887,7 +9902,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 			return;
 		}
 		ClassSpellList classSpellList =
-				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
+				aClass.get(ObjectKey.CLASS_SPELLLIST);
 		for (Integer spellLevel : knownSpellFacet.getScopes2(id, classSpellList))
 		{
 			for (Spell spell : knownSpellFacet.getSet(id, classSpellList, spellLevel))
@@ -9927,11 +9942,6 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	public void addUserSpecialAbility(SpecialAbility sa, CDOMObject source)
 	{
 		userSpecialAbilityFacet.add(id, sa, source);
-	}
-
-	public void removeUserSpecialAbility(SpecialAbility sa, CDOMObject source)
-	{
-		userSpecialAbilityFacet.remove(id, sa, source);
 	}
 
 	public CharacterDisplay getDisplay()
@@ -10064,7 +10074,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		domainSpellCountFacet.remove(id, pcc);
 	}
 
-	public Integer getDomainSpellCount(PCClass pcc)
+	Integer getDomainSpellCount(PCClass pcc)
 	{
 		return domainSpellCountFacet.get(id, pcc);
 	}

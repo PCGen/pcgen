@@ -45,7 +45,7 @@ import pcgen.facade.core.SizeAdjustmentFacade;
 import pcgen.facade.core.SkillFacade;
 import pcgen.facade.core.StatFacade;
 import pcgen.facade.core.TemplateFacade;
-import pcgen.facade.core.generator.StatGenerationFacade;
+import pcgen.facade.core.StatGenerationFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.DefaultMapFacade;
 import pcgen.facade.util.ListFacade;

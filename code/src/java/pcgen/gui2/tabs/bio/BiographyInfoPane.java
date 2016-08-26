@@ -84,7 +84,6 @@ import pcgen.system.LanguageBundle;
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: 15691 $
  */
-@SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 {
 	private static final String ALL_COMMAND = "ALL"; //$NON-NLS-1$
@@ -365,7 +364,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private CharacterComboBoxModel<GenderFacade> genderModel;
 
-		public GenderItem(final CharacterFacade character)
+		private GenderItem(final CharacterFacade character)
 		{
 			super("in_gender", BiographyField.GENDER, character); //$NON-NLS-1$
 			genderModel = new CharacterComboBoxModel<GenderFacade>()
@@ -450,7 +449,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class DeityItem extends BioItem
 	{
 
-		public DeityItem(final CharacterFacade character)
+		private DeityItem(final CharacterFacade character)
 		{
 			super("in_deity", BiographyField.DEITY, character); //$NON-NLS-1$
 			CharacterComboBoxModel<DeityFacade> deityModel = new CharacterComboBoxModel<DeityFacade>()
@@ -473,7 +472,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class AgeItem extends BioItem
 	{
 
-		public AgeItem(final CharacterFacade character)
+		private AgeItem(final CharacterFacade character)
 		{
 			super("in_age", BiographyField.AGE, character); //$NON-NLS-1$
 			CharacterComboBoxModel<SimpleFacade> ageModel = new CharacterComboBoxModel<SimpleFacade>()
@@ -526,7 +525,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HairColorItem extends BioItem
 	{
 
-		public HairColorItem(final CharacterFacade character)
+		private HairColorItem(final CharacterFacade character)
 		{
 			super("in_appHairColor", BiographyField.HAIR_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getHairColorRef())
@@ -546,7 +545,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class EyeColorItem extends BioItem
 	{
 
-		public EyeColorItem(final CharacterFacade character)
+		private EyeColorItem(final CharacterFacade character)
 		{
 			super("in_appEyeColor", BiographyField.EYE_COLOR, character); //$NON-NLS-1$
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getEyeColorRef())
@@ -566,7 +565,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class HeightItem extends BioItem
 	{
 
-		public HeightItem(final CharacterFacade character)
+		private HeightItem(final CharacterFacade character)
 		{
 			super("in_height", BiographyField.HEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getHeightUnit());
@@ -587,7 +586,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class WeightItem extends BioItem
 	{
 
-		public WeightItem(final CharacterFacade character)
+		private WeightItem(final CharacterFacade character)
 		{
 			super("in_weight", BiographyField.WEIGHT, character); //$NON-NLS-1$
 			setTrailingLabel(character.getDataSet().getGameMode().getWeightUnit());
@@ -608,7 +607,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class RegionItem extends BioItem
 	{
 
-		public RegionItem(final CharacterFacade character)
+		private RegionItem(final CharacterFacade character)
 		{
 			super("in_region", BiographyField.REGION, character); //$NON-NLS-1$
 			final JTextField regionField = new JTextField();
@@ -630,7 +629,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	private static class HairStyleItem extends BiographyFieldBioItem
 	{
-		public HairStyleItem(final CharacterFacade character)
+		private HairStyleItem(final CharacterFacade character)
 		{
 			super("in_style", BiographyField.HAIR_STYLE, character); //$NON-NLS-1$
 		}
@@ -644,7 +643,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	private static class BiographyFieldBioItem extends BioItem
 	{
 
-		public BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
+		private BiographyFieldBioItem(final String titleKey, final BiographyField field, final CharacterFacade character)
 		{
 			super(titleKey, field, character);
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
@@ -658,7 +657,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			});
 		}
 
-		public BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
+		private BiographyFieldBioItem(final BiographyField field, final CharacterFacade character)
 		{
 			super(field.getIl8nKey(), field, character);
 			setTextFieldHandler(new TextFieldHandler(new JTextField(), character.getDescriptionFacade().getBiographyField(field))
@@ -674,7 +673,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 	}
 
-	private static abstract class BioItem implements ActionListener, ItemListener 
+	private abstract static class BioItem implements ActionListener, ItemListener
 	{
 
 		private final JLabel label = new JLabel();
@@ -687,7 +686,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		private TextFieldHandler textFieldHandler;
 		private FormattedFieldHandler formattedFieldHandler;
 
-		protected BioItem(String text, BiographyField bioField, CharacterFacade character)
+		BioItem(String text, BiographyField bioField, CharacterFacade character)
 		{
 			this.bioField = bioField;
 			this.character = character;
@@ -706,7 +705,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		public void addComponents(JPanel panel)
+		void addComponents(JPanel panel)
 		{
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.anchor = GridBagConstraints.PAGE_START;
@@ -757,7 +756,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		protected void setTextFieldHandler(TextFieldHandler handler)
+		void setTextFieldHandler(TextFieldHandler handler)
 		{
 			if (textField != null)
 			{
@@ -767,7 +766,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			textFieldHandler = handler;
 		}
 
-		protected void setFormattedFieldHandler(FormattedFieldHandler handler)
+		void setFormattedFieldHandler(FormattedFieldHandler handler)
 		{
 			if (textField != null)
 			{
@@ -777,7 +776,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			formattedFieldHandler = handler;
 		}
 
-		protected void setComboBoxModel(CharacterComboBoxModel<?> model)
+		void setComboBoxModel(CharacterComboBoxModel<?> model)
 		{
 			if (combobox != null)
 			{
@@ -791,7 +790,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		/**
 		 * @param text The text to be displayed in a label after the entry fields.
 		 */
-		protected void setTrailingLabel(String text)
+		void setTrailingLabel(String text)
 		{
 			if (trailinglabel != null)
 			{
@@ -885,7 +884,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 
 	/**
-	 * The Class <code>AddAction</code> acts on a user pressing the Add Custom 
+	 * The Class {@code AddAction} acts on a user pressing the Add Custom
 	 * Details button.
 	 */
 	private class AddCustomAction extends AbstractAction
@@ -893,7 +892,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 
 		private final CharacterFacade character;
 
-		public AddCustomAction(CharacterFacade character)
+		private AddCustomAction(CharacterFacade character)
 		{
 			super(LanguageBundle.getString("in_descAddDetail")); //$NON-NLS-1$
 			this.character = character;

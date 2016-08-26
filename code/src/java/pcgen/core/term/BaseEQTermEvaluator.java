@@ -35,7 +35,7 @@ public abstract class BaseEQTermEvaluator
 {
 	protected String originalText;
 
-	public String evaluate(PlayerCharacter pc) {
+	public String evaluate(final PlayerCharacter pc) {
 		return "0.0";
 	}
 
@@ -52,14 +52,14 @@ public abstract class BaseEQTermEvaluator
 		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
-	protected Float convertToFloat(String element, String foo)
+	protected static Float convertToFloat(String element, String foo)
 	{
 		Float d = null;
 		try
 		{
 			d = new Float(foo);
 		}
-		catch (NumberFormatException nfe)
+		catch (final NumberFormatException nfe)
 		{
 			// What we got back was not a number
 		}

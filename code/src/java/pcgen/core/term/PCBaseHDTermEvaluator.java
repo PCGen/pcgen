@@ -39,7 +39,7 @@ import pcgen.core.PlayerCharacter;
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  * @version $Revision: 15744 $
  */
-public class PCBaseHDTermEvaluator
+class PCBaseHDTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
 
 	/**
@@ -47,7 +47,7 @@ public class PCBaseHDTermEvaluator
 	 * 
 	 * @param expressionString the expression string
 	 */
-	public PCBaseHDTermEvaluator(String expressionString)
+	PCBaseHDTermEvaluator(String expressionString)
 	{
 		this.originalText = expressionString;
 	}
@@ -58,7 +58,7 @@ public class PCBaseHDTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getDisplay().getBaseHD();
+		return pc.getDisplay().getBaseHD();
 	}
 
 	/* (non-Javadoc)
@@ -73,7 +73,7 @@ public class PCBaseHDTermEvaluator
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
