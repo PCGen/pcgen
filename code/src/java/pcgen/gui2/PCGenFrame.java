@@ -1952,10 +1952,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JPanel jPanel3 = new JPanel();
 		final JLabel jLabel1 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JLabel jLabel2 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$

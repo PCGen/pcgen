@@ -36,13 +36,11 @@ import java.awt.event.MouseEvent;
  *
  * @see SwingConstants
  */
-public final class Utilities implements SwingConstants
+public final class Utilities
 {
 
     /** Up direction. */
     public static final int UP = 14;
-    /** Down direction. */
-    public static final int DOWN = 15;
     /** Beginning (far left) direction. */
     public static final int BEGINNING = 16;
     /** End (far right) direction. */
@@ -51,12 +49,6 @@ public final class Utilities implements SwingConstants
     public static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
     /** Icons for Close item. */
     public static final ImageIcon CLOSE_ICON = Icons.Close16.getImageIcon();
-    /** Icons for Center item. */
-    public static final ImageIcon CENTER_ICON = Icons.Stop16.getImageIcon();
-    /** Icons for Flip item. */
-    public static final ImageIcon FLIP_ICON = Icons.Refresh16.getImageIcon();
-    /** Icons for Reset item. */
-    public static final ImageIcon RESET_ICON = Icons.Redo16.getImageIcon();
     /** Icons for Locked item. */
     public static final ImageIcon LOCK_ICON = Icons.Bookmarks16.getImageIcon();
     /** Icons for Up item. */
@@ -85,9 +77,9 @@ public final class Utilities implements SwingConstants
      * Work around bug in W32; it returns false even on right-mouse
      * clicks.
      *
-     * @param e <code>MouseEvent</code>, the event
+     * @param e {@code MouseEvent}, the event
      *
-     * @return <code>boolean</code>, the condition
+     * @return {@code boolean}, the condition
      */
     static boolean isRightMouseButton(MouseEvent e)
     {
@@ -95,12 +87,12 @@ public final class Utilities implements SwingConstants
     }
 
     /**
-     * <code>isShiftLeftMouseButton</code> detects SHIFT-BUTTON1
+     * {@code isShiftLeftMouseButton} detects SHIFT-BUTTON1
      * events for flipping pane shortcuts.
      *
-     * @param e <code>MouseEvent</code>, the event
+     * @param e {@code MouseEvent}, the event
      *
-     * @return <code>boolean</code>, the condition
+     * @return {@code boolean}, the condition
      */
     static boolean isShiftLeftMouseButton(MouseEvent e)
     {

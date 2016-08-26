@@ -42,12 +42,10 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The singleton class <code>TipOfTheDayHandler</code> manages the list of tips. 
+ * The singleton class {@code TipOfTheDayHandler} manages the list of tips.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
+
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
@@ -156,7 +154,7 @@ public class TipOfTheDayHandler
 		{
 			String line = aTok.nextToken();
 			// Skip comments and blank lines.
-			if (line.trim().length() > 0
+			if (!line.trim().isEmpty()
 				&& (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				tipList.add(line);
@@ -166,7 +164,7 @@ public class TipOfTheDayHandler
 
 	public synchronized boolean hasTips()
 	{
-		return (tipList != null) && (tipList.size() > 0);
+		return (tipList != null) && (!tipList.isEmpty());
 	}
 
 	public synchronized String getNextTip()

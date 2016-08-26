@@ -737,22 +737,22 @@ public class SpinningTabbedPane extends JTabbedPane
 
             switch (placement)
             {
-                case TOP:
+                case SwingConstants.TOP:
                     i = indices[0];
 
                     break;
 
-                case LEFT:
+                case SwingConstants.LEFT:
                     i = previous(index, indices);
 
                     break;
 
-                case BOTTOM:
+                case SwingConstants.BOTTOM:
                     i = indices[indices.length - 1];
 
                     break;
 
-                case RIGHT:
+                case SwingConstants.RIGHT:
                     i = next(index, indices);
 
                     break;
@@ -855,19 +855,19 @@ public class SpinningTabbedPane extends JTabbedPane
                 {
                     if (index > secundum)
                     {
-                        this.add(new MoveTabMenuItem(index, TOP));
+                        this.add(new MoveTabMenuItem(index, SwingConstants.TOP));
                     }
 
-                    this.add(new MoveTabMenuItem(index, LEFT));
+                    this.add(new MoveTabMenuItem(index, SwingConstants.LEFT));
                 }
 
                 if (index < ultimatum)
                 {
-                    this.add(new MoveTabMenuItem(index, RIGHT));
+                    this.add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
 
                     if (index < penultimatum)
                     {
-                        this.add(new MoveTabMenuItem(index, BOTTOM));
+                        this.add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
                     }
                 }
 
@@ -886,14 +886,14 @@ public class SpinningTabbedPane extends JTabbedPane
 
             switch (getTabPlacement())
             {
-                case TOP:
-                case BOTTOM:
+                case SwingConstants.TOP:
+                case SwingConstants.BOTTOM:
                     offset += MOVE_LEFT_RIGHT_OFFSET;
 
                     break;
 
-                case LEFT:
-                case RIGHT:
+                case SwingConstants.LEFT:
+                case SwingConstants.RIGHT:
                     offset += MOVE_UP_DOWN_OFFSET;
 
                     break;
