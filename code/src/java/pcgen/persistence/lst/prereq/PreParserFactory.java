@@ -106,7 +106,7 @@ public class PreParserFactory implements PluginLoader
 		}
 	}
 
-	public List<Prerequisite> parse(final List<String> preStrings)
+	public static List<Prerequisite> parse(final List<String> preStrings)
 	{
 		final List<Prerequisite> ret =
                 new ArrayList<>(preStrings.size());
