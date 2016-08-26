@@ -38,6 +38,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import javax.swing.undo.UndoManager;
@@ -4561,7 +4562,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public boolean matchesCharacter(PlayerCharacter pc)
 	{
-		return theCharacter != null && theCharacter.equals(pc);
+		return Objects.equals(theCharacter, pc);
 	}
 	
 	/**

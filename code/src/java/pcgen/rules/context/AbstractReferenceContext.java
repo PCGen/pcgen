@@ -27,6 +27,7 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeSet;
 
@@ -222,8 +223,7 @@ public abstract class AbstractReferenceContext
 		T obj)
 	{
 		Category<T> oldCat = obj.getCDOMCategory();
-		if (oldCat == null && cat == null || oldCat != null
-				&& oldCat.equals(cat))
+		if (oldCat == null && cat == null || Objects.equals(oldCat, cat))
 		{
 			Logging.errorPrint("Worthless Category change encountered: "
 					+ obj.getDisplayName() + " " + oldCat);

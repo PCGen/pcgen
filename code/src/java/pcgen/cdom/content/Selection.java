@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.analysis.ChooseActivation;
 
@@ -72,9 +73,7 @@ public class Selection<BT extends CDOMObject, SEL>
 		{
 			Selection<?, ?> other = (Selection<?, ?>) obj;
 			boolean selectionEqual =
-					(selection == other.selection)
-						|| (selection != null && selection
-							.equals(other.selection));
+					Objects.equals(selection, selection);
 			return selectionEqual && base.equals(other.base);
 		}
 		return false;
