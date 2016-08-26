@@ -220,10 +220,10 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		{
 			return Collections.emptySet();
 		}
-		for (T obj : componentSet)
+		componentSet.forEach(obj ->
 		{
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentSet;
 	}
 
@@ -478,17 +478,16 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 			return false;
 		}
 		Collection<T> replaceSet = getComponentSet();
-		for (T obj : componentSet)
+		componentSet.forEach(obj ->
 		{
 			if (obj == old)
 			{
 				replaceSet.add(replacement);
-			}
-			else
+			} else
 			{
 				replaceSet.add(obj);
 			}
-		}
+		});
 		setCache(id, componentSet);
 		fireDataFacetChangeEvent(id, old, DataFacetChangeEvent.DATA_REMOVED);
 		fireDataFacetChangeEvent(id, replacement,
@@ -530,14 +529,14 @@ public abstract class AbstractListFacet<IDT extends PCGenIdentifier, T> extends
 		if (componentSet != null && componentSet.contains(trigger))
 		{
 			Collection<T> replaceSet = getComponentSet();
-			for (T obj : componentSet)
+			componentSet.forEach(obj ->
 			{
 				replaceSet.add(obj);
 				if (obj == trigger)
 				{
 					replaceSet.add(added);
 				}
-			}
+			});
 			setCache(id, componentSet);
 			fireDataFacetChangeEvent(id, added, DataFacetChangeEvent.DATA_ADDED);
 		}

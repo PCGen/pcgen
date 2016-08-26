@@ -113,10 +113,10 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 */
 	public void addAll(CharID id, Collection<? extends S> c, Object source)
 	{
-		for (S obj : c)
+		c.forEach(obj ->
 		{
 			add(id, obj, source);
-		}
+		});
 	}
 
 	/**
@@ -175,10 +175,10 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (S obj : c)
+			c.forEach(obj ->
 			{
 				processRemoval(id, componentMap, obj, source);
-			}
+			});
 		}
 	}
 
@@ -214,11 +214,11 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 			return Collections.emptyMap();
 		}
 		removeCache(id);
-		for (Target tgt : componentMap.values())
+		componentMap.values().forEach(tgt ->
 		{
 			fireDataFacetChangeEvent(id, tgt.dest,
 					DataFacetChangeEvent.DATA_REMOVED);
-		}
+		});
 		return componentMap;
 	}
 
@@ -421,7 +421,8 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> sourceMap = getCachedMap(source);
 		if (sourceMap != null)
 		{
-			for (Map.Entry<S, Target> me : sourceMap.entrySet())
+			//This could be dangerous!
+			sourceMap.entrySet().forEach(me ->
 			{
 				Target origTarget = me.getValue();
 				if (origTarget != null)
@@ -433,7 +434,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 					target.dest = origTarget.dest;
 					target.set.addAll(origTarget.set);
 				}
-			}
+			});
 		}
 	}
 
