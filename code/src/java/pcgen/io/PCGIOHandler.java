@@ -507,11 +507,11 @@ public final class PCGIOHandler extends IOHandler
 		// now that the import is completed. The level isn't affected.
 		//  merton_monk@yahoo.com 2/15/2002
 		//
-		for (PCClass pcClass : currentPC.getClassSet())
+		currentPC.getClassSet().forEach(pcClass ->
 		{
 			currentPC.calcActiveBonuses();
 			currentPC.calculateKnownSpellsForClassLevel(pcClass);
-		}
+		});
 
 		//
 		// need to calc the movement rates

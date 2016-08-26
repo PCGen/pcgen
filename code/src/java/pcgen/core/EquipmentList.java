@@ -527,7 +527,11 @@ public final class EquipmentList {
 			// was being thrown) - Bug 937586
 			//
 			AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-			for (final Race race : ref.getConstructedCDOMObjects(Race.class))
+			/*
+			 * SIZE: in Race LST files enforces that the formula is fixed,
+			 * so no isStatic() check needed here
+			 */
+			ref.getConstructedCDOMObjects(Race.class).forEach(race ->
 			{
 				/*
 				 * SIZE: in Race LST files enforces that the formula is fixed,
@@ -535,9 +539,9 @@ public final class EquipmentList {
 				 */
 				final int iSize =
 						race.getSafe(FormulaKey.SIZE).resolveStatic()
-							.intValue();
+								.intValue();
 				gensizesid.add(iSize);
-			}
+			});
 
 			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
 			Set<SizeAdjustment> gensizes = gensizesid.stream().map(i -> ref.getSortedList(SizeAdjustment.class,
@@ -556,10 +560,10 @@ public final class EquipmentList {
 					continue;
 				}
 
-				for (SizeAdjustment sa : gensizes)
+				gensizes.forEach(sa ->
 				{
 					createItem(eq, sa, dummyPc);
-				}
+				});
 			}
 		}
 	}

@@ -142,10 +142,10 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			for (VarModifier<?> vm : modifiers)
+			modifiers.forEach(vm ->
 			{
 				solverManagerFacet.addModifier(id, vm, this, aMod);
-			}
+			});
 		}
 	}
 
@@ -154,10 +154,10 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			for (VarModifier<?> vm : modifiers)
+			modifiers.forEach(vm ->
 			{
 				solverManagerFacet.addModifier(id, vm, this, aMod);
-			}
+			});
 		}
 	}
 

@@ -63,11 +63,11 @@ public class KitLangBonus extends BaseKit
 	public void apply(PlayerCharacter aPC)
 	{
 		CNAbility cna = aPC.getBonusLanguageAbility();
-		for (Language l : theLanguages)
+		theLanguages.forEach(l ->
 		{
 			aPC.addAbility(new CNAbilitySelection(cna, l.getKeyName()),
-				UserSelection.getInstance(), UserSelection.getInstance());
-		}
+					UserSelection.getInstance(), UserSelection.getInstance());
+		});
 	}
 
 	/**
@@ -149,14 +149,14 @@ public class KitLangBonus extends BaseKit
 	public String toString()
 	{
 		StringBuilder result = new StringBuilder();
-		for (CDOMSingleRef<Language> lang : langList)
+		langList.forEach(lang ->
 		{
 			if (result.length() > 0)
 			{
 				result.append(", ");
 			}
 			result.append(lang.getLSTformat(false));
-		}
+		});
 		return result.toString();
 	}
 

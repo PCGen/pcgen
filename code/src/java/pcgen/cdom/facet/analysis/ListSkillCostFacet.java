@@ -68,36 +68,33 @@ public class ListSkillCostFacet extends
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		for (CDOMReference ref : cdo.getModifiedLists())
+		cdo.getModifiedLists().forEach(ref ->
 		{
 			List<ClassSkillList> useList = new ArrayList<>();
-			for (Object list : ref.getContainedObjects())
+			ref.getContainedObjects().stream().filter(list -> list instanceof ClassSkillList).forEach(list ->
 			{
-				if (list instanceof ClassSkillList)
-				{
-					useList.add((ClassSkillList) list);
-				}
-			}
+				useList.add((ClassSkillList) list);
+			});
 			if (!useList.isEmpty())
 			{
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
-				for (CDOMReference<Skill> skRef : mods)
+				mods.forEach(skRef ->
 				{
 					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref, skRef))
 					{
 						SkillCost sc =
 								apo.getAssociation(AssociationKey.SKILL_COST);
-						for (ClassSkillList csl : useList)
+						useList.forEach(csl ->
 						{
-							for (Skill skill : skRef.getContainedObjects())
+							skRef.getContainedObjects().forEach(skill ->
 							{
 								add(id, csl, sc, skill, cdo);
-							}
-						}
+							});
+						});
 					}
-				}
+				});
 			}
-		}
+		});
 	}
 
 	/**

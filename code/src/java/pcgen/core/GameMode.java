@@ -2661,10 +2661,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void resolveInto(AbstractReferenceContext referenceContext)
 	{
-		for (ReferenceManufacturer<?> rm : gameRefContext.getAllManufacturers())
+		gameRefContext.getAllManufacturers().forEach(rm ->
 		{
 			resolveReferenceManufacturer(referenceContext, rm);
-		}
+		});
 	}
 
 	private static AbstractReferenceContext getRefContext()
@@ -2698,10 +2698,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			mfg = rc.getManufacturer(c);
 		}
-		for (CDOMReference<T> ref : rm.getAllReferences())
+		rm.getAllReferences().forEach(ref ->
 		{
 			((TransparentReference<T>) ref).resolve(mfg);
-		}
+		});
 		rm.injectConstructed(mfg);
 	}
 

@@ -126,16 +126,16 @@ public class FollowerToken extends Token
 
 		String token = "".equals(followerToken) ? "NAME" : followerToken;
 
-		for (PlayerCharacter eachPC : Globals.getPCList())
+		Globals.getPCList().forEach(eachPC ->
 		{
 			CharacterDisplay eachDisplay = eachPC.getDisplay();
 			if (follower.getFileName().equals(eachDisplay.getFileName())
-				&& follower.getName().equals(eachDisplay.getName()))
+					&& follower.getName().equals(eachDisplay.getName()))
 			{
 				PlayerCharacter newPC = eachPC;
 				eh.replaceToken(token, bw, newPC);
 			}
-		}
+		});
 		try
 		{
 			bw.flush();

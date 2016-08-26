@@ -75,10 +75,10 @@ public class FilterButtonGroupPanel<C, E> extends JPanel
 	public void setFilterHandler(FilterHandler handler)
 	{
 		this.filterHandler = handler;
-		for (FilterButton<C, E> filterButton : buttons)
+		buttons.forEach(filterButton ->
 		{
 			filterButton.setFilterHandler(handler);
-		}
+		});
 	}
 
 	@Override
