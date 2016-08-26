@@ -290,13 +290,10 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().addKnownSpell((SpellNode) object);
-				}
-			}
+				character.getSpellSupport().addKnownSpell((SpellNode) object);
+			});
 		}
 
 		public void install()
@@ -327,13 +324,10 @@ public class SpellsKnownTab extends FlippingSplitPane implements CharacterInfoTa
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = selectedTable.getSelectedData();
-			for (Object object : data)
+			data.stream().filter(object -> object instanceof SpellNode).forEach(object ->
 			{
-				if (object instanceof SpellNode)
-				{
-					character.getSpellSupport().removeKnownSpell((SpellNode) object);
-				}
-			}
+				character.getSpellSupport().removeKnownSpell((SpellNode) object);
+			});
 		}
 
 		public void install()

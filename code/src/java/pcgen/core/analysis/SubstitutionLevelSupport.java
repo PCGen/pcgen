@@ -69,12 +69,12 @@ public final class SubstitutionLevelSupport
 		}
 	
 		List<DeferredLine> newLevels = new ArrayList<>();
-		for (DeferredLine line : levelArray)
+		levelArray.forEach(line ->
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
 					.indexOf("\t")));
-	
+
 			if (aLevel == modLevel)
 			{
 				if (levelArrayQualifies(aLevel, aPC, aLine, line.source, aClass))
@@ -82,7 +82,7 @@ public final class SubstitutionLevelSupport
 					newLevels.add(line);
 				}
 			}
-		}
+		});
 	
 		// find all qualifying level lines for this level
 		// and put into newLevels list.
