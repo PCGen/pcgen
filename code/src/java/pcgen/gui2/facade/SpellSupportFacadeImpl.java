@@ -784,8 +784,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return b.toString();
 	}
 
-	private static final String getNumCast(PCClass aClass, int level,
-		PlayerCharacter pc)
+	private static String getNumCast(PCClass aClass, int level,
+	                                 PlayerCharacter pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
 		final String cast =
