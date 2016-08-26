@@ -588,14 +588,14 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<T, Set<Object>> me : componentMap.entrySet())
+			componentMap.entrySet().forEach(me ->
 			{
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
 					list.add(me.getKey());
 				}
-			}
+			});
 		}
 		return Collections.unmodifiableList(list);
 	}

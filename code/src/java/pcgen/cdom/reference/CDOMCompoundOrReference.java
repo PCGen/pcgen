@@ -210,10 +210,10 @@ public class CDOMCompoundOrReference<T extends PrereqObject> extends
 	public Collection<T> getContainedObjects()
 	{
 		Set<T> set = new HashSet<>();
-		for (CDOMReference<T> ref : references)
+		references.forEach(ref ->
 		{
 			set.addAll(ref.getContainedObjects());
-		}
+		});
 		return set;
 	}
 

@@ -100,15 +100,15 @@ public class AssociationSupport implements Cloneable
 
 	public void convertAssociations(Object oldTarget, Object newTarget)
 	{
-		for (Object secKey : assocMap.getSecondaryKeySet(oldTarget))
+		assocMap.getSecondaryKeySet(oldTarget).forEach(secKey ->
 		{
 			assocMap.put(newTarget, secKey, assocMap.remove(oldTarget, secKey));
-		}
-		for (Object secKey : assocMTL.getSecondaryKeySet(oldTarget))
+		});
+		assocMTL.getSecondaryKeySet(oldTarget).forEach(secKey ->
 		{
 			assocMTL.addAllToListFor(newTarget, secKey, assocMTL.removeListFor(
 					oldTarget, secKey));
-		}
+		});
 	}
 
 	public boolean containsAssocList(Object o, AssociationListKey<?> alk)

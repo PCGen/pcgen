@@ -70,18 +70,18 @@ public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 	private void processAdd(CharID id, CDOMObject cdo,
 			List<? extends BonusObj> bonusList)
 	{
-		for (BonusObj bonus : bonusList)
+		// TODO Is this necessary? Shouldn't be present anyway...
+		bonusList.forEach(bonus ->
 		{
 			if (prerequisiteFacet.qualifies(id, bonus, cdo))
 			{
 				add(id, bonus);
-			}
-			else
+			} else
 			{
 				// TODO Is this necessary? Shouldn't be present anyway...
 				remove(id, bonus);
 			}
-		}
+		});
 	}
 
 	@Override
@@ -96,10 +96,10 @@ public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 
 	private void processRemove(CharID id, List<? extends BonusObj> bonusList)
 	{
-		for (BonusObj bonus : bonusList)
+		bonusList.forEach(bonus ->
 		{
 			remove(id, bonus);
-		}
+		});
 	}
 
 	public void setAddedBonusFacet(AddedBonusFacet addedBonusFacet)

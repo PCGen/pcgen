@@ -205,13 +205,15 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			noneButton.addActionListener(this);
 
 			chroniclesPane.removeAll();
-			for (ChroniclePane chroniclePane : chronicles)
+			//since these components are not part of the UI tree make sure that they
+//use the current LAF
+			chronicles.forEach(chroniclePane ->
 			{
 				//since these components are not part of the UI tree make sure that they
 				//use the current LAF
 				SwingUtilities.updateComponentTreeUI(chroniclePane);
 				chroniclesPane.add(chroniclePane);
-			}
+			});
 			updateChroniclesPane();
 		}
 
@@ -245,17 +247,17 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			}
 			else if (ALL_COMMAND.equals(e.getActionCommand()))
 			{
-				for (ChroniclePane chroniclePane : chronicles)
+				chronicles.forEach(chroniclePane ->
 				{
 					chroniclePane.setSelected(true);
-				}
+				});
 			}
 			else if (NONE_COMMAND.equals(e.getActionCommand()))
 			{
-				for (ChroniclePane chroniclePane : chronicles)
+				chronicles.forEach(chroniclePane ->
 				{
 					chroniclePane.setSelected(false);
-				}
+				});
 			}
 		}
 

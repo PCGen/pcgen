@@ -41,6 +41,7 @@ import java.util.Map.Entry;
 import java.util.Objects;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import javax.swing.undo.UndoManager;
 
 import org.apache.commons.lang.ObjectUtils;
@@ -528,10 +529,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void refreshKitList()
 	{
 		List<Kit> kits = new ArrayList<>();
-		for (Kit kit : charDisplay.getKitInfo())
-		{
-			kits.add(kit);
-		}
+		kits.addAll(charDisplay.getKitInfo());
 		kitList.updateContents(kits);
 	}
 
@@ -4571,15 +4569,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void modifyCharges(List<EquipmentFacade> targets)
 	{
-		List<Equipment> chargedEquip = new ArrayList<>();
-		for (EquipmentFacade equipmentFacade : targets)
-		{
-			if (equipmentFacade instanceof Equipment && ((Equipment) equipmentFacade).getMaxCharges() > 0)
-			{
-				chargedEquip.add((Equipment) equipmentFacade);
-			}
-		}
-		
+		List<Equipment> chargedEquip = targets.stream().filter(equipmentFacade -> equipmentFacade instanceof Equipment && ((Equipment) equipmentFacade).getMaxCharges() > 0).map(equipmentFacade -> (Equipment) equipmentFacade).collect(Collectors.toList());
+
 		if (chargedEquip.isEmpty())
 		{
 			return;
@@ -4637,15 +4628,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void addNote(List<EquipmentFacade> targets)
 	{
-		List<Equipment> notedEquip = new ArrayList<>();
-		for (EquipmentFacade equipmentFacade : targets)
-		{
-			if (equipmentFacade instanceof Equipment)
-			{
-				notedEquip.add((Equipment) equipmentFacade);
-			}
-		}
-		
+		List<Equipment> notedEquip = targets.stream().filter(equipmentFacade -> equipmentFacade instanceof Equipment).map(equipmentFacade -> (Equipment) equipmentFacade).collect(Collectors.toList());
+
 		if (notedEquip.isEmpty())
 		{
 			return;

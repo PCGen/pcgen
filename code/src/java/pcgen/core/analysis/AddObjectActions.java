@@ -34,10 +34,10 @@ public final class AddObjectActions
 	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);
-		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
+		po.getSafeListFor(ListKey.KIT_CHOICE).forEach(kit ->
 		{
 			kit.act(kit.driveChoice(aPC), po, aPC);
-		}
+		});
 		TransitionChoice<Region> region = po.get(ObjectKey.REGION_CHOICE);
 		if (region != null)
 		{

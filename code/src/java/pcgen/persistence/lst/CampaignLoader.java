@@ -183,10 +183,10 @@ public class CampaignLoader extends LstLineFileLoader
                         SourceFormat.LONG, true));
                 sec15.append("<br>");
                 sec15.append("<b>Section 15 Entry in Source Material:</b><br>");
-                for (String license : copyright)
-                {
-                    sec15.append(license).append("<br>");
-                }
+	            copyright.forEach(license ->
+	            {
+		            sec15.append(license).append("<br>");
+	            });
             }
 
             // Adds this campaign to the Global container.
@@ -215,8 +215,8 @@ public class CampaignLoader extends LstLineFileLoader
 		{
 			return;
 		}
-		
-		for (Prerequisite prereq : prereqList)
+
+		prereqList.forEach(prereq ->
 		{
 			if (prereq.isCharacterRequired())
 			{
@@ -226,15 +226,14 @@ public class CampaignLoader extends LstLineFileLoader
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
+								Constants.TAB);
 				Logging.log(Logging.LST_ERROR, "Prereq " + prereq.getKind()
-					+ " is not supported in PCC files. Prereq was " + lstString
-					+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
-			}
-			else
+						+ " is not supported in PCC files. Prereq was " + lstString
+						+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
+			} else
 			{
 				validatePrereqs(prereq.getPrerequisites());
 			}
-		}
+		});
 	}
 }

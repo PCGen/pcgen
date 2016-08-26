@@ -477,13 +477,10 @@ class AdvancedSourceSelectionPanel extends JPanel
 			List<Object> list = selectedTable.getSelectedData();
 			if (list != null && !list.isEmpty())
 			{
-				for (Object obj : list)
+				list.stream().filter(obj -> obj instanceof CampaignFacade).forEach(obj ->
 				{
-					if (obj instanceof CampaignFacade)
-					{
-						selectedCampaigns.removeElement((CampaignFacade) obj);
-					}
-				}
+					selectedCampaigns.removeElement((CampaignFacade) obj);
+				});
 				rememberSelectedSources();
 			}
 		}

@@ -123,14 +123,8 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
-			for (CDOMReference<PCTemplate> ref : po
-					.getSafeListFor(ListKey.REMOVE_TEMPLATES))
-			{
-				for (PCTemplate pct : ref.getContainedObjects())
-				{
-					list.add(pct);
-				}
-			}
+			po.getSafeListFor(ListKey.REMOVE_TEMPLATES).forEach(ref ->
+					list.addAll(ref.getContainedObjects()));
 		}
 		return list;
 	}

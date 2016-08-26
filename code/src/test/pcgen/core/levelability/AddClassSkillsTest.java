@@ -33,6 +33,8 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.function.Function;
+import java.util.stream.Collectors;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.PersistentTransitionChoice;
@@ -120,11 +122,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(pc, ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+		ArrayList<String> choiceStrings = choiceSet.stream().map((Function<Object, String>) Object::toString).collect(Collectors.toCollection(ArrayList::new));
 		assertTrue(choiceStrings.contains("Bluff"));
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Move Silently"));
@@ -148,11 +146,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<>();
-		for (Object o : choiceSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+		ArrayList<String> choiceStrings = choiceSet.stream().map((Function<Object, String>) Object::toString).collect(Collectors.toCollection(ArrayList::new));
 		assertTrue(choiceStrings.contains("Bluff"));
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
@@ -203,21 +197,11 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		Set<Object> limitedSet = new HashSet<>();
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
-		for (Object sc : choiceSet)
-		{
-			if (csca.allow((Skill) sc, getCharacter(), true))
-			{
-				limitedSet.add(sc);
-			}
-		}
+		limitedSet.addAll(choiceSet.stream().filter(sc -> csca.allow((Skill) sc, getCharacter(), true)).collect(Collectors.toList()));
 		assertEquals(2, limitedSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<>();
-		for (Object o : limitedSet)
-		{
-			choiceStrings.add(o.toString());
-		}
+		ArrayList<String> choiceStrings = limitedSet.stream().map(Object::toString).collect(Collectors.toCollection(ArrayList::new));
 		assertTrue(choiceStrings.contains("Listen"));
 		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}

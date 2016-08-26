@@ -543,14 +543,14 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Entry<T, ST> me : componentMap.entrySet())
+			componentMap.entrySet().forEach(me ->
 			{
 				Object source = me.getValue();
 				if (source.equals(owner))
 				{
 					list.add(me.getKey());
 				}
-			}
+			});
 		}
 		return Collections.unmodifiableList(list);
 	}

@@ -609,13 +609,7 @@ public abstract class AbstractListContext
 						.getListFor(extractURI, owner, key);
 				if (globalClearList != null)
 				{
-					for (CDOMReference<? extends CDOMList<?>> ref : globalClearList)
-					{
-						if (cl.equals(ref.getReferenceClass()))
-						{
-							list.add(ref);
-						}
-					}
+					list.addAll(globalClearList.stream().filter(ref -> cl.equals(ref.getReferenceClass())).collect(Collectors.toList()));
 				}
 			});
 			return list;
