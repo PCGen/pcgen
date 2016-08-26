@@ -34,6 +34,7 @@ import java.util.TreeSet;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import pcgen.base.formula.Formula;
 import pcgen.base.util.WrappedMapSet;
 import pcgen.cdom.base.BonusContainer;
@@ -939,12 +940,8 @@ public class BonusManager
 
 	public Set<String> getTempBonusDisplayNames()
 	{
-		final Set<String> ret = new TreeSet<>();
-		for (Map.Entry<BonusObj, TempBonusInfo> me : tempBonusBySource
-				.entrySet())
-		{
-			ret.add(BonusDisplay.getBonusDisplayName(me.getValue()));
-		}
+		final Set<String> ret = tempBonusBySource
+				.entrySet().stream().map(me -> BonusDisplay.getBonusDisplayName(me.getValue())).collect(Collectors.toCollection(TreeSet::new));
 		return ret;
 	}
 

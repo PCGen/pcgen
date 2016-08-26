@@ -33,6 +33,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeMap;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
@@ -266,11 +267,8 @@ public class DataSet implements DataSetFacade
 		Set<Type> typeList = new HashSet<>();
 		for (EquipSlot es : SystemCollections.getUnmodifiableEquipSlotList())
 		{
-			
-			for (String typeString : es.getContainType())
-			{
-				typeList.add(Type.getConstant(typeString));
-			}
+
+			typeList.addAll(es.getContainType().stream().map(Type::getConstant).collect(Collectors.toList()));
 		}
 		
 		return typeList;

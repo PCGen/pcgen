@@ -36,6 +36,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
@@ -691,11 +692,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Set<String> getAgeCategories()
 	{
-		Set<String> set = new TreeSet<>();
-		for (Object o : ageNames.keySet())
-		{
-			set.add(o.toString());
-		}
+		Set<String> set = ageNames.keySet().stream().map(Object::toString).collect(Collectors.toCollection(TreeSet::new));
 		return set;
 	}
 
