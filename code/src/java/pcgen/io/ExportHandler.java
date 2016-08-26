@@ -3748,7 +3748,7 @@ public final class ExportHandler
 	/**
 	 * @param canWrite The canWrite flag to set.
 	 */
-	public final void setCanWrite(boolean canWrite)
+	public void setCanWrite(boolean canWrite)
 	{
 		this.canWrite = canWrite;
 	}
@@ -3756,7 +3756,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the checkBefore flag.
 	 */
-	public final boolean getCheckBefore()
+	public boolean getCheckBefore()
 	{
 		return checkBefore;
 	}
@@ -3764,7 +3764,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the inLabel flag.
 	 */
-	public final boolean getInLabel()
+	public boolean getInLabel()
 	{
 		return inLabel;
 	}
@@ -3772,7 +3772,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the existsOnly flag.
 	 */
-	public final boolean getExistsOnly()
+	public boolean getExistsOnly()
 	{
 		return existsOnly;
 	}
@@ -3780,7 +3780,7 @@ public final class ExportHandler
 	/**
 	 * @param noMoreItems The noMoreItems flag to set.
 	 */
-	public final void setNoMoreItems(boolean noMoreItems)
+	public void setNoMoreItems(boolean noMoreItems)
 	{
 		this.noMoreItems = noMoreItems;
 	}
@@ -3788,7 +3788,7 @@ public final class ExportHandler
 	/**
 	 * @return Returns the manualWhitespace flag.
 	 */
-	public final boolean isManualWhitespace()
+	public boolean isManualWhitespace()
 	{
 		return manualWhitespace;
 	}
@@ -3796,7 +3796,7 @@ public final class ExportHandler
 	/**
 	 * @param manualWhitespace Set the manualWhitespace flag.
 	 */
-	public final void setManualWhitespace(boolean manualWhitespace)
+	public void setManualWhitespace(boolean manualWhitespace)
 	{
 		this.manualWhitespace = manualWhitespace;
 	}

@@ -794,7 +794,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		DOMAIN_NAME("in_domainDeity"), //$NON-NLS-1$
 		PANTHEON_NAME("in_pantheonDeity"), //$NON-NLS-1$
 		SOURCE_NAME("in_sourceDeity"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private DeityTreeView(String name)
 		{
