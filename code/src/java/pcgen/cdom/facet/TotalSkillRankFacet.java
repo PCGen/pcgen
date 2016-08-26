@@ -261,10 +261,10 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 					new AssociationChangeEvent(id, skill, oldValue, newValue,
 						source);
 
-			for (AssociationChangeListener target : listeners)
+			listeners.forEach(target ->
 			{
 				target.bonusChange(bce);
-			}
+			});
 		}
 	}
 

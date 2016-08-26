@@ -114,10 +114,10 @@ public final class TokenLibrary implements PluginLoader
 	{
 		List<PostDeferredToken<? extends Loadable>> list =
                 new ArrayList<>();
-		for (Integer key : POST_DEFERRED_TOKENS.getKeySet())
+		POST_DEFERRED_TOKENS.getKeySet().forEach(key ->
 		{
 			list.addAll(POST_DEFERRED_TOKENS.getListFor(key));
-		}
+		});
 		return list;
 	}
 
@@ -150,10 +150,10 @@ public final class TokenLibrary implements PluginLoader
 	{
 		List<PostValidationToken<? extends Loadable>> list =
                 new ArrayList<>();
-		for (Integer key : POST_VALIDATION_TOKENS.getKeySet())
+		POST_VALIDATION_TOKENS.getKeySet().forEach(key ->
 		{
 			list.addAll(POST_VALIDATION_TOKENS.getListFor(key));
-		}
+		});
 		return list;
 	}
 
