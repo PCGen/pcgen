@@ -289,8 +289,8 @@ public class LanguageTableModel extends AbstractTableModel
 	private class Renderer extends JPanel implements TableCellRenderer
 	{
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
+		private static final String ADD_ID = "Add";
+		private static final String REMOVE_ID = "Remove";
 		private CardLayout cardLayout = new CardLayout();
 		//private JPanel cellPanel = new JPanel();
 		private JLabel cellLabel = new JLabel();
