@@ -23,6 +23,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.TreeMapToList;
@@ -252,11 +253,7 @@ public class DamageReductionFacet extends
 		boolean needSeparator = false;
 		for (Integer reduction : hml.getKeySet())
 		{
-			Set<String> set = new TreeSet<>();
-			for (String s : hml.getListFor(reduction))
-			{
-				set.add(reduction + "/" + s);
-			}
+			Set<String> set = hml.getListFor(reduction).stream().map(s -> reduction + "/" + s).collect(Collectors.toCollection(TreeSet::new));
 			if (needSeparator)
 			{
 				sb.insert(0, "; ");

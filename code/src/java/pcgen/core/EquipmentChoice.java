@@ -29,6 +29,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -489,10 +490,7 @@ public final class EquipmentChoice
 					equipmentTypeFacet.getSet(Globals.getContext()
 						.getDataSetID());
 			List<Object> list = getAvailableList();
-			for (Type t : types)
-			{
-				list.add(t.toString());
-			}
+			list.addAll(types.stream().map(Type::toString).collect(Collectors.toList()));
 		}
 		else
 		{

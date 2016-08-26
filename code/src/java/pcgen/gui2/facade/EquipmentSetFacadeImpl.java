@@ -36,6 +36,7 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.Constants;
@@ -1152,13 +1153,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		//TODO: Extra secondary locations for more than 2 arms
 
 		List<String> namesList = Arrays.asList(incompatLocNames);
-		for (EquipSlot slot : equipSlotNodeMap.keySet())
-		{
-			if (namesList.contains(slot.toString()))
-			{
-				wpnList.add(equipSlotNodeMap.get(slot));
-			}
-		}
+		wpnList.addAll(equipSlotNodeMap.keySet().stream().filter(slot -> namesList.contains(slot.toString())).map(slot -> equipSlotNodeMap.get(slot)).collect(Collectors.toList()));
 		return wpnList;
 	}
 
@@ -1323,13 +1318,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 		
 		// Add hiddenPNs to neededPNs if they now have spare capacity
-		for (EquipNode node : hiddenPhantomNodes)
-		{
-			if (getNumFreeSlots(node) > 0)
-			{
-				neededPNs.add((EquipNodeImpl) node);
-			}
-		}
+		neededPNs.addAll(hiddenPhantomNodes.stream().filter(node -> getNumFreeSlots(node) > 0).map(node -> (EquipNodeImpl) node).collect(Collectors.toList()));
 		
 		// Remove the phantom nodes flagged, add to hiddenPNs as needed
 		for (EquipNode node : nodesToBeRemoved)

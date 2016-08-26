@@ -30,7 +30,9 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -66,10 +68,7 @@ public final class Deity extends PObject implements DeityFacade
 		List<String> domains = new ArrayList<>();
 		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
 		{
-			for (Domain d : ref.getContainedObjects())
-			{
-				domains.add(String.valueOf(d));
-			}
+			domains.addAll(ref.getContainedObjects().stream().map(String::valueOf).collect(Collectors.toList()));
 		}
 		return domains;
 	}
@@ -90,10 +89,7 @@ public final class Deity extends PObject implements DeityFacade
 	{
 		Set<String> charDeityPantheon = new TreeSet<>();
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-		for (Indirect<String> indirect : getSafeSetFor(fk))
-		{
-			charDeityPantheon.add(indirect.get());
-		}
+		charDeityPantheon.addAll(getSafeSetFor(fk).stream().map(Reference::get).collect(Collectors.toList()));
 		return charDeityPantheon;
 	}
 

@@ -41,6 +41,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Enumeration;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipFile;
 
@@ -477,15 +478,8 @@ public class DataInstaller extends JFrame
 	 */
 	private boolean checkNonStandardOK(Collection<String> files)
 	{
-		Collection<String> nonStandardFiles = new ArrayList<>();
-		for (String filename : files)
-		{
-			if (!filename.toLowerCase().startsWith(DATA_FOLDER)
-				&& !filename.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER))
-			{
-				nonStandardFiles.add(filename);
-			}
-		}
+		Collection<String> nonStandardFiles = files.stream().filter(filename -> !filename.toLowerCase().startsWith(DATA_FOLDER)
+				&& !filename.toLowerCase().startsWith(OUTPUTSHEETS_FOLDER)).collect(Collectors.toCollection(ArrayList::new));
 
 		if (!nonStandardFiles.isEmpty())
 		{

@@ -32,6 +32,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -539,12 +540,8 @@ public final class EquipmentList {
 			}
 
 			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
-			Set<SizeAdjustment> gensizes = new HashSet<>();
-			for (Integer i : gensizesid)
-			{
-				gensizes.add(ref.getSortedList(SizeAdjustment.class,
-					IntegerKey.SIZEORDER).get(i));
-			}
+			Set<SizeAdjustment> gensizes = gensizesid.stream().map(i -> ref.getSortedList(SizeAdjustment.class,
+					IntegerKey.SIZEORDER).get(i)).collect(Collectors.toSet());
 			// skip over default size
 			gensizes.remove(defaultSize);
 
