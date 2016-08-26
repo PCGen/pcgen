@@ -38,9 +38,8 @@ public final class BonusActivation
 
 	public static void activateBonuses(CDOMObject po, PlayerCharacter aPC)
 	{
-		for (Iterator<BonusObj> ab = po.getRawBonusList(aPC).iterator(); ab.hasNext();)
+		for (final BonusObj aBonus : po.getRawBonusList(aPC))
 		{
-			final BonusObj aBonus = ab.next();
 			aPC.setApplied(aBonus, aBonus.qualifies(aPC, po));
 		}
 	}

@@ -897,13 +897,12 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			if (good instanceof CDOMObject)
 			{
 				CDOMObject cdo = (CDOMObject) good;
-				for (int i = 0; i < list.size(); i++)
+				for (T dupe : list)
 				{
-					T dupe = list.get(i);
 					if (cdo.isCDOMEqual((CDOMObject) dupe))
 					{
 						for (Iterator<WeakReference<T>> it = manufactured
-								.iterator(); it.hasNext();)
+								.iterator(); it.hasNext(); )
 						{
 							WeakReference<T> wr = it.next();
 							T mfg = wr.get();

@@ -139,9 +139,9 @@ public final class KitProf extends BaseKit
 
 			// Search for a class that has bonusWeaponProfs.
 			PCClass pcClass = null;
-			for (Iterator<PCClass> i = pcClasses.iterator(); i.hasNext();)
+			for (final PCClass pcClass1 : pcClasses)
 			{
-				pcClass = i.next();
+				pcClass = pcClass1;
 				wpPTC = getPTC(pcClass);
 				if (wpPTC != null)
 				{

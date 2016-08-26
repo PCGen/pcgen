@@ -538,10 +538,8 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 		Map<S, Target> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<S, Target>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Entry<S, Target> me : componentMap.entrySet())
 			{
-				Entry<S, Target> me = it.next();
 				Target target = me.getValue();
 				if (target != null)
 				{

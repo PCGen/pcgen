@@ -133,9 +133,8 @@ public final class InstallLoaderTest extends PCGenTestCase
 	{
 		final InstallLoader loader = new InstallLoader();
 		StringBuilder data = new StringBuilder();
-		for (int i = 0; i < installData.length; i++)
+		for (final String line : installData)
 		{
-			final String line = installData[i];
 			data.append(line);
 			data.append("\n");
 		}

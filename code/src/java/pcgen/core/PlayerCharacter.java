@@ -10312,19 +10312,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		List<CharacterSpell> spellsToBeRemoved =
                 new ArrayList<>();
 
-		for (Iterator<? extends CharacterSpell> iter =
-				getCharacterSpells(pcc).iterator(); iter.hasNext();)
+		for (final CharacterSpell charSpell : getCharacterSpells(pcc))
 		{
-			final CharacterSpell charSpell = iter.next();
-
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
 			final Integer[] spellLevels =
 					SpellLevel.levelForKey(aSpell, lists, this);
-			for (Integer i = 0; i < spellLevels.length; i++)
+			for (final Integer spellLevel : spellLevels)
 			{
-				final int spellLevel = spellLevels[i];
 				if (spellLevel == -1)
 				{
 					continue;
@@ -10332,7 +10328,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 
 				final boolean isKnownAtThisLevel =
 						spellSupport.isAutoKnownSpell(aSpell, spellLevel, true,
-							this);
+								this);
 
 				if (!isKnownAtThisLevel)
 				{

@@ -277,9 +277,9 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 	{
 		oldLAF = LookAndFeelManager.getCurrentLAF();
 		oldThemePack = LookAndFeelManager.getCurrentThemePack();
-		for (int i = 0; i < laf.length; i++)
+		for (final JRadioButton aLaf : laf)
 		{
-			laf[i].setSelected(oldLAF.equals(laf[i].getText()));
+			aLaf.setSelected(oldLAF.equals(aLaf.getText()));
 		}
 		skinnedLookFeel.setSelected(oldLAF.equals("Skinned"));
 //		int crossIndex = UIFactory.indexOfCrossPlatformLookAndFeel();

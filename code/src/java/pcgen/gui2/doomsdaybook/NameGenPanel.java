@@ -638,10 +638,8 @@ public class NameGenPanel extends JPanel
 			int oldSelected = -1;
 			int n = 0;
 
-			for (int i = 0; i < join.size(); i++)
+			for (RuleSet rs : join)
 			{
-				RuleSet rs = join.get(i);
-
 				if (rs.getUsage().equals("final"))
 				{
 					catalogs.add(rs);
@@ -706,20 +704,18 @@ public class NameGenPanel extends JPanel
 		//	we need to determine if the selected category is supported by the 
 		//	available genders
 		//	loop through the available genders
-		for (int i = 0; i < genders.size(); ++i)
+		for (String genderString : genders)
 		{
-			String genderString = genders.get(i);
-
 			//	Get the list of rules for the current gender
 			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
-			for (int j = 0; j < categoryRules.size(); ++j)
+			for (RuleSet categoryRule : categoryRules)
 			{
 				//	if the category rule is in the list of gender rules
 				//	add the current gender to the selectable gender list
 				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRules.get(j)))
+				if (genderRules.contains(categoryRule))
 				{
 					selectable.add(genderString);
 					break;
@@ -765,11 +761,11 @@ public class NameGenPanel extends JPanel
 			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (final File dataFile : dataFiles)
 			{
 				try
 				{
-					URL url = dataFiles[i].toURI().toURL();
+					URL url = dataFile.toURI().toURL();
 					Document nameSet = builder.build(url);
 					DocType dt = nameSet.getDocType();
 
@@ -780,12 +776,11 @@ public class NameGenPanel extends JPanel
 
 					nameSet = null;
 					dt = null;
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
+							+ dataFile.getName());
 				}
 			}
 

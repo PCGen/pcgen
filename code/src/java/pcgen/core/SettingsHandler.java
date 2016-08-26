@@ -2331,16 +2331,14 @@ public final class SettingsHandler
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
+		for (final String aKey : ruleCheckMap.keySet())
 		{
-			final String aKey = i.next();
 			final String aVal = ruleCheckMap.get(aKey);
 
 			if (value.length() == 0)
 			{
 				value = aKey + "|" + aVal; //$NON-NLS-1$
-			}
-			else
+			} else
 			{
 				value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
 			}

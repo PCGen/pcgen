@@ -221,10 +221,8 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 			return;
 		}
 
-		for (int i = 0, count = theSelectedList.size(); i < count; i++)
+		for (final Object anObj : theSelectedList)
 		{
-			final Object anObj = theSelectedList.get(i);
-
 			if (addObj.equals(anObj) && !theAllowDuplicatesFlag)
 			{
 				return;
