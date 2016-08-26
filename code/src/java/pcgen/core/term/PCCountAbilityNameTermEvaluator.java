@@ -87,7 +87,7 @@ public class PCCountAbilityNameTermEvaluator
 		return pc.getCNAbilities(abCat);
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
