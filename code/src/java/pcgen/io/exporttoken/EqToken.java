@@ -32,6 +32,7 @@ import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -1306,12 +1307,8 @@ public class EqToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<>();
-				for (Map.Entry<String, String> me : qualityMap.entrySet())
-				{
-					qualities.add(new StringBuilder().append(me.getKey())
-							.append(": ").append(me.getValue()).toString());
-				}
+				Set<String> qualities = qualityMap.entrySet().stream().map(me -> new StringBuilder().append(me.getKey())
+						.append(": ").append(me.getValue()).toString()).collect(Collectors.toCollection(TreeSet::new));
 				return StringUtil.join(qualities, ", ");
 			}
 			return "";
