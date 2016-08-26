@@ -62,7 +62,7 @@ public class PCCastTimesAtWillTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return true;
 	}

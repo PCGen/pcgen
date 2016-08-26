@@ -59,7 +59,7 @@ public final class PCGenUIManager
 		}
 	}
 
-	private boolean checkBounds()
+	private static boolean checkBounds()
 	{
 		return false;
 	}

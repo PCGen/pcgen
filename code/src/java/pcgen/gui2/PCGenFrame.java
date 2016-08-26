@@ -192,7 +192,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 * This checks to make sure that the given rectangle will be visible
 	 * on the current graphics environment
 	 */
-	private boolean checkBounds(Rectangle rect)
+	private static boolean checkBounds(Rectangle rect)
 	{
 		if (rect.isEmpty())
 		{
@@ -636,7 +636,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return false;
 	}
 
-	private boolean checkSourceEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
+	private static boolean checkSourceEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
 	{
 		if (source1 == source2)
 		{
@@ -667,7 +667,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return true;
 	}
 
-	private boolean checkGameModeEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
+	private static boolean checkGameModeEquality(SourceSelectionFacade source1, SourceSelectionFacade source2)
 	{
 		if (source1 == source2)
 		{
@@ -1302,7 +1302,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		});
 	}
 
-	private String getFormattedCampaigns(SourceSelectionFacade sources)
+	private static String getFormattedCampaigns(SourceSelectionFacade sources)
 	{
 		StringBuilder campList = new StringBuilder(100);
 		campList.append("<UL>");
@@ -1661,7 +1661,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 * @param message The text of the message.
 	 * @return The component containing the text.
 	 */
-	private JComponent getComponentForMessage(String message)
+	private static JComponent getComponentForMessage(String message)
 	{
 		JLabel jLabel = new JLabel(message);
 		JScrollPane scroller = new JScrollPane(jLabel);

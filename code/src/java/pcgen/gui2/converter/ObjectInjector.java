@@ -138,7 +138,7 @@ public class ObjectInjector
 		}
 	}
 
-	private void writeFile(File f, List<String> lines) throws IOException
+	private static void writeFile(File f, List<String> lines) throws IOException
 	{
 		FileWriter writer = new FileWriter(f);
 		writer.write(getFileHeader());
@@ -151,7 +151,7 @@ public class ObjectInjector
 		writer.close();
 	}
 
-	private String getFileHeader()
+	private static String getFileHeader()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("# This file was automatically created ");
@@ -163,7 +163,7 @@ public class ObjectInjector
 		return sb.toString();
 	}
 
-	private String getFileFooter()
+	private static String getFileFooter()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n#\n#EOF\n#\n");
@@ -204,7 +204,7 @@ public class ObjectInjector
 		return true;
 	}
 
-	private String getCampaignInsertInfo()
+	private static String getCampaignInsertInfo()
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append("\n#\n# The following file(s) were automatically added");
@@ -225,7 +225,7 @@ public class ObjectInjector
 		return sb.toString();
 	}
 
-	private File findSubRoot(File root, File in)
+	private static File findSubRoot(File root, File in)
 	{
 		if (in.getParentFile() == null)
 		{
@@ -239,7 +239,7 @@ public class ObjectInjector
 	}
 
 
-	private File generateCommonRoot(File a, File b)
+	private static File generateCommonRoot(File a, File b)
 	{
 		/*
 		 * FUTURE Think of whether this correctly works for items which may
@@ -268,7 +268,7 @@ public class ObjectInjector
 		return returnFile;
 	}
 
-	private List<File> generateDirectoryHierarchy(File a)
+	private static List<File> generateDirectoryHierarchy(File a)
 	{
 		List<File> l = new ArrayList<>();
 		while (a != null)

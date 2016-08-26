@@ -84,7 +84,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
