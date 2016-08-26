@@ -173,7 +173,7 @@ public class OutputNameFormatting
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
-	public static final String getOutputName(CDOMObject po)
+	public static String getOutputName(CDOMObject po)
 	{
 		String outputName = po.get(StringKey.OUTPUT_NAME);
 		String displayName = po.getDisplayName();

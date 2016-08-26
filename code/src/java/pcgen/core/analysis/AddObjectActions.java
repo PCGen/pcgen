@@ -31,7 +31,7 @@ import pcgen.core.PlayerCharacter;
 public class AddObjectActions
 {
 
-	public static final void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		aPC.setDirty(true);
 		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
@@ -45,7 +45,7 @@ public class AddObjectActions
 		}
 	}
 
-	public static final void globalChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void globalChecks(CDOMObject po, final PlayerCharacter aPC)
 	{
 		doBaseChecks(po, aPC);
 		CDOMObjectUtilities.addAdds(po, aPC);

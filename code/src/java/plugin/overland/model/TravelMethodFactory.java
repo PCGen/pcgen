@@ -80,7 +80,7 @@ public class TravelMethodFactory
 
 	// ### Factory methods ###
 
-	public static final Vector<TravelMethod> load(File datadir)
+	public static Vector<TravelMethod> load(File datadir)
 	{
 		//Create a new list for the travel methods
 		Vector<TravelMethod> tms = new Vector<TravelMethod>();
