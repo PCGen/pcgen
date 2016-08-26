@@ -47,7 +47,7 @@ public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 		colVisibleCtx = viewPrefsContext.createChildContext("visible"); //$NON-NLS-1$
 	}
 
-	private String normalisePrefsKey(String origKey)
+	private static String normalisePrefsKey(String origKey)
 	{
 		return origKey.replaceAll("[^\\w\\.]", "_"); //$NON-NLS-1$ //$NON-NLS-2$
 	}

@@ -195,7 +195,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param aCampaign The master campaign.
 	 * @return The list of included campaigns.
 	 */
-	private List<Campaign> getFullCampaignList(Campaign aCampaign)
+	private static List<Campaign> getFullCampaignList(Campaign aCampaign)
 	{
 		List<Campaign> campList = new ArrayList<Campaign>();
 		addChildrenRecursively(campList, aCampaign);
@@ -208,8 +208,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param campList The list being built up.
 	 * @param aCampaign The campaign to be added.
 	 */
-	private void addChildrenRecursively(List<Campaign> campList,
-		Campaign aCampaign)
+	private static void addChildrenRecursively(List<Campaign> campList,
+	                                           Campaign aCampaign)
 	{
 		campList.add(aCampaign);
 		for (Campaign subCampaign : aCampaign.getSubCampaigns())

@@ -219,7 +219,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private JPanel buildEmptyPanel(String title, String messageText)
+	private static JPanel buildEmptyPanel(String title, String messageText)
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
