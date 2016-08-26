@@ -74,8 +74,8 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return htmlInfo;
 	}
 
-	private List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList,
-		PersistenceManager pman)
+	private static List<URI> setSourcesForPrereqTesting(List<CampaignFacade> testList,
+	                                                    PersistenceManager pman)
 	{
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
 		List<URI> uris = new ArrayList<>();
@@ -105,7 +105,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return infoText.toString();
 	}
 
-	private void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
+	private static void appendCampaignInfo(Campaign aCamp, final HtmlInfoBuilder infoText)
 	{
 		infoText.appendLineBreak();
 		if (aCamp.getSizeOfListFor(ListKey.FILE_COVER) > 0)

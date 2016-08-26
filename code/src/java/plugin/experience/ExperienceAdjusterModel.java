@@ -133,7 +133,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * @param item
 	 * @param experience the value to add to the character.
 	 */
-	public void addExperienceToCharacter(ExperienceListItem item, int experience)
+	public static void addExperienceToCharacter(ExperienceListItem item, int experience)
 	{
 		Combatant cbt = item.getCombatant();
 		cbt.setXP(cbt.getXP() + experience);

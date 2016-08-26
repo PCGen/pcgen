@@ -250,7 +250,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 	}
 
-	private EquipSlot createWeaponEquipSlot(EquipSlot slot, String slotName)
+	private static EquipSlot createWeaponEquipSlot(EquipSlot slot, String slotName)
 	{
 		EquipSlot wpnSlot = slot.clone();
 		wpnSlot.setSlotName(slotName);
@@ -875,8 +875,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * @param startRow The row at which the node is currently located.
 	 * @return The node currently at the new lcoation.
 	 */
-	private EquipNodeImpl scanBackForNewLoc(EquipNodeImpl equipNode,
-		List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
+	private static EquipNodeImpl scanBackForNewLoc(EquipNodeImpl equipNode,
+	                                               List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
 	{
 		int currIndex = startRow;
 		int numRowsMoved = 0;
@@ -926,8 +926,8 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * @param startRow The row at which the node is currently located.
 	 * @return The node currently at the new lcoation.
 	 */
-	private EquipNodeImpl scanForwardForNewLoc(EquipNodeImpl equipNode,
-		List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
+	private static EquipNodeImpl scanForwardForNewLoc(EquipNodeImpl equipNode,
+	                                                  List<EquipNode> orderedEquipNodes, int numRowsToMove, int startRow)
 	{
 		int currIndex = startRow;
 		int numRowsMoved = 0;
@@ -1194,7 +1194,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 	}
 
-	private boolean affectsWeaponSlots(EquipNode equipNode)
+	private static boolean affectsWeaponSlots(EquipNode equipNode)
 	{
 		List<String> typeList =
 				Arrays.asList(equipNode.getEquipment().getTypes());
@@ -2026,7 +2026,7 @@ public class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		 * @param equipNodeImpl The node to be examined.
 		 * @return The order applicable to the node.
 		 */
-		private String getOrder(EquipNodeImpl equipNodeImpl)
+		private static String getOrder(EquipNodeImpl equipNodeImpl)
 		{
 			if (StringUtils.isNotBlank(equipNodeImpl.order))
 			{
