@@ -432,7 +432,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		return new TabTitle(Tab.PURCHASE);
 	}
 
-	private List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
+	private static List<EquipmentFacade> getMenuTargets(JTable table, MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))

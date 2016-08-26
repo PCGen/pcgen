@@ -117,8 +117,8 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private Map<Skill, Set<Skill>> getImitators(
-		 CharacterDisplay display)
+	private static Map<Skill, Set<Skill>> getImitators(
+			CharacterDisplay display)
 	{
 		HashMap<Skill, Set<Skill>> serveAsSkills =
 				new HashMap<Skill, Set<Skill>>();
@@ -169,9 +169,9 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		return foo;
 	}
 
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character,
-		Prerequisite prereq, boolean foundMatch, int runningTotal,
-		int requiredRanks, String situation)
+	private static int getRunningTotal(Skill aSkill, PlayerCharacter character,
+	                                   Prerequisite prereq, boolean foundMatch, int runningTotal,
+	                                   int requiredRanks, String situation)
 	{
 		if (foundMatch)
 		{

@@ -229,7 +229,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				StringWriter swriter = new StringWriter();
 				try
 				{
-					prereqWriter.write(swriter, p);
+					PrerequisiteWriter.write(swriter, p);
 				}
 				catch (PersistenceLayerException e)
 				{

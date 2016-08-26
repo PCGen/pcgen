@@ -81,7 +81,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		{
 			final PrerequisiteTestFactory factory =
 					PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			if (test != null)
 			{
 				// all of the tests must pass, so just
@@ -120,7 +120,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 		{
 			final PrerequisiteTestFactory factory =
 					PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 
 			if (test != null)
 			{

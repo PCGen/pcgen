@@ -59,13 +59,12 @@ public abstract class AbstractPreRoundRobin extends TestCase
 		runSimpleRoundRobin("!" + s, "!" + s);
 	}
 
-	public void runSimpleRoundRobin(String s, String d)
+	public static void runSimpleRoundRobin(String s, String d)
 	{
 		try
 		{
 			Prerequisite p = PreParserFactory.getInstance().parse(s);
-			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
-					.getInstance().getWriter(p.getKind());
+			PrerequisiteWriterInterface writer = PrerequisiteWriterFactory.getWriter(p.getKind());
 			if (writer == null)
 			{
 				fail("Could not find Writer for: " + p.getKind());

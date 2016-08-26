@@ -249,8 +249,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 	}
 
-	private List<String> createZeroChoices(TokenProcessEvent tpe, String num,
-			String... base)
+	private static List<String> createZeroChoices(TokenProcessEvent tpe, String num,
+	                                              String... base)
 	{
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
@@ -291,7 +291,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		return choice;
 	}
 
-	private StringBuilder getPrefix(TokenProcessEvent tpe, String num)
+	private static StringBuilder getPrefix(TokenProcessEvent tpe, String num)
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(tpe.getKey());
@@ -301,7 +301,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		return sb;
 	}
 
-	private String getNextValue(String[] strings, int i)
+	private static String getNextValue(String[] strings, int i)
 	{
 		for (int j = i + 1; j < strings.length; j++)
 		{

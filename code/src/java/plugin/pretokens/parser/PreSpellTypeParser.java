@@ -79,7 +79,7 @@ public class PreSpellTypeParser extends AbstractPrerequisiteListParser
 		return prereq;
 	}
 	
-	protected void makeCheckmult(Prerequisite prereq, String kind)
+	protected static void makeCheckmult(Prerequisite prereq, String kind)
 	{
 		if (prereq == null)
 		{

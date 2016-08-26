@@ -225,8 +225,8 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return list.toArray(new String[list.size()]);
 	}
 
-	private <T> String getJoinChar(ProhibitedSpellType pst,
-			Collection<String> spValues)
+	private static String getJoinChar(ProhibitedSpellType pst,
+	                                  Collection<String> spValues)
 	{
 		return pst.getRequiredCount(spValues) == 1 ? Constants.COMMA
 				: Constants.DOT;

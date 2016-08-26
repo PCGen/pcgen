@@ -522,7 +522,7 @@ public class PrerequisiteWriterTest extends TestCase
 		PrerequisiteWriter writer = new PrerequisiteWriter();
 		try
 		{
-			writer.write(sw, prereq);
+			PrerequisiteWriter.write(sw, prereq);
 		}
 		catch (PersistenceLayerException ple)
 		{
@@ -545,7 +545,7 @@ public class PrerequisiteWriterTest extends TestCase
 
 		try
 		{
-			writer.write(new myWriter(), prereq);
+			PrerequisiteWriter.write(new myWriter(), prereq);
 		}
 		catch (PersistenceLayerException ple)
 		{

@@ -204,8 +204,8 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		return countedTotal(prereq, runningTotal);
 	}
 	
-	private int checkForServesAsRaceWildcard(String requiredRace, int wild,
-		Set<Race> imitatedRaces)
+	private static int checkForServesAsRaceWildcard(String requiredRace, int wild,
+	                                                Set<Race> imitatedRaces)
 	{
 		for (Race mock : imitatedRaces)
 		{
@@ -218,7 +218,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 		return 0;
 	}
 	
-	private Set<Race> getRacesImitatedBy(Race pcRace)
+	private static Set<Race> getRacesImitatedBy(Race pcRace)
 	{
 		Set<Race> servesAs = new HashSet<Race>();
 		if (pcRace != null)

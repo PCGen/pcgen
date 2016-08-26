@@ -79,7 +79,7 @@ public class PreParserFactory implements PluginLoader
 		return instance;
 	}
 
-	public PrerequisiteParserInterface getParser(String kind)
+	public static PrerequisiteParserInterface getParser(String kind)
 	{
 		return parserLookup.get(kind.toLowerCase());
 	}
@@ -127,7 +127,7 @@ public class PreParserFactory implements PluginLoader
 		return ret;
 	}
 
-	public Prerequisite parse(String prereqStr)
+	public static Prerequisite parse(String prereqStr)
 		throws PersistenceLayerException
 	{
 
