@@ -588,10 +588,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
@@ -622,10 +620,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
@@ -658,10 +654,8 @@ public abstract class AbstractSourcedListFacet<IDT extends PCGenIdentifier, T>
 		int count = 0;
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{

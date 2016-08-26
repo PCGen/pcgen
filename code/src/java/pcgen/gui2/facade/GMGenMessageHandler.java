@@ -113,9 +113,8 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
 		PlayerCharacter pc = smessage.getPc();
-		for (Iterator<CharacterFacade> iterator = CharacterManager.getCharacters().iterator(); iterator.hasNext();)
+		for (CharacterFacade facade : CharacterManager.getCharacters())
 		{
-			CharacterFacade facade = iterator.next();
 			if (facade.matchesCharacter(pc))
 			{
 				CharacterManager.saveCharacter(facade);
@@ -149,9 +148,9 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 		InitHolderList list = message.getInitHolderList();
 
-		for (int i = 0; i < list.size(); i++)
+		for (Object aList : list)
 		{
-			InitHolder iH = list.get(i);
+			InitHolder iH = aList;
 
 			if (iH instanceof PcgCombatant)
 			{

@@ -363,11 +363,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 					return false;
 				}
 				GameModeFacade gameMode = null;
-				for (Iterator<GameModeFacade> iterator =
-						FacadeFactory.getGameModes().iterator(); iterator
-					.hasNext();)
+				for (GameModeFacade facade : FacadeFactory.getGameModes())
 				{
-					GameModeFacade facade = iterator.next();
 					if (gameModeName.equals(facade.toString()))
 					{
 						gameMode = facade;
@@ -383,11 +380,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				List<CampaignFacade> campaigns =
                         new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
-				for (Iterator<CampaignFacade> iterator =
-						FacadeFactory.getCampaigns().iterator(); iterator
-					.hasNext();)
+				for (CampaignFacade camp : FacadeFactory.getCampaigns())
 				{
-					CampaignFacade camp = iterator.next();
 					for (String name : sourceNames)
 					{
 						if (name.equals(camp.toString()))

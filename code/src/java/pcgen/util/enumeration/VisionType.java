@@ -63,28 +63,26 @@ public final class VisionType extends AbstractConstant
 	{
 		typeMap = new HashMap<>();
 		Field[] fields = VisionType.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
-				&& Modifier.isPublic(mod))
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object o = fields[i].get(null);
+					Object o = field.get(null);
 					if (o instanceof VisionType)
 					{
-						typeMap.put(new CaseInsensitiveString(fields[i]
-							.getName()), (VisionType) o);
+						typeMap.put(new CaseInsensitiveString(field
+								.getName()), (VisionType) o);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					//TODO Why throw an InternalError? Wouldn't an assert false be better? JK070115
 					throw new InternalError();
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					//TODO Why throw an InternalError? Wouldn't an assert false be better? JK070115
 					throw new InternalError();

@@ -919,12 +919,12 @@ final class BrowserLauncher
 				String[] systemFolderFiles = systemFolder.list();
 
 				// Avoid a FilenameFilter because that can't be stopped mid-list
-				for (int i = 0; i < systemFolderFiles.length; i++)
+				for (final String systemFolderFile : systemFolderFiles)
 				{
 					try
 					{
 						File file =
-								new File(systemFolder, systemFolderFiles[i]);
+								new File(systemFolder, systemFolderFile);
 
 						if (!file.isFile())
 						{
@@ -944,7 +944,7 @@ final class BrowserLauncher
 						{
 							Object fileCreator =
 									getFileCreator.invoke(null,
-										new Object[]{file});
+											new Object[]{file});
 
 							if (FINDER_CREATOR.equals(fileCreator.toString()))
 							{
@@ -953,26 +953,23 @@ final class BrowserLauncher
 								return browser;
 							}
 						}
-					}
-					catch (IllegalArgumentException iare)
+					} catch (IllegalArgumentException iare)
 					{
 						errorMessage = iare.getMessage();
 
 						return null;
-					}
-					catch (IllegalAccessException iae)
+					} catch (IllegalAccessException iae)
 					{
 						browser = null;
 						errorMessage = iae.getMessage();
 
 						return browser;
-					}
-					catch (InvocationTargetException ite)
+					} catch (InvocationTargetException ite)
 					{
 						browser = null;
 						errorMessage =
 								ite.getTargetException().getClass() + ": "
-									+ ite.getTargetException().getMessage();
+										+ ite.getTargetException().getMessage();
 
 						return browser;
 					}

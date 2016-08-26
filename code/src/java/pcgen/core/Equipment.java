@@ -4382,12 +4382,12 @@ public final class Equipment extends PObject implements Serializable,
 				BigDecimal maxCost = null;
 				final List<String> itemTypes = typeList();
 
-				for (int idx = 0; idx < itemTypes.size(); ++idx)
+				for (String itemType : itemTypes)
 				{
-					typeMatched = itemTypes.get(idx);
+					typeMatched = itemType;
 					costExpr =
 							SettingsHandler.getGame().getPlusCalculation(
-								typeMatched);
+									typeMatched);
 
 					if (costExpr != null)
 					{
@@ -4395,7 +4395,7 @@ public final class Equipment extends PObject implements Serializable,
 								evaluateCost(myParser, costExpr);
 
 						if ((maxCost == null)
-							|| (thisCost.compareTo(maxCost) > 1))
+								|| (thisCost.compareTo(maxCost) > 1))
 						{
 							maxCost = thisCost;
 						}

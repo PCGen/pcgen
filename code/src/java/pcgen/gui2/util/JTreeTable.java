@@ -766,9 +766,9 @@ public class JTreeTable extends JTableEx
 
 					int count = 0;
 
-					for (int i = 0; i < sRows.length; i++)
+					for (final int sRow1 : sRows)
 					{
-						if (tree.getPathForRow(sRows[i]) != null)
+						if (tree.getPathForRow(sRow1) != null)
 						{
 							count++;
 						}
@@ -782,9 +782,9 @@ public class JTreeTable extends JTableEx
 					TreePath[] tps = new TreePath[count];
 					count = 0;
 
-					for (int i = 0; i < sRows.length; i++)
+					for (final int sRow : sRows)
 					{
-						TreePath tp = tree.getPathForRow(sRows[i]);
+						TreePath tp = tree.getPathForRow(sRow);
 
 						if (tp != null)
 						{

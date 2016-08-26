@@ -240,9 +240,9 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertFalse(jep.hasError());
 
 		SymbolTable symTab = jep.getSymbolTable();
-		for (Iterator iter = symTab.keySet().iterator(); iter.hasNext();)
+		for (final Object o : symTab.keySet())
 		{
-			String key = (String) iter.next();
+			String key = (String) o;
 			Double value = (Double) symTab.getValue(key);
 			System.out.println(key + " => " + value);
 		}

@@ -165,9 +165,9 @@ public final class BioSetLoader extends LstLineFileLoader
 						final StringBuilder sBuf = new StringBuilder(100+colString.length());
 						sBuf.append(colString);
 
-						for (int i = 0, x = preReqList.size(); i < x; ++i)
+						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(preReqList.get(i)).append(
+							sBuf.append('[').append(aPreReqList).append(
 									']');
 						}
 

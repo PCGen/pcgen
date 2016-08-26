@@ -24,6 +24,7 @@
 package pcgen.cdom.enumeration;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashSet;
 import java.util.Map;
@@ -332,26 +333,24 @@ public final class ListKey<T>
 	{
 		map = new CaseInsensitiveMap<>();
 		Field[] fields = ListKey.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof ListKey)
 					{
-						map.put(fields[i].getName(), (ListKey<?>) obj);
+						map.put(field.getName(), (ListKey<?>) obj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

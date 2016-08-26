@@ -107,9 +107,9 @@ public class EquipmentChoiceDriver
 	{
 		parent.removeAllAssociations(eqMod);
 
-		for (int i = 0; i < selectedList.size(); i++)
+		for (Object aSelectedList : selectedList)
 		{
-			String aString = String.valueOf(selectedList.get(i));
+			String aString = String.valueOf(aSelectedList);
 
 			if (equipChoice.getMinValue() < equipChoice.getMaxValue())
 			{
@@ -120,9 +120,9 @@ public class EquipmentChoiceDriver
 					final List<SignedInteger> secondaryChoice = new ArrayList<>();
 
 					for (
-						int j = equipChoice.getMinValue();
-						j <= equipChoice.getMaxValue();
-						j += equipChoice.getIncValue())
+							int j = equipChoice.getMinValue();
+							j <= equipChoice.getMaxValue();
+							j += equipChoice.getIncValue())
 					{
 						if (j != 0)
 						{
@@ -132,16 +132,16 @@ public class EquipmentChoiceDriver
 
 					String title =
 							LanguageBundle.getFormattedString(
-								"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
+									"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
 					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
-                            new CDOMChooserFacadeImpl<>(title,
-                                    secondaryChoice,
-                                    new ArrayList<>(), 1);
+							new CDOMChooserFacadeImpl<>(title,
+									secondaryChoice,
+									new ArrayList<>(), 1);
 					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
-					
-					List<SignedInteger> chosenList =  chooserFacade.getFinalSelected();
+
+					List<SignedInteger> chosenList = chooserFacade.getFinalSelected();
 
 					if (chosenList.size() == 0)
 					{

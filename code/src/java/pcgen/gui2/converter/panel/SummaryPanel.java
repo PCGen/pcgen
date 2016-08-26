@@ -112,9 +112,9 @@ public class SummaryPanel extends ConvertSubPanel
 		values[2] = new JLabel(pc.get(ObjectKey.GAME_MODE).getDisplayName());
 		List<Campaign> campaigns = pc.getSafeListFor(ListKey.CAMPAIGN);
 		StringBuilder campDisplay = new StringBuilder();
-		for (int i = 0; i < campaigns.size(); i++)
+		for (Campaign campaign : campaigns)
 		{
-			campDisplay.append(campaigns.get(i).getDisplayName());
+			campDisplay.append(campaign.getDisplayName());
 			campDisplay.append("\n");
 		}
 		JTextArea campText = new JTextArea(campDisplay.toString());

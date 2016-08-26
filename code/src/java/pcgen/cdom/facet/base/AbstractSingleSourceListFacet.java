@@ -543,10 +543,8 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Entry<T, ST> me : componentMap.entrySet())
 			{
-				Entry<T, ST> me = it.next();
 				Object source = me.getValue();
 				if (source.equals(owner))
 				{
