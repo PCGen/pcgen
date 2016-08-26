@@ -25,6 +25,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -72,10 +73,7 @@ public final class SpellLevel
 
 		if (lists != null)
 		{
-			for (CDOMList<Spell> spellList : lists)
-			{
-				list.add(getFirstLvlForKey(sp, spellList, aPC));
-			}
+			list.addAll(lists.stream().map(spellList -> getFirstLvlForKey(sp, spellList, aPC)).collect(Collectors.toList()));
 		}
 
 		return list.toArray(new Integer[list.size()]);

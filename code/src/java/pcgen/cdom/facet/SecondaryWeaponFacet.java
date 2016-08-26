@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.core.Equipment;
@@ -43,11 +44,7 @@ public class SecondaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{
-		List<Equipment> newCopies = new ArrayList<>();
-		for (Equipment entry : componentSet)
-		{
-			newCopies.add(entry.clone());
-		}
+		List<Equipment> newCopies = componentSet.stream().map(Equipment::clone).collect(Collectors.toList());
 		return newCopies;
 	}
 

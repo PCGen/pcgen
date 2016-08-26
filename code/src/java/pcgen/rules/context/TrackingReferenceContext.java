@@ -25,6 +25,7 @@ import java.util.Set;
 import java.util.TreeSet;
 import java.util.WeakHashMap;
 
+import java.util.stream.Collectors;
 import pcgen.base.util.DoubleKeyMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Categorized;
@@ -108,14 +109,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		for (URI uri : uris)
 		{
 			List<String> tokens = track.getListFor(ref, uri);
-			Set<String> tokenNames = new TreeSet<>();
-			for (String tok : tokens)
-			{
-				if (tok != null)
-				{
-					tokenNames.add(tok);
-				}
-			}
+			Set<String> tokenNames = tokens.stream().filter(tok -> tok != null).collect(Collectors.toCollection(TreeSet::new));
 			Logging.errorPrint("  Was used in " + uri + " in tokens: "
 					+ tokenNames);
 		}

@@ -24,6 +24,7 @@ import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
@@ -52,10 +53,7 @@ public class TypeActor implements OutputActor<CDOMObject>
 	{
 		final List<Type> types = d.getSafeListFor(ListKey.TYPE);
 		List<String> strings = new ArrayList<>(types.size());
-		for (Type type : types)
-		{
-			strings.add(type.toString());
-		}
+		strings.addAll(types.stream().map(Type::toString).collect(Collectors.toList()));
 		return new CollectionModel(id, strings);
 	}
 }
