@@ -119,8 +119,8 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getBonusList(super.getBonusList(e), e.getAssociationList(this));
 	}
 	
-	private List<BonusObj> getBonusList(List<BonusObj> bonusList,
-		List<String> associations)
+	private static List<BonusObj> getBonusList(List<BonusObj> bonusList,
+	                                           List<String> associations)
 	{
 		ArrayList<BonusObj> myBonusList = new ArrayList<>(bonusList);
 		for (int i = myBonusList.size() - 1; i > -1; i--)

@@ -266,8 +266,8 @@ public class GameModeFileLoader extends PCGenTask
 	 * @param gameModeFolderName the name of the folder that the game mode is located in
 	 * @param lstFileName the lst file to load
 	 */
-	private void loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
-									 String gameModeName, String gameModeFolderName, String lstFileName)
+	private static void loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
+	                                        String gameModeName, String gameModeFolderName, String lstFileName)
 	{
 		loadGameModeLstFile(context, lstFileLoader, gameModeName, gameModeFolderName, lstFileName, true);
 	}
@@ -283,8 +283,8 @@ public class GameModeFileLoader extends PCGenTask
 	 * @param showMissing show the missing file as a warning. Some files are optional and shouldn't generate a warning
 	 * @return true if the file was loaded, false if it was missing.
 	 */
-	private boolean loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
-										String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
+	private static boolean loadGameModeLstFile(LoadContext context, LstLineFileLoader lstFileLoader,
+	                                           String gameModeName, String gameModeFolderName, String lstFileName, final boolean showMissing)
 	{
 		File gameModeDir = new File(ConfigurationSettings.getSystemsDir(), "gameModes");
 

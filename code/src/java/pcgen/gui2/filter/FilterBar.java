@@ -302,9 +302,9 @@ public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 			}
 		}
 
-		private void layoutComponents(Container target, int xOffset, int yOffset, int maxwidth, int rowheight,
-									  SizeRequirements[] xChildren, SizeRequirements[] yChildren,
-									  int start, int end, boolean ltr)
+		private static void layoutComponents(Container target, int xOffset, int yOffset, int maxwidth, int rowheight,
+		                                     SizeRequirements[] xChildren, SizeRequirements[] yChildren,
+		                                     int start, int end, boolean ltr)
 		{
 			SizeRequirements[] children = (SizeRequirements[]) ArrayUtils.subarray(xChildren, start, end);
 			int[] xOffsets = new int[children.length];
