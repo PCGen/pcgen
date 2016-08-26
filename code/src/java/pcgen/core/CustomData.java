@@ -357,7 +357,7 @@ public final class CustomData
 							try
 							{
 								writer.write("\t");
-								prereqWriter.write(writer, prereq);
+								PrerequisiteWriter.write(writer, prereq);
 							}
 							catch (Exception e1)
 							{

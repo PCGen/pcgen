@@ -89,7 +89,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 			{
 				subreq = prereq.getPrerequisites().get(0);
 				final PrerequisiteWriterInterface test =
-						PrerequisiteWriterFactory.getInstance().getWriter(
+						PrerequisiteWriterFactory.getWriter(
 							subreq.getKind());
 				if ((test != null)
 					&& (test instanceof AbstractPrerequisiteWriter)
@@ -120,7 +120,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 				PrerequisiteWriterFactory factory =
 						PrerequisiteWriterFactory.getInstance();
 				PrerequisiteWriterInterface w =
-						factory.getWriter(pre.getKind());
+						PrerequisiteWriterFactory.getWriter(pre.getKind());
 				if (w != null)
 				{
 					w.write(writer, pre);
@@ -206,7 +206,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 	 * @param prereq The PREMULT to be checked.
 	 * @return true if this is a negated PREABILITY, false if not.
 	 */
-	private boolean isNegatedPreability(Prerequisite prereq)
+	private static boolean isNegatedPreability(Prerequisite prereq)
 	{
 		if (prereq.getPrerequisites().isEmpty())
 		{
@@ -236,7 +236,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 	 * @param prereq The prereq to be written, must be a negated PREABILITY
 	 * @throws IOException If the output cannot be written.
 	 */
-	private void handleNegatedPreAbility(Writer writer, Prerequisite prereq)
+	private static void handleNegatedPreAbility(Writer writer, Prerequisite prereq)
 		throws IOException
 	{
 		writer.write("PREABILITY:");

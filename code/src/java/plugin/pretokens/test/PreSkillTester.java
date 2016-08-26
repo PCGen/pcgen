@@ -80,7 +80,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		
 		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<Skill, Set<Skill>>();
 		Set<Skill> imitators = new HashSet<Skill>();
-		this.getImitators(serveAsSkills, imitators, display);
+		PreSkillTester.getImitators(serveAsSkills, imitators, display);
 		
 		int runningTotal = 0;
 
@@ -218,9 +218,9 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private void getImitators(
-		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
-		CharacterDisplay display)
+	private static void getImitators(
+			HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
+			CharacterDisplay display)
 	{
 		Set<Skill> skillSet = new HashSet<Skill>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
@@ -278,8 +278,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	 * @param aSkill The skill to be checked.
 	 * @return
 	 */
-	private boolean matchesTypeWildCard(final String skillKey,
-		final int percentageSignPosition, boolean found, Skill aSkill)
+	private static boolean matchesTypeWildCard(final String skillKey,
+	                                           final int percentageSignPosition, boolean found, Skill aSkill)
 	{
 		for (Type type : aSkill.getTrueTypeList(false))
 		{
@@ -292,8 +292,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		}
 		return found;
 	}
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character, Prerequisite prereq
-		, boolean foundMatch, int runningTotal, int requiredRanks )
+	private static int getRunningTotal(Skill aSkill, PlayerCharacter character, Prerequisite prereq
+			, boolean foundMatch, int runningTotal, int requiredRanks)
 	{
 		if (foundMatch)
 		{

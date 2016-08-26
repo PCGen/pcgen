@@ -75,7 +75,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		return prereq;
 	}
 
-	private void doTypeInvertFixUp(Prerequisite prereq)
+	private static void doTypeInvertFixUp(Prerequisite prereq)
 	{
 		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
 		{

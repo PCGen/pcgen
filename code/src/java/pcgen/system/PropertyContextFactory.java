@@ -155,7 +155,7 @@ public class PropertyContextFactory
 		}
 	}
 
-	private void savePropertyContext(File settingsDir, PropertyContext context)
+	private static void savePropertyContext(File settingsDir, PropertyContext context)
 	{
 		File file = new File(settingsDir, context.getName());
 		if (file.exists() && !file.canWrite())
