@@ -4816,7 +4816,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @param line The line containing version information
 	 * @throws PCGParseException if the line is not a valid version line
 	 */
-	private void parseVersionLine(final String line) throws PCGParseException
+	void parseVersionLine(final String line) throws PCGParseException
 	{
 		int[] version = {0, 0, 0};
 
@@ -6034,7 +6034,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns the version of the application that wrote the file
 	 * @return An <code>int</code> array containing the 3 digit version
 	 */
-	private int[] getPcgenVersion()
+	int[] getPcgenVersion()
 	{
 		return pcgenVersion;
 	}
@@ -6046,7 +6046,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * value less than 0 if the PCG version is less than the supplied version; 
 	 * and a value greater than 0 if the PCG version is greater than the supplied version.
 	 */
-	private int compareVersionTo(int inVer[])
+	int compareVersionTo(int inVer[])
 	{
 		return CoreUtility.compareVersions(pcgenVersion, inVer);
 	}
@@ -6055,7 +6055,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns any extra version info after the regular version number.
 	 * @return String extra version information
 	 */
-	private String getPcgenVersionSuffix()
+	String getPcgenVersionSuffix()
 	{
 		return pcgenVersionSuffix;
 	}
