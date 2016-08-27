@@ -171,11 +171,11 @@ public class SpellLevel
 
 		if (levelInt.length > 0)
 		{
-			for (int i = 0; i < levelInt.length; i++)
+			for (final Integer aLevelInt : levelInt)
 			{
-				if (levelInt[i] > -1)
+				if (aLevelInt > -1)
 				{
-					return levelInt[i];
+					return aLevelInt;
 				}
 			}
 		}

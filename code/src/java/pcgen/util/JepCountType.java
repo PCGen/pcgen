@@ -763,25 +763,23 @@ public abstract class JepCountType
 	{
 		typeMap = new CaseInsensitiveMap<>();
 		Field[] fields = JepCountType.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
 					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof JepCountType)
 					{
-						typeMap.put(fields[i].getName(), (JepCountType) obj);
+						typeMap.put(field.getName(), (JepCountType) obj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

@@ -315,11 +315,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		initCache(lines.length);
 
-		for (int i = 0; i < lines.length; ++i)
+		for (final String line : lines)
 		{
-			if ((lines[i].trim().length() > 0) && !isComment(lines[i]))
+			if ((line.trim().length() > 0) && !isComment(line))
 			{
-				cacheLine(lines[i].trim());
+				cacheLine(line.trim());
 			}
 		}
 	}
@@ -4335,17 +4335,16 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					thePC);
 		boolean found = false;
 
-		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
+		for (final Integer level : spellLevels)
 		{
-			final int level = spellLevels[sindex];
-			final int metmagicLevels = totalAddedLevelsFromMetamagic(metaFeats); 
+			final int metmagicLevels = totalAddedLevelsFromMetamagic(metaFeats);
 
-			if (spellLevel > 0 && spellLevel != (level+metmagicLevels))
+			if (spellLevel > 0 && spellLevel != (level + metmagicLevels))
 			{
 				// Skip spell in class lists that does not match level the character knows it.
 				continue;
 			}
-			
+
 			if (level < 0)
 			{
 				Collection<CDOMReference<Spell>> mods =
@@ -4383,7 +4382,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			// do not load auto knownspells into default spellbook
 			if (spellBook.equals(Globals.getDefaultSpellBook())
-				&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell,
+					&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell,
 					level, false, thePC) && thePC.getAutoSpells())
 			{
 				continue;
@@ -4404,7 +4403,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			SpellInfo aSpellInfo = null;
 
 			if (source.getKeyName().equals(aPCClass.getKeyName())
-				|| !spellBook.equals(Globals.getDefaultSpellBook()))
+					|| !spellBook.equals(Globals.getDefaultSpellBook()))
 			{
 				aSpellInfo =
 						aCharacterSpell.getSpellInfoFor(spellBook, spellLevel);
@@ -4415,7 +4414,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					aSpellInfo =
 							aCharacterSpell.addInfo(spellLevel, times,
-								spellBook);
+									spellBook);
 				}
 			}
 
@@ -5138,10 +5137,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			if (line.indexOf(TAG_CUSTOMIZATION) >= 0)
 			{
 				// might be customized item
-				for (Iterator<PCGElement> it = tokens.getElements().iterator(); it
-					.hasNext();)
+				for (final PCGElement pcgElement : tokens.getElements())
 				{
-					element = it.next();
+					element = pcgElement;
 
 					if (TAG_CUSTOMIZATION.equals(element.getName()))
 					{
@@ -5159,11 +5157,10 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 								// Check for an equipment key that has been updated.
 								baseItemKey =
 										EquipmentMigration
-											.getNewEquipmentKey(baseItemKey,
-												pcgenVersion, SettingsHandler
-													.getGame().getName());
-							}
-							else if (TAG_DATA.equals(childTag))
+												.getNewEquipmentKey(baseItemKey,
+														pcgenVersion, SettingsHandler
+																.getGame().getName());
+							} else if (TAG_DATA.equals(childTag))
 							{
 								customProperties =
 										EntityEncoder.decode(child.getText());
@@ -5171,7 +5168,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 						}
 
 						if (aEquip != null
-							&& baseItemKey.equals(aEquip.getBaseItemName()))
+								&& baseItemKey.equals(aEquip.getBaseItemName()))
 						{
 							// We clear out any eqmods that the base item has as the
 							// EQMODs on the saved item override them.
@@ -5185,22 +5182,20 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 							aEquip.setBase();
 							aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$ //$NON-NLS-2$
 							aEquip.setToCustomSize(thePC);
-						}
-						else
+						} else
 						{
 							// Make sure that we are not picking up custom items!
 							Equipment aEquip2 =
 									Globals.getContext().getReferenceContext()
-										.silentlyGetConstructedCDOMObject(
-											Equipment.class, baseItemKey);
+											.silentlyGetConstructedCDOMObject(
+													Equipment.class, baseItemKey);
 							if (aEquip2 != null)
 							{
 								// Make sure we are not getting a custom item
 								if (aEquip2.isType(Constants.TYPE_CUSTOM))
 								{
 									aEquip2 = null;
-								}
-								else
+								} else
 								{
 									// standard item
 									aEquip = aEquip2.clone();
@@ -5215,7 +5210,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 									}
 									aEquip.setBase();
 									aEquip.load(customProperties,
-										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
+											"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 									aEquip.setToCustomSize(thePC);
 									aEquip.remove(StringKey.OUTPUT_NAME);
 									if (!aEquip.isType(Constants.TYPE_CUSTOM))
@@ -5223,7 +5218,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 										aEquip.addType(Type.CUSTOM);
 									}
 									Globals.getContext().getReferenceContext()
-										.importObject(aEquip.clone());
+											.importObject(aEquip.clone());
 								}
 							}
 						}
@@ -5248,10 +5243,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			thePC.addEquipment(aEquip);
 		}
 
-		for (final Iterator<PCGElement> it = tokens.getElements().iterator(); it
-			.hasNext();)
+		for (final PCGElement pcgElement : tokens.getElements())
 		{
-			element = it.next();
+			element = pcgElement;
 			tag = element.getName();
 
 			if (TAG_QUANTITY.equals(tag))
@@ -5259,16 +5253,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				float oldQty = aEquip.getQty();
 				aEquip.setQty(element.getText());
 				thePC.updateEquipmentQty(aEquip, oldQty, aEquip.getQty());
-			}
-			else if (TAG_OUTPUTORDER.equals(tag))
+			} else if (TAG_OUTPUTORDER.equals(tag))
 			{
 				int index = 0;
 
 				try
 				{
 					index = Integer.parseInt(element.getText());
-				}
-				catch (NumberFormatException nfe)
+				} catch (NumberFormatException nfe)
 				{
 					// nothing we can or have to do about this
 				}
@@ -5278,16 +5270,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				{
 					thePC.cacheOutputIndex(aEquip);
 				}
-			}
-			else if (TAG_COST.equals(tag))
+			} else if (TAG_COST.equals(tag))
 			{
 				// TODO This else if switch currently does nothing?
-			}
-			else if (TAG_WT.equals(tag))
+			} else if (TAG_WT.equals(tag))
 			{
 				// TODO This else if switch currently does nothing?
-			}
-			else if (TAG_NOTE.equals(tag))
+			} else if (TAG_NOTE.equals(tag))
 			{
 				aEquip.setNote(element.getText());
 			}
@@ -5869,13 +5858,12 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 			int delimCount = 0;
 
-			for (int i = 0; i < chars.length; ++i)
+			for (final char aChar : chars)
 			{
-				if (chars[i] == nestedStartDelimiterChar)
+				if (aChar == nestedStartDelimiterChar)
 				{
 					++delimCount;
-				}
-				else if (chars[i] == nestedStopDelimiterChar)
+				} else if (aChar == nestedStopDelimiterChar)
 				{
 					--delimCount;
 				}

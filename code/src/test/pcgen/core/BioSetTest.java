@@ -129,15 +129,14 @@ public class BioSetTest extends AbstractCharacterTestCase
 
 		List<String> baseRaceTag;
 		List<String> newRaceTag;
-		for (int i = 0; i < TEST_TAGS.length; i++)
+		for (final String testArg : TEST_TAGS)
 		{
-			final String testArg = TEST_TAGS[i];
 			baseRaceTag =
 					currBioSet.getTagForRace(Constants.NONE, BASE_RACE_NAME,
-						testArg);
+							testArg);
 			newRaceTag =
 					currBioSet.getTagForRace(Constants.NONE, NEW_RACE_NAME,
-						testArg);
+							testArg);
 			// System.out.println(
 			// "Got '"
 			// + testArg
@@ -147,13 +146,13 @@ public class BioSetTest extends AbstractCharacterTestCase
 			// + newRaceTag
 			// + ".");
 			for (Iterator<String> newIter = newRaceTag.iterator(), baseIter =
-					baseRaceTag.iterator(); newIter.hasNext()
-				&& baseIter.hasNext();)
+			     baseRaceTag.iterator(); newIter.hasNext()
+					     && baseIter.hasNext(); )
 			{
 				final Object baseElem = baseIter.next();
 				final Object newElem = newIter.next();
 				assertEquals("Comparison of " + testArg + " values (b,n).",
-					baseElem, newElem);
+						baseElem, newElem);
 			}
 		}
 

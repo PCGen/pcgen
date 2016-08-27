@@ -411,17 +411,14 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
+			for (final String aRaceName : races.keySet())
 			{
-				final String aRaceName = raceIt.next();
-
 				if (!"AGESET".equals(aRaceName))
 				{
 					final SortedMap<String, String> tags = races.get(aRaceName);
 
-					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
+					for (final String tagName : tags.keySet())
 					{
-						final String tagName = tagIt.next();
 						sb.append("RACENAME:").append(aRaceName).append("\t\t");
 						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
 					}

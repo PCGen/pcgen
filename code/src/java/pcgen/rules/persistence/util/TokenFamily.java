@@ -300,16 +300,16 @@ public final class TokenFamily implements Comparable<TokenFamily>
 		typeMap = new TreeMap<>();
 		Class<TokenFamily> cl = TokenFamily.class;
 		Field[] fields = cl.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (final Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
 			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
 					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object o = fields[i].get(null);
+					Object o = field.get(null);
 					if (cl.equals(o.getClass()))
 					{
 						TokenFamily tObj = cl.cast(o);
@@ -318,23 +318,21 @@ public final class TokenFamily implements Comparable<TokenFamily>
 							throw new UnreachableError(
 									"Attempt to redefine constant value "
 											+ tObj.rev + " to "
-											+ fields[i].getName()
+											+ field.getName()
 											+ ", value was "
 											+ typeMap.get(tObj.rev));
 						}
 						typeMap.put(tObj.rev, tObj);
 					}
-				}
-				catch (IllegalArgumentException e)
+				} catch (IllegalArgumentException e)
 				{
 					throw new UnreachableError(
-						"Attempt to fetch field failed: " + e.getMessage());
-				}
-				catch (IllegalAccessException e)
+							"Attempt to fetch field failed: " + e.getMessage());
+				} catch (IllegalAccessException e)
 				{
 					throw new UnreachableError(
-						"Attempt to fetch field failed for access: "
-							+ e.getMessage());
+							"Attempt to fetch field failed for access: "
+									+ e.getMessage());
 				}
 			}
 		}

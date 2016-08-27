@@ -844,9 +844,9 @@ public class SpinningTabbedPane extends JTabbedPane
                     ultimatum = indices[indices.length - 1];
             }
 
-            for (int i = 0; i < indices.length; ++i)
+            for (final int indice : indices)
             {
-                if (index < indices[i])
+                if (index < indice)
                 {
                     continue;
                 }

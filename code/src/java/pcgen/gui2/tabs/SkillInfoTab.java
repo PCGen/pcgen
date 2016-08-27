@@ -549,9 +549,8 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			MouseListener[] listeners
 					= component.getMouseListeners();
-			for (int i = 0; i < listeners.length; i++)
+			for (MouseListener listener : listeners)
 			{
-				MouseListener listener = listeners[i];
 				listener.mouseReleased(new MouseEvent(component, MouseEvent.MOUSE_RELEASED,
 						System.currentTimeMillis(), 0, 0, 0, 1, false));
 			}
