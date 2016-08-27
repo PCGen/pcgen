@@ -29,11 +29,13 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
+
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
@@ -237,6 +239,29 @@ public final class BioSet extends PObject implements NonInteractive
 		}
 	}
 
+	/**
+	 * Remove the user from the map
+	 * @param region
+	 * @param race
+	 * @param tag
+	 */
+	public void removeFromUserMap(final String region, final String race, final String tag)
+	{
+		final String key;
+		final int x = tag.indexOf(':');
+
+		if (x < 0)
+		{
+			key = tag;
+		}
+		else
+		{
+			key = tag.substring(0, x);
+		}
+
+		userMap.removeListFor(Region.getConstant(region), race, key);
+	}
+
 	@Override
 	public String toString()
 	{
@@ -268,6 +293,7 @@ public final class BioSet extends PObject implements NonInteractive
 	 *
 	 * @param region The region of the race
 	 * @param race   The name of the race.
+	 * @param includeGenericMatches Should generic race references such as Elf% be included
 	 * @return SortedMap A map of the gae brackets. Within each age bracket is a
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
@@ -348,7 +374,7 @@ public final class BioSet extends PObject implements NonInteractive
 			}
 			final String tagValue = iter.next();
 			SortedMap<String, SortedMap<String, String>> races = ageSets
-					.get(ageBracket);
+					.get(Integer.valueOf(ageBracket));
 			if (races == null)
 			{
 				races = new TreeMap<>();
@@ -374,7 +400,7 @@ public final class BioSet extends PObject implements NonInteractive
 		ageIndices.addAll(ageSets.keySet());
 		ageIndices.addAll(ageNames.values());
 		// Iterate through ages, outputing the info
-		for (final Integer key : ageIndices)
+		for (Integer key : ageIndices)
 		{
 			final SortedMap<String, SortedMap<String, String>> races = ageSets.get(key);
 			if (races == null)
@@ -385,16 +411,22 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			races.entrySet().stream().filter(stringSortedMapEntry -> !"AGESET".equals(stringSortedMapEntry.getKey())).forEach(stringSortedMapEntry ->
+			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
 			{
-				final SortedMap<String, String> tags = stringSortedMapEntry.getValue();
+				final String aRaceName = raceIt.next();
 
-				tags.keySet().forEach(tagName ->
+				if (!"AGESET".equals(aRaceName))
 				{
-					sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
-					sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
-				});
-			});
+					final SortedMap<String, String> tags = races.get(aRaceName);
+
+					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
+					{
+						final String tagName = tagIt.next();
+						sb.append("RACENAME:").append(aRaceName).append("\t\t");
+						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
+					}
+				}
+			}
 
 			sb.append("\n");
 		}
@@ -497,7 +529,7 @@ public final class BioSet extends PObject implements NonInteractive
 			.getRace().getKeyName().trim());
 		final String rv;
 
-		if (line != null && !line.isEmpty())
+		if (line != null && line.length() > 0)
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
 			final List<String> aList = new ArrayList<>();
@@ -667,4 +699,8 @@ public final class BioSet extends PObject implements NonInteractive
 		return set;
 	}
 
+	public Map<Integer, AgeSet> getAgeSets(String regionName)
+	{
+		return new TreeMap<>(ageMap.getMapFor(Region.getConstant(regionName)));
+	}
 }
