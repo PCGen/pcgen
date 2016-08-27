@@ -20,7 +20,6 @@ package pcgen.base.formula.visitor;
 import java.util.Arrays;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
@@ -310,21 +309,20 @@ public class SemanticsVisitor implements FormulaParserVisitor
 				+ " must resolve to a number");
 			return null;
 		}
-		FormulaManager fm = semantics.peek(FormulaSemantics.FMANAGER);
-		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
-		FormatManager<?> formatManager =
-				fm.getFactory().getVariableFormat(legalScope, name);
+		FormatManager<?> formatManager = getVariableFormat(semantics, name);
 		if (formatManager == null)
 		{
 			semantics.setInvalid("Variable: " + name
-				+ " was not found in scope " + legalScope.getName());
+				+ " was not found in scope "
+				+ semantics.peek(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		FormatManager<?> componentMgr = formatManager.getComponentManager();
 		if (componentMgr == null)
 		{
 			semantics.setInvalid("Variable: " + name
-				+ " was not an array in scope " + legalScope.getName());
+				+ " was not an array in scope "
+				+ semantics.peek(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		return componentMgr;
@@ -345,18 +343,36 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return null;
 		}
 		String varName = node.getText();
-		VariableLibrary varLib =
-				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
-		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
-		FormatManager<?> formatManager =
-				varLib.getVariableFormat(legalScope, varName);
+		FormatManager<?> formatManager = getVariableFormat(semantics, varName);
 		if (formatManager == null)
 		{
 			semantics.setInvalid("Variable: " + varName
-				+ " was not found in scope " + legalScope.getName());
+				+ " was not found in scope "
+				+ semantics.peek(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		return formatManager;
+	}
+
+	/**
+	 * Returns the format for a given Variable name, in the scope as described
+	 * by the FormulaSemantics.
+	 * 
+	 * @param semantics
+	 *            The FormulaSemantics used to determine the context of analysis
+	 *            of the given variable name
+	 * @param varName
+	 *            The variable name for which the format should be returned
+	 * @return The format for the given Variable, in the scope as described by
+	 *         the FormulaSemantics
+	 */
+	public FormatManager<?> getVariableFormat(FormulaSemantics semantics,
+		String varName)
+	{
+		VariableLibrary varLib =
+				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
+		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
+		return varLib.getVariableFormat(legalScope, varName);
 	}
 
 	/**
