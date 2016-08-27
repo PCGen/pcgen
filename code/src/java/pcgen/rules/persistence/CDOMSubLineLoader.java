@@ -17,7 +17,9 @@
  */
 package pcgen.rules.persistence;
 
+import java.util.Collection;
 import java.util.StringTokenizer;
+
 import pcgen.cdom.base.Loadable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
@@ -92,7 +94,7 @@ public class CDOMSubLineLoader<T extends Loadable>
 		return returnValue;
 	}
 
-	T getCDOMObject()
+	public T getCDOMObject()
 	{
 		try
 		{
@@ -109,13 +111,36 @@ public class CDOMSubLineLoader<T extends Loadable>
 		throw new IllegalArgumentException();
 	}
 
-	String getPrefix()
+	public String getPrefix()
 	{
 		return targetPrefix;
 	}
 
-	Class<T> getLoadedClass()
+	public Class<T> getLoadedClass()
 	{
 		return targetClass;
+	}
+
+	public void unloadObject(LoadContext lc, T object, StringBuilder sb)
+	{
+		Collection<String> unparse = lc.unparse(object);
+		StringBuilder temp = new StringBuilder();
+		if (unparse != null)
+		{
+			for (String s : unparse)
+			{
+				if (s.startsWith(targetPrefixColon))
+				{
+					sb.append(s);
+				}
+				else
+				{
+					temp.append('\t');
+					temp.append(s);
+				}
+			}
+			sb.append(temp);
+			sb.append('\n');
+		}
 	}
 }

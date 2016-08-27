@@ -222,7 +222,7 @@ public final class TokenLibrary implements PluginLoader
 		loadFamily(TokenFamily.CURRENT, newToken);
 	}
 
-	static void loadFamily(TokenFamily family, Object newToken)
+	public static void loadFamily(TokenFamily family, Object newToken)
 	{
 		if (newToken instanceof DeferredToken)
 		{
@@ -367,7 +367,7 @@ public final class TokenLibrary implements PluginLoader
 		private Class<?> stopClass;
 		private final Iterator<TokenFamily> subIterator;
 
-		protected AbstractTokenIterator(Class<C> cl, String key)
+		public AbstractTokenIterator(Class<C> cl, String key)
 		{
 			rootClass = cl;
 			subIterator = TOKEN_FAMILIES.iterator();
@@ -381,7 +381,7 @@ public final class TokenLibrary implements PluginLoader
 			return !needNewToken;
 		}
 
-		private void setNextToken()
+		protected void setNextToken()
 		{
 			while (needNewToken && subIterator.hasNext())
 			{
@@ -429,7 +429,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		TokenIterator(Class<C> cl, String key)
+		public TokenIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -448,7 +448,7 @@ public final class TokenLibrary implements PluginLoader
 
 		private final String subTokenKey;
 
-		SubTokenIterator(Class<C> cl, String key, String subKey)
+		public SubTokenIterator(Class<C> cl, String key, String subKey)
 		{
 			super(cl, key);
 			subTokenKey = subKey;
@@ -504,7 +504,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		private PrimitiveTokenIterator(Class<C> cl, String key)
+		public PrimitiveTokenIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -542,7 +542,7 @@ public final class TokenLibrary implements PluginLoader
 			extends TokenLibrary.AbstractTokenIterator<C, T>
 	{
 
-		private ModifierIterator(Class<C> cl, String key)
+		public ModifierIterator(Class<C> cl, String key)
 		{
 			super(cl, key);
 		}
@@ -555,6 +555,24 @@ public final class TokenLibrary implements PluginLoader
 				return null;
 			}
 			return (T) modifierMap.get(cl, key);
+		}
+
+	}
+
+	static class PreTokenIterator
+			extends TokenLibrary.AbstractTokenIterator<CDOMObject, PrerequisiteParserInterface>
+	{
+
+		public PreTokenIterator(String key)
+		{
+			super(CDOMOBJECT_CLASS, key);
+		}
+
+		@Override
+		protected PrerequisiteParserInterface grabToken(TokenFamily family, Class<?> cl,
+			String key)
+		{
+			return family.getPrerequisiteToken(key);
 		}
 
 	}

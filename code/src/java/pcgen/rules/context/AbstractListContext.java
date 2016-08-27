@@ -60,6 +60,11 @@ public abstract class AbstractListContext
 		getCommitStrategy().setSourceURI(sourceURI);
 	}
 
+	URI getExtractURI()
+	{
+		return edits.getExtractURI();
+	}
+
 	void setExtractURI(URI extractURI)
 	{
 		edits.setExtractURI(extractURI);
