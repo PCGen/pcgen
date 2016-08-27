@@ -275,7 +275,8 @@ public class VariableReport
 					{
 						varUseMap.put(varUse[0].substring(7), varUse[1].substring(4));
 					}
-				} else if (!line.startsWith("#") && StringUtils.isNotBlank(line))
+				}
+				else if (!line.startsWith("#") && StringUtils.isNotBlank(line))
 				{
 					String tokens[] = line.split("\t");
 					String object = tokens[0];
