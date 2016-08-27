@@ -19,7 +19,7 @@
 package gmgen.plugin.dice;
 
 @FunctionalInterface
-public interface ResultModifier
+interface ResultModifier
 {
 
 
@@ -29,12 +29,12 @@ public interface ResultModifier
 	 * @param in sequence of original values
 	 * @return sequence of values
 	 */
-	int[] resultAsModified(int[] in);
+	int[] apply(int[] in);
 
 	static int[] modify(final ResultModifier... modifiers) {
 		int[] result = new int[0];
 		for(final ResultModifier rm: modifiers) {
-			result = rm.resultAsModified(result);
+			result = rm.apply(result);
 		}
 		return result;
 	}

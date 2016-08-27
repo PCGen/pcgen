@@ -15,35 +15,47 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package gmgen.plugin.dice;
 
+
+import java.text.MessageFormat;
+import java.util.Arrays;
 import java.util.Random;
 
-class AppendModifier implements ResultModifier
+public class NSidedModifiedDieConfig implements DiceConfig
 {
+	private final int n;
+	private final int sides;
+	private final int bias;
 
-	private final int count;
-	private final int max;
-	private final Random rand;
+	private final ResultCounter counter;
+	private final ResultModifier[] modifiers;
 
-	AppendModifier(final int count, final int max, final Random rand) {
-		this.count = count;
-		this.max = max;
-		this.rand = rand;
+	public NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random) {
+		this.n = n;
+		this.sides = sides;
+		this.bias = bias;
+		counter = new SimpleSumCounter();
+		modifiers = new ResultModifier[] {
+			new AppendModifier(n, sides, random),
+			new SimpleModifier(bias)
+		};
 	}
 
 	@Override
-	public int[] apply(final int[] in)
+	public int roll()
 	{
-		int[] newResults = new int[count + in.length];
-		System.arraycopy(in, 0, newResults, 0, in.length);
-		for (int i = 0; i < count; ++i)
-		{
-			int thisRoll = rand.nextInt(max) + 1;
-			newResults[in.length + i] = thisRoll;
-		}
+		return counter.totalCount(
+				ResultModifier.modify(modifiers)
+		);
+	}
 
-		return newResults;
+	@Override
+	public String toFormula()
+	{
+		if (bias == 0) {
+			return MessageFormat.format("{0}d{1}", n, sides);
+		}
+		return MessageFormat.format("{0}d{1} + {2}", n, sides, bias);
 	}
 }

@@ -23,63 +23,33 @@
 package gmgen.plugin;
 
 
+import gmgen.plugin.dice.Die;
+import gmgen.plugin.dice.NSidedModifiedDieConfig;
+
 /** A normal die
  * @author Soulcatcher
  * @since May 24, 2003
  */
 public class Dice extends Die
 {
-	/** Die modifier */
-	private final int aModifier;
-
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides
-	 * @param modifier Modifier to the die roll
+	 * @param bias Modifier to the die roll
 	 */
-	public Dice(final int num, final int sides, final int modifier)
+	public Dice(final int num, final int sides, final int bias)
 	{
-		this.num = num;
-		this.sides = sides;
-		this.aModifier = modifier;
-		rolls = new int[num];
+		/* Holds the rolls of each die */
+		super(new NSidedModifiedDieConfig(num, sides, bias, Die.rand));
 	}
 
 	/** Constructor for the Dice object
 	 * @param num Number of dice
 	 * @param sides Number of sides per die
 	 */
-	public Dice(int num, int sides)
+	public Dice(final int num, final int sides)
 	{
 		this(num, sides, 0);
 	}
 
-	/** Rolls the die, and returns the result.
-	 * @return Result of the die roll
-	 */
-    @Override
-	public int roll()
-	{
-		int value = 0;
-		for (int i = 0; i < num; i++)
-		{
-			rolls[i] = Die.rand.nextInt(sides) + 1;
-			value = rolls[i] + value;
-		}
-
-		return value + aModifier;
-	}
-
-	/** Name of the die in the nds+m format
-	 * @return Name of the die
-	 */
-	@Override
-	public String toString()
-	{
-		if (aModifier == 0)
-		{
-			return num + "d" + sides;
-		}
-		return num + "d" + sides + "+" + aModifier;
-	}
 }

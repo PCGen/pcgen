@@ -20,13 +20,13 @@ package gmgen.plugin.dice;
 
 /**
  * If the original value was 1, produces -9
- * If the original value was 20, producds 30
+ * If the original value was 20, produces 30
  * Otherwise produces results unchanged
  */
-public class SystemModifier implements ResultModifier
+class SystemModifier implements ResultModifier
 {
 	@Override
-	public int[] resultAsModified(final int[] in)
+	public int[] apply(final int[] in)
 	{
 		int[] result = new int[in.length];
 		for (int i = 0; i < in.length; ++i)

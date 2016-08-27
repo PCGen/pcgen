@@ -1,6 +1,5 @@
 /*
  *  Initiative - A role playing utility to track turns
- *  Copyright (C) 2002 Devon D Jones
  *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
@@ -15,50 +14,35 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Die.java
- *
- *  Created on January 24, 2002, 11:15 AM
  */
-package gmgen.plugin;
+package gmgen.plugin.dice;
 
 import java.util.Random;
 
-/** Abstract class describing a die of any kind
- * @author Soulcatcher
- * @since May 24, 2003
+/**
+ * Abstract class describing a die of any kind
  */
 public abstract class Die
 {
 
+	private final DiceConfig dc;
+
 	/** Random number seed */
-	static Random rand = new Random();
+	protected static final Random rand = new Random();
 
-	/** Holds the rolls of each die */
-	public int[] rolls;
+	protected Die(final DiceConfig dc) {
+		this.dc = dc;
+	}
 
-	/** Number of dice */
-	public int num;
-
-	/** Number of sides */
-	public int sides;
-
-	/** Roll the die, and get back a value
-	 * @return Result of the die roll
+	/** Name of the die in the nds+m format
+	 * @return Name of the die
 	 */
-	public abstract int roll();
-
-	/** Writes out the die name (like 2d6+1)
-	 * @return Die name
-	 */
-	@Override
-	public abstract String toString();
-
-	/** Sets the random Die object. Allows you to put in a seeded random for better randomness.
-	 * @param rand Random
-	 */
-	public static void setRandom(Random rand)
+	public String toString()
 	{
-		Die.rand = rand;
+		return dc.toFormula();
+	}
+
+	public int roll() {
+		return dc.roll();
 	}
 }

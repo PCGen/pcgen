@@ -15,26 +15,10 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-
 package gmgen.plugin.dice;
 
-class SimpleModifier implements ResultModifier
+interface DiceConfig
 {
-	private final int mod;
-
-	public SimpleModifier(final int mod) {
-		this.mod = mod;
-	}
-
-	@Override
-	public int[] apply(final int[] in)
-	{
-		int[] result = new int[in.length];
-		for (int i = 0; i < in.length; ++i)
-		{
-			result[i] = in[i] + mod;
-		}
-		return result;
-
-	}
+	int roll();
+	String toFormula();
 }
