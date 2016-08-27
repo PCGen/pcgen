@@ -187,7 +187,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 		public BooleanRenderer()
 		{
-			setHorizontalAlignment(CENTER);
+			setHorizontalAlignment(SwingConstants.CENTER);
 		}
 
 		@Override

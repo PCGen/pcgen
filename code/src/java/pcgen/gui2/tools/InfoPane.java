@@ -97,11 +97,7 @@ public class InfoPane extends JScrollPane
 		{
 			kit.read(new StringReader(text), newDoc, 0);
 		}
-		catch (IOException ex)
-		{
-			throw new UnreachableError(ex);
-		}
-		catch (BadLocationException ex)
+		catch (IOException | BadLocationException ex)
 		{
 			throw new UnreachableError(ex);
 		}
@@ -114,7 +110,7 @@ public class InfoPane extends JScrollPane
 	 *  
 	 * @param linkListener The listener.
 	 */
-	public void addHyperlinkListener(HyperlinkListener linkListener)
+	void addHyperlinkListener(HyperlinkListener linkListener)
 	{
 		textPane.addHyperlinkListener(linkListener);
 	}
@@ -123,7 +119,7 @@ public class InfoPane extends JScrollPane
 	 * Removes a hyperlink listener.
 	 * @param linkListener The listener.
 	 */
-	public void removeHyperlinkListener(HyperlinkListener linkListener)
+	void removeHyperlinkListener(HyperlinkListener linkListener)
 	{
 		textPane.removeHyperlinkListener(linkListener);
 	}

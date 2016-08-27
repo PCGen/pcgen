@@ -490,7 +490,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SolverViewFrame svf = new SolverViewFrame(frame);
+			SolverViewFrame svf = new SolverViewFrame();
 			svf.setVisible(true);
 		}
 

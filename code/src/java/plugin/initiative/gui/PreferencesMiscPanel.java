@@ -22,6 +22,7 @@
  */
 package plugin.initiative.gui;
 
+import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 import plugin.initiative.InitiativePlugin;
@@ -141,7 +142,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 
 		setLayout(new java.awt.GridBagLayout());
 
-		jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+		jSeparator1.setOrientation(SwingConstants.VERTICAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
