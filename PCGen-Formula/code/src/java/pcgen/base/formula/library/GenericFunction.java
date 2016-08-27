@@ -124,16 +124,6 @@ public class GenericFunction implements Function
 		semantics.pop(FormulaSemantics.FMANAGER);
 		ArgumentDependencyManager myArgs =
 				semantics.pop(ArgumentDependencyManager.KEY);
-		if (myArgs == null)
-		{
-			if (args.length != 0)
-			{
-				semantics.setInvalid("Function " + getFunctionName()
-					+ " received incorrect # of arguments, expected: 0 got "
-					+ args.length + " " + Arrays.asList(args));
-			}
-			return null;
-		}
 		int maxArg = myArgs.getMaximumArgument() + 1;
 		if (maxArg != args.length)
 		{
