@@ -17,12 +17,12 @@
  */
 package pcgen.base.formula.inst;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.solver.SolverFactory;
 
 public class SimpleFormulaManagerTest extends TestCase
 {
@@ -32,6 +32,7 @@ public class SimpleFormulaManagerTest extends TestCase
 	private SimpleFunctionLibrary ftnLibrary;
 	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
+	private SolverFactory defaultStore;
 
 	@Override
 	protected void setUp() throws Exception
@@ -42,6 +43,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		opLibrary = new SimpleOperatorLibrary();
 		ftnLibrary = new SimpleFunctionLibrary();
 		resultsStore = new SimpleVariableStore();
+		defaultStore = new SolverFactory();
 	}
 
 	@Test
@@ -49,7 +51,7 @@ public class SimpleFormulaManagerTest extends TestCase
 	{
 		try
 		{
-			new SimpleFormulaManager(null, null, null, null);
+			new SimpleFormulaManager(null, null, null, null, null);
 			fail("nulls must be rejected");
 		}
 		catch (NullPointerException e)
@@ -62,7 +64,8 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(null, opLibrary, varLibrary, resultsStore);
+			new SimpleFormulaManager(null, opLibrary, varLibrary, resultsStore,
+				defaultStore);
 			fail("null ftn lib must be rejected");
 		}
 		catch (NullPointerException e)
@@ -75,7 +78,8 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, null, varLibrary, resultsStore);
+			new SimpleFormulaManager(ftnLibrary, null, varLibrary, resultsStore,
+				defaultStore);
 			fail("null op lib must be rejected");
 		}
 		catch (NullPointerException e)
@@ -88,7 +92,8 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, opLibrary, null, resultsStore);
+			new SimpleFormulaManager(ftnLibrary, opLibrary, null, resultsStore,
+				defaultStore);
 			fail("null var lib must be rejected");
 		}
 		catch (NullPointerException e)
@@ -101,8 +106,23 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary, null);
+			new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary, null,
+				defaultStore);
 			fail("null results must be rejected");
+		}
+		catch (NullPointerException e)
+		{
+			//ok
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok, too			
+		}
+		try
+		{
+			new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
+				resultsStore, null);
+			fail("null defaults must be rejected");
 		}
 		catch (NullPointerException e)
 		{

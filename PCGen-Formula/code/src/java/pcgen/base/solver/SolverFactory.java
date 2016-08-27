@@ -20,6 +20,7 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.FormatManager;
 
@@ -30,7 +31,7 @@ import pcgen.base.util.FormatManager;
  * 
  * The format of Solver is represented by a Class object.
  */
-public class SolverFactory
+public class SolverFactory implements DefaultStore
 {
 
 	/**
@@ -160,6 +161,7 @@ public class SolverFactory
 	 *            returned
 	 * @return The default value for the given Format
 	 */
+	@Override
 	public <T> T getDefault(Class<T> varFormat)
 	{
 		@SuppressWarnings("unchecked")
