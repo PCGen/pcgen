@@ -20,19 +20,30 @@ package pcgen.base.formula.inst;
 import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 
 public class SimpleVariableStoreTest extends TestCase
 {
 
+	private LegalScopeLibrary library;
+	private ScopeInstanceFactory instanceFactory;
+		
+	@Override
+	protected void setUp() throws Exception
+	{
+		super.setUp();
+		library = new LegalScopeLibrary();
+		library.registerScope(new SimpleLegalScope(null, "Global"));
+		instanceFactory = new ScopeInstanceFactory(library);
+	}
+
 	public void testNulls()
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
-		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
+		ScopeInstance globalInst = instanceFactory.getInstance(null, "Global", null);
 		VariableID<Number> vid = new VariableID<>(globalInst, numberManager, "test");
 		try
 		{
@@ -67,8 +78,7 @@ public class SimpleVariableStoreTest extends TestCase
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = FormatUtilities.NUMBER_MANAGER;
-		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
+		ScopeInstance globalInst = instanceFactory.getInstance(null, "Global", null);
 		VariableID vid = new VariableID(globalInst, numberManager, "test");
 		assertFalse(varStore.containsKey(vid));
 		assertNull(varStore.put(vid, Integer.valueOf(9)));
@@ -83,12 +93,12 @@ public class SimpleVariableStoreTest extends TestCase
 	{
 		SimpleVariableStore varStore = new SimpleVariableStore();
 		NumberManager numberManager = new NumberManager();
-		LegalScope varScope = new SimpleLegalScope(null, "Global");
-		ScopeInstance globalInst = new SimpleScopeInstance(null, varScope);
+		ScopeInstance globalInst = instanceFactory.getInstance(null, "Global", null);
 		VariableID vid1 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid2 = new VariableID(globalInst, numberManager, "test");
 		VariableID vid3 = new VariableID(globalInst, numberManager, "test2");
-		ScopeInstance globalInst2 = new SimpleScopeInstance(null, varScope);
+		library.registerScope(new SimpleLegalScope(null, "Global2"));
+		ScopeInstance globalInst2 = instanceFactory.getInstance(null, "Global2", null);
 		VariableID vid4 = new VariableID(globalInst2, numberManager, "test");
 		assertNull(varStore.put(vid1, Integer.valueOf(9)));
 		assertTrue(varStore.containsKey(vid1));

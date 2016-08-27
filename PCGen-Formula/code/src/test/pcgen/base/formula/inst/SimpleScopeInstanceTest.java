@@ -40,7 +40,7 @@ public class SimpleScopeInstanceTest extends TestCase
 	}
 
 	@Test
-	public void testDoubleConstructor()
+	public void testConstructor()
 	{
 		try
 		{
@@ -86,6 +86,38 @@ public class SimpleScopeInstanceTest extends TestCase
 		{
 			//ok, too			
 		}
+		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
+		SimpleScopeInstance globalInst = new SimpleScopeInstance(null, scope);
+		try
+		{
+			new SimpleScopeInstance(null, local);
+			fail("Instance should require a parent if not global");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+		SimpleScopeInstance localInst = new SimpleScopeInstance(globalInst, local);
+		assertEquals(globalInst, localInst.getParentScope());
+		assertEquals(local, localInst.getLegalScope());
+		try
+		{
+			new SimpleScopeInstance(globalInst, null);
+			fail("LegalScope cannot be null");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
+		try
+		{
+			new SimpleScopeInstance(globalInst, sublocal);
+			fail("LegalScope must be a direct child of the scope of the provided instance");
+		}
+		catch (IllegalArgumentException e)
+		{
+			//ok
+		}
 	}
 
 	@Test
@@ -94,4 +126,5 @@ public class SimpleScopeInstanceTest extends TestCase
 		assertEquals(local, localInst.getLegalScope());
 		assertEquals(scopeInst, localInst.getParentScope());
 	}
+
 }

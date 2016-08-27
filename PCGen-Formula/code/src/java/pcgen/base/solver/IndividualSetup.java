@@ -18,7 +18,6 @@
 package pcgen.base.solver;
 
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -42,11 +41,6 @@ public class IndividualSetup
 	 * The FormulaManager for this IndividualSetup.
 	 */
 	private final FormulaManager formulaManager;
-
-	/**
-	 * The "Global" LegalScope for this IndividualSetup.
-	 */
-	private final LegalScope globalScope;
 
 	/**
 	 * The "Global" ScopeInstance for this IndividualSetup.
@@ -80,13 +74,12 @@ public class IndividualSetup
 	public IndividualSetup(SplitFormulaSetup parent, String globalName)
 	{
 		LegalScopeLibrary scopeLibrary = parent.getLegalScopeLibrary();
-		globalScope = scopeLibrary.getScope(globalName);
 		instanceFactory = new ScopeInstanceFactory(scopeLibrary);
 		formulaManager =
 				new SimpleFormulaManager(parent.getFunctionLibrary(),
 					parent.getOperatorLibrary(), parent.getVariableLibrary(),
 					getVariableStore());
-		globalScopeInst = instanceFactory.getInstance(null, globalScope);
+		globalScopeInst = instanceFactory.getInstance(null, globalName, null);
 	}
 
 	/**
@@ -107,16 +100,6 @@ public class IndividualSetup
 	public FormulaManager getFormulaManager()
 	{
 		return formulaManager;
-	}
-
-	/**
-	 * Return the "Global" LegalScope for this IndividualSetup.
-	 * 
-	 * @return the "Global" LegalScope for this IndividualSetup
-	 */
-	public LegalScope getGlobalScope()
-	{
-		return globalScope;
 	}
 
 	/**

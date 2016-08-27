@@ -73,21 +73,64 @@ public class ScopeInstanceFactory
 	 */
 	public ScopeInstanceFactory(LegalScopeLibrary library)
 	{
+		if (library == null)
+		{
+			throw new IllegalArgumentException(
+				"LegalScopeLibrary cannot be null");
+		}
 		this.library = library;
 	}
 
 	/**
 	 * Returns a new ScopeInstance object with the given parent ScopeInstance
-	 * and within the given LegalScope.
+	 * and within the LegalScope defined by the given name. The returned
+	 * ScopeInstance will be for the provided VarScoped object.
+	 * 
+	 * The parent LegalScope of the LegalScope for the given ScopeName must be
+	 * the LegalScope of the given ScopeInstance.
 	 * 
 	 * @param parent
-	 *            The ScopeInstance that is the parent of this ScopeInstance
-	 * @param scope
-	 *            The LegalScope in which this ScopeInstance was instantiated
+	 *            the ScopeInstance that is the parent of this ScopeInstance
+	 * @param scopeName
+	 *            the name of the LegalScope in which the ScopeInstance should
+	 *            be instantiated
+	 * @param owner
+	 *            The name of the VarScoped object that is the context for the
+	 *            ScopeInstance to be returned
 	 * @return A new ScopeInstance object with the given parent ScopeInstance
-	 *         and within the given LegalScope
+	 *         and within the LegalScope with the given name, and serving the
+	 *         provided VarScoped object
 	 */
-	public ScopeInstance getInstance(ScopeInstance parent, LegalScope scope)
+	public ScopeInstance getInstance(ScopeInstance parent, String scopeName,
+		VarScoped owner)
+	{
+		if (parent == null)
+		{
+			return getGlobalInstance(scopeName);
+		}
+		LegalScope scope = library.getScope(scopeName);
+		if (scope == null)
+		{
+			throw new IllegalArgumentException("Scope " + scopeName
+				+ " does not exist in underlying LegalScopeLibrary");
+		}
+		LegalScope parentScope = parent.getLegalScope();
+		if (!parentScope.equals(scope.getParentScope()))
+		{
+			throw new IllegalArgumentException("Requested an Instance in "
+				+ scopeName + " but parent of that scope is "
+				+ scope.getParentScope() + ".  Provided instance was from "
+				+ parentScope);
+		}
+		return constructInstance(parent, scope, owner);
+	}
+
+	/*
+	 * Private due to lack of checking and ensuring LegalScope is from the
+	 * embedded LegalScopeLibrary.
+	 */
+	private ScopeInstance constructInstance(ScopeInstance parent,
+		LegalScope scope, VarScoped owner)
 	{
 		SimpleScopeInstance inst =
 				new SimpleScopeInstance(parent, scope);
@@ -98,12 +141,27 @@ public class ScopeInstanceFactory
 	/**
 	 * Returns the "global" ScopeInstance object for the given LegalScope.
 	 * 
-	 * @param legalScope
-	 *            The LegalScope for which the "global" ScopeInstance should be
-	 *            returned.
+	 * @param scopeName
+	 *            The name of the LegalScope for which the "global"
+	 *            ScopeInstance should be returned.
 	 * @return The "global" ScopeInstance object for the given LegalScope
 	 */
-	public ScopeInstance getGlobalScope(LegalScope legalScope)
+	public ScopeInstance getGlobalInstance(String scopeName)
+	{
+		LegalScope legalScope = library.getScope(scopeName);
+		if (legalScope == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot find Scope named: " + scopeName);
+		}
+		return getGlobalInstance(legalScope);
+	}
+
+	/*
+	 * This is private so we know the LegalScope came from the contained
+	 * LegalScopeLibrary.
+	 */
+	private ScopeInstance getGlobalInstance(LegalScope legalScope)
 	{
 		if (legalScope.getParentScope() != null)
 		{
@@ -127,8 +185,9 @@ public class ScopeInstanceFactory
 	 * until one matches the given LegalScope. A new ScopeInstance will be
 	 * created if one does not already exist.
 	 * 
-	 * @param instScope
-	 *            The LegalScope for which the ScopeInstance should be returned
+	 * @param scopeName
+	 *            The name of the LegalScope for which the ScopeInstance should
+	 *            be returned
 	 * @param obj
 	 *            The Object where analysis should start in order to determine
 	 *            the appropriate ScopeInstance to be returned.
@@ -139,14 +198,17 @@ public class ScopeInstanceFactory
 	 *             VarScoped object or an ancestor of the VarScoped object (as
 	 *             determined by getVariableParent())
 	 */
-	public ScopeInstance get(LegalScope instScope, VarScoped obj)
+	public ScopeInstance get(String scopeName, VarScoped obj)
 	{
-		return getMessaged(instScope, obj, obj);
+		return getMessaged(library.getScope(scopeName), obj, obj);
 	}
 
 	/**
 	 * Actually processes the result of a get, while preserving the original
 	 * VarScoped object to make any message better for the end user.
+	 * 
+	 * Private so that we know the LegalScope came from the LegalScopeLibrary of
+	 * this ScopeInstanceFactory.
 	 */
 	private ScopeInstance getMessaged(LegalScope instScope, VarScoped current,
 		VarScoped original)
@@ -156,7 +218,7 @@ public class ScopeInstanceFactory
 			if (instScope.getParentScope() == null)
 			{
 				//Is Global
-				return getGlobalScope(instScope);
+				return getGlobalInstance(instScope);
 			}
 			if (original == null)
 			{
@@ -199,9 +261,10 @@ public class ScopeInstanceFactory
 		if (inst == null)
 		{
 			//Need to build the scope...
-			ScopeInstance parentInstance = getMessaged(
-				instScope.getParentScope(), parentObj, parentObj);
-			inst = getInstance(parentInstance, instScope);
+			ScopeInstance parentInstance =
+					getMessaged(instScope.getParentScope(), parentObj,
+						parentObj);
+			inst = constructInstance(parentInstance, currentScope, current);
 			objectToInstanceCache.put(current, inst);
 		}
 		return inst;
