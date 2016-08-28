@@ -301,7 +301,7 @@ public final class PJEP extends JEP
 	 * @return Returns the variableSource.
 	 */
 	@Deprecated
-	private String getVariableSource()
+	protected String getVariableSource()
 	{
 		return variableSource;
 	}
