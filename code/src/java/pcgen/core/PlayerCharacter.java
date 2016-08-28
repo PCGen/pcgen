@@ -587,13 +587,21 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Get game mode spell range formula
-	 * @param aRange
-	 * @return game mode spell range formula
+	 * Set the Weapon proficiency of one piece of Equipment to the same as the
+	 * Proficiency in another piece of Equipment.  For some bizarre reason, as
+	 * well as setting the proficiency,  this zeros out the Weight and cost of
+	 * the equipment.
+	 *
+	 * @param  equip  the Weapon to get the proficiency from
+	 * @param  eqm    the weapon to set the proficiency in
 	 */
-	static String getGameModeSpellRangeFormula(final String aRange)
+	private static void setProf(final Equipment equip, final Equipment eqm)
 	{
-		return SettingsHandler.getGame().getSpellRangeFormula(aRange);
+		eqm.put(ObjectKey.WEAPON_PROF, equip.get(ObjectKey.WEAPON_PROF));
+		// In case this is used somewhere it shouldn't be used,
+		// set weight and cost to 0
+		eqm.put(ObjectKey.WEIGHT, BigDecimal.ZERO);
+		eqm.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
 	}
 
 	private void doFormulaSetup()
@@ -3087,7 +3095,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.add(idx + 1, eqm);
 
 				eqm = equip.clone();
@@ -3124,7 +3132,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.add(idx + 2, eqm);
 			}
 
@@ -3143,7 +3151,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.removeType(Type.RANGED);
 				eqm.removeType(Type.THROWN);
 				eqm.put(IntegerKey.RANGE, 0);
-				PlayerCharacterUtilities.setProf(equip, eqm);
+				setProf(equip, eqm);
 				weapList.set(idx, eqm);
 
 				boolean replacedPrimary = primaryWeaponFacet.replace(id, equip, eqm);
@@ -3166,7 +3174,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					eqr.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqr.getOutputName(), "Thrown"));
 				}
 
-				PlayerCharacterUtilities.setProf(equip, eqr);
+				setProf(equip, eqr);
 				weapList.add(++idx, eqr);
 
 				if (replacedPrimary)
@@ -3646,7 +3654,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
 		int rangeInFeet = 0;
-		String aString = getGameModeSpellRangeFormula(aRange.toUpperCase());
+		String aString = SettingsHandler.getGame().getSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
 		{
