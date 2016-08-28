@@ -7175,7 +7175,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 */
 		public int getBonus()
 		{
-			return (bonus);
+			return bonus;
 		}
 
 		/**
@@ -7185,7 +7185,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 */
 		public String getType()
 		{
-			return (type);
+			return type;
 		}
 
 		/**
@@ -10264,8 +10264,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		addAbility(cnas, owner, location);
 	}
 
-	public void addAbility(CNAbilitySelection cnas, Object owner,
-		Object location)
+	public void addAbility(CNAbilitySelection cnas, final Object owner,
+	                       Object location)
 	{
 		//TODO Need to handle owner
 		if (cnas.hasPrerequisites())
