@@ -649,15 +649,16 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 		{
 			if (includeItems.isEmpty() || includeItems.contains(key))
 			{
-				for (ModEntry element : entryList)
+				//$NON-NLS-1$
+				entryList.forEach(element ->
 				{
 					context.setSourceURI(element.source.getURI());
 					try
 					{
 						String origPage = object.get(StringKey.SOURCE_PAGE);
-						
+
 						parseLine(context, object, element.getLstLine(), element.getSource());
-	
+
 						if (origPage != object.get(StringKey.SOURCE_PAGE))
 						{
 							Campaign campaign = element.source.getCampaign();
@@ -668,17 +669,16 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 							object.put(StringKey.SOURCE_WEB, campaign.get(StringKey.SOURCE_WEB));
 							object.setSourceURI(element.source.getURI());
 						}
-					}
-					catch (PersistenceLayerException ple)
+					} catch (PersistenceLayerException ple)
 					{
 						String message = LanguageBundle.getFormattedString(
-							"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
-							element.getSource().getURI(), element.getLineNumber(),
-							ple.getMessage());
+								"Errors.LstFileLoader.ModParseError", //$NON-NLS-1$
+								element.getSource().getURI(), element.getLineNumber(),
+								ple.getMessage());
 						Logging.errorPrint(message);
 						setChanged();
 					}
-				}
+				});
 			}
 			completeObject(context, entry.getSource(), object);
 		}
@@ -740,10 +740,10 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 */
 	private void processMods(LoadContext context)
 	{
-		for (List<ModEntry> modEntry : modEntryList)
+		modEntryList.forEach(modEntry ->
 		{
 			performMod(context, modEntry);
-		}
+		});
 		modEntryList.clear();
 	}
 

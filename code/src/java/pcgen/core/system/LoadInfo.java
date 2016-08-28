@@ -160,11 +160,11 @@ public class LoadInfo implements Loadable
 
 	public void resolveSizeAdjustmentMap()
 	{
-		for (Map.Entry<CDOMSingleRef<SizeAdjustment>, BigDecimal> me : rawSizeMultiplierMap
-				.entrySet())
+		rawSizeMultiplierMap
+				.entrySet().forEach(me ->
 		{
 			sizeMultiplierMap.put(me.getKey().get(), me.getValue());
-		}
+		});
 	}
 
 	/**
