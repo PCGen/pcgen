@@ -4816,7 +4816,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @param line The line containing version information
 	 * @throws PCGParseException if the line is not a valid version line
 	 */
-	protected void parseVersionLine(final String line) throws PCGParseException
+	void parseVersionLine(final String line) throws PCGParseException
 	{
 		int[] version = {0, 0, 0};
 
@@ -6034,7 +6034,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns the version of the application that wrote the file
 	 * @return An <code>int</code> array containing the 3 digit version
 	 */
-	protected int[] getPcgenVersion()
+	int[] getPcgenVersion()
 	{
 		return pcgenVersion;
 	}
@@ -6046,7 +6046,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * value less than 0 if the PCG version is less than the supplied version; 
 	 * and a value greater than 0 if the PCG version is greater than the supplied version.
 	 */
-	protected int compareVersionTo(int inVer[])
+	int compareVersionTo(int inVer[])
 	{
 		return CoreUtility.compareVersions(pcgenVersion, inVer);
 	}
@@ -6055,7 +6055,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns any extra version info after the regular version number.
 	 * @return String extra version information
 	 */
-	protected String getPcgenVersionSuffix()
+	String getPcgenVersionSuffix()
 	{
 		return pcgenVersionSuffix;
 	}
@@ -6243,11 +6243,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processRemoval(CNAbility langbonus,
-		HashMapToList<Language, Object> sources,
-		Map<Object, Integer> actorLimit,
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
-		Object actor)
+	private void processRemoval(CNAbility langbonus,
+	                            HashMapToList<Language, Object> sources,
+	                            Map<Object, Integer> actorLimit,
+	                            Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
+	                            Object actor)
 	{
 		Integer limit = actorLimit.get(actor);
 		//apply
@@ -6271,9 +6271,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processActor(CNAbility langbonus,
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
-		Object actor)
+	private void processActor(CNAbility langbonus,
+	                          Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
+	                          Object actor)
 	{
 		if (actor instanceof CNAbility)
 		{

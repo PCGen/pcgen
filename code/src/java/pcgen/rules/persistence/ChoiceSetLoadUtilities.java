@@ -128,7 +128,7 @@ public final class ChoiceSetLoadUtilities
 		}
 	}
 
-	protected static boolean hasIllegalSeparator(char separator, String value)
+	private static boolean hasIllegalSeparator(char separator, String value)
 	{
 		if (value.charAt(0) == separator)
 		{

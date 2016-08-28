@@ -646,7 +646,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 		PUBLISHER_NAME("in_src_pubName"), //$NON-NLS-1$
 		PUBLISHER_SETTING_NAME("in_src_pubSetName"), //$NON-NLS-1$
 		PUBLISHER_FORMAT_SETTING_NAME("in_src_pubFmtSetName"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private SourceTreeView(String name)
 		{
