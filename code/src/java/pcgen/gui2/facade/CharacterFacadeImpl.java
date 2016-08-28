@@ -3792,7 +3792,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = charDisplay.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(theCharacter, equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;
 		}

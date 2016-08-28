@@ -595,7 +595,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
 	}
-	
+
 	private void doFormulaSetup()
 	{
 		SplitFormulaSetup formulaSetup =
