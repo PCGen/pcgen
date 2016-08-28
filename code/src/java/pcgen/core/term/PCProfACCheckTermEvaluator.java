@@ -80,7 +80,7 @@ public class PCProfACCheckTermEvaluator
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

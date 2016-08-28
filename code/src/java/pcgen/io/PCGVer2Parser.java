@@ -1435,7 +1435,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * System Information methods
 	 * ###############################################################
 	 */
-	private void checkDisplayListsHappy() throws PCGParseException
+	private static void checkDisplayListsHappy() throws PCGParseException
 	{
 		if (!Globals.displayListsHappy())
 		{
@@ -3041,7 +3041,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	private void parseGameMode(final String line) throws PCGParseException
+	private static void parseGameMode(final String line) throws PCGParseException
 	{
 		final String requestedMode = line.substring(TAG_GAMEMODE.length() + 1);
 
@@ -4443,7 +4443,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	private int totalAddedLevelsFromMetamagic(List<Ability> metaFeats)
+	private static int totalAddedLevelsFromMetamagic(List<Ability> metaFeats)
 	{
 		int addedLevels = 0;
 		
@@ -5008,7 +5008,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		return objClass.getName().substring(pckName.length() + 1);
 	}
 
-	private WeaponProf getWeaponProf(final String aString)
+	private static WeaponProf getWeaponProf(final String aString)
 	{
 		WeaponProf wp =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(

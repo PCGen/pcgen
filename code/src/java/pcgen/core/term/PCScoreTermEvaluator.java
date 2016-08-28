@@ -59,7 +59,7 @@ public class PCScoreTermEvaluator
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

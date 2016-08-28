@@ -1245,7 +1245,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * 
 	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
 	 */
-	private Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
+	private static Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
 	{
 		Equipment match = null;
 
@@ -4410,8 +4410,8 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		return (result);
 	}
 
-	private int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
-		final List<CasterLevelSpellBonus> bonuses)
+	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
+	                                           final List<CasterLevelSpellBonus> bonuses)
 	{
 		// now go through all bonuses, checking types to see what should add
 		// together
@@ -6050,7 +6050,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	private String replaceMasterString(String aString, final int aNum)
+	private static String replaceMasterString(String aString, final int aNum)
 	{
 		while (true)
 		{
@@ -7292,7 +7292,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 *            How to merge.
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
-	private List<Equipment> sortEquipmentList(final Collection<Equipment> unsortedEquip, final int merge)
+	private static List<Equipment> sortEquipmentList(final Collection<Equipment> unsortedEquip, final int merge)
 	{
 		if (unsortedEquip.isEmpty())
 		{
@@ -8362,7 +8362,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * @param aHashMap
 	 * @param abilityList TODO
 	 */
-	private void addUniqueAbilitiesToMap(final Map<String, Ability> aHashMap, Collection<Ability> abilityList)
+	private static void addUniqueAbilitiesToMap(final Map<String, Ability> aHashMap, Collection<Ability> abilityList)
 	{
 		for (Ability vFeat : abilityList)
 		{

@@ -143,7 +143,7 @@ public final class PJEP extends JEP
 	 * @param node The node to be checked.
 	 * @return True if the result would be cachable, false otherwise.
 	 */
-	public boolean isResultCachable(Node node)
+	public static boolean isResultCachable(Node node)
 	{
 		if (node instanceof ASTFunNode)
 		{

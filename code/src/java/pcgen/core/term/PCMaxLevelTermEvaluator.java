@@ -60,7 +60,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}
