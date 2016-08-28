@@ -45,6 +45,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.base.formula.Formula;
@@ -6747,10 +6748,7 @@ public final class Equipment extends PObject implements Serializable,
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
 		List<String> result = new ArrayList<>(trueTypeList.size());
-		for (Type type : trueTypeList)
-		{
-			result.add(type.toString());
-		}
+		result.addAll(trueTypeList.stream().map(Type::toString).collect(Collectors.toList()));
 		return result;
 	}
 	
