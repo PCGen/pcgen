@@ -29,10 +29,6 @@ import pcgen.cdom.content.Processor;
  * If the type to be modified matches the source type of the ChangeArmorType
  * object, then the result type is returned. Otherwise, the incoming type is not
  * modified.
- * 
- * NOTE: It is possible (albeit strange) to use ChangeArmorType as a
- * "RemoveArmorType", in that the result type can be null. Therefore, users
- * should expect that applyProcessor(String, Object) may return null.
  */
 public class ChangeArmorType implements Processor<String>
 {
@@ -58,9 +54,7 @@ public class ChangeArmorType implements Processor<String>
 	 *            the types provided in applyProcessor
 	 * @param resultType
 	 *            The result type for this ChangeArmorType, to be returned from
-	 *            applyProcessor if the Processor acts on the incoming type. May
-	 *            be null to indicate this ChangeArmorType should remove the
-	 *            source armor type
+	 *            applyProcessor if the Processor acts on the incoming type.
 	 * @throws NullPointerException
 	 *             if the given source type is null
 	 */
@@ -78,10 +72,6 @@ public class ChangeArmorType implements Processor<String>
 	 * not modified (and the incoming type is returned).
 	 * 
 	 * Since ChangeArmorType is universal, the given context is ignored.
-	 * 
-	 * NOTE: It is possible (albeit strange) to use ChangeArmorType as a
-	 * "RemoveArmorType", in that the result type can be null. Therefore, users
-	 * should account for the possibility that this method may return null.
 	 * 
 	 * @param sourceType
 	 *            The input armor type this Processor will act upon
@@ -155,8 +145,7 @@ public class ChangeArmorType implements Processor<String>
 	 * 
 	 * NOTE: As it is possible (albeit strange) to use ChangeArmorType as a
 	 * "RemoveArmorType", there is no guarantee that the returned list is the
-	 * same size as the given list. null values (removed armor types) will not
-	 * be included in the returned list. If the incoming list has only one type,
+	 * same size as the given list. If the incoming list has only one type,
 	 * and that type is removed, this method will return an empty list. This
 	 * method will not return null.
 	 * 
