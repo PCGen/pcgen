@@ -83,7 +83,9 @@ public final class Main
 	private static String characterFile;
 	private static String outputFile;
 
-	private Main() {}
+	private Main()
+	{
+	}
 
 	public static boolean shouldStartInGMGen()
 	{
