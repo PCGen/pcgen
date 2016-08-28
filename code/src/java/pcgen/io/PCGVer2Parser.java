@@ -92,7 +92,9 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
+import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PCAlignment;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -634,7 +636,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/**
 	 * Process the Use Higher Known Spell Slot line.
-	 * @param buffer The buffer to append to.
+	 * @param line The buffer to append to.
 	 */
 	private void parseUseHigherKnownSpellSlotsLine(String line)
 	{
@@ -643,7 +645,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/**
 	 * Process the Use Higher Prepped Spell Slot line.
-	 * @param buffer The buffer to append to.
+	 * @param line The buffer to append to.
 	 */
 	private void parseUseHigherPreppedSpellSlotsLine(String line)
 	{
@@ -652,13 +654,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseBirthdayLine(String line)
 	{
-		thePC.setBirthday(EntityEncoder.decode(line.substring(TAG_BIRTHDAY
-			.length() + 1)));
+		thePC.setPCAttribute(PCAttribute.BIRTHDAY, EntityEncoder.decode(line.substring(TAG_BIRTHDAY
+						.length() + 1)));
 	}
 
 	private void parseBirthplaceLine(String line)
 	{
-		thePC.setBirthplace(EntityEncoder.decode(line.substring(TAG_BIRTHPLACE
+		thePC.setPCAttribute(PCAttribute.BIRTHPLACE, EntityEncoder.decode(line.substring(TAG_BIRTHPLACE
 			.length() + 1)));
 	}
 
@@ -1495,7 +1497,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCatchPhraseLine(final String line)
 	{
-		thePC.setCatchPhrase(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.CATCHPHRASE, EntityEncoder.decode(line
 			.substring(TAG_CATCHPHRASE.length() + 1)));
 	}
 
@@ -1513,7 +1515,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterDescLine(final String line)
 	{
-		thePC.setDescription(EntityEncoder.decode(line
+		thePC.setPCAttribute(NotePCAttribute.DESCRIPTION, EntityEncoder.decode(line
 			.substring(TAG_CHARACTERDESC.length() + 1)));
 	}
 
@@ -1536,13 +1538,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCharacterNameLine(final String line)
 	{
-		thePC.setName(EntityEncoder.decode(line.substring(TAG_CHARACTERNAME
+		thePC.setPCAttribute(PCAttribute.NAME, EntityEncoder.decode(line.substring(TAG_CHARACTERNAME
 			.length() + 1)));
 	}
 
 	private void parseCityLine(final String line)
 	{
-		thePC.setResidence(EntityEncoder.decode(line.substring(TAG_CITY
+		thePC.setPCAttribute(PCAttribute.RESIDENCE, EntityEncoder.decode(line.substring(TAG_CITY
 			.length() + 1)));
 	}
 
@@ -3113,13 +3115,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setHairColor(EntityEncoder.decode(line.substring(TAG_HAIRCOLOR
+		thePC.setPCAttribute(PCAttribute.HAIRCOLOR, EntityEncoder.decode(line.substring(TAG_HAIRCOLOR
 			.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setHairStyle(EntityEncoder.decode(line.substring(TAG_HAIRSTYLE
+		thePC.setPCAttribute(PCAttribute.HAIRSTYLE, EntityEncoder.decode(line.substring(TAG_HAIRSTYLE
 			.length() + 1)));
 	}
 
@@ -3164,7 +3166,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseInterestsLine(final String line)
 	{
-		thePC.setInterests(EntityEncoder.decode(line.substring(TAG_INTERESTS
+		thePC.setPCAttribute(PCAttribute.INTERESTS, EntityEncoder.decode(line.substring(TAG_INTERESTS
 			.length() + 1)));
 	}
 
@@ -3254,7 +3256,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseLocationLine(final String line)
 	{
-		thePC.setLocation(EntityEncoder.decode(line.substring(TAG_LOCATION
+		thePC.setPCAttribute(PCAttribute.LOCATION, EntityEncoder.decode(line.substring(TAG_LOCATION
 			.length() + 1)));
 	}
 
@@ -3591,13 +3593,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parsePersonalityTrait1Line(final String line)
 	{
-		thePC.setTrait1(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.PERSONALITY1, EntityEncoder.decode(line
 			.substring(TAG_PERSONALITYTRAIT1.length() + 1)));
 	}
 
 	private void parsePersonalityTrait2Line(final String line)
 	{
-		thePC.setTrait2(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.PERSONALITY2, EntityEncoder.decode(line
 			.substring(TAG_PERSONALITYTRAIT2.length() + 1)));
 	}
 
@@ -3760,7 +3762,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	//this method is obsolete, but left in for backward-compatibility, replaced by parseCityLine()
 	private void parseResidenceLine(final String line)
 	{
-		thePC.setResidence(EntityEncoder.decode(line.substring(TAG_RESIDENCE
+		thePC.setPCAttribute(PCAttribute.RESIDENCE, EntityEncoder.decode(line.substring(TAG_RESIDENCE
 			.length() + 1)));
 		thePC.setDirty(true); // trigger a save prompt so that the PCG will be updated
 	}
@@ -3992,13 +3994,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setSkinColor(EntityEncoder.decode(line.substring(TAG_SKINCOLOR
+		thePC.setPCAttribute(PCAttribute.SKINCOLOR, EntityEncoder.decode(line.substring(TAG_SKINCOLOR
 			.length() + 1)));
 	}
 
 	private void parseSpeechPatternLine(final String line)
 	{
-		thePC.setSpeechTendency(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.SPEECHTENDENCY, EntityEncoder.decode(line
 			.substring(TAG_SPEECHPATTERN.length() + 1)));
 	}
 
@@ -4589,7 +4591,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseTabNameLine(final String line)
 	{
-		thePC.setTabName(EntityEncoder.decode(line.substring(TAG_TABNAME
+		thePC.setPCAttribute(PCAttribute.TABNAME, EntityEncoder.decode(line.substring(TAG_TABNAME
 			.length() + 1)));
 	}
 
@@ -5071,7 +5073,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCharacterBioLine(final String line)
 	{
-		thePC.setBio(EntityEncoder.decode(line.substring(TAG_CHARACTERBIO
+		thePC.setPCAttribute(NotePCAttribute.BIO, EntityEncoder.decode(line.substring(TAG_CHARACTERBIO
 			.length() + 1)));
 	}
 

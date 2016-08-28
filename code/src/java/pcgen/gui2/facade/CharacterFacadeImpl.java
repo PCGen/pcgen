@@ -92,6 +92,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -2015,7 +2016,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setTabName(String name)
 	{
 		tabName.set(name);
-		theCharacter.setTabName(name);
+		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
 	}
 
 	/* (non-Javadoc)
@@ -2083,7 +2084,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setSkinColor(color);
+		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
 	}
 
 	/**
@@ -2102,7 +2103,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setHairColor(color);
+		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
 	}
 
 	/**
