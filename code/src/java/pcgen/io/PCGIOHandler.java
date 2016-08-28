@@ -261,7 +261,7 @@ public final class PCGIOHandler extends IOHandler
 		}
 	}
 
-	private boolean isPCGCersion2(List<String> lines)
+	private static boolean isPCGCersion2(List<String> lines)
 	{
 		for (String aLine : lines)
 		{
@@ -277,7 +277,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param in
 	 * @return
 	 */
-	private List<String> readPcgLines(InputStream in)
+	private static List<String> readPcgLines(InputStream in)
 	{
 		final List<String> lines = new ArrayList<>();
 
@@ -603,7 +603,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param equipSet1 The second equipment set at a path.
 	 * @return The equipment set that should be move,d or null if none are safe.
 	 */
-	private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
+	private static EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
 	{
 		if (!equipSet2.getItem().isContainer())
 		{
@@ -623,7 +623,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param partyFile a .pcp party file
 	 * @return a list of files containing the characters in this party
 	 */
-	public List<File> readCharacterFileList(File partyFile)
+	public static List<File> readCharacterFileList(File partyFile)
 	{
 		List<String> lines;
 		try
@@ -673,7 +673,7 @@ public final class PCGIOHandler extends IOHandler
 		return fileList;
 	}
 
-	public void write(File partyFile, List<File> characterFiles)
+	public static void write(File partyFile, List<File> characterFiles)
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
 		String[] files = new String[characterFiles.size()];

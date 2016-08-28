@@ -6339,7 +6339,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	public PCAlignment getNoAlignment()
+	public static PCAlignment getNoAlignment()
 	{
 		return Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCAlignment.class, Constants.NONE);
