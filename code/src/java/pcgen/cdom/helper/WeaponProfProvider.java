@@ -21,6 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.QualifyingObject;
@@ -134,10 +135,7 @@ public class WeaponProfProvider extends ConcretePrereqObject implements
 		{
 			if (direct != null)
 			{
-				for (CDOMSingleRef<WeaponProf> ref : direct)
-				{
-					list.add(ref.get());
-				}
+				list.addAll(direct.stream().map(CDOMSingleRef::get).collect(Collectors.toList()));
 			}
 			if (type != null)
 			{

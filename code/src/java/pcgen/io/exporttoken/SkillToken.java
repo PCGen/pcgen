@@ -28,8 +28,10 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -493,14 +495,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_CLASSES:
-					List<String> classes = new ArrayList<>();
-					for (PCClass aClass : pc.getClassList())
-					{
-						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)
-						{
-							classes.add(aClass.getDisplayName());
-						}
-					}
+					List<String> classes = pc.getClassList().stream().filter(aClass -> pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS).map(CDOMObject::getDisplayName).collect(Collectors.toList());
 					retValue.append(StringUtils.join(classes, "."));
 					break;
 					
