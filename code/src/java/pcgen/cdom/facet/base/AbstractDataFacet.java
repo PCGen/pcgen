@@ -276,14 +276,14 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 	{
 		List<DataFacetChangeListener<IDT, ? super T>> list =
                 new ArrayList<>();
-		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
-			.values())
+		listeners
+				.values().forEach(dfclArray ->
 		{
 			for (DataFacetChangeListener<IDT, ? super T> listener : dfclArray)
 			{
 				list.add(listener);
 			}
-		}
+		});
 		return list.toArray(new DataFacetChangeListener[list.size()]);
 	}
 }
