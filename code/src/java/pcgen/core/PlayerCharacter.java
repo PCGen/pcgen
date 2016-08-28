@@ -7356,7 +7356,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		calcActiveBonuses();
 	}
 
-	private static class CasterLevelSpellBonus {
+	private static final class CasterLevelSpellBonus {
 		private int bonus;
 		private String type;
 
@@ -7366,7 +7366,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		 * @param b
 		 * @param t
 		 */
-		public CasterLevelSpellBonus(final int b, final String t) {
+		private CasterLevelSpellBonus(final int b, final String t) {
 			bonus = b;
 			type = t;
 		}
