@@ -52,7 +52,7 @@ public abstract class BaseEQTermEvaluator
 		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
-	protected Float convertToFloat(String element, String foo)
+	protected static Float convertToFloat(String element, String foo)
 	{
 		Float d = null;
 		try
