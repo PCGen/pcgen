@@ -257,7 +257,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		add(rightPanel, gbc);
 	}
 
-	private void setPanelTitle(JComponent panel, String title)
+	private static void setPanelTitle(JComponent panel, String title)
 	{
 		panel.setBorder(BorderFactory.createTitledBorder(null,
 				title,
@@ -583,7 +583,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		basicsPanel.revalidate();
 	}
 
-	private void addGridBagLayer(JPanel panel, Font font, Insets insets, String text, JComponent comp)
+	private static void addGridBagLayer(JPanel panel, Font font, Insets insets, String text, JComponent comp)
 	{
 		GridBagConstraints gbc = new GridBagConstraints();
 		JLabel label = new JLabel(LanguageBundle.getString(text));
@@ -634,7 +634,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	}
 
-	private void highlightBorder(final JComponent comp)
+	private static void highlightBorder(final JComponent comp)
 	{
 		final Border oldBorder = comp.getBorder();
 		Border highlightBorder = BorderFactory.createLineBorder(Color.GREEN, 3);

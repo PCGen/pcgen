@@ -205,7 +205,7 @@ public class SpellChoicePanel extends JPanel
 		setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 	}
 
-	private void addGridBagLayer(JPanel panel, String text, JComponent comp)
+	private static void addGridBagLayer(JPanel panel, String text, JComponent comp)
 	{
 		Insets insets = new Insets(0, 0, 3, 2);
 		GridBagConstraints gbc = new GridBagConstraints();

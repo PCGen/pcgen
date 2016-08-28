@@ -89,7 +89,7 @@ public class SpellListKnownToken extends SpellListToken
 	 * @param pc The character being queried
 	 * @return The number of spells allowed to be known.
 	 */
-	private int getKnownNum(CDOMObject aObject, int level, PlayerCharacter pc)
+	private static int getKnownNum(CDOMObject aObject, int level, PlayerCharacter pc)
 	{
 		int knownNum = 0;
 

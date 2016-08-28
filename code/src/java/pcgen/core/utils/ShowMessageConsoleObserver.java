@@ -47,7 +47,7 @@ public class ShowMessageConsoleObserver implements Observer {
 	}
 
 
-	private void showMessageDialog(final MessageWrapper messageWrapper)
+	private static void showMessageDialog(final MessageWrapper messageWrapper)
 	{
 	    Logging.errorPrint("Message");
 	    Logging.errorPrint("    Title: " + messageWrapper.getTitle());

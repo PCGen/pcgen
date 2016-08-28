@@ -355,8 +355,8 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Skill aSkill, int property,
-		String propertyText, PlayerCharacter pc)
+	private static String getSkillPropValue(Skill aSkill, int property,
+	                                        String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 

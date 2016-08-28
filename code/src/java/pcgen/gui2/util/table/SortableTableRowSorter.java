@@ -110,7 +110,7 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 		setSortKeys(keys);
 	}
 
-	private RowSorter.SortKey toggle(RowSorter.SortKey key)
+	private static RowSorter.SortKey toggle(RowSorter.SortKey key)
 	{
 		if (key.getSortOrder() == SortOrder.ASCENDING)
 		{

@@ -183,7 +183,7 @@ public class TokenConverter
 			}
 		}
 
-		protected TokenProcessorPlugin grabToken(Class<?> cl, String key)
+		protected static TokenProcessorPlugin grabToken(Class<?> cl, String key)
 		{
 			return map.get(cl, key);
 		}

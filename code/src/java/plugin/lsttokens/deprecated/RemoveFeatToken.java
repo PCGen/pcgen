@@ -336,8 +336,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		return false;
 	}
 
-	private boolean hasAssoc(List<String> associationList,
-		CNAbilitySelection choice)
+	private static boolean hasAssoc(List<String> associationList,
+	                                CNAbilitySelection choice)
 	{
 		if (associationList == null)
 		{

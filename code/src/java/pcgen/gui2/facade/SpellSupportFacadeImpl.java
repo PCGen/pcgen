@@ -856,8 +856,8 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * @param pcClass The class to filter the map by
 	 * @return A double map to the class' spells from the list. 
 	 */
-	private DoubleKeyMapToList<SpellFacade, String, SpellNode> buildExistingSpellMap(
-		DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
+	private static DoubleKeyMapToList<SpellFacade, String, SpellNode> buildExistingSpellMap(
+			DefaultListFacade<SpellNode> spellNodeList, PCClass pcClass)
 	{
 		DoubleKeyMapToList<SpellFacade, String, SpellNode> spellMap =
                 new DoubleKeyMapToList<>();

@@ -208,8 +208,8 @@ public abstract class VariableProcessor
 		return null;
 	}
 
-	private String makeCacheString(CharacterSpell aSpell, String varString,
-		String src, int spellLevelTemp)
+	private static String makeCacheString(CharacterSpell aSpell, String varString,
+	                                      String src, int spellLevelTemp)
 	{
 		StringBuilder cS = new StringBuilder(varString).append("#").append(src);
 		

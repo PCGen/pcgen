@@ -315,7 +315,7 @@ public class SourceSelectionPanel extends ConvertSubPanel
 	 * @param path The path to be shown.
 	 * @return The new html label text
 	 */
-	private String buildFolderText(SourceFolder folder, String path)
+	private static String buildFolderText(SourceFolder folder, String path)
 	{
 		return "<html><b>" + folder.getTitle() + ":</b> " + path + "</html>";
 	}
