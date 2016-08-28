@@ -277,7 +277,6 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
-import pcgen.util.enumeration.View;
 
 /**
  * {@code PlayerCharacter}.
@@ -1069,20 +1068,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Set the number of the current equipSet.
-	 *
-	 * @param anInt the new value for current equipSet index
-	 */
-	public void setEquipSetNumber(final int anInt)
-	{
-		if (currentEquipSetNumber != anInt)
-		{
-			currentEquipSetNumber = anInt;
-			setDirty(true);
-		}
-	}
-
-	/**
 	 * Get the current equipment set number.
 	 *
 	 * @return equipSet number
@@ -1090,51 +1075,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public int getEquipSetNumber()
 	{
 		return currentEquipSetNumber;
-	}
-
-	/**
-	 * gets the total weight in an EquipSet.
-	 *
-	 * @param idPath The root of the equipment set (or subset)
-	 * @return equipment set weight
-	 */
-	public double getEquipSetWeightDouble(final String idPath)
-	{
-		if (equipSetFacet.isEmpty(id))
-		{
-			return 0.0;
-		}
-
-		double totalWeight = 0.0;
-
-		for (EquipSet es : equipSetFacet.getSet(id))
-		{
-			final String abIdPath = idPath + Constants.EQUIP_SET_PATH_SEPARATOR;
-			final String esIdPath = es.getIdPath() + Constants.EQUIP_SET_PATH_SEPARATOR;
-
-			if (!esIdPath.startsWith(abIdPath))
-			{
-				continue;
-			}
-
-			final Equipment eqI = es.getItem();
-
-			if (eqI != null)
-			{
-				if ((eqI.getCarried() > 0.0f) && (eqI.getParent() == null))
-				{
-					if (eqI.getChildCount() > 0)
-					{
-						totalWeight += eqI.getWeightAsDouble(this) + eqI.getContainedWeight(this);
-					} else
-					{
-						totalWeight += eqI.getWeightAsDouble(this) * eqI.getCarried();
-					}
-				}
-			}
-		}
-
-		return totalWeight;
 	}
 
 	/**
@@ -1199,18 +1139,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		aList.addAll(autoListEquipmentFacet.getSet(id));
 		aList.addAll(autoEquipFacet.getAutoEquipment(id));
 		return aList;
-	}
-
-	/**
-	 * Get equipment master list in output order.
-	 *
-	 * @return equipment master list in output order
-	 */
-	public List<Equipment> getEquipmentMasterListInOutputOrder()
-	{
-		final List<Equipment> l = getEquipmentMasterList();
-		Collections.sort(l, CoreUtility.equipmentComparator);
-		return l;
 	}
 
 	/**
@@ -2385,11 +2313,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return pointBuyPoints;
 	}
 
-	public int getTotalPointBuyPoints()
-	{
-		return pointBuyPoints + (int) getTotalBonusTo("POINTBUY", "POINTS");
-	}
-
 	public void setXP(final int xp)
 	{
 		if (xpFacet.setXP(id, xp))
@@ -2466,17 +2389,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 			autoEquipOutputOrderCache.put(item.getKeyName(), item.getOutputIndex());
 		}
-	}
-
-	/**
-	 * Retrieve the cached output index of the automatic equipment item.
-	 * @param key The key of the equipment item.
-	 * @return The output index.
-	 */
-	public int getCachedOutputIndex(String key)
-	{
-		Integer order = autoEquipOutputOrderCache.get(key);
-		return order != null ? order : -1;
 	}
 
 	/**
@@ -2624,16 +2536,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		boolean found = equipSetFacet.delEquipSet(id, eSet);
 		setDirty(true);
 		return found;
-	}
-
-	/**
-	 * Search all the PCs Equipment sets for instances of eq and delete them.
-	 * @param eq The Equipment to delete.
-	 */
-	public void delEquipSetItem(final Equipment eq)
-	{
-		equipSetFacet.delEquipSetItem(id, eq);
-		setDirty(true);
 	}
 
 	/**
@@ -3906,18 +3808,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		return curStat;
-	}
-
-	public int getTwoHandDamageDivisor()
-	{
-		int div = getVariableValue("TWOHANDDAMAGEDIVISOR", Constants.EMPTY_STRING).intValue();
-
-		if (div == 0)
-		{
-			div = 2;
-		}
-
-		return div;
 	}
 
 	/**
@@ -5929,18 +5819,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * replaces oldItem with newItem in all EquipSets
-	 *
-	 * @param oldItem
-	 * @param newItem
-	 */
-	public void updateEquipSetItem(final Equipment oldItem, final Equipment newItem)
-	{
-		equipSetFacet.updateEquipSetItem(id, oldItem, newItem);
-		setDirty(true);
-	}
-
-	/**
 	 * @return true if character is currently being read from file.
 	 */
 	public boolean isImporting()
@@ -6032,12 +5910,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public void addFreeLanguage(final Language aLang, CDOMObject source)
 	{
 		freeLangFacet.add(id, aLang, source);
-		setDirty(true);
-	}
-
-	public void removeFreeLanguage(final Language aLang, CDOMObject source)
-	{
-		freeLangFacet.remove(id, aLang, source);
 		setDirty(true);
 	}
 
@@ -6134,45 +6006,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonus;
 	}
 
-	/**
-	 * Return a hashmap of the first maxCharacterLevel character levels that a
-	 * character has taken This will be a hash of "Class name"=>"number of
-	 * levels as a string". For example, {"Fighter"=>"2", "Cleric":"16"}
-	 *
-	 * @param maxCharacterLevel
-	 *            the maximum character level that we can include in this map
-	 * @return character level map
-	 */
-	private Map<String, Integer> getCharacterLevelHashMap(final int maxCharacterLevel)
-	{
-		final Map<String, Integer> lvlMap = new HashMap<>();
-
-		int characterLevels = 0;
-		for (int i = 0; i < getLevelInfoSize(); ++i)
-		{
-			final String classKeyName = getLevelInfoClassKeyName(i);
-			final PCClass aClass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class,
-					classKeyName);
-
-			if (aClass.isMonster() || characterLevels < maxCharacterLevel)
-			{
-				// we can use this class level if it is a monster level, or if
-				// we have not yet hit our maximum number of characterLevels
-				Integer val = lvlMap.get(classKeyName);
-				Integer newVal = (val == null) ? Integer.valueOf(1) : (val + 1);
-				lvlMap.put(classKeyName, newVal);
-			}
-
-			if (!aClass.isMonster())
-			{
-				// If the class level was not a monster level then it counts
-				// towards the total number of character levels
-				characterLevels++;
-			}
-		}
-
-		return lvlMap;
-	}
 
 	public int getNumAttacks()
 	{
@@ -6204,18 +6037,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		return iBonus;
-	}
-
-	private HashMap<String, Integer> getTotalLevelHashMap()
-	{
-		final HashMap<String, Integer> lvlMap = new HashMap<>();
-
-		for (PCClass aClass : getClassSet())
-		{
-			lvlMap.put(aClass.getKeyName(), getLevel(aClass));
-		}
-
-		return lvlMap;
 	}
 
 	/**
@@ -8175,12 +7996,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public boolean hasAbilityVisibleTo(final AbilityCategory aCategory,
-		View view)
-	{
-		return grantedAbilityFacet.hasAbilityVisibleTo(id, aCategory, view);
-	}
-
 	private void processAbilityListsOnAdd(CDOMObject cdo,
 		CDOMReference<? extends CDOMList<?>> ref)
 	{
@@ -8344,31 +8159,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return skillCostFacet.skillCostForPCClass(id, sk, cl);
 	}
 
-	public boolean containsAssociated(ChooseDriver obj, String o)
-	{
-		ChooseInformation<?> info = obj.getChooseInfo();
-		return (info != null) && containsAssociated(obj, info, o);
-	}
-
-	private <T> boolean containsAssociated(ChooseDriver obj,
-		ChooseInformation<T> info, String o)
-	{
-		List<? extends T> selections =
-				info.getChoiceActor().getCurrentlySelected(obj, this);
-		if ((selections == null) || selections.isEmpty())
-		{
-			return false;
-		}
-		for (T sel : selections)
-		{
-			if (o.equalsIgnoreCase(info.encodeChoice(sel)))
-			{
-				return true;
-			}
-		}
-		return false;
-	}
-
 	public int getSelectCorrectedAssociationCount(ChooseDriver obj)
 	{
 		return getDetailedAssociationCount(obj)
@@ -8480,21 +8270,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return assocSupt.getAssocList(obj, ak);
 	}
 
-	public <T extends Comparable<T>> void sortAssocList(Object obj, AssociationListKey<T> ak)
-	{
-		assocSupt.sortAssocList(obj, ak);
-	}
-
-	public <T> Collection<T> getSafeAssocList(Object obj, AssociationListKey<T> alk)
-	{
-		List<T> list = getAssocList(obj, alk);
-		if (list == null)
-		{
-			return new ArrayList<>();
-		}
-		return list;
-	}
-
 	public <T> List<T> removeAllAssocs(Object obj, AssociationListKey<T> ak)
 	{
 		return assocSupt.removeAllAssocs(obj, ak);
@@ -8546,11 +8321,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Number getLockedStat(PCStat stat)
 	{
 		return statLockFacet.getLockedStat(id, stat);
-	}
-
-	public String getDescription(CNAbility cna)
-	{
-		return getDescription(Collections.singletonList(cna));
 	}
 
 	public String getDescription(PObject pobj)
@@ -8987,11 +8757,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return defaultDomainSource != null;
 	}
 
-	public ClassSource getDefaultDomainSource()
-	{
-		return defaultDomainSource;
-	}
-
 	public void setDefaultDomainSource(ClassSource cs)
 	{
 		defaultDomainSource = cs;
@@ -9046,11 +8811,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public Map<String, String> getBonusStrings(String bonusString, String substring)
 	{
 		return bonusManager.getBonuses(bonusString, substring);
-	}
-
-	public Set<String> getTempBonusNames()
-	{
-		return bonusManager.getTempBonusDisplayNames();
 	}
 
 	public boolean isApplied(BonusObj bonus)
@@ -9731,11 +9491,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		userSpecialAbilityFacet.add(id, sa, source);
 	}
 
-	public void removeUserSpecialAbility(SpecialAbility sa, CDOMObject source)
-	{
-		userSpecialAbilityFacet.remove(id, sa, source);
-	}
-
 	public CharacterDisplay getDisplay()
 	{
 		return display;
@@ -10217,11 +9972,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return set;
 	}
 
-	public void addSavedAbility(CNAbilitySelection choice)
-	{
-		svAbilityFacet.add(id, choice);
-	}
-
 	public Collection<CNAbilitySelection> getSaveAbilities()
 	{
 		return svAbilityFacet.getSet(id);
@@ -10264,7 +10014,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		addAbility(cnas, owner, location);
 	}
 
-	public void addAbility(CNAbilitySelection cnas, final Object owner,
+	public void addAbility(CNAbilitySelection cnas, @SuppressWarnings("UnusedParameters") final Object owner,
 	                       Object location)
 	{
 		//TODO Need to handle owner
@@ -10282,8 +10032,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public void removeAbility(CNAbilitySelection cnas, Object owner,
-		Object location)
+	public void removeAbility(CNAbilitySelection cnas, @SuppressWarnings("UnusedParameters") Object owner,
+	                          Object location)
 	{
 		//TODO Need to handle owner
 		if (cnas.hasPrerequisites())
