@@ -441,7 +441,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	@Override
 	public boolean isResizable()
 	{
-		return Globals.canResizeHaveEffect(character, equip, equip.typeList());		
+		return Globals.canResizeHaveEffect(equip, equip.typeList());
 	}
 
 	/**
