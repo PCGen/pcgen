@@ -9557,14 +9557,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
-		for (CharacterSpell cs : csList)
-		{
-			if (cs.hasSpellInfoFor(level))
-			{
-				aList.add(cs);
-			}
-		}
+		ArrayList<CharacterSpell> aList = csList.stream().filter(cs -> cs.hasSpellInfoFor(level)).collect(Collectors.toCollection(ArrayList::new));
 
 		return aList;
 	}
@@ -9575,14 +9568,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
 
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
-		for (CharacterSpell cs : csList)
-		{
-			if (cs.hasSpellInfoFor(bookName))
-			{
-				aList.add(cs);
-			}
-		}
+		ArrayList<CharacterSpell> aList = csList.stream().filter(cs -> cs.hasSpellInfoFor(bookName)).collect(Collectors.toCollection(ArrayList::new));
 
 		return aList;
 	}
