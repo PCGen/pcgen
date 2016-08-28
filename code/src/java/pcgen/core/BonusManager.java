@@ -28,6 +28,7 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
@@ -900,7 +901,7 @@ public class BonusManager
 
 	public boolean compareToCheckpoint()
 	{
-		return checkpointMap != null && checkpointMap.equals(activeBonusMap);
+		return Objects.equals(checkpointMap, activeBonusMap);
 	}
 
 	public Map<BonusObj, TempBonusInfo> getTempBonusMap()
