@@ -19,7 +19,6 @@ package gmgen.plugin.dice;
 
 
 import java.text.MessageFormat;
-import java.util.Arrays;
 import java.util.Random;
 
 public class NSidedModifiedDieConfig implements DiceConfig
