@@ -63,7 +63,7 @@ public class PCBonusLangTermEvaluator
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

@@ -366,7 +366,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	private JButton createChooseButton()
+	private static JButton createChooseButton()
 	{
 		JButton button = new JButton(in_choose);
 		button.setMargin(new Insets(0, 3, 0, 3));

@@ -59,7 +59,7 @@ public class PCBaseSpellStatTermEvaluator
 		return (float) getBaseSpellStatBonus(pc, pcClass);
 	}
 
-	private int getBaseSpellStatBonus(PlayerCharacter pc, PCClass pcClass)
+	private static int getBaseSpellStatBonus(PlayerCharacter pc, PCClass pcClass)
 	{
 		if (pcClass == null)
 		{
@@ -86,7 +86,7 @@ public class PCBaseSpellStatTermEvaluator
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

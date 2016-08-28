@@ -119,7 +119,7 @@ public class OverlandPlugin implements InteractivePlugin
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -186,7 +186,7 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Sets the index for the pane 
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

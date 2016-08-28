@@ -271,9 +271,9 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	public void parseClassLevelLine(LoadContext context, PCClass pcClass,
-			int lvl, SourceEntry source,
-			String restOfLine) throws PersistenceLayerException
+	public static void parseClassLevelLine(LoadContext context, PCClass pcClass,
+	                                       int lvl, SourceEntry source,
+	                                       String restOfLine) throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{
@@ -321,8 +321,8 @@ public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 		}
 	}
 
-	public void parseLineIntoClass(LoadContext context, PCClass pcClass,
-			SourceEntry source, String restOfLine) throws PersistenceLayerException
+	public static void parseLineIntoClass(LoadContext context, PCClass pcClass,
+	                                      SourceEntry source, String restOfLine) throws PersistenceLayerException
 	{
 		if (restOfLine == null)
 		{

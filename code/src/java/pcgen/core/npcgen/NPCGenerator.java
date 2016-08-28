@@ -184,8 +184,8 @@ public class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectSkills(final PlayerCharacter aPC, final WeightedCollection<SkillChoice> skillList,
-									 final PCClass aClass, final int level)
+	private static void selectSkills(final PlayerCharacter aPC, final WeightedCollection<SkillChoice> skillList,
+	                                 final PCClass aClass, final int level)
 	{
 		// Select a potential skill
 
@@ -270,7 +270,7 @@ public class NPCGenerator
 		}
 	}
 
-	private PCAlignment getAlignment(final AlignGeneratorOption option)
+	private static PCAlignment getAlignment(final AlignGeneratorOption option)
 	{
 		if (option == null)
 		{
@@ -279,22 +279,22 @@ public class NPCGenerator
 		return option.getList().getRandomValue();
 	}
 
-	private Race getRace(final RaceGeneratorOption option)
+	private static Race getRace(final RaceGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private Gender getGender(final GenderGeneratorOption option)
+	private static Gender getGender(final GenderGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private PCClass getClass(final ClassGeneratorOption option)
+	private static PCClass getClass(final ClassGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
 
-	private int getLevel(final LevelGeneratorOption option)
+	private static int getLevel(final LevelGeneratorOption option)
 	{
 		return option.getList().getRandomValue();
 	}
@@ -356,7 +356,7 @@ public class NPCGenerator
 		return weightedCollection;
 	}
 
-	private void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
+	private static void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
 	{
 		while ((int)aPC.getRemainingFeatPoolPoints() > 0)
 		{
@@ -455,7 +455,7 @@ public class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectDomainSpell( final PlayerCharacter aPC, final PCClass aClass, final int aLevel )
+	private static void selectDomainSpell(final PlayerCharacter aPC, final PCClass aClass, final int aLevel)
 	{
 		if (!aPC.hasDomains())
 		{
@@ -478,7 +478,7 @@ public class NPCGenerator
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
-	private void selectSpell( final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel )
+	private static void selectSpell(final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel)
 	{
 		boolean added = false;
 		while ( !added )
