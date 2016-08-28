@@ -541,16 +541,15 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 	 * Constructor.
 	 */
 	public PlayerCharacter() {
-		this(true, Collections.<Campaign>emptyList());
+		this(Collections.<Campaign>emptyList());
 	}
 
 	/**
 	 * Constructor.
 	 *
-	 * @param load true if loading the character
 	 * @param loadedCampaigns The currently loaded campaign objects.
 	 */
-	public PlayerCharacter(boolean load, Collection<Campaign> loadedCampaigns)
+	public PlayerCharacter(Collection<Campaign> loadedCampaigns)
 	{
 		id = CharID.getID(Globals.getContext().getDataSetID());
 		doFormulaSetup();
@@ -7510,7 +7509,7 @@ public class PlayerCharacter  implements Cloneable, VariableContainer
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter(true, campaignFacet.getSet(id));
+		aClone = new PlayerCharacter(campaignFacet.getSet(id));
 		//aClone.variableProcessor = new VariableProcessorPC(aClone);
 		try
 		{

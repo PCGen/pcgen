@@ -99,7 +99,7 @@ public class ImagePreview
 
 		if (PCGFile.isPCGenCharacterFile(file))
 		{
-			aPC = new PlayerCharacter(false, Collections.emptyList());
+			aPC = new PlayerCharacter(Collections.emptyList());
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 

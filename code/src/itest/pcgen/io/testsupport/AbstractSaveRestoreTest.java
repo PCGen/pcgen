@@ -174,7 +174,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();
-		reloadedPC = new PlayerCharacter(true, Collections.<pcgen.core.Campaign>emptyList());
+		reloadedPC = new PlayerCharacter(Collections.<pcgen.core.Campaign>emptyList());
 		id = pc.getCharID();
 	}
 
