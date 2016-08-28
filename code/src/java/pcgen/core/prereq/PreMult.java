@@ -51,7 +51,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		for ( Prerequisite element : prereq.getPrerequisites() )
 		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			if (test != null) {
 				runningTotal += test.passes(element, character, source);
 			}
@@ -86,7 +86,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		for ( Prerequisite element : prereq.getPrerequisites() )
 		{
 			final PrerequisiteTestFactory factory = PrerequisiteTestFactory.getInstance();
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			runningTotal += test.passes(element, equipment, aPC);
 		}
 
@@ -106,7 +106,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		String delimiter = ""; //$NON-NLS-1$
 		for ( Prerequisite element : prereq.getPrerequisites() )
 		{
-			final PrerequisiteTest test = factory.getTest(element.getKind());
+			final PrerequisiteTest test = PrerequisiteTestFactory.getTest(element.getKind());
 			if (test==null)
 			{
 				Logging.errorPrintLocalised("PreMult.cannot_find_subformatter", element.getKind() ); //$NON-NLS-1$

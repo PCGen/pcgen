@@ -42,12 +42,12 @@ import pcgen.util.Logging;
 
 public class PrerequisiteWriter
 {
-	public void write(Writer stringWriter, Prerequisite prereq)
+	public static void write(Writer stringWriter, Prerequisite prereq)
 			throws PersistenceLayerException
 	{
 		PrerequisiteWriterFactory factory = PrerequisiteWriterFactory
 				.getInstance();
-		PrerequisiteWriterInterface writer = factory
+		PrerequisiteWriterInterface writer = PrerequisiteWriterFactory
 				.getWriter(prereq.getKind());
 		if (writer == null)
 		{
@@ -83,7 +83,7 @@ public class PrerequisiteWriter
 		return getPrereqString(prereqs, Constants.PIPE);
 	}
 
-	private String getPrereqString(Collection<Prerequisite> prereqs, String separator)
+	private static String getPrereqString(Collection<Prerequisite> prereqs, String separator)
 			throws PersistenceLayerException
 	{
 		String prereqString = null;

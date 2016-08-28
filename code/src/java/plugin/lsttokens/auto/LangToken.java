@@ -261,7 +261,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				StringWriter swriter = new StringWriter();
 				try
 				{
-					prereqWriter.write(swriter, prereq);
+					PrerequisiteWriter.write(swriter, prereq);
 				}
 				catch (PersistenceLayerException e)
 				{

@@ -378,7 +378,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 				StringWriter swriter = new StringWriter();
 				try
 				{
-					prereqWriter.write(swriter, prereq);
+					PrerequisiteWriter.write(swriter, prereq);
 				}
 				catch (PersistenceLayerException e)
 				{

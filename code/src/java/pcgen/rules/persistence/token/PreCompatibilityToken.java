@@ -127,7 +127,7 @@ public class PreCompatibilityToken implements
 			final StringWriter capture = new StringWriter();
 			try
 			{
-				PrerequisiteWriterInterface writer = factory.getWriter(kind);
+				PrerequisiteWriterInterface writer = PrerequisiteWriterFactory.getWriter(kind);
 				writer.write(capture, p);
 			}
 			catch (PersistenceLayerException e)

@@ -81,7 +81,7 @@ public class PreSizeTester extends AbstractDisplayPrereqTest implements Prerequi
 		return "SIZE"; //$NON-NLS-1$
 	}
 
-	private int getTargetSizeInt(String size)
+	private static int getTargetSizeInt(String size)
 	{
 		AbstractReferenceContext ref =
 				Globals.getContext().getReferenceContext();
