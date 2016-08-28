@@ -21,6 +21,7 @@ package pcgen.util.chooser;
 
 import java.util.Stack;
 
+import org.jetbrains.annotations.Nullable;
 import pcgen.facade.core.UIDelegate;
 
 /**
@@ -34,7 +35,7 @@ import pcgen.facade.core.UIDelegate;
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
-	private final static Stack<String> interfaceClassNameStack = new Stack<>();
+	private static final Stack<String> interfaceClassNameStack = new Stack<>();
 
 	/**
 	 * Deliberately private so it can't be instantiated.
@@ -52,6 +53,7 @@ public final class ChooserFactory
 	 * 
 	 * @return The most recently registered ChoiceHandler, if any.
 	 */
+	@Nullable
 	public static ChoiceHandler getChoiceHandler()
 	{
 		if (interfaceClassNameStack.isEmpty())
@@ -65,15 +67,7 @@ public final class ChooserFactory
 			ChoiceHandler ci = (ChoiceHandler) c.newInstance();
 			return ci;
 		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (ClassNotFoundException | InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -87,9 +81,9 @@ public final class ChooserFactory
 	 * 
 	 * @param chooserClassname The chooser class name to add.  
 	 */
-	public static void pushChooserClassname(String chooserClassname)
+	public static void pushChooserClassname(final String chooserClassname)
 	{
-		ChooserFactory.interfaceClassNameStack.push(chooserClassname);
+		interfaceClassNameStack.push(chooserClassname);
 	}
 
 	/**
@@ -97,13 +91,14 @@ public final class ChooserFactory
 	 * will then expose the next newest class name, or empty the stack. 
 	 * @return The class name that was removed.
 	 */
+	@Nullable
 	public static String popChooserClassname()
 	{
-		if (ChooserFactory.interfaceClassNameStack.isEmpty())
+		if (interfaceClassNameStack.isEmpty())
 		{
 			return null;
 		}
-		return ChooserFactory.interfaceClassNameStack.pop();
+		return interfaceClassNameStack.pop();
 	}
 
 	/**
@@ -117,7 +112,7 @@ public final class ChooserFactory
 	/**
 	 * @param delegate the delgate to set
 	 */
-	public static void setDelegate(UIDelegate delegate)
+	public static void setDelegate(final UIDelegate delegate)
 	{
 		ChooserFactory.delegate = delegate;
 	}

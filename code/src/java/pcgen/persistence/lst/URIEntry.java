@@ -21,7 +21,7 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.Objects;
-
+import org.jetbrains.annotations.Nullable;
 import pcgen.base.lang.ObjectUtil;
 import pcgen.util.Logging;
 
@@ -43,6 +43,7 @@ public class URIEntry
 	 * URIEntry. May be null if uri is set to a non-null value in the
 	 * constructor.
 	 */
+	@Nullable
 	private final URIFactory uriFac;
 
 	/**
@@ -50,6 +51,7 @@ public class URIEntry
 	 * URIFactory. If so, it will be set to a non-null value when first
 	 * required. May not be null if this URIEntry does not contain a URIFactory.
 	 */
+	@Nullable
 	private URI uri = null;
 
 	/**
@@ -102,37 +104,28 @@ public class URIEntry
 		return uri;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
-	public boolean equals(Object arg0)
+	public boolean equals(final Object obj)
 	{
-		if (arg0 == this)
+		if (obj == this)
 		{
 			return true;
 		}
-		if (arg0 instanceof URIEntry)
+		if (obj instanceof URIEntry)
 		{
-			URIEntry other = (URIEntry) arg0;
+			URIEntry other = (URIEntry) obj;
 			return ObjectUtil.compareWithNull(uriFac, other.uriFac)
 				&& getURI().equals(other.getURI());
 		}
 		return false;
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return this.getLSTformat().hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -159,6 +152,7 @@ public class URIEntry
 	{
 		if (uriFac == null)
 		{
+			assert uri != null;
 			return uri.toString();
 		}
 		else
@@ -177,7 +171,7 @@ public class URIEntry
 	 * @return a new URIEntry for a filename in the same directory as this
 	 *         URIEntry
 	 */
-	public URIEntry getRelatedTarget(String fileName)
+	URIEntry getRelatedTarget(final String fileName)
 	{
 		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
 			fileName));
@@ -196,8 +190,9 @@ public class URIEntry
 	 *            The offset from the root URI for the URIEntry
 	 * @return A new URIEntry from the given Campaign name, rootURI and offset
 	 */
-	public static URIEntry getURIEntry(String campaignName, URI rootURI,
-		String offset)
+	@Nullable
+	static URIEntry getURIEntry(String campaignName, URI rootURI,
+	                            String offset)
 	{
 		if (offset == null || offset.isEmpty())
 		{

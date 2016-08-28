@@ -111,7 +111,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
 		PersistenceManager pMan = PersistenceManager.getInstance();
-		List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
+		List<URI> selCampaigns = PersistenceManager.getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
@@ -156,7 +156,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 		if (campaignToFind != null)
 		{
 			PersistenceManager pMan = PersistenceManager.getInstance();
-			List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
+			List<URI> selCampaigns = PersistenceManager.getChosenCampaignSourcefiles();
 			for (URI element : selCampaigns)
 			{
 				final Campaign aCampaign = Globals.getCampaignByURI(element);

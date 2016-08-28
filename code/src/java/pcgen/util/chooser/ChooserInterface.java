@@ -33,13 +33,8 @@ import java.util.List;
  * @author    Jonas Karlsson
  * @version $Revision$
  */
-public interface ChooserInterface
+interface ChooserInterface
 {
-	/**
-	 * set allow duplicates flag
-	 * @param aBool
-	 */
-	void setAllowsDups(boolean aBool);
 
 	/**
 	 * Set available list
