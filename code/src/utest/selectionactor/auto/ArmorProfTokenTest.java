@@ -27,7 +27,7 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
 {
 
-	static ArmorProfToken cra = new ArmorProfToken();
+	private static final ArmorProfToken cra = new ArmorProfToken();
 
 	@Test
 	public void testEmpty()

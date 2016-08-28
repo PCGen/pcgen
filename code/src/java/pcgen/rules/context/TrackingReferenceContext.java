@@ -137,7 +137,7 @@ public class TrackingReferenceContext extends RuntimeReferenceContext implements
 		return source;
 	}
 
-	<T> void trackReference(CDOMReference<T> ref)
+	protected <T> void trackReference(CDOMReference<T> ref)
 	{
 		String src = getSource();
 		if (src == null)

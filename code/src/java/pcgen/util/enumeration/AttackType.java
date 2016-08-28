@@ -33,7 +33,7 @@ public enum AttackType
 
 	private final String identifier;
 
-	private AttackType(String ident)
+	AttackType(String ident)
 	{
 		identifier = ident;
 	}

@@ -49,14 +49,13 @@ import pcgen.gui2.tools.Icons;
  */
 public class JIcon extends JPanel
 {
-	File launch;
+	private File launch;
 	NotesPlugin plugin;
 
 	// Variables declaration - do not modify                     
 	private JButton button;
 	private JLabel label;
 	private JMenuItem deleteMI;
-	private JMenuItem launchMI;
 	private JPopupMenu contextMenu;
 
 	/**
@@ -333,7 +332,7 @@ public class JIcon extends JPanel
 	{
 		                          
 		contextMenu = new JPopupMenu();
-		launchMI = new JMenuItem();
+		JMenuItem launchMI = new JMenuItem();
 		deleteMI = new JMenuItem();
 		button = new JButton();
 		label = new JLabel();

@@ -27,7 +27,7 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class ShieldProfTokenTest extends AbstractSelectionActorTest<ShieldProf>
 {
 
-	static ShieldProfToken cra = new ShieldProfToken();
+	private static final ShieldProfToken cra = new ShieldProfToken();
 
 	@Test
 	public void testEmpty()

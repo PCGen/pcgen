@@ -28,10 +28,10 @@ import java.util.StringTokenizer;
 
 public class NetworkInitiative extends SystemInitiative
 {
-	protected String uid;
-	protected Socket sock;
+	private String uid;
+	private Socket sock;
 
-	public NetworkInitiative(String uid, Socket sock)
+	NetworkInitiative(String uid, Socket sock)
 	{
 		super();
 		this.uid = uid;
@@ -69,7 +69,7 @@ public class NetworkInitiative extends SystemInitiative
 		}
 	}
 
-	public void recieveNetMessage(String message)
+	void recieveNetMessage(String message)
 	{
 		String type = "";
 		String value = "";

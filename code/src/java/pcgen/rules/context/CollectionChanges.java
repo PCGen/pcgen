@@ -20,14 +20,14 @@ package pcgen.rules.context;
 import java.util.Collection;
 
 
-public class CollectionChanges<T> implements Changes<T>
+class CollectionChanges<T> implements Changes<T>
 {
 	private final Collection<T> positive;
 	private final Collection<T> negative;
 	private final boolean clear;
 
-	public CollectionChanges(Collection<T> added, Collection<T> removed,
-		boolean globallyCleared)
+	CollectionChanges(Collection<T> added, Collection<T> removed,
+	                  boolean globallyCleared)
 	{
 		positive = added;
 		negative = removed;

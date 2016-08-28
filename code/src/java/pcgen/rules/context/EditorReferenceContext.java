@@ -23,7 +23,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Loadable;
 
-public class EditorReferenceContext extends RuntimeReferenceContext
+class EditorReferenceContext extends RuntimeReferenceContext
 {
 
 	private final HashMapToList<CDOMObject, CDOMObject> copyMap = new HashMapToList<>();
