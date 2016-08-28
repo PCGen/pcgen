@@ -41,7 +41,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -52,9 +51,7 @@ import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
 import org.apache.commons.lang.SystemUtils;
-
 import pcgen.system.PCGenSettings;
 
 /**
@@ -394,7 +391,7 @@ public final class Utility
 				&& SystemUtils.IS_OS_WINDOWS
 				&& PCGenSettings.getBrowserPath() == null)
 		{
-			Utility.selectDefaultBrowser(null);
+			selectDefaultBrowser(null);
 		}
 
 		DesktopBrowserLauncher.browse(uri);
