@@ -45,10 +45,9 @@ import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
 /**
- * <code>BioSet</code>.
+ * {@code BioSet}.
  *
  * @author Bryan McRoberts
- * @version $Revision$
  */
 public final class BioSet extends PObject implements NonInteractive
 {
@@ -293,7 +292,6 @@ public final class BioSet extends PObject implements NonInteractive
 	 *
 	 * @param region The region of the race
 	 * @param race   The name of the race.
-	 * @param includeGenericMatches Should generic race references such as Elf% be included
 	 * @return SortedMap A map of the gae brackets. Within each age bracket is a
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
@@ -411,19 +409,16 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
+			for (final Map.Entry<String, SortedMap<String, String>> stringSortedMapEntry : races.entrySet())
 			{
-				final String aRaceName = raceIt.next();
-
-				if (!"AGESET".equals(aRaceName))
+				if (!"AGESET".equals(stringSortedMapEntry.getKey()))
 				{
-					final SortedMap<String, String> tags = races.get(aRaceName);
+					final SortedMap<String, String> tags = stringSortedMapEntry.getValue();
 
-					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
+					for (final Map.Entry<String, String> stringStringEntry : tags.entrySet())
 					{
-						final String tagName = tagIt.next();
-						sb.append("RACENAME:").append(aRaceName).append("\t\t");
-						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
+						sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
+						sb.append(stringStringEntry.getKey()).append(':').append(stringStringEntry.getValue()).append("\n");
 					}
 				}
 			}
