@@ -4456,8 +4456,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param abilityList The list of abilities
 	 * @return The specialAbilityTimesList value
 	 */
-	private List<String> getSpecialAbilityTimesList(
-		final List<String> abilityList)
+	private static List<String> getSpecialAbilityTimesList(
+			final List<String> abilityList)
 	{
 
 		final List<String> sortList = new ArrayList<>();
@@ -4748,7 +4748,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 	}
 
-	private BigDecimal evaluateCost(final PJEP myParser, final String costExpr)
+	private static BigDecimal evaluateCost(final PJEP myParser, final String costExpr)
 	{
 		myParser.parseExpression(costExpr);
 
@@ -4858,8 +4858,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param commonList The list of modifiers common between the two heads
 	 * @param errMsg the error message to print if something goes wrong
 	 */
-	private void removeCommonFromList(final List<EquipmentModifier> altList,
-		final List<EquipmentModifier> commonList, final String errMsg)
+	private static void removeCommonFromList(final List<EquipmentModifier> altList,
+	                                         final List<EquipmentModifier> commonList, final String errMsg)
 	{
 
 		for (int i = altList.size() - 1; i >= 0; --i)

@@ -109,7 +109,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 
 
-	private void handleSavePcgMessage(PCGenMessage message)
+	private static void handleSavePcgMessage(PCGenMessage message)
 	{
 		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
 		PlayerCharacter pc = smessage.getPc();
@@ -144,8 +144,8 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 //		}
 	}
 
-	private void handleInitHolderListSendMessage(
-		TransmitInitiativeValuesBetweenComponentsMessage message)
+	private static void handleInitHolderListSendMessage(
+			TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		InitHolderList list = message.getInitHolderList();
 

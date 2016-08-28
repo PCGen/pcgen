@@ -2119,7 +2119,7 @@ public final class ExportHandler
 	 * @param aString token to evaluate
 	 * @return true if it is a filter token
 	 */
-	private boolean isFilterToken(String aString)
+	private static boolean isFilterToken(String aString)
 	{
 		if ((aString.length() > 0) && (aString.charAt(0) == '%')
 			&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
@@ -2136,7 +2136,7 @@ public final class ExportHandler
 	 * @param tokenString token to evaluate
 	 * @return true if it is a valid SUB token
 	 */
-	private boolean isValidSubToken(String tokenString)
+	private static boolean isValidSubToken(String tokenString)
 	{
 		if (tokenString.indexOf("SUB") == 0 && (tokenString.indexOf(".") > 3))
 		{
@@ -2151,7 +2151,7 @@ public final class ExportHandler
 	 * @param tokenString token to check
 	 * @return true if it is a DFOR or FOR token 
 	 */
-	boolean isForOrDForToken(String tokenString)
+	static boolean isForOrDForToken(String tokenString)
 	{
 		if (tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR."))
 		{
@@ -2166,7 +2166,7 @@ public final class ExportHandler
 	 * @param testString String to test
 	 * @return true if it 
 	 */
-	private boolean containsMathematicalToken(String testString)
+	private static boolean containsMathematicalToken(String testString)
 	{
 		if ((testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
 			|| (testString.indexOf(".INTVAL") >= 0)
@@ -2186,7 +2186,7 @@ public final class ExportHandler
 	 * @param tokenString the SUB token
 	 * @return The altered SUB token
 	 */
-	private String replaceSubToken(String tokenString)
+	private static String replaceSubToken(String tokenString)
 	{
 		int iEnd = tokenString.indexOf(".");
 		int maxLength;
@@ -2953,7 +2953,7 @@ public final class ExportHandler
 	 * @param aString
 	 * @return merging strategy constant
 	 */
-	private int getEquipmentMergingStrategy(String aString)
+	private static int getEquipmentMergingStrategy(String aString)
 	{
 		// Set how we are merging equipment, default is to merge all
 		int merge = Constants.MERGE_ALL;

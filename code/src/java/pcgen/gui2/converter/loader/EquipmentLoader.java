@@ -152,7 +152,7 @@ public class EquipmentLoader implements Loader
 		return c.getSafeListFor(listkey);
 	}
 
-	public String getLoadName()
+	public static String getLoadName()
 	{
 		return EQUIPMENT_CLASS.getSimpleName();
 	}
