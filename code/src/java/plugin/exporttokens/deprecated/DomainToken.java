@@ -105,7 +105,7 @@ public class DomainToken extends Token
 	 * @param domainIndex
 	 * @return token
 	 */
-	public String getDomainToken(CharacterDisplay display, int domainIndex)
+	public static String getDomainToken(CharacterDisplay display, int domainIndex)
 	{
 		try
 		{

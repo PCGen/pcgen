@@ -129,8 +129,8 @@ public class CampaignHistoryToken extends Token
 		return value; 
 	}
 
-	private ChronicleEntry getTargetChronicleEntry(int targetIndex,
-		Visibility visibility, CharacterDisplay display)
+	private static ChronicleEntry getTargetChronicleEntry(int targetIndex,
+	                                                      Visibility visibility, CharacterDisplay display)
 	{
 		Collection<ChronicleEntry> entries = display.getChronicleEntries();
 		int i = 0;
@@ -157,7 +157,7 @@ public class CampaignHistoryToken extends Token
 	 * @param token
 	 * @return
 	 */
-	private String getChronicleValue(ChronicleEntry entry, String token)
+	private static String getChronicleValue(ChronicleEntry entry, String token)
 	{
 		
 		if (token.equals("TEXT"))

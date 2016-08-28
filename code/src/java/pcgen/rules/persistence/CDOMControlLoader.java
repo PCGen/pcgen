@@ -105,8 +105,8 @@ public class CDOMControlLoader extends LstLineFileLoader
 		return true;
 	}
 
-	private <CC extends Loadable> boolean subParse(LoadContext context,
-		CDOMSubLineLoader<CC> loader, String line) throws PersistenceLayerException
+	private static <CC extends Loadable> boolean subParse(LoadContext context,
+	                                                      CDOMSubLineLoader<CC> loader, String line) throws PersistenceLayerException
 	{
 		int tabLoc = line.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;

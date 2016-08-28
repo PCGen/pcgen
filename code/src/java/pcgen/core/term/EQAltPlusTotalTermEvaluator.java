@@ -83,7 +83,7 @@ public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements 
 	/* (non-Javadoc)
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

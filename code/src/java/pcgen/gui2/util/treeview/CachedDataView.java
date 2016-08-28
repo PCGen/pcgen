@@ -73,7 +73,7 @@ public abstract class CachedDataView<E> implements DataView<E>
 		dataCache.remove(element);
 	}
 
-	protected boolean shouldCache(int column){
+	protected static boolean shouldCache(int column){
 		return true;
 	}
 }

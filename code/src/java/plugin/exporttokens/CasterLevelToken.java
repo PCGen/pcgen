@@ -99,7 +99,7 @@ public class CasterLevelToken extends Token
 	 * @param classNumber
 	 * @return token
 	 */
-	public String getClassToken(PlayerCharacter pc, int classNumber)
+	public static String getClassToken(PlayerCharacter pc, int classNumber)
 	{
 		String cString = "";
 

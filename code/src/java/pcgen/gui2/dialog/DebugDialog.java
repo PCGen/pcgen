@@ -179,7 +179,7 @@ public class DebugDialog extends JDialog
 				logText.repaint();
 			}
 		}
-		private void openFile(File file) throws IOException
+		private static void openFile(File file) throws IOException
 		{
 			if (Desktop.isDesktopSupported())
 			{
@@ -244,7 +244,7 @@ public class DebugDialog extends JDialog
 			return file;
 		}
 
-		private URI extractFileURIFromLinePart(String part)
+		private static URI extractFileURIFromLinePart(String part)
 			throws URISyntaxException
 		{
 			String filePart = part;

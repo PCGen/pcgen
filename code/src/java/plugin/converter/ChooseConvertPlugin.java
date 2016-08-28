@@ -75,7 +75,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		tpe.consume();
 	}
 
-	private List<String> buildDescriptions(String feat)
+	private static List<String> buildDescriptions(String feat)
 	{
 		List<String> list = new ArrayList<String>();
 		list.add("Underlying Feat " + feat + " is CHOOSE:ABILITY");
@@ -97,7 +97,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		return list;
 	}
 
-	private void processSpellList(TokenProcessEvent tpe)
+	private static void processSpellList(TokenProcessEvent tpe)
 	{
 		String decision = tpe.getDecider().getConversionInput(
 				"Please provide class spell list which " + tpe.getObjectName()

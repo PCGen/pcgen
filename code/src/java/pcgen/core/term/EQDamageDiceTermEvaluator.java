@@ -60,7 +60,7 @@ public class EQDamageDiceTermEvaluator extends BaseEQTermEvaluator implements Te
 		return false;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

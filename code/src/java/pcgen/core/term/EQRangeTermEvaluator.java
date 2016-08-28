@@ -70,7 +70,7 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 		return true;
 	}
 
-	public boolean isStatic()
+	public static boolean isStatic()
 	{
 		return false;
 	}

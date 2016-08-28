@@ -593,7 +593,7 @@ class ClassDataHandler extends DefaultHandler
 		}
     }
 
-    private int getWeight( final Attributes anAttrs )
+    private static int getWeight(final Attributes anAttrs)
 	{
 		int weight = 1;
 		final String wtStr = anAttrs.getValue("weight"); //$NON-NLS-1$

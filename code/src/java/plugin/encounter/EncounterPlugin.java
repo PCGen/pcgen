@@ -197,7 +197,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -556,7 +556,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Tool item menu
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	public static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -741,7 +741,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return toReturn;
 	}
 
-	private String getNewIdPath(PlayerCharacter aPC, EquipSet eSet)
+	private static String getNewIdPath(PlayerCharacter aPC, EquipSet eSet)
 	{
 		String pid = "0";
 		int newID = 0;
@@ -808,7 +808,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private EquipSet createDefaultEquipset(PlayerCharacter aPC)
+	private static EquipSet createDefaultEquipset(PlayerCharacter aPC)
 	{
 		EquipSet eSet;
 
@@ -944,7 +944,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		aPC.setCalcEquipmentList();
 	}
 
-	private void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
+	private static void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
 	{
 		PCClass cl = lcf.getPCClass();
 		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
@@ -963,7 +963,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private void handleNonMonster(PlayerCharacter aPC)
+	private static void handleNonMonster(PlayerCharacter aPC)
 	{
 		PCClass mclass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
@@ -992,7 +992,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return true;
 	}
 
-	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
+	private static List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -1075,7 +1075,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return aList;
 	}
 
-	private int getHands(PlayerCharacter pc)
+	private static int getHands(PlayerCharacter pc)
 	{
 		String solverValue = pc.getControl(CControl.CREATUREHANDS);
 		if (solverValue == null)
@@ -1359,7 +1359,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		updateUI();
 	}
 
-	private void rollHP(PlayerCharacter aPC)
+	private static void rollHP(PlayerCharacter aPC)
 	{
 		CharacterDisplay display = aPC.getDisplay();
 		for (PCClass pcClass : display.getClassSet())

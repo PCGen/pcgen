@@ -4890,7 +4890,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return An array of equipmod lists.
 	 */
-	private List<List<EquipmentModifier>> initSplitModList()
+	private static List<List<EquipmentModifier>> initSplitModList()
 	{
 
 		List<List<EquipmentModifier>> modListArray =
@@ -4911,8 +4911,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param splitModList
 	 *            The array of receiving lists, one for each format cat.
 	 */
-	private void splitModListByFormatCat(final List<EquipmentModifier> modList,
-		final List<List<EquipmentModifier>> splitModList)
+	private static void splitModListByFormatCat(final List<EquipmentModifier> modList,
+	                                            final List<List<EquipmentModifier>> splitModList)
 	{
 
 		for (EquipmentModifier aModList : modList)

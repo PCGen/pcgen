@@ -230,7 +230,7 @@ public enum EqModNameOpt
 		}
 	}
 
-	public String associatedList(List<String> associatedList)
+	public static String associatedList(List<String> associatedList)
 	{
 		if (associatedList == null)
 		{

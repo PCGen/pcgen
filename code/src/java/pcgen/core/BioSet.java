@@ -614,7 +614,7 @@ public final class BioSet extends PObject implements NonInteractive
 		}
 	}
 
-	private List<String> mapFind(
+	private static List<String> mapFind(
 			final TripleKeyMapToList<Region, String, String, String> argMap,
 			final String argRegionName, final String argRaceName,
 			final String addKey, final String altRaceName)

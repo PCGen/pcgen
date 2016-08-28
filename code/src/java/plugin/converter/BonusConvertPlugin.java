@@ -60,8 +60,8 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return processBonus(tpe, tpe.getKey(), value + result);
 	}
 
-	private String process(EditorLoadContext context,
-			ConversionDecider decider, String objectName, String token)
+	private static String process(EditorLoadContext context,
+	                              ConversionDecider decider, String objectName, String token)
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)
@@ -98,7 +98,7 @@ public class BonusConvertPlugin implements TokenProcessorPlugin
 		return null;
 	}
 
-	private String processBonus(TokenProcessEvent tpe, String key, String value)
+	private static String processBonus(TokenProcessEvent tpe, String key, String value)
 	{
 		try
 		{

@@ -153,7 +153,7 @@ public class DescriptionFacadeImpl implements DescriptionFacade
 	 * @param bio
 	 * @return
 	 */
-	private NoteFacade createDefaultNote(String noteName, String value)
+	private static NoteFacade createDefaultNote(String noteName, String value)
 	{
 		NoteItem note = new NoteItem(0, -1, noteName, value);
 		note.setRequired(true);

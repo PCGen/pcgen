@@ -303,7 +303,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		setRightComponent(panel);
 	}
 
-	private DynamicTableColumnModel createEquipmentColumnModel()
+	private static DynamicTableColumnModel createEquipmentColumnModel()
 	{
 		PrefTableColumnModel model = new PrefTableColumnModel("EquipList", 1);
 
@@ -386,7 +386,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return new TabTitle(Tab.EQUIPPING);
 	}
 
-	private List<Integer> getMenuTargets(JTable table, MouseEvent e)
+	private static List<Integer> getMenuTargets(JTable table, MouseEvent e)
 	{
 		int row = table.rowAtPoint(e.getPoint());
 		if (!table.isRowSelected(row))
