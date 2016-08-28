@@ -117,10 +117,10 @@ public class AbilityList extends CDOMListObject<Ability>
 	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
 	{
 		List<CDOMReference<AbilityList>> list = new ArrayList<>();
-		for (CDOMSingleRef<AbilityCategory> cat : MASTER_MAP.getKeySet())
+		MASTER_MAP.getKeySet().forEach(cat ->
 		{
 			list.addAll(MASTER_MAP.values(cat));
-		}
+		});
 		return list;
 	}
 

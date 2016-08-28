@@ -27,7 +27,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * Support class for running Junit tests
  */
-public class TestSupport
+public final class TestSupport
 {
 
 	/**

@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import java.util.stream.Collectors;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.facade.core.AbilityFacade;
@@ -88,10 +89,7 @@ public class AbilityTreeViews
 			}
 			else
 			{
-				for (String type : types)
-				{
-					list.add(new TreeViewPath<>(pobj, type));
-				}
+				list.addAll(types.stream().map(type -> new TreeViewPath<>(pobj, type)).collect(Collectors.toList()));
 			}
 			return list;
 		}
@@ -144,11 +142,11 @@ public class AbilityTreeViews
 			}
 
 			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<>();
-			for (List<AbilityFacade> path : abilityPaths)
+			abilityPaths.forEach(path ->
 			{
 				Collections.reverse(path);
 				paths.add(new TreeViewPath<AbilityFacade>(path.toArray(), pobj));
-			}
+			});
 			return paths;
 		}
 
@@ -164,7 +162,8 @@ public class AbilityTreeViews
 					+ StringUtils.join(preAbilities, ",") + "]. Skipping.");
 				return;
 			}
-			for (AbilityFacade preAbility : preAbilities)
+			// Don't include self references in the path
+			preAbilities.forEach(preAbility ->
 			{
 				@SuppressWarnings("unchecked")
 				ArrayList<AbilityFacade> pathclone = (ArrayList<AbilityFacade>) path.clone();
@@ -176,12 +175,11 @@ public class AbilityTreeViews
 				if (preAbilities2.isEmpty())
 				{
 					abilityPaths.add(pathclone);
-				}
-				else
+				} else
 				{
 					addPaths(abilityPaths, preAbilities2, pathclone);
 				}
-			}
+			});
 		}
 
 	}
