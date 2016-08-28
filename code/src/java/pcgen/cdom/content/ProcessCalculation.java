@@ -29,6 +29,7 @@ import pcgen.base.util.FormatManager;
  * @param <T>
  *            The format of object on which this ProcessCalculation operates
  */
+
 public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 {
 	/**
@@ -62,6 +63,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 		this.formatManager = fmtManager;
 	}
 
+	@SuppressWarnings("unchecked")
 	@Override
 	public T process(EvaluationManager evalManager)
 	{

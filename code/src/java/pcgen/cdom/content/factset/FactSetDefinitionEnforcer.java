@@ -72,7 +72,7 @@ public class FactSetDefinitionEnforcer<T extends CDOMObject, F> implements
 		 * Note, even if the Indirects in list are empty this should pass,
 		 * because they TRIED, right?
 		 */
-		if (list != null && !list.isEmpty())
+		if ((list != null) && !list.isEmpty())
 		{
 			return true;
 		}
