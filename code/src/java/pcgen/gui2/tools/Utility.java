@@ -41,7 +41,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -52,10 +51,7 @@ import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
 import org.apache.commons.lang.SystemUtils;
-
-import org.jetbrains.annotations.Nullable;
 import pcgen.system.PCGenSettings;
 
 /**
@@ -301,7 +297,7 @@ public final class Utility
 	 * Sets the default browser.
 	 * @param parent The component to show the dialog over.
 	 */
-	public static void selectDefaultBrowser(@Nullable Component parent)
+	public static void selectDefaultBrowser(Component parent)
 	{
 		final JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your preferred html browser.");
