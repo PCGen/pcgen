@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -60,7 +61,7 @@ public class PreBirthplaceTest extends AbstractCharacterTestCase
 	public void testAtt() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setBirthplace("Klamath");
+		character.setPCAttribute(PCAttribute.BIRTHPLACE, "Klamath");
 
 		Prerequisite prereq;
 

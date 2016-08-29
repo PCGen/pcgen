@@ -41,6 +41,7 @@ import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
@@ -229,36 +230,13 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setHairColor(generateBioValue("HAIR", pc));
+			pc.setPCAttribute(PCAttribute.HAIRCOLOR, generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setSkinColor(generateBioValue("SKINTONE", pc));
+			pc.setPCAttribute(PCAttribute.SKINCOLOR, generateBioValue("SKINTONE", pc));
 		}
-	}
-
-	/**
-	 * Remove the user from the map
-	 * @param region
-	 * @param race
-	 * @param tag
-	 */
-	public void removeFromUserMap(final String region, final String race, final String tag)
-	{
-		final String key;
-		final int x = tag.indexOf(':');
-
-		if (x < 0)
-		{
-			key = tag;
-		}
-		else
-		{
-			key = tag.substring(0, x);
-		}
-
-		userMap.removeListFor(Region.getConstant(region), race, key);
 	}
 
 	@Override
