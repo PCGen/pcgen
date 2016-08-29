@@ -105,7 +105,7 @@ public class CharacterManager
 		try
 		{
 			@SuppressWarnings("unchecked")
-			PlayerCharacter pc = new PlayerCharacter(false, campaigns);
+			PlayerCharacter pc = new PlayerCharacter(campaigns);
 			Globals.getPCList().add(pc);
 			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 			String name = createNewCharacterName();
@@ -194,7 +194,7 @@ public class CharacterManager
 		final PlayerCharacter newPC;
 		try
 		{
-			newPC = new PlayerCharacter(false, campaigns);
+			newPC = new PlayerCharacter(campaigns);
 			newPC.setFileName(file.getAbsolutePath());
 			ioHandler.read(newPC, file.getAbsolutePath());
 			// Ensure any custom equipment held by the character is added to the dataset's list
