@@ -24,6 +24,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
+import org.jetbrains.annotations.NotNull;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.ListSet;
 import pcgen.cdom.base.CDOMObject;
@@ -173,7 +174,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	}
 
 	@Override
-	public SkillCost skillCostForPCClass(Skill sk, PCClass aClass)
+	public SkillCost skillCostForPCClass(Skill sk, @NotNull PCClass aClass)
 	{
 		SkillCost sc = skillCostMap.get(sk, aClass);
 		if (sc == null)
