@@ -228,7 +228,7 @@ task copyToLibs(type: Copy) {
 }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+//    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
@@ -239,7 +239,7 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+//    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
     from "${buildDir}/libs"
     into "$projectDir/libs"
@@ -381,7 +381,7 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
+    gradleVersion = '3.0'
 }
 
 //Disable failing on javadoc warning
