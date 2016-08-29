@@ -19,9 +19,11 @@ import com.apple.eawt.AboutHandler;
 import com.apple.eawt.AppEvent;
 import pcgen.gui2.PCGenUIManager;
 
-public class OSXAboutHandler implements AboutHandler {
+public class OSXAboutHandler implements AboutHandler
+{
     @Override
-    public void handleAbout(final AppEvent.AboutEvent aboutEvent) {
+    public void handleAbout(final AppEvent.AboutEvent aboutEvent)
+    {
         PCGenUIManager.displayAboutDialog();
     }
 }

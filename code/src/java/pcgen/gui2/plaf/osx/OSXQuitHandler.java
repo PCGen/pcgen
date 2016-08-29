@@ -20,9 +20,11 @@ import com.apple.eawt.QuitHandler;
 import com.apple.eawt.QuitResponse;
 import pcgen.gui2.PCGenUIManager;
 
-public class OSXQuitHandler implements QuitHandler {
+public class OSXQuitHandler implements QuitHandler
+{
     @Override
-    public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse) {
+    public void handleQuitRequestWith(final AppEvent.QuitEvent quitEvent, final QuitResponse quitResponse)
+    {
         PCGenUIManager.closePCGen();
     }
 }
