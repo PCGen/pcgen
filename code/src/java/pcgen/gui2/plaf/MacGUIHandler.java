@@ -26,14 +26,10 @@ import pcgen.gui2.plaf.osx.OSXPreferencesHandler;
 import pcgen.gui2.plaf.osx.OSXQuitHandler;
 
 /**
- * <code>MacGUI</code> initializes Mac-specific GUI elements.
- *
- * @author Tod Milam &lt;twmilam@yahoo.com&gt;
- * @version $Revision: 1828 $
+ * {@code MacGUI} initializes Mac-specific GUI elements.
  */
 public class MacGUIHandler
 {
-
 	private static MacGUIHandler myObj = null;
 	private static Application theApp = null;
 
