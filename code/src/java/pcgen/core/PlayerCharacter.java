@@ -72,7 +72,8 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.GenericPCAttribute;
+import pcgen.cdom.enumeration.NumericPCAttribute;
+import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -605,18 +606,28 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			+ getFileName() + " serial=" + getSerial() + "]";
 	}
 
-	/**
-	 * Set the age.
-	 *
-	 * @param i The character's age
-	 */
-	public void setAge(final int i)
+	public void setPCAttribute(final NumericPCAttribute attr, final int value)
 	{
-		if (ageFacet.set(id, i))
+		boolean didChange = false;
+		switch(attr)
+		{
+			case WEIGHT:
+				didChange = weightFacet.setWeight(id, value);
+				break;
+			case AGE:
+				didChange = ageFacet.set(id, value);
+				break;
+		}
+
+		if (didChange)
 		{
 			setDirty(true);
-			calcActiveBonuses();
+			if (attr.shouldRecalcActiveBonuses())
+			{
+				calcActiveBonuses();
+			}
 		}
+
 	}
 
 	/**
@@ -625,7 +636,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param attr which attribute to set
 	 * @param value the value to set it to
 	 */
-	public void setPCAttribute(final GenericPCAttribute attr, final String value)
+	public void setPCAttribute(final StringPCAttribute attr, final String value)
 	{
 		setStringFor(attr.getStringKey(), value);
 	}
@@ -1878,28 +1889,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Sets a string of phobias for the character.
-	 *
-	 * @param aString
-	 *            A string to set.
-	 */
-	public void setPhobias(final String aString)
-	{
-		setStringFor(PCStringKey.PHOBIAS, aString);
-	}
-
-	/**
-	 * Sets the name of the player for this character.
-	 *
-	 * @param aString
-	 *            A name to set.
-	 */
-	public void setPlayersName(final String aString)
-	{
-		setStringFor(PCStringKey.PLAYERSNAME, aString);
-	}
-
-	/**
 	 * Set the value of the feat pool.
 	 * @param pool value to set the feat pool to
 	 */
@@ -2368,20 +2357,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		return new Float(value);
-	}
-
-	/**
-	 * Sets the character's weight in pounds.
-	 *
-	 * @param i
-	 *            A weight to set.
-	 */
-	public void setWeight(final int i)
-	{
-		if (weightFacet.setWeight(id, i))
-		{
-			setDirty(true);
-		}
 	}
 
 	public void setPointBuyPoints(final int argPointBuyPoints)

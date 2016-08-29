@@ -39,12 +39,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import javax.swing.undo.UndoManager;
-
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -60,7 +57,9 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
@@ -92,7 +91,6 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCAlignment;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -2155,9 +2153,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return weightRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setWeight(int weight)
 	{
@@ -2165,7 +2160,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				(int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
 					weight);
 		weightRef.set(weight);
-		theCharacter.setWeight(weightInPounds);
+		theCharacter.setPCAttribute(NumericPCAttribute.WEIGHT,weightInPounds);
 	}
 
 	/* (non-Javadoc)
@@ -2858,8 +2853,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setPlayersName(String name)
 	{
-		this.playersName.set(name);
-		theCharacter.setPlayersName(name);
+		playersName.set(name);
+		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
 	}
 
 	/* (non-Javadoc)
@@ -3071,7 +3066,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
-		theCharacter.setAge(age);
+		theCharacter.setPCAttribute(NumericPCAttribute.AGE, age);
 		this.age.set(age);
 		updateAgeCategoryForAge();
 		refreshStatScores();
