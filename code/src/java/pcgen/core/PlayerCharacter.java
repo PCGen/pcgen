@@ -533,7 +533,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Constructor.
 	 */
-	public PlayerCharacter() {
+	public PlayerCharacter()
+	{
 		this(Collections.emptyList());
 	}
 
@@ -7125,7 +7126,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		 * @param b
 		 * @param t
 		 */
-		private CasterLevelSpellBonus(final int b, final String t) {
+		private CasterLevelSpellBonus(final int b, final String t)
+		{
 			bonus = b;
 			type = t;
 		}
