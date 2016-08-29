@@ -29,9 +29,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
+import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -375,12 +377,12 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	private void setBoilerplate()
 	{
 		pc.setRace(human);
-		pc.setHeight(0);
+		pc.setPCAttribute(NumericPCAttribute.HEIGHT, 0);;
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
-		pc.setAllowDebt(false);
-		pc.setHanded(Handed.Right);
+		pc.setPCAttribute(BooleanPCAttribute.ALLOW_DEBT, false);
+		pc.setPCAttribute(HandedPCAttr.HANDED, Handed.Right);
 		pc.setGender(Gender.Male);
-		pc.setIgnoreCost(false);
+		pc.setPCAttribute(BooleanPCAttribute.IGNORE_COST, false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
 		pc.setGold(BigDecimal.ZERO);
 		pc.setXP(0);

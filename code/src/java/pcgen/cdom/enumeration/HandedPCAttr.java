@@ -15,31 +15,8 @@
  */
 package pcgen.cdom.enumeration;
 
-public enum NumericPCAttribute
+public enum HandedPCAttr
 {
-	AGE(true),
-	HEIGHT(false),
-	WEIGHT(false),
-	;
-
-
-	private final boolean recalcActiveBonuses;
-
-	NumericPCAttribute(final boolean recalcActiveBonuses)
-	{
-		this.recalcActiveBonuses = recalcActiveBonuses;
-	}
-
-	public boolean shouldRecalcActiveBonuses()
-	{
-		return recalcActiveBonuses;
-	}
-
-	@Override
-	public String toString()
-	{
-		return "NumericPCAttribute{" +
-				"recalcActiveBonuses=" + recalcActiveBonuses +
-				'}';
-	}
+	HANDED;
 }
+

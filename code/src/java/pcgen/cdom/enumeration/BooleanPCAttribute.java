@@ -15,31 +15,9 @@
  */
 package pcgen.cdom.enumeration;
 
-public enum NumericPCAttribute
+public enum BooleanPCAttribute
 {
-	AGE(true),
-	HEIGHT(false),
-	WEIGHT(false),
+	ALLOW_DEBT,
+	IGNORE_COST,
 	;
-
-
-	private final boolean recalcActiveBonuses;
-
-	NumericPCAttribute(final boolean recalcActiveBonuses)
-	{
-		this.recalcActiveBonuses = recalcActiveBonuses;
-	}
-
-	public boolean shouldRecalcActiveBonuses()
-	{
-		return recalcActiveBonuses;
-	}
-
-	@Override
-	public String toString()
-	{
-		return "NumericPCAttribute{" +
-				"recalcActiveBonuses=" + recalcActiveBonuses +
-				'}';
-	}
 }

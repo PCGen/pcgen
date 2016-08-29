@@ -52,8 +52,10 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
+import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -584,7 +586,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 **/
 	private void parseIgnoreCostLine(String line)
 	{
-		thePC.setIgnoreCost(line.endsWith(VALUE_Y));
+		thePC.setPCAttribute(BooleanPCAttribute.IGNORE_COST, line.endsWith(VALUE_Y));
 	}
 
 	/**
@@ -593,7 +595,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 **/
 	private void parseAllowDebtLine(String line)
 	{
-		thePC.setAllowDebt(line.endsWith(VALUE_Y));
+		thePC.setPCAttribute(BooleanPCAttribute.ALLOW_DEBT, line.endsWith(VALUE_Y));
 	}
 
 	/**
@@ -3142,15 +3144,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			warnings.add(msg);
 
 		}
-		thePC.setHanded(h);
+		thePC.setPCAttribute(HandedPCAttr.HANDED, h);;
 	}
 
 	private void parseHeightLine(final String line)
 	{
 		try
 		{
-			thePC
-				.setHeight(Integer.parseInt(line.substring(TAG_HEIGHT.length() + 1)));
+			thePC.setPCAttribute(NumericPCAttribute.HEIGHT, Integer.parseInt(line.substring(TAG_HEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
