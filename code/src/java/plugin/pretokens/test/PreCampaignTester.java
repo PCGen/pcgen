@@ -159,7 +159,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
 			for (URI element : selCampaigns)
 			{
-				final Campaign aCampaign = Globals.getCampaignByURI(element);
+				final Campaign aCampaign = Globals.getCampaignByURI(element, true);
 				if (includeSubCampaigns)
 				{
 					List<Campaign> campList = getFullCampaignList(aCampaign);

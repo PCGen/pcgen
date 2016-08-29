@@ -105,7 +105,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getBioSet().clearUserMap();
+		SettingsHandler.getGame().getBioSet().clearUserMap();
 
 		super.tearDown();
 	}
@@ -122,7 +122,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 				new String[]{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
 					"BASEAGE", "MAXAGE", "SEX", "CLASS"};
 
-		final BioSet currBioSet = Globals.getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 
 		currBioSet.copyRaceTags(Constants.NONE, BASE_RACE_NAME,
 			Constants.NONE, NEW_RACE_NAME);
@@ -170,7 +170,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final int[] BASE_AGE = new int[]{15, 35, 53, 70};
 		final int[] MAX_AGE = new int[]{34, 52, 69, 110};
 
-		final BioSet currBioSet = Globals.getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();
 		human.setName("NAME_Human");
@@ -234,7 +234,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 
-		Globals.getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
+		SettingsHandler.getGame().getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
 
 	}
 }

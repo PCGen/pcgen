@@ -44,6 +44,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import javax.swing.SwingConstants;
+import org.apache.commons.lang.SystemUtils;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -417,7 +418,7 @@ public final class SettingsHandler
 	public static String getFilePaths()
 	{
 		String def_type = "user";
-		if (Globals.isMacPlatform)
+		if (SystemUtils.IS_OS_MAC)
 		{
 			def_type = "mac_user";
 		}
@@ -2477,7 +2478,7 @@ public final class SettingsHandler
 			if ((fType == null) || (fType.length() < 1))
 			{
 				// make sure we have a default
-				if (Globals.isMacPlatform)
+				if (SystemUtils.IS_OS_MAC)
 				{
 					fType = "mac_user"; //$NON-NLS-1$
 				}
