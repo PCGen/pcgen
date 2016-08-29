@@ -38,9 +38,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -59,7 +57,10 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NotePCAttribute;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -92,9 +93,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.NoteItem;
-import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PCAlignment;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
@@ -517,8 +516,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC
-				.setAge(Integer.parseInt(line.substring(TAG_AGE.length() + 1)));
+			thePC.setPCAttribute(NumericPCAttribute.AGE, Integer.parseInt(line.substring(TAG_AGE.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -3605,13 +3603,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parsePhobiasLine(final String line)
 	{
-		thePC.setPhobias(EntityEncoder.decode(line.substring(TAG_PHOBIAS
+		thePC.setPCAttribute(PCAttribute.PHOBIAS, EntityEncoder.decode(line.substring(TAG_PHOBIAS
 			.length() + 1)));
 	}
 
 	private void parsePlayerNameLine(final String line)
 	{
-		thePC.setPlayersName(EntityEncoder.decode(line.substring(TAG_PLAYERNAME
+		thePC.setPCAttribute(PCAttribute.PLAYERSNAME, EntityEncoder.decode(line.substring(TAG_PLAYERNAME
 			.length() + 1)));
 	}
 
@@ -4992,8 +4990,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC
-				.setWeight(Integer.parseInt(line.substring(TAG_WEIGHT.length() + 1)));
+			thePC.setPCAttribute(NumericPCAttribute.WEIGHT, Integer.parseInt(line.substring(TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{

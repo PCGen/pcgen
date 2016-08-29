@@ -31,12 +31,12 @@ package pcgen.core;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
@@ -214,23 +214,23 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		pc.setAge(12);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
 		int idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
-		pc.setAge(17);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
-		pc.setAge(36);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
 
-		pc.setAge(54);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
 
-		pc.setAge(72);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 

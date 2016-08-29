@@ -15,7 +15,7 @@
  */
 package pcgen.cdom.enumeration;
 
-public enum PCAttribute implements GenericPCAttribute
+public enum PCAttribute implements StringPCAttribute
 {
 	BIRTHDAY(PCStringKey.BIRTHDAY),
 	BIRTHPLACE(PCStringKey.BIRTHPLACE),

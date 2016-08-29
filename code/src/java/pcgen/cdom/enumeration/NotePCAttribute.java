@@ -18,7 +18,7 @@ package pcgen.cdom.enumeration;
 import java.util.stream.Stream;
 import pcgen.system.LanguageBundle;
 
-public enum NotePCAttribute implements GenericPCAttribute
+public enum NotePCAttribute implements StringPCAttribute
 {
 	ASSETS(PCStringKey.ASSETS, "in_otherAssets"),
 	BIO(PCStringKey.BIO, "in_bio"),

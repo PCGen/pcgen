@@ -35,12 +35,12 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
@@ -492,7 +492,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge-baseAge;
 				}
 			}
-			pc.setAge(baseAge + ageAdd);
+			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
 		}
 	}
 
@@ -583,7 +583,7 @@ public final class BioSet extends PObject implements NonInteractive
 					totalWeight = replaceString(totalWeight, "HTDIEROLL", htAdd);
 					totalWeight = replaceString(totalWeight, "BASEWT", baseWeight);
 					totalWeight = replaceString(totalWeight, "WTDIEROLL", wtAdd);
-					pc.setWeight(pc.getVariableValue(totalWeight, "").intValue());
+					pc.setPCAttribute(NumericPCAttribute.WEIGHT, pc.getVariableValue(totalWeight, "").intValue());
 				}
 
 				break;
