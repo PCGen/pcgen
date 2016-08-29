@@ -23,7 +23,6 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
-
 import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -34,6 +33,7 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
+import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
@@ -91,7 +91,7 @@ public class LoadContextTest extends TestCase
 		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
 		
 		// Check associations
-		MasterListInterface masterLists = Globals.getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		Collection<AssociatedPrereqObject> assoc =
 				masterLists.getAssociations(ref, testSpell);
 		assertEquals("Incorrect size of assoc list for orig spell", 1, assoc.size());
