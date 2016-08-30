@@ -11,7 +11,6 @@ code/comp-manifest
 code/manifest
 
 hs_err_*.log
-checkstyle-cachefile
 
 code/build.eclipse/
 code/manifest-tests
@@ -46,4 +45,3 @@ data/customsources/*
 /installers/win-installer/project.nsh
 /installers/win-installer/includes/data.nsh
 /installers/win-installer/includes/constants.nsh
-/jre/
