@@ -66,15 +66,15 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 
 	private void assertEventCount(int a, int r)
 	{
-		assertEquals(a, listener.addEventCount);
-		assertEquals(r, listener.removeEventCount);
+		assertEquals("listener add event count", a, listener.addEventCount);
+		assertEquals("listener remove event count", r, listener.removeEventCount);
 	}
 
 	@Test
 	public void testItemUnsetEmpty()
 	{
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertEquals(getFacet().get(id), getFacet().valueWhenNull());
+		assertTrue(getFacet().matches(id, getFacet().valueWhenNull()));
 	}
 
 	public void testListeners()
@@ -184,7 +184,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertEquals(t1, getFacet().get(id));
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertNull(getFacet().get(altid));
+		assertEquals(getFacet().get(altid), getFacet().valueWhenNull());
 	}
 
 	@Test
@@ -213,11 +213,11 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertEventCount(2, 1);
 		// Remove
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertEquals(getFacet().get(id), getFacet().valueWhenNull());
 		assertEventCount(2, 2);
 		// But only one remove event
 		getFacet().remove(id);
-		assertNull(getFacet().get(id));
+		assertEquals(getFacet().get(id), getFacet().valueWhenNull());
 		assertEventCount(2, 2);
 	}
 
@@ -230,16 +230,16 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertTrue(getFacet().matches(id, t1));
 		getFacet().remove(id);
 		assertFalse(getFacet().matches(id, t1));
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertEquals(getFacet().get(id), getFacet().valueWhenNull());
+		assertTrue(getFacet().matches(id, getFacet().valueWhenNull()));
 	}
 
 	@Test
 	public void testCopyContentsNone()
 	{
 		getFacet().copyContents(altid, id);
-		assertNull(getFacet().get(id));
-		assertTrue(getFacet().matches(id, null));
+		assertEquals(getFacet().get(id), getFacet().valueWhenNull());
+		assertTrue(getFacet().matches(id, getFacet().valueWhenNull()));
 	}
 
 	@Test
@@ -265,8 +265,8 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		// Prove Independence (remove from altid)
 		getFacet().remove(altid);
 		assertEquals(t1, getFacet().get(id));
-		assertNull(getFacet().get(altid));
-		assertTrue(getFacet().matches(altid, null));
+		assertEquals(getFacet().get(altid), getFacet().valueWhenNull());
+		assertTrue(getFacet().matches(altid, getFacet().valueWhenNull()));
 	}
 
 	protected abstract AbstractItemFacet<CharID, T> getFacet();

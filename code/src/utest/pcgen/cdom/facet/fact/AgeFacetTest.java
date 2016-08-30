@@ -37,7 +37,8 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 		return facet;
 	}
 
-	private int n = 0;
+	// random starting point (>0)
+	private int n = 12494;
 
 	@Override
 	protected Integer getItem()

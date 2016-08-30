@@ -65,7 +65,8 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 		return facet;
 	}
 
-	private int n = 1;
+	// random value > 0
+	private int n = 123242;
 
 	@Override
 	protected Integer getItem()

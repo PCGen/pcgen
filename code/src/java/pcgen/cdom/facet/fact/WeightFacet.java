@@ -30,7 +30,7 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
 public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 {
 	@Override
-	protected Integer valueWhenNull()
+	public Integer valueWhenNull()
 	{
 		return 0;
 	}
