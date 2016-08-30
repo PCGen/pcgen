@@ -560,7 +560,7 @@ public class CharacterDisplay
 
 	public int getAge()
 	{
-		return ageFacet.getAge(id);
+		return ageFacet.get(id);
 	}
 
 	public int getBaseMovement(String moveType, Load load)
@@ -999,7 +999,7 @@ public class CharacterDisplay
 	 */
 	public int getWeight()
 	{
-		return weightFacet.getWeight(id);
+		return weightFacet.get(id);
 	}
 
 	public int getXP()

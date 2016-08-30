@@ -110,9 +110,18 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
-	public T get(IDT id)
+	public T get(final IDT id)
 	{
-		return (T) getCache(id);
+		final Object tmp = getCache(id);
+		return (tmp == null) ? valueWhenNull() : (T) getCache(id);
+	}
+
+	/**
+	 * When the value is is null, what to return
+	 */
+
+	protected T valueWhenNull() {
+		return null;
 	}
 
 	/**

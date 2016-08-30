@@ -73,6 +73,7 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.GenericPCAttribute;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -168,6 +169,7 @@ import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.AllowDebtFacet;
@@ -296,6 +298,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
 	private final SAProcessor SA_PROC;
 	private final CharacterDisplay display;
+
+	private final Map<GenericPCAttribute, AbstractItemFacet<CharID, Integer>> numericFacetMap = new HashMap<>();
+	{
+		numericFacetMap.put(NumericPCAttribute.WEIGHT, FacetLibrary.getFacet(WeightFacet.class));
+		numericFacetMap.put(NumericPCAttribute.AGE, FacetLibrary.getFacet(AgeFacet.class));
+	}
 
 	/*
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
@@ -618,11 +626,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				didChange = heightFacet.setHeight(id, value);
 				break;
 			case WEIGHT:
-				didChange = weightFacet.setWeight(id, value);
-				break;
 			case AGE:
-				didChange = ageFacet.set(id, value);
-				break;
+				didChange = numericFacetMap.get(attr).set(id, value);
+
 		}
 
 		if (didChange)
@@ -9807,7 +9813,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (ageFacet.getAge(id) <= 0)
+			if (ageFacet.get(id) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
 				bioSetFacet.get(id).randomize("AGE", this);

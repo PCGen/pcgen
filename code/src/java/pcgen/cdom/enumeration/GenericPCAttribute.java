@@ -15,31 +15,6 @@
  */
 package pcgen.cdom.enumeration;
 
-public enum NumericPCAttribute implements GenericPCAttribute
+public interface GenericPCAttribute
 {
-	AGE(true),
-	HEIGHT(false),
-	WEIGHT(false),
-	;
-
-
-	private final boolean recalcActiveBonuses;
-
-	NumericPCAttribute(final boolean recalcActiveBonuses)
-	{
-		this.recalcActiveBonuses = recalcActiveBonuses;
-	}
-
-	public boolean shouldRecalcActiveBonuses()
-	{
-		return recalcActiveBonuses;
-	}
-
-	@Override
-	public String toString()
-	{
-		return "NumericPCAttribute{" +
-				"recalcActiveBonuses=" + recalcActiveBonuses +
-				'}';
-	}
 }
