@@ -41,7 +41,7 @@ public class AbilityIntegrationTest extends
 
 	static AbilityToken ft = new AbilityToken();
 	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

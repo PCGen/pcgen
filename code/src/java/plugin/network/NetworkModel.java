@@ -79,9 +79,9 @@ public class NetworkModel
 	private NetworkClient client;
 	private InitHolderList combat;
 	private HashMap<String, Combatant> sentCombatants =
-			new HashMap<String, Combatant>();
+			new HashMap<>();
 	private HashMap<String, NetworkCombatant> recievedCombatants =
-			new HashMap<String, NetworkCombatant>();
+			new HashMap<>();
 
 	public NetworkModel()
 	{

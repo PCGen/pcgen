@@ -35,6 +35,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
@@ -61,7 +62,6 @@ import pcgen.util.enumeration.View;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision$
  */
 public class PcgCombatant extends Combatant
 {
@@ -231,7 +231,7 @@ public class PcgCombatant extends Combatant
 	 */
 	public void setPlayer(String player)
 	{
-		pc.setPlayersName(player);
+		pc.setPCAttribute(PCAttribute.PLAYERSNAME, player);
 	}
 
 	/**
@@ -1029,10 +1029,10 @@ public class PcgCombatant extends Combatant
 				 <!-- End Prepared Spells -->
 			 */
 			ArrayList<PObject> classList =
-					new ArrayList<PObject>(display.getClassSet());
+                    new ArrayList<>(display.getClassSet());
 			classList.add(display.getRace());
 
-			Set<String> bookList = new HashSet<String>(pc.getDisplay().getSpellBookNames());
+			Set<String> bookList = new HashSet<>(pc.getDisplay().getSpellBookNames());
 			bookList.add(Globals.getDefaultSpellBook());
 			for (String book : bookList)
 			{
@@ -1044,7 +1044,7 @@ public class PcgCombatant extends Combatant
 
 		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<PObject>();
+			Set<PObject> classes = new HashSet<>();
 			classes.addAll(classList);
 			
 			for ( PObject pObj : classes )

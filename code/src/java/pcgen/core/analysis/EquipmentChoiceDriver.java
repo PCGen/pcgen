@@ -57,7 +57,7 @@ public class EquipmentChoiceDriver
 			return true;
 		}
 
-		List<Object> selectedList = new ArrayList<Object>(parent.getAssociationList(eqMod));
+		List<Object> selectedList = new ArrayList<>(parent.getAssociationList(eqMod));
 
 		final EquipmentChoice equipChoice = buildEquipmentChoice(
 				pool,
@@ -82,9 +82,9 @@ public class EquipmentChoiceDriver
 				LanguageBundle.getFormattedString("in_equipChoiceMod", //$NON-NLS-1$
 					equipChoice.getTitle(), eqMod.getDisplayName(), "|");
 		CDOMChooserFacadeImpl<Object> chooserFacade =
-				new CDOMChooserFacadeImpl<Object>(
-						title, equipChoice.getAvailableList(), 
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(
+                        title, equipChoice.getAvailableList(),
+                        selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 		ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
@@ -98,7 +98,7 @@ public class EquipmentChoiceDriver
 
 	public static void setChoice(Equipment parent, EquipmentModifier eqMod, final String choice, final EquipmentChoice equipChoice)
 	{
-		final List<Object> tempList = new ArrayList<Object>();
+		final List<Object> tempList = new ArrayList<>();
 		tempList.add(choice);
 		setChoice(parent, eqMod, tempList, equipChoice);
 	}
@@ -117,7 +117,7 @@ public class EquipmentChoiceDriver
 
 				if (idx < 0)
 				{
-					final List<SignedInteger> secondaryChoice = new ArrayList<SignedInteger>();
+					final List<SignedInteger> secondaryChoice = new ArrayList<>();
 
 					for (
 						int j = equipChoice.getMinValue();
@@ -134,9 +134,9 @@ public class EquipmentChoiceDriver
 							LanguageBundle.getFormattedString(
 								"in_equipChoiceSelectMod", aString); //$NON-NLS-1$
 					CDOMChooserFacadeImpl<SignedInteger> chooserFacade =
-							new CDOMChooserFacadeImpl<SignedInteger>(title,
-								secondaryChoice,
-								new ArrayList<SignedInteger>(), 1);
+                            new CDOMChooserFacadeImpl<>(title,
+                                    secondaryChoice,
+                                    new ArrayList<>(), 1);
 					chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 					chooserFacade.setAllowsDups(equipChoice.isAllowDuplicates());
 					ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);

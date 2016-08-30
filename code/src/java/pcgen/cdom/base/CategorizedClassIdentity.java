@@ -60,7 +60,7 @@ public class CategorizedClassIdentity<T extends Categorized<T>> implements
 	public static <T extends Categorized<T>> ClassIdentity<T> getInstance(
 		Class<T> cl, Category<T> cat)
 	{
-		return new CategorizedClassIdentity<T>(cl, cat);
+		return new CategorizedClassIdentity<>(cl, cat);
 	}
 
 	public Category<T> getCategory()

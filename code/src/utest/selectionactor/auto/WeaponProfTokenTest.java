@@ -27,7 +27,7 @@ import selectionactor.testsupport.AbstractSelectionActorTest;
 public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
 {
 
-	static WeaponProfToken cra = new WeaponProfToken();
+	private static final WeaponProfToken cra = new WeaponProfToken();
 
 	@Test
 	public void testEmpty()

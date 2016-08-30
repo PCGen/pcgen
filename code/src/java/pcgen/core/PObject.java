@@ -50,10 +50,8 @@ import pcgen.system.PCGenSettings;
  * <code>PObject</code><br>
  * This is the base class for several objects in the PCGen database.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
- */
-/**
  * @author Joe.Frazier
  *
  */
@@ -192,7 +190,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		final String myType;
 
-		if (aType.length() == 0)
+		if (aType.isEmpty())
 		{
 			return false;
 		}

@@ -89,7 +89,7 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 			return;
 		}
 
-		final List<EquipSet> tmpList = new ArrayList<EquipSet>();
+		final List<EquipSet> tmpList = new ArrayList<>();
 
 		// find all oldItem EquipSet's
 		for (EquipSet es : getSet(id))
@@ -121,7 +121,7 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 			return;
 		}
 
-		final List<EquipSet> tmpList = new ArrayList<EquipSet>();
+		final List<EquipSet> tmpList = new ArrayList<>();
 
 		// now find and remove equipment from all EquipSet's
 		for (EquipSet es : getSet(id))

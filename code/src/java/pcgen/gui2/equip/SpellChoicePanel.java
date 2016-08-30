@@ -50,7 +50,7 @@ import pcgen.system.LanguageBundle;
 /**
  * SpellChoicePanel provides the user interface for the user to select a spell.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

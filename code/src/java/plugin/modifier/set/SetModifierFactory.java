@@ -17,11 +17,11 @@
  */
 package plugin.modifier.set;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
-import pcgen.base.formula.inst.ScopeInformation;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
@@ -64,7 +64,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Modifier<T[]> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
 		FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
@@ -74,7 +74,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	}
 
 	@Override
-	public Modifier<T[]> getFixedModifier(int userPriority,
+	public PCGenModifier<T[]> getFixedModifier(int userPriority,
 		FormatManager<T[]> fmtManager, String instructions)
 	{
 		T[] toSet = fmtManager.convert(instructions);
@@ -154,7 +154,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	public abstract class SetArrayModifier implements Modifier<T[]>
+	public abstract class SetArrayModifier implements PCGenModifier<T[]>
 	{
 
 		/**
@@ -184,17 +184,16 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 * {@inheritDoc}
 		 */
 		@Override
-		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-		public int getInherentPriority()
+		public long getPriority()
 		{
-			return 0;
+			return (userPriority << 32) + 0;
 		}
 
 		/**
 		 * {@inheritDoc}
 		 */
 		@Override
-		public T[] process(T[] input, ScopeInformation scopeInfo, Object source)
+		public T[] process(EvaluationManager evalManager)
 		{
 			return getArray();
 		}

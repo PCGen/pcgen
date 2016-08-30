@@ -31,7 +31,7 @@ import pcgen.util.enumeration.Tab;
  * A container for information relating to how a character tab should be
  * displayed.
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public class TabTitle
@@ -84,7 +84,7 @@ public class TabTitle
 	public TabTitle()
 	{
 		support = new PropertyChangeSupport(this);
-		table = new Hashtable<String, Object>();
+		table = new Hashtable<>();
 	}
 
 	public void addPropertyChangeListener(PropertyChangeListener l)

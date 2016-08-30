@@ -44,13 +44,13 @@ import org.apache.commons.lang.ArrayUtils;
  * is a filter which contains a set of other DisplayableFilters. At the bottom of a FilterBar is a
  * region of space with an arrow at the center. When this is clicked all of the children filters will
  * be hidden from view.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
 
 	private JPanel filterPanel = new JPanel(new FilterLayout());
-	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<DisplayableFilter<? super C, ? super E>>();
+	private List<DisplayableFilter<? super C, ? super E>> filters = new ArrayList<>();
 	private FilterHandler filterHandler;
 
 	public FilterBar()

@@ -56,11 +56,11 @@ import pcgen.util.Logging;
  * The Class <code>TempBonusHelper</code> splits out processing for temporary 
  * bonuses from CnaracterFacadeImpl.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class TempBonusHelper
@@ -109,10 +109,10 @@ public class TempBonusHelper
 		{
 			possibleTargets.add(new CharacterInfoFacade(theCharacter.getDisplay()));
 		}
-		final ArrayList<InfoFacade> selectedList = new ArrayList<InfoFacade>();
+		final ArrayList<InfoFacade> selectedList = new ArrayList<>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, possibleTargets,
-					new ArrayList<InfoFacade>(), 1, infoFactory)
+                        new ArrayList<>(), 1, infoFactory)
 				{
 					/**
 					 * {@inheritDoc}
@@ -172,7 +172,7 @@ public class TempBonusHelper
 		PlayerCharacter theCharacter)
 	{
 		CharacterDisplay charDisplay = theCharacter.getDisplay();
-		List<InfoFacade> possibleEquipment = new ArrayList<InfoFacade>();
+		List<InfoFacade> possibleEquipment = new ArrayList<>();
 		if (originObj == null)
 		{
 			return possibleEquipment;
@@ -350,7 +350,7 @@ public class TempBonusHelper
 	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj,
 		PlayerCharacter theCharacter)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(5);
+		List<BonusObj> list = new ArrayList<>(5);
 		list.addAll(originObj.getSafeListFor(ListKey.BONUS_ANYPC));
 		list.addAll(originObj.getSafeListFor(ListKey.BONUS_PC));
 		return list;
@@ -439,7 +439,7 @@ public class TempBonusHelper
 			return null;
 		}
 
-		List<Integer> numberList = new ArrayList<Integer>();
+		List<Integer> numberList = new ArrayList<>();
 
 		for (int i = min; i <= max; i++)
 		{
@@ -447,7 +447,7 @@ public class TempBonusHelper
 		}
 
 		// let them choose the number from a radio list
-		List<Integer> selectedList = new ArrayList<Integer>();
+		List<Integer> selectedList = new ArrayList<>();
 		selectedList =
 				Globals.getChoiceFromList(titleString, numberList,
 					selectedList, 1, false, true, pc);
@@ -601,7 +601,7 @@ public class TempBonusHelper
 	public static Set<String> getEquipmentApplyString(CDOMObject obj,
 		PlayerCharacter theCharacter)
 	{
-		Set<String> set = new HashSet<String>();
+		Set<String> set = new HashSet<>();
 		//Should use hasEquipmentTempBonus first, so we do NOT do getSafeListFor
 		for (EquipBonus bonus : obj.getListFor(ListKey.BONUS_EQUIP))
 		{

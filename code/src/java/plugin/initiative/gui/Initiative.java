@@ -1687,12 +1687,9 @@ public class Initiative extends javax.swing.JPanel
 			{
 				Combatant cbt = (Combatant) iH;
 
-				//if (pcgcbt.getPC().isDisplayUpdate())
-				//{
-				//pcgcbt.getPC().setDisplayUpdate(false);
 				removeTab(cbt);
 				addTab(cbt);
-				//}
+
 			}
 		}
 	}

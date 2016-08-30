@@ -88,7 +88,7 @@ public class ExpToken extends AbstractExportToken
 
 	/**
 	 * Get Factor Sub Token
-	 * @param pc
+	 * @param display
 	 * @return Factor Sub Token
 	 */
 	public static String getFactorToken(CharacterDisplay display)
@@ -102,7 +102,7 @@ public class ExpToken extends AbstractExportToken
 
 	/**
 	 * Get Penalty Sub Token
-	 * @param pc
+	 * @param display
 	 * @return Penalty Sub Token
 	 */
 	public static String getPenaltyToken(CharacterDisplay display)

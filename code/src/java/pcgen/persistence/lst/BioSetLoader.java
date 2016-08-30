@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on October 10, 2002, 10:29 PM
- *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -45,8 +41,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author  Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
+ * @author  Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  */
 public final class BioSetLoader extends LstLineFileLoader
 {
@@ -165,9 +160,9 @@ public final class BioSetLoader extends LstLineFileLoader
 						final StringBuilder sBuf = new StringBuilder(100+colString.length());
 						sBuf.append(colString);
 
-						for (int i = 0, x = preReqList.size(); i < x; ++i)
+						for (String aPreReqList : preReqList)
 						{
-							sBuf.append('[').append(preReqList.get(i)).append(
+							sBuf.append('[').append(aPreReqList).append(
 									']');
 						}
 

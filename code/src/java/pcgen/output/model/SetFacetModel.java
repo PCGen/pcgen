@@ -95,7 +95,7 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		{
 			return null;
 		}
-		ArrayList<T> list = new ArrayList<T>(facet.getSet(id));
+		ArrayList<T> list = new ArrayList<>(facet.getSet(id));
 		if (index >= list.size())
 		{
 			return null;

@@ -163,44 +163,7 @@
 \u2028	\n		# Unicode LINE SEPARATOR
 \u2029	\n		# Unicode PARAGRAPH SEPARATOR
 
-# Polish characters - correct mapping whihc is not supported by default FOP fonts.
-#\u0104	&#260;	# Capital Aogon
-#\u0105	&#261;	# Lowercase aogon
-#\u0106	&#262;	# Capital Cacute
-#\u0107	&#263;	# Lowercase Cacute
-#\u0118	&#280;	# Capital Eogon
-#\u0119	&#281;	# Lowercase Eogon
-#\u0141	&#321;	# Capital Lstrok
-#\u0142	&#322;	# Lowercase Lstrok
-#\u0143	&#323;	# Capital Nacute
-#\u0144	&#324;	# Lowercase Nacute
-#\u015A	&#346;	# Capital Sacute
-#\u015B	&#347;	# Lowercase Sacute
-#\u0179	&#377;	# Capital Zacute
-#\u017A	&#378;	# Lowercase Zacute
-#\u017B	&#379;	# Capital Zdot
-#\u017C	&#380;	# Lowercase Zdot
-
-# Polish characters - mapping to latin-1 equivalents
-\u0104	A	# Capital Aogon
-\u0105	a	# Lowercase aogon
-\u0106	C	# Capital Cacute
-\u0107	c	# Lowercase Cacute
-\u0118	E	# Capital Eogon
-\u0119	e	# Lowercase Eogon
-\u0141	L	# Capital Lstrok
-\u0142	l	# Lowercase Lstrok
-\u0143	N	# Capital Nacute
-\u0144	n	# Lowercase Nacute
-\u015A	S	# Capital Sacute
-\u015B	s	# Lowercase Sacute
-\u0179	Z	# Capital Zacute
-\u017A	z	# Lowercase Zacute
-\u017B	Z	# Capital Zdot
-\u017C	z	# Lowercase Zdot
-
-
-#[\r\n]+$	
+#[\r\n]+$
 ^(.*[\r\n](.*[\r\n]?)*)$	<para>$1</para>
 [\r\n]	</para><para>
 \[BR\]	\n

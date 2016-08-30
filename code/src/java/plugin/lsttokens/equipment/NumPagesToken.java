@@ -34,7 +34,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * Last Editor: $Author$ Last Edited: $Date: 2006-03-14 18:16:52 -0400
  * (Tue, 14 Mar 2006) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class NumPagesToken extends AbstractIntToken<Equipment> implements

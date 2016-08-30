@@ -30,11 +30,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class <code>RequestAddTabToGMGenMessage</code> is a message 
  * requesting that a tab be added to the GMGen user interface. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
@@ -49,7 +49,7 @@ public class RequestAddTabToGMGenMessage extends PCGenMessage
 	 * 
 	 * @param source The object requesting the tab be added.
 	 * @param name The name of the tab.
-	 * @param view The contents of the tab.
+	 * @param pane The contents of the tab.
 	 */
 	public RequestAddTabToGMGenMessage(Object source,
 		String name, Component pane)

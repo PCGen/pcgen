@@ -550,7 +550,7 @@ public class ClassFacetTest extends TestCase
 		{
 			// This is ok too
 		}
-		List<PCClass> pct = new ArrayList<PCClass>();
+		List<PCClass> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		try

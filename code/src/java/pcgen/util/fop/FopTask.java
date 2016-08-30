@@ -38,8 +38,14 @@ import javax.xml.transform.stream.StreamSource;
 import org.apache.fop.apps.FOPException;
 import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.apps.Fop;
+import org.apache.fop.apps.FopConfParser;
 import org.apache.fop.apps.FopFactory;
+import org.apache.fop.apps.FopFactoryBuilder;
 import org.apache.fop.apps.MimeConstants;
+import org.apache.fop.events.Event;
+import org.apache.fop.events.EventFormatter;
+import org.apache.fop.events.EventListener;
+import org.apache.fop.events.model.EventSeverity;
 import org.apache.fop.render.Renderer;
 
 import pcgen.cdom.base.Constants;
@@ -52,37 +58,46 @@ import pcgen.util.Logging;
  * which you can point to a file, or a Renderer. The Renderer is used by print preview and for
  * direct printing.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FopTask implements Runnable
 {
+	private static final FopFactory FOP_FACTORY = createFopFactory();
+	private static FOUserAgent userAgent;
 
 	private static final TransformerFactory TRANS_FACTORY = TransformerFactory.newInstance();
 
 	private static FopFactory createFopFactory()
 	{
-		FopFactory fopFactory = FopFactory.newInstance();
-		fopFactory.setStrictValidation(false);
 
 		// Allow optional customization with configuration file
 		String configPath = ConfigurationSettings.getOutputSheetsDir() + File.separator + "fop.xconf";
-		Logging.log(Logging.INFO, "Checking for config file at " + configPath);
+		Logging.log(Logging.INFO, "FoPTask checking for config file at " + configPath);
 		File userConfigFile = new File(configPath);
+		FopFactoryBuilder builder;
 		if (userConfigFile.exists())
 		{
-			Logging.log(Logging.INFO, "FoPTask using config file "
-					+ configPath);
+			Logging.log(Logging.INFO, "FoPTask using config file " + configPath);
+			FopConfParser parser;
 			try
 			{
-				fopFactory.setUserConfig(userConfigFile);
+				parser = new FopConfParser(userConfigFile);
 			}
 			catch (Exception e)
 			{
-				Logging.errorPrint("Problem with FOP configuration "
+				Logging.errorPrint("FoPTask encountered a problem with FOP configuration "
 						+ configPath + ": ", e);
+				return null;
 			}
+			builder = parser.getFopFactoryBuilder();
 		}
-		return fopFactory;
+		else
+		{
+			Logging.log(Logging.INFO, "FoPTask using default config");
+			builder = new FopFactoryBuilder(new File(".").toURI());
+			builder.setStrictFOValidation(false);
+		}	
+		return builder.build();
 	}
 
 	private final StreamSource inputSource;
@@ -90,7 +105,7 @@ public class FopTask implements Runnable
 	private final Renderer renderer;
 	private final OutputStream outputStream;
 
-	private StringBuilder errorBuilder = new StringBuilder(32);
+	private final StringBuilder errorBuilder = new StringBuilder(32);
 
 	private FopTask(StreamSource inputXml, StreamSource xsltSource, Renderer renderer, OutputStream outputStream)
 	{
@@ -114,6 +129,11 @@ public class FopTask implements Runnable
 		return new StreamSource(xsltFile);
 	}
 
+	public static FopFactory getFactory()
+	{
+		return FOP_FACTORY;
+	}
+	
 	/**
 	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
 	 * pdf document to the given output stream. The output can be saved to a file if a
@@ -128,6 +148,7 @@ public class FopTask implements Runnable
 	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, OutputStream outputPdf) throws FileNotFoundException
 	{
 		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		userAgent = FOP_FACTORY.newFOUserAgent();
 		return new FopTask(new StreamSource(inputXmlStream), xsltSource, null, outputPdf);
 	}
 
@@ -145,6 +166,7 @@ public class FopTask implements Runnable
 	public static FopTask newFopTask(InputStream inputXmlStream, File xsltFile, Renderer renderer) throws FileNotFoundException
 	{
 		StreamSource xsltSource = createXsltStreamSource(xsltFile);
+		userAgent = renderer.getUserAgent();
 		return new FopTask(new StreamSource(inputXmlStream), xsltSource, renderer, null);
 	}
 
@@ -162,19 +184,16 @@ public class FopTask implements Runnable
 	{
 		try(OutputStream out = outputStream)
 		{
-			FopFactory factory = createFopFactory();
-
-			FOUserAgent userAgent = factory.newFOUserAgent();
 			userAgent.setProducer("PC Gen Character Generator");
 			userAgent.setAuthor(System.getProperty("user.name"));
 			userAgent.setCreationDate(new Date());
+			
+			userAgent.getEventBroadcaster().addEventListener(new FOPEventListener());
 
 			String mimeType;
 			if (renderer != null)
 			{
 				userAgent.setKeywords("PCGEN FOP PREVIEW");
-				userAgent.setRendererOverride(renderer);
-				renderer.setUserAgent(userAgent);
 				mimeType = MimeConstants.MIME_FOP_AWT_PREVIEW;
 			}
 			else
@@ -185,11 +204,11 @@ public class FopTask implements Runnable
 			Fop fop;
 			if (out != null)
 			{
-				fop = factory.newFop(mimeType, userAgent, out);
+				fop = FOP_FACTORY.newFop(mimeType, userAgent, out);
 			}
 			else
 			{
-				fop = factory.newFop(mimeType, userAgent);
+				fop = FOP_FACTORY.newFop(mimeType, userAgent);
 			}
 
 			Transformer transformer;
@@ -220,12 +239,9 @@ public class FopTask implements Runnable
 	 * The Class <code>FOPErrorListener</code> listens for notifications of issues when generating
 	 * PDF files and responds accordingly.
 	 */
-	public static class FOPErrorListener implements ErrorListener
+	private static class FOPErrorListener implements ErrorListener
 	{
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void error(TransformerException exception)
 				throws TransformerException
@@ -235,9 +251,6 @@ public class FopTask implements Runnable
 			throw exception;
 		}
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void fatalError(TransformerException exception)
 				throws TransformerException
@@ -247,9 +260,6 @@ public class FopTask implements Runnable
 			throw exception;
 		}
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void warning(TransformerException exception)
 				throws TransformerException
@@ -258,7 +268,7 @@ public class FopTask implements Runnable
 			Logging.log(Logging.WARNING, getLocation(locator) + exception.getMessage());
 		}
 
-		private String getLocation(SourceLocator locator)
+		private static String getLocation(SourceLocator locator)
 		{
 			if (locator == null)
 			{
@@ -286,5 +296,42 @@ public class FopTask implements Runnable
 		}
 
 	}
-
+	
+	private static class FOPEventListener implements EventListener
+	{
+		/**
+		 * @{inheritdoc}
+		 */
+		@Override
+	    public void processEvent(final Event event)
+		{
+	        String msg = "[FOP] " + EventFormatter.format(event);
+	        
+	        // filter out some erroneous FOP warnings about not finding internal fonts
+	        // this is an ancient, but still unfixed FOP bug
+	        // see https://issues.apache.org/jira/browse/FOP-1667
+	        if (msg.contains("not found") && (msg.contains("Symbol,normal") || msg.contains("ZapfDingbats,normal")))
+	        {
+	        	return;
+	        }
+	        
+	        EventSeverity severity = event.getSeverity();
+	        if (severity == EventSeverity.INFO)
+	        {
+	        	Logging.log(Logging.INFO, msg);
+	        }
+	        else if (severity == EventSeverity.WARN)
+	        {
+	        	Logging.log(Logging.WARNING, msg);
+	        }
+	        else if (severity == EventSeverity.ERROR || severity == EventSeverity.FATAL)
+	        {
+	        	Logging.log(Logging.ERROR, msg);
+	        }
+	        else
+	        {
+	            assert false;
+	        }
+		}
+	}
 }

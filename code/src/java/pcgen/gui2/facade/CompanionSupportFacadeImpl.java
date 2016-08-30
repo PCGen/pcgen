@@ -63,7 +63,7 @@ import pcgen.util.enumeration.Tab;
  * used to help implement companion support for the
  * CharacterFacade.
  * @see pcgen.gui2.facade.CharacterFacadeImpl
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListListener<CharacterFacade>
 {
@@ -94,10 +94,10 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		this.pcFacade = pcFacade;
 		this.charDisplay = theCharacter.getDisplay();
 		this.todoManager = todoManager;
-		this.companionList = new DefaultListFacade<CompanionFacadeDelegate>();
-		this.availCompList = new DefaultListFacade<CompanionStubFacade>();
-		this.maxCompanionsMap = new DefaultMapFacade<String, Integer>();
-		this.keyToCompanionListMap = new HashMap<String, CompanionList>();
+		this.companionList = new DefaultListFacade<>();
+		this.availCompList = new DefaultListFacade<>();
+		this.maxCompanionsMap = new DefaultMapFacade<>();
+		this.keyToCompanionListMap = new HashMap<>();
 		initCompData(true);
 		CharacterManager.getCharacters().addListListener(this);
 		addMasterListeners(nameRef, fileRef);
@@ -189,7 +189,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 */
 	private void initCompData(boolean rebuildCompanionList)
 	{
-		List<CompanionStub> companions = new ArrayList<CompanionStub>();
+		List<CompanionStub> companions = new ArrayList<>();
 		for (CompanionList compList : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(CompanionList.class))
 		{

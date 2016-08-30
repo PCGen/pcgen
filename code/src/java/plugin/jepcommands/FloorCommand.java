@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * JEP command for floor
  * 
- * eg. floor(12.6) --> 12
+ * eg. {@literal floor(12.6) --> 12}
  */
 public class FloorCommand extends PCGenCommand
 {

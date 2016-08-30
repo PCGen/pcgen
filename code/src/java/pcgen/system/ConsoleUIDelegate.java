@@ -27,7 +27,6 @@ import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 
 /**
@@ -35,11 +34,11 @@ import pcgen.util.Logging;
  * and returns default choices. It is used when PCGen is running in batch mode 
  * without any windows shown.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class ConsoleUIDelegate implements UIDelegate
@@ -109,27 +108,18 @@ public class ConsoleUIDelegate implements UIDelegate
 		Logging.log(Logging.WARNING, title + " - " + message);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
 		EquipmentBuilderFacade equipBuilder)
@@ -137,9 +127,6 @@ public class ConsoleUIDelegate implements UIDelegate
 		return CustomEquipResult.CANCELLED;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade)
 	{

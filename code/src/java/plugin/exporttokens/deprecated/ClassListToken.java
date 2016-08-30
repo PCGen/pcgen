@@ -58,7 +58,7 @@ public class ClassListToken extends AbstractExportToken
 
 	/**
 	 * Get the class list token value for the PC
-	 * @param pc
+	 * @param display
 	 * @return token value
 	 */
 	public static String getClassListToken(CharacterDisplay display)

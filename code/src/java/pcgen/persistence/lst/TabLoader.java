@@ -34,7 +34,7 @@ import pcgen.util.enumeration.Tab;
  * TabLoader loads TAB lines from the miscinfo.lst file for a game mode.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class TabLoader extends SimpleLoader<TabInfo>

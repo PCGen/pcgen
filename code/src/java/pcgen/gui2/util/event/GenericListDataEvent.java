@@ -25,7 +25,7 @@ import javax.swing.event.ListDataEvent;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class GenericListDataEvent<E> extends ListDataEvent
 {

@@ -131,12 +131,12 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 
 	protected Map<S1, Map<S2, A>> getComponentMap()
 	{
-		return new IdentityHashMap<S1, Map<S2, A>>();
+		return new IdentityHashMap<>();
 	}
 
 	protected Map<S2, A> getSubComponentMap()
 	{
-		return new IdentityHashMap<S2, A>();
+		return new IdentityHashMap<>();
 	}
 
 	@Override
@@ -161,7 +161,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			return Collections.emptyList();
 		}
 		WrappedMapSet<S1> set =
-				new WrappedMapSet<S1>(getComponentMap().getClass());
+                new WrappedMapSet<>(getComponentMap().getClass());
 		set.addAll(map.keySet());
 		return set;
 	}
@@ -179,7 +179,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			return Collections.emptyList();
 		}
 		WrappedMapSet<S2> set =
-				new WrappedMapSet<S2>(getSubComponentMap().getClass());
+                new WrappedMapSet<>(getSubComponentMap().getClass());
 		set.addAll(subMap.keySet());
 		return set;
 	}

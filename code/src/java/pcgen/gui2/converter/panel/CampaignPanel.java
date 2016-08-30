@@ -57,7 +57,7 @@ import pcgen.system.PCGenSettings;
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class CampaignPanel extends ConvertSubPanel
@@ -91,7 +91,7 @@ public class CampaignPanel extends ConvertSubPanel
 	public boolean performAnalysis(CDOMObject pc)
 	{
 		GameMode game = pc.get(ObjectKey.GAME_MODE);
-		List<String> gameModeList = new ArrayList<String>();
+		List<String> gameModeList = new ArrayList<>();
 		gameModeList.addAll(game.getAllowedModes());
 		
 		File sourceFolder = pc.get(ObjectKey.DIRECTORY);
@@ -99,7 +99,7 @@ public class CampaignPanel extends ConvertSubPanel
 
 		// Only add those campaigns in the user's chosen folder and game mode
 		List<Campaign> allCampaigns = Globals.getCampaignList();
-		gameModeCampaigns = new ArrayList<Campaign>();
+		gameModeCampaigns = new ArrayList<>();
 		for (Campaign campaign : allCampaigns)
 		{
 			if (campaign.containsAnyInList(ListKey.GAME_MODE, gameModeList))

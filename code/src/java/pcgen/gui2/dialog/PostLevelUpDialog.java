@@ -65,11 +65,11 @@ import pcgen.system.LanguageBundle;
  * The Class <code>PostLevelUpDialog</code> provides a display of the results 
  * of levelling up a character. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
@@ -109,7 +109,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 		{
 			return;
 		}
-		
+
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		PostLevelUpDialog dialog =
 				new PostLevelUpDialog(frame, character, oldLevel);
@@ -215,7 +215,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 					};
 			
 			data = new Object[numLevels + 1][5];
-			classLevelMap = new HashMap<ClassFacade, MutableInt>();
+			classLevelMap = new HashMap<>();
 			int gainedTotal = 0;
 			int rolledTotal = 0;
 			int pointTotal = 0;

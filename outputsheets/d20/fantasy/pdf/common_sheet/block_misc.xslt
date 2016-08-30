@@ -137,7 +137,7 @@
 	</xsl:template>
 	<xsl:template name="followers.list">
 		<xsl:if test="count(follower) &gt; 0">
-			<fo:table table-layout="fixed" space-after.optimum="2mm">
+			<fo:table table-layout="fixed" width="100%" space-after.optimum="2mm">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2)" />mm</xsl:attribute>
 				</fo:table-column>
@@ -170,7 +170,7 @@
 	</xsl:template>
 	<xsl:template name="show_companion">
 		<xsl:param name="followerType" select="Follower"/>
-		<fo:table table-layout="fixed" space-before.optimum="2mm" keep-together="always">
+		<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm" keep-together="always">
 				<fo:table-column>
 					<xsl:attribute name="column-width"><xsl:value-of select="0.5 * ($pagePrintableWidth - 2) - 69" />mm</xsl:attribute>
 				</fo:table-column>
@@ -392,7 +392,7 @@
 ====================================-->
 	<xsl:template match="misc/companions">
 		<xsl:if test="count(companion) &gt; 0">	
-			<fo:table table-layout="fixed" space-before.optimum="2mm">
+			<fo:table table-layout="fixed" width="100%" space-before.optimum="2mm">
 				<xsl:call-template name="attrib">
 					<xsl:with-param name="attribute" select="'magic.border'"/>
 				</xsl:call-template>

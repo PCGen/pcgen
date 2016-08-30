@@ -25,19 +25,19 @@ import java.util.logging.LogRecord;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PCGenTaskEvent extends EventObject
 {
 
 	private LogRecord errorRecord;
 
-	public PCGenTaskEvent(PCGenTask source)
+	PCGenTaskEvent(PCGenTask source)
 	{
 		this(source, null);
 	}
 
-	public PCGenTaskEvent(PCGenTask source, LogRecord errorRecord)
+	PCGenTaskEvent(PCGenTask source, LogRecord errorRecord)
 	{
 		super(source);
 		this.errorRecord = errorRecord;

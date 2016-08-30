@@ -1,3 +1,23 @@
+/*
+ * DeferredCharacterComboBoxModel.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
 package pcgen.gui2.tabs.models;
 
 import java.awt.event.FocusEvent;
@@ -22,13 +42,13 @@ import pcgen.gui2.util.FacadeListModel;
  * Note: This class needs to be added as a FocusListener of the target JComboBox 
  * for selection to work.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 @SuppressWarnings("serial")

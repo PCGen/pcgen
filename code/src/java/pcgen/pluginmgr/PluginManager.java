@@ -33,7 +33,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PluginManager implements pcgen.system.PluginLoader
 {
@@ -45,8 +45,8 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 	private PluginManager()
 	{
-		pluginMap = new TreeMap<InteractivePlugin, Boolean>(PLUGIN_PRIORITY_SORTER);
-		infoList = new ArrayList<PluginInfo>();
+		pluginMap = new TreeMap<>(PLUGIN_PRIORITY_SORTER);
+		infoList = new ArrayList<>();
 		msgHandlerMgr = new MessageHandlerManager();
 	}
 
@@ -74,7 +74,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 
 	public List<PluginInfo> getPluginInfoList()
 	{
-		return new ArrayList<PluginInfo>(infoList);
+		return new ArrayList<>(infoList);
 	}
 
 	public void startAllPlugins()

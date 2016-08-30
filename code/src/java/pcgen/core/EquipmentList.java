@@ -48,7 +48,7 @@ import pcgen.util.Logging;
  * Equipment-related lists and methods extracted from Globals.java. Will
  * probably try to disentangle modifierlist into it's own class later.
  *
- * @author Jonas Karlsson <jujutsunerd@users.sourceforge.net>
+ * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipmentList {
@@ -87,9 +87,9 @@ public class EquipmentList {
 	 * @return the Equipment matching the name
 	 */
 	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC) {
-		final List<String> modList = new ArrayList<String>();
-		final List<String> namList = new ArrayList<String>();
-		final List<String> sizList = new ArrayList<String>();
+		final List<String> modList = new ArrayList<>();
+		final List<String> namList = new ArrayList<>();
+		final List<String> sizList = new ArrayList<>();
 		Equipment eq;
 		String aName = baseName;
 		int i = aName.indexOf('(');
@@ -338,7 +338,7 @@ public class EquipmentList {
 	{
 		final List<String> desiredTypeList = CoreUtility.split(desiredTypes, '.');
 		final List<String> excludedTypeList = CoreUtility.split(excludedTypes, '.');
-		final List<Equipment> typeList = new ArrayList<Equipment>(100);
+		final List<Equipment> typeList = new ArrayList<>(100);
 
 		if (desiredTypeList.size() != 0)
 		{
@@ -515,7 +515,7 @@ public class EquipmentList {
 	private static void autogenerateRacialEquipment() {
 		if (SettingsHandler.isAutogenRacial()) {
 
-			Set<Integer> gensizesid = new HashSet<Integer>();
+			Set<Integer> gensizesid = new HashSet<>();
 			//
 			// Go through all loaded races and flag whether or not to make equipment
 			// sized for them.  Karianna, changed the array length by 1 as Collosal
@@ -536,7 +536,7 @@ public class EquipmentList {
 			}
 
 			SizeAdjustment defaultSize = SizeUtilities.getDefaultSizeAdjustment();
-			Set<SizeAdjustment> gensizes = new HashSet<SizeAdjustment>();
+			Set<SizeAdjustment> gensizes = new HashSet<>();
 			for (Integer i : gensizesid)
 			{
 				gensizes.add(ref.getSortedList(SizeAdjustment.class,

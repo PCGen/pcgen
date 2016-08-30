@@ -51,31 +51,32 @@ public class ResultFacet
 		ScopeInstance scope = scopeFacet.getGlobalScope(id);
 		VariableID<?> varID =
 				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-					varName);
+						varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
 	public Object getLocalVariable(CharID id, CDOMObject cdo, String varName)
 	{
-		/*
-		 * TODO Given who this serves, this is an interesting situation. This
-		 * uses cdoScope to drive it "local", but scopeFacet will still walk up
-		 * the tree, but scopeFacet will barf loudly if it is a mitmatch... :(
-		 */
+		String localScopeName = cdo.getLocalScopeName();
+		if (localScopeName == null)
+		{
+			return getGlobalVariable(id, varName);
+		}
+
 		LegalScope cdoScope =
 				formulaSetupFacet.get(id.getDatasetID()).getLegalScopeLibrary()
-					.getScope(cdo.getLocalScopeName());
+				.getScope(localScopeName);
 		ScopeInstance scope = scopeFacet.get(id, cdoScope, cdo);
 		if (scope == null)
 		{
 			Logging.errorPrint("Improperly built "
-				+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
-				+ " had no VariableScope");
+					+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
+					+ " had no VariableScope");
 			return null;
 		}
 		VariableID<?> varID =
 				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-					varName);
+						varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
@@ -90,7 +91,7 @@ public class ResultFacet
 	}
 
 	public void setVariableLibraryFacet(
-		VariableLibraryFacet variableLibraryFacet)
+			VariableLibraryFacet variableLibraryFacet)
 	{
 		this.variableLibraryFacet = variableLibraryFacet;
 	}
@@ -99,4 +100,5 @@ public class ResultFacet
 	{
 		this.variableStoreFacet = variableStoreFacet;
 	}
+
 }

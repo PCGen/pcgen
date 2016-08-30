@@ -21,13 +21,8 @@
 package pcgen.gui2;
 
 import gmgen.GMGenSystem;
-
-import java.awt.Window;
-
 import javax.swing.SwingUtilities;
-
 import org.apache.commons.lang.SystemUtils;
-
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui2.plaf.MacGUIHandler;
@@ -40,7 +35,7 @@ import pcgen.system.Main;
  * frameworks such as the application toolbar for Macs.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenUIManager
 {
@@ -49,19 +44,6 @@ public final class PCGenUIManager
 
 	private PCGenUIManager()
 	{
-	}
-
-	public static void refreshUITree()
-	{
-		for (Window window : Window.getWindows())
-		{
-			SwingUtilities.updateComponentTreeUI(window);
-		}
-	}
-
-	private boolean checkBounds()
-	{
-		return false;
 	}
 
 	public static void initializeGUI()

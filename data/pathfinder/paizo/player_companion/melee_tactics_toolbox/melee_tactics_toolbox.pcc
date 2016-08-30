@@ -1,6 +1,6 @@
 # CVS $Revision$ $Author$ -- Thu May 12 14:50:48 2016 -- reformated by PCGen PrettyLST v6.06.00
 CAMPAIGN:Melee Tactics Toolbox
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
@@ -11,7 +11,7 @@ PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Bestiary,INCLUDES=Advanced Pl
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Pathfinder Player Companion: Melee Tactics Toolbox
+SOURCELONG:Melee Tactics Toolbox
 SOURCESHORT:MTT
 SOURCEWEB:http://paizo.com/products/btpy9c23?Pathfinder-Player-Companion-Melee-Tactics-Toolbox
 SOURCEDATE:2015-03

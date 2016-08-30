@@ -104,7 +104,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<T>();
+			List<T> setupCache = new ArrayList<>();
 			for (T obj : allObjects.getContainedObjects())
 			{
 				if (contains(obj))

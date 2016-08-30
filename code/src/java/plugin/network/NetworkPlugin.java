@@ -64,9 +64,6 @@ public class NetworkPlugin implements InteractivePlugin
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_network_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
-
 	private NetworkModel model;
 
 	private JMenuItem netToolsItem = new JMenuItem();
@@ -95,10 +92,7 @@ public class NetworkPlugin implements InteractivePlugin
 			new PreferencesNetworkingPanel(model)));
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -223,9 +217,9 @@ public class NetworkPlugin implements InteractivePlugin
 	}
 
 	/**
-	 *  Gets the name of the data directory for Plugin object
+	 * Gets the name of the data directory for Plugin object
 	 *
-	 *@return    The data directory name
+	 * @return    The data directory name
 	 */
 	public File getDataDirectory()
 	{

@@ -36,14 +36,14 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class AbilityTreeViews
 {
 
 	public static List<TreeView<AbilityFacade>> createTreeViewList(CharacterFacade character)
 	{
-		List<TreeView<AbilityFacade>> list = new ArrayList<TreeView<AbilityFacade>>();
+		List<TreeView<AbilityFacade>> list = new ArrayList<>();
 		list.add(new NameTreeView());
 		list.add(new TypeTreeView());
 		list.add(new PreReqTreeView(character.getDataSet()));
@@ -63,7 +63,7 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<AbilityFacade>(pobj));
+			return Collections.singletonList(new TreeViewPath<>(pobj));
 		}
 
 	}
@@ -80,17 +80,17 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			List<TreeViewPath<AbilityFacade>> list = new ArrayList<TreeViewPath<AbilityFacade>>();
+			List<TreeViewPath<AbilityFacade>> list = new ArrayList<>();
 			List<String> types = pobj.getTypes();
 			if (types.isEmpty())
 			{
-				list.add((new TreeViewPath<AbilityFacade>(pobj)));
+				list.add((new TreeViewPath<>(pobj)));
 			}
 			else
 			{
 				for (String type : types)
 				{
-					list.add(new TreeViewPath<AbilityFacade>(pobj, type));
+					list.add(new TreeViewPath<>(pobj, type));
 				}
 			}
 			return list;
@@ -110,8 +110,8 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<AbilityFacade>(
-				pobj, pobj.getSourceForNodeDisplay()));
+			return Collections.singletonList(new TreeViewPath<>(
+                    pobj, pobj.getSourceForNodeDisplay()));
 		}
 
 	}
@@ -135,15 +135,15 @@ public class AbilityTreeViews
 		@Override
 		public List<TreeViewPath<AbilityFacade>> getPaths(AbilityFacade pobj)
 		{
-			List<List<AbilityFacade>> abilityPaths = new ArrayList<List<AbilityFacade>>();
+			List<List<AbilityFacade>> abilityPaths = new ArrayList<>();
 			addPaths(abilityPaths, dataset.getPrereqAbilities(pobj),
-					 new ArrayList<AbilityFacade>());
+                    new ArrayList<>());
 			if (abilityPaths.isEmpty())
 			{
-				return Collections.singletonList(new TreeViewPath<AbilityFacade>(pobj));
+				return Collections.singletonList(new TreeViewPath<>(pobj));
 			}
 
-			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<TreeViewPath<AbilityFacade>>();
+			List<TreeViewPath<AbilityFacade>> paths = new ArrayList<>();
 			for (List<AbilityFacade> path : abilityPaths)
 			{
 				Collections.reverse(path);

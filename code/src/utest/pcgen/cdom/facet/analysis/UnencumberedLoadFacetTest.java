@@ -102,13 +102,13 @@ public class UnencumberedLoadFacetTest extends
 		assertEquals(Load.LIGHT, facet.getBestLoad(id));
 		Object source1 = new Object();
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[1], source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, source[1], source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(Load.MEDIUM, facet.getBestLoad(id));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[0], source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, source[0], source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(Load.HEAVY, facet.getBestLoad(id));
 	}
@@ -120,15 +120,15 @@ public class UnencumberedLoadFacetTest extends
 		assertEquals(false, facet.ignoreLoad(id, Load.MEDIUM));
 		Object source1 = new Object();
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[1], source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, source[1], source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
 		assertEquals(true, facet.ignoreLoad(id, Load.MEDIUM));
 		assertEquals(false, facet.ignoreLoad(id, Load.HEAVY));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, source[0], source1,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, source[0], source1,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getListener().dataAdded(dfce);
 		assertEquals(true, facet.ignoreLoad(id, Load.LIGHT));
 		assertEquals(true, facet.ignoreLoad(id, Load.MEDIUM));

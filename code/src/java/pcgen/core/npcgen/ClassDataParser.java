@@ -65,7 +65,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Parse a generator class data file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */
@@ -106,7 +106,7 @@ public class ClassDataParser
 	public List<ClassData> parse( final File aFileName ) 
 		throws SAXException, IOException
 	{
-		final List<ClassData> ret = new ArrayList<ClassData>();
+		final List<ClassData> ret = new ArrayList<>();
 		
 		try
 		{
@@ -124,7 +124,7 @@ public class ClassDataParser
  * This is the parsing event handler class.  The methods in this class are
  * called by the SAX parser as it finds various elements in the XML file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  * @since 5.11.1
  */
@@ -175,7 +175,7 @@ class ClassDataHandler extends DefaultHandler
 	
 	// Weight for any skills added from *
 	private transient int remainingWeight = -1;
-	private transient List<String> removeList = new ArrayList<String>();
+	private transient List<String> removeList = new ArrayList<>();
 	
 	/**
 	 * Constructs the handler
@@ -508,7 +508,7 @@ class ClassDataHandler extends DefaultHandler
 			{
 				theCurrentData.removeSkill(remove);
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theState = ParserState.CLASSDATA;
 		}
 		else if ( "abilities".equals(qName) && theState == ParserState.ABILITYDATA ) //$NON-NLS-1$
@@ -534,7 +534,7 @@ class ClassDataHandler extends DefaultHandler
 								theCurrentCategory, remove);
 				theCurrentData.removeAbility(theCurrentCategory, ability);
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theCurrentCategory = null;
 			theState = ParserState.CLASSDATA;
 		}
@@ -578,7 +578,7 @@ class ClassDataHandler extends DefaultHandler
 					theCurrentData.removeKnownSpell(theCurrentLevel, spell);
 				}
 			}
-			removeList = new ArrayList<String>();
+			removeList = new ArrayList<>();
 			theCurrentLevel = -1;
 			theState = ParserState.SPELLDATA;
 		}
@@ -615,7 +615,7 @@ class ClassDataHandler extends DefaultHandler
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
 		MasterListInterface masterLists = Globals.getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<CDOMReference<CDOMList<Spell>>>();
+		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			for (CDOMList<Spell> list : spellLists)
@@ -628,7 +628,7 @@ class ClassDataHandler extends DefaultHandler
 			}
 		}
 		boolean allLevels = level == -1;
-		Set<Spell> spellList = new HashSet<Spell>();
+		Set<Spell> spellList = new HashSet<>();
 		for (CDOMReference<CDOMList<Spell>> ref : useLists)
 		{
 			for (Spell spell : masterLists.getObjects(ref))
@@ -653,6 +653,6 @@ class ClassDataHandler extends DefaultHandler
 				}
 			}
 		}
-		return new ArrayList<Spell>(spellList);
+		return new ArrayList<>(spellList);
 	}
 }

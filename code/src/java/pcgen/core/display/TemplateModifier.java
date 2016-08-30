@@ -77,11 +77,11 @@ public class TemplateModifier
 			}
 		}
 
-		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<DamageReduction, Set<Object>>();
+		Map<DamageReduction, Set<Object>> drMap = new IdentityHashMap<>();
 		CharacterDisplay display = aPC.getDisplay();
 		int totalLevels = display.getTotalLevels();
 		int totalHitDice = display.totalHitDice();
-		List<PCTemplate> templList = new ArrayList<PCTemplate>();
+		List<PCTemplate> templList = new ArrayList<>();
 		templList.add(pct);
 		templList.addAll(pct.getConditionalTemplates(totalLevels, totalHitDice));
 		for (PCTemplate subt : templList)
@@ -95,7 +95,7 @@ public class TemplateModifier
 					Set<Object> set = drMap.get(dr);
 					if (set == null)
 					{
-						set = new HashSet<Object>();
+						set = new HashSet<>();
 						drMap.put(dr, set);
 					}
 					set.add(pct);

@@ -48,9 +48,9 @@ public class AutoLanguageGrantedFacet extends
 	{
 		Collection<Language> current = getSet(id);
 		Collection<Language> qualified = autoLanguageFacet.getAutoLanguage(id);
-		List<Language> toRemove = new ArrayList<Language>(current);
+		List<Language> toRemove = new ArrayList<>(current);
 		toRemove.removeAll(qualified);
-		List<Language> toAdd = new ArrayList<Language>(qualified);
+		List<Language> toAdd = new ArrayList<>(qualified);
 		toAdd.removeAll(current);
 		for (Language lang : toRemove)
 		{

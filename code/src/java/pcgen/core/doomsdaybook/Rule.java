@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 public class Rule extends ArrayList<String> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 	String id;
 	String title;
 	VariableHashMap allVars;

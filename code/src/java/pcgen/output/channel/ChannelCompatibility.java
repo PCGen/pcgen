@@ -28,13 +28,13 @@ import pcgen.output.channel.compat.StatAdapter;
 public class ChannelCompatibility
 {
 
-	public static WriteableReferenceFacade<?> getStatScore(CharID id,
+	public static WriteableReferenceFacade<Integer> getStatScore(CharID id,
 		PCStat stat)
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.STATSCORE))
 		{
-			return ChannelUtilities.getChannel(id, stat, CControl.STATSCORE);
+			return (WriteableReferenceFacade<Integer>) ChannelUtilities.getChannel(id, stat, CControl.STATSCORE);
 		}
 		else
 		{

@@ -30,7 +30,7 @@ import pcgen.output.publish.OutputDB;
  * This stores some of the properties that pcgen uses.
  * This class is mainly intended to be used to store non-ui related
  * properties
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenSettings extends PropertyContext
 {

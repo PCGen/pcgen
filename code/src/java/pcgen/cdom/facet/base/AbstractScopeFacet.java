@@ -42,7 +42,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		Map<S, Map<T, Set<Object>>> map = getInfo(id);
 		if (map == null)
 		{
-			map = new IdentityHashMap<S, Map<T, Set<Object>>>();
+			map = new IdentityHashMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -67,14 +67,14 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		Map<T, Set<Object>> scopeMap = map.get(scope);
 		if (scopeMap == null)
 		{
-			scopeMap = new IdentityHashMap<T, Set<Object>>();
+			scopeMap = new IdentityHashMap<>();
 			map.put(scope, scopeMap);
 		}
 		Set<Object> sources = scopeMap.get(obj);
 		boolean isNew = (sources == null);
 		if (isNew)
 		{
-			sources = new WrappedMapSet<Object>(IdentityHashMap.class);
+			sources = new WrappedMapSet<>(IdentityHashMap.class);
 			scopeMap.put(obj, sources);
 		}
 		sources.add(source);
@@ -99,7 +99,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		Map<T, Set<Object>> scopeMap = map.get(scope);
 		if (scopeMap == null)
 		{
-			scopeMap = new IdentityHashMap<T, Set<Object>>();
+			scopeMap = new IdentityHashMap<>();
 			map.put(scope, scopeMap);
 		}
 		for (T obj : coll)
@@ -108,7 +108,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			boolean isNew = (sources == null);
 			if (isNew)
 			{
-				sources = new WrappedMapSet<Object>(IdentityHashMap.class);
+				sources = new WrappedMapSet<>(IdentityHashMap.class);
 				scopeMap.put(obj, sources);
 			}
 			sources.add(source);
@@ -173,7 +173,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<T>(scopeMap.keySet());
+		return new ArrayList<>(scopeMap.keySet());
 	}
 
 	public Collection<S> getScopes(IDT id)
@@ -183,7 +183,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 		{
 			return Collections.emptyList();
 		}
-		return new ArrayList<S>(map.keySet());
+		return new ArrayList<>(map.keySet());
 	}
 
 	public boolean contains(IDT id, S scope, T obj)
@@ -288,7 +288,7 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 	}
 
 	private final Map<Integer, ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[]> listeners =
-			new TreeMap<Integer, ScopeFacetChangeListener<? super IDT, ? super S, ? super T>[]>();
+            new TreeMap<>();
 
 	/**
 	 * Adds a new ScopeFacetChangeListener to receive ScopeFacetChangeEvents
@@ -450,8 +450,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 				if (ccEvent == null)
 				{
 					ccEvent =
-							new ScopeFacetChangeEvent<IDT, S, T>(id, scope,
-								node, this, type);
+                            new ScopeFacetChangeEvent<>(id, scope,
+                                    node, this, type);
 				}
 				ScopeFacetChangeListener dfcl = dfclArray[i];
 				switch (ccEvent.getEventType())

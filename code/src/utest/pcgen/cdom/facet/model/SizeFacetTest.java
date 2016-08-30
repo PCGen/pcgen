@@ -72,7 +72,7 @@ public class SizeFacetTest extends TestCase
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		facet.setFormulaResolvingFacet(new FormulaResolvingFacet());
-		bonusInfo = new HashMap<CharID, Double>();
+		bonusInfo = new HashMap<>();
 		staticSetUp();
 	}
 

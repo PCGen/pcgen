@@ -175,7 +175,7 @@ public abstract class JepCountType
 
 					boolean wantExport = "YES".equalsIgnoreCase(keyValue[1]);
 					final Set<ChronicleEntry> cs =
-							new HashSet<ChronicleEntry>();
+                            new HashSet<>();
 					for (ChronicleEntry ce : coll)
 					{
 						if (ce.isOutputEntry() == wantExport)
@@ -230,10 +230,10 @@ public abstract class JepCountType
 			{
 				Logging.errorPrint("Bad parameter to count(\"Equipment\"), "
 					+ c);
-				return new HashSet<Equipment>();
+				return new HashSet<>();
 			}
 
-			final Set<Equipment> cs = new HashSet<Equipment>(coll);
+			final Set<Equipment> cs = new HashSet<>(coll);
 			final Iterator<? extends Equipment> it = cs.iterator();
 
 			switch (en)
@@ -436,7 +436,7 @@ public abstract class JepCountType
 
 		public boolean accept(CNAbility o)
 		{
-			List<String> assocs = new ArrayList<String>();
+			List<String> assocs = new ArrayList<>();
 			String undec = AbilityUtilities.getUndecoratedName(name, assocs);
 			Ability ab = o.getAbility();
 			String keyName = ab.getKeyName();
@@ -520,7 +520,7 @@ public abstract class JepCountType
 					"Bad parameter to count(\"CLASSES\" ... )" + c);
 			}
 
-			final Set<T> cs = new HashSet<T>(coll);
+			final Set<T> cs = new HashSet<>(coll);
 			final Iterator<? extends T> it = cs.iterator();
 
 			filterPObjectByType(it, keyValue[1]);
@@ -534,7 +534,7 @@ public abstract class JepCountType
 			if (!"ALL".equalsIgnoreCase(tString))
 			{
 				// Make a List of all the types that each PObject should match
-				final Collection<String> typeList = new ArrayList<String>();
+				final Collection<String> typeList = new ArrayList<>();
 				Collections.addAll(typeList, tString.split("\\."));
 
 				// These nested loops remove all PObjects from the collection being
@@ -600,7 +600,7 @@ public abstract class JepCountType
 				|| c.equalsIgnoreCase(ParameterTree.andString))
 			{
 				final Set<T> a =
-						new HashSet<T>(doFilterP(pt.getLeftTree(), coll));
+                        new HashSet<>(doFilterP(pt.getLeftTree(), coll));
 				final Collection<? extends T> b =
 						doFilterP(pt.getRightTree(), coll);
 				if (c.equalsIgnoreCase(ParameterTree.orString))
@@ -647,7 +647,7 @@ public abstract class JepCountType
 
 	public static abstract class JepCountAbilities extends JepCountFilterable<CNAbility>
 	{
-		protected final List<String> assocList = new ArrayList<String>();
+		protected final List<String> assocList = new ArrayList<>();
 
 		@Override
 		protected Collection<CNAbility> getData(final PlayerCharacter pc)
@@ -670,7 +670,7 @@ public abstract class JepCountType
 			catch (IllegalArgumentException ex)
 			{
 				Logging.errorPrint("Bad parameter to count(\"Ability\"), " + c);
-				return new HashSet<CNAbility>();
+				return new HashSet<>();
 			}
 
 			ObjectFilter<CNAbility> filter = null;
@@ -739,7 +739,7 @@ public abstract class JepCountType
 					break;
 			}
 
-			List<CNAbility> ret = new ArrayList<CNAbility>(coll);
+			List<CNAbility> ret = new ArrayList<>(coll);
 			if (filter != null)
 			{
 				for (Iterator<CNAbility> it = ret.iterator(); it.hasNext();)
@@ -759,9 +759,9 @@ public abstract class JepCountType
 		public boolean accept(T o);
 	}
 
-	private static final void buildMap()
+	private static void buildMap()
 	{
-		typeMap = new CaseInsensitiveMap<JepCountType>();
+		typeMap = new CaseInsensitiveMap<>();
 		Field[] fields = JepCountType.class.getDeclaredFields();
 		for (int i = 0; i < fields.length; i++)
 		{

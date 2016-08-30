@@ -33,11 +33,11 @@ import pcgen.facade.util.ReferenceFacade;
  * The Class <code>CompanionNotLoaded</code> represents a characters's companion 
  * (familiar, animal companion, mount etc) that is not currently loaded.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CompanionNotLoaded implements CompanionFacade
@@ -57,9 +57,9 @@ public class CompanionNotLoaded implements CompanionFacade
 	 */
 	public CompanionNotLoaded(String name, File file, RaceFacade race, String compType)
 	{
-		this.nameRef = new DefaultReferenceFacade<String>(name);
-		this.fileRef = new DefaultReferenceFacade<File>(file);
-		this.raceRef = new DefaultReferenceFacade<RaceFacade>(race);
+		this.nameRef = new DefaultReferenceFacade<>(name);
+		this.fileRef = new DefaultReferenceFacade<>(file);
+		this.raceRef = new DefaultReferenceFacade<>(race);
 		this.companionType = compType;
 	}
 	

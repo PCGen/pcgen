@@ -64,7 +64,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private PCAlignment getPCAlignment(String desiredAlignIdentifier)
+	private static PCAlignment getPCAlignment(String desiredAlignIdentifier)
 	{
 		PCAlignment desiredAlign =
 				Globals

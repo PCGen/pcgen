@@ -48,7 +48,7 @@ import pcgen.util.Logging;
  * Last Editor: $Author: jdempsey $
  * Last Edited: $Date: 2009-01-27 03:21:06 -0500 (Tue, 27 Jan 2009) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 9113 $
  */
 @SuppressWarnings("serial")

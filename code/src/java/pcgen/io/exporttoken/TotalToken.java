@@ -88,7 +88,7 @@ public class TotalToken extends Token
 
 	/**
 	 * Get the CAPACITY sub token
-	 * @param pc
+	 * @param display
 	 * @return the CAPACITY sub token
 	 */
 	public static String getCapacityToken(CharacterDisplay display)
@@ -99,7 +99,7 @@ public class TotalToken extends Token
 
 	/**
 	 * Get the LOAD sub token
-	 * @param pc
+	 * @param display
 	 * @return the LOAD sub token
 	 */
 	public static String getLoadToken(CharacterDisplay display)
@@ -144,7 +144,7 @@ public class TotalToken extends Token
 
 	/**
 	 * Get the WEIGHT sub token
-	 * @param pc
+	 * @param display
 	 * @return the WEIGHT sub token
 	 */
 	public static String getWeightToken(CharacterDisplay display)

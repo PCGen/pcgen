@@ -41,7 +41,6 @@ import java.net.MalformedURLException;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.net.URL;
-
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.JComponent;
@@ -52,15 +51,13 @@ import javax.swing.JRootPane;
 import javax.swing.JTabbedPane;
 import javax.swing.KeyStroke;
 import javax.swing.SwingUtilities;
-
 import org.apache.commons.lang.SystemUtils;
-
 import pcgen.system.PCGenSettings;
 
 /**
  * Convenience methods from various sources.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 14613 $
  */
 public final class Utility
@@ -377,7 +374,7 @@ public final class Utility
 	/**
 	 * View a URI in a browser.
 	 *
-	 * @param urI URI to display in browser.
+	 * @param uri URI to display in browser.
 	 * @throws IOException if browser can not be launched
 	 * @see DesktopBrowserLauncher
 	 */
@@ -394,7 +391,7 @@ public final class Utility
 				&& SystemUtils.IS_OS_WINDOWS
 				&& PCGenSettings.getBrowserPath() == null)
 		{
-			Utility.selectDefaultBrowser(null);
+			selectDefaultBrowser(null);
 		}
 
 		DesktopBrowserLauncher.browse(uri);
@@ -461,7 +458,7 @@ public final class Utility
 	 * This method is used to set the name of the application for the window manager, especially X11.
 	 * @param title Title to use
 	 */
-	public static final void setApplicationTitle(String title)
+	public static void setApplicationTitle(String title)
 	{
 		Toolkit xToolkit = Toolkit.getDefaultToolkit();
 

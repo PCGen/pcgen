@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 /**
  * <code>TabToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class TabToken implements GameModeLstToken
 {

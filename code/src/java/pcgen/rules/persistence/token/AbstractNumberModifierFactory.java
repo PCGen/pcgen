@@ -20,8 +20,8 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.Modifier;
 import pcgen.base.calculation.NEPCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
@@ -39,7 +39,7 @@ public abstract class AbstractNumberModifierFactory<T> implements
 	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
 	 */
 	@Override
-	public Modifier<T> getModifier(int userPriority, String instructions,
+	public PCGenModifier<T> getModifier(int userPriority, String instructions,
 		FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
@@ -52,17 +52,17 @@ public abstract class AbstractNumberModifierFactory<T> implements
 			final NEPFormula<T> f =
 					FormulaFactory.getValidFormula(instructions,
 						formulaManager, varScope, formatManager);
-			NEPCalculation<T> calc = new FormulaCalculation<T>(f, this);
-			return new CalculationModifier<T>(calc, userPriority);
+			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
+			return new CalculationModifier<>(calc, userPriority);
 		}
 	}
 
 	@Override
-	public Modifier<T> getFixedModifier(int userPriority,
+	public PCGenModifier<T> getFixedModifier(int userPriority,
 		FormatManager<T> fmtManager, String instructions)
 	{
 		T n = fmtManager.convert(instructions);
-		NEPCalculation<T> calc = new ProcessCalculation<T>(n, this, fmtManager);
-		return new CalculationModifier<T>(calc, userPriority);
+		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
+		return new CalculationModifier<>(calc, userPriority);
 	}
 }

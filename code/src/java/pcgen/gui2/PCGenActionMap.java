@@ -69,7 +69,7 @@ import pcgen.util.Logging;
  * and accessory popup menus that may use them. Since all of the action
  * handlers are Action objects they can be disabled or enabled to cause
  * all buttons that use the actions to update themselves accordingly.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenActionMap extends ActionMap
 {
@@ -490,7 +490,7 @@ public final class PCGenActionMap extends ActionMap
 		@Override
 		public void actionPerformed(ActionEvent e)
 		{
-			SolverViewFrame svf = new SolverViewFrame(frame);
+			SolverViewFrame svf = new SolverViewFrame();
 			svf.setVisible(true);
 		}
 

@@ -73,11 +73,11 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	public AbstractProfProvider(List<CDOMReference<T>> profs,
 			List<CDOMReference<Equipment>> equipTypes)
 	{
-		direct = new TreeSet<CDOMReference<T>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		direct = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		direct.addAll(profs);
-		byEquipType = new TreeSet<CDOMReference<Equipment>>(
-				ReferenceUtilities.REFERENCE_SORTER);
+		byEquipType = new TreeSet<>(
+                ReferenceUtilities.REFERENCE_SORTER);
 		byEquipType.addAll(equipTypes);
 	}
 
@@ -137,7 +137,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 		{
 			return false;
 		}
-		Set<String> types = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		Set<String> types = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		for (String s : typeString.split("\\."))
 		{
 			types.add(s);

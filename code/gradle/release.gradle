@@ -180,54 +180,36 @@ task downloadJRE << {
     def update = Integer.parseInt(m[0][4], 10)
     def build = m[0][5]
     def extension = 'tar.gz'
-    def jre32Dir = new File("${buildDir}/nsis/jre/jre_32")
-    def jre64Dir = new File("${buildDir}/nsis/jre/jre_64")
-    if(!jre32Dir.exists() || !jre64Dir.exists()){
+    def jre64Dir = new File("${projectDir}/jre/jre_64")
+    if(!jre64Dir.exists()){
         println("Downloading Java ${minor}u${update} JRE missing tar files...")
         //Only download Windows libraries. Need to add more OS if we go multi=OS at any time.
         def jre64URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-x64.${extension}"
-        def jre32URL = "http://download.oracle.com/otn-pub/java/jdk/${minor}u${update}-b${build}/jre-${minor}u${update}-windows-i586.${extension}"
         def oracleCookie = 'gpw_e24=http%3A%2F%2Fwww.oracle.com%2F; oraclelicense=accept-securebackup-cookie'
-        if(!jre32Dir.exists()){
-            download {
-                src jre32URL
-                dest new File("${buildDir}/nsis/jre/", "jre_32.${extension}")
-                header 'Cookie', oracleCookie
-                overwrite false
-            }
-        }
         if(!jre64Dir.exists()){
             download {
                 src jre64URL
-                dest new File("${buildDir}/nsis/jre/", "jre_64.${extension}")
+                dest new File("${projectDir}/jre/", "jre_64.${extension}")
                 header 'Cookie', oracleCookie
                 overwrite false
             }
         }
         //Now untar them
-        fileTree(dir: "${buildDir}/nsis/jre/").include("*.${extension}").each { simLib ->
+        fileTree(dir: "${projectDir}/jre/").include("*.${extension}").each { simLib ->
             copy {
                 println "Untar $simLib.name"
                 def name = simLib.name - '.tar.gz'
-                from tarTree("${buildDir}/nsis/jre/${simLib.name}")
-                into "${buildDir}/nsis/jre/$name"
+                from tarTree("${projectDir}/jre/${simLib.name}")
+                into "${projectDir}/jre/$name"
             }
-            new File("${buildDir}/nsis/jre/${simLib.name}").delete()
+            new File("${projectDir}/jre/${simLib.name}").delete()
         }
-        def jre32 = new File("${buildDir}/nsis/jre/jre_32/jre${major}.${minor}.${micro}_${update}")
-        def jre64 = new File("${buildDir}/nsis/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
+        def jre64 = new File("${projectDir}/jre/jre_64/jre${major}.${minor}.${micro}_${update}")
         //Removing the folder with specific version so it's easier to handle in NSIS script.
-        if(jre32.exists()){
-            copy {
-                from jre32
-                into "${buildDir}/nsis/jre/jre_32"
-            }
-            jre32.deleteDir()
-        }
         if(jre64.exists()){
             copy {
                 from jre64
-                into "${buildDir}/nsis/jre/jre_64"
+                into "${projectDir}/jre/jre_64"
             }
             jre64.deleteDir()
         }

@@ -31,50 +31,42 @@ import java.awt.event.MouseEvent;
 /**
  * <code>Utilities</code>.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 198 $
  *
  * @see SwingConstants
  */
-public final class Utilities implements SwingConstants
+public final class Utilities
 {
 
     /** Up direction. */
     public static final int UP = 14;
-    /** Down direction. */
-    public static final int DOWN = 15;
     /** Beginning (far left) direction. */
     public static final int BEGINNING = 16;
     /** End (far right) direction. */
     public static final int END = 17;
     /** Icons for New item. */
-    public static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
+    static final ImageIcon NEW_ICON = Icons.New16.getImageIcon();
     /** Icons for Close item. */
-    public static final ImageIcon CLOSE_ICON = Icons.Close16.getImageIcon();
-    /** Icons for Center item. */
-    public static final ImageIcon CENTER_ICON = Icons.Stop16.getImageIcon();
-    /** Icons for Flip item. */
-    public static final ImageIcon FLIP_ICON = Icons.Refresh16.getImageIcon();
-    /** Icons for Reset item. */
-    public static final ImageIcon RESET_ICON = Icons.Redo16.getImageIcon();
+    static final ImageIcon CLOSE_ICON = Icons.Close16.getImageIcon();
     /** Icons for Locked item. */
-    public static final ImageIcon LOCK_ICON = Icons.Bookmarks16.getImageIcon();
+    static final ImageIcon LOCK_ICON = Icons.Bookmarks16.getImageIcon();
     /** Icons for Up item. */
-    public static final ImageIcon UP_ICON = Icons.Up16.getImageIcon();
+    static final ImageIcon UP_ICON = Icons.Up16.getImageIcon();
     /** Icons for Left item. */
-    public static final ImageIcon LEFT_ICON = Icons.Back16.getImageIcon();
+    static final ImageIcon LEFT_ICON = Icons.Back16.getImageIcon();
     /** Icons for Down item. */
-    public static final ImageIcon DOWN_ICON = Icons.Down16.getImageIcon();
+    static final ImageIcon DOWN_ICON = Icons.Down16.getImageIcon();
     /** Icons for Right item. */
-    public static final ImageIcon RIGHT_ICON = Icons.Forward16.getImageIcon();
+    static final ImageIcon RIGHT_ICON = Icons.Forward16.getImageIcon();
     /** Icons for Top item. */
-    public static final ImageIcon TOP_ICON = Icons.UUp16.getImageIcon();
+    static final ImageIcon TOP_ICON = Icons.UUp16.getImageIcon();
     /** Icons for Beginning item. */
-    public static final ImageIcon BEGINNING_ICON = Icons.BBack16.getImageIcon();
+    static final ImageIcon BEGINNING_ICON = Icons.BBack16.getImageIcon();
     /** Icons for Bottom item. */
-    public static final ImageIcon BOTTOM_ICON = Icons.DDown16.getImageIcon();
+    static final ImageIcon BOTTOM_ICON = Icons.DDown16.getImageIcon();
     /** Icons for End item. */
-    public static final ImageIcon END_ICON = Icons.FForward16.getImageIcon();
+    static final ImageIcon END_ICON = Icons.FForward16.getImageIcon();
 
     private Utilities()
     {
@@ -85,9 +77,9 @@ public final class Utilities implements SwingConstants
      * Work around bug in W32; it returns false even on right-mouse
      * clicks.
      *
-     * @param e <code>MouseEvent</code>, the event
+     * @param e {@code MouseEvent}, the event
      *
-     * @return <code>boolean</code>, the condition
+     * @return {@code boolean}, the condition
      */
     static boolean isRightMouseButton(MouseEvent e)
     {
@@ -95,12 +87,12 @@ public final class Utilities implements SwingConstants
     }
 
     /**
-     * <code>isShiftLeftMouseButton</code> detects SHIFT-BUTTON1
+     * {@code isShiftLeftMouseButton} detects SHIFT-BUTTON1
      * events for flipping pane shortcuts.
      *
-     * @param e <code>MouseEvent</code>, the event
+     * @param e {@code MouseEvent}, the event
      *
-     * @return <code>boolean</code>, the condition
+     * @return {@code boolean}, the condition
      */
     static boolean isShiftLeftMouseButton(MouseEvent e)
     {

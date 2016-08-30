@@ -41,7 +41,7 @@ import pcgen.facade.core.LanguageFacade;
 /**
  * <code>Language</code>.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public final class Language extends PObject implements Comparable<Object>,
@@ -121,7 +121,7 @@ public final class Language extends PObject implements Comparable<Object>,
     @Override
 	public List<String> getTypes()
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (Type type : getTrueTypeList(false))
 		{
 			list.add(type.toString());

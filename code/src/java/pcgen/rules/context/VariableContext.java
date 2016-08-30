@@ -19,11 +19,12 @@ package pcgen.rules.context;
 
 import java.util.Set;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.solver.IndividualSetup;
+import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.formula.MonitorableVariableStore;
@@ -73,7 +74,7 @@ public class VariableContext
 	/*
 	 * For Tokens
 	 */
-	public <T> Modifier<T> getModifier(String modType, String modValue,
+	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
 		int priorityNumber, LegalScope varScope, FormatManager<T> formatManager)
 	{
 		return getModFactory().getModifier(modType, modValue, priorityNumber,

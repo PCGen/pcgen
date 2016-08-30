@@ -17,21 +17,24 @@
  */
 package pcgen.io.testsupport;
 
+import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collections;
-
 import junit.framework.TestCase;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
+import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.HandedPCAttr;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -81,8 +84,6 @@ import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
-
-import compare.InequalityTesterInst;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
@@ -174,7 +175,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();
-		reloadedPC = new PlayerCharacter(true, Collections.EMPTY_LIST);
+		reloadedPC = new PlayerCharacter(Collections.<pcgen.core.Campaign>emptyList());
 		id = pc.getCharID();
 	}
 
@@ -373,44 +374,24 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		System.err.println(pcgString);
 	}
 
-	protected void setBoilerplate()
+	private void setBoilerplate()
 	{
 		pc.setRace(human);
-		pc.setHeight(0);
-		pc.setWeight(0);
-		pc.setAllowDebt(false);
-		pc.setHanded(Handed.Right);
+		pc.setPCAttribute(NumericPCAttribute.HEIGHT, 0);;
+		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
+		pc.setPCAttribute(BooleanPCAttribute.ALLOW_DEBT, false);
+		pc.setPCAttribute(HandedPCAttr.HANDED, Handed.Right);
 		pc.setGender(Gender.Male);
-		pc.setIgnoreCost(false);
-		pc.setAge(0);
+		pc.setPCAttribute(BooleanPCAttribute.IGNORE_COST, false);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
 		pc.setGold(BigDecimal.ZERO);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 
-		pc.setStringFor(PCStringKey.INTERESTS, "");
-		pc.setStringFor(PCStringKey.MAGIC, "");
-		pc.setStringFor(PCStringKey.PORTRAIT_PATH, "");
-		pc.setStringFor(PCStringKey.BIRTHDAY, "");
-		pc.setStringFor(PCStringKey.DESCRIPTION, "");
-		pc.setStringFor(PCStringKey.RESIDENCE, "");
-		pc.setStringFor(PCStringKey.PERSONALITY1, "");
-		pc.setStringFor(PCStringKey.EYECOLOR, "");
-		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
-		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
-		pc.setStringFor(PCStringKey.PHOBIAS, "");
-		pc.setStringFor(PCStringKey.LOCATION, "");
-		pc.setStringFor(PCStringKey.NAME, "");
-		pc.setStringFor(PCStringKey.COMPANIONS, "");
-		pc.setStringFor(PCStringKey.SKINCOLOR, "");
-		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
-		pc.setStringFor(PCStringKey.BIO, "");
-		pc.setStringFor(PCStringKey.GMNOTES, "");
-		pc.setStringFor(PCStringKey.BIRTHPLACE, "");
-		pc.setStringFor(PCStringKey.ASSETS, "");
-		pc.setStringFor(PCStringKey.SPEECHTENDENCY, "");
-		pc.setStringFor(PCStringKey.HAIRCOLOR, "");
-		pc.setStringFor(PCStringKey.PERSONALITY2, "");
-		pc.setStringFor(PCStringKey.TABNAME, "");
+		for (final PCStringKey stringKey: PCStringKey.values())
+		{
+			pc.setStringFor(stringKey, "");
+		}
 	}
 
 }

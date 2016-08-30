@@ -63,13 +63,14 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	/**
+	 * {@literal 
 	 * SPELLS:<spellbook name>|[<optional parameters, pipe deliminated>] |<spell
 	 * name>[,<formula for DC>] |<spell name2>[,<formula2 for DC>] |PRExxx
 	 * |PRExxx
 	 *
 	 * CASTERLEVEL=<formula> Casterlevel of spells TIMES=<formula> Cast Times
 	 * per day, -1=At Will
-	 *
+	 *}
 	 * @param sourceLine
 	 *            Line from the LST file without the SPELLS:
 	 * @return spells list

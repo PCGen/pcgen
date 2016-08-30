@@ -22,60 +22,33 @@
  */
 package gmgen.gui;
 
-import javax.swing.AbstractButton;
-import javax.swing.ImageIcon;
-import java.awt.Window;
 import java.net.URL;
+import javax.swing.ImageIcon;
 
 /**
  * A Utility class to assist with the loading etc of Icons
  */
-public class IconUtilitities
+final class IconUtilitities
 {
 	/** The URL to the resource folder of pcgen */
-	public static final String RESOURCE_URL = "/pcgen/gui/resource/";
-	public static final String RESOURCE_APP_ICON = "PCGenApp.png";
+	private static final String RESOURCE_URL = "/pcgen/gui/resource/";
+
+	private IconUtilitities() {}
 
 	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
+	 * Fetch an {@code ImageIcon} relative to the calling
 	 * location.
 	 *
-	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage</code> source
+	 * @param location {@code String}, the path to the
+	 * {@code IconImage} source
+	 * @param description {@code String}, the description
 	 *
-	 * @return <code>ImageIcon</code>, the icon or
-	 * <code>null</code> on failure
-	 */
-	public static ImageIcon getImageIcon(String location)
-	{
-		if (location.startsWith(RESOURCE_URL) == false) {
-			location = RESOURCE_URL + location;
-		}
-		final URL iconURL =
-				IconUtilitities.class.getResource(location);
-
-		if (iconURL == null)
-		{
-			return null;
-		}
-
-		return new ImageIcon(iconURL);
-	}
-
-	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
-	 * location.
-	 *
-	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
-	 * @param description <code>String</code>, the description
-	 *
-	 * @return <code>ImageIcon</code>, the icon or
-	 * <code>null</code> on failure
+	 * @return {@code ImageIcon}, the icon or
+	 * {@code null} on failure
 	 */
 	public static ImageIcon getImageIcon(String location, String description)
 	{
-		if (location.startsWith(RESOURCE_URL) == false) {
+		if (!location.startsWith(RESOURCE_URL)) {
 			location = RESOURCE_URL + location;
 		}
 		final URL iconURL =
@@ -89,89 +62,4 @@ public class IconUtilitities
 		return new ImageIcon(iconURL, description);
 	}
 
-	/**
-	 * Add an icon to a menu item if the image can be loaded,
-	 * otherwise return <code>false</code>.
-	 *
-	 * @param button AbstractButton the item
-	 * @param iconName String the name of the image file (not the path)
-	 *
-	 * @return boolean was icon set?
-	 */
-	public static boolean maybeSetIcon(AbstractButton button, String iconName)
-	{
-		if (iconName == null)
-		{
-			return false;
-		}
-
-		final ImageIcon iconImage = getImageIcon(iconName);
-
-		if (iconImage == null)
-		{
-			return false;
-		}
-
-		button.setIcon(iconImage);
-
-		return true;
-	}
-
-	/**
-	 * Add an icon and description to a menu item if the image can
-	 * be loaded, otherwise return <code>false</code>.
-	 *
-	 * @param button AbstractButton the item
-	 * @param iconName String the name of the image file (not the path)
-	 * @param description String the description of the icon
-	 *
-	 * @return boolean was icon set?
-	 */
-	public static boolean maybeSetIcon(AbstractButton button, String iconName,
-		String description)
-	{
-		if (iconName == null)
-		{
-			return false;
-		}
-
-		final ImageIcon iconImage = getImageIcon(iconName, description);
-
-		if (iconImage == null)
-		{
-			return false;
-		}
-
-		button.setIcon(iconImage);
-
-		return true;
-	}
-
-	/**
-	 * Add an icon to a frame if the image can be loaded,
-	 * otherwise return <code>false</code>.
-	 *
-	 * @param frame Frame the frame
-	 * @param iconName String the name of the image file (not the path)
-	 *
-	 * @return boolean was icon set?
-	 */
-	public static boolean maybeSetIcon(Window frame, String iconName)
-	{
-		if (iconName == null)
-		{
-			return false;
-		}
-
-		final ImageIcon iconImage = getImageIcon(iconName);
-
-		if (iconImage == null)
-		{
-			return false;
-		}
-
-		frame.setIconImage(iconImage.getImage());
-
-		return true;
-	}
 }

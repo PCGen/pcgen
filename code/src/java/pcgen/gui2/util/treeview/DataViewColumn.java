@@ -22,7 +22,7 @@ package pcgen.gui2.util.treeview;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public interface DataViewColumn
 {

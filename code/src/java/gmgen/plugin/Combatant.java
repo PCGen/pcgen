@@ -22,7 +22,6 @@
  */
 package gmgen.plugin;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 
@@ -40,7 +39,6 @@ public abstract class Combatant implements InitHolder
 
 	/**  The object that contains all initiative information */
 	public SystemInitiative init;
-	protected List<Effect> effects = new ArrayList<Effect>();
 	protected String comType = "Enemy";
 	protected State status = State.Nothing;
 	protected SystemHP hitPoints;
@@ -50,7 +48,7 @@ public abstract class Combatant implements InitHolder
 	/**
 	 *  Creates new Combatant
 	 */
-	public Combatant()
+	protected Combatant()
 	{
 		// Empty Constructor
 	}
@@ -102,15 +100,6 @@ public abstract class Combatant implements InitHolder
 	public int getDuration()
 	{
 		return duration;
-	}
-
-	/**
-	 * Get effects
-	 * @return effects
-	 */
-	public List<Effect> getEffects()
-	{
-		return effects;
 	}
 
 	/**
@@ -167,9 +156,9 @@ public abstract class Combatant implements InitHolder
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<Object> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(final List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
 		for ( String columnName : columnOrder )
@@ -271,15 +260,6 @@ public abstract class Combatant implements InitHolder
 	 * @return XP
 	 */
 	public abstract int getXP();
-
-	/**
-	 * Add effect
-	 * @param effect
-	 */
-	public void addEffect(Effect effect)
-	{
-		effects.add(effect);
-	}
 
 	/**  Causes the XMLCombatant to bleed for 1 point of damage */
 	public void bleed()

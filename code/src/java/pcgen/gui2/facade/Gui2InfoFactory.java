@@ -135,11 +135,11 @@ import pcgen.util.enumeration.View;
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class Gui2InfoFactory implements InfoFactory
@@ -1035,7 +1035,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Map<String, String> qualityMap = equip.getMapFor(MapKey.QUALITY);
 		if (qualityMap != null && !qualityMap.isEmpty())
 		{
-			Set<String> qualities = new TreeSet<String>();
+			Set<String> qualities = new TreeSet<>();
 			for (Map.Entry<String, String> me : qualityMap.entrySet())
 			{
 				qualities.add(new StringBuilder(50).append(me.getKey()).append(
@@ -1304,7 +1304,7 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
+		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
@@ -1406,7 +1406,7 @@ public class Gui2InfoFactory implements InfoFactory
 			StringBuilder bonusValues = new StringBuilder(100);
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
-			List<BonusObj> bonusList = new ArrayList<BonusObj>(bonusMap.keySet());
+			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
 			Collections.sort(bonusList, new BonusComparator());
 			for (BonusObj bonusObj : bonusList)
 			{
@@ -1912,10 +1912,10 @@ public class Gui2InfoFactory implements InfoFactory
 		// Look at each spell on each spellcasting class
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
-			Map<Integer, Integer> spellCountMap = new TreeMap<Integer, Integer>();
+			Map<Integer, Integer> spellCountMap = new TreeMap<>();
 			int highestSpellLevel = -1;
 			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
-			List<CharacterSpell> classSpells = new ArrayList<CharacterSpell>(sp);
+			List<CharacterSpell> classSpells = new ArrayList<>(sp);
 			// Add in the spells granted by objects
 			pc.addBonusKnownSpellsToList(pcClass, classSpells);
 			for (CharacterSpell charSpell : classSpells)
@@ -2313,7 +2313,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -2337,7 +2337,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
@@ -2401,7 +2401,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return;
 		}
 
-		List<T> choices = new ArrayList<T>();
+		List<T> choices = new ArrayList<>();
 		for (CNAbility ab : targetAbilities)
 		{
 			List<? extends T> sel =
@@ -2432,7 +2432,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
-		Set<String> targetSet = new HashSet<String>();
+		Set<String> targetSet = new HashSet<>();
 		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj(), pc))
 		{
 			targetSet.add(LanguageBundle

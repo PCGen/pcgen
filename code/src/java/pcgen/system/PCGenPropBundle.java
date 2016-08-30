@@ -1,5 +1,5 @@
 /*
- * MainAbout.java
+ * PCGenPropBundle.java
  * Copyright 2001 (C) Tom Epperly <tomepperly@home.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -37,13 +37,7 @@ import freemarker.template.TemplateModelException;
 
 /**
  * This class is used to manage the properties of the PCGen application
- * itself, such as its version, release date, etc.  Created during refactoring
- * for RFE #782127.
- *
- * <p>
- * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
+ * itself, such as its version, release date, etc.
  *
  * @author sage_sam
  */
@@ -51,7 +45,6 @@ public class PCGenPropBundle
 {
 	private static ResourceBundle d_properties = null;
 	private static ResourceBundle autobuildProperties = null;
-	private static ResourceBundle svnProperties = null;
 
 	/**
 	 * This static initializer loads the resources from the PCGenProp resource bundle.
@@ -84,28 +77,8 @@ public class PCGenPropBundle
 		catch (IOException e)
 		{
 			Logging.errorPrint("autobuildProperties. failed", e);
-			
 		}
-		
-		try
-		{
-			File svnProps = new File("svn.properties");
-			if (svnProps.isFile() && svnProps.canRead())
-			{
-				FileInputStream fis = new FileInputStream(svnProps);
-				svnProperties = new PropertyResourceBundle(fis);
-			}
-		}
-		catch (MissingResourceException mre)
-		{
-			Logging.errorPrint("Failed to load autobuild.properties", mre);
-			svnProperties = null;
-		}
-		catch (IOException e)
-		{
-			Logging.errorPrint("Failed to load autobuild.properties", e);
-			svnProperties = null;
-		}
+
 		//Safe as d_properties was constructed earlier in this block
 		try
 		{
@@ -297,7 +270,7 @@ public class PCGenPropBundle
 	/**
 	 * @return A display formatted version of the autobuild details, or blank if unknown. 
 	 */
-	public static String getAutobuildString()
+	static String getAutobuildString()
 	{
 		String autobuildNumber = getAutobuildNumber();
 		String autobuildDate = getAutobuildDate();
@@ -309,31 +282,4 @@ public class PCGenPropBundle
 		return "";
 	}
 
-	/**
-	 * Retrieve the subversion revision number from which this PCGen instance 
-	 * was built.
-	 * @return The SVN revision number, or blank if unknown. 
-	 */
-	public static String getSvnRevisionNumber()
-	{
-		final String svnRevNumKey = "svnrevision";
-		if (svnProperties != null && svnProperties.containsKey(svnRevNumKey))
-		{
-			return svnProperties.getString(svnRevNumKey);
-		}
-		return "";
-	}
-
-	/**
-	 * @return A display formatted version of the SVN revision, or blank if unknown. 
-	 */
-	public static String getSvnRevisionString()
-	{
-		String svnRevisionNumber = getSvnRevisionNumber();
-		if (StringUtils.isNotBlank(svnRevisionNumber))
-		{
-			return " r" + svnRevisionNumber;
-		}
-		return "";
-	}
 }

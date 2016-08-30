@@ -130,7 +130,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -166,7 +166,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * </p>
 	 * @param message
 	 *
-	 * @see gmgen.pluginmgr.InteractivePlugin#handleMessage
+	 * @see pcgen.pluginmgr.PCGenMessageHandler#handleMessage
 	 */
     @Override
 	public void handleMessage(PCGenMessage message)

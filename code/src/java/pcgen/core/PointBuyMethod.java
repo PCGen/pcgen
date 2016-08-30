@@ -35,7 +35,7 @@ import pcgen.core.bonus.BonusObj;
 /**
  * <code>PointBuyMethod</code>.
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  */
 public final class PointBuyMethod implements BonusContainer, Loadable
@@ -87,7 +87,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	{
 		if (bonusList == null)
 		{
-			bonusList = new ArrayList<BonusObj>();
+			bonusList = new ArrayList<>();
 		}
 		bonusList.add(bon);
 	}
@@ -111,7 +111,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
     @Override
 	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
 	{
-		final List<BonusObj> aList = new ArrayList<BonusObj>();
+		final List<BonusObj> aList = new ArrayList<>();
 		for (BonusObj bonus : getBonuses())
 		{
 			if (pc.isApplied(bonus))

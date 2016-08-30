@@ -412,7 +412,7 @@ SUBCLASSLEVEL:1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABIL
 1	ABILITY:FEAT|AUTOMATIC|Scribe Scroll|PREVAREQ:Wizard_CF_ScribeScroll,0
 ###Block:
 #1	ABILITY:Wizard Class Feature|AUTOMATIC|Universal School|!PREABILITY:1,CATEGORY=Archetype,TYPE.WizardArcaneSchool|PREVAREQ:DisallowWizardArcaneSchoolArchetype,0
-1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School
+1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane School|PREVAREQ:Wizard_CF_ArcaneSchool,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Arcane Bond|PREVAREQ:Wizard_CF_ArcaneBond,0
 1	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Cantrips|PREVAREQ:Wizard_CF_Cantrips,0
 5	ABILITY:Wizard Class Feature|AUTOMATIC|Wizard ~ Bonus Feats|PREVAREQ:Wizard_CF_BonusFeats,0
@@ -519,7 +519,7 @@ CLASS:Assassin	STARTSKILLPTS:4	CSKILL:Acrobatics|Bluff|Climb|Diplomacy|Disable D
 # Class Name		Hit Dice	Type			Max Level	Source Page		Define				Combat bonus																	Save bonus																							Modify VAR																																																																		FACT
 CLASS:Dragon Disciple	HD:12		TYPE:PC.Prestige	MAXLEVEL:10	SOURCEPAGE:p.380	DEFINE:DragonDiscipleLVL|0	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")*3/4|TYPE=Base.REPLACE|PREVAREQ:UseAlternateBABProgression,0	BONUS:SAVE|BASE.Fortitude,BASE.Will|(classlevel("APPLIEDAS=NONEPIC")+1)/2	BONUS:SAVE|BASE.Reflex|(classlevel("APPLIEDAS=NONEPIC")+1)/3	BONUS:VAR|ClassBABFull|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalBAB,1	BONUS:VAR|DragonDiscipleLVL|CL	BONUS:VAR|ClassSaveGood_Fortitude|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSavePoor_Reflex|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	BONUS:VAR|ClassSaveGood_Will|classlevel("APPLIEDAS=NONEPIC")|PREVAREQ:UseFractionalSave,1	FACT:ClassType|PC	FACT:Abb|DrD
 # Class Name		Required Language		Multiple Requirements																																Prohibited Race			Required Skill				Prohibited Template
-CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREMULT:3,[PRESPELLCAST:MEMORIZE=N],[PRESPELLCAST:TYPE=Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Draconic]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
+CLASS:Dragon Disciple	PRELANG:1,Draconic	PREMULT:1,[PREFACT:1,ABILITIES,QualifiedForDragonDisciple=true],[PREMULT:3,[PRESPELLCAST:MEMORIZE=N],[PRESPELLCAST:TYPE=Arcane],[!PRECLASS:1,Sorcerer=1]],[PREMULT:2,[PRECLASS:1,Sorcerer=1],[PREABILITY:1,CATEGORY=Special Ability,Sorcerer Bloodline ~ Draconic]]	!PRERACE:1,RACETYPE=Dragon	PRESKILL:1,Knowledge (Arcana)=5	!PRETEMPLATE:1,Half Dragon
 # Class Name		Skill Pts/Lvl	Class Skill
 CLASS:Dragon Disciple	STARTSKILLPTS:2	CSKILL:Diplomacy|Escape Artist|Fly|TYPE=Knowledge|Perception|Spellcraft
 ###Block: Progression

@@ -43,7 +43,7 @@ import pcgen.core.WeaponProf;
 /**
  * <code>KitFeat</code>.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  */
 public final class KitProf extends BaseKit
@@ -51,7 +51,7 @@ public final class KitProf extends BaseKit
 	private Integer choiceCount;
 
 	private final List<CDOMSingleRef<WeaponProf>> profList =
-			new ArrayList<CDOMSingleRef<WeaponProf>>();
+            new ArrayList<>();
 	private Boolean racialProf;
 
 	// These members store the state of an instance of this class.  They are
@@ -164,7 +164,7 @@ public final class KitProf extends BaseKit
 			}
 		}
 
-		final List<WeaponProf> aProfList = new ArrayList<WeaponProf>();
+		final List<WeaponProf> aProfList = new ArrayList<>();
 
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);
 		for (CDOMSingleRef<WeaponProf> profKey : profList)
@@ -212,7 +212,7 @@ public final class KitProf extends BaseKit
 				xs =
 						Globals
 							.getChoiceFromList("Choose Proficiencies",
-								aProfList, new ArrayList<WeaponProf>(),
+								aProfList, new ArrayList<>(),
 								numberOfChoices, aPC);
 
 				if (xs.size() != 0)
@@ -229,7 +229,7 @@ public final class KitProf extends BaseKit
 		{
 			if (weaponProfs == null)
 			{
-				weaponProfs = new ArrayList<WeaponProf>();
+				weaponProfs = new ArrayList<>();
 			}
 			weaponProfs.add(prof);
 		}

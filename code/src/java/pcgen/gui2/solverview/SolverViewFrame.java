@@ -18,7 +18,6 @@
 package pcgen.gui2.solverview;
 
 import java.awt.Dimension;
-import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -27,7 +26,6 @@ import java.awt.event.ActionListener;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
-
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
@@ -36,7 +34,7 @@ import javax.swing.JTextField;
 import javax.swing.event.DocumentEvent;
 import javax.swing.event.DocumentListener;
 import javax.swing.table.AbstractTableModel;
-
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -83,7 +81,7 @@ public class SolverViewFrame extends JFrame
 
 	private SolverTableModel tableModel;
 
-	public SolverViewFrame(Frame frame)
+	public SolverViewFrame()
 	{
 		identifierChooser = new JComboBoxEx();
 		for (CharacterFacade pcf : CharacterManager.getCharacters())
@@ -352,7 +350,7 @@ public class SolverViewFrame extends JFrame
 				case 2:
 					return ps.getResult();
 				case 3:
-					return ps.getModifier().getUserPriority();
+					return ((PCGenModifier<?>) ps.getModifier()).getUserPriority();
 				case 4:
 					return ps.getSourceInfo();
 				default:
@@ -373,12 +371,12 @@ public class SolverViewFrame extends JFrame
 		}
 	}
 
-	private class PCRef
+	private static final class PCRef
 	{
 		public String name;
 		public CharID id;
 
-		public PCRef(String pcname, CharID id)
+		private PCRef(String pcname, CharID id)
 		{
 			this.name = pcname;
 			this.id = id;

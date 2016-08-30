@@ -31,7 +31,7 @@ public class ChooseActivation
 	 * @param po The object to be checked.
 	 * @return true if the object has a new style choice.
 	 */
-	public static final boolean hasNewChooseToken(CDOMObject po)
+	public static boolean hasNewChooseToken(CDOMObject po)
 	{
 		return po.get(ObjectKey.CHOOSE_INFO) != null;
 	}

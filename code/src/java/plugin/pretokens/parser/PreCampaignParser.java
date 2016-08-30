@@ -86,7 +86,7 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @param prereq The prereq to be negated.
 	 */
-	private void negateCampaignChoice(Prerequisite prereq)
+	private static void negateCampaignChoice(Prerequisite prereq)
 	{
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())

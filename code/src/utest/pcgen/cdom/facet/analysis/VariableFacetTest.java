@@ -51,8 +51,8 @@ public class VariableFacetTest extends TestCase
 		Object source = new Object();
 		CDOMObject t1 = new PCTemplate();
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		VariableKey vk = VariableKey.getConstant("Var1");
 		assertFalse(getFacet().contains(id, vk));
@@ -66,8 +66,8 @@ public class VariableFacetTest extends TestCase
 		VariableKey vk = VariableKey.getConstant("Var1");
 		t1.put(vk, FormulaFactory.getFormulaFor(2));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
@@ -84,15 +84,15 @@ public class VariableFacetTest extends TestCase
 		t1.put(vk, FormulaFactory.getFormulaFor(2));
 		t2.put(vk, FormulaFactory.getFormulaFor(4));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t2, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t2, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
@@ -109,8 +109,8 @@ public class VariableFacetTest extends TestCase
 		t1.put(vk1, FormulaFactory.getFormulaFor(2));
 		t1.put(vk2, FormulaFactory.getFormulaFor(4));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk1));
 		assertTrue(getFacet().contains(id, vk2));
@@ -128,16 +128,16 @@ public class VariableFacetTest extends TestCase
 		t1.put(vk1, FormulaFactory.getFormulaFor(2));
 		t1.put(vk2, FormulaFactory.getFormulaFor(4));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk1));
 		assertTrue(getFacet().contains(id, vk2));
 		assertFalse(getFacet().contains(altid, vk1));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, vk1));
 		assertFalse(getFacet().contains(id, vk2));
@@ -152,8 +152,8 @@ public class VariableFacetTest extends TestCase
 		CDOMObject t1 = new PCTemplate();
 		VariableKey vk1 = VariableKey.getConstant("Var1");
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, vk1));
 	}
@@ -168,27 +168,27 @@ public class VariableFacetTest extends TestCase
 		t1.put(vk, FormulaFactory.getFormulaFor(2));
 		t2.put(vk, FormulaFactory.getFormulaFor(4));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t2, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t2, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t2, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t2, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, vk));
 	}
@@ -203,27 +203,27 @@ public class VariableFacetTest extends TestCase
 		t1.put(vk, FormulaFactory.getFormulaFor(2));
 		t2.put(vk, FormulaFactory.getFormulaFor(4));
 		DataFacetChangeEvent<CharID, CDOMObject> dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t2, source,
-					DataFacetChangeEvent.DATA_ADDED);
+                new DataFacetChangeEvent<>(id, t2, source,
+                        DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		assertFalse(getFacet().contains(altid, vk));
 		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t2, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t2, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertTrue(getFacet().contains(id, vk));
 		dfce =
-				new DataFacetChangeEvent<CharID, CDOMObject>(id, t1, source,
-					DataFacetChangeEvent.DATA_REMOVED);
+                new DataFacetChangeEvent<>(id, t1, source,
+                        DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
 		assertFalse(getFacet().contains(id, vk));
 	}

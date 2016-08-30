@@ -33,7 +33,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * <code>AllowedmodesToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AllowedmodesToken implements GameModeLstToken
 {

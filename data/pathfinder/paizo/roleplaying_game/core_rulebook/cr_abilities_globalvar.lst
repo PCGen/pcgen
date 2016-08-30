@@ -1,4 +1,4 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 ###--------------------------------------------###
 ##	New Formula Parser Support Mechanisms	##
@@ -403,6 +403,24 @@ CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat16|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat18|0
 CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_BonusFeat20|0
 
+
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_TowerShieldProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ArmorProficiencies|0		
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_Proficiencies|0			
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_LightArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_MediumArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_HeavyArmorProficiency|0	
+CATEGORY=Class|Fighter.MOD	DEFINE:Fighter_CF_ShieldProficiency|0		
+
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_TowerShieldProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_TowerShieldProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ArmorProficiencies|1|PREFACT:1,ABILITIES,Fighter_CF_ArmorProficiencies=true	
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_Proficiencies|1|PREFACT:1,ABILITIES,Fighter_CF_Proficiencies=true		
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_LightArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_LightArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_MediumArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_MediumArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_HeavyArmorProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_HeavyArmorProficiency=true
+CATEGORY=Class|Fighter.MOD	BONUS:VAR|Fighter_CF_ShieldProficiency|1|PREFACT:1,ABILITIES,Fighter_CF_ShieldProficiency=true	
+
+
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_ClassSkills=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_BonusFeats|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_BonusFeats=True
 CATEGORY=Class|Fighter.MOD							BONUS:VAR|Fighter_CF_Bravery|1|TYPE=Boolean|PREFACT:1,ABILITIES,Fighter_CF_Bravery=True
@@ -503,7 +521,7 @@ CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_Alignment|1|T
 
 
 
-CATEGORY=Class|Monk.MOD								
+CATEGORY=Class|Monk.MOD
 CATEGORY=Class|Monk.MOD								ABILITY:Special Ability|AUTOMATIC|Weapon and Armor Proficiency ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
 CATEGORY=Class|Monk.MOD								ABILITY:Internal|AUTOMATIC|Weapon Proficiencies ~ Monk|PREVAREQ:Monk_CF_Proficiencies,0
 
@@ -936,3 +954,44 @@ CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ArcaneBond|1|TYPE=Boolean|P
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_Cantrips|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardCantrips
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BonusFeats|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardBonusFeats
 CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_SpellBook|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.WizardSpellBook
+###Block: Wizard School Replacement Support
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AcidDart|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AcidDart=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_AuraOfDespair|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_AuraOfDespair=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_BlindingRay|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_BlindingRay=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ChangeShape|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ChangeShape=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DazingTouch|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_DazingTouch=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DimensionalSteps|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_DimensionalSteps=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_DivinersFortune|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_DivinersFortune=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ElementalWall|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ElementalWall=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnchantingSmile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnchantingSmile=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_EnergyAbsorption|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_EnergyAbsorption=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ForceMissile|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ForceMissile=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_GraveTouch|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_GraveTouch=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_IntenseSpells|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_IntenseSpells=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_InvisibilityField|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_InvisibilityField=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_PowerOverUndead|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_PowerOverUndead=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ProtectiveWard|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ProtectiveWard=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_ScryingAdept|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_ScryingAdept=True
+CATEGORY=Class|Wizard.MOD								BONUS:VAR|Wizard_CF_TelekineticFist|1|TYPE=Boolean|PREFACT:1,ABILITIES,Wizard_CF_TelekineticFist=True
+
+
+
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AcidDart|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_AuraOfDespair|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_BlindingRay|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ChangeShape|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DazingTouch|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DimensionalSteps|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_DivinersFortune|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ElementalWall|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnchantingSmile|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_EnergyAbsorption|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ForceMissile|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_GraveTouch|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_IntenseSpells|0	
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_InvisibilityField|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_PowerOverUndead|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ProtectiveWard|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_ScryingAdept|0
+CATEGORY=Class|Wizard.MOD	DEFINE:Wizard_CF_TelekineticFist|0
+

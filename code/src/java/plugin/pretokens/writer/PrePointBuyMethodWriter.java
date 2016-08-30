@@ -34,7 +34,7 @@ import java.io.Writer;
 /**
  * <code>PrerequisitePointBuyMethodWriter</code>.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  */
 public class PrePointBuyMethodWriter extends AbstractPrerequisiteWriter

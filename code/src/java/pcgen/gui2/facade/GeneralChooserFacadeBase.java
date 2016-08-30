@@ -41,11 +41,11 @@ import pcgen.system.LanguageBundle;
  * ChooserFacade may be simply implemented. The implementing class need only call 
  * the constructor and implement the commit to process the selections.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 
@@ -137,9 +137,9 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.infoFactory = infoFactory;
 				
 		// Build working content
-		availableList = new DefaultListFacade<InfoFacade>(origAvailable);
-		selectedList = new DefaultListFacade<InfoFacade>(origSelected);
-		numSelectionsRemain = new DefaultReferenceFacade<Integer>(maxNewSelections);
+		availableList = new DefaultListFacade<>(origAvailable);
+		selectedList = new DefaultListFacade<>(origSelected);
+		numSelectionsRemain = new DefaultReferenceFacade<>(maxNewSelections);
 		
 	}
 	
@@ -267,7 +267,7 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 	@Override
 	public List<String> getBranchNames(InfoFacade item)
 	{
-		List<String> branches = new ArrayList<String>();
+		List<String> branches = new ArrayList<>();
 		
 		if (item instanceof PObject)
 		{

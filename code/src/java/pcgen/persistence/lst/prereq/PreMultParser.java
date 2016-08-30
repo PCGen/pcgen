@@ -83,15 +83,15 @@ public class PreMultParser extends AbstractPrerequisiteParser implements
 		return prereq;
 	}
 
-	protected List<String> splitOnTopLevelToken(String input,
-		char startDelimiter, char endDelimiter) throws PersistenceLayerException
+	protected static List<String> splitOnTopLevelToken(String input,
+	                                                   char startDelimiter, char endDelimiter) throws PersistenceLayerException
 	{
 		int nesting = 0;
 		int startIndex = 0;
 		int currIndex = 0;
 		boolean expectComma = false;
 		boolean expectStart = true;
-		List<String> subList = new ArrayList<String>();
+		List<String> subList = new ArrayList<>();
 
 		for (currIndex = 0; currIndex < input.length(); currIndex++)
 		{

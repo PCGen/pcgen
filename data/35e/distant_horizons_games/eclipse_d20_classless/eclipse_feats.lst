@@ -1,14 +1,14 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+# CVS $Revision$ $Author$ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Eclipse - The Codex Persona	SOURCESHORT:Eclipse	SOURCEWEB:http://www.lulu.com/content/435647	SOURCEDATE:2005-01
 # ORIGINAL ENTRY: Andrew Maitland (LegacyKing)
 # ORIGINAL ENTRY DATE: 2011-01-01
 
 # Feat Name				Type				Visible	Stackable?	Multiple?	Choose					Bonus Ability Pool				Source Page		Benefits
-# Ability Name			Category of Ability	Type				Visible	Stackable?	Multiple?	Choose					Bonus Ability Pool				Source Page		Benefits
-Feat Conversion to CP ~ 6	CATEGORY:FEAT		TYPE:PointBuySystem			STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Character Points|6	SOURCEPAGE:p.9	DESC: &nl;Covert regular feat to six Character Points
+# Ability Name			Category of Ability	Type				Visible	Description								Stackable?	Multiple?	Choose					Bonus Ability Pool				Source Page
+Feat Conversion to CP ~ 6	CATEGORY:FEAT		TYPE:PointBuySystem			DESC: &nl;Covert regular feat to six Character Points	STACK:YES	MULT:YES	CHOOSE:NOCHOICE				BONUS:ABILITYPOOL|Character Points|6	SOURCEPAGE:p.9
 
 
 # Work Around till ABILITYSELECTION is actually up and running.
-Adept					CATEGORY:FEAT		TYPE:Adept			VISIBLE:NO			MULT:YES	CHOOSE:SKILL|CLASS|TYPE=AdeptChoice
+Adept					CATEGORY:FEAT		TYPE:Adept			VISIBLE:NO												MULT:YES	CHOOSE:SKILL|CLASS|TYPE=AdeptChoice
 # COMMENT:	This works by being a hold feat to pull Adept Skills from.
 #		Will be nicer once we get CHOOSE:ABILITY working correctly.

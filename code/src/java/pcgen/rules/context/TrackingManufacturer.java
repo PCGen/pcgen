@@ -31,14 +31,14 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.UnconstructedListener;
 import pcgen.cdom.reference.UnconstructedValidator;
 
-public class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<T>
+class TrackingManufacturer<T extends Loadable> implements ReferenceManufacturer<T>
 {
 
 	private final ReferenceManufacturer<T> rm;
 	private final TrackingReferenceContext context;
 
-	public TrackingManufacturer(TrackingReferenceContext trc,
-			ReferenceManufacturer<T> mfg)
+	protected TrackingManufacturer(TrackingReferenceContext trc,
+	                               ReferenceManufacturer<T> mfg)
 	{
 		context = trc;
 		rm = mfg;

@@ -1,5 +1,25 @@
+/*
+ * StatusWorker.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
 /**
- * @author Kim Winz <kwinz@users.sourceforge.net>
+ * @author Kim Winz &lt;kwinz@users.sourceforge.net&gt;
  * 
  * StatusWorker extends SwingWorker to handle progress display in the status bar.
  * 		It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
@@ -25,12 +45,12 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		private final PCGenTask task;
 		private final PCGenStatusBar statusBar;
 		private boolean dirty = false;
-		private List<LogRecord> errors = new ArrayList<LogRecord>();
+		private List<LogRecord> errors = new ArrayList<>();
 
 		/**
 		 * @param statusMsg - text to display in status bar
 		 * @param task to be executed
-		 * @param the PCGen status Bar
+		 * @param statusBar the PCGen status Bar
 		 */
 		public StatusWorker(String statusMsg, PCGenTask task, PCGenStatusBar statusBar)
 		{

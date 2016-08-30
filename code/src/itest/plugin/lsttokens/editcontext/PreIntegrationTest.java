@@ -35,7 +35,7 @@ public class PreIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static PreLst token = new PreLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

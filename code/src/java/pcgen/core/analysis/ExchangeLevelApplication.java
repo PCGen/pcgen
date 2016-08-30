@@ -69,7 +69,7 @@ public class ExchangeLevelApplication
 							// Build the choice list
 							//
 							final List<Integer> choiceNames =
-									new ArrayList<Integer>();
+                                    new ArrayList<>();
 	
 							for (int i = 0; i <= iMaxDonation; ++i)
 							{
@@ -85,9 +85,9 @@ public class ExchangeLevelApplication
 										aClass.getDisplayName(),
 										newcl.getDisplayName());
 							CDOMChooserFacadeImpl<Integer> chooserFacade =
-									new CDOMChooserFacadeImpl<Integer>(
-											title, choiceNames, 
-											new ArrayList<Integer>(), 1);
+                                    new CDOMChooserFacadeImpl<>(
+                                            title, choiceNames,
+                                            new ArrayList<>(), 1);
 							chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 							ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 							final List<Integer> selectedList = chooserFacade.getFinalSelected();

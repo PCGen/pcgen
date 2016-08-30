@@ -73,9 +73,9 @@ public class ChooserUtilities
 	 * @return true if we processed the list of choices, false if we used the
 	 *         routine to build the list of choices without processing them.
 	 */
-	public static final boolean modChoices(final ChooseDriver aPObject,
-		List availableList, final List selectedList, final PlayerCharacter aPC,
-		final boolean addIt, final AbilityCategory category)
+	public static boolean modChoices(final ChooseDriver aPObject,
+	                                 List availableList, final List selectedList, final PlayerCharacter aPC,
+	                                 final boolean addIt, final AbilityCategory category)
 	{
 		availableList.clear();
 		selectedList.clear();
@@ -181,12 +181,12 @@ public class ChooserUtilities
 			return;
 		}
 
-		Set<String> allowedSet = new HashSet<String>();
+		Set<String> allowedSet = new HashSet<>();
 		for (CDOMSingleRef<Ability> ref : cat.getAbilityRefs())
 		{
 			if (ref.contains(ability))
 			{
-				List<String> choices = new ArrayList<String>();
+				List<String> choices = new ArrayList<>();
 				AbilityUtilities.getUndecoratedName(ref.getLSTformat(false), choices);
 				allowedSet.addAll(choices);
 			}

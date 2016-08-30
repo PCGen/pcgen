@@ -34,11 +34,11 @@ import pcgen.facade.util.ListFacade;
  * each representing a configuration of equipped gear (e.g. dungeon, boat, 
  * camp).
  *
- * <br/>
+ * <br>
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision: $
  */
 public interface EquipmentSetFacade

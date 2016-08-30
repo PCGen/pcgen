@@ -69,7 +69,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 	{
 		if (valueList == null)
 		{
-			valueList = new ArrayList<String>();
+			valueList = new ArrayList<>();
 		}
 		valueList.add(value);
 	}

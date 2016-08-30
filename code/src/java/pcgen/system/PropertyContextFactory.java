@@ -30,13 +30,13 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PropertyContextFactory
 {
 
 	private static PropertyContextFactory DEFAULT_FACTORY;
-	private final Map<String, PropertyContext> contextMap = new HashMap<String, PropertyContext>();
+	private final Map<String, PropertyContext> contextMap = new HashMap<>();
 	private final String dir;
 
 	public PropertyContextFactory(String dir)

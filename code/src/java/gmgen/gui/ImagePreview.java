@@ -24,9 +24,6 @@ import pcgen.system.LanguageBundle;
  * A panel for previewing graphics in a file chooser.  This includes previewing
  * a character portrait referenced in a PCG file.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Id$
- * TODO Merge with {@link gmgen.gui.ImageFileChooserPreview}
  * TODO Support PCG portraits
  */
 public class ImagePreview
@@ -35,9 +32,9 @@ public class ImagePreview
 {
 	private static final int SIZE = 200;
 
-	private static String in_notAnImage
+	private static final String in_notAnImage
 			= LanguageBundle.getString("in_ImagePreview_notAnImage");
-	private static String in_noCharacterPortrait
+	private static final String in_noCharacterPortrait
 			= LanguageBundle.getString("in_ImagePreview_noCharacterPortrait");
 
 	private final JFileChooser jfc;
@@ -49,7 +46,7 @@ public class ImagePreview
 	 * Constructor
 	 * @param jfc
 	 */
-	public ImagePreview(final JFileChooser jfc)
+	private ImagePreview(final JFileChooser jfc)
 	{
 		this.jfc = jfc;
 
@@ -91,10 +88,10 @@ public class ImagePreview
 	 * @param file
 	 * @throws IOException
 	 */
-	public void updateImage(final File file)
+	private void updateImage(final File file)
 			throws IOException
 	{
-		if (null == file || !file.exists())
+		if (file == null || !file.exists())
 		{
 			image = null;
 			return;
@@ -102,13 +99,13 @@ public class ImagePreview
 
 		if (PCGFile.isPCGenCharacterFile(file))
 		{
-			aPC = new PlayerCharacter(false, Collections.EMPTY_LIST);
+			aPC = new PlayerCharacter(Collections.emptyList());
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 
 			final String portraitPath = aPC.getDisplay().getPortraitPath();
 
-			image = isNullOrEmpty(portraitPath)
+			image = ImagePreview.isNullOrEmpty(portraitPath)
 					? null
 					:  ImageIO.read(new File(portraitPath));
 		}
@@ -121,26 +118,21 @@ public class ImagePreview
 		repaint();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 *
-	 * @param g {@inheritDoc}
-	 */
     @Override
 	protected void paintComponent(final Graphics g)
 	{
 		g.setColor(UIManager.getColor("Panel.background"));
 		g.fillRect(0, 0, getWidth(), getHeight());
 
-		final int textX = getFontHeightHint(g);
-		final int textY = SIZE - getFontHeightHint(g);
+		final int textX = ImagePreview.getFontHeightHint(g);
+		final int textY = ImagePreview.SIZE - ImagePreview.getFontHeightHint(g);
 
-		if (null != image)
+		if (image != null)
 		{
 			final int width = image.getWidth(null);
 			final int height = image.getHeight(null);
 			final int side = Math.max(width, height);
-			final double scale = (double) SIZE / (double) side;
+			final double scale = SIZE / (double) side;
 
 			g.drawImage(image, 0, 0, (int) (scale * width),
 					(int) (scale * height), null);
@@ -158,14 +150,14 @@ public class ImagePreview
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(aPC == null ? in_notAnImage : in_noCharacterPortrait,
+			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
 					textX, textY);
 		}
 	}
 
 	private static boolean isNullOrEmpty(final String s)
 	{
-		return null == s || "".equals(s);
+		return s == null || s.isEmpty();
 	}
 
 	private static int getFontHeightHint(final Graphics g) {

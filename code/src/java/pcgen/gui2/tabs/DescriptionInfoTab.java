@@ -59,11 +59,11 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to be
  * implemented description tab.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author: jdempsey $ Last Edited: $Date: 2010-09-29 05:59:43
  * -0700 (Wed, 29 Sep 2010) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 13208 $
  */
 @SuppressWarnings("serial")
@@ -138,7 +138,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 		ModelMap models = new ModelMap();
 		DefaultListModel listModel = new DefaultListModel();
-		List<NoteInfoPane> notePaneList = new ArrayList<NoteInfoPane>();
+		List<NoteInfoPane> notePaneList = new ArrayList<>();
 
 		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane); //$NON-NLS-1$
 		listModel.addElement(firstPage);

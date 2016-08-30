@@ -58,6 +58,7 @@ ABILITY:arg_feats.lst
 RACE:arg_races.lst
 SPELL:arg_spells.lst
 TEMPLATE:arg_templates.lst
+LANGUAGE:arg_languages.lst
 
 WEAPONPROF:arg_profs_weapon.lst
 

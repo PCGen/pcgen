@@ -57,7 +57,7 @@ public class KitSpellBookEntry
 		spell = sp;
 		if (modifiers != null && modifiers.size() > 0)
 		{
-			theModifierList = new ArrayList<CDOMSingleRef<Ability>>();
+			theModifierList = new ArrayList<>();
 			theModifierList.addAll(modifiers);
 		}
 		else
@@ -94,7 +94,7 @@ public class KitSpellBookEntry
 		List<CDOMSingleRef<Ability>> ret = theModifierList;
 		if (ret == null)
 		{
-			ret = new ArrayList<CDOMSingleRef<Ability>>();
+			ret = new ArrayList<>();
 		}
 		return Collections.unmodifiableList(ret);
 	}

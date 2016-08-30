@@ -34,8 +34,8 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 
 	private final Class<? super T> refClass;
 
-	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<PrimitiveCollection<T>>(
-			PrimitiveUtilities.COLLECTION_SORTER);
+	private final Set<PrimitiveCollection<T>> primCollection = new TreeSet<>(
+            PrimitiveUtilities.COLLECTION_SORTER);
 
 	public CompoundAndPrimitive(Collection<PrimitiveCollection<T>> pcfCollection)
 	{

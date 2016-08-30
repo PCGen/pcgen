@@ -149,7 +149,7 @@ public class InitiativePlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()

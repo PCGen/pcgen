@@ -20,20 +20,18 @@
  */
 package pcgen.gui2.plaf;
 
-import com.apple.eawt.*;
-import pcgen.gui2.PCGenUIManager;
+import com.apple.eawt.Application;
+import pcgen.gui2.plaf.osx.OSXAboutHandler;
+import pcgen.gui2.plaf.osx.OSXPreferencesHandler;
+import pcgen.gui2.plaf.osx.OSXQuitHandler;
 
 /**
- * <code>MacGUI</code> initializes Mac-specific GUI elements.
- *
- * @author Tod Milam <twmilam@yahoo.com>
- * @version $Revision: 1828 $
+ * {@code MacGUI} initializes Mac-specific GUI elements.
  */
-public class MacGUIHandler extends ApplicationAdapter
+public class MacGUIHandler
 {
-
 	private static MacGUIHandler myObj = null;
-	private static com.apple.eawt.Application theApp = null;
+	private static Application theApp = null;
 
 	private MacGUIHandler()
 	{
@@ -53,39 +51,10 @@ public class MacGUIHandler extends ApplicationAdapter
 
 		// set up the Application menu
 		myObj = new MacGUIHandler();
-		theApp = new com.apple.eawt.Application();
-		theApp.addApplicationListener(myObj);
-		theApp.setEnabledPreferencesMenu(true);
+		theApp = Application.getApplication();
+		theApp.setAboutHandler(new OSXAboutHandler());
+		theApp.setPreferencesHandler(new OSXPreferencesHandler());
+		theApp.setQuitHandler(new OSXQuitHandler());
 	}  // end static initialize method
-
-	/**
-	 * Called when user select "About" from the application menu.
-	 */
-	@Override
-	public void handleAbout(ApplicationEvent ae)
-	{
-		PCGenUIManager.displayAboutDialog();
-		ae.setHandled(true);
-	}  // end handleAbout
-
-	/**
-	 * Called when user select "Preferences" from the application menu.
-	 */
-	@Override
-	public void handlePreferences(ApplicationEvent ae)
-	{
-		PCGenUIManager.displayPreferencesDialog();
-		ae.setHandled(true);
-	}  // end handlePreferences
-
-	/**
-	 * Called when user select "Quit" from the application menu.
-	 */
-	@Override
-	public void handleQuit(ApplicationEvent ae)
-	{
-		ae.setHandled(false);
-		PCGenUIManager.closePCGen();
-	}  // end handleQuit
 }  // end class MacGUI
 

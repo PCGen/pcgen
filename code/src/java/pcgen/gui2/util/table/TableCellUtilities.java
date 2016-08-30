@@ -44,7 +44,7 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class TableCellUtilities
 {

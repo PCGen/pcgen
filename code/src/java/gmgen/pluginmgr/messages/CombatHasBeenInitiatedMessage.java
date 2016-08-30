@@ -29,11 +29,11 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class <code>CombatHasBeenInitiatedMessage</code> encapsulates an advisory 
  * message that the user has kicked off combat.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 
@@ -45,7 +45,7 @@ public class CombatHasBeenInitiatedMessage extends PCGenMessage
 
 	/**
 	 * Create a new instance of CombatHasBeenInitiatedMessage
-	 * @param experienceAdjusterPlugin
+	 * @param source
 	 */
 	public CombatHasBeenInitiatedMessage(
 		Object source)

@@ -61,7 +61,7 @@ public class StatBonusFacet
 	public Map<BonusObj, PCStat> getBonusListOfType(CharID id,
 			final String aType, final String aName)
 	{
-		final Map<BonusObj, PCStat> aList = new IdentityHashMap<BonusObj, PCStat>();
+		final Map<BonusObj, PCStat> aList = new IdentityHashMap<>();
 
 		for (PCStat stat : statFacet.getSet(id))
 		{

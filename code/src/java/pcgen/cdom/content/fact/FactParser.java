@@ -122,7 +122,7 @@ public class FactParser<T extends CDOMObject, F> extends
 	{
 		FactKey<F> fk = def.getFactKey();
 		boolean removed = context.getObjectContext().wasRemoved(obj, fk);
-		List<String> results = new ArrayList<String>(2);
+		List<String> results = new ArrayList<>(2);
 		if (removed)
 		{
 			results.add(Constants.LST_DOT_CLEAR);

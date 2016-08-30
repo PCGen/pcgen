@@ -85,7 +85,7 @@ public class EqSizePenalty implements Loadable
 	{
 		if (bonusList == null)
 		{
-			bonusList = new ArrayList<BonusObj>();
+			bonusList = new ArrayList<>();
 		}
 		bonusList.add(bon);
 	}

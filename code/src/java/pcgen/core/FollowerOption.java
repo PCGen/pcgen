@@ -112,7 +112,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * then the master must have at least 4 levels to qualify for this follower
 	 * (4 - 3 &gt; 0)
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#qualifies(pcgen.core.PlayerCharacter, Object)
+	 * @see pcgen.cdom.base.ConcretePrereqObject#qualifies(pcgen.core.PlayerCharacter, Object)
 	 */
 	@Override
 	public boolean qualifies(final PlayerCharacter aPC, Object source)
@@ -151,7 +151,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 
 	public Collection<FollowerOption> getExpandedOptions()
 	{
-		final List<FollowerOption> options = new ArrayList<FollowerOption>();
+		final List<FollowerOption> options = new ArrayList<>();
 		if (ref.getObjectCount() == 1)
 		{
 			options.add( this );

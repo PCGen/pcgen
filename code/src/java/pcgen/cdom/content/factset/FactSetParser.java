@@ -132,7 +132,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 		Changes<Indirect<F>> changes =
 				context.getObjectContext().getSetChanges(obj, fk);
 		Collection<Indirect<F>> removedItems = changes.getRemoved();
-		List<String> results = new ArrayList<String>(2);
+		List<String> results = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
 		{
 			results.add(Constants.LST_DOT_CLEAR_ALL);

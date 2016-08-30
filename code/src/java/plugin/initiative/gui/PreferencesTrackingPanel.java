@@ -22,6 +22,7 @@
  */
 package plugin.initiative.gui;
 
+import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
@@ -185,7 +186,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
 		add(spellCheckBox, gridBagConstraints);
 
-		jSeparator1.setOrientation(javax.swing.SwingConstants.VERTICAL);
+		jSeparator1.setOrientation(SwingConstants.VERTICAL);
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;

@@ -56,7 +56,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	@Override
 	public Collection<? extends R> convert(ObjectContainer<B> orig, PrimitiveFilter<B> lim)
 	{
-		return converter.convert(orig, new InvertingFilter<B>(lim));
+		return converter.convert(orig, new InvertingFilter<>(lim));
 	}
 
 	private static final class InvertingFilter<T> implements PrimitiveFilter<T>

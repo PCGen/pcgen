@@ -101,7 +101,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<SubClassCategory>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

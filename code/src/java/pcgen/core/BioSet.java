@@ -35,28 +35,28 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
-
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.TripleKeyMapToList;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
+import pcgen.cdom.enumeration.NumericPCAttribute;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
 /**
- * <code>BioSet</code>.
+ * {@code BioSet}.
  *
  * @author Bryan McRoberts
- * @version $Revision$
  */
 public final class BioSet extends PObject implements NonInteractive
 {
-	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<Region, Integer, AgeSet>();
+	private DoubleKeyMap<Region, Integer, AgeSet> ageMap = new DoubleKeyMap<>();
 
-	private CaseInsensitiveMap<Integer> ageNames = new CaseInsensitiveMap<Integer>();
+	private CaseInsensitiveMap<Integer> ageNames = new CaseInsensitiveMap<>();
 
-	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<Region, String, String, String>();
+	private TripleKeyMapToList<Region, String, String, String> userMap = new TripleKeyMapToList<>();
 
 	public AgeSet getAgeSet(Region region, int index)
 	{
@@ -196,7 +196,7 @@ public final class BioSet extends PObject implements NonInteractive
 			return;
 		}
 
-		final List<String> ranList = new ArrayList<String>();
+		final List<String> ranList = new ArrayList<>();
 		final StringTokenizer lineTok = new StringTokenizer(randomizeStr, ".", false);
 
 		while (lineTok.hasMoreTokens())
@@ -230,36 +230,13 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("HAIR"))
 		{
-			pc.setHairColor(generateBioValue("HAIR", pc));
+			pc.setPCAttribute(PCAttribute.HAIRCOLOR, generateBioValue("HAIR", pc));
 		}
 
 		if (ranList.contains("SKIN"))
 		{
-			pc.setSkinColor(generateBioValue("SKINTONE", pc));
+			pc.setPCAttribute(PCAttribute.SKINCOLOR, generateBioValue("SKINTONE", pc));
 		}
-	}
-
-	/**
-	 * Remove the user from the map
-	 * @param region
-	 * @param race
-	 * @param tag
-	 */
-	public void removeFromUserMap(final String region, final String race, final String tag)
-	{
-		final String key;
-		final int x = tag.indexOf(':');
-
-		if (x < 0)
-		{
-			key = tag;
-		}
-		else
-		{
-			key = tag.substring(0, x);
-		}
-
-		userMap.removeListFor(Region.getConstant(region), race, key);
 	}
 
 	@Override
@@ -293,7 +270,6 @@ public final class BioSet extends PObject implements NonInteractive
 	 *
 	 * @param region The region of the race
 	 * @param race   The name of the race.
-	 * @param includeGenericMatches Should generic race references such as Elf% be included
 	 * @return SortedMap A map of the gae brackets. Within each age bracket is a
 	 * sorted map of the races (one only) and wihtin this is the tags for that
 	 * race and age.
@@ -301,7 +277,7 @@ public final class BioSet extends PObject implements NonInteractive
 	private SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> getRaceTagsByAge(Region region, String race)
 	{
 		// setup a mapped structure
-		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<Integer, SortedMap<String, SortedMap<String, String>>>();
+		final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets = new TreeMap<>();
 		// Read in the user settings, split where necessary and add to the appropriate age bracket
 		for (String key : userMap.getTertiaryKeySet(region, race))
 		{
@@ -347,7 +323,7 @@ public final class BioSet extends PObject implements NonInteractive
 	 * Adds the tag (key & value) to the supplied ageSets collection. It is
 	 * assumed that the ageSet already has an entry for each age bracket and
 	 * that this entry will be a SortedMap of races. Each race will contain a
-	 * SortedMap of tags and their values.<br/> The key is assumed to be of the
+	 * SortedMap of tags and their values.<br> The key is assumed to be of the
 	 * form region.race.tag eg "Custom.Human%.MAXAGE" The value is assumed to be
 	 * either a list of values or a single value, depending on the tag. eg
 	 * "[34,52,69,110]" or "Blond|Brown" If a single value, it will be added to
@@ -377,14 +353,14 @@ public final class BioSet extends PObject implements NonInteractive
 					.get(Integer.valueOf(ageBracket));
 			if (races == null)
 			{
-				races = new TreeMap<String, SortedMap<String, String>>();
+				races = new TreeMap<>();
 				ageSets.put(ageBracket, races);
 			}
 			SortedMap<String, String> tags = races.get(race);
 
 			if (tags == null)
 			{
-				tags = new TreeMap<String, String>();
+				tags = new TreeMap<>();
 				races.put(race, tags);
 			}
 
@@ -396,7 +372,7 @@ public final class BioSet extends PObject implements NonInteractive
 			final SortedMap<Integer, SortedMap<String, SortedMap<String, String>>> ageSets,
 			final StringBuilder sb)
 	{
-		Set<Integer> ageIndices = new TreeSet<Integer>();
+		Set<Integer> ageIndices = new TreeSet<>();
 		ageIndices.addAll(ageSets.keySet());
 		ageIndices.addAll(ageNames.values());
 		// Iterate through ages, outputing the info
@@ -411,19 +387,16 @@ public final class BioSet extends PObject implements NonInteractive
 			sb.append("AGESET:");
 			sb.append(ageMap.get(region, key).getLSTformat()).append("\n");
 
-			for (Iterator<String> raceIt = races.keySet().iterator(); raceIt.hasNext();)
+			for (final Map.Entry<String, SortedMap<String, String>> stringSortedMapEntry : races.entrySet())
 			{
-				final String aRaceName = raceIt.next();
-
-				if (!"AGESET".equals(aRaceName))
+				if (!"AGESET".equals(stringSortedMapEntry.getKey()))
 				{
-					final SortedMap<String, String> tags = races.get(aRaceName);
+					final SortedMap<String, String> tags = stringSortedMapEntry.getValue();
 
-					for (Iterator<String> tagIt = tags.keySet().iterator(); tagIt.hasNext();)
+					for (final Map.Entry<String, String> stringStringEntry : tags.entrySet())
 					{
-						final String tagName = tagIt.next();
-						sb.append("RACENAME:").append(aRaceName).append("\t\t");
-						sb.append(tagName).append(':').append(tags.get(tagName)).append("\n");
+						sb.append("RACENAME:").append(stringSortedMapEntry.getKey()).append("\t\t");
+						sb.append(stringStringEntry.getKey()).append(':').append(stringStringEntry.getValue()).append("\n");
 					}
 				}
 			}
@@ -519,7 +492,7 @@ public final class BioSet extends PObject implements NonInteractive
 					ageAdd = maxAge-baseAge;
 				}
 			}
-			pc.setAge(baseAge + ageAdd);
+			pc.setPCAttribute(NumericPCAttribute.AGE, baseAge + ageAdd);
 		}
 	}
 
@@ -532,7 +505,7 @@ public final class BioSet extends PObject implements NonInteractive
 		if (line != null && line.length() > 0)
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
-			final List<String> aList = new ArrayList<String>();
+			final List<String> aList = new ArrayList<>();
 
 			while (aTok.hasMoreTokens())
 			{
@@ -602,7 +575,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 				if ((baseHeight != 0) && (htAdd != 0))
 				{
-					pc.setHeight(baseHeight + htAdd);
+					pc.setPCAttribute(NumericPCAttribute.HEIGHT, baseHeight + htAdd);
 				}
 
 				if ((totalWeight != null) && (baseWeight != 0) && (wtAdd != 0))
@@ -610,7 +583,7 @@ public final class BioSet extends PObject implements NonInteractive
 					totalWeight = replaceString(totalWeight, "HTDIEROLL", htAdd);
 					totalWeight = replaceString(totalWeight, "BASEWT", baseWeight);
 					totalWeight = replaceString(totalWeight, "WTDIEROLL", wtAdd);
-					pc.setWeight(pc.getVariableValue(totalWeight, "").intValue());
+					pc.setPCAttribute(NumericPCAttribute.WEIGHT, pc.getVariableValue(totalWeight, "").intValue());
 				}
 
 				break;
@@ -691,7 +664,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Set<String> getAgeCategories()
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (Object o : ageNames.keySet())
 		{
 			set.add(o.toString());
@@ -701,6 +674,6 @@ public final class BioSet extends PObject implements NonInteractive
 
 	public Map<Integer, AgeSet> getAgeSets(String regionName)
 	{
-		return new TreeMap<Integer, AgeSet>(ageMap.getMapFor(Region.getConstant(regionName)));
+		return new TreeMap<>(ageMap.getMapFor(Region.getConstant(regionName)));
 	}
 }

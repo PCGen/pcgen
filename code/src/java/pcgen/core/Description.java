@@ -43,18 +43,18 @@ import pcgen.util.Logging;
  * 
  * <p>Variable substitution is performed by replacing a placeholder indicated
  * by %# with the #th variable in the variable list.  For example, the string
- * <br /><code>&quot;This is %1 variable %3 %2&quot;</code>
- * <br />would be replaced with the string &quot;This is a variable substitution
+ * <br><code>&quot;This is %1 variable %3 %2&quot;</code>
+ * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */
 public class Description extends ConcretePrereqObject
 {
-	private List<String> theComponents = new ArrayList<String>();
+	private List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -160,7 +160,7 @@ public class Description extends ConcretePrereqObject
 	{
 		if ( theVariables == null )
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add( aVariable );
 	}
@@ -242,7 +242,7 @@ public class Description extends ConcretePrereqObject
 					}
 					else if ( var.equals(VAR_LIST) )
 					{
-						List<String> assocList = new ArrayList<String>();
+						List<String> assocList = new ArrayList<>();
 						for (Object obj : objList)
 						{
 							if (obj instanceof ChooseDriver)
@@ -338,7 +338,6 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	public String getPCCText()
 	{

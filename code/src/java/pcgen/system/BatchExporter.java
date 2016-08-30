@@ -67,11 +67,11 @@ import pcgen.util.fop.FopTask;
  * one of the export methods called. When used as a library the static methods
  * should be used and supplied with preloaded characters.  
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class BatchExporter
@@ -88,7 +88,7 @@ public class BatchExporter
 	 * @param exportTemplateFilename The path to the export template.
 	 * @param uiDelegate The object through which to report any issues to the user.
 	 */
-	public BatchExporter(String exportTemplateFilename, UIDelegate uiDelegate)
+	BatchExporter(String exportTemplateFilename, UIDelegate uiDelegate)
 	{
 		this.exportTemplateFilename = exportTemplateFilename;
 		this.uiDelegate = uiDelegate;
@@ -109,7 +109,7 @@ public class BatchExporter
 	 * @param outputFile The path to the output file to be created. May be null.
 	 * @return true if the export was successful, false if it failed in some way.
 	 */
-	public boolean exportCharacter(String characterFilename, String outputFile)
+	boolean exportCharacter(String characterFilename, String outputFile)
 	{
 		File file = new File(characterFilename);
 		if (!PCGFile.isPCGenCharacterFile(file))
@@ -170,7 +170,7 @@ public class BatchExporter
 	 * @param outputFile The path to the output file to be created. May be null.
 	 * @return true if the export was successful, false if it failed in some way.
 	 */
-	public boolean exportParty(String partyFilename, String outputFile)
+	boolean exportParty(String partyFilename, String outputFile)
 	{
 		File file = new File(partyFilename);
 		if (!PCGFile.isPCGenPartyFile(file))
@@ -447,7 +447,7 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportParty(PartyFacade party, OutputStream outputStream)
+	private static void exportParty(PartyFacade party, OutputStream outputStream)
 			throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
@@ -470,7 +470,7 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
+	private static void exportParty(PartyFacade party, File templateFile, OutputStream outputStream)
 			throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
@@ -485,7 +485,7 @@ public class BatchExporter
 	/**
 	 * Remove any temporary xml files produced while outputting characters. 
 	 */
-	public static void removeTemporaryFiles()
+	static void removeTemporaryFiles()
 	{
 		final boolean cleanUp =
 				UIPropertyContext.getInstance().initBoolean(
@@ -550,8 +550,8 @@ public class BatchExporter
 	 * @throws IOException
 	 * @throws ExportException
 	 */
-	public static void exportCharacter(CharacterFacade character, File templateFile,
-			OutputStream outputStream) throws IOException, ExportException
+	private static void exportCharacter(CharacterFacade character, File templateFile,
+	                                    OutputStream outputStream) throws IOException, ExportException
 	{
 		try (BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(outputStream, "UTF-8")))
 		{
@@ -559,7 +559,7 @@ public class BatchExporter
 		}
 	}
 
-	public static File getXMLTemplate(CharacterFacade character)
+	private static File getXMLTemplate(CharacterFacade character)
 	{
 		File template = FileUtils.getFile(ConfigurationSettings.getSystemsDir(),
 						"gameModes",

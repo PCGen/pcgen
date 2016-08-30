@@ -35,7 +35,7 @@ import java.util.Locale;
 /**
  * <code>WholeNumberField</code> .
  *
- * @author Mario Bonassin <zebuleon@users.sourceforge.net>
+ * @author Mario Bonassin &lt;zebuleon@users.sourceforge.net&gt;
  * @version $Revision: 14600 $
  */
 public final class WholeNumberField extends JTextField implements Serializable

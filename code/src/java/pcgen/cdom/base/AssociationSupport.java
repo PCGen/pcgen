@@ -56,7 +56,7 @@ public class AssociationSupport implements AssociatedObject
 	{
 		if (associationMap == null)
 		{
-			associationMap = new HashMap<AssociationKey<?>, Object>();
+			associationMap = new HashMap<>();
 		}
 		associationMap.put(key, value);
 	}
@@ -101,7 +101,7 @@ public class AssociationSupport implements AssociatedObject
 	@Override
 	public Collection<AssociationKey<?>> getAssociationKeys()
 	{
-		return new HashSet<AssociationKey<?>>(associationMap.keySet());
+		return new HashSet<>(associationMap.keySet());
 	}
 
 	/**

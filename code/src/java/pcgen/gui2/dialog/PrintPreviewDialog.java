@@ -66,6 +66,7 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.render.awt.viewer.PreviewPanel;
 
@@ -82,7 +83,7 @@ import pcgen.util.fop.FopTask;
 /**
  * Dialog to allow the preview of character export.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PrintPreviewDialog extends JDialog implements ActionListener
@@ -372,9 +373,9 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
-
-			AWTRenderer renderer = new AWTRenderer();
-			renderer.setPreviewDialogDisplayed(false);
+			
+			FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
+			AWTRenderer renderer = new AWTRenderer(userAgent, null, false, false);
 			PipedOutputStream out = new PipedOutputStream();
 			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
 			Thread thread = new Thread(task, "fop-preview");

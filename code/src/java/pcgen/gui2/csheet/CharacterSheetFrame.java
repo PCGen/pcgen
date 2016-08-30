@@ -43,7 +43,7 @@ import pcgen.gui2.util.AbstractRadioListMenu;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CharacterSheetFrame extends JFrame
 {

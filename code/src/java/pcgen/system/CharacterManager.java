@@ -65,11 +65,11 @@ import pcgen.util.Logging;
  * only see what characters are open but to easily track any
  * changes to the list of available characters.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CharacterManager
@@ -105,7 +105,7 @@ public class CharacterManager
 		try
 		{
 			@SuppressWarnings("unchecked")
-			PlayerCharacter pc = new PlayerCharacter(false, campaigns);
+			PlayerCharacter pc = new PlayerCharacter(campaigns);
 			Globals.getPCList().add(pc);
 			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 			String name = createNewCharacterName();
@@ -194,7 +194,7 @@ public class CharacterManager
 		final PlayerCharacter newPC;
 		try
 		{
-			newPC = new PlayerCharacter(false, campaigns);
+			newPC = new PlayerCharacter(campaigns);
 			newPC.setFileName(file.getAbsolutePath());
 			ioHandler.read(newPC, file.getAbsolutePath());
 			// Ensure any custom equipment held by the character is added to the dataset's list
@@ -328,7 +328,7 @@ public class CharacterManager
 			return null;
 		}
 		GameModeFacade gameMode = null;
-		HashSet<CampaignFacade> campaignSet = new HashSet<CampaignFacade>();
+		HashSet<CampaignFacade> campaignSet = new HashSet<>();
 		for (File file : files)
 		{
 			SourceSelectionFacade selection = getRequiredSourcesForCharacter(file, delegate);
@@ -356,7 +356,7 @@ public class CharacterManager
 		}
 		//TODO: check to make sure that the campaigns are compatable
 
-		return FacadeFactory.createSourceSelection(gameMode, new ArrayList<CampaignFacade>(campaignSet));
+		return FacadeFactory.createSourceSelection(gameMode, new ArrayList<>(campaignSet));
 	}
 
 	/**
@@ -584,7 +584,7 @@ final class RecentFileList extends AbstractListFacade<File>
 {
 
 	private static final int MAX_RECENT_FILES = 8;
-	private final LinkedList<File> fileList = new LinkedList<File>();
+	private final LinkedList<File> fileList = new LinkedList<>();
 	private final String contextProp;
 
 	public RecentFileList(String contextProp)
@@ -605,7 +605,7 @@ final class RecentFileList extends AbstractListFacade<File>
 	{
 		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
 
-		List<String> uris = new ArrayList<String>(fileList.size());
+		List<String> uris = new ArrayList<>(fileList.size());
 		for (File file : fileList)
 		{
 			URI uri = userdir.relativize(file.toURI());

@@ -82,7 +82,7 @@ public class SkillInfoUtilities
 	 */
 	public static List<PCStat> getKeyStatList(PlayerCharacter pc, Skill sk, List<Type> typeList)
 	{
-		List<PCStat> aList = new ArrayList<PCStat>();
+		List<PCStat> aList = new ArrayList<>();
 		if (Globals.getGameModeHasPointPool())
 		{
 			for (Type aType : sk.getTrueTypeList(false))

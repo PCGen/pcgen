@@ -146,7 +146,7 @@ public class TabInfo implements Loadable
 	{
 		if (hiddenColumns == null)
 		{
-			hiddenColumns = new HashSet<Integer>();
+			hiddenColumns = new HashSet<>();
 		}
 		hiddenColumns.add(column);
 	}

@@ -32,7 +32,7 @@ import javax.swing.UIManager;
  * javax.swing.plaf.basic.BasicArrowButton. As such this icon draws the arrow
  * that you find on arrow buttons.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class ArrowIcon implements Icon, SwingConstants
 {
@@ -114,7 +114,7 @@ public class ArrowIcon implements Icon, SwingConstants
 
 		switch (triangleDir)
 		{
-			case NORTH:
+			case SwingConstants.NORTH:
 				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(mid - i, i, mid + i, i);
@@ -125,7 +125,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					g.drawLine(mid - i + 2, i, mid + i, i);
 				}
 				break;
-			case SOUTH:
+			case SwingConstants.SOUTH:
 				if (!isEnabled)
 				{
 					g.translate(1, 1);
@@ -146,7 +146,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					j++;
 				}
 				break;
-			case WEST:
+			case SwingConstants.WEST:
 				for (i = 0; i < triangleSize; i++)
 				{
 					g.drawLine(i, mid - i, i, mid + i);
@@ -157,7 +157,7 @@ public class ArrowIcon implements Icon, SwingConstants
 					g.drawLine(i, mid - i + 2, i, mid + i);
 				}
 				break;
-			case EAST:
+			case SwingConstants.EAST:
 				if (!isEnabled)
 				{
 					g.translate(1, 1);

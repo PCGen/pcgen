@@ -21,7 +21,7 @@ import pcgen.base.lang.NumberUtilities;
 import pcgen.rules.persistence.token.AbstractNumberModifierFactory;
 
 /**
- * An MinModifierFactory is a ModifierFactory<Number> that returns the greater
+ * An MinModifierFactory is a {@code ModifierFactory<Number>} that returns the greater
  * of the input or a defined maximum value (provided during construction of this
  * MinModifierFactory) when a Modifier produced by this MinModifierFactory is
  * processed.
@@ -33,7 +33,7 @@ public class MinModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this MinModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -58,7 +58,7 @@ public class MinModifierFactory extends AbstractNumberModifierFactory<Number>
 	 * Returns the inherent priority of an MinModifier. This is used if two
 	 * Modifiers have the same User Priority. Lower values are processed first.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getInherentPriority()
+	 * @see pcgen.base.calculation.CalculationInfo#getInherentPriority()
 	 */
 	@Override
 	public int getInherentPriority()
@@ -69,7 +69,7 @@ public class MinModifierFactory extends AbstractNumberModifierFactory<Number>
 	/**
 	 * Returns an Identifier for this type of Modifier
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getIdentification()
+	 * @see pcgen.base.calculation.CalculationInfo#getIdentification()
 	 */
 	@Override
 	public String getIdentification()

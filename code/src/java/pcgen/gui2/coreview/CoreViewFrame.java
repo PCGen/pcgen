@@ -62,7 +62,7 @@ public class CoreViewFrame extends JFrame
 
 	public CoreViewFrame(Frame frame, CharacterFacade character)
 	{
-		viewTable = new JTreeViewTable<CoreViewNodeFacade>();
+		viewTable = new JTreeViewTable<>();
 
 		perspectiveChooser = new JComboBoxEx();
 		for (CorePerspective pers : CorePerspective.getAllConstants())
@@ -147,9 +147,9 @@ public class CoreViewFrame extends JFrame
 		@Override
 		public List<TreeViewPath<CoreViewNodeFacade>> getPaths(CoreViewNodeFacade pobj)
 		{
-			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<List<CoreViewNodeFacade>>();
+			List<List<CoreViewNodeFacade>> abilityPaths = new ArrayList<>();
 			addPaths(abilityPaths, pobj.getGrantedByNodes(),
-					new ArrayList<CoreViewNodeFacade>());
+                    new ArrayList<>());
 			if (Logging.isDebugMode())
 			{
 				Logging.debugPrint("Converted " + pobj.getGrantedByNodes()
@@ -157,10 +157,10 @@ public class CoreViewFrame extends JFrame
 			}
 			if (abilityPaths.isEmpty())
 			{
-				return Collections.singletonList(new TreeViewPath<CoreViewNodeFacade>(pobj));
+				return Collections.singletonList(new TreeViewPath<>(pobj));
 			}
 
-			List<TreeViewPath<CoreViewNodeFacade>> paths = new ArrayList<TreeViewPath<CoreViewNodeFacade>>();
+			List<TreeViewPath<CoreViewNodeFacade>> paths = new ArrayList<>();
 			for (List<CoreViewNodeFacade> path : abilityPaths)
 			{
 				Collections.reverse(path);
@@ -229,7 +229,7 @@ public class CoreViewFrame extends JFrame
 		public void setPerspective(CorePerspective corePerspective)
 		{
 			List<CoreViewNodeFacade> coreViewNodes = character.getCoreViewTree(corePerspective);
-			coreViewList = new DefaultListFacade<CoreViewNodeFacade>(coreViewNodes);
+			coreViewList = new DefaultListFacade<>(coreViewNodes);
 		}
 
 		/**
@@ -239,7 +239,7 @@ public class CoreViewFrame extends JFrame
 		public ListFacade<? extends TreeView<CoreViewNodeFacade>> getTreeViews()
 		{
 			DefaultListFacade<TreeView<CoreViewNodeFacade>> views =
-					new DefaultListFacade<TreeView<CoreViewNodeFacade>>();
+                    new DefaultListFacade<>();
 			views.addElement(new GrantedTreeView());
 			return views;
 		}

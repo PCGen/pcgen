@@ -38,7 +38,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Last Editor: $Author$ Last Edited: $Date: 2008-05-06 22:19:45 -0400
  * (Tue, 06 May 2008) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EqBuilderEqTypeToken implements

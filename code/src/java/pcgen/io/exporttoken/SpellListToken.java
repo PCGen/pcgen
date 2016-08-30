@@ -32,7 +32,7 @@ import java.util.StringTokenizer;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public abstract class SpellListToken extends Token
@@ -85,7 +85,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the bookNum.
 		 */
-		public final int getBookNum()
+		public int getBookNum()
 		{
 			return bookNum;
 		}
@@ -93,7 +93,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the classNum.
 		 */
-		public final int getClassNum()
+		public int getClassNum()
 		{
 			return classNum;
 		}
@@ -101,7 +101,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the level.
 		 */
-		public final int getLevel()
+		public int getLevel()
 		{
 			return level;
 		}

@@ -17,9 +17,3 @@ CLASS:Black Blade	OUTPUTNAME:Black Blade	TYPE:Monster.Companion	MAXLEVEL:1	SOURC
 # Class Name	Skill Pts/Lvl	Add INT to Skill Points?
 CLASS:Black Blade	STARTSKILLPTS:0	MODTOSKILLS:NO
 
-# Class Name		Output Name				Hit Dice	Type				Max Level		Source Page		Ability					Combat bonus										FACT
-CLASS:Fused Eidolon	OUTPUTNAME:Fused Eidolon	HD:10		TYPE:Monster.Companion	MAXLEVEL:NOLIMIT	SOURCEPAGE:p.309	ABILITY:FEAT|AUTOMATIC|CMB Output	BONUS:COMBAT|BASEAB|classlevel("APPLIEDAS=NONEPIC")|TYPE=Base.REPLACE	FACT:ClassType|Companion
-# Class Name		Reg. Race Type
-CLASS:Fused Eidolon	PRERACETYPE:Eidolon
-# Class Name		Skill Pts/Lvl	Add INT to Skill Points?
-CLASS:Fused Eidolon	STARTSKILLPTS:0	MODTOSKILLS:NO

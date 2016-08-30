@@ -44,7 +44,7 @@ import freemarker.template.TemplateModelException;
  * 
  * <p>Nested content is output once for each loop</p>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
@@ -72,7 +72,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 				"This directive must have content.");
 		}
 		
-		List<EquipSet> eqSetList = new ArrayList<EquipSet>();
+		List<EquipSet> eqSetList = new ArrayList<>();
 		EquipSet currSet = null;
 		String currIdPath = pc.getCalcEquipSetId();
 		for (EquipSet es : pc.getDisplay().getEquipSet())

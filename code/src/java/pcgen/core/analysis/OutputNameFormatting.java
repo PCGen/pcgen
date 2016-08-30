@@ -55,8 +55,8 @@ public class OutputNameFormatting
 	
 		final String preVarStr = varTokenizer.nextToken();
 	
-		final ArrayList<Float> varArray = new ArrayList<Float>();
-		final ArrayList<String> tokenList = new ArrayList<String>();
+		final ArrayList<Float> varArray = new ArrayList<>();
+		final ArrayList<String> tokenList = new ArrayList<>();
 	
 		while (varTokenizer.hasMoreElements())
 		{
@@ -173,7 +173,7 @@ public class OutputNameFormatting
 	 * Get the output name of the item
 	 * @return the output name of the item
 	 */
-	public static final String getOutputName(CDOMObject po)
+	public static String getOutputName(CDOMObject po)
 	{
 		String outputName = po.get(StringKey.OUTPUT_NAME);
 		String displayName = po.getDisplayName();

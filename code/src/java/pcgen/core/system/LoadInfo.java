@@ -42,7 +42,7 @@ import pcgen.util.Logging;
  * <code>LoadInfo</code> describes the data associated with a loads and
  * encumbrance
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class LoadInfo implements Loadable
@@ -50,17 +50,17 @@ public class LoadInfo implements Loadable
 	private URI sourceURI;
 	private String loadInfoName;
 
-	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<CDOMSingleRef<SizeAdjustment>, BigDecimal>();
-	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<SizeAdjustment, BigDecimal>();
+	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<Integer, BigDecimal>();
+	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
 	private int minStrenghScoreWithLoad = 0;
 	private int maxStrengthScoreWithLoad = 0;
 
 	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
 
-	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<String, LoadInfo.LoadMapEntry>();
+	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
 	private String modifyFormula;
 
     @Override

@@ -79,7 +79,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * flag was true).
 	 *
 	 * @param pc the Character with the abilities
-	 * @param ability The feat to be counted.
+	 * @param cna The feat to be counted.
 	 * @param visible Should it be counted if it is visible?
 	 * @param hidden  Should it be counted if it is hidden?
 	 * @param onceOnly Should it be counted as one if was taken multiple times?

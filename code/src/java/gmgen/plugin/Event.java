@@ -225,7 +225,7 @@ public class Event implements InitHolder
     @Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		for ( String columnName : columnOrder )
 		{

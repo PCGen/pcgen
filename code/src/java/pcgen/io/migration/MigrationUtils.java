@@ -33,7 +33,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MigrationUtils provides common helper functions for migration classes.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class MigrationUtils
@@ -49,7 +49,7 @@ public class MigrationUtils
 	protected static List<MigrationRule> getChangeList(int pcgVer[],
 		String gameModeName, ObjectType objectType)
 	{
-		List<MigrationRule> sourceChangeList = new ArrayList<MigrationRule>();
+		List<MigrationRule> sourceChangeList = new ArrayList<>();
 		List<MigrationRule> migrationRuleList =
 				SystemCollections
 					.getUnmodifiableMigrationRuleList(gameModeName);

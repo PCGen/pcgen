@@ -33,7 +33,7 @@ public class KitIntegrationTest extends
 {
 
 	static KitLst token = new KitLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public String getPrefix()

@@ -41,7 +41,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements
@@ -88,7 +88,7 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	 *   
 	 * @param prereq The prereq to be scanned.
 	 */
-	private void replaceHasDeityPrereqs(Prerequisite prereq)
+	private static void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
 		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)

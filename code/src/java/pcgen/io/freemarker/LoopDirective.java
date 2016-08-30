@@ -44,7 +44,7 @@ import freemarker.template.TemplateNumberModel;
  * <ul>
  * <li><b>from</b> (optional) - The starting value, defaults to 0.</li>
  * <li><b>to</b> - The ending value (inclusive). If this is less than from then 
- * the contents will not be output.</p>
+ * the contents will not be output.
  * <li><b>step</b> (optional) - The amount to increment b each loop, defaults to 1.</li>
  * </ul>
  * 
@@ -56,7 +56,7 @@ import freemarker.template.TemplateNumberModel;
  * 
  * See http://freemarker.org/docs/pgui_datamodel_directive.html#autoid_37
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class LoopDirective implements TemplateDirectiveModel

@@ -19,8 +19,8 @@ package plugin.modifier.number;
 
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.Modifier;
 import pcgen.base.calculation.NEPCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.NEPFormula;
@@ -29,7 +29,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
- * A SetModifierFactory is a ModifierFactory<Number> that returns a specific
+ * A SetModifierFactory is a {@code ModifierFactory<Number>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * SetModifierFactory is processed.
  */
@@ -40,7 +40,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -52,7 +52,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 	 * {@inheritDoc}
 	 */
 	@Override
-	public Modifier<Number> getModifier(int userPriority, String instructions,
+	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
 		FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{

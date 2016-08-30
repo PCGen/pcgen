@@ -26,7 +26,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class PCGenTask
 {
@@ -128,11 +128,6 @@ public abstract class PCGenTask
 	protected void sendErrorMessage(LogRecord record)
 	{
 		fireErrorOccurredEvent(record);
-	}
-
-	protected void sendErrorMessage(String message)
-	{
-		fireErrorOccurredEvent(new LogRecord(Logging.ERROR, message));
 	}
 
 	protected void fireErrorOccurredEvent(LogRecord message)

@@ -6,8 +6,7 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
 /**
- * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
- * <nuance@users.sourceforge.net>.
+ * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
  *
  * This library is free software; you can redistribute it and/or modify it under
  * the terms of the GNU Lesser General Public License as published by the Free

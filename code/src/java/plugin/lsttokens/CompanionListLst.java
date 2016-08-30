@@ -59,21 +59,21 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class implments the parsing for the COMPANIONLIST token.
- * <p />
+ * <p>
  * <b>Tag Name</b>: <code>COMPANIONLIST</code>:x|y,y|z
- * <p />
+ * <p>
  * <b>Variables Used (x)</b>: <i>Text</i> (The type of companion list to add
- * to).<br />
+ * to).<br>
  * <b>Variables Used (y)</b>: <i>Text</i> (A race of companion to allow to the
- * character).<br />
+ * character).<br>
  * <b>Variables Used (y)</b>: <code>RACETYPE</code>=<i>Text</i> (all races
  * with the specified <code>RACETYPE</code> are available as this type of
- * companion). <br />
+ * companion). <br>
  * <b>Variables Used (y)</b>: <code>ANY</code> (Any race can be a companion
- * of this type).<br />
+ * of this type).<br>
  * <b>Variables Used (z)</b>: <code>FOLLOWERADJUSTMENT</code>=<i>Number</i>
  * (Adjustment to the follower level variable).
- * <p />
+ * <p>
  * <b>What it does:</b>
  * <ul>
  * <li>Adds a specific race or races to the list of available companions for
@@ -84,22 +84,22 @@ import pcgen.rules.persistence.token.ParseResult;
  * in the list but will be listed in red and cannot be added as a companion.
  * </li>
  * </ul>
- * <p />
- * <b>Examples:</b><br />
+ * <p>
+ * <b>Examples:</b><br>
  * <code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
- * Snake (Tiny/Viper),Toad,Weasel</code><br />
+ * Snake (Tiny/Viper),Toad,Weasel</code><br>
  * Would build the list of standard familiars available to a Sorcerer or Wizard.
- * <p />
- * <code>COMPANIONLIST:Pet|RACETYPE=Animal</code><br />
+ * <p>
+ * <code>COMPANIONLIST:Pet|RACETYPE=Animal</code><br>
  * Would build a list of all animals to available as a Pet.
- * <p />
+ * <p>
  * <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
- * PREALIGN:CE</code><br />
+ * PREALIGN:CE</code><br>
  * A Quasit can be chosen as a Familiar but only if the master is evil and has
  * the Special Familiar feat.
- * <p />
+ * <p>
  * <code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
- * <br />
+ * <br>
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
  *

@@ -39,9 +39,8 @@ import pcgen.core.bonus.BonusPair;
 import pcgen.core.utils.CoreUtility;
 import pcgen.util.Delta;
 
-public class SkillCostDisplay
+public final class SkillCostDisplay
 {
-
 	/**
 	 * Builds up a string describing what makes up the misc modifier for a skill
 	 * for a character. This can either be in long form '+2[skill TUMBLE gteq
@@ -58,7 +57,7 @@ public class SkillCostDisplay
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SKILL." + keyName).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())
@@ -178,7 +177,7 @@ public class SkillCostDisplay
 		SkillCostDisplay.appendBonusDesc(bonusDetails, aCheckMod, "ARMOR");
 	
 		String aString = SettingsHandler.getGame().getRankModFormula();
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			aString = aString.replaceAll(Pattern.quote("$$RANK$$"), SkillRankControl.getTotalRank(aPC, sk).toString());
 			bonus = aPC.getVariableValue(aString, "").intValue();
@@ -203,7 +202,7 @@ public class SkillCostDisplay
 	public static String getSituationModifierExplanation(Skill sk,
 		String situation, PlayerCharacter aPC, boolean shortForm)
 	{
-		List<String> explanation = new ArrayList<String>();
+		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
 		String bonusKey = ("SITUATION." + keyName + "=" + situation).toUpperCase();
 		for (BonusObj bonus : aPC.getActiveBonusList())

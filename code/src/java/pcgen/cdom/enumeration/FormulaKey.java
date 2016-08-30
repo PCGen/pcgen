@@ -44,7 +44,7 @@ public class FormulaKey implements TypeSafeConstant
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<FormulaKey> typeMap = new CaseInsensitiveMap<FormulaKey>();
+	private static CaseInsensitiveMap<FormulaKey> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * This is used to provide a unique ordinal to each constant in this class

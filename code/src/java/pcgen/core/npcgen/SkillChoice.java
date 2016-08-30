@@ -37,14 +37,14 @@ import pcgen.core.Skill;
  * have a certain weight the assumption is that that weight applies to picking
  * a single Profession skill and not to each Profession skill individually.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  * @since 5.11.1
  */
 public class SkillChoice
 {
 	private String theKey = null;
-	private WeightedCollection<Skill> theSkillList = new WeightedCollection<Skill>();
+	private WeightedCollection<Skill> theSkillList = new WeightedCollection<>();
 	
 	/**
 	 * Creates a new SkillChoice.

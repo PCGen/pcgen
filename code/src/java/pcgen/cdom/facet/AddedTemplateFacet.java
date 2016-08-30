@@ -68,7 +68,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 */
 	public Collection<PCTemplate> select(CharID id, CDOMObject po)
 	{
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
+		List<PCTemplate> list = new ArrayList<>();
 		removeAll(id, po);
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
@@ -82,7 +82,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 					list.add(pct);
 				}
 			}
-			List<PCTemplate> added = new ArrayList<PCTemplate>();
+			List<PCTemplate> added = new ArrayList<>();
 			for (CDOMReference<PCTemplate> ref : po
 					.getSafeListFor(ListKey.TEMPLATE_ADDCHOICE))
 			{
@@ -91,7 +91,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 			for (CDOMReference<PCTemplate> ref : po
 					.getSafeListFor(ListKey.TEMPLATE_CHOOSE))
 			{
-				List<PCTemplate> chooseList = new ArrayList<PCTemplate>(added);
+				List<PCTemplate> chooseList = new ArrayList<>(added);
 				chooseList.addAll(ref.getContainedObjects());
 				PCTemplate selected = chooseTemplate(po, chooseList, true, id);
 				if (selected != null)
@@ -119,7 +119,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 */
 	public Collection<PCTemplate> remove(CharID id, CDOMObject po)
 	{
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
+		List<PCTemplate> list = new ArrayList<>();
 		PlayerCharacter pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
@@ -152,7 +152,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	public PCTemplate chooseTemplate(CDOMObject anOwner, List<PCTemplate> list,
 			boolean forceChoice, CharID id)
 	{
-		final List<PCTemplate> availableList = new ArrayList<PCTemplate>();
+		final List<PCTemplate> availableList = new ArrayList<>();
 		for (PCTemplate pct : list)
 		{
 			if (prerequisiteFacet.qualifies(id, pct, anOwner))
@@ -169,7 +169,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 		{
 			return null;
 		}
-		List<PCTemplate> selectedList = new ArrayList<PCTemplate>(1);
+		List<PCTemplate> selectedList = new ArrayList<>(1);
 		String title = "Template Choice";
 		if (anOwner != null)
 		{
@@ -202,7 +202,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	 */
 	public Collection<PCTemplate> getFromSource(CharID id, CDOMObject cdo)
 	{
-		List<PCTemplate> list = new ArrayList<PCTemplate>();
+		List<PCTemplate> list = new ArrayList<>();
 		Map<PCTemplate, Set<Object>> map = getCachedMap(id);
 		if (map != null)
 		{

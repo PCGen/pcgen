@@ -44,7 +44,7 @@ public class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
 	private static Map<String, PrerequisiteParserInterface> parserLookup =
-			new HashMap<String, PrerequisiteParserInterface>();
+            new HashMap<>();
 
 	private PreParserFactory() throws PersistenceLayerException
 	{
@@ -106,10 +106,10 @@ public class PreParserFactory implements PluginLoader
 		}
 	}
 
-	public List<Prerequisite> parse(final List<String> preStrings)
+	public static List<Prerequisite> parse(final List<String> preStrings)
 	{
 		final List<Prerequisite> ret =
-				new ArrayList<Prerequisite>(preStrings.size());
+                new ArrayList<>(preStrings.size());
 		for (String prestr : preStrings)
 		{
 			try

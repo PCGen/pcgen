@@ -41,7 +41,7 @@ import java.util.Set;
 /**
  * <code>SpinningTabbedPane</code>.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @version $Revision: 1184 $
  *
  * @see JTabbedPane
@@ -164,7 +164,7 @@ public class SpinningTabbedPane extends JTabbedPane
         LanguageBundle.getString("in_spinTips32")
     };
     private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-    private Set<Component> locked = new HashSet<Component>();
+    private Set<Component> locked = new HashSet<>();
     private SpinningTabbedPane parent = null;
 
     public SpinningTabbedPane()
@@ -247,7 +247,7 @@ public class SpinningTabbedPane extends JTabbedPane
     }
 
     // Need to use action events instead  XXX
-    private static final SpinningTabbedPane createPane()
+    private static SpinningTabbedPane createPane()
     {
         return new SpinningTabbedPane();
     }
@@ -262,7 +262,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return ((placement - 1 + slot) % 4) + 1;
     }
 
-    private final String getExtraTitleAt(int index)
+    private String getExtraTitleAt(int index)
     {
         Component c = getComponentAt(index);
 
@@ -270,7 +270,7 @@ public class SpinningTabbedPane extends JTabbedPane
                 ((SpinningTabbedPane) c).getSpinTabCount() + ")") : null;
     }
 
-    private final int getMovableTabCount()
+    private int getMovableTabCount()
     {
         int n = 0;
 
@@ -285,7 +285,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return n;
     }
 
-    private final int[] getMovableTabIndices()
+    private int[] getMovableTabIndices()
     {
         int x = getTabCount();
         int[] list1 = new int[x];
@@ -311,7 +311,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return list2;
     }
 
-    private final String getPlainTitleAt(int index)
+    private String getPlainTitleAt(int index)
     {
         String title = getTitleAt(index);
         Component c = getComponentAt(index);
@@ -337,7 +337,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return title.substring(0, title.length() - extra.length() - 1);
     }
 
-    private final int getSpinTabCount()
+    private int getSpinTabCount()
     {
         int n = getTabCount();
 
@@ -357,7 +357,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return n;
     }
 
-    private final int getSpinTabPlacementAt(int index)
+    private int getSpinTabPlacementAt(int index)
     {
         Component c = getComponentAt(index);
 
@@ -369,7 +369,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return -1;
     }
 
-    private final boolean isTabLockedAt(int index)
+    private boolean isTabLockedAt(int index)
     {
         return locked.contains(getComponentAt(index));
     }
@@ -379,12 +379,12 @@ public class SpinningTabbedPane extends JTabbedPane
     {
     }
      */
-    private final void addNewTab()
+    private void addNewTab()
     {
         add(new JPanel());
     }
 
-    private final void lockTabAt(int index)
+    private void lockTabAt(int index)
     {
         locked.add(getComponentAt(index));
         setIconAt(index, Utilities.LOCK_ICON);
@@ -398,7 +398,7 @@ public class SpinningTabbedPane extends JTabbedPane
      * @param index start spinning tabs here
      * @param placement direction to place spun tabs
      */
-    private final void spinTabsAt(int index, int placement)
+    private void spinTabsAt(int index, int placement)
     {
         SpinningTabbedPane pane = createPane();
 
@@ -425,7 +425,7 @@ public class SpinningTabbedPane extends JTabbedPane
         updateTabUIAt(index);
     }
 
-    private final void unlockTabAt(int index)
+    private void unlockTabAt(int index)
     {
         locked.remove(getComponentAt(index));
         setIconAt(index, null);
@@ -434,7 +434,7 @@ public class SpinningTabbedPane extends JTabbedPane
     /**
      * Unspin all tabs in this pane.
      */
-    private final void unspinAll()
+    private void unspinAll()
     {
         int parentIndex = parent.indexOfComponent(this);
 
@@ -448,7 +448,7 @@ public class SpinningTabbedPane extends JTabbedPane
         parent = null; // help GC
     }
 
-    private final void unspinTabAt(int index)
+    private void unspinTabAt(int index)
     {
         if (getTabCount() == 1)
         {
@@ -737,22 +737,22 @@ public class SpinningTabbedPane extends JTabbedPane
 
             switch (placement)
             {
-                case TOP:
+                case SwingConstants.TOP:
                     i = indices[0];
 
                     break;
 
-                case LEFT:
+                case SwingConstants.LEFT:
                     i = previous(index, indices);
 
                     break;
 
-                case BOTTOM:
+                case SwingConstants.BOTTOM:
                     i = indices[indices.length - 1];
 
                     break;
 
-                case RIGHT:
+                case SwingConstants.RIGHT:
                     i = next(index, indices);
 
                     break;
@@ -855,19 +855,19 @@ public class SpinningTabbedPane extends JTabbedPane
                 {
                     if (index > secundum)
                     {
-                        this.add(new MoveTabMenuItem(index, TOP));
+                        this.add(new MoveTabMenuItem(index, SwingConstants.TOP));
                     }
 
-                    this.add(new MoveTabMenuItem(index, LEFT));
+                    this.add(new MoveTabMenuItem(index, SwingConstants.LEFT));
                 }
 
                 if (index < ultimatum)
                 {
-                    this.add(new MoveTabMenuItem(index, RIGHT));
+                    this.add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
 
                     if (index < penultimatum)
                     {
-                        this.add(new MoveTabMenuItem(index, BOTTOM));
+                        this.add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
                     }
                 }
 
@@ -886,14 +886,14 @@ public class SpinningTabbedPane extends JTabbedPane
 
             switch (getTabPlacement())
             {
-                case TOP:
-                case BOTTOM:
+                case SwingConstants.TOP:
+                case SwingConstants.BOTTOM:
                     offset += MOVE_LEFT_RIGHT_OFFSET;
 
                     break;
 
-                case LEFT:
-                case RIGHT:
+                case SwingConstants.LEFT:
+                case SwingConstants.RIGHT:
                     offset += MOVE_UP_DOWN_OFFSET;
 
                     break;

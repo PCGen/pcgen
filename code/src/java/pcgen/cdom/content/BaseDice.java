@@ -31,8 +31,8 @@ public class BaseDice implements Loadable
 	private URI sourceURI;
 	private String dieName;
 	//private RollInfo diceInfo;
-	private List<RollInfo> downList = new ArrayList<RollInfo>();
-	private List<RollInfo> upList = new ArrayList<RollInfo>();
+	private List<RollInfo> downList = new ArrayList<>();
+	private List<RollInfo> upList = new ArrayList<>();
 
 	@Override
 	public URI getSourceURI()

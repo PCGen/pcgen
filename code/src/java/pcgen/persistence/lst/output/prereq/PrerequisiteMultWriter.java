@@ -62,7 +62,7 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 
     
     /**
-     * @{inheritdoc}
+     * {@inheritDoc}
      */
     @Override
 	public void write(Writer writer, Prerequisite prereq)

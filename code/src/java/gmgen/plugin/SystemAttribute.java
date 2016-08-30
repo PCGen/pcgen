@@ -27,22 +27,12 @@ public class SystemAttribute
 	private SystemDie die;
 	private int value;
 
-	public SystemAttribute(String name, int value, String description, SystemDie die)
+	private SystemAttribute(String name, int value, String description, SystemDie die)
 	{
 		this.name = name;
 		this.value = value;
 		this.description = description;
 		this.die = die;
-	}
-
-	public SystemAttribute(String name, int value, SystemDie die)
-	{
-		this(name, value, "", die);
-	}
-
-	public SystemAttribute(String name, int value, String description)
-	{
-		this(name, value, description, new SystemDie());
 	}
 
 	public SystemAttribute(String name, int value)
@@ -70,7 +60,7 @@ public class SystemAttribute
 		return name;
 	}
 
-	public void setValue(int value)
+	public void setValue(final int value)
 	{
 		this.value = value;
 	}
@@ -85,18 +75,9 @@ public class SystemAttribute
 		return check(0);
 	}
 
-	public int check(int mod)
+	public int check(final int mod)
 	{
 		return die.roll() + this.getModifier() + mod;
 	}
 
-	public boolean difficultyCheck(int difficulty)
-	{
-		return difficultyCheck(difficulty, 0);
-	}
-
-	public boolean difficultyCheck(int difficulty, int mod)
-	{
-		return check(mod) >= difficulty;
-	}
 }

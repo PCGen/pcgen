@@ -29,7 +29,7 @@ public class SkillMultIntegrationTest extends
 {
 
 	static SkillmultToken token = new SkillmultToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

@@ -21,12 +21,13 @@ import junit.framework.TestCase;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.Modifier;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.math.OrderedPair;
+import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
+import plugin.modifier.testsupport.EvalManagerUtilities;
 
 public class SetOrderedPairModifierTest extends TestCase
 {
@@ -59,11 +60,10 @@ public class SetOrderedPairModifierTest extends TestCase
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<OrderedPair> modifier =
 				factory.getModifier(5, "3,2", null, varScope, opManager);
-		assertEquals(0, modifier.getInherentPriority());
-		assertEquals(5, modifier.getUserPriority());
+		assertEquals(5l<<32, modifier.getPriority());
 		assertEquals(OrderedPair.class, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),
-			modifier.process(new OrderedPair(5, 6), null, null));
+			modifier.process(EvalManagerUtilities.getInputEM(new OrderedPair(5, 6))));
 	}
 
 }

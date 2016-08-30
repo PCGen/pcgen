@@ -65,11 +65,11 @@ import pcgen.util.enumeration.Tab;
  * the CharacterLevelsFacade interface for the new user interface. It allows 
  * the user interface to work with the class levels of a character.
  *
- * <br/>
+ * <br>
  * Last Editor: $Author$
  * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class CharacterLevelsFacadeImpl extends
@@ -131,8 +131,8 @@ public class CharacterLevelsFacadeImpl extends
 	 */
 	private void initForCharacter()
 	{
-		classLevels = new ArrayList<ClassFacade>();
-		charLevels = new ArrayList<CharacterLevelFacade>();
+		classLevels = new ArrayList<>();
+		charLevels = new ArrayList<>();
 		refreshClassList();
 
 		charID = theCharacter.getCharID();
@@ -190,8 +190,8 @@ public class CharacterLevelsFacadeImpl extends
 		List<PCClass> newClasses = charDisplay.getClassList();
 		Collection<PCLevelInfo> levelInfo = charDisplay.getLevelInfo();
 
-		Map<String, Integer> levelCount = new HashMap<String, Integer>();
-		Map<String, PCClass> classMap = new HashMap<String, PCClass>();
+		Map<String, Integer> levelCount = new HashMap<>();
+		Map<String, PCClass> classMap = new HashMap<>();
 		for (PCClass pcClass : newClasses)
 		{
 			levelCount.put(pcClass.getKeyName(), 1);
@@ -343,7 +343,7 @@ public class CharacterLevelsFacadeImpl extends
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
@@ -409,7 +409,7 @@ public class CharacterLevelsFacadeImpl extends
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
 	@Override
 	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
@@ -648,7 +648,7 @@ public class CharacterLevelsFacadeImpl extends
 			// 1. Selected level (if class had purchased a rank and is not above max ranks)
 			if (classHasRanksIn(skill,
 				((CharacterLevelFacadeImpl) baseLevel).getSelectedClass())
-				&& maxRanks != Float.NaN
+				&& !Float.isNaN(maxRanks)
 				&& maxRanks >= currRank
 				&& getSpentSkillPoints(baseLevel) > 0)
 			{
@@ -675,7 +675,7 @@ public class CharacterLevelsFacadeImpl extends
 		}
 
 		// Check if current level ok
-		if (maxRanks != Float.NaN && maxRanks >= newRank
+		if (!Float.isNaN(maxRanks) && maxRanks >= newRank
 			&& getRemainingSkillPoints(baseLevel) > 0)
 		{
 			return baseLevel;
@@ -734,7 +734,7 @@ public class CharacterLevelsFacadeImpl extends
 			float maxRanks =
 					getMaxRanks(testLevel, skillCost,
 						isClassSkillForMaxRanks(testLevel, aSkill));
-			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
 				return testLevel;
@@ -772,7 +772,7 @@ public class CharacterLevelsFacadeImpl extends
 			float maxRanks =
 					getMaxRanks(testLevel, skillCost,
 						isClassSkillForMaxRanks(testLevel, aSkill));
-			if (maxRanks != Float.NaN && maxRanks >= testRank)
+			if (!Float.isNaN(maxRanks) && maxRanks >= testRank)
 			{
 				//Logging.errorPrint("Selected level " + testLevel);
 				return testLevel;

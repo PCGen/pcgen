@@ -22,7 +22,7 @@ package pcgen.facade.util.event;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class MapEvent<K, V> extends FacadeEvent
 {

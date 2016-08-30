@@ -30,9 +30,10 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
+import pcgen.base.formatmanager.FormatManagerLibraryUtilities;
+import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
-import pcgen.base.util.FormatManagerLibrary;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -72,16 +73,21 @@ public abstract class AbstractReferenceContext
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
-			new DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>>();
+            new DoubleKeyMap<>();
 
-	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<CDOMObject, CDOMSingleRef<?>>();
+	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();
 
 	private URI sourceURI;
 	
 	private URI extractURI;
 	
-	private final FormatManagerLibrary fmtLibrary = new FormatManagerLibrary();
-	
+	private final SimpleFormatManagerLibrary fmtLibrary = new SimpleFormatManagerLibrary();
+
+	public AbstractReferenceContext()
+	{
+		FormatManagerLibraryUtilities.loadDefaultFormats(fmtLibrary);
+	}
+
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
 		Class<T> cl);
 	
@@ -304,7 +310,7 @@ public abstract class AbstractReferenceContext
 
 	public Set<Object> getAllConstructedObjects()
 	{
-		Set<Object> set = new HashSet<Object>();
+		Set<Object> set = new HashSet<>();
 		for (ReferenceManufacturer<?> ref : getAllManufacturers())
 		{
 			set.addAll(ref.getAllObjects());
@@ -410,7 +416,7 @@ public abstract class AbstractReferenceContext
 		CDOMSingleRef<T> ref = (CDOMSingleRef<T>) directRefCache.get(obj);
 		if (ref == null)
 		{
-			ref = new CDOMDirectSingleRef<T>(obj);
+			ref = new CDOMDirectSingleRef<>(obj);
 		}
 		return ref;
 	}
@@ -503,7 +509,7 @@ public abstract class AbstractReferenceContext
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
 		{
 			returnList = generateList(cl, new IntegerKeyComparator(key));
-			sortedMap.put(cl, key, new WeakReference<List<?>>(returnList));
+			sortedMap.put(cl, key, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
@@ -517,7 +523,7 @@ public abstract class AbstractReferenceContext
 		if ((wr == null) || ((returnList = (List<T>) wr.get()) == null))
 		{
 			returnList = generateList(cl, comp);
-			sortedMap.put(cl, comp, new WeakReference<List<?>>(returnList));
+			sortedMap.put(cl, comp, new WeakReference<>(returnList));
 		}
 		return Collections.unmodifiableList(returnList);
 	}
@@ -525,7 +531,7 @@ public abstract class AbstractReferenceContext
 	private <T extends CDOMObject> List<T> generateList(Class<T> cl,
 		Comparator<? super T> comp)
 	{
-		Set<T> tm = new TreeSet<T>(comp);
+		Set<T> tm = new TreeSet<>(comp);
 		tm.addAll(getConstructedCDOMObjects(cl));
 		return new ArrayList<>(tm);
 	}

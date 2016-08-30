@@ -29,7 +29,7 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public final class CollectionMaps
 {
@@ -52,11 +52,11 @@ public final class CollectionMaps
     }
 
     public static <K, V, C extends Collection<V>> CollectionMap<K, V, C> createCollectionMap(Class<? extends Map> mapClass,
-                                                                                               Class<C> collectionClass)
+                                                                                               Class<? extends Collection> collectionClass)
     {
         try
         {
-            return new BasicCollectionMap<K, V, C>(mapClass, collectionClass);
+            return new BasicCollectionMap(mapClass, collectionClass);
         }
         catch (Exception ex)
         {
@@ -67,11 +67,11 @@ public final class CollectionMaps
     }
 
     public static <K, V, C extends List<V>> ListMap<K, V, C> createListMap(Class<? extends Map> mapClass,
-                                                                             Class<C> listClass)
+                                                                             Class<? extends List> listClass)
     {
         try
         {
-            return new BasicListMap<K, V, C>(mapClass, listClass);
+            return new BasicListMap(mapClass, listClass);
         }
         catch (Exception ex)
         {

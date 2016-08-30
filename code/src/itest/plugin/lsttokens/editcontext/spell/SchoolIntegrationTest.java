@@ -29,7 +29,7 @@ public class SchoolIntegrationTest extends
 {
 
 	static SchoolToken token = new SchoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

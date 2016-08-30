@@ -30,7 +30,7 @@ import pcgen.core.LevelInfo;
 /**
  * <code>LevelLstToken</code>
  *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public interface LevelLstToken extends LstToken
 {

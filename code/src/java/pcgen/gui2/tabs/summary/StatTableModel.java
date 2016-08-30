@@ -42,6 +42,7 @@ import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.KeyStroke;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 import javax.swing.table.AbstractTableModel;
@@ -64,7 +65,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
 /**
  * Model used for the Ability/statistics table.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
 {
@@ -204,7 +205,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		{
 			Component comp = table.getTableHeader().getDefaultRenderer().getTableCellRendererComponent(table, value, isSelected, hasFocus, row, column);
 			JLabel label = (JLabel) comp;
-			label.setHorizontalAlignment(JLabel.CENTER);
+			label.setHorizontalAlignment(SwingConstants.CENTER);
 			return label;
 		}
 
@@ -245,7 +246,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 
 		public ModRenderer()
 		{
-			setHorizontalAlignment(RIGHT);
+			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 
@@ -290,7 +291,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 		 */
 		public ValueRenderer()
 		{
-			setHorizontalAlignment(RIGHT);
+			setHorizontalAlignment(SwingConstants.RIGHT);
 			setBorder(BorderFactory.createEmptyBorder(0, 0, 0, 7));
 		}
 

@@ -43,9 +43,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
-
 import javax.swing.SwingConstants;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -54,6 +52,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.core.utils.SortedProperties;
 import pcgen.persistence.PersistenceManager;
+import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
@@ -86,7 +85,7 @@ public final class SettingsHandler
 	private static boolean spellMarketPriceAdjusted = false;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<String, String>();
+	private static Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
 	private static String browserPath = null; //Intentional null
@@ -676,7 +675,7 @@ public final class SettingsHandler
 	{
 		if ("".equals(selectedCharacterHTMLOutputSheet)) //$NON-NLS-1$
 		{
-			return getPcgenOutputSheetDir().toString();
+			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
 		return new File(selectedCharacterHTMLOutputSheet).getParentFile().getAbsolutePath();
@@ -1023,7 +1022,7 @@ public final class SettingsHandler
 				CoreUtility.split(getOptions().getProperty(
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
-		List<URI> uriList = new ArrayList<URI>(uriStringList.size());
+		List<URI> uriList = new ArrayList<>(uriStringList.size());
 		for (String str : uriStringList)
 		{
 			try {
@@ -1275,7 +1274,7 @@ public final class SettingsHandler
 	{
 		if ("".equals(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$
 		{
-			return getPcgenOutputSheetDir().toString();
+			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
@@ -1358,29 +1357,11 @@ public final class SettingsHandler
 		pcgenOutputSheetDir = aFile;
 	}
 
-	/**
-	 * @deprecated Use ConfigurationSettings.getOutputSheetsDir()
-	 * @return the output sheet directory
-	 */
-	public static File getPcgenOutputSheetDir()
-	{
-		return pcgenOutputSheetDir;
-	}
-
 	public static void setPcgenPreviewDir(final File aFile)
 	{
 		pcgenPreviewDir = aFile;
 	}
-	
-	/**
-	 * @deprecated Use ConfigurationSettings.getPreviewDir()
-	 * @return the preview directory
-	 */
-	public static File getPcgenPreviewDir()
-	{
-		return pcgenPreviewDir;
-	}
-	
+
 	/**
 	 * Sets the path to the portrait files.
 	 *
@@ -1525,14 +1506,6 @@ public final class SettingsHandler
 	public static void setSaveCustomEquipment(final boolean aBool)
 	{
 		setSaveCustomInLst(aBool);
-	}
-
-	/**
-	 * @deprecated Use PCGenSettings.OPTIONS_CONTEXT.getBoolean(PCGenSettings.OPTION_SAVE_CUSTOM_EQUIPMENT)
-	 */
-	public static boolean getSaveCustomEquipment()
-	{
-		return isSaveCustomInLst();
 	}
 
 	/**
@@ -1725,9 +1698,8 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the feats dialog should be shown at level up.
-	 * NOTE: This function has been disabled as it interferes with class builds. 
-	 * See bug #1502512 at 
-	 * https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719
+	 * NOTE: This function has been disabled as it interferes with class builds.
+	 * @see <a href="https://sourceforge.net/tracker/index.php?func=detail&aid=1502512&group_id=25576&atid=384719">#1502512</a>
 	 *  
 	 * @param argShowFeatDialogAtLevelUp Should the feats dialog be shown at level up?
 	 */
@@ -2670,7 +2642,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the window state.  This corresponds to the values returned/accepted
+	 * <p>Sets the window state.  This corresponds to the values returned/accepted
 	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.

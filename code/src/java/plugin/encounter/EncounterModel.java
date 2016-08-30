@@ -38,7 +38,7 @@ import pcgen.core.Race;
  * Created on February 19, 2003<br>
  * Updated on March 12, 2003
  * 
- * @author John Dells <JohnDells@woh.rr.com>
+ * @author John Dells &lt;JohnDells@woh.rr.com&gt;
  * @version 2.10
  */
 public class EncounterModel extends DefaultListModel

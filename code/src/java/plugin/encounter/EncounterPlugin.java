@@ -56,6 +56,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
@@ -155,7 +156,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * @{inheritdoc}
+	 * {@inheritDoc}
 	 */
     @Override
 	public void stop()
@@ -407,7 +408,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				}
 
 				handleEquipment(aPC);
-				aPC.setPlayersName("Enemy");
+				aPC.setPCAttribute(PCAttribute.PLAYERSNAME, "Enemy");
 				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 

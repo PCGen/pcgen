@@ -35,7 +35,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements FilterHandler
 {
@@ -53,7 +53,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 		@Override
 		public List<TreeViewPath<Object>> getPaths(Object pobj)
 		{
-			return Collections.singletonList(new TreeViewPath<Object>(pobj));
+			return Collections.singletonList(new TreeViewPath<>(pobj));
 		}
 
 	};
@@ -119,7 +119,7 @@ public class FilteredTreeViewTable<C, E> extends JTreeViewTable<E> implements Fi
 	public void setTreeViewModel(TreeViewModel<E> viewModel)
 	{
 		FilteredTreeViewModel oldModel = filteredModel;
-		filteredModel = new FilteredTreeViewModel<C, E>();
+		filteredModel = new FilteredTreeViewModel<>();
 		filteredModel.setBaseModel(viewModel);
 		if (filter != null)
 		{

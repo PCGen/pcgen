@@ -42,17 +42,17 @@ import pcgen.core.chooser.ChooserUtilities;
  * Last Editor: $Author: $
  * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
 public class KitLangBonus extends BaseKit
 {
 	/** The list of language names. */
-	private List<CDOMSingleRef<Language>> langList = new ArrayList<CDOMSingleRef<Language>>();
+	private List<CDOMSingleRef<Language>> langList = new ArrayList<>();
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient List<Language> theLanguages = new ArrayList<Language>();
+	private transient List<Language> theLanguages = new ArrayList<>();
 
 	/**
 	 * Actually applies the bonus languages to this PC.
@@ -83,11 +83,11 @@ public class KitLangBonus extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 			List<String> warnings)
 	{
-		theLanguages = new ArrayList<Language>();
+		theLanguages = new ArrayList<>();
 
 		CNAbility cna = aPC.getBonusLanguageAbility();
 
-		List<String> reservedList = new ArrayList<String>();
+		List<String> reservedList = new ArrayList<>();
 
 		/*
 		 * While this direct use of the controller seems strange, the use of

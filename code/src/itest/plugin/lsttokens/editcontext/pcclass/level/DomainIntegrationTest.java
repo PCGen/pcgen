@@ -35,7 +35,7 @@ public class DomainIntegrationTest extends
 {
 
 	static DomainToken token = new DomainToken();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

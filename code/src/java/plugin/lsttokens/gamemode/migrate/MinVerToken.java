@@ -34,7 +34,7 @@ import pcgen.util.Logging;
  * game mode files. The MINVER token specifies the production PCGen version when 
  * the rules object was first coded in the old format.  
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
 public class MinVerToken extends VersionAwareToken implements MigrationLstToken

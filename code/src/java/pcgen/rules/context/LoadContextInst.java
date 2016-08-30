@@ -53,7 +53,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 
-public abstract class LoadContextInst implements LoadContext
+abstract class LoadContextInst implements LoadContext
 {
 
 	private static final PrerequisiteWriter PREREQ_WRITER =
@@ -69,13 +69,13 @@ public abstract class LoadContextInst implements LoadContext
 	
 	private final VariableContext var;
 
-	private final List<Campaign> campaignList = new ArrayList<Campaign>();
+	private final List<Campaign> campaignList = new ArrayList<>();
 
 	private int writeMessageCount = 0;
 
 	private final TokenSupport support = new TokenSupport();
 
-	private final List<Object> dontForget = new ArrayList<Object>();
+	private final List<Object> dontForget = new ArrayList<>();
 
 	//Per file
 	private URI sourceURI;

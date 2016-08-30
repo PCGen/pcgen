@@ -71,14 +71,14 @@ public class KitAlignment extends BaseKit
 		}
 		else
 		{
-			List<PCAlignment> available = new ArrayList<PCAlignment>(alignments.size());
+			List<PCAlignment> available = new ArrayList<>(alignments.size());
 			for (CDOMSingleRef<PCAlignment> ref : alignments)
 			{
 				available.add(ref.get());
 			}
 			while (true)
 			{
-				List<PCAlignment> sel = new ArrayList<PCAlignment>(1);
+				List<PCAlignment> sel = new ArrayList<>(1);
 				sel = Globals.getChoiceFromList("Choose alignment", available, sel,
 					1, aPC);
 				if (sel.size() == 1)
@@ -135,7 +135,7 @@ public class KitAlignment extends BaseKit
 	{
 		if (alignments == null)
 		{
-			alignments = new ArrayList<CDOMSingleRef<PCAlignment>>();
+			alignments = new ArrayList<>();
 		}
 		alignments.add(ref);
 	}

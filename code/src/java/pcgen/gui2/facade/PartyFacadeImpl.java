@@ -37,17 +37,17 @@ import pcgen.io.PCGIOHandler;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implements PartyFacade
 {
 
-	private DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<File>();
+	private DefaultReferenceFacade<File> fileRef = new DefaultReferenceFacade<>();
 
 	@Override
 	public void export(ExportHandler theHandler, BufferedWriter buf)
 	{
-		Collection<PlayerCharacter> characters = new ArrayList<PlayerCharacter>();
+		Collection<PlayerCharacter> characters = new ArrayList<>();
 		for (CharacterFacade character : this)
 		{
 			if (character instanceof CharacterFacadeImpl)
@@ -73,7 +73,7 @@ public class PartyFacadeImpl extends DefaultListFacade<CharacterFacade> implemen
 	public void save()
 	{
 		File partyFile = fileRef.get();
-		List<File> characterFiles = new ArrayList<File>();
+		List<File> characterFiles = new ArrayList<>();
 		for (CharacterFacade character : this)
 		{
 			characterFiles.add(character.getFileRef().get());

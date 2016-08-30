@@ -34,7 +34,7 @@ public class AbilityIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
 {
 	static AbilityLst token = new AbilityLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

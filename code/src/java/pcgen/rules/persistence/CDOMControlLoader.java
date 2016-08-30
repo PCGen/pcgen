@@ -39,7 +39,7 @@ import pcgen.util.Logging;
 public class CDOMControlLoader extends LstLineFileLoader
 {
 	private final Map<String, CDOMSubLineLoader<?>> loadMap =
-			new HashMap<String, CDOMSubLineLoader<?>>();
+            new HashMap<>();
 
 	public CDOMControlLoader()
 	{
@@ -47,13 +47,13 @@ public class CDOMControlLoader extends LstLineFileLoader
 		addLineLoader(new CDOMSubLineLoader<>("FACTDEF", FactDefinition.class));
 		addLineLoader(new CDOMSubLineLoader<>("FACTSETDEF",
 			FactSetDefinition.class));
-		addLineLoader(new CDOMSubLineLoader<DefaultVarValue>("DEFAULTVARIABLEVALUE",
-				DefaultVarValue.class));
+		addLineLoader(new CDOMSubLineLoader<>("DEFAULTVARIABLEVALUE",
+                DefaultVarValue.class));
 		addLineLoader(new CDOMSubLineLoader<>("FUNCTION", UserFunction.class));
 		addLineLoader(new CDOMSubLineLoader<>("DYNAMICSCOPE", DynamicCategory.class));
 	}
 
-	public void addLineLoader(CDOMSubLineLoader<?> loader)
+	private void addLineLoader(CDOMSubLineLoader<?> loader)
 	{
 		if (loader == null)
 		{
@@ -68,7 +68,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 		loadMap.put(loader.getPrefix(), loader);
 	}
 
-	public boolean parseSubLine(LoadContext context, String val, URI source)
+	private boolean parseSubLine(LoadContext context, String val, URI source)
 	{
 		int sepLoc = val.indexOf('\t');
 		String firstToken = (sepLoc == -1) ? val : val.substring(0, sepLoc);

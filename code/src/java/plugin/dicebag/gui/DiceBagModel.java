@@ -40,7 +40,7 @@ import pcgen.core.RollingMethods;
  *
  * @author Ross Lodge
  */
-public class DiceBagModel extends Observable
+class DiceBagModel extends Observable
 {
 	/** List of dice strings. */
 	private List<String> m_dice = new ArrayList<String>();
@@ -57,18 +57,9 @@ public class DiceBagModel extends Observable
 	/**
 	 * <p>Default constructor.</p>
 	 */
-	public DiceBagModel()
+	DiceBagModel()
 	{
-	}
-
-	/**
-	 * <p>Constructs a dicebag with the requested name.</p>
-	 * @param name Name for new dicebag.
-	 */
-	public DiceBagModel(String name)
-	{
-		this();
-		m_name = name;
+		super();
 	}
 
 	/**
@@ -77,7 +68,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @param file File to load the dicebag data from.
 	 */
-	public DiceBagModel(File file)
+	DiceBagModel(File file)
 	{
 		this();
 		loadFromFile(file);
@@ -88,7 +79,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @return true/false
 	 */
-	public boolean isBagEmpty()
+	boolean isBagEmpty()
 	{
 		return m_dice.isEmpty();
 	}
