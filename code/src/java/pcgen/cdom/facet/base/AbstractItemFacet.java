@@ -120,7 +120,8 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * When the value is is null, what to return
 	 */
 
-	protected T valueWhenNull() {
+	protected T valueWhenNull()
+	{
 		return null;
 	}
 

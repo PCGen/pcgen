@@ -32,7 +32,8 @@ public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements
 {
 
 	@Override
-	protected Integer valueWhenNull() {
+	protected Integer valueWhenNull()
+	{
 		return 0;
 	}
 
