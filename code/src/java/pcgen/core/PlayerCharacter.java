@@ -2141,18 +2141,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * a temporary placeholder used for computing the DC of a spell Set from
-	 * within Spell.java before the getVariableValue() call.
-	 *
-	 * @param i the temporary spell level.
-	 */
-	private void setSpellLevelTemp(final int i)
-	{
-		// Explicitly should *not* set the dirty flag to true.
-		spellLevelTemp = i;
-	}
-
-	/**
 	 * Get spell level temp.
 	 *
 	 * @return temp spell level
@@ -2173,16 +2161,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			setDirty(true);
 		}
-	}
-
-	/**
-	 * List if Items which have Temp Bonuses applied to them.
-	 *
-	 * @return List
-	 */
-	private List<Equipment> getTempBonusItemList()
-	{
-		return tempBonusItemList;
 	}
 
 	/**
