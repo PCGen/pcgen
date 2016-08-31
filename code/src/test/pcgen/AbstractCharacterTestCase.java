@@ -43,7 +43,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
-abstract public class AbstractCharacterTestCase extends PCGenTestCase
+public abstract class AbstractCharacterTestCase extends PCGenTestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -192,7 +192,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	}
 
 	/**
-	 * Constructs a new <code>AbstractCharacterTestCase</code>.
+	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 *
 	 * @see PCGenTestCase#PCGenTestCase()
 	 */
@@ -202,7 +202,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	}
 
 	/**
-	 * Constructs a new <code>AbstractCharacterTestCase</code> with the given
+	 * Constructs a new {@code AbstractCharacterTestCase} with the given
 	 * <var>name</var>.
 	 *
 	 * @param name the test case name
@@ -230,14 +230,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	public PlayerCharacter getCharacter()
 	{
 		return character;
-	}
-
-	/**
-	 * @param aCharacter The character to set.
-	 */
-	public void setCharacter(final PlayerCharacter aCharacter)
-	{
-		this.character = aCharacter;
 	}
 
 	/**

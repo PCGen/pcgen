@@ -2282,7 +2282,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public Float getWeight(final PlayerCharacter aPC)
 	{
-		if (this.isVirtual())
+		if (virtualItem)
 		{
 			return new Float(0.0);
 		}
@@ -2311,7 +2311,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public double getWeightAsDouble(final PlayerCharacter aPC)
 	{
-		if (this.isVirtual())
+		if (isVirtual())
 		{
 			return 0.0;
 		}
