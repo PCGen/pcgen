@@ -90,7 +90,7 @@ public class ChooserUtilities
 
 		aMan.getChoices(aPC, availableList, selectedList);
 
-		if (availableList.size() > 0 || selectedList.size() > 0)
+		if (!availableList.isEmpty() || !selectedList.isEmpty())
 		{
 			if (addIt)
 			{

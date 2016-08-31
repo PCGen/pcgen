@@ -120,9 +120,9 @@ public class SpellCasterToken extends AbstractToken implements
 		boolean foundAny = false;
 		boolean foundOther = false;
 
-		List<CDOMReference<PCClass>> groups = new ArrayList<CDOMReference<PCClass>>();
-		List<CDOMReference<PCClass>> prims = new ArrayList<CDOMReference<PCClass>>();
-		List<String> spelltypes = new ArrayList<String>();
+		List<CDOMReference<PCClass>> groups = new ArrayList<>();
+		List<CDOMReference<PCClass>> prims = new ArrayList<>();
+		List<String> spelltypes = new ArrayList<>();
 		CDOMGroupRef<PCClass> allRef = context.getReferenceContext().getCDOMAllReference(PCCLASS_CLASS);
 		while (tok.hasMoreTokens())
 		{
@@ -170,12 +170,12 @@ public class SpellCasterToken extends AbstractToken implements
 		}
 
 		ReferenceChoiceSet<PCClass> grcs = groups.isEmpty() ? null
-				: new ReferenceChoiceSet<PCClass>(groups);
+				: new ReferenceChoiceSet<>(groups);
 		ReferenceChoiceSet<PCClass> prcs = prims.isEmpty() ? null
-				: new ReferenceChoiceSet<PCClass>(prims);
+				: new ReferenceChoiceSet<>(prims);
 		SelectableSet<PCClass> cs = new SpellCasterChoiceSet(allRef, spelltypes, grcs, prcs);
 		cs.setTitle("Spell Caster Class Choice");
-		PersistentTransitionChoice<PCClass> tc = new ConcretePersistentTransitionChoice<PCClass>(
+		PersistentTransitionChoice<PCClass> tc = new ConcretePersistentTransitionChoice<>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
@@ -194,7 +194,7 @@ public class SpellCasterToken extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();
@@ -303,10 +303,7 @@ public class SpellCasterToken extends AbstractToken implements
 			BonusAddition.removeBonus("PCLEVEL|" + theClass.getKeyName() + "|1",
 					pc, owner);
 			pc.calcActiveBonuses();
-			for (PCClass pcClass : pc.getClassSet())
-			{
-				pc.calculateKnownSpellsForClassLevel(pcClass);
-			}
+			pc.getClassSet().forEach(pc::calculateKnownSpellsForClassLevel);
 		}
 	}
 }
