@@ -28,7 +28,8 @@ class AppendModifier implements ResultModifier
 	private final int max;
 	private final Random rand;
 
-	AppendModifier(final int count, final int max, final Random rand) {
+	AppendModifier(final int count, final int max, final Random rand)
+	{
 		this.count = count;
 		this.max = max;
 		this.rand = rand;

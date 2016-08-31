@@ -33,9 +33,11 @@ interface ResultModifier
 	 */
 	IntStream apply(IntStream in);
 
-	static IntStream modify(final ResultModifier... modifiers) {
+	static IntStream modify(final ResultModifier... modifiers)
+	{
 		IntStream result = IntStream.empty();
-		for(final ResultModifier rm: modifiers) {
+		for(final ResultModifier rm: modifiers)
+		{
 			result = rm.apply(result);
 		}
 		return result;
