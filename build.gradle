@@ -166,7 +166,7 @@ dependencies {
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.55'
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.64'
-
+    compile group: 'com.google.code.findbugs', name: 'annotations', version:'3.0.1'
 
     //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
     //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'
