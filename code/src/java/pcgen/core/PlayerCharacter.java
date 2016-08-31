@@ -535,7 +535,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * Constructor.
 	 */
 	public PlayerCharacter() {
-		this(Collections.<Campaign>emptyList());
+		this(Collections.emptyList());
 	}
 
 	/**
@@ -615,7 +615,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public String toString()
 	{
 		return "PlayerCharacter [name=" + getName() + " @ "
-			+ getFileName() + " serial=" + getSerial() + "]";
+			+ getFileName() + " serial=" + serial + "]";
 	}
 
 	public void setPCAttribute(final NumericPCAttribute attr, final int value)
@@ -828,7 +828,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// if temporary bonuses, read the bonus equipList
 		if (useTempBonuses)
 		{
-			for (Equipment eq : getTempBonusItemList())
+			for (Equipment eq : tempBonusItemList)
 			{
 				// make sure that this EquipSet is the one
 				// this temporary bonus item comes from
@@ -1156,7 +1156,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @return The <tt>Equipment</tt> object or <tt>null</tt>
 	 */
-	private Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
+	private static Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
 	{
 		Equipment match = null;
 
@@ -1272,9 +1272,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		double bonus = 0d;
-		for (String lvlType : featByLevelType.keySet())
+		for (final Map.Entry<String, Double> stringDoubleEntry : featByLevelType.entrySet())
 		{
-			Double existing = featByLevelType.get(lvlType);
+			Double existing = stringDoubleEntry.getValue();
 			bonus += CoreUtility.epsilonFloor(existing);
 		}
 		return bonus;
@@ -2146,7 +2146,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @param i the temporary spell level.
 	 */
-	public void setSpellLevelTemp(final int i)
+	private void setSpellLevelTemp(final int i)
 	{
 		// Explicitly should *not* set the dirty flag to true.
 		spellLevelTemp = i;
@@ -2257,14 +2257,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				if (Logging.isDebugMode())
 				{
-					StringBuilder sb =
-							new StringBuilder(
-								Constants.ARBITRARY_INITIAL_STRINGBUILDER_LENGTH);
-					sb.append("This is a deliberate warning message, not an error - ");
-					sb.append("Avoiding infinite loop in getVariable: repeated lookup ");
-					sb.append("of \"").append(lastVariable).append("\" at ")
-						.append(value);
-					Logging.debugPrint(sb.toString());
+					final String sb = "This is a deliberate warning message, not an error - " +
+							"Avoiding infinite loop in getVariable: repeated lookup " +
+							"of \"" + lastVariable + "\" at " +
+							value;
+					Logging.debugPrint(sb);
 				}
 				lastVariable = null;
 				return new Float(value);
@@ -2483,7 +2480,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public void addTempBonusItemList(final Equipment aEq)
 	{
-		getTempBonusItemList().add(aEq);
+		tempBonusItemList.add(aEq);
 		setDirty(true);
 	}
 
@@ -2635,7 +2632,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public String getAttackString(AttackType at, final int TOHITBonus, int BABBonus)
 	{
 		final String cacheLookup = "AttackString:" + at.getIdentifier() + "," + TOHITBonus + "," + BABBonus;
-		final String cached = getVariableProcessor().getCachedString(cacheLookup);
+		final String cached = variableProcessor.getCachedString(cacheLookup);
 
 		if (cached != null)
 		{
@@ -2764,7 +2761,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			maxAttacks--;
 		} while (((attackTotal >= minMultiBab) || (subTotal >= minMultiBab)) && (maxAttacks > 0));
 
-		getVariableProcessor().addCachedString(cacheLookup, attackString.toString());
+		variableProcessor.addCachedString(cacheLookup, attackString.toString());
 		return attackString.toString();
 	}
 
@@ -2892,7 +2889,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		final String cacheLookup = "getBaseCheck:" + check.getKeyName(); //$NON-NLS-1$
 
-		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
+		Float total = variableProcessor.getCachedVariable(cacheLookup);
 
 		if (total != null)
 		{
@@ -2920,7 +2917,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			bonus = Math.max(bonus, masterBonus);
 		}
 
-		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
+		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
 		return (int) bonus;
 	}
 
@@ -3864,8 +3861,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private Float getVariableValue(final CharacterSpell aSpell, String aString, String src)
 	{
-		VariableProcessor vp = getVariableProcessor();
-		return vp.getVariableValue(aSpell, aString, src, getSpellLevelTemp());
+		VariableProcessor vp = variableProcessor;
+		return vp.getVariableValue(aSpell, aString, src, spellLevelTemp);
 	}
 
 	/**
@@ -4097,8 +4094,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return (result);
 	}
 
-	private int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
-		final List<CasterLevelSpellBonus> bonuses)
+	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
+	                                           final List<CasterLevelSpellBonus> bonuses)
 	{
 		// now go through all bonuses, checking types to see what should add
 		// together
@@ -4107,7 +4104,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final CasterLevelSpellBonus zBonus = bonuses.get(z);
 
 			String zType = zBonus.getType();
-			if ((zBonus.getBonus() == 0) || zType.equals(""))
+			if ((zBonus.getBonus() == 0) || zType.isEmpty())
 			{
 				continue;
 			}
@@ -4132,7 +4129,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				final CasterLevelSpellBonus kBonus = bonuses.get(k);
 
 				String kType = kBonus.getType();
-				if ((kBonus.getBonus() == 0) || kType.equals(""))
+				if ((kBonus.getBonus() == 0) || kType.isEmpty())
 				{
 					continue;
 				}
@@ -4374,8 +4371,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// If this is a spellbook rather than known spells
 			// or prepared spells, then let them add spells up to
 			// the page limit of the book.
-			setSpellLevelTemp(spellLevel);
-			/*
+			// Explicitly should *not* set the dirty flag to true.
+			spellLevelTemp = spellLevel;
+	/*
 			 * TODO Need to understand more about this context of formula
 			 * resolution (in context of a spell??) in order to understand how
 			 * to put this method into the Formula interface
@@ -4604,7 +4602,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			//
 			// Recalculate HPs in case HD have changed.
 			//
-			if (!isImporting())
+			if (!importing)
 			{
 				Processor<HitDie> dieLock = inTemplate.get(ObjectKey.HITDIE);
 				if (dieLock != null)
@@ -4678,7 +4676,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		// check for cached version
 		final String cacheLookup = "BaseAttackBonus";
-		Float total = getVariableProcessor().getCachedVariable(cacheLookup);
+		Float total = variableProcessor.getCachedVariable(cacheLookup);
 		if (total != null)
 		{
 			return total.intValue();
@@ -4693,11 +4691,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
 			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
 
-			getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
+			variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
 			return masterBAB;
 		}
 		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
-		getVariableProcessor().addCachedVariable(cacheLookup, Float.valueOf(bab));
+		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(bab));
 		return bab;
 	}
 
@@ -4707,7 +4705,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public void calcActiveBonuses()
 	{
-		if (isImporting() || (getRace() == null))
+		if (importing || (getRace() == null))
 		{
 			return;
 		}
@@ -4910,8 +4908,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	/**
 	 * Check whether a deity can be selected by this character
 	 *
-	 * @return <code>true</code> means the deity can be a selected by a
-	 *         character with the given properties; <code>false</code> means
+	 * @return {@code true} means the deity can be a selected by a
+	 *         character with the given properties; {@code false} means
 	 *         the character cannot.
 	 */
 	public boolean canSelectDeity(final Deity aDeity)
@@ -5063,7 +5061,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				save += (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
 			}
 
-			/**
+			/*
 			 * exclude stuff
 			 */
 			if ("NOEPIC".equals(tokens[i]))
@@ -5365,9 +5363,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		new File(aDirectory).list(new FilenameFilter() {
 			@Override
-			public boolean accept(final File parentDir, final String fileName)
+			public boolean accept(final File dir, final String name)
 			{
-				final File descriptionFile = new File(parentDir, fileName);
+				final File descriptionFile = new File(dir, name);
 
 				if (PCGFile.isPCGenListFile(descriptionFile))
 				{
@@ -5409,9 +5407,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 							}
 						}
 					}
-				} else if (parentDir.isDirectory())
+				} else if (dir.isDirectory())
 				{
-					loadDescriptionFilesInDirectory(parentDir.getPath() + File.separator + fileName);
+					loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
 				}
 
 				return false;
@@ -5564,6 +5562,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @return PC's ACCHECK bonus from equipment
 	 * @deprecated due to PCACCHECK code control
 	 */
+	@Deprecated
 	public int processOldAcCheck()
 	{
 		Load load = getHouseRuledLoadType();
@@ -5571,7 +5570,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
 
-		final IdentityList<Equipment> vEqList = new IdentityList<>(getTempBonusItemList());
+		final IdentityList<Equipment> vEqList = new IdentityList<>(tempBonusItemList);
 
 		for (Equipment eq : getEquippedEquipmentSet())
 		{
@@ -5595,6 +5594,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @return MAXDEX bonus
 	 * @deprecated due to PCMAXDEX code control
 	 */
+	@Deprecated
 	public int processOldMaxDex()
 	{
 		final int statBonus = (int) getStatBonusTo("MISC", "MAXDEX");
@@ -5691,15 +5691,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f))
 			{
 				found = true;
-				replacement = fVal.intValue() + "";
+				replacement = String.valueOf(fVal.intValue());
 			} else if ((inCalc.indexOf("MIN") >= 0) || (inCalc.indexOf("MAX") >= 0))
 			{
 				found = true;
-				replacement = fVal.intValue() + "";
+				replacement = String.valueOf(fVal.intValue());
 			} else if (inCalc.toUpperCase().indexOf("MIN(") >= 0 || inCalc.toUpperCase().indexOf("MAX(") >= 0)
 			{
 				found = true;
-				replacement = fVal.intValue() + "";
+				replacement = String.valueOf(fVal.intValue());
 			}
 
 			if (found)
@@ -5727,7 +5727,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public void removeTempBonusItemList(final Equipment aEq)
 	{
-		getTempBonusItemList().remove(aEq);
+		tempBonusItemList.remove(aEq);
 		setDirty(true);
 	}
 
@@ -5737,7 +5737,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	private String replaceMasterString(String aString, final int aNum)
+	private static String replaceMasterString(String aString, final int aNum)
 	{
 		while (true)
 		{
@@ -5796,7 +5796,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return sizeFacet.sizeInt(id);
 	}
 
-	public int totalHitDice()
+	private int totalHitDice()
 	{
 		return levelFacet.getMonsterLevelCount(id);
 	}
@@ -6131,10 +6131,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<? extends CDOMObject> getCDOMObjectList()
 	{
-		List<CDOMObject> list = new ArrayList<>();
+		List<CDOMObject> list = new ArrayList<>(expandedCampaignFacet.getSet(id));
 
 		// Loaded campaigns
-		list.addAll(expandedCampaignFacet.getSet(id));
 
 		// Alignment
 		PCAlignment align = alignmentFacet.get(id);
@@ -6245,7 +6244,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		FactKey<String> fk = FactKey.valueOf("SpellType");
 		String spelltype = aClass.getResolved(fk);
 		final boolean isDivine = ("Divine".equalsIgnoreCase(spelltype));
-		final boolean canUseHigher = knownLearned ? getUseHigherKnownSlots() : getUseHigherPreppedSlots();
+		final boolean canUseHigher = knownLearned ? useHigherKnownSlots : useHigherPreppedSlots;
 		int knownTot;
 		int knownNon;
 		int knownSpec;
@@ -6691,7 +6690,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final boolean bypassPrereqs)
 	{
 		// If not importing, load the spell list
-		if (!isImporting())
+		if (!importing)
 		{
 			getSpellList();
 		}
@@ -6738,7 +6737,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				}
 
 				// If not importing, add extra feats
-				if (!isImporting() && classFacet.isEmpty(id))
+				if (!importing && classFacet.isEmpty(id))
 				{
 					adjustAbilities(AbilityCategory.FEAT, new BigDecimal(
 						pcClassClone.getSafe(IntegerKey.START_FEATS)));
@@ -6813,7 +6812,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * <code>rollStats</code> roll Globals.s_ATTRIBLONG.length random stats
+	 * {@code rollStats} roll Globals.s_ATTRIBLONG.length random stats
 	 * Method: 1: 4d6 Drop Lowest 2: 3d6 3: 5d6 Drop 2 Lowest 4: 4d6 reroll 1's
 	 * drop lowest 5: 4d6 reroll 1's and 2's drop lowest 6: 3d6 +5 7: 5d6 Drop
 	 * lowest and middle as per FREQ #458917
@@ -6889,12 +6888,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
-			this.setPoolAmount(0);
+			poolAmount = 0;
 			this.costPool = 0;
 		}
 		if (method != Constants.CHARACTER_STAT_METHOD_PURCHASE)
 		{
-			setPoolAmount(0);
+			poolAmount = 0;
 		}
 	}
 
@@ -6910,7 +6909,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *            How to merge.
 	 * @return An ArrayList of the equipment objects in output order.
 	 */
-	private List<Equipment> sortEquipmentList(final Collection<Equipment> unsortedEquip, final int merge)
+	private static List<Equipment> sortEquipmentList(final Collection<Equipment> unsortedEquip, final int merge)
 	{
 		if (unsortedEquip.isEmpty())
 		{
@@ -6953,7 +6952,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		// Get the EquipSet used for output and calculations
 		// possibly include equipment from temporary bonuses
-		setCalcEquipmentList(getUseTempMods());
+		setCalcEquipmentList(useTempMods);
 
 		// Make sure spell lists are setup
 		getSpellList();
@@ -6962,7 +6961,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		calcActiveBonuses();
 
 		//Sort Skills
-		SkillDisplay.resortSelected(this, getSkillsOutputOrder());
+		SkillDisplay.resortSelected(this, skillsOutputOrder);
 
 		// Determine which hands weapons are currently being wielded in
 		determinePrimaryOffWeapon();
@@ -7117,7 +7116,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * shallow copy of many lists in here that seem to point to "system"
 	 * objects. These copies should be validated before using this method.
 	 *
-	 * @return a new deep copy of the <code>PlayerCharacter</code>
+	 * @return a new deep copy of the {@code PlayerCharacter}
 	 */
 	@Override
 	public PlayerCharacter clone()
@@ -7186,7 +7185,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 		aClone.calcEquipSetId = calcEquipSetId;
 		aClone.tempBonusItemList.addAll(tempBonusItemList);
-		aClone.setDescriptionLst(getDescriptionLst());
+		aClone.descriptionLst = descriptionLst;
 		aClone.autoKnownSpells = autoKnownSpells;
 		aClone.autoLoadCompanion = autoLoadCompanion;
 		aClone.autoSortGear = autoSortGear;
@@ -7880,7 +7879,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return getUserPoolBonus(AbilityCategory.FEAT);
 	}
 
-	public BigDecimal getAbilityPoolSpent(final AbilityCategory aCategory)
+	private BigDecimal getAbilityPoolSpent(final AbilityCategory aCategory)
 	{
 		double spent = 0.0d;
 
@@ -7985,7 +7984,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param aHashMap
 	 * @param abilityList TODO
 	 */
-	private void addUniqueAbilitiesToMap(final Map<String, Ability> aHashMap, Collection<Ability> abilityList)
+	private static void addUniqueAbilitiesToMap(final Map<String, Ability> aHashMap, Collection<Ability> abilityList)
 	{
 		for (Ability vFeat : abilityList)
 		{
@@ -8542,7 +8541,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// set the spell Level used in aPC.getVariableValue()
-		setSpellLevelTemp(spellLevel);
+		// Explicitly should *not* set the dirty flag to true.
+		spellLevelTemp = spellLevel;
 
 		// must be done after spellLevel is set above
 		int dc = getVariableValue(SettingsHandler.getGame().getSpellBaseDC(), classKey).intValue() + metaDC;
@@ -8600,7 +8600,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			dc += (int) getTotalBonusTo("DC", "DESCRIPTOR." + aType);
 		}
 
-		setSpellLevelTemp(0); // reset
+		// Explicitly should *not* set the dirty flag to true.
+		spellLevelTemp = 0;
 
 		return dc;
 	}
@@ -8673,7 +8674,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// set the spell Level used in aPC.getVariableValue()
-		setSpellLevelTemp(spellLevel);
+		// Explicitly should *not* set the dirty flag to true.
+		spellLevelTemp = spellLevel;
 
 		// must be done after spellLevel is set above
 		int concentration = getVariableValue(aSpell, SettingsHandler.getGame().getSpellBaseConcentration(), classKey).intValue()
@@ -8732,7 +8734,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			concentration += (int) getTotalBonusTo("CONCENTRATION", "DESCRIPTOR." + aType);
 		}
 
-		setSpellLevelTemp(0); // reset
+		// Explicitly should *not* set the dirty flag to true.
+		spellLevelTemp = 0;
 
 		return concentration;
 	}
@@ -9021,7 +9024,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return id;
 	}
 
-	public int getSpellBookCount()
+	private int getSpellBookCount()
 	{
 		return spellBookFacet.getCount(id);
 	}
@@ -9104,7 +9107,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		prohibitedSchoolFacet.removeAll(id, source);
 	}
 
-	public boolean hasCharacterSpells(CDOMObject cdo)
+	private boolean hasCharacterSpells(CDOMObject cdo)
 	{
 		return activeSpellsFacet.containsFrom(id, cdo);
 	}
@@ -9449,7 +9452,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return;
 		}
 		ClassSpellList classSpellList =
-				((PCClass) aClass).get(ObjectKey.CLASS_SPELLLIST);
+				aClass.get(ObjectKey.CLASS_SPELLLIST);
 		for (Integer spellLevel : knownSpellFacet.getScopes2(id, classSpellList))
 		{
 			for (Spell spell : knownSpellFacet.getSet(id, classSpellList, spellLevel))
@@ -9568,7 +9571,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (!SettingsHandler.getGame().isPurchaseStatMode())
 			{
-				setPoolAmount(0);
+				poolAmount = 0;
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
@@ -9784,8 +9787,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public void calculateKnownSpellsForClassLevel(PCClass pcc)
 	{
-		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || isImporting()
-			|| !getAutoSpells())
+		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || importing
+			|| !autoKnownSpells)
 		{
 			return;
 		}
@@ -9855,8 +9858,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	void removeKnownSpellsForClassLevel(PCClass pcc)
 	{
-		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || isImporting()
-			|| !getAutoSpells())
+		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || importing
+			|| !autoKnownSpells)
 		{
 			return;
 		}
@@ -9916,8 +9919,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<>();
-		set.addAll(grantedAbilityFacet.getCNAbilities(id));
+		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 		return set;
 	}
 
@@ -9928,8 +9930,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<>();
-		set.addAll(grantedAbilityFacet.getCNAbilities(id, cat, n));
+		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 		return set;
 	}
 
@@ -9941,8 +9942,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<>();
-		list.addAll(grantedAbilityFacet.getCNAbilities(id, ability));
+		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
 		return list;
 	}
 
@@ -9953,22 +9953,19 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<>();
-		list.addAll(grantedAbilityFacet.getCNAbilities(id, cat));
+		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
 		return list;
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>();
-		list.addAll(grantedAbilityFacet.getPoolAbilities(id, cat));
+		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
 		return list;
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Set<CNAbility> set = new HashSet<>();
-		set.addAll(grantedAbilityFacet.getPoolAbilities(id, cat, n));
+		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 		return set;
 	}
 
@@ -10026,7 +10023,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			directAbilityFacet.add(id, cnas, location);
 		}
-		if (!isImporting())
+		if (!importing)
 		{
 			AbilityUtilities.finaliseAbility(this, cnas);
 		}
