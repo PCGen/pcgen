@@ -18,6 +18,8 @@
 
 package gmgen.plugin.dice;
 
+import java.util.stream.IntStream;
+
 class SimpleModifier implements ResultModifier
 {
 	private final int mod;
@@ -27,14 +29,8 @@ class SimpleModifier implements ResultModifier
 	}
 
 	@Override
-	public int[] apply(final int[] in)
+	public IntStream apply(final IntStream in)
 	{
-		int[] result = new int[in.length];
-		for (int i = 0; i < in.length; ++i)
-		{
-			result[i] = in[i] + mod;
-		}
-		return result;
-
+		return in.map((y) -> y + mod );
 	}
 }

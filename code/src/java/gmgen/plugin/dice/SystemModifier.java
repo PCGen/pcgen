@@ -18,6 +18,8 @@
 
 package gmgen.plugin.dice;
 
+import java.util.stream.IntStream;
+
 /**
  * If the original value was 1, produces -9
  * If the original value was 20, produces 30
@@ -25,24 +27,20 @@ package gmgen.plugin.dice;
  */
 class SystemModifier implements ResultModifier
 {
-	@Override
-	public int[] apply(final int[] in)
-	{
-		int[] result = new int[in.length];
-		for (int i = 0; i < in.length; ++i)
-		{
-			switch (in[i]) {
-				case 1:
-					result[i] = -9;
-					break;
-				case 20:
-					result[i] = 30;
-					break;
-				default:
-					result[i] = in[i];
-			}
+	private static int systemExplode(final int i) {
+		switch (i) {
+			case 1:
+				return -9;
+			case 20:
+				return 30;
+			default:
+				return i;
 		}
-		return result;
+	}
 
+	@Override
+	public IntStream apply(final IntStream in)
+	{
+		return in.map(SystemModifier::systemExplode);
 	}
 }

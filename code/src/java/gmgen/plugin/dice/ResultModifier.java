@@ -18,6 +18,8 @@
 
 package gmgen.plugin.dice;
 
+import java.util.stream.IntStream;
+
 @FunctionalInterface
 interface ResultModifier
 {
@@ -29,10 +31,10 @@ interface ResultModifier
 	 * @param in sequence of original values
 	 * @return sequence of values
 	 */
-	int[] apply(int[] in);
+	IntStream apply(IntStream in);
 
-	static int[] modify(final ResultModifier... modifiers) {
-		int[] result = new int[0];
+	static IntStream modify(final ResultModifier... modifiers) {
+		IntStream result = IntStream.empty();
 		for(final ResultModifier rm: modifiers) {
 			result = rm.apply(result);
 		}

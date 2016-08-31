@@ -23,8 +23,8 @@ import java.util.stream.IntStream;
 class SimpleSumCounter implements ResultCounter
 {
 	@Override
-	public int totalCount(final int[] in)
+	public int totalCount(IntStream in)
 	{
-		return IntStream.of(in).sum();
+		return in.sum();
 	}
 }
