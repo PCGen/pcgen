@@ -855,7 +855,7 @@ public class CharacterDisplay
 	 */
 	public int getHeight()
 	{
-		return heightFacet.getHeight(id);
+		return heightFacet.get(id);
 	}
 
 	/**

@@ -15,24 +15,34 @@
  */
 package pcgen.cdom.enumeration;
 
+import pcgen.cdom.facet.fact.AgeFacet;
+import pcgen.cdom.facet.fact.HeightFacet;
+import pcgen.cdom.facet.fact.WeightFacet;
+
 public enum NumericPCAttribute implements GenericPCAttribute
 {
-	AGE(true),
-	HEIGHT(false),
-	WEIGHT(false),
+	AGE(true, AgeFacet.class),
+	HEIGHT(false, HeightFacet.class),
+	WEIGHT(false, WeightFacet.class),
 	;
 
 
 	private final boolean recalcActiveBonuses;
+	private final Class myClass;
 
-	NumericPCAttribute(final boolean recalcActiveBonuses)
+	NumericPCAttribute(final boolean recalcActiveBonuses, final Class myClass)
 	{
 		this.recalcActiveBonuses = recalcActiveBonuses;
+		this.myClass = myClass;
 	}
 
 	public boolean shouldRecalcActiveBonuses()
 	{
 		return recalcActiveBonuses;
+	}
+
+	public Class getMyClass() {
+		return myClass;
 	}
 
 	@Override
