@@ -20,6 +20,7 @@ package pcgen.cdom.content.factset;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.util.FormatManager;
@@ -58,16 +59,12 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	 * 
 	 * @param fsi
 	 *            The FactSetInfo underlying this FactSetParser
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given FactSetInfo is null
 	 */
-	public FactSetParser(FactSetInfo<T, F> fsi)
+	FactSetParser(FactSetInfo<T, F> fsi)
 	{
-		if (fsi == null)
-		{
-			throw new IllegalArgumentException("FactSet Info cannot be null");
-		}
-		def = fsi;
+		def = Objects.requireNonNull(fsi);
 	}
 
 	@Override
@@ -144,7 +141,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();
-		if (added != null && added.size() > 0)
+		if (added != null && !added.isEmpty())
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean needsPipe = false;

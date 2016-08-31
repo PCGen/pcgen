@@ -294,9 +294,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 				- theSelectedList.size();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean makeChoice(ChooserFacade chooserFacade)
 	{

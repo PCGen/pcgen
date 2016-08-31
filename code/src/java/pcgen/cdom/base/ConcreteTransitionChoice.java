@@ -196,7 +196,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		{
 			if (choiceActor == null || choiceActor.allow(item, pc, allowStack))
 			{
-				if (assocList != null && stackLimit != null && stackLimit.intValue() > 0)
+				if (assocList != null && stackLimit != null && stackLimit > 0)
 				{
 					int takenCount = 0;
 					for (Object choice : assocList)

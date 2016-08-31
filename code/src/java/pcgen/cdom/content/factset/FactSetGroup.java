@@ -80,7 +80,7 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	 *            The String representation of the value that this FactSetGroup
 	 *            will be looking for
 	 */
-	public FactSetGroup(LoadContext context, FactSetInfo<T, F> fsi, String value)
+	FactSetGroup(LoadContext context, FactSetInfo<T, F> fsi, String value)
 	{
 		if (fsi.getUsableLocation().equals(CDOMObject.class))
 		{
@@ -98,9 +98,6 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
@@ -150,9 +147,6 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		return false;
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

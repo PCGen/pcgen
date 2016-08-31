@@ -34,6 +34,7 @@ import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 
+import javax.swing.WindowConstants;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.gui2.equip.SpellChoicePanel;
 import pcgen.gui2.tools.Utility;
@@ -77,7 +78,7 @@ public class SpellChoiceDialog extends JDialog
 		this.cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 
 		this.spellChoicePanel = new SpellChoicePanel(builder);
-		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
+		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
 		Utility.resizeDialogToScreen(this);

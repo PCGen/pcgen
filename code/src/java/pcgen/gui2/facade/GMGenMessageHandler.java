@@ -26,10 +26,7 @@ import gmgen.plugin.InitHolder;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-
 import java.io.File;
-import java.util.Iterator;
-
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.facade.core.CharacterFacade;
@@ -109,13 +106,12 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 
 
-	private void handleSavePcgMessage(PCGenMessage message)
+	private static void handleSavePcgMessage(PCGenMessage message)
 	{
 		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
 		PlayerCharacter pc = smessage.getPc();
-		for (Iterator<CharacterFacade> iterator = CharacterManager.getCharacters().iterator(); iterator.hasNext();)
+		for (CharacterFacade facade : CharacterManager.getCharacters())
 		{
-			CharacterFacade facade = iterator.next();
 			if (facade.matchesCharacter(pc))
 			{
 				CharacterManager.saveCharacter(facade);

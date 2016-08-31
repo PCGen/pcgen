@@ -57,11 +57,11 @@ public class SinglePrefDialog extends JDialog
 	public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
 	{
 		super(parent, prefsPanel.getTitle(), true);
-		
+
 		this.prefsPanel = prefsPanel;
 
 		initComponents();
-		
+
 		this.getContentPane().setLayout(new BorderLayout());
 		this.getContentPane().add(prefsPanel, BorderLayout.CENTER);
 		this.getContentPane().add(controlPanel, BorderLayout.SOUTH);
@@ -69,7 +69,7 @@ public class SinglePrefDialog extends JDialog
 		prefsPanel.applyOptionValuesToControls();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 	}
 

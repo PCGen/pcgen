@@ -17,10 +17,8 @@
  */
 package pcgen.cdom.base;
 
-import java.util.Collection;
 import java.util.Comparator;
 import java.util.List;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PlayerCharacter;
 
@@ -43,51 +41,6 @@ public final class CDOMObjectUtilities
 	}
 
 	/**
-	 * Concatenates the Key Name given Collection of CDOMObjects into a String
-	 * using the separator as the delimiter.
-	 * 
-	 * The LST format for each CDOMObject is determined by calling the
-	 * getLSTformat() method on the CDOMObject.
-	 * 
-	 * The items will be joined in the order determined by the ordering of the
-	 * given Collection.
-	 * 
-	 * This method is value-semantic. CDOMObjetUtilities will not maintain a
-	 * reference to or modify the given Collection.
-	 * 
-	 * @param cdoCollection
-	 *            An Collection of CDOMObjects
-	 * @param separator
-	 *            The separating string
-	 * @return A 'separator' separated String containing the Key Name of the
-	 *         given Collection of CDOMObject objects
-	 */
-	public static String joinKeyName(Collection<? extends CDOMObject> cdoCollection,
-			String separator)
-	{
-		if (cdoCollection == null)
-		{
-			return "";
-		}
-
-		final StringBuilder result = new StringBuilder(cdoCollection.size() * 10);
-
-		boolean needjoin = false;
-
-		for (CDOMObject obj : cdoCollection)
-		{
-			if (needjoin)
-			{
-				result.append(separator);
-			}
-			needjoin = true;
-			result.append(obj.getLSTformat());
-		}
-
-		return result.toString();
-	}
-
-	/**
 	 * Compares the Keys of two CDOMObjects. Returns a negative integer if the
 	 * key for the first object sorts before the key for the second object. Note
 	 * that null sorts last (though a CDOMObject should never return null from a
@@ -103,7 +56,7 @@ public final class CDOMObjectUtilities
 	 *         the first object sorts after the key for the second object, or 0
 	 *         if the keys are equal
 	 */
-	public static int compareKeys(Loadable cdo1, Loadable cdo2)
+	private static int compareKeys(Loadable cdo1, Loadable cdo2)
 	{
 		String base = cdo1.getKeyName();
 		if (base == null)

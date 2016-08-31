@@ -127,7 +127,7 @@ public final class AssociationKey<T>
 	}
 
 	public static <OT> AssociationKey<OT> getKeyFor(Class<OT> assocClass,
-			String assocName)
+                       String assocName)
 	{
 		if (map == null)
 		{
@@ -170,11 +170,7 @@ public final class AssociationKey<T>
 						map.put(fields[i].getName(), (AssociationKey<?>) obj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

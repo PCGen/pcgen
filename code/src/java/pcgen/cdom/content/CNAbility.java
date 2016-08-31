@@ -170,9 +170,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(CNAbility other)
 	{
@@ -234,9 +231,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return ability.getDisplayName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

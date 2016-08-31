@@ -18,9 +18,8 @@
 package pcgen.cdom.converter;
 
 import java.util.Collection;
-import java.util.HashSet;
 import java.util.Set;
-
+import java.util.stream.Collectors;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
@@ -45,14 +44,10 @@ public class DereferencingConverter<T> implements Converter<T, T>
 	@Override
 	public Collection<T> convert(ObjectContainer<T> orig, PrimitiveFilter<T> lim)
 	{
-		Set<T> returnSet = new HashSet<>();
-		for (T o : orig.getContainedObjects())
-		{
-			if (lim.allow(character, o))
-			{
-				returnSet.add(o);
-			}
-		}
+		Set<T> returnSet = orig.getContainedObjects()
+				.stream()
+				.filter(o -> lim.allow(character, o))
+				.collect(Collectors.toSet());
 		return returnSet;
 	}
 }

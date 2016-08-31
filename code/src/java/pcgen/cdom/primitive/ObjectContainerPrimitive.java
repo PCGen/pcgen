@@ -18,7 +18,7 @@
 package pcgen.cdom.primitive;
 
 import java.util.Collection;
-
+import java.util.Objects;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -51,17 +51,9 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 	 */
 	public ObjectContainerPrimitive(ObjectContainer<T> oc)
 	{
-		if (oc == null)
-		{
-			throw new IllegalArgumentException("ObjectContainer cannot be null");
-		}
-		group = oc;
+		group = Objects.requireNonNull(oc);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.PrimitiveCollection#getCollection(pcgen.core.PlayerCharacter,
-	 *      pcgen.cdom.base.Converter)
-	 */
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
 		Converter<T, R> c)
@@ -69,9 +61,6 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 		return c.convert(group);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.PrimitiveCollection#getReferenceClass()
-	 */
 	@Override
 	public Class<? super T> getReferenceClass()
 	{

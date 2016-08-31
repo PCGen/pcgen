@@ -195,8 +195,6 @@ public class SpellLevelChooseInformation implements
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()

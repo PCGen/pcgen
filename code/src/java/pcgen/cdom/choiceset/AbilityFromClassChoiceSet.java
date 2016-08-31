@@ -104,8 +104,7 @@ public class AbilityFromClassChoiceSet implements
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * AbilityFromClassChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

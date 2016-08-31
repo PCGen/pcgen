@@ -19,7 +19,8 @@ package pcgen.cdom.primitive;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
+import java.util.List;
+import java.util.Objects;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
@@ -33,25 +34,15 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 
 	public NegatingPrimitive(PrimitiveCollection<T> prim, PrimitiveCollection<T> all)
 	{
-		if (prim == null)
-		{
-			throw new IllegalArgumentException(
-					"PrimitiveCollection cannot be null");
-		}
-		if (all == null)
-		{
-			throw new IllegalArgumentException(
-					"All Collection cannot be null");
-		}
-		primitive = prim;
-		this.all = all;
+		primitive = Objects.requireNonNull(prim);
+		this.all = Objects.requireNonNull(all);
 	}
 
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Collection<? extends R> result = all.getCollection(pc, c);
-		ArrayList<R> list = new ArrayList<>(result);
+		List<R> list = new ArrayList<>(result);
 		list.removeAll(primitive.getCollection(pc, c));
 		return list;
 	}

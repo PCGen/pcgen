@@ -23,7 +23,7 @@ import java.util.Collection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 
-public class ConvertingFacetView<S, D> implements FacetView<Object>
+class ConvertingFacetView<S, D> implements FacetView<Object>
 {
 
 	private AbstractItemConvertingFacet<S, D> facet;

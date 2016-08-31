@@ -20,6 +20,7 @@ package pcgen.cdom.content.fact;
 import java.util.ArrayList;
 import java.util.List;
 
+import java.util.Objects;
 import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -52,22 +53,14 @@ public class FactParser<T extends CDOMObject, F> extends
 	 * 
 	 * @param fi
 	 *            The FactInfo underlying this FactParser
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if the given FactInfo is null
 	 */
-	public FactParser(FactInfo<T, F> fi)
+	FactParser(FactInfo<T, F> fi)
 	{
-		if (fi == null)
-		{
-			throw new IllegalArgumentException("Fact Info cannot be null");
-		}
-		def = fi;
+		def = Objects.requireNonNull(fi);
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractNonEmptyToken#parseNonEmptyToken(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object, java.lang.String)
-	 */
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
 		String value)
@@ -113,10 +106,6 @@ public class FactParser<T extends CDOMObject, F> extends
 		return "FACT";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMSecondaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, T obj)
 	{

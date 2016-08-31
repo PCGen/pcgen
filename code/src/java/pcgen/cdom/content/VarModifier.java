@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 
@@ -62,41 +63,23 @@ public class VarModifier<T>
 	 * @param modifier
 	 *            The PCGenModifier to be applied to the Variable when this
 	 *            VarModifier is applied
-	 * @throws IllegalArgumentException
+	 * @throws NullPointerException
 	 *             if any of the parameters are null
 	 */
 	public VarModifier(String varName, LegalScope legalScope,
 		PCGenModifier<T> modifier)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Var Name cannot be null");
-		}
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Modifier cannot be null");
-		}
-		this.varName = varName;
-		this.legalScope = legalScope;
-		this.modifier = modifier;
+		this.varName = Objects.requireNonNull(varName);
+		this.legalScope = Objects.requireNonNull(legalScope);
+		this.modifier = Objects.requireNonNull(modifier);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return varName.hashCode() ^ modifier.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{
