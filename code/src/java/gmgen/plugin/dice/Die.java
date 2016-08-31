@@ -42,7 +42,8 @@ public abstract class Die
 		return dc.toFormula();
 	}
 
-	public int roll() {
+	public int roll()
+	{
 		return dc.roll();
 	}
 }
