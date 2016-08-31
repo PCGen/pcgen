@@ -551,7 +551,7 @@ public class EquipmentList {
 				//
 				// Only apply to Armor, Shield and resizable items
 				//
-				if (!Globals.canResizeHaveEffect(dummyPc, eq, null))
+				if (!Globals.canResizeHaveEffect(eq, null))
 				{
 					continue;
 				}
