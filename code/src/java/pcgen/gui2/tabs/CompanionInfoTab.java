@@ -126,7 +126,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				//We do nothing so the table is displayed without a header
 			}
-			
+
 		};
 		this.infoPane = new JEditorPane();
 		this.loadButton = new JButton();
@@ -816,7 +816,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		
 		NAME("in_race"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 		
 		private CompanionTreeView(String name)
 		{

@@ -98,12 +98,7 @@ public class CharacterFilter implements OutputFilter
 										Delta.decode(filterEntry.get(0));
 								outputFilter.put(key, filterEntry.get(1));
 							}
-							catch (NullPointerException e)
-							{
-								Logging.errorPrint(
-									"Exception in setCurrentOutputFilter", e);
-							}
-							catch (NumberFormatException e)
+							catch (NullPointerException | NumberFormatException e)
 							{
 								Logging.errorPrint(
 									"Exception in setCurrentOutputFilter", e);

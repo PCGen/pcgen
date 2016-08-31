@@ -24,6 +24,7 @@ import java.beans.Introspector;
 import java.io.InputStream;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.StringTokenizer;
 import javax.swing.Action;
 import javax.swing.JEditorPane;
@@ -45,24 +46,18 @@ import javax.swing.text.html.StyleSheet;
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
     /**
-     * Constructor
-     */
-    public ExtendedHTMLEditorKit() {
-        // Empty Constructor
-    }
-
-    /**
      * Get the HTML tag
      * @param e
      * @return HTML.Tag
      */
-    public static HTML.Tag getHTMLTag(Element e) {
+    private static HTML.Tag getHTMLTag(Element e) {
         //Set List of tags
-        HashMap<String, HTML.Tag> tags = new HashMap<>();
+        Map<String, HTML.Tag> tags = new HashMap<>();
         HTML.Tag[] tagList = HTML.getAllTags();
 
-        for (int i = 0; i < tagList.length; i++) {
-            tags.put(tagList[i].toString(), tagList[i]);
+        for (final HTML.Tag aTagList : tagList)
+        {
+            tags.put(aTagList.toString(), aTagList);
         }
 
         //Get Tag
@@ -87,7 +82,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             }
 
             workingElement = workingElement.getParentElement();
-        } while (!((workingElement.getName()).equals(HTML.Tag.HTML.toString())));
+        } while (!workingElement.getName().equals(HTML.Tag.HTML.toString()));
 
         return null;
     }
@@ -98,7 +93,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @param source
      * @return the unique string
      */
-    public static String[] getUniqueString(int strings, String source) {
+    private static String[] getUniqueString(int strings, String source) {
         String[] result = new String[strings];
 
         for (int i = 0; i < strings; i++) {
@@ -110,7 +105,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
                 hit = false;
                 idString = "diesisteineidzumsuchen" + counter + "#" + i;
 
-                if (source.indexOf(idString) > -1) {
+                if (source.contains(idString)) {
                     counter++;
                     hit = true;
 
@@ -152,7 +147,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             {
                 return true;
             }
-        } while (!(workingElement.getName().equalsIgnoreCase("html")));
+        } while (!workingElement.getName().equalsIgnoreCase("html"));
 
         return false;
     }
@@ -222,7 +217,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             hit = false;
             idString = "diesisteineidzumsuchenimsource" + counter;
 
-            if (source.indexOf(idString) > -1) {
+            if (source.contains(idString)) {
                 counter++;
                 hit = true;
 
@@ -260,7 +255,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @param removeAS
      * @return the attribute set
      */
-    public static SimpleAttributeSet removeAttribute(SimpleAttributeSet sourceAS, SimpleAttributeSet removeAS) {
+    private static SimpleAttributeSet removeAttribute(SimpleAttributeSet sourceAS, SimpleAttributeSet removeAS) {
         try {
             String[] sourceKeys = new String[sourceAS.getAttributeCount()];
             String[] sourceValues = new String[sourceAS.getAttributeCount()];
@@ -329,7 +324,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @param removeKey
      * @return attribute set
      */
-    public static SimpleAttributeSet removeAttributeByKey(SimpleAttributeSet sourceAS, String removeKey) {
+    private static SimpleAttributeSet removeAttributeByKey(SimpleAttributeSet sourceAS, String removeKey) {
         SimpleAttributeSet temp = new SimpleAttributeSet();
         temp.addAttribute(removeKey, "NULL");
 
@@ -357,7 +352,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             hit = false;
             idString = "diesisteineidzumsuchenimsource" + counter;
 
-            if (source.indexOf(idString) > -1) {
+            if (source.contains(idString)) {
                 counter++;
                 hit = true;
 
@@ -375,8 +370,9 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
         if (position == null) { return; }
 
-        for (int i = 0; i < position.length; i++) {
-            if (position[i] < 0) { return; }
+        for (final int aPosition : position)
+        {
+            if (aPosition < 0) { return; }
         }
 
         int beginStartTag = position[0];
@@ -408,15 +404,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * @param name the name of the resource, relative to the HTMLEditorKit class
      * @return a stream representing the resource
      */
-    static InputStream getResourceAsStream(String name) {
+    static InputStream getResourceAsStream(final String name) {
         return ExtendedHTMLEditorKit.class.getResourceAsStream(name);
-
-        /*
-         * try { return ResourceLoader.getResourceAsStream(name); } catch (Throwable
-         * e) { // If the class doesn't exist or we have some other // problem we
-         * just try to call getResourceAsStream directly. return
-         * ExtendedHTMLEditorKit.class.getResourceAsStream(name); }
-         */
     }
 
     private static String getAllTableTags(String source) {
@@ -436,9 +425,11 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             java.util.Arrays.sort(tableCarets);
             caret = -1;
 
-            for (int i = 0; i < tableCarets.length; i++) {
-                if (tableCarets[i] >= 0) {
-                    caret = tableCarets[i];
+            for (final int tableCaret : tableCarets)
+            {
+                if (tableCaret >= 0)
+                {
+                    caret = tableCaret;
 
                     break;
                 }
@@ -510,7 +501,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
                 }
             } while (!end);
 
-            if ((beginEndTag < 0) | (endEndTag < 0)) { return null; }
+            if ((beginEndTag < 0) || (endEndTag < 0)) { return null; }
 
             position[2] = beginEndTag;
             position[3] = endEndTag;
@@ -525,14 +516,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * Class that replaces the default ViewFactory and supports the proper
      * rendering of both URL-based and local images.
      */
-    public static class HTMLFactoryExtended extends HTMLFactory implements ViewFactory {
-
-        /**
-         * Constructor
-         */
-        public HTMLFactoryExtended() {
-            // Empty Constructor
-        }
+    private static class HTMLFactoryExtended extends HTMLFactory implements ViewFactory {
 
         /**
          * Method to handle IMG tags and invoke the image loader.
@@ -558,7 +542,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      */
     public static class InsertListAction extends InsertHTMLTextAction {
 
-        private HTML.Tag baseTag;
+        private final HTML.Tag baseTag;
 
         /**
          * Action to insert a list
@@ -609,7 +593,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
                     int iEnd = editor.getSelectionEnd();
                     String selText = htmlDoc.getText(iStart, iEnd - iStart);
                     StringBuilder sbNew = new StringBuilder();
-                    String sToken = ((selText.indexOf("\r") > -1) ? "\r" : "\n");
+                    String sToken = ((selText.contains("\r")) ? "\r" : "\n");
                     StringTokenizer stTokenizer = new StringTokenizer(selText, sToken);
                     sbNew.append("<").append(sListType).append(">");
 
@@ -640,11 +624,11 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
     /**
      * PasteAction
      */
-    public static class PasteAction extends TextAction {
+    private static final class PasteAction extends TextAction {
 
         /** Create this object with the appropriate identifier. */
-        public PasteAction() {
-            super(pasteAction);
+        private PasteAction() {
+            super(DefaultEditorKit.pasteAction);
         }
 
         /**
@@ -654,16 +638,15 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
          *          the action event
          */
         @Override
-        public void actionPerformed(ActionEvent e) {
+        public void actionPerformed(final ActionEvent e) {
             JTextComponent target = getTextComponent(e);
             Clipboard clipboard = target.getToolkit().getSystemClipboard();
             clipboard.getContents(null);
             Class<? extends JTextComponent> k = target.getClass();
-            BeanInfo bi;
             try {
-                bi = Introspector.getBeanInfo(k);
+                BeanInfo bi = Introspector.getBeanInfo(k);
                 bi.getPropertyDescriptors();
-            } catch (IntrospectionException ex) {
+            } catch (final IntrospectionException ex) {
                 // TODO Handle this?
             }
             target.paste();

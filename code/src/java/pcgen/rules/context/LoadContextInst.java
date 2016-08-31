@@ -53,7 +53,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 
-public abstract class LoadContextInst implements LoadContext
+abstract class LoadContextInst implements LoadContext
 {
 
 	private static final PrerequisiteWriter PREREQ_WRITER =

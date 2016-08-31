@@ -90,21 +90,13 @@ public final class CampaignOutput
 				}
 			}
 		}
-		catch (FileNotFoundException exc)
+		catch (FileNotFoundException | UnsupportedEncodingException exc)
 		{
 			Logging.errorPrint("Error while writing to " + outFile.toString(),
 				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		catch (UnsupportedEncodingException exc)
-		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(),
-				exc);
-
-			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		finally
+		} finally
 		{
 			try
 			{

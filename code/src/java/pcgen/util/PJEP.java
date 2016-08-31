@@ -99,11 +99,7 @@ public final class PJEP extends JEP
 				addFunction(com.getFunctionName().toLowerCase(), com);
 				addFunction(com.getFunctionName().toUpperCase(), com);
 			}
-			catch (InstantiationException e)
-			{
-				e.printStackTrace();
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				e.printStackTrace();
 			}

@@ -17,7 +17,7 @@ $Date: 2012-02-02 13:23:59 +0100 (Do, 02 Feb 2012) $
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
 	<style type="text/css">
 		body  {
-			font-family: Nexus, Gandhi Sans, Arial, sans-serif;
+			font-family: Noto Sans, Arial, sans-serif;
 			font-size: medium;
 			text-align: left;
 			color: black;

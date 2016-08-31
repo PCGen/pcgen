@@ -39,12 +39,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
-
 import javax.swing.undo.UndoManager;
-
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -57,10 +54,13 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.StringKey;
@@ -180,7 +180,6 @@ import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
 import pcgen.output.channel.ChannelCompatibility;
-import pcgen.output.channel.compat.StatAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -315,10 +314,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
-	/**
-	 * {@inheritDoc} 
-	 */
-    @Override
+	@Override
 	public void closeCharacter()
 	{
 		FacetLibrary.getFacet(LanguageFacet.class)
@@ -558,7 +554,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * Initialise the equipment set facades, ensuring that the character has a 
 	 * default equipment set. 
-	 * @param pc The character being loaded
 	 */
 	private void initEquipSet()
 	{
@@ -616,7 +611,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void buildAgeCategories()
 	{
 		List<String> cats = new ArrayList<>();
-		for (String aString : Globals.getBioSet().getAgeCategories())
+		for (String aString : SettingsHandler.getGame().getBioSet().getAgeCategories())
 		{
 			final int idx = aString.indexOf('\t');
 
@@ -1201,7 +1196,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasNonPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasNonPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1213,7 +1208,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasAnyPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1225,7 +1220,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -2016,7 +2011,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setTabName(String name)
 	{
 		tabName.set(name);
-		theCharacter.setTabName(name);
+		theCharacter.setPCAttribute(PCAttribute.TABNAME, name);
 	}
 
 	/* (non-Javadoc)
@@ -2084,7 +2079,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setSkinColor(String color)
 	{
 		skinColor.set(color);
-		theCharacter.setSkinColor(color);
+		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
 	}
 
 	/**
@@ -2103,7 +2098,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setHairColor(String color)
 	{
 		hairColor.set(color);
-		theCharacter.setHairColor(color);
+		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
 	}
 
 	/**
@@ -2143,7 +2138,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int heightInInches =
 				Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
 		heightRef.set(height);
-		theCharacter.setHeight(heightInInches);
+		theCharacter.setPCAttribute(NumericPCAttribute.HEIGHT, heightInInches);
 	}
 
 	/**
@@ -2155,9 +2150,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return weightRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setWeight(int weight)
 	{
@@ -2165,7 +2157,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 				(int) Globals.getGameModeUnitSet().convertWeightFromUnitSet(
 					weight);
 		weightRef.set(weight);
-		theCharacter.setWeight(weightInPounds);
+		theCharacter.setPCAttribute(NumericPCAttribute.WEIGHT,weightInPounds);
 	}
 
 	/* (non-Javadoc)
@@ -2840,7 +2832,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setHanded(HandedFacade handedness)
 	{
 		this.handedness.set(handedness);
-		theCharacter.setHanded((Handed) handedness);
+		theCharacter.setPCAttribute(HandedPCAttr.HANDED, (Handed) handedness);
 	}
 
 	/* (non-Javadoc)
@@ -2858,8 +2850,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setPlayersName(String name)
 	{
-		this.playersName.set(name);
-		theCharacter.setPlayersName(name);
+		playersName.set(name);
+		theCharacter.setPCAttribute(PCAttribute.PLAYERSNAME, name);
 	}
 
 	/* (non-Javadoc)
@@ -3071,7 +3063,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			return;
 		}
 
-		theCharacter.setAge(age);
+		theCharacter.setPCAttribute(NumericPCAttribute.AGE, age);
 		this.age.set(age);
 		updateAgeCategoryForAge();
 		refreshStatScores();
@@ -3131,12 +3123,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (selAgeCat != null)
 			{
-				final int idx = Globals.getBioSet().getAgeSetNamed(selAgeCat);
+				final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
 
 				if (idx >= 0)
 				{
 					ageCategory.set(ageCat);
-					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
+					SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
 					age.set(charDisplay.getAge());
 					ageCategory.set(ageCat);
 					refreshStatScores();
@@ -3793,7 +3785,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = charDisplay.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(theCharacter, equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;
 		}

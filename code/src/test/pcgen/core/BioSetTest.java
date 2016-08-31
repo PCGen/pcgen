@@ -31,12 +31,12 @@ package pcgen.core;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Locale;
-
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.StringKey;
@@ -105,7 +105,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	@Override
 	protected void tearDown() throws Exception
 	{
-		Globals.getBioSet().clearUserMap();
+		SettingsHandler.getGame().getBioSet().clearUserMap();
 
 		super.tearDown();
 	}
@@ -122,7 +122,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 				new String[]{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
 					"BASEAGE", "MAXAGE", "SEX", "CLASS"};
 
-		final BioSet currBioSet = Globals.getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 
 		currBioSet.copyRaceTags(Constants.NONE, BASE_RACE_NAME,
 			Constants.NONE, NEW_RACE_NAME);
@@ -170,7 +170,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final int[] BASE_AGE = new int[]{15, 35, 53, 70};
 		final int[] MAX_AGE = new int[]{34, 52, 69, 110};
 
-		final BioSet currBioSet = Globals.getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 		final PlayerCharacter pc = getCharacter();
 		final Race human = new Race();
 		human.setName("NAME_Human");
@@ -214,27 +214,27 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final Race human = new Race();
 		human.setName("Human");
 		pc.setRace(human);
-		pc.setAge(12);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
 		int idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
-		pc.setAge(17);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
-		pc.setAge(36);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
 
-		pc.setAge(54);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
 
-		pc.setAge(72);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
 		idx = display.getAgeSetIndex();
 		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 
-		Globals.getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
+		SettingsHandler.getGame().getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
 
 	}
 }

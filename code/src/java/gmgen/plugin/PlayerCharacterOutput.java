@@ -479,7 +479,7 @@ public class PlayerCharacterOutput
 		return types;
 	}
 
-	public String getWeaponType(Equipment eq, boolean primary)
+	private String getWeaponType(Equipment eq, boolean primary)
 	{
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer aTok =

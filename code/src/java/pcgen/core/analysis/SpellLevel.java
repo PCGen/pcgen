@@ -24,7 +24,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -34,9 +33,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
@@ -117,7 +116,7 @@ public class SpellLevel
 	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacter aPC)
 	{
 		Integer levelKey = Integer.valueOf(aLevel);
-		MasterListInterface masterLists = Globals.getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		for (PCClass pcc : aPC.getClassSet())
 		{
 			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);

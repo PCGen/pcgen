@@ -23,6 +23,7 @@ package pcgen.util;
 import java.util.AbstractCollection;
 import java.util.AbstractMap;
 import java.util.Collection;
+import java.util.Collections;
 import java.util.Iterator;
 
 /**
@@ -153,12 +154,12 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
 		@Override
 		public boolean contains(Object v)
 		{
-		    return AbstractCollectionMap.this.containsValue(v);
+		    return containsValue(v);
 		}
 
 	    };
 	}
-	return values;
+	return Collections.unmodifiableCollection(values);
     }
 
 }

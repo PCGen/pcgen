@@ -46,8 +46,8 @@ public class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static final int askForStatIncrease(final PlayerCharacter aPC, 
-		final int statsToChoose, final boolean isPre)
+	public static int askForStatIncrease(final PlayerCharacter aPC,
+	                                     final int statsToChoose, final boolean isPre)
 	{
 		//
 		// If 1st time here (checks for preincrement), then will only ask if

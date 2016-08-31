@@ -397,7 +397,7 @@ public class KitPanel extends FlippingSplitPane
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private KitTreeView(String name)
 		{
@@ -436,8 +436,8 @@ public class KitPanel extends FlippingSplitPane
 		 * @param path The paths under which the kit should be shown.
 		 * @return The TreeViewPath.
 		 */
-		protected static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj,
-																	Object... path)
+		private static TreeViewPath<KitFacade> createTreeViewPath(KitFacade pobj,
+		                                                          Object... path)
 		{
 			if (path.length == 0)
 			{

@@ -127,13 +127,8 @@ import pcgen.util.chooser.ChooserFactory;
  * global UI functions such as message dialogs. 
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
-@SuppressWarnings("serial")
 public final class PCGenFrame extends JFrame implements UIDelegate
 {
 
@@ -584,7 +579,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	/**
 	 * @return the status bar for the main PCGen frame
 	 */
-	public final PCGenStatusBar getStatusBar()
+	public PCGenStatusBar getStatusBar()
 	{
 		return statusBar;
 	}
@@ -1903,28 +1898,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));
-		jCheckBox.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected());
-			}
-
-		});
+		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected()));
 		jPanel.add(jClose);
-		jClose.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				aFrame.dispose();
-			}
-
-		});
-		//IconUtilitities.maybeSetIcon(aFrame, IconUtilitities.RESOURCE_APP_ICON);
+		jClose.addActionListener(evt -> aFrame.dispose());
 
 		HtmlPanel htmlPanel = new HtmlPanel();
 		HtmlRendererContext theRendererContext = new SimpleHtmlRendererContext(htmlPanel, new SimpleUserAgentContext());
@@ -1952,10 +1928,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JPanel jPanel3 = new JPanel();
 		final JLabel jLabel1 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JLabel jLabel2 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
@@ -2025,27 +2001,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jPanel.add(jCheckBox);
 		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
-		jCheckBox.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected());
-			}
-
-		});
+		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected()));
 		jPanel.add(jClose);
-		jClose.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				aFrame.dispose();
-			}
-
-		});
+		jClose.addActionListener(evt -> aFrame.dispose());
 
 		StringBuilder sb = new StringBuilder(500);
 

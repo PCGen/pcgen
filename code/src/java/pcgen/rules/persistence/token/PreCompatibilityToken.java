@@ -91,17 +91,17 @@ public class PreCompatibilityToken implements
 		return tokenName;
 	}
 
-	public int compatibilityLevel()
+	public static int compatibilityLevel()
 	{
 		return 5;
 	}
 
-	public int compatibilityPriority()
+	public static int compatibilityPriority()
 	{
 		return 0;
 	}
 
-	public int compatibilitySubLevel()
+	public static int compatibilitySubLevel()
 	{
 		return 14;
 	}

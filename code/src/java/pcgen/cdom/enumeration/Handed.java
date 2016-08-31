@@ -23,8 +23,8 @@ import pcgen.system.LanguageBundle;
 /**
  * Represents the handedness available in PCGen.
  * 
- * It is designed to hold Genders in a type-safe fashion, so that they can be
- * quickly compared and use less memory when identical Genders exist in two
+ * It is designed to hold Handedness in a type-safe fashion, so that they can be
+ * quickly compared and use less memory when identical Handedness exist in two
  * CDOMObjects.
  * 
  * @author Vincent Lhote

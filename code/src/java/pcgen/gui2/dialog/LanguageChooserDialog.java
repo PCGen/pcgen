@@ -282,7 +282,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		NAME("in_nameLabel"), //$NON-NLS-1$
 		TYPE_NAME("in_typeName"); //$NON-NLS-1$
 		
-		private String name;
+		private final String name;
 
 		private LanguageTreeView(String name)
 		{

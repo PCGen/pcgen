@@ -31,9 +31,9 @@ import pcgen.cdom.base.Constants;
  */
 final class PCGParseException extends Exception
 {
-	private String errorLine;
-	private String errorMessage;
-	private String errorMethod;
+	private final String errorLine;
+	private final String errorMessage;
+	private final String errorMethod;
 
 	/**
 	 * Constructor

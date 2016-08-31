@@ -25,9 +25,10 @@ package pcgen.core.kit;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.NumericPCAttribute;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
@@ -84,11 +85,11 @@ public class KitBio extends BaseKit
 	{
 		if (theCharacterName != null)
 		{
-			aPC.setName(theCharacterName);
+			aPC.setPCAttribute(PCAttribute.NAME, theCharacterName);
 		}
 		if (theCharacterAge != null)
 		{
-			aPC.setAge(theCharacterAge);
+			aPC.setPCAttribute(NumericPCAttribute.AGE, theCharacterAge);
 		}
 		if (selectedGender != null)
 		{

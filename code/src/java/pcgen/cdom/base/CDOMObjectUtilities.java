@@ -35,14 +35,7 @@ public final class CDOMObjectUtilities
 	 * Provides a Comparator that is capable of sorting CDOMObjects. This
 	 * sorting is performed based on the Key name of the CDOMObjects.
 	 */
-	public static final Comparator<Loadable> CDOM_SORTER = new Comparator<Loadable>()
-	{
-		@Override
-		public int compare(Loadable cdo1, Loadable cdo2)
-		{
-			return compareKeys(cdo1, cdo2);
-		}
-	};
+	public static final Comparator<Loadable> CDOM_SORTER = CDOMObjectUtilities::compareKeys;
 
 	private CDOMObjectUtilities()
 	{

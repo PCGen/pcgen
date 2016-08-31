@@ -561,7 +561,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		RACETYPE_RACE_SUBTYPE_NAME(
 				LanguageBundle.getString("in_racetypeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private RaceTreeView(String name)
 		{

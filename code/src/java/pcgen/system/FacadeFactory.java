@@ -525,12 +525,12 @@ public class FacadeFactory
 			return errorMessage;
 		}
 
-		public void setLoadingState(LoadingState loadingState)
+		void setLoadingState(LoadingState loadingState)
 		{
 			this.loadingState = loadingState;
 		}
 
-		public void setErrorMessage(String errorMessage)
+		void setErrorMessage(String errorMessage)
 		{
 			this.errorMessage = errorMessage;
 		}

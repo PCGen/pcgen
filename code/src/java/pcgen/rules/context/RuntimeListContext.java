@@ -20,12 +20,12 @@
 
 package pcgen.rules.context;
 
-public class RuntimeListContext extends AbstractListContext
+class RuntimeListContext extends AbstractListContext
 {
 
 	private final ListCommitStrategy commit;
 
-	public RuntimeListContext(ListCommitStrategy commitStrategy)
+	protected RuntimeListContext(ListCommitStrategy commitStrategy)
 	{
 		if (commitStrategy == null)
 		{

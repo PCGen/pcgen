@@ -32,12 +32,12 @@ public class PCGenTaskEvent extends EventObject
 
 	private LogRecord errorRecord;
 
-	public PCGenTaskEvent(PCGenTask source)
+	PCGenTaskEvent(PCGenTask source)
 	{
 		this(source, null);
 	}
 
-	public PCGenTaskEvent(PCGenTask source, LogRecord errorRecord)
+	PCGenTaskEvent(PCGenTask source, LogRecord errorRecord)
 	{
 		super(source);
 		this.errorRecord = errorRecord;

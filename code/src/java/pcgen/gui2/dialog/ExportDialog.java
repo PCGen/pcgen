@@ -714,9 +714,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		HTMLXML("htmlxml", "Standard", "HTM"),
 		PDF("pdf", "PDF", "PDF"),
 		TEXT("text", "Text", "TXT");
-		private String dirFilter;
-		private String description;
-		private String tag;
+		private final String dirFilter;
+		private final String description;
+		private final String tag;
 
 		private SheetFilter(String dirFilter, String description, String tag)
 		{

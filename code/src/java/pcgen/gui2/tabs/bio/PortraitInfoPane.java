@@ -45,6 +45,7 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JSlider;
+import javax.swing.SwingConstants;
 import javax.swing.event.ChangeEvent;
 import javax.swing.event.ChangeListener;
 
@@ -88,7 +89,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 		this.loadButton = new JButton();
 		this.clearButton = new JButton();
 		this.purchaseButton = new JButton();
-		this.zoomSlider = new JSlider(JSlider.VERTICAL);
+		this.zoomSlider = new JSlider(SwingConstants.VERTICAL);
 		initComponents();
 	}
 

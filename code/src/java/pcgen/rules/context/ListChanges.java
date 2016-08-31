@@ -29,7 +29,7 @@ import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 
-public class ListChanges<T extends CDOMObject> implements
+class ListChanges<T extends CDOMObject> implements
 		AssociatedChanges<CDOMReference<T>>
 {
 	private final String tokenName;

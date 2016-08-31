@@ -30,19 +30,16 @@ import javax.swing.undo.UndoableEdit;
 import java.util.Enumeration;
 
 /**
- * <code>ExtendedHTMLDocument</code> is used by Swing for improved HTML
- * rendering over the standard <code>HTMLDocument</code>.  Hence, it contains
+ * {@code ExtendedHTMLDocument} is used by Swing for improved HTML
+ * rendering over the standard {@code HTMLDocument}.  Hence, it contains
  * methods <em>never called by PCGen</em>, so code analysis tools will flag
  * methods as unused.  This is fine.  Do not remove or deprecate them.
- *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Id$
  */
 public class ExtendedHTMLDocument extends HTMLDocument {
 	private static final Element[] EMPTY_ELEMENT_ARRAY = new Element[0];
 
 	/**
-	 * Constructs a new, default <code>ExtendedHTMLDocument</code>.  Used by
+	 * Constructs a new, default {@code ExtendedHTMLDocument}.  Used by
 	 * Swing.
 	 *
 	 * @see HTMLDocument#HTMLDocument()
@@ -52,7 +49,7 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	}
 
 	/**
-	 * Constructs a new <code>ExtendedHTMLDocument</code> with the given
+	 * Constructs a new {@code ExtendedHTMLDocument} with the given
 	 * <var>content</var> and <var>style</var>.  Used by Swing.
 	 *
 	 * @param content the document contents
@@ -65,7 +62,7 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 	}
 
 	/**
-	 * Constructs a new <code>ExtendedHTMLDocument</code> with the given
+	 * Constructs a new {@code ExtendedHTMLDocument} with the given
 	 * <var>styles</var>.  Used by Swing.
 	 *
 	 * @param styles the stylesheet

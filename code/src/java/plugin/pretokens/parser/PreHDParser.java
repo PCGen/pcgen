@@ -167,9 +167,9 @@ public class PreHDParser extends AbstractPrerequisiteParser implements
 	 * @param prereq
 	 * @throws PersistenceLayerException
 	 */
-	private void processOldSyntax(
-		String formula,
-		Prerequisite prereq) throws PersistenceLayerException
+	private static void processOldSyntax(
+			String formula,
+			Prerequisite prereq) throws PersistenceLayerException
 	{
 		int plusLoc = formula.indexOf('+');
 		if (plusLoc == -1)

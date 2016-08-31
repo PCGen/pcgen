@@ -600,11 +600,11 @@ public class SkillToken extends Token
 	public final static class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
-		final protected String skillId;
+		private final String skillId;
 		/** The list of properties for the token. */
-		final protected List<String> properties;
+		private final List<String> properties;
 		/** The skilll list filter */
-		final protected SkillFilter filter;
+		private final SkillFilter filter;
 
 		/**
 		 * Constructor for skill details. Creates an immutable instance

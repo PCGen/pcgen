@@ -250,7 +250,7 @@ public final class KitGear extends BaseKit
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 		}
 		else
@@ -258,7 +258,7 @@ public final class KitGear extends BaseKit
 			if (sizeToPC != null && sizeToPC)
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 			else
 			{

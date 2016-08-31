@@ -109,8 +109,8 @@ public class TokenSupport
 		return false;
 	}
 
-	public <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
-		String name)
+	private <T extends Loadable> List<? extends CDOMToken<T>> getTokens(Class<T> cl,
+	                                                                    String name)
 	{
 		List list = tokenCache.getListFor(cl, name);
 		if (list == null)
@@ -131,8 +131,8 @@ public class TokenSupport
 		return list;
 	}
 
-	public <T> List<? extends CDOMToken<T>> getTokens(
-		Class<T> cl, String name, String subtoken)
+	private <T> List<? extends CDOMToken<T>> getTokens(
+			Class<T> cl, String name, String subtoken)
 	{
 		List list = subTokenCache.getListFor(cl, name, subtoken);
 		if (list == null)

@@ -260,8 +260,7 @@ public class VariableReport
 		Map<String, Integer> varCountMap, File file)
 		throws FileNotFoundException, IOException
 	{
-		BufferedReader br = new BufferedReader(new FileReader(file));
-		try
+		try (BufferedReader br = new BufferedReader(new FileReader(file)))
 		{
 			Map<String, String> varUseMap = new HashMap<>();
 			String line = br.readLine();
@@ -288,11 +287,11 @@ public class VariableReport
 							String define[] = tok.split("[:|]");
 							String varName = define[1];
 							if (define.length > 1
-								&& !varName.startsWith("LOCK.")
-								&& !varName.startsWith("UNLOCK."))
+									&& !varName.startsWith("LOCK.")
+									&& !varName.startsWith("UNLOCK."))
 							{
 								varList.add(new VarDefine(varName, object,
-									file, varUseMap.get(varName)));
+										file, varUseMap.get(varName)));
 								Integer count = varCountMap.get(varName);
 								if (count == null)
 								{
@@ -307,10 +306,6 @@ public class VariableReport
 
 				line = br.readLine();
 			}
-		}
-		finally
-		{
-			br.close();
 		}
 	}
 

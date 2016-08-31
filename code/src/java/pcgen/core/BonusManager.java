@@ -773,7 +773,6 @@ public class BonusManager
 		//
 		if (fullyQualifiedBonusType.equalsIgnoreCase("SKILL.LIST"))
 		{
-			pc.setDisplayUpdate(true);
 			return;
 		}
 		bonusMap.put(fullyQualifiedBonusType, bonusValue);

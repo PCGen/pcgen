@@ -78,13 +78,7 @@ public class CDOMFactory<T extends Loadable> implements
 		{
 			return refClass.newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError("Class was tested at "
-				+ "construction to ensure it had a public, "
-				+ "zero-argument constructor");
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new UnreachableError("Class was tested at "
 				+ "construction to ensure it had a public, "

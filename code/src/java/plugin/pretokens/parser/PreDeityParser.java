@@ -88,7 +88,7 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	 *   
 	 * @param prereq The prereq to be scanned.
 	 */
-	private void replaceHasDeityPrereqs(Prerequisite prereq)
+	private static void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
 		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)

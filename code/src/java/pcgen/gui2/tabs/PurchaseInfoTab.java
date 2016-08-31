@@ -171,16 +171,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				FilterButton<CharacterFacade, EquipmentFacade> premadeFilter
 						= new FilterButton<>("EqQualified"); //$NON-NLS-1$
 				premadeFilter.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
-				premadeFilter.setFilter(new Filter<CharacterFacade, EquipmentFacade>()
-				{
-
-					@Override
-					public boolean accept(CharacterFacade context, EquipmentFacade element)
-					{
-						return context.isQualifiedFor(element);
-					}
-
-				});
+				premadeFilter.setFilter(CharacterFacade::isQualifiedFor);
 				FilterButton<CharacterFacade, EquipmentFacade> customFilter
 						= new FilterButton<>("EqAffordable"); //$NON-NLS-1$
 				customFilter.setText(LanguageBundle.getString("in_igAffordFilter")); //$NON-NLS-1$
@@ -1073,7 +1064,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 		TYPE_SUBTYPE_NAME(LanguageBundle.getString("in_typeSubtypeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
 		//SOURCE_NAME("Source/Name");
-		private String name;
+		private final String name;
 
 		private EquipmentTreeView(String name)
 		{
@@ -1318,10 +1309,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(equipmentArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 			}
 			return equipmentArray;

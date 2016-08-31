@@ -68,7 +68,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private LoadFacet loadFacet;
 
-	public static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
+	private static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
 
 	/**
 	 * Returns the movement value of the given type for the Player Character
