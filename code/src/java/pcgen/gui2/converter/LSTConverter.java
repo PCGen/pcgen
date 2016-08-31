@@ -252,17 +252,7 @@ public class LSTConverter extends Observable
 						out.close();
 					}
 				}
-				catch (PersistenceLayerException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (InterruptedException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (IOException e)
+				catch (PersistenceLayerException | IOException | InterruptedException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();

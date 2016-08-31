@@ -157,15 +157,10 @@ public class PluginClassLoader extends PCGenTask
 					{
 						pluginFound |= processClass(Class.forName(string, true, loader));
 					}
-					catch (ClassNotFoundException ex)
+					catch (ClassNotFoundException | NoClassDefFoundError ex)
 					{
 						Logging.errorPrint("Error occurred while loading plugin: " +
 								pluginJar.getName(), ex);
-					}
-					catch (NoClassDefFoundError e)
-					{
-						Logging.errorPrint("Error occurred while loading plugin: " +
-								pluginJar.getName(), e);
 					}
 				}
 				if (!pluginFound)
@@ -241,11 +236,7 @@ public class PluginClassLoader extends PCGenTask
 			//has been executed.
 			future.get();
 		}
-		catch (ExecutionException ex)
-		{
-			//Do nothing
-		}
-		catch (InterruptedException ex)
+		catch (ExecutionException | InterruptedException ex)
 		{
 			//Do nothing
 		}

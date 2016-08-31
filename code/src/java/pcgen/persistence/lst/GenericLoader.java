@@ -87,11 +87,7 @@ public class GenericLoader<T extends CDOMObject> extends
 				po = baseClass.newInstance();
 				newConstructionActions(context, po);
 			}
-			catch (InstantiationException e)
-			{
-				throw new UnreachableError(e);
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				throw new UnreachableError(e);
 			}

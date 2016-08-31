@@ -53,12 +53,7 @@ public final class FacetLibrary
 				{
 					facet = cl.newInstance();
 				}
-				catch (InstantiationException e)
-				{
-					// TODO Auto-generated catch block
-					e.printStackTrace();
-				}
-				catch (IllegalAccessException e)
+				catch (InstantiationException | IllegalAccessException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();

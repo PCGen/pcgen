@@ -105,13 +105,7 @@ public class Logging
 		{
 			LogManager.getLogManager().readConfiguration();
 		}
-		catch (SecurityException e)
-		{
-			System.err
-				.println("Failed to read logging configuration. Error was:");
-			e.printStackTrace();
-		}
-		catch (IOException e)
+		catch (SecurityException | IOException e)
 		{
 			System.err
 				.println("Failed to read logging configuration. Error was:");

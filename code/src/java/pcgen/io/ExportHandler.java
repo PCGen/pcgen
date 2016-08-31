@@ -347,17 +347,11 @@ public final class ExportHandler
 			// Process the template
 			template.process(input, outputWriter);
 		}
-		catch (IOException exc)
+		catch (IOException | TemplateException exc)
 		{
 			String message = "Error exporting character using template " + templateFile;
 			Logging.errorPrint(message, exc);
 			throw new ExportException(exc, message + " : " + exc.getLocalizedMessage());
-		}
-		catch (TemplateException e)
-		{
-			String message = "Error exporting character using template " + templateFile;
-			Logging.errorPrint(message, e);
-			throw new ExportException(e, message + " : " + e.getLocalizedMessage());
 		}
 		finally
 		{

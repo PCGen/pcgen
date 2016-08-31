@@ -358,11 +358,7 @@ public class AbilityToken extends Token
 			}
 			return mtl;
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError(e);
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new UnreachableError(e);
 		}
@@ -412,11 +408,7 @@ public class AbilityToken extends Token
 			}
 			return mtl;
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError(e);
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new UnreachableError(e);
 		}

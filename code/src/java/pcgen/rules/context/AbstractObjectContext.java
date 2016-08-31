@@ -796,11 +796,7 @@ public abstract class AbstractObjectContext implements ObjectCommitStrategy
 				 */
 				return newObj;
 			}
-			catch (InstantiationException e)
-			{
-				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
-			}
-			catch (IllegalAccessException e)
+			catch (InstantiationException | IllegalAccessException e)
 			{
 				Logging.errorPrint("Error instantiating " + cl.getSimpleName(), e);
 			}
