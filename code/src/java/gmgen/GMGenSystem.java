@@ -264,7 +264,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
                 preferencesEditItem.removeActionListener(aListenerArray);
             }
             preferencesEditItem
-                    .addActionListener(evt -> mPreferencesActionPerformed(evt));
+                    .addActionListener(this::mPreferencesActionPerformed);
         }
     }
 
@@ -545,7 +545,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
                 preferencesEditItem.removeActionListener(aListenerArray);
             }
 
-            preferencesEditItem.addActionListener(evt -> mPreferencesActionPerformed(evt));
+            preferencesEditItem.addActionListener(this::mPreferencesActionPerformed);
         }
 
         systemMenuBar.add(editMenu);

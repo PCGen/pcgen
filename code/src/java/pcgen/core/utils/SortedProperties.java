@@ -76,11 +76,7 @@ public class SortedProperties extends Properties
 
 			bw.flush();
 		}
-		catch (UnsupportedEncodingException ex)
-		{
-			Logging.errorPrint("Error writing to the options.ini file: ", ex);
-		}
-		catch (IOException ex)
+		catch (final IOException ex)
 		{
 			Logging.errorPrint("Error writing to the options.ini file: ", ex);
 		}

@@ -489,13 +489,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 					addCharacterLevels(character, c);
 					return true;
 				}
-				catch (UnsupportedFlavorException ex)
-				{
-					Logger.getLogger(ClassInfoTab.class.getName()).log(Level.SEVERE,
-							null,
-							ex);
-				}
-				catch (IOException ex)
+				catch (UnsupportedFlavorException | IOException ex)
 				{
 					Logger.getLogger(ClassInfoTab.class.getName()).log(Level.SEVERE,
 							null,

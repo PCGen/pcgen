@@ -218,11 +218,7 @@ public enum EqModNameOpt
 						typeMap.put(name, tObj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}

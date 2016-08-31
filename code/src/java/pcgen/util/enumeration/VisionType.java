@@ -79,12 +79,7 @@ public final class VisionType extends AbstractConstant
 							.getName()), (VisionType) o);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					//TODO Why throw an InternalError? Wouldn't an assert false be better? JK070115
-					throw new InternalError();
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					//TODO Why throw an InternalError? Wouldn't an assert false be better? JK070115
 					throw new InternalError();
