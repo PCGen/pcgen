@@ -569,8 +569,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				refContext.constructNowIfNecessary(CodeControl.class,
 					"Controller");
 
-		//Do BilSet first, since required by Race
-		bioSetFacet.set(id, Globals.getBioSet());
+		//Do BioSet first, since required by Race
+		bioSetFacet.set(id, SettingsHandler.getGame().getBioSet());
 		//Set Race before Stat/Check due to Default object in Pathfinder/RSRD
 		setRace(Globals.s_EMPTYRACE);
 
@@ -588,6 +588,16 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
 		addSpellBook(new SpellBook(Constants.INNATE_SPELL_BOOK_NAME, SpellBook.TYPE_INNATE_SPELLS));
+	}
+
+	/**
+	 * Get game mode spell range formula
+	 * @param aRange
+	 * @return game mode spell range formula
+	 */
+	static String getGameModeSpellRangeFormula(final String aRange)
+	{
+		return SettingsHandler.getGame().getSpellRangeFormula(aRange);
 	}
 
 	private void doFormulaSetup()
@@ -3749,7 +3759,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		String aRange = aSpell.getSpell().getListAsString(ListKey.RANGE);
 		String aSpellClass = aSpell.getVariableSource(this);
 		int rangeInFeet = 0;
-		String aString = Globals.getGameModeSpellRangeFormula(aRange.toUpperCase());
+		String aString = getGameModeSpellRangeFormula(aRange.toUpperCase());
 
 		if (aRange.equalsIgnoreCase("CLOSE") && (aString == null))
 		{

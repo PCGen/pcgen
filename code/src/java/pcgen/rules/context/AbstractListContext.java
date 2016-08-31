@@ -25,7 +25,6 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.ListSet;
@@ -42,7 +41,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 
 public abstract class AbstractListContext
 {
@@ -744,7 +743,7 @@ public abstract class AbstractListContext
 	@SuppressWarnings("unchecked")
 	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
-		MasterListInterface masterLists = Globals.getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<AssociatedPrereqObject> assocs = masterLists

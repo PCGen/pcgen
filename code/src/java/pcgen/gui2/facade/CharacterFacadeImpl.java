@@ -557,7 +557,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * Initialise the equipment set facades, ensuring that the character has a 
 	 * default equipment set. 
-	 * @param pc The character being loaded
 	 */
 	private void initEquipSet()
 	{
@@ -615,7 +614,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void buildAgeCategories()
 	{
 		List<String> cats = new ArrayList<>();
-		for (String aString : Globals.getBioSet().getAgeCategories())
+		for (String aString : SettingsHandler.getGame().getBioSet().getAgeCategories())
 		{
 			final int idx = aString.indexOf('\t');
 
@@ -3127,12 +3126,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (selAgeCat != null)
 			{
-				final int idx = Globals.getBioSet().getAgeSetNamed(selAgeCat);
+				final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
 
 				if (idx >= 0)
 				{
 					ageCategory.set(ageCat);
-					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
+					SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
 					age.set(charDisplay.getAge());
 					ageCategory.set(ageCat);
 					refreshStatScores();

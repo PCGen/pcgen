@@ -511,7 +511,7 @@ public final class CustomData
 					}
 
 					final String key = race.getKeyName();
-					bw.write(Globals.getBioSet().getRacePCCText(region, key));
+					bw.write(SettingsHandler.getGame().getBioSet().getRacePCCText(region, key));
 					bw.newLine();
 				}
 			}

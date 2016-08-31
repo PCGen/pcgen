@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -32,7 +31,7 @@ import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
@@ -58,7 +57,7 @@ public class MasterAvailableSpellFacet extends
 	public synchronized void initialize(LoadContext lc)
 	{
 		DataSetID dsID = lc.getDataSetID();
-		MasterListInterface masterLists = Globals.getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		ArrayList<CDOMReference<CDOMList<Spell>>> useLists =
                 new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
