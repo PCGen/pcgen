@@ -52,6 +52,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @param <T>
  *            The Type of object stored in this AbstractDataFacet
  */
+@SuppressWarnings("unchecked")
 public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractStorageFacet<IDT>
 {

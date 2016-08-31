@@ -61,22 +61,22 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 			Logging.errorPrint(getClass() + " received null item: ignoring");
 			return false;
 		}
-		T old = get(id);
-		if (old != obj)
+		final T old = getRaw(id);
+		if (old == obj)
+		{
+			return false;
+		}
+		else
 		{
 			if (old != null)
 			{
 				fireDataFacetChangeEvent(id, old,
-					DataFacetChangeEvent.DATA_REMOVED);
+						DataFacetChangeEvent.DATA_REMOVED);
 			}
 			setCache(id, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 
 			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 
@@ -112,8 +112,12 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 */
 	public T get(final IDT id)
 	{
-		final Object tmp = getCache(id);
-		return (tmp == null) ? valueWhenNull() : (T) getCache(id);
+		final T tmp = (T)getCache(id);
+		return (tmp == null) ? valueWhenNull() : tmp;
+	}
+
+	private T getRaw(final IDT id) {
+		return (T)getCache(id);
 	}
 
 	/**

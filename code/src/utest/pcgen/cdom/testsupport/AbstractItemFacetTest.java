@@ -37,8 +37,8 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	public class Listener implements DataFacetChangeListener<CharID, T>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		int addEventCount;
+		int removeEventCount;
 
         @Override
 		public void dataAdded(DataFacetChangeEvent<CharID, T> dfce)
