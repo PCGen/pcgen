@@ -28,6 +28,7 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.spell.Spell;
 
 public class PCCLTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -61,7 +62,7 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public String evaluate(PlayerCharacter pc)
+	public String evaluate (PlayerCharacter pc, Spell aSpell)
 	{
 		return evaluate(pc);
 	}
