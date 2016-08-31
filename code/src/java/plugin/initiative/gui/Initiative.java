@@ -26,7 +26,7 @@ import gmgen.GMGenSystem;
 import gmgen.gui.FlippingSplitPane;
 import gmgen.io.SimpleFileFilter;
 import gmgen.plugin.Combatant;
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 import gmgen.plugin.Event;
 import gmgen.plugin.InfoCharacterDetails;
 import gmgen.plugin.InitHolder;
