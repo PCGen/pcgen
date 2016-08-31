@@ -681,35 +681,20 @@ public final class Globals
 	/**
 	 * Return true if resizing the equipment will have any "noticable" effect
 	 * checks for cost modification, armor bonus, weight, capacity
-	 * @param aPC
-	 *
 	 * @param aEq
 	 * @param typeList
 	 * @return TRUE or FALSE
 	 */
-	public static boolean canResizeHaveEffect(final PlayerCharacter aPC, final Equipment aEq, List<String> typeList)
+	public static boolean canResizeHaveEffect(final Equipment aEq, List<String> typeList)
 	{
 		// cycle through typeList and see if it matches one in the BONUS:ITEMCOST|TYPE=etc on sizeadjustment
 		if (typeList == null)
 		{
 			typeList = aEq.typeList();
 		}
-		final List<String> upperTypeList = new ArrayList<>(typeList.size());
-		for (final String type : typeList)
-		{
-			upperTypeList.add(type.toUpperCase());
-		}
 
 		final List<String> resizeTypeList = SettingsHandler.getGame().getResizableTypeList();
-		for (final String rType : resizeTypeList)
-		{
-			if (upperTypeList.contains(rType.toUpperCase()))
-			{
-				return true;
-			}
-		}
-
-		return false;
+		return typeList.stream().map(String::toUpperCase).anyMatch(resizeTypeList::contains);
 	}
 
 	/**
