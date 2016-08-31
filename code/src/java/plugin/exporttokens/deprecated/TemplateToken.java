@@ -165,13 +165,9 @@ public class TemplateToken extends Token
 	 * 
 	 * @param pc
 	 *
-	 * @param level
-	 *
-	 * @param hitdice
-	 *
-	 * @return a list of feats 
+	 * @return a list of feats
 	 */
-	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct, final int level, final int hitdice)
+	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
 	{
 		final List<CNAbilitySelection> feats = new ArrayList<CNAbilitySelection>();
 	
@@ -234,12 +230,9 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of FEAT sub token
 	 */
-	public static String getFeatToken(PCTemplate template, PlayerCharacter pc)
+	private static String getFeatToken(PCTemplate template, PlayerCharacter pc)
 	{
-		CharacterDisplay display = pc.getDisplay();
-		List<CNAbilitySelection> fList =
-				feats(pc, template, display.getTotalLevels(),
-					display.totalHitDice());
+		List<CNAbilitySelection> fList = feats(pc, template);
 		return StringUtil.join(fList, ", ");
 	}
 

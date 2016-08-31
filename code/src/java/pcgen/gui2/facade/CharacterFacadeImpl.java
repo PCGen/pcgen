@@ -314,10 +314,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
-	/**
-	 * {@inheritDoc} 
-	 */
-    @Override
+	@Override
 	public void closeCharacter()
 	{
 		FacetLibrary.getFacet(LanguageFacet.class)
@@ -1199,7 +1196,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasNonPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasNonPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1211,7 +1208,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasAnyPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1223,7 +1220,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}

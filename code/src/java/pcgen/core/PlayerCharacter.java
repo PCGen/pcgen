@@ -4457,7 +4457,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// Now let's see if they should be able to add this spell
 		// first check for known/cast/threshold
-		final int known = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
+		final int known = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, this);
 		int specialKnown = 0;
 		final int cast = this.getSpellSupport(aClass).getCastForLevel(adjSpellLevel, bookName, true, true, this);
 		SpellCountCalc.memorizedSpellForLevelBook(this, aClass, adjSpellLevel, bookName);
@@ -4941,7 +4941,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					&& ("Any".equalsIgnoreCase(spellType) || classSpellType.equalsIgnoreCase(spellType)))
 			{
 				// Get the number of known spells for the level
-				int knownForLevel = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
+				int knownForLevel = this.getSpellSupport(aClass).getKnownForLevel(spellLevel, this);
 				knownForLevel += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
 				if (knownForLevel >= minNumSpells)
 				{
@@ -4993,7 +4993,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				int numCastLevel = this.getSpellSupport(aClass).getCastForLevel(spellLevel, this);
 
 				// Get the number of known spells for the level
-				known += this.getSpellSupport(aClass).getKnownForLevel(spellLevel, "null", this);
+				known += this.getSpellSupport(aClass).getKnownForLevel(spellLevel, this);
 				if (numCastLevel > 0)
 				{
 					known += this.getSpellSupport(aClass).getSpecialtyKnownForLevel(spellLevel, this);
@@ -6447,7 +6447,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// Get the number of castable slots
 			if (knownLearned)
 			{
-				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, bookName, this);
+				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // TODO: : value never used
 			} else
@@ -6523,7 +6523,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (knownLearned)
 			{
-				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, bookName, this);
+				knownNon = this.getSpellSupport(aClass).getKnownForLevel(i, this);
 				knownSpec = this.getSpellSupport(aClass).getSpecialtyKnownForLevel(i, this);
 				knownTot = knownNon + knownSpec; // for completeness
 			} else

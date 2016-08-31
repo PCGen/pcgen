@@ -672,7 +672,7 @@ public class NPCGenerator
 							{
 								if (aPC.availableSpells(lvl, pcClass, Globals.getDefaultSpellBook(), true, true))
 								{
-									final int a = aPC.getSpellSupport(pcClass).getKnownForLevel(lvl, "null", aPC);
+									final int a = aPC.getSpellSupport(pcClass).getKnownForLevel(lvl, aPC);
 									//final int bonus = aPC.getSpellSupport(pcClass).getSpecialtyKnownForLevel(lvl, aPC);
 									Logging.debugPrint("NPCGenerator: " + a + "known spells to select"); //$NON-NLS-1$ //$NON-NLS-2$
 									

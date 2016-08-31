@@ -2433,14 +2433,14 @@ public class Gui2InfoFactory implements InfoFactory
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
 		Set<String> targetSet = new HashSet<>();
-		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj(), pc))
+		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj()))
 		{
 			targetSet.add(LanguageBundle
 				.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
 		}
-		if (TempBonusHelper.hasEquipmentTempBonus(tempBonus.getOriginObj(), pc))
+		if (TempBonusHelper.hasEquipmentTempBonus(tempBonus.getOriginObj()))
 		{
-			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
+			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj()));
 		}
 		StringBuilder target = new StringBuilder(40);
 		for (String string : targetSet)

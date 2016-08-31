@@ -37,19 +37,18 @@ public class TempBonusTest extends AbstractCharacterTestCase
 
 	public void testPCTemporaryBonus() throws PersistenceLayerException
 	{
-		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_PC, bonus);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasPCTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasNonPCTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell, character));
+		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+		assertTrue(TempBonusHelper.hasPCTempBonus(spell));
+		assertFalse(TempBonusHelper.hasNonPCTempBonus(spell));
+		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
 		try
 		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
 		}
 		catch (NullPointerException e)
 		{
@@ -60,19 +59,18 @@ public class TempBonusTest extends AbstractCharacterTestCase
 	
 	public void testANYPCTemporaryBonus() throws PersistenceLayerException
 	{
-		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
-		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell, character));
+		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell));
+		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
 		try
 		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell, character).isEmpty());
+			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
 		}
 		catch (NullPointerException e)
 		{
@@ -89,12 +87,12 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell, character));
-		assertFalse(TempBonusHelper.hasCharacterTempBonus(spell, character));
-		assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell, character));
-		Set<String> eaStringSet = TempBonusHelper.getEquipmentApplyString(spell, character);
+		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+		assertFalse(TempBonusHelper.hasCharacterTempBonus(spell));
+		assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell));
+		Set<String> eaStringSet = TempBonusHelper.getEquipmentApplyString(spell);
 		assertFalse(eaStringSet.isEmpty());
 		assertEquals(1, eaStringSet.size());
 		assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());

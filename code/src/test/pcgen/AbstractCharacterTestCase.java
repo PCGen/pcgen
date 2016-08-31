@@ -244,7 +244,7 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 	 * Set the value of the stat for the character.
 	 *
 	 * @param pc The Player Character
-	 * @param statName The name of the stat to be set (eg DEX)
+	 * @param stat The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
 	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
@@ -325,11 +325,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
-	protected Ability addMultYesAbility(AbilityCategory cat, Ability a)
-	{
-		return a;
-	}
-	
 	protected CNAbility finalize(Ability a, String string,
 		PlayerCharacter pc, AbilityCategory cat)
 	{
