@@ -90,7 +90,7 @@ public class TempBonusHelper
 	{
 		List<InfoFacade> possibleTargets =
 				getListOfApplicableEquipment(originObj, theCharacter);
-		boolean canApplyToPC = hasCharacterTempBonus(originObj, theCharacter);
+		boolean canApplyToPC = hasCharacterTempBonus(originObj);
 		if (possibleTargets.isEmpty())
 		{
 			if (canApplyToPC)
@@ -307,7 +307,7 @@ public class TempBonusHelper
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
-		for (BonusObj aBonus : getTempCharBonusesFor(originObj, theCharacter))
+		for (BonusObj aBonus : getTempCharBonusesFor(originObj))
 		{
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
@@ -347,8 +347,7 @@ public class TempBonusHelper
 		return appliedBonus;
 	}
 	
-	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj,
-		PlayerCharacter theCharacter)
+	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj)
 	{
 		List<BonusObj> list = new ArrayList<>(5);
 		list.addAll(originObj.getSafeListFor(ListKey.BONUS_ANYPC));
@@ -566,40 +565,34 @@ public class TempBonusHelper
 	//        Public Accessors and Mutators       //
 	////////////////////////////////////////////////
 
-	public static boolean hasAnyPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasAnyPCTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_ANYPC);
 	}
 
-	public static boolean hasPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasPCTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_PC);
 	}
 
-	public static boolean hasNonPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasNonPCTempBonus(CDOMObject obj)
 	{
-		return hasEquipmentTempBonus(obj, theCharacter)
-			|| hasAnyPCTempBonus(obj, theCharacter);
+		return hasEquipmentTempBonus(obj)
+			|| hasAnyPCTempBonus(obj);
 	}
 
-	public static boolean hasCharacterTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasCharacterTempBonus(CDOMObject obj)
 	{
-		return hasAnyPCTempBonus(obj, theCharacter)
-			|| hasPCTempBonus(obj, theCharacter);
+		return hasAnyPCTempBonus(obj)
+			|| hasPCTempBonus(obj);
 	}
 
-	public static boolean hasEquipmentTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasEquipmentTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_EQUIP);
 	}
 
-	public static Set<String> getEquipmentApplyString(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static Set<String> getEquipmentApplyString(CDOMObject obj)
 	{
 		Set<String> set = new HashSet<>();
 		//Should use hasEquipmentTempBonus first, so we do NOT do getSafeListFor
@@ -610,12 +603,11 @@ public class TempBonusHelper
 		return set;
 	}
 
-	public static boolean hasTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	static boolean hasTempBonus(CDOMObject obj)
 	{
-		return hasEquipmentTempBonus(obj, theCharacter)
-			|| hasAnyPCTempBonus(obj, theCharacter)
-			|| hasPCTempBonus(obj, theCharacter);
+		return hasEquipmentTempBonus(obj)
+			|| hasAnyPCTempBonus(obj)
+			|| hasPCTempBonus(obj);
 	}
 
 }

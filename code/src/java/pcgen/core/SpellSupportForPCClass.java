@@ -155,8 +155,7 @@ public class SpellSupportForPCClass
 		
 	}
 	
-	public int getKnownForLevel(int spellLevel, String bookName,
-			PlayerCharacter aPC)
+	public int getKnownForLevel(int spellLevel, PlayerCharacter aPC)
 	{
 		int total = 0;
 		int stat = 0;
@@ -738,11 +737,6 @@ public class SpellSupportForPCClass
 		}
 
 		return false;
-	}
-
-	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
-	{
-		return getKnownForLevel(spellLevel, "null", aPC);
 	}
 
 }

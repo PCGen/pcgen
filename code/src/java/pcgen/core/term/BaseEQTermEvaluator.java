@@ -28,7 +28,6 @@ package pcgen.core.term;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 public abstract class BaseEQTermEvaluator
@@ -39,7 +38,7 @@ public abstract class BaseEQTermEvaluator
 		return "0.0";
 	}
 
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(PlayerCharacter pc) {
 		return "0.0";
 	}
 

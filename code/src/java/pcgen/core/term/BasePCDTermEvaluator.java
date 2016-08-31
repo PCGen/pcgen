@@ -46,7 +46,7 @@ public abstract class BasePCDTermEvaluator extends BasePCTermEvaluator
 	}
 
 	@Override
-	final public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	final public String evaluate(PlayerCharacter pc) {
 		return evaluate(pc.getDisplay(), aSpell);	
 	}
 

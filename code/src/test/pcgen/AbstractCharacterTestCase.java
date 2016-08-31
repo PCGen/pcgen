@@ -325,11 +325,6 @@ abstract public class AbstractCharacterTestCase extends PCGenTestCase
 			UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
-	protected Ability addMultYesAbility(AbilityCategory cat, Ability a)
-	{
-		return a;
-	}
-	
 	protected CNAbility finalize(Ability a, String string,
 		PlayerCharacter pc, AbilityCategory cat)
 	{

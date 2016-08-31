@@ -30,7 +30,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 public abstract class BasePCTermEvaluator
@@ -41,7 +40,7 @@ public abstract class BasePCTermEvaluator
 		return Integer.toString(resolve(pc).intValue());
 	}
 
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(PlayerCharacter pc) {
 		return evaluate(pc);	
 	}
 

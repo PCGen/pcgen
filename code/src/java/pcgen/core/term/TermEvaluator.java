@@ -3,7 +3,6 @@ package pcgen.core.term;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
-import pcgen.core.spell.Spell;
 
 /**
  * Copyright (c) 2008 Andrew Wilson &lt;nuance@users.sourceforge.net&gt;.
@@ -28,10 +27,6 @@ import pcgen.core.spell.Spell;
  */
 public interface TermEvaluator
 {
-	String evaluate(PlayerCharacter pc);
-
-	String evaluate(PlayerCharacter pc, final Spell aSpell);
-
 	String evaluate(Equipment eq, boolean primary, PlayerCharacter pc);
 
 	Float resolve(PlayerCharacter pc);

@@ -29,7 +29,6 @@ package pcgen.core.term;
 import java.util.regex.Pattern;
 
 import pcgen.core.PlayerCharacter;
-import pcgen.core.spell.Spell;
 import pcgen.io.exporttoken.EqTypeToken;
 import pcgen.io.exporttoken.Token;
 
@@ -102,7 +101,7 @@ public class PCEqTypeTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate(PlayerCharacter pc)
 	{
 		return evaluate(pc);
 	}
