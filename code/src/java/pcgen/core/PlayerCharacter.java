@@ -1131,17 +1131,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	private static Equipment getEquipmentNamed(final String aString, final Collection<Equipment> aList)
 	{
-		Equipment match = null;
-
-		for (Equipment eq : aList)
-		{
-			if (aString.equalsIgnoreCase(eq.getName()))
-			{
-				match = eq;
-			}
-		}
-
-		return match;
+		return aList.stream()
+				.filter(v -> aString.equalsIgnoreCase(v.getName()))
+				.reduce((a, b) -> b) // get last item
+				.orElse(null);
 	}
 
 	/**
@@ -7966,7 +7959,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param aCategory The ability category to be queried.
 	 * @return The list of abilities of the category regardless of nature.
 	 */
-	public List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
+	List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
 	{
 		List<Ability> aggregate = new ArrayList<>();
 		final Map<String, Ability> aHashMap = new HashMap<>();
@@ -8115,14 +8108,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public boolean isClassSkill(Skill sk)
 	{
-		for (PCClass cl : getClassSet())
-		{
-			if (isClassSkill(cl, sk))
-			{
-				return true;
-			}
-		}
-		return false;
+		return getClassSet().stream().anyMatch(v -> isClassSkill(v, sk));
 	}
 
 	private boolean isCrossClassSkill(Skill sk, PCClass pcc)
@@ -8137,14 +8123,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	private boolean isCrossClassSkill(Skill sk)
 	{
-		for (PCClass cl : getClassSet())
-		{
-			if (isCrossClassSkill(sk, cl))
-			{
-				return true;
-			}
-		}
-		return false;
+		return getClassSet().stream().anyMatch(v -> isCrossClassSkill(sk, v));
 	}
 
 	public SkillCost getSkillCostForClass(Skill sk, PCClass cl)
@@ -9862,7 +9841,34 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public void removeKnownSpellsForClassLevel(PCClass pcc)
+	private boolean canCharCastSpell(final CharacterSpell charSpell, final List<? extends CDOMList<Spell>> lists, final SpellSupportForPCClass spellSupport)
+	{
+
+		final Spell aSpell = charSpell.getSpell();
+
+		// Check that the character can still cast spells of this level.
+		final Integer[] spellLevels =
+				SpellLevel.levelForKey(aSpell, lists, this);
+		for (final Integer spellLevel : spellLevels)
+		{
+			if (spellLevel == -1)
+			{
+				continue;
+			}
+
+			final boolean isKnownAtThisLevel =
+					spellSupport.isAutoKnownSpell(aSpell, spellLevel, true, this);
+
+			if (!isKnownAtThisLevel)
+			{
+				return false;
+			}
+		}
+		return true;
+	}
+
+
+	void removeKnownSpellsForClassLevel(PCClass pcc)
 	{
 		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || importing
 			|| !autoKnownSpells)
@@ -9875,45 +9881,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return;
 		}
 
-		SpellSupportForPCClass spellSupport = getSpellSupport(pcc);
+		final SpellSupportForPCClass spellSupport = getSpellSupport(pcc);
+		final List<? extends CDOMList<Spell>> lists = getSpellLists(pcc);
 
-		List<? extends CDOMList<Spell>> lists = getSpellLists(pcc);
-		List<CharacterSpell> spellsToBeRemoved =
-                new ArrayList<>();
-
-		for (Iterator<? extends CharacterSpell> iter =
-				getCharacterSpells(pcc).iterator(); iter.hasNext();)
-		{
-			final CharacterSpell charSpell = iter.next();
-
-			final Spell aSpell = charSpell.getSpell();
-
-			// Check that the character can still cast spells of this level.
-			final Integer[] spellLevels =
-					SpellLevel.levelForKey(aSpell, lists, this);
-			for (Integer i = 0; i < spellLevels.length; i++)
-			{
-				final int spellLevel = spellLevels[i];
-				if (spellLevel == -1)
-				{
-					continue;
-				}
-
-				final boolean isKnownAtThisLevel =
-						spellSupport.isAutoKnownSpell(aSpell, spellLevel, true,
-							this);
-
-				if (!isKnownAtThisLevel)
-				{
-					spellsToBeRemoved.add(charSpell);
-				}
-			}
-		}
-
-		for (CharacterSpell characterSpell : spellsToBeRemoved)
-		{
-			removeCharacterSpell(pcc, characterSpell);
-		}
+		getCharacterSpells(pcc).stream()
+				.filter(charSpell -> !canCharCastSpell(charSpell, lists, spellSupport))
+				.forEach(charSpell -> removeCharacterSpell(pcc, charSpell));
 	}
 
 	public void addTemplateFeat(CDOMObject template, CNAbilitySelection as)
@@ -9928,8 +9901,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 	}
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
@@ -9939,8 +9911,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 	}
 
 	public List<?> getDetailedAssociations(ChooseDriver cd)
@@ -10088,7 +10059,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public boolean hasAbilityInPool(AbilityCategory aCategory)
+	boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
 		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
 	}
@@ -10116,6 +10087,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public boolean hasControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string)) != null;
+		return controller.containsKey(ObjectKey.getKeyFor(String.class, "*" + string));
 	}
 }
