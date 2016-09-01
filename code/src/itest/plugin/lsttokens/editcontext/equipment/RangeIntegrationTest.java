@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.equipment.RangeToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RangeIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>

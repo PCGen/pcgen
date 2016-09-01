@@ -30,8 +30,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.DefineLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class DefineIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

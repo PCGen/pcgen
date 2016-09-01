@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.choose.NoChoiceToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractAbilityGrantCheckTest extends AbstractTokenModelTest
 {

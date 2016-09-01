@@ -30,8 +30,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.SizeToken;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SizeIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>

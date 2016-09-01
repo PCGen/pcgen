@@ -25,7 +25,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeIntegrationTestCase;
 import plugin.lsttokens.template.RacetypeToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RaceTypeIntegrationTest extends
 		AbstractTypeSafeIntegrationTestCase<PCTemplate>

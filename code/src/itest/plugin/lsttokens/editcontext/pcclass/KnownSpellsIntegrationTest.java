@@ -28,7 +28,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.pcclass.KnownspellsToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class KnownSpellsIntegrationTest extends
 		AbstractListIntegrationTestCase<PCClass, Spell>

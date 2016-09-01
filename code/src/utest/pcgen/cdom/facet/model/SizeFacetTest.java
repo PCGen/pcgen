@@ -40,7 +40,6 @@ import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.AbstractReferenceContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class SizeFacetTest extends TestCase
 {

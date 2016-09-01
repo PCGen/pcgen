@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.FollowersLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class FollowersIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

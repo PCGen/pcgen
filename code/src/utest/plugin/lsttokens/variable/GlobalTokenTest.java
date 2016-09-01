@@ -26,7 +26,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.testsupport.AbstractTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>

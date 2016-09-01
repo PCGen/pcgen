@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.CompanionListLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CompanionListIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Race>

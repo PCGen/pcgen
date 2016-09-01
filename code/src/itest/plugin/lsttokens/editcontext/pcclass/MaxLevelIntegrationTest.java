@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.MaxlevelToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class MaxLevelIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>

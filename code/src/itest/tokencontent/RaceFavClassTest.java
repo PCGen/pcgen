@@ -24,14 +24,12 @@ import pcgen.cdom.facet.analysis.FavoredClassFacet;
 import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
-import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.ClassToken;
 import plugin.lsttokens.race.FavclassToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceFavClassTest extends AbstractTokenModelTest

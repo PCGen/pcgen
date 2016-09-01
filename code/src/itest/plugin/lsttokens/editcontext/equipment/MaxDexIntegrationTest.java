@@ -22,7 +22,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.equipment.MaxdexToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
+
 public class MaxDexIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Equipment>
 {

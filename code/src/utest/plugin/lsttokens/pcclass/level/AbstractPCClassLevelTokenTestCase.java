@@ -40,9 +40,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 {

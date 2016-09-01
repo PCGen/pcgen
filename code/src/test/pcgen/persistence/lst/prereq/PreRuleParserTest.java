@@ -28,7 +28,6 @@ import static org.junit.Assert.assertFalse;
 
 import org.junit.Test;
 
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreRuleParser;
 

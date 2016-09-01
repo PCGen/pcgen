@@ -41,7 +41,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin

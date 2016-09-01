@@ -25,7 +25,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTextPropertyTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<Equipment>

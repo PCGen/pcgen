@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractFormulaIntegrationTestCase;
 import plugin.lsttokens.race.LeveladjustmentToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class LevelAdjustmentIntegrationTest extends
 		AbstractFormulaIntegrationTestCase<Race>

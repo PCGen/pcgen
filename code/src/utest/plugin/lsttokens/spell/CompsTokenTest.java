@@ -24,7 +24,6 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CompsTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {

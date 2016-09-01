@@ -24,7 +24,6 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.lsttokens.testsupport.TransparentPlayerCharacter;
 
 public class PCQualifierTokenTest extends

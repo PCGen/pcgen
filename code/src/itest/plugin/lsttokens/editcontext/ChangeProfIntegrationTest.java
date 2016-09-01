@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ChangeprofLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ChangeProfIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

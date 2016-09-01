@@ -31,8 +31,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.deity.AlignToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 {

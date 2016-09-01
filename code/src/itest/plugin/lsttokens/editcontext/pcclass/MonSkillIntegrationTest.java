@@ -26,8 +26,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.MonSkillPts;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.pcclass.MonskillToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLevelMaxParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreRaceWriter;

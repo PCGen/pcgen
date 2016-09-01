@@ -31,9 +31,7 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.orderedpair.SetModifierFactory;
 
 public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>

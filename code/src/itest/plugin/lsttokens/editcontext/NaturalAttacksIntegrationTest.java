@@ -31,7 +31,6 @@ import plugin.bonustokens.Weapon;
 import plugin.lsttokens.NaturalattacksLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class NaturalAttacksIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>
