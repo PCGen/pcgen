@@ -44,7 +44,7 @@ public class SpellListTypeToken extends SpellListToken
 {
 
 	/** token name */
-	public static final String TOKENNAME = "SPELLLISTTYPE";
+	private static final String TOKENNAME = "SPELLLISTTYPE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

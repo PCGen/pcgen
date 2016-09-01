@@ -32,7 +32,7 @@ import pcgen.util.enumeration.Visibility;
  * 
  * @author Stefan Radermacher
  */
-public class VisibleToken extends AbstractNonEmptyToken<Equipment>
+class VisibleToken extends AbstractNonEmptyToken<Equipment>
 	implements CDOMPrimaryToken<Equipment>
 {
 	@Override

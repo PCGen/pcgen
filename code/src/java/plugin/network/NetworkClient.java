@@ -29,7 +29,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-public class NetworkClient
+class NetworkClient
 {
 	private String user = "Client";
 	private NetworkModel model;
@@ -93,7 +93,7 @@ public class NetworkClient
 		sendMessage("Broadcast", message);
 	}
 
-	public void sendUserMessage(String aUser)
+	private void sendUserMessage(String aUser)
 	{
 		sendMessage("User", aUser);
 	}
@@ -226,11 +226,11 @@ public class NetworkClient
 		return retValue;
 	}
 
-	protected class Handler extends Thread
+	private class Handler extends Thread
 	{
-		BufferedReader inputStream;
+		private BufferedReader inputStream;
 
-		public Handler(BufferedReader is)
+		private Handler(BufferedReader is)
 		{
 			this.inputStream = is;
 		}

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SPELLBASECONCENTRATION Token
  */
-public class SpellbaseconcentrationToken implements GameModeLstToken
+class SpellbaseconcentrationToken implements GameModeLstToken
 {
 
     @Override

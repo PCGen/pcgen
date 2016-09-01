@@ -28,7 +28,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:FOLLOWERS token.
  */
-public class Followers extends BonusObj
+class Followers extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

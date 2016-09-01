@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Class deals with SPELLTYPE Token
  */
-public class SpelltypeToken extends AbstractToFactToken<PCClass>
+class SpelltypeToken extends AbstractToFactToken<PCClass>
 {
 
 	@Override

@@ -36,7 +36,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * BIO,text delimiter
  * BIO[.beforevalue[.aftervalue]]
  */
-public class BioToken extends AbstractExportToken
+class BioToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

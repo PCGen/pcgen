@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with DR token
  */
-public class DRToken extends AbstractExportToken
+class DRToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

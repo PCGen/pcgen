@@ -42,10 +42,10 @@ import pcgen.util.Delta;
  * x = FORTITUDE|WILL|REFLEX|0|1|2
  * y = TOTAL|BASE|MISC|EPIC|MAGIC|RACE|FEATS|STATMOD|NOEPIC|NOMAGIC|NORACE|NOFEATS|NOSTAT|NOSTATMOD
  */
-public class CheckToken extends Token
+class CheckToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "CHECK";
+	private static final String TOKENNAME = "CHECK";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -105,8 +105,8 @@ public class CheckToken extends Token
 	 * @param saveMods
 	 * @return int
 	 */
-	public static int getCheckToken(PlayerCharacter pc, String saveType,
-		String saveMods)
+	private static int getCheckToken(PlayerCharacter pc, String saveType,
+	                                 String saveMods)
 	{
 		PCCheck check = getNameToken(saveType);
 		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL"
@@ -118,7 +118,7 @@ public class CheckToken extends Token
 	 * @param saveType
 	 * @return token name
 	 */
-	public static PCCheck getNameToken(String saveType)
+	private static PCCheck getNameToken(String saveType)
 	{
 		try
 		{

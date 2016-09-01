@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with PARM Token
  */
-public class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
+class ParmToken extends AbstractNonEmptyToken<RuleCheck> implements
 		CDOMPrimaryToken<RuleCheck>
 {
 

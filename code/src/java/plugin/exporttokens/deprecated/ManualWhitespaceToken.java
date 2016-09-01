@@ -30,7 +30,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Token that represents the start of controlled manual whitespace
  */
-public class ManualWhitespaceToken extends AbstractExportToken
+class ManualWhitespaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

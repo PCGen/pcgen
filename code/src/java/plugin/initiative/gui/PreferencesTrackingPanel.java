@@ -32,7 +32,7 @@ import plugin.initiative.InitiativePlugin;
  *@author     devon
  *@since    April 7, 2003
  */
-public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
+class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 {
 	// End of variables declaration//GEN-END:variables
 	private Initiative initiative;
@@ -62,7 +62,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@param  Selected  The new deathCheckBoxChecked value
 	 */
-	public void setDeathCheckBoxChecked(boolean Selected)
+	private void setDeathCheckBoxChecked(boolean Selected)
 	{
 		deathCheckBox.setSelected(Selected);
 	}
@@ -72,7 +72,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@return    The deathCheckBoxChecked value
 	 */
-	public boolean isDeathCheckBoxChecked()
+	private boolean isDeathCheckBoxChecked()
 	{
 		return deathCheckBox.isSelected();
 	}
@@ -82,7 +82,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@param  Selected  The new hPCheckBoxChecked value
 	 */
-	public void setHPCheckBoxChecked(boolean Selected)
+	private void setHPCheckBoxChecked(boolean Selected)
 	{
 		hpCheckBox.setSelected(Selected);
 	}
@@ -92,7 +92,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@return    The hPCheckBoxChecked value
 	 */
-	public boolean isHPCheckBoxChecked()
+	private boolean isHPCheckBoxChecked()
 	{
 		return hpCheckBox.isSelected();
 	}
@@ -102,7 +102,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@param  Selected  The new spellCheckBoxChecked value
 	 */
-	public void setSpellCheckBoxChecked(boolean Selected)
+	private void setSpellCheckBoxChecked(boolean Selected)
 	{
 		spellCheckBox.setSelected(Selected);
 	}
@@ -112,7 +112,7 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@return    The spellCheckBoxChecked value
 	 */
-	public boolean isSpellCheckBoxChecked()
+	private boolean isSpellCheckBoxChecked()
 	{
 		return spellCheckBox.isSelected();
 	}

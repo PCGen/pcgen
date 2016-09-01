@@ -41,7 +41,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 1030 $
  */
-public class FollowerListToken extends AbstractExportToken
+class FollowerListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -68,7 +68,7 @@ public class FollowerListToken extends AbstractExportToken
 	 * @param display The character to be queried
 	 * @return The list of followers.
 	 */
-	public static String getFollowerListToken(CharacterDisplay display)
+	private static String getFollowerListToken(CharacterDisplay display)
 	{
 		StringBuilder buf = new StringBuilder();
 

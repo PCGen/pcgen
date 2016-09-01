@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * SIZE token for export
  */
-public class SizeToken extends AbstractExportToken
+class SizeToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

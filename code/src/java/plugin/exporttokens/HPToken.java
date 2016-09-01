@@ -32,10 +32,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * Deals with HP token
  */
-public class HPToken extends Token
+class HPToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "HP";
+	private static final String TOKENNAME = "HP";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

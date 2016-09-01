@@ -42,13 +42,13 @@ public class SaveModel extends PObjectModel
 	public static final String SAVE_TYPE_WILL = "WILL";
 
 	/** Bonus value */
-	int m_bonus = 0;
+	private int m_bonus = 0;
 
 	/** DC (not set by initialization */
-	int m_dc = 0;
+	private int m_dc = 0;
 
 	/** Save type */
-	String m_saveType = null;
+	private String m_saveType = null;
 
 	/**
 	 * <p>
@@ -95,7 +95,7 @@ public class SaveModel extends PObjectModel
 	 * <p>Sets the bonus value</p>
 	 * @param bonus The bonus to set.
 	 */
-	public void setBonus(int bonus)
+	private void setBonus(int bonus)
 	{
 		m_bonus = bonus;
 	}

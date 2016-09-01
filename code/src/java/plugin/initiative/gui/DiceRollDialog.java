@@ -44,7 +44,7 @@ import plugin.initiative.DiceRollModel;
 class DiceRollDialog extends JDialog
 {
 	/** The skill model for this dialog. */
-	DiceRollModel m_model = null;
+	private DiceRollModel m_model = null;
 
 	/** Button to exit the dialog */
 	private JButton m_ok;
@@ -111,7 +111,7 @@ class DiceRollDialog extends JDialog
 	 * Initializes the dialog components, sizes and positions the dialog.
 	 * </p>
 	 */
-	protected void initComponents()
+	void initComponents()
 	{
 		/*
 		 * Dialog will consist of
@@ -222,7 +222,7 @@ class DiceRollDialog extends JDialog
 	 * <p>Initializes the button listeners</p>
 	 *
 	 */
-	protected void initListeners()
+	void initListeners()
 	{
 		//Initialize listeners
 		m_doRoll.addActionListener(e -> handleRoll());
@@ -246,7 +246,7 @@ class DiceRollDialog extends JDialog
 	 * <p>Sets the result string</p>
 	 * @param result
 	 */
-	protected void setResult(int result)
+	void setResult(int result)
 	{
 		m_result.setText("<html><body><b>" + result + "</b></body></html>");
 	}

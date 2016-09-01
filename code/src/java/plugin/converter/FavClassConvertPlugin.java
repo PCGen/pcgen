@@ -37,11 +37,11 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 
-public class FavClassConvertPlugin extends AbstractToken implements
+class FavClassConvertPlugin extends AbstractToken implements
 		TokenProcessorPlugin
 {
-	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
     @Override
 	public String process(TokenProcessEvent tpe)
@@ -63,7 +63,7 @@ public class FavClassConvertPlugin extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(choices, Constants.PIPE);
 
-		List<CDOMReference<? extends PCClass>> refList = new ArrayList<CDOMReference<? extends PCClass>>();
+		List<CDOMReference<? extends PCClass>> refList = new ArrayList<>();
 		LoadContext context = tpe.getContext();
 		while (tok.hasMoreTokens())
 		{

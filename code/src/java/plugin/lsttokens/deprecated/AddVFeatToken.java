@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
+class AddVFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMCompatibilityToken<CDOMObject>
 {
 	@Override

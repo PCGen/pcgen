@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with HANDED token
  */
-public class HandedToken extends AbstractExportToken
+class HandedToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

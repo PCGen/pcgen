@@ -100,25 +100,19 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		public AddDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toAdd)
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
+		                               int userPriority, T[] toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return getFormatManager().unconvert(toAdd);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -135,25 +129,19 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		public AddIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toAdd)
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
+		                                 int userPriority, Indirect<T[]> toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return toAdd.getUnconverted();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -182,33 +170,24 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			this.userPriority = userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getUserPriority()
 		{
 			return userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public long getPriority()
 		{
 			return (userPriority << 32) + 3;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T[] process(EvaluationManager evalManager)
 		{
 			@SuppressWarnings("unchecked")
 			T[] input = (T[]) evalManager.peek(EvaluationManager.INPUT);
-			Set<T> newSet = new HashSet<T>();
+			Set<T> newSet = new HashSet<>();
 			for (T o : input)
 			{
 				newSet.add(o);
@@ -231,27 +210,18 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		protected abstract T[] getArray();
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Class<T[]> getVariableFormat()
 		{
 			return fmtManager.getManagedClass();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 		public void getDependencies(DependencyManager fdm)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getIdentification()
 		{

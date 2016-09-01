@@ -27,7 +27,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
@@ -135,15 +134,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		logging = new JCheckBox();
 		browseButton = new JButton(LanguageBundle.getString("...")); //$NON-NLS-1$
 
-		browseButton.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				browseButtonActionPerformed(e);
-			}
-		});
+		browseButton.addActionListener(this::browseButtonActionPerformed);
 
 		JPanel borderPanel = new JPanel();
 		borderPanel.setLayout(new GridBagLayout());
@@ -190,7 +181,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 * @param e
 	 */
-	protected void browseButtonActionPerformed(ActionEvent e)
+	private void browseButtonActionPerformed(ActionEvent e)
 	{
 		JFileChooser dlg = new JFileChooser(getDataDir());
 		dlg.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);

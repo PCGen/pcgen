@@ -11,7 +11,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with UNITSET Token
  */
-public class UnitsetToken implements GameModeLstToken
+class UnitsetToken implements GameModeLstToken
 {
 
     @Override

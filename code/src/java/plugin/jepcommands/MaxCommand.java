@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * Deal with max() JEP command eg. {@literal max(12.6, 20) --> 20}
  */
-public class MaxCommand extends PCGenCommand
+class MaxCommand extends PCGenCommand
 {
 	/**
 	 * <p>

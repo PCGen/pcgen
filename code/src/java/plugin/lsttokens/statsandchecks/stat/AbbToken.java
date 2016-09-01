@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with ABB Token for pc stat
  */
-public class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
+class AbbToken extends AbstractNonEmptyToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	/**

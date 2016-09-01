@@ -33,7 +33,7 @@ import gmgen.plugin.Combatant;
 public class ExperienceListItem
 {
 	/** Combatant for the List Item */
-	protected Combatant cbt;
+	private Combatant cbt;
 
 	/**
 	 * Creates a new instance of ExperienceListItem taking in a

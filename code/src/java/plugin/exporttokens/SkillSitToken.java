@@ -56,7 +56,7 @@ import pcgen.util.enumeration.View;
 
 public class SkillSitToken extends Token
 {
-	public static final String TOKENNAME = "SKILLSIT";
+	private static final String TOKENNAME = "SKILLSIT";
 
 	// Cache the skill list as it is expensive to build
 	private List<Skill> cachedSkillList = null;
@@ -212,8 +212,8 @@ public class SkillSitToken extends Token
 	 * @param pc The character to be reported.
 	 * @return The skill tag output value.
 	 */
-	protected String getSkillProperty(Object aSkill, String property,
-		PlayerCharacter pc)
+	private String getSkillProperty(Object aSkill, String property,
+	                                PlayerCharacter pc)
 	{
 		if (aSkill == null)
 		{

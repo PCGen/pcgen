@@ -27,7 +27,7 @@ import pcgen.util.Logging;
 /**
  * New chooser plugin, handles numbers.
  */
-public class NumberToken implements CDOMCompatibilityToken<CDOMObject>
+class NumberToken implements CDOMCompatibilityToken<CDOMObject>
 {
 
 	@Override

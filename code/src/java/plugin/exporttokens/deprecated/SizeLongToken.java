@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * SIZELONG for export
  */
-public class SizeLongToken extends AbstractExportToken
+class SizeLongToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

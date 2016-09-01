@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with PART token
  */
-public class PartToken extends AbstractNonEmptyToken<Equipment> implements
+class PartToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>
 {
 

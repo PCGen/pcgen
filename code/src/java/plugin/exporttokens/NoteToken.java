@@ -36,9 +36,9 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 //NOTE
-public class NoteToken extends Token
+class NoteToken extends Token
 {
-	public static final String TOKENNAME = "NOTE";
+	private static final String TOKENNAME = "NOTE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -146,7 +146,7 @@ public class NoteToken extends Token
 		return sb.toString().trim();
 	}
 
-	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
+	private static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
 	{
 		List<NoteItem> noteList = new ArrayList<NoteItem>();
 		List<NoteItem> resultList;

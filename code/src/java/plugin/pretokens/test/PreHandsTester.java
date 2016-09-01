@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreHandsTester extends AbstractPrerequisiteTest implements
+class PreHandsTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

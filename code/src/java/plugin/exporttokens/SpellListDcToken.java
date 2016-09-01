@@ -44,7 +44,7 @@ import pcgen.io.exporttoken.SpellListToken;
 public class SpellListDcToken extends SpellListToken
 {
 	/** token name */
-	public static final String TOKENNAME = "SPELLLISTDC";
+	private static final String TOKENNAME = "SPELLLISTDC";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

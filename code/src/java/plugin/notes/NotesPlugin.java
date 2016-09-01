@@ -30,7 +30,6 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenu;
@@ -55,11 +54,11 @@ import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
 
 /**
- * The <code>NotesPlugin</code> controls the various classes that are involved
- * in the functionality of the Notes System. This <code>class
- * </code> is a
- * plugin for the <code>GMGenSystem</code>, is called by the
- * <code>PluginLoader</code> and will create a model and a view for this
+ * The {@code NotesPlugin} controls the various classes that are involved
+ * in the functionality of the Notes System. This {@code class
+ * } is a
+ * plugin for the {@code GMGenSystem}, is called by the
+ * {@code PluginLoader} and will create a model and a view for this
  * plugin.
  *
  * @author Devon Jones
@@ -114,7 +113,7 @@ public class NotesPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -128,10 +127,7 @@ public class NotesPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -154,7 +150,7 @@ public class NotesPlugin implements InteractivePlugin
 		return NAME;
 	}
 
-	public String getLocalizedName()
+	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -165,11 +161,11 @@ public class NotesPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Gets the <code>JPanel</code> view for the notes plugin
+	 * Gets the {@code JPanel} view for the notes plugin
 	 *
 	 * @return the view.
 	 */
-	public JPanel getView()
+	private JPanel getView()
 	{
 		return theView;
 	}
@@ -207,7 +203,7 @@ public class NotesPlugin implements InteractivePlugin
 	 * @param evt
 	 *          Action Event of a click on the tool menu item
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -275,7 +271,7 @@ public class NotesPlugin implements InteractivePlugin
 		theView.windowClosed();
 	}
 
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -287,15 +283,7 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
 		notesToolsItem.setText(getLocalizedName());
-		notesToolsItem.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		notesToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
@@ -316,7 +304,7 @@ public class NotesPlugin implements InteractivePlugin
 		return new File(notesDataDir);
 	}
 
-	public File defaultDataDir()
+	private File defaultDataDir()
 	{
 		File dataDir =
 				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());

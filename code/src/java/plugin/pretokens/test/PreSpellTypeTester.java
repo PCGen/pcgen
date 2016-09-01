@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * This is used to check the characters spellcasting ability.
  *
  */
-public class PreSpellTypeTester extends AbstractPrerequisiteTest implements
+class PreSpellTypeTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

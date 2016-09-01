@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STATRANGE Token
  */
-public class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
+class StatrangeToken implements CDOMPrimaryToken<BonusSpellInfo>
 {
 
 	@Override

@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:ABILITYPOOL token.
  */
-public final class AbilityPool extends BonusObj
+final class AbilityPool extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

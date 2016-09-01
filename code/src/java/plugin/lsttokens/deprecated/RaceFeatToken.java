@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with FEAT Token
  */
-public class RaceFeatToken extends AbstractNonEmptyToken<Race> implements
+class RaceFeatToken extends AbstractNonEmptyToken<Race> implements
 		CDOMCompatibilityToken<Race>, DeprecatedToken
 {
 	@Override

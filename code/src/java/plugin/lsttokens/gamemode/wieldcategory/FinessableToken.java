@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
+class FinessableToken extends AbstractNonEmptyToken<WieldCategory>
 		implements CDOMPrimaryToken<WieldCategory>
 {
 

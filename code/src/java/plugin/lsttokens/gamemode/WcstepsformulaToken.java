@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with WCSTEPSFORMULA Token
  */
-public class WcstepsformulaToken implements GameModeLstToken
+class WcstepsformulaToken implements GameModeLstToken
 {
 
     @Override

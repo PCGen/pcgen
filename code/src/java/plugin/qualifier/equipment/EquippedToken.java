@@ -33,7 +33,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
-public class EquippedToken implements QualifierToken<Equipment>,
+class EquippedToken implements QualifierToken<Equipment>,
 		PrimitiveFilter<Equipment>
 {
 

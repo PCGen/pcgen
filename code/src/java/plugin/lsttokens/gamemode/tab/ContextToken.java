@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with CONTEXT Token
  */
-public class ContextToken implements CDOMPrimaryToken<TabInfo>
+class ContextToken implements CDOMPrimaryToken<TabInfo>
 {
 
 	@Override

@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with PENALTYVAR Token
  */
-public class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
+class PenaltyvarToken implements CDOMCompatibilityToken<PCStat>,
 		DeprecatedToken
 {
 

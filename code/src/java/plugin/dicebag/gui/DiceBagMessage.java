@@ -33,10 +33,10 @@ package plugin.dicebag.gui;
  *
  * @author Ross Lodge
  */
-public class DiceBagMessage
+class DiceBagMessage
 {
 	/** Constant for message with no type. */
-	public static final int NO_TYPE = 0;
+	private static final int NO_TYPE = 0;
 
 	/** Constant for message indicating the model has been initialized. */
 	public static final int MODEL_INITIALIZED = 1;
@@ -64,7 +64,7 @@ public class DiceBagMessage
 	 *
 	 * @param type One of the constants . . .
 	 */
-	public DiceBagMessage(int type)
+	private DiceBagMessage(int type)
 	{
 		m_type = type;
 	}
@@ -75,7 +75,7 @@ public class DiceBagMessage
 	 * @param type One of the constants
 	 * @param bag Bag this message pertains to
 	 */
-	public DiceBagMessage(int type, DiceBagModel bag)
+	DiceBagMessage(int type, DiceBagModel bag)
 	{
 		this(type);
 		m_diceBag = bag;

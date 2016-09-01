@@ -34,7 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class RoleToken extends AbstractNonEmptyToken<PCClass> implements
+class RoleToken extends AbstractNonEmptyToken<PCClass> implements
 		CDOMPrimaryToken<PCClass>
 {
 

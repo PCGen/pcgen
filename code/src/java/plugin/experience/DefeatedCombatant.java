@@ -41,9 +41,9 @@ public class DefeatedCombatant extends Combatant
 	 *  History:
 	 *  March 20, 2003: Cleanup for Version 1.0
 	 */
-	protected String name;
-	protected float cr;
-	protected int xp;
+	private String name;
+	private float cr;
+	private int xp;
 
 	/**
 	 *  Creates new Combatant

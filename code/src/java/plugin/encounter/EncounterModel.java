@@ -33,7 +33,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
 /**
- * This <code>class</code> holds all the necessary data in order to have
+ * This {@code class} holds all the necessary data in order to have
  * functionality for the Encounter Generator.<br>
  * Created on February 19, 2003<br>
  * Updated on March 12, 2003
@@ -96,7 +96,7 @@ public class EncounterModel extends DefaultListModel
 	}
 
 	/**
-	 * Sets the <code>Array</code> of <code>PlayerCharacters</code>.
+	 * Sets the {@code Array} of <code>PlayerCharacters</code>.
 	 * @param len the number of characters being created.
 	 */
 	public void setPCs(int len)
@@ -112,7 +112,7 @@ public class EncounterModel extends DefaultListModel
 
 	/**
 	 * Gets all the characters in the encounter.
-	 * @return the <code>Array</code> of characters.
+	 * @return the {@code Array} of characters.
 	 */
 	public PlayerCharacter[] getPCs()
 	{
@@ -124,7 +124,7 @@ public class EncounterModel extends DefaultListModel
 	 * @param x
 	 * @return "power level"
 	 */
-	public float mCRtoPL(float x)
+	private float mCRtoPL(float x)
 	{
 		float iReturn = 0;
 
@@ -141,11 +141,11 @@ public class EncounterModel extends DefaultListModel
 	}
 
 	/**
-	 * Takes a "power level" into CR. See <code>mCRtoPL()</code> for details.
+	 * Takes a "power level" into CR. See {@code mCRtoPL()} for details.
 	 * @param x
 	 * @return "power level"
 	 */
-	public int mPLtoCR(float x)
+	private int mPLtoCR(float x)
 	{
 		return (int) ((2 * Math.log(x)) + 1);
 	}

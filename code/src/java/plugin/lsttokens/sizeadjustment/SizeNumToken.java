@@ -32,7 +32,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with LEGS Token
  */
-public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
+class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 		CDOMPrimaryToken<SizeAdjustment>, PostValidationToken<SizeAdjustment>
 {
 

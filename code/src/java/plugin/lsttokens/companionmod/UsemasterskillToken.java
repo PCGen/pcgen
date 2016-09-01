@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with USEMASTERSKILL Token
  */
-public class UsemasterskillToken extends AbstractYesNoToken<CompanionMod>
+class UsemasterskillToken extends AbstractYesNoToken<CompanionMod>
 		implements CDOMPrimaryToken<CompanionMod>
 {
 

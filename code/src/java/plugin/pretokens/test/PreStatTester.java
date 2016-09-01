@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreStatTester extends AbstractDisplayPrereqTest implements
+class PreStatTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

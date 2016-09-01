@@ -11,7 +11,7 @@ import pcgen.util.Logging;
  * @author karianna
  * Class deals with SPELLBOOKNAME Token
  */
-public class SpellBookNameToken extends AbstractExportToken
+class SpellBookNameToken extends AbstractExportToken
 {
 
 	/**

@@ -26,12 +26,12 @@ import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
-public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
+class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 {
 
-	public static final String SET_ANY = "Set unspecified values to ANY (identify as 'present')";
-	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
-	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
+	private static final String SET_ANY = "Set unspecified values to ANY (identify as 'present')";
+	private static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
+	private static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
     @Override
 	public String process(TokenProcessEvent tpe)
@@ -86,7 +86,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 			int withEquals = 0;
 			boolean withoutEquals = false;
 			boolean lastWithEquals = false;
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (String tok : strings)
 			{
 				int equalLoc = tok.indexOf('=');
@@ -152,8 +152,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 						lastValue = Integer.decode(tok.substring(equalLoc + 1));
 					}
 				}
-				List<String> descr = new ArrayList<String>();
-				List<String> choice = new ArrayList<String>();
+				List<String> descr = new ArrayList<>();
+				List<String> choice = new ArrayList<>();
 				processChoices(tpe, num, descr, choice, onebase.toString(),
 						SET_ANY);
 				processChoices(tpe, num, descr, choice, rightbase.toString(),
@@ -239,7 +239,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		else
 		{
-			List<String> descr = new ArrayList<String>();
+			List<String> descr = new ArrayList<>();
 			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
@@ -255,9 +255,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
 		boolean needComma = false;
-		for (int i = 0; i < base.length; i++)
+		for (String tok : base)
 		{
-			String tok = base[i];
 			// need to check zero...
 
 			int equalLoc = tok.indexOf('=');
@@ -285,7 +284,7 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		}
 		String oneResult = one.toString();
 		String anyResult = any.toString();
-		List<String> choice = new ArrayList<String>();
+		List<String> choice = new ArrayList<>();
 		choice.add(oneResult);
 		choice.add(anyResult);
 		return choice;

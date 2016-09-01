@@ -62,7 +62,7 @@ import pcgen.util.enumeration.AttackType;
 public class AttackToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "ATTACK";
+	private static final String TOKENNAME = "ATTACK";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

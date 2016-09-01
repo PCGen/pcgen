@@ -38,10 +38,10 @@ import java.util.StringTokenizer;
  * @author	binkley
  * @version	$Revision$
  */
-public class WeaponpToken extends WeaponToken
+class WeaponpToken extends WeaponToken
 {
 	/** Weaponp Token. */
-	public static final String TOKEN_NAME = "WEAPONP";
+	private static final String TOKEN_NAME = "WEAPONP";
 
 	/**
 	 * Gets the token name

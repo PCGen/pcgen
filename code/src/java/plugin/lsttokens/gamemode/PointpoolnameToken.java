@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with POINTPOOLNAME Token
  */
-public class PointpoolnameToken implements GameModeLstToken
+class PointpoolnameToken implements GameModeLstToken
 {
 
     @Override

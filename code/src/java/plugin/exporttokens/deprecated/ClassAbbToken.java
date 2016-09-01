@@ -35,7 +35,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with CLASSABB.x token
  */
-public class ClassAbbToken extends AbstractExportToken
+class ClassAbbToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -72,7 +72,7 @@ public class ClassAbbToken extends AbstractExportToken
 	 * @param classNumber
 	 * @return token
 	 */
-	public static String getClassAbbToken(CharacterDisplay display, int classNumber)
+	private static String getClassAbbToken(CharacterDisplay display, int classNumber)
 	{
 		String retString = "";
 

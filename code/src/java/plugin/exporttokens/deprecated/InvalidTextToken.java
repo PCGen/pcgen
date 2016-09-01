@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 //PAPERINFO
-public class InvalidTextToken extends AbstractExportToken
+class InvalidTextToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

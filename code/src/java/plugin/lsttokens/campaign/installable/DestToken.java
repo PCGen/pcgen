@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class DestToken implements InstallLstToken
+class DestToken implements InstallLstToken
 {
 
 	/* (non-Javadoc)

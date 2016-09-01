@@ -128,7 +128,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 	 *            The LST tag
 	 * @return A <tt>Aspect</tt> object
 	 */
-	public Aspect parseAspect(final String name, final String aspectDef)
+	private Aspect parseAspect(final String name, final String aspectDef)
 	{
 		final StringTokenizer tok = new StringTokenizer(aspectDef,
 				Constants.PIPE);

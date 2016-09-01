@@ -95,6 +95,6 @@ public class FreeToken extends AbstractNonEmptyToken<KitAbilities> implements
 		{
 			return null;
 		}
-		return new String[]{mult.booleanValue() ? "YES" : "NO"};
+		return new String[]{mult ? "YES" : "NO"};
 	}
 }

@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * LENGTH.HAIR Token
  */
-public class LengthToken extends AbstractExportToken
+class LengthToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

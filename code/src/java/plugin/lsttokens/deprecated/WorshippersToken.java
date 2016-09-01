@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Class deals with WORSHIPPERS Token
  */
-public class WorshippersToken extends AbstractToFactToken<Deity>
+class WorshippersToken extends AbstractToFactToken<Deity>
 {
 
 	/**

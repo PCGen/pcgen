@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with CHECKSMAXLVL Token
  */
-public class ChecksmaxlvlToken implements GameModeLstToken
+class ChecksmaxlvlToken implements GameModeLstToken
 {
 
     @Override

@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:HP token.
  */
-public final class HP extends MultiTagBonusObj
+final class HP extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"BONUS", "CURRENTMAX", "CURRENTMAXPERLEVEL", "ALTHP"};

@@ -44,9 +44,9 @@ import pcgen.util.Logging;
 public class XMLCombatant extends Combatant
 {
 	/** Challenge rating of the combatant */
-	protected float cr;
+	private float cr;
 	/** Experience points of the combatant */
-	protected int xp;
+	private int xp;
 
 	/** The JDOM element from which the combatant was derived. */
 	private Element combatant;
@@ -337,7 +337,7 @@ public class XMLCombatant extends Combatant
 	 * <p>Gets the CR value for the character for output</p>
 	 * @return CR value
 	 */
-	public String getCRForOutput()
+	private String getCRForOutput()
 	{
 		String retString = "";
 		String crAsString = Float.toString(cr);
@@ -391,7 +391,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 * @param  initBonus  The new Init Bonus value
 	 */
-	public void setInitBonus(int initBonus)
+	private void setInitBonus(int initBonus)
 	{
 		init.setBonus(initBonus);
 	}
@@ -425,7 +425,7 @@ public class XMLCombatant extends Combatant
 	 *
 	 *@param  player  The new player value
 	 */
-	public void setPlayer(String player)
+	private void setPlayer(String player)
 	{
 		combatant.getAttribute("player").setValue(player);
 	}
@@ -670,14 +670,14 @@ public class XMLCombatant extends Combatant
 		return new PcRenderer().getHtmlText();
 	}
 
-	protected class PcRenderer
+	private class PcRenderer
 	{
 
 		/**
 		 * Get the HTML text
 		 * @return HTML text
 		 */
-		public String getHtmlText()
+		private String getHtmlText()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -690,7 +690,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockHeader()
+		private String getStatBlockHeader()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -713,7 +713,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockTitle()
+		private String getStatBlockTitle()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -724,7 +724,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockCore()
+		private String getStatBlockCore()
 		{
 			StringBuilder statBuf = new StringBuilder();
 

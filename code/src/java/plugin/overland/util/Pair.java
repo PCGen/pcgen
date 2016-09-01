@@ -24,7 +24,7 @@
  *    IT OPERATES ON ORIGINAL INSTANCES!  BE CAREFUL!
  * @author  Juliean Galak
  */
-public abstract class Pair<K, V>
+abstract class Pair<K, V>
 {
 	private K left; //store one item here
 	private V right; //store other item here
@@ -33,33 +33,33 @@ public abstract class Pair<K, V>
 	 * @param left - left Object to add
 	 * @param right - right Object to add
 	 */
-	public Pair(K left, V right)
+	private Pair(K left, V right)
 	{
 		this.left = left;
 		this.right = right;
 	}
 
-	public Pair()
+	Pair()
 	{
 		this(null, null);
 	}
 
-	protected void setLeft(K left)
+	void setLeft(K left)
 	{
 		this.left = left;
 	}
 
-	protected K getLeft()
+	K getLeft()
 	{
 		return left;
 	}
 
-	protected void setRight(V right)
+	void setRight(V right)
 	{
 		this.right = right;
 	}
 
-	protected V getRight()
+	V getRight()
 	{
 		return right;
 	}

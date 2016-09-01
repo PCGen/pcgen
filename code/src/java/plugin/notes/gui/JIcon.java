@@ -47,10 +47,10 @@ import pcgen.gui2.tools.Icons;
  *@author     soulcatcher
  *@since    August 1, 2003, 4:48 PM
  */
-public class JIcon extends JPanel
+class JIcon extends JPanel
 {
 	private File launch;
-	NotesPlugin plugin;
+	private NotesPlugin plugin;
 
 	// Variables declaration - do not modify                     
 	private JButton button;
@@ -89,7 +89,7 @@ public class JIcon extends JPanel
 	 *@param  filename  File name that this represents
 	 *@return           The icon
 	 */
-	public ImageIcon getIconForType(String filename)
+	private ImageIcon getIconForType(String filename)
 	{
 		// TODO: this blows, it's hardcoded.  This needs to be in a properties file.
 		// XXX ideally this should be use mime type
@@ -143,7 +143,7 @@ public class JIcon extends JPanel
 	}
 
 	/**  Delete the file from disk that this icon represents */
-	protected void deleteFile()
+	private void deleteFile()
 	{
 		int choice =
 				JOptionPane.showConfirmDialog(GMGenSystem.inst, "Delete file "
@@ -178,7 +178,7 @@ public class JIcon extends JPanel
 	/**
 	 *  Launches a file into the appropriate program for the OS we are running on
 	 */
-	protected void launchFile()
+	private void launchFile()
 	{
 		if (plugin.isRecognizedFileType(launch))
 		{
@@ -338,25 +338,11 @@ public class JIcon extends JPanel
 		label = new JLabel();
 
 		launchMI.setText("Launch File (enter)");
-		launchMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				launchMIActionPerformed(evt);
-			}
-		});
+		launchMI.addActionListener(this::launchMIActionPerformed);
 
 		contextMenu.add(launchMI);
 		deleteMI.setText("Delete File (del)");
-		deleteMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				deleteMIActionPerformed(evt);
-			}
-		});
+		deleteMI.addActionListener(this::deleteMIActionPerformed);
 
 		contextMenu.add(deleteMI);
 
@@ -367,14 +353,7 @@ public class JIcon extends JPanel
 		button.setBackground((Color) UIManager.getDefaults().get(
 			"Button.background"));
 		button.setBorder(null);
-		button.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				buttonActionPerformed(evt);
-			}
-		});
+		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{

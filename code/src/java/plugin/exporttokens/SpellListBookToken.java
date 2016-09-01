@@ -47,7 +47,7 @@ import java.util.List;
 public class SpellListBookToken extends SpellListToken
 {
 	/** token name */
-	public static final String TOKENNAME = "SPELLLISTBOOK";
+	private static final String TOKENNAME = "SPELLLISTBOOK";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

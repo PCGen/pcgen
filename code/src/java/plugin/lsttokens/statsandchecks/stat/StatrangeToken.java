@@ -29,7 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STATRANGE Token
  */
-public class StatrangeToken implements CDOMPrimaryToken<PCStat>
+class StatrangeToken implements CDOMPrimaryToken<PCStat>
 {
 
 	@Override

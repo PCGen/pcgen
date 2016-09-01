@@ -43,10 +43,10 @@ import pcgen.io.exporttoken.Token;
  * DOMAIN.x
  * DOMAIN.x.POWER
  */
-public class DomainToken extends Token
+class DomainToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "DOMAIN";
+	private static final String TOKENNAME = "DOMAIN";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -105,7 +105,7 @@ public class DomainToken extends Token
 	 * @param domainIndex
 	 * @return token
 	 */
-	public String getDomainToken(CharacterDisplay display, int domainIndex)
+	private String getDomainToken(CharacterDisplay display, int domainIndex)
 	{
 		try
 		{
@@ -126,7 +126,7 @@ public class DomainToken extends Token
 	 * @param domainIndex
 	 * @return POWER sub token
 	 */
-	public static String getPowerToken(PlayerCharacter pc, int domainIndex)
+	private static String getPowerToken(PlayerCharacter pc, int domainIndex)
 	{
 		try
 		{

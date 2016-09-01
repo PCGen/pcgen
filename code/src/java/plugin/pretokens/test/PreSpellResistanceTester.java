@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSpellResistanceTester extends AbstractPrerequisiteTest
+class PreSpellResistanceTester extends AbstractPrerequisiteTest
 		implements PrerequisiteTest
 {
 

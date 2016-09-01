@@ -52,7 +52,7 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 	private static final String OPTION_NAME_EFFECT = InitiativePlugin.LOG_NAME + ".Damage.Massive.Effect"; //$NON-NLS-1$
 	private static final String OPTION_NAME_USESIZE = InitiativePlugin.LOG_NAME + ".Damage.Massive.SizeMod"; //$NON-NLS-1$
 
-	public static final int MASSIVE_OFF = 1;
+	private static final int MASSIVE_OFF = 1;
 	public static final int MASSIVE_DND = 2;
 	public static final int MASSIVE_D20_MODERN = 3;
 	public static final int MASSIVE_HOUSE_HALF = 4;

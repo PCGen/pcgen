@@ -12,7 +12,7 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 /**
  * Class deals with NUMSLOTS Token
  */
-public class NumslotsToken implements EquipSlotLstToken
+class NumslotsToken implements EquipSlotLstToken
 {
 
     @Override

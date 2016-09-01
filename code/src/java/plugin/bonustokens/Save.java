@@ -37,7 +37,7 @@ import pcgen.rules.context.LoadContext;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public final class Save extends BonusObj
+final class Save extends BonusObj
 {
 	@Override
 	protected boolean parseToken(LoadContext context, final String argToken)
@@ -118,7 +118,7 @@ public final class Save extends BonusObj
 		 * @param argPobj The PObject.
 		 * @param argIsBase Whether this is a base check.
 		 */
-		public CheckInfo(final CDOMReference<PCCheck> argPobj, final boolean argIsBase)
+		private CheckInfo(final CDOMReference<PCCheck> argPobj, final boolean argIsBase)
 		{
 			pobj = argPobj;
 			isBase = argIsBase;
@@ -128,7 +128,7 @@ public final class Save extends BonusObj
 		 * The PObject.
 		 * @return the stored PObject.
 		 */
-		public CDOMReference<PCCheck> getPobj()
+		private CDOMReference<PCCheck> getPobj()
 		{
 			return pobj;
 		}
@@ -138,7 +138,7 @@ public final class Save extends BonusObj
 		 *
 		 * @return True or False.
 		 */
-		public boolean isBase()
+		private boolean isBase()
 		{
 			return isBase;
 		}

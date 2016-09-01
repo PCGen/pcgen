@@ -48,15 +48,15 @@ import plugin.initiative.XMLCombatant;
  * @author Devon Jones
  *
  */
-public class SavingThrowDialog extends javax.swing.JDialog
+class SavingThrowDialog extends javax.swing.JDialog
 {
 	/** Statis for save types */
-	public static final int NULL_SAVE = 0;
+	private static final int NULL_SAVE = 0;
 	public static final int FORT_SAVE = 1;
-	public static final int REF_SAVE = 2;
-	public static final int WILL_SAVE = 3;
+	private static final int REF_SAVE = 2;
+	private static final int WILL_SAVE = 3;
 	/** Statics for pass/fail/cancel */
-	public static final int CANCEL_OPTION = 0;
+	private static final int CANCEL_OPTION = 0;
 	public static final int PASS_OPTION = 1;
 	public static final int FAIL_OPTION = 2;
 

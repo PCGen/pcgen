@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class WeightunitToken extends AbstractNonEmptyToken<UnitSet> implements
+class WeightunitToken extends AbstractNonEmptyToken<UnitSet> implements
 		CDOMPrimaryToken<UnitSet>
 {
 

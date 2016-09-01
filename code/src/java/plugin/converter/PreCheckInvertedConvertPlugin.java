@@ -19,7 +19,7 @@ package plugin.converter;
 
 import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
-public class PreCheckInvertedConvertPlugin extends
+class PreCheckInvertedConvertPlugin extends
 		AbstractPreEqualConvertPlugin
 {
     @Override

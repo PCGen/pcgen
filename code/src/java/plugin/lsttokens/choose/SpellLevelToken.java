@@ -251,12 +251,12 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	private String getDefaultTitle()
 	{
 		return "Choose Spell Level";
 	}
 
-	protected AssociationListKey<SpellLevel> getListKey()
+	private AssociationListKey<SpellLevel> getListKey()
 	{
 		return AssociationListKey.getKeyFor(SpellLevel.class, "CHOOSE*SPELLLEVEL");
 	}

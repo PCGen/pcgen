@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**MISC
  * Handles the BONUS:MISC token.
  */
-public final class Misc extends MultiTagBonusObj
+final class Misc extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"ACCHECK", "MAXDEX", "SPELLFAILURE", "SR", "CR"};

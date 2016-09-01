@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
+class RaceChooseLangautoToken extends AbstractTokenWithSeparator<Race>
 		implements CDOMCompatibilityToken<Race>
 {
 	@Override

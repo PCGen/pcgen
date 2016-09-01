@@ -38,7 +38,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreEquipBothTester extends PreEquippedTester implements PrerequisiteTest
+class PreEquipBothTester extends PreEquippedTester implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

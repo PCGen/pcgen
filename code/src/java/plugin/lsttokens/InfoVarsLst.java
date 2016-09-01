@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
+class InfoVarsLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>
 {
 	@Override

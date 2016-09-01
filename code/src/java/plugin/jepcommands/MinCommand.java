@@ -8,7 +8,7 @@ import java.util.Stack;
 /**
  * Deal with min JEP command eg. {@literal min(12.6, 20) --> 12.6 }
  */
-public class MinCommand extends PCGenCommand
+class MinCommand extends PCGenCommand
 {
 
 	/**

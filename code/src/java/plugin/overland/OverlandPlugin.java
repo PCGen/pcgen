@@ -25,7 +25,6 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenuItem;
@@ -42,7 +41,7 @@ import pcgen.system.LanguageBundle;
 import plugin.overland.gui.OverPanel;
 
 /**
- * The <code>Overland Plugin</code> provides a number
+ * The {@code Overland Plugin} provides a number
  * of useful utilities that help with overland travel <br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
@@ -50,10 +49,10 @@ import plugin.overland.gui.OverPanel;
  * @author Vincent Lhote
  * @version 2.10
  */
-public class OverlandPlugin implements InteractivePlugin
+class OverlandPlugin implements InteractivePlugin
 {
 	/** Log name / plugin id */
-	public static final String LOG_NAME = "Overland_Travel"; //$NON-NLS-1$
+	private static final String LOG_NAME = "Overland_Travel"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem overToolsItem = new JMenuItem();
@@ -82,7 +81,7 @@ public class OverlandPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -94,10 +93,7 @@ public class OverlandPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -128,7 +124,7 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Gets the view that this class is using.
 	 * @return the view.
 	 */
-	public Component getView()
+	private Component getView()
 	{
 		return theView;
 	}
@@ -157,7 +153,7 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Returns true if the pane is active
 	 * @return true if the pane is active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -167,18 +163,11 @@ public class OverlandPlugin implements InteractivePlugin
 	/**
 	 * Initialise the menus for this plugin
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		overToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		overToolsItem.setText(getLocalizedName());
-		overToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		overToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, overToolsItem));
 	}
 
@@ -186,7 +175,7 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Sets the index for the pane 
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -199,9 +188,6 @@ public class OverlandPlugin implements InteractivePlugin
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{

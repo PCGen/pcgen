@@ -34,7 +34,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  * 
  * @since 5.13.2
  */
-public class PreviewSheetToken implements GameModeLstToken
+class PreviewSheetToken implements GameModeLstToken
 {
 
     @Override

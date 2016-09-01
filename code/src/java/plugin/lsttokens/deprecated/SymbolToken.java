@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Class deals with SYMBOL Token
  */
-public class SymbolToken extends AbstractToFactToken<Deity>
+class SymbolToken extends AbstractToFactToken<Deity>
 {
 	@Override
 	public String getTokenName()

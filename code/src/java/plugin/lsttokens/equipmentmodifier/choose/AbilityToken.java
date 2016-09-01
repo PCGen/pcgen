@@ -26,7 +26,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
+class AbilityToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 	private static final Class<AbilityCategory> ABILITY_CATEGORY_CLASS = AbilityCategory.class;
 

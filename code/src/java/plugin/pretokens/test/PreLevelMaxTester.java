@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
+class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

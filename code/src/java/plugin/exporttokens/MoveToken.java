@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.MovementToken;
 //MOVE.x prints out movename/move pair
 //MOVE.x.NAME and
 //MOVE.x.RATE produce the appropriate parts.
-public class MoveToken extends AbstractExportToken
+class MoveToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -97,14 +97,14 @@ public class MoveToken extends AbstractExportToken
 		return retString;
 	}
 
-	public static String getMoveXToken(CharacterDisplay display, int moveIndex)
+	private static String getMoveXToken(CharacterDisplay display, int moveIndex)
 	{
 		NamedValue move = display.getMovementValues().get(moveIndex);
 		return move.getName() + " "
 				+ MovementToken.getRateToken(move.getWeight());
 	}
 
-	public static String getSquaresToken(CharacterDisplay display, int moveIndex)
+	private static String getSquaresToken(CharacterDisplay display, int moveIndex)
 	{
 		return Integer.toString((int) (display.getMovementValues().get(moveIndex)
 				.getWeight() / SettingsHandler.getGame().getSquareSize()));

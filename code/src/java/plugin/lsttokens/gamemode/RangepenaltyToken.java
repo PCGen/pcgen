@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with RANGEPENALTY Token
  */
-public class RangepenaltyToken implements GameModeLstToken
+class RangepenaltyToken implements GameModeLstToken
 {
 
     @Override

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SPELLRANGE Token
  */
-public class SpellrangeToken implements GameModeLstToken
+class SpellrangeToken implements GameModeLstToken
 {
 
     @Override

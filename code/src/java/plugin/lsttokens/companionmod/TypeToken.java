@@ -31,7 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
+class TypeToken extends AbstractNonEmptyToken<CompanionMod> implements
 		CDOMPrimaryToken<CompanionMod>
 {
 

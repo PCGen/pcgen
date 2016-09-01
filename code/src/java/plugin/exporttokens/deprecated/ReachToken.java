@@ -37,7 +37,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 //REACH
-public class ReachToken extends Token
+class ReachToken extends Token
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -70,7 +70,7 @@ public class ReachToken extends Token
 		return retString;
 	}
 
-	public static int getReachToken(PlayerCharacter pc)
+	private static int getReachToken(PlayerCharacter pc)
 	{
 		String pcReach = pc.getControl(CControl.PCREACH);
 		if (pcReach == null)
@@ -81,14 +81,14 @@ public class ReachToken extends Token
 		return ((Number) pc.getGlobal(pcReach)).intValue();
 	}
 
-	public static String getToken(PlayerCharacter pc)
+	private static String getToken(PlayerCharacter pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 			getReachToken(pc))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
-	public static String getSquaresToken(PlayerCharacter pc)
+	private static String getSquaresToken(PlayerCharacter pc)
 	{
 		return new DecimalFormat("#.#").format(getReachToken(pc)
 			/ SettingsHandler.getGame().getSquareSize());

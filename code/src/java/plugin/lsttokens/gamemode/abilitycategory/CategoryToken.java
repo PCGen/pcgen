@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
+class CategoryToken implements CDOMPrimaryToken<AbilityCategory>,
 		DeferredToken<AbilityCategory>
 {
 

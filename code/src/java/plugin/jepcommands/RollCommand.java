@@ -9,7 +9,7 @@ import java.util.Stack;
 /**
  * eg. roll("10+d10") 
  */
-public class RollCommand extends PCGenCommand
+class RollCommand extends PCGenCommand
 {
 
 	/** Constructor */

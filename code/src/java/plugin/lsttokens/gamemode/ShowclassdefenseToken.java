@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SHOWCLASSDEFENSE Token
  */
-public class ShowclassdefenseToken implements GameModeLstToken
+class ShowclassdefenseToken implements GameModeLstToken
 {
 
     @Override

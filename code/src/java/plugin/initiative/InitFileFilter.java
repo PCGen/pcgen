@@ -30,7 +30,7 @@ import java.io.File;
  *@author     devon
  *@since    April 7, 2003
  */
-public class InitFileFilter extends FileFilter
+class InitFileFilter extends FileFilter
 {
 	/**  Creates a new instance of InitFileFilter */
 	public InitFileFilter()

@@ -48,7 +48,7 @@ public class AddDefeatedCombatant extends AbstractDialog
 	private static final String OPTION_NAME_DBMAXNUM = ExperienceAdjusterPlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 	
 	/**  Description of the Field */
-	public ExperienceAdjusterModel model;
+	private ExperienceAdjusterModel model;
 	private javax.swing.JLabel lCR;
 	private javax.swing.JLabel lCR2;
 	private javax.swing.JLabel lName;

@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @version $Revision$
  */
-public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

@@ -31,7 +31,7 @@ import pcgen.util.enumeration.Visibility;
  * 
  * @since 5.11.1
  */
-public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
+class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>
 		implements CDOMPrimaryToken<AbilityCategory>
 {
 	@Override

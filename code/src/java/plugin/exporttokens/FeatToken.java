@@ -12,7 +12,7 @@ import pcgen.io.exporttoken.AbilityToken;
  *
  * Class deals with FEAT Token
  */
-public class FeatToken extends AbilityToken
+class FeatToken extends AbilityToken
 {
 
 	/**

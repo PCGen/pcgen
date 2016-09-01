@@ -31,7 +31,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:DR token.
  */
-public final class DR extends BonusObj
+final class DR extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

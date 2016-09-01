@@ -48,7 +48,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * FACE.1
  * FACE.2
  */
-public class FaceToken extends AbstractExportToken
+class FaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -97,7 +97,7 @@ public class FaceToken extends AbstractExportToken
 	 * @param display
 	 * @return FACE Token
 	 */
-	public static String getFaceToken(CharacterDisplay display)
+	private static String getFaceToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
@@ -129,7 +129,7 @@ public class FaceToken extends AbstractExportToken
 	 * @param display
 	 * @return SHORT sub toke
 	 */
-	public static String getShortToken(CharacterDisplay display)
+	private static String getShortToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
@@ -161,7 +161,7 @@ public class FaceToken extends AbstractExportToken
 	 * @param display
 	 * @return squares sub token
 	 */
-	public static String getSquaresToken(CharacterDisplay display)
+	private static String getSquaresToken(CharacterDisplay display)
 	{
 		OrderedPair face = getFace(display.getCharID());
 		String retString = "";
@@ -190,7 +190,7 @@ public class FaceToken extends AbstractExportToken
 	 * @param display
 	 * @return 1 sub token
 	 */
-	public static String get1Token(CharacterDisplay display)
+	private static String get1Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 			getFace(display.getCharID()).getPreciseX().doubleValue());
@@ -202,13 +202,13 @@ public class FaceToken extends AbstractExportToken
 	 * @param display
 	 * @return 2 sub token
 	 */
-	public static String get2Token(CharacterDisplay display)
+	private static String get2Token(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 			getFace(display.getCharID()).getPreciseY().doubleValue());
 	}
 
-	public static OrderedPair getFace(CharID id)
+	private static OrderedPair getFace(CharID id)
 	{
 		String varName =
 				ControlUtilities.getControlToken(Globals.getContext(), CControl.FACE);

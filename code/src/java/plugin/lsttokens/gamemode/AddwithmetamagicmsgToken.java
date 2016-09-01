@@ -35,7 +35,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class AddwithmetamagicmsgToken implements GameModeLstToken
+class AddwithmetamagicmsgToken implements GameModeLstToken
 {
 
     @Override

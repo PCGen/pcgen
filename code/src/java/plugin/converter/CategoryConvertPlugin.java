@@ -22,7 +22,7 @@ import pcgen.core.Ability;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
-public class CategoryConvertPlugin implements TokenProcessorPlugin
+class CategoryConvertPlugin implements TokenProcessorPlugin
 {
 	// Just process over these magical tokens for now
     @Override

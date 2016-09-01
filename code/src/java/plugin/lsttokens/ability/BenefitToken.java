@@ -126,7 +126,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 	 *            The LST tag
 	 * @return A <tt>Description</tt> object
 	 */
-	public Description parseBenefit(final String aDesc)
+	private Description parseBenefit(final String aDesc)
 	{
 		if (isEmpty(aDesc) || hasIllegalSeparator('|', aDesc))
 		{

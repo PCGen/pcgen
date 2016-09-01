@@ -55,15 +55,15 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	public static final int DAMAGE_DYING_END = 1;
 	public static final int DAMAGE_DYING_INITIATIVE = 2;
 	
-	public static final int DAMAGE_DISABLED_ZERO = 1;
-	public static final int DAMAGE_DISABLED_CON = 2;
+	private static final int DAMAGE_DISABLED_ZERO = 1;
+	private static final int DAMAGE_DISABLED_CON = 2;
 	
-	public static final int DAMAGE_DEATH_NEG_TEN = 1;
-	public static final int DAMAGE_DEATH_NEG_CON = 2;
+	private static final int DAMAGE_DEATH_NEG_TEN = 1;
+	private static final int DAMAGE_DEATH_NEG_CON = 2;
 	
 	public static final int DAMAGE_STABLE_PERCENT = 1;
 	public static final int DAMAGE_STABLE_SAVE = 2;
-	public static final int DAMAGE_STABLE_NONE = 3;
+	private static final int DAMAGE_STABLE_NONE = 3;
 	
 	public static final int DAMAGE_SUBDUAL = 1;
 	public static final int DAMAGE_NON_LETHAL = 2;
@@ -101,7 +101,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		initPreferences();
 	}
 
-	public void setDeath(int death)
+	private void setDeath(int death)
 	{
 		if (death == DAMAGE_DEATH_NEG_TEN)
 		{
@@ -113,7 +113,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getDeath()
+	private int getDeath()
 	{
 		int returnVal = 0;
 
@@ -129,7 +129,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		return returnVal;
 	}
 
-	public void setDisabled(int disabled)
+	private void setDisabled(int disabled)
 	{
 		if (disabled == DAMAGE_DISABLED_ZERO)
 		{
@@ -141,7 +141,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getDisabled()
+	private int getDisabled()
 	{
 		int returnVal = 0;
 
@@ -158,7 +158,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 	}
 
 	// End of variables declaration//GEN-END:variables
-	public void setDying(int dying)
+	private void setDying(int dying)
 	{
 		if (dying == DAMAGE_DYING_END)
 		{
@@ -170,7 +170,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getDying()
+	private int getDying()
 	{
 		int returnVal = 0;
 
@@ -186,12 +186,12 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		return returnVal;
 	}
 
-	public void setDyingStart(boolean dyingStart)
+	private void setDyingStart(boolean dyingStart)
 	{
 		dyingCB1.setSelected(dyingStart);
 	}
 
-	public void setStable(int stable)
+	private void setStable(int stable)
 	{
 		if (stable == DAMAGE_STABLE_PERCENT)
 		{
@@ -207,7 +207,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getStable()
+	private int getStable()
 	{
 		int returnVal = 0;
 
@@ -227,7 +227,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		return returnVal;
 	}
 
-	public void setSubdual(int subdual)
+	private void setSubdual(int subdual)
 	{
 		if (subdual == DAMAGE_SUBDUAL)
 		{
@@ -239,7 +239,7 @@ public class PreferencesDamagePanel extends PreferencesPanel
 		}
 	}
 
-	public int getSubdual()
+	private int getSubdual()
 	{
 		int returnVal = 0;
 

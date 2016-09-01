@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class PointsToken extends AbstractNonEmptyToken<PointBuyMethod>
+class PointsToken extends AbstractNonEmptyToken<PointBuyMethod>
 		implements CDOMPrimaryToken<PointBuyMethod>
 {
 

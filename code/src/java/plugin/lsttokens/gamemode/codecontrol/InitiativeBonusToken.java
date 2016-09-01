@@ -21,7 +21,7 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class InitiativeBonusToken extends AbstractStringStoringToken<CodeControl>
+class InitiativeBonusToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()

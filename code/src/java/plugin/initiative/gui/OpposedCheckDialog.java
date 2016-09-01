@@ -91,7 +91,7 @@ import java.util.ArrayList;
  *
  * @author LodgeR
  */
-public class OpposedCheckDialog extends JDialog
+class OpposedCheckDialog extends JDialog
 {
 
 	/**
@@ -194,7 +194,7 @@ public class OpposedCheckDialog extends JDialog
 		 * Default constructor -- initializes the data flavor.
 		 * </p>
 		 */
-		public CombatantTransferHandler()
+		private CombatantTransferHandler()
 		{
 			try
 			{
@@ -1005,7 +1005,7 @@ public class OpposedCheckDialog extends JDialog
 	 *
 	 * @param e
 	 */
-	protected void okButtonActionPerformed(ActionEvent e)
+	private void okButtonActionPerformed(ActionEvent e)
 	{
 		setVisible(false);
 	}
@@ -1017,7 +1017,7 @@ public class OpposedCheckDialog extends JDialog
 	 *
 	 * @param e
 	 */
-	protected void opposingComboBoxActionPerformed(ActionEvent e)
+	private void opposingComboBoxActionPerformed(ActionEvent e)
 	{
 		ivjOpposedSkillModel.setSkill(opposingComboBox.getSelectedItem()
 			.toString());
@@ -1030,7 +1030,7 @@ public class OpposedCheckDialog extends JDialog
 	 *
 	 * @param e
 	 */
-	protected void rollButtonActionPerformed(ActionEvent e)
+	private void rollButtonActionPerformed(ActionEvent e)
 	{
 		ivjOpposedSkillModel.rollAll();
 		ivjRollingSkillModel.rollAll();
@@ -1043,7 +1043,7 @@ public class OpposedCheckDialog extends JDialog
 	 *
 	 * @param e
 	 */
-	protected void rollingComboBoxActionPerformed(ActionEvent e)
+	private void rollingComboBoxActionPerformed(ActionEvent e)
 	{
 		ivjRollingSkillModel.setSkill(rollingComboBox.getSelectedItem()
 			.toString());

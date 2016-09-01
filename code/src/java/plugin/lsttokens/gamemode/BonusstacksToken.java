@@ -10,7 +10,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BONUSSTACKS Token
  */
-public class BonusstacksToken implements GameModeLstToken
+class BonusstacksToken implements GameModeLstToken
 {
 
     @Override

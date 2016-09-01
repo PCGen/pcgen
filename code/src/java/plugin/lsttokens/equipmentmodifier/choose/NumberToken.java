@@ -26,7 +26,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
+class NumberToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	@Override

@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with VALIDFORFOLLOWER Token
  */
-public class ValidforfollowerToken extends AbstractYesNoToken<PCAlignment> implements
+class ValidforfollowerToken extends AbstractYesNoToken<PCAlignment> implements
 		CDOMPrimaryToken<PCAlignment>
 {
 

@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class SkillRankTextToken implements GameModeLstToken
+class SkillRankTextToken implements GameModeLstToken
 {
 
     @Override

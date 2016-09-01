@@ -40,7 +40,7 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
  * @author wardc
  *
  */
-public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/**

@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with returning TYPE token
  */
-public class TypeToken extends AbstractExportToken
+class TypeToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

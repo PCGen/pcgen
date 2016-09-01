@@ -34,10 +34,10 @@ import java.util.StringTokenizer;
 /**
  * Deals with returning the value of the TEMPBONUS token
  */
-public class TempBonusToken extends Token
+class TempBonusToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "TEMPBONUS";
+	private static final String TOKENNAME = "TEMPBONUS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -94,7 +94,7 @@ public class TempBonusToken extends Token
 	 * @param tempIndex
 	 * @return the TEMPBONUS value or empty string
 	 */
-	public static String getNameToken(PlayerCharacter pc, int tempIndex)
+	private static String getNameToken(PlayerCharacter pc, int tempIndex)
 	{
 		if (tempIndex >= pc.getNamedTempBonusList().size())
 		{
@@ -103,7 +103,7 @@ public class TempBonusToken extends Token
 		return pc.getNamedTempBonusList().get(tempIndex);
 	}
 
-	public static String getDescToken(PlayerCharacter pc, int tempIndex)
+	private static String getDescToken(PlayerCharacter pc, int tempIndex)
 	{
 		if (tempIndex >= pc.getNamedTempBonusDescList().size())
 		{

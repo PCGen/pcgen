@@ -19,7 +19,7 @@ import pcgen.util.enumeration.View;
  * @author karianna
  * Class deals with FEATALL Token
  */
-public class FeatAllToken extends AbilityToken
+class FeatAllToken extends AbilityToken
 {
 
 	/**

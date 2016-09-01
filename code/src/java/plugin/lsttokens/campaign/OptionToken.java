@@ -32,7 +32,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with OPTION Token
  */
-public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
+class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		CDOMPrimaryToken<Campaign>
 {
 

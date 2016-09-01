@@ -11,11 +11,11 @@ import pcgen.io.exporttoken.Token;
  * @author karianna
  * Class deals with MISC Token
  */
-public class MiscToken extends Token
+class MiscToken extends Token
 {
 
 	/** Token name */
-	public static final String TOKENNAME = "MISC";
+	private static final String TOKENNAME = "MISC";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

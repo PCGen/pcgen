@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:PCLEVEL token.
  */
-public final class PCLevel extends BonusObj
+final class PCLevel extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

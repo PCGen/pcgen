@@ -51,7 +51,7 @@ import java.util.List;
 public class SkillTypeToken extends SkillToken
 {
 	/** token name */
-	public static final String TOKEN_NAME = "SKILLTYPE";
+	private static final String TOKEN_NAME = "SKILLTYPE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

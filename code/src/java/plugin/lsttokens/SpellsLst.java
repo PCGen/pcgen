@@ -295,9 +295,9 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		return ParseResult.SUCCESS;
 	}
 
-	public void finish(LoadContext context, CDOMObject obj,
-			DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm,
-			List<Prerequisite> prereqs)
+	private void finish(LoadContext context, CDOMObject obj,
+	                    DoubleKeyMap<CDOMReference<Spell>, AssociationKey<?>, Object> dkm,
+	                    List<Prerequisite> prereqs)
 	{
 		for (CDOMReference<Spell> spell : dkm.getKeySet())
 		{

@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with the INTERESTS token
  */
-public class InterestsToken extends AbstractExportToken
+class InterestsToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

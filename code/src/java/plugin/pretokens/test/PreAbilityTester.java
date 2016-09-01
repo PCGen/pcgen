@@ -45,7 +45,7 @@ import pcgen.system.LanguageBundle;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 1777 $
  */
-public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

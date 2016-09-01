@@ -75,8 +75,8 @@ public class TableColumnInformation
 		 * @param peditable
 		 * @param plabel
 		 */
-		public ColStruct(String pcolumnKey, Class<?> pcolumnClass,
-			Object pdefaultValue, boolean peditable, String plabel)
+		private ColStruct(String pcolumnKey, Class<?> pcolumnClass,
+		                  Object pdefaultValue, boolean peditable, String plabel)
 		{
 			this.columnKey = pcolumnKey;
 			this.columnClass = pcolumnClass;
@@ -149,7 +149,7 @@ public class TableColumnInformation
 	 * @param key The key string
 	 * @return The integer index of the column
 	 */
-	public int columnFromKey(String key)
+	private int columnFromKey(String key)
 	{
 		int returnValue = -1;
 
@@ -214,7 +214,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @return Object
 	 */
-	public Object getDefaultValue(int column)
+	private Object getDefaultValue(int column)
 	{
 		return columns.get(column).defaultValue;
 	}
@@ -343,7 +343,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @param pClass
 	 */
-	public void setClass(int column, Class<?> pClass)
+	private void setClass(int column, Class<?> pClass)
 	{
 		columns.get(column).columnClass = pClass;
 	}
@@ -369,7 +369,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @param editable
 	 */
-	public void setColumnEditable(int column, boolean editable)
+	private void setColumnEditable(int column, boolean editable)
 	{
 		columns.get(column).editable = editable;
 	}
@@ -395,7 +395,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @param value
 	 */
-	public void setDefaultValue(int column, Object value)
+	private void setDefaultValue(int column, Object value)
 	{
 		columns.get(column).defaultValue = value;
 	}
@@ -421,7 +421,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @param key
 	 */
-	public void setKey(int column, String key)
+	private void setKey(int column, String key)
 	{
 		columns.get(column).columnKey = key;
 	}
@@ -447,7 +447,7 @@ public class TableColumnInformation
 	 * @param column
 	 * @param label
 	 */
-	public void setLabel(int column, String label)
+	private void setLabel(int column, String label)
 	{
 		columns.get(column).label = label;
 	}

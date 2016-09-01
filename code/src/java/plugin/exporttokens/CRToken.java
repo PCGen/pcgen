@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deal with CR Token
  */
-public class CRToken extends AbstractExportToken
+class CRToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:EQMWEAPON token.
  */
-public final class EqmWeapon extends MultiTagBonusObj
+final class EqmWeapon extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGESIZE", "RANGEADD",

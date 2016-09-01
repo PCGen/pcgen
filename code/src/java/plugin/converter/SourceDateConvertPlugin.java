@@ -21,7 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
-public class SourceDateConvertPlugin implements TokenProcessorPlugin
+class SourceDateConvertPlugin implements TokenProcessorPlugin
 {
 	// Just process over these magical tokens for now
     @Override

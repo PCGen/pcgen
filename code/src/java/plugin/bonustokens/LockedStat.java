@@ -43,7 +43,7 @@ import pcgen.rules.context.LoadContext;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public final class LockedStat extends BonusObj
+final class LockedStat extends BonusObj
 {
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)

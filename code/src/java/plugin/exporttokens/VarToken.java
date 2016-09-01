@@ -45,7 +45,7 @@ import java.util.StringTokenizer;
 public class VarToken extends Token
 {
 	/** The name of the token handled by this class. */
-	public static final String TOKENNAME = "VAR";
+	private static final String TOKENNAME = "VAR";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

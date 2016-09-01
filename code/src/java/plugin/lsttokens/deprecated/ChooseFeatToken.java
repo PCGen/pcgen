@@ -44,7 +44,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * New chooser plugin, handles feats.
  */
-public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
+class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, Chooser<Ability>
 {
 
@@ -60,8 +60,8 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-			ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
+	private ParseResult parseTokenWithSeparator(LoadContext context,
+	                                            ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -202,12 +202,12 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	private String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<Ability> getListKey()
+	private AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*FEAT");
 	}

@@ -39,7 +39,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * EXP.FACTOR
  * EXP.PENALTY
  */
-public class ExpToken extends AbstractExportToken
+class ExpToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -91,7 +91,7 @@ public class ExpToken extends AbstractExportToken
 	 * @param display
 	 * @return Factor Sub Token
 	 */
-	public static String getFactorToken(CharacterDisplay display)
+	private static String getFactorToken(CharacterDisplay display)
 	{
 		StringBuilder xpFactor = new StringBuilder(5);
 		xpFactor.append((int) (display.multiclassXPMultiplier() * 100.0));
@@ -105,7 +105,7 @@ public class ExpToken extends AbstractExportToken
 	 * @param display
 	 * @return Penalty Sub Token
 	 */
-	public static String getPenaltyToken(CharacterDisplay display)
+	private static String getPenaltyToken(CharacterDisplay display)
 	{
 		StringBuilder xpFactor = new StringBuilder(5);
 		xpFactor.append(100 - (int) (display.multiclassXPMultiplier() * 100.0));

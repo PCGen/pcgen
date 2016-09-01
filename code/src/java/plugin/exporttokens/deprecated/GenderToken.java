@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * GENDER.SHORT
  * GENDER.LONG
  */
-public class GenderToken extends AbstractExportToken
+class GenderToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

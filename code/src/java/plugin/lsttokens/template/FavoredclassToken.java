@@ -51,8 +51,8 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		implements CDOMPrimaryToken<PCTemplate>, ChooseSelectionActor<PCClass>
 {
 
-	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()
@@ -76,8 +76,8 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 		return parseFavoredClass(context, pct, value);
 	}
 
-	public ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo,
-			String value)
+	private ParseResult parseFavoredClass(LoadContext context, CDOMObject cdo,
+	                                      String value)
 	{
 		boolean foundAny = false;
 		boolean foundOther = false;

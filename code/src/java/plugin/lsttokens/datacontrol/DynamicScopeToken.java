@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DYNAMICSCOPE Token
  */
-public class DynamicScopeToken extends AbstractNonEmptyToken<DynamicCategory>
+class DynamicScopeToken extends AbstractNonEmptyToken<DynamicCategory>
 		implements CDOMPrimaryToken<DynamicCategory>
 {
 

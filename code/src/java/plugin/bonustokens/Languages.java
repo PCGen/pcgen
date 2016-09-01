@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:LANGUAGES token.
  */
-public final class Languages extends MultiTagBonusObj
+final class Languages extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"NUMBER"};
 

@@ -48,7 +48,7 @@ import pcgen.system.LanguageBundle;
  * RACE.ABILITYLIST - Displays a comma delimited list of the characters racial 
  * special abilities.
  */
-public class RaceToken extends Token
+class RaceToken extends Token
 {
 	private static final String TOKENNAME = "RACE"; //$NON-NLS-1$
 	private static final String[] SUBTOKENLIST = {"ABILITYLIST"}; //$NON-NLS-1$

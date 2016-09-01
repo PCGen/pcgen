@@ -34,7 +34,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * 
  * Token syntax: BR
  */
-public class BRToken extends AbstractExportToken
+class BRToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

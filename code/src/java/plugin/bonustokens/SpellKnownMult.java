@@ -35,7 +35,7 @@ import pcgen.rules.context.LoadContext;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public final class SpellKnownMult extends BonusObj
+final class SpellKnownMult extends BonusObj
 {
 	/*
 	 * CLASS.<classname OR Any>;LEVEL.<level>

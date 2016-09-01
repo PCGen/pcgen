@@ -18,7 +18,7 @@ import pcgen.io.exporttoken.AbilityToken;
  * @author karianna
  * Class deals with FEATAUTO Token
  */
-public class FeatAutoToken extends AbilityToken
+class FeatAutoToken extends AbilityToken
 {
 
 	/**

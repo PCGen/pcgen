@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with BIRTHPLACE token
  */
-public class BirthplaceToken extends AbstractExportToken
+class BirthplaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

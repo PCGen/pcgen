@@ -22,7 +22,7 @@ import pcgen.core.PCClass;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
-public class HasSubstitutionLevelConvertPlugin implements TokenProcessorPlugin
+class HasSubstitutionLevelConvertPlugin implements TokenProcessorPlugin
 {
 	// Just ignore this useless token
     @Override

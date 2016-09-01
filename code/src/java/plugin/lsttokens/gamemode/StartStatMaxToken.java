@@ -36,7 +36,7 @@ import java.net.URI;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class StartStatMaxToken implements GameModeLstToken
+class StartStatMaxToken implements GameModeLstToken
 {
 
     @Override

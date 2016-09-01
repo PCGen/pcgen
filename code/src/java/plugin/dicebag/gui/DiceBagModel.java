@@ -18,21 +18,21 @@
 package plugin.dicebag.gui;
 
 import gmgen.GMGenSystem;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.XMLOutputter;
-import pcgen.util.Logging;
-
-import javax.swing.JOptionPane;
 import java.io.File;
 import java.io.FileWriter;
+import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
+import javax.swing.JOptionPane;
+import org.jdom.Document;
+import org.jdom.Element;
+import org.jdom.JDOMException;
+import org.jdom.input.SAXBuilder;
 import org.jdom.output.Format;
+import org.jdom.output.XMLOutputter;
 import pcgen.core.RollingMethods;
+import pcgen.util.Logging;
 
 /**
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which
@@ -43,7 +43,7 @@ import pcgen.core.RollingMethods;
 class DiceBagModel extends Observable
 {
 	/** List of dice strings. */
-	private List<String> m_dice = new ArrayList<String>();
+	private final List<String> m_dice = new ArrayList<>();
 
 	/** File path of the last file this bag was saved to, or loaded from. */
 	private String m_filePath;
@@ -59,7 +59,6 @@ class DiceBagModel extends Observable
 	 */
 	DiceBagModel()
 	{
-		super();
 	}
 
 	/**
@@ -102,11 +101,11 @@ class DiceBagModel extends Observable
 	 * @param element Expression to set
 	 * @return the expression replaced
 	 */
-	public String setDie(int index, String element)
+	public void setDie(int index, String element)
 	{
 		m_changed = true;
 
-		return m_dice.set(index, element);
+		m_dice.set(index, element);
 	}
 
 	/**
@@ -152,37 +151,16 @@ class DiceBagModel extends Observable
 	}
 
 	/**
-	 * <p>Adds a dice expression at the specified index.</p>
-	 *
-	 * @param index Index to add at.
-	 * @param element Dice expression
-	 */
-	public void addDie(int index, String element)
-	{
-		m_dice.add(index, element);
-		m_changed = true;
-	}
-
-	/**
 	 * <p>Adds a dice expression at the end of the list.</p>
 	 *
 	 * @param o Dice expression
 	 * @return success/failure of operation.
 	 */
-	public boolean addDie(String o)
+	void addDie(String o)
 	{
 		m_changed = true;
 
-		return m_dice.add(o);
-	}
-
-	/**
-	 * <p>Zaps all the dice in the dice bag.</p>
-	 */
-	public void clearDice()
-	{
-		m_changed = true;
-		m_dice.clear();
+		m_dice.add(o);
 	}
 
 	/**
@@ -190,7 +168,7 @@ class DiceBagModel extends Observable
 	 *
 	 * @return Count of dice in bag.
 	 */
-	public int diceCount()
+	int diceCount()
 	{
 		return m_dice.size();
 	}
@@ -201,11 +179,11 @@ class DiceBagModel extends Observable
 	 * @param index index to remove die at
 	 * @return The die removed.
 	 */
-	public String removeDie(int index)
+	void removeDie(int index)
 	{
 		m_changed = true;
 
-		return m_dice.remove(index);
+		m_dice.remove(index);
 	}
 
 	/**
@@ -233,19 +211,18 @@ class DiceBagModel extends Observable
 	 * @param expression Die expression to parse
 	 * @return The double value of the expression.
 	 */
-	public double rollDie(String expression)
+	static double rollDie(String expression)
 	{
-		double returnValue = RollingMethods.roll(expression);
-		return returnValue;
+		return (double) RollingMethods.roll(expression);
 	}
 
 	/**
 	 * <p>Saves the dicebag to the specified file as a UTF-8 xml file, with the format
-	 * specified above in <code>loadFromFile()</code></p>
+	 * specified above in {@code loadFromFile()}</p>
 	 *
 	 * @param file File to save to.
 	 */
-	public void saveToFile(File file)
+	void saveToFile(File file)
 	{
 		try
 		{
@@ -261,7 +238,7 @@ class DiceBagModel extends Observable
 			m_filePath = file.getPath();
 			m_changed = false;
 		}
-		catch (Exception e)
+		catch (IOException e)
 		{
 			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: "
 				+ file.getName());
@@ -285,11 +262,9 @@ class DiceBagModel extends Observable
 		{
 			m_name = root.getAttributeValue("name");
 
-			List children = root.getChildren("dice-roll");
-
-			for (Iterator i = children.iterator(); i.hasNext();)
+			for (final Object aChildren : root.getChildren("dice-roll"))
 			{
-				Element die = (Element) i.next();
+				final Element die = (Element) aChildren;
 				m_dice.add(die.getTextNormalize());
 			}
 		}
@@ -318,7 +293,7 @@ class DiceBagModel extends Observable
 			loadFromDocument(doc);
 			m_changed = false;
 		}
-		catch (Exception e)
+		catch (IOException | JDOMException e)
 		{
 			JOptionPane.showMessageDialog(GMGenSystem.inst, "File load error: "
 				+ file.getName());

@@ -21,7 +21,7 @@ import pcgen.util.PCGenCommand;
  * eg. skill("modifier", "Swim")
  * eg. skill("totalrank", "Swim")
  */
-public class SkillInfoCommand extends PCGenCommand
+class SkillInfoCommand extends PCGenCommand
 {
 
 	/**

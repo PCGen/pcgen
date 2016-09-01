@@ -34,10 +34,10 @@ import pcgen.io.exporttoken.Token;
  * Deal wit hDAMAGE token
  * DAMAGE.UNARMED
  */
-public class DamageToken extends Token
+class DamageToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "DAMAGE";
+	private static final String TOKENNAME = "DAMAGE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -70,7 +70,7 @@ public class DamageToken extends Token
 	 * @param pc
 	 * @return unarmed sub token
 	 */
-	public static String getUnarmedToken(PlayerCharacter pc)
+	private static String getUnarmedToken(PlayerCharacter pc)
 	{
 		return UnarmedDamageDisplay.getUnarmedDamageString(pc, true, true);
 	}

@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /** 
  * Deal with returning value of LOCATION Token
  */
-public class LocationToken extends AbstractExportToken
+class LocationToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

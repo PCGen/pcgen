@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
+class ModifierToken extends AbstractNonEmptyToken<LoadInfo> implements
 		CDOMPrimaryToken<LoadInfo>
 {
 

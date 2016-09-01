@@ -42,12 +42,17 @@ public final class RoomBoardFactory
 
 	private static final String DIR_RNBPRICE = "rnbprice"; //$NON-NLS-1$
 
+	private RoomBoardFactory()
+	{
+
+	}
+
 	public static RoomBoard load(File dataDir)
 	{
 		//Create a new list for the room and board
-		PairList<RBCost> inns = new PairList<RBCost>();
-		PairList<RBCost> foods = new PairList<RBCost>();
-		PairList<RBCost> animals = new PairList<RBCost>();
+		PairList<RBCost> inns = new PairList<>();
+		PairList<RBCost> foods = new PairList<>();
+		PairList<RBCost> animals = new PairList<>();
 
 		File path = new File(dataDir, DIR_RNBPRICE);
 
@@ -56,11 +61,11 @@ public final class RoomBoardFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (final File dataFile : dataFiles)
 			{
 				try
 				{
-					Document methodSet = builder.build(dataFiles[i]);
+					Document methodSet = builder.build(dataFile);
 					DocType dt = methodSet.getDocType();
 
 					if (dt.getElementName().equals("RNBPRICE")) //$NON-NLS-1$
@@ -74,7 +79,7 @@ public final class RoomBoardFactory
 				}
 				catch (Exception e)
 				{
-					Logging.errorPrintLocalised("XML Error with file {0}", dataFiles[i].getName());
+					Logging.errorPrintLocalised("XML Error with file {0}", dataFile.getName());
 					Logging.errorPrint(e.getMessage(), e);
 				}
 			}

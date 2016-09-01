@@ -35,7 +35,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Class deals with ALIGNMENT and ALIGNMENT.SHORT Token
  */
-public class AlignmentToken extends AbstractExportToken
+class AlignmentToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -85,7 +85,7 @@ public class AlignmentToken extends AbstractExportToken
 	 * @param display
 	 * @return Alignment Short Token
 	 */
-	public static String getShortToken(CharacterDisplay display)
+	private static String getShortToken(CharacterDisplay display)
 	{
 		if (Globals.getGameModeAlignmentText().length() == 0)
 		{

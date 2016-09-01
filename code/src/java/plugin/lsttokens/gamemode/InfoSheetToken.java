@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class InfoSheetToken implements GameModeLstToken
+class InfoSheetToken implements GameModeLstToken
 {
 
 	/* (non-Javadoc)

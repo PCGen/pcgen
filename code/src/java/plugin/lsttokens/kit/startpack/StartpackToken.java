@@ -34,7 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * STARTPACK token for Kit Startpack
  */
-public class StartpackToken extends AbstractNonEmptyToken<Kit> implements
+class StartpackToken extends AbstractNonEmptyToken<Kit> implements
 		CDOMPrimaryToken<Kit>
 {
 	/**

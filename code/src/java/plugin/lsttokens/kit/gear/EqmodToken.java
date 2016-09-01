@@ -108,7 +108,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 				String assocTok = pipeTok.nextToken();
 				if (assocTok.indexOf(']') != -1)
 				{
-					if (assocTok.indexOf("[]") != -1)
+					if (assocTok.contains("[]"))
 					{
 						return new ParseResult.Fail("Found empty assocation in "
 							+ getTokenName() + ": " + value, context);
@@ -149,7 +149,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (EqModRef modRef : kitGear.getEqMods())
 		{
 			String key = modRef.getRef().getLSTformat(false);

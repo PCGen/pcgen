@@ -52,7 +52,7 @@ import pcgen.util.enumeration.Load;
  * Would output 30 for the same human.
  * <p>
  */
-public class BaseMovementToken extends AbstractExportToken
+class BaseMovementToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -128,8 +128,8 @@ public class BaseMovementToken extends AbstractExportToken
 	 * @param displayFlag
 	 * @return The base movement token
 	 */
-	public static String getBaseMovementToken(CharacterDisplay display,
-		String moveType, Load load, boolean displayFlag)
+	private static String getBaseMovementToken(CharacterDisplay display,
+	                                           String moveType, Load load, boolean displayFlag)
 	{
 		if (!display.hasMovement(moveType))
 		{

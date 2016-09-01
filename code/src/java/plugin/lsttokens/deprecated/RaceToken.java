@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactSetToken;
 /**
  * Class deals with RACE Token
  */
-public class RaceToken extends AbstractToFactSetToken<Deity>
+class RaceToken extends AbstractToFactSetToken<Deity>
 {
 	@Override
 	public String getTokenName()

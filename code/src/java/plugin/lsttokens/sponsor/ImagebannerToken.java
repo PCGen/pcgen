@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with IMAGEBANNER Token
  */
-public class ImagebannerToken implements CDOMPrimaryToken<Sponsor>
+class ImagebannerToken implements CDOMPrimaryToken<Sponsor>
 {
 
 	@Override

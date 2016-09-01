@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with MENUTOOLTIP Token
  */
-public class MenutooltipToken implements GameModeLstToken
+class MenutooltipToken implements GameModeLstToken
 {
 
     @Override

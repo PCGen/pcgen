@@ -40,10 +40,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * LEVEL token
  */
-public class LevelToken extends Token
+class LevelToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "LEVEL";
+	private static final String TOKENNAME = "LEVEL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -113,7 +113,7 @@ public class LevelToken extends Token
 	 * @param pcl
 	 * @return the HP for the level
 	 */
-	public static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
+	private static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
 	{
 		String classKeyName = pcl.getClassKeyName();
 		PCClass aClass = pc.getClassKeyed(classKeyName);

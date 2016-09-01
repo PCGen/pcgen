@@ -51,7 +51,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
-public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

@@ -41,10 +41,10 @@ import pcgen.io.exporttoken.WeaponToken;
  * @author	binkley
  * @version	$Revision$
  */
-public class WeaponoToken extends WeaponToken
+class WeaponoToken extends WeaponToken
 {
 	/** Weapono Token. */
-	public static final String TOKEN_NAME = "WEAPONO";
+	private static final String TOKEN_NAME = "WEAPONO";
 
 	/**
 	 * Gets the token name
@@ -101,7 +101,7 @@ public class WeaponoToken extends WeaponToken
 	 * @param display The character used to generate the size.
 	 * @return The equipment.
 	 */
-	public static Equipment getWeaponEquipment(CharacterDisplay display, final int anIndex)
+	private static Equipment getWeaponEquipment(CharacterDisplay display, final int anIndex)
 	{
 		final List<Equipment> secWeapons = new ArrayList<Equipment>(display.getSecondaryWeapons());
 		if (!secWeapons.isEmpty() && anIndex < secWeapons.size())

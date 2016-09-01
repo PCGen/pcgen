@@ -16,7 +16,7 @@ import pcgen.io.exporttoken.AbilityListToken;
  * @author karianna
  * @version $Revision$
  */
-public class FeatListToken extends AbilityListToken
+class FeatListToken extends AbilityListToken
 {
 
 	/**

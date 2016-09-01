@@ -40,10 +40,10 @@ import java.util.StringTokenizer;
  * CASTERLEVEL.x
  * CASTERLEVEL.TOTAL
  */
-public class CasterLevelToken extends Token
+class CasterLevelToken extends Token
 {
 	/** The token name */
-	public static final String TOKENNAME = "CASTERLEVEL";
+	private static final String TOKENNAME = "CASTERLEVEL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -99,7 +99,7 @@ public class CasterLevelToken extends Token
 	 * @param classNumber
 	 * @return token
 	 */
-	public String getClassToken(PlayerCharacter pc, int classNumber)
+	private String getClassToken(PlayerCharacter pc, int classNumber)
 	{
 		String cString = "";
 

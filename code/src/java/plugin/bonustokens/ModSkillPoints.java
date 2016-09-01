@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:MODSKILLPOINTS token.
  */
-public final class ModSkillPoints extends MultiTagBonusObj
+final class ModSkillPoints extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"NUMBER"};
 

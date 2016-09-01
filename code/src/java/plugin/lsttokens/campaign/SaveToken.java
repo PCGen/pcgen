@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with SAVE Token
  */
-public class SaveToken extends AbstractBasicCampaignToken implements
+class SaveToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>
 {
 	@Override

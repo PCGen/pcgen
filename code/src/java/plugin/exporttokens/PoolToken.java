@@ -31,9 +31,9 @@ import pcgen.io.exporttoken.Token;
 
 //POOL.CURRENT
 //POOL.COST
-public class PoolToken extends Token
+class PoolToken extends Token
 {
-	public static final String TOKENNAME = "POOL";
+	private static final String TOKENNAME = "POOL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -65,12 +65,12 @@ public class PoolToken extends Token
 		return retString;
 	}
 
-	public static int getCostToken(PlayerCharacter pc)
+	private static int getCostToken(PlayerCharacter pc)
 	{
 		return pc.getCostPool();
 	}
 
-	public static int getCurrentToken(PlayerCharacter pc)
+	private static int getCurrentToken(PlayerCharacter pc)
 	{
 		return pc.getPoolAmount();
 	}

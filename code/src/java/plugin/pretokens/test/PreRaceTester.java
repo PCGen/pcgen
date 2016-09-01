@@ -49,7 +49,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl &lt;byngl@hotmail.com&gt;
  *
  */
-public class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

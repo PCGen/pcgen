@@ -36,16 +36,16 @@ import pcgen.gui2.tools.Icons;
  *
  * @author Ross M. Lodge
  */
-public class DiceBagView extends JInternalFrame implements Observer
+class DiceBagView extends JInternalFrame implements Observer
 {
 	/** Bag model for this bag view */
-	DiceBagModel m_bag = null;
+	private DiceBagModel m_bag = null;
 
 	/** Listener for all buttons */
-	private BagListener m_bagListener = new BagListener();
+	private final ActionListener m_bagListener = new BagListener();
 
 	/** Table model for editing table */
-	private BagTableModel m_tableModel = new BagTableModel();
+	private final BagTableModel m_tableModel = new BagTableModel();
 
 	/** Button to delete selected records */
 	private JButton m_deleteSelected;
@@ -74,10 +74,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/** Label for name of dice bag */
 	private JLabel m_nameFieldLabel;
 
-	/** JPanel for <code>BoxLayout.CENTER</code> of content pane */
+	/** JPanel for {@code BoxLayout.CENTER} of content pane */
 	private JPanel m_center;
 
-	/** Jpanel for top (<code>BorderLayout.NORTH</code>) region */
+	/** Jpanel for top ({@code BorderLayout.NORTH}) region */
 	private JPanel m_top;
 
 	/** JPanel for bottom of m_top. */
@@ -106,7 +106,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 *
 	 * @param bag The DiceBagModel for this view
 	 */
-	public DiceBagView(DiceBagModel bag)
+	DiceBagView(DiceBagModel bag)
 	{
 		m_bag = bag;
 		initComponents();
@@ -125,11 +125,11 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Handles the press of the editing button; calls
-	 * <code>setupEditMode()</code>.</p>
+	 * {@code setupEditMode()}.</p>
 	 *
 	 * @param e Event that fired handler.
 	 */
-	public void handleEdit(ActionEvent e)
+	private void handleEdit(ActionEvent e)
 	{
 		setupEditMode();
 	}
@@ -201,7 +201,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>Initializes the view and all components, and starts the bag in
-	 * editing mode.  It sets the size (<code>pack()</code>) of the
+	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
 	 *
 	 *
@@ -260,7 +260,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_editButton = new JButton("Edit");
 		m_editButton.setActionCommand("EDIT");
 		m_editButton.addActionListener(m_bagListener);
-		m_diceButtons = new ArrayList<JButton>();
+		m_diceButtons = new ArrayList<>();
 		m_exprField = new JTextField();
 		m_exprFieldLabel = new JLabel("Roll Expr: ");
 
@@ -390,8 +390,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 		if (m_center.getLayout() instanceof DiceBagGridLayout)
 		{
-			((DiceBagGridLayout) m_center.getLayout()).setRows(1);
-			((DiceBagGridLayout) m_center.getLayout()).setColumns(1);
+			((GridLayout) m_center.getLayout()).setRows(1);
+			((GridLayout) m_center.getLayout()).setColumns(1);
 		}
 
 		m_center.add(m_scrollPane);
@@ -420,8 +420,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 		if (m_center.getLayout() instanceof DiceBagGridLayout)
 		{
-			((DiceBagGridLayout) m_center.getLayout()).setRows(0);
-			((DiceBagGridLayout) m_center.getLayout()).setColumns(3);
+			((GridLayout) m_center.getLayout()).setRows(0);
+			((GridLayout) m_center.getLayout()).setColumns(3);
 		}
 
 		//Add main JPanels to content pane
@@ -499,7 +499,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
+				setRollResult(m_exprField.getText(), DiceBagModel.rollDie(m_exprField
 					.getText()));
 			}
 			else if ("EDIT".equals(command))
@@ -542,7 +542,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Table model for displaying/editing the dice bag information.
-	 * Basically this overrides enough of <code>AbstracTableModel</code>
+	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
 	 *
 	 * @author Ross M. Lodge
@@ -610,7 +610,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		{
 			if ((rowIndex >= 0) && (rowIndex < (getRowCount() - 1)))
 			{
-				if ((aValue == null) || (aValue.toString().length() == 0))
+				if ((aValue == null) || (aValue.toString().isEmpty()))
 				{
 					m_bag.removeDie(rowIndex);
 					fireTableRowsDeleted(rowIndex, rowIndex);

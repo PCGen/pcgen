@@ -74,12 +74,12 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	}
 
 	/** Columns for the table */
-	protected TableColumnInformation columns = new TableColumnInformation(10);
+	TableColumnInformation columns = new TableColumnInformation(10);
 	/** Combatants */
-	protected TreeMap combatants = new TreeMap();
+	TreeMap combatants = new TreeMap();
 
 	/** Constructor -- creates columns */
-	public OpposedSkillBasicModel()
+	OpposedSkillBasicModel()
 	{
 		columns.addColumn("COMBATANT", String.class, null, false, "Combatant");
 	}
@@ -91,7 +91,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @param combatantList
 	 */
-	public OpposedSkillBasicModel(List combatantList)
+	OpposedSkillBasicModel(List combatantList)
 	{
 		this();
 		buildCombatantList(combatantList);
@@ -104,7 +104,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 *
 	 * @param combatantList
 	 */
-	protected void buildCombatantList(List combatantList)
+	private void buildCombatantList(List combatantList)
 	{
 		for (Iterator i = combatantList.iterator(); i.hasNext();)
 		{
@@ -169,7 +169,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 * @param rowIndex
 	 * @return InitWrapper
 	 */
-	protected InitWrapper getRowEntry(int rowIndex)
+	InitWrapper getRowEntry(int rowIndex)
 	{
 		InitWrapper returnValue = null;
 		if (rowIndex < combatants.size())
@@ -189,7 +189,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 * @param name
 	 * @return index
 	 */
-	protected int getIndexOf(String name)
+	int getIndexOf(String name)
 	{
 		int returnValue = -1;
 		int counter = -1;

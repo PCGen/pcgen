@@ -39,10 +39,10 @@ import pcgen.util.Delta;
 /**
  * Deals with the HITDICE Token
  */
-public class HitDiceToken extends Token
+class HitDiceToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "HITDICE";
+	private static final String TOKENNAME = "HITDICE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -84,7 +84,7 @@ public class HitDiceToken extends Token
 	 * @param pc
 	 * @return the medium version of the HITDICE token
 	 */
-	public static String getHitDiceToken(PlayerCharacter pc)
+	private static String getHitDiceToken(PlayerCharacter pc)
 	{
 		StringBuilder ret = new StringBuilder();
 		String del = "";
@@ -143,7 +143,7 @@ public class HitDiceToken extends Token
 	 * @param pc
 	 * @return the HITDICE token
 	 */
-	public static String getMediumToken(PlayerCharacter pc)
+	private static String getMediumToken(PlayerCharacter pc)
 	{
 		StringBuilder ret = new StringBuilder();
 		String del = "";
@@ -207,7 +207,7 @@ public class HitDiceToken extends Token
 	 * @param display
 	 * @return the short version of the HITDICE token
 	 */
-	public static String getShortToken(CharacterDisplay display)
+	private static String getShortToken(CharacterDisplay display)
 	{
 		int dice;
 

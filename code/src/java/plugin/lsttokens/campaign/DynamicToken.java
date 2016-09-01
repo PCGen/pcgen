@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DYNAMIC Token
  */
-public class DynamicToken extends AbstractTokenWithSeparator<Campaign>
+class DynamicToken extends AbstractTokenWithSeparator<Campaign>
 		implements CDOMPrimaryToken<Campaign>
 {
 

@@ -124,7 +124,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (OptionBound bound : bounds)
 		{
 			Formula min = bound.getOptionMin();

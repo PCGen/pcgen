@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with SUBREGION export token 
  */
-public class SubRegionToken extends AbstractExportToken
+class SubRegionToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

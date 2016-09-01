@@ -31,7 +31,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:POINTBUY token.
  */
-public final class PointBuy extends BonusObj
+final class PointBuy extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

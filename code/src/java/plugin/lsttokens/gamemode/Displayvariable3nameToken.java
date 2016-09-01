@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with DISPLAYVARIABLE3NAME Token
  */
-public class Displayvariable3nameToken implements GameModeLstToken
+class Displayvariable3nameToken implements GameModeLstToken
 {
 
     @Override

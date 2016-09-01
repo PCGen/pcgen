@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class MinverToken implements InstallLstToken
+class MinverToken implements InstallLstToken
 {
 
 	/* (non-Javadoc)

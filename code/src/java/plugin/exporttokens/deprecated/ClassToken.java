@@ -44,9 +44,9 @@ import pcgen.io.exporttoken.Token;
 /**
  * Deal with tokens below CLASS.x CLASS.x.LEVEL, CLASS.x.TYPE, CLASS.x.SALIST
  */
-public class ClassToken extends Token {
+class ClassToken extends Token {
 	/** Token name */
-	public static final String TOKENNAME = "CLASS";
+	private static final String TOKENNAME = "CLASS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -104,7 +104,7 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return token
 	 */
-	public static String getClassToken(CharacterDisplay display, int classNumber) {
+	private static String getClassToken(CharacterDisplay display, int classNumber) {
 		String retString = "";
 
 		if (display.getClassCount() > classNumber) {
@@ -130,7 +130,7 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static int getLevelToken(CharacterDisplay display, int classNumber) {
+	private static int getLevelToken(CharacterDisplay display, int classNumber) {
 		if (display.getClassCount() > classNumber) {
 			PCClass pcClass = display.getClassList().get(classNumber);
 
@@ -147,7 +147,7 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static String getSAListToken(PlayerCharacter pc, int classNumber) {
+	private static String getSAListToken(PlayerCharacter pc, int classNumber) {
 		if (pc.getDisplay().getClassCount() > classNumber) {
 			PCClass pcClass = pc.getDisplay().getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
@@ -167,8 +167,8 @@ public class ClassToken extends Token {
 	 *            The PC
 	 * @return List of special abilities
 	 */
-	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
-			final PlayerCharacter aPC) {
+	private static List<String> getClassSpecialAbilityList(PCClass pcclass,
+	                                                       final PlayerCharacter aPC) {
 		CharacterDisplay display = aPC.getDisplay();
 		final List<String> formattedList = new ArrayList<String>();
 
@@ -260,21 +260,21 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return class Type
 	 */
-	public static String getType(CharacterDisplay display, int classNumber) {
+	private static String getType(CharacterDisplay display, int classNumber) {
 		if (display.getClassCount() > classNumber) {
 			return display.getClassList().get(classNumber).getType();
 		}
 		return "";
 	}
 	
-	public static String getClassType(CharacterDisplay display, int classNumber) {
+	private static String getClassType(CharacterDisplay display, int classNumber) {
 		if (display.getClassCount() > classNumber) {
 			return display.getClassList().get(classNumber).getClassType();
 		}
 		return "";
 	}
 	
-	public static String isMonster(CharacterDisplay display, int classNumber) {
+	private static String isMonster(CharacterDisplay display, int classNumber) {
 		if (display.getClassCount() > classNumber) {
 			return (display.getClassList().get(classNumber).isMonster() ? "Y" : "N");
 		}

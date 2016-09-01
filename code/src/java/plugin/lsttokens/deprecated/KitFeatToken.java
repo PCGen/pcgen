@@ -47,7 +47,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * FEAT Token for KitAbilities
  */
-public class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
+class KitFeatToken extends AbstractTokenWithSeparator<KitAbilities>
 		implements CDOMPrimaryToken<KitAbilities>, DeprecatedToken
 {
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;

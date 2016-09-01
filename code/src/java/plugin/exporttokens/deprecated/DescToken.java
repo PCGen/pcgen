@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
  * DESC
  * DESC, text delimiter
  */
-public class DescToken extends AbstractExportToken
+class DescToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

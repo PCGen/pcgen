@@ -43,7 +43,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * @author jdempsey
  * @version $Revision$
  */
-public class UnitSetToken extends AbstractExportToken
+class UnitSetToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

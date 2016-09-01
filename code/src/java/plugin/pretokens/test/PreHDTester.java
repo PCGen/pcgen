@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreHDTester extends AbstractDisplayPrereqTest implements
+class PreHDTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

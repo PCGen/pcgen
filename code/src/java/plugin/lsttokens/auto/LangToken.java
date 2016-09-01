@@ -135,7 +135,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				else
 				{
 					ConditionalSelectionActor<Language> cca =
-							new ConditionalSelectionActor<Language>(this);
+							new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -148,9 +148,9 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 				context.getObjectContext().addToList(
 						obj,
 						ListKey.AUTO_LANGUAGE,
-					new QualifiedObject<CDOMReference<Language>>(context
-						.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS),
-						prereq));
+						new QualifiedObject<>(context
+								.getReferenceContext().getCDOMAllReference(LANGUAGE_CLASS),
+								prereq));
 			}
 			else
 			{
@@ -163,7 +163,7 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 						+ getTokenName(), context);
 				}
 				context.getObjectContext().addToList(obj, ListKey.AUTO_LANGUAGE,
-					new QualifiedObject<CDOMReference<Language>>(ref, prereq));
+						new QualifiedObject<>(ref, prereq));
 			}
 			firstToken = false;
 		}

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with WEAPONNONPROFPENALTY Token
  */
-public class WeaponprofpenaltyToken implements GameModeLstToken
+class WeaponprofpenaltyToken implements GameModeLstToken
 {
 
     @Override

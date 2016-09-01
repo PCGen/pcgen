@@ -29,7 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with CRITRANGE token
  */
-public class CritrangeToken implements CDOMPrimaryToken<Equipment>
+class CritrangeToken implements CDOMPrimaryToken<Equipment>
 {
 
 	@Override

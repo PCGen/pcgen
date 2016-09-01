@@ -42,10 +42,10 @@ import pcgen.io.exporttoken.Token;
  * HPROLL.x.STAT
  * HPROLL.x.TOTAL
  */
-public class HPRollToken extends Token
+class HPRollToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "HPROLL";
+	private static final String TOKENNAME = "HPROLL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -107,7 +107,7 @@ public class HPRollToken extends Token
 	 * @param level
 	 * @return the HPROLL.ROLL token
 	 */
-	public static int getRollToken(PlayerCharacter pc, int level)
+	private static int getRollToken(PlayerCharacter pc, int level)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		int classLevel = display.getLevelInfoClassLevel(level) - 1;
@@ -130,7 +130,7 @@ public class HPRollToken extends Token
 	 * @param display
 	 * @return the HPROLL.STAT token
 	 */
-	public static int getStatToken(CharacterDisplay display)
+	private static int getStatToken(CharacterDisplay display)
 	{
 		return (int) display.getStatBonusTo("HP", "BONUS");
 	}
@@ -141,7 +141,7 @@ public class HPRollToken extends Token
 	 * @param level
 	 * @return the HPROLL.TOTAL token
 	 */
-	public static int getTotalToken(PlayerCharacter pc, int level)
+	private static int getTotalToken(PlayerCharacter pc, int level)
 	{
 		return getRollToken(pc, level) + getStatToken(pc.getDisplay());
 	}

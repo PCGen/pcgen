@@ -30,7 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Tab;
 
-public class StattablehiddencolumnsToken extends
+class StattablehiddencolumnsToken extends
 		AbstractTokenWithSeparator<TabInfo> implements
 		CDOMPrimaryToken<TabInfo>
 {

@@ -40,7 +40,7 @@ import java.util.List;
  * Prerequisite tester, tests for the presence of a school of spellcasting.
  *
  */
-public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
+class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

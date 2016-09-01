@@ -29,16 +29,16 @@ import java.util.Enumeration;
  * <p>GradesViewColumnModel</p>
  * <p>edit method description . . .</p>
  */
-public class AutoSizingColumnModel extends DefaultTableColumnModel
+class AutoSizingColumnModel extends DefaultTableColumnModel
 {
 	private static final int COLUMN_WIDTH_PADDING = 10;
-	JTable m_table = null;
+	private JTable m_table = null;
 
 	/**
 	 * Set preffered column width
 	 * @param aColumn
 	 */
-	public void setColumnPreferredWidth(TableColumn aColumn)
+	private void setColumnPreferredWidth(TableColumn aColumn)
 	{
 		if (m_table != null)
 		{

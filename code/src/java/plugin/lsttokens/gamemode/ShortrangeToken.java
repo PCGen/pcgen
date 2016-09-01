@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SHORTRANGE Token
  */
-public class ShortrangeToken implements GameModeLstToken
+class ShortrangeToken implements GameModeLstToken
 {
 
     @Override

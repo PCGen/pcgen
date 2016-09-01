@@ -41,10 +41,10 @@ import java.util.Date;
  * EXPORT.TIME
  * EXPORT.VERSION
  */
-public class ExportToken extends Token
+class ExportToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "EXPORT";
+	private static final String TOKENNAME = "EXPORT";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

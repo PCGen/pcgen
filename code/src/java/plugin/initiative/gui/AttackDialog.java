@@ -54,7 +54,7 @@ import pcgen.core.RollingMethods;
  * selections changes the AC value and re-calculates the attack rolls.</p>
  *
  */
-public class AttackDialog extends JDialog
+class AttackDialog extends JDialog
 {
 	/** <p>List of resulting damage values, one for each successful attack.</p> */
 	private List<Integer> m_damageList = null;
@@ -179,7 +179,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @param e Event which fired this handler
 	 */
-	protected void handleAcTypeAction(ActionEvent e)
+	private void handleAcTypeAction(ActionEvent e)
 	{
 		m_field.setValue(Integer.valueOf(((PcgCombatant) m_targetsCombo
 			.getSelectedItem()).getPC().getDisplay().calcACOfType(
@@ -190,7 +190,7 @@ public class AttackDialog extends JDialog
 	/**
 	 * <p>Hides the dialog and makes sure all damage/target lists are null.</p>
 	 */
-	protected void handleCancel()
+	private void handleCancel()
 	{
 		m_damageList = null;
 		m_targetList = null;
@@ -201,7 +201,7 @@ public class AttackDialog extends JDialog
 	 * Handles actions from the Ok button.  Sets the damage list and hides the dialog.
 	 *
 	 */
-	protected void handleOk()
+	private void handleOk()
 	{
 		m_damageList = new ArrayList<Integer>(m_tableModel.getRowCount());
 		m_targetList = new ArrayList(m_tableModel.getRowCount());
@@ -235,7 +235,7 @@ public class AttackDialog extends JDialog
 	 * @param e
 	 *         Event which fired this handler.
 	 */
-	protected void handleSubdualAction(ActionEvent e)
+	private void handleSubdualAction(ActionEvent e)
 	{
 		if (e.getSource() instanceof JCheckBox)
 		{
@@ -249,7 +249,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @param e Model event
 	 */
-	protected void handleTableUpdate(TableModelEvent e)
+	private void handleTableUpdate(TableModelEvent e)
 	{
 		int dmgColumn =
 				m_tableModel.columnFromKey(AttackTableModel.COLUMN_KEY_DMGTOT);
@@ -277,7 +277,7 @@ public class AttackDialog extends JDialog
 	 *
 	 * @param e Event which fired this handler
 	 */
-	protected void handleTargetAction(ActionEvent e)
+	private void handleTargetAction(ActionEvent e)
 	{
 		if ((m_targetsCombo != null)
 			&& (m_targetsCombo.getSelectedItem() != null)
@@ -295,7 +295,7 @@ public class AttackDialog extends JDialog
 	 * Handles actions from the Roll button; calls table model's <code>rollAttacks</code>
 	 * method with the value of <code>m_field</code>
 	 */
-	protected void performRoll()
+	private void performRoll()
 	{
 		m_tableModel.rollAttacks();
 	}
@@ -475,29 +475,29 @@ public class AttackDialog extends JDialog
 		/** Key strings for accessing column data.  (Allows column names to be loaded from resource files
 		 * if necessary)
 		 */
-		static final String COLUMN_KEY_BONUS = "BONUS";
-		static final String COLUMN_KEY_FUDGE = "FUDGE";
-		static final String COLUMN_KEY_INCREMENT = "INCREMENT";
-		static final String COLUMN_KEY_RANGE = "RANGE";
-		static final String COLUMN_KEY_ROLL = "ROLL";
-		static final String COLUMN_KEY_TOTAL = "TOTAL";
-		static final String COLUMN_KEY_CRITROLL = "CRITROLL";
-		static final String COLUMN_KEY_CRITTOTAL = "CRITTOTAL";
-		static final String COLUMN_KEY_HIT = "HIT";
-		static final String COLUMN_KEY_CRIT = "CRIT";
-		static final String COLUMN_KEY_DMG = "DMG";
-		static final String COLUMN_KEY_DMGTOT = "DMGTOT";
-		static final String COLUMN_KEY_TARGET = "TARGET";
-		static final String COLUMN_KEY_AC = "ARMORCLASS";
+		private static final String COLUMN_KEY_BONUS = "BONUS";
+		private static final String COLUMN_KEY_FUDGE = "FUDGE";
+		private static final String COLUMN_KEY_INCREMENT = "INCREMENT";
+		private static final String COLUMN_KEY_RANGE = "RANGE";
+		private static final String COLUMN_KEY_ROLL = "ROLL";
+		private static final String COLUMN_KEY_TOTAL = "TOTAL";
+		private static final String COLUMN_KEY_CRITROLL = "CRITROLL";
+		private static final String COLUMN_KEY_CRITTOTAL = "CRITTOTAL";
+		private static final String COLUMN_KEY_HIT = "HIT";
+		private static final String COLUMN_KEY_CRIT = "CRIT";
+		private static final String COLUMN_KEY_DMG = "DMG";
+		private static final String COLUMN_KEY_DMGTOT = "DMGTOT";
+		private static final String COLUMN_KEY_TARGET = "TARGET";
+		private static final String COLUMN_KEY_AC = "ARMORCLASS";
 
 		/**
 		 * Integers for use when accessing values in the columns array
 		 */
-		static final int COLUMN_INDEX_NAME = 0;
-		static final int COLUMN_INDEX_CLASS = 1;
-		static final int COLUMN_INDEX_DEFAULT = 2;
-		static final int COLUMN_INDEX_EDITABLE = 3;
-		static final int COLUMN_INDEX_KEY = 4;
+		private static final int COLUMN_INDEX_NAME = 0;
+		private static final int COLUMN_INDEX_CLASS = 1;
+		private static final int COLUMN_INDEX_DEFAULT = 2;
+		private static final int COLUMN_INDEX_EDITABLE = 3;
+		private static final int COLUMN_INDEX_KEY = 4;
 
 
 		/** AC Type string */
@@ -548,7 +548,7 @@ public class AttackDialog extends JDialog
 		/**
 		 * Constructor.  Builds values based on the enclosing class's m_attack member.
 		 */
-		public AttackTableModel()
+		private AttackTableModel()
 		{
 			super();
 
@@ -575,7 +575,7 @@ public class AttackDialog extends JDialog
 		/**
 		 * @param string
 		 */
-		public void setAcType(String string)
+		private void setAcType(String string)
 		{
 			m_acType = string;
 
@@ -624,7 +624,7 @@ public class AttackDialog extends JDialog
 		 *
 		 * @param target Target
 		 */
-		public void setTarget(PcgCombatant target)
+		private void setTarget(PcgCombatant target)
 		{
 			for (int i = 0; i < getRowCount(); i++)
 			{
@@ -647,7 +647,7 @@ public class AttackDialog extends JDialog
 		/**
 		 * Iterates through all rows in the table and calls <code>rollAttack(row)</code>.
 		 */
-		public void rollAttacks()
+		private void rollAttacks()
 		{
 			for (int i = 0; i < getRowCount(); i++)
 			{

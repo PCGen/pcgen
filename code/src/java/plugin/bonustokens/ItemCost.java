@@ -31,7 +31,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:ITEMCOST token.
  */
-public final class ItemCost extends BonusObj
+final class ItemCost extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

@@ -36,10 +36,10 @@ import pcgen.util.Delta;
 /**
  * Deals with INITIATIVEBONUS Token
  */
-public class InitiativeBonusToken extends Token
+class InitiativeBonusToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "INITIATIVEBONUS";
+	private static final String TOKENNAME = "INITIATIVEBONUS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -67,7 +67,7 @@ public class InitiativeBonusToken extends Token
 	 * @param pc
 	 * @return the token
 	 */
-	public static int getInitiativeBonusToken(PlayerCharacter pc)
+	private static int getInitiativeBonusToken(PlayerCharacter pc)
 	{
 		String initiativeVar = ControlUtilities
 				.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);

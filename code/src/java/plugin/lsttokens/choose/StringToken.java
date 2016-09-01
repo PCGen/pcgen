@@ -207,7 +207,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	protected AssociationListKey<String> getListKey()
+	private AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*STRING");
 	}

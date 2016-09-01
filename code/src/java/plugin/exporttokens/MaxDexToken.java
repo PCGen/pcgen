@@ -37,10 +37,10 @@ import pcgen.util.Delta;
 /**
  * Deals with retunring value from MAXDEX token
  */
-public class MaxDexToken extends Token
+class MaxDexToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "MAXDEX";
+	private static final String TOKENNAME = "MAXDEX";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -34,10 +34,10 @@ import pcgen.io.exporttoken.Token;
  * Class deals with ALTHP Token
  */
 @Deprecated
-public class AltHPToken extends Token
+class AltHPToken extends Token
 {
 	/** Name of Token */
-	public static final String TOKENNAME = "ALTHP";
+	private static final String TOKENNAME = "ALTHP";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -63,7 +63,7 @@ public class AltHPToken extends Token
 	 * @param pc
 	 * @return token
 	 */
-	public static int getAltHPToken(PlayerCharacter pc)
+	private static int getAltHPToken(PlayerCharacter pc)
 	{
 		int i;
 		String solverValue = pc.getControl(CControl.ALTHP);

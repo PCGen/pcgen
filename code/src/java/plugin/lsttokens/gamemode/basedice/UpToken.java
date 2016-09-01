@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
+class UpToken extends AbstractTokenWithSeparator<BaseDice> implements
 		CDOMPrimaryToken<BaseDice>
 {
 

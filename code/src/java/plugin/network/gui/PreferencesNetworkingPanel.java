@@ -55,12 +55,12 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
-	public void setPortNumber(int port)
+	private void setPortNumber(int port)
 	{
 		serverPort.setText(Integer.toString(port));
 	}
 
-	public int getPortNumber()
+	private int getPortNumber()
 	{
 		int port = 80;
 		try
@@ -74,12 +74,12 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		return port;
 	}
 
-	public void setUserName(String username)
+	private void setUserName(String username)
 	{
 		userName.setText(username);
 	}
 
-	public String getUserName()
+	private String getUserName()
 	{
 		return userName.getText();
 	}

@@ -6,7 +6,7 @@ import pcgen.persistence.lst.EquipSlotLstToken;
 /**
  * Class deals with NUMBER Token
  */
-public class NumberToken implements EquipSlotLstToken
+class NumberToken implements EquipSlotLstToken
 {
 
     @Override

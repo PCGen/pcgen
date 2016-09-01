@@ -83,19 +83,19 @@ import plugin.encounter.gui.EncounterView;
 
 /**
  * This class controls the various classes that are
- * involved in the functionality of the Encounter Generator.  This <code>class
- * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
- * <code>PluginLoader</code> and will create a model and a view for this plugin.
+ * involved in the functionality of the Encounter Generator.  This {@code class
+ * } is a plugin for the {@code GMGenSystem}, is called by the
+ * {@code PluginLoader} and will create a model and a view for this plugin.
  * @version 2.10
  */
-public class EncounterPlugin implements InteractivePlugin, ActionListener,
+class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ItemListener, MouseListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
 	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
 
 	/** Name of the log */
-	public static final String LOG_NAME = "Encounter"; //$NON-NLS-1$
+	private static final String LOG_NAME = "Encounter"; //$NON-NLS-1$
 
 	/** The model that holds all the data for generating encounters. */
 	private EncounterModel theModel;
@@ -130,8 +130,8 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates an instance of this class creating a new <code>InitHolderList
-	 * </code>.
+	 * Creates an instance of this class creating a new {@code InitHolderList
+	 * }.
 	 */
 	public EncounterPlugin()
 	{
@@ -139,7 +139,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
 	@Override
 	public void start(PCGenMessageHandler mh)
@@ -155,10 +155,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -172,7 +169,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 	/**
 	 * Sets the instance of the model for the encounter generator.
-	 * @param theModel the <code>EncounterModel</code>.
+	 * @param theModel the {@code EncounterModel}.
 	 */
 	public void setModel(EncounterModel theModel)
 	{
@@ -181,7 +178,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 	/**
 	 * Gets the model that holds the data for the encounter generator.
-	 * @return the <code>EncounterModel</code>.
+	 * @return the {@code EncounterModel}.
 	 */
 	public EncounterModel getModel()
 	{
@@ -222,10 +219,10 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * Gets the <code>JPanel</code> view associated for this class.
+	 * Gets the {@code JPanel} view associated for this class.
 	 * @return the view.
 	 */
-	public JPanel getView()
+	private JPanel getView()
 	{
 		return theView;
 	}
@@ -267,7 +264,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Handles the <b>Generate Encounter</b> button.
 	 * @param m the encounter model.
 	 */
-	public void handleGenerateEncounter(EncounterModel m)
+	private void handleGenerateEncounter(EncounterModel m)
 	{
 		File f =
 				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
@@ -307,15 +304,15 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Add Creature</b> button.
 	 */
-	public void handleAddCreature()
+	private void handleAddCreature()
 	{
 		if (!theView.getLibraryCreatures().isSelectionEmpty())
 		{
 			Object[] values = theView.getLibraryCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
+			for (final Object value : values)
 			{
-				theModel.addElement(values[i]);
+				theModel.addElement(value);
 			}
 
 			updateUI();
@@ -347,7 +344,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * True if active
 	 * @return True if active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -357,16 +354,16 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Remove Creature</b> button.
 	 */
-	public void handleRemoveCreature()
+	private void handleRemoveCreature()
 	{
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
 			Object[] values =
 					theView.getEncounterCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
+			for (final Object value : values)
 			{
-				theModel.removeElement(values[i]);
+				theModel.removeElement(value);
 			}
 
 			updateUI();
@@ -376,7 +373,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Begin Combat</b> button.
 	 */
-	public void handleTransferToTracker()
+	private void handleTransferToTracker()
 	{
 		int i;
 		PlayerCharacter aPC;
@@ -432,18 +429,11 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Initiliase the menus
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
-		encounterToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		encounterToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 
@@ -557,7 +547,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Tool item menu
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -573,7 +563,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Updates all necessary items if there has been a change.
 	 */
-	public void updateUI()
+	private void updateUI()
 	{
 		int sel;
 
@@ -583,7 +573,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 
 		// Get any currently selected items in the Races list
-		ArrayList<Object> selected = new ArrayList<Object>();
+		ArrayList<Object> selected = new ArrayList<>();
 
 		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
@@ -630,7 +620,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		ArrayList<Integer> stillSelected = new ArrayList<Integer>();
+		ArrayList<Integer> stillSelected = new ArrayList<>();
 
 		for (Object obj : selected)
 		{
@@ -647,7 +637,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 			int[] ints = new int[stillSelected.size()];
 			for (int i = 0; i < ints.length; i++)
 			{
-				ints[i] = (stillSelected.get(i)).intValue();
+				ints[i] = stillSelected.get(i);
 			}
 
 			theView.getLibraryCreatures().setSelectedIndices(ints);
@@ -662,7 +652,6 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 *         file.
 	 */
 	private Vector<?> getMonsterFromTable(String table)
-		throws FileNotFoundException
 	{
 		String tablePath;
 		String tableEntry;
@@ -725,17 +714,17 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		catch (NumberFormatException e)
 		{
 			String[] dice = numMonsters.split("d");
-			num = Integer.valueOf(0);
+			num = 0;
 
 			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
 				num =
-						Integer.valueOf(num.intValue()
-							+ roll.nextInt(Integer.parseInt(dice[1])) + 1);
+						num
+								+ roll.nextInt(Integer.parseInt(dice[1])) + 1;
 			}
 		}
 
-		Vector<Object> toReturn = new Vector<Object>();
+		Vector<Object> toReturn = new Vector<>();
 		toReturn.addElement(num);
 		toReturn.addElement(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
@@ -774,7 +763,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	private static List<String> getWeaponLocationChoices(int hands,
 		String multiHand)
 	{
-		ArrayList<String> result = new ArrayList<String>(hands + 2);
+		ArrayList<String> result = new ArrayList<>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -838,16 +827,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	{
 		Vector<?> critters;
 
-		try
-		{
-			critters = getMonsterFromTable(Environment);
-		}
-		catch (FileNotFoundException e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-
-			return;
-		}
+		critters = getMonsterFromTable(Environment);
 
 		//	If we don't find anything just return.
 		if (critters.size() < 1)
@@ -859,7 +839,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 			return;
 		}
 
-		for (int x = 0; x < ((Integer) critters.firstElement()).intValue(); x++)
+		for (int x = 0; x < (Integer) critters.firstElement(); x++)
 		{
 			theModel.addElement(critters.lastElement().toString());
 		}
@@ -879,7 +859,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
-		List<Race> critters = new ArrayList<Race>();
+		List<Race> critters = new ArrayList<>();
 
 		if (!f.exists())
 		{
@@ -993,7 +973,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return true;
 	}
 
-	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
+	private List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -1002,7 +982,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 			hands = getHands(pc);
 		}
 
-		List<String> aList = new ArrayList<String>();
+		List<String> aList = new ArrayList<>();
 
 		if (eqI.isWeapon())
 		{
@@ -1149,7 +1129,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				eqI)))
 			{
 				// let them choose where to put the item
-				List<String> selectedList = new ArrayList<String>();
+				List<String> selectedList = new ArrayList<>();
 				selectedList =
 						Globals.getChoiceFromList("Select a location for "
 							+ eqI.getName(), aList, selectedList, 1, false,
@@ -1213,7 +1193,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap<String, String> slotMap = new HashMap<String, String>();
+		HashMap<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
@@ -1374,7 +1354,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				int size = display.getLevelHitDie(pcClass, j + 1).getDie();
 				PCClassLevel classLevel = display.getActiveClassLevel(pcClass, j);
 				aPC.setHP(classLevel,
-					Integer.valueOf(new Dice(1, size, bonus).roll()));
+						new Dice(1, size, bonus).roll());
 			}
 		}
 

@@ -33,7 +33,7 @@ import plugin.initiative.InitiativePlugin;
  *@author     devon
  *@since    April 7, 2003
  */
-public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
+class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 {
 	private static final String OPTION_NAME_MAXNUM = InitiativePlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 	private static final String OPTION_NAME_DBMAXHP = InitiativePlugin.LOG_NAME + ".dbMaxHP"; //$NON-NLS-1$
@@ -63,7 +63,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@param  value  The new maxHP value
 	 */
-	public void setMaxHP(int value)
+	private void setMaxHP(int value)
 	{
 		tbHitPoints.setText(Integer.toString(value));
 	}
@@ -73,7 +73,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@return    The maxHP value
 	 */
-	public int getMaxHP()
+	private int getMaxHP()
 	{
 		return Integer.parseInt(tbHitPoints.getText());
 	}
@@ -83,7 +83,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@param  value  The new number value
 	 */
-	public void setNumber(int value)
+	private void setNumber(int value)
 	{
 		tbNumber.setText(Integer.toString(value));
 	}
@@ -93,7 +93,7 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 *@return    The number value
 	 */
-	public int getNumber()
+	private int getNumber()
 	{
 		return Integer.parseInt(tbNumber.getText());
 	}

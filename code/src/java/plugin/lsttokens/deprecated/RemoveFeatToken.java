@@ -64,7 +64,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
+class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>,
 		PersistentChoiceActor<CNAbilitySelection>, DeprecatedToken
 {

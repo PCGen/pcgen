@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with CURRENCYUNITABBREV Token
  */
-public class CurrencyunitabbrevToken implements GameModeLstToken
+class CurrencyunitabbrevToken implements GameModeLstToken
 {
 
     @Override

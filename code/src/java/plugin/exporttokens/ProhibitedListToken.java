@@ -38,9 +38,9 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 //PROHIBITEDLIST
-public class ProhibitedListToken extends AbstractExportToken
+class ProhibitedListToken extends AbstractExportToken
 {
-	public static final String TOKENNAME = "PROHIBITEDLIST";
+	private static final String TOKENNAME = "PROHIBITEDLIST";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -61,8 +61,8 @@ public class ProhibitedListToken extends AbstractExportToken
 		return getProhibitedListToken(tokenSource, display);
 	}
 
-	public static String getProhibitedListToken(String tokenSource,
-		CharacterDisplay display)
+	private static String getProhibitedListToken(String tokenSource,
+	                                             CharacterDisplay display)
 	{
 		int k = tokenSource.lastIndexOf(',');
 

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with DEFAULTUNITSET Token
  */
-public class DefaultunitsetToken implements GameModeLstToken
+class DefaultunitsetToken implements GameModeLstToken
 {
 
     @Override

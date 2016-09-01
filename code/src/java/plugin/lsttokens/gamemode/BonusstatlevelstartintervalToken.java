@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BONUSSTATLEVELSTARTINTERVAL Token
  */
-public class BonusstatlevelstartintervalToken implements GameModeLstToken
+class BonusstatlevelstartintervalToken implements GameModeLstToken
 {
 
     @Override

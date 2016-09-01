@@ -33,10 +33,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * MAXSKILLLEVEL token
  */
-public class MaxSkillLevelToken extends Token
+class MaxSkillLevelToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "MAXSKILLLEVEL";
+	private static final String TOKENNAME = "MAXSKILLLEVEL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -63,7 +63,7 @@ public class MaxSkillLevelToken extends Token
 	 * @param pc
 	 * @return Max Skill level token value
 	 */
-	public static int getMaxSkillLevelToken(PlayerCharacter pc)
+	private static int getMaxSkillLevelToken(PlayerCharacter pc)
 	{
 		return SkillUtilities.maxClassSkillForLevel(pc.getDisplay().getTotalLevels(), pc)
 			.intValue();

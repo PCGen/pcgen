@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMCompatibilityToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TemplateChooseLangautoToken extends
+class TemplateChooseLangautoToken extends
 		AbstractTokenWithSeparator<PCTemplate> implements
 		CDOMCompatibilityToken<PCTemplate>
 {
