@@ -82,7 +82,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		// e.g.: TYPE.Hammer,Hand Axe=Simple|Urgosh,Waraxe=Martial
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		List<ChangeProf> list = new ArrayList<ChangeProf>();
+		List<ChangeProf> list = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -176,7 +176,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>> m =
-				new HashMapToList<CDOMGroupRef<WeaponProf>, CDOMReference<WeaponProf>>();
+				new HashMapToList<>();
 		for (ChangeProf cp : added)
 		{
 			CDOMReference<WeaponProf> source = cp.getSource();
@@ -185,9 +185,9 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		SortedSet<CDOMReference<WeaponProf>> set =
-				new TreeSet<CDOMReference<WeaponProf>>(
-					ReferenceUtilities.REFERENCE_SORTER);
-		Set<String> returnSet = new TreeSet<String>();
+				new TreeSet<>(
+						ReferenceUtilities.REFERENCE_SORTER);
+		Set<String> returnSet = new TreeSet<>();
 		for (CDOMGroupRef<WeaponProf> result : m.getKeySet())
 		{
 			StringBuilder sb = new StringBuilder();

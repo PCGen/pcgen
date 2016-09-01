@@ -179,7 +179,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 	{
 		Changes<KnownSpellIdentifier> changes = context.getObjectContext()
 				.getListChanges(pcc, ListKey.KNOWN_SPELLS);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR_ALL);
@@ -194,7 +194,7 @@ public class KnownspellsToken extends AbstractTokenWithSeparator<PCClass>
 		Collection<KnownSpellIdentifier> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<CDOMReference<?>, Integer>(
+			TreeMapToList<CDOMReference<?>, Integer> map = new TreeMapToList<>(
 					ReferenceUtilities.REFERENCE_SORTER);
 			for (KnownSpellIdentifier ksi : added)
 			{

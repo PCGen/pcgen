@@ -47,7 +47,7 @@ public class TipsTest
 	@Test
 	public void testAddTip()
 	{
-		Set<String> t = new HashSet<String>();
+		Set<String> t = new HashSet<>();
 		assertEquals(0, t.size());
 		Tips.addTip(t, tip);
 		assertTrue(t.contains(tip));

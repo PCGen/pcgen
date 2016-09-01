@@ -59,7 +59,7 @@ public class ResizableEquipTypeToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		List<String> typelist = new ArrayList<String>();
+		List<String> typelist = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		while (aTok.hasMoreTokens())

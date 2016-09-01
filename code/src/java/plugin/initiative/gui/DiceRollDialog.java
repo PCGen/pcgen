@@ -18,15 +18,21 @@
 package plugin.initiative.gui;
 
 import gmgen.GMGenSystem;
-import plugin.initiative.DiceRollModel;
-
-import javax.swing.*;
-import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextField;
 import pcgen.core.RollingMethods;
+import plugin.initiative.DiceRollModel;
 
 /**
  * <p>
@@ -35,36 +41,36 @@ import pcgen.core.RollingMethods;
  *
  * @author Ross M. Lodge
  */
-public class DiceRollDialog extends JDialog
+class DiceRollDialog extends JDialog
 {
 	/** The skill model for this dialog. */
 	DiceRollModel m_model = null;
 
 	/** Button to exit the dialog */
-	protected JButton m_ok;
+	private JButton m_ok;
 
 	/** Button to roll the skill checks */
-	protected JButton m_doRoll;
+	private JButton m_doRoll;
 
 	/** Label to display the result of the check */
-	protected JLabel m_result;
+	JLabel m_result;
 
 	/** Text field for the skill roll expression */
-	protected JTextField m_roll;
+	private JTextField m_roll;
 
 	/** List of components for field panel */
-	protected List<Component> m_fields = new ArrayList<Component>();
+	private final Collection<Component> m_fields = new ArrayList<>();
 
 	/** List of components for label panel */
-	protected List<Component> m_labels = new ArrayList<Component>();
+	private final Collection<Component> m_labels = new ArrayList<>();
 
-	protected JPanel m_buttons;
+	private JPanel m_buttons;
 
-	protected JPanel m_mainPanel;
+	private JPanel m_mainPanel;
 
-	protected JPanel m_fieldPanel;
+	private JPanel m_fieldPanel;
 
-	protected JPanel m_labelPanel;
+	private JPanel m_labelPanel;
 
 	/**
 	 * <p>Construct a dialog for the specified roll.</p>
@@ -72,9 +78,8 @@ public class DiceRollDialog extends JDialog
 	 *
 	 * @throws java.awt.HeadlessException
 	 */
-	public DiceRollDialog(DiceRollModel model) throws HeadlessException
+	DiceRollDialog(DiceRollModel model)
 	{
-		super();
 		m_model = model;
 		initComponents();
 	}
@@ -84,9 +89,8 @@ public class DiceRollDialog extends JDialog
 	 * Exits the dialog.
 	 * </p>
 	 *
-	 * @param e Event which fired this handler
 	 */
-	protected void handleOk(ActionEvent e)
+	private void handleOk()
 	{
 		setVisible(false);
 	}
@@ -96,9 +100,8 @@ public class DiceRollDialog extends JDialog
 	 * Rolls the skill roll.
 	 * </p>
 	 *
-	 * @param e Event which fired this handler
 	 */
-	protected void handleRoll(ActionEvent e)
+	private void handleRoll()
 	{
 		setResult(RollingMethods.roll(m_roll.getText()));
 	}
@@ -128,7 +131,7 @@ public class DiceRollDialog extends JDialog
 		sizeAndLocate();
 	}
 
-	protected void sizeAndLocate()
+	private void sizeAndLocate()
 	{
 		//Size and position the dialog
 		pack();
@@ -140,15 +143,14 @@ public class DiceRollDialog extends JDialog
 	 *
 	 * @param labelText Text for label
 	 */
-	protected void initResult(String labelText)
+	private void initResult(String labelText)
 	{
 		m_result = new JLabel("<html><body><b>-</b></body></html>");
 		m_result.setMinimumSize(new Dimension(100, (int) m_result
 			.getMinimumSize().getWidth()));
 		m_result.setPreferredSize(new Dimension(100, (int) m_result
 			.getPreferredSize().getWidth()));
-		JLabel label = null;
-		label = new JLabel(labelText);
+		JLabel label = new JLabel(labelText);
 		label.setAlignmentX(Component.RIGHT_ALIGNMENT);
 		addComponent(m_result, label);
 	}
@@ -158,7 +160,7 @@ public class DiceRollDialog extends JDialog
 	 * <p>Builds the main panels for the dialog.  Does NOT initialize the buttons panel.</p>
 	 *
 	 */
-	protected void initPanels()
+	private void initPanels()
 	{
 		//Construct the panels
 		m_mainPanel = new JPanel(new BorderLayout(5, 5));
@@ -188,7 +190,7 @@ public class DiceRollDialog extends JDialog
 	 *
 	 * @param labelText Label text
 	 */
-	protected void addRollField(String labelText)
+	private void addRollField(String labelText)
 	{
 		m_roll = new JTextField(m_model.getExpression());
 		JLabel label = new JLabel(labelText);
@@ -201,7 +203,7 @@ public class DiceRollDialog extends JDialog
 	 * <p>Initializes the buttons and their panel</p>
 	 *
 	 */
-	protected void initButtons()
+	private void initButtons()
 	{
 		m_buttons = new JPanel();
 		m_buttons.setLayout(new BoxLayout(m_buttons, BoxLayout.X_AXIS));
@@ -223,22 +225,8 @@ public class DiceRollDialog extends JDialog
 	protected void initListeners()
 	{
 		//Initialize listeners
-		m_doRoll.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				handleRoll(e);
-			}
-		});
-		m_ok.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				handleOk(e);
-			}
-		});
+		m_doRoll.addActionListener(e -> handleRoll());
+		m_ok.addActionListener(e -> handleOk());
 	}
 
 	/**
@@ -248,7 +236,7 @@ public class DiceRollDialog extends JDialog
 	 * @param label
 	 *
 	 */
-	protected void addComponent(Component field, Component label)
+	void addComponent(Component field, Component label)
 	{
 		m_fields.add(field);
 		m_labels.add(label);

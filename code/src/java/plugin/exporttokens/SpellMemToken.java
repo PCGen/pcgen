@@ -147,7 +147,7 @@ public class SpellMemToken extends Token
 				{
 					// List of all the character's spells (including SLAs)
 					final List<CharacterSpell> charSpellList =
-							new ArrayList<CharacterSpell>();
+							new ArrayList<>();
 
 					// For each class
 					for (PCClass pcClass : aPC.getDisplay().getClassSet())
@@ -553,7 +553,7 @@ public class SpellMemToken extends Token
 	{
 		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getSpellLevelInfo(aSpell);
 		StringBuilder tempSource = new StringBuilder();
-		final Set<String> levelSet = new TreeSet<String>();
+		final Set<String> levelSet = new TreeSet<>();
 
 		for (CDOMList<Spell> spellList : tempHash.getKeySet())
 		{

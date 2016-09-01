@@ -31,7 +31,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static EqmodToken token = new EqmodToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitGear.class);
 
 	@Override

@@ -91,7 +91,7 @@ public class PluginBuildTest extends PCGenTestCase
 		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
 		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<String>();
+		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
 		srcList.remove("PreDefaultMonsterTester.java");
 		srcList.remove("PreDefaultMonsterWriter.java");
@@ -447,7 +447,7 @@ public class PluginBuildTest extends PCGenTestCase
 		File jarFolder = new File("plugins/preplugins");
 		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<String>();
+		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
 		srcList.remove("PreSkillTotalParser.java");
 		sources = srcList.toArray(sources);
@@ -610,7 +610,7 @@ public class PluginBuildTest extends PCGenTestCase
 		File jarFolder, String classSuffix, String[] sources)
 	{
 		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
-		Set<String> jarSet = new HashSet<String>();
+		Set<String> jarSet = new HashSet<>();
 		String[] jars = jarFolder.list();
 		for (int i = 0; i < jars.length; i++)
 		{
@@ -664,7 +664,7 @@ public class PluginBuildTest extends PCGenTestCase
 		{
 			assertTrue("Jar folder " + folder.getAbsolutePath() + " should be a directory", folder.isDirectory());
 		}
-		Set<String> jarSet = new HashSet<String>();
+		Set<String> jarSet = new HashSet<>();
 		for (File folder : jarFolder)
 		{
 			String[] jars = folder.list();

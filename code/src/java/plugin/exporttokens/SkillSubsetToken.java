@@ -113,7 +113,7 @@ public class SkillSubsetToken extends SkillToken
 		// Build the list of matching skills
 		String skillPrefix = details.getProperty(0);
 		int prefixLength = skillPrefix.length();
-		List<Skill> skillSubset = new ArrayList<Skill>();
+		List<Skill> skillSubset = new ArrayList<>();
 		final List<Skill> skills =
 				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(View.VISIBLE_EXPORT));

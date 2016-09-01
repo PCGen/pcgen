@@ -786,7 +786,7 @@ public class XMLCombatant extends Combatant
 
 			statBuf.append("<br>");
 
-			List<SystemAttribute> statList = new ArrayList<SystemAttribute>();
+			List<SystemAttribute> statList = new ArrayList<>();
 			statList.add(new SystemAttribute("Str", getAttribute("Strength")));
 			statList.add(new SystemAttribute("Con",
 				getAttribute("Constitution")));

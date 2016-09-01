@@ -109,7 +109,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	{
 		Changes<CDOMReference<Dynamic>> changes =
 				context.getObjectContext().getListChanges(obj, ListKey.GRANTED);
-		HashMapToList<String, String> map = new HashMapToList<String, String>();
+		HashMapToList<String, String> map = new HashMapToList<>();
 		Collection<CDOMReference<Dynamic>> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
@@ -125,7 +125,7 @@ public class GrantLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (String scope : map.getKeySet())
 		{
 			List<String> scopeList = map.getListFor(scope);

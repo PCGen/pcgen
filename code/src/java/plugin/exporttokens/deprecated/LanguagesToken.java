@@ -63,7 +63,7 @@ public class LanguagesToken extends AbstractExportToken
 		int startIndex = 0;
 
 		List<Language> languageList =
-				new ArrayList<Language>(display.getSortedLanguageSet());
+				new ArrayList<>(display.getSortedLanguageSet());
 
 		if (aTok.hasMoreTokens())
 		{

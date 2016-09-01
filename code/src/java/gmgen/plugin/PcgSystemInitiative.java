@@ -22,6 +22,7 @@
  */
 package gmgen.plugin;
 
+import gmgen.plugin.dice.Dice;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;

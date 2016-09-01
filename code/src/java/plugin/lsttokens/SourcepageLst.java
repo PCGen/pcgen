@@ -52,7 +52,7 @@ public class SourcepageLst extends AbstractNonEmptyToken<CDOMObject> implements
 		boolean removed =
 				context.getObjectContext().wasRemoved(cdo,
 					StringKey.SOURCE_PAGE);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (removed)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

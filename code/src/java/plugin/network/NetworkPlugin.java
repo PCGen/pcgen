@@ -205,14 +205,7 @@ public class NetworkPlugin implements InteractivePlugin
 	{
 		netToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		netToolsItem.setText(getLocalizedName());
-		netToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		netToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, netToolsItem));
 	}
 

@@ -93,7 +93,7 @@ public class HitDiceToken extends Token
 		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<Integer, Integer>();
+					new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{
@@ -150,7 +150,7 @@ public class HitDiceToken extends Token
 		Integer total = 0;
 
 		HashMap<Integer, Integer> hdMap =
-				new LinkedHashMap<Integer, Integer>();
+				new LinkedHashMap<>();
 
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
@@ -216,7 +216,7 @@ public class HitDiceToken extends Token
 		for (PCClass pcClass : display.getClassSet())
 		{
 			HashMap<Integer, Integer> hdMap =
-					new LinkedHashMap<Integer, Integer>();
+					new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
 			{

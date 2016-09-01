@@ -34,7 +34,7 @@ public class IdentityHashMapInequality implements
 	public String testInequality(IdentityHashMap m1, IdentityHashMap m2,
 		InequalityTester t, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
+		List<String> reasons = new ArrayList<>();
 		Set<?> k1 = m1.keySet();
 		Set<?> k2 = m2.keySet();
 		if (k1.size() != k2.size())
@@ -43,7 +43,7 @@ public class IdentityHashMapInequality implements
 				+ m1.keySet() + " " + m2.keySet();
 		}
 		HashMapToList<Integer, Integer> matches =
-				new HashMapToList<Integer, Integer>();
+				new HashMapToList<>();
 		if (!k1.equals(k2))
 		{
 			String result = processKeys(location, k1, k2, matches);
@@ -99,9 +99,9 @@ public class IdentityHashMapInequality implements
 		Collection<?> v2, HashMapToList<Integer, Integer> potential)
 	{
 		HashMapToList<Integer, Integer> matches =
-				new HashMapToList<Integer, Integer>();
-		ArrayList<Object> values1 = new ArrayList<Object>(v1);
-		ArrayList<Object> values2 = new ArrayList<Object>(v2);
+				new HashMapToList<>();
+		ArrayList<Object> values1 = new ArrayList<>(v1);
+		ArrayList<Object> values2 = new ArrayList<>(v2);
 		for (Integer loc1 : potential.getKeySet())
 		{
 			Object o1 = values1.get(loc1);
@@ -119,7 +119,7 @@ public class IdentityHashMapInequality implements
 			return null;
 		}
 		//If not then we have keys that are .equals but not ==  and different targets :/
-		List<Integer> used = new ArrayList<Integer>();
+		List<Integer> used = new ArrayList<>();
 		for (Integer m1 : matches.getKeySet())
 		{
 			if (matches.sizeOfListFor(m1) == 1)

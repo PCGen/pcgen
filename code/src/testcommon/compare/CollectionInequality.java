@@ -36,8 +36,8 @@ public class CollectionInequality implements InequalityTest<Collection<?>>
 		{
 			return null;
 		}
-		List<Object> l1 = new ArrayList<Object>(s1);
-		List<Object> l2 = new ArrayList<Object>(s2);
+		List<Object> l1 = new ArrayList<>(s1);
+		List<Object> l2 = new ArrayList<>(s2);
 		l1.removeAll(l2);
 		if (l1.isEmpty())
 		{

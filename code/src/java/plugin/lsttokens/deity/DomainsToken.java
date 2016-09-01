@@ -74,7 +74,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		StringTokenizer commaTok = new StringTokenizer(pipeTok.nextToken(),
 				Constants.COMMA);
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
-		ArrayList<AssociatedPrereqObject> proList = new ArrayList<AssociatedPrereqObject>();
+		ArrayList<AssociatedPrereqObject> proList = new ArrayList<>();
 
 		boolean first = true;
 		boolean foundAll = false;
@@ -172,7 +172,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
 		AssociatedChanges<CDOMReference<Domain>> changes = context
 				.getListContext().getChangesInList(getTokenName(), deity, dl);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Domain>> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
@@ -196,19 +196,19 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		if (mtl != null && !mtl.isEmpty())
 		{
 			MapToList<Set<Prerequisite>, CDOMReference<Domain>> m =
-					new HashMapToList<Set<Prerequisite>, CDOMReference<Domain>>();
+					new HashMapToList<>();
 			for (CDOMReference<Domain> ab : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 				{
-					m.addToListFor(new HashSet<Prerequisite>(assoc
+					m.addToListFor(new HashSet<>(assoc
 							.getPrerequisiteList()), ab);
 				}
 			}
-			Set<String> set = new TreeSet<String>();
+			Set<String> set = new TreeSet<>();
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
-				Set<CDOMReference<Domain>> domainSet = new TreeSet<CDOMReference<Domain>>(
+				Set<CDOMReference<Domain>> domainSet = new TreeSet<>(
 						ReferenceUtilities.REFERENCE_SORTER);
 				domainSet.addAll(m.getListFor(prereqs));
 				StringBuilder sb =

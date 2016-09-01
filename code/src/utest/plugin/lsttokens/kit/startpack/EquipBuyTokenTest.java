@@ -158,7 +158,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	@Override
 	protected String[] setAndUnparse(Formula val)
 	{
-		primaryProf.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(val));
+		primaryProf.put(ObjectKey.EQUIP_BUY, new QualifiedObject<>(val));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

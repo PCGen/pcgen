@@ -140,7 +140,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
 					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
@@ -230,7 +230,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
 					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
@@ -281,7 +281,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es,
 					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);

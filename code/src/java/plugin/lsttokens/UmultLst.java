@@ -82,7 +82,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 				IntegerKey.UMULT);
 		boolean b = context.getObjectContext()
 				.wasRemoved(obj, IntegerKey.UMULT);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (b)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

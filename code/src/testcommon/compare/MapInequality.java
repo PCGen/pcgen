@@ -32,7 +32,7 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
     @Override
 	public String testInequality(Map<?, ?> m1, Map<?, ?> m2, InequalityTester t, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
+		List<String> reasons = new ArrayList<>();
 		Set<?> k1 = m1.keySet();
 		Set<?> k2 = m2.keySet();
 		if (k1.size() != k2.size())

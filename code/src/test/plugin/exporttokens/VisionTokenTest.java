@@ -75,7 +75,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		
-		final GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+		final GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 		final LoadContext context = Globals.getContext();
 		CampaignSourceEntry source;
 		try

@@ -77,13 +77,13 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		
 		uiDelegate = new MockUIDelegate();
 		todoManager = new TodoManager();
-		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<CampaignFacade>();
+		ListFacade<CampaignFacade> campaigns = new DefaultListFacade<>();
 		dataSetFacade = new DataSet(Globals.getContext(), SettingsHandler.getGame(), campaigns );
 		masterRace = TestHelper.makeRace("Wood Elf");
 		companionRace = TestHelper.makeRace("Weasel");
 
-		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(companionRace);
-		CDOMSingleRef<CompanionList> ref  = new  CDOMSimpleSingleRef<CompanionList>(CompanionList.class, companionList.getKeyName());
+		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(companionRace);
+		CDOMSingleRef<CompanionList> ref  = new CDOMSimpleSingleRef<>(CompanionList.class, companionList.getKeyName());
 		FollowerOption option = new FollowerOption(race, ref);
 		masterRace.addToListFor(ListKey.COMPANIONLIST, option);
 	}
@@ -100,8 +100,8 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		master.setName("Master1");
 		CompanionSupportFacadeImpl masterCsfi =
 				new CompanionSupportFacadeImpl(master, todoManager,
-					new DefaultReferenceFacade<String>(),
-					new DefaultReferenceFacade<File>(),
+						new DefaultReferenceFacade<>(),
+						new DefaultReferenceFacade<>(),
 					new CharacterFacadeImpl(master, uiDelegate, dataSetFacade));
 		
 		PlayerCharacter companion = new PlayerCharacter();

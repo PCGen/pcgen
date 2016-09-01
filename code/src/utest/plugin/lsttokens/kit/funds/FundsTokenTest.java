@@ -29,7 +29,7 @@ public class FundsTokenTest extends AbstractKitTokenTestCase<KitFunds>
 {
 
 	static FundsToken token = new FundsToken();
-	static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<KitFunds>(
+	static CDOMSubLineLoader<KitFunds> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitFunds.class);
 
 	@Override

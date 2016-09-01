@@ -282,7 +282,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		Collection<RemoteModifier<?>> added = changes.getAdded();
-		List<String> modifiers = new ArrayList<String>();
+		List<String> modifiers = new ArrayList<>();
 		if (added != null && added.size() > 0)
 		{
 			for (RemoteModifier<?> rm : added)

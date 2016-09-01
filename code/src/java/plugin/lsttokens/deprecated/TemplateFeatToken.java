@@ -245,12 +245,12 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 		{
 			AbilityRefChoiceSet rcs = new AbilityRefChoiceSet(
 				CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), list, Nature.NORMAL);
-			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<CNAbilitySelection>(
+			ChoiceSet<CNAbilitySelection> cs = new ChoiceSet<>(
 					getTokenName(), rcs);
 			cs.setTitle("Feat Choice");
 			PersistentTransitionChoice<CNAbilitySelection> tc =
-					new ConcretePersistentTransitionChoice<CNAbilitySelection>(
-						cs, FormulaFactory.ONE);
+					new ConcretePersistentTransitionChoice<>(
+							cs, FormulaFactory.ONE);
 			context.getObjectContext().put(pct, ObjectKey.TEMPLATE_FEAT, tc);
 			tc.setChoiceActor(this);
 		}

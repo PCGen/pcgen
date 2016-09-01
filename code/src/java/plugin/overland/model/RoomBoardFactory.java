@@ -45,9 +45,9 @@ public final class RoomBoardFactory
 	public static RoomBoard load(File dataDir)
 	{
 		//Create a new list for the room and board
-		PairList<RBCost> inns = new PairList<RBCost>();
-		PairList<RBCost> foods = new PairList<RBCost>();
-		PairList<RBCost> animals = new PairList<RBCost>();
+		PairList<RBCost> inns = new PairList<>();
+		PairList<RBCost> foods = new PairList<>();
+		PairList<RBCost> animals = new PairList<>();
 
 		File path = new File(dataDir, DIR_RNBPRICE);
 

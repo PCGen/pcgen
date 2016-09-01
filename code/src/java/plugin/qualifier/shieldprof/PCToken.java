@@ -44,7 +44,7 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 	protected Collection<ShieldProf> getPossessed(PlayerCharacter pc)
 	{
 		// Not used as we have overridden allow below, so return an empty set
-		return new ArrayList<ShieldProf>();
+		return new ArrayList<>();
 	}
 
 	@Override

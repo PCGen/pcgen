@@ -507,15 +507,7 @@ public class InitiativePlugin implements InteractivePlugin
 	{
 		initToolsItem.setMnemonic('I');
 		initToolsItem.setText("Initiative");
-		initToolsItem.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				initMenuItem(evt);
-			}
-		});
+		initToolsItem.addActionListener(this::initMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, initToolsItem));
 	}
 

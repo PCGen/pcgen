@@ -56,8 +56,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
+						"B", "C", "E"}));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList(new String[]{"A",
 					"C", "D", "E"});

@@ -198,7 +198,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			return pr;
 		}
 
-		List<CDOMReference<Ability>> refs = new ArrayList<CDOMReference<Ability>>();
+		List<CDOMReference<Ability>> refs = new ArrayList<>();
 		ParsingSeparator tok = new ParsingSeparator(third, ',');
 		tok.addGroupingPair('[', ']');
 		tok.addGroupingPair('(', ')');
@@ -298,8 +298,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		title.append(" Choice");
 		cs.setTitle(title.toString());
 		PersistentTransitionChoice<CNAbilitySelection> tc =
-				new ConcretePersistentTransitionChoice<CNAbilitySelection>(
-					cs, count);
+				new ConcretePersistentTransitionChoice<>(
+						cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.allowStack(allowStack);
 		if (dupChoices != 0)
@@ -322,7 +322,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();

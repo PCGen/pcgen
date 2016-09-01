@@ -54,7 +54,7 @@ public class OutputSheetToken implements GameModeLstToken
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		String[] tokens = value.split("\\|");
-		List<String> validTags = new ArrayList<String>(Arrays.asList("HTM", "PDF", "TXT"));
+		List<String> validTags = new ArrayList<>(Arrays.asList("HTM", "PDF", "TXT"));
 		
 		if (tokens.length == 2)
 		{

@@ -21,7 +21,7 @@ package gmgen.plugin.dice;
 import java.text.MessageFormat;
 import java.util.Random;
 
-public class NSidedModifiedDieConfig implements DiceConfig
+class NSidedModifiedDieConfig implements DiceConfig
 {
 	private final int n;
 	private final int sides;
@@ -30,7 +30,7 @@ public class NSidedModifiedDieConfig implements DiceConfig
 	private final ResultCounter counter;
 	private final ResultModifier[] modifiers;
 
-	public NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random)
+	NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random)
 	{
 		this.n = n;
 		this.sides = sides;

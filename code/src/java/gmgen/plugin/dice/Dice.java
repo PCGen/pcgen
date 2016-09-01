@@ -20,11 +20,8 @@
  *
  *  Created on January 24, 2002, 11:15 AM
  */
-package gmgen.plugin;
+package gmgen.plugin.dice;
 
-
-import gmgen.plugin.dice.Die;
-import gmgen.plugin.dice.NSidedModifiedDieConfig;
 
 /** A normal die
  * @author Soulcatcher

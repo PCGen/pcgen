@@ -79,7 +79,7 @@ public class CostToken extends AbstractNonEmptyToken<Spell> implements
 				context.getObjectContext().getObject(spell, ObjectKey.COST);
 		boolean globalClear =
 				context.getObjectContext().wasRemoved(spell, ObjectKey.COST);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (globalClear)
  		{
 			list.add(Constants.LST_DOT_CLEAR);

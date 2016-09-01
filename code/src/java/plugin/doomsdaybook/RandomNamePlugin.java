@@ -164,14 +164,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	{
 		nameToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		nameToolsItem.setText(getLocalizedName());
-		nameToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		nameToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, nameToolsItem));
 	}
 

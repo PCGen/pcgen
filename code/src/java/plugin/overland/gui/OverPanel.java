@@ -344,14 +344,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(textMap, gridBagConstraints);
 
 		butToMap.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
-		butToMap.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToMapActionPerformed(evt);
-			}
-		});
+		butToMap.addActionListener(this::butToMapActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -359,14 +352,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(butToMap, gridBagConstraints);
 
 		butToReal.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
-		butToReal.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToRealActionPerformed(evt);
-			}
-		});
+		butToReal.addActionListener(this::butToRealActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

@@ -32,7 +32,7 @@ public class PairList<T extends Pair<?, ?>>
 
 	public PairList()
 	{
-		vPairs = new ArrayList<T>();
+		vPairs = new ArrayList<>();
 	}
 
 	public int getCount()

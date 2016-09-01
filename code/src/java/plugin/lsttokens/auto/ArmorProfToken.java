@@ -129,8 +129,8 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 		StringTokenizer tok = new StringTokenizer(armorProf, Constants.PIPE);
 
-		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -147,7 +147,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 				else
 				{
 					ConditionalSelectionActor<ArmorProf> cca =
-							new ConditionalSelectionActor<ArmorProf>(this);
+							new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -207,7 +207,7 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ArmorProfProvider> added = changes.getAdded();
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;
