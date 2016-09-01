@@ -46,6 +46,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
@@ -60,6 +61,7 @@ import javax.swing.JTable;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.filechooser.FileFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
@@ -100,27 +102,27 @@ public class Initiative extends javax.swing.JPanel
 	//** Other Variables **
 
 	/**  List that contains the list of Combatants.  Kept sorted. */
-	public InitHolderList initList = new InitHolderList();
-	private JButton bCast = new JButton();
-	private JButton bOpposedSkill = new JButton();
+	public final InitHolderList initList = new InitHolderList();
+	private final JButton bCast = new JButton();
+	private final JButton bOpposedSkill = new JButton();
 	private javax.swing.JButton bCombatantReRoll;
-	private JButton bDamage = new JButton();
+	private final JButton bDamage = new JButton();
 	private javax.swing.JButton bDelete;
-	private JButton bEvent = new JButton();
-	private JButton bHeal = new JButton();
-	private JButton bKill = new JButton();
+	private final JButton bEvent = new JButton();
+	private final JButton bHeal = new JButton();
+	private final JButton bKill = new JButton();
 	private javax.swing.JButton bNextInit;
-	private JButton bRaise = new JButton();
+	private final JButton bRaise = new JButton();
 	private javax.swing.JButton bRoll;
-	private JButton bRefresh = new JButton();
-	private javax.swing.JButton bDuplicateCombatant = new JButton();
+	private final JButton bRefresh = new JButton();
+	private final javax.swing.JButton bDuplicateCombatant = new JButton();
 
 	// End of variables declaration                   
 	//** Dynamic Components **
-	private JButton bSave = new JButton();
-	private JButton bStabilize = new JButton();
-	private JCheckBox showDead = new JCheckBox();
-	private JCheckBox showEvents = new JCheckBox();
+	private final JButton bSave = new JButton();
+	private final JButton bStabilize = new JButton();
+	private final JCheckBox showDead = new JCheckBox();
+	private final JCheckBox showEvents = new JCheckBox();
 	private javax.swing.JCheckBoxMenuItem tablePopupCBDuration;
 	private javax.swing.JCheckBoxMenuItem tablePopupCBHP;
 	private javax.swing.JCheckBoxMenuItem tablePopupCBHPMax;
@@ -147,7 +149,7 @@ public class Initiative extends javax.swing.JPanel
 	private int currentInit = -1;
 	private int round = 0;
 
-	private PCGenMessageHandler messageHandler;
+	private final PCGenMessageHandler messageHandler;
 
 	/*
 	 *  History:
@@ -365,7 +367,7 @@ public class Initiative extends javax.swing.JPanel
 		lp.setEditable(false);
 		lp.addHyperlinkListener(new HyperlinkListener()
 		{
-			private Combatant combatant = cbt;
+			private final Combatant combatant = cbt;
 
             @Override
 			public void hyperlinkUpdate(HyperlinkEvent e)
@@ -473,23 +475,22 @@ public class Initiative extends javax.swing.JPanel
 
 	/**  Calls up the CastSpell dialog, passing in the data for the first selected combatant, if there is one
 	 *   sets the name of the spell as requested.
-	 * @param name
 	 */
-	private void castSpell(String name)
+	private void castSpell()
 	{
 		final List<InitHolder> selectedList = getSelected();
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = selectedList.remove(0);
-			castSpell(name, iH, null);
+			final InitHolder iH = selectedList.remove(0);
+			castSpell("", iH, null);
 
 			return;
 		}
 
 		initList.sort();
 		refreshTable();
-		castSpell(name, null, null);
+		castSpell("", null, null);
 	}
 
 	/**
@@ -584,20 +585,6 @@ public class Initiative extends javax.swing.JPanel
 
 	//** End Functions called by dialogs **
 	//** Copy & Paste Functions **
-
-	/**  Copys the highlighted combatant by putting a pointer to it in copyCombatant */
-	public void copy()
-	{
-		final List<InitHolder> selectedList = getSelected();
-
-		while (!selectedList.isEmpty())
-		{
-			selectedList.remove(0);
-		}
-
-		initList.sort();
-		refreshTable();
-	}
 
 	/**  Damages the selected combatants */
 	private void damageCombatant()
@@ -764,7 +751,6 @@ public class Initiative extends javax.swing.JPanel
 
 		if (isMassive)
 		{
-			StringBuilder sb = new StringBuilder();
 			SavingThrowDialog dialog =
 					new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
 						SavingThrowDialog.FORT_SAVE);
@@ -778,6 +764,7 @@ public class Initiative extends javax.swing.JPanel
 			int dc = dialog.getDC();
 
 			//Create a message out with the results
+			StringBuilder sb = new StringBuilder();
 			sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
 			sb.append(" save DC " + dc);
 
@@ -893,7 +880,6 @@ public class Initiative extends javax.swing.JPanel
 
 			if (isEnough)
 			{
-				StringBuilder sb = new StringBuilder();
 				SavingThrowDialog dialog =
 						new SavingThrowDialog(GMGenSystem.inst, true, cbt, 15,
 							SavingThrowDialog.FORT_SAVE);
@@ -907,6 +893,7 @@ public class Initiative extends javax.swing.JPanel
 				int dc = dialog.getDC();
 
 				//Create a message out with the results
+				StringBuilder sb = new StringBuilder();
 				sb.append(dialog.getSaveAbbrev(dialog.getSaveType()));
 				sb.append(" save DC " + dc);
 
@@ -1346,18 +1333,16 @@ public class Initiative extends javax.swing.JPanel
 	{
 		if (toPaste instanceof XMLCombatant)
 		{
-			XMLCombatant newCbt;
 
 			XMLCombatant cb = (XMLCombatant) toPaste;
 			SystemInitiative init = cb.getInitiative();
 			SystemHP hitPoints = cb.getHP();
 			String name = initList.getUniqueName(cb.getName());
-			newCbt =
-					new XMLCombatant(name, toPaste.getPlayer(), init
-						.getAttribute().getValue(), hitPoints.getAttribute()
-						.getValue(), hitPoints.getMax(),
-						hitPoints.getCurrent(), hitPoints.getSubdual(), init
-							.getBonus(), cb.getCombatantType(), cb.getCR());
+			XMLCombatant newCbt = new XMLCombatant(name, toPaste.getPlayer(), init
+					.getAttribute().getValue(), hitPoints.getAttribute()
+					.getValue(), hitPoints.getMax(),
+					hitPoints.getCurrent(), hitPoints.getSubdual(), init
+					.getBonus(), cb.getCombatantType(), cb.getCR());
 			initList.add(newCbt);
 		}
 
@@ -1401,16 +1386,13 @@ public class Initiative extends javax.swing.JPanel
 	{
 		Vector combatants = new Vector(initList.size());
 
-		for (InitHolder anInitList : initList)
-		{
-			if ((anInitList instanceof PcgCombatant)
-					&& (anInitList != combatant)
-					&& ((anInitList.getStatus() != State.Dead) || showDead
-					.isSelected()))
-			{
-				combatants.add(anInitList);
-			}
-		}
+		combatants.addAll(
+				initList.stream()
+						.filter(anInitList -> (anInitList instanceof PcgCombatant)
+							&& (anInitList != combatant)
+							&& ((anInitList.getStatus() != State.Dead) || showDead.isSelected())
+						)
+						.collect(Collectors.toList()));
 
 		AttackDialog dlg = new AttackDialog(attack, combatants);
 		dlg.setModal(true);
@@ -1437,18 +1419,18 @@ public class Initiative extends javax.swing.JPanel
 					if (subdualType == PreferencesDamagePanel.DAMAGE_SUBDUAL)
 					{
 						doSubdual(dmgList.get(i),
-							(PcgCombatant) targetList.get(i));
+								(InitHolder) targetList.get(i));
 					}
 					else if (subdualType == PreferencesDamagePanel.DAMAGE_NON_LETHAL)
 					{
 						doNonLethal(dmgList.get(i),
-							(PcgCombatant) targetList.get(i));
+								(InitHolder) targetList.get(i));
 					}
 				}
 				else
 				{
 					doDamage(dmgList.get(i),
-						(PcgCombatant) targetList.get(i));
+							(InitHolder) targetList.get(i));
 				}
 			}
 
@@ -1783,13 +1765,13 @@ public class Initiative extends javax.swing.JPanel
 		}
 
 		String[] fileExt = {"gmi", "init"};
-		SimpleFileFilter ff =
+		FileFilter sff =
 				new SimpleFileFilter(fileExt,
 					"GMGen Initiative/Encounter Export");
-		fLoad.addChoosableFileFilter(ff);
-		fLoad.setFileFilter(ff);
+		fLoad.addChoosableFileFilter(sff);
+		fLoad.setFileFilter(sff);
 
-		int returnVal = fLoad.showSaveDialog(this);
+		final int returnVal = fLoad.showSaveDialog(this);
 
 		try
 		{
@@ -1834,12 +1816,6 @@ public class Initiative extends javax.swing.JPanel
 			Logging.errorPrint("Error Writing File");
 			Logging.errorPrint(e.getMessage(), e);
 		}
-	}
-
-	/**  Shows the preferences dialog */
-	public void showPreferences()
-	{
-		// TODO:  Method does nothing?
 	}
 
 	/**  Stabilizes the selected combatants */
@@ -2108,7 +2084,7 @@ public class Initiative extends javax.swing.JPanel
 
 	private void bCastActionPerformed(java.awt.event.ActionEvent evt)
 	{
-		castSpell("");
+		castSpell();
 		focusNextInit();
 	}
 
@@ -2620,7 +2596,6 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**
-	 * <p></p>
 	 * @param evt
 	 */
 	private void bDuplicateCombatantActionPerformed(ActionEvent evt)
@@ -2995,7 +2970,7 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A cell editor
 	 */
-	private static class TypeEditor extends DefaultCellEditor
+	private static final class TypeEditor extends DefaultCellEditor
 	{
 
 		/**
@@ -3011,7 +2986,8 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A table cell renderer
 	 */
-	private static class TypeRenderer extends JComboBox implements
+	@SuppressWarnings("ALL")
+	public static class TypeRenderer extends JComboBox implements
 			TableCellRenderer
 	{
 
