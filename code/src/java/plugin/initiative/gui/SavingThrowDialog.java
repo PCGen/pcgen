@@ -21,7 +21,7 @@
 package plugin.initiative.gui;
 
 import gmgen.plugin.Combatant;
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.PlayerCharacterOutput;
 import gmgen.plugin.SystemAttribute;

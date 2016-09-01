@@ -68,7 +68,7 @@ public class PcgCombatant extends Combatant
 	protected PlayerCharacter pc;
 	private CharacterDisplay display;
 	protected PcRenderer renderer;
-	protected float crAdj = 0;
+	private float crAdj = 0;
 	private final PCGenMessageHandler messageHandler;
 
 	/**

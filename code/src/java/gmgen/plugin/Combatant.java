@@ -22,6 +22,7 @@
  */
 package gmgen.plugin;
 
+import gmgen.plugin.dice.Dice;
 import java.util.List;
 import java.util.Vector;
 

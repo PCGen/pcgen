@@ -23,7 +23,7 @@ import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
 import gmgen.io.ReadXML;
 import gmgen.io.VectorTable;
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 import gmgen.plugin.InitHolderList;
 import gmgen.plugin.PcgCombatant;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
