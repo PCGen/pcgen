@@ -153,7 +153,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 				+ modIdentification + " had value " + modInstructions
 				+ " but it was not valid: " + iae.getMessage(), context);
 		}
-		VarModifier<T> vm = new VarModifier<T>(varName, scope, modifier);
+		VarModifier<T> vm = new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(obj, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
@@ -175,7 +175,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 			return null;
 		}
 		Collection<VarModifier<?>> added = changes.getAdded();
-		List<String> modifiers = new ArrayList<String>();
+		List<String> modifiers = new ArrayList<>();
 		if (added != null && added.size() > 0)
 		{
 			for (VarModifier<?> vm : added)

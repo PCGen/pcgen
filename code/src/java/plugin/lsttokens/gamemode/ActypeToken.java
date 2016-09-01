@@ -105,7 +105,7 @@ public class ActypeToken implements GameModeLstToken
 	private Collection<ACControl> parseACControl(String str)
 	{
 		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
-		List<ACControl> acTypes = new ArrayList<ACControl>();
+		List<ACControl> acTypes = new ArrayList<>();
 		String token;
 		while (true)
 		{

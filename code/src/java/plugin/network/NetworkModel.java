@@ -59,7 +59,7 @@ import plugin.network.gui.NetworkView;
 public class NetworkModel
 {
 	private NetworkView view = new NetworkView();
-	static List<Color> colorList = new ArrayList<Color>();
+	static List<Color> colorList = new ArrayList<>();
 	static
 	{
 		colorList.add(Color.BLACK);

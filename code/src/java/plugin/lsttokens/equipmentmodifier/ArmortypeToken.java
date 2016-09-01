@@ -94,7 +94,7 @@ public class ArmortypeToken extends
 			// Zero indicates no Token
 			return null;
 		}
-		TreeSet<String> set = new TreeSet<String>();
+		TreeSet<String> set = new TreeSet<>();
 		for (ChangeArmorType cat : added)
 		{
 			set.add(cat.getLSTformat());

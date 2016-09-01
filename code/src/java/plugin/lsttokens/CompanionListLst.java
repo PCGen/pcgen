@@ -160,7 +160,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		StringTokenizer subTok = new StringTokenizer(list, LstUtils.COMMA);
 
-		Set<CDOMReference<Race>> races = new HashSet<CDOMReference<Race>>();
+		Set<CDOMReference<Race>> races = new HashSet<>();
 		boolean foundAny = false;
 		while (subTok.hasMoreTokens())
 		{
@@ -178,7 +178,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceType was not specified.", context);
 				}
-				races.add(new ObjectMatchingReference<Race, RaceType>(tokString,
+				races.add(new ObjectMatchingReference<>(tokString,
 						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ObjectKey.RACETYPE, RaceType.getConstant(raceType)));
@@ -191,7 +191,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceSubType was not specified.", context);
 				}
-				races.add(new ListMatchingReference<Race, RaceSubType>(tokString,
+				races.add(new ListMatchingReference<>(tokString,
 						Race.class,
 						context.getReferenceContext().getCDOMAllReference(Race.class),
 						ListKey.RACESUBTYPE, RaceSubType.getConstant(raceSubType)));
@@ -274,7 +274,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			optArg = tok.nextToken();
 		}
 
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 
 		while (true)
 		{
@@ -340,13 +340,13 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>> m =
-				new TripleKeyMapToList<Set<Prerequisite>, CDOMReference<? extends CDOMList<?>>, Integer, CDOMReference<Race>>();
+				new TripleKeyMapToList<>();
 		for (FollowerOption fo : added)
 		{
-			m.addToListFor(new HashSet<Prerequisite>(fo.getPrerequisiteList()),
+			m.addToListFor(new HashSet<>(fo.getPrerequisiteList()),
 					fo.getListRef(), fo.getAdjustment(), fo.getRaceRef());
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		StringBuilder sb = new StringBuilder();
 		for (Set<Prerequisite> prereqs : m.getKeySet())
 		{
@@ -364,7 +364,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 					sb.setLength(0);
 					sb.append(cl.getLSTformat(false));
 					sb.append(Constants.PIPE);
-					Set<CDOMReference<Race>> raceSet = new TreeSet<CDOMReference<Race>>(
+					Set<CDOMReference<Race>> raceSet = new TreeSet<>(
 							ReferenceUtilities.REFERENCE_SORTER);
 					raceSet.addAll(m.getListFor(prereqs, cl, fa));
 					sb.append(ReferenceUtilities.joinLstFormat(raceSet,

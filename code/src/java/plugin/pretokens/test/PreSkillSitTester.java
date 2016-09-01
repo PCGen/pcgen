@@ -121,11 +121,11 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		 CharacterDisplay display)
 	{
 		HashMap<Skill, Set<Skill>> serveAsSkills =
-				new HashMap<Skill, Set<Skill>>();
-		Set<Skill> skillSet = new HashSet<Skill>(display.getSkillSet());
+				new HashMap<>();
+		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
-			Set<Skill> servesAs = new HashSet<Skill>();
+			Set<Skill> servesAs = new HashSet<>();
 			for (CDOMReference<Skill> ref : aSkill
 				.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{

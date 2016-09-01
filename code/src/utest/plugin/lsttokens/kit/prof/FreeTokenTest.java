@@ -29,7 +29,7 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitProf>
 {
 
 	static RacialToken token = new RacialToken();
-	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<KitProf>(
+	static CDOMSubLineLoader<KitProf> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitProf.class);
 
 	@Override

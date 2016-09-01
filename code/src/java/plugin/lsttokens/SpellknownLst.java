@@ -87,7 +87,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				+ obj.getClass().getSimpleName(), context);
 		}
 		String workingValue = value;
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 		while (true)
 		{
 			int lastPipeLoc = workingValue.lastIndexOf('|');
@@ -196,7 +196,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		StringTokenizer clTok = new StringTokenizer(casterString,
 				Constants.COMMA);
 		List<CDOMReference<? extends CDOMList<Spell>>> slList =
-				new ArrayList<CDOMReference<? extends CDOMList<Spell>>>();
+				new ArrayList<>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -246,7 +246,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 
 		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);

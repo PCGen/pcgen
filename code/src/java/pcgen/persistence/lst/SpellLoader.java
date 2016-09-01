@@ -130,7 +130,7 @@ public final class SpellLoader extends LstObjectFileLoader<Spell>
 			}
 			else
 			{
-				final List<Spell> spellList = new ArrayList<Spell>();
+				final List<Spell> spellList = new ArrayList<>();
 				Globals.removeFromSpellMap(spell.getKeyName());
 				spellList.add((Spell) spell);
 			}

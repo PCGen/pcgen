@@ -184,7 +184,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			obj, ListKey.STAT_MINVALUE);
 		Changes<StatLock> maxValueChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.STAT_MAXVALUE);
-		TreeSet<String> set = new TreeSet<String>();
+		TreeSet<String> set = new TreeSet<>();
 		if (lockChanges != null && !lockChanges.isEmpty())
 		{
 			if (lockChanges.includesGlobalClear())

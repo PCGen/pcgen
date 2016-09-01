@@ -34,7 +34,7 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<KitGear>(
+	static CDOMSubLineLoader<KitGear> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitGear.class);
 
 	@Override

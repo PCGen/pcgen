@@ -133,7 +133,7 @@ public class OpposedCheckDialog extends JDialog
 				{
 					OpposedSkillBasicModel model =
 							(OpposedSkillBasicModel) table.getModel();
-					items = new ArrayList<PcgCombatant>();
+					items = new ArrayList<>();
 					for (int i = 0; i < rows.length; i++)
 					{
 						items.add(model.getCombatant(rows[i]));
@@ -351,7 +351,7 @@ public class OpposedCheckDialog extends JDialog
 	/** Table that holds the main (rolling) group of combatants */
 	private javax.swing.JTable rollingGroupTable = null; //
 	/** Sorted list of skill names */
-	private TreeSet<String> skillNames = new TreeSet<String>();
+	private TreeSet<String> skillNames = new TreeSet<>();
 
 	/**
 	 * This is the default constructor

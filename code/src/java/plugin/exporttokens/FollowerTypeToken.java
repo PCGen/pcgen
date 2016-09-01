@@ -152,7 +152,7 @@ public class FollowerTypeToken extends Token
 	private List<Follower> getFollowersOfType(CharacterDisplay display,
 		String typeString)
 	{
-		List<Follower> aList = new ArrayList<Follower>();
+		List<Follower> aList = new ArrayList<>();
 		for (Follower fol : display.getFollowerList())
 		{
 			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))

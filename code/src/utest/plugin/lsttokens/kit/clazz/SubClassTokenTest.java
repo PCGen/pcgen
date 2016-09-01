@@ -34,7 +34,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static SubclassToken token = new SubclassToken();
-	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<KitClass>(
+	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitClass.class);
 
 	@Override

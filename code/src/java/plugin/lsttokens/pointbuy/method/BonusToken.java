@@ -71,7 +71,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 	{
 		Collection<BonusObj> added = pbm.getBonuses();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

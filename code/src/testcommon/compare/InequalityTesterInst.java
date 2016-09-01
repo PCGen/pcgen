@@ -43,7 +43,7 @@ public final class InequalityTesterInst implements InequalityTester
 	public static InequalityTester instance;
 
 	public static Map<Class<?>, InequalityTest> INEQ_MAP =
-			new HashMap<Class<?>, InequalityTest>();
+			new HashMap<>();
 
 	static
 	{
@@ -65,7 +65,7 @@ public final class InequalityTesterInst implements InequalityTester
 	@Override
 	public String testEquality(Object o1, Object o2, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
+		List<String> reasons = new ArrayList<>();
 		if (o1 == null)
 		{
 			if (o2 == null)
@@ -133,7 +133,7 @@ public final class InequalityTesterInst implements InequalityTester
 
 	private Set<Class<?>> getInterfaces(Class<?> c1)
 	{
-		HashSet<Class<?>> if1 = new HashSet<Class<?>>();
+		HashSet<Class<?>> if1 = new HashSet<>();
 		if1.addAll(Arrays.asList(c1.getInterfaces()));
 		Class<?> sc = c1.getSuperclass();
 		if (sc != null)

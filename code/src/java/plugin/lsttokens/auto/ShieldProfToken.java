@@ -129,8 +129,8 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 		StringTokenizer tok = new StringTokenizer(shieldProf, Constants.PIPE);
 
-		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<CDOMReference<ShieldProf>>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		List<CDOMReference<ShieldProf>> shieldProfs = new ArrayList<>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -147,7 +147,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 				else
 				{
 					ConditionalSelectionActor<ShieldProf> cca =
-							new ConditionalSelectionActor<ShieldProf>(this);
+							new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -206,7 +206,7 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
 				.getListChanges(obj, ListKey.NEW_CHOOSE_ACTOR);
 		Collection<ShieldProfProvider> added = changes.getAdded();
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Collection<ChooseSelectionActor<?>> listAdded = listChanges.getAdded();
 		boolean foundAny = false;
 		boolean foundOther = false;

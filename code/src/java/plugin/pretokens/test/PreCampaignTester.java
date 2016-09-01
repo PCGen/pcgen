@@ -109,7 +109,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	private int countCampaignByBookType(String bookType,
 		boolean includeSubCampaigns)
 	{
-		Set<Campaign> matchingCampaigns = new HashSet<Campaign>();
+		Set<Campaign> matchingCampaigns = new HashSet<>();
 		PersistenceManager pMan = PersistenceManager.getInstance();
 		List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
@@ -122,7 +122,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 			}
 			else
 			{
-				fullCampList = new ArrayList<Campaign>();
+				fullCampList = new ArrayList<>();
 				fullCampList.add(aCampaign);
 			}
 			for (Campaign camp : fullCampList)
@@ -197,7 +197,7 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 */
 	private static List<Campaign> getFullCampaignList(Campaign aCampaign)
 	{
-		List<Campaign> campList = new ArrayList<Campaign>();
+		List<Campaign> campList = new ArrayList<>();
 		addChildrenRecursively(campList, aCampaign);
 		return campList;
 	}

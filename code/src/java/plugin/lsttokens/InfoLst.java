@@ -104,7 +104,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CaseInsensitiveString key : changes.getAdded().keySet())
 		{
 			MessageFormat value = changes.getAdded().get(key);

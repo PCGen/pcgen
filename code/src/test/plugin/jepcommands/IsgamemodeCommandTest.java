@@ -96,7 +96,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
      */
     public void testIsGameModeTrue()
     {
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push("3.5");
 
@@ -112,7 +112,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
      */
     public void testIsGameModeFalse()
     {
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push("3e");
 

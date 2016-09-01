@@ -92,7 +92,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							+ ": " + value, context);
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<AssociatedPrereqObject>();
+		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
 
 		boolean foundClear = false;
 
@@ -111,7 +111,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					Vision vis = Vision.getVision(visionString.substring(7));
 					context.getListContext().removeFromList(getTokenName(),
 							obj, Vision.VISIONLIST,
-							new CDOMDirectSingleRef<Vision>(vis));
+							new CDOMDirectSingleRef<>(vis));
 				}
 				catch (IllegalArgumentException e)
 				{
@@ -135,7 +135,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					Vision vision = Vision.getVision(visionString);
 					AssociatedPrereqObject edge = context.getListContext()
 							.addToList(getTokenName(), obj, Vision.VISIONLIST,
-									new CDOMDirectSingleRef<Vision>(vision));
+									new CDOMDirectSingleRef<>(vision));
 					edgeList.add(edge);
 				}
 				catch (IllegalArgumentException e)
@@ -189,7 +189,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		AssociatedChanges<CDOMReference<Vision>> changes = context
 				.getListContext().getChangesInList(getTokenName(), obj,
 						Vision.VISIONLIST);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Vision>> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{
@@ -212,16 +212,16 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 				.getAddedAssociations();
 		if (mtl != null && !mtl.isEmpty())
 		{
-			MapToList<Set<Prerequisite>, Vision> m = new HashMapToList<Set<Prerequisite>, Vision>();
+			MapToList<Set<Prerequisite>, Vision> m = new HashMapToList<>();
 			for (CDOMReference<Vision> ab : mtl.getKeySet())
 			{
 				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
 				{
-					m.addAllToListFor(new HashSet<Prerequisite>(assoc
+					m.addAllToListFor(new HashSet<>(assoc
 							.getPrerequisiteList()), ab.getContainedObjects());
 				}
 			}
-			Set<String> set = new TreeSet<String>();
+			Set<String> set = new TreeSet<>();
 			for (Set<Prerequisite> prereqs : m.getKeySet())
 			{
 				StringBuilder sb = new StringBuilder(StringUtil.join(m

@@ -51,8 +51,8 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 	{
 		final int reqnumber = Integer.parseInt(prereq.getOperand());
 		int runningTotal = 0;
-		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<Skill, HashSet<Skill>>();
-		Set<Skill> imitators = new HashSet<Skill>();
+		HashMap<Skill,HashSet<Skill>> serveAsSkills = new HashMap<>();
+		Set<Skill> imitators = new HashSet<>();
 		PreCSkillTester.getImitators(serveAsSkills, imitators);
 
 		// Compute the skill name from the Prerequisite
@@ -70,7 +70,7 @@ public class PreCSkillTester extends AbstractPrerequisiteTest implements Prerequ
 			requiredSkillKey = requiredSkillKey.substring(5);
 		}
 		final String skillKey = requiredSkillKey;
-		Set<Skill> skillMatches = new HashSet<Skill>();
+		Set<Skill> skillMatches = new HashSet<>();
 
 		if (isType)
 		{
@@ -145,7 +145,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	{
 		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{
-			Set<Skill> servesAs = new HashSet<Skill>();
+			Set<Skill> servesAs = new HashSet<>();
 			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
 				servesAs.addAll(ref.getContainedObjects());

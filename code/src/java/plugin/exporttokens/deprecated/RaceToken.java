@@ -99,7 +99,7 @@ public class RaceToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 		
-		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		final List<SpecialAbility> saList = new ArrayList<>();
 		Race race = display.getRace();
 		saList.addAll(display.getResolvedUserSpecialAbilities(race));
 		saList.addAll(display.getResolvedSpecialAbilities(race));

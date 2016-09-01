@@ -170,9 +170,9 @@ public class ClassToken extends Token {
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
 			final PlayerCharacter aPC) {
 		CharacterDisplay display = aPC.getDisplay();
-		final List<String> formattedList = new ArrayList<String>();
+		final List<String> formattedList = new ArrayList<>();
 
-		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		final List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(pcclass));
 		saList.addAll(display.getResolvedSpecialAbilities(pcclass));
 		for (int i = 1; i <= display.getLevel(pcclass); i++)

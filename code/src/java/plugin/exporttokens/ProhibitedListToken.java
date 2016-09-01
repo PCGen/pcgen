@@ -76,7 +76,7 @@ public class ProhibitedListToken extends AbstractExportToken
 			jointext = ",";
 		}
 
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (PCClass pcClass : display.getClassSet())
 		{
 			if (display.getLevel(pcClass) > 0)

@@ -92,16 +92,16 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 		}
 
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
-		Set<String> set = new HashSet<String>();
+		Set<String> set = new HashSet<>();
 		while (tok.hasMoreTokens())
 		{
 			String tokString = tok.nextToken();
 			set.add(tokString);
 		}
 		SimpleChoiceSet<String> scs =
-				new SimpleChoiceSet<String>(set, Constants.PIPE);
+				new SimpleChoiceSet<>(set, Constants.PIPE);
 		BasicChooseInformation<String> tc =
-				new BasicChooseInformation<String>(getTokenName(), scs);
+				new BasicChooseInformation<>(getTokenName(), scs);
 		tc.setTitle("Choose an Item");
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

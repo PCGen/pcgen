@@ -29,7 +29,7 @@ public class LevelTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static LevelToken token = new LevelToken();
-	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<KitClass>(
+	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitClass.class);
 
 	@Override

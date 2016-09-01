@@ -89,7 +89,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		pmgr.setChosenCampaignSourcefiles(uris);
 		
 		final PreParserFactory factory = PreParserFactory.getInstance();

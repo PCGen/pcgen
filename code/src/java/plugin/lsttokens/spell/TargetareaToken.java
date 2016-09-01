@@ -73,7 +73,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 		boolean globalClear =
 				context.getObjectContext().wasRemoved(spell,
 					StringKey.TARGET_AREA);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (globalClear)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

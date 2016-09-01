@@ -225,10 +225,10 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	private void parseForUnparse(String value)
 	{
-		SimpleChoiceSet<String> scs = new SimpleChoiceSet<String>(Arrays
+		SimpleChoiceSet<String> scs = new SimpleChoiceSet<>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);
 		assertTrue(scs.getGroupingState().isValid());
-		BasicChooseInformation<String> cs = new BasicChooseInformation<String>(getSubTokenName(), scs);
+		BasicChooseInformation<String> cs = new BasicChooseInformation<>(getSubTokenName(), scs);
 		cs.setTitle("Choose an Item");
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
 	}

@@ -155,7 +155,7 @@ public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<String> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{

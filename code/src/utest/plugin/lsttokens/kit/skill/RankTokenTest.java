@@ -29,7 +29,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static RankToken token = new RankToken();
-	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<KitSkill>(
+	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitSkill.class);
 
 	@Override

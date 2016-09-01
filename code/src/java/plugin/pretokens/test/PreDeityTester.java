@@ -47,7 +47,7 @@ public class PreDeityTester extends AbstractDisplayPrereqTest implements Prerequ
 				String pantheon = prereq.getKey().substring(9);
 				Deity deity = display.getDeity();
 				Set<String> charDeityPantheon =
-						new WrappedMapSet<String>(CaseInsensitiveMap.class);
+						new WrappedMapSet<>(CaseInsensitiveMap.class);
 				if (deity != null)
 				{
 					FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");

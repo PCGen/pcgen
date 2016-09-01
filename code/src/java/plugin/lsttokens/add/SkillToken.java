@@ -115,7 +115,7 @@ public class SkillToken extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(activeValue, Constants.COMMA);
 
-		List<CDOMReference<Skill>> refs = new ArrayList<CDOMReference<Skill>>();
+		List<CDOMReference<Skill>> refs = new ArrayList<>();
 		while (tok.hasMoreTokens())
 		{
 			String token = tok.nextToken();
@@ -138,15 +138,15 @@ public class SkillToken extends AbstractToken implements
 			refs.add(ref);
 		}
 
-		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<Skill>(refs);
+		ReferenceChoiceSet<Skill> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical " + getFullName()
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
-		ChoiceSet<Skill> cs = new ChoiceSet<Skill>("SKILL", rcs, true);
-		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<Skill>(
+		ChoiceSet<Skill> cs = new ChoiceSet<>("SKILL", rcs, true);
+		PersistentTransitionChoice<Skill> tc = new ConcretePersistentTransitionChoice<>(
 				cs, count);
 		context.getObjectContext().addToList(obj, ListKey.ADD, tc);
 		tc.setChoiceActor(this);
@@ -166,7 +166,7 @@ public class SkillToken extends AbstractToken implements
 			// Zero indicates no Token
 			return null;
 		}
-		List<String> addStrings = new ArrayList<String>();
+		List<String> addStrings = new ArrayList<>();
 		for (TransitionChoice<?> container : addedItems)
 		{
 			SelectableSet<?> cs = container.getChoices();

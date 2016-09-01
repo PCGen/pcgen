@@ -441,7 +441,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 					+ "	<name>\\\\%.NAME\\\\</name>\n"
 					+ "	<skills>\\\\%.FOR.0,COUNT[SKILLS],1,\\SKILL.%\\: \\SKILL.%.TOTAL.SIGN\\, ,; ,1\\\\</skills>\n"
 					+ ",<combatant>,</combatant>,1|\n" + "   </combatants>";
-		List<PlayerCharacter> pcs = new ArrayList<PlayerCharacter>();
+		List<PlayerCharacter> pcs = new ArrayList<>();
 		pcs.add(getCharacter());
 		String result = evaluatePartyToken(outputToken, pcs).trim();
 		assertEquals(

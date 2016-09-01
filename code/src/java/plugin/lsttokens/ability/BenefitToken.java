@@ -84,7 +84,7 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<String> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{

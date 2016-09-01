@@ -72,7 +72,7 @@ public class FumblerangeToken extends AbstractNonEmptyToken<Equipment>
 		boolean removed =
 				context.getObjectContext().wasRemoved(eq,
 					StringKey.FUMBLE_RANGE);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (removed)
 		{
 			list.add(Constants.LST_DOT_CLEAR);

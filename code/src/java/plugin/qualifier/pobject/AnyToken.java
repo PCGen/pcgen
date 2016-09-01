@@ -161,7 +161,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
-		Converter<T, R> conv = negated ? new NegateFilterConverter<T, R>(c) : c;
+		Converter<T, R> conv = negated ? new NegateFilterConverter<>(c) : c;
 		return pcs.getCollection(pc, conv);
 	}
 }

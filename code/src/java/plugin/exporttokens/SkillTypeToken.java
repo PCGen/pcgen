@@ -108,7 +108,7 @@ public class SkillTypeToken extends SkillToken
 			return null;
 		}
 
-		final List<Skill> skillSubset = new ArrayList<Skill>();
+		final List<Skill> skillSubset = new ArrayList<>();
 		for (Skill bSkill : SkillDisplay.getSkillListInOutputOrder(pc))
 		{
 			if (bSkill.isType(details.getProperty(0)))

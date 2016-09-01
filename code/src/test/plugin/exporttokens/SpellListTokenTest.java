@@ -89,7 +89,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
-		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<BonusSpellInfo>(
+		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<>(
 				BonusSpellInfo.class);
 		try
 		{

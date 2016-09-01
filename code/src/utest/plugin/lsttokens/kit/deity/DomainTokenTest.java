@@ -30,7 +30,7 @@ public class DomainTokenTest extends AbstractKitTokenTestCase<KitDeity>
 {
 
 	static DomainToken token = new DomainToken();
-	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<KitDeity>(
+	static CDOMSubLineLoader<KitDeity> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitDeity.class);
 
 	@Override

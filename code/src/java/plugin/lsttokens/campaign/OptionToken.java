@@ -74,7 +74,7 @@ public class OptionToken extends AbstractNonEmptyToken<Campaign> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (String property : changes.getAdded().keySet())
 		{
 			String value = changes.getAdded().get(property);
