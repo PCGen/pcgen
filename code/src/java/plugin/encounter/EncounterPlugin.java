@@ -640,7 +640,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			int[] ints = new int[stillSelected.size()];
 			for (int i = 0; i < ints.length; i++)
 			{
-				ints[i] = (stillSelected.get(i)).intValue();
+				ints[i] = stillSelected.get(i);
 			}
 
 			theView.getLibraryCreatures().setSelectedIndices(ints);
@@ -722,7 +722,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
 				num =
-						Integer.valueOf(num.intValue()
+						Integer.valueOf(num
 							+ roll.nextInt(Integer.parseInt(dice[1])) + 1);
 			}
 		}
@@ -842,7 +842,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			return;
 		}
 
-		for (int x = 0; x < ((Integer) critters.firstElement()).intValue(); x++)
+		for (int x = 0; x < (Integer) critters.firstElement(); x++)
 		{
 			theModel.addElement(critters.lastElement().toString());
 		}
