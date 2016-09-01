@@ -135,15 +135,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		logging = new JCheckBox();
 		browseButton = new JButton(LanguageBundle.getString("...")); //$NON-NLS-1$
 
-		browseButton.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				browseButtonActionPerformed(e);
-			}
-		});
+		browseButton.addActionListener(this::browseButtonActionPerformed);
 
 		JPanel borderPanel = new JPanel();
 		borderPanel.setLayout(new GridBagLayout());
