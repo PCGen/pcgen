@@ -22,16 +22,11 @@
 import gmgen.GMGenSystemView;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.Component;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
-
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;
 import pcgen.gui2.tools.Utility;
@@ -62,35 +57,21 @@ public class RandomNamePlugin implements InteractivePlugin
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_randomname_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Constructor
-	 */
-	public RandomNamePlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
 	{
     	messageHandler = mh;
 		theView = new NameGenPanel(getDataDirectory());
-		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), getView()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, RandomNamePlugin.getLocalizedName(), getView()));
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -99,7 +80,7 @@ public class RandomNamePlugin implements InteractivePlugin
     @Override
 	public int getPriority()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 80);
+		return SettingsHandler.getGMGenOption(RandomNamePlugin.LOG_NAME + ".LoadOrder", 80);
 	}
 
 	/**
@@ -109,10 +90,10 @@ public class RandomNamePlugin implements InteractivePlugin
     @Override
 	public String getPluginName()
 	{
-		return NAME;
+		return RandomNamePlugin.NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -160,46 +141,28 @@ public class RandomNamePlugin implements InteractivePlugin
 	/**
 	 * Initialise the menus
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
-		nameToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
+		nameToolsItem.setMnemonic(LanguageBundle.getMnemonic(RandomNamePlugin.IN_NAME_MN));
 		nameToolsItem.setText(getLocalizedName());
-		nameToolsItem.addActionListener(new ActionListener()
+		nameToolsItem.addActionListener(evt ->
 		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
+			final JTabbedPane tp = GMGenSystemView.getTabPane();
+
+			for (int i = 0; i < tp.getTabCount(); i++)
 			{
-				toolMenuItem(evt);
+				if (tp.getComponentAt(i) instanceof NameGenPanel)
+				{
+					tp.setSelectedIndex(i);
+				}
 			}
 		});
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, nameToolsItem));
 	}
 
-	/**
-	 * Set the tool menu item
-	 * @param evt
-	 */
-	public void toolMenuItem(ActionEvent evt)
-	{
-		JTabbedPane tp = GMGenSystemView.getTabPane();
-
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof NameGenPanel)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
-	}
-
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), RandomNamePlugin.NAME);
 	}
 }

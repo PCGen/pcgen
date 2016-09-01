@@ -78,9 +78,8 @@ public class DiceBagPluginController
 	 */
 	public static File chooseSaveFile(DiceBagModel bag)
 	{
-		File returnValue = null;
 		JFileChooser save = new JFileChooser();
-		String[] fileExt = new String[]{"dbg"};
+		String[] fileExt = {"dbg"};
 		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Dice Bag");
 		save.addChoosableFileFilter(ff);
 		save.setFileFilter(ff);
@@ -97,6 +96,7 @@ public class DiceBagPluginController
 			save.setCurrentDirectory(new File(sFile));
 		}
 
+		File returnValue = null;
 		if (save.showSaveDialog(GMGenSystem.inst) == JFileChooser.APPROVE_OPTION)
 		{
 			SettingsHandler.setGMGenOption(
@@ -107,7 +107,7 @@ public class DiceBagPluginController
 			String dirName = save.getSelectedFile().getParent();
 			String ext = "";
 
-			if (fileName.indexOf(".dbg") < 0)
+			if (!fileName.contains(".dbg"))
 			{
 				ext = ".dbg";
 			}
@@ -133,11 +133,10 @@ public class DiceBagPluginController
 	 * Displays a file-open dialog box and processes the selected values.
 	 * </p>
 	 *
-	 * @return <code>boolean</code> indicating success/failure of operation.
+	 * @return {@code boolean} indicating success/failure of operation.
 	 */
 	public boolean fileOpen()
 	{
-		boolean returnValue = false;
 		String sFile =
 				SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME
 					+ ".LastFile", System.getProperty("user.dir"));
@@ -153,11 +152,12 @@ public class DiceBagPluginController
 			}
 		}
 
-		String[] fileExt = new String[]{"dbg"};
+		String[] fileExt = {"dbg"};
 		SimpleFileFilter ff = new SimpleFileFilter(fileExt, "GMGen Dice Bag");
 		open.addChoosableFileFilter(ff);
 		open.setFileFilter(ff);
 
+		boolean returnValue = false;
 		if (open.showOpenDialog(GMGenSystem.inst) == JFileChooser.APPROVE_OPTION)
 		{
 			openFile(open.getSelectedFile());
@@ -171,7 +171,7 @@ public class DiceBagPluginController
 	 * Open a file
 	 * @param file
 	 */
-	public void openFile(File file)
+	private void openFile(File file)
 	{
 		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + ".LastFile",
 			file.getParent());
@@ -181,7 +181,7 @@ public class DiceBagPluginController
 	/**
 	 * <p>
 	 * Saves the currently active bag (if it exists), using
-	 * <code>chooseSaveFile()</code>.
+	 * {@code chooseSaveFile()}.
 	 * </p>
 	 */
 	public void fileSave()
@@ -222,7 +222,7 @@ public class DiceBagPluginController
 	}
 
 	//opens bags that were open when the plugins last closed.
-	protected void openInitialBags()
+	private void openInitialBags()
 	{
 		String lastFiles =
 				SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME
@@ -242,7 +242,7 @@ public class DiceBagPluginController
 					theModel.loadDiceBag(file);
 					noLoads = false;
 				}
-				catch (Exception e)
+				catch (RuntimeException e)
 				{
 					// TODO: Exception needs to be handled
 				}

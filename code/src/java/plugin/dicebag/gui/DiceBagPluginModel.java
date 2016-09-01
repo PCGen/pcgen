@@ -19,32 +19,24 @@ package plugin.dicebag.gui;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Observable;
 
 /**
  * <p>The model for the pluging -- basically a linked list of open
- * dice bags.  This is an <code>Observable</code> class that sends
+ * dice bags.  This is an {@code Observable} class that sends
  * out messages to observers (views).</p>
  *
  * @author Ross M. Lodge
  *
  */
-public class DiceBagPluginModel extends Observable
+class DiceBagPluginModel extends Observable
 {
 	/** The currently active bag. */
 	private DiceBagModel m_activeBag;
 
 	/** A list of the open dice-bags */
-	private List<DiceBagModel> m_diceBags = new ArrayList<DiceBagModel>();
-
-	/**
-	 * <p>Default (and only) constructor.  Creates an empty model.</p>
-	 */
-	public DiceBagPluginModel()
-	{
-		// Empty Constructor
-	}
+	private final Collection<DiceBagModel> m_diceBags = new ArrayList<>();
 
 	/**
 	 * <p>Sets the currently active bag.</p>
@@ -67,7 +59,7 @@ public class DiceBagPluginModel extends Observable
 	}
 
 	/**
-	 * <p>Adds a new dice bag.  Generates a <code>DICE_BAG_ADDED</code> message.</p>
+	 * <p>Adds a new dice bag.  Generates a {@code DICE_BAG_ADDED} message.</p>
 	 */
 	public void addNewDicebag()
 	{
@@ -78,7 +70,7 @@ public class DiceBagPluginModel extends Observable
 	}
 
 	/**
-	 * <p>Closes the requested dice bag; generates a <code>DICE_BAG_REMOVED</code>
+	 * <p>Closes the requested dice bag; generates a {@code DICE_BAG_REMOVED}
 	 * message.</p>
 	 *
 	 * @param bag Bag to close
@@ -92,24 +84,20 @@ public class DiceBagPluginModel extends Observable
 
 	/**
 	 * <p>Loads a dice bag from file.
-	 * Generates a <code>DICE_BAG_ADDED</code> message.</p>
+	 * Generates a {@code DICE_BAG_ADDED} message.</p>
 	 *
 	 * @param f File to load
-	 * @return TRUE or FALSE
 	 */
-	public boolean loadDiceBag(File f)
+	void loadDiceBag(final File f)
 	{
-		boolean returnValue = false;
-		DiceBagModel bag = new DiceBagModel(f);
-		returnValue = m_diceBags.add(bag);
+		final DiceBagModel bag = new DiceBagModel(f);
+		m_diceBags.add(bag);
 		setChanged();
 		notifyObservers(new DiceBagMessage(DiceBagMessage.DICE_BAG_ADDED, bag));
-
-		return returnValue;
 	}
 
 	/**
-	 * <p>Saves a dice bag to a file; generates the <code>DICE_BAG_SAVED</code>
+	 * <p>Saves a dice bag to a file; generates the {@code DICE_BAG_SAVED}
 	 * message.</p>
 	 *
 	 * @param bag bag to save

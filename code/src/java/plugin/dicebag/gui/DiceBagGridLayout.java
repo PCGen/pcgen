@@ -29,7 +29,7 @@ import java.awt.GridLayout;
  *
  * @author Ross Lodge
  */
-public class DiceBagGridLayout extends GridLayout
+class DiceBagGridLayout extends GridLayout
 {
 	/**
 	 * <p>Indicates management by column width.</p>
@@ -39,7 +39,7 @@ public class DiceBagGridLayout extends GridLayout
 	/**
 	 * <p>Indicates management by row height.</p>
 	 */
-	public static final int MANAGE_BY_ROWS = 0;
+	private static final int MANAGE_BY_ROWS = 0;
 
 	/**
 	 * <p>Indicates what to manage by (rows or columns).</p>
@@ -57,32 +57,18 @@ public class DiceBagGridLayout extends GridLayout
 	private int m_minSize = 0;
 
 	/**
-	 * <p>Default constructor.  Uses a default of <code>MANAGE_BY_ROWS</code>, a minimum
-	 * size of 50, and a maximum size of 200.</p>
-	 *
-	 * @see java.awt.GridLayout#GridLayout()
-	 */
-	public DiceBagGridLayout()
-	{
-		super();
-		m_manageBy = MANAGE_BY_ROWS;
-		m_minSize = 50;
-		m_maxSize = 200;
-	}
-
-	/**
 	 * <p>Initializes the object with the specified data.</p>
 	 *
 	 * @param rows     Initial number of rows.
 	 * @param cols     Initial number of columns.
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or {@code MANAGE_BY_COLUMNS}.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
 	 *
 	 * @see java.awt.GridLayout#GridLayout(int rows, int cols)
 	 */
-	public DiceBagGridLayout(int rows, int cols, int manageBy, int minSize,
-		int maxSize)
+	DiceBagGridLayout(int rows, int cols, int manageBy, int minSize,
+	                  int maxSize)
 	{
 		super(rows, cols);
 		m_manageBy = manageBy;
@@ -91,32 +77,10 @@ public class DiceBagGridLayout extends GridLayout
 	}
 
 	/**
-	 * <p>Initializes the object with the specified data.</p>
-	 *
-	 * @param rows     Initial number of rows.
-	 * @param cols     Initial number of columns.
-	 * @param hgap     Horizontal gap
-	 * @param vgap     Vertical gap
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
-	 * @param minSize  Minimum size, expressed in pixels.
-	 * @param maxSize  Maximum size, expressed in pixels.
-	 *
-	 * @see java.awt.GridLayout#GridLayout(int rows, int cols, int hgap, int vgap)
-	 */
-	public DiceBagGridLayout(int rows, int cols, int hgap, int vgap,
-		int manageBy, int minSize, int maxSize)
-	{
-		super(rows, cols, hgap, vgap);
-		m_manageBy = manageBy;
-		m_minSize = minSize;
-		m_maxSize = maxSize;
-	}
-
-	/**
 	 * <p>This method computes the correct number of rows or columns based
-	 * on the current size of the <code>parent</code> and the <code>m_manageBy</code>
-	 * value, using an algorithm similar to <code>getMinimumLayoutSize()</code>.  It then
-	 * sets the new number of rows or columns and calls the <code>super</code>'s implementation.</p>
+	 * on the current size of the {@code parent} and the {@code m_manageBy}
+	 * value, using an algorithm similar to {@code getMinimumLayoutSize()}.  It then
+	 * sets the new number of rows or columns and calls the {@code super}'s implementation.</p>
 	 *
 	 * @see java.awt.LayoutManager#layoutContainer(java.awt.Container)
 	 *
