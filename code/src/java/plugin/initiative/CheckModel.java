@@ -41,7 +41,7 @@ public class CheckModel extends DiceRollModel
 	 * </ol>
 	 * @param objectString String description of stat
 	 */
-	public CheckModel(String objectString)
+	CheckModel(String objectString)
 	{
 		super(objectString);
 	}
