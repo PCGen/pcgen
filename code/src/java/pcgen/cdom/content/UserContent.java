@@ -43,9 +43,6 @@ public abstract class UserContent implements Loadable
 	 */
 	private String explanation;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setName(String name)
 	{
@@ -56,27 +53,18 @@ public abstract class UserContent implements Loadable
 		this.name = name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSourceURI(URI source)
 	{
 		sourceURI = source;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public URI getSourceURI()
 	{
@@ -109,9 +97,6 @@ public abstract class UserContent implements Loadable
 		return explanation;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isInternal()
@@ -119,9 +104,6 @@ public abstract class UserContent implements Loadable
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public boolean isType(String type)

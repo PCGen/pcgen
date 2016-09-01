@@ -238,9 +238,6 @@ public class SpellChoicePanel extends JPanel
 			this.box = box;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<String> e)
 		{

@@ -404,9 +404,6 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return columns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

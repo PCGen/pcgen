@@ -109,9 +109,6 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

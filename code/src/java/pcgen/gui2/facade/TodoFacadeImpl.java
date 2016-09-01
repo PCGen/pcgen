@@ -142,9 +142,6 @@ public class TodoFacadeImpl implements TodoFacade
 		return EQUAL;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSubTabName()
 	{

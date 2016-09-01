@@ -601,9 +601,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.add(comp, gbc);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
