@@ -61,9 +61,6 @@ applicationDistribution.from('system') {
 applicationDistribution.from('preview') {
     into "preview"
 }
-applicationDistribution.from(artifacts) {
-    into ""
-}
 
 repositories {
     mavenCentral()
@@ -381,7 +378,7 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2'
+    gradleVersion = '3.0'
 }
 
 //Disable failing on javadoc warning
