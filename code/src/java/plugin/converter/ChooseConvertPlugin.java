@@ -29,12 +29,10 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
 public class ChooseConvertPlugin implements TokenProcessorPlugin
 {
-	public static Map<String, String> featAnswered = new HashMap<>();
-	public static Map<String, String> spelllistAnswered = new HashMap<>();
-	public static List<String> CHOICES = Arrays.asList(new String[] {
+	private static Map<String, String> featAnswered = new HashMap<>();
+	private static Map<String, String> spelllistAnswered = new HashMap<>();
+	private static List<String> CHOICES = Arrays.asList(new String[] {
 			"ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
-			"FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS", "SHIELDPROFICIENCY",
-			"SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY" });
 
     @Override
 	public String process(TokenProcessEvent tpe)

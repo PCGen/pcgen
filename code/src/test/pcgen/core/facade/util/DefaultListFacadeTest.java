@@ -56,11 +56,11 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<>(Arrays.asList(new String[]{"A",
-						"B", "C", "E"}));
+				new DefaultListFacade<>(Arrays.asList("A",
+						"B", "C", "E"));
 		theList.addListListener(listener);
-		List<String> newElements = Arrays.asList(new String[]{"A",
-					"C", "D", "E"});
+		List<String> newElements = Arrays.asList("A",
+				"C", "D", "E");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 1, listener.addCount);
@@ -77,11 +77,11 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<String>(Arrays.asList("A",
+						"B", "C", "E"));
 		theList.addListListener(listener);
-		List<String> newElements = Arrays.asList(new String[]{"F",
-					"G", "H", "I", "M"});
+		List<String> newElements = Arrays.asList("F",
+				"G", "H", "I", "M");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 5, listener.addCount);
@@ -100,8 +100,8 @@ public class DefaultListFacadeTest
 		DefaultListFacade<String> theList =
 				new DefaultListFacade<String>();
 		theList.addListListener(listener);
-		List<String> newElements = Arrays.asList(new String[]{"A",
-					"C", "D", "E"});
+		List<String> newElements = Arrays.asList("A",
+				"C", "D", "E");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 0, listener.addCount);
@@ -118,8 +118,8 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<String>(Arrays.asList("A",
+						"B", "C", "E"));
 		theList.addListListener(listener);
 		List<String> newElements = Arrays.asList();
 		theList.updateContents(newElements);
@@ -138,13 +138,13 @@ public class DefaultListFacadeTest
 	{
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
-				new DefaultListFacade<String>(Arrays.asList(new String[]{"A",
-					"B", "C", "E"}));
+				new DefaultListFacade<String>(Arrays.asList("A",
+						"B", "C", "E"));
 		theList.addListListener(listener);
 		List<String> newElements =
-				Arrays.asList(new String[]{"A", "C", "D", "E", "F", "G", "H",
-					"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
-					"U", "V", "W", "X", "Y", "Z"});
+				Arrays.asList("A", "C", "D", "E", "F", "G", "H",
+						"I", "J", "K", "L", "M", "N", "O", "P", "Q", "R", "S", "T",
+						"U", "V", "W", "X", "Y", "Z");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 0, listener.addCount);
@@ -162,12 +162,12 @@ public class DefaultListFacadeTest
 		TestListener listener = new TestListener();
 		DefaultListFacade<String> theList =
 				new DefaultListFacade<String>(
-					Arrays.asList(new String[]{"A", "C", "D", "E", "F", "G",
-						"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
-						"S", "T", "U", "V", "W", "X", "Y", "Z"}));
+					Arrays.asList("A", "C", "D", "E", "F", "G",
+							"H", "I", "J", "K", "L", "M", "N", "O", "P", "Q", "R",
+							"S", "T", "U", "V", "W", "X", "Y", "Z"));
 		theList.addListListener(listener);
 		List<String> newElements =
-				Arrays.asList(new String[]{"A", "B", "C", "E"});
+				Arrays.asList("A", "B", "C", "E");
 		theList.updateContents(newElements);
 		assertEquals("Lists have not been made the same", newElements, theList.getContents());
 		assertEquals("Incorrect number of adds", 0, listener.addCount);

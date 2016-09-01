@@ -80,11 +80,8 @@ public class PreTextTester extends AbstractDisplayPrereqTest implements Prerequi
 	{
 		return LanguageBundle.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",
-			    new Object[]
-			    {
-			    	prereq.getOperator().toDisplayString(), "",
-				    "", prereq.getKey()
-			    });
+				prereq.getOperator().toDisplayString(), "",
+				"", prereq.getKey());
 	}
 
 }

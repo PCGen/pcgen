@@ -500,7 +500,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getFormattedString(
-					"InfoPreparedSpells.add.list.fail", new Object[]{spellList}), //$NON-NLS-1$
+					"InfoPreparedSpells.add.list.fail", spellList), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 			return;
