@@ -33,7 +33,6 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.campaign.UrlToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 /**
  * <code>CampaignTest</code> is ...

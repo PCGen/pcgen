@@ -22,7 +22,6 @@ import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class BonusSkillPointsTokenTest extends
 		AbstractIntegerTokenTestCase<PCTemplate>

@@ -25,7 +25,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.ServesAsToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ServesAsIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Skill>

@@ -67,8 +67,6 @@ import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.ability.VisibleToken;
 import plugin.lsttokens.auto.LangToken;
 import plugin.lsttokens.equipment.ProficiencyToken;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
 public abstract class AbstractTokenModelTest extends TestCase

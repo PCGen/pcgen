@@ -23,7 +23,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.SourcelinkLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class SourceLinkIntegrationTest extends
 		AbstractStringIntegrationTestCase<CDOMObject>

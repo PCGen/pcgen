@@ -26,7 +26,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.bonustokens.MonNonSkillHD;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.pcclass.MonnonskillhdToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class MonNonSkillHDIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCClass>

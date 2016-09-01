@@ -29,8 +29,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.auto.EquipToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class EquipIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, Equipment>

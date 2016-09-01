@@ -39,7 +39,6 @@ import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.ability.MultToken;
 import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.deprecated.AutoFeatToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest

@@ -38,7 +38,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 {

@@ -32,8 +32,6 @@ import pcgen.rules.persistence.token.ModifierFactory;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.FaceToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.modifier.orderedpair.SetModifierFactory;
 
 public class FaceIntegrationTest extends

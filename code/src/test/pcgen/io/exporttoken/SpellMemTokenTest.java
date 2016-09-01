@@ -42,7 +42,6 @@ import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import plugin.exporttokens.SpellMemToken;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Verify the correct functioning of the SPELLMEM token.

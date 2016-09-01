@@ -17,7 +17,6 @@
  */
 package plugin.pretokens;
 
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDomainParser;
 import plugin.pretokens.writer.PreDomainWriter;
 

@@ -31,7 +31,6 @@ import static org.junit.Assert.fail;
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.Prerequisite;

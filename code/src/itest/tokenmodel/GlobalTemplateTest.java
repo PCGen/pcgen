@@ -26,7 +26,6 @@ import pcgen.cdom.facet.input.RaceInputFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;

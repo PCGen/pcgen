@@ -12,7 +12,6 @@ import java.util.Locale;
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
 
-import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.system.Main;
 import pcgen.util.TestHelper;

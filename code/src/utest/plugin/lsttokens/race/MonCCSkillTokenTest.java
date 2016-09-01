@@ -35,7 +35,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class MonCCSkillTokenTest extends
 		AbstractListContextTokenTestCase<Race, Skill>

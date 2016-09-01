@@ -26,7 +26,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.equipmentmodifier.ChargesToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ChargesIntegrationTest extends
 		AbstractIntegrationTestCase<EquipmentModifier>

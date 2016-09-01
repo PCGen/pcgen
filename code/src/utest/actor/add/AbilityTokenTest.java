@@ -38,7 +38,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {

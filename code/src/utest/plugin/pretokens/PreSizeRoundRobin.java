@@ -22,8 +22,6 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSizeParser;
 import plugin.pretokens.writer.PreSizeWriter;
 

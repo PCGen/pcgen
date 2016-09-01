@@ -72,7 +72,6 @@ import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * The Class <code>PlayerCharacterTest</code> is responsible for testing 

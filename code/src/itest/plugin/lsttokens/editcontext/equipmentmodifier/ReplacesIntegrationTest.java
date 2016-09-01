@@ -24,7 +24,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
 import plugin.lsttokens.equipmentmodifier.ReplacesToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class ReplacesIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<EquipmentModifier>
