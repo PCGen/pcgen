@@ -101,7 +101,6 @@ public class Initiative extends javax.swing.JPanel
 
 	/**  List that contains the list of Combatants.  Kept sorted. */
 	public InitHolderList initList = new InitHolderList();
-	private javax.swing.JButton bAddCombatant;
 	private JButton bCast = new JButton();
 	private JButton bOpposedSkill = new JButton();
 	private javax.swing.JButton bCombatantReRoll;
@@ -112,7 +111,6 @@ public class Initiative extends javax.swing.JPanel
 	private JButton bKill = new JButton();
 	private javax.swing.JButton bNextInit;
 	private JButton bRaise = new JButton();
-	private javax.swing.JButton bRefocus;
 	private javax.swing.JButton bRoll;
 	private JButton bRefresh = new JButton();
 	private javax.swing.JButton bDuplicateCombatant = new JButton();
@@ -137,16 +135,11 @@ public class Initiative extends javax.swing.JPanel
 	private javax.swing.JCheckBoxMenuItem tablePopupCBStatus;
 	private javax.swing.JCheckBoxMenuItem tablePopupCBType;
 	private javax.swing.JLabel lCounter;
-	private javax.swing.JPanel buttonPanelTop;
-	private javax.swing.JPanel jPanel2;
 	private javax.swing.JPopupMenu tablePopup;
-	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JScrollPane jScrollEvents;
 	private FlippingSplitPane jSplitPane1;
 	private javax.swing.JTabbedPane tpaneInfo;
 	private javax.swing.JTable combatantTable;
 	private javax.swing.JTextArea tpCombatInfo;
-	private javax.swing.JToolBar topToolbar;
 	private javax.swing.JToolBar bottomToolbar;
 	private List columnList = new ArrayList();
 	private LogUtilities log;
@@ -225,9 +218,9 @@ public class Initiative extends javax.swing.JPanel
 	 *
 	 *@return    An ArrayList of currently selected InitHolders
 	 */
-	public List<InitHolder> getSelected()
+	private List<InitHolder> getSelected()
 	{
-		final List<InitHolder> retList = new ArrayList<InitHolder>();
+		final List<InitHolder> retList = new ArrayList<>();
 
 		int j = -1;
 
@@ -267,7 +260,7 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private List<InitHolder> getUnSelected()
 	{
-		final List<InitHolder> retList = new ArrayList<InitHolder>();
+		final List<InitHolder> retList = new ArrayList<>();
 
 		int j = -1;
 
@@ -475,7 +468,7 @@ public class Initiative extends javax.swing.JPanel
 
 		initTable();
 		refreshTable();
-		this.repaint();
+		repaint();
 	}
 
 	/**  Calls up the CastSpell dialog, passing in the data for the first selected combatant, if there is one
@@ -603,7 +596,7 @@ public class Initiative extends javax.swing.JPanel
 
 		while (!selectedList.isEmpty())
 		{
-			InitHolder iH = selectedList.remove(0);
+			selectedList.remove(0);
 		}
 
 		initList.sort();
@@ -709,7 +702,7 @@ public class Initiative extends javax.swing.JPanel
 				+ "/" + cbt.getHP().getMax());
 			doMassiveDamage(cbt, damage);
 
-			if (!oldStatus.equals(newStatus) && (newStatus == State.Dead))
+			if (oldStatus != newStatus && (newStatus == State.Dead))
 			{
 				combatantDied(cbt);
 			}
@@ -1389,7 +1382,7 @@ public class Initiative extends javax.swing.JPanel
 	 *
 	 *@param  num  number to paste
 	 */
-	private void pasteNew(Combatant toPaste, int num)
+	private void pasteNew(InitHolder toPaste, int num)
 	{
 		for (int i = 0; i < num; i++)
 		{
@@ -1430,8 +1423,8 @@ public class Initiative extends javax.swing.JPanel
 		final List<Integer> dmgList = dlg.getDamageList();
 		final List targetList = dlg.getDamagedCombatants();
 
-		if ((dmgList != null) && (targetList != null) && (dmgList.size() > 0)
-			&& (targetList.size() > 0))
+		if ((dmgList != null) && (targetList != null) && (!dmgList.isEmpty())
+			&& (!targetList.isEmpty()))
 		{
 			writeToCombatTabWithRound(combatant.getName()
 				+ " successfully attacks using " + attack);
@@ -1466,7 +1459,7 @@ public class Initiative extends javax.swing.JPanel
 			initList.sort();
 			refreshTable();
 		}
-		else if ((dmgList != null) && (dmgList.size() > 0))
+		else if ((dmgList != null) && (!dmgList.isEmpty()))
 		{
 			writeToCombatTabWithRound(combatant.getName()
 				+ " successfully attacks using " + attack);
@@ -1672,7 +1665,7 @@ public class Initiative extends javax.swing.JPanel
 	//** Functions implementing button calls for top toolbar **
 
 	/**  Starts a new combat, and rolls a new initiative for all combatants */
-	public void roll()
+	private void roll()
 	{
 		round = 0;
 		initList.check();
@@ -1765,7 +1758,6 @@ public class Initiative extends javax.swing.JPanel
 		 party.setAttribute("current_init", Integer.toString(currentInit));
 		 }*/
 		Stream<InitHolderList> initList = Stream.of(this.initList);
-		initList.forEach(v -> v.getSaveElement)
 		for (final InitHolder anInitList : this.initList)
 		{
 			party.addContent(anInitList.getSaveElement());
@@ -1795,7 +1787,7 @@ public class Initiative extends javax.swing.JPanel
 			fLoad.setCurrentDirectory(defaultFile);
 		}
 
-		String[] fileExt = new String[]{"gmi", "init"};
+		String[] fileExt = {"gmi", "init"};
 		SimpleFileFilter ff =
 				new SimpleFileFilter(fileExt,
 					"GMGen Initiative/Encounter Export");
@@ -1856,7 +1848,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	/**  Stabilizes the selected combatants */
-	public void stabilizeCombatant()
+	private void stabilizeCombatant()
 	{
 		final List<InitHolder> selectedList = getSelected();
 
@@ -1937,7 +1929,7 @@ public class Initiative extends javax.swing.JPanel
 	 * @param e {@code HyperLinkEvent} that called this method.
 	 * @param cbt {@code PcgCombatant} to perform action for.
 	 */
-	private void hyperLinkSelected(HyperlinkEvent e, Combatant cbt)
+	private void hyperLinkSelected(HyperlinkEvent e, InitHolder cbt)
 	{
 		if (e.getEventType() == HyperlinkEvent.EventType.ACTIVATED)
 		{
@@ -1947,7 +1939,7 @@ public class Initiative extends javax.swing.JPanel
 			{
 				if ((model instanceof AttackModel) && (cbt instanceof PcgCombatant))
 				{
-					PcgCombatant pcgcbt = (PcgCombatant) cbt;
+					InitHolder pcgcbt = (PcgCombatant) cbt;
 					performAttack((AttackModel) model, pcgcbt);
 				}
 				else if (model instanceof CheckModel)
@@ -2006,7 +1998,7 @@ public class Initiative extends javax.swing.JPanel
 					(String) combatantTable.getValueAt(row, combatantTable
 						.getColumnModel().getColumnIndex("Name"));
 
-			if ((name != null) && (name.length() > 0)
+			if ((name != null) && !name.isEmpty()
 				&& (tpaneInfo.indexOfTab(name) >= 0))
 			{
 				tpaneInfo.setSelectedIndex(tpaneInfo.indexOfTab(name));
@@ -2286,7 +2278,7 @@ public class Initiative extends javax.swing.JPanel
 			combatantUpdated(cbt);
 			State newStatus = cbt.getStatus();
 
-			if (!oldStatus.equals(newStatus) && (newStatus == State.Dead))
+			if (oldStatus != newStatus && (newStatus == State.Dead))
 			{
 				combatantDied(cbt);
 			}
@@ -2457,19 +2449,19 @@ public class Initiative extends javax.swing.JPanel
 		tablePopupCBHP = new javax.swing.JCheckBoxMenuItem();
 		tablePopupCBHPMax = new javax.swing.JCheckBoxMenuItem();
 		tablePopupCBType = new javax.swing.JCheckBoxMenuItem();
-		topToolbar = new javax.swing.JToolBar();
-		buttonPanelTop = new javax.swing.JPanel();
+		final javax.swing.JToolBar topToolbar = new javax.swing.JToolBar();
+		final javax.swing.JPanel buttonPanelTop = new javax.swing.JPanel();
 		bRoll = new javax.swing.JButton();
-		bAddCombatant = new javax.swing.JButton();
+		final JButton bAddCombatant = new JButton();
 		bNextInit = new javax.swing.JButton();
-		bRefocus = new javax.swing.JButton();
+		final JButton bRefocus = new JButton();
 		bCombatantReRoll = new javax.swing.JButton();
 		bDelete = new javax.swing.JButton();
-		jPanel2 = new javax.swing.JPanel();
+		final javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
 		lCounter = new javax.swing.JLabel();
 		jSplitPane1 = new FlippingSplitPane();
-		jScrollPane1 = new javax.swing.JScrollPane();
-		jScrollEvents = new javax.swing.JScrollPane();
+		final javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
+		final javax.swing.JScrollPane jScrollEvents = new javax.swing.JScrollPane();
 		combatantTable = new javax.swing.JTable();
 		tpaneInfo = new javax.swing.JTabbedPane();
 		tpCombatInfo = new javax.swing.JTextArea();
@@ -2663,8 +2655,7 @@ public class Initiative extends javax.swing.JPanel
 				if (holderToCopy instanceof PcgCombatant)
 				{
 					if ((((PcgCombatant) holderToCopy).getPC().getFileName() != null)
-							&& (((PcgCombatant) holderToCopy).getPC().getFileName()
-							.length() > 0))
+							&& (!((PcgCombatant) holderToCopy).getPC().getFileName().isEmpty()))
 					{
 						pasteNew((Combatant) holderToCopy, count);
 					}
@@ -2744,7 +2735,7 @@ public class Initiative extends javax.swing.JPanel
 	 * </p>
 	 * @param e
 	 */
-	protected void opposedSkillActionPerformed(ActionEvent e)
+	private void opposedSkillActionPerformed(ActionEvent e)
 	{
 		List<InitHolder> selected = getSelected();
 		List notSelected = getUnSelected();
@@ -2780,7 +2771,7 @@ public class Initiative extends javax.swing.JPanel
 
 		TableColumn typeColumn = combatantTable.getColumn("Type");
 		// These are the combobox values
-		String[] values = new String[]{"PC", "Enemy", "Ally", "Non Combatant"};
+		String[] values = {"PC", "Enemy", "Ally", "Non Combatant"};
 
 		// Set the combobox editor on the 1st visible column
 		//int vColIndex = 0;
@@ -2835,45 +2826,38 @@ public class Initiative extends javax.swing.JPanel
 			TableColumn col = colModel.getColumn(i);
 			String name = col.getIdentifier().toString();
 
-			if (name.equals("Name"))
+			switch (name)
 			{
-				tablePopupCBName.setSelected(true);
-			}
-			else if (name.equals("Player"))
-			{
-				tablePopupCBPlayer.setSelected(true);
-			}
-			else if (name.equals("Status"))
-			{
-				tablePopupCBStatus.setSelected(true);
-			}
-			else if (name.equals("+"))
-			{
-				tablePopupCBPlus.setSelected(true);
-			}
-			else if (name.equals("Init"))
-			{
-				tablePopupCBInitiative.setSelected(true);
-			}
-			else if (name.equals("Dur"))
-			{
-				tablePopupCBDuration.setSelected(true);
-			}
-			else if (name.equals("HP"))
-			{
-				tablePopupCBHP.setSelected(true);
-			}
-			else if (name.equals("HP Max"))
-			{
-				tablePopupCBHPMax.setSelected(true);
-			}
-			else if (name.equals("#"))
-			{
-				tablePopupCBNumber.setSelected(true);
-			}
-			else if (name.equals("Type"))
-			{
-				tablePopupCBType.setSelected(true);
+				case "Name":
+					tablePopupCBName.setSelected(true);
+					break;
+				case "Player":
+					tablePopupCBPlayer.setSelected(true);
+					break;
+				case "Status":
+					tablePopupCBStatus.setSelected(true);
+					break;
+				case "+":
+					tablePopupCBPlus.setSelected(true);
+					break;
+				case "Init":
+					tablePopupCBInitiative.setSelected(true);
+					break;
+				case "Dur":
+					tablePopupCBDuration.setSelected(true);
+					break;
+				case "HP":
+					tablePopupCBHP.setSelected(true);
+					break;
+				case "HP Max":
+					tablePopupCBHPMax.setSelected(true);
+					break;
+				case "#":
+					tablePopupCBNumber.setSelected(true);
+					break;
+				case "Type":
+					tablePopupCBType.setSelected(true);
+					break;
 			}
 		}
 
@@ -2914,7 +2898,7 @@ public class Initiative extends javax.swing.JPanel
 	{
 		tpCombatInfo.setText("");
 
-		for (InitHolder anInitList : initList)
+		for (final InitHolder anInitList : initList)
 		{
 			StringBuilder sb = new StringBuilder();
 
@@ -2924,13 +2908,13 @@ public class Initiative extends javax.swing.JPanel
 				sb.append(evt.getName() + " (" + evt.getPlayer() + ")\n");
 				sb.append("Duration: " + evt.getDuration() + "\n");
 
-				if (evt.getEffect().length() > 0)
+				if (evt.getEffect().isEmpty())
 				{
-					sb.append(evt.getEffect() + "\n\n");
+					sb.append("\n");
 				}
 				else
 				{
-					sb.append("\n");
+					sb.append(evt.getEffect()).append("\n\n");
 				}
 			}
 
@@ -2994,7 +2978,7 @@ public class Initiative extends javax.swing.JPanel
 	 * Update the initiative holder
 	 * @param iH
 	 */
-	public void initHolderUpdated(InitHolder iH)
+	private void initHolderUpdated(InitHolder iH)
 	{
 		if (iH instanceof Combatant)
 		{
@@ -3006,7 +2990,7 @@ public class Initiative extends javax.swing.JPanel
 	 * Send a message stating that the combatant has been updated
 	 * @param cbt
 	 */
-	public void combatantUpdated(Combatant cbt)
+	private void combatantUpdated(Combatant cbt)
 	{
 		messageHandler.handleMessage(new CombatantHasBeenUpdatedMessage(GMGenSystem.inst, cbt));
 	}
@@ -3032,7 +3016,7 @@ public class Initiative extends javax.swing.JPanel
 	/**
 	 * A table cell renderer
 	 */
-	public static class TypeRenderer extends JComboBox implements
+	private static class TypeRenderer extends JComboBox implements
 			TableCellRenderer
 	{
 
@@ -3053,7 +3037,7 @@ public class Initiative extends javax.swing.JPanel
 			if (isSelected)
 			{
 				setForeground(table.getSelectionForeground());
-				super.setBackground(table.getSelectionBackground());
+				setBackground(table.getSelectionBackground());
 			}
 			else
 			{
