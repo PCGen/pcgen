@@ -58,7 +58,7 @@ public class Localized
 	/**
 	 * If no attribute is defined, the default name is empty.
 	 * @param element
-	 * @param attribute if <code>null</code>, uses the trimmed text of the node.
+	 * @param attribute if {@code null}, uses the trimmed text of the node.
 	 */
 	public Localized(Element element, String attribute)
 	{
@@ -141,7 +141,7 @@ public class Localized
 	/**
 	 * 
 	 * @param e
-	 * @param attribute if <code>null</code>, use the trimmed text.
+	 * @param attribute if {@code null}, use the trimmed text.
 	 */
 	private void update(Element e, String attribute)
 	{

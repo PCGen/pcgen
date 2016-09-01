@@ -41,7 +41,7 @@ import pcgen.system.LanguageBundle;
 import plugin.overland.gui.OverPanel;
 
 /**
- * The <code>Overland Plugin</code> provides a number
+ * The {@code Overland Plugin} provides a number
  * of useful utilities that help with overland travel <br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
@@ -81,7 +81,7 @@ class OverlandPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)

@@ -83,9 +83,9 @@ import plugin.encounter.gui.EncounterView;
 
 /**
  * This class controls the various classes that are
- * involved in the functionality of the Encounter Generator.  This <code>class
- * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
- * <code>PluginLoader</code> and will create a model and a view for this plugin.
+ * involved in the functionality of the Encounter Generator.  This {@code class
+ * } is a plugin for the {@code GMGenSystem}, is called by the
+ * {@code PluginLoader} and will create a model and a view for this plugin.
  * @version 2.10
  */
 class EncounterPlugin implements InteractivePlugin, ActionListener,
@@ -130,8 +130,8 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates an instance of this class creating a new <code>InitHolderList
-	 * </code>.
+	 * Creates an instance of this class creating a new {@code InitHolderList
+	 * }.
 	 */
 	public EncounterPlugin()
 	{
@@ -139,7 +139,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
 	@Override
 	public void start(PCGenMessageHandler mh)
@@ -172,7 +172,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 	/**
 	 * Sets the instance of the model for the encounter generator.
-	 * @param theModel the <code>EncounterModel</code>.
+	 * @param theModel the {@code EncounterModel}.
 	 */
 	public void setModel(EncounterModel theModel)
 	{
@@ -181,7 +181,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 	/**
 	 * Gets the model that holds the data for the encounter generator.
-	 * @return the <code>EncounterModel</code>.
+	 * @return the {@code EncounterModel}.
 	 */
 	public EncounterModel getModel()
 	{
@@ -222,7 +222,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	}
 
 	/**
-	 * Gets the <code>JPanel</code> view associated for this class.
+	 * Gets the {@code JPanel} view associated for this class.
 	 * @return the view.
 	 */
 	private JPanel getView()
