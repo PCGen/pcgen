@@ -303,7 +303,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
-		PlayerCharacter tempPC = subkit ? aPC : (PlayerCharacter) aPC.clone();
+		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();
 		
 		for (KitStat kStat : getStats())
 		{

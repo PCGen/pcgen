@@ -153,7 +153,7 @@ public class PortraitInfoPane extends JScrollPane implements CharacterInfoTab
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		((PortraitHandler) models.get(PortraitHandler.class)).uninstall();
+		models.get(PortraitHandler.class).uninstall();
 	}
 
 	@Override

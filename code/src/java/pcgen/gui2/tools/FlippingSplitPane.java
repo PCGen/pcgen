@@ -193,7 +193,7 @@ public class FlippingSplitPane extends JSplitPane
 	public void setDividerLocation(int location)
 	{
 		PropertyContext context = baseContext.createChildContext(prefsKey);
-		context.setInt(DIVIDER_LOC_PREF_KEY, (Integer) location);
+		context.setInt(DIVIDER_LOC_PREF_KEY, location);
 		if (isLocked())
 		{
 			super.setDividerLocation(getLastDividerLocation());

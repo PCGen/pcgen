@@ -206,7 +206,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) name).trim();
+		String aString = name.trim();
 
 		if ((aString.indexOf('|') >= 0) || (aString.indexOf(':') >= 0)
 			|| (aString.indexOf(';') >= 0) || (aString.indexOf(',') >= 0))
@@ -268,7 +268,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		try
 		{
@@ -305,7 +305,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		try
 		{
@@ -344,7 +344,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		equip.put(StringKey.DAMAGE_OVERRIDE, aString);
 		return true;
@@ -545,7 +545,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 				{
 					try
 					{
-						final String aString = ((String) selectedValue).trim();
+						final String aString = selectedValue.trim();
 						charges = Integer.parseInt(aString);
 
 						if (charges < min)
