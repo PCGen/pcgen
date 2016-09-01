@@ -59,7 +59,7 @@ public final class LstSystemLoader implements SystemLoader
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
 		if (files == null)
 		{
-			files = new ArrayList<URI>();
+			files = new ArrayList<>();
 			chosenCampaignSourcefiles.put(game.getName(), files);
 		}
 		files.clear();
@@ -80,7 +80,7 @@ public final class LstSystemLoader implements SystemLoader
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
 		if (files == null)
 		{
-			files = new ArrayList<URI>();
+			files = new ArrayList<>();
 			chosenCampaignSourcefiles.put(game.getName(), files);
 		}
 		return files;

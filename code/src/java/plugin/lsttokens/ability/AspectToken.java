@@ -114,7 +114,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
 		{
-			aspects = new ArrayList<Aspect>();
+			aspects = new ArrayList<>();
 		}
 		aspects.add(a);
 		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), aspects);
@@ -190,7 +190,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Set<AspectName> keys = changes.getAdded().keySet();
 		for (AspectName an : keys)
 		{

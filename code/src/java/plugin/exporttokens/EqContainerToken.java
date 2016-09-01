@@ -400,9 +400,9 @@ public class EqContainerToken extends Token
 	 * @param eq
 	 * @return Item Weight Token
 	 */
-	public static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
+	private static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getWeight(pc).floatValue();
+		return eq.getWeight(pc);
 	}
 
 	/**

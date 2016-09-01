@@ -338,25 +338,11 @@ public class JIcon extends JPanel
 		label = new JLabel();
 
 		launchMI.setText("Launch File (enter)");
-		launchMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				launchMIActionPerformed(evt);
-			}
-		});
+		launchMI.addActionListener(this::launchMIActionPerformed);
 
 		contextMenu.add(launchMI);
 		deleteMI.setText("Delete File (del)");
-		deleteMI.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				deleteMIActionPerformed(evt);
-			}
-		});
+		deleteMI.addActionListener(this::deleteMIActionPerformed);
 
 		contextMenu.add(deleteMI);
 
@@ -367,14 +353,7 @@ public class JIcon extends JPanel
 		button.setBackground((Color) UIManager.getDefaults().get(
 			"Button.background"));
 		button.setBorder(null);
-		button.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				buttonActionPerformed(evt);
-			}
-		});
+		button.addActionListener(this::buttonActionPerformed);
 
 		button.addFocusListener(new FocusAdapter()
 		{

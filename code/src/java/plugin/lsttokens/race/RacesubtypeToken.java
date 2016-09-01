@@ -97,7 +97,7 @@ public class RacesubtypeToken extends AbstractTokenWithSeparator<Race>
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<RaceSubType> removedItems = changes.getRemoved();
 		if (changes.includesGlobalClear())
 		{

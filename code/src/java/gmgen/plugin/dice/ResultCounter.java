@@ -18,6 +18,8 @@
 
 package gmgen.plugin.dice;
 
+import java.util.stream.IntStream;
+
 /**
  * Given a set of dice results, produces a single value for the "total"
  * Can be used to sum values, drop the lowest/highest/etc.
@@ -25,5 +27,5 @@ package gmgen.plugin.dice;
 @FunctionalInterface
 interface ResultCounter
 {
-	int totalCount(int[] in);
+	int totalCount(IntStream in);
 }

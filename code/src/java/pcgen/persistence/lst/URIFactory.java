@@ -217,13 +217,9 @@ public class URIFactory
 				return new URI(url.getProtocol(), url.getHost(), url.getPath(),
 					null);
 			}
-			catch (URISyntaxException e)
+			catch (URISyntaxException | MalformedURLException e)
 			{
 				//Something broke, so wasn't a URL
-			}
-			catch (MalformedURLException e)
-			{
-				//Protocol was unknown, so wasn't a URL
 			}
 		}
 

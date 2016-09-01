@@ -43,7 +43,7 @@ import pcgen.core.RollingMethods;
 class DiceBagModel extends Observable
 {
 	/** List of dice strings. */
-	private List<String> m_dice = new ArrayList<String>();
+	private List<String> m_dice = new ArrayList<>();
 
 	/** File path of the last file this bag was saved to, or loaded from. */
 	private String m_filePath;

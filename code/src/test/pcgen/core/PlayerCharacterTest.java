@@ -1056,14 +1056,14 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		CharacterDisplay display = pc.getDisplay();
 		
 		addAbility(AbilityCategory.FEAT, ab);
-		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<CompanionList>(
+		CDOMSingleRef<CompanionList> ref = new CDOMSimpleSingleRef<>(
 				CompanionList.class, "Mount");
-		CDOMReference<Race> race  = new  CDOMDirectSingleRef<Race>(giantRace);
+		CDOMReference<Race> race  = new CDOMDirectSingleRef<>(giantRace);
 		FollowerOption option = new FollowerOption(race, ref);
 		mab.addToListFor(ListKey.COMPANIONLIST, option);
-		ref = new CDOMSimpleSingleRef<CompanionList>(
+		ref = new CDOMSimpleSingleRef<>(
 				CompanionList.class, "Familiar");
-		race  = new  CDOMDirectSingleRef<Race>(human);
+		race  = new CDOMDirectSingleRef<>(human);
 		option = new FollowerOption(race, ref);
 		fab.addToListFor(ListKey.COMPANIONLIST, option);
 		
@@ -1250,7 +1250,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.setStat(intel, 10);
 		character.incrementClassLevel(2, pcClass, true);
 		
-		List<PCLevelInfo> levelInfoList = new ArrayList<PCLevelInfo>(character.getLevelInfo());
+		List<PCLevelInfo> levelInfoList = new ArrayList<>(character.getLevelInfo());
 		
 		assertEquals("Level number lvl 1", 1, levelInfoList.get(0)
 			.getClassLevel());
@@ -1292,7 +1292,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 		character.incrementClassLevel(2, pcClass, true);
 		
-		List<PCLevelInfo> levelInfoList = new ArrayList<PCLevelInfo>(character.getLevelInfo());
+		List<PCLevelInfo> levelInfoList = new ArrayList<>(character.getLevelInfo());
 		
 		assertEquals("Level number lvl 1", 1, levelInfoList.get(0)
 			.getClassLevel());

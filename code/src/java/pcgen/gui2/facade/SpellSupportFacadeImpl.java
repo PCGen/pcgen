@@ -697,7 +697,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 			for (int i = 0; i <= highestSpellLevel; ++i)
 			{
-				final int a = spellSupport.getKnownForLevel(i, "null", pc);
+				final int a = spellSupport.getKnownForLevel(i, pc);
 				final int bonus = spellSupport.getSpecialtyKnownForLevel(i, pc);
 
 				b.append("<td><font size=-1><center>"); //$NON-NLS-1$

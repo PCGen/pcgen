@@ -834,11 +834,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -921,11 +917,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(equipmentArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -939,11 +931,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}

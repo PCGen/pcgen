@@ -90,11 +90,7 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 			{
 				return future.get();
 			}
-			catch (InterruptedException ex)
-			{
-				Logging.errorPrint(null, ex);
-			}
-			catch (ExecutionException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint(null, ex);
 			}

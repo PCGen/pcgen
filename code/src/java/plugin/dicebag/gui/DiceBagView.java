@@ -260,7 +260,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		m_editButton = new JButton("Edit");
 		m_editButton.setActionCommand("EDIT");
 		m_editButton.addActionListener(m_bagListener);
-		m_diceButtons = new ArrayList<JButton>();
+		m_diceButtons = new ArrayList<>();
 		m_exprField = new JTextField();
 		m_exprFieldLabel = new JLabel("Roll Expr: ");
 

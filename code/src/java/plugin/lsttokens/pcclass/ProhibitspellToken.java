@@ -148,7 +148,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 
-		String joinChar = getJoinChar(type, new LinkedList<String>());
+		String joinChar = getJoinChar(type, new LinkedList<>());
 		if (args.indexOf(joinChar) == 0)
 		{
 			Logging.errorPrint(getTokenName()
@@ -203,7 +203,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			// Zero indicates no Token present
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (SpellProhibitor sp : added)
 		{
 			StringBuilder sb = new StringBuilder();
@@ -212,7 +212,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 			sb.append('.');
 			Collection<String> valueSet = sp.getValueList();
 			String joinChar = getJoinChar(pst, valueSet);
-			sb.append(StringUtil.join(new TreeSet<String>(valueSet), joinChar));
+			sb.append(StringUtil.join(new TreeSet<>(valueSet), joinChar));
 
 			if (sp.hasPrerequisites())
 			{

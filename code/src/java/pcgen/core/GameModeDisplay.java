@@ -25,7 +25,6 @@
  */
 package pcgen.core;
 
-import pcgen.core.GameMode;
 import pcgen.facade.core.GameModeDisplayFacade;
 
 

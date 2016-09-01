@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  */
 public final class SizeAdjustmentLoader extends LstLineFileLoader
 {
-	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<SizeAdjustment>(
+	private OverlapLoader<SizeAdjustment> loader = new OverlapLoader<>(
 			SizeAdjustment.class);
 
 	@Override

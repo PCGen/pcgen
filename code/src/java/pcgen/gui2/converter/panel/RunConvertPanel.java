@@ -527,11 +527,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}
@@ -557,11 +553,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}

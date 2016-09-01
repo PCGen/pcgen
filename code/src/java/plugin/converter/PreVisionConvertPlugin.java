@@ -86,7 +86,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 			int withEquals = 0;
 			boolean withoutEquals = false;
 			boolean lastWithEquals = false;
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (String tok : strings)
 			{
 				int equalLoc = tok.indexOf('=');
@@ -152,8 +152,8 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 						lastValue = Integer.decode(tok.substring(equalLoc + 1));
 					}
 				}
-				List<String> descr = new ArrayList<String>();
-				List<String> choice = new ArrayList<String>();
+				List<String> descr = new ArrayList<>();
+				List<String> choice = new ArrayList<>();
 				processChoices(tpe, num, descr, choice, onebase.toString(),
 						SET_ANY);
 				processChoices(tpe, num, descr, choice, rightbase.toString(),
@@ -239,7 +239,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 		}
 		else
 		{
-			List<String> descr = new ArrayList<String>();
+			List<String> descr = new ArrayList<>();
 			descr.add(oneChoice + " ... " + SET_ZERO_ONE);
 			descr.add(zeroChoice + " ... " + SET_ZERO_ANY);
 			String decision = tpe.getDecider().getConversionDecision(
@@ -285,7 +285,7 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 		}
 		String oneResult = one.toString();
 		String anyResult = any.toString();
-		List<String> choice = new ArrayList<String>();
+		List<String> choice = new ArrayList<>();
 		choice.add(oneResult);
 		choice.add(anyResult);
 		return choice;

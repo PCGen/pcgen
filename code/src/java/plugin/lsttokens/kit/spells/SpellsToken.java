@@ -161,7 +161,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 
 				KnownSpellIdentifier ksi = new KnownSpellIdentifier(sp, null);
 
-				ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<CDOMSingleRef<Ability>>();
+				ArrayList<CDOMSingleRef<Ability>> featList = new ArrayList<>();
 				while (subTok.hasMoreTokens())
 				{
 					String featName = subTok.nextToken();

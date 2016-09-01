@@ -240,7 +240,7 @@ public class HitdieToken extends AbstractNonEmptyToken<PCTemplate> implements
 			}
 
 			Processor<HitDie> mod = owner == null ? hdm
-					: new ContextProcessor<HitDie, PCClass>(hdm, owner);
+					: new ContextProcessor<>(hdm, owner);
 			context.getObjectContext().put(template, ObjectKey.HITDIE, mod);
 			return ParseResult.SUCCESS;
 		}

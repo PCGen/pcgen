@@ -81,7 +81,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr01()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Object>         s = new Stack<Object>();
+        final Stack<Object>         s = new Stack<>();
 
         s.push(1.0);
         s.push(2.0);
@@ -99,7 +99,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr02()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Double>         s = new Stack<Double>();
+        final Stack<Double>         s = new Stack<>();
 
         s.push(0.0);
         s.push(2.0);
@@ -117,7 +117,7 @@ public class OrCommandTest extends PCGenTestCase
     public void testOr03()
     {
         final PostfixMathCommandI   c = new OrCommand();
-        final Stack<Boolean>        s = new Stack<Boolean>();
+        final Stack<Boolean>        s = new Stack<>();
 
         s.push(false);
         s.push(false);

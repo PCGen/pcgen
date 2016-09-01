@@ -152,7 +152,7 @@ public class PreTypeTester extends AbstractDisplayPrereqTest implements
 	@Deprecated
 	private static List<String> getTypes(CharacterDisplay display)
 	{
-		final List<String> list = new ArrayList<String>();
+		final List<String> list = new ArrayList<>();
 	
 		Race race = display.getRace();
 		if (race != null)

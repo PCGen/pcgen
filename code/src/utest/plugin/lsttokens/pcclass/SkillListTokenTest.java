@@ -295,10 +295,10 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	protected PersistentTransitionChoice<ClassSkillList> buildTC(
 			ReferenceChoiceSet<ClassSkillList> rcs)
 	{
-		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(getToken()
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSkillList");
-		PersistentTransitionChoice<ClassSkillList> tc = new ConcretePersistentTransitionChoice<ClassSkillList>(
+		PersistentTransitionChoice<ClassSkillList> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		return tc;
 	}
@@ -306,7 +306,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	protected ReferenceChoiceSet<ClassSkillList> buildRCS(
 			CDOMReference<ClassSkillList>... refs)
 	{
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
 				Arrays.asList(refs));
 		return rcs;
 	}
@@ -333,11 +333,11 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseBadCount() throws PersistenceLayerException
 	{
 		ClassSkillList wp1 = construct(primaryContext, "TestWP1");
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<ClassSkillList>(
+		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
 				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
-		ChoiceSet<ClassSkillList> cs = new ChoiceSet<ClassSkillList>(token.getTokenName(), rcs);
+		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(token.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSkillList");
-		PersistentTransitionChoice<ClassSkillList> tc1 = new ConcretePersistentTransitionChoice<ClassSkillList>(
+		PersistentTransitionChoice<ClassSkillList> tc1 = new ConcretePersistentTransitionChoice<>(
 				cs, null);
 		primaryProf.put(ObjectKey.SKILLLIST_CHOICE, tc1);
 		assertBadUnparse();

@@ -137,7 +137,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		Collection<CampaignURL> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (CampaignURL curl : added)
 			{
 				StringBuilder sb = new StringBuilder();

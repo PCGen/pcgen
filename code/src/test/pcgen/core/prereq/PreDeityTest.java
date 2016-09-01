@@ -246,6 +246,6 @@ public class PreDeityTest extends AbstractCharacterTestCase
 		deity.put(ObjectKey.ALIGNMENT, CDOMDirectSingleRef.getRef(ng));
 		StringManager sm = new StringManager();
 		FactSetKey<String> fsk = FactSetKey.getConstant("Pantheon", sm);
-		deity.addToSetFor(fsk, new BasicIndirect<String>(sm, "Celtic"));
+		deity.addToSetFor(fsk, new BasicIndirect<>(sm, "Celtic"));
 	}
 }

@@ -670,13 +670,10 @@ public class NameGenPanel extends JPanel
 	{
 		Vector<String> genders = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
 
 		//	Loop through the keys in the categories
-		while (itr.hasNext())
+		for (final String key : keySet)
 		{
-			String key = itr.next();
-
 			//	if the key starts with "Sex" then save it
 			if (key.startsWith("Sex:"))
 			{
@@ -801,12 +798,9 @@ public class NameGenPanel extends JPanel
 	{
 		Vector<String> cats = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
 
-		while (itr.hasNext())
+		for (final String key : keySet)
 		{
-			String key = itr.next();
-
 			//	Ignore any category that starts with this
 			if (key.startsWith("Sex:"))
 			{
@@ -850,10 +844,9 @@ public class NameGenPanel extends JPanel
 			loadList(list);
 		}
 
-		ListIterator<?> rulesetIterator = rulesets.listIterator();
-		while (rulesetIterator.hasNext())
+		for (final Object ruleset : rulesets)
 		{
-			Element ruleSet = (Element) rulesetIterator.next();
+			Element ruleSet = (Element) ruleset;
 			rs = loadRuleSet(ruleSet);
 			allVars.addDataElement(rs);
 		}
@@ -865,27 +858,24 @@ public class NameGenPanel extends JPanel
 				new pcgen.core.doomsdaybook.DDList(allVars, list
 					.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List<?> elements = list.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
+		for (final Object element : elements)
 		{
-			Element child = (Element) elementsIterator.next();
+			Element child = (Element) element;
 			String elementName = child.getName();
 
 			if (elementName.equals("VALUE"))
 			{
 				WeightedDataValue dv =
 						new WeightedDataValue(child.getText(), child
-							.getAttribute("weight").getIntValue());
-				java.util.List<?> subElements = child.getChildren("SUBVALUE");
-				ListIterator<?> subElementsIterator =
-						subElements.listIterator();
+								.getAttribute("weight").getIntValue());
+				List<?> subElements = child.getChildren("SUBVALUE");
 
-				while (subElementsIterator.hasNext())
+				for (final Object subElement1 : subElements)
 				{
-					Element subElement = (Element) subElementsIterator.next();
+					Element subElement = (Element) subElement1;
 					dv.addSubValue(subElement.getAttributeValue("type"),
-						subElement.getText());
+							subElement.getText());
 				}
 
 				dataList.add(dv);
@@ -904,11 +894,10 @@ public class NameGenPanel extends JPanel
 				new Rule(allVars, id, id, rule.getAttribute("weight")
 					.getIntValue());
 		java.util.List<?> elements = rule.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
+		for (final Object element : elements)
 		{
-			Element child = (Element) elementsIterator.next();
+			Element child = (Element) element;
 			String elementName = child.getName();
 
 			if (elementName.equals("GETLIST"))

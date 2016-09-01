@@ -314,10 +314,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
-	/**
-	 * {@inheritDoc} 
-	 */
-    @Override
+	@Override
 	public void closeCharacter()
 	{
 		FacetLibrary.getFacet(LanguageFacet.class)
@@ -557,7 +554,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * Initialise the equipment set facades, ensuring that the character has a 
 	 * default equipment set. 
-	 * @param pc The character being loaded
 	 */
 	private void initEquipSet()
 	{
@@ -615,7 +611,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private void buildAgeCategories()
 	{
 		List<String> cats = new ArrayList<>();
-		for (String aString : Globals.getBioSet().getAgeCategories())
+		for (String aString : SettingsHandler.getGame().getBioSet().getAgeCategories())
 		{
 			final int idx = aString.indexOf('\t');
 
@@ -1200,7 +1196,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasNonPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasNonPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1212,7 +1208,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasAnyPCTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasAnyPCTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -1224,7 +1220,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			return;
 		}
-		if (TempBonusHelper.hasTempBonus(obj, theCharacter))
+		if (TempBonusHelper.hasTempBonus(obj))
 		{
 			tempBonuses.add(new TempBonusFacadeImpl(obj));
 		}
@@ -3127,12 +3123,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (selAgeCat != null)
 			{
-				final int idx = Globals.getBioSet().getAgeSetNamed(selAgeCat);
+				final int idx = SettingsHandler.getGame().getBioSet().getAgeSetNamed(selAgeCat);
 
 				if (idx >= 0)
 				{
 					ageCategory.set(ageCat);
-					Globals.getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
+					SettingsHandler.getGame().getBioSet().randomize("AGECAT" + Integer.toString(idx), theCharacter);
 					age.set(charDisplay.getAge());
 					ageCategory.set(ageCat);
 					refreshStatScores();
@@ -3789,7 +3785,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		final Equipment equip = (Equipment) equipment;
 		final SizeAdjustment newSize = charDisplay.getSizeAdjustment();
-		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(theCharacter, equip, null))
+		if (equip.getSizeAdjustment() == newSize || !Globals.canResizeHaveEffect(equip, null))
 		{
 			return equipment;
 		}

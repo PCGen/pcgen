@@ -355,10 +355,10 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	protected PersistentTransitionChoice<CDOMListObject<Spell>> buildTC(
 			ReferenceChoiceSet<ClassSpellList> rcs)
 	{
-		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(getToken()
+		ChoiceSet<ClassSpellList> cs = new ChoiceSet<>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a SpellList");
-		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new ConcretePersistentTransitionChoice<CDOMListObject<Spell>>(
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc = new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
 		return tc;
 	}
@@ -366,7 +366,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	protected ReferenceChoiceSet<ClassSpellList> buildRCS(
 			CDOMReference<ClassSpellList>... refs)
 	{
-		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<ClassSpellList>(
+		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(
 				Arrays.asList(refs));
 		return rcs;
 	}
@@ -393,11 +393,11 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseBadCount() throws PersistenceLayerException
 	{
 		ClassSpellList wp1 = construct(primaryContext, "TestWP1");
-		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<ClassSpellList>(
+		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(
 				Collections.singletonList(CDOMDirectSingleRef.getRef(wp1)));
-		ChoiceSet<ClassSpellList> cs = new ChoiceSet<ClassSpellList>(token.getTokenName(), rcs);
+		ChoiceSet<ClassSpellList> cs = new ChoiceSet<>(token.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSpellList");
-		PersistentTransitionChoice<CDOMListObject<Spell>> tc1 = new ConcretePersistentTransitionChoice<CDOMListObject<Spell>>(
+		PersistentTransitionChoice<CDOMListObject<Spell>> tc1 = new ConcretePersistentTransitionChoice<>(
 				cs, null);
 		primaryProf.put(ObjectKey.SPELLLIST_CHOICE, tc1);
 		assertBadUnparse();

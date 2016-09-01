@@ -215,14 +215,7 @@ public class StartEvent extends javax.swing.JDialog
 		java.awt.GridBagConstraints gridBagConstraints;
 		//Buttons
 		bSave.setText("Save");
-		bSave.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				saveAndClose(e);
-			}
-		});
+		bSave.addActionListener(this::saveAndClose);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -231,14 +224,7 @@ public class StartEvent extends javax.swing.JDialog
 		mainPanel.add(bSave, gridBagConstraints);
 
 		bCancel.setText("Cancel");
-		bCancel.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				cancelAndClose(e);
-			}
-		});
+		bCancel.addActionListener(this::cancelAndClose);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

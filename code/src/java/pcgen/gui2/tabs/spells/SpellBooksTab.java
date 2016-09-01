@@ -221,11 +221,10 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	 * Identify the current spell book, being the spell book that spells should
 	 * be added to. If no books exist then return an empty string.
 	 *
-	 * @param character The character we are checking for.
 	 * @return The name of the 'current' spell book, or empty string if none
 	 *         exist.
 	 */
-	String getCurrentSpellBookName(CharacterFacade character)
+	String getCurrentSpellBookName()
 	{
 		String spellList = "";
 		Object selectedObject = selectedTable.getSelectedObject();
@@ -299,7 +298,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
-			String bookname = getCurrentSpellBookName(character);
+			String bookname = getCurrentSpellBookName();
 			for (Object object : data)
 			{
 				if (object instanceof SpellNode)

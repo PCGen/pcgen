@@ -1228,11 +1228,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				final String xpAward[] = sTmp.split("=");
 				xpAwardsMap.put(getCRInteger(xpAward[0]), new Integer(xpAward[1]));
 			}
-			catch (ArrayIndexOutOfBoundsException e)
-			{
-				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + sTmp);
-			}
-			catch (NumberFormatException e)
+			catch (ArrayIndexOutOfBoundsException | NumberFormatException e)
 			{
 				Logging.errorPrint("Illegal value for miscinfo.XPAWARD: " + sTmp);
 			}

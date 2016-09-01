@@ -128,7 +128,7 @@ public class AlteqmodToken extends AbstractTokenWithSeparator<Equipment>
 	{
 		AbstractObjectContext obj = context.getObjectContext();
 		String damage = obj.getString(eq, StringKey.DAMAGE_OVERRIDE);
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		if (damage != null)
 		{
 			set.add(EQMOD_DAMAGE + Constants.PIPE + damage);

@@ -120,7 +120,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		Changes<DamageReduction> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.DAMAGE_REDUCTION);
 		Collection<DamageReduction> added = changes.getAdded();
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (changes.includesGlobalClear())
 		{
 			list.add(Constants.LST_DOT_CLEAR);
@@ -130,7 +130,7 @@ public class DrLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			// Zero indicates no Token (and no global clear, so nothing to do)
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		if (added != null)
 		{
 			for (DamageReduction lw : added)

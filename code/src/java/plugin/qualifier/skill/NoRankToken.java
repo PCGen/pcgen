@@ -122,7 +122,7 @@ public class NoRankToken implements QualifierToken<Skill>, PrimitiveFilter<Skill
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
-		return pcs.getCollection(pc, new AddFilterConverter<Skill, R>(c, this));
+		return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
 	}
 
 	@Override

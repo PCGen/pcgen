@@ -19,6 +19,7 @@
 package gmgen.plugin.dice;
 
 import java.util.Random;
+import java.util.stream.IntStream;
 
 class AppendModifier implements ResultModifier
 {
@@ -27,23 +28,17 @@ class AppendModifier implements ResultModifier
 	private final int max;
 	private final Random rand;
 
-	AppendModifier(final int count, final int max, final Random rand) {
+	AppendModifier(final int count, final int max, final Random rand)
+	{
 		this.count = count;
 		this.max = max;
 		this.rand = rand;
 	}
 
 	@Override
-	public int[] apply(final int[] in)
+	public IntStream apply(final IntStream in)
 	{
-		int[] newResults = new int[count + in.length];
-		System.arraycopy(in, 0, newResults, 0, in.length);
-		for (int i = 0; i < count; ++i)
-		{
-			int thisRoll = rand.nextInt(max) + 1;
-			newResults[in.length + i] = thisRoll;
-		}
-
-		return newResults;
+		final IntStream newResults = IntStream.generate(() -> rand.nextInt(max) + 1).limit(count);;
+		return IntStream.concat(in, newResults);
 	}
 }

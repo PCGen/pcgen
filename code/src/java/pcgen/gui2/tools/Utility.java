@@ -469,12 +469,7 @@ public final class Utility
 			awtAppClassNameField.setAccessible(true);
 			awtAppClassNameField.set(xToolkit, title);
 		}
-		catch (NoSuchFieldException e)
-		{
-			// Rather than do a OS system condition, just ignore this expected exception
-			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
-		}
-		catch (IllegalAccessException e)
+		catch (NoSuchFieldException | IllegalAccessException e)
 		{
 			// Rather than do a OS system condition, just ignore this expected exception
 			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
