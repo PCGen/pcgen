@@ -40,14 +40,14 @@ public class WeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testWeightUnsetZero()
 	{
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test
 	public void testWeightSetZeroValid()
 	{
 		facet.set(id, 0);
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test

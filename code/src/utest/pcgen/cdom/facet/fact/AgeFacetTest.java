@@ -50,13 +50,13 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 	public void testItemSetMultGetAge()
 	{
 
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 		getFacet().set(id, 4);
-		assertEquals(4, (int)facet.get(id));
+		intAssertEquals(4, facet.get(id));
 		getFacet().set(id, 2);
-		assertEquals(2, (int)facet.get(id));
+		intAssertEquals(2, facet.get(id));
 		// Remove
 		getFacet().remove(id);
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 }

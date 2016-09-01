@@ -61,7 +61,7 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 			Logging.errorPrint(getClass() + " received null item: ignoring");
 			return false;
 		}
-		final T old = getRaw(id);
+		T old = getRaw(id);
 		if (old == obj)
 		{
 			return false;
@@ -110,13 +110,13 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 	 * @return the item value for this AbstractItemFacet and the Player
 	 *         Character represented by the given PCGenIdentifier.
 	 */
-	public T get(final IDT id)
+	public T get(IDT id)
 	{
-		final T tmp = (T)getCache(id);
+		T tmp = (T)getCache(id);
 		return (tmp == null) ? valueWhenNull() : tmp;
 	}
 
-	private T getRaw(final IDT id) {
+	private T getRaw(IDT id) {
 		return (T)getCache(id);
 	}
 

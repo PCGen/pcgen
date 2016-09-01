@@ -27,7 +27,7 @@ import pcgen.cdom.testsupport.AbstractItemFacetTest;
 public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
-	private final HeightFacet facet = new HeightFacet();
+	private HeightFacet facet = new HeightFacet();
 
 	@Override
 	public void setUp() throws Exception
@@ -40,14 +40,14 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightUnsetZero()
 	{
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test
 	public void testHeightSetZeroValid()
 	{
 		facet.set(id, 0);
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test
@@ -63,9 +63,9 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	public void testRemoveHeight()
 	{
 		facet.set(id, 25);
-		assertEquals(25, (int)facet.get(id));
+		intAssertEquals(25, facet.get(id));
 		facet.remove(id);
-		assertEquals(0, (int)facet.get(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Override

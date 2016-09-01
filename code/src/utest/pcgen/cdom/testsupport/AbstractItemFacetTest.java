@@ -277,4 +277,12 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 	{
 		return id;
 	}
+
+	/**
+	 * assertEquals but only a single type, thus avoiding ambiguity
+	 */
+	protected static void intAssertEquals(int a, int b)
+	{
+		assertEquals(a, b);
+	}
 }
