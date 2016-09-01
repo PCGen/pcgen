@@ -47,11 +47,11 @@ public class DiceRollModel extends PObjectModel
 	 * @param objectString
 	 *            String description of dice roll
 	 */
-	public DiceRollModel(String objectString)
+	DiceRollModel(String objectString)
 	{
 		super(objectString);
-		setExpression(getStringValue(outputTokens,
-			SEGMENT_POSITION_DICE_EXPRESSION));
+		m_expression = getStringValue(outputTokens,
+				DiceRollModel.SEGMENT_POSITION_DICE_EXPRESSION);
 	}
 
 	/**
