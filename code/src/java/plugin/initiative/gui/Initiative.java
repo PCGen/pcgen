@@ -685,7 +685,7 @@ public class Initiative extends javax.swing.JPanel
 				+ "/" + cbt.getHP().getMax());
 			doMassiveDamage(cbt, damage);
 
-			if (oldStatus != newStatus && (newStatus == State.Dead))
+			if ((oldStatus != newStatus) && (newStatus == State.Dead))
 			{
 				combatantDied(cbt);
 			}
@@ -1338,7 +1338,7 @@ public class Initiative extends javax.swing.JPanel
 			SystemInitiative init = cb.getInitiative();
 			SystemHP hitPoints = cb.getHP();
 			String name = initList.getUniqueName(cb.getName());
-			XMLCombatant newCbt = new XMLCombatant(name, toPaste.getPlayer(), init
+			InitHolder newCbt = new XMLCombatant(name, toPaste.getPlayer(), init
 					.getAttribute().getValue(), hitPoints.getAttribute()
 					.getValue(), hitPoints.getMax(),
 					hitPoints.getCurrent(), hitPoints.getSubdual(), init
@@ -2249,7 +2249,7 @@ public class Initiative extends javax.swing.JPanel
 			combatantUpdated(cbt);
 			State newStatus = cbt.getStatus();
 
-			if (oldStatus != newStatus && (newStatus == State.Dead))
+			if ((oldStatus != newStatus) && (newStatus == State.Dead))
 			{
 				combatantDied(cbt);
 			}
