@@ -27,7 +27,6 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.qualifier.template.PCToken;
 
 public class TemplateTokenTest extends

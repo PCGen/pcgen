@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.spell.XpcostToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class XPCostIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<Spell>

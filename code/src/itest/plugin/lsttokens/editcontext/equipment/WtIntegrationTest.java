@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractBigDecimalIntegrationTestCase;
 import plugin.lsttokens.equipment.WtToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class WtIntegrationTest extends
 		AbstractBigDecimalIntegrationTestCase<Equipment>

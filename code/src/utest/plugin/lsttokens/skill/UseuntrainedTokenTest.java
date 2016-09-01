@@ -24,7 +24,6 @@ import pcgen.core.Skill;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractYesNoTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class UseuntrainedTokenTest extends AbstractYesNoTokenTestCase<Skill>
 {

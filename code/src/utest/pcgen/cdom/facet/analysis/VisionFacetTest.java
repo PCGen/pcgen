@@ -21,7 +21,6 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.analysis.VisionFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.reference.CDOMDirectSingleRef;

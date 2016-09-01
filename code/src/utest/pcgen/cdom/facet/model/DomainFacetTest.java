@@ -18,7 +18,6 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.testsupport.AbstractSingleSourceListFacetTest;
 import pcgen.core.Domain;

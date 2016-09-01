@@ -22,7 +22,6 @@ import java.lang.reflect.InvocationTargetException;
 
 import pcgen.core.Globals;
 import pcgen.rules.context.AbstractReferenceContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * Support class for running Junit tests
