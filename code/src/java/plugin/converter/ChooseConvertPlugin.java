@@ -29,12 +29,11 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
 public class ChooseConvertPlugin implements TokenProcessorPlugin
 {
-	public static Map<String, String> featAnswered = new HashMap<String, String>();
-	public static Map<String, String> spelllistAnswered = new HashMap<String, String>();
-	public static List<String> CHOICES = Arrays.asList(new String[] {
-			"ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
+	public static Map<String, String> featAnswered = new HashMap<>();
+	public static Map<String, String> spelllistAnswered = new HashMap<>();
+	public static List<String> CHOICES = Arrays.asList("ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
 			"FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS", "SHIELDPROFICIENCY",
-			"SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY" });
+			"SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY");
 
     @Override
 	public String process(TokenProcessEvent tpe)
@@ -77,7 +76,7 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 
 	private List<String> buildDescriptions(String feat)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		list.add("Underlying Feat " + feat + " is CHOOSE:ABILITY");
 		list.add("Underlying Feat " + feat + " is CHOOSE:ARMORPROFICIENCY");
 		list.add("Underlying Feat " + feat + " is CHOOSE:CLASS");

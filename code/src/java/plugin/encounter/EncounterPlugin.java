@@ -436,14 +436,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
-		encounterToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		encounterToolsItem.addActionListener(evt -> toolMenuItem(evt));
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 

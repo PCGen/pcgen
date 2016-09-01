@@ -344,14 +344,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(textMap, gridBagConstraints);
 
 		butToMap.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
-		butToMap.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToMapActionPerformed(evt);
-			}
-		});
+		butToMap.addActionListener(evt -> butToMapActionPerformed(evt));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -359,14 +352,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelScaleConv.add(butToMap, gridBagConstraints);
 
 		butToReal.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
-		butToReal.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToRealActionPerformed(evt);
-			}
-		});
+		butToReal.addActionListener(evt -> butToRealActionPerformed(evt));
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -508,14 +494,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToTime.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
 		butToTime.setEnabled(false);
-		butToTime.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butImperialToTimeActionPerformed();
-			}
-		});
+		butToTime.addActionListener(evt -> butImperialToTimeActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -542,14 +521,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		butToTime2.setText(LanguageBundle.getString("in_plugin_overland_rightArrow")); //$NON-NLS-1$
 		butToTime2.setEnabled(false);
-		butToTime.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butMetricToTimeActionPerformed();
-			}
-		});
+		butToTime.addActionListener(evt -> butMetricToTimeActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -574,14 +546,7 @@ public class OverPanel extends javax.swing.JPanel
 		conversion.add(jLabel11, gridBagConstraints);
 
 		butToDist.setText(LanguageBundle.getString("in_plugin_overland_leftArrow")); //$NON-NLS-1$
-		butToDist.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				butToDistActionPerformed();
-			}
-		});
+		butToDist.addActionListener(evt -> butToDistActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 3;
@@ -678,15 +643,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelRoomBoard.add(jLabel22, gridBagConstraints);
 
 		txtDayFood.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayFood.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtDayFoodActionPerformed();
-			}
-		});
+		txtDayFood.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtDayFoodActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -696,15 +653,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelRoomBoard.add(txtDayFood, gridBagConstraints);
 
 		txtDayInn.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayInn.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtDayFoodActionPerformed();
-			}
-		});
+		txtDayInn.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtDayFoodActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -714,15 +663,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelRoomBoard.add(txtDayInn, gridBagConstraints);
 
 		txtDayAnimal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayAnimal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtDayFoodActionPerformed();
-			}
-		});
+		txtDayAnimal.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtDayFoodActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -753,15 +694,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelRoomBoard.add(txtWeekAnimal, gridBagConstraints);
 
 		txtDays.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDays.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtDaysActionPerformed();
-			}
-		});
+		txtDays.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtDaysActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
@@ -778,14 +711,7 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.insets = stdInsets;
 		panelRoomBoard.add(txtTotal, gridBagConstraints);
 
-		cmbFood.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				txtPeopActionPerformed();
-			}
-		});
+		cmbFood.addActionListener(evt -> txtPeopActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -794,14 +720,7 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.insets = stdInsets;
 		panelRoomBoard.add(cmbFood, gridBagConstraints);
 
-		cmbInn.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				txtPeopActionPerformed();
-			}
-		});
+		cmbInn.addActionListener(evt -> txtPeopActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -810,14 +729,7 @@ public class OverPanel extends javax.swing.JPanel
 		gridBagConstraints.insets = stdInsets;
 		panelRoomBoard.add(cmbInn, gridBagConstraints);
 
-		cmbAnimal.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				txtPeopActionPerformed();
-			}
-		});
+		cmbAnimal.addActionListener(evt -> txtPeopActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -851,15 +763,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		txtPeop.setHorizontalAlignment(SwingConstants.CENTER);
 		txtPeop.setColumns(3);
-		txtPeop.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtPeopActionPerformed();
-			}
-		});
+		txtPeop.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtPeopActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -871,15 +775,7 @@ public class OverPanel extends javax.swing.JPanel
 
 		txtAnim.setHorizontalAlignment(SwingConstants.CENTER);
 		txtAnim.setColumns(3);
-		txtAnim.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtPeopActionPerformed();
-			}
-		});
+		txtAnim.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtPeopActionPerformed());
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;
@@ -890,15 +786,7 @@ public class OverPanel extends javax.swing.JPanel
 		panelRoomBoard.add(txtAnim, gridBagConstraints);
 
 		txtDayTotal.setHorizontalAlignment(SwingConstants.CENTER);
-		txtDayTotal.addPropertyChangeListener(VALUE_PROPERTY, new PropertyChangeListener()
-		{
-			
-			@Override
-			public void propertyChange(PropertyChangeEvent evt)
-			{
-				txtDaysActionPerformed();
-			}
-		});
+		txtDayTotal.addPropertyChangeListener(VALUE_PROPERTY, evt -> txtDaysActionPerformed());
 
 		txtDayTotal.setEditable(false);
 		gridBagConstraints = new java.awt.GridBagConstraints();
@@ -941,16 +829,11 @@ public class OverPanel extends javax.swing.JPanel
 
 		aModel = new DefaultComboBoxModel(tms);
 		cmbFile.setModel(aModel);
-		cmbFile.addItemListener(new ItemListener()
+		cmbFile.addItemListener(e ->
 		{
-
-			@Override
-			public void itemStateChanged(ItemEvent e)
-			{
-				if (e.getStateChange() == ItemEvent.DESELECTED)
-					return;
-				changedTM();
-			}
+			if (e.getStateChange() == ItemEvent.DESELECTED)
+				return;
+			changedTM();
 		});
 		cmbFile.setSelectedItem(tms.get(0));
 		// For some reason the panel is not updated by calling setSelectedItem
