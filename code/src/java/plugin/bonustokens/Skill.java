@@ -106,9 +106,6 @@ public final class Skill extends BonusObj
 		return "SKILL";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean requiresRealCaseTarget()
 	{

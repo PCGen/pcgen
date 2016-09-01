@@ -52,45 +52,30 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		this.value = value;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double doubleValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public float floatValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int intValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public long longValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -101,9 +86,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return String.valueOf(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(SignedInteger arg0)
 	{
@@ -118,9 +100,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return -1;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -130,9 +109,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

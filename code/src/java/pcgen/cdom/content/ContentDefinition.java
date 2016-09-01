@@ -103,9 +103,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 		displayName = name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDisplayName()
 	{
@@ -268,9 +265,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 		return required;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getLSTformat()
 	{

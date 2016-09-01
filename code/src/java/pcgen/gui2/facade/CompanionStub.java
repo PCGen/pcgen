@@ -56,27 +56,18 @@ public class CompanionStub implements CompanionStubFacade
 		this.companionType = companionType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return race;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{
 		return companionType;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

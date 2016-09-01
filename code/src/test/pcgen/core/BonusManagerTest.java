@@ -47,9 +47,6 @@ import pcgen.util.TestHelper;
 public class BonusManagerTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Before
 	protected void setUp() throws Exception
 	{

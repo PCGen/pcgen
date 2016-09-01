@@ -296,9 +296,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 				typeMap.put(title, this);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
 			@SuppressWarnings("nls")
 			@Override
 			public String toString()
@@ -309,9 +306,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@SuppressWarnings("nls")
 		@Override
 		public String toString()
@@ -322,9 +316,6 @@ public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab,
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

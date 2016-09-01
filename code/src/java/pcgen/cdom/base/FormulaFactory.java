@@ -320,27 +320,18 @@ public final class FormulaFactory
 				&& ((SimpleFormula<?>) obj).value.equals(value);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void getDependencies(DependencyManager fdm)
 		{
 			//None
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T resolve(EvaluationManager evalManager)
 		{
 			return value;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void isValid(FormatManager<T> formatManager,
 			FormulaSemantics semantics)

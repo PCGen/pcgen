@@ -52,9 +52,6 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 		this.eh = eh;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

@@ -473,10 +473,7 @@ public class DataSet implements DataSetFacade
 		return characterTypes;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
 	{
 		return gearBuySellSchemes;
@@ -654,9 +651,6 @@ public class DataSet implements DataSetFacade
 	class AbilityCategoryComparator implements Comparator<AbilityCategoryFacade>
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(AbilityCategoryFacade f1, AbilityCategoryFacade f2)
 		{
@@ -719,27 +713,18 @@ public class DataSet implements DataSetFacade
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<KitFacade> getKits()
 	{
 		return kits;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<SizeAdjustmentFacade> getSizes()
 	{
 		return sizes;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

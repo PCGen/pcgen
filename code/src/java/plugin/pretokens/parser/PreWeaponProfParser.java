@@ -107,9 +107,6 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser implemen
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

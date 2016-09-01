@@ -175,18 +175,12 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		this.chronicle = chronicle;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChronicleEntry clone() throws CloneNotSupportedException
 	{
 		return (ChronicleEntry) super.clone();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -207,9 +201,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		result = prime * result + xpField;
 		return result;
 	}
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

@@ -127,9 +127,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		return character.getDataSet().getSkills();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getPrefsKey()
 	{
@@ -193,9 +190,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		return columns;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void skillBonusChanged(CharacterLevelEvent e)
 	{
@@ -337,9 +331,6 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 
 	};
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void valueChanged(ListSelectionEvent arg0)
 	{

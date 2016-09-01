@@ -73,9 +73,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 	
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{

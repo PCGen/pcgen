@@ -245,9 +245,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<NoteFacade> e)
 		{
@@ -258,9 +255,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			addPage(notePane);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<NoteFacade> e)
 		{
@@ -303,9 +297,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<NoteFacade> e)
 		{
@@ -320,9 +311,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<NoteFacade> e)
 		{

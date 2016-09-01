@@ -85,9 +85,6 @@ public class MessageHandlerManager
 	private final class PCGenMessagePostbox implements PCGenMessageHandler
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

@@ -232,9 +232,6 @@ public class CoreViewFrame extends JFrame
 			coreViewList = new DefaultListFacade<>(coreViewNodes);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ListFacade<? extends TreeView<CoreViewNodeFacade>> getTreeViews()
 		{
@@ -244,36 +241,24 @@ public class CoreViewFrame extends JFrame
 			return views;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getDefaultTreeViewIndex()
 		{
 			return 0;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public DataView<CoreViewNodeFacade> getDataView()
 		{
 			return this;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ListFacade<CoreViewNodeFacade> getDataModel()
 		{
 			return coreViewList;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Object getData(CoreViewNodeFacade obj, int column)
 		{
@@ -292,26 +277,17 @@ public class CoreViewFrame extends JFrame
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void setData(Object value, CoreViewNodeFacade element, int column)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public List<? extends DataViewColumn> getDataColumns()
 		{
 			return dataColumns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

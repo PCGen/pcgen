@@ -170,9 +170,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(CNAbility other)
 	{

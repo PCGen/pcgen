@@ -138,9 +138,6 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 				return super.getCellEditor(row, column);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
 			@Override
 			public TableCellRenderer getCellRenderer(int row, int column)
 			{

@@ -250,9 +250,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		return new TabTitle(Tab.DOMAINS);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -775,9 +772,6 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

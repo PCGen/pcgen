@@ -88,9 +88,6 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		Globals.getContext().loadCampaignFacets();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

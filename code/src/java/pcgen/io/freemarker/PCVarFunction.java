@@ -47,9 +47,6 @@ public class PCVarFunction implements TemplateMethodModelEx
 		this.pc = pc;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

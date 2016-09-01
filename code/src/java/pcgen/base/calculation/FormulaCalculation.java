@@ -81,18 +81,12 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 		return getBasicCalculation().process(input, resolved);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
 		formula.getDependencies(fdm);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{

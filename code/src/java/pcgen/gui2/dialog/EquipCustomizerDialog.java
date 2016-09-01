@@ -113,10 +113,7 @@ public class EquipCustomizerDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		purchase = e.getSource() == buyButton;

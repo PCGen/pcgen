@@ -1723,9 +1723,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return ret == JOptionPane.OK_OPTION;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
@@ -1741,9 +1738,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		PostLevelUpDialog.showPostLevelUpDialog(this, character, oldLevel);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
@@ -2055,9 +2049,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		new AboutDialog(this).setVisible(true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
 		EquipmentBuilderFacade equipBuilder)
@@ -2073,9 +2064,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
 	{

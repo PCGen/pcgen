@@ -106,9 +106,6 @@ public class ScrollablePanel extends JPanel implements Scrollable
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Dimension getPreferredSize()
 	{

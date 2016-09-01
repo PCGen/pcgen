@@ -85,19 +85,13 @@ public final class Race extends PObject implements RaceFacade, ChooseDriver
 		return null;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getRaceType()
 	{
 		RaceType rt = getSafe(ObjectKey.RACETYPE);
 		return rt == null ? "" : rt.toString();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getRaceSubTypes()
 	{

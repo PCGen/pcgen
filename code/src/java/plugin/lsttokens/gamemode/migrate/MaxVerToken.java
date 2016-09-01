@@ -40,18 +40,12 @@ import pcgen.util.Logging;
 public class MaxVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "MAXVER";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)

@@ -178,9 +178,6 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{

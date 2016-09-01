@@ -266,9 +266,6 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

@@ -41,9 +41,6 @@ public class AbilityMigrationTest extends PCGenTestCase
 	
 	private String gameMode;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	protected void setUp() throws Exception
 	{
 		super.setUp();

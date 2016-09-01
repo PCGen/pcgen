@@ -102,9 +102,6 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

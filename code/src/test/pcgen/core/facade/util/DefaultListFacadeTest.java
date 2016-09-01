@@ -183,36 +183,24 @@ public class DefaultListFacadeTest
 		int changeCount = 0;
 		int modifyCount = 0;
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<String> e)
 		{
 			addCount++;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<String> e)
 		{
 			removeCount++;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<String> e)
 		{
 			changeCount++;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<String> e)
 		{

@@ -209,9 +209,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		return new TabTitle(Tab.COMPANIONS);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{
@@ -793,9 +790,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -1149,9 +1143,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

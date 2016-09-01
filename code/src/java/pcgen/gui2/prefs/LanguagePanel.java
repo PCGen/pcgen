@@ -334,9 +334,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return langCountry;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

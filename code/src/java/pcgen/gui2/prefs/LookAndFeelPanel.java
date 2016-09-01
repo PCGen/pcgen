@@ -256,9 +256,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		LookAndFeelManager.setLookAndFeel(oldLAF);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

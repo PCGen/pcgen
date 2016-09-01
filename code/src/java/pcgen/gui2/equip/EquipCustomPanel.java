@@ -683,9 +683,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			return true;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -777,9 +774,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<EquipmentHead> e)
 		{
@@ -803,9 +797,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			builder.setSize((SizeAdjustmentFacade) anItem);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SizeAdjustmentFacade> e)
 		{

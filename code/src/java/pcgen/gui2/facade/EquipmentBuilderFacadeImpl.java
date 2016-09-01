@@ -122,9 +122,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		refreshAvailList();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
@@ -163,9 +160,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
@@ -195,9 +189,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setName(String name)
 	{
@@ -231,9 +222,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setSProp(String sprop)
 	{
@@ -257,9 +245,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setCost(String newValue)
 	{
@@ -294,9 +279,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setWeight(String newValue)
 	{
@@ -333,9 +315,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setDamage(String newValue)
 	{
@@ -350,27 +329,18 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<EquipModFacade> getAvailList(EquipmentHead head)
 	{
 		return availListMap.get(head);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<EquipModFacade> getSelectedList(EquipmentHead head)
 	{
 		return selectedListMap.get(head);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public EquipmentFacade getEquipment()
 	{
@@ -419,9 +389,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean canAddModifier(EquipModFacade eqModFacade, EquipmentHead head)
 	{
@@ -435,18 +402,12 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return equip.canAddModifier(character, eqMod, head.isPrimary());
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isResizable()
 	{
 		return Globals.canResizeHaveEffect(equip, equip.typeList());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSize(SizeAdjustmentFacade newSize)
 	{
@@ -460,18 +421,12 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		sizeRef.set(newSize);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<SizeAdjustmentFacade> getSizeRef()
 	{
 		return sizeRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public EnumSet<EquipmentHead> getEquipmentHeads()
 	{
@@ -570,27 +525,18 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return charges;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBaseItemName()
 	{
 		return equip.getBaseItemName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isWeapon()
 	{
 		return equip.isWeapon();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDamage()
 	{

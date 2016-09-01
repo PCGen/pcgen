@@ -44,9 +44,6 @@ import pcgen.rules.context.LoadContext;
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
