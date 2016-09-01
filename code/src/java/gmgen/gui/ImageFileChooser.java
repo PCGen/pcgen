@@ -27,17 +27,9 @@ public class ImageFileChooser extends JFileChooser
 	 * Constructor that takes a default directory to start in, specified as a File
 	 * @param fileCurrentDirectory with the default path
 	 */
-	public ImageFileChooser(File fileCurrentDirectory)
+	public ImageFileChooser(final File fileCurrentDirectory)
 	{
-		this.setCurrentDirectory(fileCurrentDirectory);
-		this.setAccessory(new ImageFileChooserPreview(this));
-	}
-
-	/** Constructor that takes a default directory to start in, specified as a String
-	 * @param strCurrentPath current directory path.
-	 */
-	public ImageFileChooser(String strCurrentPath)
-	{
-		this(new File(strCurrentPath));
+		setCurrentDirectory(fileCurrentDirectory);
+		setAccessory(new ImageFileChooserPreview(this));
 	}
 }

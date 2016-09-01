@@ -747,7 +747,7 @@ public class NotesView extends JPanel
 	 */
 	private File getImageFromChooser(String startDir, String[] exts, String desc)
 	{
-		ImageFileChooser jImageDialog = new ImageFileChooser(startDir);
+		ImageFileChooser jImageDialog = new ImageFileChooser(new File(startDir));
 		jImageDialog.setDialogType(JFileChooser.CUSTOM_DIALOG);
 		jImageDialog.setFileFilter(new SimpleFileFilter(exts, desc));
 		jImageDialog.setDialogTitle("Select an Image to Insert");
