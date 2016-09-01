@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractStringIntegrationTestCase;
 import plugin.lsttokens.spell.TargetareaToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class TargetAreaIntegrationTest extends
 		AbstractStringIntegrationTestCase<Spell>

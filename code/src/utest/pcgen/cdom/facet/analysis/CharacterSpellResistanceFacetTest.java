@@ -23,7 +23,6 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.SpellResistance;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.facet.analysis.CharacterSpellResistanceFacet;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
