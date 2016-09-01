@@ -72,7 +72,7 @@ import pcgen.util.enumeration.Visibility;
  * @author boomer70
  *
  */
-public class NPCGenerator
+public final class NPCGenerator
 {
 	private static final NPCGenerator theInstance = new NPCGenerator();
 

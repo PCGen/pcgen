@@ -111,7 +111,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	 *
 	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
-	public class SkillBonusComparator implements Comparator<BonusObj>
+	public final class SkillBonusComparator implements Comparator<BonusObj>
 	{
 
 		private final Skill skill;

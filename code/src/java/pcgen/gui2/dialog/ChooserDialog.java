@@ -462,7 +462,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private class ChooserTreeView implements TreeView<InfoFacade>
+	private final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 		
 		private String viewName;

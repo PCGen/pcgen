@@ -36,7 +36,7 @@ import pcgen.core.SettingsHandler;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 13875 $
  */
-public class LegacySettings extends PropertyContext
+public final class LegacySettings extends PropertyContext
 {
 	/** Our singleton instance */
 	private static final LegacySettings instance = new LegacySettings();

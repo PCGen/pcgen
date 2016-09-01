@@ -41,7 +41,7 @@ import freemarker.template.TemplateModelException;
  *
  * @author sage_sam
  */
-public class PCGenPropBundle
+public final class PCGenPropBundle
 {
 	private static ResourceBundle d_properties = null;
 	private static ResourceBundle autobuildProperties = null;

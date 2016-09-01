@@ -31,7 +31,7 @@ import pcgen.util.Logging;
 /**
  * A Store of LST tokens, has a map and list representation
  */
-public class TokenStore implements PluginLoader
+public final class TokenStore implements PluginLoader
 {
 	private static TokenStore inst;
 	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
