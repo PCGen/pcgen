@@ -170,7 +170,7 @@ class OverlandPlugin implements InteractivePlugin
 	{
 		overToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		overToolsItem.setText(getLocalizedName());
-		overToolsItem.addActionListener(evt -> toolMenuItem(evt));
+		overToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, overToolsItem));
 	}
 

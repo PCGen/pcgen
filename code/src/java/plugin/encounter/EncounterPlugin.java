@@ -313,9 +313,9 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 		{
 			Object[] values = theView.getLibraryCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
+			for (final Object value : values)
 			{
-				theModel.addElement(values[i]);
+				theModel.addElement(value);
 			}
 
 			updateUI();
@@ -364,9 +364,9 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			Object[] values =
 					theView.getEncounterCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
+			for (final Object value : values)
 			{
-				theModel.removeElement(values[i]);
+				theModel.removeElement(value);
 			}
 
 			updateUI();
@@ -436,7 +436,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
-		encounterToolsItem.addActionListener(evt -> toolMenuItem(evt));
+		encounterToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 

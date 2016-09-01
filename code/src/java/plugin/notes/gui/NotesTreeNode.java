@@ -212,9 +212,9 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 			if (kids != null)
 			{
-				for (int i = 0; i < kids.length; i++)
+				for (final File kid : kids)
 				{
-					if (include(kids[i]))
+					if (include(kid))
 					{
 						counter++;
 					}
@@ -918,14 +918,14 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			List fileList =
 					((List) t.getTransferData(DataFlavor.javaFileListFlavor));
 
-			for (int i = 0; i < fileList.size(); i++)
+			for (Object aFileList : fileList)
 			{
-				File newFile = (File) fileList.get(i);
+				File newFile = (File) aFileList;
 
 				if (newFile.exists())
 				{
 					MiscUtilities.copy(newFile, new File(dir.getAbsolutePath()
-						+ File.separator + newFile.getName()));
+							+ File.separator + newFile.getName()));
 				}
 			}
 		}
@@ -1017,10 +1017,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 				if (nodeDir.exists())
 				{
-					for (int i = 0; i < childDirs.size(); i++)
+					for (File childDir : childDirs)
 					{
-						File childDir = childDirs.get(i);
-
 						if (nodeDir.getName().equals(childDir.getName()))
 						{
 							removeDirs.add(childDir);

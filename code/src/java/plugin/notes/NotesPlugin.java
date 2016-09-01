@@ -286,7 +286,7 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
 		notesToolsItem.setText(getLocalizedName());
-		notesToolsItem.addActionListener(evt -> toolMenuItem(evt));
+		notesToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 

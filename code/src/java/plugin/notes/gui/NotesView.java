@@ -257,17 +257,17 @@ public class NotesView extends JPanel
 	{
 		JMenuItem paste = new JMenuItem();
 		CommonMenuText.name(paste, "mnuEditPaste"); //$NON-NLS-1$
-		paste.addActionListener(evt -> pasteButtonActionPerformed(evt));
+		paste.addActionListener(this::pasteButtonActionPerformed);
 		editMenu.insert(paste, 0);
 
 		JMenuItem copy = new JMenuItem();
 		CommonMenuText.name(copy, "mnuEditCopy"); //$NON-NLS-1$
-		copy.addActionListener(evt -> copyButtonActionPerformed(evt));
+		copy.addActionListener(this::copyButtonActionPerformed);
 		editMenu.insert(copy, 0);
 
 		JMenuItem cut = new JMenuItem();
 		CommonMenuText.name(cut, "mnuEditCut"); //$NON-NLS-1$
-		cut.addActionListener(evt -> cutButtonActionPerformed(evt));
+		cut.addActionListener(this::cutButtonActionPerformed);
 		editMenu.insert(cut, 0);
 		editMenu.insertSeparator(0);
 		editMenu.insert(redoAction, 0);
@@ -390,7 +390,7 @@ public class NotesView extends JPanel
 				String dirName = fLoad.getSelectedFile().getParent();
 
 				String extension = EXTENSION;
-				if (fileName.indexOf(extension) < 0)
+				if (!fileName.contains(extension))
 				{
 					fileName += extension;
 				}
@@ -963,9 +963,9 @@ public class NotesView extends JPanel
 						{
 							char[] temp =
 									editor.getText(so, eo - so).toCharArray();
-							for (int i = 0; i < temp.length; i++)
+							for (final char aTemp : temp)
 							{
-								if (!Character.isWhitespace(temp[i]))
+								if (!Character.isWhitespace(aTemp))
 								{
 									content = true;
 								}
@@ -1023,9 +1023,9 @@ public class NotesView extends JPanel
 				char[] temp = editor.getText(so, eo - so).toCharArray();
 				boolean content = false;
 
-				for (int i = 0; i < temp.length; i++)
+				for (final char aTemp : temp)
 				{
-					if (!Character.isWhitespace(temp[i]))
+					if (!Character.isWhitespace(aTemp))
 					{
 						content = true;
 					}
@@ -1168,7 +1168,7 @@ public class NotesView extends JPanel
 
 		jPanel1.setLayout(new java.awt.BorderLayout());
 
-		editor.addCaretListener(evt -> editorCaretUpdate(evt));
+		editor.addCaretListener(this::editorCaretUpdate);
 
 		jScrollPane2.setViewportView(editor);
 
@@ -1222,21 +1222,21 @@ public class NotesView extends JPanel
 		cutButton.setIcon(Icons.stock_cut.getImageIcon());
 		cutButton.setToolTipText("Cut");
 		cutButton.setBorder(new EtchedBorder());
-		cutButton.addActionListener(evt -> cutButtonActionPerformed(evt));
+		cutButton.addActionListener(this::cutButtonActionPerformed);
 
 		clipboardBar.add(cutButton);
 
 		copyButton.setIcon(Icons.stock_copy.getImageIcon());
 		copyButton.setToolTipText("Copy");
 		copyButton.setBorder(new EtchedBorder());
-		copyButton.addActionListener(evt -> copyButtonActionPerformed(evt));
+		copyButton.addActionListener(this::copyButtonActionPerformed);
 
 		clipboardBar.add(copyButton);
 
 		pasteButton.setIcon(Icons.stock_paste.getImageIcon());
 		pasteButton.setToolTipText("Paste");
 		pasteButton.setBorder(new EtchedBorder());
-		pasteButton.addActionListener(evt -> pasteButtonActionPerformed(evt));
+		pasteButton.addActionListener(this::pasteButtonActionPerformed);
 
 		clipboardBar.add(pasteButton);
 
@@ -1244,28 +1244,28 @@ public class NotesView extends JPanel
 
 		sizeCB.setToolTipText("Size");
 		sizeCB.setBorder(new EtchedBorder());
-		sizeCB.addActionListener(evt -> sizeCBActionPerformed(evt));
+		sizeCB.addActionListener(this::sizeCBActionPerformed);
 
 		formatBar.add(sizeCB);
 
 		boldButton.setIcon(Icons.stock_text_bold.getImageIcon());
 		boldButton.setToolTipText("Bold");
 		boldButton.setBorder(new EtchedBorder());
-		boldButton.addActionListener(evt -> boldButtonActionPerformed(evt));
+		boldButton.addActionListener(this::boldButtonActionPerformed);
 
 		formatBar.add(boldButton);
 
 		italicButton.setIcon(Icons.stock_text_italic.getImageIcon());
 		italicButton.setToolTipText("Italic");
 		italicButton.setBorder(new EtchedBorder());
-		italicButton.addActionListener(evt -> italicButtonActionPerformed(evt));
+		italicButton.addActionListener(this::italicButtonActionPerformed);
 
 		formatBar.add(italicButton);
 
 		underlineButton.setIcon(Icons.stock_text_underline.getImageIcon());
 		underlineButton.setToolTipText("Underline");
 		underlineButton.setBorder(new EtchedBorder());
-		underlineButton.addActionListener(evt -> underlineButtonActionPerformed(evt));
+		underlineButton.addActionListener(this::underlineButtonActionPerformed);
 
 		formatBar.add(underlineButton);
 
@@ -1300,7 +1300,7 @@ public class NotesView extends JPanel
 		leftJustifyButton.setIcon(Icons.stock_text_align_left.getImageIcon());
 		leftJustifyButton.setToolTipText("Left Justify");
 		leftJustifyButton.setBorder(new EtchedBorder());
-		leftJustifyButton.addActionListener(evt -> leftJustifyButtonActionPerformed(evt));
+		leftJustifyButton.addActionListener(this::leftJustifyButtonActionPerformed);
 
 		alignmentBar.add(leftJustifyButton);
 
@@ -1308,7 +1308,7 @@ public class NotesView extends JPanel
 		centerJustifyButton.setToolTipText("Center");
 		centerJustifyButton.setBorder(new EtchedBorder());
 		centerJustifyButton
-			.addActionListener(evt -> centerJustifyButtonActionPerformed(evt));
+			.addActionListener(this::centerJustifyButtonActionPerformed);
 
 		alignmentBar.add(centerJustifyButton);
 
@@ -1316,7 +1316,7 @@ public class NotesView extends JPanel
 		rightJustifyButton.setToolTipText("Right Justify");
 		rightJustifyButton.setBorder(new EtchedBorder());
 		rightJustifyButton
-			.addActionListener(evt -> rightJustifyButtonActionPerformed(evt));
+			.addActionListener(this::rightJustifyButtonActionPerformed);
 
 		alignmentBar.add(rightJustifyButton);
 
@@ -1583,7 +1583,7 @@ public class NotesView extends JPanel
 			vp.setView(editor);
 			jScrollPane2.setViewport(vp);
 			editAreaDT = new DropTarget(editor, new DropEditorListener());
-			editor.addCaretListener(evt -> editorCaretUpdate(evt));
+			editor.addCaretListener(this::editorCaretUpdate);
 			editor.addKeyListener(new java.awt.event.KeyListener()
 			{
                 @Override
@@ -1606,7 +1606,7 @@ public class NotesView extends JPanel
 			});
 
 			editor.getStyledDocument().addUndoableEditListener(
-					evt -> editorUndoableEditHappened(evt));
+					this::editorUndoableEditHappened);
 
 			if (node.isLeaf())
 			{
@@ -1838,9 +1838,9 @@ public class NotesView extends JPanel
 		 */
 		public boolean isImageFile(File image)
 		{
-			for (int i = 0; i < extsIMG.length; i++)
+			for (final String anExtsIMG : extsIMG)
 			{
-				if (image.getName().endsWith(extsIMG[i]))
+				if (image.getName().endsWith(anExtsIMG))
 				{
 					return true;
 				}
@@ -1897,15 +1897,13 @@ public class NotesView extends JPanel
 							.getTransferData(DataFlavor.javaFileListFlavor));
 				File dir = getCurrentDir();
 
-				for (int i = 0; i < fileList.size(); i++)
+				for (File newFile : fileList)
 				{
-					File newFile = fileList.get(i);
-
 					if (newFile.exists())
 					{
 						File destFile =
 								new File(dir.getAbsolutePath() + File.separator
-									+ newFile.getName());
+										+ newFile.getName());
 
 						if (!isImageFile(destFile) || !destFile.exists())
 						{
@@ -1913,7 +1911,7 @@ public class NotesView extends JPanel
 						}
 
 						editor.setCaretPosition(editor.viewToModel(dtde
-							.getLocation()));
+								.getLocation()));
 						handleImageDropInsertion(destFile);
 					}
 				}

@@ -273,7 +273,7 @@ public class EncounterView extends JPanel
 
 		targetEncounterLevel.setText(Integer.toString(1));
 		targetEncounterLevel
-			.addActionListener(evt -> targetEncounterLevelActionPerformed(evt));
+			.addActionListener(this::targetEncounterLevelActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -291,7 +291,7 @@ public class EncounterView extends JPanel
 		jPanel1.add(numberLabel, gridBagConstraints);
 
 		numberOfCreatures.setText(Integer.toString(0));
-		numberOfCreatures.addActionListener(evt -> numberOfCreaturesActionPerformed(evt));
+		numberOfCreatures.addActionListener(this::numberOfCreaturesActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -317,7 +317,7 @@ public class EncounterView extends JPanel
 		jPanel1.add(environment, gridBagConstraints);
 
 		generateEncounter.setText(LanguageBundle.getString("in_plugin_encounter_newEncounter")); //$NON-NLS-1$
-		generateEncounter.addActionListener(evt -> generateEncounterActionPerformed(evt));
+		generateEncounter.addActionListener(this::generateEncounterActionPerformed);
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;

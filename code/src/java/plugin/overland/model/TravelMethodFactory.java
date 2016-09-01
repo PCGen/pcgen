@@ -96,11 +96,11 @@ public final class TravelMethodFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (final File dataFile : dataFiles)
 			{
 				try
 				{
-					Document methodSet = builder.build(dataFiles[i]);
+					Document methodSet = builder.build(dataFile);
 					DocType dt = methodSet.getDocType();
 
 					if (dt.getElementName().equals(XML_ELEMENT_TRAVEL))
