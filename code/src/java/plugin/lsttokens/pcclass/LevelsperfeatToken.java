@@ -97,7 +97,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 		try
 		{
 			Integer in = Integer.valueOf(numLevels);
-			if (in.intValue() < 0)
+			if (in < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " must be an integer >= 0", context);
@@ -137,7 +137,7 @@ public class LevelsperfeatToken extends AbstractTokenWithSeparator<PCClass>
 			}
 			return null;
 		}
-		if (lpf.intValue() < 0)
+		if (lpf < 0)
 		{
 			context
 					.addWriteMessage(getTokenName()

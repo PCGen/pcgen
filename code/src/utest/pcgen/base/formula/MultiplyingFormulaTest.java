@@ -33,8 +33,8 @@ public class MultiplyingFormulaTest extends TestCase
 	public void testIdentity()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(1);
-		assertEquals(2, f.resolve(Integer.valueOf(2)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.5)).intValue());
+		assertEquals(2, f.resolve(2).intValue());
+		assertEquals(2, f.resolve(2.5).intValue());
 		testBrokenCalls(f);
 	}
 
@@ -57,7 +57,7 @@ public class MultiplyingFormulaTest extends TestCase
 	public void testPositive()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(3);
-		assertEquals(15, f.resolve(Integer.valueOf(5)).intValue());
+		assertEquals(15, f.resolve(5).intValue());
 		//TODO Need to specify the order of operations - is this rounded first or second?
 		//assertEquals(17, f.resolve(Double.valueOf(5.5)).intValue());
 		testBrokenCalls(f);
@@ -66,15 +66,15 @@ public class MultiplyingFormulaTest extends TestCase
 	public void testZero()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(0);
-		assertEquals(0, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(0, f.resolve(Double.valueOf(2.3)).intValue());
+		assertEquals(0, f.resolve(5).intValue());
+		assertEquals(0, f.resolve(2.3).intValue());
 		testBrokenCalls(f);
 	}
 
 	public void testNegative()
 	{
 		MultiplyingFormula f = new MultiplyingFormula(-2);
-		assertEquals(-10, f.resolve(Integer.valueOf(5)).intValue());
+		assertEquals(-10, f.resolve(5).intValue());
 		//TODO Need to specify the order of operations - is this rounded first or second?
 		//assertEquals(13, f.resolve(Double.valueOf(-6.7)).intValue());
 		testBrokenCalls(f);

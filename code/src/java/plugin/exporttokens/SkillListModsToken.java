@@ -65,7 +65,7 @@ public class SkillListModsToken extends Token
 			if (statref != null)
 			{
 				modSkill =
-						SkillModifier.modifier(aSkill, pc).intValue()
+						SkillModifier.modifier(aSkill, pc)
 							- pc.getStatModFor(statref.get());
 			}
 
@@ -73,7 +73,7 @@ public class SkillListModsToken extends Token
 			{
 				//final
 				int temp =
-						SkillModifier.modifier(aSkill, pc).intValue()
+						SkillModifier.modifier(aSkill, pc)
 							+ SkillRankControl.getTotalRank(pc, aSkill).intValue();
 
 				if (needcomma)

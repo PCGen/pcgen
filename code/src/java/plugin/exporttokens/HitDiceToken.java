@@ -105,7 +105,7 @@ public class HitDiceToken extends Token
 					}
 					else
 					{
-						hdMap.put(hitDie, num.intValue() + 1);
+						hdMap.put(hitDie, num + 1);
 					}
 				}
 			}
@@ -165,7 +165,7 @@ public class HitDiceToken extends Token
 					}
 					else
 					{
-						hdMap.put(hitDie, num.intValue() + 1);
+						hdMap.put(hitDie, num + 1);
 					}
 				}
 			}
@@ -226,7 +226,7 @@ public class HitDiceToken extends Token
 				}
 				else
 				{
-					hdMap.put(hitDie, num.intValue() + 1);
+					hdMap.put(hitDie, num + 1);
 				}
 			}
 

@@ -99,7 +99,7 @@ public class RequiredTokenTest extends TestCase
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getRequired());
-		assertTrue(cd.getRequired().booleanValue());
+		assertTrue(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
@@ -112,7 +112,7 @@ public class RequiredTokenTest extends TestCase
 		assertNull(cd.getRequired());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
 		assertNotNull(cd.getRequired());
-		assertFalse(cd.getRequired().booleanValue());
+		assertFalse(cd.getRequired());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

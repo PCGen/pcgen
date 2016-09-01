@@ -82,7 +82,7 @@ public final class TableCellUtilities
 		@Override
 		public Object getCellEditorValue()
 		{
-			return Boolean.valueOf(button.isSelected());
+			return button.isSelected();
 		}
 
 		@Override
@@ -93,7 +93,7 @@ public final class TableCellUtilities
 			boolean selected = false;
 			if (value instanceof Boolean)
 			{
-				selected = ((Boolean) value).booleanValue();
+				selected = (Boolean) value;
 			}
 			else if (value instanceof String)
 			{
@@ -202,7 +202,7 @@ public final class TableCellUtilities
 				return renderer;
 			}
 			setBackground(renderer.getBackground());
-			button.setSelected(((Boolean) value).booleanValue());
+			button.setSelected((Boolean) value);
 			return this;
 		}
 

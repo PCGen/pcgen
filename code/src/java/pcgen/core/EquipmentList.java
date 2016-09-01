@@ -150,7 +150,7 @@ public final class EquipmentList {
 
 			while (aTok.hasMoreTokens()) {
 				final String cString = aTok.nextToken();
-				bonuses[idx++] = Delta.decode(cString).intValue();
+				bonuses[idx++] = Delta.decode(cString);
 			}
 
 			aName = aName.substring(0, i).trim();
@@ -626,7 +626,7 @@ public final class EquipmentList {
 			// Armor without an armor bonus is an exception
 			//
 			if (!eq.getSafe(ObjectKey.MOD_CONTROL).getModifiersAllowed()
-					|| (eq.isArmor() && (eq.getACMod(aPC).intValue() == 0) && ((eqMod != null) && !eqMod.getDisplayName()
+					|| (eq.isArmor() && (eq.getACMod(aPC) == 0) && ((eqMod != null) && !eqMod.getDisplayName()
 							.equalsIgnoreCase("MASTERWORK")))) { return; }
 
 			eq = eq.clone();

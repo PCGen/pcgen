@@ -52,7 +52,7 @@ public class TotalWeightFacet
 	public Float getTotalWeight(CharID id)
 	{
 		float totalWeight = 0;
-		final Float floatZero = Float.valueOf(0);
+		final Float floatZero = 0f;
 		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
 		
 		PlayerCharacter pc = trackingFacet.getPC(id);
@@ -65,7 +65,7 @@ public class TotalWeightFacet
 				if (eq.getChildCount() > 0)
 				{
 					totalWeight += (eq.getWeightAsDouble(pc) + eq
-							.getContainedWeight(pc).floatValue());
+							.getContainedWeight(pc));
 				}
 				else
 				{
@@ -76,18 +76,18 @@ public class TotalWeightFacet
 						// weight of 0. Feature #437410
 						firstClothing = false;
 						totalWeight += (eq.getWeightAsDouble(pc) * Math.max(eq
-								.getCarried().floatValue() - 1, 0));
+								.getCarried() - 1, 0));
 					}
 					else
 					{
 						totalWeight += (eq.getWeightAsDouble(pc) * eq
-								.getCarried().floatValue());
+								.getCarried());
 					}
 				}
 			}
 		}
 
-		return Float.valueOf(totalWeight);
+		return totalWeight;
 	}
 
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)

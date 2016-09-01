@@ -271,7 +271,7 @@ public class CharacterLevelsFacadeImpl extends
 			numHp = 1;
 		}
 
-		return Integer.valueOf(numHp);
+		return numHp;
 
 	}
 
@@ -299,7 +299,7 @@ public class CharacterLevelsFacadeImpl extends
 		PCClassLevel classLevel = getClassLevel(level);
 		if (classLevel != null)
 		{
-			theCharacter.setHP(classLevel, Integer.valueOf(hp));
+			theCharacter.setHP(classLevel, hp);
 			fireHitPointEvent(this, getLevelIndex(level), false);
 		}
 	}
@@ -460,7 +460,7 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			Float ranks =  SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
 			Integer mods = SkillModifier.modifier((Skill) skill, theCharacter);
-			return Integer.valueOf(mods.intValue() + ranks.intValue());
+			return mods.intValue() + ranks.intValue();
 		}
 		
 		return 0;

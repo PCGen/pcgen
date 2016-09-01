@@ -500,7 +500,7 @@ public final class SettingsHandler
 
 	public static int getGMGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
 	public static Double getGMGenOption(final String optionName, final double defaultValue)
@@ -856,7 +856,7 @@ public final class SettingsHandler
 		Double dw = getPCGenOption("windowWidth", 0.0); //$NON-NLS-1$
 		Double dh = getPCGenOption("windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
 			final int width = Integer.parseInt(dw.toString().substring(0,
 						Math.min(dw.toString().length(), dw.toString().lastIndexOf(".")))); //$NON-NLS-1$
@@ -870,7 +870,7 @@ public final class SettingsHandler
 		dw = getPCGenOption("customizer.windowWidth", 0.0); //$NON-NLS-1$
 		dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
 			setCustomizerDimension(new Dimension(dw.intValue(), dh.intValue()));
 		}
@@ -881,7 +881,7 @@ public final class SettingsHandler
 		dw = getPCGenOption("kitSelector.windowWidth", 0.0); //$NON-NLS-1$
 		dh = getPCGenOption("kitSelector.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
 			setKitSelectorDimension(new Dimension(dw.intValue(), dh.intValue()));
 		}
@@ -1255,7 +1255,7 @@ public final class SettingsHandler
 
 	public static int getPCGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
 	public static String getPCGenOption(final String optionName, final String defaultValue)

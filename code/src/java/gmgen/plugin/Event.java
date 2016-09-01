@@ -354,13 +354,13 @@ public class Event implements InitHolder
 		{ // Spell's Initiative
 
 			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
+			init.setCurrentInitiative(intData);
 		}
 		else if (columnName.equals("Dur"))
 		{ // Spell's duration
 
 			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
+			setDuration(intData);
 		}
 	}
 

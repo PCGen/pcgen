@@ -46,7 +46,7 @@ public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 	{
 		try
 		{
-			int intValue = Integer.valueOf(value).intValue();
+			int intValue = Integer.valueOf(value);
 			if (intValue < 1)
 			{
 				return new ParseResult.Fail(getTokenName()

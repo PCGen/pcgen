@@ -93,7 +93,7 @@ public class KnownSpellInputFacet implements
 				objref))
 			{
 				Boolean known = apo.getAssociation(AssociationKey.KNOWN);
-				if ((known == null) || !known.booleanValue())
+				if ((known == null) || !known)
 				{
 					continue;
 				}

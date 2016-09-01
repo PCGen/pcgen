@@ -51,7 +51,7 @@ public class AltcritrangeToken implements CDOMPrimaryToken<Equipment>
 		try
 		{
 			Integer cr = Integer.valueOf(value);
-			if (cr.intValue() < 0)
+			if (cr < 0)
 			{
 				return new ParseResult.Fail(getTokenName() + " cannot be < 0", context);
 			}

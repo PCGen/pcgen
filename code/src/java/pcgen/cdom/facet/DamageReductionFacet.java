@@ -130,7 +130,7 @@ public class DamageReductionFacet extends
 					{
 						Integer current = orMap.get(bypass);
 						if ((current == null)
-								|| (current.intValue() < rawDrValue))
+								|| (current < rawDrValue))
 						{
 							orMap.put(dr.getBypass(), rawDrValue);
 						}
@@ -146,7 +146,7 @@ public class DamageReductionFacet extends
 						{
 							Integer current = andMap.get(dr.getBypass());
 							if ((current == null)
-									|| (current.intValue() < rawDrValue))
+									|| (current < rawDrValue))
 							{
 								andMap.put(dr.getBypass(), rawDrValue);
 							}
@@ -157,7 +157,7 @@ public class DamageReductionFacet extends
 							{
 								Integer current = andMap.get(splits[j]);
 								if ((current == null)
-										|| (current.intValue() < rawDrValue))
+										|| (current < rawDrValue))
 								{
 									andMap.put(splits[j], rawDrValue);
 								}

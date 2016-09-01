@@ -44,7 +44,7 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 		{
 			return null;
 		}
-		if (i.intValue() < 0)
+		if (i < 0)
 		{
 			context.addWriteMessage(getTokenName()
 					+ " requires a positive Integer");
@@ -65,7 +65,7 @@ public class CtToken implements CDOMPrimaryToken<Spell>
 		try
 		{
 			Integer ct = Integer.valueOf(value);
-			if (ct.intValue() < 0)
+			if (ct < 0)
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " requires a positive Integer", context);

@@ -111,7 +111,7 @@ public class CollectionToAbilitySelection implements
 		try
 		{
 			infiniteLoopDetectionStack.push(a);
-			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue())
+			if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 			{
 				returnSet.addAll(addMultiplySelectableAbility(character, a,
 					awc.getChoice()));

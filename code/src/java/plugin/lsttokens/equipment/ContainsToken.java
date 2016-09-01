@@ -216,7 +216,7 @@ public class ContainsToken extends AbstractTokenWithSeparator<Equipment>
 
 		Boolean b = context.getObjectContext().getObject(eq,
 				ObjectKey.CONTAINER_CONSTANT_WEIGHT);
-		if (b != null && b.booleanValue())
+		if (b != null && b)
 		{
 			sb.append(Constants.CHAR_ASTERISK);
 		}

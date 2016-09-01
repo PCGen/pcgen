@@ -42,7 +42,7 @@ public class CompareEqualBoolean extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Boolean.valueOf(this.bool));
+		return obj.equals(this.bool);
 	}
 
     @Override

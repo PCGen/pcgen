@@ -49,7 +49,7 @@ public class RBCost extends Pair<String, Float>
 
 	public float getCost()
 	{
-		return super.getRight().floatValue();
+		return super.getRight();
 	}
 
 	public void setName(String name)

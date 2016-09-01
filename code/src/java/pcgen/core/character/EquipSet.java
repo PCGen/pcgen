@@ -434,7 +434,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 
 			if (qty != null)
 			{
-				eqSet.qty = new Float(qty.floatValue());
+				eqSet.qty = new Float(qty);
 			}
 		}
 		catch (CloneNotSupportedException exc)

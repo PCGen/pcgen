@@ -192,7 +192,7 @@ public class AbilityRefChoiceSet implements
 		{
 			for (Ability a : ref.getContainedObjects())
 			{
-				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED).booleanValue())
+				if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 				{
 					returnSet.addAll(addMultiplySelectableAbility(pc, a, ref
 							.getChoice()));

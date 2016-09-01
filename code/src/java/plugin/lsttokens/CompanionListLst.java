@@ -311,7 +311,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 			if (followerAdjustment != null && followerAdjustment != 0)
 			{
-				option.setAdjustment(followerAdjustment.intValue());
+				option.setAdjustment(followerAdjustment);
 			}
 			context.getObjectContext().addToList(obj, ListKey.COMPANIONLIST, option);
 		}

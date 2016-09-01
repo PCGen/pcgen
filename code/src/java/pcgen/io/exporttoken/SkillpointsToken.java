@@ -180,7 +180,7 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, pcc);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);
 				usedPoints += (rank * skillCost.getCost());
@@ -213,7 +213,7 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, targetClass);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost =
 						pc.getSkillCostForClass(aSkill, targetClass);

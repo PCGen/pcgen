@@ -149,12 +149,12 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 			try
 			{
 				level = Integer.valueOf(levelString);
-				if (level.intValue() < -1)
+				if (level < -1)
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " may not use a negative level: " + value, context);
 				}
-				else if (level.intValue() == -1)
+				else if (level == -1)
 				{
 					if (prereq != null)
 					{
@@ -333,7 +333,7 @@ public class ClassesToken extends AbstractTokenWithSeparator<Spell> implements
 									+ " had no Spell Level defined");
 							return null;
 						}
-						if (level.intValue() < 0)
+						if (level < 0)
 						{
 							context.addWriteMessage("Incoming Allows Edge to "
 									+ spell.getKeyName()

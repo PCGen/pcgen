@@ -57,35 +57,35 @@ public class DivideNumberModifierTest extends TestCase
 	public void testProcessNegative1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(-2), modifier.process(6, -3));
+		assertEquals(-2, modifier.process(6, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(-4), modifier.process(8, -2));
+		assertEquals(-4, modifier.process(8, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(2), modifier.process(6, 3));
+		assertEquals(2, modifier.process(6, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(4), modifier.process(12, 3));
+		assertEquals(4, modifier.process(12, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(0, 3));
+		assertEquals(0, modifier.process(0, 3));
 	}
 
 	@Test
@@ -99,7 +99,7 @@ public class DivideNumberModifierTest extends TestCase
 	public void testProcessZero3()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(0, -3));
+		assertEquals(0, modifier.process(0, -3));
 	}
 
 	@Test
@@ -113,49 +113,49 @@ public class DivideNumberModifierTest extends TestCase
 	public void testProcessMixed1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(5), modifier.process(-35, -7));
+		assertEquals(5, modifier.process(-35, -7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Integer.valueOf(-4), modifier.process(-12, 3));
+		assertEquals(-4, modifier.process(-12, 3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(-2.1), modifier.process(3.57, -1.7));
+		assertEquals(-2.1, modifier.process(3.57, -1.7));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(-2.6), modifier.process(4.16, -1.6));
+		assertEquals(-2.6, modifier.process(4.16, -1.6));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(2.6), modifier.process(9.1, 3.5));
+		assertEquals(2.6, modifier.process(9.1, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(1.9), modifier.process(5.89, 3.1));
+		assertEquals(1.9, modifier.process(5.89, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(0.0, 3.1));
+		assertEquals(0.0, modifier.process(0.0, 3.1));
 	}
 
 	@Test
@@ -169,7 +169,7 @@ public class DivideNumberModifierTest extends TestCase
 	public void testProcessDoubleZero3()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(-0.0), modifier.process(0.0, -3.4));
+		assertEquals(-0.0, modifier.process(0.0, -3.4));
 	}
 
 	@Test
@@ -183,14 +183,14 @@ public class DivideNumberModifierTest extends TestCase
 	public void testProcessDoubleMixed1()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(5.3), modifier.process(-38.16, -7.2));
+		assertEquals(5.3, modifier.process(-38.16, -7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		DivideModifierFactory modifier = new DivideModifierFactory();
-		assertEquals(Double.valueOf(-2.2), modifier.process(-3.08, 1.4));
+		assertEquals(-2.2, modifier.process(-3.08, 1.4));
 	}
 
 	@Test

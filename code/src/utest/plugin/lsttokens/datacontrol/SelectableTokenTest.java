@@ -99,7 +99,7 @@ public class SelectableTokenTest extends TestCase
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "YES").passed());
 		assertNotNull(cd.getSelectable());
-		assertTrue(cd.getSelectable().booleanValue());
+		assertTrue(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
@@ -112,7 +112,7 @@ public class SelectableTokenTest extends TestCase
 		assertNull(cd.getSelectable());
 		assertTrue(token.parseToken(context, cd, "NO").passed());
 		assertNotNull(cd.getSelectable());
-		assertFalse(cd.getSelectable().booleanValue());
+		assertFalse(cd.getSelectable());
 		String[] unparsed = token.unparse(context, cd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

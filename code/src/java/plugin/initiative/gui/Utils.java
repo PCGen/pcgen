@@ -52,8 +52,8 @@ public class Utils
 		java.text.NumberFormat numberFormat =
 				java.text.NumberFormat.getIntegerInstance();
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
-		formatter.setMinimum(Integer.valueOf(min));
-		formatter.setMaximum(Integer.valueOf(max));
+		formatter.setMinimum(min);
+		formatter.setMaximum(max);
 		final JFormattedTextField returnValue =
 				new JFormattedTextField(formatter);
 		returnValue.setColumns(3);
@@ -71,7 +71,7 @@ public class Utils
 					if (evt.getNewValue() != null
 						&& evt.getNewValue() instanceof Boolean)
 					{
-						if (((Boolean) evt.getNewValue()).booleanValue())
+						if ((Boolean) evt.getNewValue())
 						{
 							returnValue.setBorder(m_originalBorder);
 						}
@@ -103,8 +103,8 @@ public class Utils
 
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
 		//formatter.getCommitsOnValidEdit();
-		formatter.setMinimum(Float.valueOf(min));
-		formatter.setMaximum(Float.valueOf(max));
+		formatter.setMinimum(min);
+		formatter.setMaximum(max);
 		final JFormattedTextField returnValue =
 				new JFormattedTextField(formatter);
 		returnValue.setColumns(4);
@@ -122,7 +122,7 @@ public class Utils
 					if (evt.getNewValue() != null
 						&& evt.getNewValue() instanceof Boolean)
 					{
-						if (((Boolean) evt.getNewValue()).booleanValue())
+						if ((Boolean) evt.getNewValue())
 						{
 							returnValue.setBorder(m_originalBorder);
 						}

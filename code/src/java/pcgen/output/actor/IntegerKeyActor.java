@@ -60,6 +60,6 @@ public class IntegerKeyActor implements OutputActor<CDOMObject>
 	public TemplateModel process(CharID id, CDOMObject d)
 		throws TemplateModelException
 	{
-		return SimpleWrapperLibrary.wrap(Integer.valueOf(d.getSafe(ik)));
+		return SimpleWrapperLibrary.wrap(d.getSafe(ik));
 	}
 }

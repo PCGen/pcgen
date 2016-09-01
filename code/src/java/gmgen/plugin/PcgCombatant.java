@@ -334,37 +334,37 @@ public class PcgCombatant extends Combatant
 		{
 			// Initative bonus
 			Integer intData = Integer.valueOf(strData);
-			init.setBonus(intData.intValue());
+			init.setBonus(intData);
 		}
 		else if (columnName.equals("Init"))
 		{
 			// Initative
 			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
+			init.setCurrentInitiative(intData);
 		}
 		else if (columnName.equals("#"))
 		{
 			// Number (for tokens)
 			Integer intData = Integer.valueOf(strData);
-			setNumber(intData.intValue());
+			setNumber(intData);
 		}
 		else if (columnName.equals("HP"))
 		{
 			// Current Hit Points
 			Integer intData = Integer.valueOf(strData);
-			hitPoints.setCurrent(intData.intValue());
+			hitPoints.setCurrent(intData);
 		}
 		else if (columnName.equals("HP Max"))
 		{
 			// Maximum Hit Points
 			Integer intData = Integer.valueOf(strData);
-			hitPoints.setMax(intData.intValue());
+			hitPoints.setMax(intData);
 		}
 		else if (columnName.equals("Dur"))
 		{
 			// Duration
 			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
+			setDuration(intData);
 		}
 		else if (columnName.equals("Type"))
 		{
@@ -815,13 +815,13 @@ public class PcgCombatant extends Combatant
 				if (keyStat != null)
 				{
 					modSkill =
-							SkillModifier.modifier(skill, pc).intValue()
+							SkillModifier.modifier(skill, pc)
 								- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 
 				int temp =
-						SkillModifier.modifier(skill, pc).intValue()
+						SkillModifier.modifier(skill, pc)
 							+ SkillRankControl.getTotalRank(pc, skill).intValue();
 
 				statBuf.append("<a href='skill:");

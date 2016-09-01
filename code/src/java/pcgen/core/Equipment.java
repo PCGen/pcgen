@@ -6709,7 +6709,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (alterAC != null)
 		{
 			Object o = pc.getLocal(this, alterAC);
-			return ((Boolean) o).booleanValue();
+			return (Boolean) o;
 		}
 
 		for (BonusObj bonus : getRawBonusList(pc))

@@ -129,8 +129,8 @@ public class CastSpell extends StartEvent
 	protected void save()
 	{
 		initiative.initList.add(new Spell(tName.getText(), tPlayer.getText(),
-			tEffect.getText(), ((Integer) lDuration.getValue()).intValue(),
-			((Integer) lInit.getValue()).intValue(), cbAlert.isSelected()));
+			tEffect.getText(), (Integer) lDuration.getValue(),
+				(Integer) lInit.getValue(), cbAlert.isSelected()));
 		initiative.writeToCombatTabWithRound(tPlayer.getText() + " Cast "
 			+ tName.getText());
 		initiative.refreshTable();

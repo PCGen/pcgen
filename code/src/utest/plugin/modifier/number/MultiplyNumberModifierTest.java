@@ -57,140 +57,140 @@ public class MultiplyNumberModifierTest extends TestCase
 	public void testProcessNegative1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(6), modifier.process(-2, -3));
+		assertEquals(6, modifier.process(-2, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(8), modifier.process(-4, -2));
+		assertEquals(8, modifier.process(-4, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(6), modifier.process(2, 3));
+		assertEquals(6, modifier.process(2, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(12), modifier.process(4, 3));
+		assertEquals(12, modifier.process(4, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(0, 3));
+		assertEquals(0, modifier.process(0, 3));
 	}
 
 	@Test
 	public void testProcessZero2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(4, 0));
+		assertEquals(0, modifier.process(4, 0));
 	}
 
 	@Test
 	public void testProcessZero3()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(0, -3));
+		assertEquals(0, modifier.process(0, -3));
 	}
 
 	@Test
 	public void testProcessZero4()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(0), modifier.process(-4,0));
+		assertEquals(0, modifier.process(-4,0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(-35), modifier.process(5,-7));
+		assertEquals(-35, modifier.process(5,-7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Integer.valueOf(-12), modifier.process(-4,3));
+		assertEquals(-12, modifier.process(-4,3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(3.57), modifier.process(-2.1, -1.7));
+		assertEquals(3.57, modifier.process(-2.1, -1.7));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(4.16), modifier.process(-2.6, -1.6));
+		assertEquals(4.16, modifier.process(-2.6, -1.6));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(9.1), modifier.process(2.6, 3.5));
+		assertEquals(9.1, modifier.process(2.6, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(5.89), modifier.process(1.9, 3.1));
+		assertEquals(5.89, modifier.process(1.9, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(0.0, 3.1));
+		assertEquals(0.0, modifier.process(0.0, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(0.0), modifier.process(4.2, 0.0));
+		assertEquals(0.0, modifier.process(4.2, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleZero3()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(-0.0), modifier.process(0.0, -3.4));
+		assertEquals(-0.0, modifier.process(0.0, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleZero4()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(-0.0), modifier.process(-4.3,0.0));
+		assertEquals(-0.0, modifier.process(-4.3,0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(-38.16), modifier.process(5.3,-7.2));
+		assertEquals(-38.16, modifier.process(5.3,-7.2));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
 		MultiplyModifierFactory modifier = new MultiplyModifierFactory();
-		assertEquals(Double.valueOf(-3.08), modifier.process(-2.2,1.4));
+		assertEquals(-3.08, modifier.process(-2.2,1.4));
 	}
 
 	@Test

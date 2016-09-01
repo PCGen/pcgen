@@ -56,7 +56,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 			try
 			{
 				cm = Integer.valueOf(value.substring(1));
-				if (cm.intValue() <= 0)
+				if (cm <= 0)
 				{
 					return new ParseResult.Fail(getTokenName() + " cannot be <= 0", context);
 				}
@@ -69,7 +69,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		}
 		else if ("-".equals(value))
 		{
-			cm = Integer.valueOf(-1);
+			cm = -1;
 		}
 		if (cm == null)
 		{
@@ -96,7 +96,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		{
 			return null;
 		}
-		int multInt = mult.intValue();
+		int multInt = mult;
 		String retString;
 		if (multInt == -1)
 		{

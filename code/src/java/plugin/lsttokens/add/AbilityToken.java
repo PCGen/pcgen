@@ -361,7 +361,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 					Integer stackLimit = container.getStackLimit();
 					if (stackLimit != null)
 					{
-						if (stackLimit.intValue() <= 0)
+						if (stackLimit <= 0)
 						{
 							context.addWriteMessage("Stack Limit in "
 								+ getFullName() + " must be > 0");

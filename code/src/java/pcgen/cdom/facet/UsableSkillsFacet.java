@@ -42,7 +42,7 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 		SubScopeFacetChangeEvent<Skill, SkillCost, PCClass> dfce)
 	{
 		Skill sk = dfce.getScope1();
-		if (sk.getSafe(ObjectKey.USE_UNTRAINED).booleanValue())
+		if (sk.getSafe(ObjectKey.USE_UNTRAINED))
 		{
 			add(dfce.getCharID(), sk, dfce.getSource());
 		}
@@ -54,7 +54,7 @@ public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 	{
 		CharID id = dfce.getCharID();
 		Skill sk = dfce.getScope1();
-		if (sk.getSafe(ObjectKey.USE_UNTRAINED).booleanValue()
+		if (sk.getSafe(ObjectKey.USE_UNTRAINED)
 			&& !skillCostFacet.containsFor(id, sk))
 		{
 			remove(id, sk, dfce.getSource());

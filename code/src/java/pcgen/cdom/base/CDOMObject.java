@@ -124,7 +124,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final int getSafe(IntegerKey key)
 	{
 		Integer intValue = integerChar == null ? null : integerChar.get(key);
-		return intValue == null ? key.getDefault() : intValue.intValue();
+		return intValue == null ? key.getDefault() : intValue;
 	}
 
 	public final Integer put(IntegerKey key, Integer intValue)

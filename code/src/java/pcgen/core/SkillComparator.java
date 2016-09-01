@@ -71,8 +71,8 @@ public final class SkillComparator implements Comparator<Skill>
 		{
 			case RESORT_TRAINED:
 
-				float r1 = SkillRankControl.getTotalRank(pc, s1).floatValue();
-				float r2 = SkillRankControl.getTotalRank(pc, s2).floatValue();
+				float r1 = SkillRankControl.getTotalRank(pc, s1);
+				float r2 = SkillRankControl.getTotalRank(pc, s2);
 				if ((r1 > 0.0f) && (r2 <= 0.0f))
 				{
 					return ((sortOrder == RESORT_ASCENDING) ? (-1) : 1);

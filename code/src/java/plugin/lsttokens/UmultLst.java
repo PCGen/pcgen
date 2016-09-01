@@ -89,7 +89,7 @@ public class UmultLst extends AbstractIntToken<CDOMObject> implements
 		}
 		if (mult != null)
 		{
-			if (mult.intValue() <= 0)
+			if (mult <= 0)
 			{
 				context.addWriteMessage(getTokenName()
 					+ " must be an integer > 0");

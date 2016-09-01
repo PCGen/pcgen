@@ -45,7 +45,7 @@ public class PlusToken extends AbstractIntToken<EquipmentModifier> implements
 	@Override
 	protected ParseResult checkValue(Integer plus)
 	{
-		if (plus.intValue() == 0)
+		if (plus == 0)
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " must be an integer not equal to 0");

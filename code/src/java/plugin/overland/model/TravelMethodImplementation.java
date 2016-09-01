@@ -258,7 +258,7 @@ class TravelMethodImplementation implements TravelMethod
 		Combo c = getSelectedCombo();
 		if (d != null && c != null)
 		{
-			return d.doubleValue() * c.getMult().doubleValue() + c.getAddKmh().doubleValue() * getHoursInDays();
+			return d * c.getMult().doubleValue() + c.getAddKmh().doubleValue() * getHoursInDays();
 		}
 		return null;
 	}
@@ -269,7 +269,7 @@ class TravelMethodImplementation implements TravelMethod
 		Combo c = getSelectedCombo();
 		if (d != null && c != null)
 		{
-			return d.doubleValue() * c.getMult().doubleValue() + c.getAddMph().doubleValue() * getHoursInDays();
+			return d * c.getMult().doubleValue() + c.getAddMph().doubleValue() * getHoursInDays();
 		}
 		return null;
 	}
@@ -315,7 +315,7 @@ class TravelMethodImplementation implements TravelMethod
 		Double d = getImperialSpeed();
 		if (d != null)
 		{
-			return d.doubleValue() * time;
+			return d * time;
 		}
 		return null;
 	}
@@ -326,7 +326,7 @@ class TravelMethodImplementation implements TravelMethod
 		Double d = getMetricSpeed();
 		if (d != null)
 		{
-			return d.doubleValue() * time;
+			return d * time;
 		}
 		return null;
 	}
@@ -337,7 +337,7 @@ class TravelMethodImplementation implements TravelMethod
 		Double d = getImperialSpeed();
 		if (d != null)
 		{
-			return distance / d.doubleValue();
+			return distance / d;
 		}
 		return null;
 	}
@@ -348,7 +348,7 @@ class TravelMethodImplementation implements TravelMethod
 		Double d = getMetricSpeed();
 		if (d != null)
 		{
-			return distance / d.doubleValue();
+			return distance / d;
 		}
 		return null;
 	}

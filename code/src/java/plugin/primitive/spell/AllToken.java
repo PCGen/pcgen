@@ -53,7 +53,7 @@ public class AllToken extends AbstractRestrictedSpellPrimitive
 		{
 			for (Integer level : levelInfo.getListFor(spellList))
 			{
-				if (allow(pc, level.intValue(), "ANY", spell, null))
+				if (allow(pc, level, "ANY", spell, null))
 				{
 					return true;
 				}

@@ -139,8 +139,8 @@ public class OrderedPairTest extends TestCase
 	public void testValueOf()
 	{
 		OrderedPair gp = OrderedPair.valueOf("4,6");
-		assertEquals(Integer.valueOf(4), gp.getPreciseX());
-		assertEquals(Integer.valueOf(6), gp.getPreciseY());
+		assertEquals(4, gp.getPreciseX());
+		assertEquals(6, gp.getPreciseY());
 		assertEquals("4,6", gp.toString());
 	}
 

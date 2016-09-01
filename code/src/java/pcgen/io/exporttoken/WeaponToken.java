@@ -905,7 +905,7 @@ public class WeaponToken extends Token
 	{
 		StringBuilder sb = new StringBuilder();
 		sb.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-			EqToken.getRange(pc, eq).intValue()));
+				EqToken.getRange(pc, eq)));
 
 		if (units)
 		{
@@ -2530,7 +2530,7 @@ public class WeaponToken extends Token
 					|| (damString.charAt(index) == '-'))
 				{
 					totalBonus =
-							Delta.decode(damString.substring(index)).intValue();
+							Delta.decode(damString.substring(index));
 					break;
 				}
 			}
@@ -3142,7 +3142,7 @@ public class WeaponToken extends Token
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
 		final List<String> aList = new ArrayList<>();
-		final int baseRange = EqToken.getRange(aPC, eq).intValue();
+		final int baseRange = EqToken.getRange(aPC, eq);
 		int aRange = baseRange;
 		int maxIncrements = 0;
 

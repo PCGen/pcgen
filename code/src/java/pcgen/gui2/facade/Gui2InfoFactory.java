@@ -856,7 +856,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		Integer a = EqToken.getMaxDexTokenInt(pc, equip);
 
-		if (a.intValue() != Constants.MAX_MAXDEX)
+		if (a != Constants.MAX_MAXDEX)
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMaxDex", a.toString()); //$NON-NLS-1$
@@ -864,7 +864,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		a = EqToken.getAcCheckTokenInt(pc, equip);
 
-		if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+		if (equip.isArmor() || equip.isShield() || (a != 0))
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", a.toString()); //$NON-NLS-1$
@@ -874,7 +874,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = equip.getACMod(pc);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(LanguageBundle.getFormattedString(
@@ -887,7 +887,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getSpellFailureTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendI18nElement(
@@ -901,7 +901,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			a = EqToken.getEdrTokenInt(pc, equip);
 
-			if (equip.isArmor() || equip.isShield() || (a.intValue() != 0))
+			if (equip.isArmor() || equip.isShield() || (a != 0))
 			{
 				b.appendSpacer();
 				b.appendElement(bString, a.toString());
@@ -994,7 +994,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			bString =
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
-						EqToken.getRange(pc, equip).intValue());
+							EqToken.getRange(pc, equip));
 
 			if (!bString.isEmpty())
 			{

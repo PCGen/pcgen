@@ -43,7 +43,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		{
 			if (getBonusTag(i).equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}
@@ -66,7 +66,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 	{
 		if (obj instanceof Integer)
 		{
-			return getBonusTag(((Integer) obj).intValue());
+			return getBonusTag((Integer) obj);
 		}
 
 		return (String) obj;

@@ -32,8 +32,8 @@ public class DividingFormulaTest extends TestCase
 	public void testIdentity()
 	{
 		DividingFormula f = new DividingFormula(1);
-		assertEquals(2, f.resolve(Integer.valueOf(2)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(2.5)).intValue());
+		assertEquals(2, f.resolve(2).intValue());
+		assertEquals(2, f.resolve(2.5).intValue());
 		testBrokenCalls(f);
 	}
 
@@ -56,10 +56,10 @@ public class DividingFormulaTest extends TestCase
 	public void testPositive()
 	{
 		DividingFormula f = new DividingFormula(3);
-		assertEquals(1, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(2, f.resolve(Integer.valueOf(6)).intValue());
-		assertEquals(2, f.resolve(Integer.valueOf(7)).intValue());
-		assertEquals(2, f.resolve(Double.valueOf(6.5)).intValue());
+		assertEquals(1, f.resolve(5).intValue());
+		assertEquals(2, f.resolve(6).intValue());
+		assertEquals(2, f.resolve(7).intValue());
+		assertEquals(2, f.resolve(6.5).intValue());
 		testBrokenCalls(f);
 	}
 
@@ -79,8 +79,8 @@ public class DividingFormulaTest extends TestCase
 	public void testNegative()
 	{
 		DividingFormula f = new DividingFormula(-2);
-		assertEquals(-2, f.resolve(Integer.valueOf(5)).intValue());
-		assertEquals(3, f.resolve(Double.valueOf(-6.7)).intValue());
+		assertEquals(-2, f.resolve(5).intValue());
+		assertEquals(3, f.resolve(-6.7).intValue());
 		testBrokenCalls(f);
 	}
 

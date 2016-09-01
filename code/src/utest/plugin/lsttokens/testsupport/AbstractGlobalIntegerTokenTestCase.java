@@ -47,11 +47,11 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 		Integer con;
 		if (isPositiveAllowed())
 		{
-			con = Integer.valueOf(3);
+			con = 3;
 		}
 		else
 		{
-			con = Integer.valueOf(-3);
+			con = -3;
 		}
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));

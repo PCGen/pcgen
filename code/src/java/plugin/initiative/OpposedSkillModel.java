@@ -105,15 +105,15 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 				if (skill != null && pc.getDisplay().hasSkill(skill))
 				{
 					returnValue =
-							Integer.valueOf(SkillModifier.modifier(skill, pc).intValue()
-								+ SkillRankControl.getTotalRank(pc, skill).intValue());
+							SkillModifier.modifier(skill, pc).intValue()
+									+ SkillRankControl.getTotalRank(pc, skill).intValue();
 				}
 				else if (skill != null
 						&& skill.getSafe(ObjectKey.USE_UNTRAINED)
 						&& skill.get(ObjectKey.KEY_STAT) != null)
 				{
-					returnValue = Integer.valueOf(SkillModifier.modifier(skill,
-							pc).intValue());
+					returnValue = SkillModifier.modifier(skill,
+							pc).intValue();
 				}
 			}
 			return returnValue;
@@ -140,14 +140,14 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			Integer i = getSkillBonus(skillName);
 			if (i != null && roll != null)
 			{
-				int r = roll.intValue();
-				r += i.intValue();
+				int r = roll;
+				r += i;
 				i = fudge;
 				if (i != null)
 				{
-					r += i.intValue();
+					r += i;
 				}
-				result = Integer.valueOf(r);
+				result = r;
 			}
 			else
 			{
@@ -214,7 +214,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel()
 	{
 		super();
-		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
+		columns.addColumn("BONUS", Integer.class, 0, false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");
@@ -230,7 +230,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	public OpposedSkillModel(List combatantList)
 	{
 		super(combatantList);
-		columns.addColumn("BONUS", Integer.class, Integer.valueOf(0), false,
+		columns.addColumn("BONUS", Integer.class, 0, false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");
 		columns.addColumn("RESULT", Integer.class, null, false, "Result");

@@ -59,7 +59,7 @@ public class SpellfailureToken extends AbstractIntToken<Equipment> implements
 		{
 			return pr;
 		}
-		else if (value.intValue() == 0)
+		else if (value == 0)
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addWarningMessage(getTokenName()

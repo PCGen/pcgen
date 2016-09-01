@@ -94,7 +94,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 				}
 			}
 			context.getObjectContext().addToList(race,
-					ListKey.HITDICE_ADVANCEMENT, Integer.valueOf(hd));
+					ListKey.HITDICE_ADVANCEMENT, hd);
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -120,7 +120,7 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 			}
 			needsComma = true;
 			Integer hd = it.next();
-			if (hd.intValue() == Integer.MAX_VALUE)
+			if (hd == Integer.MAX_VALUE)
 			{
 				if (it.hasNext())
 				{
@@ -133,14 +133,14 @@ public class HitdiceadvancementToken extends AbstractTokenWithSeparator<Race>
 			}
 			else
 			{
-				if (hd.intValue() < last)
+				if (hd < last)
 				{
 					Logging.errorPrint("Found " + hd + " in " + getTokenName()
 							+ " but was <= zero "
 							+ "or the previous value in the list: " + list);
 					return null;
 				}
-				last = hd.intValue();
+				last = hd;
 				sb.append(hd);
 			}
 		}

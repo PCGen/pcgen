@@ -73,7 +73,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 			throw new IllegalArgumentException(
 					"Known Spell Identifier cannot have null spell reference");
 		}
-		if (levelLimit != null && levelLimit.intValue() < 0)
+		if (levelLimit != null && levelLimit < 0)
 		{
 			throw new IllegalArgumentException(
 					"Known Spell Identifier level limit cannot be negative");
@@ -179,7 +179,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	@Override
 	public int hashCode()
 	{
-		return spellLevel == null ? ref.hashCode() : spellLevel.intValue()
+		return spellLevel == null ? ref.hashCode() : spellLevel
 				* ref.hashCode();
 	}
 
