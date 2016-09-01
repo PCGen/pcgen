@@ -60,9 +60,6 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		return ARRAY_CLASS;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
 		FormulaManager ignored, LegalScope varScope,
@@ -96,18 +93,12 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			this.toSet = toSet;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return getFormatManager().unconvert(toSet);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -131,18 +122,12 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			this.toSet = toSet;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return toSet.getUnconverted();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -171,27 +156,18 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			this.userPriority = userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getUserPriority()
 		{
 			return userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public long getPriority()
 		{
 			return (userPriority << 32) + 0;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T[] process(EvaluationManager evalManager)
 		{
@@ -205,27 +181,18 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		protected abstract T[] getArray();
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Class<T[]> getVariableFormat()
 		{
 			return fmtManager.getManagedClass();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 		public void getDependencies(DependencyManager fdm)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getIdentification()
 		{

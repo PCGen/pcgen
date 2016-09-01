@@ -155,10 +155,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
