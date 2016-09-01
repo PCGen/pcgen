@@ -144,7 +144,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	private void initMenus()
 	{
 		nameToolsItem.setMnemonic(LanguageBundle.getMnemonic(RandomNamePlugin.IN_NAME_MN));
-		nameToolsItem.setText(getLocalizedName());
+		nameToolsItem.setText(RandomNamePlugin.getLocalizedName());
 		nameToolsItem.addActionListener(evt ->
 		{
 			final JTabbedPane tp = GMGenSystemView.getTabPane();
