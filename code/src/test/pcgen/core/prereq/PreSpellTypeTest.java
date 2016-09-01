@@ -87,35 +87,30 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		Arcaneball = new Spell();
 		Arcaneball.setName("Arcaneball");
 		context.getReferenceContext().importObject(Arcaneball);
-		Globals.addToSpellMap(Arcaneball.getKeyName(), Arcaneball);
 		context.unconditionallyProcess(Arcaneball, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(Arcaneball, "TYPE", "Arcane");
 
 		lightning = new Spell();
 		lightning.setName("Lightning Bolt");
 		context.getReferenceContext().importObject(lightning);
-		Globals.addToSpellMap(lightning.getKeyName(), lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "TYPE", "Arcane");
 
 		burning = new Spell();
 		burning.setName("Burning Hands");
 		context.getReferenceContext().importObject(burning);
-		Globals.addToSpellMap(burning.getKeyName(), burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "TYPE", "Arcane");
 
 		heal = new Spell();
 		heal.setName("Heal");
 		context.getReferenceContext().importObject(heal);
-		Globals.addToSpellMap(heal.getKeyName(), heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "TYPE", "Divine");
 
 		cure = new Spell();
 		cure.setName("Cure Light Wounds");
 		context.getReferenceContext().importObject(cure);
-		Globals.addToSpellMap(cure.getKeyName(), cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "TYPE", "Divine");
 	}

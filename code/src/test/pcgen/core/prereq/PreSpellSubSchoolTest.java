@@ -94,35 +94,30 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		fireball = new Spell();
 		fireball.setName("Fireball");
 		context.getReferenceContext().importObject(fireball);
-		Globals.addToSpellMap(fireball.getKeyName(), fireball);
 		context.unconditionallyProcess(fireball, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(fireball, "SUBSCHOOL", "Fire");
 
 		lightning = new Spell();
 		lightning.setName("Lightning Bolt");
 		context.getReferenceContext().importObject(lightning);
-		Globals.addToSpellMap(lightning.getKeyName(), lightning);
 		context.unconditionallyProcess(lightning, "CLASSES", "Wizard=2");
 		context.unconditionallyProcess(lightning, "SUBSCHOOL", "Useful");
 
 		burning = new Spell();
 		burning.setName("Burning Hands");
 		context.getReferenceContext().importObject(burning);
-		Globals.addToSpellMap(burning.getKeyName(), burning);
 		context.unconditionallyProcess(burning, "CLASSES", "Wizard=1");
 		context.unconditionallyProcess(burning, "SUBSCHOOL", "Fire");
 
 		heal = new Spell();
 		heal.setName("Heal");
 		context.getReferenceContext().importObject(heal);
-		Globals.addToSpellMap(heal.getKeyName(), heal);
 		context.unconditionallyProcess(heal, "CLASSES", "Cleric=2");
 		context.unconditionallyProcess(heal, "SUBSCHOOL", "Useful");
 
 		cure = new Spell();
 		cure.setName("Cure Light Wounds");
 		context.getReferenceContext().importObject(cure);
-		Globals.addToSpellMap(cure.getKeyName(), cure);
 		context.unconditionallyProcess(cure, "CLASSES", "Cleric=1");
 		context.unconditionallyProcess(cure, "SUBSCHOOL", "Useful");
 	}

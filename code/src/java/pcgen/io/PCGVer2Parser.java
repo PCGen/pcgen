@@ -388,7 +388,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			sourceStr = sourceStr.substring(6);
 
 			//oSource = aPC.getSpellNamed(sourceStr);
-			oSource = Globals.getSpellKeyed(sourceStr);
+			oSource = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_EQUIPMENT + '='))
 		{
@@ -4129,7 +4130,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					SettingsHandler.getGame().getName());
 
 				// either NULL (no spell) a Spell instance,
-				aSpell = Globals.getSpellMap().get(spellName);
+				aSpell = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell == null)
 				{
@@ -5626,7 +5628,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_SPELL))
 			{
-				final Spell aSpell = Globals.getSpellKeyed(cKey);
+				final Spell aSpell = 
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
+								Spell.class, cKey);
 
 				if (aSpell != null)
 				{

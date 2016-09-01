@@ -447,7 +447,8 @@ class ClassDataHandler extends DefaultHandler
 					}
 					else
 					{
-						final Spell spell = Globals.getSpellKeyed(key);
+						final Spell spell = Globals.getContext().getReferenceContext()
+								.silentlyGetConstructedCDOMObject(Spell.class, key);
 						if ( spell != null )
 						{
 							if ( theCurrentSpellType == SpellType.KNOWN )
@@ -568,7 +569,7 @@ class ClassDataHandler extends DefaultHandler
 			}
 			for ( final String remove : removeList )
 			{
-				final Spell spell = Globals.getSpellKeyed( remove );
+				final Spell spell = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Spell.class,  remove );
 				if ( theCurrentSpellType == SpellType.KNOWN )
 				{
 					theCurrentData.removeKnownSpell(theCurrentLevel, spell);

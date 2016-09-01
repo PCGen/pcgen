@@ -277,7 +277,8 @@ public class EqModCost
 			{
 				final String spellName = EqModSpellInfo.getSpellInfoString(
 						listEntry, "SPELLNAME");
-				final Spell aSpell = Globals.getSpellKeyed(spellName);
+				final Spell aSpell = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell != null)
 				{
@@ -338,7 +339,8 @@ public class EqModCost
 			{
 				final String spellName = EqModSpellInfo.getSpellInfoString(
 						listEntry, "SPELLNAME");
-				final Spell aSpell = Globals.getSpellKeyed(spellName);
+				final Spell aSpell = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell != null)
 				{
