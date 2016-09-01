@@ -830,16 +830,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	{
 		Vector<?> critters;
 
-		try
-		{
-			critters = getMonsterFromTable(Environment);
-		}
-		catch (FileNotFoundException e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-
-			return;
-		}
+		critters = getMonsterFromTable(Environment);
 
 		//	If we don't find anything just return.
 		if (critters.size() < 1)
