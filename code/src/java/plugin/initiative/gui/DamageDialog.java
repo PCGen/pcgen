@@ -204,14 +204,7 @@ public class DamageDialog extends javax.swing.JDialog
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		getContentPane().add(jLabel1, gridBagConstraints);
 
-		damageField.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				damageFieldActionPerformed(evt);
-			}
-		});
+		damageField.addActionListener(this::damageFieldActionPerformed);
 		damageField.addKeyListener(new java.awt.event.KeyAdapter()
 		{
             @Override
@@ -233,14 +226,7 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().add(subdualField, gridBagConstraints);
 
 		bOK.setText("Ok");
-		bOK.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bOKActionPerformed(evt);
-			}
-		});
+		bOK.addActionListener(this::bOKActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 0;
@@ -249,14 +235,7 @@ public class DamageDialog extends javax.swing.JDialog
 		getContentPane().add(bOK, gridBagConstraints);
 
 		bCancel.setText("Cancel");
-		bCancel.addActionListener(new java.awt.event.ActionListener()
-		{
-            @Override
-			public void actionPerformed(java.awt.event.ActionEvent evt)
-			{
-				bCancelActionPerformed(evt);
-			}
-		});
+		bCancel.addActionListener(this::bCancelActionPerformed);
 
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 1;

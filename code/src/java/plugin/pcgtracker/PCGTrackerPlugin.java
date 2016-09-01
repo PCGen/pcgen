@@ -463,14 +463,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		charToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
-		charToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		charToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
 	}
 

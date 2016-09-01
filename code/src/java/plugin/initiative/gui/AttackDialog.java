@@ -319,14 +319,7 @@ public class AttackDialog extends JDialog
 		AutoSizingColumnModel columns = new AutoSizingColumnModel();
 
 		m_tableModel = new AttackTableModel();
-		m_tableModel.addTableModelListener(new TableModelListener()
-		{
-            @Override
-			public void tableChanged(TableModelEvent e)
-			{
-				handleTableUpdate(e);
-			}
-		});
+		m_tableModel.addTableModelListener(this::handleTableUpdate);
 		m_table = new JTable(m_tableModel, columns);
 
 		columns.referenceTable(m_table);
@@ -350,14 +343,7 @@ public class AttackDialog extends JDialog
 		bottom.add(Box.createRigidArea(new Dimension(10, 0)));
 
 		JCheckBox checkbox = new JCheckBox("Damage is subdual?");
-		checkbox.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				handleSubdualAction(e);
-			}
-		});
+		checkbox.addActionListener(this::handleSubdualAction);
 
 		bottom.add(checkbox);
 
@@ -407,28 +393,14 @@ public class AttackDialog extends JDialog
 			//If we have combatants, initialize the top panel and populate
 			//the JComboBox
 			m_targetsCombo = new JComboBox(m_combatants);
-			m_targetsCombo.addActionListener(new ActionListener()
-			{
-                @Override
-				public void actionPerformed(ActionEvent e)
-				{
-					handleTargetAction(e);
-				}
-			});
+			m_targetsCombo.addActionListener(this::handleTargetAction);
 			top.add(new JLabel("Attack Character: "));
 			top.add(m_targetsCombo);
 			m_acTypeCombo = new JComboBox();
 			m_acTypeCombo.addItem("Total");
 			m_acTypeCombo.addItem("Flatfooted");
 			m_acTypeCombo.addItem("Touch");
-			m_acTypeCombo.addActionListener(new ActionListener()
-			{
-                @Override
-				public void actionPerformed(ActionEvent e)
-				{
-					handleAcTypeAction(e);
-				}
-			});
+			m_acTypeCombo.addActionListener(this::handleAcTypeAction);
 			top.add(new JLabel("Use AC Type: "));
 			top.add(m_acTypeCombo);
 		}
