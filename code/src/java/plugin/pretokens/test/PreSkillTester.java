@@ -78,8 +78,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		// Now locate all instances of this skillname and test them
 		final int percentageSignPosition = skillKey.lastIndexOf('%');
 		
-		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<Skill, Set<Skill>>();
-		Set<Skill> imitators = new HashSet<Skill>();
+		HashMap<Skill,Set<Skill>> serveAsSkills = new HashMap<>();
+		Set<Skill> imitators = new HashSet<>();
 		this.getImitators(serveAsSkills, imitators, display);
 		
 		int runningTotal = 0;
@@ -222,10 +222,10 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
 		CharacterDisplay display)
 	{
-		Set<Skill> skillSet = new HashSet<Skill>(display.getSkillSet());
+		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)
 		{
-			Set<Skill> servesAs = new HashSet<Skill>();
+			Set<Skill> servesAs = new HashSet<>();
 			for(CDOMReference<Skill> ref: aSkill.getSafeListFor(ListKey.SERVES_AS_SKILL))
 			{
 				servesAs.addAll(ref.getContainedObjects());

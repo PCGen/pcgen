@@ -136,7 +136,7 @@ public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObjec
 		{
 			return null;
 		}
-		List<String> returnList = new ArrayList<String>(2);
+		List<String> returnList = new ArrayList<>(2);
 		if (changes.includesGlobalClear())
 		{
 			returnList.add(Constants.LST_DOT_CLEAR);

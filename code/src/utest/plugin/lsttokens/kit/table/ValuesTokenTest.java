@@ -37,7 +37,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	static ValuesToken token = new ValuesToken();
 	static EqmodToken eqmodToken = new EqmodToken();
 	static LookupToken lookupToken = new LookupToken();
-	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<KitTable>(
+	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitTable.class);
 
 	@Override

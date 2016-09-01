@@ -74,7 +74,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 		}
 		StringTokenizer pipeTok = new StringTokenizer(value, Constants.PIPE);
 		String first = pipeTok.nextToken();
-		List<AssociatedPrereqObject> apoList = new ArrayList<AssociatedPrereqObject>();
+		List<AssociatedPrereqObject> apoList = new ArrayList<>();
 		StringTokenizer tok = new StringTokenizer(first, Constants.DOT);
 		while (tok.hasMoreTokens())
 		{
@@ -195,8 +195,8 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			return null;
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Set<String> set = new TreeSet<String>();
-		Set<String> noPrereqSet = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
+		Set<String> noPrereqSet = new TreeSet<>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))

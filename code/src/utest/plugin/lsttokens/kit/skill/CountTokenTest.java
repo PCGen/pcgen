@@ -29,7 +29,7 @@ public class CountTokenTest extends AbstractKitTokenTestCase<KitSkill>
 {
 
 	static CountToken token = new CountToken();
-	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<KitSkill>(
+	static CDOMSubLineLoader<KitSkill> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitSkill.class);
 
 	@Override

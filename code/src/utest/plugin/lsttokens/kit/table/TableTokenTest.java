@@ -29,7 +29,7 @@ public class TableTokenTest extends AbstractKitTokenTestCase<KitTable>
 {
 
 	static TableToken token = new TableToken();
-	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<KitTable>(
+	static CDOMSubLineLoader<KitTable> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitTable.class);
 
 	@Override

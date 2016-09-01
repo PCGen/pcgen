@@ -99,7 +99,7 @@ public class TableColumnInformation
 	 */
 	public TableColumnInformation(int initialCapacity)
 	{
-		columns = new ArrayList<ColStruct>(initialCapacity);
+		columns = new ArrayList<>(initialCapacity);
 	}
 
 	/**

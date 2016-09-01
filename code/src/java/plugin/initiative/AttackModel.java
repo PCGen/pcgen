@@ -173,7 +173,7 @@ public class AttackModel extends PObjectModel
 
 			if (critMultiple == null)
 			{
-				critMultiple = new ArrayList<String>(tok.countTokens());
+				critMultiple = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -189,7 +189,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (critMultiple == null)
 			{
-				critMultiple = new ArrayList<String>(1);
+				critMultiple = new ArrayList<>(1);
 			}
 			else
 			{
@@ -261,7 +261,7 @@ public class AttackModel extends PObjectModel
 
 			if (critRange == null)
 			{
-				critRange = new ArrayList<String>(tok.countTokens());
+				critRange = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -277,7 +277,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (critRange == null)
 			{
-				critRange = new ArrayList<String>(1);
+				critRange = new ArrayList<>(1);
 			}
 			else
 			{
@@ -368,7 +368,7 @@ public class AttackModel extends PObjectModel
 
 			if (damage == null)
 			{
-				damage = new ArrayList<String>(tok.countTokens());
+				damage = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -411,7 +411,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (damage == null)
 			{
-				damage = new ArrayList<String>(1);
+				damage = new ArrayList<>(1);
 			}
 			else
 			{
@@ -573,7 +573,7 @@ public class AttackModel extends PObjectModel
 	{
 		if (toHit == null)
 		{
-			toHit = new ArrayList<String>();
+			toHit = new ArrayList<>();
 		}
 		else
 		{

@@ -165,7 +165,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	@Override
 	protected String[] setAndUnparse(Formula val)
 	{
-		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<Formula>(val));
+		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<>(val));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

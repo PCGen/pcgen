@@ -103,7 +103,7 @@ public class WeaponoToken extends WeaponToken
 	 */
 	public static Equipment getWeaponEquipment(CharacterDisplay display, final int anIndex)
 	{
-		final List<Equipment> secWeapons = new ArrayList<Equipment>(display.getSecondaryWeapons());
+		final List<Equipment> secWeapons = new ArrayList<>(display.getSecondaryWeapons());
 		if (!secWeapons.isEmpty() && anIndex < secWeapons.size())
 		{
 			return secWeapons.get(anIndex);

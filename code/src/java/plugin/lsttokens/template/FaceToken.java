@@ -111,7 +111,7 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 				+ fObj.getKeyName(), context);
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<OrderedPair>(varName, scope, modifier);
+				new VarModifier<>(varName, scope, modifier);
 		context.getObjectContext().addToList(fObj, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}

@@ -85,7 +85,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	private <R> List<R> getList(PlayerCharacter pc, Ability a)
 	{
 		// workaround for cloning issue
-		List<R> availableList = new ArrayList<R>();
+		List<R> availableList = new ArrayList<>();
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
 		for (CNAbility ability : theFeats)
 		{
@@ -143,7 +143,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		{
 			return Collections.emptySet();
 		}
-		return new HashSet<R>(currentItems);
+		return new HashSet<>(currentItems);
 	}
 
 }

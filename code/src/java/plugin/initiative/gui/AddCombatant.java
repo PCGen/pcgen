@@ -583,7 +583,7 @@ public class AddCombatant extends AbstractDialog
 	 */
 	private void initDropDown()
 	{
-		java.util.Vector<String> vType = new java.util.Vector<String>();
+		java.util.Vector<String> vType = new java.util.Vector<>();
 		vType.add("Enemy");
 		vType.add("Ally");
 		vType.add("PC");

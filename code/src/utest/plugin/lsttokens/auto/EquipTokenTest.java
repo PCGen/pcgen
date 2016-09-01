@@ -88,7 +88,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	protected void loadProf(CDOMSingleRef<Equipment> ref)
 	{
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -114,7 +114,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Equipment.class, types);
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@Override

@@ -89,8 +89,8 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	@Override
 	protected void loadAllReference()
 	{
-		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 		armorProfs.add(primaryContext.getReferenceContext()
 				.getCDOMAllReference(ArmorProf.class));
 		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
@@ -100,8 +100,8 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	@Override
 	protected void loadProf(CDOMSingleRef<ArmorProf> ref)
 	{
-		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 		armorProfs.add(ref);
 		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
 		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);
@@ -128,8 +128,8 @@ public class ArmorProfTokenTest extends AbstractAutoTokenTestCase<ArmorProf>
 	protected void loadTypeProf(String... types)
 	{
 		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(Equipment.class, types);
-		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<CDOMReference<ArmorProf>>();
-		List<CDOMReference<Equipment>> equipTypes = new ArrayList<CDOMReference<Equipment>>();
+		List<CDOMReference<ArmorProf>> armorProfs = new ArrayList<>();
+		List<CDOMReference<Equipment>> equipTypes = new ArrayList<>();
 		equipTypes.add(ref);
 		ArmorProfProvider pp = new ArmorProfProvider(armorProfs, equipTypes);
 		primaryProf.addToListFor(ListKey.AUTO_ARMORPROF, pp);

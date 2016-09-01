@@ -94,7 +94,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 public class TestHelper
 {
 	private static boolean loaded = false;
-	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<Equipment>(Equipment.class);
+	private static LstObjectFileLoader<Equipment> eqLoader = new GenericLoader<>(Equipment.class);
 	private static LstObjectFileLoader<Ability>   abLoader = new AbilityLoader();
 	private static CampaignSourceEntry source = null;
 

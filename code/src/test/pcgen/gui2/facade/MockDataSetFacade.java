@@ -77,13 +77,13 @@ public class MockDataSetFacade implements DataSetFacade
 	public MockDataSetFacade(GameMode gameMode)
 	{
 		this.game = gameMode;
-		equipmentLoc = new DefaultListFacade<BodyStructureFacade>();
-		abilityMap = new DefaultMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>();
-		races = new DefaultListFacade<RaceFacade>();
-		skills = new DefaultListFacade<SkillFacade>();
-		stats  = new DefaultListFacade<StatFacade>();
-		gearBuySellSchemes = new DefaultListFacade<GearBuySellFacade>();
-		classes  = new DefaultListFacade<ClassFacade>();
+		equipmentLoc = new DefaultListFacade<>();
+		abilityMap = new DefaultMapFacade<>();
+		races = new DefaultListFacade<>();
+		skills = new DefaultListFacade<>();
+		stats  = new DefaultListFacade<>();
+		gearBuySellSchemes = new DefaultListFacade<>();
+		classes  = new DefaultListFacade<>();
 	}
 	
 	/* (non-Javadoc)

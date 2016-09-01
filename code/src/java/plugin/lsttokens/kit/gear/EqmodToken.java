@@ -149,7 +149,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (EqModRef modRef : kitGear.getEqMods())
 		{
 			String key = modRef.getRef().getLSTformat(false);

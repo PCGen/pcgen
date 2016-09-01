@@ -110,7 +110,7 @@ public class DomainToken extends Token
 		try
 		{
 			Domain domain =
-				new ArrayList<Domain>(display.getSortedDomainSet()).get(domainIndex);
+					new ArrayList<>(display.getSortedDomainSet()).get(domainIndex);
 	
 			return OutputNameFormatting.getOutputName(domain);
 		}
@@ -131,7 +131,7 @@ public class DomainToken extends Token
 		try
 		{
 			Domain domain =
-				new ArrayList<Domain>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
+					new ArrayList<>(pc.getDisplay().getSortedDomainSet()).get(domainIndex);
 
 			return DescriptionFormatting.piWrapDesc(domain, pc.getDescription(domain), true);
 		}

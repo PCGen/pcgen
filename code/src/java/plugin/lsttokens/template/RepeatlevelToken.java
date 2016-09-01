@@ -251,7 +251,7 @@ public class RepeatlevelToken extends AbstractTokenWithSeparator<PCTemplate>
 		{
 			return null;
 		}
-		Set<String> list = new TreeSet<String>();
+		Set<String> list = new TreeSet<>();
 		for (PCTemplate agg : added)
 		{
 			StringBuilder sb = new StringBuilder();

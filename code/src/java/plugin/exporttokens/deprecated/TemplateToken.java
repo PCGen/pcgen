@@ -169,7 +169,7 @@ public class TemplateToken extends Token
 	 */
 	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
 	{
-		final List<CNAbilitySelection> feats = new ArrayList<CNAbilitySelection>();
+		final List<CNAbilitySelection> feats = new ArrayList<>();
 	
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
 		{
@@ -299,17 +299,17 @@ public class TemplateToken extends Token
 	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
 		CharacterDisplay display = pc.getDisplay();
-		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(template));
 		saList.addAll(display.getResolvedSpecialAbilities(template));
-		List<PCTemplate> subList = new ArrayList<PCTemplate>();
+		List<PCTemplate> subList = new ArrayList<>();
 		subList.addAll(template.getConditionalTemplates(display.getTotalLevels(), display.totalHitDice()));
 		for (PCTemplate subt : subList)
 		{
 			saList.addAll(display.getResolvedUserSpecialAbilities(subt));
 			saList.addAll(display.getResolvedSpecialAbilities(subt));
 		}
-		List<String> saDescList = new ArrayList<String>();
+		List<String> saDescList = new ArrayList<>();
 		for (SpecialAbility sa : saList)
 		{
 			if (!sa.qualifies(pc, template))

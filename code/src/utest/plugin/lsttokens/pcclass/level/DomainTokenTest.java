@@ -250,7 +250,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		PreParserFactory prereqParser = PreParserFactory.getInstance();
 		Prerequisite prereq = prereqParser.parse("PRERACE:1,Dwarf");
 		assertNotNull(prereq);
-		QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<CDOMSingleRef<Domain>>(
+		QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
 				ref, prereq);
 		primaryProf.addToListFor(ListKey.DOMAIN, qo);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
@@ -259,7 +259,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 
 	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
 	{
-		return new QualifiedObject<CDOMSingleRef<Domain>>(CDOMDirectSingleRef
+		return new QualifiedObject<>(CDOMDirectSingleRef
 				.getRef(wp1));
 	}
 

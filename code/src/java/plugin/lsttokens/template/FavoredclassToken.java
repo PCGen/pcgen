@@ -144,7 +144,7 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 				.getListChanges(pct, ListKey.NEW_CHOOSE_ACTOR);
 		Boolean anyfavored = context.getObjectContext().getObject(pct,
 				ObjectKey.ANY_FAVORED_CLASS);
-		SortedSet<String> set = new TreeSet<String>();
+		SortedSet<String> set = new TreeSet<>();
 		if (anyfavored != null && anyfavored)
 		{
 			set.add(Constants.HIGHEST_LEVEL_CLASS);

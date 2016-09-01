@@ -90,7 +90,7 @@ public class ProhibitedToken extends AbstractTokenWithSeparator<PCClass>
 			// Zero indicates no Token present
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (SpellProhibitor sp : added)
 		{
 			set.addAll(sp.getValueList());

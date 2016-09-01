@@ -136,7 +136,7 @@ public class WieldCategoryLoader
 		{
 			try
 			{
-				QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<CDOMSingleRef<WieldCategory>>(
+				QualifiedObject<CDOMSingleRef<WieldCategory>> qo = new QualifiedObject<>(
 						preVal);
 				qo.addPrerequisite(prereqParser.parse(preKey));
 				cat.addCategorySwitch(qo);

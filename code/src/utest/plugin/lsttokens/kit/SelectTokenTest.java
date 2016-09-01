@@ -29,7 +29,7 @@ public class SelectTokenTest extends AbstractKitTokenTestCase<KitSelect>
 {
 
 	static SelectToken token = new SelectToken();
-	static CDOMSubLineLoader<KitSelect> loader = new CDOMSubLineLoader<KitSelect>(
+	static CDOMSubLineLoader<KitSelect> loader = new CDOMSubLineLoader<>(
 			"SPELLS", KitSelect.class);
 
 	@Override

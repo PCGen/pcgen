@@ -82,14 +82,14 @@ public class MonskillToken extends AbstractNonEmptyToken<PCClass> implements
 		// CONSIDER need to deal with removed...
 		Collection<BonusObj> added = changes.getAdded();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))
 			{
 				StringBuilder sb = new StringBuilder();
 				sb.append(bonus.getValue());
-				List<Prerequisite> prereqList = new ArrayList<Prerequisite>(
+				List<Prerequisite> prereqList = new ArrayList<>(
 						bonus.getPrerequisiteList());
 				Prerequisite prereq = getPrerequisite("PRELEVELMAX:1");
 				prereqList.remove(prereq);

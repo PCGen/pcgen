@@ -25,7 +25,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertFalse(spi.hasKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
 		assertNull(spi.getKnownForLevel(1));
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("60"));
 		l.add(FormulaFactory.getFormulaFor("61"));
 		l.add(FormulaFactory.getFormulaFor("62"));
@@ -96,7 +96,7 @@ public class SpellProgressionCacheTest extends TestCase
 
 	public void testSetKnownErrors()
 	{
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		try
 		{
 			spi.setKnown(1, null);
@@ -152,7 +152,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertFalse(spi.hasSpecialtyKnownProgression());
 		// Test no NPE triggered even if no KNOWN is loaded
 		assertNull(spi.getSpecialtyKnownForLevel(1));
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("60"));
 		l.add(FormulaFactory.getFormulaFor("61"));
 		l.add(FormulaFactory.getFormulaFor("62"));
@@ -221,7 +221,7 @@ public class SpellProgressionCacheTest extends TestCase
 
 	public void testSetSpecialtyKnownErrors()
 	{
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		try
 		{
 			spi.setSpecialtyKnown(1, null);
@@ -277,7 +277,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertFalse(spi.hasCastProgression());
 		// Test no NPE triggered even if no Cast is loaded
 		assertNull(spi.getCastForLevel(1));
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("60"));
 		l.add(FormulaFactory.getFormulaFor("61"));
 		l.add(FormulaFactory.getFormulaFor("62"));
@@ -348,7 +348,7 @@ public class SpellProgressionCacheTest extends TestCase
 
 	public void testSetCastErrors()
 	{
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		try
 		{
 			spi.setCast(1, null);
@@ -401,7 +401,7 @@ public class SpellProgressionCacheTest extends TestCase
 	public void testGetMinLevelForSpellLevel()
 	{
 		// Works for known
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("51"));
 		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setKnown(2, l);
@@ -467,7 +467,7 @@ public class SpellProgressionCacheTest extends TestCase
 	public void testMaxSpellLevelForClassLevel()
 	{
 		// Works for known
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("51"));
 		l.add(FormulaFactory.getFormulaFor("50"));
 		spi.setKnown(2, l);
@@ -534,7 +534,7 @@ public class SpellProgressionCacheTest extends TestCase
 		assertFalse(spi.hasCastProgression());
 		assertFalse(spi.hasSpecialtyKnownProgression());
 
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("22"));
 		l.add(FormulaFactory.getFormulaFor("21"));
 		spi.setKnown(1, l);
@@ -563,7 +563,7 @@ public class SpellProgressionCacheTest extends TestCase
 
 	public void testClone()
 	{
-		List<Formula> l = new ArrayList<Formula>();
+		List<Formula> l = new ArrayList<>();
 		l.add(FormulaFactory.getFormulaFor("22"));
 		l.add(FormulaFactory.getFormulaFor("21"));
 		spi.setKnown(1, l);

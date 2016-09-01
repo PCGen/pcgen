@@ -66,7 +66,7 @@ public class VisionToken extends AbstractExportToken
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
 
-		List<Vision> visionList = new ArrayList<Vision>(display.getVisionList());
+		List<Vision> visionList = new ArrayList<>(display.getVisionList());
 
 		int visionIndex = 0;
 		int startIndex = 0;

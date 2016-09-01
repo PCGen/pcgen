@@ -140,7 +140,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	public <R> Collection<R> getCollection(PlayerCharacter pc,
 			Converter<WeaponProf, R> c)
 	{
-		Set<R> returnSet = new HashSet<R>();
+		Set<R> returnSet = new HashSet<>();
 		Collection<? extends ObjectContainer<WeaponProf>> intermediate =
 				pcs.getCollection(pc, this);
 		for (ObjectContainer<WeaponProf> ref : intermediate)
@@ -154,7 +154,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 	public Collection<CDOMReference<WeaponProf>> convert(
 			ObjectContainer<Equipment> orig)
 	{
-		Set<CDOMReference<WeaponProf>> refSet = new HashSet<CDOMReference<WeaponProf>>();
+		Set<CDOMReference<WeaponProf>> refSet = new HashSet<>();
 		for (Equipment e : orig.getContainedObjects())
 		{
 			if (e.getListFor(ListKey.TYPE).contains(WEAPON_TYPE))

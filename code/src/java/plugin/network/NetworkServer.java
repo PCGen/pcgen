@@ -38,7 +38,7 @@ import java.util.StringTokenizer;
 public class NetworkServer extends Thread
 {
 	private NetworkModel model;
-	private static List<String> clients = new ArrayList<String>();
+	private static List<String> clients = new ArrayList<>();
 	boolean run = true;
 	protected ServerSocket sock;
 

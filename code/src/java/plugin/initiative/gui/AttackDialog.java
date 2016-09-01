@@ -203,7 +203,7 @@ public class AttackDialog extends JDialog
 	 */
 	protected void handleOk()
 	{
-		m_damageList = new ArrayList<Integer>(m_tableModel.getRowCount());
+		m_damageList = new ArrayList<>(m_tableModel.getRowCount());
 		m_targetList = new ArrayList(m_tableModel.getRowCount());
 
 		for (int i = 0; i < m_table.getRowCount(); i++)
@@ -553,7 +553,7 @@ public class AttackDialog extends JDialog
 			super();
 
 			int[] attacks = m_attack.getBonusList();
-			Vector<Object> values = new Vector<Object>(columns.length);
+			Vector<Object> values = new Vector<>(columns.length);
 			values.setSize(values.capacity());
 
 			for (int i = 0; i < columns.length; i++)

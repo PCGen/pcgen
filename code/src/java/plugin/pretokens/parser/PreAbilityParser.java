@@ -158,7 +158,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		
 		// Copy to a temporary list as we wil be adjusting the main one.
 		List<Prerequisite> prereqList =
-				new ArrayList<Prerequisite>(prereq.getPrerequisites());
+				new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT

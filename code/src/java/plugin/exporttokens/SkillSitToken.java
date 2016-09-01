@@ -103,7 +103,7 @@ public class SkillSitToken extends Token
 		try
 		{
 			int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
+			final List<Skill> pcSkills = new ArrayList<>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -138,8 +138,8 @@ public class SkillSitToken extends Token
 				}
 				i--; //wasn't the base skill
 				List<String> situations =
-						new ArrayList<String>(
-							sk.getUniqueListFor(ListKey.SITUATION));
+						new ArrayList<>(
+								sk.getUniqueListFor(ListKey.SITUATION));
 				if (situations != null)
 				{
 					int numSits = situations.size();
@@ -462,7 +462,7 @@ public class SkillSitToken extends Token
 					break;
 
 				case SkillToken.SKILL_CLASSES:
-					List<String> classes = new ArrayList<String>();
+					List<String> classes = new ArrayList<>();
 					for (PCClass aClass : pc.getClassList())
 					{
 						if (pc.getSkillCostForClass(skill, aClass) == SkillCost.CLASS)

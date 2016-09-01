@@ -141,7 +141,7 @@ public class LangbonusToken extends AbstractTokenWithSeparator<PCTemplate>
 		AssociatedChanges<CDOMReference<Language>> changes = context
 				.getListContext().getChangesInList(getTokenName(), pct,
 						Language.STARTING_LIST);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Language>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{

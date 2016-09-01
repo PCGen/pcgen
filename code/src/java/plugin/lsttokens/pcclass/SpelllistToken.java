@@ -84,7 +84,7 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 					+ "count from the list of possible values: " + value, context);
 		}
 		List<CDOMReference<? extends CDOMListObject<Spell>>> refs =
-				new ArrayList<CDOMReference<? extends CDOMListObject<Spell>>>();
+				new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -115,10 +115,10 @@ public class SpelllistToken extends AbstractTokenWithSeparator<PCClass>
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
 
-		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<CDOMListObject<Spell>>(
+		ChoiceSet<? extends CDOMListObject<Spell>> cs = new ChoiceSet<>(
 				getTokenName(), rcs);
 		cs.setTitle("Select class whose list of spells this class will use");
-		TransitionChoice<CDOMListObject<Spell>> tc = new ConcreteTransitionChoice<CDOMListObject<Spell>>(
+		TransitionChoice<CDOMListObject<Spell>> tc = new ConcreteTransitionChoice<>(
 				cs, count);
 		context.getObjectContext().put(pcc, ObjectKey.SPELLLIST_CHOICE, tc);
 		tc.setRequired(false);

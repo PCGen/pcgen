@@ -30,7 +30,7 @@ public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbil
 {
 
 	static LevelAbilityToken token = new LevelAbilityToken();
-	static CDOMSubLineLoader<KitLevelAbility> loader = new CDOMSubLineLoader<KitLevelAbility>(
+	static CDOMSubLineLoader<KitLevelAbility> loader = new CDOMSubLineLoader<>(
 			"PCClassS", KitLevelAbility.class);
 
 	@Override

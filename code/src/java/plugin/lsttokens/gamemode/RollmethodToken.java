@@ -52,7 +52,7 @@ public class RollmethodToken implements GameModeLstToken
 	{
 		try
 		{
-			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<RollMethod>(RollMethod.class);
+			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<>(RollMethod.class);
 			methodLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}

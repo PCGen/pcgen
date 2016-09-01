@@ -114,8 +114,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				new CollectionToAbilitySelection(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), prim);
 		//be tricky for compatibility
 		BasicChooseInformation<AbilitySelection> tc =
-				new BasicChooseInformation<AbilitySelection>(
-					"ABILITYSELECTION", pcs);
+				new BasicChooseInformation<>(
+						"ABILITYSELECTION", pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -232,7 +232,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 
 		if (ability == null)
 		{
-			List<String> choices = new ArrayList<String>();
+			List<String> choices = new ArrayList<>();
 			String baseKey = AbilityUtilities.getUndecoratedName(s, choices);
 			ability =
 					context.getReferenceContext().silentlyGetConstructedCDOMObject(

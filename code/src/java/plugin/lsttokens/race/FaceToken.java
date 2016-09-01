@@ -105,7 +105,7 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 				+ race.getKeyName(), context);
 		}
 		VarModifier<OrderedPair> vm =
-				new VarModifier<OrderedPair>(VAR_NAME, scope, modifier);
+				new VarModifier<>(VAR_NAME, scope, modifier);
 		context.getObjectContext().addToList(race, ListKey.MODIFY, vm);
 		return ParseResult.SUCCESS;
 	}
