@@ -538,23 +538,19 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private void checkDeadTabs()
 	{
-		for (InitHolder anInitList : initList)
+		initList.stream().filter(anInitList -> anInitList.getStatus() == State.Dead).forEach(anInitList ->
 		{
-
-			if (anInitList.getStatus() == State.Dead)
+			if (showDead.isSelected() && (anInitList instanceof Combatant)
+					&& (tpaneInfo.indexOfTab(anInitList.getName()) == -1))
 			{
-				if (showDead.isSelected() && (anInitList instanceof Combatant)
-						&& (tpaneInfo.indexOfTab(anInitList.getName()) == -1))
-				{
-					Combatant cbt = (Combatant) anInitList;
-					addTab(cbt);
-				}
-				else
-				{
-					removeTab(anInitList);
-				}
+				Combatant cbt = (Combatant) anInitList;
+				addTab(cbt);
 			}
-		}
+			else
+			{
+				removeTab(anInitList);
+			}
+		});
 	}
 
 	/**
@@ -1568,19 +1564,18 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	public void refreshTabs()
 	{
-		for (InitHolder anInitList : initList)
+		initList.stream()
+				.filter(anInitList ->
+						((anInitList.getStatus() != State.Dead) || showDead.isSelected())
+								&& (anInitList instanceof Combatant))
+				.forEach(anInitList ->
 		{
+			Combatant cbt = (Combatant) anInitList;
 
-			if (((anInitList.getStatus() != State.Dead) || showDead.isSelected())
-					&& (anInitList instanceof Combatant))
-			{
-				Combatant cbt = (Combatant) anInitList;
+			removeTab(cbt);
+			addTab(cbt);
 
-				removeTab(cbt);
-				addTab(cbt);
-
-			}
-		}
+		});
 	}
 
 	/**
@@ -2069,37 +2064,37 @@ public class Initiative extends javax.swing.JPanel
 			{
             @Override
 				public void columnAdded(
-					javax.swing.event.TableColumnModelEvent evt)
+					javax.swing.event.TableColumnModelEvent e)
 				{
-					colModAdded(evt);
+					colModAdded(e);
 				}
 
             @Override
 				public void columnMarginChanged(
-					javax.swing.event.ChangeEvent evt)
+					javax.swing.event.ChangeEvent e)
 				{
-					colModMarginChanged(evt);
+					colModMarginChanged(e);
 				}
 
             @Override
 				public void columnMoved(
-					javax.swing.event.TableColumnModelEvent evt)
+					javax.swing.event.TableColumnModelEvent e)
 				{
-					colModMoved(evt);
+					colModMoved(e);
 				}
 
             @Override
 				public void columnRemoved(
-					javax.swing.event.TableColumnModelEvent evt)
+					javax.swing.event.TableColumnModelEvent e)
 				{
-					colModRemoved(evt);
+					colModRemoved(e);
 				}
 
             @Override
 				public void columnSelectionChanged(
-					javax.swing.event.ListSelectionEvent evt)
+					javax.swing.event.ListSelectionEvent e)
 				{
-					colModSelectionChanged(evt);
+					colModSelectionChanged(e);
 				}
 			});
 	}
@@ -2587,15 +2582,15 @@ public class Initiative extends javax.swing.JPanel
 		combatantTable.addMouseListener(new java.awt.event.MouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent evt)
+			public void mousePressed(java.awt.event.MouseEvent e)
 			{
-				combatantTableMousePressed(evt);
+				combatantTableMousePressed(e);
 			}
 
 			@Override
-			public void mouseReleased(java.awt.event.MouseEvent evt)
+			public void mouseReleased(java.awt.event.MouseEvent e)
 			{
-				combatantTableMouseReleased(evt);
+				combatantTableMouseReleased(e);
 			}
 		});
 
@@ -2754,15 +2749,15 @@ public class Initiative extends javax.swing.JPanel
 		header.addMouseListener(new java.awt.event.MouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent evt)
+			public void mousePressed(java.awt.event.MouseEvent e)
 			{
-				combatantTableMousePressed(evt);
+				combatantTableMousePressed(e);
 			}
 
 			@Override
-			public void mouseReleased(java.awt.event.MouseEvent evt)
+			public void mouseReleased(java.awt.event.MouseEvent e)
 			{
-				combatantTableMouseReleased(evt);
+				combatantTableMouseReleased(e);
 			}
 		});
 		columnList = getColumnOrder();
