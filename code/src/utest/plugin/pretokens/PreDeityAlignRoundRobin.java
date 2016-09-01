@@ -21,7 +21,6 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.testsupport.TestSupport;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDeityAlignParser;
 import plugin.pretokens.writer.PreDeityAlignWriter;
 

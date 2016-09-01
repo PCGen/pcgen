@@ -27,7 +27,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.RegionToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RegionIntegrationTest extends
 		AbstractTypeSafeIntegrationTestCase<PCTemplate>

@@ -26,7 +26,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.AttackType;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>

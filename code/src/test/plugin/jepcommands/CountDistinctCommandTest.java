@@ -34,7 +34,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>CountDistinctCommandTest</code> tests the functioning of the jep 

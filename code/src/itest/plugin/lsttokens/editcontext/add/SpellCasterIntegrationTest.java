@@ -30,8 +30,6 @@ import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.SpellCasterToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class SpellCasterIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

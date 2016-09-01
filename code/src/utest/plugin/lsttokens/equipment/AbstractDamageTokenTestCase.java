@@ -25,7 +25,6 @@ import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 public abstract class AbstractDamageTokenTestCase extends

@@ -39,7 +39,6 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * SpellBuilderFacadeImplTest

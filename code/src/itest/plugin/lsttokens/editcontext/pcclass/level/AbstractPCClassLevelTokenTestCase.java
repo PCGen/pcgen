@@ -34,8 +34,6 @@ import pcgen.persistence.lst.TokenStore;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 {

@@ -35,8 +35,6 @@ import java.util.Locale;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.EnUsLocaleDependentTestCase;
-import pcgen.LocaleDependentTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;

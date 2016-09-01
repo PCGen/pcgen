@@ -28,7 +28,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.pcclass.AttackcycleToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class AttackCycleIntegrationTest extends
 		AbstractIntegrationTestCase<PCClass>

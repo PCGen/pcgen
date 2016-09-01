@@ -29,7 +29,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.kit.basekit.LookupToken;
 import plugin.lsttokens.kit.gear.EqmodToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 {

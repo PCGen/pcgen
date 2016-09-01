@@ -27,7 +27,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.spell.CostToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostIntegrationTest extends AbstractIntegrationTestCase<Spell>
 {

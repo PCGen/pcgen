@@ -26,7 +26,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.FavclassToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class FavoredClassIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, PCClass>

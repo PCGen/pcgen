@@ -34,8 +34,6 @@ import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.FactLst;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class FactIntegrationTest extends
 		AbstractIntegrationTestCase<CDOMObject>

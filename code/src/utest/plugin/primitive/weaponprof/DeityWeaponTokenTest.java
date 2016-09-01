@@ -28,8 +28,6 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class DeityWeaponTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, WeaponProf>

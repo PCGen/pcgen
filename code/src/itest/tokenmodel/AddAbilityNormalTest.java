@@ -37,7 +37,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.ability.StackToken;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.choose.NoChoiceToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;

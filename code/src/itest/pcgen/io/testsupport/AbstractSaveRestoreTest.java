@@ -17,7 +17,6 @@
  */
 package pcgen.io.testsupport;
 
-import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
@@ -71,7 +70,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
-import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.io.PCGIOHandler;
 import pcgen.io.PCGVer2Creator;
 import pcgen.persistence.PersistenceLayerException;
@@ -82,8 +80,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
 import plugin.bonustokens.Feat;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractSaveRestoreTest extends TestCase
 {

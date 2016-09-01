@@ -36,8 +36,6 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.spell.AllToken;
 import plugin.primitive.spell.ClassListToken;
 import plugin.primitive.spell.DescriptorToken;

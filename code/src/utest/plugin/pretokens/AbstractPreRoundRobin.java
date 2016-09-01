@@ -31,7 +31,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPreRoundRobin extends TestCase
 {

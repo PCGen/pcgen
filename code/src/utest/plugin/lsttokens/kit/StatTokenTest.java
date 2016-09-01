@@ -28,7 +28,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 {

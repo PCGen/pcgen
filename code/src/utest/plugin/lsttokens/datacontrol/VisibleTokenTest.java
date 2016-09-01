@@ -36,7 +36,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class VisibleTokenTest extends TestCase
 {
