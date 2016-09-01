@@ -27,7 +27,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SKILLCOST_CLASS Token
  */
-public class XPAwardToken implements GameModeLstToken
+class XPAwardToken implements GameModeLstToken
 {
 
     @Override
