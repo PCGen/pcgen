@@ -180,7 +180,7 @@ public class NotesView extends JPanel
 		initEditingComponents();
 		initDnDComponents();
 		initTree();
-		initFileBar(new ArrayList<File>());
+		initFileBar(new ArrayList<>());
 		initLogging();
 		notesTree.setSelectionRow(0);
 	}
@@ -1362,7 +1362,7 @@ public class NotesView extends JPanel
 		enumButton.setText("");
 		bulletButton.setText("");
 
-		Vector<String> fontVector = new Vector<String>();
+		Vector<String> fontVector = new Vector<>();
 		fontVector.add("8");
 		fontVector.add("10");
 		fontVector.add("12");

@@ -266,7 +266,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public List<File> getFiles()
 	{
-		ArrayList<File> list = new ArrayList<File>();
+		ArrayList<File> list = new ArrayList<>();
 		for (File child : dir.listFiles())
 		{
 			if (!child.isDirectory())
@@ -979,7 +979,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 		if (children == null)
 		{
-			children = new Vector<MutableTreeNode>();
+			children = new Vector<>();
 		}
 
 		children.insertElementAt(child, index);
@@ -1008,7 +1008,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> childNodes = children();
 			List<File> childDirs = Arrays.asList(dir.listFiles());
-			List<File> removeDirs = new ArrayList<File>();
+			List<File> removeDirs = new ArrayList<>();
 
 			for (; childNodes.hasMoreElements();)
 			{

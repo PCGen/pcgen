@@ -63,7 +63,7 @@ class FavClassConvertPlugin extends AbstractToken implements
 
 		StringTokenizer tok = new StringTokenizer(choices, Constants.PIPE);
 
-		List<CDOMReference<? extends PCClass>> refList = new ArrayList<CDOMReference<? extends PCClass>>();
+		List<CDOMReference<? extends PCClass>> refList = new ArrayList<>();
 		LoadContext context = tpe.getContext();
 		while (tok.hasMoreTokens())
 		{

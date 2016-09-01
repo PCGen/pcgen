@@ -208,7 +208,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		{
 			@SuppressWarnings("unchecked")
 			T[] input = (T[]) evalManager.peek(EvaluationManager.INPUT);
-			Set<T> newSet = new HashSet<T>();
+			Set<T> newSet = new HashSet<>();
 			for (T o : input)
 			{
 				newSet.add(o);

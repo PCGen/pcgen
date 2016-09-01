@@ -576,7 +576,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 
 		// Get any currently selected items in the Races list
-		ArrayList<Object> selected = new ArrayList<Object>();
+		ArrayList<Object> selected = new ArrayList<>();
 
 		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
@@ -623,7 +623,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		ArrayList<Integer> stillSelected = new ArrayList<Integer>();
+		ArrayList<Integer> stillSelected = new ArrayList<>();
 
 		for (Object obj : selected)
 		{
@@ -727,7 +727,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			}
 		}
 
-		Vector<Object> toReturn = new Vector<Object>();
+		Vector<Object> toReturn = new Vector<>();
 		toReturn.addElement(num);
 		toReturn.addElement(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
@@ -766,7 +766,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 	private static List<String> getWeaponLocationChoices(int hands,
 		String multiHand)
 	{
-		ArrayList<String> result = new ArrayList<String>(hands + 2);
+		ArrayList<String> result = new ArrayList<>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -862,7 +862,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
-		List<Race> critters = new ArrayList<Race>();
+		List<Race> critters = new ArrayList<>();
 
 		if (!f.exists())
 		{
@@ -985,7 +985,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 			hands = getHands(pc);
 		}
 
-		List<String> aList = new ArrayList<String>();
+		List<String> aList = new ArrayList<>();
 
 		if (eqI.isWeapon())
 		{
@@ -1132,7 +1132,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 				eqI)))
 			{
 				// let them choose where to put the item
-				List<String> selectedList = new ArrayList<String>();
+				List<String> selectedList = new ArrayList<>();
 				selectedList =
 						Globals.getChoiceFromList("Select a location for "
 							+ eqI.getName(), aList, selectedList, 1, false,
@@ -1196,7 +1196,7 @@ class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap<String, String> slotMap = new HashMap<String, String>();
+		HashMap<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
