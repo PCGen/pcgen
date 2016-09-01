@@ -31,8 +31,8 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 {
 	private static Map<String, String> featAnswered = new HashMap<>();
 	private static Map<String, String> spelllistAnswered = new HashMap<>();
-	private static List<String> CHOICES = Arrays.asList(new String[] {
-			"ABILITY", "ARMORPROFICIENCY", "CLASS", "DOMAIN", "EQUIPMENT",
+	private static List<String> CHOICES = Arrays.asList("FEAT", "LANG", "PCSTAT", "RACE", "SCHOOLS",
+			"SHIELDPROFICIENCY", "SKILL", "SPELLS", "STRING", "TEMPLATE", "WEAPONPROFICIENCY");
 
     @Override
 	public String process(TokenProcessEvent tpe)
