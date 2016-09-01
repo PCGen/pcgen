@@ -41,19 +41,19 @@ import org.jdom.Element;
  *@since    March 20, 2003
  *@version $Revision$
  */
-public class NetworkCombatant extends Combatant
+class NetworkCombatant extends Combatant
 {
 	/*
 	 *  History:
 	 *  March 20, 2003: Cleanup for Version 1.0
 	 */
-	protected String name = "";
-	protected String uid;
-	protected String player = "";
-	protected String htmlString = "";
-	protected float cr = 0;
-	protected int xp = 0;
-	protected Socket sock;
+	private String name = "";
+	private String uid;
+	private String player = "";
+	private String htmlString = "";
+	private float cr = 0;
+	private int xp = 0;
+	private Socket sock;
 
 	/**
 	 *  Creates new Combatant
@@ -412,7 +412,7 @@ public class NetworkCombatant extends Combatant
 		return player;
 	}
 
-	public void setPlayer(String player)
+	private void setPlayer(String player)
 	{
 		this.player = player;
 		sendNetMessage("PLAYER|" + player);

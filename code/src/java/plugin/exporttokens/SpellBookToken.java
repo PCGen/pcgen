@@ -39,7 +39,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: $
  */
-public class SpellBookToken extends AbstractExportToken
+class SpellBookToken extends AbstractExportToken
 {
 
 	/**

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SQUARESIZE Token
  */
-public class SquaresizeToken implements GameModeLstToken
+class SquaresizeToken implements GameModeLstToken
 {
 
     @Override

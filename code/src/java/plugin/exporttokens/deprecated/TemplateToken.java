@@ -62,7 +62,7 @@ import pcgen.io.exporttoken.Token;
 public class TemplateToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "TEMPLATE";
+	private static final String TOKENNAME = "TEMPLATE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -167,7 +167,7 @@ public class TemplateToken extends Token
 	 *
 	 * @return a list of feats
 	 */
-	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
+	private static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
 	{
 		final List<CNAbilitySelection> feats = new ArrayList<CNAbilitySelection>();
 	
@@ -219,7 +219,7 @@ public class TemplateToken extends Token
 	 * @param display
 	 * @return value of CR Sub Token
 	 */
-	public static float getCRToken(PCTemplate template, CharacterDisplay display)
+	private static float getCRToken(PCTemplate template, CharacterDisplay display)
 	{
 		return template.getCR(display.getTotalLevels(), display.totalHitDice());
 	}
@@ -243,8 +243,8 @@ public class TemplateToken extends Token
 	 * @param aLabel
 	 * @return value of MOD sub token
 	 */
-	public static String getModToken(PlayerCharacter pc, PCTemplate template,
-		String aLabel)
+	private static String getModToken(PlayerCharacter pc, PCTemplate template,
+	                                  String aLabel)
 	{
 		StringBuilder retString = new StringBuilder();
 
@@ -285,7 +285,7 @@ public class TemplateToken extends Token
 	 * @param template
 	 * @return value of OUTPUTNAME sub token
 	 */
-	public static String getOutputNameToken(PCTemplate template)
+	private static String getOutputNameToken(PCTemplate template)
 	{
 		return OutputNameFormatting.getOutputName(template);
 	}
@@ -296,7 +296,7 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of SA sub token
 	 */
-	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
+	private static String getSAToken(PCTemplate template, PlayerCharacter pc)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
@@ -331,7 +331,7 @@ public class TemplateToken extends Token
 	 * @param display
 	 * @return value of SR Sub token
 	 */
-	public static int getSRToken(PCTemplate template, CharacterDisplay display)
+	private static int getSRToken(PCTemplate template, CharacterDisplay display)
 	{
 		return display.getTemplateSR(template, display.getTotalLevels(), display.totalHitDice());
 	}

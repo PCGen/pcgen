@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with NAME Token
  */
-public class NameToken implements CDOMPrimaryToken<Sponsor>
+class NameToken implements CDOMPrimaryToken<Sponsor>
 {
 
 	@Override

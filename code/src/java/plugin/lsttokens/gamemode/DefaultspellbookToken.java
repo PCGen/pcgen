@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with DEFAULTSPELLBOOK Token
  */
-public class DefaultspellbookToken implements GameModeLstToken
+class DefaultspellbookToken implements GameModeLstToken
 {
 
     @Override

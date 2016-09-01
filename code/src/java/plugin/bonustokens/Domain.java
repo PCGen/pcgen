@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:DOMAIN token.
  */
-public final class Domain extends MultiTagBonusObj
+final class Domain extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"NUMBER"};
 

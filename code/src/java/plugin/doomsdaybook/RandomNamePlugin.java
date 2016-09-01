@@ -102,7 +102,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	 * Gets the view that this class is using.
 	 * @return the view.
 	 */
-	public Component getView()
+	private Component getView()
 	{
 		return theView;
 	}
@@ -131,7 +131,7 @@ public class RandomNamePlugin implements InteractivePlugin
 	 * Returns true if this plugin is active
 	 * @return true if this plugin is active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()

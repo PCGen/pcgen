@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:SKILLPOINTS token.
  */
-public final class SkillPoints extends MultiTagBonusObj
+final class SkillPoints extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"NUMBER"};
 

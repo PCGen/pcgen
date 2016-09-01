@@ -44,7 +44,7 @@ import pcgen.util.Logging;
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  * @version $Revision: 18181 $
  */
-public class OutputSheetToken implements GameModeLstToken
+class OutputSheetToken implements GameModeLstToken
 {
 
 	/* (non-Javadoc)

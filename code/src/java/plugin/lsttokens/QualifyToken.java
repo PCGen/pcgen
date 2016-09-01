@@ -67,7 +67,7 @@ public class QualifyToken extends AbstractTokenWithSeparator<CDOMObject>
 		return "QUALIFY";
 	}
 
-	public List<Class<? extends CDOMObject>> getLegalTypes()
+	private List<Class<? extends CDOMObject>> getLegalTypes()
 	{
 		return Arrays.asList(PCClassLevel.class, Ability.class, Deity.class,
 				Domain.class, Equipment.class, PCClass.class, Race.class,

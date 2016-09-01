@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreReachTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreReachTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

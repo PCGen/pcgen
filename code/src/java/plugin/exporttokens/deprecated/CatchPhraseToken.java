@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with CATCHPHRASE token
  */
-public class CatchPhraseToken extends AbstractExportToken
+class CatchPhraseToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

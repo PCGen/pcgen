@@ -181,14 +181,14 @@ public class NetworkPlugin implements InteractivePlugin
 		model.combatantUpdated(message.getCombatant());
 	}
 
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(model.getView());
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
 			&& tp.getSelectedComponent().equals(model.getView());
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 

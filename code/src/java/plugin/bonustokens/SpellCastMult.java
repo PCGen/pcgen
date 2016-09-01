@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 
 /**
  */
-public final class SpellCastMult extends BonusObj
+final class SpellCastMult extends BonusObj
 {
 	/*
 	 * CLASS.<classname OR Any>;LEVEL.<level>

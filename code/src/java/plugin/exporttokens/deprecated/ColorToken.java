@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * COLOR.HAIR
  * COLOR.SKIN
  */
-public class ColorToken extends AbstractExportToken
+class ColorToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

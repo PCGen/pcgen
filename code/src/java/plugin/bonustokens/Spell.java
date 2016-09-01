@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:SPELL token.
  */
-public final class Spell extends MultiTagBonusObj
+final class Spell extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"DC"};
 

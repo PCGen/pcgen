@@ -35,9 +35,9 @@ import java.util.StringTokenizer;
 
 //SPECIALABILITY.x
 //SPECIALABILITY.x.DESCRIPTION
-public class SpecialAbilityToken extends Token
+class SpecialAbilityToken extends Token
 {
-	public static final String TOKENNAME = "SPECIALABILITY";
+	private static final String TOKENNAME = "SPECIALABILITY";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -76,8 +76,8 @@ public class SpecialAbilityToken extends Token
 		return getSpecialAbilityToken(pc, i);
 	}
 
-	public static String getSpecialAbilityToken(PlayerCharacter pc,
-		int specialIndex)
+	private static String getSpecialAbilityToken(PlayerCharacter pc,
+	                                             int specialIndex)
 	{
 		if (specialIndex >= 0
 			&& specialIndex < pc.getSpecialAbilityTimesList().size())
@@ -87,8 +87,8 @@ public class SpecialAbilityToken extends Token
 		return "";
 	}
 
-	public static String getDescriptionToken(PlayerCharacter pc,
-		int specialIndex)
+	private static String getDescriptionToken(PlayerCharacter pc,
+	                                          int specialIndex)
 	{
 		if (specialIndex >= 0
 			&& specialIndex < pc.getSpecialAbilityTimesList().size())

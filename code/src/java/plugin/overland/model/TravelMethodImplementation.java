@@ -355,7 +355,7 @@ class TravelMethodImplementation implements TravelMethod
 
 	// ### Event related methods ###
 
-	protected EventListenerList listenerList = new EventListenerList();
+	private EventListenerList listenerList = new EventListenerList();
 
 	@Override
 	public void addTravelMethodListener(TravelMethodListener l)
@@ -374,7 +374,7 @@ class TravelMethodImplementation implements TravelMethod
 		return listenerList.getListeners(TravelMethodListener.class);
 	}
 
-	protected void fireMultChanged(Object source)
+	private void fireMultChanged(Object source)
 	{
 		if (terrainsModel.getSelectedItem() == null || routesModel.getSelectedItem() == null)
 		{
@@ -406,7 +406,7 @@ class TravelMethodImplementation implements TravelMethod
 		}
 	}
 
-	protected void fireUnmodifiableSpeedChanged(Object source)
+	private void fireUnmodifiableSpeedChanged(Object source)
 	{
 		if (paceModel.getSelectedItem() == null || choiceModel.getSelectedItem() == null)
 		{
@@ -432,7 +432,7 @@ class TravelMethodImplementation implements TravelMethod
 		}
 	}
 
-	protected void fireCommentDaysChanged(Object source)
+	private void fireCommentDaysChanged(Object source)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		TravelSpeedEvent e = null;
@@ -453,7 +453,7 @@ class TravelMethodImplementation implements TravelMethod
 		}
 	}
 
-	protected void fireAllChanged(Object source)
+	private void fireAllChanged(Object source)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		TravelSpeedEvent eComment = null;
@@ -543,7 +543,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the useDays
 		 */
-		public boolean isUseDays()
+		private boolean isUseDays()
 		{
 			return useDays;
 		}
@@ -551,7 +551,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the mult
 		 */
-		public Number getMult()
+		private Number getMult()
 		{
 			return mult;
 		}
@@ -588,7 +588,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the hoursInDay
 		 */
-		public Number getHoursInDay()
+		private Number getHoursInDay()
 		{
 			return hoursInDay;
 		}
@@ -596,7 +596,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the kmh
 		 */
-		public Number getKmh()
+		private Number getKmh()
 		{
 			return kmh;
 		}
@@ -604,7 +604,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the mph
 		 */
-		public Number getMph()
+		private Number getMph()
 		{
 			return mph;
 		}
@@ -646,7 +646,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the mult
 		 */
-		public Number getMult()
+		private Number getMult()
 		{
 			return mult;
 		}
@@ -654,7 +654,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the addMph
 		 */
-		public Number getAddMph()
+		private Number getAddMph()
 		{
 			return addMph;
 		}
@@ -662,7 +662,7 @@ class TravelMethodImplementation implements TravelMethod
 		/**
 		 * @return the addKmh
 		 */
-		public Number getAddKmh()
+		private Number getAddKmh()
 		{
 			return addKmh;
 		}
@@ -720,7 +720,7 @@ class TravelMethodImplementation implements TravelMethod
 		private Map<String, List<Localized>> listByWay;
 		private Localized selected;
 
-		public ListByWayModel(Map<String, List<Localized>> list)
+		private ListByWayModel(Map<String, List<Localized>> list)
 		{
 			this.listByWay = list;
 		}
@@ -834,7 +834,7 @@ class TravelMethodImplementation implements TravelMethod
 	 * @see ChoiceModel
 	 */
 	@SuppressWarnings("serial")
-	protected abstract class TModel<T> extends AbstractListModel implements ComboBoxModel
+	abstract class TModel<T> extends AbstractListModel implements ComboBoxModel
 	{
 
 		private T selected;
@@ -879,7 +879,7 @@ class TravelMethodImplementation implements TravelMethod
 		 * Method called when the selected method changes.
 		 * @param methodModel
 		 */
-		protected void fireMethodChanged(MethodModel source, Method previousMethod)
+		void fireMethodChanged(MethodModel source, Method previousMethod)
 		{
 			int start = 0;
 			int end = getSize();

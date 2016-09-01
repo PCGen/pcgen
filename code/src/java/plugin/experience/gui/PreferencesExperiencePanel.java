@@ -53,7 +53,7 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
-	public void setExperience(int exp)
+	private void setExperience(int exp)
 	{
 		if (exp == EXPERIENCE_3)
 		{
@@ -65,7 +65,7 @@ public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 		}
 	}
 
-	public int getExperience()
+	private int getExperience()
 	{
 		int returnVal = 0;
 

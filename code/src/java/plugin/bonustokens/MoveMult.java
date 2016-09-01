@@ -33,7 +33,7 @@ import pcgen.util.enumeration.Load;
 /**
  * Handles the BONUS:MOVEMULT token.
  **/
-public final class MoveMult extends BonusObj
+final class MoveMult extends BonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{Load.LIGHT.toString(), Load.MEDIUM.toString(),

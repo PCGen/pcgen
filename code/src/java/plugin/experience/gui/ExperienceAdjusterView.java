@@ -219,14 +219,14 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/** The multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultLabel()
+	private javax.swing.JLabel getExperienceMultLabel()
 	{
 		return experienceMultLabel;
 	}
 
 	/** The Name for the experience multiplier label.
 	 * @return JLabel*/
-	public javax.swing.JLabel getExperienceMultNameLabel()
+	private javax.swing.JLabel getExperienceMultNameLabel()
 	{
 		return experienceMultNameLabel;
 	}
@@ -504,7 +504,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		return 1.0 + (i * 0.1);
 	}
 
-	public double getSliderRealValue()
+	private double getSliderRealValue()
 	{
 		return calculateRealValue(getExperienceMultSlider().getValue());
 	}

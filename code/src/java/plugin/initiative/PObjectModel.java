@@ -28,7 +28,7 @@ package plugin.initiative;
 public abstract class PObjectModel
 {
 	/** Constant for decoding incoming object strings */
-	protected static final int SEGMENT_POSITION_NAME = 0;
+	private static final int SEGMENT_POSITION_NAME = 0;
 
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_SKILL = "skill:";
@@ -48,8 +48,8 @@ public abstract class PObjectModel
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_DICE_ROLL = "dice:";
 
-	protected String m_name = null;
-	protected String[] outputTokens = null;
+	private String m_name = null;
+	String[] outputTokens = null;
 
 	/**
 	 * <p>
@@ -65,7 +65,7 @@ public abstract class PObjectModel
 	 * @param objectString
 	 *            The string description of the object.
 	 */
-	public PObjectModel(String objectString)
+	PObjectModel(String objectString)
 	{
 		outputTokens = objectString.split("\\\\");
 		m_name = getStringValue(outputTokens, SEGMENT_POSITION_NAME);
@@ -75,7 +75,7 @@ public abstract class PObjectModel
 	 * <p>Sets the value of name</p>
 	 * @param name The name to set.
 	 */
-	public void setName(String name)
+	void setName(String name)
 	{
 		m_name = name;
 	}
@@ -167,7 +167,7 @@ public abstract class PObjectModel
 	 * @return
 	 *             The integer conversion of the incoming string
 	 */
-	protected static int getInt(String value)
+	static int getInt(String value)
 	{
 		int returnValue = 0;
 
@@ -199,7 +199,7 @@ public abstract class PObjectModel
 	 * @param index Index to get from array
 	 * @return The requested string entry, or ""
 	 */
-	protected String getStringValue(String[] values, int index)
+	String getStringValue(String[] values, int index)
 	{
 		String returnValue = "";
 

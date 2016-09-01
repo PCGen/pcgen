@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
-public final class SpecialtySpellKnown extends BonusObj
+final class SpecialtySpellKnown extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

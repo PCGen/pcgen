@@ -36,7 +36,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * This is the class that implements the Stat bonuses.
  */
-public final class Stat extends BonusObj
+final class Stat extends BonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"BASESPELLSTAT", "BASESPELLKNOWNSTAT"};
@@ -132,7 +132,7 @@ public final class Stat extends BonusObj
 		 * Constructor.
 		 * @param argStat The spell casting stat.
 		 */
-		public CastStat(final PCStat argStat)
+		private CastStat(final PCStat argStat)
 		{
 			stat = argStat;
 		}
@@ -140,7 +140,7 @@ public final class Stat extends BonusObj
 		/** Get the spell casting stat.
 		 * @return The spell casting stat.
 		 * */
-		public PCStat getStat()
+		private PCStat getStat()
 		{
 			return stat;
 		}

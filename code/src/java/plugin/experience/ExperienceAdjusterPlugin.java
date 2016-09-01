@@ -68,11 +68,11 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
 
 	/** The model that holds all the data for this section. */
-	protected ExperienceAdjusterModel eaModel;
+	private ExperienceAdjusterModel eaModel;
 
 	/** The user interface that this class will be using. */
-	protected ExperienceAdjusterView eaView;
-	protected InitHolderList initList;
+	private ExperienceAdjusterView eaView;
+	private InitHolderList initList;
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem experienceToolsItem = new JMenuItem();
@@ -146,7 +146,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Gets the view that this class is using.
 	 * @return the view.
 	 */
-	public JPanel getView()
+	private JPanel getView()
 	{
 		return eaView;
 	}
@@ -188,7 +188,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Adjust the CR
 	 * @param cbt
 	 */
-	public void adjustCR(Combatant cbt)
+	private void adjustCR(Combatant cbt)
 	{
 		String inputValue =
 				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
@@ -440,7 +440,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Calls all the necessary update functions for the GUI components.
 	 * Made it final as it is called from constructor.
 	 */
-	public final void update()
+	private void update()
 	{
 		eaModel.populateLists();
 		eaView.setParty(eaModel.getParty());
@@ -502,7 +502,7 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 	 * Return TRUE if active
 	 * @return TRUE if active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(eaView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()

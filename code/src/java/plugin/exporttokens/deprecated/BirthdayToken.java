@@ -33,7 +33,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with BIRTHDAY token
  */
-public class BirthdayToken extends AbstractExportToken
+class BirthdayToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

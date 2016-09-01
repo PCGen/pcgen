@@ -36,10 +36,10 @@ import java.util.Map;
 /**
  * Deals with BONUSLIST token
  */
-public class BonusListToken extends Token
+class BonusListToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "BONUSLIST";
+	private static final String TOKENNAME = "BONUSLIST";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -66,8 +66,8 @@ public class BonusListToken extends Token
 	 * @param pc
 	 * @return String of Bonus List
 	 */
-	public static String getBonusListToken(String tokenSource,
-		PlayerCharacter pc)
+	private static String getBonusListToken(String tokenSource,
+	                                        PlayerCharacter pc)
 	{
 		StringTokenizer bTok =
 				new StringTokenizer(tokenSource.substring(10), ".", false);

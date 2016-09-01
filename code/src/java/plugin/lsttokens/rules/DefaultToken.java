@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DEFAULT Token
  */
-public class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
+class DefaultToken extends AbstractNonEmptyToken<RuleCheck> implements
 		CDOMPrimaryToken<RuleCheck>
 {
 

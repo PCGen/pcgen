@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
+class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 		CDOMPrimaryToken<RollMethod>, DeferredToken<RollMethod>
 {
 

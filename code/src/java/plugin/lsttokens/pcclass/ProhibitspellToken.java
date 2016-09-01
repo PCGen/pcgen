@@ -71,7 +71,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 		return ParseResult.SUCCESS;
 	}
 
-	public SpellProhibitor subParse(String value)
+	private SpellProhibitor subParse(String value)
 	{
 		StringTokenizer tok = new StringTokenizer(value, Constants.PIPE);
 

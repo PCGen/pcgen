@@ -10,7 +10,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  * @author Joe.Frazier
  *
  */
-public class DieSizesToken implements GameModeLstToken
+class DieSizesToken implements GameModeLstToken
 {
 
 	/* (non-Javadoc)

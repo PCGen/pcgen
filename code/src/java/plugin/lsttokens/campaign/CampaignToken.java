@@ -29,7 +29,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CAMPAIGN Token
  */
-public class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
+class CampaignToken extends AbstractNonEmptyToken<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
 {
 

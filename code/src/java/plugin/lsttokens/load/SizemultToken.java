@@ -42,7 +42,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
+class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		implements CDOMPrimaryToken<LoadInfo>, PostDeferredToken<LoadInfo>
 {
 

@@ -42,7 +42,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl &lt;byngl@hotmail.com&gt;
  *
  */
-public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreRaceTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/*
@@ -92,7 +92,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 	 * @return the list of types
 	 */
     @Deprecated
-	public static ArrayList<String> getCritterTypes(CharacterDisplay display)
+    private static ArrayList<String> getCritterTypes(CharacterDisplay display)
 	{
 		ArrayList<String> critterTypes = new ArrayList<String>();
 	

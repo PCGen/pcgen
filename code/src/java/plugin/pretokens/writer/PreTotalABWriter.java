@@ -40,7 +40,7 @@ import java.io.Writer;
 /**
  * Writer for PRETOTALAB
  */
-public class PreTotalABWriter extends AbstractPrerequisiteWriter implements
+class PreTotalABWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 

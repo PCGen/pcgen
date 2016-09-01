@@ -677,7 +677,7 @@ public class XMLCombatant extends Combatant
 		 * Get the HTML text
 		 * @return HTML text
 		 */
-		public String getHtmlText()
+		private String getHtmlText()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -690,7 +690,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockHeader()
+		private String getStatBlockHeader()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -713,7 +713,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockTitle()
+		private String getStatBlockTitle()
 		{
 			StringBuilder statBuf = new StringBuilder();
 
@@ -724,7 +724,7 @@ public class XMLCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockCore()
+		private String getStatBlockCore()
 		{
 			StringBuilder statBuf = new StringBuilder();
 

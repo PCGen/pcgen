@@ -89,46 +89,46 @@ public class NotesView extends JPanel
 	private static final String OPTION_NAME_LASTFILE = NotesPlugin.LOG_NAME + ".LastFile"; //$NON-NLS-1$
 
 	/**  Drop Target for the Edit Area */
-	protected DropTarget editAreaDT;
+	private DropTarget editAreaDT;
 
 	/**  Drop Target for the File Bar */
-	protected DropTarget filesBarDT;
+	private DropTarget filesBarDT;
 
 	/**  Drop Target for the Tree */
-	protected DropTarget treeDT;
+	private DropTarget treeDT;
 
 	/**  Insert OL Action for JTextPane */
-	protected ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
+	private ExtendedHTMLEditorKit.InsertListAction actionListOrdered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertOLItem",
 				HTML.Tag.OL);
 
 	/**  Insert UL Action for JTextPane */
-	protected ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
+	private ExtendedHTMLEditorKit.InsertListAction actionListUnordered =
 			new ExtendedHTMLEditorKit.InsertListAction("InsertULItem",
 				HTML.Tag.UL);
 
 	// End of variables declaration//GEN-END:variables
-	protected NotesPlugin plugin;
+	private NotesPlugin plugin;
 
 	/**  Root node of tree */
-	protected NotesTreeNode root;
+	private NotesTreeNode root;
 
 	/**  Redo Action for JTextPane */
-	protected RedoAction redoAction = new RedoAction();
+	private RedoAction redoAction = new RedoAction();
 
 	/**  Data Directory */
-	protected File dataDir;
+	private File dataDir;
 
 	/**  Undo Action for JTextPane */
-	protected UndoAction undoAction = new UndoAction();
+	private UndoAction undoAction = new UndoAction();
 
 	/**  Undo Manager */
-	protected UndoManager undo = new UndoManager();
+	private UndoManager undo = new UndoManager();
 
 	/**  Image extensions that this supports */
 
 	// TODO: Move Image extensions to properties
-	protected final String[] extsIMG = {"gif", "jpg", "jpeg", "png"};
+	private final String[] extsIMG = {"gif", "jpg", "jpeg", "png"};
 	private JButton boldButton;
 	private JButton bulletButton;
 	private JButton centerJustifyButton;
@@ -192,7 +192,7 @@ public class NotesView extends JPanel
 	 *@param  name           name of the action to get
 	 *@return                the action
 	 */
-	public Action getActionByName(JTextComponent textComponent, String name)
+	private Action getActionByName(JTextComponent textComponent, String name)
 	{
 		// TODO: This should be static in a GUIUtilities file
 		for (Action a : textComponent.getActions())
@@ -279,7 +279,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  notesFile  .gmn file to open
 	 */
-	public void openGMN(File notesFile)
+	private void openGMN(File notesFile)
 	{
 		try
 		{
@@ -369,7 +369,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  node  node to export to file
 	 */
-	protected void exportFile(NotesTreeNode node)
+	private void exportFile(NotesTreeNode node)
 	{
 		JFileChooser fLoad = new JFileChooser();
 		String sFile =
@@ -430,7 +430,7 @@ public class NotesView extends JPanel
 	 *@param  count  File to count the children of
 	 *@return        count of all files in this dir
 	 */
-	protected int fileCount(File count)
+	private int fileCount(File count)
 	{
 		// TODO: Shouldn't this really be a static method in MiscUtils?
 		int num = 0;
@@ -455,7 +455,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  Button to highlight
 	 */
-	protected void highlightButton(JButton button)
+	private void highlightButton(JButton button)
 	{
 		button.setBorder(new BevelBorder(BevelBorder.LOWERED));
 	}
@@ -468,8 +468,8 @@ public class NotesView extends JPanel
 	 *@param  name  name of the action to perform.
 	 *@param  evt   ActionEvent that sparked the calling of this function.
 	 */
-	protected void performTextPaneAction(String name,
-		java.awt.event.ActionEvent evt)
+	private void performTextPaneAction(String name,
+	                                   java.awt.event.ActionEvent evt)
 	{
 		Action action = getActionByName(editor, name);
 		action.actionPerformed(evt);
@@ -485,7 +485,7 @@ public class NotesView extends JPanel
 	 *
 	 *@param  button  button to set in standard mode
 	 */
-	protected void stdButton(JButton button)
+	private void stdButton(JButton button)
 	{
 		button.setBorder(new EtchedBorder(EtchedBorder.LOWERED));
 	}
@@ -498,7 +498,7 @@ public class NotesView extends JPanel
 	 *@param  entry            Description of the Parameter
 	 *@exception  IOException  read or write error
 	 */
-	protected void unzip(ZipInputStream zin, String entry, File homeDir)
+	private void unzip(ZipInputStream zin, String entry, File homeDir)
 		throws IOException
 	{
 		// TODO: This function really should be in MiscUtils as a static
@@ -527,7 +527,7 @@ public class NotesView extends JPanel
 	 *@param  textPane  text pane to update buttons base on
 	 *@param  pos       current text position
 	 */
-	protected void updateButtons(JTextPane textPane, int pos)
+	private void updateButtons(JTextPane textPane, int pos)
 	{
 		StyledDocument doc = textPane.getStyledDocument();
 		AttributeSet set = doc.getCharacterElement(pos - 1).getAttributes();
@@ -604,8 +604,8 @@ public class NotesView extends JPanel
 	 *@return                  current progress
 	 *@exception  IOException  write or read failed for some reason
 	 */
-	protected int writeNotesDir(ZipOutputStream out, File parentDir,
-		File currentDir, ProgressMonitor pm, int progress) throws IOException
+	private int writeNotesDir(ZipOutputStream out, File parentDir,
+	                          File currentDir, ProgressMonitor pm, int progress) throws IOException
 	{
 		byte[] buffer = new byte[4096];
 		int bytes_read;
@@ -668,7 +668,7 @@ public class NotesView extends JPanel
 	 *@param  node             node to export
 	 *@exception  IOException  file write failed for some reason
 	 */
-	protected void writeNotesFile(File exportFile, NotesTreeNode node)
+	private void writeNotesFile(File exportFile, NotesTreeNode node)
 		throws IOException
 	{
 		File dir = node.getDir();
@@ -2003,9 +2003,9 @@ public class NotesView extends JPanel
 
 	public class NotesLogReciever implements LogReceiver
 	{
-		NotesTreeNode log;
+		private NotesTreeNode log;
 
-		public NotesLogReciever()
+		private NotesLogReciever()
 		{
 			// Empty Constructor
 		}
@@ -2072,7 +2072,7 @@ public class NotesView extends JPanel
 	protected class RedoAction extends AbstractAction
 	{
 		/**  Constructor for the RedoAction object */
-		public RedoAction()
+		private RedoAction()
 		{
 			super(getLocalizedRedo());
 			setEnabled(false);
@@ -2101,7 +2101,7 @@ public class NotesView extends JPanel
 		}
 
 		/**  Update the current state of the redo labe */
-		protected void updateRedoState()
+		void updateRedoState()
 		{
 			if (undo.canRedo())
 			{
@@ -2129,7 +2129,7 @@ public class NotesView extends JPanel
 	protected class UndoAction extends AbstractAction
 	{
 		/**  Constructor for the UndoAction object */
-		public UndoAction()
+		private UndoAction()
 		{
 			super(getLocalizedUndo());
 			setEnabled(false);
@@ -2157,7 +2157,7 @@ public class NotesView extends JPanel
 		}
 
 		/**  Update the current state of the undo label */
-		protected void updateUndoState()
+		void updateUndoState()
 		{
 			if (undo.canUndo())
 			{

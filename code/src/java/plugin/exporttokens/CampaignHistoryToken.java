@@ -56,7 +56,7 @@ import pcgen.util.Logging;
 public class CampaignHistoryToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "CAMPAIGNHISTORY";
+	private static final String TOKENNAME = "CAMPAIGNHISTORY";
 
 	private static enum Visibility {ALL, HIDDEN, VISIBLE};
 	

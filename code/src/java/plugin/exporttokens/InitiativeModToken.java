@@ -36,7 +36,7 @@ import pcgen.util.Delta;
 /**
  * Deal with the INITIATIVEMOD
  */
-public class InitiativeModToken extends Token
+class InitiativeModToken extends Token
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -64,7 +64,7 @@ public class InitiativeModToken extends Token
 	 * @param display
 	 * @return the token
 	 */
-	public static int getInitiativeModToken(PlayerCharacter pc)
+	private static int getInitiativeModToken(PlayerCharacter pc)
 	{
 		String initiativeVar = ControlUtilities
 			.getControlToken(Globals.getContext(), CControl.INITIATIVE);

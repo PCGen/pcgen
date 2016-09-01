@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:SLOTS token.
  */
-public final class Slots extends MultiTagBonusObj
+final class Slots extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"AMULET", "BELT", "BOOT", "BRACER", "CAPE", "EYEGEAR", "GLOVE",

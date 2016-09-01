@@ -21,7 +21,7 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class CritMultToken extends AbstractStringStoringToken<CodeControl>
+class CritMultToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()

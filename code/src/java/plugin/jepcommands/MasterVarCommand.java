@@ -30,7 +30,7 @@ import pcgen.util.PCGenCommand;
  * 
  * eg. mastervar("CL=Fighter")
  */
-public class MasterVarCommand extends PCGenCommand
+class MasterVarCommand extends PCGenCommand
 {
 
 	/** Constructor */

@@ -63,8 +63,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return '|';
 	}
 
-	protected ParseResult parseTokenWithSeparator(LoadContext context,
-		ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
+	private ParseResult parseTokenWithSeparator(LoadContext context,
+	                                            ReferenceManufacturer<Ability> rm, CDOMObject obj, String value)
 	{
 		int pipeLoc = value.lastIndexOf('|');
 		String activeValue;
@@ -212,12 +212,12 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	private String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<AbilitySelection> getListKey()
+	private AssociationListKey<AbilitySelection> getListKey()
 	{
 		return AssociationListKey.getKeyFor(AbilitySelection.class,
 			"CHOOSE*FEATSELECTION");

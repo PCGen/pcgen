@@ -37,7 +37,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with DOMAIN Token
  */
-public class ClassLevelDomainBracketToken extends AbstractTokenWithSeparator<PCClassLevel> implements
+class ClassLevelDomainBracketToken extends AbstractTokenWithSeparator<PCClassLevel> implements
 		CDOMCompatibilityToken<PCClassLevel>, DeprecatedToken
 {
 

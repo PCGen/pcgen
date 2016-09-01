@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:RANGEADD token.
  */
-public final class RangeAdd extends MultiTagBonusObj
+final class RangeAdd extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"PROJECTILE", "THROWN"};
 

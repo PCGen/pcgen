@@ -32,10 +32,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * SR token for export
  */
-public class SRToken extends Token
+class SRToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "SR";
+	private static final String TOKENNAME = "SR";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -61,7 +61,7 @@ public class SRToken extends Token
 	 * @param pc
 	 * @return the value of the SR token for export
 	 */
-	public static int getSRToken(PlayerCharacter pc)
+	private static int getSRToken(PlayerCharacter pc)
 	{
 		return pc.getSR();
 	}

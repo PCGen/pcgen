@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with EXCLUDE Token
  */
-public class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
+class ExcludeToken extends AbstractNonEmptyToken<RuleCheck> implements
 		CDOMPrimaryToken<RuleCheck>
 {
 

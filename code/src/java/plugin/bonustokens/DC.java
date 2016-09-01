@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:DC token.
  */
-public final class DC extends BonusObj
+final class DC extends BonusObj
 {
 	private static final String[] BONUS_TAGS = {"FEATBONUS", "ALLSPELLS"};
 

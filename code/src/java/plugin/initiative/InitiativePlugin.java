@@ -120,7 +120,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Get the file type
 	 * @return the file type
 	 */
-	public FileFilter getFileType()
+	private FileFilter getFileType()
 	{
 		String[] init = new String[]{"gmi", "init"};
 		return new SimpleFileFilter(init, "Initiative Export");
@@ -179,7 +179,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @return the view.
 	 */
-	public Component getView()
+	private Component getView()
 	{
 		return theView;
 	}
@@ -187,7 +187,7 @@ public class InitiativePlugin implements InteractivePlugin
 	/**
 	 * Handles the clicking of the <b>Add </b> button on the GUI.
 	 */
-	public void fileOpen()
+	private void fileOpen()
 	{
 		JFileChooser chooser =
 				ImagePreview.decorateWithImagePreview(new JFileChooser());
@@ -251,7 +251,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
+	private void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
 	{
 		message.setCombat(theView.initList);
 	}
@@ -263,7 +263,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleFileOpenMessage(FileMenuOpenMessage message)
+	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
 		if (GMGenSystemView.getTabPane().getSelectedComponent() instanceof Initiative)
 		{
@@ -279,8 +279,8 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleInitHolderListSendMessage(
-		TransmitInitiativeValuesBetweenComponentsMessage message)
+	private void handleInitHolderListSendMessage(
+			TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		if (message.getSource() != this)
 		{
@@ -348,7 +348,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCClosedMessage(PlayerCharacterWasClosedMessage message)
+	private void handlePCClosedMessage(PlayerCharacterWasClosedMessage message)
 	{
 		theView.removePcgCombatant(message.getPC());
 		theView.refreshTable();
@@ -361,7 +361,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
+	private void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
 	{
 			PlayerCharacter pc = message.getPc();
 			String type = "PC";
@@ -392,7 +392,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Saves the combatants to a file
 	 * </p>
 	 */
-	public void fileSave()
+	private void fileSave()
 	{
 		for (int i = 0; i < theView.initList.size(); i++)
 		{
@@ -415,7 +415,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleSaveMessage(FileMenuSaveMessage message)
+	private void handleSaveMessage(FileMenuSaveMessage message)
 	{
 		if (isActive())
 		{
@@ -432,7 +432,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
+	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
 		if (isActive())
 		{
@@ -462,7 +462,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleWindowClosedMessage(GMGenBeingClosedMessage message)
+	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
 	{
 		theView.setExitPrefs();
 	}
@@ -471,7 +471,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Returns true if this plugin is active
 	 * @return true if this plugin is active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -485,7 +485,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param evt
 	 */
-	public void initMenuItem(ActionEvent evt)
+	private void initMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -503,7 +503,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Initializes the menus.
 	 * </p>
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		initToolsItem.setMnemonic('I');
 		initToolsItem.setText("Initiative");
@@ -526,7 +526,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param initFile
 	 */
-	public void loadINIT(File initFile)
+	private void loadINIT(File initFile)
 	{
 		theView.loadINIT(initFile, this);
 	}

@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with VALIDFORDEITY Token
  */
-public class ValidfordeityToken extends AbstractYesNoToken<PCAlignment> implements
+class ValidfordeityToken extends AbstractYesNoToken<PCAlignment> implements
 		CDOMPrimaryToken<PCAlignment>
 {
 

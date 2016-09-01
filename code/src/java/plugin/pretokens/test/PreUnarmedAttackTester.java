@@ -39,7 +39,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
+class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

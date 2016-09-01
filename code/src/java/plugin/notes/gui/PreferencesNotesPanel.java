@@ -182,7 +182,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 	 *
 	 * @param e
 	 */
-	protected void browseButtonActionPerformed(ActionEvent e)
+	private void browseButtonActionPerformed(ActionEvent e)
 	{
 		JFileChooser dlg = new JFileChooser(getDataDir());
 		dlg.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);

@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Deals with RATEOFFIRE token
  */
-public class RateoffireToken extends AbstractToFactToken<Equipment>
+class RateoffireToken extends AbstractToFactToken<Equipment>
 {
 	@Override
 	public String getTokenName()

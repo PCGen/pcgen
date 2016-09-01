@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:EQMARMOR token.
  */
-public final class EqmArmor extends MultiTagBonusObj
+final class EqmArmor extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"AC", "ACCHECK", "DEFBONUS", "EDR", "MAXDEX", "SPELLFAILURE"};

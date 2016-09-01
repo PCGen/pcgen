@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * HEIGHT.FOOTPART
  * HEIGHT.INCHPART
  */
-public class HeightToken extends AbstractExportToken
+class HeightToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

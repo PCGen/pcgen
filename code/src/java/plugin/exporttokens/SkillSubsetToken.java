@@ -51,7 +51,7 @@ import pcgen.util.enumeration.View;
 public class SkillSubsetToken extends SkillToken
 {
 	/** token name */
-	public static final String TOKEN_NAME = "SKILLSUBSET";
+	private static final String TOKEN_NAME = "SKILLSUBSET";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -123,7 +123,7 @@ public class NetworkView extends JPanel
 		userList.setModel(new javax.swing.AbstractListModel()
 		{
 			// TODO i18n Broadcast (and change in other part of plugin)
-			String[] strings = {"Broadcast"};
+			private String[] strings = {"Broadcast"};
 
 			public int getSize()
 			{

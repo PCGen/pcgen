@@ -23,7 +23,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class StringToken implements CDOMSecondaryToken<EquipmentModifier>
+class StringToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	@Override

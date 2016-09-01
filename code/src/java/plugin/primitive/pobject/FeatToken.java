@@ -34,7 +34,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
-public class FeatToken<T> implements PrimitiveToken<T>
+class FeatToken<T> implements PrimitiveToken<T>
 {
 
 	private CDOMSingleRef<Ability> ref;

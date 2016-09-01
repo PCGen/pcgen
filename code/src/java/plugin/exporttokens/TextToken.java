@@ -50,7 +50,7 @@ import pcgen.util.Logging;
 public class TextToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "TEXT";
+	private static final String TOKENNAME = "TEXT";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

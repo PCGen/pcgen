@@ -40,7 +40,7 @@ import java.util.List;
  * @author wardc
  *
  */
-public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
+class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

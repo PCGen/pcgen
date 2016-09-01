@@ -80,7 +80,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of castingTime</p>
 	 * @param castingTime The castingTime to set.
 	 */
-	public void setCastingTime(String castingTime)
+	private void setCastingTime(String castingTime)
 	{
 		m_castingTime = castingTime;
 	}
@@ -98,7 +98,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of desc</p>
 	 * @param desc The desc to set.
 	 */
-	public void setDesc(String desc)
+	private void setDesc(String desc)
 	{
 		m_desc = desc;
 	}
@@ -116,7 +116,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of duration</p>
 	 * @param duration The duration to set.
 	 */
-	public void setDuration(String duration)
+	private void setDuration(String duration)
 	{
 		m_duration = duration;
 	}
@@ -134,7 +134,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of range</p>
 	 * @param range The range to set.
 	 */
-	public void setRange(String range)
+	private void setRange(String range)
 	{
 		m_range = range;
 	}
@@ -152,7 +152,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of saveInfo</p>
 	 * @param saveInfo The saveInfo to set.
 	 */
-	public void setSaveInfo(String saveInfo)
+	private void setSaveInfo(String saveInfo)
 	{
 		m_saveInfo = saveInfo;
 	}
@@ -170,7 +170,7 @@ public class SpellModel extends PObjectModel
 	 * <p>Sets the value of target</p>
 	 * @param target The target to set.
 	 */
-	public void setTarget(String target)
+	private void setTarget(String target)
 	{
 		m_target = target;
 	}

@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class EditPoolToken extends AbstractNonEmptyToken<AbilityCategory>
+class EditPoolToken extends AbstractNonEmptyToken<AbilityCategory>
 		implements CDOMPrimaryToken<AbilityCategory>
 {
 	@Override

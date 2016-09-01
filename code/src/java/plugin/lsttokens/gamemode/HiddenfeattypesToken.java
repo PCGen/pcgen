@@ -11,7 +11,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with HIDDENEQUIPTYPES Token
  */
-public class HiddenfeattypesToken implements GameModeLstToken
+class HiddenfeattypesToken implements GameModeLstToken
 {
 
     @Override

@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:CONCENTRATION token.
  */
-public final class Concentration extends BonusObj
+final class Concentration extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

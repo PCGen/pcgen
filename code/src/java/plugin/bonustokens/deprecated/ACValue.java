@@ -31,7 +31,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:ACVALUE token.
  */
-public final class ACValue extends BonusObj
+final class ACValue extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

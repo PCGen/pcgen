@@ -59,8 +59,8 @@ public class FaceToken extends AbstractNonEmptyToken<PCTemplate> implements
 		return parseFace(context, template, value);
 	}
 
-	protected ParseResult parseFace(LoadContext context, PCTemplate fObj,
-		String value)
+	private ParseResult parseFace(LoadContext context, PCTemplate fObj,
+	                              String value)
 	{
 		if (ControlUtilities.hasControlToken(context, CControl.FACE))
 		{

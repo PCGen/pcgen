@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactSetToken;
 /**
  * Class deals with PANTHEON Token
  */
-public class PantheonToken extends AbstractToFactSetToken<Deity>
+class PantheonToken extends AbstractToFactSetToken<Deity>
 {
 	@Override
 	public String getTokenName()

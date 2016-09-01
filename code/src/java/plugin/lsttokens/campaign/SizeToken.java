@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with SIZE Token
  */
-public class SizeToken extends AbstractBasicCampaignToken implements
+class SizeToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>
 {
 	@Override

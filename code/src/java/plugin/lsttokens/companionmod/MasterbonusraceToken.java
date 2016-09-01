@@ -37,11 +37,11 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with MASTERBONUSRACE Token
  */
-public class MasterbonusraceToken extends
+class MasterbonusraceToken extends
 		AbstractTokenWithSeparator<CompanionMod> implements
 		CDOMPrimaryToken<CompanionMod>
 {
-	public static final Class<Race> RACE_CLASS = Race.class;
+	private static final Class<Race> RACE_CLASS = Race.class;
 
 	@Override
 	public String getTokenName()

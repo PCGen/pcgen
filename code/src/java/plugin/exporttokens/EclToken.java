@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  *
  * @version $Revision$
  */
-public class EclToken extends AbstractExportToken
+class EclToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

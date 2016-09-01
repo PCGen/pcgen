@@ -40,7 +40,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

@@ -38,10 +38,10 @@ import pcgen.io.exporttoken.Token;
  * EQSET.NUMBER
  * EQSET.NAME
  */
-public class EqSetToken extends Token
+class EqSetToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "EQSET";
+	private static final String TOKENNAME = "EQSET";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -86,7 +86,7 @@ public class EqSetToken extends Token
 	 * @param display
 	 * @return Name Token
 	 */
-	public static String getNameToken(CharacterDisplay display)
+	private static String getNameToken(CharacterDisplay display)
 	{
 		return display.getCurrentEquipSetName();
 	}
@@ -96,7 +96,7 @@ public class EqSetToken extends Token
 	 * @param pc
 	 * @return Number Token
 	 */
-	public static int getNumberToken(PlayerCharacter pc)
+	private static int getNumberToken(PlayerCharacter pc)
 	{
 		return pc.getEquipSetNumber();
 	}

@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with RANKMODFORMULA Token
  */
-public class RankmodformulaToken implements GameModeLstToken
+class RankmodformulaToken implements GameModeLstToken
 {
 
     @Override

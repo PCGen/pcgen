@@ -37,7 +37,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreBirthPlaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreBirthPlaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

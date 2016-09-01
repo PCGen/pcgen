@@ -34,7 +34,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with returning value of TEMPLATELIST token
  */
-public class TemplateListToken extends AbstractExportToken
+class TemplateListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

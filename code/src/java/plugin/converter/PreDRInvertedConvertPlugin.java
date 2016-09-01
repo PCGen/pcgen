@@ -23,7 +23,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 
-public class PreDRInvertedConvertPlugin implements TokenProcessorPlugin
+class PreDRInvertedConvertPlugin implements TokenProcessorPlugin
 {
 
     @Override

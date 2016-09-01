@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
+class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		CDOMPrimaryToken<LoadInfo>, DeferredToken<LoadInfo>
 {
 

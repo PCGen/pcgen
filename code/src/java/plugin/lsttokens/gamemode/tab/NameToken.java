@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NameToken extends AbstractNonEmptyToken<TabInfo> implements
+class NameToken extends AbstractNonEmptyToken<TabInfo> implements
 		CDOMPrimaryToken<TabInfo>
 {
 

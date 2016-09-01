@@ -30,7 +30,7 @@ import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
-public class BonusConvertPlugin implements TokenProcessorPlugin
+class BonusConvertPlugin implements TokenProcessorPlugin
 {
 	private static int bonusCount = 1;
 

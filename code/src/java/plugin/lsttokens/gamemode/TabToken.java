@@ -38,7 +38,7 @@ import pcgen.util.Logging;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class TabToken implements GameModeLstToken
+class TabToken implements GameModeLstToken
 {
 
     @Override

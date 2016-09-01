@@ -24,7 +24,7 @@ import pcgen.util.enumeration.View;
  * @author karianna
  * @version $Revision$
  */
-public class VFeatToken extends AbilityToken
+class VFeatToken extends AbilityToken
 {
 
 	/**

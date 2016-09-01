@@ -28,7 +28,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
+class BonusToken implements CDOMPrimaryToken<EqSizePenalty>
 {
 
 	@Override

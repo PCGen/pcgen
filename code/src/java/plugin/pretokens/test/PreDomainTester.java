@@ -39,7 +39,7 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;

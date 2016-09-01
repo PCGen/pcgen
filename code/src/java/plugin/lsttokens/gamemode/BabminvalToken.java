@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BABMINVAL Token
  */
-public class BabminvalToken implements GameModeLstToken
+class BabminvalToken implements GameModeLstToken
 {
 
     @Override

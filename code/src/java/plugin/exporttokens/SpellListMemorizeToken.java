@@ -41,11 +41,11 @@ import pcgen.io.exporttoken.SpellListToken;
  * @version $Revision$
  */
 
-public class SpellListMemorizeToken extends SpellListToken
+class SpellListMemorizeToken extends SpellListToken
 {
 
 	/** Token name */
-	public static final String TOKENNAME = "SPELLLISTMEMORIZE";
+	private static final String TOKENNAME = "SPELLLISTMEMORIZE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

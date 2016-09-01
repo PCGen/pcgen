@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with FEAT Token
  */
-public class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements
+class CampaignFeatToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>
 {
 

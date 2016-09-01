@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:SIZEMOD token.
  */
-public final class SizeMod extends MultiTagBonusObj
+final class SizeMod extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"NUMBER", };
 

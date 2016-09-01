@@ -100,8 +100,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		public AddDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toAdd)
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
+		                               int userPriority, T[] toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;
@@ -135,8 +135,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		public AddIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toAdd)
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
+		                                 int userPriority, Indirect<T[]> toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;

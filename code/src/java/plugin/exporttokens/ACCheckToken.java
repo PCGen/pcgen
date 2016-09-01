@@ -36,10 +36,10 @@ import pcgen.util.Delta;
 /**
  * Class deals with ACCHECK Token (Armour Check Penalty)
  */
-public class ACCheckToken extends Token
+class ACCheckToken extends Token
 {
 	/** Name of the Token */
-	public static final String TOKENNAME = "ACCHECK";
+	private static final String TOKENNAME = "ACCHECK";
 
 	/**
 	 * Return the token name
@@ -68,7 +68,7 @@ public class ACCheckToken extends Token
 	 * @param pc - The PC to calculate the ACCHECK for 
 	 * @return THe ACCHECK Penalty
 	 */
-	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
+	private static int getACCheckToken(String tokenSource, PlayerCharacter pc)
 	{
 		String acCheckVar =
 				ControlUtilities.getControlToken(Globals.getContext(),

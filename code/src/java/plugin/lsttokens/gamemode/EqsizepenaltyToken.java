@@ -11,7 +11,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with EQSIZEPENALTY Token
  */
-public class EqsizepenaltyToken implements GameModeLstToken
+class EqsizepenaltyToken implements GameModeLstToken
 {
 
     @Override

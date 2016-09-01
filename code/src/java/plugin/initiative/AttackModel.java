@@ -165,7 +165,7 @@ public class AttackModel extends PObjectModel
 	 * @param string
 	 *            The crit multiple string.
 	 */
-	public void setCritMultiple(String string)
+	private void setCritMultiple(String string)
 	{
 		if ((string != null) && (string.length() > 0))
 		{
@@ -205,7 +205,7 @@ public class AttackModel extends PObjectModel
 	 *
 	 * @return Crit multiple string
 	 */
-	public String getCritMultiple()
+	private String getCritMultiple()
 	{
 		return StringUtil.join(critMultiple, "/");
 	}
@@ -253,7 +253,7 @@ public class AttackModel extends PObjectModel
 	 * @param string
 	 *            The crit range string
 	 */
-	public void setCritRange(String string)
+	private void setCritRange(String string)
 	{
 		if ((string != null) && (string.length() > 0))
 		{
@@ -293,7 +293,7 @@ public class AttackModel extends PObjectModel
 	 *
 	 * @return The crit range value.
 	 */
-	public String getCritRange()
+	private String getCritRange()
 	{
 		return StringUtil.join(critRange, "/");
 	}
@@ -305,7 +305,7 @@ public class AttackModel extends PObjectModel
 	 * @param index The attack bonus index
 	 * @return The requested crit range.
 	 */
-	public String getCritRange(int index)
+	private String getCritRange(int index)
 	{
 		String returnValue = null;
 		int lookupAt = 0;
@@ -360,7 +360,7 @@ public class AttackModel extends PObjectModel
 	 * @param string
 	 *            Damage string.
 	 */
-	public void setDamage(String string)
+	private void setDamage(String string)
 	{
 		if ((string != null) && (string.length() > 0))
 		{
@@ -426,7 +426,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the damage string for the attack.</p>
 	 * @return The damage string
 	 */
-	public String getDamage()
+	private String getDamage()
 	{
 		return StringUtil.join(damage, "/");
 	}
@@ -468,7 +468,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Sets the hand value.</p>
 	 * @param string
 	 */
-	public void setHand(String string)
+	private void setHand(String string)
 	{
 		hand = string;
 	}
@@ -477,7 +477,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the hand of the weapon as a string</p>
 	 * @return The hand of the weapon
 	 */
-	public String getHand()
+	private String getHand()
 	{
 		return hand;
 	}
@@ -486,7 +486,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Sets the range value</p>
 	 * @param string
 	 */
-	public void setRange(String string)
+	private void setRange(String string)
 	{
 		if ((string == null) || (string.length() > 0))
 		{
@@ -502,7 +502,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the range of the weapon as a string.</p>
 	 * @return The range string.
 	 */
-	public String getRange()
+	private String getRange()
 	{
 		return range;
 	}
@@ -520,7 +520,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Sets the size value</p>
 	 * @param string
 	 */
-	public void setSize(String string)
+	private void setSize(String string)
 	{
 		size = string;
 	}
@@ -529,7 +529,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the weapon size.</p>
 	 * @return Size
 	 */
-	public String getSize()
+	private String getSize()
 	{
 		return size;
 	}
@@ -538,7 +538,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Sets the special property value.</p>
 	 * @param string
 	 */
-	public void setSpecialProp(String string)
+	private void setSpecialProp(String string)
 	{
 		specialProp = string;
 	}
@@ -547,7 +547,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the special properties string.</p>
 	 * @return Special properties.
 	 */
-	public String getSpecialProp()
+	private String getSpecialProp()
 	{
 		return specialProp;
 	}
@@ -569,7 +569,7 @@ public class AttackModel extends PObjectModel
 	 * @param string
 	 *             The attack bonuse string.
 	 */
-	public void setToHit(String string)
+	private void setToHit(String string)
 	{
 		if (toHit == null)
 		{
@@ -610,7 +610,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the to-hit string (like +10/+5;+8 . . .).</p>
 	 * @return The to-hit string.
 	 */
-	public String getToHit()
+	private String getToHit()
 	{
 		StringBuilder sb = new StringBuilder();
 
@@ -659,7 +659,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Sets teh weapon type.</p>
 	 * @param string
 	 */
-	public void setType(String string)
+	private void setType(String string)
 	{
 		type = string;
 	}
@@ -668,7 +668,7 @@ public class AttackModel extends PObjectModel
 	 * <p>Gets the weapon type.</p>
 	 * @return The weapon type
 	 */
-	public String getType()
+	private String getType()
 	{
 		return type;
 	}

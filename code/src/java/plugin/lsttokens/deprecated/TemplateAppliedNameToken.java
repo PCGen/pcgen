@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Class deals with APPLIEDNAME Token
  */
-public class TemplateAppliedNameToken extends AbstractToFactToken<PCTemplate>
+class TemplateAppliedNameToken extends AbstractToFactToken<PCTemplate>
 {
 	@Override
 	public String getTokenName()

@@ -92,7 +92,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * Check damage field
 	 * @throws NumberFormatException
 	 */
-	public void checkDamageField() throws NumberFormatException
+	private void checkDamageField() throws NumberFormatException
 	{
 		try
 		{
@@ -109,7 +109,7 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * submit
 	 */
-	public void submit()
+	private void submit()
 	{
 		try
 		{
@@ -127,7 +127,7 @@ public class DamageDialog extends javax.swing.JDialog
 	/**
 	 * Cancel
 	 */
-	public void cancel()
+	private void cancel()
 	{
 		retVal = 1;
 		setVisible(false);

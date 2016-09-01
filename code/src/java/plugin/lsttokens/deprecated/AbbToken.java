@@ -23,7 +23,7 @@ import pcgen.rules.persistence.token.AbstractToFactToken;
 /**
  * Class deals with ABB Token for PCC files
  */
-public class AbbToken extends AbstractToFactToken<PCClass>
+class AbbToken extends AbstractToFactToken<PCClass>
 {
 
 	/**

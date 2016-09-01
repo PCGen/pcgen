@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:CASTERLEVEL token.
  */
-public final class CasterLevel extends BonusObj
+final class CasterLevel extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

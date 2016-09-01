@@ -38,34 +38,34 @@ import java.awt.event.ActionListener;
  *@author     devon
  *@since    April 7, 2003
  */
-public class StartEvent extends javax.swing.JDialog
+class StartEvent extends javax.swing.JDialog
 {
 
 	/**  The initiative panel */
-	protected JPanel mainPanel;
+	JPanel mainPanel;
 	/** initiative */
-	public Initiative initiative;
-	protected javax.swing.JButton bCancel;
-	protected javax.swing.JButton bSave;
-	protected javax.swing.JCheckBox cbAlert;
-	protected javax.swing.JLabel nameLabel;
-	protected javax.swing.JLabel playerLabel;
-	protected javax.swing.JLabel durationLabel;
+	Initiative initiative;
+	private javax.swing.JButton bCancel;
+	private javax.swing.JButton bSave;
+	javax.swing.JCheckBox cbAlert;
+	private javax.swing.JLabel nameLabel;
+	private javax.swing.JLabel playerLabel;
+	private javax.swing.JLabel durationLabel;
 
-	protected javax.swing.JLabel effectLabel;
-	protected javax.swing.JLabel initiativeLabel;
-	protected javax.swing.JSlider sDuration;
-	protected javax.swing.JSlider sInit;
-	protected JFormattedTextField lDuration;
-	protected JFormattedTextField lInit;
-	protected javax.swing.JTextField tEffect;
-	protected javax.swing.JTextField tName;
-	protected javax.swing.JTextField tPlayer;
+	private javax.swing.JLabel effectLabel;
+	private javax.swing.JLabel initiativeLabel;
+	private javax.swing.JSlider sDuration;
+	private javax.swing.JSlider sInit;
+	JFormattedTextField lDuration;
+	JFormattedTextField lInit;
+	javax.swing.JTextField tEffect;
+	javax.swing.JTextField tName;
+	javax.swing.JTextField tPlayer;
 
-	protected String sTitle = "Start Event Timer";
-	protected String sAlertLabel = "Alert when event Completes/Occurs";
+	String sTitle = "Start Event Timer";
+	String sAlertLabel = "Alert when event Completes/Occurs";
 
-	protected int gridBagRow = 0;
+	int gridBagRow = 0;
 
 	/**
 	 *  Creates new form CastSpell - used when you do know who your frame is
@@ -110,7 +110,7 @@ public class StartEvent extends javax.swing.JDialog
 	 * <p>Initializes the alert checkbox based on the options.</p>
 	 *
 	 */
-	public void initCheckBox()
+	private void initCheckBox()
 	{
 		boolean box =
 				SettingsHandler.getGMGenOption(InitiativePlugin.LOG_NAME
@@ -131,7 +131,7 @@ public class StartEvent extends javax.swing.JDialog
 	 * <p>Handles a cancel-button press.</p>
 	 * @param e
 	 */
-	protected void cancelAndClose(ActionEvent e)
+	private void cancelAndClose(ActionEvent e)
 	{
 		setVisible(false);
 		dispose();
@@ -145,12 +145,12 @@ public class StartEvent extends javax.swing.JDialog
 	 * </p>
 	 * @param e
 	 */
-	protected void saveAndClose(ActionEvent e)
+	private void saveAndClose(ActionEvent e)
 	{
 		save();
 	}
 
-	protected void save()
+	void save()
 	{
 		initiative.initList.add(new Event(tName.getText(), tPlayer.getText(),
 			tEffect.getText(), ((Integer) lDuration.getValue()).intValue(),
@@ -169,7 +169,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *
 	 *@param  evt  close event
 	 */
-	protected void closeDialog(java.awt.event.WindowEvent evt)
+	private void closeDialog(java.awt.event.WindowEvent evt)
 	{
 		setVisible(false);
 		dispose();
@@ -180,7 +180,7 @@ public class StartEvent extends javax.swing.JDialog
 	 * <p>Initializes the components.</p>
 	 *
 	 */
-	protected void initComponents()
+	void initComponents()
 	{
 		basicSetup();
 
@@ -191,7 +191,7 @@ public class StartEvent extends javax.swing.JDialog
 		finalizeSetup();
 	}
 
-	protected void initAllDefaultComponents()
+	void initAllDefaultComponents()
 	{
 		addName();
 		addPlayer();
@@ -201,13 +201,13 @@ public class StartEvent extends javax.swing.JDialog
 		addAlert();
 	}
 
-	protected void finalizeSetup()
+	void finalizeSetup()
 	{
 		pack();
 		setLocationRelativeTo(getOwner());
 	}
 
-	protected void addButtons()
+	void addButtons()
 	{
 		bSave = new javax.swing.JButton();
 		bCancel = new javax.swing.JButton();
@@ -249,7 +249,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void addEffect()
+	private void addEffect()
 	{
 		effectLabel = new javax.swing.JLabel();
 		tEffect = new javax.swing.JTextField();
@@ -275,7 +275,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void addAlert()
+	private void addAlert()
 	{
 		cbAlert = new javax.swing.JCheckBox();
 
@@ -293,7 +293,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void addInitiative()
+	private void addInitiative()
 	{
 		initiativeLabel = new javax.swing.JLabel();
 		sInit = Utils.buildSlider(1, 50);
@@ -329,7 +329,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void addDuration()
+	private void addDuration()
 	{
 		durationLabel = new javax.swing.JLabel();
 		sDuration = Utils.buildSlider(1, 50);
@@ -368,7 +368,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void addPlayer()
+	private void addPlayer()
 	{
 		playerLabel = new javax.swing.JLabel();
 		tPlayer = new javax.swing.JTextField();
@@ -395,7 +395,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected void basicSetup()
+	void basicSetup()
 	{
 		mainPanel = new JPanel(new java.awt.GridBagLayout());
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
@@ -414,7 +414,7 @@ public class StartEvent extends javax.swing.JDialog
 		});
 	}
 
-	protected void addName()
+	private void addName()
 	{
 		nameLabel = new javax.swing.JLabel();
 		tName = new javax.swing.JTextField();
@@ -443,7 +443,7 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected class EnterKeyAdapter extends java.awt.event.KeyAdapter
+	private class EnterKeyAdapter extends java.awt.event.KeyAdapter
 	{
         @Override
 		public void keyReleased(java.awt.event.KeyEvent evt)

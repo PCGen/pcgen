@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class CountDistinctCommand extends AbstractCountCommand
+class CountDistinctCommand extends AbstractCountCommand
 {
 
 	

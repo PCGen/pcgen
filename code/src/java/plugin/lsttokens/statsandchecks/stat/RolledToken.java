@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with PENALTYVAR Token
  */
-public class RolledToken extends AbstractYesNoToken<PCStat> implements CDOMPrimaryToken<PCStat>
+class RolledToken extends AbstractYesNoToken<PCStat> implements CDOMPrimaryToken<PCStat>
 {
 
 	@Override

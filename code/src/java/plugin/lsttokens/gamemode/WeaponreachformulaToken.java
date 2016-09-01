@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with WEAPONCATEGORY Token
  */
-public class WeaponreachformulaToken implements GameModeLstToken
+class WeaponreachformulaToken implements GameModeLstToken
 {
 
     @Override

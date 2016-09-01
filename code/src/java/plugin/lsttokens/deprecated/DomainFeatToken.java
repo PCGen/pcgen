@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 /**
  * Deal with FEAT token
  */
-public class DomainFeatToken extends AbstractNonEmptyToken<Domain> implements
+class DomainFeatToken extends AbstractNonEmptyToken<Domain> implements
 		CDOMCompatibilityToken<Domain>, DeprecatedToken
 {
 	@Override

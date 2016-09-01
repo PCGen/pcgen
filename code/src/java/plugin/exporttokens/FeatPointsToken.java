@@ -33,10 +33,10 @@ import pcgen.io.exporttoken.Token;
 /** 
  * Deal with FEATPOINTS Token
  */
-public class FeatPointsToken extends Token
+class FeatPointsToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "FEATPOINTS";
+	private static final String TOKENNAME = "FEATPOINTS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -63,7 +63,7 @@ public class FeatPointsToken extends Token
 	 * @param pc - The PC to get the FEat points for
 	 * @return The number of feat points remaining
 	 */
-	public static double getFeatPointsToken(PlayerCharacter pc)
+	private static double getFeatPointsToken(PlayerCharacter pc)
 	{
 		if (!CoreUtility.doublesEqual(pc.getRemainingFeatPoolPoints(), 0))
 		{

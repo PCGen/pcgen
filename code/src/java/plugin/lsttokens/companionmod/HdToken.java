@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with HD Token
  */
-public class HdToken extends AbstractIntToken<CompanionMod> implements
+class HdToken extends AbstractIntToken<CompanionMod> implements
 		CDOMPrimaryToken<CompanionMod>
 {
 	@Override

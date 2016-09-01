@@ -13,7 +13,7 @@ import java.util.Stack;
  * eg. charbonusto("PCLEVEL", "Wizard");
  * eg. charbonusto("Wizard");
  */
-public class CharBonusToCommand extends PCGenCommand
+class CharBonusToCommand extends PCGenCommand
 {
 
 	/** Constructor*/

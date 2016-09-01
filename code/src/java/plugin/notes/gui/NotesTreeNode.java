@@ -73,7 +73,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * An enumeration that is always empty. This is used when an enumeration of a
 	 * leaf node's children is requested.
 	 */
-	public static final Enumeration<MutableTreeNode> EMPTY_ENUMERATION = new Enumeration<MutableTreeNode>()
+	private static final Enumeration<MutableTreeNode> EMPTY_ENUMERATION = new Enumeration<MutableTreeNode>()
 	{
 
         @Override
@@ -90,25 +90,25 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	};
 
 	/** Document to be displayed when this node is selected. */
-	protected ExtendedHTMLDocument notesDoc;
+	private ExtendedHTMLDocument notesDoc;
 
 	/** directory this NotesTreeNode represents. */
-	protected File dir;
+	private File dir;
 
 	/** Cache of the pane that is displayed when this node is clicked. */
-	protected JTextPane pane;
+	private JTextPane pane;
 
 	/**
 	 * Parent tree that this node is on used for updating the tree when certain
 	 * changes happen.
 	 */
-	protected JTree tree;
+	private JTree tree;
 
 	/** this node's parent, or null if this node has no parent. */
-	protected MutableTreeNode parent;
+	private MutableTreeNode parent;
 
 	/** optional user object */
-	protected transient Object userObject;
+	private transient Object userObject;
 
 	/**
 	 * array of children, may be null if this node has no children.
@@ -117,26 +117,26 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * than Vector due to the TreeNode interface which uses Enumeration as 
 	 * the return type of children();
 	 */
-	protected Vector<MutableTreeNode> children;
+	private Vector<MutableTreeNode> children;
 
 	/** true if the node is able to have children. */
-	protected boolean allowsChildren = true;
+	private boolean allowsChildren = true;
 
 	/** is this node dirty (has notesDoc been edited, but is unsaved). */
-	protected boolean dirty = false;
+	private boolean dirty = false;
 
 	/** Flag to determine if this node has had it's children populated. */
-	protected boolean hasBeenPopulated = false;
+	private boolean hasBeenPopulated = false;
 
 	/**
 	 * setDocument causes an event to fire, which makes the document dirty This
 	 * semaphore prevents that. This is only used if we are not caching the
 	 * JTextPane
 	 */
-	protected boolean ignoreUpdateSemaphore = false;
+	private boolean ignoreUpdateSemaphore = false;
 
 	/** Counter used to determine if this node needs to be flushed of it's data. */
-	protected int cacheCounter = 0;
+	private int cacheCounter = 0;
 
 	/**
 	 * Constructor for the NotesTreeNode object.
@@ -246,7 +246,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		return dirty;
 	}
 
-	public boolean isEmpty()
+	private boolean isEmpty()
 	{
 		File[] aChildren = dir.listFiles();
 
@@ -329,7 +329,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *          Description of the Parameter
 	 * @return The nodeAncestor value
 	 */
-	public boolean isNodeAncestor(TreeNode node)
+	private boolean isNodeAncestor(TreeNode node)
 	{
 		if (node == null)
 		{
@@ -357,7 +357,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 *          Description of the Parameter
 	 * @return The nodeChild value
 	 */
-	public boolean isNodeChild(TreeNode node)
+	private boolean isNodeChild(TreeNode node)
 	{
 		boolean retval;
 
@@ -608,7 +608,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param node
 	 *          Node to add
 	 */
-	public void add(MutableTreeNode node)
+	private void add(MutableTreeNode node)
 	{
 		if ((node != null) && (node.getParent() == this))
 		{
@@ -1077,7 +1077,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param path
 	 *          New path to move the children to.
 	 */
-	public void rehome(String path)
+	private void rehome(String path)
 	{
 		// TODO: Children cease being editable after a rehome, fix this.
 		dir = new File(path + File.separator + dir.getName());
@@ -1092,7 +1092,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 * @param path
 	 *          New path for the child
 	 */
-	public void rehomeChildren(String path)
+	private void rehomeChildren(String path)
 	{
 		if (hasBeenPopulated)
 		{
@@ -1285,7 +1285,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		}
 	}
 
-	public void saveChildren()
+	private void saveChildren()
 	{
 		Enumeration<MutableTreeNode> newNodes = children();
 

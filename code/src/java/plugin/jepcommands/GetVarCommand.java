@@ -15,7 +15,7 @@ import java.util.Stack;
  * 
  * eg. getvar("CL=Fighter")
  */
-public class GetVarCommand extends PCGenCommand
+class GetVarCommand extends PCGenCommand
 {
 
 	/** Constructor */
@@ -135,7 +135,7 @@ public class GetVarCommand extends PCGenCommand
 		}
 	}
 
-	protected Float getVariableForCharacter(final PlayerCharacter character, final Object param1)
+	private Float getVariableForCharacter(final PlayerCharacter character, final Object param1)
 	{
         return character.getVariableValue((String) param1, variableSource);
 	}

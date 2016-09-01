@@ -46,9 +46,9 @@ import plugin.initiative.SpellModel;
 @SuppressWarnings("serial")
 public class CastSpell extends StartEvent
 {
-	protected JEditorPane descText;
-	protected JPanel descPanel;
-	protected JScrollPane descScroll;
+	private JEditorPane descText;
+	private JPanel descPanel;
+	private JScrollPane descScroll;
 
 	/**
 	 *  Creates new form CastSpell - used when you do know who your frame is

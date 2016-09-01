@@ -37,11 +37,11 @@ import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractToken;
 
-public class FavClassConvertPlugin extends AbstractToken implements
+class FavClassConvertPlugin extends AbstractToken implements
 		TokenProcessorPlugin
 {
-	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
     @Override
 	public String process(TokenProcessEvent tpe)

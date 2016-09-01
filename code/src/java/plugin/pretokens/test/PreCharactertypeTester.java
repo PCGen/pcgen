@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author zaister
  *
  */
-public class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreCharactertypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

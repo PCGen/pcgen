@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.system.LanguageBundle;
 
-public class DisplayLocationToken extends
+class DisplayLocationToken extends
 		AbstractNonEmptyToken<AbilityCategory> implements
 		CDOMPrimaryToken<AbilityCategory>
 {

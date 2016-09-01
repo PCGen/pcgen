@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STATMOD Token
  */
-public class StatmodToken implements CDOMPrimaryToken<PCStat>
+class StatmodToken implements CDOMPrimaryToken<PCStat>
 {
 
 	@Override

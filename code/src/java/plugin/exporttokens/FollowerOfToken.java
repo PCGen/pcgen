@@ -34,10 +34,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * Deal with FOLLOWEROF Token
  */
-public class FollowerOfToken extends Token
+class FollowerOfToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWEROF";
+	private static final String TOKENNAME = "FOLLOWEROF";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -64,7 +64,7 @@ public class FollowerOfToken extends Token
 	 * @param pc
 	 * @return Token
 	 */
-	public static String getFollowerOfToken(PlayerCharacter pc)
+	private static String getFollowerOfToken(PlayerCharacter pc)
 	{
 		String retString = "";
 		PlayerCharacter masterPC = pc.getMasterPC();

@@ -20,7 +20,7 @@ package plugin.bonustokens;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
-public final class Situation extends BonusObj
+final class Situation extends BonusObj
 {
 	@Override
 	protected boolean parseToken(LoadContext context, final String token)

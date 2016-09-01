@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
+class DamagemultToken extends AbstractTokenWithSeparator<WieldCategory>
 		implements CDOMPrimaryToken<WieldCategory>
 {
 

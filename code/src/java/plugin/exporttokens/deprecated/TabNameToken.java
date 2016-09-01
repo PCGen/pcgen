@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deals with returning the value of the TABNAME token
  */
-public class TabNameToken extends AbstractExportToken
+class TabNameToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

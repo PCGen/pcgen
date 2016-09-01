@@ -42,7 +42,7 @@ import pcgen.rules.context.AbstractReferenceContext;
  * @author wardc
  *
  */
-public class PreSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+class PreSizeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

@@ -30,7 +30,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with UP Token
  */
-public class UpToken extends AbstractTokenWithSeparator<WieldCategory>
+class UpToken extends AbstractTokenWithSeparator<WieldCategory>
 		implements CDOMPrimaryToken<WieldCategory>
 {
 	private static final Class<WieldCategory> WIELD_CATEGORY_CLASS = WieldCategory.class;

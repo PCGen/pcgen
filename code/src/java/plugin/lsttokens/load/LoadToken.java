@@ -39,7 +39,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
-public class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
+class LoadToken extends AbstractTokenWithSeparator<LoadInfo> implements
 		CDOMPrimaryToken<LoadInfo>
 {
 

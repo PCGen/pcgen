@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deal with returning the TOTALLEVELS token
  */
-public class TotalLevelsToken extends AbstractExportToken
+class TotalLevelsToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

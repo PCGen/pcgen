@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
 /**
  * Passes PREMOVE tags
  */
-public class PreMoveTester extends AbstractDisplayPrereqTest implements
+class PreMoveTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

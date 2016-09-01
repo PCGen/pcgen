@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with TEXT Token
  */
-public class TextToken implements CDOMPrimaryToken<Sponsor>
+class TextToken implements CDOMPrimaryToken<Sponsor>
 {
 
 	@Override

@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
+class DistancefactorToken extends AbstractNonEmptyToken<UnitSet>
 		implements CDOMPrimaryToken<UnitSet>
 {
 

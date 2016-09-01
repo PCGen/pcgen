@@ -154,7 +154,7 @@ public class NotesPlugin implements InteractivePlugin
 		return NAME;
 	}
 
-	public String getLocalizedName()
+	private String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -169,7 +169,7 @@ public class NotesPlugin implements InteractivePlugin
 	 *
 	 * @return the view.
 	 */
-	public JPanel getView()
+	private JPanel getView()
 	{
 		return theView;
 	}
@@ -207,7 +207,7 @@ public class NotesPlugin implements InteractivePlugin
 	 * @param evt
 	 *          Action Event of a click on the tool menu item
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -275,7 +275,7 @@ public class NotesPlugin implements InteractivePlugin
 		theView.windowClosed();
 	}
 
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -308,7 +308,7 @@ public class NotesPlugin implements InteractivePlugin
 		return new File(notesDataDir);
 	}
 
-	public File defaultDataDir()
+	private File defaultDataDir()
 	{
 		File dataDir =
 				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());

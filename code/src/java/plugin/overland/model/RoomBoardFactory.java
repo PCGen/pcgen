@@ -42,6 +42,11 @@ public final class RoomBoardFactory
 
 	private static final String DIR_RNBPRICE = "rnbprice"; //$NON-NLS-1$
 
+	private RoomBoardFactory()
+	{
+
+	}
+
 	public static RoomBoard load(File dataDir)
 	{
 		//Create a new list for the room and board

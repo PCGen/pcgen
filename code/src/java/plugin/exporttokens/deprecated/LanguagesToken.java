@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * LANGUAGES.x Token
  */
-public class LanguagesToken extends AbstractExportToken
+class LanguagesToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

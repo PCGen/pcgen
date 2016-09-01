@@ -10,7 +10,7 @@ import java.util.Stack;
  * 
  * eg. {@literal floor(12.6) --> 12}
  */
-public class FloorCommand extends PCGenCommand
+class FloorCommand extends PCGenCommand
 {
 
 	/** Constructor */

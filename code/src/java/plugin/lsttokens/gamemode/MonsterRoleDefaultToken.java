@@ -37,7 +37,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  * @version $Revision: 6171 $
  */
-public class MonsterRoleDefaultToken implements GameModeLstToken
+class MonsterRoleDefaultToken implements GameModeLstToken
 {
 
 	/* (non-Javadoc)

@@ -47,7 +47,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpellTester extends AbstractPrerequisiteTest implements
+class PreSpellTester extends AbstractPrerequisiteTest implements
 		PrerequisiteTest
 {
 

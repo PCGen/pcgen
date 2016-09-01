@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with BASESTATSCORE Token
  */
-public class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
+class BasestatscoreToken implements CDOMPrimaryToken<BonusSpellInfo>
 {
 
 	@Override

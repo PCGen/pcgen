@@ -38,7 +38,7 @@ import pcgen.util.Logging;
  * Note: While the intent is the same, this is necessary as a separate token
  * from the "Global" SortKey since PaperInfo does not extend CDOMObject.
  */
-public class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
+class SortKeyToken extends AbstractNonEmptyToken<PaperInfo> implements
 		CDOMPrimaryToken<PaperInfo>, PostValidationToken<PaperInfo>
 {
 

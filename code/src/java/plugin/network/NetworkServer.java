@@ -35,12 +35,12 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class NetworkServer extends Thread
+class NetworkServer extends Thread
 {
 	private NetworkModel model;
 	private static List<String> clients = new ArrayList<String>();
-	boolean run = true;
-	protected ServerSocket sock;
+	private boolean run = true;
+	private ServerSocket sock;
 
 	public NetworkServer(NetworkModel model)
 	{
@@ -65,7 +65,7 @@ public class NetworkServer extends Thread
 		}
 	}
 
-	public void startServer() throws Exception
+	private void startServer() throws Exception
 	{
 		Socket clientSocket;
 		NetworkView view = model.getView();
@@ -110,7 +110,7 @@ public class NetworkServer extends Thread
 		}
 	}
 
-	public void sendRemoveUser(String user)
+	private void sendRemoveUser(String user)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
@@ -124,7 +124,7 @@ public class NetworkServer extends Thread
 		}
 	}
 
-	public void sendAllAddUser(String user)
+	private void sendAllAddUser(String user)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
@@ -163,7 +163,7 @@ public class NetworkServer extends Thread
 		}
 	}
 
-	public void sendBroadcast(String user, String text)
+	private void sendBroadcast(String user, String text)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
@@ -268,7 +268,7 @@ public class NetworkServer extends Thread
 		model.handlePcgMessage(uid, messagetext, socket);
 	}
 
-	public String handleMessage(String message, Socket socket) throws Exception
+	private String handleMessage(String message, Socket socket) throws Exception
 	{
 		String user = "Client";
 		if (message.startsWith("User:"))
@@ -282,7 +282,7 @@ public class NetworkServer extends Thread
 		return user;
 	}
 
-	public String handleMessage(String user, String message, Socket socket)
+	private String handleMessage(String user, String message, Socket socket)
 		throws Exception
 	{
 		String retValue = "";
@@ -313,14 +313,14 @@ public class NetworkServer extends Thread
 		return retValue;
 	}
 
-	protected class Handler extends Thread
+	class Handler extends Thread
 	{
-		Socket socket;
-		PrintStream os = null;
-		boolean isRun = true;
-		String user = "Client";
+		private Socket socket;
+		private PrintStream os = null;
+		private boolean isRun = true;
+		private String user = "Client";
 
-		public Handler(Socket sock)
+		private Handler(Socket sock)
 		{
 			this.socket = sock;
 		}
@@ -331,22 +331,22 @@ public class NetworkServer extends Thread
 			os.flush();
 		}
 
-		public void sendIM(String source, String message)
+		private void sendIM(String source, String message)
 		{
 			sendMessage("IM", source + "|" + message);
 		}
 
-		public void sendBroadcast(String aUser, String message)
+		private void sendBroadcast(String aUser, String message)
 		{
 			sendMessage("Broadcast", aUser + "|" + message);
 		}
 
-		public void sendRemoveUser(String aUser)
+		private void sendRemoveUser(String aUser)
 		{
 			sendMessage("RemoveUser", aUser);
 		}
 
-		public void sendAddUser(String aUser)
+		private void sendAddUser(String aUser)
 		{
 			sendMessage("AddUser", aUser);
 		}
@@ -445,7 +445,7 @@ public class NetworkServer extends Thread
 			return os;
 		}
 
-		public String getUser()
+		private String getUser()
 		{
 			return user;
 		}

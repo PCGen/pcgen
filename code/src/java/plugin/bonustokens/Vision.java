@@ -32,7 +32,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public final class Vision extends MultiTagBonusObj
+final class Vision extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"NORMAL", "LOW-LIGHT", "DARKVISION", "BLINDSIGHT", "TREMORSENSE",

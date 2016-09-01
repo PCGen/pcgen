@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:WEAPONPROF= token.
  */
-public final class WeaponProf extends MultiTagBonusObj
+final class WeaponProf extends MultiTagBonusObj
 {
 	private static final String[] bonusTags =
 			{"CRITMULTADD", "CRITRANGEADD", "CRITRANGEDOUBLE", "DAMAGE",

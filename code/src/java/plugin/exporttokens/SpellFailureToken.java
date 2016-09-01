@@ -35,9 +35,9 @@ import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
 
 //SPELLFAILURE
-public class SpellFailureToken extends Token
+class SpellFailureToken extends Token
 {
-	public static final String TOKENNAME = "SPELLFAILURE";
+	private static final String TOKENNAME = "SPELLFAILURE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

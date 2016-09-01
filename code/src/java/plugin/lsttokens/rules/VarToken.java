@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with VAR Token
  */
-public class VarToken extends AbstractNonEmptyToken<RuleCheck> implements
+class VarToken extends AbstractNonEmptyToken<RuleCheck> implements
 		CDOMPrimaryToken<RuleCheck>
 {
 

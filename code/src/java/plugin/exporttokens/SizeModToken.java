@@ -34,10 +34,10 @@ import pcgen.io.exporttoken.Token;
 /**
  * SIZEMOD for export
  */
-public class SizeModToken extends Token
+class SizeModToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "SIZEMOD";
+	private static final String TOKENNAME = "SIZEMOD";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -64,7 +64,7 @@ public class SizeModToken extends Token
 	 * @param pc
 	 * @return value for SIZEMOD
 	 */
-	public static int getSizeModToken(PlayerCharacter pc)
+	private static int getSizeModToken(PlayerCharacter pc)
 	{
 		String sizeModDef = pc.getControl(CControl.SIZEMODDEFENSE);
 		if (sizeModDef == null)

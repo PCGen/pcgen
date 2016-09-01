@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * @author	binkley
  * @version	$Revision$
  */
-public class WeaponProfsToken extends AbstractExportToken
+class WeaponProfsToken extends AbstractExportToken
 {
 	/**
 	 * Gets the token name

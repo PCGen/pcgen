@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:EQM token.
  */
-public final class Eqm extends MultiTagBonusObj
+final class Eqm extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"WEIGHTADD", "WEIGHTDIV", "WEIGHTMULT"};

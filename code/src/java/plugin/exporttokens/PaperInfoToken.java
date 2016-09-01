@@ -32,7 +32,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 //PAPERINFO
-public class PaperInfoToken extends AbstractExportToken
+class PaperInfoToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -48,10 +48,10 @@ import pcgen.io.exporttoken.Token;
  * DEFENSE.NATURAL
  * DEFENSE.SIZE
  */
-public class DefenseToken extends Token
+class DefenseToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "DEFENSE";
+	private static final String TOKENNAME = "DEFENSE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -39,7 +39,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  *
  * @version $Revision$
  */
-public class FavoredListToken extends AbstractExportToken
+class FavoredListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -65,7 +65,7 @@ public class FavoredListToken extends AbstractExportToken
 	 * @param display The character to be queried.
 	 * @return The text comma seperated list of favored classes.
 	 */
-	public static String getFavoredListToken(CharacterDisplay display)
+	private static String getFavoredListToken(CharacterDisplay display)
 	{
 		if (display.hasAnyFavoredClass())
 		{

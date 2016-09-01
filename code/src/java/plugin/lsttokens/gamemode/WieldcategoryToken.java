@@ -10,7 +10,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with WIELDCATEGORY Token
  */
-public class WieldcategoryToken implements GameModeLstToken
+class WieldcategoryToken implements GameModeLstToken
 {
 
 	/**

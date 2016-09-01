@@ -49,8 +49,8 @@ import pcgen.rules.persistence.token.ParseResult;
 public class FavclassToken extends AbstractTokenWithSeparator<Race> implements
 		CDOMPrimaryToken<Race>, ChooseSelectionActor<PCClass>
 {
-	public static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
-	public static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
+	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;
+	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
 	@Override
 	public String getTokenName()

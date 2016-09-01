@@ -45,10 +45,10 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: 1030 $
  */
-public class FollowerTypeToken extends Token
+class FollowerTypeToken extends Token
 {
 	/** Token Name */
-	public static final String TOKENNAME = "FOLLOWERTYPE";
+	private static final String TOKENNAME = "FOLLOWERTYPE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

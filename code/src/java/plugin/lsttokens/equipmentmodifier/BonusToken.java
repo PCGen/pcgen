@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with BONUS token
  */
-public class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
+class BonusToken implements CDOMPrimaryToken<EquipmentModifier>
 {
 
 	@Override

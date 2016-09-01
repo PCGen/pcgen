@@ -36,7 +36,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Class handles AGE Token 
  */
-public class FavoredClassToken extends AbstractExportToken
+class FavoredClassToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

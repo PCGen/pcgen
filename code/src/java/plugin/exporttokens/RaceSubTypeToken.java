@@ -36,7 +36,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 //RACESUBTYPE.x
-public class RaceSubTypeToken extends AbstractExportToken
+class RaceSubTypeToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

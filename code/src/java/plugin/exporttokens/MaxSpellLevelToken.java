@@ -38,10 +38,10 @@ import pcgen.util.Logging;
  *
  * @version $Revision$
  */
-public class MaxSpellLevelToken extends Token
+class MaxSpellLevelToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "MAXSPELLLEVEL";
+	private static final String TOKENNAME = "MAXSPELLLEVEL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -23,7 +23,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
+class NoChoiceToken implements CDOMSecondaryToken<EquipmentModifier>
 {
 
 	@Override

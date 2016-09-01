@@ -39,7 +39,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
+class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

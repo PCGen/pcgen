@@ -50,7 +50,7 @@ import pcgen.util.Logging;
  *
  * @version $Revision$
  */
-public class DirToken extends AbstractExportToken
+class DirToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -112,7 +112,7 @@ public class DirToken extends AbstractExportToken
 	 * Get the HTML sub token
 	 * @return HTML sub token
 	 */
-	public static String getHtmlToken()
+	private static String getHtmlToken()
 	{
 		return SettingsHandler.getHTMLOutputSheetPath();
 	}
@@ -121,7 +121,7 @@ public class DirToken extends AbstractExportToken
 	 * Get the PCGEN sub token
 	 * @return PCGEN sub token
 	 */
-	public static String getPCGenToken()
+	private static String getPCGenToken()
 	{
 		return new File(ConfigurationSettings.getSystemsDir())
 			.getAbsolutePath();
@@ -131,7 +131,7 @@ public class DirToken extends AbstractExportToken
 	 * Get the PCG sub token
 	 * @return PCG sub token
 	 */
-	public static String getPcgToken()
+	private static String getPcgToken()
 	{
 		return new File(PCGenSettings.getPcgDir()).getAbsolutePath();
 	}
@@ -140,7 +140,7 @@ public class DirToken extends AbstractExportToken
 	 * Get the TEMP sub token
 	 * @return TEMP sub token
 	 */
-	public static String getTempToken()
+	private static String getTempToken()
 	{
 		return SettingsHandler.getTempPath().getAbsolutePath();
 	}
@@ -149,7 +149,7 @@ public class DirToken extends AbstractExportToken
 	 * Get the TEMPLATES sub token
 	 * @return TEMPLATES sub token
 	 */
-	public static String getTemplatesToken()
+	private static String getTemplatesToken()
 	{
 		return new File(ConfigurationSettings.getOutputSheetsDir())
 			.getAbsolutePath();

@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:ITEMWEIGHT token.
  */
-public final class ItemWeight extends BonusObj
+final class ItemWeight extends BonusObj
 {
 
 	/**

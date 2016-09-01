@@ -42,10 +42,10 @@ public class ExperienceAdjusterModel extends Observable
 {
 	private ReadXML experienceTable = null;
 	private ExperienceList enemies = new ExperienceList();
-	protected ExperienceList party = new ExperienceList();
-	protected InitHolderList combat;
-	protected File dir;
-	protected double multiplier = 1.0;
+	private ExperienceList party = new ExperienceList();
+	private InitHolderList combat;
+	private File dir;
+	private double multiplier = 1.0;
 
 	/** The value of experience gotten from a group. */
 	private int partyExperience;
@@ -290,7 +290,7 @@ public class ExperienceAdjusterModel extends Observable
 	 * Get party total experience
 	 * @return party total experience
 	 */
-	public int getPartyTotalExperience()
+	private int getPartyTotalExperience()
 	{
 		float enemyCR;
 		int tableCR;

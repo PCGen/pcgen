@@ -72,10 +72,10 @@ import pcgen.util.Logging;
  * DEITY.TITLE
  * DEITY.WORSHIPPERS
  */
-public class DeityToken extends Token
+class DeityToken extends Token
 {
 	/** Token name */
-	public static final String TOKENNAME = "DEITY";
+	private static final String TOKENNAME = "DEITY";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -199,7 +199,7 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return domain list sub token
 	 */
-	public static String getDomainListToken(Deity deity)
+	private static String getDomainListToken(Deity deity)
 	{
 		return ReferenceUtilities.joinDisplayFormat(deity
 				.getSafeListMods(Deity.DOMAINLIST), ", ");
@@ -210,7 +210,7 @@ public class DeityToken extends Token
 	 * @param deity
 	 * @return the SA sub token
 	 */
-	public static String getSAToken(Deity deity, CharacterDisplay display)
+	private static String getSAToken(Deity deity, CharacterDisplay display)
 	{
 		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(deity));

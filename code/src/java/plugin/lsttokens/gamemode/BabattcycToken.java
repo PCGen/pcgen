@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with BABATTCYC Token
  */
-public class BabattcycToken implements GameModeLstToken
+class BabattcycToken implements GameModeLstToken
 {
 
     @Override

@@ -33,7 +33,7 @@ import java.util.Vector;
  * @author Jerril
  *
  */
-public class EnvironmentModel extends DefaultComboBoxModel
+class EnvironmentModel extends DefaultComboBoxModel
 {
 	private String dir;
 

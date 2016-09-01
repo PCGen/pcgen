@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with CLASSTYPE Token
  */
-public class ClasstypeToken implements GameModeLstToken
+class ClasstypeToken implements GameModeLstToken
 {
 
     @Override

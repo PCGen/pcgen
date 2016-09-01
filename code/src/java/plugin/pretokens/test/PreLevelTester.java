@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreLevelTester extends AbstractDisplayPrereqTest implements
+class PreLevelTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

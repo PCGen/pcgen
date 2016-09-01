@@ -30,7 +30,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:LOADMULT token.
  */
-public final class LoadMult extends MultiTagBonusObj
+final class LoadMult extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS = {"TYPE.SIZE", "TYPE=SIZE"};
 

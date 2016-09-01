@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:SKILLPOOL token.
  */
-public final class SkillPool extends BonusObj
+final class SkillPool extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

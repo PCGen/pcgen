@@ -34,7 +34,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with CR Token
  */
-public class CrModToken extends AbstractNonEmptyToken<Race> implements
+class CrModToken extends AbstractNonEmptyToken<Race> implements
 		CDOMPrimaryToken<Race>
 {
 

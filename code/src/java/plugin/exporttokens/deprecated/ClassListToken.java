@@ -35,7 +35,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Deal with CLASSLIST token
  */
-public class ClassListToken extends AbstractExportToken
+class ClassListToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -61,7 +61,7 @@ public class ClassListToken extends AbstractExportToken
 	 * @param display
 	 * @return token value
 	 */
-	public static String getClassListToken(CharacterDisplay display)
+	private static String getClassListToken(CharacterDisplay display)
 	{
 		StringBuilder returnString = new StringBuilder();
 		boolean firstLine = true;

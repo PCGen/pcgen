@@ -11,7 +11,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with BASEDICE Token
  */
-public class BasediceToken implements GameModeLstToken
+class BasediceToken implements GameModeLstToken
 {
 
     @Override

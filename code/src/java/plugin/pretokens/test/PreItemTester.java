@@ -43,7 +43,7 @@ import pcgen.system.LanguageBundle;
  * Sets requirements for items a character must possess.
  *
  */
-public class PreItemTester extends AbstractDisplayPrereqTest implements
+class PreItemTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

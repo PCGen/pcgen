@@ -26,7 +26,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with MAXNONEPICLEVEL Token
  */
-public class MaxNonEpicLevelToken implements GameModeLstToken
+class MaxNonEpicLevelToken implements GameModeLstToken
 {
 
     @Override

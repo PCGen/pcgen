@@ -14,7 +14,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with DONOTADD Token
  */
-public class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements
+class DonotaddToken extends AbstractTokenWithSeparator<PCClassLevel> implements
 		CDOMPrimaryToken<PCClassLevel>
 {
 	@Override

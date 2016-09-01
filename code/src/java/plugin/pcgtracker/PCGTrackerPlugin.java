@@ -67,10 +67,10 @@ import plugin.pcgtracker.gui.PCGTrackerView;
  * @author  Expires 2003
  * @version 2.10
  */
-public class PCGTrackerPlugin implements InteractivePlugin,
+class PCGTrackerPlugin implements InteractivePlugin,
 		java.awt.event.ActionListener
 {
-	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
+	private static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
 	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
@@ -149,7 +149,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * Gets the view that this class is using.
 	 * @return the view.
 	 */
-	public Component getView()
+	private Component getView()
 	{
 		return theView;
 	}
@@ -188,7 +188,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadedList().repaint();
 	}
 
-	public void handleClose()
+	private void handleClose()
 	{
 		/*
 		 * TODO This method seems like a "dead" chain of events - the PCs are
@@ -262,7 +262,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		}
 	}
 
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -272,7 +272,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Handles the clicking of the <b>Add</b> button on the GUI.
 	 */
-	public void handleOpen()
+	private void handleOpen()
 	{
 		File defaultFile = new File(PCGenSettings.getPcgDir());
 		JFileChooser chooser = new JFileChooser();
@@ -311,7 +311,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Registers all the listeners for any actions.
 	 */
-	public void initListeners()
+	private void initListeners()
 	{
 		theView.getRemoveButton().addActionListener(this);
 		theView.getSaveButton().addActionListener(this);
@@ -319,7 +319,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadButton().addActionListener(this);
 	}
 
-	public void removeSelected()
+	private void removeSelected()
 	{
 		for (Object obj : theView.getLoadedList().getSelectedValuesList())
 		{
@@ -339,7 +339,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	private boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -446,7 +446,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -481,12 +481,12 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 *
 	 * @author Dmitry Jemerov &lt;yole@spb.cityline.ru&gt;
 	 */
-	static final class FilenameChangeListener implements PropertyChangeListener
+	private static final class FilenameChangeListener implements PropertyChangeListener
 	{
 		private JFileChooser fileChooser;
 		private String lastSelName;
 
-		FilenameChangeListener(String aFileName, JFileChooser aFileChooser)
+		private FilenameChangeListener(String aFileName, JFileChooser aFileChooser)
 		{
 			lastSelName = aFileName;
 			fileChooser = aFileChooser;

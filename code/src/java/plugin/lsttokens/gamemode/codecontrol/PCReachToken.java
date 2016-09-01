@@ -21,7 +21,7 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class PCReachToken extends AbstractStringStoringToken<CodeControl>
+class PCReachToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()

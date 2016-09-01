@@ -20,11 +20,11 @@ import pcgen.io.exporttoken.Token;
  * @author karianna
  * Class deals with SKILLLISTMODS Token
  */
-public class SkillListModsToken extends Token
+class SkillListModsToken extends Token
 {
 
 	/** Token name */
-	public static final String TOKENNAME = "SKILLLISTMODS";
+	private static final String TOKENNAME = "SKILLLISTMODS";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

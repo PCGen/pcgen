@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with IMAGESMALL Token
  */
-public class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
+class ImagesmallToken implements CDOMPrimaryToken<Sponsor>
 {
 
 	@Override

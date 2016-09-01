@@ -33,7 +33,7 @@ import pcgen.util.enumeration.Load;
 /**
  * Handles the BONUS:POSTMOVEADD token.
  **/
-public final class PostMoveAdd extends BonusObj
+final class PostMoveAdd extends BonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{Load.LIGHT.toString(), Load.MEDIUM.toString(),

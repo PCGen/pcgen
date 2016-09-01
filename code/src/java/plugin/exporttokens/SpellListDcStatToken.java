@@ -43,7 +43,7 @@ import pcgen.io.exporttoken.SpellListToken;
 public class SpellListDcStatToken extends SpellListToken
 {
 	/** token name */
-	public static final String TOKENNAME = "SPELLLISTDCSTAT";
+	private static final String TOKENNAME = "SPELLLISTDCSTAT";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

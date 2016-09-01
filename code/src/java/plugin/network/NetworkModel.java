@@ -59,7 +59,7 @@ import plugin.network.gui.NetworkView;
 public class NetworkModel
 {
 	private NetworkView view = new NetworkView();
-	static List<Color> colorList = new ArrayList<Color>();
+	private static List<Color> colorList = new ArrayList<Color>();
 	static
 	{
 		colorList.add(Color.BLACK);
@@ -138,7 +138,7 @@ public class NetworkModel
 		}
 	}
 
-	public void sendCombatant(Combatant cbt)
+	private void sendCombatant(Combatant cbt)
 	{
 		String user =
 				SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME
@@ -336,7 +336,7 @@ public class NetworkModel
 		}
 	}
 
-	public int getUserNumber(String user)
+	private int getUserNumber(String user)
 	{
 		JList list = view.getUserList();
 		DefaultListModel model = (DefaultListModel) list.getModel();
@@ -364,7 +364,7 @@ public class NetworkModel
 		model.removeElement(user);
 	}
 
-	public String getSelectedUser()
+	private String getSelectedUser()
 	{
 		JList list = view.getUserList();
 		return list.getSelectedValue().toString();
@@ -397,7 +397,7 @@ public class NetworkModel
 		return pane;
 	}
 
-	public void setPaneIcon()
+	private void setPaneIcon()
 	{
 		JTabbedPane logPane = view.getLogPane();
 		JTabbedPane gmgenPane = GMGenSystemView.getTabPane();
@@ -426,7 +426,7 @@ public class NetworkModel
 		logPane.setIconAt(logPane.getSelectedIndex(), null);
 	}
 
-	public void sendMessage()
+	private void sendMessage()
 	{
 		try
 		{
@@ -480,7 +480,7 @@ public class NetworkModel
 
 	private class NetworkLogReciever implements LogReceiver
 	{
-		public NetworkLogReciever()
+		private NetworkLogReciever()
 		{
 			// Empty Constructor
 		}

@@ -32,7 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * SPEECHTENDANCY token for export
  */
-public class SpeechTendancyToken extends AbstractExportToken
+class SpeechTendancyToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

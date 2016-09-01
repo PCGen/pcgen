@@ -72,7 +72,7 @@ public class GoldToken extends Token
 	 * @param pc The character to be queried.
 	 * @return The amount of gold
 	 */
-	public static BigDecimal getGoldToken(PlayerCharacter pc)
+	private static BigDecimal getGoldToken(PlayerCharacter pc)
 	{
 		return pc.getGold();
 	}

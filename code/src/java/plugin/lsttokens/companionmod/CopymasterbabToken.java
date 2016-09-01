@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * Class deals with COPYMASTERBAB Token
  */
-public class CopymasterbabToken extends AbstractStringToken<CompanionMod>
+class CopymasterbabToken extends AbstractStringToken<CompanionMod>
 		implements CDOMPrimaryToken<CompanionMod>
 {
 

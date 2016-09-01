@@ -26,12 +26,12 @@ import pcgen.gui2.converter.event.TokenProcessEvent;
 import pcgen.gui2.converter.event.TokenProcessorPlugin;
 import pcgen.rules.persistence.token.AbstractPreEqualConvertPlugin;
 
-public class PreVisionConvertPlugin implements TokenProcessorPlugin
+class PreVisionConvertPlugin implements TokenProcessorPlugin
 {
 
-	public static final String SET_ANY = "Set unspecified values to ANY (identify as 'present')";
-	public static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
-	public static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
+	private static final String SET_ANY = "Set unspecified values to ANY (identify as 'present')";
+	private static final String SET_ZERO_ANY = "Set zero values to ANY (identify as 'present')";
+	private static final String SET_ZERO_ONE = "Set zero values to 1 (identify as 'possessing distance')";
 
     @Override
 	public String process(TokenProcessEvent tpe)

@@ -46,7 +46,7 @@ import pcgen.util.Logging;
 public class SkillLevelToken extends SkillToken
 {
 	/** token name */
-	public static final String TOKEN_NAME = "SKILLLEVEL";
+	private static final String TOKEN_NAME = "SKILLLEVEL";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

@@ -24,7 +24,7 @@ import pcgen.core.PlayerCharacter;
 
 import javax.swing.DefaultListModel;
 
-public class PCGTrackerModel extends DefaultListModel
+class PCGTrackerModel extends DefaultListModel
 {
 	/**
 	 * Creates an instance of a <code>PCGTrackerModel</code>.  This class holds
@@ -80,12 +80,12 @@ public class PCGTrackerModel extends DefaultListModel
 	{
 		private PlayerCharacter pc;
 
-		public LoadedPC(PlayerCharacter pc)
+		private LoadedPC(PlayerCharacter pc)
 		{
 			this.pc = pc;
 		}
 
-		public PlayerCharacter getPC()
+		private PlayerCharacter getPC()
 		{
 			return pc;
 		}

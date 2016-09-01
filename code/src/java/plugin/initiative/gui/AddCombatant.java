@@ -47,10 +47,10 @@ import plugin.initiative.XMLCombatant;
  * @author     devon
  * @since    April 7, 2003
  */
-public class AddCombatant extends AbstractDialog
+class AddCombatant extends AbstractDialog
 {
 	/** The initiative component */
-	public Initiative initiative;
+	private Initiative initiative;
 
 	private javax.swing.JComboBox typeCombo;
 

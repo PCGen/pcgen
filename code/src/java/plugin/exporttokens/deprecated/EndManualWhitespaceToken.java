@@ -30,7 +30,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Token that represents the end of author controlled whitespace
  */
-public class EndManualWhitespaceToken extends AbstractExportToken
+class EndManualWhitespaceToken extends AbstractExportToken
 {
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

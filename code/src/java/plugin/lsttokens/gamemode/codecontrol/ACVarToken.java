@@ -25,7 +25,7 @@ import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
+class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 		CDOMToken<CodeControl>
 {
 	@Override

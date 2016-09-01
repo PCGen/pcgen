@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
+class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 

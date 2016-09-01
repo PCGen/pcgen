@@ -45,7 +45,7 @@ import pcgen.util.Logging;
  * 
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class ActypeToken implements GameModeLstToken
+class ActypeToken implements GameModeLstToken
 {
 
     @Override

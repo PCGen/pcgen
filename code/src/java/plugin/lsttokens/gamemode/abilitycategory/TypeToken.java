@@ -31,7 +31,7 @@ import pcgen.rules.persistence.token.DeferredToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
-public class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
+class TypeToken extends AbstractNonEmptyToken<AbilityCategory> implements
 		CDOMPrimaryToken<AbilityCategory>, DeferredToken<AbilityCategory>
 {
 

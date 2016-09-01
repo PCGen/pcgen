@@ -38,7 +38,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision:  $
  */
-public class DefaultdatasetToken implements GameModeLstToken
+class DefaultdatasetToken implements GameModeLstToken
 {
 
 	/* (non-Javadoc)

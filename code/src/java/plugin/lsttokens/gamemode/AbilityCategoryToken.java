@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * 
  * @since 5.11.1
  */
-public class AbilityCategoryToken implements GameModeLstToken
+class AbilityCategoryToken implements GameModeLstToken
 {
 
     @Override

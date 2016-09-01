@@ -48,7 +48,7 @@ import pcgen.io.exporttoken.AbilityListToken;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision: $
  */
-public class VAbilityListToken extends AbilityListToken
+class VAbilityListToken extends AbilityListToken
 {
 
 	/**

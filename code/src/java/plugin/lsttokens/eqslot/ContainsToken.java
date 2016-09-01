@@ -10,7 +10,7 @@ import pcgen.util.Logging;
 /**
  * Class deals with CONTAINS Token
  */
-public class ContainsToken implements EquipSlotLstToken
+class ContainsToken implements EquipSlotLstToken
 {
 
     @Override

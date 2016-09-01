@@ -8,7 +8,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with DEITY Token
  */
-public class DisplayorderToken implements GameModeLstToken
+class DisplayorderToken implements GameModeLstToken
 {
 
     @Override

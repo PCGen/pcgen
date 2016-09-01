@@ -27,7 +27,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * Class deals with SKILLCOST_CLASS Token
  */
-public class CRStepsToken implements GameModeLstToken
+class CRStepsToken implements GameModeLstToken
 {
 
     @Override

@@ -23,7 +23,7 @@ import pcgen.io.exporttoken.AbilityListToken;
  * @author karianna
  * @version $Revision$
  */
-public class VFeatListToken extends AbilityListToken
+class VFeatListToken extends AbilityListToken
 {
 
 	/**

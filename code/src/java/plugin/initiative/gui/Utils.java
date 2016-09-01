@@ -37,7 +37,7 @@ import javax.swing.text.NumberFormatter;
  * @author Ross M. Lodge
  *
  */
-public class Utils
+class Utils
 {
 
 	/**
@@ -60,7 +60,7 @@ public class Utils
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
-			Border m_originalBorder = returnValue.getBorder();
+			private Border m_originalBorder = returnValue.getBorder();
 
             @Override
 			public void propertyChange(PropertyChangeEvent evt)
@@ -111,7 +111,7 @@ public class Utils
 		returnValue.addPropertyChangeListener(new PropertyChangeListener()
 		{
 
-			Border m_originalBorder = returnValue.getBorder();
+			private Border m_originalBorder = returnValue.getBorder();
 
             @Override
 			public void propertyChange(PropertyChangeEvent evt)

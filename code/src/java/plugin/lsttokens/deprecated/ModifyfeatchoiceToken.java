@@ -54,11 +54,11 @@ import pcgen.util.enumeration.Tab;
 /**
  * Deals with the MODIFYFEATCHOICE token
  */
-public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
+class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		implements CDOMPrimaryToken<Ability>, ChoiceActor<CNAbility>
 {
 
-	public static final Class<Ability> ABILITY_CLASS = Ability.class;
+	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
 	public String getTokenName()

@@ -1075,7 +1075,7 @@ public class OverPanel extends javax.swing.JPanel
 		/**
 		 * @param button
 		 */
-		public KeyListenerImplementation(JButton button)
+		private KeyListenerImplementation(JButton button)
 		{
 			this.button = button;
 		}

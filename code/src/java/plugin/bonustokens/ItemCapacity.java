@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:ITEMCAPACITY token.
  */
-public final class ItemCapacity extends BonusObj
+final class ItemCapacity extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

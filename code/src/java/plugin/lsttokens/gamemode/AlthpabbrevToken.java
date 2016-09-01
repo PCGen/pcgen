@@ -35,7 +35,7 @@ import pcgen.persistence.lst.GameModeLstToken;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class AlthpabbrevToken implements GameModeLstToken
+class AlthpabbrevToken implements GameModeLstToken
 {
 
     @Override

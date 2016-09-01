@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 /**
  * Handles the BONUS:UDam token.
  */
-public final class UDam extends BonusObj
+final class UDam extends BonusObj
 {
 	/**
 	 * Parse the bonus token.

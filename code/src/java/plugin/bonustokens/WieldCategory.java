@@ -29,7 +29,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * Handles the BONUS:WIELDCATEGORY token.
  */
-public final class WieldCategory extends MultiTagBonusObj
+final class WieldCategory extends MultiTagBonusObj
 {
 	private static final String[] BONUS_TAGS =
 			{"LIGHT", "ONEHANDED", "TWOHANDED"};

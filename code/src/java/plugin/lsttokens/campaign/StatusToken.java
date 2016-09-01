@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with STATUS Token
  */
-public class StatusToken implements CDOMPrimaryToken<Campaign>
+class StatusToken implements CDOMPrimaryToken<Campaign>
 {
 
     @Override

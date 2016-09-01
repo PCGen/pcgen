@@ -40,7 +40,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Deals with ABILITY lst token within KitLevelAbility
  */
-public class AbilityToken extends AbstractToken implements
+class AbilityToken extends AbstractToken implements
 		CDOMPrimaryToken<KitLevelAbility>
 {
 	/**

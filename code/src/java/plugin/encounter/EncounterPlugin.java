@@ -88,14 +88,14 @@ import plugin.encounter.gui.EncounterView;
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
  * @version 2.10
  */
-public class EncounterPlugin implements InteractivePlugin, ActionListener,
+class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ItemListener, MouseListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
 	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
 
 	/** Name of the log */
-	public static final String LOG_NAME = "Encounter"; //$NON-NLS-1$
+	private static final String LOG_NAME = "Encounter"; //$NON-NLS-1$
 
 	/** The model that holds all the data for generating encounters. */
 	private EncounterModel theModel;
@@ -225,7 +225,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Gets the <code>JPanel</code> view associated for this class.
 	 * @return the view.
 	 */
-	public JPanel getView()
+	private JPanel getView()
 	{
 		return theView;
 	}
@@ -267,7 +267,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Handles the <b>Generate Encounter</b> button.
 	 * @param m the encounter model.
 	 */
-	public void handleGenerateEncounter(EncounterModel m)
+	private void handleGenerateEncounter(EncounterModel m)
 	{
 		File f =
 				new File(getDataDirectory() + File.separator + DIR_ENCOUNTER
@@ -307,7 +307,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Add Creature</b> button.
 	 */
-	public void handleAddCreature()
+	private void handleAddCreature()
 	{
 		if (!theView.getLibraryCreatures().isSelectionEmpty())
 		{
@@ -347,7 +347,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * True if active
 	 * @return True if active
 	 */
-	public boolean isActive()
+	private boolean isActive()
 	{
 		JTabbedPane tp = Utility.getTabbedPaneFor(theView);
 		return tp != null && JOptionPane.getFrameForComponent(tp).isFocused()
@@ -357,7 +357,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Remove Creature</b> button.
 	 */
-	public void handleRemoveCreature()
+	private void handleRemoveCreature()
 	{
 		if (!theView.getEncounterCreatures().isSelectionEmpty())
 		{
@@ -376,7 +376,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Handles the <b>Begin Combat</b> button.
 	 */
-	public void handleTransferToTracker()
+	private void handleTransferToTracker()
 	{
 		int i;
 		PlayerCharacter aPC;
@@ -432,7 +432,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Initiliase the menus
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
@@ -550,7 +550,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * Tool item menu
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -566,7 +566,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	/**
 	 * Updates all necessary items if there has been a change.
 	 */
-	public void updateUI()
+	private void updateUI()
 	{
 		int sel;
 
@@ -986,7 +986,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return true;
 	}
 
-	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
+	private List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;

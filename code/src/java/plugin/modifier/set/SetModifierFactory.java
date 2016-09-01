@@ -89,8 +89,8 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		public SetDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toSet)
+		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
+		                               int userPriority, T[] toSet)
 		{
 			super(formatManager, userPriority);
 			this.toSet = toSet;
@@ -124,8 +124,8 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		public SetIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toSet)
+		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
+		                                 int userPriority, Indirect<T[]> toSet)
 		{
 			super(formatManager, userPriority);
 			this.toSet = toSet;

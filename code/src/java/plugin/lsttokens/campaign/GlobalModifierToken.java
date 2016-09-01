@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with VARIABLE Token
  */
-public class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
+class GlobalModifierToken extends AbstractTokenWithSeparator<Campaign>
 		implements CDOMPrimaryToken<Campaign>
 {
 

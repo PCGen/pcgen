@@ -190,11 +190,11 @@ public class PortraitToken extends AbstractExportToken
      *    the {@code BILINEAR} hint is specified)
      * @return a scaled version of the original {@code BufferedImage}
      */
-    public BufferedImage getScaledInstance(BufferedImage img,
-                                           int targetWidth,
-                                           int targetHeight,
-                                           Object hint,
-                                           boolean higherQuality)
+    private BufferedImage getScaledInstance(BufferedImage img,
+                                            int targetWidth,
+                                            int targetHeight,
+                                            Object hint,
+                                            boolean higherQuality)
     {
         int type = (img.getTransparency() == Transparency.OPAQUE) ?
             BufferedImage.TYPE_INT_RGB : BufferedImage.TYPE_INT_ARGB;

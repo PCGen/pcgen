@@ -41,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Class deals with FOLLOWER Token
  */
-public class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
+class FollowerToken extends AbstractTokenWithSeparator<CompanionMod>
 		implements CDOMPrimaryToken<CompanionMod>
 {
 

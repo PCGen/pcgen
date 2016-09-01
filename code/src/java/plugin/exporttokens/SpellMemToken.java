@@ -69,7 +69,7 @@ import pcgen.util.Delta;
 public class SpellMemToken extends Token
 {
 	/** token name */
-	public static final String TOKENNAME = "SPELLMEM";
+	private static final String TOKENNAME = "SPELLMEM";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -592,7 +592,7 @@ public class SpellMemToken extends Token
 	 * @param aPC
 	 * @return item description
 	 */
-	public static String getItemDescription(
+	private static String getItemDescription(
 			String sType,
 			String sKey,
 			String sAlt,

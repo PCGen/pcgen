@@ -26,7 +26,7 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-public class NetworkInitiative extends SystemInitiative
+class NetworkInitiative extends SystemInitiative
 {
 	private String uid;
 	private Socket sock;

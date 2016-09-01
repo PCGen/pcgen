@@ -28,7 +28,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @author djones4
  *
  */
-public class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
+class RemoveLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>
 {
 

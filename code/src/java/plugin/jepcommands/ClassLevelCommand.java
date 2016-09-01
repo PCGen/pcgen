@@ -19,7 +19,7 @@ import java.util.Stack;
  * eg. classlevel("APPLIEDAS=NONEPIC") [in CLASS LST file only]
  * eg. classlevel() [in CLASS LST file only]
  */
-public class ClassLevelCommand extends PCGenCommand
+class ClassLevelCommand extends PCGenCommand
 {
 
 	@Override

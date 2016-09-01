@@ -21,11 +21,11 @@ import pcgen.util.Logging;
 /**
  * Class deals with ARMOR Token
  */
-public class ArmorToken extends Token
+class ArmorToken extends Token
 {
 
 	/** Name of the Token */
-	public static final String TOKENNAME = "ARMOR";
+	private static final String TOKENNAME = "ARMOR";
 
 	/**
 	 * Get the token name
@@ -60,7 +60,7 @@ public class ArmorToken extends Token
 	 * @return token
 	 *
 	 */
-	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	private static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
 	{
 		return replaceTokenArmor(tokenSource, pc, eh);
 	}

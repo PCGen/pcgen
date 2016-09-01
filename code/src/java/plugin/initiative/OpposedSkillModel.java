@@ -62,7 +62,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	 * skill check facilities.
 	 * </p>
 	 */
-	protected class SkillInitWrapper extends InitWrapper
+	private class SkillInitWrapper extends InitWrapper
 	{
 		/** Integer representing a fudge factor */
 		private Integer fudge = null;
@@ -78,7 +78,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 *
 		 * @param init
 		 */
-		public SkillInitWrapper(PcgCombatant init)
+		private SkillInitWrapper(PcgCombatant init)
 		{
 			super(init);
 			if (skillName != null)
@@ -163,7 +163,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 * </p>
 		 * @return Returns the fudge.
 		 */
-		public Integer getFudge()
+		private Integer getFudge()
 		{
 			return fudge;
 		}
@@ -175,7 +175,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 *
 		 * @param fudge The fudge to set.
 		 */
-		public void setFudge(Integer fudge)
+		private void setFudge(Integer fudge)
 		{
 			this.fudge = fudge;
 			calc();
@@ -187,7 +187,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 		 * </p>
 		 * @return Returns the result.
 		 */
-		public Integer getResult()
+		private Integer getResult()
 		{
 			return result;
 		}
@@ -206,7 +206,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	}
 
 	/** Name of the skill being currently used for rolls */
-	protected String skillName;
+	private String skillName;
 
 	/**
 	 * <p>
@@ -276,7 +276,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	 *
 	 * @param rowIndex
 	 */
-	public void roll(int rowIndex)
+	private void roll(int rowIndex)
 	{
 		if (rowIndex < combatants.size())
 		{

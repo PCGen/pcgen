@@ -9,11 +9,11 @@ import pcgen.io.exporttoken.Token;
  * @author karianna
  * Class deals with SPECIALLIST Token
  */
-public class SpecialListToken extends Token
+class SpecialListToken extends Token
 {
 
 	/** Token name */
-	public static final String TOKENNAME = "SPECIALLIST";
+	private static final String TOKENNAME = "SPECIALLIST";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()

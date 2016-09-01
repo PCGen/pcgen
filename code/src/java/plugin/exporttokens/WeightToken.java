@@ -41,7 +41,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * @author	Devon Jones
  * @version	$Revision$
  */
-public class WeightToken extends AbstractExportToken
+class WeightToken extends AbstractExportToken
 {
 	/**
 	 * Gets the token name

@@ -39,7 +39,7 @@ import java.util.List;
  * @author blithwyn
  *
  */
-public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
+class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 		implements PrerequisiteTest
 {
 
