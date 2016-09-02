@@ -20,8 +20,10 @@ package pcgen.cdom.meta;
 import java.util.Collection;
 import java.util.HashMap;
 
+import java.util.Map;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
@@ -39,13 +41,11 @@ public final class CorePerspectiveDB
 
 	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
             new DoubleKeyMap<>();
-	private static HashMap<CorePerspective, FacetView<?>> rootmap =
-            new HashMap<>();
 	private static HashMap<Object, FacetView<?>> facetToView =
             new HashMap<>();
-	private static HashMap<Object, CorePerspective> facetToPerspective =
+	private static Map<Object, CorePerspective> facetToPerspective =
             new HashMap<>();
-	private static HashMapToList<Object, Object> virtualParents =
+	private static MapToList<Object, Object> virtualParents =
             new HashMapToList<>();
 
 	public static <S, D> Object register(CorePerspective perspective,
@@ -94,22 +94,18 @@ public final class CorePerspectiveDB
 		map.put(perspective, location, view);
 		facetToView.put(f, view);
 		facetToPerspective.put(f, perspective);
-		if (FacetBehavior.MODEL.equals(behavior))
-		{
-			rootmap.put(perspective, view);
-		}
 	}
 
-	private static class Location
+	private static final class Location
 	{
 
 		private final String location;
 
-		public Location(FacetBehavior behavior, String source)
+		private Location(FacetBehavior behavior, String source)
 		{
 			location =
-					new StringBuilder(40).append(behavior).append(" (")
-						.append(source).append(")").toString();
+					behavior + " (" +
+							source + ")";
 		}
 
 		@Override
@@ -117,11 +113,6 @@ public final class CorePerspectiveDB
 		{
 			return location;
 		}
-	}
-
-	public static Collection<CorePerspective> getPerspectives()
-	{
-		return map.getKeySet();
 	}
 
 	public static Collection<Object> getLocations(CorePerspective perspective)
@@ -134,13 +125,6 @@ public final class CorePerspectiveDB
 	{
 		@SuppressWarnings("unchecked")
 		FacetView<T> facetView = (FacetView<T>) map.get(perspective, location);
-		return facetView;
-	}
-
-	public static <T> FacetView<T> getRootFacet(CorePerspective perspective)
-	{
-		@SuppressWarnings("unchecked")
-		FacetView<T> facetView = (FacetView<T>) rootmap.get(perspective);
 		return facetView;
 	}
 

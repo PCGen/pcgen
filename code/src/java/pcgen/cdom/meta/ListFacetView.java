@@ -22,12 +22,12 @@ import java.util.Collection;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 
-public class ListFacetView<T> implements FacetView<T>
+class ListFacetView<T> implements FacetView<T>
 {
 
 	private AbstractSourcedListFacet<CharID, T> facet;
 	
-	public ListFacetView(AbstractSourcedListFacet<CharID, T> facet)
+	ListFacetView(AbstractSourcedListFacet<CharID, T> facet)
 	{
 		this.facet = facet;
 	}
@@ -56,12 +56,6 @@ public class ListFacetView<T> implements FacetView<T>
 		return facet.getClass().getSimpleName();
 	}
 
-	@Override
-	public boolean represents(Object src)
-	{
-		return facet.equals(src);
-	}
-	
 	@Override
 	public String toString()
 	{
