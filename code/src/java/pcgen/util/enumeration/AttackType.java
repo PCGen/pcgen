@@ -20,6 +20,9 @@
 
 package pcgen.util.enumeration;
 
+import java.util.Optional;
+import java.util.stream.Stream;
+
 public enum AttackType
 {
 
@@ -45,12 +48,11 @@ public enum AttackType
 
 	public static AttackType getInstance(String ident)
 	{
-		for (AttackType at : AttackType.values())
-		{
-			if (at.identifier.equals(ident))
-			{
-				return at;
-			}
+		Optional<AttackType> at = Stream.of(AttackType.values())
+				.filter(v -> v.identifier.equals(ident))
+				.findFirst();
+		if (at.isPresent()) {
+			return at.get();
 		}
 		throw new IllegalArgumentException("Illegal AttackType identifier: "
 			+ ident);
