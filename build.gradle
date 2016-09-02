@@ -91,24 +91,19 @@ sourceSets {
             include '**/*.jpg'
         }
     }
-    testcommon {
-        java {
-            srcDirs = ['code/src/testcommon']
-        }
-    }
     test {
         java {
-            srcDirs = ['code/src/utest']
+            srcDirs = ['code/src/utest', 'code/src/testcommon']
         }
     }
     itest {
         java {
-            srcDirs = ['code/src/itest']
+            srcDirs = ['code/src/itest', 'code/src/testcommon']
         }
     }
     slowtest {
         java {
-            srcDirs = ['code/src/test']
+            srcDirs = ['code/src/test', 'code/src/testcommon']
         }
     }
 
@@ -167,8 +162,8 @@ dependencies {
 
     //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
     //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'
-    testcommonCompile group: 'junit', name: 'junit', version:'4.12'
-    testcommonCompile group: 'xmlunit', name: 'xmlunit', version:'1.3'
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'xmlunit', name: 'xmlunit', version:'1.3'
     //testCompile group: 'commons-jelly', name: 'commons-jelly-tags-interaction', version:'1.1'
     //testCompile group: 'jline', name: 'jline', version:'2.9'
     //testCompile group: 'com.google.collections', name: 'google-collections', version:'1.0'
@@ -176,10 +171,15 @@ dependencies {
     //testCompile group: 'emma', name: 'emma', version:'2.1.5320'
     //testCompile group: 'emma', name: 'emma_ant', version:'2.1.5320'
 
-    testcommonCompile sourceSets.main.runtimeClasspath
-    testCompile sourceSets.testcommon.runtimeClasspath
-    itestCompile sourceSets.testcommon.runtimeClasspath
-    slowtestCompile sourceSets.testcommon.runtimeClasspath
+    itestCompile sourceSets.main.output
+    itestCompile configurations.testCompile
+    itestCompile sourceSets.test.output
+    itestRuntime configurations.testRuntime
+
+    slowtestCompile sourceSets.main.output
+    slowtestCompile configurations.testCompile
+    slowtestCompile sourceSets.test.output
+    slowtestRuntime configurations.testRuntime
 }
 
 ant.importBuild 'build-gradle.xml'
