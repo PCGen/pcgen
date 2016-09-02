@@ -32,5 +32,4 @@ public interface FacetView<T>
 
 	public String getDescription();
 
-	public boolean represents(Object src);
 }

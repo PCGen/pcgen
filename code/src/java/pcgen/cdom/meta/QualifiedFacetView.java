@@ -23,12 +23,12 @@ import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractQualifiedListFacet;
 
-public class QualifiedFacetView<T extends QualifyingObject> implements FacetView<T>
+class QualifiedFacetView<T extends QualifyingObject> implements FacetView<T>
 {
 
-	private AbstractQualifiedListFacet<T> facet;
+	private final AbstractQualifiedListFacet<T> facet;
 	
-	public QualifiedFacetView(AbstractQualifiedListFacet<T> facet)
+	QualifiedFacetView(AbstractQualifiedListFacet<T> facet)
 	{
 		this.facet = facet;
 	}
@@ -55,12 +55,6 @@ public class QualifiedFacetView<T extends QualifyingObject> implements FacetView
 	public String getDescription()
 	{
 		return facet.getClass().getSimpleName();
-	}
-
-	@Override
-	public boolean represents(Object src)
-	{
-		return facet.equals(src);
 	}
 
 	@Override

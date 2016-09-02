@@ -28,7 +28,7 @@ import java.util.List;
 import pcgen.facade.core.CoreViewNodeFacade;
 
 /**
- * The Class <code>CoreViewNodeBase</code> is a base for defining nodes
+ * The Class {@code CoreViewNodeBase} is a base for defining nodes
  * represents an object stored in a facet.
  *
  * <br>
@@ -42,9 +42,6 @@ public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
 	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<CoreViewNodeFacade> getGrantedByNodes()
 	{
@@ -55,7 +52,7 @@ public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 	 * Add a node to the list of granted by nodes.
 	 * @param node The node to add.
 	 */
-	public void addGrantedByNode(CoreViewNodeBase node)
+	public void addGrantedByNode(CoreViewNodeFacade node)
 	{
 		grantedByList.add(node);
 	}

@@ -19,26 +19,25 @@ package pcgen.cdom.meta;
 
 import java.util.ArrayList;
 import java.util.Collection;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
 
-public class ConvertingFacetView<S, D> implements FacetView<Object>
+class ConvertingFacetView<S, D> implements FacetView<Object>
 {
 
 	private AbstractItemConvertingFacet<S, D> facet;
 	
-	public ConvertingFacetView(AbstractItemConvertingFacet<S, D> facet)
+	ConvertingFacetView(AbstractItemConvertingFacet<S, D> facet)
 	{
 		this.facet = facet;
 	}
 
 	@Override
-	public Collection<? extends Object> getSet(CharID id)
+	public Collection<?> getSet(CharID id)
 	{
 		Collection<S> sources = facet.getSourceObjects(id);
-		ArrayList<SourceDest> list = new ArrayList<SourceDest>(sources.size());
-		for (S src : sources)
+		Collection<SourceDest> list = new ArrayList<SourceDest>(sources.size());
+		for (final S src : sources)
 		{
 			D dest = facet.getResultFor(id, src);
 			list.add(new SourceDest(src, dest));
@@ -65,25 +64,18 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	}
 
 	@Override
-	public boolean represents(Object src)
-	{
-		return facet.equals(src);
-	}
-	
-	@Override
 	public String toString()
 	{
 		return "Facet: " + facet.getClass().getSimpleName();
 	}
 	
-	private class SourceDest
+	private final class SourceDest
 	{
-		S source;
-		D destination;
+		private final S source;
+		private final D destination;
 		
-		public SourceDest(S source, D destination)
+		private SourceDest(S source, D destination)
 		{
-			super();
 			this.source = source;
 			this.destination = destination;
 		}

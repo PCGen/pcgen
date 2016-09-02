@@ -17,12 +17,7 @@
  */
 package pcgen.cdom.meta;
 
-import java.lang.reflect.Field;
-import java.util.Collection;
-import java.util.HashSet;
-
-import pcgen.base.lang.UnreachableError;
-import pcgen.base.util.CaseInsensitiveMap;
+import java.util.Objects;
 
 public final class FacetBehavior
 {
@@ -33,76 +28,18 @@ public final class FacetBehavior
 	public static final FacetBehavior CONDITIONAL_GRANTED = new FacetBehavior("Conditional-Granted");
 //	public static final CorePerspective SELECTION = new CorePerspective("Selection");
 //	public static final CorePerspective CONDITIONAL_SELECTION = new CorePerspective("Conditional Selection");
-	
-	private static CaseInsensitiveMap<FacetBehavior> map = null;
 
 	private String type;
 
 	private FacetBehavior(String type)
 	{
-		if (type == null)
-		{
-			throw new IllegalArgumentException("Type cannot be null");
-		}
-		this.type = type;
-	}
-
-	public static FacetBehavior getKeyFor(String type)
-	{
-		if (map == null)
-		{
-			buildMap();
-		}
-		FacetBehavior key = map.get(type);
-		if (key == null)
-		{
-			key = new FacetBehavior(type);
-			map.put(type, key);
-		}
-		return key;
-	}
-
-	private static void buildMap()
-	{
-		map = new CaseInsensitiveMap<>();
-		Field[] fields = FacetBehavior.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
-		{
-			int mod = fields[i].getModifiers();
-
-			if (java.lang.reflect.Modifier.isStatic(mod)
-				&& java.lang.reflect.Modifier.isFinal(mod)
-				&& java.lang.reflect.Modifier.isPublic(mod))
-			{
-				try
-				{
-					Object obj = fields[i].get(null);
-					if (obj instanceof FacetBehavior)
-					{
-						map.put(fields[i].getName(), (FacetBehavior) obj);
-					}
-				}
-				catch (IllegalArgumentException | IllegalAccessException e)
-				{
-					throw new UnreachableError(e);
-				}
-			}
-		}
+		this.type = Objects.requireNonNull(type);
 	}
 
 	@Override
 	public String toString()
 	{
 		return type;
-	}
-
-	public static Collection<FacetBehavior> getAllConstants()
-	{
-		if (map == null)
-		{
-			buildMap();
-		}
-		return new HashSet<>(map.values());
 	}
 
 }
