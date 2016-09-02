@@ -20,6 +20,7 @@ package gmgen.plugin.dice;
 
 import java.text.MessageFormat;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 class NSidedModifiedDieConfig implements DiceConfig
 {
@@ -27,33 +28,27 @@ class NSidedModifiedDieConfig implements DiceConfig
 	private final int sides;
 	private final int bias;
 
-	private final ResultCounter counter;
-	private final ResultModifier[] modifiers;
-
 	NSidedModifiedDieConfig(final int n, final int sides, final int bias, final Random random)
 	{
 		this.n = n;
 		this.sides = sides;
 		this.bias = bias;
-		counter = new SimpleSumCounter();
-		modifiers = new ResultModifier[] {
-			new AppendModifier(n, sides, random),
-			new SimpleModifier(bias)
-		};
 	}
 
 	@Override
 	public int roll()
 	{
-		return counter.totalCount(
-				ResultModifier.modify(modifiers)
-		);
+		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1)
+		                .map(v -> v + bias)
+		                .limit(n)
+		                .sum();
 	}
 
 	@Override
 	public String toFormula()
 	{
-		if (bias == 0) {
+		if (bias == 0)
+		{
 			return MessageFormat.format("{0}d{1}", n, sides);
 		}
 		return MessageFormat.format("{0}d{1} + {2}", n, sides, bias);
