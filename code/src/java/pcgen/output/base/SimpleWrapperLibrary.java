@@ -17,9 +17,10 @@
  */
 package pcgen.output.base;
 
+import freemarker.template.TemplateModel;
+import freemarker.template.TemplateModelException;
 import java.util.ArrayList;
-import java.util.List;
-
+import java.util.Collection;
 import pcgen.output.wrapper.AgeSetWrapper;
 import pcgen.output.wrapper.BooleanWrapper;
 import pcgen.output.wrapper.CategoryWrapper;
@@ -28,25 +29,18 @@ import pcgen.output.wrapper.NumberWrapper;
 import pcgen.output.wrapper.OrderedPairWrapper;
 import pcgen.output.wrapper.StringWrapper;
 import pcgen.output.wrapper.TypeSafeConstantWrapper;
-import freemarker.template.TemplateModel;
-import freemarker.template.TemplateModelException;
 
 /**
  * SimpleWrapperLibrary stores information on simple wrappers used to wrap
  * objects into TemplateModel objects for FreeMarker.
  */
-public class SimpleWrapperLibrary
+public final class SimpleWrapperLibrary
 {
 
-	private static List<SimpleObjectWrapper> list =
+	private static final Collection<SimpleObjectWrapper> list =
             new ArrayList<>();
 	
 	static
-	{
-		initialize();
-	}
-
-	public static void initialize()
 	{
 		list.add(new StringWrapper());
 		list.add(new NumberWrapper());
@@ -56,6 +50,10 @@ public class SimpleWrapperLibrary
 		list.add(new EnumWrapper());
 		list.add(new OrderedPairWrapper());
 		list.add(new AgeSetWrapper());
+	}
+
+	private SimpleWrapperLibrary()
+	{
 	}
 
 	/**
@@ -93,9 +91,7 @@ public class SimpleWrapperLibrary
 				//No worries, Try the next one
 			}
 		}
-		String info =
-				(toWrap == null) ? "null" : toWrap.getClass()
-					.getCanonicalName();
+		String info = toWrap.getClass().getCanonicalName();
 		throw new TemplateModelException("Unable to find wrapping for " + info);
 	}
 }
