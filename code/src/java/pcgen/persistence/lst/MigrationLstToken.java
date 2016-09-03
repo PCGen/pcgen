@@ -29,8 +29,6 @@ import pcgen.core.system.MigrationRule;
  * as being callable by the MigrationLoader.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -45,8 +45,6 @@ import pcgen.cdom.enumeration.ListKey;
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

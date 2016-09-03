@@ -24,7 +24,6 @@ import pcgen.core.spell.Spell;
  *
  * Created 03-Aug-2008 21:13:54
  *
- * Current Ver: $Revision:$ Last Editor: $Author:$ Last Edited: $Date:$
  */
 public interface TermEvaluator
 {

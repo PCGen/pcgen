@@ -20,8 +20,6 @@
  * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.system;

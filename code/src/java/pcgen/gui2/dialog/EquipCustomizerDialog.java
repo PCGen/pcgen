@@ -46,8 +46,6 @@ import pcgen.system.LanguageBundle;
  * setting the name, cost etc.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

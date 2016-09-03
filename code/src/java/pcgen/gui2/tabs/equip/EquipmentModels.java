@@ -74,8 +74,6 @@ import pcgen.system.LanguageBundle;
  * processing to manage equipping and unequipping actions.
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *  
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

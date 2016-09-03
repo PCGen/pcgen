@@ -31,8 +31,6 @@ import pcgen.facade.core.ClassFacade;
  * a container for information about a particular level of the character. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

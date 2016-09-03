@@ -19,8 +19,6 @@
  * Created on November 17, 2003, 12:00 PM
  *
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -51,8 +49,6 @@ import pcgen.system.PCGenSettings;
  *
  * <p>
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  *
  * @author AD9C15
  * @author boomer70 &lt;boomer70@yahoo.com&gt;

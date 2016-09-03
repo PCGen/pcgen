@@ -19,8 +19,6 @@
  * Created on 14-Mar-2004
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.character;

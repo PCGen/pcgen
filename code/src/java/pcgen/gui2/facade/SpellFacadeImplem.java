@@ -41,8 +41,6 @@ import pcgen.util.SortKeyAware;
  * displaying the spell on the UI. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

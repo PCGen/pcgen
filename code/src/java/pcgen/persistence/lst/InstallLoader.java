@@ -35,8 +35,6 @@ import pcgen.util.Logging;
  * defines how a data set should be installed into an existing PCGen 
  * installation.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

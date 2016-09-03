@@ -43,8 +43,6 @@ import pcgen.util.PjepPool;
  * into a value and are used extensively both in defintions of objects
  * and for output to output sheets.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */

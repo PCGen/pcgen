@@ -28,8 +28,6 @@ package pcgen.gui2.tabs;
  * the field, or changing focus to the field.   
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

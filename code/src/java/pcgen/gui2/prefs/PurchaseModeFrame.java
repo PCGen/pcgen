@@ -67,8 +67,6 @@ import pcgen.system.LanguageBundle;
  * The Class <code>PurchaseModeFrame</code> is responsible for displaying  
  * the character stats purchase mode (aka point buy) configuration dialog.  
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author Chris Ryan
  */

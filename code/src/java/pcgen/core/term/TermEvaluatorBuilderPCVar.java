@@ -20,8 +20,6 @@
  * Created 03 August 2008
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  */
 
 package pcgen.core.term;

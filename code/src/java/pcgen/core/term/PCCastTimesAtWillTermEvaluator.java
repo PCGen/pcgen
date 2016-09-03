@@ -29,8 +29,6 @@ import pcgen.core.character.CharacterSpell;
  * The Class <code>PCCastTimesAtWillTermEvaluator</code> supplies the 
  * times per day value of the ATWILL constant. 
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

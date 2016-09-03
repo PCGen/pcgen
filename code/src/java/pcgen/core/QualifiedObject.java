@@ -16,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * Copyright 2006 Aaron Divinsky <boomer70@yahoo.com>
  */

@@ -35,8 +35,6 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
  * to be implemented Seplls tab.
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-09-29 05:59:43 -0700 (Wed, 29 Sep 2010) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

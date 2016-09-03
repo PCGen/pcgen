@@ -34,7 +34,6 @@ import pcgen.base.util.CaseInsensitiveMap;
  * names in a type-safe fashion, so that they can be quickly compared and use
  * less memory when identical Aspect names exist in two CDOMObjects.
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

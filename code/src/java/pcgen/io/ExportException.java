@@ -30,8 +30,6 @@ import pcgen.exception.PcgenException;
  * the system configuration. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

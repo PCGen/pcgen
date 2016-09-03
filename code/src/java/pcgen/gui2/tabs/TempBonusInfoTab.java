@@ -75,7 +75,6 @@ import pcgen.util.enumeration.Tab;
  * temporary bonus should be applied to their character.
  *
  * <br>
- * Last Editor: $Author$ Last Edited: $Date: 2014-05-17 15:43:31
  * -0700 (Sat, 17 May 2014) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

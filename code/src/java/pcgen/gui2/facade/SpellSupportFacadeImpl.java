@@ -104,8 +104,6 @@ import pcgen.util.enumeration.View;
  * by the UI layer on the character's spells.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
