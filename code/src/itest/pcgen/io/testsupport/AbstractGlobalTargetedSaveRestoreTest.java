@@ -40,7 +40,6 @@ import plugin.lsttokens.CcskillLst;
 import plugin.lsttokens.CskillLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.auto.WeaponProfToken;
-import plugin.lsttokens.choose.LangToken;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
@@ -72,7 +71,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testGlobalCSkill()
 	{
-		if (true) return;
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new HdToken().parseToken(context, monclass, "8");
 		new TypeLst().parseToken(context, monclass, "Monster");
@@ -123,7 +121,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testGlobalCSkillList()
 	{
-		if (true) return;
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new HdToken().parseToken(context, monclass, "8");
 		new TypeLst().parseToken(context, monclass, "Monster");
@@ -179,7 +176,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testGlobalCCSkill()
 	{
-		if (true) return;
 		PCClass myclass = create(PCClass.class, "SomeClass");
 		new HdToken().parseToken(context, myclass, "8");
 		Skill granted = create(Skill.class, "Granted");
@@ -227,7 +223,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 
 	public void testGlobalCCSkillList()
 	{
-		if (true) return;
 		PCClass myclass = create(PCClass.class, "SomeClass");
 		new HdToken().parseToken(context, myclass, "8");
 		Skill granted = create(Skill.class, "Granted");
@@ -281,7 +276,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoWeaponProf()
 	{
-		if (true) return;
 		WeaponProf granted = create(WeaponProf.class, "Granted");
 		create(WeaponProf.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -302,7 +296,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoWeaponProfList()
 	{
-		if (true) return;
 		WeaponProf granted = create(WeaponProf.class, "Granted");
 		create(WeaponProf.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -329,7 +322,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoShieldProf()
 	{
-		if (true) return;
 		ShieldProf granted = create(ShieldProf.class, "Granted");
 		create(ShieldProf.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -354,7 +346,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoShieldProfList()
 	{
-		if (true) return;
 		ShieldProf granted = create(ShieldProf.class, "Granted");
 		create(ShieldProf.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -385,7 +376,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoArmorProf()
 	{
-		if (true) return;
 		T target = create(getObjectClass(), "Target");
 		ArmorProf granted = create(ArmorProf.class, "Granted");
 		create(ArmorProf.class, "Ignored");
@@ -410,7 +400,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoArmorProfList()
 	{
-		if (true) return;
 		T target = create(getObjectClass(), "Target");
 		ArmorProf granted = create(ArmorProf.class, "Granted");
 		create(ArmorProf.class, "Ignored");
@@ -441,11 +430,10 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoLanguage()
 	{
-		if (true) return;
 		T target = create(getObjectClass(), "Target");
 		Language granted = create(Language.class, "Granted");
 		create(Language.class, "Ignored");
-		new LangToken().parseToken(context, target,
+		new plugin.lsttokens.auto.LangToken().parseToken(context, target,
 			"Granted");
 		Object o = prepare(target);
 		finishLoad();
@@ -463,28 +451,27 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAutoLanguageList()
 	{
-		if (true) return;
 		T target = create(getObjectClass(), "Target");
 		Language granted = create(Language.class, "Granted");
 		create(Language.class, "Ignored");
-		new LangToken().parseToken(context, target,
+		new plugin.lsttokens.auto.LangToken().parseToken(context, target,
 			"%LIST");
-		new LangToken().parseToken(context,
+		new plugin.lsttokens.choose.LangToken().parseToken(context,
 			target, "Granted|Ignored");
 		additionalChooseSet(target);
 		Object o = prepare(target);
 		finishLoad();
-		assertFalse("does not have granted language", pc.hasLanguage(granted));
+		assertFalse(pc.hasLanguage(granted));
 		applyObject(target);
-		assertTrue("has granted language", pc.hasLanguage(granted));
+		assertTrue(pc.hasLanguage(granted));
 		runRoundRobin(getPreEqualityCleanup());
-		assertTrue("still has granted language", pc.hasLanguage(granted));
-		assertTrue("reloaded pc has granted languages", reloadedPC.hasLanguage(granted));
+		assertTrue(pc.hasLanguage(granted));
+		assertTrue(reloadedPC.hasLanguage(granted));
 		remove(o);
 		reloadedPC.setDirty(true);
 		if (isSymmetric())
 		{
-			assertFalse("post remove still has language", reloadedPC.hasLanguage(granted));
+			assertFalse(reloadedPC.hasLanguage(granted));
 		}
 	}
 
@@ -516,7 +503,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddLanguage()
 	{
-		if (true) return;
 		Language granted = create(Language.class, "MyLanguage");
 		create(Language.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -538,7 +524,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddTemplate()
 	{
-		if (true) return;
 		PCTemplate granted = create(PCTemplate.class, "MyTemplate");
 		create(PCTemplate.class, "Ignored");
 		T target = create(getObjectClass(), "Target");
@@ -563,7 +548,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddAbilityNormalTarget()
 	{
-		if (true) return;
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
 		Ability abil = context.getReferenceContext().constructCDOMObject(Ability.class, "GrantedAbility");
@@ -594,7 +578,6 @@ public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject
 	@Test
 	public void testAddAbilityVirtualTarget()
 	{
-		if (true) return;
 		TokenRegistration.register(plugin.bonustokens.SkillRank.class);
 		T target = create(getObjectClass(), "Target");
 		Ability abil = context.getReferenceContext().constructCDOMObject(Ability.class, "GrantedAbility");

@@ -33,7 +33,6 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 
 	public void testTemplateFeat()
 	{
-		if (true) return;
 		//Represents CODE-2547
 		try
 		{

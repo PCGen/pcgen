@@ -57,7 +57,6 @@ public class TemplateTargetSaveRestoreTest extends
 	@Test
 	public void testTemplateFavoredClass()
 	{
-		if (true) return;
 		PCClass monclass = create(PCClass.class, "MonClass");
 		new TypeLst().parseToken(context, monclass, "Monster");
 		PCTemplate monster = create(PCTemplate.class, "Monster");
