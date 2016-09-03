@@ -26,7 +26,7 @@ import pcgen.system.LanguageBundle;
  *
  * TODO Support PCG portraits
  */
-public class ImagePreview
+public final class ImagePreview
 		extends JPanel
 		implements PropertyChangeListener
 {

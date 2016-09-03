@@ -86,7 +86,7 @@ import pcgen.util.fop.FopTask;
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class PrintPreviewDialog extends JDialog implements ActionListener
+public final class PrintPreviewDialog extends JDialog implements ActionListener
 {
 
 	public static void showPrintPreviewDialog(PCGenFrame frame)

@@ -173,7 +173,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		return msgHandlerMgr.getPostbox();
 	}
 
-	public static class PluginInfo
+	public static final class PluginInfo
 	{
 
 		public final String logName;

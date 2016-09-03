@@ -73,7 +73,7 @@ import pcgen.system.LanguageBundle;
  * @version $Revision$
  */
 @SuppressWarnings("serial")
-public class PostLevelUpDialog extends JDialog implements ActionListener
+public final class PostLevelUpDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterLevelsFacade levels;

@@ -49,7 +49,7 @@ import pcgen.util.Logging;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
-public class TipOfTheDayHandler
+public final class TipOfTheDayHandler
 {
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 

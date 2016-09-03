@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
-public class PjepPool
+public final class PjepPool
 {
 	private Stack<PJEP> freeStack = new Stack<>();
 	private List<PJEP> usedList = new ArrayList<>();

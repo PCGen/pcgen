@@ -944,7 +944,7 @@ public class JTreeTable extends JTableEx
 		addMouseListener(new PopupListener(this, aPopupMenu));
 	}
 
-	private class PopupListener extends MouseAdapter
+	private final class PopupListener extends MouseAdapter
 	{
 
 		private JPopupMenu theMenu;

@@ -62,7 +62,7 @@ import pcgen.gui2.util.table.IntegerEditor;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class CharacterHPDialog extends JDialog implements ActionListener
+public final class CharacterHPDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterFacade character;

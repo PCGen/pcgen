@@ -34,7 +34,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PrerequisiteTestFactory implements PluginLoader{
+public final class PrerequisiteTestFactory implements PluginLoader{
 	private static PrerequisiteTestFactory instance = null;
 	private static Map<String, PrerequisiteTest> testLookup = new HashMap<>();
 

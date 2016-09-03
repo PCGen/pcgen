@@ -32,7 +32,7 @@ import pcgen.facade.util.event.ReferenceListener;
  * @param <T>
  *            The Format of the information contained in this VariableChannel
  */
-public class VariableChannel<T> implements VariableListener<T>,
+public final class VariableChannel<T> implements VariableListener<T>,
 		WriteableReferenceFacade<T>
 {
 
