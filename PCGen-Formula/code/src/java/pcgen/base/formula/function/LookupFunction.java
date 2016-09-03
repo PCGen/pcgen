@@ -166,6 +166,7 @@ public class LookupFunction implements Function
 		//Lookup value (format based on the table)
 		manager.push(EvaluationManager.ASSERTED,
 			lookupFormat.getManagedClass());
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		Object lookupValue = args[1].jjtAccept(visitor, manager);
 		manager.pop(EvaluationManager.ASSERTED);
 

@@ -37,7 +37,7 @@ public class DataTable
 	/**
 	 * The name of this DataTable.
 	 */
-	public String name;
+	private String name;
 
 	/**
 	 * The columns definitions for this DataTable.
@@ -101,7 +101,10 @@ public class DataTable
 			if (!column.getFormatManager().getManagedClass()
 				.isAssignableFrom(object.getClass()))
 			{
-				//TODO Error
+				throw new IllegalArgumentException("Item " + i
+					+ " in provided row was incorrect format, found: "
+					+ object.getClass() + " but requried "
+					+ column.getFormatManager().getManagedClass());
 			}
 		}
 		dataByRow.add(data);
