@@ -39,7 +39,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * (Tue, 14 Mar 2006) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PageUsageToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>

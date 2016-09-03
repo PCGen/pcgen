@@ -35,7 +35,6 @@ import java.awt.Component;
  *
  *@author     Expires 2003
  *@since    May 30, 2003
- *@version    3.3
  *@since      GMGen 3.3
  */
 public class GMGenSystemView extends JPanel implements ChangeListener

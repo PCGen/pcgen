@@ -36,7 +36,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SourceMigration
 {

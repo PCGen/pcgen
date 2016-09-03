@@ -28,7 +28,6 @@ import pcgen.exception.PcgenException;
  * Exception thrown by the Persistance Layer
  * 
  * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public final class PersistenceLayerException extends PcgenException
 {

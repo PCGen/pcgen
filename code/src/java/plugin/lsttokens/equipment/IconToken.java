@@ -42,7 +42,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class IconToken extends AbstractNonEmptyToken<Equipment> implements
 		CDOMPrimaryToken<Equipment>

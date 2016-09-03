@@ -44,7 +44,6 @@ import pcgen.util.PCGenCommand;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class IsgamemodeCommand extends PCGenCommand
 {

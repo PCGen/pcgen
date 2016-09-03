@@ -33,7 +33,6 @@ import pcgen.util.enumeration.Visibility;
  * (Sat, 24 May 2008) $
  *
  * @author Devon Jones
- * @version $Revision$
  */
 public class VisibleToken extends AbstractNonEmptyToken<EquipmentModifier>
 		implements CDOMPrimaryToken<EquipmentModifier>

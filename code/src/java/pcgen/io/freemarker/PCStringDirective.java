@@ -44,7 +44,6 @@ import freemarker.template.TemplateModelException;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCStringDirective extends CharacterExportAction implements
 		TemplateDirectiveModel, TemplateMethodModelEx

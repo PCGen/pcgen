@@ -35,7 +35,6 @@ import pcgen.persistence.lst.LstSystemLoader;
  * do the loading of system files.
  *
  * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public final class PersistenceManager
 {

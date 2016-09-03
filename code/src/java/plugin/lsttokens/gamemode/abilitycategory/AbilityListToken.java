@@ -46,7 +46,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityListToken extends
 		AbstractTokenWithSeparator<AbilityCategory> implements

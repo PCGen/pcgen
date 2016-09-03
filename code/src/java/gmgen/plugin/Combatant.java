@@ -29,7 +29,6 @@ import java.util.Vector;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision$
  */
 public abstract class Combatant implements InitHolder
 {

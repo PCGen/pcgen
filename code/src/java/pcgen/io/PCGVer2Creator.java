@@ -117,7 +117,6 @@ import pcgen.util.StringPClassUtil;
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
  * @author Thomas Behr 19-03-02
- * @version $Revision$
  */
 public final class PCGVer2Creator implements IOConstants
 {

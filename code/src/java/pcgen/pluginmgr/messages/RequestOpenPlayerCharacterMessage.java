@@ -38,7 +38,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class RequestOpenPlayerCharacterMessage extends PCGenMessage

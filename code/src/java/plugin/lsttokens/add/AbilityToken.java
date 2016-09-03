@@ -87,7 +87,6 @@ import pcgen.util.enumeration.Visibility;
  * (Sun, 20 May 2007) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Rev$
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>

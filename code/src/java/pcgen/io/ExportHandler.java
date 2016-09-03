@@ -109,7 +109,6 @@ import pcgen.util.enumeration.View;
  * constructs that can be found in the character sheet templates. 
  *
  * @author Thomas Behr
- * @version $Revision$
  */
 public final class ExportHandler
 {
@@ -3825,7 +3824,6 @@ public final class ExportHandler
 	 * <code>PStringTokenizer</code>
 	 *
 	 * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
-	 * @version $Revision$
 	 */
 	private static final class PStringTokenizer
 	{

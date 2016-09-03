@@ -34,7 +34,6 @@ import pcgen.core.GameMode;
  * do the loading of system files.
  *
  * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public interface SystemLoader
 {

@@ -31,7 +31,6 @@ import java.util.Map;
  * only List intances filled with String instances.
  *
  * @author Thomas Behr 08-00-02
- * @version $Revision$
  */
 final class Cache
 {

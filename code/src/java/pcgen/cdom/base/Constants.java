@@ -30,7 +30,6 @@ import java.text.DecimalFormat;
  * is that an interface uses a little less memory.)
  *
  * @author     Jonas Karlsson
- * @version    $Revision$
  */
 public interface Constants
 {

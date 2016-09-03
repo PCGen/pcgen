@@ -49,7 +49,6 @@ import pcgen.cdom.enumeration.ListKey;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ListMatchingReference<T extends CDOMObject, V> extends
 		CDOMReference<T>

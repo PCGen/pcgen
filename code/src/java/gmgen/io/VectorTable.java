@@ -28,7 +28,6 @@ import java.util.Vector;
  * to hold the XML tables that are being loaded<p>
  * Created on February 26, 2003
  * @author  Expires 2003
- * @version 1.0
  */
 public class VectorTable extends AbstractList
 {
