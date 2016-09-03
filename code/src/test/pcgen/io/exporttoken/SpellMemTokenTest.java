@@ -107,7 +107,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_ARCANE=1");
 		context.unconditionallyProcess(testSpell, "DOMAINS", "Fire=0");
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_DIVINE=1");
-		Globals.addToSpellMap(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

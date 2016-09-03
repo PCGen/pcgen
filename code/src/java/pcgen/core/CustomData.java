@@ -675,7 +675,8 @@ public final class CustomData
 		{
 			writeCustomHeader(bw);
 
-			for(Spell spell : Globals.getSpellMap().values())
+			for(Spell spell : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Spell.class))
 			{
 				if (spell.isType(Constants.TYPE_CUSTOM))
 				{

@@ -119,7 +119,8 @@ public enum EqModNameOpt
 
 				if (SettingsHandler.guiUsesOutputNameSpells())
 				{
-					final Spell aSpell = Globals.getSpellKeyed(spellName);
+					final Spell aSpell = Globals.getContext().getReferenceContext()
+							.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 					if (aSpell != null)
 					{

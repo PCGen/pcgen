@@ -82,6 +82,7 @@ import pcgen.core.WeaponProf;
 import pcgen.core.analysis.EqModAttachment;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
+import pcgen.core.spell.Spell;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.SourceSelectionFacade;
@@ -101,7 +102,6 @@ import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.persistence.lst.KitLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.persistence.lst.SpellLoader;
 import pcgen.persistence.lst.VariableLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -138,7 +138,6 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			new AbilityCategoryLoader();
 	private CompanionModLoader companionModLoader = new CompanionModLoader();
 	private KitLoader kitLoader = new KitLoader();
-	private SpellLoader spellLoader = new SpellLoader();
 	private BioSetLoader bioLoader = new BioSetLoader();
 	private AbilityLoader abilityLoader = new AbilityLoader();
 	private FeatLoader featLoader = new FeatLoader();
@@ -156,6 +155,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
 	private GenericLoader<PCStat> statLoader = new GenericLoader<>(PCStat.class);
 	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLoader<>(SizeAdjustment.class);
+	private GenericLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
 	private GlobalModifierLoader globalModifierLoader =
