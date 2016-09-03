@@ -27,6 +27,7 @@ import java.util.EventListener;
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
+@FunctionalInterface
 public interface ReferenceListener<E> extends EventListener
 {
 	void referenceChanged(ReferenceEvent<E> e);

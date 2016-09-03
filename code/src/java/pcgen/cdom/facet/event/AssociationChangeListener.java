@@ -25,6 +25,7 @@ package pcgen.cdom.facet.event;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
+@FunctionalInterface
 public interface AssociationChangeListener
 {
 

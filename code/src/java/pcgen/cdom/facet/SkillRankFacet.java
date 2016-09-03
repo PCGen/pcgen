@@ -222,6 +222,7 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		support.addLevelChangeListener(listener);
 	}
 
+	@FunctionalInterface
 	public static interface SkillRankChangeListener extends EventListener
 	{
 		public void rankChanged(SkillRankChangeEvent lce);

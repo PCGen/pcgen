@@ -35,6 +35,7 @@ import java.util.EventListener;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @version $Revision$
  */
+@FunctionalInterface
 public interface PCGenMessageHandler extends EventListener
 {
 	/**

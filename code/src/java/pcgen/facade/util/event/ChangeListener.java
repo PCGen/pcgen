@@ -34,6 +34,7 @@ package pcgen.facade.util.event;
  * @version $Revision$
  */
 
+@FunctionalInterface
 public interface ChangeListener
 {
 	/**

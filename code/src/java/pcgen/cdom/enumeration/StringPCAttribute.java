@@ -15,6 +15,7 @@
  */
 package pcgen.cdom.enumeration;
 
+@FunctionalInterface
 public interface StringPCAttribute
 {
 	PCStringKey getStringKey();
