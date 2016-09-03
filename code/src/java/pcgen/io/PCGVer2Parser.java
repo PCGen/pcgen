@@ -2489,8 +2489,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseEyeColorLine(final String line)
 	{
-		thePC.setEyeColor(EntityEncoder.decode(line.substring(TAG_EYECOLOR
-			.length() + 1)));
+		thePC.setStringFor(PCStringKey.EYECOLOR,
+				EntityEncoder.decode(line.substring(TAG_EYECOLOR.length() + 1)));
 	}
 
 	/*
