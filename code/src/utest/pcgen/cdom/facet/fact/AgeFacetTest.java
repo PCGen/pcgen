@@ -37,7 +37,8 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 		return facet;
 	}
 
-	private int n = 0;
+	// random starting point (>0)
+	private int n = 12494;
 
 	@Override
 	protected Integer getItem()
@@ -48,13 +49,14 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testItemSetMultGetAge()
 	{
-		assertEquals(0, facet.getAge(id));
+
+		intAssertEquals(0, facet.get(id));
 		getFacet().set(id, 4);
-		assertEquals(4, facet.getAge(id));
+		intAssertEquals(4, facet.get(id));
 		getFacet().set(id, 2);
-		assertEquals(2, facet.getAge(id));
+		intAssertEquals(2, facet.get(id));
 		// Remove
 		getFacet().remove(id);
-		assertEquals(0, facet.getAge(id));
+		intAssertEquals(0, facet.get(id));
 	}
 }

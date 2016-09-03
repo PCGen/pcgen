@@ -40,20 +40,20 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightUnsetZero()
 	{
-		assertEquals(0, facet.getHeight(id));
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test
 	public void testHeightSetZeroValid()
 	{
-		facet.setHeight(id, 0);
-		assertEquals(0, facet.getHeight(id));
+		facet.set(id, 0);
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Test
 	public void testHeightSetNegative()
 	{
-		facet.setHeight(id, -250);
+		facet.set(id, -250);
 		/*
 		 * TODO Some form of error here?
 		 */
@@ -62,10 +62,10 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testRemoveHeight()
 	{
-		facet.setHeight(id, 25);
-		assertEquals(25, facet.getHeight(id));
-		facet.removeHeight(id);
-		assertEquals(0, facet.getHeight(id));
+		facet.set(id, 25);
+		intAssertEquals(25, facet.get(id));
+		facet.remove(id);
+		intAssertEquals(0, facet.get(id));
 	}
 
 	@Override
@@ -74,7 +74,7 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 		return facet;
 	}
 
-	private int n = 1;
+	private int n = 112324;
 
 	@Override
 	protected Integer getItem()

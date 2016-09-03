@@ -149,7 +149,7 @@ public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
 			return 0;
 		}
 
-		int pcAge = ageFacet.getAge(id);
+		int pcAge = ageFacet.get(id);
 		int ageSet = -1;
 
 		for (String s : values)

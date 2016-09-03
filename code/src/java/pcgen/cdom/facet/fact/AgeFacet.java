@@ -31,23 +31,10 @@ public class AgeFacet extends AbstractItemFacet<CharID, Integer> implements
 		ItemFacet<CharID, Integer>
 {
 
-	/**
-	 * Returns the int value of the age of the Player Character identified by
-	 * the given CharID.
-	 * 
-	 * This method is convenient for wrapping the get(CharID) method to avoid a
-	 * null check if the age is not defined.
-	 * 
-	 * @param id
-	 *            The CharID identifying the Player Character for which the age
-	 *            should be returned
-	 * @return The age of the Player Character identified by the given CharID;
-	 *         zero if no age is defined
-	 */
-	public int getAge(CharID id)
+	@Override
+	public Integer valueWhenNull()
 	{
-		Integer age = get(id);
-		return age == null ? 0 : age;
+		return 0;
 	}
 
 	public void init()

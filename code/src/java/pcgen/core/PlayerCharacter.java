@@ -73,6 +73,7 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.GenericPCAttribute;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -168,6 +169,7 @@ import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.cdom.facet.analysis.StatLockFacet;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.cdom.facet.analysis.VariableFacet;
+import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.cdom.facet.fact.AgeFacet;
 import pcgen.cdom.facet.fact.AllowDebtFacet;
@@ -178,14 +180,12 @@ import pcgen.cdom.facet.fact.FollowerFacet;
 import pcgen.cdom.facet.fact.GenderFacet;
 import pcgen.cdom.facet.fact.GoldFacet;
 import pcgen.cdom.facet.fact.HandedFacet;
-import pcgen.cdom.facet.fact.HeightFacet;
 import pcgen.cdom.facet.fact.IgnoreCostFacet;
 import pcgen.cdom.facet.fact.PortraitThumbnailRectFacet;
 import pcgen.cdom.facet.fact.PreviewSheetFacet;
 import pcgen.cdom.facet.fact.RegionFacet;
 import pcgen.cdom.facet.fact.SkillFilterFacet;
 import pcgen.cdom.facet.fact.SuppressBioFieldFacet;
-import pcgen.cdom.facet.fact.WeightFacet;
 import pcgen.cdom.facet.fact.XPFacet;
 import pcgen.cdom.facet.input.AddLanguageFacet;
 import pcgen.cdom.facet.input.AutoEquipmentListFacet;
@@ -296,6 +296,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private final SAProcessor SA_PROC;
 	private final CharacterDisplay display;
 
+	private final Map<GenericPCAttribute, AbstractItemFacet<CharID, Integer>> numericFacetMap = new HashMap<>();
+
+
 	/*
 	 * Note "pure" here means no getDirty call, and absolutely no other stuff in
 	 * the method. Also any method is not used elsewhere in PlayerCharacter
@@ -306,8 +309,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
 	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
 	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
-	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+
 	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
 	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
 	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
@@ -440,7 +442,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
 	private SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
 	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
-	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
 	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
 	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
 	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
@@ -620,19 +621,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public void setPCAttribute(final NumericPCAttribute attr, final int value)
 	{
-		boolean didChange = false;
-		switch(attr)
-		{
-			case HEIGHT:
-				didChange = heightFacet.setHeight(id, value);
-				break;
-			case WEIGHT:
-				didChange = weightFacet.setWeight(id, value);
-				break;
-			case AGE:
-				didChange = ageFacet.set(id, value);
-				break;
-		}
+		final AbstractItemFacet<CharID, Integer> facet = (AbstractItemFacet<CharID, Integer>) FacetLibrary.getFacet(attr.getMyClass());
+		final boolean didChange = facet.set(id, value);
 
 		if (didChange)
 		{
@@ -9553,7 +9543,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			spMod *= getRace().getSafe(IntegerKey.INITIAL_SKILL_MULT);
-			if (ageFacet.getAge(id) <= 0)
+
+			if (PlayerCharacter.getFacetFor(NumericPCAttribute.AGE).get(id) <= 0)
 			{
 				// Only generate a random age if the user hasn't set one!
 				bioSetFacet.get(id).randomize("AGE", this);
@@ -9565,6 +9556,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		return spMod;
+	}
+
+	private static AbstractItemFacet<CharID, Integer> getFacetFor(final NumericPCAttribute attr) {
+		return (AbstractItemFacet<CharID, Integer>) FacetLibrary.getFacet(attr.getMyClass());
 	}
 
 	private int updateBaseSkillMod(PCClass pcClass, int spMod)

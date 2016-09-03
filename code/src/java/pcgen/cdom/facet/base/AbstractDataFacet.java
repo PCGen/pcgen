@@ -18,6 +18,7 @@
 package pcgen.cdom.facet.base;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Map;
 import java.util.TreeMap;
@@ -51,6 +52,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * @param <T>
  *            The Type of object stored in this AbstractDataFacet
  */
+@SuppressWarnings("unchecked")
 public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		AbstractStorageFacet<IDT>
 {
@@ -279,10 +281,7 @@ public abstract class AbstractDataFacet<IDT extends PCGenIdentifier, T> extends
 		for (DataFacetChangeListener<IDT, ? super T>[] dfclArray : listeners
 			.values())
 		{
-			for (DataFacetChangeListener<IDT, ? super T> listener : dfclArray)
-			{
-				list.add(listener);
-			}
+			Collections.addAll(list, dfclArray);
 		}
 		return list.toArray(new DataFacetChangeListener[list.size()]);
 	}
