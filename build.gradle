@@ -269,6 +269,7 @@ clean {
 test {
     exclude 'pcgen/testsupport/**'
     //	maxParallelForks 4
+    maxParallelForks 8
     testLogging {
         exceptionFormat = 'full'
     }
@@ -288,7 +289,7 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
-    forkEvery = 1
+    maxParallelForks 8
     maxHeapSize = "512m"
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
