@@ -17,6 +17,9 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Objects;
+
+import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
@@ -39,6 +42,12 @@ import pcgen.base.formula.base.VariableStore;
  */
 public class SimpleFormulaManager implements FormulaManager
 {
+	
+	/**
+	 * The DefaultStore used to know the default values for a format (class).
+	 */
+	private final DefaultStore defaultStore;
+
 	/**
 	 * The FunctionLibrary used to store valid functions in this FormulaManager.
 	 */
@@ -76,37 +85,21 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @param resultStore
 	 *            The VariableStore used to hold variables values for items
 	 *            processed through this FormulaManager
+	 * @param defaultStore
+	 *            The DefaultStore used to know default values for each format
+	 *            (class)
 	 * @throws IllegalArgumentException
 	 *             if any parameter is null
 	 */
 	public SimpleFormulaManager(FunctionLibrary ftnLibrary,
 		OperatorLibrary opLibrary, VariableLibrary varLibrary,
-		VariableStore resultStore)
+		VariableStore resultStore, DefaultStore defaultStore)
 	{
-		if (ftnLibrary == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build FormulaManager with null FunctionLibrary");
-		}
-		if (opLibrary == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build FormulaManager with null OperatorLibrary");
-		}
-		if (varLibrary == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build FormulaManager with null VariableLibrary");
-		}
-		if (resultStore == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build FormulaManager with null VariableStore");
-		}
-		this.ftnLibrary = ftnLibrary;
-		this.opLibrary = opLibrary;
-		this.varLibrary = varLibrary;
-		this.results = resultStore;
+		this.ftnLibrary = Objects.requireNonNull(ftnLibrary);
+		this.opLibrary = Objects.requireNonNull(opLibrary);
+		this.varLibrary = Objects.requireNonNull(varLibrary);
+		this.results = Objects.requireNonNull(resultStore);
+		this.defaultStore = Objects.requireNonNull(defaultStore);
 	}
 
 	/**
@@ -174,7 +167,25 @@ public class SimpleFormulaManager implements FormulaManager
 	@Override
 	public FormulaManager swapFunctionLibrary(FunctionLibrary ftnLib)
 	{
-		return new SimpleFormulaManager(ftnLib, opLibrary, varLibrary, results);
+		return new SimpleFormulaManager(ftnLib, opLibrary, varLibrary, results,
+			defaultStore);
+	}
+
+	/**
+	 * Returns the default value for a given Format (provided as a Class).
+	 * 
+	 * @param <T>
+	 *            The format (class) of object for which the default value
+	 *            should be returned
+	 * @param varFormat
+	 *            The Class (data format) for which the default value should be
+	 *            returned
+	 * @return The default value for the given Format
+	 */
+	@Override
+	public <T> T getDefault(Class<T> format)
+	{
+		return defaultStore.getDefault(format);
 	}
 
 }

@@ -78,7 +78,7 @@ public class IndividualSetup
 		formulaManager =
 				new SimpleFormulaManager(parent.getFunctionLibrary(),
 					parent.getOperatorLibrary(), parent.getVariableLibrary(),
-					getVariableStore());
+					getVariableStore(), parent.getSolverFactory());
 		globalScopeInst = instanceFactory.getInstance(null, globalName, null);
 	}
 

@@ -382,13 +382,18 @@ public class EvaluateVisitor implements FormulaParserVisitor
 				return resolver.get(id);
 			}
 		}
+		Class<?> asserted = manager.peek(EvaluationManager.ASSERTED);
+		if (asserted == null)
+		{
+			System.out
+				.println("Evaluation called on invalid variable: '" + varName
+					+ "', no asserted format available to determine default, "
+					+ "assuming zero (number)");
+			return 0;
+		}
 		System.out.println("Evaluation called on invalid variable: '" + varName
-			+ "', assuming default");
-		//argh! not always integer!!
-		return Integer.valueOf(0);
-		//		throw new IllegalStateException(
-		//			"Evaluation called on invalid Formula (reached invalid non-term: "
-		//				+ termName + ")");
+			+ "', assuming default for " + asserted.getSimpleName());
+		return fm.getDefault(asserted);
 	}
 
 }
