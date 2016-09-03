@@ -17,6 +17,10 @@
  */
 package pcgen.base.formula.base;
 
+/**
+ * A DefaultStore is an object that can return the default value of a format
+ * (provided as a Class).
+ */
 public interface DefaultStore
 {
 	/**

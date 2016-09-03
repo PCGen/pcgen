@@ -42,7 +42,7 @@ import pcgen.base.formula.base.VariableStore;
  */
 public class SimpleFormulaManager implements FormulaManager
 {
-	
+
 	/**
 	 * The DefaultStore used to know the default values for a format (class).
 	 */
@@ -177,7 +177,7 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @param <T>
 	 *            The format (class) of object for which the default value
 	 *            should be returned
-	 * @param varFormat
+	 * @param format
 	 *            The Class (data format) for which the default value should be
 	 *            returned
 	 * @return The default value for the given Format

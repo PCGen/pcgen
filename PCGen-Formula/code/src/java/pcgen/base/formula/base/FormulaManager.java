@@ -86,8 +86,8 @@ public interface FormulaManager
 	/**
 	 * Returns the default value for a given format (class).
 	 * 
-	 * @param The
-	 *            format for which the default value should be returned
+	 * @param format
+	 *            The format for which the default value should be returned
 	 * @return The default value for a given format (class)
 	 */
 	public <T> T getDefault(Class<T> format);
