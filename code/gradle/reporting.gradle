@@ -26,7 +26,7 @@ pmd {
 	
 	ignoreFailures = true
 	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
-	toolVersion = "5.1.0"
+	toolVersion = "5.5.1"
 }
 
 jdepend {
