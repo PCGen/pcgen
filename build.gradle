@@ -131,6 +131,7 @@ task copyMasterSheets(type: Copy) {
 
 compileJava {
     it.dependsOn 'copyMasterSheets'
+    options.incremental = true
 }
 
 
