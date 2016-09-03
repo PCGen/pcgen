@@ -17,11 +17,8 @@ package pcgen.cdom.enumeration;
 
 public enum NumericPCAttribute
 {
-	AGE(true),
-	HEIGHT(false),
 	WEIGHT(false),
-	;
-
+	AGE(true);
 
 	private final boolean recalcActiveBonuses;
 

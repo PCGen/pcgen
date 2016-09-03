@@ -19,7 +19,6 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;

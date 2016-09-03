@@ -29,11 +29,9 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.fact.FactDefinition;
-import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
@@ -377,21 +375,41 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	private void setBoilerplate()
 	{
 		pc.setRace(human);
-		pc.setPCAttribute(NumericPCAttribute.HEIGHT, 0);;
+		pc.setHeight(0);
 		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
-		pc.setPCAttribute(BooleanPCAttribute.ALLOW_DEBT, false);
-		pc.setPCAttribute(HandedPCAttr.HANDED, Handed.Right);
+		pc.setAllowDebt(false);
+		pc.setHanded(Handed.Right);
 		pc.setGender(Gender.Male);
-		pc.setPCAttribute(BooleanPCAttribute.IGNORE_COST, false);
+		pc.setIgnoreCost(false);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
 		pc.setGold(BigDecimal.ZERO);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 
-		for (final PCStringKey stringKey: PCStringKey.values())
-		{
-			pc.setStringFor(stringKey, "");
-		}
+		pc.setStringFor(PCStringKey.INTERESTS, "");
+		pc.setStringFor(PCStringKey.MAGIC, "");
+		pc.setStringFor(PCStringKey.PORTRAIT_PATH, "");
+		pc.setStringFor(PCStringKey.BIRTHDAY, "");
+		pc.setStringFor(PCStringKey.DESCRIPTION, "");
+		pc.setStringFor(PCStringKey.RESIDENCE, "");
+		pc.setStringFor(PCStringKey.PERSONALITY1, "");
+		pc.setStringFor(PCStringKey.EYECOLOR, "");
+		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
+		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
+		pc.setStringFor(PCStringKey.PHOBIAS, "");
+		pc.setStringFor(PCStringKey.LOCATION, "");
+		pc.setStringFor(PCStringKey.NAME, "");
+		pc.setStringFor(PCStringKey.COMPANIONS, "");
+		pc.setStringFor(PCStringKey.SKINCOLOR, "");
+		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
+		pc.setStringFor(PCStringKey.BIO, "");
+		pc.setStringFor(PCStringKey.GMNOTES, "");
+		pc.setStringFor(PCStringKey.BIRTHPLACE, "");
+		pc.setStringFor(PCStringKey.ASSETS, "");
+		pc.setStringFor(PCStringKey.SPEECHTENDENCY, "");
+		pc.setStringFor(PCStringKey.HAIRCOLOR, "");
+		pc.setStringFor(PCStringKey.PERSONALITY2, "");
+		pc.setStringFor(PCStringKey.TABNAME, "");
 	}
 
 }

@@ -575,7 +575,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 				if ((baseHeight != 0) && (htAdd != 0))
 				{
-					pc.setPCAttribute(NumericPCAttribute.HEIGHT, baseHeight + htAdd);
+					pc.setHeight(baseHeight + htAdd);
 				}
 
 				if ((totalWeight != null) && (baseWeight != 0) && (wtAdd != 0))
