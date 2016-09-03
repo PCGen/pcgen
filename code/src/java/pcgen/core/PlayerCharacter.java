@@ -67,28 +67,25 @@ import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
+import pcgen.cdom.enumeration.NumericPCAttribute;
+import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
-import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -582,7 +579,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		setCharacterType(SettingsHandler.getGame().getDefaultCharacterType());
 		setPreviewSheet(SettingsHandler.getGame().getDefaultPreviewSheet());
 
-		setPCAttribute(PCAttribute.NAME, "");
+		setName(Constants.EMPTY_STRING);
 		setUserPoolBonus(AbilityCategory.FEAT, BigDecimal.ZERO);
 		rollStats(SettingsHandler.getGame().getRollMethod());
 		addSpellBook(new SpellBook(Globals.getDefaultSpellBook(), SpellBook.TYPE_KNOWN_SPELLS));
@@ -623,9 +620,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		boolean didChange = false;
 		switch(attr)
 		{
-			case HEIGHT:
-				didChange = heightFacet.setHeight(id, value);
-				break;
 			case WEIGHT:
 				didChange = weightFacet.setWeight(id, value);
 				break;
@@ -645,21 +639,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	}
 
-	//TODO: migrate most of the setPCAttribute code into a common core.
-	public void setPCAttribute(final HandedPCAttr attr, Handed value)
-	{
-		boolean didChange = false;
-		switch(attr)
-		{
-			case HANDED:
-				didChange = handedFacet.setHanded(id, value);
-				break;
-		}
-		if (didChange) {
-			setDirty(true);
-		}
-	}
-
 	/**
 	 * Sets player character information
 	 *
@@ -671,21 +650,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		setStringFor(attr.getStringKey(), value);
 	}
 
-	public void setPCAttribute(final BooleanPCAttribute attr, final boolean value)
-	{
-		switch (attr)
-		{
-			case ALLOW_DEBT:
-				allowDebtFacet.set(id, value);
-				break;
-
-			case IGNORE_COST:
-				ignoreCostFacet.set(id, value);
-				break;
-		}
-	}
-
-	                            /**
+	/**
 	 * Set the current EquipSet that is used to Bonus/Equip calculations.
 	 *
 	 * @param eqSetId The equipSet to be used for Bonus Calculations and output
@@ -1397,6 +1362,35 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
+	 * Sets the character's handedness.
+	 *
+	 * @param h A handedness to try and set.
+	 */
+	public void setHanded(final Handed h)
+	{
+		if (handedFacet.setHanded(id, h))
+		{
+			setDirty(true);
+		}
+	}
+
+	/**
+	 * Sets the character's height in inches.
+	 *
+	 * @param i
+	 *            A height in inches.
+	 *
+	 * TODO - This should be a double value stored in CM
+	 */
+	public void setHeight(final int i)
+	{
+		if (heightFacet.setHeight(id, i))
+		{
+			setDirty(true);
+		}
+	}
+
+	/**
 	 * Marks the character as being in the process of being loaded.
 	 *
 	 * <p>
@@ -1439,7 +1433,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *            A list of companionMods to get level for
 	 * @return The effective level for this companion type
 	 */
-	int getEffectiveCompanionLevel(final CompanionList compList)
+	public int getEffectiveCompanionLevel(final CompanionList compList)
 	{
 		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 			CompanionMod.class, compList).getAllObjects())
@@ -2574,6 +2568,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
+	/**
+	 * @param allowDebt the allowDebt to set
+	 */
+	public void setAllowDebt(boolean allowDebt)
+	{
+		allowDebtFacet.set(id, allowDebt);
+	}
+
 	public String getAttackString(AttackType at)
 	{
 		return getAttackString(at, 0);
@@ -2801,6 +2803,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean getAutoSpells()
 	{
 		return autoKnownSpells;
+	}
+
+	/**
+	 * @param ignoreCost the ignoreCost to set
+	 */
+	public void setIgnoreCost(boolean ignoreCost)
+	{
+		ignoreCostFacet.set(id, ignoreCost);
 	}
 
 	/**
@@ -9834,7 +9844,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	void removeKnownSpellsForClassLevel(PCClass pcc)
+	public void removeKnownSpellsForClassLevel(PCClass pcc)
 	{
 		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || importing
 			|| !autoKnownSpells)
@@ -9853,8 +9863,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> spellsToBeRemoved =
                 new ArrayList<>();
 
-		for (final CharacterSpell charSpell : getCharacterSpells(pcc))
+		for (Iterator<? extends CharacterSpell> iter =
+				getCharacterSpells(pcc).iterator(); iter.hasNext();)
 		{
+			final CharacterSpell charSpell = iter.next();
+
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
@@ -9870,7 +9883,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 				final boolean isKnownAtThisLevel =
 						spellSupport.isAutoKnownSpell(aSpell, spellLevel, true,
-								this);
+							this);
 
 				if (!isKnownAtThisLevel)
 				{
@@ -9957,7 +9970,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonusLanguageAbility;
 	}
 
-	void setAllowInteraction(boolean b)
+	public void setAllowInteraction(boolean b)
 	{
 		if (!b && !allowInteraction)
 		{

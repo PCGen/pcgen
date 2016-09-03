@@ -54,7 +54,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -2138,7 +2137,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		int heightInInches =
 				Globals.getGameModeUnitSet().convertHeightFromUnitSet(height);
 		heightRef.set(height);
-		theCharacter.setPCAttribute(NumericPCAttribute.HEIGHT, heightInInches);
+		theCharacter.setHeight(heightInInches);
 	}
 
 	/**
@@ -2832,7 +2831,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	public void setHanded(HandedFacade handedness)
 	{
 		this.handedness.set(handedness);
-		theCharacter.setPCAttribute(HandedPCAttr.HANDED, (Handed) handedness);
+		theCharacter.setHanded((Handed) handedness);
 	}
 
 	/* (non-Javadoc)
