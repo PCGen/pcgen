@@ -22,8 +22,6 @@
  */
 package pcgen.gui2.facade;
 
-import java.io.File;
-
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
