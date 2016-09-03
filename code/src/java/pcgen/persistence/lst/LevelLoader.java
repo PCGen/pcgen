@@ -40,7 +40,6 @@ import pcgen.util.Logging;
  * by processing each line passed to it.
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public final class LevelLoader
 {

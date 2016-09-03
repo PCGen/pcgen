@@ -39,7 +39,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ResizableEquipTypeToken implements GameModeLstToken
 {

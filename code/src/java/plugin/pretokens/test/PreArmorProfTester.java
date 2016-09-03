@@ -43,7 +43,6 @@ import pcgen.system.LanguageBundle;
  * prerequisites. 
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
- * @version $Revision$
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

@@ -48,7 +48,6 @@ import pcgen.cdom.reference.UnconstructedValidator;
  * Last Edited: $Date:  $
  * 
  * @author Tom Parker &lt;thpr@users.sourceforge.net&gt; on 12 Jun 2008
- * @version $Revision:  $
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {

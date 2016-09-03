@@ -59,7 +59,6 @@ import pcgen.util.Logging;
  * Last Editor: $Author: $ Last Edited: $Date: $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>

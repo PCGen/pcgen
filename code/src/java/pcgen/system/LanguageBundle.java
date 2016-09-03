@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * language chosen in preferences.
  *
  * @author Thomas Behr 03-01-02
- * @version $Revision$
  */
 public final class LanguageBundle
 {

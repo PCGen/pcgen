@@ -36,7 +36,6 @@ import pcgen.util.Logging;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class MaxSpellLevelToken extends Token
 {

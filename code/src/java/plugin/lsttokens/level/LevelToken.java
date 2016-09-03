@@ -38,7 +38,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
- * @version $Revision$
  */
 public class LevelToken implements LevelLstToken
 {

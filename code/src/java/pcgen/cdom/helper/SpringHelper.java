@@ -39,7 +39,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class SpringHelper
 {

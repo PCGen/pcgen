@@ -33,7 +33,6 @@ import java.net.URI;
  * (Tue, 23 Dec 2008) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CampaignURL implements Comparable<CampaignURL>
 {

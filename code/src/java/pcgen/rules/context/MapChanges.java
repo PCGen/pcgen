@@ -35,7 +35,6 @@ import java.util.Map;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class MapChanges<K, V>
 {

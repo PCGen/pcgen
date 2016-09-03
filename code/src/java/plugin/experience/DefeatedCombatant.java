@@ -33,7 +33,6 @@ import java.util.List;
 /**
  *@author     devon
  *@since    March 20, 2003
- *@version $Revision$
  */
 public class DefeatedCombatant extends Combatant
 {
