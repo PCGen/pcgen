@@ -32,7 +32,6 @@ package pcgen.persistence.lst.output.prereq;
 import java.io.IOException;
 import java.io.StringWriter;
 import java.io.Writer;
-
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
@@ -48,6 +47,7 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+import util.Alignment;
 
 /**
  * Tests PrerequisiteWriter code
@@ -466,7 +466,7 @@ public class PrerequisiteWriterTest extends TestCase
 		SystemCollections.addToGameModeList(gamemode);
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SettingsHandler.setGame("3.5");
-		TestHelper.createAllAlignments();
+		Alignment.createAllAlignments();
 		TestHelper.makeSizeAdjustments();
 		FactKey.getConstant("IsPC", STR_MGR);
 		FactKey.getConstant("LEGS", STR_MGR);
