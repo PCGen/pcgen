@@ -38,9 +38,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 import java.util.StringTokenizer;
-
 import org.apache.commons.lang.SystemUtils;
-
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
@@ -79,7 +77,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
 import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
-import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.Main;
@@ -464,22 +461,6 @@ public class TestHelper
 		WeaponProf wp = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(WeaponProf.class, aKey);
 		return wp != null && pc.hasWeaponProf(wp);
-	}
-
-	public static void createAllAlignments()
-	{
-		AbstractReferenceContext ref = Globals.getContext().getReferenceContext();
-		ref.importObject(BuildUtilities.createAlignment("Lawful Good", "LG"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Neutral", "LN"));
-		ref.importObject(BuildUtilities.createAlignment("Lawful Evil", "LE"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Good", "NG"));
-		ref.importObject(BuildUtilities.createAlignment("True Neutral", "TN"));
-		ref.importObject(BuildUtilities.createAlignment("Neutral Evil", "NE"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Good", "CG"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Neutral", "CN"));
-		ref.importObject(BuildUtilities.createAlignment("Chaotic Evil", "CE"));
-		ref.importObject(BuildUtilities.createAlignment("None", "NONE"));
-		ref.importObject(BuildUtilities.createAlignment("Deity's", "Deity"));
 	}
 
 	/**
