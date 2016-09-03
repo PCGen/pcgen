@@ -95,7 +95,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	private static URI URI;
 	private static boolean setup = false;
 
-	public static void setUpBeforeClass() throws Exception
+	private static void setUpBeforeClass() throws PersistenceLayerException
 	{
 		if (!setup)
 		{
@@ -126,9 +126,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	}
 
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -143,7 +140,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 
 	private static final plugin.lsttokens.ability.MultToken ABILITY_MULT_TOKEN =
 			new plugin.lsttokens.ability.MultToken();
-	protected static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
+	private static final plugin.lsttokens.ChooseLst CHOOSE_TOKEN =
 			new plugin.lsttokens.ChooseLst();
 	private static final plugin.lsttokens.choose.LangToken CHOOSE_LANG_TOKEN =
 			new plugin.lsttokens.choose.LangToken();
@@ -151,7 +148,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 			new plugin.lsttokens.ability.VisibleToken();
 	private static final plugin.lsttokens.AutoLst AUTO_TOKEN =
 			new plugin.lsttokens.AutoLst();
-	protected static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
+	private static final plugin.lsttokens.auto.LangToken AUTO_LANG_TOKEN =
 			new plugin.lsttokens.auto.LangToken();
 	private static final plugin.lsttokens.equipment.ProficiencyToken EQUIP_PROFICIENCY_TOKEN =
 			new plugin.lsttokens.equipment.ProficiencyToken();
@@ -225,7 +222,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected WeaponProfFacet weaponProfFacet;
 	protected Race human;
 
-	protected void setUpContext() throws PersistenceLayerException
+	private void setUpContext() throws PersistenceLayerException
 	{
 		ChooserFactory.pushChooserClassname(RandomChooser.class.getName());
 		TokenRegistration.clearTokens();
@@ -336,7 +333,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		runRoundRobin(preEqualityCleanup, false);
 	}
 
-	protected void runRoundRobin(Runnable preEqualityCleanup, boolean dump)
+	private void runRoundRobin(Runnable preEqualityCleanup, boolean dump)
 	{
 		runWriteRead(dump);
 		if (preEqualityCleanup != null)
