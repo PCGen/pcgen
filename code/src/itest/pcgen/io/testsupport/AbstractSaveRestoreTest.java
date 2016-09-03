@@ -386,10 +386,30 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));
 
-		for (final PCStringKey stringKey: PCStringKey.values())
-		{
-			pc.setStringFor(stringKey, "");
-		}
+		pc.setStringFor(PCStringKey.INTERESTS, "");
+		pc.setStringFor(PCStringKey.MAGIC, "");
+		pc.setStringFor(PCStringKey.PORTRAIT_PATH, "");
+		pc.setStringFor(PCStringKey.BIRTHDAY, "");
+		pc.setStringFor(PCStringKey.DESCRIPTION, "");
+		pc.setStringFor(PCStringKey.RESIDENCE, "");
+		pc.setStringFor(PCStringKey.PERSONALITY1, "");
+		pc.setStringFor(PCStringKey.EYECOLOR, "");
+		pc.setStringFor(PCStringKey.PLAYERSNAME, "");
+		pc.setStringFor(PCStringKey.HAIRSTYLE, "");
+		pc.setStringFor(PCStringKey.PHOBIAS, "");
+		pc.setStringFor(PCStringKey.LOCATION, "");
+		pc.setStringFor(PCStringKey.NAME, "");
+		pc.setStringFor(PCStringKey.COMPANIONS, "");
+		pc.setStringFor(PCStringKey.SKINCOLOR, "");
+		pc.setStringFor(PCStringKey.CATCHPHRASE, "");
+		pc.setStringFor(PCStringKey.BIO, "");
+		pc.setStringFor(PCStringKey.GMNOTES, "");
+		pc.setStringFor(PCStringKey.BIRTHPLACE, "");
+		pc.setStringFor(PCStringKey.ASSETS, "");
+		pc.setStringFor(PCStringKey.SPEECHTENDENCY, "");
+		pc.setStringFor(PCStringKey.HAIRCOLOR, "");
+		pc.setStringFor(PCStringKey.PERSONALITY2, "");
+		pc.setStringFor(PCStringKey.TABNAME, "");
 	}
 
 }
