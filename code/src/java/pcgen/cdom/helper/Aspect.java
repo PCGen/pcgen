@@ -53,7 +53,6 @@ import pcgen.util.Logging;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * 
- * @since 5.15.2
  */
 public class Aspect extends ConcretePrereqObject
 {

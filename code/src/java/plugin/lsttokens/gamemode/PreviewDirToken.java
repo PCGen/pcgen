@@ -30,7 +30,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.13.2
  */
 public class PreviewDirToken implements GameModeLstToken
 {

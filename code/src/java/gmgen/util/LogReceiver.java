@@ -27,7 +27,6 @@ package gmgen.util;
  * number of logging destinations.
  *
  * @author Tod Milam
- *@since        GMGen 3.3
  */
 public interface LogReceiver
 {
@@ -36,7 +35,6 @@ public interface LogReceiver
 	 *
 	 * @param owner the owner of the message being logged.
 	 * @param message the message to log.
-	 *@since        GMGen 3.3
 	 */
 	public void logMessage(String owner, String message);
 
@@ -44,7 +42,6 @@ public interface LogReceiver
 	 * Logs a message not associated with a specific owner.
 	 *
 	 * @param message the message to log.
-	 *@since        GMGen 3.3
 	 */
 	public void logMessage(String message);
 }

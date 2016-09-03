@@ -61,7 +61,6 @@ import pcgen.util.enumeration.View;
 
 /**
  *@author     devon
- *@since    March 20, 2003
  */
 public class PcgCombatant extends Combatant
 {

@@ -62,7 +62,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  * plugin.
  *
  * @author Devon Jones
- * @since August 27, 2003
  */
 public class NotesPlugin implements InteractivePlugin
 {

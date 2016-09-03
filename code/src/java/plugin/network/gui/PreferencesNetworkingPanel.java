@@ -35,7 +35,6 @@ import java.awt.FlowLayout;
  *  Dialog for editing preferences.
  *
  *@author     devon
- *@since    April 7, 2003
  */
 public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 {

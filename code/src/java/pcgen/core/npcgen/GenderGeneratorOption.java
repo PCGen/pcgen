@@ -27,7 +27,6 @@ import pcgen.cdom.enumeration.Gender;
  * This class represents a particular gender generator option.
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
- * @since 5.11.1
  */
 public class GenderGeneratorOption extends GeneratorOption
 {

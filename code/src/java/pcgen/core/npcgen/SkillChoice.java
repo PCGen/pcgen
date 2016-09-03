@@ -37,7 +37,6 @@ import pcgen.core.Skill;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public class SkillChoice
 {

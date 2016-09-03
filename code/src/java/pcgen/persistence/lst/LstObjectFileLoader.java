@@ -171,7 +171,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
 	 * 
 	 * @throws PersistenceLayerException 
-	 * @since 5.11
 	 */
 	public void completeObject(LoadContext context, SourceEntry source,
 		final T pObj) throws PersistenceLayerException
@@ -251,7 +250,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * 
 	 * @param cdo The object to add.
 	 * 
-	 * @since 5.11
 	 */
 	protected void addGlobalObject(final CDOMObject cdo)
 	{

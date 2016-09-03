@@ -65,7 +65,6 @@ import pcgen.util.enumeration.Visibility;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public class ClassDataParser
 {
@@ -124,7 +123,6 @@ public class ClassDataParser
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
- * @since 5.11.1
  */
 class ClassDataHandler extends DefaultHandler
 {

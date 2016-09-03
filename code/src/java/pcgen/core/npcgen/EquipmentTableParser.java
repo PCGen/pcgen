@@ -46,7 +46,6 @@ import pcgen.util.Logging;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.4
  */
 public class EquipmentTableParser
 {
@@ -144,7 +143,6 @@ public class EquipmentTableParser
 	 * 
 	 * @author boomer70 &lt;boomer70@yahoo.com&gt;
 	 *
-	 * @since 5.11.4
 	 */
 	class EquipmentTableHandler extends DefaultHandler
 	{

@@ -31,7 +31,6 @@ import pcgen.cdom.base.Constants;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public abstract class GeneratorOption
 {
