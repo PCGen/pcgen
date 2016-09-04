@@ -151,9 +151,9 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		}
 		
 		return LanguageBundle.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
-				new Object[] {prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						str.toString()} );
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(),
+				str.toString());
 
 	}
 

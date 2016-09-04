@@ -744,7 +744,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			}
 			if (path.length > 2)
 			{
-				return new TreeViewPath<>(pobj, new Object[]{path[0], path[1]});
+				return new TreeViewPath<>(pobj, path[0], path[1]);
 			}
 			return new TreeViewPath<>(pobj, path);
 		}

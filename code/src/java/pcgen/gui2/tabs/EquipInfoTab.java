@@ -373,11 +373,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		((LabelsUpdater) models.get(LabelsUpdater.class)).uninstall();
-		((EquipmentModel) models.get(EquipmentModel.class)).uninstall();
-		((EquipmentModels) models.get(EquipmentModels.class)).uninstall();
-		((EquipInfoHandler) models.get(EquipInfoHandler.class)).uninstall();
-		((OrderPopupMenuHandler) models.get(OrderPopupMenuHandler.class)).uninstall();
+		models.get(LabelsUpdater.class).uninstall();
+		models.get(EquipmentModel.class).uninstall();
+		models.get(EquipmentModels.class).uninstall();
+		models.get(EquipInfoHandler.class).uninstall();
+		models.get(OrderPopupMenuHandler.class).uninstall();
 	}
 
 	@Override

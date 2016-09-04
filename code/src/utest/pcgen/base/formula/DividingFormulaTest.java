@@ -97,7 +97,7 @@ public class DividingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{});
+			f.resolve();
 			fail("empty array should be illegal");
 		}
 		catch (IllegalArgumentException e)
@@ -106,7 +106,7 @@ public class DividingFormulaTest extends TestCase
 		}
 		try
 		{
-			f.resolve(new Number[]{Integer.valueOf(4), Double.valueOf(2.5)});
+			f.resolve(Integer.valueOf(4), Double.valueOf(2.5));
 			fail("two arguments in array should be illegal");
 		}
 		catch (IllegalArgumentException e)

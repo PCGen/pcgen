@@ -152,7 +152,7 @@ public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 			comparators[i] = Comparators.getComparatorFor(m.getColumnClass(i));
 		}
 		int keyCount = sortKeys.size();
-		RowSorter.SortKey[] keys = sortKeys.<RowSorter.SortKey>toArray(new RowSorter.SortKey[keyCount]);
+		RowSorter.SortKey[] keys = sortKeys.toArray(new RowSorter.SortKey[keyCount]);
 
 		m.sortModel(new RowComparator(keys, comparators));
 	}

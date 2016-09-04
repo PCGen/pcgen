@@ -57,14 +57,12 @@ public class FacetDefinitionTest
 	 * Array of exceptions to normal names. Each entry is a pair of
 	 * Java source file name and JAR file name. 
 	 */
-	private final List<String> exceptions = Arrays.asList(new String[] {
-		"AssociationChangeEvent", "AssociationChangeListener", 
-		"DataFacetChangeEvent", "DataFacetChangeListener", 
-		"ScopeFacetChangeEvent", "ScopeFacetChangeListener",
-		"SubScopeFacetChangeEvent", "SubScopeFacetChangeListener",
-		"CategorizedDataFacetChangeEvent", "FacetInitialization", 
-		"FacetLibrary"
-	});
+	private final List<String> exceptions = Arrays.asList("AssociationChangeEvent", "AssociationChangeListener",
+			"DataFacetChangeEvent", "DataFacetChangeListener",
+			"ScopeFacetChangeEvent", "ScopeFacetChangeListener",
+			"SubScopeFacetChangeEvent", "SubScopeFacetChangeListener",
+			"CategorizedDataFacetChangeEvent", "FacetInitialization",
+			"FacetLibrary");
 	
 	/**
 	 * Check for the presence of all 'general' facets in the spring definition.

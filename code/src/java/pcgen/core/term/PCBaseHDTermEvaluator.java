@@ -58,7 +58,7 @@ public class PCBaseHDTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getDisplay().getBaseHD();
+		return pc.getDisplay().getBaseHD();
 	}
 
 	/* (non-Javadoc)

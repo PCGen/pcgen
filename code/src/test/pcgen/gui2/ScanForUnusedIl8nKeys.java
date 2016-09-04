@@ -130,7 +130,7 @@ public class ScanForUnusedIl8nKeys
 	{
 		for (Iterator<String> iterator = missingKeys.iterator(); iterator.hasNext();)
 		{
-			String key = (String) iterator.next();
+			String key = iterator.next();
 			if (key.startsWith("in_mnu") || key.startsWith("in_mn_mnu")
 				|| key.startsWith("in_EqBuilder_")
 				|| key.startsWith("PrerequisiteOperator.display"))

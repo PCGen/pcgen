@@ -186,13 +186,13 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 		if (prereq.getOperand().equals("1") && prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
 			foo = LanguageBundle.getFormattedString("PreCSkill.single.toHtml", //$NON-NLS-1$
-					new Object[]{skillName});
+					skillName);
 		}
 		else
 		{
 			foo = LanguageBundle.getFormattedString("PreCSkill.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName});
+					prereq.getOperator().toDisplayString(),
+					prereq.getOperand(), skillName);
 		}
 		return foo;
 	}

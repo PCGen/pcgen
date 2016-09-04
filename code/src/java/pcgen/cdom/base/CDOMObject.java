@@ -148,7 +148,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<IntegerKey> getIntegerKeys()
 	{
-		return integerChar == null ? Collections.<IntegerKey> emptySet()
+		return integerChar == null ? Collections.emptySet()
 			: new HashSet<>(integerChar.keySet());
 	}
 
@@ -189,7 +189,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<StringKey> getStringKeys()
 	{
-		return stringChar == null ? Collections.<StringKey> emptySet()
+		return stringChar == null ? Collections.emptySet()
 			: new HashSet<>(stringChar.keySet());
 	}
 
@@ -230,7 +230,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<FormulaKey> getFormulaKeys()
 	{
-		return formulaChar == null ? Collections.<FormulaKey> emptySet()
+		return formulaChar == null ? Collections.emptySet()
 			: new HashSet<>(formulaChar.keySet());
 	}
 
@@ -246,7 +246,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<VariableKey> getVariableKeys()
 	{
-		return variableChar == null ? Collections.<VariableKey> emptySet()
+		return variableChar == null ? Collections.emptySet()
 			: new HashSet<>(variableChar.keySet());
 	}
 
@@ -311,7 +311,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<ObjectKey<?>> getObjectKeys()
 	{
-		return objectChar == null ? Collections.<ObjectKey<?>>emptySet() : new HashSet<>(objectChar.keySet());
+		return objectChar == null ? Collections.emptySet() : new HashSet<>(objectChar.keySet());
 	}
 
 	public final boolean containsKey(FactKey<?> key)
@@ -363,7 +363,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<FactKey<?>> getFactKeys()
 	{
-		return factChar == null ? Collections.<FactKey<?>>emptySet() : new HashSet<>(factChar.keySet());
+		return factChar == null ? Collections.emptySet() : new HashSet<>(factChar.keySet());
 	}
 
 	public final boolean containsSetFor(FactSetKey<?> key)
@@ -448,7 +448,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<FactSetKey<?>> getFactSetKeys()
 	{
-		return factSetChar == null ? Collections.<FactSetKey<?>>emptySet() : factSetChar.getKeySet();
+		return factSetChar == null ? Collections.emptySet() : factSetChar.getKeySet();
 	}
 
 	public final boolean containsListFor(ListKey<?> key)
@@ -608,7 +608,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final Set<ListKey<?>> getListKeys()
 	{
-		return listChar == null ? Collections.<ListKey<?>>emptySet() : listChar.getKeySet();
+		return listChar == null ? Collections.emptySet() : listChar.getKeySet();
 	}
 
 	// ===== MapKeyMap Methods =====
@@ -674,7 +674,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		// The javadoc for getMapFor() says that it returns null, but the implementation does NOT
 		// This caused an NPE in AspectToken.parseNonEmptyToken because it assumed a non-null map
-		return mapChar == null ? Collections.<K, V>emptyMap() : mapChar.getMapFor(mapKey);
+		return mapChar == null ? Collections.emptyMap() : mapChar.getMapFor(mapKey);
 	}
 
 	/**
@@ -685,7 +685,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> Set<K> getKeysFor(MapKey<K, V> mapKey)
 	{
-		return mapChar == null ? Collections.<K>emptySet() : mapChar.getKeysFor(mapKey);
+		return mapChar == null ? Collections.emptySet() : mapChar.getKeysFor(mapKey);
 	}
 
 	/**
@@ -729,7 +729,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final Set<MapKey<?, ?>> getMapKeys()
 	{
-		return mapChar == null ? Collections.<MapKey<?, ?>>emptySet() : mapChar.getKeySet();
+		return mapChar == null ? Collections.emptySet() : mapChar.getKeySet();
 	}
 	
 	@Override
@@ -916,7 +916,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	{
 		return cdomListMods == null
 			? Collections
-				.<CDOMReference<? extends CDOMList<?>>> emptySet()
+				.emptySet()
 			: cdomListMods.getKeySet();
 	}
 

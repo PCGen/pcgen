@@ -100,7 +100,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 			if (toCount instanceof String)
 			{
 				JepCountType countEnum =
-						JepCountType.valueOf((String) toCount + "DISTINCT");
+						JepCountType.valueOf(toCount + "DISTINCT");
 				if (countEnum == null)
 				{
 					// Fall back to count

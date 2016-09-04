@@ -796,7 +796,7 @@ public class BonusManager
 				for (Object element : bonus.getBonusInfoList())
 				{
 					if (element instanceof PCStat
-							&& ((PCStat) element).equals(stat))
+							&& element.equals(stat))
 					{
 						found = true;
 						break;
