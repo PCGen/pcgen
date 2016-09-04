@@ -41,10 +41,7 @@ public final class ComparableComparator<T extends Comparable<T>> implements Comp
 		// TODO: Exception needs to be handled
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public int compare(T o1, T o2)
 	{
 		return o1.compareTo(o2);

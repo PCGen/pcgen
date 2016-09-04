@@ -39,9 +39,6 @@ public abstract class PcgenFtlTestCase extends pcGenGUITestCase
 		super(name);
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String getSheetName()
 	{

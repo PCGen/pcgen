@@ -127,9 +127,6 @@ public class SearchFilterPanel extends JPanel
 		this.filterHandler = handler;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

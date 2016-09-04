@@ -93,10 +93,7 @@ public class OverlandPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -191,9 +188,6 @@ public class OverlandPlugin implements InteractivePlugin
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{

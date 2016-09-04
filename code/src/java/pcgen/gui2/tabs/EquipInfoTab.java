@@ -434,9 +434,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		loadLabel.setForeground(color);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -1049,9 +1046,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void showPopup(MouseEvent e)
 		{

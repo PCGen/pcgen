@@ -1519,9 +1519,6 @@ public class PCClass extends PObject implements ClassFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean qualifies(PlayerCharacter aPC, Object owner)
 	{

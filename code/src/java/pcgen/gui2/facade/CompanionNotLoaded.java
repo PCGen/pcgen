@@ -63,36 +63,24 @@ public class CompanionNotLoaded implements CompanionFacade
 		this.companionType = compType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return nameRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return fileRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return raceRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{

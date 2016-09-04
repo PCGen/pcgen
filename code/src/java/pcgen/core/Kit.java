@@ -453,10 +453,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -464,10 +461,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	}
 
     
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public boolean isPermanent()
 	{
 		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;

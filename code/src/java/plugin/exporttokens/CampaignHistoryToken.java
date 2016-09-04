@@ -60,18 +60,12 @@ public class CampaignHistoryToken extends Token
 
 	private static enum Visibility {ALL, HIDDEN, VISIBLE};
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)

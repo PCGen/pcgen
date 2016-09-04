@@ -114,10 +114,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;

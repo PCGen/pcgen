@@ -124,9 +124,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	}
 
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

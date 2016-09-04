@@ -54,45 +54,30 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
 		return String.valueOf(obj);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSource()
 	{
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceForNodeDisplay()
 	{
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return obj.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
@@ -107,9 +92,6 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		return obj;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
@@ -121,9 +103,6 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 		return "";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{

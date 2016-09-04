@@ -309,10 +309,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getKeyName().compareTo(o.toString());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

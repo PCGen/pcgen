@@ -42,18 +42,12 @@ public class NewCategoryToken implements MigrationLstToken
 {
 	private Pattern invalidKeyPattern = Pattern.compile(".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*");
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "NEWCATEGORY";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)

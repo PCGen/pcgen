@@ -97,10 +97,7 @@ public class KitSelectionDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		//must be the ok command

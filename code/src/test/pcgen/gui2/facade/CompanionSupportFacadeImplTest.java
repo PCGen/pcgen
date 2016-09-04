@@ -65,9 +65,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	private CompanionList companionList;
 	private TodoManager todoManager;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -120,9 +117,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

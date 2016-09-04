@@ -40,8 +40,7 @@ public final class StringComparator<E> implements Comparator<E>, Serializable
 		// TODO: Exception needs to be handled
 	}
 
-	/** {@inheritDoc} */
-    @Override
+	@Override
 	public int compare(E o1, E o2)
 	{
 		// Treat null as the empty string.

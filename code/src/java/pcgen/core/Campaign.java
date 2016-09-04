@@ -173,36 +173,24 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		return get(StringKey.CAMPAIGN_SETTING);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceShort()
 	{
 		return get(StringKey.SOURCE_SHORT);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBookTypeList()
 	{
 		return getSafeListFor(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBookTypes()
 	{
 		return getListAsString(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getStatus()
 	{

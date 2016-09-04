@@ -129,10 +129,7 @@ public class DiceBagPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;

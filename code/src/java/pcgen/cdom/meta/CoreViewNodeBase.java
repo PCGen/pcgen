@@ -42,9 +42,6 @@ public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
 	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<CoreViewNodeFacade> getGrantedByNodes()
 	{

@@ -142,9 +142,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pack();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean b)
 	{
@@ -451,9 +448,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

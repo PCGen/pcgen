@@ -198,9 +198,6 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

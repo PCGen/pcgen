@@ -61,9 +61,6 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 	}
 
     
-    /**
-     * {@inheritDoc}
-     */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException

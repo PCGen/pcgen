@@ -141,9 +141,6 @@ public class EquipSetMigration
 			Comparator<EquipSet>
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(EquipSet arg0, EquipSet arg1)
 		{

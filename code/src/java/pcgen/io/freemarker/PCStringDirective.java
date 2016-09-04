@@ -98,9 +98,6 @@ public class PCStringDirective extends CharacterExportAction implements
 		env.getOut().append(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

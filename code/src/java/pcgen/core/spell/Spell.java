@@ -99,9 +99,6 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 		return allowed || !prohibited;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

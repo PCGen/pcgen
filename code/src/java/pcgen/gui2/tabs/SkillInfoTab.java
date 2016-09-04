@@ -238,9 +238,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -394,9 +391,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			updateSelectedIndex(false);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{

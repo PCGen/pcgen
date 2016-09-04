@@ -380,9 +380,6 @@ public class KitPanel extends FlippingSplitPane
 				|| !context.getKits().containsElement(element);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

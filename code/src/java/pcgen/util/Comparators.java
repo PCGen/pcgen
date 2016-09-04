@@ -152,7 +152,6 @@ public final class Comparators
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -176,7 +175,6 @@ public final class Comparators
 			Comparator<Object>, Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -196,7 +194,6 @@ public final class Comparators
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{

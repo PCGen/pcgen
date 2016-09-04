@@ -1222,9 +1222,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return this;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getLocalScopeName()
 	{
@@ -1232,9 +1229,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public VarScoped getVariableParent()
 	{

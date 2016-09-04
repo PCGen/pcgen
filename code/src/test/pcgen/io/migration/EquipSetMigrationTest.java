@@ -48,9 +48,6 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	private final int[] preOrderedVer = new int[] {6,0,1};
 	private final int[] postOrderedVer = new int[] {6,1,3};
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

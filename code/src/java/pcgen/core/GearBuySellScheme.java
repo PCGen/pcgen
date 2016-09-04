@@ -61,9 +61,6 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.cashSellRate = cashSellRate;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getName()
 	{
@@ -126,9 +123,6 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.name = name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

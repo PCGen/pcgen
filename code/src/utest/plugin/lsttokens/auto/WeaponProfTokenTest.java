@@ -44,9 +44,6 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	PreWeaponProfParser preWpnProf = new PreWeaponProfParser();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException

@@ -105,10 +105,7 @@ public class SpellChoiceDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		cancelled = e.getSource() == cancelButton;

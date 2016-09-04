@@ -58,9 +58,6 @@ public class PCBooleanFunctionTest extends AbstractJunit4CharacterTestCase
 
 	private Ability fooFeat;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

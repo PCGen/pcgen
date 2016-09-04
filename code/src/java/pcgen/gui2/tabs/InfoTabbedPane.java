@@ -286,9 +286,6 @@ public final class InfoTabbedPane extends JTabbedPane
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void stateChanged(ChangeEvent e)
 	{

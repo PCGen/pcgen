@@ -41,9 +41,6 @@ public class MaxDevVerToken extends VersionAwareToken implements
 		MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)
@@ -61,9 +58,6 @@ public class MaxDevVerToken extends VersionAwareToken implements
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -124,9 +124,6 @@ public class CategoryTableModel extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void ItemChanged(ChangeEvent event)
 	{

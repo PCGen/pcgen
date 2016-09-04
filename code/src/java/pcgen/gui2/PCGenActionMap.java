@@ -929,9 +929,6 @@ public final class PCGenActionMap extends ActionMap
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{
@@ -963,9 +960,6 @@ public final class PCGenActionMap extends ActionMap
 			frame.unloadSources();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
 		{

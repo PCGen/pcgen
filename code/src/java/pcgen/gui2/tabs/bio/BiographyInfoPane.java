@@ -269,9 +269,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFields.removeListListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<BiographyField> e)
 		{
@@ -285,9 +282,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.repaint();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
@@ -298,9 +292,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<BiographyField> e)
 		{
@@ -310,9 +301,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<BiographyField> e)
 		{
@@ -871,9 +859,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void itemStateChanged(ItemEvent e)
 		{

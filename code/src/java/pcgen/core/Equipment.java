@@ -3016,9 +3016,6 @@ public final class Equipment extends PObject implements Serializable,
 		return getName().compareToIgnoreCase(e.getName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -3141,9 +3138,6 @@ public final class Equipment extends PObject implements Serializable,
 		return sbuf.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -6739,10 +6733,7 @@ public final class Equipment extends PObject implements Serializable,
 		return type.split("\\.");
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public List<String> getTypesForDisplay()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

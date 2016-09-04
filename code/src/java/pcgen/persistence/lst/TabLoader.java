@@ -49,9 +49,6 @@ public class TabLoader extends SimpleLoader<TabInfo>
 		super(TabInfo.class);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String processFirstToken(LoadContext context, String token)
 	{

@@ -342,9 +342,6 @@ public class CharacterLevelsFacadeImpl extends
 		return classLevel.getSkillPointsGained(theCharacter);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
@@ -408,9 +405,6 @@ public class CharacterLevelsFacadeImpl extends
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -475,9 +469,6 @@ public class CharacterLevelsFacadeImpl extends
 		return 0;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -631,9 +622,6 @@ public class CharacterLevelsFacadeImpl extends
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
 		CharacterLevelFacade baseLevel, float newRank)
@@ -1044,9 +1032,6 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
@@ -1061,9 +1046,6 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
@@ -1075,9 +1057,6 @@ public class CharacterLevelsFacadeImpl extends
 		fireSkillBonusEvent(this, 0, true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void bonusChange(BonusChangeEvent bce)
 	{

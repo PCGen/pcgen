@@ -340,9 +340,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -376,9 +373,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void setData(Object value, AbilityFacade element, int column)
 		{
@@ -665,9 +659,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -738,9 +729,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			categoryTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -814,9 +802,6 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 			categoryTable.getSelectionModel().removeListSelectionListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{

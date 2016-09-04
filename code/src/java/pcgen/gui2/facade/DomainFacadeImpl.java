@@ -116,27 +116,18 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		return getRawObject().toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
 		return getRawObject().isNamePI();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
 		return getRawObject().getType();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{

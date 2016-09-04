@@ -32,18 +32,12 @@ public class DefaultVarValue extends UserContent
 
 	private Modifier<?> modifier;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDisplayName()
 	{
 		return getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getLSTformat()
 	{

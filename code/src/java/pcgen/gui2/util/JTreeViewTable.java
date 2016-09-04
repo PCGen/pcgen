@@ -177,9 +177,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		return model;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void configureEnclosingScrollPane()
 	{
@@ -205,9 +202,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void unconfigureEnclosingScrollPane()
 	{

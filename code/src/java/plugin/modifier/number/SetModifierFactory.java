@@ -48,9 +48,6 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 		return Number.class;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
 		FormulaManager formulaManager, LegalScope varScope,

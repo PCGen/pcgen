@@ -195,7 +195,6 @@ public class JComboBoxEx extends JComboBox
 		return comparator;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void addItem(Object item)
 	{

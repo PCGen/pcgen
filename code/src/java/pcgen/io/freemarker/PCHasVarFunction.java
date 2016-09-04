@@ -52,9 +52,6 @@ public class PCHasVarFunction extends CharacterExportAction implements TemplateM
 		this.eh = eh;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

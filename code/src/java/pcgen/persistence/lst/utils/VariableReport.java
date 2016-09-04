@@ -364,9 +364,6 @@ public class VariableReport
 			this.use = use;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int hashCode()
 		{
@@ -383,9 +380,6 @@ public class VariableReport
 			return result;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean equals(Object obj)
 		{
@@ -427,9 +421,6 @@ public class VariableReport
 			return true;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compareTo(VarDefine other)
 		{
@@ -449,9 +440,6 @@ public class VariableReport
 			return varName.compareToIgnoreCase(other.varName);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

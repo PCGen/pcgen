@@ -265,9 +265,6 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void modifyElement(EquipmentFacade equipment)
 	{

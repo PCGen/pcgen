@@ -121,9 +121,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 			this.skill = skill;
 			
 		}
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(BonusObj arg0, BonusObj arg1)
 		{

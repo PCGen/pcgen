@@ -40,9 +40,6 @@ import pcgen.util.Logging;
 public class MinDevVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)
@@ -60,9 +57,6 @@ public class MinDevVerToken extends VersionAwareToken implements MigrationLstTok
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -532,9 +532,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			return !context.getTempBonuses().containsElement(element);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

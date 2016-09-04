@@ -86,10 +86,7 @@ public class RandomNamePlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -184,9 +181,6 @@ public class RandomNamePlugin implements InteractivePlugin
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{

@@ -61,9 +61,6 @@ import pcgen.system.LanguageBundle;
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
 	{
@@ -258,10 +255,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	
 	public String getHTMLInfo(SourceSelectionFacade selection)
 	{
 		if (selection.getCampaigns().getSize() == 1)
@@ -327,9 +320,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return kindList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getRequirementsHTMLString(CampaignFacade campaign,
 		List<CampaignFacade> testList)

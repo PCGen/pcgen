@@ -54,35 +54,23 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 		basicCalc = calc;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T> getVariableFormat()
 	{
 		return basicCalc.getVariableFormat();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return basicCalc.getIdentification();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getInherentPriority()
 	{

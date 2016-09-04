@@ -1258,10 +1258,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			crThreshold = aString;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public int compareTo(final Object obj)
 	{
 		if (obj != null)
@@ -2859,9 +2856,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		this.bioSet = bioSet;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -3064,27 +3058,18 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		return priority == null ? 0 : priority;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getCharSheetDir()
 	{
 		return getPreviewDir();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDefaultCharSheet()
 	{
 		return getDefaultPreviewSheet();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHeightUnit()
 	{
@@ -3098,9 +3083,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getWeightUnit()
 	{

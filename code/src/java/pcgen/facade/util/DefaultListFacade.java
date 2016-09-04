@@ -259,9 +259,6 @@ public class DefaultListFacade<E> extends AbstractListFacade<E>
 		return new ArrayList<>(elementList);
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
