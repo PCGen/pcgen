@@ -388,19 +388,32 @@ public class AggressiveSolverManager
 				 * this is not doing them in order of a topological sort - it is
 				 * completely random... so things may be processed twice :/
 				 */
-				for (DefaultDirectionalGraphEdge<VariableID<?>> edge : graph
-					.getAdjacentEdges(varID))
-				{
-					if (edge.getNodeAt(0).equals(varID))
-					{
-						solveFromNode(edge.getNodeAt(1));
-					}
-				}
+				solveChildren(varID);
 			}
 		}
 		finally
 		{
 			varStack.pop();
+		}
+	}
+
+	/**
+	 * Triggers Solvers to be called, recursively through the dependencies, from
+	 * the children of the given VariableID.
+	 * 
+	 * @param varID
+	 *            The VariableID for which the children will be used as a
+	 *            starting point for triggering Solvers to be processed
+	 */
+	public void solveChildren(VariableID<?> varID)
+	{
+		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : graph
+			.getAdjacentEdges(varID))
+		{
+			if (edge.getNodeAt(0).equals(varID))
+			{
+				solveFromNode(edge.getNodeAt(1));
+			}
 		}
 	}
 
