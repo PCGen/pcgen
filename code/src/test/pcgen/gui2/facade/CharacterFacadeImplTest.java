@@ -69,6 +69,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	@Before
 	public void setUp() throws Exception
 	{

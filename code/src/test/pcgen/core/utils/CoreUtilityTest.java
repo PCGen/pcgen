@@ -81,8 +81,8 @@ public class CoreUtilityTest extends PCGenTestCase
 
 	public void testCompareVersions()
 	{
-		int[] firstVer = new int[]{5, 13, 6};
-		int[] secondVer = new int[]{5, 13, 6};
+		int[] firstVer = {5, 13, 6};
+		int[] secondVer = {5, 13, 6};
 		
 		assertEquals("Check for equal values", 0, CoreUtility.compareVersions(firstVer, secondVer));
 		secondVer[2] = 4;

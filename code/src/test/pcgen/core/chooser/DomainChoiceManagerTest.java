@@ -49,14 +49,6 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 {
 
 	/**
-	 * Constructs a new {@code DomainChoiceManagerTest}.
-	 */
-	public DomainChoiceManagerTest()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * Test the constructor
 	 */
 	public void test001()

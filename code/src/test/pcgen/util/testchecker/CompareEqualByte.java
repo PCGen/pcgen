@@ -44,7 +44,7 @@ public class CompareEqualByte extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Byte.valueOf(this.by));
+		return obj.equals(this.by);
 	}
 
     @Override

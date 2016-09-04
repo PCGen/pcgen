@@ -45,7 +45,7 @@ public class CompareSubstring extends TestChecker
 	public boolean check(Object obj)
 	{
 		return obj instanceof String
-			&& ((String) obj).indexOf(this.substr) >= 0;
+			&& ((String) obj).contains(this.substr);
 	}
 
     @Override

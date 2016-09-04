@@ -206,7 +206,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		return sUnparsed;
 	}
 
-	public boolean parse(String str) throws PersistenceLayerException
+	public boolean parse(String str)
 	{
 		ParseResult pr;
 		try
@@ -236,7 +236,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		return pr.passed();
 	}
 
-	public boolean parseSecondary(String str) throws PersistenceLayerException
+	public boolean parseSecondary(String str)
 	{
 		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)

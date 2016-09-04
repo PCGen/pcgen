@@ -47,7 +47,7 @@ public class CompareEqualFloat extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Float.valueOf(this.fl));
+		return obj.equals(this.fl);
 	}
 
     @Override

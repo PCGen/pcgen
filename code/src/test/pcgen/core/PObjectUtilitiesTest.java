@@ -46,14 +46,6 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	private PCClass psionicClass = null;
 
 	/**
-	 * Default Constructor
-	 */
-	public PObjectUtilitiesTest()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

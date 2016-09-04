@@ -44,7 +44,7 @@ import junit.textui.TestRunner;
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		TestRunner.run(HtmlInfoBuilderTest.class);
 	}

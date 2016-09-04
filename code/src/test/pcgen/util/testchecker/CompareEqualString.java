@@ -44,7 +44,7 @@ public class CompareEqualString extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj instanceof String && ((String) obj).compareTo(this.str) == 0;
+		return obj instanceof String && ((Comparable<String>) obj).compareTo(this.str) == 0;
 	}
 
     @Override

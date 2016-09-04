@@ -43,6 +43,7 @@ public class EquipmentMigrationTest extends PCGenTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -67,6 +68,7 @@ public class EquipmentMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(equipRuleDiffGame, "modern");
 	}
 
+	@Override
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();

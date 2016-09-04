@@ -41,6 +41,7 @@ public class AbilityMigrationTest extends PCGenTestCase
 	
 	private String gameMode;
 
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -66,6 +67,7 @@ public class AbilityMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(abilityRuleDiffGame, "modern");
 	}
 
+	@Override
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();

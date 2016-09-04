@@ -45,8 +45,8 @@ import pcgen.util.TestHelper;
 
 public class EquipSetMigrationTest extends AbstractCharacterTestCase
 {
-	private final int[] preOrderedVer = new int[] {6,0,1};
-	private final int[] postOrderedVer = new int[] {6,1,3};
+	private final int[] preOrderedVer = {6,0,1};
+	private final int[] postOrderedVer = {6,1,3};
 
 	@Override
 	protected void setUp() throws Exception

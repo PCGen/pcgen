@@ -44,7 +44,7 @@ public class CompareEqualShort extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Short.valueOf(this.sh));
+		return obj.equals(this.sh);
 	}
 
     @Override

@@ -44,7 +44,7 @@ public class CompareEqualChar extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Character.valueOf(this.ch));
+		return obj.equals(this.ch);
 	}
 
     @Override
