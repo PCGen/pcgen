@@ -41,6 +41,7 @@ import net.sourceforge.argparse4j.inf.Namespace;
 import org.apache.commons.lang.StringUtils;
 import org.apache.commons.lang.SystemUtils;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.facade.core.UIDelegate;
@@ -396,6 +397,7 @@ public final class Main
 		loader.addPluginLoader(ExportHandler.getPluginLoader());
 		loader.addPluginLoader(TokenConverter.getPluginLoader());
 		loader.addPluginLoader(PluginManager.getInstance());
+		loader.addPluginLoader(PluginFunctionLibrary.getInstance());
 		return loader;
 	}
 

@@ -30,10 +30,12 @@ import java.util.Map;
 import java.util.Set;
 import java.util.TreeSet;
 
-import pcgen.base.formatmanager.FormatManagerLibraryUtilities;
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.FormatManager;
+import pcgen.base.util.Indirect;
+import pcgen.base.util.ObjectDatabase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.CategorizedClassIdentity;
@@ -46,6 +48,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.enumeration.Type;
+import pcgen.cdom.format.table.ColumnFormatFactory;
+import pcgen.cdom.format.table.TableFormatFactory;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
@@ -62,7 +66,7 @@ import pcgen.core.PCClass;
 import pcgen.core.SubClass;
 import pcgen.util.Logging;
 
-public abstract class AbstractReferenceContext
+public abstract class AbstractReferenceContext implements ObjectDatabase
 {
 
 	@SuppressWarnings("rawtypes")
@@ -85,7 +89,9 @@ public abstract class AbstractReferenceContext
 
 	public AbstractReferenceContext()
 	{
-		FormatManagerLibraryUtilities.loadDefaultFormats(fmtLibrary);
+		FormatUtilities.loadDefaultFormats(fmtLibrary);
+		fmtLibrary.addFormatManagerBuilder(new ColumnFormatFactory(this));
+		fmtLibrary.addFormatManagerBuilder(new TableFormatFactory(this));
 	}
 
 	public abstract <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -206,8 +212,20 @@ public abstract class AbstractReferenceContext
 		getManufacturer(cl, obj.getCDOMCategory()).renameObject(key, obj);
 	}
 
-	public <T extends Loadable> T silentlyGetConstructedCDOMObject(
-			Class<T> c, String val)
+	@Override
+	public <T extends Loadable> T get(Class<T> c, String val)
+	{
+		return silentlyGetConstructedCDOMObject(c, val);
+	}
+
+	@Override
+	public <T extends Loadable> Indirect<T> getIndirect(Class<T> c, String val)
+	{
+		return getCDOMReference(c, val);
+	}
+
+	public <T extends Loadable> T silentlyGetConstructedCDOMObject(Class<T> c,
+		String val)
 	{
 		return getManufacturer(c).getActiveObject(val);
 	}

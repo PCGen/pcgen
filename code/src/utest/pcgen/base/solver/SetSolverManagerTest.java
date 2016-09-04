@@ -70,7 +70,7 @@ public class SetSolverManagerTest extends TestCase
 		vsLib = new LegalScopeLibrary();
 		sl = new VariableLibrary(vsLib);
 		arrayManager = new ArrayFormatManager<>(stringManager, ',');
-		fm = new SimpleFormulaManager(fl, ol, sl, vc);
+		fm = new SimpleFormulaManager(fl, ol, sl, vc, new SolverFactory());
 		SolverFactory solverFactory = new SolverFactory();
 		manager = new AggressiveSolverManager(fm, solverFactory, vc);
 		SetModifierFactory m = new SetModifierFactory();
