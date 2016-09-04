@@ -15,11 +15,10 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.cdom.formula.function;
+package plugin.function;
 
 import org.junit.Test;
 
-import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.solver.AggressiveSolverManager;
@@ -34,10 +33,9 @@ import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.VariableChannel;
-import pcgen.cdom.formula.testsupport.AbstractFormulaTestCase;
-import pcgen.cdom.formula.testsupport.TestUtilities;
 import pcgen.output.channel.ChannelUtilities;
-import plugin.modifier.number.SetModifierFactory;
+import plugin.function.testsupport.AbstractFormulaTestCase;
+import plugin.function.testsupport.TestUtilities;
 
 public class InputFunctionTest extends AbstractFormulaTestCase
 {
@@ -57,6 +55,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
+		getFunctionLibrary().addFunction(new InputFunction());
 		formulaSetupFacet.initialize(context);
 		solverFactoryFacet.initialize(context);
 		FacetLibrary.getFacet(VariableLibraryFacet.class).initialize(context);
@@ -65,10 +64,6 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		variableStoreFacet.set(id,
 			(MonitorableVariableStore) getVariableStore());
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
-		SetModifierFactory modFactory = new SetModifierFactory();
-		PCGenModifier<Number> zeroMod =
-				modFactory.getFixedModifier(0, numberManager, "0");
-		solverFactory.addSolverFormat(Number.class, zeroMod);
 		solverManagerFacet.set(id, new AggressiveSolverManager(
 			getFormulaManager(), solverFactory, getVariableStore()));
 	}
