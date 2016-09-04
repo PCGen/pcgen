@@ -239,7 +239,7 @@ Mace.MOD			TYPE:Mace
 Quarterstaff.MOD		TYPE:Quarterstaff
 Sickle.MOD			TYPE:Sickle
 Spear.MOD			TYPE:Spear
-Unarmed Strike.MOD	TYPE:Unarmed Strike
+#Unarmed Strike.MOD	TYPE:Unarmed Strike
 Crossbow (Light).MOD	TYPE:Crossbow.Light Crossbow
 Dart.MOD			TYPE:Dart
 Shortbow.MOD		TYPE:Shortbow.Bow
