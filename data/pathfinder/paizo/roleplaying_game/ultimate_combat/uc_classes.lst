@@ -10,9 +10,6 @@ CLASS:Gunslinger	HD:10		TYPE:Base.PC	MAXLEVEL:20	SOURCEPAGE:p.9	DEFINE:Gunslinge
 # Class Name	Skill Pts/Lvl
 CLASS:Gunslinger	STARTSKILLPTS:4
 1	ABILITY:Class|AUTOMATIC|Gunslinger
-###Block:Proficiencies
-1	ABILITY:Special Ability|AUTOMATIC|All Automatic Proficiencies|All Martial Weapon Proficiencies	ABILITY:FEAT|AUTOMATIC|Exotic Weapon Proficiency (Firearms)|Martial Weapon Proficiency Output|Simple Weapon Proficiency	AUTO:WEAPONPROF|TYPE=Firearm
-1	ABILITY:FEAT|AUTOMATIC|Armor Proficiency (Light)
 ###Block: Level progression
 1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Gunsmith|PREVAREQ:Gunslinger_CF_Gunsmith,0
 1	ABILITY:Gunslinger Class Feature|AUTOMATIC|Gunslinger ~ Deeds|PREVAREQ:Gunslinger_CF_Deeds,0
