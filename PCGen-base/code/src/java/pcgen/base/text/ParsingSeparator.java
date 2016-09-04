@@ -192,7 +192,9 @@ public class ParsingSeparator implements Iterator<String>
 	 * @return A String containing the next section to be returned from the base
 	 *         String.
 	 */
-	@SuppressWarnings({"PMD.CyclomaticComplexity", "PMD.NPathComplexity"})
+	@SuppressWarnings({"PMD.CyclomaticComplexity",
+		"PMD.StdCyclomaticComplexity", "PMD.ModifiedCyclomaticComplexity",
+		"PMD.NPathComplexity"})
 	@Override
 	public String next()
 	{
