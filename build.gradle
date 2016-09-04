@@ -152,8 +152,6 @@ dependencies {
     compile group: 'xalan', name: 'xalan', version:'2.7.1'
     compile group: 'xerces', name: 'xercesImpl', version:'2.10.0'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
-    compile group: 'org.apache.avalon.framework', name: 'avalon-framework-api', version:'4.3.1'
-    compile group: 'org.apache.avalon.framework', name: 'avalon-framework-impl', version:'4.3.1'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.55'
