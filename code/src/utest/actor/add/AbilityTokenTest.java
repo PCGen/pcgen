@@ -19,9 +19,6 @@ package actor.add;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -36,9 +33,14 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
+import static org.junit.Assert.*;
+
 
 public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {
@@ -50,7 +52,6 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 
 	protected LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

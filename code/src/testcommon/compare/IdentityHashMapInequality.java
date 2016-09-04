@@ -20,6 +20,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.IdentityHashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.base.lang.StringUtil;
@@ -31,8 +32,8 @@ public class IdentityHashMapInequality implements
 {
 
 	@Override
-	public String testInequality(IdentityHashMap m1, IdentityHashMap m2,
-		InequalityTester t, String location)
+	public String testInequality(Map m1, Map m2,
+	                             InequalityTester t, String location)
 	{
 		List<String> reasons = new ArrayList<>();
 		Set<?> k1 = m1.keySet();
@@ -100,8 +101,8 @@ public class IdentityHashMapInequality implements
 	{
 		HashMapToList<Integer, Integer> matches =
 				new HashMapToList<>();
-		ArrayList<Object> values1 = new ArrayList<>(v1);
-		ArrayList<Object> values2 = new ArrayList<>(v2);
+		List<Object> values1 = new ArrayList<>(v1);
+		List<Object> values2 = new ArrayList<>(v2);
 		for (Integer loc1 : potential.getKeySet())
 		{
 			Object o1 = values1.get(loc1);

@@ -20,8 +20,6 @@ package plugin.lsttokens.pcclass;
 import java.util.Arrays;
 import java.util.Collections;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMListObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
@@ -39,9 +37,12 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+import static org.junit.Assert.*;
 
 public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {

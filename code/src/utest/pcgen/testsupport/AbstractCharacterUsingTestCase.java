@@ -16,7 +16,6 @@
  */
 package pcgen.testsupport;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -42,7 +41,9 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.primitive.language.LangBonusToken;
 
-/*
+import static org.junit.Assert.*;
+
+/**
  * Differs from code/src/test AbstractCharacterTestCase in that this does not
  * attempt to load all plugins (trying to be light weight)
  * 
@@ -51,7 +52,8 @@ import plugin.primitive.language.LangBonusToken;
  * tested in a utest environment should probably not be dependent on
  * PlayerCharacter in a fully isolated system
  */
-public abstract class AbstractCharacterUsingTestCase extends TestCase {
+public abstract class AbstractCharacterUsingTestCase
+{
 
 	protected PCStat str;
 	protected PCStat cha;
