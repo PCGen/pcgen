@@ -138,9 +138,9 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Logging.log(Level.INFO,
-				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-						+ PCGenPropBundle.getAutobuildString());
+		LOGGER.info("Starting PCGen v {} {}",
+				PCGenPropBundle.getVersionNumber(),
+				PCGenPropBundle.getAutobuildString());
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
@@ -148,13 +148,14 @@ public final class Main
 
 		parseCommands(args);
 
-		if (exportSheet != null)
+		if (exportSheet == null)
+		{
+			startupWithGUI();
+		}
+		else
 		{
 			startupWithoutGUI();
 			shutdown();
-		} else
-		{
-			startupWithGUI();
 		}
 	}
 
@@ -198,6 +199,7 @@ public final class Main
 
 		if (args.getInt("verbose") > 0)
 		{
+
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
