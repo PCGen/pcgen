@@ -353,8 +353,6 @@
 ====================================-->
 	<xsl:template match="weapons/unarmed">
 		<!-- START Unarmed Attack Table -->
-		<xsl:choose>
-		<xsl:when test="(weapons/naturalattack) &lt; 1">
 		<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<fo:table-column column-width="27mm"/>
 			<fo:table-column>
@@ -469,9 +467,6 @@
 			</xsl:choose>	
 			</fo:table-body>
 		</fo:table>
-		</xsl:when>	
-		<xsl:otherwise/>
-		</xsl:choose>
 		
 		<!-- STOP Unarmed Attack Table -->
 	</xsl:template>
