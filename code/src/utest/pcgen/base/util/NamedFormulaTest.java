@@ -17,13 +17,13 @@
  */
 package pcgen.base.util;
 
-import junit.framework.TestCase;
 
+import static org.junit.Assert.*;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
 
-public class NamedFormulaTest extends TestCase
+public class NamedFormulaTest
 {
 
 	@Test
