@@ -66,9 +66,14 @@ public class ChannelUtilities
 		VarScoped owner, String name, FormatManager<T> formatManager)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope(owner.getLocalScopeName());
-		return generateChannel(id, instFactory.get(scope, owner), name,
-			formatManager);
+		if (owner.getLocalScopeName() == null)
+		{
+			throw new IllegalArgumentException(
+				"Channel cannot be generated for an object without a local scope: "
+					+ owner.getClass());
+		}
+		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
+		return generateChannel(id, scopeInst, name, formatManager);
 	}
 
 	/**
@@ -110,8 +115,7 @@ public class ChannelUtilities
 		String name, FormatManager<T> formatManager)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope("Global");
-		return generateChannel(id, instFactory.getGlobalScope(scope), name,
+		return generateChannel(id, instFactory.getGlobalInstance("Global"), name,
 			formatManager);
 	}
 

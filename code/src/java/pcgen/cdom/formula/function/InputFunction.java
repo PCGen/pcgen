@@ -54,7 +54,7 @@ public class InputFunction implements Function
 	 * {@inheritDoc}
 	 */
 	@Override
-	public final Class<?> allowArgs(SemanticsVisitor visitor, Node[] args,
+	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
 	{
 		int argCount = args.length;
@@ -90,7 +90,7 @@ public class InputFunction implements Function
 				.setInvalid("Input Channel: " + varName + " was not found");
 			return null;
 		}
-		return formatManager.getManagedClass();
+		return formatManager;
 	}
 
 	@Override

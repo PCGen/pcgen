@@ -106,7 +106,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	public void set(T object)
 	{
 		varStore.put(varID, object);
-		manager.solveFromNode(varID);
+		manager.solveChildren(varID);
 	}
 
 	/**
