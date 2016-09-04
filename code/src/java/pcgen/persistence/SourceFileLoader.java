@@ -110,6 +110,7 @@ import pcgen.rules.context.ReferenceContextUtilities;
 import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.CDOMControlLoader;
 import pcgen.rules.persistence.DynamicLoader;
+import pcgen.rules.persistence.TableLoader;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
@@ -158,6 +159,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private GenericLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
 	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
 	private VariableLoader variableLoader = new VariableLoader();
+	private TableLoader tableLoader = new TableLoader();
 	private GlobalModifierLoader globalModifierLoader =
 			new GlobalModifierLoader();
 	private DynamicLoader dynamicLoader = new DynamicLoader();
@@ -586,6 +588,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		dataDefFileList = addDefaultDataControlIfNeeded(dataDefFileList);
 		dataControlLoader.loadLstFiles(context, dataDefFileList);
 		processFactDefinitions(context);
+		tableLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DATATABLE));
 
 		dynamicLoader.loadLstFiles(context, fileLists.getListFor(ListKey.FILE_DYNAMIC));
 		//Load Variables (foundation for other items)
