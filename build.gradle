@@ -156,8 +156,8 @@ dependencies {
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.55'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.64'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.64'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.72'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
     runtime "ch.qos.logback:logback-classic:1.1.3"
     compileOnly group: 'org.jetbrains', name: 'annotations', version:'15.0'
