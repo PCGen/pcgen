@@ -140,6 +140,7 @@ dependencies {
     compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
     compile group: 'commons-io', name: 'commons-io', version:'2.5'
     compile group: 'rhino', name: 'js', version:'1.7R2'
+    compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
     compile group: 'commons-logging', name: 'commons-logging', version:'1.1.1'
     compile group: 'org.springframework', name: 'spring-core', version:'3.2.17.RELEASE'
     compile group: 'org.springframework', name: 'spring-beans', version:'3.2.17.RELEASE'
