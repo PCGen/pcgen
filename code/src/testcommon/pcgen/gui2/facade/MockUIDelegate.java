@@ -38,7 +38,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MockUIDelegate implements UIDelegate
 {
