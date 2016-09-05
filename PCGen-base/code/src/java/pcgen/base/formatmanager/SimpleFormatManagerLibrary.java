@@ -54,11 +54,11 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 		String formatSub = null;
 		if (fmtManagerBuilder == null)
 		{
-			int sqBracketLoc = formatName.indexOf("[");
+			int sqBracketLoc = formatName.indexOf('[');
 			if (sqBracketLoc != -1)
 			{
 				int lengthMinusOne = formatName.length() - 1;
-				if (formatName.indexOf("]") != lengthMinusOne)
+				if (formatName.indexOf(']') != lengthMinusOne)
 				{
 					throw new IllegalArgumentException(
 						"Format Name must have matching open and close brackets, found: "
