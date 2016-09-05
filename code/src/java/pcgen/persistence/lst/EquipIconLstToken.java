@@ -35,7 +35,6 @@ import pcgen.core.GameMode;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface EquipIconLstToken extends LstToken
 {

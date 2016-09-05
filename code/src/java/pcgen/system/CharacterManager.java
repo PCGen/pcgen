@@ -70,7 +70,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class CharacterManager
 {

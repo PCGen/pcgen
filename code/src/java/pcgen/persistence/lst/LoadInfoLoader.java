@@ -34,7 +34,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {

@@ -73,7 +73,6 @@ import pcgen.util.enumeration.View;
  * </ul>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityToken extends Token
 {

@@ -30,7 +30,6 @@ package pcgen.facade.core;
  *
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public interface InfoFactory
 {

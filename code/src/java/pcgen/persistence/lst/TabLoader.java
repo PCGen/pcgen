@@ -35,7 +35,6 @@ import pcgen.util.enumeration.Tab;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TabLoader extends SimpleLoader<TabInfo>
 {

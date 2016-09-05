@@ -64,7 +64,6 @@ import freemarker.template.TemplateException;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class VariableReport

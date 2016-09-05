@@ -37,7 +37,6 @@ import pcgen.util.Logging;
 /**
  *
  * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public final class FeatLoader extends AbilityLoader
 {

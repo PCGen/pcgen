@@ -35,7 +35,6 @@ import pcgen.facade.util.ListFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface DescriptionFacade
 {

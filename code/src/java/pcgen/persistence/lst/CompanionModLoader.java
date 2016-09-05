@@ -32,7 +32,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * Loads the level based Mount and Familiar benefits
  *
- * @version $Revision$
  **/
 public class CompanionModLoader extends SimpleLoader<CompanionMod> 
 {

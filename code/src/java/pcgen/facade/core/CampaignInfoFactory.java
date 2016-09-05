@@ -32,7 +32,6 @@ import java.util.List;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface CampaignInfoFactory
 {
