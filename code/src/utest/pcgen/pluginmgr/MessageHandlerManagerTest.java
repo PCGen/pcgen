@@ -34,11 +34,8 @@ import org.junit.Test;
  * working correctly.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class MessageHandlerManagerTest

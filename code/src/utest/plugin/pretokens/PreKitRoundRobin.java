@@ -33,7 +33,6 @@ import plugin.pretokens.writer.PreKitWriter;
  * PreKitRoundRobin test the parsing and unparsing of PREKIT tags.
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreKitRoundRobin extends AbstractBasicRoundRobin
 {

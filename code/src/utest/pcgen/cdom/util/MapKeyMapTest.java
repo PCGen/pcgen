@@ -39,11 +39,8 @@ import pcgen.cdom.helper.Aspect;
  * The Class <code>MapKeyMapTest</code> test that the MapKeyMap
  * class is functioning correctly. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class MapKeyMapTest extends TestCase
 {
