@@ -40,7 +40,6 @@ import plugin.pretokens.parser.PreRuleParser;
  * prereq tester.
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase

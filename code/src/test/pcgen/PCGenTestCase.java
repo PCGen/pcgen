@@ -45,7 +45,6 @@ import pcgen.util.testchecker.CompareSubstring;
  * the unit test, rethrowing it after <code>tearDown</code> finishes.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
- * @version $Id$
  */
 @SuppressWarnings("nls")
 public abstract class PCGenTestCase extends TestCase

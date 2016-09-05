@@ -45,7 +45,6 @@ import pcgen.rules.context.LoadContext;
  * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AttackTokenTest extends AbstractCharacterTestCase
 {

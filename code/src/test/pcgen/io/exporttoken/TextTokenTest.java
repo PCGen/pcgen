@@ -40,7 +40,6 @@ import plugin.exporttokens.TextToken;
  * Last Edited: $Date: 2006-03-15 10:19:50 +1100 (Wed, 15 Mar 2006) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 201 $
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {

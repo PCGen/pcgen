@@ -38,7 +38,6 @@ import java.util.Stack;
  * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class OrCommandTest extends PCGenTestCase
 {

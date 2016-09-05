@@ -46,7 +46,6 @@ import pcgen.rules.context.LoadContext;
  * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {

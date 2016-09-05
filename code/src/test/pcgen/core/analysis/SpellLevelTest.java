@@ -52,7 +52,6 @@ import pcgen.util.TestHelper;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class SpellLevelTest extends AbstractCharacterTestCase
 {

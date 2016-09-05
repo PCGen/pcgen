@@ -41,7 +41,6 @@ import plugin.pretokens.parser.PreRuleParser;
  * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
 public class PreRuleParserTest extends EnUsLocaleDependentTestCase

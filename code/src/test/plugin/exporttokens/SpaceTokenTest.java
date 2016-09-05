@@ -35,7 +35,6 @@ import plugin.exporttokens.deprecated.SpaceToken;
  * Last Edited: $Date: 2008-11-25 02:54:29 +0000 (Tue, 25 Nov 2008) $
  *
  * @author Martijn Verburg <karianna@users.sourceforge.net>
- * @version $Revision: 8488 $
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {

@@ -40,7 +40,6 @@ import plugin.exporttokens.VarToken;
  * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VarTokenTest extends AbstractCharacterTestCase
 {

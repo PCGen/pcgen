@@ -37,7 +37,6 @@ import java.util.regex.Matcher;
  * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {

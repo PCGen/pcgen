@@ -40,7 +40,6 @@ import pcgen.core.character.EquipSet;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase

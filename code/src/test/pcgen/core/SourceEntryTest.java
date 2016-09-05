@@ -37,7 +37,6 @@ import pcgen.cdom.enumeration.StringKey;
  * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SourceEntryTest extends TestCase
 {

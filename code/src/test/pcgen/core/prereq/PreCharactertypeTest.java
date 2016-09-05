@@ -36,7 +36,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * Last Edited: $Date: 2010-07-13 21:56:14 +0200 (Di, 13 Jul 2010) $
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision: 12541 $
  */
 public class PreCharactertypeTest extends AbstractCharacterTestCase
 {

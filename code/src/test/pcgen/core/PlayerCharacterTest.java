@@ -82,7 +82,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Last Edited: $Date$
  * 
  * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PlayerCharacterTest extends AbstractCharacterTestCase

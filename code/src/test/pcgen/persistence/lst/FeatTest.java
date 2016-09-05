@@ -19,7 +19,6 @@ import pcgen.util.TestHelper;
 /**
  * JUnit testcases for <code>pcgen.core.Feat</code>.
  *
- * @version $Revision$
  */
 public class FeatTest extends TestCase
 {

@@ -53,7 +53,6 @@ import pcgen.util.TestHelper;
  * Last Edited: $Date$
  *
  * @author Koen Van Daele <kador@foeffighters.be>
- * @version $Revision$
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase
 {

@@ -44,7 +44,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
 {

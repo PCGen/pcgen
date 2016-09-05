@@ -50,7 +50,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * (Fri, 26 Oct 2007) $
  * 
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision: 4432 $
  */
 public class ClassLevelCommandTest extends AbstractCharacterTestCase
 {

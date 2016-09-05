@@ -59,7 +59,6 @@ import pcgen.util.enumeration.Visibility;
  * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
 {

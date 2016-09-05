@@ -40,7 +40,6 @@ import plugin.exporttokens.deprecated.GoldToken;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class GoldTokenTest extends AbstractCharacterTestCase

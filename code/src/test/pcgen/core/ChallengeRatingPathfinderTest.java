@@ -44,7 +44,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Last Edited: $Date: 2013-01-06 19:52:59 +0100 (So, 06 Jan 2013) $
  * 
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 19041 $
  */
 
 public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
