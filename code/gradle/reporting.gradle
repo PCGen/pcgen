@@ -30,6 +30,12 @@ findbugs {
 	sourceSets = [sourceSets.main]
 }
 
+findbugs {
+	ignoreFailures = true
+//	effort = 'max'
+	sourceSets = [sourceSets.main]
+}
+
 tasks.withType(FindBugs) {
 	reports {
 		xml.enabled false
@@ -42,4 +48,5 @@ tasks.withType(FindBugs) {
 						'DoInsideDoPrivileged', 'CyclomaticComplexity']
 	}
 }
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugs'] }
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain', 'findbugs'] }
