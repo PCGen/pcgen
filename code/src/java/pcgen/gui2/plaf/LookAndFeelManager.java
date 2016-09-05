@@ -45,7 +45,6 @@ import pcgen.util.SkinLFResourceChecker;
  * <code>UIFactory</code>.
  *
  * @author Thomas Behr
- * @version $Revision: 6515 $
  */
 public final class LookAndFeelManager
 {

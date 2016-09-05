@@ -39,7 +39,6 @@ import pcgen.util.SortKeyAware;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class InfoWrapper implements InfoFacade, SortKeyAware
 {

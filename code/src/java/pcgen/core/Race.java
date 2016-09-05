@@ -41,7 +41,6 @@ import pcgen.facade.core.RaceFacade;
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @author Michael Osterlie
- * @version $Revision$
  */
 public final class Race extends PObject implements RaceFacade, ChooseDriver
 {

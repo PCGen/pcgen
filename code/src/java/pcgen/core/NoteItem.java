@@ -31,7 +31,6 @@ import pcgen.util.Logging;
  * <code>NoteItem</code>.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class NoteItem implements NoteFacade, Cloneable
 {

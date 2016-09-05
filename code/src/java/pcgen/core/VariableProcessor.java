@@ -47,7 +47,6 @@ import pcgen.util.PjepPool;
  * Last Edited: $Date$
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
- * @version $Revision$
  */
 public abstract class VariableProcessor
 {

@@ -28,7 +28,6 @@ import org.apache.commons.lang.StringUtils;
  *  This class filters out non-pcg files.
  *
  * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
- * @version    $Revision: 2135 $
  */
 final class PcgFileFilter extends FileFilter
 {

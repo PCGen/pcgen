@@ -39,7 +39,6 @@ import pcgen.core.Globals;
  * and the list of meta-magic feats which have been applied.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class SpellInfo implements Comparable<SpellInfo>
 {

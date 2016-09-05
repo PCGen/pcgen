@@ -41,7 +41,6 @@ import pcgen.rules.context.EditorLoadContext;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class AbilityLoader extends BasicLoader<Ability>
 {

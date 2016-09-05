@@ -33,7 +33,6 @@ import pcgen.core.character.CharacterSpell;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCCastTimesAtWillTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator

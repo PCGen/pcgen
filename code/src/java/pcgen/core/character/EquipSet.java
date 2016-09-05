@@ -81,7 +81,6 @@ import pcgen.util.Logging;
 /**
  * <code>EquipSet.java</code>
  * @author Jayme Cox &lt;jaymecox@excite.com&gt;
- * @version $Revision$
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {

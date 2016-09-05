@@ -30,7 +30,6 @@ package pcgen.gui2.util;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface DisplayAwareTab
 {

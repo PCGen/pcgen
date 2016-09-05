@@ -34,7 +34,6 @@ import javax.swing.JMenuItem;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class PCGMenuItem extends JMenuItem

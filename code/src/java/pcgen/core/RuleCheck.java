@@ -34,7 +34,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
  * GUI by the users
  * 
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class RuleCheck implements Loadable
 {

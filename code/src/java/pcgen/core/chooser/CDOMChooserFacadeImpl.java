@@ -56,7 +56,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class CDOMChooserFacadeImpl<T> implements ChooserFacade

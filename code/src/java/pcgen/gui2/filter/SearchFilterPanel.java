@@ -49,7 +49,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class SearchFilterPanel extends JPanel
 		implements DisplayableFilter<Object, Object>, DocumentListener, ActionListener

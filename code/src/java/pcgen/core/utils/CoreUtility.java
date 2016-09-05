@@ -47,7 +47,6 @@ import pcgen.util.Logging;
  * similar, and should probably be further refactored.
  * 
  * @author Jonas Karlsson &lt;pjak@yahoo.com&gt;
- * @version $Revision$
  */
 public final class CoreUtility
 {

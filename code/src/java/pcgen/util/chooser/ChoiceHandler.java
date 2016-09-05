@@ -33,7 +33,6 @@ import pcgen.facade.core.ChooserFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface ChoiceHandler
 {

@@ -33,7 +33,6 @@ import pcgen.facade.core.SimpleFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SimpleFacadeImpl implements SimpleFacade
 {

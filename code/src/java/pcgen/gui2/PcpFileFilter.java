@@ -28,7 +28,6 @@ import javax.swing.filechooser.FileFilter;
  *  This class filters out non-pcp files.
  *
  * @author     Jason Buchanan &lt;lonejedi@users.sourceforge.net&gt;
- * @version $Revision: 2135 $
  */
 final class PcpFileFilter extends FileFilter
 {

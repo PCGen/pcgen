@@ -44,7 +44,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
  *  <code>JTableEx</code> extends JTable to provide auto-tooltips.
  *
  * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
- * @version    $Revision: 1817 $
  */
 public class JTableEx extends JTable
 {

@@ -43,7 +43,6 @@ import pcgen.util.Logging;
  * encumbrance
  * 
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class LoadInfo implements Loadable
 {

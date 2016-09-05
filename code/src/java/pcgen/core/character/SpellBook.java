@@ -40,7 +40,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class SpellBook implements Cloneable

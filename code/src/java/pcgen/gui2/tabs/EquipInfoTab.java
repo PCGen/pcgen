@@ -105,7 +105,6 @@ import pcgen.util.enumeration.Tab;
  * Last Editor: $Author: $ Last Edited: $Date: $
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 @SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler

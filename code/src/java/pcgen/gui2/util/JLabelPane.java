@@ -30,7 +30,6 @@ import javax.swing.JEditorPane;
  *  Label panes
  *
  * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
- * @version $Revision: 6206 $
  */
 public final class JLabelPane extends JEditorPane
 {

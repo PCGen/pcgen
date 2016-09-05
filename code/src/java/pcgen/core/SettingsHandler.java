@@ -66,7 +66,6 @@ import pcgen.util.Logging;
  * {@link pcgen.system.PropertyContext} and its children.</b>   
  *
  * @author jujutsunerd
- * @version $Revision$
  **/
 public final class SettingsHandler
 {

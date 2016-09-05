@@ -49,7 +49,6 @@ import pcgen.util.Logging;
  * probably try to disentangle modifierlist into it's own class later.
  *
  * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class EquipmentList {
 

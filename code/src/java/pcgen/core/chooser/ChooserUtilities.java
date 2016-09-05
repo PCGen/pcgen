@@ -46,7 +46,6 @@ import pcgen.core.Skill;
  * The guts of chooser moved from PObject
  * 
  * @author Andrew Wilson
- * @version $Revision$
  */
 
 public class ChooserUtilities

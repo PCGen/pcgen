@@ -82,7 +82,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab

@@ -51,7 +51,6 @@ import pcgen.gui2.util.FontManipulation;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SummaryPanel extends ConvertSubPanel
 {

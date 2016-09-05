@@ -70,7 +70,6 @@ import pcgen.util.enumeration.Tab;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
