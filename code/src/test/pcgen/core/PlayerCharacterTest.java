@@ -276,12 +276,13 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	}
 
 	@Override
-	protected void tearDown()
+	protected void tearDown() throws Exception
 	{
 		ChooserFactory.popChooserClassname();
 		Logging.setDebugMode(false);
 		human.removeListFor(ListKey.BONUS);
 		giantRace.removeListFor(ListKey.BONUS);
+		super.tearDown();
 	}
 	
 	/**
@@ -577,12 +578,12 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		setPCStat(pc, dex, 14);
 		pc.setUseTempMods(true);
 
-		assertEquals("STR", -1.0, pc.getVariableValue("STR", "").floatValue(),
+		assertEquals("STR", -1.0, pc.getVariableValue("STR", ""),
 			0.1);
-		assertEquals("DEX", 2.0, pc.getVariableValue("DEX", "").floatValue(),
+		assertEquals("DEX", 2.0, pc.getVariableValue("DEX", ""),
 			0.1);
 		assertEquals("max(STR,DEX)", 2.0, pc.getVariableValue("max(STR,DEX)",
-			"").floatValue(), 0.1);
+				""), 0.1);
 
 		StatToken statTok = new StatToken();
 		assertEquals("Total stat.", "14", statTok.getToken("STAT.1", pc, null));
@@ -605,10 +606,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			null));
 		assertEquals("Base stat.", "12", statTok.getToken(
 			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("DEX", 1.0, pc.getVariableValue("DEX", "").floatValue(),
+		assertEquals("DEX", 1.0, pc.getVariableValue("DEX", ""),
 			0.1);
 		assertEquals("max(STR,DEX)", 1.0, pc.getVariableValue("max(STR,DEX)",
-			"").floatValue(), 0.1);
+				""), 0.1);
 
 		Spell spell2 = new Spell();
 		spell2.setName("Concrete Boots");
@@ -627,10 +628,10 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 			null));
 		assertEquals("Base stat.", "12", statTok.getToken(
 			"STAT.1.NOEQUIP.NOTEMP", pc, null));
-		assertEquals("DEX", 0.0, pc.getVariableValue("DEX", "").floatValue(),
+		assertEquals("DEX", 0.0, pc.getVariableValue("DEX", ""),
 			0.1);
 		assertEquals("max(STR,DEX)-STR", 1.0, pc.getVariableValue(
-			"max(STR,DEX)-STR", "").floatValue(), 0.1);
+				"max(STR,DEX)-STR", ""), 0.1);
 	}
 
 	/**
@@ -1150,8 +1151,8 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		GameMode game = SettingsHandler.getGame();
 		LoadInfo li = game.getModeContext().getReferenceContext().constructNowIfNecessary(
 				LoadInfo.class, game.getName());
-		li.addLoadScoreValue(0, new BigDecimal(100.0));
-		li.addLoadScoreValue(10, new BigDecimal(100.0));
+		li.addLoadScoreValue(0, new BigDecimal("100.0"));
+		li.addLoadScoreValue(10, new BigDecimal("100.0"));
 		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
 
 		PlayerCharacter pc = getCharacter();

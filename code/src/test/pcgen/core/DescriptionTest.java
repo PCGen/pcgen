@@ -51,13 +51,6 @@ import pcgen.util.TestHelper;
 @SuppressWarnings("nls")
 public class DescriptionTest extends AbstractCharacterTestCase
 {
-	/**
-	 * Constructs a new <code>DescriptionTest</code>.
-	 */
-	public DescriptionTest()
-	{
-		super();
-	}
 
 	/**
 	 * Tests outputting an empty description.
@@ -68,7 +61,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(""));
+		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).isEmpty());
 	}
 
 	/**
@@ -166,7 +159,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%CHOICE");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
@@ -185,7 +178,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		
@@ -200,7 +193,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Deity pobj = new Deity();
 
 		final Description desc = new Description("%1");
-		assertTrue(getCharacter().getDescription(pobj).equals(""));
+		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 	}
 
 	/**

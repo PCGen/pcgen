@@ -19,6 +19,7 @@ package pcgen.testsupport;
 
 import java.util.HashMap;
 
+@SuppressWarnings("ALL")
 public class StrangeMap<K, V> extends HashMap<K, V>
 {
 	public StrangeMap(String s)

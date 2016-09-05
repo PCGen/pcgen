@@ -226,7 +226,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
-	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
+	private BonusObj getBonus(int bonusValue)
 	{
 		BonusObj bon = Bonus.newBonus(primaryContext, "MONNONSKILLHD|NUMBER|" + bonusValue);
 		assertNotNull(bon);

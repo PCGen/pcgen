@@ -23,15 +23,12 @@
 
 package pcgen.core;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-
 import pcgen.PCGenTestCase;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
@@ -50,8 +47,9 @@ public class CampaignTest extends PCGenTestCase
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		TokenRegistration.register(new UrlToken());
 	}
 

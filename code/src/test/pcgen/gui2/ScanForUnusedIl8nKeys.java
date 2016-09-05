@@ -70,7 +70,7 @@ public class ScanForUnusedIl8nKeys
 	private static final String PROPERTIES_FILE = "LanguageBundle.properties";
 	private static final String NEW_PROPERTIES_FILE = "cleaned.properties";
 	private static final String UNUSED_PROPERTIES_FILE = "unused.properties";
-	private static final String[] PACKAGES = new String[]{"pcgen/gui2",
+	private static final String[] PACKAGES = {"pcgen/gui2",
 		"pcgen/core", "pcgen/system", "gmgen", "plugin", "pcgen/io",
 		"pcgen/persistence", "pcgen/cdom", "pcgen/rules/context", "pcgen/util", };
 	
@@ -269,7 +269,7 @@ public class ScanForUnusedIl8nKeys
 	 */
 	private List<File> buildFileList() throws IOException
 	{
-		List<File> allFiles = new ArrayList<File>();
+		List<File> allFiles = new ArrayList<>();
 		JavaFileLister lister = new JavaFileLister();
 		
 		for (String pkg : PACKAGES)
@@ -280,35 +280,14 @@ public class ScanForUnusedIl8nKeys
 		return allFiles;
 	}
 
-	public class JavaFileLister extends DirectoryWalker
+	private static class JavaFileLister extends DirectoryWalker
 	{
 
-		public JavaFileLister()
-		{
-			super();
-		}
-
-		public List getJavaFileList(File startDirectory) throws IOException
+		private List getJavaFileList(File startDirectory) throws IOException
 		{
 			List results = new ArrayList();
 			walk(startDirectory, results);
 			return results;
-		}
-
-        @Override
-		protected boolean handleDirectory(File directory, int depth,
-			Collection results)
-		{
-			// Ignore svn directories 
-			if (".svn".equals(directory.getName()))
-			{
-				return false;
-			}
-			else
-			{
-				return true;
-			}
-
 		}
 
         @Override

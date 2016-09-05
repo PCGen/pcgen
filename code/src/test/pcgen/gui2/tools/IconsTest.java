@@ -34,10 +34,6 @@ import org.junit.Test;
 public class IconsTest extends TestCase
 {
 
-	public IconsTest()
-	{
-	}
-
 	@BeforeClass
 	public static void setUpClass() throws Exception
 	{
@@ -50,14 +46,16 @@ public class IconsTest extends TestCase
 
 	@Before
     @Override
-	public void setUp()
+	public void setUp() throws Exception
 	{
+		super.setUp();
 	}
 
 	@After
     @Override
-	public void tearDown()
+	public void tearDown() throws Exception
 	{
+		super.tearDown();
 	}
 
 	/**

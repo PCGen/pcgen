@@ -44,7 +44,7 @@ public class CompareEqualLong extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Long.valueOf(this.lo));
+		return obj.equals(this.lo);
 	}
 
     @Override

@@ -52,7 +52,7 @@ import pcgen.persistence.lst.BioSetLoaderTest;
 public class BioSetTest extends AbstractCharacterTestCase
 {
 	static final String[] BIO_SET_DATA =
-			new String[]{
+			{
 				"AGESET:0|Adulthood",
 				"RACENAME:Human%		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
 				"RACENAME:Human%		SEX:Male[BASEHT:58|HTDIEROLL:2d10|BASEWT:120|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d10|BASEWT:85|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]",
@@ -119,7 +119,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final String BASE_RACE_NAME = "Human";
 		final String NEW_RACE_NAME = "TestHuman";
 		final String[] TEST_TAGS =
-				new String[]{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
+				{"HAIR", "EYES", "SKINTONE", "AGEDIEROLL", "CLASS",
 					"BASEAGE", "MAXAGE", "SEX", "CLASS"};
 
 		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
@@ -167,8 +167,8 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 */
 	public void testRandomize()
 	{
-		final int[] BASE_AGE = new int[]{15, 35, 53, 70};
-		final int[] MAX_AGE = new int[]{34, 52, 69, 110};
+		final int[] BASE_AGE = {15, 35, 53, 70};
+		final int[] MAX_AGE = {34, 52, 69, 110};
 
 		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 		final PlayerCharacter pc = getCharacter();

@@ -27,8 +27,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
@@ -38,6 +36,8 @@ import pcgen.persistence.PersistenceManager;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
+
+import org.junit.Test;
 
 /**
  * The Class <code>PreCampaignTest</code> checks the processing
@@ -96,7 +96,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 		assertFalse("Nonpresent campaign should not be found",
 			PrereqHandler.passes(preCamp1, null, sourceCamp));
 
-		uris = new ArrayList<URI>();
+		uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 
@@ -121,7 +121,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 		
@@ -153,7 +153,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 		
@@ -180,7 +180,7 @@ public class PreCampaignTest extends AbstractCharacterTestCase
 	{
 		// Setup campaigns
 		PersistenceManager pmgr = PersistenceManager.getInstance();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		uris.add(camp1.getSourceURI());
 		pmgr.setChosenCampaignSourcefiles(uris);
 		

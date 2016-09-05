@@ -42,6 +42,7 @@ public class SourceMigrationTest extends PCGenTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -66,9 +67,11 @@ public class SourceMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(sourceRuleDiffGame, "modern");
 	}
 
-	public void tearDown()
+	@Override
+	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
+		super.tearDown();
 	}
 
 	/**

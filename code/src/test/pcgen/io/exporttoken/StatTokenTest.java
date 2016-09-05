@@ -60,14 +60,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	PCTemplate template4;
 
 	/**
-	 * 
-	 */
-	public StatTokenTest()
-	{
-		super();
-	}
-
-	/**
 	 * @param name
 	 */
 	public StatTokenTest(String name)

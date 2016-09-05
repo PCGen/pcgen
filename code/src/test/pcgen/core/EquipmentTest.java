@@ -56,7 +56,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 	private Equipment eq = null;
 	private Equipment eqDouble = null;
-	private final String OriginalKey = "OrigKey";
+	private static final String OriginalKey = "OrigKey";
 	private CampaignSourceEntry source;
 
 	/**

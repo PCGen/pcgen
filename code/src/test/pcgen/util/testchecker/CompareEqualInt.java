@@ -44,7 +44,7 @@ public class CompareEqualInt extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Integer.valueOf(this.i));
+		return obj.equals(this.i);
 	}
 
     @Override
