@@ -33,8 +33,6 @@ import java.util.regex.Pattern;
  * <code>SourceLogFormatter</code> is a log formater for the Java
  * Loggings API that ignores the call from the PCGen logging class.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

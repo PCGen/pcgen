@@ -80,8 +80,6 @@ import pcgen.util.Logging;
  * {@code DataInstaller} is responsible for managing the installation of
  * a data set including the selection of the set and the install options.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

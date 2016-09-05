@@ -66,8 +66,6 @@ import pcgen.util.enumeration.Tab;
  * the user interface to work with the class levels of a character.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -44,8 +44,6 @@ import pcgen.util.enumeration.AttackType;
  * fashion. Note that it is possible to use the MapKey to cast the object to
  * the type of object stored by the ListKey. (This assists with Generics)
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

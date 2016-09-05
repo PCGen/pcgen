@@ -19,8 +19,6 @@
  * Created on May 7, 2010, 1:01:02 PM
  *
  * Current Ver: $Revision: 11596 $ <br>
- * Last Editor: $Author: cpmeister $ <br>
- * Last Edited: $Date: 2010-04-04 17:08:01 -0700 (Sun, 04 Apr 2010) $
  *
  */
 package pcgen.gui2.dialog;

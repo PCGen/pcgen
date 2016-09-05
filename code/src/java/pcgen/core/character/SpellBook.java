@@ -36,8 +36,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

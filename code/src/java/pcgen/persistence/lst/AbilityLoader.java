@@ -20,8 +20,6 @@
  * this code was moved and changed from FeatLoader.java
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;

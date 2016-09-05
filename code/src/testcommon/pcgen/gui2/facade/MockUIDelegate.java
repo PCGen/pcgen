@@ -34,8 +34,6 @@ import pcgen.util.Logging;
  * The Class <code></code> is ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

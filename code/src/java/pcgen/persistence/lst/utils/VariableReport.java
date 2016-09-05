@@ -60,8 +60,6 @@ import freemarker.template.TemplateException;
  * definitions within the PCGen LST data.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

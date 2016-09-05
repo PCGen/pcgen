@@ -29,8 +29,6 @@ import pcgen.util.enumeration.Tab;
  * to support a Todo entry for a character. 
  *
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-06-14 03:03:19 -0700 (Mon, 14 Jun 2010) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

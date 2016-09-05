@@ -19,8 +19,6 @@
  * Created 21-Sep-2008 01:22:27
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 

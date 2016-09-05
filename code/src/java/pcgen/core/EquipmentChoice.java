@@ -50,8 +50,6 @@ import pcgen.util.enumeration.Visibility;
  * they want, or the generator creating one object for each
  * combination of choices.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
