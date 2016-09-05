@@ -25,10 +25,7 @@
     <exclude name="ProperCloneImplementation" />
     <exclude name="CloneThrowsCloneNotSupportedException" />
   </rule>
-  <rule ref="rulesets/java/codesize.xml" >
-    <exclude name="TooManyFields" />
-    <exclude name="TooManyMethods" />
-  </rule>
+  <rule ref="rulesets/java/codesize.xml" />
   <!--<rule ref="rulesets/java/comments.xml" />-->
   <!--<rule ref="rulesets/controversial.xml />-->
   <rule ref="rulesets/java/coupling.xml">
