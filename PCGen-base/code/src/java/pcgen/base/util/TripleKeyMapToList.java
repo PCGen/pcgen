@@ -71,6 +71,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	/**
 	 * Constructs a new (empty) TripleKeyMapToList.
 	 */
+	@SuppressWarnings("PMD.LooseCoupling")
 	public TripleKeyMapToList()
 	{
 		super();

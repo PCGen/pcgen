@@ -85,6 +85,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	/**
 	 * Constructs a new DoubleKeyMapToList.
 	 */
+	@SuppressWarnings("PMD.LooseCoupling")
 	public DoubleKeyMapToList()
 	{
 		super();
