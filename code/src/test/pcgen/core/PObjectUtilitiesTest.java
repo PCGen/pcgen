@@ -36,7 +36,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase

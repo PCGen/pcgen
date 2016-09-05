@@ -38,7 +38,6 @@ import java.util.List;
  * Tests the CoreUtility class.
  *
  * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")

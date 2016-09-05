@@ -42,7 +42,6 @@ import pcgen.util.TestHelper;
  * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreLangTest extends AbstractCharacterTestCase
 {

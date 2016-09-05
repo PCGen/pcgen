@@ -52,7 +52,6 @@ import pcgen.util.TestHelper;
  * Last Edited: $Date: 2006-04-07 00:35:49 +1000 (Fri, 07 Apr 2006) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 661 $
  */
 public class ACTokenTest extends AbstractCharacterTestCase
 {

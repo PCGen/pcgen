@@ -42,7 +42,6 @@ import pcgen.util.enumeration.Visibility;
  * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {

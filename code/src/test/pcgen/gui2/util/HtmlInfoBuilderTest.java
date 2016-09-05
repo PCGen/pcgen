@@ -39,7 +39,6 @@ import junit.textui.TestRunner;
  * Last Edited: $Date$
  *
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase

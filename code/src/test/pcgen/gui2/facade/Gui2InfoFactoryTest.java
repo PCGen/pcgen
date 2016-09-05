@@ -44,7 +44,6 @@ import plugin.lsttokens.choose.StringToken;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {

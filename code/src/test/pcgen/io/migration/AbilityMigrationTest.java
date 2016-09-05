@@ -34,7 +34,6 @@ import pcgen.io.migration.AbilityMigration.CategorisedKey;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AbilityMigrationTest extends PCGenTestCase
 {

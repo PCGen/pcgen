@@ -39,7 +39,6 @@ import pcgen.rules.context.LoadContext;
  * character to be supplied. 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {

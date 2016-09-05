@@ -49,7 +49,6 @@ import pcgen.persistence.lst.FeatLoader;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PCBooleanFunctionTest extends AbstractJunit4CharacterTestCase

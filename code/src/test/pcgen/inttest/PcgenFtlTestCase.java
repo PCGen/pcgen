@@ -29,7 +29,6 @@ package pcgen.inttest;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public abstract class PcgenFtlTestCase extends pcGenGUITestCase
 {

@@ -34,7 +34,6 @@ import junit.framework.TestCase;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class OutputNameFormattingTest extends TestCase
 {

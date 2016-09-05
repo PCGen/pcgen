@@ -40,7 +40,6 @@ import pcgen.PCGenTestCase;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class IsgamemodeCommandTest extends PCGenTestCase
 {

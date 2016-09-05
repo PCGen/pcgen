@@ -37,7 +37,6 @@ import pcgen.core.SettingsHandler;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class IconTokenTest extends PCGenTestCase
 {

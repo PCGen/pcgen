@@ -40,7 +40,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {
