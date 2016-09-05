@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<configuration debug="false" scan="true" packagingData="true">
+
+    <appender name="CONSOLE" class="ch.qos.logback.core.ConsoleAppender">
+        <!--<discardingThreshold>0</discardingThreshold>-->
+        <withJansi>true</withJansi>
+        <encoder>
+            <pattern>[%thread] %highlight(%-5level) %cyan([%d{ISO8601}] [%file:%line]) %gray(%logger{36} [%contextName]) - %msg%n%rEx{full}</pattern>
+            <outputPatternAsHeader>true</outputPatternAsHeader>
+            <immediateFlush>true</immediateFlush>
+        </encoder>
+
+    </appender>
+
+    <root level="DEBUG">
+        <appender-ref ref="CONSOLE" />
+    </root>
+
+    <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
+    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+    <jmxConfigurator />
+
+</configuration>

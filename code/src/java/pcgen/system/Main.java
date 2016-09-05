@@ -20,9 +20,7 @@
  */
 package pcgen.system;
 
-import java.awt.Font;
-import java.awt.FontFormatException;
-import java.awt.GraphicsEnvironment;
+import java.awt.*;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -32,14 +30,9 @@ import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Level;
+
 import javax.swing.JOptionPane;
-import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.Arguments;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
-import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;
@@ -61,13 +54,23 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
+import pcgen.util.Logging;
+import pcgen.util.PJEP;
+
+import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.impl.Arguments;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
+import net.sourceforge.argparse4j.inf.Namespace;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import static pcgen.system.ConfigurationSettings.SETTINGS_FILES_PATH;
 import static pcgen.system.ConfigurationSettings.getPluginsDir;
 import static pcgen.system.ConfigurationSettings.getSystemProperty;
 import static pcgen.system.ConfigurationSettings.initSystemProperty;
 import static pcgen.system.ConfigurationSettings.setSystemProperty;
-import pcgen.util.Logging;
-import pcgen.util.PJEP;
 
 public final class Main
 {
@@ -83,6 +86,8 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+
 
 	private Main()
 	{
@@ -134,9 +139,9 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Logging.log(Level.INFO,
-				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-						+ PCGenPropBundle.getAutobuildString());
+		LOGGER.info("Starting PCGen v {} {}",
+				PCGenPropBundle.getVersionNumber(),
+				PCGenPropBundle.getAutobuildString());
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
@@ -144,13 +149,14 @@ public final class Main
 
 		parseCommands(args);
 
-		if (exportSheet != null)
+		if (exportSheet == null)
+		{
+			startupWithGUI();
+		}
+		else
 		{
 			startupWithoutGUI();
 			shutdown();
-		} else
-		{
-			startupWithGUI();
 		}
 	}
 
@@ -194,6 +200,7 @@ public final class Main
 
 		if (args.getInt("verbose") > 0)
 		{
+
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
