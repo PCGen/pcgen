@@ -79,7 +79,7 @@ public class IndividualSetup
 				new SimpleFormulaManager(parent.getFunctionLibrary(),
 					parent.getOperatorLibrary(), parent.getVariableLibrary(),
 					getVariableStore(), parent.getSolverFactory());
-		globalScopeInst = instanceFactory.getInstance(null, globalName, null);
+		globalScopeInst = instanceFactory.getGlobalInstance(globalName);
 	}
 
 	/**

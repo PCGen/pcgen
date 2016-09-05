@@ -67,6 +67,7 @@ public class SolverFactory implements DefaultStore
 	 *             dependencies, or if the given Solver format already has a
 	 *             default Modifier defined for this SolverFactory
 	 */
+	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public <T> void addSolverFormat(Class<T> varFormat,
 		Modifier<? extends T> defaultModifier)
 	{

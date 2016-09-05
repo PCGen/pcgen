@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.string;
 
+import java.util.Objects;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
@@ -64,12 +66,8 @@ public class StringAdd implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		if ((left == null) || (right == null))
-		{
-			throw new NullPointerException(
-				"Object to evaluate cannot be null: " + left + " + " + right);
-		}
-		return (String) left + (String) right;
+		return (String) Objects.requireNonNull(left)
+			+ (String) Objects.requireNonNull(right);
 	}
 
 }
