@@ -35,7 +35,7 @@ public class ChannelCompatibility
 			CControl.STATSCORE))
 		{
 			return (WriteableReferenceFacade<Integer>) ChannelUtilities
-				.getChannel(id, stat, stat.getKeyName());
+				.getChannel(id, stat, CControl.STATSCORE);
 		}
 		else
 		{
