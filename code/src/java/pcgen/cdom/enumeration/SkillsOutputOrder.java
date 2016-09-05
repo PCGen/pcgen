@@ -29,7 +29,6 @@ import pcgen.core.SkillComparator;
  * SkillsOutputOrder defines the possible orders of skill in output sheets. 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public enum SkillsOutputOrder
 {

@@ -33,7 +33,6 @@ import java.util.StringTokenizer;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class SpellListToken extends Token
 {

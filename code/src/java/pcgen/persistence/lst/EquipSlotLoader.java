@@ -37,7 +37,6 @@ import pcgen.util.Logging;
 
 /**
  * @author  Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public final class EquipSlotLoader extends LstLineFileLoader
 {

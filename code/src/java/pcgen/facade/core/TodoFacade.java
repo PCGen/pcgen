@@ -33,7 +33,6 @@ import pcgen.util.enumeration.Tab;
  * Last Edited: $Date: 2010-06-14 03:03:19 -0700 (Mon, 14 Jun 2010) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 12156 $
  */
 public interface TodoFacade extends Comparable<TodoFacade>
 {

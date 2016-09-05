@@ -42,7 +42,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface

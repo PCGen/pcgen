@@ -50,7 +50,6 @@ import pcgen.system.LanguageBundle;
  * <code>WeaponhToken</code>.
  *
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponhToken extends WeaponToken
 {

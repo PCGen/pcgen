@@ -42,7 +42,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class NewKeyToken implements MigrationLstToken
 {

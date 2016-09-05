@@ -22,7 +22,6 @@ import pcgen.util.enumeration.View;
  * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision$
  */
 public class VFeatToken extends AbilityToken
 {

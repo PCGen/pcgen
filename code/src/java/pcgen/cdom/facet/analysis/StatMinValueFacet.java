@@ -43,7 +43,6 @@ import pcgen.core.PCStat;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class StatMinValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
 		DataFacetChangeListener<CharID, CDOMObject>

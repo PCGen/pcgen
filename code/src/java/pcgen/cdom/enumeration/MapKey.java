@@ -48,7 +48,6 @@ import pcgen.util.enumeration.AttackType;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public final class MapKey<K, V>
 {

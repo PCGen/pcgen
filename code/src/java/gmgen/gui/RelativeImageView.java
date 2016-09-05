@@ -32,7 +32,6 @@ import java.util.Dictionary;
  * as of 1.4.
  *
  * @author  Scott Violet
- * @version 1.50 12/03/01
  * @see javax.swing.text.IconView
  * @since 1.4
  */

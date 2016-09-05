@@ -41,7 +41,6 @@ import javax.swing.text.html.StyleSheet;
  * relative image paths.
  *
  * @author &lt;a href="mailto:jal@grimor.com"&gt;Frits Jalvingh &lt;/a&gt;
- * @version 1.0
  */
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 

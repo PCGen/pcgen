@@ -36,7 +36,6 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class MessageHandlerManager

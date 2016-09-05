@@ -37,7 +37,6 @@ import pcgen.util.Logging;
  * into safe XML equivalents for outputting to xml files.
  *    
  * @author apsen
- * @version $Revision: $
  */
 public class PatternFilter implements OutputFilter
 {

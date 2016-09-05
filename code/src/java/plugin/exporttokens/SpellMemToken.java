@@ -61,7 +61,6 @@ import pcgen.util.Delta;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 // SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber

@@ -39,7 +39,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * 			WEIGHT.x
  * 
  * @author	Devon Jones
- * @version	$Revision$
  */
 public class WeightToken extends AbstractExportToken
 {
