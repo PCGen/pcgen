@@ -2,8 +2,10 @@
 SOURCELONG:Curse of the Crimson Throne, Chapter 4: A History of Ashes	SOURCESHORT:AP10	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82u9	SOURCEDATE:2008-07
 # Original Entry by: Paul Grosse
 
+# Note:
+# For the offical Pathfinder RPG version of the mantis mask, use the mask of the mantis from the Pathfinder Campaign Setting: Inner Sea World Guide dataset.
+
 # Equipment Name			Type					Cost		Weight	Source Page
-Mask of the Mantis		TYPE:Magic.Wondrous.Headgear	COST:6000	WT:1		SOURCEPAGE:p.18
 Elixir of Shadewalking		TYPE:Magic.Potion.Consumable	COST:3500	WT:1		SOURCEPAGE:p.19
 Shoanti War Paint (Black)	TYPE:Magic.Potion.Consumable	COST:1800	WT:0		SOURCEPAGE:p.14
 Shoanti War Paint (Blue)	TYPE:Magic.Potion.Consumable	COST:900	WT:0		SOURCEPAGE:p.14
