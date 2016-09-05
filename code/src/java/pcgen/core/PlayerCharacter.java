@@ -275,6 +275,8 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 
+import com.google.common.annotations.VisibleForTesting;
+
 /**
  * {@code PlayerCharacter}.
  *
@@ -8058,6 +8060,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	//WARNING: This is public only for testing, do NOT use without understanding what you are shortcutting!!
+	@VisibleForTesting
 	public void applyAbility(CNAbilitySelection cas, Object source)
 	{
 		if (cas.hasPrerequisites())
