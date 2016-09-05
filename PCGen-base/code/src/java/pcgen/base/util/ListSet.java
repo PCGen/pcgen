@@ -46,6 +46,7 @@ public class ListSet<T> extends AbstractSet<T> implements Set<T>
 	/**
 	 * The List used to represent the members of this Set.
 	 */
+	@SuppressWarnings("PMD.LooseCoupling")
 	private final ArrayList<T> list;
 
 	/**
