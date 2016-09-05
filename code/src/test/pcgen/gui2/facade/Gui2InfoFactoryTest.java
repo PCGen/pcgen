@@ -40,8 +40,6 @@ import plugin.lsttokens.choose.StringToken;
  * Gui2InfoFactory class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

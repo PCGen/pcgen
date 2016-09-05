@@ -39,8 +39,6 @@ import pcgen.rules.context.LoadContext;
  * <code>PreEquipSecondaryTest</code> tests that the PREEQUIPSECONDARY tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

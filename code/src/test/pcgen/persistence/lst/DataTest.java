@@ -61,8 +61,6 @@ import pcgen.util.TestHelper;
  * The Class <code>DataTest</code> checks the data files for known issues.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

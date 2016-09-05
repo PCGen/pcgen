@@ -34,8 +34,6 @@ import java.util.Stack;
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */

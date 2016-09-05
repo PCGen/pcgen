@@ -33,8 +33,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreBirthplaceTest</code> tests that the PREBIRTHPLACE tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

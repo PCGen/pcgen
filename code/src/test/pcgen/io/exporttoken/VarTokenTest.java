@@ -36,8 +36,6 @@ import plugin.exporttokens.VarToken;
  * <code>VarTokenTest</code> tests the functioning of the VAR 
  * token processing code. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

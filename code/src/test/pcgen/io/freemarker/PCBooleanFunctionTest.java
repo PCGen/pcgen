@@ -45,8 +45,6 @@ import pcgen.persistence.lst.FeatLoader;
  * The Class <code></code> ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

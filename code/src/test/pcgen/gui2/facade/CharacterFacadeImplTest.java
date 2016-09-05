@@ -36,8 +36,6 @@ import pcgen.core.character.EquipSet;
  * CharacterFacadeImpl.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

@@ -55,8 +55,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>VAbilityTokenTest</code> tests the functioning of the VABILITY 
  * token processing code. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

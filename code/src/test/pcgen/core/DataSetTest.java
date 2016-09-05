@@ -39,8 +39,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  * correctly.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

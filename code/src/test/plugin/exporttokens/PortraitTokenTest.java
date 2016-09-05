@@ -36,8 +36,6 @@ import pcgen.core.PlayerCharacter;
  * The Class <code>PortraitTokenTest</code> checks the function of PortraitToken.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

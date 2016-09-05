@@ -20,8 +20,6 @@
  * Created on May 20th, 2002
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.utils;
 

@@ -33,8 +33,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreCityTest</code> tests that the PRECITY tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

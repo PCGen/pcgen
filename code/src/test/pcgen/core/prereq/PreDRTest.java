@@ -36,8 +36,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreDRTest</code> tests that the PREDR tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

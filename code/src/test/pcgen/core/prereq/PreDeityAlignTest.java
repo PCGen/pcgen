@@ -36,8 +36,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreDeityAlignTest</code> tests that the PREDEITYALIGN tag is 
  * working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

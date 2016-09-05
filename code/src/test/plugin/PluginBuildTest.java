@@ -39,8 +39,6 @@ import pcgen.PCGenTestCase;
  * required data. As a result this unit test is a bit different in structure to 
  * a normal test.  
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

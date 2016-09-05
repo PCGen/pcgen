@@ -40,8 +40,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreDomainTest</code> tests that the PREDOMAIN tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

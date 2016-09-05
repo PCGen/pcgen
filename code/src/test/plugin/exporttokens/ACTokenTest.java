@@ -48,8 +48,6 @@ import pcgen.util.TestHelper;
  * <code>ACTokenTest</code> tests the function of the AC token and 
  * thus the calculations of armor class.  
  *
- * Last Editor: $Author: karianna $
- * Last Edited: $Date: 2006-04-07 00:35:49 +1000 (Fri, 07 Apr 2006) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

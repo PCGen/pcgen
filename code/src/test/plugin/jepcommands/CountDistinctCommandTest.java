@@ -40,8 +40,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * <code>CountDistinctCommandTest</code> tests the functioning of the jep 
  * countdistinct plugin
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */

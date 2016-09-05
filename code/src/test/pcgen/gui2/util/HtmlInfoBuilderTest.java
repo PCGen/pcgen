@@ -35,8 +35,6 @@ import junit.textui.TestRunner;
 /**
  * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
  */

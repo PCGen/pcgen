@@ -56,8 +56,6 @@ import org.junit.Test;
  * verifying the properties files.  
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

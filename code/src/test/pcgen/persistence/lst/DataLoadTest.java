@@ -70,8 +70,6 @@ import pcgen.util.TestHelper;
  * The Class <code>DataLoadTest</code> checks each basic source for errors on load.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

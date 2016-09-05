@@ -36,8 +36,6 @@ import pcgen.util.TestHelper;
 /**
  * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

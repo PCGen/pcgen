@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.core.prereq;
@@ -35,8 +33,6 @@ import pcgen.core.PlayerCharacter;
  * The Class <code>PreStatTest</code> checks that PreStatTester is working correctly.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

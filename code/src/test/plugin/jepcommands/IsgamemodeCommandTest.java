@@ -36,8 +36,6 @@ import pcgen.PCGenTestCase;
  * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
  * that IsgamemodeCommand is working correctly. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
