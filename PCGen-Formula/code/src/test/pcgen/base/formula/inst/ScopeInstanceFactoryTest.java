@@ -32,7 +32,6 @@ public class ScopeInstanceFactoryTest extends TestCase
 	private SimpleLegalScope scope;
 	private ScopeInstance scopeInst;
 	private SimpleLegalScope local;
-	private ScopeInstance localInst;
 
 	@Override
 	protected void setUp() throws Exception
@@ -42,10 +41,9 @@ public class ScopeInstanceFactoryTest extends TestCase
 		factory = new ScopeInstanceFactory(library);
 		scope = new SimpleLegalScope(null, "Global");
 		library.registerScope(scope);
-		scopeInst = factory.getInstance(null, "Global", null);
+		scopeInst = factory.getGlobalInstance("Global");
 		local = new SimpleLegalScope(scope, "Local");
 		library.registerScope(local);
-		localInst = factory.getInstance(scopeInst, "Local", null);
 	}
 
 	@Test
@@ -64,48 +62,6 @@ public class ScopeInstanceFactoryTest extends TestCase
 		{
 			//ok, too			
 		}
-	}
-
-	@Test
-	public void testGetInstance()
-	{
-		try
-		{
-			factory.getInstance(null, "Name", null);
-			fail("Expected to fail due to no global scope called name");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.getInstance(scopeInst, null, null);
-			fail("Expected to fail due to invalid subscope name");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		library.registerScope(sublocal);
-		try
-		{
-			factory.getInstance(scopeInst, "SubLocal", null);
-			fail("Expected to fail due to invalid parent scope instance");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		ScopeInstance globalInst = factory.getInstance(null, "Global", null);
-		assertNull(globalInst.getParentScope());
-		assertEquals("Global", globalInst.getLegalScope().getName());
-
-		ScopeInstance localInst = factory.getInstance(globalInst, "Local", null);
-		assertTrue(local.equals(localInst.getLegalScope()));
-		assertTrue(globalInst.equals(localInst.getParentScope()));
-		assertEquals("Local", localInst.getLegalScope().getName());
 	}
 
 	public void testGetGlobalInstance()

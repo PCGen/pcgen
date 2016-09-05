@@ -276,9 +276,7 @@ public class ReconstructionVisitor implements FormulaParserVisitor
 	public Object visit(ASTQuotString node, Object data)
 	{
 		StringBuilder sb = (StringBuilder) data;
-		sb.append('"');
-		sb.append(node.getText());
-		sb.append('"');
+		sb.append('"').append(node.getText()).append('"');
 		return data;
 	}
 

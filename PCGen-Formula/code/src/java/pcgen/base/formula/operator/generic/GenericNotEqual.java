@@ -66,7 +66,7 @@ public class GenericNotEqual implements OperatorAction
 	{
 		if (right == null)
 		{
-			throw new NullPointerException("object in equality cannot be null");
+			throw new IllegalArgumentException("object in equality cannot be null");
 		}
 		return !left.equals(right);
 	}

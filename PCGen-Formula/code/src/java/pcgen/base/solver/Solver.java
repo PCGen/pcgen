@@ -90,6 +90,7 @@ public class Solver<T>
 	 *            The underlying EvaluationManager for this Solver, used when a
 	 *            Modifier uses a Formula to determine the output value
 	 */
+	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public Solver(Modifier<T> defaultModifier, EvaluationManager evaluationManager)
 	{
 		if (defaultModifier == null)
@@ -258,8 +259,8 @@ public class Solver<T>
 					evaluationManager.set(EvaluationManager.INPUT, stepResult);
 					stepResult = modInfo.modifier.process(evaluationManager);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-					ProcessStep<T> step =
-							new ProcessStep<T>(modInfo.modifier, modInfo.source, stepResult);
+					ProcessStep<T> step = new ProcessStep<T>(modInfo.modifier,
+						modInfo.source, stepResult);
 					steps.add(step);
 				}
 			}

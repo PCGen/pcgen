@@ -82,7 +82,7 @@ public class GenericNotEqualTest extends TestCase
 			assertNull(op.evaluate(null, null));
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -91,7 +91,7 @@ public class GenericNotEqualTest extends TestCase
 			assertNull(op.evaluate(Boolean.TRUE, null));
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//expected
 		}
@@ -100,7 +100,7 @@ public class GenericNotEqualTest extends TestCase
 			assertNull(op.evaluate(null, Boolean.FALSE));
 			fail();
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//expected
 		}
