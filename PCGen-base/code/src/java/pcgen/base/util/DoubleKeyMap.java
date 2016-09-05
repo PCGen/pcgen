@@ -103,6 +103,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * Creates a new, empty DoubleKeyMap using HashMap as the underlying Map
 	 * class for both the primary and secondary underlying Map.
 	 */
+	@SuppressWarnings("PMD.LooseCoupling")
 	public DoubleKeyMap()
 	{
 		super();

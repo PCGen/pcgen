@@ -76,6 +76,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	/**
 	 * Constructs a new (empty) TripleKeyMap.
 	 */
+	@SuppressWarnings("PMD.LooseCoupling")
 	public TripleKeyMap()
 	{
 		thirdClass = HashMap.class;

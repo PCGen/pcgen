@@ -50,7 +50,7 @@ public final class MessageFormatUtilities
 		MessageFormat mf = new MessageFormat("");
 		for (Format fmt : formats)
 		{
-			if (fmt instanceof java.text.ChoiceFormat)
+			if (fmt instanceof ChoiceFormat)
 			{
 				mf.applyPattern(((ChoiceFormat) fmt).toPattern());
 				required = Math.max(required, getRequriedArgumentCount(mf));
