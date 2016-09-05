@@ -37,7 +37,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class SpellListTypeToken extends SpellListToken

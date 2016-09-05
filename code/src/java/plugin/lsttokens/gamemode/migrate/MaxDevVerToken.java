@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * the rules object was last coded in the old format.  
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class MaxDevVerToken extends VersionAwareToken implements
 		MigrationLstToken

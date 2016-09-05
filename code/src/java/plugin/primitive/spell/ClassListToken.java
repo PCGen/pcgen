@@ -37,7 +37,6 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  * Last Editor: $Author:  $
  * Last Edited: $Date:  $
  * 
- * @version $Revision:  $
  */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {
