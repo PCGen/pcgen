@@ -28,7 +28,6 @@ import pcgen.util.Logging;
  * VersionAwareToken is a token class that needs to verify a version.
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class VersionAwareToken
 {

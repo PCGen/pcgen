@@ -42,7 +42,6 @@ import pcgen.io.exporttoken.Token;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class GoldToken extends Token
 {

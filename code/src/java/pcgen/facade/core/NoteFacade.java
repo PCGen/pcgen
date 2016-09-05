@@ -31,7 +31,6 @@ package pcgen.facade.core;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public interface NoteFacade

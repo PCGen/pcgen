@@ -31,7 +31,6 @@ import java.util.StringTokenizer;
  * Decodes entities as reserved characters and escape sequences
  *
  * @author Thomas Behr
- * @version $Revision$
  */
 public final class EntityEncoder
 {

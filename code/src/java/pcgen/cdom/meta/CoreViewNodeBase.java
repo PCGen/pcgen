@@ -36,7 +36,6 @@ import pcgen.facade.core.CoreViewNodeFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {

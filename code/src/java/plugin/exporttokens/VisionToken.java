@@ -43,7 +43,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * Last Edited: $Date$
  *
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
- * @version $Revision$
  */
 public class VisionToken extends AbstractExportToken
 {

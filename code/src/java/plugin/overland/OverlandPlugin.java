@@ -47,7 +47,6 @@ import plugin.overland.gui.OverPanel;
  * Updated on February 26, 2003
  * @author  Expires 2003
  * @author Vincent Lhote
- * @version 2.10
  */
 public class OverlandPlugin implements InteractivePlugin
 {

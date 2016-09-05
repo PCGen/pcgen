@@ -36,7 +36,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * <code>WeaponProfsToken</code>.
  *
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponProfsToken extends AbstractExportToken
 {

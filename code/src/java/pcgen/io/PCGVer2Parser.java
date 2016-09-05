@@ -162,7 +162,6 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  *
  *
  * @author Thomas Behr 22-03-02
- * @version $Revision$
  */
 final class PCGVer2Parser implements PCGParser, IOConstants
 {

@@ -41,7 +41,6 @@ import pcgen.util.Logging;
  * PlayerCharacters in a specific format from/to a stream
  *
  * @author Thomas Behr 11-03-02
- * @version $Revision$
  */
 public abstract class IOHandler
 {

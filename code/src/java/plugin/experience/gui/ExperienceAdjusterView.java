@@ -48,7 +48,6 @@ import plugin.experience.ExperienceAdjusterModel;
  * <code>JTabbedPane</code> of the <code>GMGenSystemView</code>.<br>
  * Created on February 19, 2003<br>
  * Updated on March 6, 2003
- * @version 2.10
  */
 // TODO use multi column list rather than a single line
 public class ExperienceAdjusterView extends javax.swing.JPanel
