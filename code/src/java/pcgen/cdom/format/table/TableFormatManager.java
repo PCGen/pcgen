@@ -32,7 +32,7 @@ import pcgen.base.util.ObjectDatabase;
  * that such a column exists in the DataTable, not that it has a specific name
  * or that it is the only column.
  */
-public class TableFormatManager implements FormatManager<DataTable>
+public final class TableFormatManager implements FormatManager<DataTable>
 {
 
 	/**
