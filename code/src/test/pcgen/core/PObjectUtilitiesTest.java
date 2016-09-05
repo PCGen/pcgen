@@ -32,8 +32,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities
  * class is working correctly.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

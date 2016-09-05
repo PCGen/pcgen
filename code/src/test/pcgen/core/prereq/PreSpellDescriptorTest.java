@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision: 8541 $
  *
- * Last Editor: $Author: thpr $
  *
- * Last Edited: $Date: 2008-12-04 21:18:26 -0500 (Thu, 04 Dec 2008) $
  *
  */
 package pcgen.core.prereq;

@@ -39,8 +39,6 @@ import pcgen.facade.util.event.ListListener;
  * The Class <code></code> ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

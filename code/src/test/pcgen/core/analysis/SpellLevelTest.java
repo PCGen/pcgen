@@ -48,8 +48,6 @@ import pcgen.util.TestHelper;
 /**
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

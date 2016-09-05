@@ -43,8 +43,6 @@ import org.junit.Test;
  * The Class <code>PreCampaignTest</code> checks the processing
  * of the PRECAMPAIGN tag.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

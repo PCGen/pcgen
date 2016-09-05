@@ -40,8 +40,6 @@ import pcgen.rules.context.LoadContext;
  * <code>PREPCLEVELTest</code> tests that the PREPCLEVEL tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date: 2007-11-21 09:50:01 -0500 (Wed, 21 Nov 2007) $
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

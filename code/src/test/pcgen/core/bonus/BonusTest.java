@@ -49,8 +49,6 @@ import plugin.bonustokens.Var;
  * <code>BonusTest</code> test that the Bonus class is functioning
  * correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

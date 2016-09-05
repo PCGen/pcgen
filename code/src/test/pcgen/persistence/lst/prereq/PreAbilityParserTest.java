@@ -19,8 +19,6 @@
  * Created on January 23, 2006
  *
  * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -42,8 +40,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  * <code>PreAbilityParserTest</code> tests the function of the 
  * PREABILITY parser.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

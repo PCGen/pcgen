@@ -40,8 +40,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * of challenge ratings for the Pathfinder RPG game mode
  *
  * <br/>
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2013-01-06 19:52:59 +0100 (So, 06 Jan 2013) $
  * 
  * @author Stefan Radermacher <zaister@users.sourceforge.net>
  */

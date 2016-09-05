@@ -43,8 +43,6 @@ import org.junit.Test;
  * Note: pcgen.cdom.facet.base only contains abstract base classes for facets 
  * so is not itself checked.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

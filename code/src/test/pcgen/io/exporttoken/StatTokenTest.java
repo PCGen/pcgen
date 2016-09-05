@@ -43,8 +43,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

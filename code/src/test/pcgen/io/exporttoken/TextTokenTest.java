@@ -36,8 +36,6 @@ import plugin.exporttokens.TextToken;
  * <code>TextTokenTest</code> tests the functioning of the TEXT 
  * token processing code. 
  *
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2006-03-15 10:19:50 +1100 (Wed, 15 Mar 2006) $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

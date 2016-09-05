@@ -35,7 +35,6 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 /**
  * <code>CampaignTest</code> is ...
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-11-11 18:34:19 -0500
  * (Tue, 11 Nov 2008) $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>

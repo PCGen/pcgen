@@ -41,8 +41,6 @@ import pcgen.rules.context.LoadContext;
  * <code>PreCheckTest</code> tests that the PRECHECK tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

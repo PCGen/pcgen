@@ -49,8 +49,6 @@ import pcgen.util.TestHelper;
  * <code>PreShieldProfTest</code> tests that the PREPROFWITHSHIELD tag is
  * working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

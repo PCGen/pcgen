@@ -41,8 +41,6 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * The Class <code>AbilityListTokenTest</code> verifies the processing of the 
  * AbilityListToken.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

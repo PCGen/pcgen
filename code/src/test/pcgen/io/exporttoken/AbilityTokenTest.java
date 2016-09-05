@@ -50,8 +50,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>AbilityTokenTest</code> tests the functioning of the ABILITY 
  * token processing code. 
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -78,8 +76,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * The Class <code>PlayerCharacterTest</code> is responsible for testing 
  * that PlayerCharacter is working correctly.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author Chris Ward <frugal@purplewombat.co.uk>
  */

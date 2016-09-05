@@ -43,8 +43,6 @@ import pcgen.util.TestHelper;
 /**
  * This class tests the handling of ASPECT fields in PCGen
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

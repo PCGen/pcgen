@@ -47,8 +47,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * Verify the correct functioning of the SPELLMEM token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */

@@ -38,8 +38,6 @@ import pcgen.rules.context.LoadContext;
  * <code>PreEquipPrimaryTest</code> tests that the PREEQUIPPRIMARY tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */

@@ -38,8 +38,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * <code>CountCommandTest</code> tests the functioning of the jep count plugin
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */

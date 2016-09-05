@@ -43,8 +43,6 @@ import pcgen.rules.context.LoadContext;
  * <code>PreBaseSizeTest</code> tests that the PREBASESIZE tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
  */
