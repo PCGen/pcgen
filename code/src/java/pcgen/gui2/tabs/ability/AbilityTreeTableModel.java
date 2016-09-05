@@ -60,7 +60,6 @@ import pcgen.util.Comparators;
  * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityTreeTableModel extends AbstractTreeTableModel implements SortableTreeTableModel
 {

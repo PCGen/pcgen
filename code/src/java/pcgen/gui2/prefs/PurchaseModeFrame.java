@@ -71,7 +71,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author Chris Ryan
- * @version    $Revision$
  */
 public final class PurchaseModeFrame extends JDialog
 {

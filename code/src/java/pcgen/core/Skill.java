@@ -45,7 +45,6 @@ import pcgen.facade.core.SkillFacade;
  * <code>Skill</code>.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		VarScoped

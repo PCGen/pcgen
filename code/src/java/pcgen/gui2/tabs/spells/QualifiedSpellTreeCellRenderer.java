@@ -46,7 +46,6 @@ import pcgen.system.LanguageBundle;
  * -0700 (Tue, 05 Jun 2012) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {

@@ -36,7 +36,6 @@ import pcgen.facade.core.GearBuySellFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class GearBuySellScheme implements GearBuySellFacade
 {

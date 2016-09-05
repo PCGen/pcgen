@@ -79,7 +79,6 @@ import pcgen.util.enumeration.Tab;
  * -0700 (Sat, 17 May 2014) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {

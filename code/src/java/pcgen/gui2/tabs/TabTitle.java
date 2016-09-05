@@ -32,7 +32,6 @@ import pcgen.util.enumeration.Tab;
  * displayed.
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class TabTitle
 {

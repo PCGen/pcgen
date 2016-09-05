@@ -26,6 +26,5 @@
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 package pcgen.gui2.equip;

@@ -38,7 +38,6 @@ import javax.swing.JList;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class JListEx extends JList

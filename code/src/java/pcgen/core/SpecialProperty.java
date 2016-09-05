@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * <code>SpecialProperty</code>.
  *
  * @author Devon Jones
- * @version $Revision$
  */
 public final class SpecialProperty extends TextProperty
 {

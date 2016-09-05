@@ -93,7 +93,6 @@ import pcgen.system.PropertyContext;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener

@@ -33,7 +33,6 @@ import java.util.*;
  * An subclass of Properties whose output is sorted
  *
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SortedProperties extends Properties
 {

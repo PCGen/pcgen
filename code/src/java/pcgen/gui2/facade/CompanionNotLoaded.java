@@ -38,7 +38,6 @@ import pcgen.facade.util.ReferenceFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CompanionNotLoaded implements CompanionFacade
 {

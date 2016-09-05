@@ -46,7 +46,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public abstract class GeneralChooserFacadeBase implements ChooserFacade

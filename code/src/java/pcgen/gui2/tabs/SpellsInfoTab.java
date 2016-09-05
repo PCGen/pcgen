@@ -39,7 +39,6 @@ import pcgen.util.enumeration.Tab;
  * Last Edited: $Date: 2010-09-29 05:59:43 -0700 (Wed, 29 Sep 2010) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 13208 $
  */
 @SuppressWarnings("serial")
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler

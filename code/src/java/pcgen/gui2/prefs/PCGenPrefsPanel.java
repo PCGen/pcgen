@@ -32,7 +32,6 @@ import javax.swing.JPanel;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public abstract class PCGenPrefsPanel extends JPanel

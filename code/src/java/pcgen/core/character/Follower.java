@@ -34,7 +34,6 @@ import pcgen.core.Race;
 /**
  * <code>Follower.java</code>
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public final class Follower implements Comparable<Object>, Cloneable
 {

@@ -35,7 +35,6 @@ import pcgen.facade.core.ClassFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 {

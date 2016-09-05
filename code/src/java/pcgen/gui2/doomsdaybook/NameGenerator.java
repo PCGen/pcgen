@@ -26,7 +26,6 @@ import pcgen.gui2.dialog.RandomNameDialog;
  * PCGen but instead can be invoked on its own from the command line.
  * 
  * @author  devon
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class NameGenerator extends javax.swing.JFrame

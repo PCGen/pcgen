@@ -91,7 +91,6 @@ public class AboutDialog extends JDialog
  * to it.
  *
  * @author  Tom Epperly &lt;tomepperly@home.com&gt;
- * @version $Revision: 11596 $
  * Modified 4/8/02 by W Robert Reed III (Mynex)
  * Adds List Monkeys Display area
  * Cleaned up naming schema

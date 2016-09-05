@@ -59,7 +59,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener

@@ -31,7 +31,6 @@ import java.io.Serializable;
  * <code>JComboBoxEx</code> and the like.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision$
  */
 public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {

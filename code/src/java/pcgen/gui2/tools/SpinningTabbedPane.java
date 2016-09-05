@@ -42,7 +42,6 @@ import java.util.Set;
  * <code>SpinningTabbedPane</code>.
  *
  * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision: 1184 $
  *
  * @see JTabbedPane
  */

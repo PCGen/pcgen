@@ -32,7 +32,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date: 2011-02-24 15:41:00 -0800 (Thu, 24 Feb 2011) $
  *
  * @author Koen Van Daele &lt;vandaelek@users.sourceforge.net&gt;
- * @version $Revision: 14600 $
  */
 public class HtmlInfoBuilder 
 {

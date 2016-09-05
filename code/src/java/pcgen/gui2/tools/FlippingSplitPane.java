@@ -73,7 +73,6 @@ import pcgen.system.PropertyContext;
  * Locking is also recursive for <code>FlippingSplitPane</code> components.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision: 1363 $
  */
 public class FlippingSplitPane extends JSplitPane
 {

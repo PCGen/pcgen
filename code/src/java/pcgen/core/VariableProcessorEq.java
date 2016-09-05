@@ -34,7 +34,6 @@ import pcgen.core.term.TermEvaluator;
  * Last Edited: $Date$
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
- * @version $Revision$
  */
 public class VariableProcessorEq extends VariableProcessor
 {

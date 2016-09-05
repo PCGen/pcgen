@@ -43,7 +43,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date:  $
  *    
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>

@@ -91,7 +91,6 @@ import pcgen.system.PCGenSettings;
  *  PCGen preferences dialog
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {

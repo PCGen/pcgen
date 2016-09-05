@@ -34,7 +34,6 @@ import pcgen.core.VariableProcessor;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class AbstractCountCommand extends PCGenCommand
 {
