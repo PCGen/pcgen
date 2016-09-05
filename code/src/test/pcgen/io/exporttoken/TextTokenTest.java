@@ -23,13 +23,15 @@
  */
 package pcgen.io.exporttoken;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.exporttokens.TextToken;
 
 /**
@@ -61,7 +63,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		PlayerCharacter character = getCharacter();
-		character.setName("The Vitamins are in my Fresh Brussels Sprouts");
+		character.setStringFor(PCStringKey.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
 		character.setPCAttribute(PCAttribute.INTERESTS, "one potatoe. two potatoe. mORe");
 	}
 
