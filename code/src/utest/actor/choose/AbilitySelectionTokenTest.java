@@ -46,7 +46,6 @@ import plugin.lsttokens.choose.StringToken;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AbilitySelectionTokenTest extends TestCase
 {

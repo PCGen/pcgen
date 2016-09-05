@@ -41,7 +41,6 @@ import plugin.lsttokens.choose.AbilityToken;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class AbilityTokenTest extends TestCase
 {

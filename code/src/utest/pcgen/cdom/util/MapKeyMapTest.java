@@ -43,7 +43,6 @@ import pcgen.cdom.helper.Aspect;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class MapKeyMapTest extends TestCase
 {

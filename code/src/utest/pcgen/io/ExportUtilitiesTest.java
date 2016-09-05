@@ -32,7 +32,6 @@ import org.junit.Test;
  * ExportUtilitiesTest checks the function of the ExportUtilities class.
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class ExportUtilitiesTest
 {

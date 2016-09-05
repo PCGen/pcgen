@@ -37,7 +37,6 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {

@@ -34,7 +34,6 @@ import pcgen.io.EntityEncoder;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PatternFilterTest
 {

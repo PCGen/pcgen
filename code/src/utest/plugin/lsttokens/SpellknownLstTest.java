@@ -53,7 +53,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 {

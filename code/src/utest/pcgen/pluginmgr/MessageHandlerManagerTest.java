@@ -38,7 +38,6 @@ import org.junit.Test;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class MessageHandlerManagerTest
