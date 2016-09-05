@@ -93,9 +93,6 @@ public class DefaultReferenceFacade<E> implements WriteableReferenceFacade<E>
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

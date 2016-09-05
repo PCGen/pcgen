@@ -63,7 +63,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  *
  * @author Devon Jones
  * @since August 27, 2003
- * @version 2.10
  */
 public class NotesPlugin implements InteractivePlugin
 {
@@ -127,10 +126,7 @@ public class NotesPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;

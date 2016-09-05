@@ -30,7 +30,6 @@ import java.math.BigDecimal;
 
 /**
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class SkillUtilities
 {

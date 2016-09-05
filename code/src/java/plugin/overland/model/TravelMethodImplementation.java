@@ -371,7 +371,7 @@ class TravelMethodImplementation implements TravelMethod
 
 	public TravelMethodListener[] getMultListeners()
 	{
-		return (TravelMethodListener[]) listenerList.getListeners(TravelMethodListener.class);
+		return listenerList.getListeners(TravelMethodListener.class);
 	}
 
 	protected void fireMultChanged(Object source)

@@ -33,8 +33,8 @@ import java.util.EventListener;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
+@FunctionalInterface
 public interface PCGenMessageHandler extends EventListener
 {
 	/**

@@ -56,14 +56,10 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
 	{
@@ -258,10 +254,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	
 	public String getHTMLInfo(SourceSelectionFacade selection)
 	{
 		if (selection.getCampaigns().getSize() == 1)
@@ -327,9 +319,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return kindList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getRequirementsHTMLString(CampaignFacade campaign,
 		List<CampaignFacade> testList)

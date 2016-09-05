@@ -57,7 +57,6 @@ import freemarker.template.TemplateNumberModel;
  * See http://freemarker.org/docs/pgui_datamodel_directive.html#autoid_37
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class LoopDirective implements TemplateDirectiveModel
 {

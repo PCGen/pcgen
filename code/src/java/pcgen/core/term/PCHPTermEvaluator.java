@@ -33,7 +33,6 @@ import pcgen.core.PlayerCharacter;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCHPTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

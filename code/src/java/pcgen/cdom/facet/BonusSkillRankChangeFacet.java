@@ -141,6 +141,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * 
 	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface SkillRankChangeListener
 	{
 

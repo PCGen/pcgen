@@ -93,7 +93,6 @@ import pcgen.system.PropertyContext;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener
@@ -142,9 +141,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pack();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean b)
 	{
@@ -451,9 +447,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -462,7 +455,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private class ChooserTreeView implements TreeView<InfoFacade>
+	private final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 		
 		private String viewName;

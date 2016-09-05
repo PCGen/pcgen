@@ -33,7 +33,6 @@ import pcgen.core.system.MigrationRule;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface MigrationLstToken extends LstToken
 {

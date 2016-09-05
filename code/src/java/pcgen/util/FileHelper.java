@@ -29,9 +29,8 @@ import java.io.IOException;
  * Assorted path and filename methods.
  *
  * @author     John Watson &lt;john@sleazyweasel.com&gt;
- * @version    $Revision$
  **/
-public class FileHelper
+public final class FileHelper
 {
 	/** Private constructor to disable instantiation. */
 	private FileHelper()

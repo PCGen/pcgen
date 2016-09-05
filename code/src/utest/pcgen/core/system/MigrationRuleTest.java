@@ -34,7 +34,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MigrationRuleTest
 {

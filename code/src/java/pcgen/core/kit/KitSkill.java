@@ -50,7 +50,6 @@ import pcgen.util.Logging;
  * <code>KitSkill</code>.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 public final class KitSkill extends BaseKit
 {

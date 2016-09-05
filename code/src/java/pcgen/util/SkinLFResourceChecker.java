@@ -26,7 +26,6 @@ package pcgen.util;
  * Copyright:    Copyright (c) 2001
  * Company:
  * @author Jason Buchanan
- * @version $Revision$
  */
 public final class SkinLFResourceChecker
 {

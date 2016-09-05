@@ -32,11 +32,8 @@ import plugin.pretokens.writer.PreCampaignWriter;
  * The Class <code>PreCampaignRoundRobin</code> is responsible for testing 
  * that PRECAMPAIGN tags can be read and written. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {

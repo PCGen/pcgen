@@ -40,11 +40,8 @@ import plugin.pretokens.parser.PreAbilityParser;
  * <code>PreAbilityTest</code> verifies the function of the 
  * PreAbilityTester. 
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class PreAbilityTest extends AbstractCharacterTestCase
 {

@@ -41,7 +41,6 @@ import pcgen.gui2.UIPropertyContext;
  * <code>KitClass</code> <strong>needs documentation</strong>.
  *
  * @author boomer70
- * @version $Id$
  */
 public class KitClass extends BaseKit
 {

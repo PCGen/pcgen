@@ -50,7 +50,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>Kit</code>.
  *
  * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version  $Revision$
  */
 public final class Kit extends PObject implements Comparable<Object>, KitFacade
 {
@@ -303,7 +302,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
-		PlayerCharacter tempPC = subkit ? aPC : (PlayerCharacter) aPC.clone();
+		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();
 		
 		for (KitStat kStat : getStats())
 		{
@@ -453,10 +452,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -464,10 +460,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	}
 
     
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public boolean isPermanent()
 	{
 		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;

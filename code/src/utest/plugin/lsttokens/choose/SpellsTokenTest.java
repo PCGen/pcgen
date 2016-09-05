@@ -53,11 +53,8 @@ import plugin.primitive.spell.SubSchoolToken;
  * unparsing of the CHOOSE:SPELLS subtoken.
  *
  * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Tom Parker
- * @version $Revision:  $
  */
 public class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>

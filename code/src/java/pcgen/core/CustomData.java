@@ -50,7 +50,6 @@ import pcgen.util.Logging;
  * <code>CustomData</code>
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 public final class CustomData
 {
@@ -675,7 +674,8 @@ public final class CustomData
 		{
 			writeCustomHeader(bw);
 
-			for(Spell spell : Globals.getSpellMap().values())
+			for(Spell spell : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Spell.class))
 			{
 				if (spell.isType(Constants.TYPE_CUSTOM))
 				{

@@ -62,7 +62,6 @@ public class TokenRegistration
 	public static Set<LstToken> tokenSet = new HashSet<>();
 
 	public static void register(LstToken token)
-		throws PersistenceLayerException
 	{
 		if (!tokenSet.contains(token))
 		{
@@ -83,7 +82,6 @@ public class TokenRegistration
 	public static Set<Token> exportSet = new HashSet<>();
 
 	public static void register(Token token)
-		throws PersistenceLayerException
 	{
 		if (!exportSet.contains(token))
 		{

@@ -37,9 +37,6 @@ import pcgen.core.Equipment;
 public class SecondaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{

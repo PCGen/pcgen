@@ -43,11 +43,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase
@@ -59,14 +56,6 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	PCTemplate template2;
 	PCTemplate template3;
 	PCTemplate template4;
-
-	/**
-	 * 
-	 */
-	public StatTokenTest()
-	{
-		super();
-	}
 
 	/**
 	 * @param name

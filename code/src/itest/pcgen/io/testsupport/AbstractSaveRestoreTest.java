@@ -124,9 +124,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	}
 
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -173,7 +170,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();
-		reloadedPC = new PlayerCharacter(Collections.<pcgen.core.Campaign>emptyList());
+		reloadedPC = new PlayerCharacter(Collections.emptyList());
 		id = pc.getCharID();
 	}
 

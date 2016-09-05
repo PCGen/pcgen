@@ -71,7 +71,6 @@ import pcgen.util.Logging;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 {
@@ -345,7 +344,8 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 		else
 		{
-			for (Spell spell : Globals.getSpellMap().values())
+			for (Spell spell : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Spell.class))
 			{
 				if (isSpellOfSubType(spell))
 				{
@@ -396,7 +396,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				// must have books
 				{
 					if (!(obj instanceof PCClass)
-						|| !((PCClass) obj).getSafe(ObjectKey.SPELLBOOK))
+						|| !obj.getSafe(ObjectKey.SPELLBOOK))
 					{
 						classes.remove(i);
 					}
@@ -785,9 +785,6 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		return aSpell.isAllowed(requiredType);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setClass(InfoFacade classFacade)
 	{
@@ -818,27 +815,18 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		processLevelChange();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<InfoFacade> getClassRef()
 	{
 		return pcClass;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<InfoFacade> getClasses()
 	{
 		return availClasses;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSpellLevel(Integer newSpellLevel)
 	{
@@ -846,27 +834,18 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		processLevelChange();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<Integer> getLevels()
 	{
 		return availSpellLevels;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getSpellLevelRef()
 	{
 		return spellLevel;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSpell(InfoFacade spellFacade)
 	{
@@ -876,108 +855,72 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<InfoFacade> getSpellRef()
 	{
 		return spell;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<InfoFacade> getSpells()
 	{
 		return availSpells;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVariant(String newVariant)
 	{
 		variant.set(newVariant);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getVariantRef()
 	{
 		return variant;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<String> getVariants()
 	{
 		return availVariants;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setCasterLevel(Integer newCasterLevel)
 	{
 		casterLevel.set(newCasterLevel);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getCasterLevelRef()
 	{
 		return casterLevel;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<Integer> getCasterLevels()
 	{
 		return availCasterlevels;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSpellType(String newSpellType)
 	{
 		spellType.set(newSpellType);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getSpellTypeRef()
 	{
 		return spellType;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<String> getSpellTypes()
 	{
 		return availSpellTypes;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSelectedMetamagicFeats(Object[] newFeats)
 	{
@@ -993,18 +936,12 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		recalcCasterLevelDetails();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<AbilityFacade> getSelectedMetamagicFeats()
 	{
 		return selMetamagicFeats;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<AbilityFacade> getAvailMetamagicFeats()
 	{

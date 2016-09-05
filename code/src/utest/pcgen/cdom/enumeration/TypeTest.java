@@ -18,25 +18,19 @@
  */
 package pcgen.cdom.enumeration;
 
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
-
-import junit.framework.TestCase;
-
+import static org.junit.Assert.fail;
 import org.junit.Test;
 
 
 /**
- * The Class <code>TypeTest</code> tests that the Type
- * class is functioning correctly. 
- * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
+ * The Class {@code TypeTest} tests that the Type
+ * class is functioning correctly.
  * 
  * @author Jasper Spaans <jasperspaans@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class TypeTest extends TestCase
+public class TypeTest
 {
 	
 	/**
@@ -48,7 +42,7 @@ public class TypeTest extends TestCase
 	{
 		try
 		{
-			Set<Type> typeset = new HashSet<>();
+			Collection<Type> typeset = new HashSet<>();
 			typeset.add(Type.getConstant("testitem 1"));
 			typeset.add(Type.getConstant("testitem 2"));
 		}

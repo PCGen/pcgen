@@ -39,7 +39,6 @@ import pcgen.util.Logging;
  * <p> 
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CountDistinctCommand extends AbstractCountCommand
 {
@@ -100,7 +99,7 @@ public class CountDistinctCommand extends AbstractCountCommand
 			if (toCount instanceof String)
 			{
 				JepCountType countEnum =
-						JepCountType.valueOf((String) toCount + "DISTINCT");
+						JepCountType.valueOf(toCount + "DISTINCT");
 				if (countEnum == null)
 				{
 					// Fall back to count

@@ -45,7 +45,7 @@ import pcgen.util.Logging;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class Bonus
+public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
 

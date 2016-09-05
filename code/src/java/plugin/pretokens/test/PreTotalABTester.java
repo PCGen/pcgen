@@ -83,7 +83,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 	{
 		return LanguageBundle
 			.getFormattedString(
-				"PreAttack.toHtml", new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()}); //$NON-NLS-1$ //$NON-NLS-2$
+				"PreAttack.toHtml", prereq.getOperator().toDisplayString(), prereq.getOperand()); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }

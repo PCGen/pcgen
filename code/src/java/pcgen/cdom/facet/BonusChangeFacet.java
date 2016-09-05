@@ -127,6 +127,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * 
 	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface BonusChangeListener
 	{
 

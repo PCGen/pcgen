@@ -39,7 +39,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.util.Logging;
 
-public class EvaluatorFactory {
+public final class EvaluatorFactory {
 
 	Pattern internalVarPattern;
 	Map<String, TermEvaluatorBuilder> BuilderStore;

@@ -38,11 +38,8 @@ import pcgen.io.FileAccess;
 /**
  * <code>BioTokenTest</code> is ...
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {

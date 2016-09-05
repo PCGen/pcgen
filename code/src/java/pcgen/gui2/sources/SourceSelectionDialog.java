@@ -396,9 +396,6 @@ public class SourceSelectionDialog extends JDialog
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean visible)
 	{

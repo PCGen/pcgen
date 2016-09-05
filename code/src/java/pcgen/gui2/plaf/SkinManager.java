@@ -27,7 +27,6 @@ import javax.swing.LookAndFeel;
  * <code>SkinManager</code> ???
  *
  * @author Jason Buchanan
- * @version $Revision: 1817 $
  */
 public final class SkinManager
 {

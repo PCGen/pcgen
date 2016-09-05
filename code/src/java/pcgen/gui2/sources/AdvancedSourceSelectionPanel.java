@@ -358,9 +358,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		selectedTable.refreshModelData();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{
@@ -368,9 +365,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		setSelectedGameMode((GameModeDisplayFacade) gameModeList.getSelectedItem());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementAdded(ListEvent<CampaignFacade> e)
 	{
@@ -378,9 +372,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementRemoved(ListEvent<CampaignFacade> e)
 	{
@@ -388,9 +379,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		availableTable.updateDisplay();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementsChanged(ListEvent<CampaignFacade> e)
 	{
@@ -628,9 +616,6 @@ class AdvancedSourceSelectionPanel extends JPanel
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

@@ -82,7 +82,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
@@ -269,9 +268,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFields.removeListListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<BiographyField> e)
 		{
@@ -285,9 +281,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.repaint();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
@@ -298,9 +291,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<BiographyField> e)
 		{
@@ -310,9 +300,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<BiographyField> e)
 		{
@@ -871,9 +858,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void itemStateChanged(ItemEvent e)
 		{

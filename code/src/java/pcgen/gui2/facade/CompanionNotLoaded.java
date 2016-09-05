@@ -38,7 +38,6 @@ import pcgen.facade.util.ReferenceFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CompanionNotLoaded implements CompanionFacade
 {
@@ -63,36 +62,24 @@ public class CompanionNotLoaded implements CompanionFacade
 		this.companionType = compType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getNameRef()
 	{
 		return nameRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<File> getFileRef()
 	{
 		return fileRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return raceRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{

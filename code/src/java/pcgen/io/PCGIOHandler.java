@@ -71,7 +71,6 @@ import pcgen.util.Logging;
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
  * @author Thomas Behr 11-03-02
- * @version $Revision$
  */
 public final class PCGIOHandler extends IOHandler
 {

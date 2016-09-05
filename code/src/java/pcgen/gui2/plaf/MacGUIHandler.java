@@ -28,7 +28,7 @@ import pcgen.gui2.plaf.osx.OSXQuitHandler;
 /**
  * {@code MacGUI} initializes Mac-specific GUI elements.
  */
-public class MacGUIHandler
+public final class MacGUIHandler
 {
 	private static MacGUIHandler myObj = null;
 	private static Application theApp = null;

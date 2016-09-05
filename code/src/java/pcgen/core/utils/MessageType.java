@@ -31,7 +31,7 @@ package pcgen.core.utils;
 /**
  * Types of messages
  */
-public class MessageType {
+public final class MessageType {
 
 	/** Singleton instance of Information message */
 	public static final MessageType INFORMATION = new MessageType("Information"); //$NON-NLS-1$

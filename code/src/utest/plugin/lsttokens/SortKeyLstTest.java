@@ -36,11 +36,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
  * result can be unparsed back to the original input.  
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {

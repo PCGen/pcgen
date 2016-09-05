@@ -85,18 +85,12 @@ public class VarModifier<T>
 		this.modifier = modifier;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return varName.hashCode() ^ modifier.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

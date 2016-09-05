@@ -123,10 +123,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	{
 		return LanguageBundle.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",
-			    new Object[]
-			    {
-				    prereq.getKind(), prereq.getKey(),
-				    prereq.getOperator().toDisplayString(), prereq.getOperand()
-			    }); // $NON-NLS-1$
+				prereq.getKind(), prereq.getKey(),
+				prereq.getOperator().toDisplayString(), prereq.getOperand()); // $NON-NLS-1$
 	}
 }

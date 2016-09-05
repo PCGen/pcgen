@@ -42,11 +42,8 @@ import pcgen.util.TestHelper;
  * The Class <code>LoadContextTest</code> checks the fucntion fo the LoadCOntext class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class LoadContextTest extends TestCase
 {

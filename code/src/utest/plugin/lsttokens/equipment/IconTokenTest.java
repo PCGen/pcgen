@@ -33,11 +33,8 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
  * The Class <code>IconTokenTest</code> tests the equipment ICON token.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {

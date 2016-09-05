@@ -44,7 +44,6 @@ import pcgen.util.Logging;
  * ClassLoader is a loader dedicated to converting class and class level data.
  * 
  * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class ClassLoader implements Loader
 {

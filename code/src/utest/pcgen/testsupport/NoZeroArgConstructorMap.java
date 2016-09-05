@@ -21,9 +21,11 @@ import java.util.Collection;
 import java.util.Map;
 import java.util.Set;
 
+@SuppressWarnings("unused")
 public class NoZeroArgConstructorMap<K, V> implements Map<K, V>
 {
 
+	@SuppressWarnings("UnusedParameters")
 	public NoZeroArgConstructorMap(String s)
 	{
 		// Just need to avoid a zero argument constructor

@@ -28,7 +28,6 @@ import java.util.ListIterator;
  * An iterator which may be reset it its starting state.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision$
  */
 public interface ResetableListIterator<E> extends ListIterator<E>
 {

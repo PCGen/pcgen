@@ -86,7 +86,6 @@ import plugin.encounter.gui.EncounterView;
  * involved in the functionality of the Encounter Generator.  This <code>class
  * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
- * @version 2.10
  */
 public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ItemListener, MouseListener
@@ -155,10 +154,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;

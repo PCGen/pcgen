@@ -1,7 +1,6 @@
 # CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Curse of the Crimson Throne, Chaper 1 - Edge of Anarchy	SOURCESHORT:AP7	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy81xw	SOURCEDATE:2008-03
 
-
 # Template Name		Challenge Rating	Size		Visible	Level Adjustment	Stat bonus											Modify VAR						Class Skill																						Ability									Subrace		Main Race Type	Vision
 Yargin Balko's Skills						VISIBLE:NO																							CSKILL:Appraise|Craft (Alchemy)|Disable Device|Linguistics|Knowledge (Arcana)|Perception|Spellcraft|Use Magic Device|Bluff|Craft (Traps)
 Lamm's Lambs Skills				SIZE:S	VISIBLE:NO																							CSKILL:Acrobatics|Bluff|Climb|Escape Artist|Sleight of Hand|Perception|Stealth																				SUBRACE:Child

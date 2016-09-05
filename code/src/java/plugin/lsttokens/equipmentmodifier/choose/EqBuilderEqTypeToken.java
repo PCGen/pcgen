@@ -39,7 +39,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * (Tue, 06 May 2008) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>

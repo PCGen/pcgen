@@ -204,7 +204,6 @@ import pcgen.util.enumeration.View;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,
 		HitPointListener 
@@ -741,18 +740,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return characterAbilities.getRemainingSelections(category);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void addAbilityCatSelectionListener(ChangeListener listener)
 	{
 		characterAbilities.addAbilityCatSelectionListener(listener);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void removeAbilityCatSelectionListener(ChangeListener listener)
 	{
@@ -1174,13 +1167,15 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 		//
 		// Next do all spells to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
-		for (Spell spell : Globals.getSpellMap().values())
+		for (Spell spell : Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(Spell.class))
 		{
 			scanForNonPcTempBonuses(tempBonuses, spell);
 		}
 
 		// do all Templates to get TEMPBONUS:ANYPC or TEMPBONUS:EQUIP
-		for (PCTemplate aTemp : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(PCTemplate.class))
+		for (PCTemplate aTemp : Globals.getContext().getReferenceContext()
+				.getConstructedCDOMObjects(PCTemplate.class))
 		{
 			scanForNonPcTempBonuses(tempBonuses, aTemp);
 		}
@@ -1304,9 +1299,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		postLevellingUpdates();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void removeTempBonus(TempBonusFacade bonusFacade)
 	{
@@ -1329,9 +1321,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		postLevellingUpdates();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setTempBonusActive(TempBonusFacade bonusFacade, boolean active)
 	{
@@ -1354,9 +1343,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		refreshStatScores();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<TempBonusFacade> getTempBonuses()
 	{
@@ -2062,18 +2048,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setSuppressBioField(field, !export);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getSkinColorRef()
 	{
 		return skinColor;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSkinColor(String color)
 	{
@@ -2081,18 +2061,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPCAttribute(PCAttribute.SKINCOLOR, color);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getHairColorRef()
 	{
 		return hairColor;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setHairColor(String color)
 	{
@@ -2100,18 +2074,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPCAttribute(PCAttribute.HAIRCOLOR, color);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<String> getEyeColorRef()
 	{
 		return eyeColor;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setEyeColor(String color)
 	{
@@ -2119,18 +2087,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setEyeColor(color);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getHeightRef()
 	{
 		return heightRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setHeight(int height)
 	{
@@ -2140,9 +2102,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setHeight(heightInInches);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getWeightRef()
 	{
@@ -2583,9 +2542,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return languages;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<LanguageChooserFacade> getLanguageChoosers()
 	{
@@ -2604,9 +2560,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return chooserList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void removeLanguage(LanguageFacade lang)
 	{
@@ -2755,9 +2708,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			+ " due to concurrent modifications.");
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setDefaultOutputSheet(boolean pdf, File outputSheet)
 	{
@@ -2784,9 +2734,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDefaultOutputSheet(boolean pdf)
 	{
@@ -2901,9 +2848,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return autoLanguagesCache.contains(language);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	public boolean isRemovable(LanguageFacade language)
 	{
 		if (isAutomatic(language))
@@ -3381,9 +3325,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		scoreRef.set(newScore);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adjustFunds(BigDecimal modVal)
 	{
@@ -3392,9 +3333,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setFunds(BigDecimal newVal)
 	{
@@ -3402,18 +3340,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		updateWealthFields();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getFundsRef()
 	{
 		return fundsRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<BigDecimal> getWealthRef()
 	{
@@ -3446,18 +3378,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		wealthRef.set(theCharacter.totalValue());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setAllowDebt(boolean allowDebt)
 	{
 		this.allowDebt = allowDebt;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isAllowDebt()
 	{
@@ -3722,9 +3648,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void deleteCustomEquipment(EquipmentFacade eqFacade)
 	{
@@ -4085,9 +4008,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isQualifiedFor(TempBonusFacade tempBonusFacade)
 	{
@@ -4105,9 +4025,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isQualifiedFor(SpellFacade spellFacade,
 		ClassFacade classFacade)
@@ -4134,9 +4051,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isQualifiedFor(EquipmentFacade equipFacade, EquipModFacade eqModFacade)
 	{
@@ -4302,27 +4216,18 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		theCharacter.setPortraitThumbnailRect(rect);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isDirty()
 	{
 		return theCharacter.isDirty();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CompanionSupportFacade getCompanionSupport()
 	{
 		return companionSupportFacade;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{
@@ -4334,9 +4239,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CharacterStubFacade getMaster()
 	{
@@ -4405,18 +4307,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public DefaultListFacade<KitFacade> getKits()
 	{
 		return kitList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void addKit(KitFacade obj)
 	{
@@ -4511,10 +4407,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return delegate.showWarningConfirm(kit.getDisplayName(), warningMsg.toString());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public List<KitFacade> getAvailableKits()
 	{
 		List<KitFacade> kits = new ArrayList<>();
@@ -4547,18 +4440,12 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return theCharacter.getVariable(variableString, isMax);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean matchesCharacter(PlayerCharacter pc)
 	{
 		return theCharacter != null && theCharacter.equals(pc);
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void modifyCharges(List<EquipmentFacade> targets)
 	{
@@ -4668,9 +4555,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
 	{
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4681,9 +4565,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshLanguageList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Language> dfce)
 		{
@@ -4702,9 +4583,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class TemplateListener implements DataFacetChangeListener<CharID, PCTemplate>
 	{
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
@@ -4715,9 +4593,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshTemplates();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
 		{
@@ -4735,9 +4610,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class XPListener implements DataFacetChangeListener<CharID, Integer>
 	{
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4748,9 +4620,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			checkForNewLevel();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)
 		{
@@ -4764,9 +4633,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 */
 	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>
 	{
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataAdded(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{
@@ -4777,9 +4643,6 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			refreshEquipment();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void dataRemoved(DataFacetChangeEvent<CharID, QualifiedObject<CDOMReference<Equipment>>> dfce)
 		{

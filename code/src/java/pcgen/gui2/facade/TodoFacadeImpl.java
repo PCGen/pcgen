@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Tab;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TodoFacadeImpl implements TodoFacade
 {
@@ -142,9 +141,6 @@ public class TodoFacadeImpl implements TodoFacade
 		return EQUAL;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSubTabName()
 	{

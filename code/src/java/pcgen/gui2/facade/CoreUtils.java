@@ -211,45 +211,30 @@ public class CoreUtils
 			this.object = object;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Location";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -275,18 +260,12 @@ public class CoreUtils
 			this.sourceDesc = sourceDesc;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Source";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
@@ -297,27 +276,18 @@ public class CoreUtils
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return StringUtil.join(sourceDesc, ", ");
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return CoreUtils.getRequirementsInfo(pc, object);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

@@ -29,7 +29,6 @@ import pcgen.cdom.base.CDOMObject;
  * <code>TextProperty</code>.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class TextProperty extends PObject implements Serializable, Comparable<Object>
 {

@@ -55,11 +55,8 @@ import pcgen.facade.util.MapFacade;
  * The Class <code></code> is ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MockDataSetFacade implements DataSetFacade
 {
@@ -277,18 +274,12 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<GearBuySellFacade> getGearBuySellSchemes()
 	{
 		return gearBuySellSchemes;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<KitFacade> getKits()
 	{
@@ -296,9 +287,6 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void refreshEquipment()
 	{
@@ -306,9 +294,6 @@ public class MockDataSetFacade implements DataSetFacade
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<SizeAdjustmentFacade> getSizes()
 	{
@@ -316,9 +301,6 @@ public class MockDataSetFacade implements DataSetFacade
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public MapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>> getAbilities()
 	{

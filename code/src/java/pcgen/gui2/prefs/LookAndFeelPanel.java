@@ -61,7 +61,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class LookAndFeelPanel extends PCGenPrefsPanel
@@ -256,9 +255,6 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		LookAndFeelManager.setLookAndFeel(oldLAF);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

@@ -49,7 +49,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class SpellChoiceDialog extends JDialog
@@ -105,10 +104,7 @@ public class SpellChoiceDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		cancelled = e.getSource() == cancelButton;

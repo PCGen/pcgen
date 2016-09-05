@@ -27,7 +27,6 @@ import pcgen.cdom.base.Constants;
  *
  *
  * @author ???
- * @version $Revision$
  */
 final class PCGParseException extends Exception
 {

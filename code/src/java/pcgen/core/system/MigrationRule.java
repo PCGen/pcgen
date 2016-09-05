@@ -34,7 +34,6 @@ import pcgen.core.utils.CoreUtility;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class MigrationRule
 {

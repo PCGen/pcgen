@@ -49,7 +49,6 @@ import pcgen.rules.context.LoadContext;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 22604 $
  */
 public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {

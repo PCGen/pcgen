@@ -40,7 +40,6 @@ import pcgen.io.exporttoken.AbilityToken;
  * token.
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityAutoToken extends AbilityToken
 {
@@ -77,9 +76,6 @@ public class AbilityAutoToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

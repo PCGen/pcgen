@@ -49,11 +49,8 @@ import pcgen.util.TestHelper;
  * <code>PreWeaponProfTest</code> tests that the PREWEAPONPROF tag is
  * working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Koen Van Daele <kador@foeffighters.be>
- * @version $Revision$
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase
 {

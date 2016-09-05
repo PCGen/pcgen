@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package pcgen.util.testchecker;
@@ -47,7 +45,7 @@ public class CompareEqualFloat extends TestChecker
     @Override
 	public boolean check(Object obj)
 	{
-		return obj.equals(Float.valueOf(this.fl));
+		return obj.equals(this.fl);
 	}
 
     @Override

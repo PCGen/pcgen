@@ -43,7 +43,6 @@ import pcgen.core.chooser.ChooserUtilities;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class KitLangBonus extends BaseKit
 {

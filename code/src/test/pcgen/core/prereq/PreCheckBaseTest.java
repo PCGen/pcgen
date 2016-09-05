@@ -41,11 +41,8 @@ import pcgen.rules.context.LoadContext;
  * <code>PreCheckBaseTest</code> tests that the PRECHECKBASE tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreCheckBaseTest extends AbstractCharacterTestCase
 {

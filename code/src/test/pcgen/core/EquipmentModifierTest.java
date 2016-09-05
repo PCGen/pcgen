@@ -21,18 +21,13 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.bonus.Bonus;
@@ -40,6 +35,10 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 
 /**
  * Equipment Modifer Test 
@@ -83,6 +82,7 @@ public class EquipmentModifierTest extends PCGenTestCase
 	@Override
 	public void setUp() throws Exception
 	{
+		super.setUp();
 		TestHelper.loadPlugins();
 	}
 

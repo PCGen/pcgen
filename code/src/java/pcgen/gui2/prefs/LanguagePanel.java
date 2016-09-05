@@ -54,7 +54,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
@@ -334,9 +333,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return langCountry;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

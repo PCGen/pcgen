@@ -42,7 +42,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 		implements CDOMPrimaryToken<KitLangBonus>

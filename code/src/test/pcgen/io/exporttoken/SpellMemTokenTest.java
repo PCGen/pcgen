@@ -47,11 +47,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * Verify the correct functioning of the SPELLMEM token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellMemTokenTest extends AbstractCharacterTestCase
@@ -107,7 +104,6 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_ARCANE=1");
 		context.unconditionallyProcess(testSpell, "DOMAINS", "Fire=0");
 		context.unconditionallyProcess(testSpell, "CLASSES", "KEY_TEST_DIVINE=1");
-		Globals.addToSpellMap(testSpell.getKeyName(), testSpell);
 
 		arcaneClass = new PCClass();
 		arcaneClass.setName("TestArcane");

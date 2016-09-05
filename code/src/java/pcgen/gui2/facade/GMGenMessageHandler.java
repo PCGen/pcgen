@@ -54,7 +54,6 @@ import pcgen.system.CharacterManager;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class GMGenMessageHandler implements PCGenMessageHandler
 {
@@ -73,9 +72,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 	
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{

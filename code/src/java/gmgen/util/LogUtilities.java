@@ -31,7 +31,7 @@ import java.util.List;
  *@author     Tod Milam
  *@since      GMGen 3.3
  */
-public class LogUtilities implements LogReceiver
+public final class LogUtilities implements LogReceiver
 {
 	private static LogUtilities singleton = null;
 	private List<LogReceiver> receivers;

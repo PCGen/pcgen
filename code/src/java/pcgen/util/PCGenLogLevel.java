@@ -32,7 +32,6 @@ import java.util.logging.Level;
  * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCGenLogLevel extends Level
 {

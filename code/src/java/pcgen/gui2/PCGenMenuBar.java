@@ -403,9 +403,6 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 			this.level = level;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

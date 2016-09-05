@@ -34,7 +34,6 @@ import java.io.File;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {

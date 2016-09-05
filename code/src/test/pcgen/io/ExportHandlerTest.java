@@ -64,11 +64,8 @@ import pcgen.util.TestHelper;
  * <code>SkillTokenTest</code> contains tests to verify that the
  * SKILL token and its subtokens are working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 @SuppressWarnings("nls")

@@ -35,7 +35,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * keys that have now been changed in the data.
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class AbilityMigration
 {
@@ -78,7 +77,7 @@ public class AbilityMigration
 	/**
 	 * CategorisedKey is a container for a category and a key. 
 	 */
-	public static class CategorisedKey
+	public static final class CategorisedKey
 	{
 		private final String category;
 		private final String key;

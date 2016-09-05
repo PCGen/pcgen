@@ -47,7 +47,6 @@ import plugin.overland.gui.OverPanel;
  * Updated on February 26, 2003
  * @author  Expires 2003
  * @author Vincent Lhote
- * @version 2.10
  */
 public class OverlandPlugin implements InteractivePlugin
 {
@@ -93,10 +92,7 @@ public class OverlandPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -191,9 +187,6 @@ public class OverlandPlugin implements InteractivePlugin
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{

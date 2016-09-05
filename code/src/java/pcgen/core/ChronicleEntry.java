@@ -33,7 +33,6 @@ import pcgen.facade.core.ChronicleEntryFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 {
@@ -175,18 +174,12 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		this.chronicle = chronicle;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChronicleEntry clone() throws CloneNotSupportedException
 	{
 		return (ChronicleEntry) super.clone();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -207,9 +200,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		result = prime * result + xpField;
 		return result;
 	}
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

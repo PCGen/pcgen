@@ -33,7 +33,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * displayed in the Temporary Bonus Tab.
  * 
  * @author djones4
- * @version $Revision$
  */
 public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>

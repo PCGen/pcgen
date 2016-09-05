@@ -34,7 +34,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ComponentAddedMessage extends PCGenMessage
 {

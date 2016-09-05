@@ -43,11 +43,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreHDTest</code> tests that the PREHD tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PreHDTest extends AbstractCharacterTestCase

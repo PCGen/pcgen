@@ -86,7 +86,6 @@ import pcgen.system.LanguageBundle;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class EquipCustomPanel extends FlippingSplitPane
@@ -683,9 +682,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			return true;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -747,7 +743,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			}
 			if (path.length > 2)
 			{
-				return new TreeViewPath<>(pobj, new Object[]{path[0], path[1]});
+				return new TreeViewPath<>(pobj, path[0], path[1]);
 			}
 			return new TreeViewPath<>(pobj, path);
 		}
@@ -777,9 +773,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<EquipmentHead> e)
 		{
@@ -803,9 +796,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			builder.setSize((SizeAdjustmentFacade) anItem);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SizeAdjustmentFacade> e)
 		{

@@ -40,7 +40,6 @@ import java.util.StringTokenizer;
  * Last Edited: $Date$
  *
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
- * @version $Revision$
  */
 public class VarToken extends Token
 {

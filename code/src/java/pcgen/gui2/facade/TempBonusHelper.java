@@ -61,7 +61,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TempBonusHelper
 {
@@ -114,9 +113,6 @@ public class TempBonusHelper
 				new GeneralChooserFacadeBase(label, possibleTargets,
                         new ArrayList<>(), 1, infoFactory)
 				{
-					/**
-					 * {@inheritDoc}
-					 */
 					@Override
 					public void commit()
 					{
@@ -505,45 +501,30 @@ public class TempBonusHelper
 			
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return EMPTY_STRING;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSourceForNodeDisplay()
 		{
 			return EMPTY_STRING;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKeyName()
 		{
 			return "PC"; //$NON-NLS-1$
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean isNamePI()
 		{
 			return false;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -551,9 +532,6 @@ public class TempBonusHelper
 				charDisplay.getName());
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getType()
 		{

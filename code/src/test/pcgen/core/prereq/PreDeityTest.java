@@ -39,11 +39,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreDeityTest</code> tests that the PREDEITY tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreDeityTest extends AbstractCharacterTestCase
 {

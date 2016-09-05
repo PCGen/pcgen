@@ -311,9 +311,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return choice.getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Ability decodeChoice(LoadContext context, String encoded,
 		Category<?> category)

@@ -37,7 +37,6 @@ import java.util.Map;
  * Last Edited: $Date$
  *
  * @author devon
- * @version $Revision$
  */
 public class VariableHashMap extends HashMap<String, String>
 {

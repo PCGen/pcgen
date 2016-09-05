@@ -43,7 +43,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {

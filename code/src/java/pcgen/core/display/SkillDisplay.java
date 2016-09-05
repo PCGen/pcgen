@@ -34,8 +34,15 @@ import pcgen.core.SkillComparator;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-public class SkillDisplay
+/**
+ * Utility class for skill UI tasks
+ */
+public final class SkillDisplay
 {
+
+	private SkillDisplay()
+	{
+	}
 
 	/**
 	 * Retrieves a list of the character's skills in output order. This is in
@@ -50,7 +57,8 @@ public class SkillDisplay
 	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc,
 		final List<Skill> skills)
 	{
-		Collections.sort(skills, new Comparator<Skill>() {
+		Collections.sort(skills, new Comparator<Skill>()
+		{
 			/**
 			 * Comparator will be specific to Skill objects
 			 */
@@ -74,10 +82,12 @@ public class SkillDisplay
 				if (obj1Index > obj2Index)
 				{
 					return 1;
-				} else if (obj1Index < obj2Index)
+				}
+				else if (obj1Index < obj2Index)
 				{
 					return -1;
-				} else
+				}
+				else
 				{
 					return skill1.getOutputName().compareToIgnoreCase(skill2.getOutputName());
 				}
@@ -93,7 +103,8 @@ public class SkillDisplay
 			Integer outputIndex = pc.getSkillOrder(bSkill);
 			if ((outputIndex != null && outputIndex == -1)
 					|| skVis.isVisibleTo(View.HIDDEN_EXPORT)
-					|| !bSkill.qualifies(pc, null))			{
+					|| !bSkill.qualifies(pc, null))
+			{
 				i.remove();
 			}
 		}
@@ -124,11 +135,7 @@ public class SkillDisplay
 //			new StringIgnoreCaseComparator());
 
 		// Now re calc the output order
-		if (pc.getSkillsOutputOrder() != SkillsOutputOrder.MANUAL)
-		{
-			resortSelected(pc, pc.getSkillsOutputOrder());
-		}
-		else
+		if (pc.getSkillsOutputOrder() == SkillsOutputOrder.MANUAL)
 		{
 			Integer outputIndex = pc.getSkillOrder(aSkill);
 			if (outputIndex == null || outputIndex == 0)
@@ -136,63 +143,31 @@ public class SkillDisplay
 				pc.setSkillOrder(aSkill, getHighestOutputIndex(pc) + 1);
 			}
 		}
+		else
+		{
+			resortSelected(pc, pc.getSkillsOutputOrder());
+		}
 	}
 
 	public static void resortSelected(PlayerCharacter pc, SkillsOutputOrder sortSelection)
 	{
-		int sort = -1;
-		boolean sortOrder = false;
-
-		switch (sortSelection)
-		{
-			case NAME_ASC:
-				sort = SkillComparator.RESORT_NAME;
-				sortOrder = SkillComparator.RESORT_ASCENDING;
-
-				break;
-
-			case NAME_DSC:
-				sort = SkillComparator.RESORT_NAME;
-				sortOrder = SkillComparator.RESORT_DESCENDING;
-
-				break;
-
-			case TRAINED_ASC:
-				sort = SkillComparator.RESORT_TRAINED;
-				sortOrder = SkillComparator.RESORT_ASCENDING;
-
-				break;
-
-			case TRAINED_DSC:
-				sort = SkillComparator.RESORT_TRAINED;
-				sortOrder = SkillComparator.RESORT_DESCENDING;
-
-				break;
-
-			default:
-
-				// Manual sort, or unrecognised, so do no sorting.
-				return;
-		}
-
-		resortSelected(pc, sort, sortOrder);
+		resortSelected(pc, sortSelection.getComparator(pc));
 	}
 
-	private static void resortSelected(PlayerCharacter pc, int sort, boolean sortOrder)
+	private static void resortSelected(PlayerCharacter pc, SkillComparator comparator)
 	{
-		if (pc == null)
+		if ((pc == null) || (comparator == null))
 		{
 			return;
 		}
-		SkillComparator comparator = new SkillComparator(pc, sort, sortOrder);
-		int nextOutputIndex = 1;
 		List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
 		Collections.sort(skillList, comparator);
 
-		for (Skill aSkill : skillList)
+		int nextOutputIndex = 1;
+		for (final Skill aSkill : skillList)
 		{
 			Integer outputIndex = pc.getSkillOrder(aSkill);
-			if (outputIndex == null || outputIndex >= 0)
+			if ((outputIndex == null) || (outputIndex >= 0))
 			{
 				pc.setSkillOrder(aSkill, nextOutputIndex++);
 			}
@@ -207,7 +182,7 @@ public class SkillDisplay
 	private static int getHighestOutputIndex(PlayerCharacter pc)
 	{
 		int maxOutputIndex = 0;
-		final List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
+		final Iterable<Skill> skillList = new ArrayList<>(pc.getSkillSet());
 		for (Skill bSkill : skillList)
 		{
 			Integer outputIndex = pc.getSkillOrder(bSkill);

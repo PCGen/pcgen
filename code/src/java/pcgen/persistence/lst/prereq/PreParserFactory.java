@@ -40,7 +40,7 @@ import pcgen.util.Logging;
  * @author wardc
  *
  */
-public class PreParserFactory implements PluginLoader
+public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
 	private static Map<String, PrerequisiteParserInterface> parserLookup =

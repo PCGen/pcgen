@@ -72,7 +72,6 @@ import pcgen.util.enumeration.Tab;
  * -0800 (Wed, 16 Feb 2011) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 14578 $
  */
 @SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -447,9 +446,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

@@ -34,16 +34,13 @@ import pcgen.io.migration.AbilityMigration.CategorisedKey;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AbilityMigrationTest extends PCGenTestCase
 {
 	
 	private String gameMode;
 
-	/**
-	 * {@inheritDoc}
-	 */
+	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -69,6 +66,7 @@ public class AbilityMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(abilityRuleDiffGame, "modern");
 	}
 
+	@Override
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();

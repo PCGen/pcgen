@@ -46,7 +46,6 @@ import pcgen.system.LanguageBundle;
  * -0700 (Tue, 05 Jun 2012) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
@@ -56,9 +55,6 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 	 */
 	private static final long serialVersionUID = -5763535370085434234L;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object value,
 			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)

@@ -38,7 +38,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MockUIDelegate implements UIDelegate
 {
@@ -107,9 +106,6 @@ public class MockUIDelegate implements UIDelegate
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
@@ -126,18 +122,12 @@ public class MockUIDelegate implements UIDelegate
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
 		EquipmentBuilderFacade equipBuilder)
@@ -145,9 +135,6 @@ public class MockUIDelegate implements UIDelegate
 		return CustomEquipResult.CANCELLED;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFacade)
 	{

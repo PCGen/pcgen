@@ -39,7 +39,6 @@ import pcgen.system.LanguageBundle;
  * cell using color to show if the modifier can be used.
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class EquipQualifiedTreeCellRenderer extends TreeColumnCellRenderer
 {

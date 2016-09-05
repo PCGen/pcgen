@@ -163,7 +163,7 @@ public class XPFacetTest extends TestCase
 	}
 
 	public XPFacet getMockFacet() throws SecurityException,
-		NoSuchFieldException, IllegalArgumentException, IllegalAccessException
+			IllegalArgumentException
 	{
 		XPFacet f = new XPFacet();
 		LevelFacet fakeFacet = new LevelFacet()

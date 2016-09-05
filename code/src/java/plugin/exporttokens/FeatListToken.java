@@ -14,7 +14,6 @@ import pcgen.io.exporttoken.AbilityListToken;
  * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision$
  */
 public class FeatListToken extends AbilityListToken
 {

@@ -36,7 +36,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class EclToken extends AbstractExportToken
 {

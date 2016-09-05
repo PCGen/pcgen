@@ -146,13 +146,11 @@ public final class Comparators
 	 * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
-	 * @version $Revision: 2112 $
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -170,13 +168,11 @@ public final class Comparators
 	 * <code>JComboBoxEx</code> and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
-	 * @version $Revision: 2112 $
 	 */
 	private static final class ToStringIgnoreCaseComparator implements
 			Comparator<Object>, Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -196,7 +192,6 @@ public final class Comparators
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{

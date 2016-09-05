@@ -35,7 +35,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * keys that have now been changed in the data.
  * 
  * @author Andrew Maitland <drew0500@yahoo.com>
- * @version $Revision$
  */
 public class SpellMigration
 {

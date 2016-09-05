@@ -545,9 +545,6 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -803,7 +800,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				if (data != null)
 				{
 					text = character.getInfoFactory().getHTMLInfo(
-							(ClassFacade) data, null);
+							data, null);
 					infoPane.setText(text);
 				}
 				else

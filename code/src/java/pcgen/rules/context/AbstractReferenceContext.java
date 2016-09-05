@@ -158,7 +158,7 @@ public abstract class AbstractReferenceContext
 		if (CATEGORIZED_CLASS.isAssignableFrom(c))
 		{
 			Class cl = c;
-			obj = (T) getManufacturer(cl, (Category) null).constructObject(val);
+			obj = (T) getManufacturer(cl, null).constructObject(val);
 		}
 		else
 		{
@@ -281,7 +281,7 @@ public abstract class AbstractReferenceContext
 		}
 		else
 		{
-			if (hasManufacturer((Class<T>) obj.getClass()))
+			if (hasManufacturer(obj.getClass()))
 			{
 				return getManufacturer((Class<T>) obj.getClass()).forgetObject(
 						obj);

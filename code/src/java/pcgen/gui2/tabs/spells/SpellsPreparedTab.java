@@ -215,9 +215,9 @@ public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInf
 		models.get(ClassInfoHandler.class).install();
 		models.get(AddSpellAction.class).install();
 		models.get(RemoveSpellAction.class).install();
-		addMMSpellButton.setAction((AddMMSpellAction) models.get(AddMMSpellAction.class));
-		addSpellListButton.setAction((AddSpellListAction) models.get(AddSpellListAction.class));
-		removeSpellListButton.setAction((RemoveSpellListAction) models.get(RemoveSpellListAction.class));
+		addMMSpellButton.setAction(models.get(AddMMSpellAction.class));
+		addSpellListButton.setAction(models.get(AddSpellListAction.class));
+		removeSpellListButton.setAction(models.get(RemoveSpellListAction.class));
 		models.get(UseHigherSlotsAction.class).install();
 	}
 

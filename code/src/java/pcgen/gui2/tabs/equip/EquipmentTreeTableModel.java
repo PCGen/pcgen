@@ -54,7 +54,6 @@ import pcgen.util.ListMap;
  * Last Edited: $Date:  $
  *  
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {

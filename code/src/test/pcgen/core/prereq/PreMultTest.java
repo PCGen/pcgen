@@ -48,11 +48,8 @@ import plugin.pretokens.parser.PreSkillParser;
  * <code>PreMultTest</code> tests that the PreMult class
  * is working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PreMultTest extends AbstractCharacterTestCase

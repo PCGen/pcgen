@@ -56,7 +56,6 @@ import pcgen.util.Logging;
  * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel

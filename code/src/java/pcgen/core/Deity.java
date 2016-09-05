@@ -44,7 +44,6 @@ import pcgen.facade.core.DeityFacade;
  * <code>Deity</code>.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class Deity extends PObject implements DeityFacade
 {
@@ -57,9 +56,6 @@ public final class Deity extends PObject implements DeityFacade
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getDomainNames()
 	{

@@ -29,7 +29,6 @@ package pcgen.core.doomsdaybook;
  * Last Edited: $Date$
  *
  * @author Devon D Jones
- * @version $Revision$
  */
 public class Operation implements Comparable
 {

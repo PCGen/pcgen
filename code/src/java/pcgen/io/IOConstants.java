@@ -24,7 +24,6 @@ package pcgen.io;
  * <code>IOConstants</code>
  *
  * @author   Thomas Behr
- * @version  $Revision$
  */
 @SuppressWarnings("nls")
 interface IOConstants

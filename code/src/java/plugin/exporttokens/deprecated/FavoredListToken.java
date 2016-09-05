@@ -37,7 +37,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * Last Editor: $Author$
  * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class FavoredListToken extends AbstractExportToken
 {

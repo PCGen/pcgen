@@ -41,7 +41,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * UNITSET.WEIGHTUNIT
  *
  * @author jdempsey
- * @version $Revision$
  */
 public class UnitSetToken extends AbstractExportToken
 {

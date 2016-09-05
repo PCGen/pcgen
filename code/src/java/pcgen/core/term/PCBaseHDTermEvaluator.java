@@ -37,7 +37,6 @@ import pcgen.core.PlayerCharacter;
  * Last Edited: $Date: 2012-01-07 18:57:16 +0100 (Sa, 07 Jan 2012) $
  * 
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- * @version $Revision: 15744 $
  */
 public class PCBaseHDTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -58,7 +57,7 @@ public class PCBaseHDTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return (float) pc.getDisplay().getBaseHD();
+		return pc.getDisplay().getBaseHD();
 	}
 
 	/* (non-Javadoc)

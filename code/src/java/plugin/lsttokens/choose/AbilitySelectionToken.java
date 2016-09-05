@@ -51,7 +51,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,

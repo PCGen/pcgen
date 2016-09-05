@@ -42,7 +42,6 @@ import pcgen.facade.core.BodyStructureFacade;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class BodyStructure implements BodyStructureFacade
 {

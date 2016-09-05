@@ -164,8 +164,8 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		final String foo =
 				LanguageBundle.getFormattedString(
 					"PreSkill.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName});
+						prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName);
 		return foo;
 	}
 

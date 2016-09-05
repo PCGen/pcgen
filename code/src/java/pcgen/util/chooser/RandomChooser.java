@@ -31,7 +31,6 @@ import pcgen.facade.util.ListFacade;
  * simply selects a random choice from the available list of options.
  *
  * @author    Aaron Divinsky
- * @version $Revision$
  */
 public final class RandomChooser implements ChooserInterface, ChoiceHandler
 {
@@ -294,9 +293,6 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
 				- theSelectedList.size();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean makeChoice(ChooserFacade chooserFacade)
 	{

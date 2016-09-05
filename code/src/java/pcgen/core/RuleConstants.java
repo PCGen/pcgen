@@ -34,7 +34,6 @@ package pcgen.core;
  * is that an interface uses a little less memory.)
  *
  * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version    $Revision$
  */
 public interface RuleConstants
 {

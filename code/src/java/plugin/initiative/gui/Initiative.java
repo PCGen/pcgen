@@ -1910,7 +1910,7 @@ public class Initiative extends javax.swing.JPanel
 			{
 				if ((model instanceof AttackModel) && (cbt instanceof PcgCombatant))
 				{
-					InitHolder pcgcbt = (PcgCombatant) cbt;
+					InitHolder pcgcbt = cbt;
 					performAttack((AttackModel) model, pcgcbt);
 				}
 				else if (model instanceof CheckModel)
@@ -2627,7 +2627,7 @@ public class Initiative extends javax.swing.JPanel
 					if ((((PcgCombatant) holderToCopy).getPC().getFileName() != null)
 							&& (!((PcgCombatant) holderToCopy).getPC().getFileName().isEmpty()))
 					{
-						pasteNew((Combatant) holderToCopy, count);
+						pasteNew(holderToCopy, count);
 					}
 					else
 					{
@@ -2642,7 +2642,7 @@ public class Initiative extends javax.swing.JPanel
 				}
 				else
 				{
-					pasteNew((Combatant) holderToCopy, count);
+					pasteNew(holderToCopy, count);
 				}
 			}
 			else

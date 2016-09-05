@@ -31,9 +31,9 @@ package pcgen.facade.util.event;
  * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
+@FunctionalInterface
 public interface ChangeListener
 {
 	/**

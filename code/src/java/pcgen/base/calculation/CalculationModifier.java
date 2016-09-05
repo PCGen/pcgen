@@ -68,81 +68,54 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 		this.userPriority = userPriority;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getUserPriority()
 	{
 		return (int) userPriority;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public long getPriority()
 	{
 		return (userPriority << 32) + toDo.getInherentPriority();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T process(EvaluationManager evalManager)
 	{
 		return toDo.process(evalManager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
 		toDo.getDependencies(fdm);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{
 		return toDo.getInstructions();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T> getVariableFormat()
 	{
 		return toDo.getVariableFormat();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return toDo.getIdentification();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return ((int) userPriority) ^ toDo.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

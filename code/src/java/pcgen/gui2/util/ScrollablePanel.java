@@ -40,7 +40,6 @@ import java.awt.Rectangle;
  * Last Edited: $Date$
  * 
  * @author Devon Jones
- * @version $Revision$
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {
@@ -106,9 +105,6 @@ public class ScrollablePanel extends JPanel implements Scrollable
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Dimension getPreferredSize()
 	{

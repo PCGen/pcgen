@@ -540,7 +540,8 @@ public final class PrerequisiteUtilities
 		for (String spell : selectedList)
 		{
 			//TODO Case sensitivity?
-			final Spell sp = Globals.getSpellKeyed(spell);
+			final Spell sp = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, spell);
 
 			if (sp == null)
 			{

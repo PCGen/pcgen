@@ -117,9 +117,6 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

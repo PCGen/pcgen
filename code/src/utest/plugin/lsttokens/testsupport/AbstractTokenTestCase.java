@@ -241,7 +241,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
-	public boolean parse(String str) throws PersistenceLayerException
+	public boolean parse(String str)
 	{
 		ParseResult pr;
 		try
@@ -271,7 +271,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		return pr.passed();
 	}
 
-	public boolean parseSecondary(String str) throws PersistenceLayerException
+	public boolean parseSecondary(String str)
 	{
 		ParseResult pr = getToken()
 				.parseToken(secondaryContext, secondaryProf, str);

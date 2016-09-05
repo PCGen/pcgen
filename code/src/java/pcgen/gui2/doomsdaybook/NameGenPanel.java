@@ -1041,9 +1041,6 @@ public class NameGenPanel extends JPanel
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public InputSource resolveEntity(String publicId, String systemId)
 		{

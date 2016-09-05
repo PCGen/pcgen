@@ -105,8 +105,8 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 
 		final String foo = LanguageBundle.getFormattedString(
 				"PreFact.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), prereq.getKey() });
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

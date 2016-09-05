@@ -136,9 +136,6 @@ public class CDOMWrapperInfoFacet
 		return actor;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Map<String, OutputActor<?>> getSubComponentMap()
 	{
