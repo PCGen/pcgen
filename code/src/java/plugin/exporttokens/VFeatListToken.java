@@ -17,8 +17,6 @@ import pcgen.io.exporttoken.AbilityListToken;
 /**
  * <code>VFeatListToken</code> deals with VFEATLIST output token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author karianna
  */

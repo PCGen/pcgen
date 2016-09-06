@@ -515,14 +515,11 @@
 		<property name="variableStoreFacet" ref="variableStoreFacet"/>
 		<property name="variableLibraryFacet" ref="variableLibraryFacet"/>
 		<property name="scopeFacet" ref="scopeFacet"/>
-		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
 	</bean>
 	<!-- S -->
 	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
 	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
-	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet">
-		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
-	</bean>
+	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet"/>
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>

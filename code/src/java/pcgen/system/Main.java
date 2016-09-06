@@ -27,20 +27,15 @@ import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.StringWriter;
-import java.lang.Thread.UncaughtExceptionHandler;
 import java.util.Locale;
 import java.util.Properties;
 import java.util.Set;
 import java.util.logging.Level;
+
 import javax.swing.JOptionPane;
-import net.sourceforge.argparse4j.ArgumentParsers;
-import net.sourceforge.argparse4j.impl.Arguments;
-import net.sourceforge.argparse4j.inf.ArgumentParser;
-import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
-import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
+
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.formula.PluginFunctionLibrary;
 import pcgen.core.CustomData;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.facade.core.UIDelegate;
@@ -60,14 +55,24 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.rules.persistence.TokenLibrary;
-import static pcgen.system.ConfigurationSettings.SETTINGS_FILES_PATH;
-import static pcgen.system.ConfigurationSettings.getPluginsDir;
-import static pcgen.system.ConfigurationSettings.getSystemProperty;
-import static pcgen.system.ConfigurationSettings.initSystemProperty;
-import static pcgen.system.ConfigurationSettings.setSystemProperty;
 import pcgen.util.Logging;
 import pcgen.util.PJEP;
 
+import net.sourceforge.argparse4j.ArgumentParsers;
+import net.sourceforge.argparse4j.impl.Arguments;
+import net.sourceforge.argparse4j.inf.ArgumentParser;
+import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
+import net.sourceforge.argparse4j.inf.Namespace;
+import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang.SystemUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.slf4j.Marker;
+import org.slf4j.MarkerFactory;
+
+/**
+ * Main entry point for pcgen.
+ */
 public final class Main
 {
 
@@ -82,6 +87,8 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
+	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
+
 
 	private Main()
 	{
@@ -121,10 +128,11 @@ public final class Main
 		pwriter.println("-- listing properties --"); //$NON-NLS-1$
 		// Manually output the property values to avoid them being cut off at 40 characters
 		Set<String> keys = props.stringPropertyNames();
-		for (String key : keys)
+		//$NON-NLS-1$
+		keys.forEach(key ->
 		{
 			pwriter.println(key + "=" + props.getProperty(key)); //$NON-NLS-1$
-		}
+		});
 		Logging.log(Level.CONFIG, writer.toString());
 	}
 
@@ -133,9 +141,11 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Logging.log(Level.INFO,
-				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
-						+ PCGenPropBundle.getAutobuildString());
+		Marker versionMarker = MarkerFactory.getMarker("VERSION");
+		LOGGER.info(versionMarker, "Starting PCGen v {} {}",
+				PCGenPropBundle.getVersionNumber(),
+				PCGenPropBundle.getAutobuildString());
+
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
 		configFactory = new PropertyContextFactory(getConfigPath());
@@ -143,13 +153,14 @@ public final class Main
 
 		parseCommands(args);
 
-		if (exportSheet != null)
+		if (exportSheet == null)
+		{
+			startupWithGUI();
+		}
+		else
 		{
 			startupWithoutGUI();
 			shutdown();
-		} else
-		{
-			startupWithGUI();
 		}
 	}
 
@@ -193,6 +204,7 @@ public final class Main
 
 		if (args.getInt("verbose") > 0)
 		{
+
 			Logging.setCurrentLoggingLevel(Logging.DEBUG);
 		}
 
@@ -216,7 +228,7 @@ public final class Main
 		loadProperties(true);
 		initPrintPreviewFonts();
 
-		boolean showSplash = Boolean.parseBoolean(initSystemProperty("showSplash", "true"));
+		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
 		//TODO: allow commandline override of spash property
 		SplashScreen splash = null;
 		if (showSplash)
@@ -271,7 +283,7 @@ public final class Main
 		int minorVar = Integer.parseInt(javaVer[1]);
 		if (!ignoreJavaVer)
 		{
-			if (majorVar < 1 || (majorVar == 1 && minorVar < 6))
+			if ((majorVar < 1) || ((majorVar == 1) && (minorVar < 6)))
 			{
 				String message =
 						"Java version "
@@ -285,7 +297,7 @@ public final class Main
 				}
 				System.exit(1);
 			}
-			if (majorVar > 1 || (majorVar == 1 && minorVar > 8))
+			if ((majorVar > 1) || ((majorVar == 1) && (minorVar > 8)))
 			{
 				String message =
 						"Java version "
@@ -309,14 +321,14 @@ public final class Main
 		}
 
 		// Check our main folders are present
-		String neededDirs[] =
+		String[] neededDirs =
 				{ConfigurationSettings.getSystemsDir(),
 						ConfigurationSettings.getPccFilesDir(),
-						getPluginsDir(),
+						ConfigurationSettings.getPluginsDir(),
 						ConfigurationSettings.getPreviewDir(),
 						ConfigurationSettings.getOutputSheetsDir()};
 		StringBuilder missingDirs = new StringBuilder();
-		for (String dirPath : neededDirs)
+		for (final String dirPath : neededDirs)
 		{
 			File dir = new File(dirPath);
 			if (!dir.exists())
@@ -325,7 +337,8 @@ public final class Main
 				try
 				{
 					path = dir.getCanonicalPath();
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					Logging.errorPrint("Unable to find canonical path for "
 							+ dir);
@@ -352,7 +365,9 @@ public final class Main
 
 	public static void loadProperties(boolean useGui)
 	{
-		if (settingsDir == null && getSystemProperty(SETTINGS_FILES_PATH) == null)
+		if ((settingsDir == null) && (
+				ConfigurationSettings.getSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH) == null
+		))
 		{
 			if (!useGui)
 			{
@@ -360,7 +375,7 @@ public final class Main
 				System.exit(1);
 			}
 			String filePath = OptionsPathDialog.promptSettingsPath();
-			setSystemProperty(SETTINGS_FILES_PATH, filePath);
+			ConfigurationSettings.setSystemProperty(ConfigurationSettings.SETTINGS_FILES_PATH, filePath);
 		}
 		PropertyContextFactory.setDefaultFactory(settingsDir);
 
@@ -379,7 +394,7 @@ public final class Main
 	 */
 	public static PCGenTask createLoadPluginTask()
 	{
-		String pluginsDir = getPluginsDir();
+		String pluginsDir = ConfigurationSettings.getPluginsDir();
 		PluginClassLoader loader = new PluginClassLoader(new File(pluginsDir));
 		loader.addPluginLoader(TokenLibrary.getInstance());
 		loader.addPluginLoader(TokenStore.inst());
@@ -396,6 +411,7 @@ public final class Main
 		loader.addPluginLoader(ExportHandler.getPluginLoader());
 		loader.addPluginLoader(TokenConverter.getPluginLoader());
 		loader.addPluginLoader(PluginManager.getInstance());
+		loader.addPluginLoader(PluginFunctionLibrary.getInstance());
 		return loader;
 	}
 
@@ -448,15 +464,16 @@ public final class Main
 	private static void initPrintPreviewFonts()
 	{
 		GraphicsEnvironment ge = GraphicsEnvironment.getLocalGraphicsEnvironment();
-		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator +
-				"fonts" + File.separator + "NotoSans" + File.separator;
+		String fontDir = ConfigurationSettings.getOutputSheetsDir() + File.separator
+				+ "fonts" + File.separator + "NotoSans" + File.separator;
 		try
 		{
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Regular.ttf")));
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Bold.ttf")));
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-Italic.ttf")));
 			ge.registerFont(Font.createFont(Font.TRUETYPE_FONT, new File(fontDir + "NotoSans-BoldItalic.ttf")));
-		} catch (IOException | FontFormatException ex)
+		}
+		catch (IOException | FontFormatException ex)
 		{
 			Logging.errorPrint("Unexpected exception loading fonts fo print p", ex);
 		}
@@ -476,17 +493,14 @@ public final class Main
 		parser.addArgument("-v", "--verbose")
 				.help("verbose logging")
 				.type(Boolean.class)
-				.action(Arguments.count())
-		;
+				.action(Arguments.count());
 
 		parser.addArgument("-V", "--version")
-				.action(Arguments.version())
-		;
+				.action(Arguments.version());
 
 		parser.addArgument("-J")
 				.help("ignore java version checks")
-				.action(Arguments.storeTrue())
-		;
+				.action(Arguments.storeTrue());
 
 		MutuallyExclusiveGroup startupMode = parser
 				.addMutuallyExclusiveGroup()
@@ -495,14 +509,12 @@ public final class Main
 		startupMode.addArgument("-G", "--gmgen")
 				.help("GMGen mode")
 				.type(Boolean.class)
-				.action(Arguments.storeTrue())
-		;
+				.action(Arguments.storeTrue());
 
 		startupMode.addArgument("-N", "--npc")
 				.help("NPC generation mode")
 				.type(Boolean.class)
-				.action(Arguments.storeTrue())
-		;
+				.action(Arguments.storeTrue());
 
 		startupMode.addArgument("-D", "--tab").nargs(1);
 
@@ -513,8 +525,7 @@ public final class Main
 								.verifyIsDirectory()
 								.verifyCanRead()
 								.verifyExists()
-				)
-		;
+				);
 		parser.addArgument("-m", "--campaignmode")
 				.nargs(1)
 				.type(String.class)
@@ -526,8 +537,8 @@ public final class Main
 								.verifyCanRead()
 								.verifyExists()
 								.verifyIsFile()
-				)
-		;
+				);
+
 		parser.addArgument("-o", "--outputfile")
 				.nargs(1)
 				.type(
@@ -535,8 +546,8 @@ public final class Main
 								.verifyCanCreate()
 								.verifyCanWrite()
 								.verifyNotExists()
-				)
-		;
+				);
+
 		parser.addArgument("-c", "--character")
 				.nargs(1)
 				.type(
@@ -544,8 +555,8 @@ public final class Main
 								.verifyCanRead()
 								.verifyExists()
 								.verifyIsFile()
-				)
-		;
+				);
+
 		parser.addArgument("-p", "--party")
 				.nargs(1)
 				.type(
@@ -553,8 +564,7 @@ public final class Main
 								.verifyCanRead()
 								.verifyExists()
 								.verifyIsFile()
-				)
-		;
+				);
 
 		return parser;
 	}
@@ -563,7 +573,7 @@ public final class Main
 	 * The Class {@code PCGenUncaughtExceptionHandler} reports any
 	 * exceptions that are not otherwise handled by the program.
 	 */
-	private static class PCGenUncaughtExceptionHandler implements UncaughtExceptionHandler
+	private static class PCGenUncaughtExceptionHandler implements Thread.UncaughtExceptionHandler
 	{
 		@Override
 		public void uncaughtException(Thread t, Throwable e)

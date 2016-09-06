@@ -17,11 +17,12 @@
  */
 package pcgen.output.channel;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.util.FormatManager;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ScopeFacet;
@@ -36,14 +37,44 @@ import pcgen.cdom.formula.VariableChannel;
  */
 public class ChannelUtilities
 {
-	private static final VariableLibraryFacet VARLIB_FACET = FacetLibrary
-		.getFacet(VariableLibraryFacet.class);
-	private static final ScopeFacet SCOPE_FACET = FacetLibrary
-		.getFacet(ScopeFacet.class);
-	private static final VariableStoreFacet RESULT_FACET = FacetLibrary
-		.getFacet(VariableStoreFacet.class);
-	private static final SolverManagerFacet MGR_FACET = FacetLibrary
-		.getFacet(SolverManagerFacet.class);
+	private static final VariableLibraryFacet VARLIB_FACET =
+			FacetLibrary.getFacet(VariableLibraryFacet.class);
+	private static final ScopeFacet SCOPE_FACET =
+			FacetLibrary.getFacet(ScopeFacet.class);
+	private static final VariableStoreFacet RESULT_FACET =
+			FacetLibrary.getFacet(VariableStoreFacet.class);
+	private static final SolverManagerFacet MGR_FACET =
+			FacetLibrary.getFacet(SolverManagerFacet.class);
+
+	/**
+	 * Retrieves a Channel for the given CharID, owning object, and name of the
+	 * channel.
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter on which the
+	 *            Channel resides
+	 * @param owner
+	 *            The owning object of the Channel
+	 * @param name
+	 *            The name of the channel
+	 * @param formatManager
+	 *            The FormatManager for the channel
+	 * @return A Channel for the given CharID, owning object, and name of the
+	 *         channel
+	 */
+	public static <T> VariableChannel<T> generateChannel(CharID id,
+		VarScoped owner, String name, FormatManager<T> formatManager)
+	{
+		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
+		if (owner.getLocalScopeName() == null)
+		{
+			throw new IllegalArgumentException(
+				"Channel cannot be generated for an object without a local scope: "
+					+ owner.getClass());
+		}
+		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
+		return generateChannel(id, scopeInst, name, formatManager);
+	}
 
 	/**
 	 * Retrieves a Channel for the given CharID, owning object, and name of the
@@ -63,8 +94,29 @@ public class ChannelUtilities
 		String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope(owner.getLocalScopeName());
-		return getChannel(id, instFactory.get(scope, owner), name);
+		ScopeInstance scopeInst = instFactory.get(owner.getLocalScopeName(), owner);
+		return getChannel(id, scopeInst, name);
+	}
+
+	/**
+	 * Retrieves a (Global) Channel for the given CharID and name of the
+	 * channel.
+	 * 
+	 * @param id
+	 *            The CharID identifying the PlayerCharacter on which the
+	 *            Channel resides
+	 * @param name
+	 *            The name of the channel
+	 * @param formatManager
+	 *            The FormatManager for the channel
+	 * @return A Channel for the given CharID and name of the channel
+	 */
+	public static <T> VariableChannel<T> generateGlobalChannel(CharID id,
+		String name, FormatManager<T> formatManager)
+	{
+		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
+		return generateChannel(id, instFactory.getGlobalInstance("Global"), name,
+			formatManager);
 	}
 
 	/**
@@ -81,17 +133,37 @@ public class ChannelUtilities
 	public static VariableChannel<?> getGlobalChannel(CharID id, String name)
 	{
 		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		LegalScope scope = instFactory.getScope("Global");
-		return getChannel(id, instFactory.getGlobalScope(scope), name);
+		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
+		return getChannel(id, globalInstance, name);
+	}
+
+	private static <T> VariableChannel<T> generateChannel(CharID id,
+		ScopeInstance scopeInst, String name, FormatManager<T> formatManager)
+	{
+		String varName = createVarName(name);
+		VariableLibrary varLib = VARLIB_FACET.get(id.getDatasetID());
+		varLib.assertLegalVariableID(varName, scopeInst.getLegalScope(),
+			formatManager);
+		VariableID<T> varID =
+				(VariableID<T>) varLib.getVariableID(scopeInst, varName);
+		MGR_FACET.get(id).createChannel(varID);
+		return VariableChannel.construct(MGR_FACET.get(id),
+			RESULT_FACET.get(id), varID);
 	}
 
 	private static VariableChannel<?> getChannel(CharID id,
 		ScopeInstance scopeInst, String name)
 	{
-		VariableID<?> varID =
-				VARLIB_FACET.getVariableID(id.getDatasetID(), scopeInst, name);
+		String varName = createVarName(name);
+		VariableID<?> varID = VARLIB_FACET.getVariableID(id.getDatasetID(),
+			scopeInst, varName);
 		return VariableChannel.construct(MGR_FACET.get(id),
 			RESULT_FACET.get(id), varID);
+	}
+
+	public static String createVarName(String varName)
+	{
+		return "CHANNEL*" + varName;
 	}
 
 }

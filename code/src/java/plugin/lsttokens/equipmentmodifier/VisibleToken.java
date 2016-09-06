@@ -29,7 +29,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>VisibleToken</code> handles the processing of the VISIBLE tag in the
  * definition of an Equipment Modifier.
  *
- * Last Editor: $Author$ Last Edited: $Date: 2008-05-24 22:22:21 -0400
  * (Sat, 24 May 2008) $
  *
  * @author Devon Jones

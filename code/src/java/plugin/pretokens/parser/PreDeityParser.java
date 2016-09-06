@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
@@ -38,8 +36,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -31,7 +31,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 /**
  * <code>NumPagesToken</code> deals with NUMPAGES token
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2006-03-14 18:16:52 -0400
  * (Tue, 14 Mar 2006) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

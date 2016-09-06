@@ -30,8 +30,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * <code>AbilityCategoryToken</code> parses ABILITYCATEGORY in campaign (pcc)
  * files.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

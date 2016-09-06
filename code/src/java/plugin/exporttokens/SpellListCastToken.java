@@ -34,8 +34,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListCastToken</code> outputs the number of spells
  * that can cast for the specified class and level.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

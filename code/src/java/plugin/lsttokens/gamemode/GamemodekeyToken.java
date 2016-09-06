@@ -19,8 +19,6 @@
  * Created on February 7, 2007
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */package plugin.lsttokens.gamemode;
 
@@ -32,8 +30,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * <code>GamemodekeyToken</code> parses the GAMEMODEKEY token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

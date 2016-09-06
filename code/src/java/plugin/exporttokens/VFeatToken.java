@@ -18,8 +18,6 @@ import pcgen.util.enumeration.View;
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author karianna
  */

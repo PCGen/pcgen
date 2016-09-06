@@ -17,12 +17,10 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
@@ -37,8 +35,6 @@ import pcgen.util.Logging;
  */
 public class ResultFacet
 {
-
-	private FormulaSetupFacet formulaSetupFacet;
 
 	private ScopeFacet scopeFacet;
 
@@ -63,10 +59,7 @@ public class ResultFacet
 			return getGlobalVariable(id, varName);
 		}
 
-		LegalScope cdoScope =
-				formulaSetupFacet.get(id.getDatasetID()).getLegalScopeLibrary()
-				.getScope(localScopeName);
-		ScopeInstance scope = scopeFacet.get(id, cdoScope, cdo);
+		ScopeInstance scope = scopeFacet.get(id, localScopeName, cdo);
 		if (scope == null)
 		{
 			Logging.errorPrint("Improperly built "
@@ -78,11 +71,6 @@ public class ResultFacet
 				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
 						varName);
 		return variableStoreFacet.getValue(id, varID);
-	}
-
-	public void setFormulaSetupFacet(FormulaSetupFacet formulaSetupFacet)
-	{
-		this.formulaSetupFacet = formulaSetupFacet;
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)

@@ -22,8 +22,6 @@
  * @ author	Greg Bingleman <byngl@hotmail.com>
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.writer;

@@ -83,10 +83,8 @@ import java.util.ArrayList;
  * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date$
  * </p>
  *
  * @author LodgeR
