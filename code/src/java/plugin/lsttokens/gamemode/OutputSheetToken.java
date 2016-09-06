@@ -38,8 +38,6 @@ import pcgen.util.Logging;
  * displayed on the summary tab when editing a character. 
  *
  * <br>
- * Last Editor: $Author: javydreamercsw $
- * Last Edited: $Date: 2012-11-06 20:50:30 +0100 (Di, 06 Nov 2012) $
  * 
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */

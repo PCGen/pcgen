@@ -34,8 +34,6 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  * domain spell list.
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  */
 public class DomainListToken extends AbstractRestrictedSpellPrimitive

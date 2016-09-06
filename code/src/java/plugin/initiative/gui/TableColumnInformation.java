@@ -28,8 +28,6 @@ import java.util.List;
  * </p>
  *
  * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  * 
  * @author LodgeR
  */

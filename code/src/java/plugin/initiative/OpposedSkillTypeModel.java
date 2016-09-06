@@ -35,10 +35,8 @@ import java.util.List;
  * Current Ver: $Revision$
  * </p>
  * <p>
- * Last Editor: $Author$
  * </p>
  * <p>
- * Last Edited: $Date$
  * </p>
  * 
  * @author LodgeR

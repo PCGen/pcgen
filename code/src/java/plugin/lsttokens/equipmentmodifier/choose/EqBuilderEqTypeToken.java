@@ -35,7 +35,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * <code>EqBuilderEqTypeToken</code> parses the EQ Builder specific choose
  * string to allow the selection of equipent types.
  *
- * Last Editor: $Author$ Last Edited: $Date: 2008-05-06 22:19:45 -0400
  * (Tue, 06 May 2008) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

@@ -19,8 +19,6 @@
  * Created on March 6, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.prof;

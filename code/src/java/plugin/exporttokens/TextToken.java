@@ -19,8 +19,6 @@
  * Created on October 15, 2003, 10:23 PM
  *
  * Current Ver: $Revision: 199 $
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2006-03-15 10:11:06 +1100 (Wed, 15 Mar 2006) $
  *
  */
 package plugin.exporttokens;

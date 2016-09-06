@@ -41,7 +41,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Class deals with LEVEL Token
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-06-11 19:34:55 -0400
  * (Wed, 11 Jun 2008) $
  * 
  */

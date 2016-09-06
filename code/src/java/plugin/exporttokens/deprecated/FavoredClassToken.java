@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 05:36:01 +0100 (Sun, 17 Dec 2006) $
  *
  */
 package plugin.exporttokens.deprecated;

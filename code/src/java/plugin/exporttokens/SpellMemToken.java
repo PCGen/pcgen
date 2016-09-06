@@ -57,8 +57,6 @@ import pcgen.util.Delta;
  * <code>SpellMemToken</code> displays information about the spells
  * in the character spellbooks..
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

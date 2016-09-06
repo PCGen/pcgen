@@ -34,8 +34,6 @@ import pcgen.util.Logging;
 /**
  * <code>DestToken</code> parses DEST tokens in installable campaigns.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

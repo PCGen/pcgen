@@ -33,8 +33,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>DescToken</code> parses the DESC token for campaigns.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
