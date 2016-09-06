@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -45,8 +43,6 @@ import pcgen.util.Logging;
  * DIR.HTML
  * DIR.TEMP
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 public class DirToken extends AbstractExportToken

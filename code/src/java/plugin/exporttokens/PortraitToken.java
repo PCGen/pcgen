@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -48,8 +46,6 @@ import pcgen.util.Logging;
  * token and its and PORTRAIT.THUMB variant.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

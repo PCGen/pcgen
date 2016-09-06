@@ -38,8 +38,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * The Class <code>LangBonusToken</code> handles the LANGBONUS kit tag.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

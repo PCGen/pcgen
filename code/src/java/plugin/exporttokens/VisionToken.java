@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -39,8 +37,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * <code>VisionToken</code> produces the output for the output token 
  * VISION.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

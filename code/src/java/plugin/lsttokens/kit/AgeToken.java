@@ -19,8 +19,6 @@
  * Created on March 3, 2006
  *
  * Current Ver: $Revision: 17201 $
- * Last Editor: $Author: spraynpray $
- * Last Edited: $Date: 2012-09-10 09:52:40 +0200 (Mo, 10 Sep 2012) $
  */
 
 package plugin.lsttokens.kit;

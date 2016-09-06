@@ -38,8 +38,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * allows an icon to be specified for the item of equipment.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

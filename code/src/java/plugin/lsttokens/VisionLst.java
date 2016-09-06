@@ -48,7 +48,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * <code>VisionLst</code> handles the processing of the VISION tag in LST
  * code.
  *
- * Last Editor: $Author$ Last Edited: $Date: 2008-06-15 22:14:51 -0400
  * (Sun, 15 Jun 2008) $
  *
  * @author Devon Jones

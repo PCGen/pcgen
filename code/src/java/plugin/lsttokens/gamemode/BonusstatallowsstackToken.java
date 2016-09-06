@@ -35,8 +35,6 @@ import pcgen.util.Logging;
  * multiple times when offered multiple stat boosts at the same 
  * level.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

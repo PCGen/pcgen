@@ -19,8 +19,6 @@
  * Created on March 20, 2007
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.add;
@@ -83,7 +81,6 @@ import pcgen.util.enumeration.Visibility;
  * <li>Choices can be specified by including them in parenthesis after the
  * ability key name (whitespace is ignored).</li>
  * </ul>
- * Last Editor: $Author$ Last Edited: $Date: 2007-05-20 19:00:17 -0400
  * (Sun, 20 May 2007) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

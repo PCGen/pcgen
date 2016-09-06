@@ -19,8 +19,6 @@
  * Created on September 2, 2002, 8:02 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.level;
@@ -34,8 +32,6 @@ import pcgen.util.Logging;
  * file level.lst. 
  *
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

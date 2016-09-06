@@ -57,8 +57,6 @@ import pcgen.util.Logging;
  * SPELLKNOWN:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
  * </pre>
  *
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
