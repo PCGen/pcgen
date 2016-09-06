@@ -26,6 +26,7 @@ import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.parse.ASTQuotString;
+import pcgen.base.formula.parse.FormulaParserTreeConstants;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
@@ -67,7 +68,7 @@ public class InputFunction implements Function
 		}
 		//String node (name)
 		Node inputNode = args[0];
-		if (!(inputNode instanceof ASTQuotString))
+		if (inputNode.getId() != FormulaParserTreeConstants.JJTQUOTSTRING)
 		{
 			semantics.setInvalid("Parse Error: Invalid Value: "
 				+ ((SimpleNode) inputNode).getText() + " found in "
@@ -76,8 +77,7 @@ public class InputFunction implements Function
 				+ " String (cannot be evaluated)");
 			return null;
 		}
-		ASTQuotString quotString = (ASTQuotString) inputNode;
-		String inputName = quotString.getText();
+		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
 		VariableLibrary varLib =
 				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
