@@ -133,8 +133,7 @@ public final class InequalityTesterInst implements InequalityTester
 
 	private Set<Class<?>> getInterfaces(Class<?> c1)
 	{
-		HashSet<Class<?>> if1 = new HashSet<>();
-		if1.addAll(Arrays.asList(c1.getInterfaces()));
+		Set<Class<?>> if1 = new HashSet<>(Arrays.asList(c1.getInterfaces()));
 		Class<?> sc = c1.getSuperclass();
 		if (sc != null)
 		{

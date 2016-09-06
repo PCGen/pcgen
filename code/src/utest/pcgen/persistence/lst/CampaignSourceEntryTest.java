@@ -43,7 +43,7 @@ public class CampaignSourceEntryTest
 	private URI sourceUri;
 	
 	@Before
-	public void testSetup() throws Exception
+	public void setup() throws Exception
 	{
 		sourceUri = new URI("file://CampaignSourceEntryTest");
 	}

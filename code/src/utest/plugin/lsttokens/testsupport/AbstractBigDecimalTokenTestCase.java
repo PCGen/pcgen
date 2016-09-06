@@ -19,12 +19,13 @@ package plugin.lsttokens.testsupport;
 
 import java.math.BigDecimal;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -114,7 +115,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		if (isPositiveAllowed())
 		{
 			assertTrue(parse("4.5"));
-			assertEquals(new BigDecimal(4.5), primaryProf.get(getObjectKey()));
+			assertEquals(new BigDecimal("4.5"), primaryProf.get(getObjectKey()));
 			assertTrue(parse("5"));
 			assertEquals(new BigDecimal(5), primaryProf.get(getObjectKey()));
 			assertTrue(parse("1"));
@@ -203,7 +204,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testUnparseOne() throws PersistenceLayerException
 	{
-		BigDecimal val = new BigDecimal(4.5);
+		BigDecimal val = new BigDecimal("4.5");
 		if (isPositiveAllowed())
 		{
 			primaryProf.put(getObjectKey(), val);

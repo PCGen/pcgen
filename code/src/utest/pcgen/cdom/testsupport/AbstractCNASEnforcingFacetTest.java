@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -22,6 +18,9 @@ import pcgen.cdom.helper.CNAbilitySelectionUtilities;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 {
@@ -39,12 +38,12 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
-	private class Listener implements
+	private static class Listener implements
 			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 
-		public int addEventCount;
-		public int removeEventCount;
+		private int addEventCount;
+		private int removeEventCount;
 
 		@Override
 		public void dataAdded(
