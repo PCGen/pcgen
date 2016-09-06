@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision: 1821 $
  *
- * Last Editor: $Author: jdempsey $
  *
- * Last Edited: $Date: 2006-12-28 07:12:38 +0100 (Do, 28 Dez 2006) $
  *
  */
 package plugin.pretokens.writer;
