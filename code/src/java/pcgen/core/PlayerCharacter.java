@@ -36,6 +36,7 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.AggressiveSolverManager;
@@ -72,13 +73,12 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -86,6 +86,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -274,6 +275,9 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
+
+import com.google.common.annotations.VisibleForTesting;
+
 
 /**
  * {@code PlayerCharacter}.
@@ -8058,6 +8062,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	//WARNING: This is public only for testing, do NOT use without understanding what you are shortcutting!!
+	@VisibleForTesting
 	public void applyAbility(CNAbilitySelection cas, Object source)
 	{
 		if (cas.hasPrerequisites())
