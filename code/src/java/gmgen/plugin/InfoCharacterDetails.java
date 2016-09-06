@@ -31,8 +31,6 @@ import pcgen.util.Logging;
  * @author Expires 2003
  *
  * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  */
 public class InfoCharacterDetails
 {

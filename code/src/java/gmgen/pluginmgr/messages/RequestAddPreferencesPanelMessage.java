@@ -30,8 +30,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * a request to add a panel to the GMGen preferences.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

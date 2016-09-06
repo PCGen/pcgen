@@ -29,8 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * GMGen edit &gt; copy menu item has been selected.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
