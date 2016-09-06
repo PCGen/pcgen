@@ -45,8 +45,6 @@ import pcgen.util.Logging;
  * The Class <code>PreCampaignTester</code> is responsible for testing if the 
  * currently loaded sources satisfy the campaign prerequisite.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
