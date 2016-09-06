@@ -117,7 +117,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, Integer.valueOf(2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		assertEquals(rv.toString(), formula);
 	}
 
 }
