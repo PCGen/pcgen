@@ -35,7 +35,7 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -45,6 +45,11 @@ import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
+import pcgen.rules.context.ConsolidatedListCommitStrategy;
+import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.RuntimeLoadContext;
+import pcgen.rules.context.RuntimeReferenceContext;
+import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 
 public abstract class AbstractFormulaTestCase extends TestCase
 {
@@ -52,6 +57,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected FormatManager<Number> numberManager = new NumberManager();
 	protected FormatManager<String> stringManager = new StringManager();
 
+	protected LoadContext context;
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
 
@@ -59,12 +65,12 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		setup = new SplitFormulaSetup();
-		setup.getLegalScopeLibrary().registerScope(
-			new SimpleLegalScope(null, "Global"));
+		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
+			new ConsolidatedListCommitStrategy());
+		setup = context.getVariableContext().getFormulaSetup();
 		setup.getSolverFactory().addSolverFormat(Number.class, getDMod(0));
 		setup.getSolverFactory().addSolverFormat(String.class, getDMod(""));
-		localSetup = new IndividualSetup(setup, "Global");
+		localSetup = new PCGenFormulaSetup(setup, "Global");
 	}
 
 	public void isValid(String formula, SimpleNode node,
@@ -207,6 +213,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LegalScopeLibrary getScopeLibrary()
 	{
 		return setup.getLegalScopeLibrary();
+	}
+
+	protected ScopeInstanceFactory getInstanceFactory()
+	{
+		return localSetup.getInstanceFactory();
 	}
 
 	public EvaluationManager generateManager()

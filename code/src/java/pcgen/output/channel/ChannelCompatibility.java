@@ -34,7 +34,8 @@ public class ChannelCompatibility
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.STATSCORE))
 		{
-			return (WriteableReferenceFacade<Integer>) ChannelUtilities.getChannel(id, stat, CControl.STATSCORE);
+			return (WriteableReferenceFacade<Integer>) ChannelUtilities
+				.getChannel(id, stat, CControl.STATSCORE);
 		}
 		else
 		{
