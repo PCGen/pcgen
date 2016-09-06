@@ -84,7 +84,7 @@ public class EqSetToken extends Token
 	 * @param display
 	 * @return Name Token
 	 */
-	public static String getNameToken(CharacterDisplay display)
+	private static String getNameToken(CharacterDisplay display)
 	{
 		return display.getCurrentEquipSetName();
 	}
@@ -94,7 +94,7 @@ public class EqSetToken extends Token
 	 * @param pc
 	 * @return Number Token
 	 */
-	public static int getNumberToken(PlayerCharacter pc)
+	private static int getNumberToken(PlayerCharacter pc)
 	{
 		return pc.getEquipSetNumber();
 	}

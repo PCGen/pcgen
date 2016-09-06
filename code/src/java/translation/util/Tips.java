@@ -60,7 +60,7 @@ public class Tips
 	/** true to add a message to tips that are not translated, false to copy them as is so they won't appear */
 	private static final boolean MARK_UNTRANSLATED = true;
 
-	public static void generatePOT(File rootDirectory, String potFilename)
+	private static void generatePOT(File rootDirectory, String potFilename)
 	{
 		generatePOT(rootDirectory, potFilename, DEFAULT_TIPS_FILENAME);
 	}
@@ -70,7 +70,7 @@ public class Tips
 	 * @param rootDirectory root of the directories to parse
 	 * @param filename the name of the filename to parse
 	 */
-	public static void generatePOT(File rootDirectory, String potFilename, String filename)
+	private static void generatePOT(File rootDirectory, String potFilename, String filename)
 	{
 		Set<String> tips = new HashSet<>();
 		// search for each filename in the sub directory of rootDirectory
@@ -181,7 +181,7 @@ public class Tips
 		}
 	}
 
-	protected static void addTips(Set<String> tips, BufferedReader reader)
+	private static void addTips(Set<String> tips, BufferedReader reader)
 	{
 		String line;
 		try
@@ -214,7 +214,7 @@ public class Tips
 	/**
 	 * Filter on a specific filename.
 	 */
-	static class SpecificFilenameFilter implements FilenameFilter
+	private static class SpecificFilenameFilter implements FilenameFilter
 	{
 
 		private final String filename;
@@ -222,7 +222,7 @@ public class Tips
 		/**
 		 * @param filename
 		 */
-		public SpecificFilenameFilter(String filename)
+		private SpecificFilenameFilter(String filename)
 		{
 			this.filename = filename;
 		}
@@ -235,7 +235,7 @@ public class Tips
 
 	}
 
-	public static void generateTips(File rootDirectory, File translation, String translationName)
+	private static void generateTips(File rootDirectory, File translation, String translationName)
 	{
 		generateTips(rootDirectory, translation, translationName, DEFAULT_TIPS_FILENAME);
 	}
@@ -247,7 +247,7 @@ public class Tips
 	 * @param translationName name for new translation filename (like tips_fr.txt)
 	 * @param originalName original filename (like tips.txt)
 	 */
-	public static void generateTips(File rootDirectory, File translation, String translationName, String originalName)
+	private static void generateTips(File rootDirectory, File translation, String translationName, String originalName)
 	{
 		int statUntranslated = 0, statTranslated = 0;
 		// load stuff from the PO catalog file
