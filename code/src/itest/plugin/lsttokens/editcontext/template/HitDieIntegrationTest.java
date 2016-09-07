@@ -27,7 +27,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegerIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.HitdieToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class HitDieIntegrationTest extends
 		AbstractIntegerIntegrationTestCase<PCTemplate>

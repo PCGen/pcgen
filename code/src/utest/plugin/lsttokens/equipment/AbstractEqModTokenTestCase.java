@@ -24,7 +24,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public abstract class AbstractEqModTokenTestCase extends
 		AbstractListTokenTestCase<Equipment, EquipmentModifier>

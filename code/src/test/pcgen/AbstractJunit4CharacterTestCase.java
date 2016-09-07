@@ -59,7 +59,6 @@ import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * This is an abstract TestClass designed to be able to create a PlayerCharacter

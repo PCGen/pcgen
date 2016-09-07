@@ -28,7 +28,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.analysis.LevelFacet;
 import pcgen.cdom.facet.analysis.LevelTableFacet;
-import pcgen.cdom.facet.fact.XPFacet;
 
 public class XPFacetTest extends TestCase
 {

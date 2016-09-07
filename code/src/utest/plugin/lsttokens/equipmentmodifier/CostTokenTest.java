@@ -22,7 +22,6 @@ import pcgen.core.EquipmentModifier;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractFormulaTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class CostTokenTest extends
 		AbstractFormulaTokenTestCase<EquipmentModifier>

@@ -26,7 +26,6 @@ import junit.textui.TestRunner;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.FacetInitialization;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreFactParser;
 import plugin.pretokens.writer.PreFactWriter;
 

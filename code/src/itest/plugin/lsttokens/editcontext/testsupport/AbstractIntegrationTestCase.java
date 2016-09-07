@@ -42,7 +42,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject & Loadable> extends
 		TestCase

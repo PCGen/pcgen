@@ -38,7 +38,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class StatIntegrationTest extends TestCase
 {

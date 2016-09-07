@@ -27,8 +27,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractItemIntegrationTestCase;
 import plugin.lsttokens.spell.StatToken;
-import plugin.lsttokens.testsupport.BuildUtilities;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class StatIntegrationTest extends
 		AbstractItemIntegrationTestCase<Spell, PCStat>

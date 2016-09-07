@@ -24,8 +24,6 @@ package pcgen.gui2.util;
 
 import java.util.Locale;
 
-import pcgen.EnUsLocaleDependentTestCase;
-import pcgen.LocaleDependentTestCase;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;

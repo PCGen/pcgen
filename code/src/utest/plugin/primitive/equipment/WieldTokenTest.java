@@ -28,8 +28,6 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.EquipmentToken;
 import plugin.lsttokens.testsupport.AbstractPrimitiveTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class WieldTokenTest extends
 		AbstractPrimitiveTokenTestCase<CDOMObject, Equipment>

@@ -30,7 +30,6 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
 import pcgen.core.Race;
 import pcgen.core.Skill;
-import pcgen.gui2.facade.MockUIDelegate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -38,7 +37,6 @@ import pcgen.util.chooser.ChooserFactory;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.race.MonccskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 
 public class RaceMonCCSkillTest extends AbstractTokenModelTest

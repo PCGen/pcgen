@@ -22,7 +22,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractTypeSafeListIntegrationTestCase;
 import plugin.lsttokens.spell.DescriptorToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class DescriptorIntegrationTest extends
 		AbstractTypeSafeListIntegrationTestCase<Spell>

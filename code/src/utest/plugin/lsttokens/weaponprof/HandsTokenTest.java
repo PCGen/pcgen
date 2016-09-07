@@ -25,7 +25,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractIntegerTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 {

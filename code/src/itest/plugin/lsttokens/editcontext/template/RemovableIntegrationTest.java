@@ -26,7 +26,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.template.RemovableToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class RemovableIntegrationTest extends
 		AbstractIntegrationTestCase<PCTemplate>

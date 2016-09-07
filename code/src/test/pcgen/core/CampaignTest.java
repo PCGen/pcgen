@@ -30,7 +30,6 @@ import pcgen.rules.context.LoadContext;
 
 import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 /**
  * <code>CampaignTest</code> is ...

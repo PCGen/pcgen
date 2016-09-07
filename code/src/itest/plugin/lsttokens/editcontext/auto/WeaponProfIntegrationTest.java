@@ -30,8 +30,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.auto.WeaponProfToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class WeaponProfIntegrationTest extends
 		AbstractListIntegrationTestCase<CDOMObject, WeaponProf>

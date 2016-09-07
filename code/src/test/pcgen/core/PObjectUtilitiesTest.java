@@ -26,7 +26,6 @@ package pcgen.core;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.rules.context.LoadContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities

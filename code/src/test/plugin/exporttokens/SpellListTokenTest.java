@@ -42,7 +42,6 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
  * <code>SpellListTokenTest</code> is ...

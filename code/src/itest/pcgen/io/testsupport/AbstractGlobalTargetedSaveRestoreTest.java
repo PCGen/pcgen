@@ -43,7 +43,6 @@ import plugin.lsttokens.auto.WeaponProfToken;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.pcclass.HdToken;
 import plugin.lsttokens.skill.ExclusiveToken;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractGlobalTargetedSaveRestoreTest<T extends CDOMObject>
 		extends AbstractSaveRestoreTest

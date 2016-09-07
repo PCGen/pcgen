@@ -36,7 +36,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.deprecated.VFeatLst;
-import plugin.lsttokens.testsupport.TokenRegistration;
 import tokenmodel.testsupport.AbstractTokenModelTest;
 import tokenmodel.testsupport.AssocCheck;
 import tokenmodel.testsupport.NoAssociations;

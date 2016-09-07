@@ -27,7 +27,6 @@ import pcgen.core.Equipment;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
  * The Class <code>IconTokenTest</code> tests the equipment ICON token.

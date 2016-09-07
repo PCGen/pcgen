@@ -25,7 +25,6 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractListIntegrationTestCase;
 import plugin.lsttokens.race.MonccskillToken;
-import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 public class MonCCSkillIntegrationTest extends
 		AbstractListIntegrationTestCase<Race, Skill>
