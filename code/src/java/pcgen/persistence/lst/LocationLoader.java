@@ -19,8 +19,6 @@
  * Created on October 08, 2003, 12:00 PM
  *
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -35,8 +33,6 @@ import java.net.URI;
  *
  * <p>
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  *
  * @author ad9c15
  */

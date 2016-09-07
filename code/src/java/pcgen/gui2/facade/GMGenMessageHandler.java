@@ -50,8 +50,6 @@ import pcgen.system.CharacterManager;
  * to the main PCGen program from the GMGen bus.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

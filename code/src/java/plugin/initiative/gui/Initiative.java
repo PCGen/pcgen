@@ -94,7 +94,6 @@ import plugin.initiative.XMLCombatant;
 
 /**
  *@author     Devon Jones
- *@since    March 20, 2003
  */
 public class Initiative extends javax.swing.JPanel
 {

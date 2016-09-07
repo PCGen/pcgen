@@ -32,8 +32,6 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  * and ensures that they get advised of any messages in order. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

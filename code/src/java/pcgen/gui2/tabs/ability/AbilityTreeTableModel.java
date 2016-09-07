@@ -56,8 +56,6 @@ import pcgen.util.Comparators;
  * character in a tree structure by category.
  * 
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

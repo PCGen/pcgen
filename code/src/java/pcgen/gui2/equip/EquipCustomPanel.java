@@ -82,8 +82,6 @@ import pcgen.system.LanguageBundle;
  * pair to allow the creation of a custom piece of equipment.. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

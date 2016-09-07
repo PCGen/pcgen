@@ -33,7 +33,6 @@ import plugin.initiative.InitiativePlugin;
 
 /**
  * @author devon
- * @since March 20, 2003
  */
 public class InitHolderList extends ArrayList<InitHolder> {
 

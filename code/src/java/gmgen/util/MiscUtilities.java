@@ -20,7 +20,6 @@ import pcgen.core.Globals;
  *  Misc Utilities, all static.  Will create and store a private static instance
  *  of itself that reads in properties and localization strings
  *
- *@since        GMGen 3.3
  */
 public final class MiscUtilities
 {

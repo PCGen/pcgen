@@ -76,7 +76,6 @@ import pcgen.gui2.tools.Icons;
  *  here and in the NotesTreeNode Class.
  *
  * @author     soulcatcher
- * @since    August 27, 2003
  */
 public class NotesView extends JPanel
 {
@@ -2085,7 +2084,6 @@ public class NotesView extends JPanel
 		 *
 		 * @param owner the owner of the message being logged.
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String owner, String message)
@@ -2110,7 +2108,6 @@ public class NotesView extends JPanel
 		 * Logs a message not associated with a specific owner.
 		 *
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String message)

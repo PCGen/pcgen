@@ -123,9 +123,10 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 		LegalScope scope = scopeInst.getLegalScope();
 		if (!context.getVariableContext().isLegalVariableID(scope, varName))
 		{
-			return new ParseResult.Fail(getTokenName()
-				+ " found invalid var name: " + varName + " Modified on "
-				+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
+			return new ParseResult.Fail(
+				getTokenName() + " found invalid var name: " + varName
+					+ "(scope: " + scope.getName() + ") Modified on "
+					+ obj.getClass().getSimpleName() + " " + obj.getKeyName(),
 				context);
 		}
 		FormatManager<?> format =

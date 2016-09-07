@@ -102,7 +102,6 @@ import pcgen.util.enumeration.Tab;
  * Multiple EquipSets can be managed to reflect different configurations.
  *
  * <br>
- * Last Editor: $Author: $ Last Edited: $Date: $
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

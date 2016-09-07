@@ -19,8 +19,6 @@
  * Created on September 27, 2002, 5:30 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;

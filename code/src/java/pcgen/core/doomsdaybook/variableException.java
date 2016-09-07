@@ -24,8 +24,6 @@ package pcgen.core.doomsdaybook;
  * <code>variableException</code> is an exception raised when a problem 
  * occurs when processing a variable.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Devon D Jones
  */

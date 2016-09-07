@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -49,7 +47,6 @@ import pcgen.system.ConfigurationSettings;
 /**
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public class Configuration
 {

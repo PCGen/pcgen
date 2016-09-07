@@ -52,8 +52,6 @@ import pcgen.system.LanguageBundle;
  * @param <T> The type of objects being chosen from. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

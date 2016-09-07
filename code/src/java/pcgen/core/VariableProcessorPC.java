@@ -30,8 +30,6 @@ import pcgen.core.term.TermEvaluator;
  * variables into values and is used extensively both in
  * definitions of objects and for output to output sheets.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */

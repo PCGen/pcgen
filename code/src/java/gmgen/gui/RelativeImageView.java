@@ -33,7 +33,6 @@ import java.util.Dictionary;
  *
  * @author  Scott Violet
  * @see javax.swing.text.IconView
- * @since 1.4
  */
 public class RelativeImageView extends View implements ImageObserver
 {

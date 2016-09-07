@@ -32,8 +32,6 @@ import pcgen.facade.util.ReferenceFacade;
  * companion (i.e. animal companion, familiar, follower etc) for a character.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

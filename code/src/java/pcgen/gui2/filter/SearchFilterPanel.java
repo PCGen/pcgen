@@ -45,8 +45,6 @@ import pcgen.system.LanguageBundle;
  * filtered to only those matching the search text.
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

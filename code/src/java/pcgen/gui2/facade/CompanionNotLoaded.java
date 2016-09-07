@@ -34,8 +34,6 @@ import pcgen.facade.util.ReferenceFacade;
  * (familiar, animal companion, mount etc) that is not currently loaded.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

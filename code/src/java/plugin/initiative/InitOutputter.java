@@ -26,7 +26,6 @@ import org.jdom.output.XMLOutputter;
 
 /**
  *@author     devon
- *@since    April 7, 2003
  */
 public class InitOutputter extends XMLOutputter
 {

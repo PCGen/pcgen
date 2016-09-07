@@ -66,8 +66,6 @@ import pcgen.util.Logging;
  * changes to the list of available characters.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

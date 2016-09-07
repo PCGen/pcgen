@@ -52,8 +52,6 @@ import pcgen.system.LanguageBundle;
  * HTML formatted information on campaigns for the new user interface.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -200,8 +200,6 @@ import pcgen.util.enumeration.View;
  * <li>Who is responsible for undo management and how will it work?</li>
  * </ul>
  * <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

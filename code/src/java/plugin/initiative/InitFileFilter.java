@@ -28,7 +28,6 @@ import java.io.File;
 /**
  * File filter for .init files
  *@author     devon
- *@since    April 7, 2003
  */
 public class InitFileFilter extends FileFilter
 {

@@ -104,7 +104,6 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
- * @since 5.11.1
  *
  */
 public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>

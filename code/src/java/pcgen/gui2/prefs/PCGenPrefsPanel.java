@@ -28,8 +28,6 @@ import javax.swing.JPanel;
  * The abstract class <code>PCGenPrefsPanel</code> defines the 
  * interface for a panel in the Preferences dialog.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

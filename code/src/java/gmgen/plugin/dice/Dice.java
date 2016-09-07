@@ -25,7 +25,6 @@ package gmgen.plugin.dice;
 
 /** A normal die
  * @author Soulcatcher
- * @since May 24, 2003
  */
 public class Dice extends Die
 {

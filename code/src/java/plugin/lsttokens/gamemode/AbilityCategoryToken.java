@@ -37,7 +37,6 @@ import pcgen.util.Logging;
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public class AbilityCategoryToken implements GameModeLstToken
 {

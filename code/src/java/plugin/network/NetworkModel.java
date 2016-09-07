@@ -490,7 +490,6 @@ public class NetworkModel
 		 *
 		 * @param owner the owner of the message being logged.
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String owner, String message)
@@ -506,7 +505,6 @@ public class NetworkModel
 		 * Logs a message not associated with a specific owner.
 		 *
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String message)
