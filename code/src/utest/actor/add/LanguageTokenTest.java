@@ -17,18 +17,18 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Language;
-import plugin.lsttokens.add.LanguageToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.add.LanguageToken;
 
 public class LanguageTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Language>
 {
 
-	static LanguageToken pca = new LanguageToken();
+	private static final Persistent<Language> pca = new LanguageToken();
 
 	@Test
 	public void testEmpty()

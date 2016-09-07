@@ -19,8 +19,6 @@ package plugin.qualifier.skill;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -28,10 +26,13 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -43,13 +44,13 @@ public class CrossClassQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	private static CDOMPrimaryToken token = new ChooseLst();
+	private static CDOMSecondaryToken subtoken = new SkillToken();
+	static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private Skill s1, s2, s3, s4, s5;
 	private PCClass cl1;
 
-	private static final CrossClassToken CROSSCLASS_TOKEN = new CrossClassToken();
+	private static final LstToken CROSSCLASS_TOKEN = new CrossClassToken();
 
 	public CrossClassQualifierTokenTest()
 	{

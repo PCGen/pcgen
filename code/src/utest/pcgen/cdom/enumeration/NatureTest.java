@@ -18,10 +18,12 @@
  */
 package pcgen.cdom.enumeration;
 
-import junit.framework.TestCase;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class NatureTest extends TestCase
+public class NatureTest
 {
+	@Test
 	public void testGetBest()
 	{
 		assertNull(Nature.getBestNature(null, null));
@@ -38,4 +40,6 @@ public class NatureTest extends TestCase
 		assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.VIRTUAL, Nature.AUTOMATIC));
 		assertEquals(Nature.VIRTUAL, Nature.getBestNature(Nature.AUTOMATIC, Nature.VIRTUAL));
 	}
+
+
 }

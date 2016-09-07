@@ -17,18 +17,18 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.cdom.identifier.SpellSchool;
-import plugin.lsttokens.choose.SchoolsToken;
+
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.SchoolsToken;
 
 public class SchoolsTokenTest extends
 		AbstractPersistentChoiceActorTestCase<SpellSchool>
 {
 
-	static SchoolsToken pca = new SchoolsToken();
+	static final SchoolsToken pca = new SchoolsToken();
 
 	@Test
 	public void testEmpty()

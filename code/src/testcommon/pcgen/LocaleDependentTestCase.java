@@ -28,7 +28,7 @@ import pcgen.system.LanguageBundle;
  */
 public abstract class LocaleDependentTestCase
 {
-	static Locale PREVIOUS_LOCALE;
+	private static Locale PREVIOUS_LOCALE;
 
 	/**
 	 * Change locale to the new value, reloading the bundle and remembering the old value for {@link #after}.

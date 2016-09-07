@@ -27,22 +27,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
- * The Class <code>MapKeyMapTest</code> test that the MapKeyMap
+ * The Class {@code MapKeyMapTest} test that the MapKeyMap
  * class is functioning correctly. 
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class MapKeyMapTest extends TestCase
+public class MapKeyMapTest
 {
 	
 	private static final String BREED = "shetland sheepdog";
@@ -63,8 +63,8 @@ public class MapKeyMapTest extends TestCase
 	/* (non-Javadoc)
 	 * @see pcgen.PCGenTestCase#setUp()
 	 */
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		mapKeyMap = new MapKeyMap();
 		ageKey = AspectName.getConstant("agE");
@@ -83,8 +83,7 @@ public class MapKeyMapTest extends TestCase
 		breedAspect = new Aspect("breed", BREED);
 		breedList.add(breedAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedList);
-		
-		super.setUp();
+
 	}
 
 	/**

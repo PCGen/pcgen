@@ -19,11 +19,6 @@ package actor.testsupport;
 
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
@@ -31,13 +26,15 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 public abstract class AbstractPersistentChoiceActorTestCase<T>
-		extends TestCase
 {
 	protected static final String ITEM_NAME = "ItemName";
 	protected LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -61,7 +58,7 @@ public abstract class AbstractPersistentChoiceActorTestCase<T>
 		return ITEM_NAME;
 	}
 
-	abstract protected T getObject();
+	protected abstract T getObject();
 
 	@Test
 	public void testDecodeChoice()
