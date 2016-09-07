@@ -36,7 +36,6 @@ final class PcgFileFilter extends FileFilter
 	 *  Returns a description of this class
 	 *
 	 * @return    The Description
-	 * @since
 	 */
 	@Override
 	public String getDescription()
@@ -49,7 +48,6 @@ final class PcgFileFilter extends FileFilter
 	 *
 	 * @param  f  The file to be checked
 	 * @return    Whether the file is accepted
-	 * @since
 	 */
 	@Override
 	public boolean accept(File f)

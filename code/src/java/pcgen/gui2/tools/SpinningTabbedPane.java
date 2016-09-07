@@ -217,7 +217,6 @@ public class SpinningTabbedPane extends JTabbedPane
      * @param y the y location relative to this tabbedpane
      * @return the tab index which intersects the location, or
      *         -1 if no tab intersects the location
-     * @since 1.4
      */
     @Override
     public final int indexAtLocation(int x, int y)

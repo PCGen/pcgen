@@ -36,8 +36,6 @@ import java.awt.Rectangle;
  * dynamically built up and displayed in a JScrollPane.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author Devon Jones
  */

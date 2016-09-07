@@ -32,8 +32,6 @@ import pcgen.facade.core.CoreViewNodeFacade;
  * represents an object stored in a facet.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -50,12 +50,9 @@ import pcgen.util.Logging;
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * 
- * @since 5.15.2
  */
 public class Aspect extends ConcretePrereqObject
 {

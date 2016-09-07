@@ -32,8 +32,6 @@ import pcgen.facade.util.ListFacade;
  * direct the user to the field where they can achieve the task.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

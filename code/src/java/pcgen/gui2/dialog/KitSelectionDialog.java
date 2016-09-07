@@ -45,8 +45,6 @@ import pcgen.system.LanguageBundle;
  * other rules items.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

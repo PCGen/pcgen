@@ -42,7 +42,6 @@ import pcgen.system.LanguageBundle;
  * is heavily based on QualifiedTreeCellRenderer
  *
  * <br>
- * Last Editor: $Author$ Last Edited: $Date: 2012-06-05 04:45:57
  * -0700 (Tue, 05 Jun 2012) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

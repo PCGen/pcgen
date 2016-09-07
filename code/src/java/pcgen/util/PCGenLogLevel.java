@@ -28,8 +28,6 @@ import java.util.logging.Level;
 /**
  * <code>PCGenLogLevel</code> defines PCGen's custom logging levels.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

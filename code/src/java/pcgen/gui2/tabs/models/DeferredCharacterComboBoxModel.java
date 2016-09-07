@@ -43,8 +43,6 @@ import pcgen.gui2.util.FacadeListModel;
  * for selection to work.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 

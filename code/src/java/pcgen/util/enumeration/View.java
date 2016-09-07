@@ -23,8 +23,6 @@ package pcgen.util.enumeration;
  * <code>View</code> is an enumeration of possible view types. It is 
  * closely related to the Visibility enumeration.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

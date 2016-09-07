@@ -35,7 +35,6 @@ import java.awt.event.ActionEvent;
 
 /**
  *@author     devon
- *@since    April 7, 2003
  */
 public class StartEvent extends javax.swing.JDialog
 {

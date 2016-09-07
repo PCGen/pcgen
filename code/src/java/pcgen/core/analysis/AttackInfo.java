@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision: 18723 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-12-19 16:06:23 -0500 (Wed, 19 Dec 2012) $
  *
  */
 package pcgen.core.analysis;

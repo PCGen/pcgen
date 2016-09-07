@@ -68,8 +68,6 @@ import pcgen.util.fop.FopTask;
  * should be used and supplied with preloaded characters.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

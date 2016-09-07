@@ -208,7 +208,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Returns the GMGen version as a human-readable string.
      * 
      * @return The version
-     * @since GMGen 3.3
      */
     public static String getVersion() {
         return PCGenPropBundle.getVersionNumber();
@@ -220,7 +219,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param event
      *            event that took place
-     * @since GMGen 3.3
      */
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -280,7 +278,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param message
      *            The message passed in from the bus
-     * @since GMGen 3.3
      */
     @Override
     public void handleMessage(PCGenMessage message) {
@@ -313,7 +310,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Handles the clicking on the tool menu.
      * 
-     * @since GMGen 3.3
      */
     public void handleToolsMenu() {
         // TODO
@@ -381,7 +377,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            menu canceled event
-     * @since GMGen 3.3
      */
     @Override
     public void menuCanceled(MenuEvent e) {
@@ -393,7 +388,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            Menu Deselected event
-     * @since GMGen 3.3
      */
     @Override
     public void menuDeselected(MenuEvent e) {
@@ -405,7 +399,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            the menu event that happened.
-     * @since GMGen 3.3
      */
     @Override
     public void menuSelected(MenuEvent e) {
@@ -619,7 +612,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param event
      *            - a window close event
-     * @since GMGen 3.3
      */
     private void exitForm(WindowEvent event) {
         this.setVisible(false);
@@ -629,7 +621,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Initializes all the GUI components and places them in the correct place
      * on the GUI.
      * 
-     * @since GMGen 3.3
      */
     private void initComponents() {
         getContentPane().setLayout(new BorderLayout());

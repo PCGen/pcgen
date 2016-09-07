@@ -19,8 +19,6 @@
  * Refactored out of PObject July 22, 2005
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.prereq;
 

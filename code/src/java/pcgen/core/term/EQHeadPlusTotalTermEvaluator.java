@@ -30,8 +30,6 @@ import pcgen.core.PlayerCharacter;
  * the value of the HEADPLUSTOTAL token for use in equipment and eqmod cost formulas.
  * This is the total plus modifier for the current head.  
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

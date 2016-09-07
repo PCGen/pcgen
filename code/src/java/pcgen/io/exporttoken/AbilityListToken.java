@@ -48,8 +48,6 @@ import pcgen.util.enumeration.View;
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * z is an option list of {@literal TYPE=<type>} - type filter - may be negated
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

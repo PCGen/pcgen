@@ -35,8 +35,6 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * one type of view.
  * 
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

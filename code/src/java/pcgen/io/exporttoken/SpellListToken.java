@@ -29,8 +29,6 @@ import java.util.StringTokenizer;
  * <code>SpellListToken</code> is the base class for the SPELLLIST
  * family of tokens.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

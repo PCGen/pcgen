@@ -78,8 +78,6 @@ import pcgen.system.LanguageBundle;
  * updated by the user.
  *
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

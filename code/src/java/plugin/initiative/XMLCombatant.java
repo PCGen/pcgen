@@ -38,7 +38,6 @@ import pcgen.util.Logging;
 
 /**
  *@author     devon
- *@since    March 20, 2003
  */
 public class XMLCombatant extends Combatant
 {

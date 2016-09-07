@@ -34,8 +34,6 @@ import pcgen.facade.util.ListFacade;
  *  options.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

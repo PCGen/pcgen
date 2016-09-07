@@ -50,8 +50,6 @@ import pcgen.util.ListMap;
  * particular character and equipment set.
  * 
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *  
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

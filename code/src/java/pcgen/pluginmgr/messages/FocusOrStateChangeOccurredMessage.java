@@ -31,8 +31,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * that the user has switched from gmgen to pcgen or vice versa.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

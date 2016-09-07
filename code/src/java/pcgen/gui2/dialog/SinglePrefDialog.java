@@ -37,8 +37,6 @@ import pcgen.system.LanguageBundle;
  * preference panel to the user.
  *
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-01-12 00:01:55 -0800 (Wed, 12 Jan 2011) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

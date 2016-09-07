@@ -54,8 +54,6 @@ import pcgen.system.PCGenSettings;
  * The Class <code>CampaignPanel</code> displays a panel allowing 
  * the user to select the campaigns to be converted.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

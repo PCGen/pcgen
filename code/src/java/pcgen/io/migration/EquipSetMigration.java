@@ -41,8 +41,6 @@ import pcgen.core.utils.CoreUtility;
  * sets to match newer requirements.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

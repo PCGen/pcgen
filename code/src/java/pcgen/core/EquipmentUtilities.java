@@ -20,8 +20,6 @@
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
