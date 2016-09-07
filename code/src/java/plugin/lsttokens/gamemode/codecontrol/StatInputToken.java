@@ -21,12 +21,12 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class StatScoreToken extends AbstractStringStoringToken<CodeControl>
+public class StatInputToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
 	{
-		return CControl.STATSCORE;
+		return CControl.STATINPUT;
 	}
 
 	@Override
