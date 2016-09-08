@@ -36,7 +36,7 @@ public final class PCGenToolBar extends JToolBar
 	private final PCGenFrame frame;
 	private final PCGenActionMap actionMap;
 
-	public PCGenToolBar(PCGenFrame frame)
+	PCGenToolBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.actionMap = frame.getActionMap();

@@ -22,11 +22,12 @@
  */
 package gmgen.plugin;
 
-import org.jdom.Element;
-import pcgen.util.Logging;
-
 import java.util.List;
 import java.util.Vector;
+
+import pcgen.util.Logging;
+
+import org.jdom.Element;
 
 /**
  *@author     devon

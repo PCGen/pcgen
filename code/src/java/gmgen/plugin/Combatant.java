@@ -22,9 +22,10 @@
  */
 package gmgen.plugin;
 
-import gmgen.plugin.dice.Dice;
 import java.util.List;
 import java.util.Vector;
+
+import gmgen.plugin.dice.Dice;
 
 /**
  *@author     devon
@@ -172,7 +173,7 @@ public abstract class Combatant implements InitHolder
 			}
 			else if (columnName.equals("Status"))
 			{ // Status of XMLCombatant
-				rowVector.add(getStatus());
+				rowVector.add(status);
 			}
 			else if (columnName.equals("+"))
 			{ // Initiative bonus
@@ -191,7 +192,7 @@ public abstract class Combatant implements InitHolder
 				}
 				else
 				{
-					rowVector.add(getDuration());
+					rowVector.add(duration);
 				}
 			}
 			else if (columnName.equals("#"))

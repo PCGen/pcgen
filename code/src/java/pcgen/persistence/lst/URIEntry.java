@@ -29,7 +29,7 @@ import pcgen.util.Logging;
  * A URIEntry contains a URI (either directly or indirectly via a URIFactory)
  * with a campaignName.
  */
-public class URIEntry
+class URIEntry
 {
 
 	/**
@@ -102,9 +102,6 @@ public class URIEntry
 		return uri;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object arg0)
 	{
@@ -121,27 +118,19 @@ public class URIEntry
 		return false;
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return this.getLSTformat().hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
-		StringBuilder sBuff = new StringBuilder();
-		sBuff.append("Campaign: ");
-		sBuff.append(campaignName);
-		sBuff.append("; SourceFile: ");
-		sBuff.append(getURI());
-		return sBuff.toString();
+		return "Campaign: "
+				+ campaignName
+				+ "; SourceFile: "
+				+ getURI();
 	}
 
 	/**
@@ -157,14 +146,7 @@ public class URIEntry
 	 */
 	public String getLSTformat()
 	{
-		if (uriFac == null)
-		{
-			return uri.toString();
-		}
-		else
-		{
-			return uriFac.getOffset();
-		}
+		return (uriFac == null) ? uri.toString() : uriFac.getOffset();
 	}
 
 	/**
@@ -177,7 +159,7 @@ public class URIEntry
 	 * @return a new URIEntry for a filename in the same directory as this
 	 *         URIEntry
 	 */
-	public URIEntry getRelatedTarget(String fileName)
+	URIEntry getRelatedTarget(String fileName)
 	{
 		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
 			fileName));
@@ -196,10 +178,10 @@ public class URIEntry
 	 *            The offset from the root URI for the URIEntry
 	 * @return A new URIEntry from the given Campaign name, rootURI and offset
 	 */
-	public static URIEntry getURIEntry(String campaignName, URI rootURI,
-		String offset)
+	static URIEntry getURIEntry(String campaignName, URI rootURI,
+	                            String offset)
 	{
-		if (offset == null || offset.isEmpty())
+		if ((offset == null) || offset.isEmpty())
 		{
 			Logging.errorPrint("Cannot build URIEntry for empty value in "
 				+ rootURI);

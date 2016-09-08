@@ -72,12 +72,11 @@ public class DividingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
 	{
-		if (numbers == null || numbers.length != 1)
+		if ((numbers == null) || (numbers.length != 1))
 		{
 			throw new IllegalArgumentException(
 					"DividingFormula only has one back-reference");
@@ -87,13 +86,11 @@ public class DividingFormula implements ReferenceFormula<Integer>
 		 * rounding, and rounding first results in a faster & more accurate
 		 * calculation.
 		 */
-		return Integer.valueOf(numbers[0].intValue() / denominator);
+		return numbers[0].intValue() / denominator;
 	}
 
 	/**
 	 * Returns a String representation of this DividingFormula
-	 * 
-	 * @see java.lang.Object#toString()
 	 */
 	@Override
 	public String toString()
@@ -103,8 +100,7 @@ public class DividingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -114,13 +110,12 @@ public class DividingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Returns true if this DividingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof DividingFormula
-				&& ((DividingFormula) obj).denominator == denominator;
+		return (obj instanceof DividingFormula)
+				&& (((DividingFormula) obj).denominator == denominator);
 	}
 }

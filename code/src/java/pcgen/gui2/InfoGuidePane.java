@@ -21,6 +21,7 @@
 package pcgen.gui2;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
 import java.awt.GridBagConstraints;
@@ -37,10 +38,7 @@ import javax.swing.plaf.UIResource;
 
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.CampaignFacade;
-import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SourceSelectionFacade;
-import pcgen.facade.util.event.ReferenceEvent;
-import pcgen.facade.util.event.ReferenceListener;
 import pcgen.gui2.tools.Icons;
 import pcgen.gui2.tools.TipOfTheDayHandler;
 import pcgen.gui2.util.HtmlInfoBuilder;
@@ -54,21 +52,21 @@ import pcgen.system.LanguageBundle;
  * as a child of a JTabbedPane without it becoming a tab
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class InfoGuidePane extends JComponent implements UIResource
+class InfoGuidePane extends JComponent implements UIResource
 {
 
+	private static final long serialVersionUID = 2535029671182613278L;
 	private final PCGenFrame frame;
 	private final JEditorPane gameModeLabel;
 	private final JEditorPane campaignList;
 	private final JEditorPane tipPane;
-	private JPanel mainPanel;
 
-	public InfoGuidePane(PCGenFrame frame)
+	InfoGuidePane(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.gameModeLabel = createHtmlPane();
-		this.campaignList = createHtmlPane();
-		this.tipPane = createHtmlPane();
+		this.gameModeLabel = InfoGuidePane.createHtmlPane();
+		this.campaignList = InfoGuidePane.createHtmlPane();
+		this.tipPane = InfoGuidePane.createHtmlPane();
 		TipOfTheDayHandler.getInstance().loadTips();
 		initComponents();
 		initListeners();
@@ -86,7 +84,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 
 	private void initComponents()
 	{
-		mainPanel = new JPanel();
+		JPanel mainPanel = new JPanel();
 		mainPanel.setBorder(BorderFactory.createTitledBorder(null,
 			 "",
 			 TitledBorder.CENTER,
@@ -97,13 +95,12 @@ public class InfoGuidePane extends JComponent implements UIResource
 		mainPanel.setPreferredSize(new Dimension(650, 450));
 		setOpaque(false);
 
-		JPanel sourcesPanel = new JPanel(new GridBagLayout());
-
 		GridBagConstraints gbc1 = new GridBagConstraints();
 		gbc1.anchor = GridBagConstraints.EAST;
 		GridBagConstraints gbc2 = new GridBagConstraints();
 		gbc2.gridwidth = GridBagConstraints.REMAINDER;
 		gbc2.fill = GridBagConstraints.BOTH;
+		Container sourcesPanel = new JPanel(new GridBagLayout());
 		sourcesPanel.add(new JLabel(LanguageBundle.getString("in_si_intro")), gbc2);
 		sourcesPanel.add(new JLabel(LanguageBundle.getString("in_si_gamemode")), gbc1);
 		sourcesPanel.add(gameModeLabel, gbc2);
@@ -111,7 +108,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		sourcesPanel.add(campaignList, gbc2);
 
 
-		JEditorPane guidePane = createHtmlPane();
+		JEditorPane guidePane = InfoGuidePane.createHtmlPane();
 		guidePane.setText(LanguageBundle.getFormattedString("in_si_whatnext",
 															Icons.New16.getImageIcon(),
 															Icons.Open16.getImageIcon()));
@@ -121,7 +118,7 @@ public class InfoGuidePane extends JComponent implements UIResource
 		mainPanel.add(tipPane);
 		refreshDisplayedSources(null);
 
-        JPanel outerPanel = new JPanel(new FlowLayout());
+        Container outerPanel = new JPanel(new FlowLayout());
         outerPanel.add(mainPanel);
 		setLayout(new BorderLayout());
 		add(outerPanel, BorderLayout.CENTER);
@@ -132,33 +129,18 @@ public class InfoGuidePane extends JComponent implements UIResource
 
 	private void initListeners()
 	{
-		frame.getSelectedCharacterRef().addReferenceListener(new ReferenceListener<CharacterFacade>()
+		frame.getSelectedCharacterRef().addReferenceListener(e ->
 		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<CharacterFacade> e)
+			boolean show = e.getNewReference() == null;
+			if (show)
 			{
-				boolean show = e.getNewReference() == null;
-				if (show)
-				{
-					tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
-						TipOfTheDayHandler.getInstance().getNextTip()));
-				}
-				setVisible(show);
+				tipPane.setText(LanguageBundle.getFormattedString("in_si_tip",
+					TipOfTheDayHandler.getInstance().getNextTip()));
 			}
-
+			setVisible(show);
 		});
 		frame.getCurrentSourceSelectionRef().addReferenceListener(
-				new ReferenceListener<SourceSelectionFacade>()
-				{
-
-					@Override
-					public void referenceChanged(ReferenceEvent<SourceSelectionFacade> e)
-					{
-						refreshDisplayedSources(e.getNewReference());
-					}
-
-				});
+				e -> refreshDisplayedSources(e.getNewReference()));
 	}
 
 	private void refreshDisplayedSources(SourceSelectionFacade sources)
@@ -171,14 +153,14 @@ public class InfoGuidePane extends JComponent implements UIResource
 		{
 			gameModeLabel.setText(sources.getGameMode().get().getDisplayName());
 		}
-		if (sources == null || sources.getCampaigns().isEmpty())
+		if ((sources == null) || sources.getCampaigns().isEmpty())
 		{
 			campaignList.setText(LanguageBundle.getString("in_si_nosources"));
 		}
 		else
 		{
 			HtmlInfoBuilder builder = new HtmlInfoBuilder();
-			for (CampaignFacade campaign : sources.getCampaigns())
+			for (final CampaignFacade campaign : sources.getCampaigns())
 			{
 				builder.append(campaign.getName()).appendLineBreak();
 			}

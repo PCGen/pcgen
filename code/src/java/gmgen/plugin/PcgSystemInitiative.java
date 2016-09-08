@@ -30,12 +30,12 @@ import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.display.CharacterDisplay;
 
-public class PcgSystemInitiative extends SystemInitiative
+class PcgSystemInitiative extends SystemInitiative
 {
 	protected final PlayerCharacter pc;
 	private final CharacterDisplay display;
 
-	public PcgSystemInitiative(PlayerCharacter pc)
+	PcgSystemInitiative(PlayerCharacter pc)
 	{
 		this.pc = pc;
 		display = pc.getDisplay();

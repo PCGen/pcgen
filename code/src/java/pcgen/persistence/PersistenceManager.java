@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
-/** <code>PersistenceManager</code> is a factory class that hides
+/** {@code PersistenceManager} is a factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls methods to
  * do the loading of system files.
@@ -67,7 +67,7 @@ public final class PersistenceManager
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l)
 	{
-		instance.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
+		PersistenceManager.instance.setChosenCampaignSourcefiles(l, SettingsHandler.getGame());
 	}
 
 	/**
@@ -79,7 +79,7 @@ public final class PersistenceManager
 	 */
 	public void setChosenCampaignSourcefiles(List<URI> l, GameMode game)
 	{
-		instance.setChosenCampaignSourcefiles(l, game);
+		PersistenceManager.instance.setChosenCampaignSourcefiles(l, game);
 	}
 
 	/**
@@ -90,7 +90,7 @@ public final class PersistenceManager
 	 */
 	public List<URI> getChosenCampaignSourcefiles()
 	{
-		return instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
+		return PersistenceManager.instance.getChosenCampaignSourcefiles(SettingsHandler.getGame());
 	}
 
 }

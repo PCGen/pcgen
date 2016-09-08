@@ -26,7 +26,7 @@ public final class CSVUtilities
 	 * Escapes a given entry. This escapes quotes (and detects commas that would
 	 * require the line to be escaped).
 	 * 
-	 * @param entry
+	 * @param string
 	 *            The entry to be escaped into its encoded state
 	 * @return The escaped entry (with CSV quoting)
 	 */
@@ -34,11 +34,9 @@ public final class CSVUtilities
 	{
 		if (string.contains("\"") || string.contains(","))
 		{
-			StringBuilder escaped = new StringBuilder(string.length() + 20);
-			escaped.append('"');
-			escaped.append(string.replace("\"", "\"\""));
-			escaped.append('"');
-			return escaped.toString();
+			return '"'
+					+ string.replace("\"", "\"\"")
+					+ '"';
 		}
 		return string;
 	}

@@ -68,9 +68,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		this.cdo = cdo;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
-	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
 	{
@@ -87,7 +84,7 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		 * shouldn't be able to get here really (in that case)
 		 */
 		OutputActor<? super T> actor =
-				WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
+				CDOMObjectModel.WRAPPER_FACET.getActor(id.getDatasetID(), cl, key);
 		if (actor == null)
 		{
 			throw new TemplateModelException("object of type "
@@ -99,9 +96,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return actor.process(id, obj);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{
@@ -109,9 +103,6 @@ public class CDOMObjectModel implements TemplateHashModel, TemplateScalarModel
 		return false;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateScalarModel#getAsString()
-	 */
 	@Override
 	public String getAsString() throws TemplateModelException
 	{

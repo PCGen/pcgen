@@ -30,7 +30,7 @@ import pcgen.output.base.ModeModelFactory;
 import pcgen.output.base.ModelFactory;
 import pcgen.output.factory.ItemModelFactory;
 import pcgen.output.factory.SetModelFactory;
-import pcgen.output.model.BooleanOptionModel;
+
 import freemarker.template.TemplateModel;
 
 /**
@@ -42,26 +42,25 @@ public final class OutputDB
 
 	private OutputDB()
 	{
-		//Utility class should not be constructed
 	}
 
 	/**
 	 * The Map of string names to output models (that are dynamic based on a PC)
 	 */
-	private static DoubleKeyMap<Object, Object, ModelFactory> outModels =
+	private static final DoubleKeyMap<Object, Object, ModelFactory> outModels =
             new DoubleKeyMap<>(
                     CaseInsensitiveMap.class, CaseInsensitiveMap.class);
 
 	/**
 	 * The map of string names to models for global items (not PC dependent)
 	 */
-	private static Map<Object, TemplateModel> globalModels =
+	private static final Map<Object, TemplateModel> globalModels =
             new CaseInsensitiveMap<>();
 
 	/**
 	 * The Map of string names to output models for the Game Mode
 	 */
-	private static Map<Object, ModeModelFactory> modeModels =
+	private static final Map<Object, ModeModelFactory> modeModels =
             new CaseInsensitiveMap<>();
 
 	/**
@@ -143,14 +142,14 @@ public final class OutputDB
 	public static Map<String, Object> buildDataModel(CharID id)
 	{
 		Map<String, Object> input = new HashMap<>();
-		for (Object k1 : outModels.getKeySet())
+		for (final Object k1 : outModels.getKeySet())
 		{
-			for (Object k2 : outModels.getSecondaryKeySet(k1))
+			for (final Object k2 : outModels.getSecondaryKeySet(k1))
 			{
 				ModelFactory modelFactory = outModels.get(k1, k2);
 				TemplateModel model = modelFactory.generate(id);
 				String k1String = k1.toString();
-				if ("".equals(k2.toString()))
+				if ((k2.toString() != null) && k2.toString().isEmpty())
 				{
 					input.put(k1String, model);
 				}
@@ -183,11 +182,11 @@ public final class OutputDB
 	public static Map<String, Object> buildModeDataModel(GameMode mode)
 	{
 		Map<String, Object> input = new HashMap<>();
-		for (Object key : modeModels.keySet())
+		modeModels.entrySet().forEach(objectModeModelFactoryEntry ->
 		{
-			ModeModelFactory modelFactory = modeModels.get(key);
-			input.put(key.toString(), modelFactory.generate(mode));
-		}
+			ModeModelFactory modelFactory = objectModeModelFactoryEntry.getValue();
+			input.put(objectModeModelFactoryEntry.getKey().toString(), modelFactory.generate(mode));
+		});
 		return input;
 	}
 	
@@ -286,29 +285,9 @@ public final class OutputDB
 	 */
 	public static Map<Object, TemplateModel> getGlobal()
 	{
-		CaseInsensitiveMap<TemplateModel> map =
-                new CaseInsensitiveMap<>();
+		Map<Object, TemplateModel> map = new CaseInsensitiveMap<>();
 		map.putAll(globalModels);
 		return map;
-	}
-
-	/**
-	 * Registers a new Boolean Preference for inclusion in the global Models.
-	 * 
-	 * @param pref
-	 *            The preference name, as identified in the preference file
-	 * @param defaultValue
-	 *            The default value for the preference if it is not defined
-	 */
-	public static void registerBooleanPreference(String pref,
-		boolean defaultValue)
-	{
-		if ((pref == null) || (pref.length() == 0))
-		{
-			throw new IllegalArgumentException(
-				"Preference Name may not be null or empty: " + pref);
-		}
-		addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));
 	}
 
 	/**

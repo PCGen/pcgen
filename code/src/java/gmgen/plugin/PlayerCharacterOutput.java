@@ -22,29 +22,24 @@ package gmgen.plugin;
 
 import java.io.BufferedWriter;
 import java.io.File;
-import java.io.IOException;
 import java.io.StringWriter;
 import java.text.DecimalFormat;
-import java.util.Collection;
+import java.text.NumberFormat;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.math.Fraction;
-
 import pcgen.base.lang.StringUtil;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
-import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PCAlignment;
-import pcgen.core.PCCheck;
-import pcgen.core.PCClass;
 import pcgen.core.PCStat;
+import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
@@ -55,6 +50,8 @@ import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.MovementToken;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
+
+import org.apache.commons.lang.math.Fraction;
 
 /*
  * TODO This needs to be merged with pcgen.core.display.CharacterDisplay
@@ -67,7 +64,7 @@ public class PlayerCharacterOutput
 	public PlayerCharacterOutput(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		this.display = pc == null ? null : pc.getDisplay();
+		this.display = (pc == null) ? null : pc.getDisplay();
 	}
 
 	public String getAC()
@@ -75,26 +72,20 @@ public class PlayerCharacterOutput
 		return Integer.toString(display.calcACOfType("Total"));
 	}
 
-	public String getACFlatFooted()
+	String getACFlatFooted()
 	{
 		return Integer.toString(display.calcACOfType("Flatfooted"));
 	}
 
-	public String getACTouch()
+	String getACTouch()
 	{
 		return Integer.toString(display.calcACOfType("Touch"));
 	}
 
-	public String getAlignmentLong()
+	String getAlignmentShort()
 	{
-		PCAlignment pcAlignment = display.getPCAlignment();
-		return pcAlignment == null ? "" : pcAlignment.getDisplayName();
-	}
-
-	public String getAlignmentShort()
-	{
-		PCAlignment pcAlignment = display.getPCAlignment();
-		return pcAlignment == null ? "" : pcAlignment.getKeyName();
+		PObject pcAlignment = display.getPCAlignment();
+		return (pcAlignment == null) ? "" : pcAlignment.getKeyName();
 	}
 
 	public String getBAB()
@@ -119,7 +110,7 @@ public class PlayerCharacterOutput
 		// If the CR is a fractional CR then we convert to a 1/x format
 		if (cr > 0 && cr < 1)
 		{
-			Fraction fraction = Fraction.getFraction(cr);// new Fraction(CR);
+			Fraction fraction = Fraction.getFraction(cr); // new Fraction(CR);
 			int denominator = fraction.getDenominator();
 			int numerator = fraction.getNumerator();
 			retString = numerator + "/" + denominator;
@@ -132,14 +123,7 @@ public class PlayerCharacterOutput
 				newCr = (int) cr;
 			}
 
-			if (newCr > -99)
-			{
-				retString = retString + newCr;
-			}
-			else
-			{
-				retString = retString + cr;
-			}
+			retString += newCr > -99 ? newCr : cr;
 		}
 		return retString;
 	}
@@ -147,11 +131,11 @@ public class PlayerCharacterOutput
 	public String getClasses()
 	{
 		StringBuilder sb = new StringBuilder();
-		for (PCClass mClass : display.getClassSet())
+		display.getClassSet().forEach(mClass ->
 		{
 			sb.append(mClass.getDisplayName())
-                                .append(display.getLevel(mClass)).append(" ");
-		}
+					.append(display.getLevel(mClass)).append(" ");
+		});
 
 		return sb.toString();
 	}
@@ -176,12 +160,12 @@ public class PlayerCharacterOutput
 		return null;
 	}
 
-	public String getDomainName(Domain domain)
+	static String getDomainName(Identified domain)
 	{
 		return domain.getDisplayName();
 	}
 
-	public String getEquipmentList()
+	String getEquipmentList()
 	{
 		StringBuilder sb = new StringBuilder();
 		boolean firstLine = true;
@@ -195,7 +179,7 @@ public class PlayerCharacterOutput
 
 			firstLine = false;
 
-			DecimalFormat formater = new DecimalFormat();
+			NumberFormat formater = new DecimalFormat();
 			formater.setMaximumFractionDigits(1);
 			formater.setMinimumFractionDigits(0);
 			sb.append(formater.format(eq.getQty())).append(" ")
@@ -205,7 +189,7 @@ public class PlayerCharacterOutput
 		return sb.toString();
 	}
 
-	public String getExportToken(String token)
+	String getExportToken(String token)
 	{
 		try
 		{
@@ -214,16 +198,7 @@ public class PlayerCharacterOutput
 			ExportHandler export = new ExportHandler(new File(""));
 			export.replaceTokenSkipMath(pc, token, bufWriter);
 			retWriter.flush();
-
-			try
-			{
-				bufWriter.flush();
-			}
-			catch (IOException e)
-			{
-				// TODO - Handle Exception
-			}
-
+			bufWriter.flush();
 			return retWriter.toString();
 		}
 		catch (Exception e)
@@ -233,13 +208,13 @@ public class PlayerCharacterOutput
 		}
 	}
 
-	public String getFeatList()
+	String getFeatList()
 	{
 		StringBuilder sb = new StringBuilder();
 
 		boolean firstLine = true;
 
-		for (CNAbility cna : pc.getCNAbilities(AbilityCategory.FEAT,
+		for (final CNAbility cna : pc.getCNAbilities(AbilityCategory.FEAT,
 			Nature.NORMAL))
 		{
 			if (!firstLine)
@@ -260,7 +235,7 @@ public class PlayerCharacterOutput
 		return display.getGenderObject().toString();
 	}
 
-	public String getHitDice()
+	String getHitDice()
 	{
 		return getExportToken("HITDICE");
 	}
@@ -270,7 +245,7 @@ public class PlayerCharacterOutput
 		return Integer.toString(pc.hitPoints());
 	}
 
-	public String getInitMiscMod()
+	String getInitMiscMod()
 	{
 		String initiativeVar = ControlUtilities
 			.getControlToken(Globals.getContext(), CControl.INITIATIVEMISC);
@@ -284,7 +259,7 @@ public class PlayerCharacterOutput
 		return Delta.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
-	public String getInitStatMod()
+	String getInitStatMod()
 	{
 		String initiativeVar = ControlUtilities
 			.getControlToken(Globals.getContext(), CControl.INITIATIVESTAT);
@@ -298,7 +273,7 @@ public class PlayerCharacterOutput
 			.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
-	public String getInitTotal()
+	String getInitTotal()
 	{
 		String initiativeVar = ControlUtilities
 			.getControlToken(Globals.getContext(), CControl.INITIATIVE);
@@ -310,7 +285,7 @@ public class PlayerCharacterOutput
 			.toString(((Number) pc.getGlobal(initiativeVar)).intValue());
 	}
 
-	public String getMeleeTotal()
+	String getMeleeTotal()
 	{
 		int tohitBonus =
 				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
@@ -345,27 +320,6 @@ public class PlayerCharacterOutput
 	public String getRegion()
 	{
 		return display.getRegionString();
-	}
-
-	public String getSaveFort()
-	{
-		return "+"
-				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCCheck.class, "FORT"));
-	}
-
-	public String getSaveRef()
-	{
-		return "+"
-				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCCheck.class, "REF"));
-	}
-
-	public String getSaveWill()
-	{
-		return "+"
-				+ pc.getTotalCheck(Globals.getContext().getReferenceContext()
-						.silentlyGetConstructedCDOMObject(PCCheck.class, "WILL"));
 	}
 
 	public String getSize()
@@ -403,27 +357,27 @@ public class PlayerCharacterOutput
 		return VisionDisplay.getVision(display);
 	}
 
-	public String getWeaponToken(int weaponNo, String Token)
+	private String getWeaponToken(int weaponNo, String token)
 	{
-		return getExportToken("WEAPON." + weaponNo + "." + Token);
+		return getExportToken("WEAPON." + weaponNo + "." + token);
 	}
 
-	public String getWeaponCritMult(int weaponNo)
+	String getWeaponCritMult(int weaponNo)
 	{
 		return getWeaponToken(weaponNo, "MULT");
 	}
 
-	public String getWeaponCritRange(int weaponNo)
+	String getWeaponCritRange(int weaponNo)
 	{
 		return getWeaponToken(weaponNo, "CRIT");
 	}
 
-	public String getWeaponDamage(int weaponNo)
+	String getWeaponDamage(int weaponNo)
 	{
 		return getWeaponToken(weaponNo, "DAMAGE");
 	}
 
-	public String getWeaponHand(Equipment eq)
+	static String getWeaponHand(Equipment eq)
 	{
 		String location = eq.getLocation().getString();
 		final int start = location.indexOf('(') + 1; // move past the paren
@@ -441,33 +395,33 @@ public class PlayerCharacterOutput
 		return location;
 	}
 
-	public String getWeaponName(Equipment eq)
+	static String getWeaponName(Equipment eq)
 	{
 		return eq.getOutputName() + eq.getAppliedName();
 	}
 
-	public String getWeaponRange(Equipment eq)
+	String getWeaponRange(Equipment eq)
 	{
-		return EqToken.getRange(pc, eq).toString()
+		return EqToken.getRange(pc, eq)
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
-	public String getWeaponSize(Equipment eq)
+	static String getWeaponSize(Equipment eq)
 	{
 		return eq.getSize();
 	}
 
-	public String getWeaponSpecialProperties(Equipment eq)
+	String getWeaponSpecialProperties(Equipment eq)
 	{
 		return eq.getSpecialProperties(pc);
 	}
 
-	public String getWeaponToHit(int weaponNo)
+	String getWeaponToHit(int weaponNo)
 	{
 		return getWeaponToken(weaponNo, "TOTALHIT");
 	}
 
-	public String getWeaponType(Equipment eq)
+	static String getWeaponType(Equipment eq)
 	{
 		String types = getWeaponType(eq, true);
 
@@ -479,7 +433,7 @@ public class PlayerCharacterOutput
 		return types;
 	}
 
-	private String getWeaponType(Equipment eq, boolean primary)
+	private static String getWeaponType(Equipment eq, boolean primary)
 	{
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer aTok =
@@ -500,27 +454,7 @@ public class PlayerCharacterOutput
 		return sb.toString();
 	}
 
-	public String getUnarmedAttack()
-	{
-		return getExportToken("WEAPONH.TOTALHIT");
-	}
-
-	public String getUnarmedDamage()
-	{
-		return getExportToken("WEAPONH.DAMAGE");
-	}
-
-	public String getUnarmedCritRange()
-	{
-		return getExportToken("WEAPONH.CRIT");
-	}
-
-	public String getUnarmedCritMult()
-	{
-		return getExportToken("WEAPONH.MULT");
-	}
-
-	public Collection<PCStat> getUnmodifiableStatList()
+	Iterable<PCStat> getUnmodifiableStatList()
 	{
 		return display.getStatSet();
 	}

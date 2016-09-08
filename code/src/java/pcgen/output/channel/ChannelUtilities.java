@@ -46,6 +46,10 @@ public class ChannelUtilities
 	private static final SolverManagerFacet MGR_FACET =
 			FacetLibrary.getFacet(SolverManagerFacet.class);
 
+	private ChannelUtilities()
+	{
+	}
+
 	/**
 	 * Retrieves a Channel for the given CharID, owning object, and name of the
 	 * channel.

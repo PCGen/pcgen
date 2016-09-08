@@ -20,6 +20,7 @@
  */
 package gmgen.plugin;
 
+import javax.swing.JEditorPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTextPane;
 
@@ -47,13 +48,13 @@ public class InfoCharacterDetails
 	 */
 	public InfoCharacterDetails(Combatant cbt, JTextPane mainOutput)
 	{
-		setCombatant(cbt);
-		setPane(mainOutput);
+		this.cbt = cbt;
+		this.mainOutput = mainOutput;
 		setStatText();
 	}
 
 	/**
-	 * Sets the default <code>Combatant</code> object used by this class.
+	 * Sets the default {@code Combatant} object used by this class.
 	 * Made it final as it is called from constructor.
 	 * @param cbt
 	 */
@@ -104,7 +105,7 @@ public class InfoCharacterDetails
 	}
 
 	/**
-	 * Calls the <code>setStatText</code> and passes it the pane that is used
+	 * Calls the {@code setStatText} and passes it the pane that is used
 	 * for displaying.
 	 * Made it final as it is called from constructor.
 	 */
@@ -128,7 +129,7 @@ public class InfoCharacterDetails
 	 * @param cbt
 	 * @param aPane
 	 */
-	public void setStatText(Combatant cbt, JTextPane aPane)
+	private static void setStatText(Combatant cbt, JEditorPane aPane)
 	{
 		aPane.setEditorKit(aPane.getEditorKitForContentType("text/html"));
 		String htmlString = cbt.toHtmlString();
@@ -136,27 +137,29 @@ public class InfoCharacterDetails
 		{
 			aPane.setText(htmlString);
 		}
-		catch (Exception e)
+		catch (RuntimeException e)
 		{
 			Logging.errorPrint("InfoCharacterDetails.setStatText failed for text " + htmlString, e);
 		}
 	}
 
-	private class Renderer extends Thread
+	private final class Renderer extends Thread
 	{
-		private Combatant combatant;
+		private final Combatant combatant;
 		
 		/**
 		 * Constructor
 		 * @param cbt
 		 */
-		public Renderer(Combatant cbt) {
+		private Renderer(Combatant cbt)
+		{
 			this.combatant = cbt;
 		}
 		
         @Override
-		public void run() {
-			setStatText(combatant, getPane());
+		public void run()
+        {
+	        InfoCharacterDetails.setStatText(combatant, getPane());
 		}
 	}
 }

@@ -52,7 +52,7 @@ public final class PCGenStatusBar extends JPanel
 	private JProgressBar progressBar;
 	private JLabel loadStatusLabel;
 
-	public PCGenStatusBar(PCGenFrame frame)
+	PCGenStatusBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.messageLabel = new JLabel();
@@ -88,7 +88,7 @@ public final class PCGenStatusBar extends JPanel
 		return progressBar;
 	}
 
-	public void setSourceLoadErrors(List<LogRecord> errors)
+	void setSourceLoadErrors(List<LogRecord> errors)
 	{
 		if (errors != null && !errors.isEmpty())
 		{
@@ -134,7 +134,7 @@ public final class PCGenStatusBar extends JPanel
 	 * @param task a PCGenTask
 	 * @return a SwingWorker
 	 */
-	public SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
+	SwingWorker<List<LogRecord>> createWorker(String taskName, PCGenTask task)
 	{
 		return new StatusWorker(taskName, task, this);
 	}
@@ -152,7 +152,7 @@ public final class PCGenStatusBar extends JPanel
 	 */
 	public void startShowingProgress(final String msg, boolean indeterminate)
 	{
-		if ( !PCGenStatusBar.this.isValid() )
+		if ( !isValid() )
 		{
 			// Do nothing if called during startup or shutdown
 			return;
@@ -160,10 +160,10 @@ public final class PCGenStatusBar extends JPanel
 		setVisible(true);
 		CursorControlUtilities.startWaitCursor(this);
 		setContextMessage(msg);
-		getProgressBar().setVisible(true);
-		getProgressBar().setIndeterminate(indeterminate);
-		getProgressBar().setStringPainted(true);
-		getProgressBar().setString(msg);
+		progressBar.setVisible(true);
+		progressBar.setIndeterminate(indeterminate);
+		progressBar.setStringPainted(true);
+		progressBar.setString(msg);
 	}
 
 	/**
@@ -173,8 +173,8 @@ public final class PCGenStatusBar extends JPanel
 	{
 		CursorControlUtilities.stopWaitCursor(this);
 		setContextMessage(null);
-		getProgressBar().setString(null);
-		getProgressBar().setVisible(false);
+		progressBar.setString(null);
+		progressBar.setVisible(false);
 	}
 	
 	/**

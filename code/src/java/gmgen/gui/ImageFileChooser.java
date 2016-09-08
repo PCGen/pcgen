@@ -16,13 +16,16 @@
  */
 package gmgen.gui;
 
-import javax.swing.JFileChooser;
 import java.io.File;
+
+import javax.swing.JFileChooser;
 
 /** Class for providing a chooser that lets the user select an image to insert
  */
 public class ImageFileChooser extends JFileChooser
 {
+	private static final long serialVersionUID = 6949258117744853604L;
+
 	/**
 	 * Constructor that takes a default directory to start in, specified as a File
 	 * @param fileCurrentDirectory with the default path

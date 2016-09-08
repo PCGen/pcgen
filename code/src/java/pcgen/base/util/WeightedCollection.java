@@ -132,7 +132,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	public int size()
 	{
 		int total = 0;
-		for (WeightedItem<E> item : theData)
+		for (final WeightedItem<E> item : theData)
 		{
 			total += item.getWeight();
 		}
@@ -188,12 +188,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		{
 			return false;
 		}
+
 		// Lets see if we can find this element
-		for (WeightedItem<E> item : theData)
+		for (final WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
-			if (wiElement == null && element == null || wiElement != null
-					&& wiElement.equals(element))
+			if (((wiElement == null) && (element == null)) || ((wiElement != null) && wiElement.equals(element)))
 			{
 				item.addWeight(weight);
 				return true;
@@ -227,15 +227,11 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		int index = RandomUtil.getRandomInt(size());
 		int total = 0;
-		for (WeightedItem<E> item : theData)
+		for (final WeightedItem<E> item : theData)
 		{
 			total += item.getWeight();
 			if (total > index)
 			{
-				/*
-				 * NOTE The return statement can't be 100% covered with a Sun
-				 * compiler for code coverage stats.
-				 */
 				return item.getElement();
 			}
 		}
@@ -281,7 +277,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 */
-	public Iterator<E> unweightedIterator()
+	Iterator<E> unweightedIterator()
 	{
 		return new UnweightedIterator();
 	}
@@ -298,7 +294,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	@Override
 	public boolean contains(Object element)
 	{
-		for (WeightedItem<E> item : theData)
+		for (final WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
 			if (wiElement == null && element == null || wiElement != null
@@ -322,7 +318,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public int getWeight(Object element)
 	{
-		for (WeightedItem<E> item : theData)
+		for (final WeightedItem<E> item : theData)
 		{
 			E wiElement = item.getElement();
 			if (wiElement == null && element == null || wiElement != null
@@ -472,10 +468,10 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @see java.util.List#addAll(int, java.util.Collection)
 	 */
-	public final boolean addAll(Collection<? extends E> collection, int weight)
+	public final boolean addAll(Iterable<? extends E> collection, int weight)
 	{
 		boolean modified = false;
-		for (E element : collection)
+		for (final E element : collection)
 		{
 			modified |= add(element, weight);
 		}
@@ -505,7 +501,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            The weight of the item within the list.
 		 */
-		public WeightedItem(T element, int weight)
+		private WeightedItem(T element, int weight)
 		{
 			theElement = element;
 			theWeight = weight;
@@ -552,8 +548,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -641,8 +636,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 * 
-		 * @see java.util.Iterator#hasNext()
 		 */
 		@Override
 		public boolean hasNext()
@@ -654,8 +647,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Returns the next element in the iteration.
 		 * 
 		 * @return The next element.
-		 * 
-		 * @see java.util.Iterator#next()
+		 *
 		 */
 		@Override
 		public E next()
@@ -666,8 +658,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Removes from the WeightedCollection the last element returned from
 		 * the iteration.
-		 * 
-		 * @see java.util.Iterator#remove()
+		 *
 		 */
 		@Override
 		public void remove()
@@ -703,15 +694,14 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 *            objects underlying the WeightedItem objects compared by
 		 *            this WeightedItemComparator
 		 */
-		public WeightedItemComparator(Comparator<? super WICT> comp)
+		private WeightedItemComparator(Comparator<? super WICT> comp)
 		{
 			delegate = comp;
 		}
 
 		/**
 		 * Compare two WeightedItem objects
-		 * 
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

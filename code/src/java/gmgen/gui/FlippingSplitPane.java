@@ -22,16 +22,22 @@
  */
 package gmgen.gui; // hm.binkley.gui;
 
-import pcgen.system.LanguageBundle;
-
-import javax.swing.*;
-import javax.swing.plaf.SplitPaneUI;
-import javax.swing.plaf.basic.BasicSplitPaneUI;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.JCheckBoxMenuItem;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPopupMenu;
+import javax.swing.JSplitPane;
+import javax.swing.plaf.SplitPaneUI;
+import javax.swing.plaf.basic.BasicSplitPaneUI;
+
+import pcgen.system.LanguageBundle;
 
 /**
  * {@code FlippingSplitPane} is an improved version of
@@ -68,7 +74,7 @@ import java.awt.event.MouseEvent;
  */
 public class FlippingSplitPane extends JSplitPane
 {
-	static final long serialVersionUID = -6343545558990369582L;
+	private static final long serialVersionUID = -6343545558990369582L;
 
 	/**
 	 * Icon for Center item in popup menu.

@@ -22,7 +22,7 @@ import javax.swing.event.EventListenerList;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
-public class AbstractAdapter<T>
+class AbstractAdapter<T>
 {
 	/**
 	 * The list of listeners that listen to this VariableChannel for
@@ -40,7 +40,7 @@ public class AbstractAdapter<T>
 		listenerList.remove(ReferenceListener.class, listener);
 	}
 
-	protected void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
+	void fireReferenceChangedEvent(Object source, T oldValue, T newValue)
 	{
 		Object[] listeners = listenerList.getListenerList();
 		ReferenceEvent<T> e = null;

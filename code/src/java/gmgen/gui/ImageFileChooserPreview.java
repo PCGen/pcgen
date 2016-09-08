@@ -16,9 +16,7 @@
  */
 package gmgen.gui;
 
-import javax.swing.ImageIcon;
-import javax.swing.JComponent;
-import javax.swing.JFileChooser;
+import java.awt.Component;
 import java.awt.Dimension;
 import java.awt.Graphics;
 import java.awt.Image;
@@ -26,12 +24,17 @@ import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
 
+import javax.swing.ImageIcon;
+import javax.swing.JComponent;
+import javax.swing.JFileChooser;
+
 /** Class provides a preview window for the selected image file
  */
 class ImageFileChooserPreview extends JComponent implements PropertyChangeListener
 {
 	private static final int previewWidth = 100;
 	private static final int previewHeight = 100;
+	private static final long serialVersionUID = -2778391370331526274L;
 	private File imageFile = null;
 	private ImageIcon imageThumb = null;
 
@@ -39,9 +42,9 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 	 * be notified when a new file is selected in the browser.
 	 * @param parent that this preview window is used in.
 	 */
-	ImageFileChooserPreview(JFileChooser parent)
+	ImageFileChooserPreview(Component parent)
 	{
-		setPreferredSize(new Dimension(previewWidth, previewHeight));
+		setPreferredSize(new Dimension(ImageFileChooserPreview.previewWidth, ImageFileChooserPreview.previewHeight));
 		parent.addPropertyChangeListener(this);
 	}
 
@@ -59,13 +62,13 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 		imageThumb = new ImageIcon(imageFile.getPath());
 
 		// Check if thumb requires scaling
-		if ((imageThumb.getIconHeight() < previewHeight) && (imageThumb.getIconWidth() < previewWidth))
+		if ((imageThumb.getIconHeight() < ImageFileChooserPreview.previewHeight) && (imageThumb.getIconWidth() < ImageFileChooserPreview.previewWidth))
 		{
 			return;
 		}
 
-		int w = previewWidth;
-		int h = previewHeight;
+		int w = ImageFileChooserPreview.previewWidth;
+		int h = ImageFileChooserPreview.previewHeight;
 
 		if (imageThumb.getIconHeight() > imageThumb.getIconWidth())
 		{
@@ -79,7 +82,8 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 		imageThumb = new ImageIcon(imageThumb.getImage().getScaledInstance(w, h, Image.SCALE_DEFAULT));
 	}
 
-	/** Paints the icon of the current image, if one's present..
+	/**
+	 * Paints the icon of the current image, if one's present..
 	 * @param g object to use when painting the component.
 	 */
     @Override
@@ -97,16 +101,9 @@ class ImageFileChooserPreview extends JComponent implements PropertyChangeListen
 
 		int x = (getWidth() - imageThumb.getIconWidth()) / 2;
 		int y = (getHeight() - imageThumb.getIconHeight()) / 2;
+		y = Integer.min(y, 0);
+		x = Integer.min(x, 5);
 
-		if (y < 0)
-		{
-			y = 0;
-		}
-
-		if (x < 5)
-		{
-			x = 5;
-		}
 
 		imageThumb.paintIcon(this, g, x, y);
 	}

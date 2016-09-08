@@ -20,6 +20,9 @@ import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing
  * a character portrait referenced in a PCG file.
@@ -30,6 +33,7 @@ public final class ImagePreview
 		extends JPanel
 		implements PropertyChangeListener
 {
+	private static final Logger LOGGER = LoggerFactory.getLogger(ImagePreview.class);
 	private static final int SIZE = 200;
 
 	private static final String in_notAnImage
@@ -53,7 +57,7 @@ public final class ImagePreview
 		jfc.addPropertyChangeListener(this);
 		jfc.setAccessory(this);
 
-		setPreferredSize(new Dimension(SIZE, SIZE));
+		setPreferredSize(new Dimension(ImagePreview.SIZE, ImagePreview.SIZE));
 	}
 
 	/**
@@ -79,7 +83,7 @@ public final class ImagePreview
 		}
 		catch (final IOException e)
 		{
-			e.printStackTrace(); // TODO: ack, suckage!
+			ImagePreview.LOGGER.error("failed to modify property for image preview", e);
 		}
 	}
 
@@ -91,7 +95,7 @@ public final class ImagePreview
 	private void updateImage(final File file)
 			throws IOException
 	{
-		if (file == null || !file.exists())
+		if ((file == null) || !file.exists())
 		{
 			image = null;
 			return;
@@ -132,7 +136,7 @@ public final class ImagePreview
 			final int width = image.getWidth(null);
 			final int height = image.getHeight(null);
 			final int side = Math.max(width, height);
-			final double scale = SIZE / (double) side;
+			final double scale = ImagePreview.SIZE / (double) side;
 
 			g.drawImage(image, 0, 0, (int) (scale * width),
 					(int) (scale * height), null);
@@ -150,17 +154,18 @@ public final class ImagePreview
 		{
 			g.setColor(UIManager.getColor("Panel.foreground"));
 			// TODO: I18N
-			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
+			g.drawString((aPC == null) ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
 					textX, textY);
 		}
 	}
 
 	private static boolean isNullOrEmpty(final String s)
 	{
-		return s == null || s.isEmpty();
+		return (s == null) || s.isEmpty();
 	}
 
-	private static int getFontHeightHint(final Graphics g) {
+	private static int getFontHeightHint(final Graphics g)
+	{
 		return g.getFontMetrics().getHeight();
 	}
 }

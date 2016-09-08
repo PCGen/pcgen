@@ -63,23 +63,21 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
 	{
-		if (numbers == null || numbers.length != 1)
+		if ((numbers == null) || (numbers.length != 1))
 		{
 			throw new IllegalArgumentException(
 					"SubtractingFormula only has one back-reference");
 		}
-		return Integer.valueOf(numbers[0].intValue() - sub);
+		return numbers[0].intValue() - sub;
 	}
 
 	/**
 	 * Returns a String representation of this SubtractingFormula
-	 * 
-	 * @see java.lang.Object#toString()
+	 *
 	 */
 	@Override
 	public String toString()
@@ -96,8 +94,7 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -107,13 +104,11 @@ public class SubtractingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Returns true if this SubtractingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof SubtractingFormula
-				&& ((SubtractingFormula) obj).sub == sub;
+		return (obj instanceof SubtractingFormula)
+				&& (((SubtractingFormula) obj).sub == sub);
 	}
 }

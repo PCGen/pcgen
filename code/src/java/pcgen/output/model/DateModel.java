@@ -46,7 +46,7 @@ public class DateModel implements TemplateDateModel
 	@Override
 	public Date getAsDate() throws TemplateModelException
 	{
-		return date;
+		return (Date) date.clone();
 	}
 
 	@Override

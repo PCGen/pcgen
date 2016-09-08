@@ -75,7 +75,7 @@ public class SimpleLoader<T extends Loadable> extends LstLineFileLoader
 		return token;
 	}
 
-	public Class<T> getLoadClass()
+	Class<T> getLoadClass()
 	{
 		return loadClass;
 	}

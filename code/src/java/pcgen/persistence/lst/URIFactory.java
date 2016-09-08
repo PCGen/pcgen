@@ -49,7 +49,7 @@ public class URIFactory
 		{
 			FAILED_URI = new URI("file:/FAIL");
 		}
-		catch (URISyntaxException e)
+		catch (final URISyntaxException e)
 		{
 			throw new UnreachableError(e);
 		}
@@ -93,7 +93,7 @@ public class URIFactory
 	 * 
 	 * @return The root URI for this URIFactory
 	 */
-	public URI getRootURI()
+	URI getRootURI()
 	{
 		return rootURI;
 	}
@@ -103,7 +103,7 @@ public class URIFactory
 	 * 
 	 * @return The offset for this URIFactory
 	 */
-	public String getOffset()
+	String getOffset()
 	{
 		return offset;
 	}
@@ -120,18 +120,12 @@ public class URIFactory
 		return getNonNormalizedPathURI(rootURI, offset).normalize();
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return offset.hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object o)
 	{
@@ -200,10 +194,10 @@ public class URIFactory
 			{
 				return pccFile.toURI();
 			}
-			pccFile = new File(PCGenSettings.getVendorDataDir(), path);
-			if (pccFile.exists())
+			File file = new File(PCGenSettings.getVendorDataDir(), path);
+			if (file.exists())
 			{
-				return pccFile.toURI();
+				return file.toURI();
 			}
 			return new File(ConfigurationSettings.getPccFilesDir(), path)
 				.toURI();
@@ -253,7 +247,7 @@ public class URIFactory
 			return new URI(pccPath.getScheme(), null, (path.substring(0,
 				path.lastIndexOf('/') + 1) + basePath.replace('\\', '/')), null);
 		}
-		catch (URISyntaxException e)
+		catch (final URISyntaxException e)
 		{
 			Logging.errorPrint("URIFactory failed to convert "
 				+ path.substring(0, path.lastIndexOf('/') + 1) + basePath

@@ -49,6 +49,7 @@ import javax.swing.event.ChangeListener;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.TodoFacade;
 import pcgen.gui2.UIPropertyContext;
@@ -93,6 +94,27 @@ public final class InfoTabbedPane extends JTabbedPane
 		this.tabSelectionMap = new WeakHashMap<>();
 		this.modelService = new TabModelService();
 		initComponent();
+	}
+
+	/**
+	 * Attempts to create the property key for this character for the given property.
+	 * This allows for character specific properties such that the key created with this method
+	 * can be used as the key for any of the other PropertyContext methods.
+	 * The following is a typical example of its usage:
+	 * <br>
+	 * <code>
+	 * String charKey = UIPropertyContext.createCharacterPropertyKey(aCharacter, "allowNegativeMoney");<br>
+	 * if(charKey != null){<br>
+	 * boolean bool = UIPropertyContext.getInstance().getBoolean(charKey);<br>
+	 * }<br>
+	 * </code>
+	 * @param character a CharacterFacade
+	 * @param key a String property key
+	 * @return the character property key or null if it could not be created
+	 */
+	private static String createCharacterPropertyKey(CharacterStubFacade character, String key)
+	{
+		return UIPropertyContext.createFilePropertyKey(character.getFileRef().get(), key);
 	}
 
 	public void clearStateMap()
@@ -158,7 +180,7 @@ public final class InfoTabbedPane extends JTabbedPane
 				stateMap.put(character, tab, models);
 			}
 			String key = UIPropertyContext.C_PROP_INITIAL_TAB;
-			key = UIPropertyContext.createCharacterPropertyKey(character, key);
+			key = createCharacterPropertyKey(character, key);
 			//defaults to the summary tab if prop doesn't exist
 			int startingTab = UIPropertyContext.getInstance().getInt(key, SUMMARY_TAB);
 			tabSelectionMap.put(character, startingTab);

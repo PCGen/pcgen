@@ -6,21 +6,44 @@
  */
 package gmgen.gui;
 
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.image.ImageObserver;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.FilterInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Dictionary;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
-import javax.swing.text.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.swing.text.Highlighter;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.LayeredHighlighter;
+import javax.swing.text.Position;
+import javax.swing.text.Segment;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.View;
+import javax.swing.text.ViewFactory;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.InlineView;
 import javax.swing.text.html.StyleSheet;
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Dictionary;
 
 /**
  * View of an Image, intended to support the HTML &lt;IMG&gt; tag.
@@ -918,7 +941,7 @@ public class RelativeImageView extends View implements ImageObserver
 
 		if (resource == null)
 		{
-			System.err.println(RelativeImageView.class.getName() + "/" + gifFile + " not found.");
+			System.err.println(RelativeImageView.class.getName() + File.pathSeparatorChar + gifFile + " not found.");
 
 			return null;
 		}
@@ -926,8 +949,9 @@ public class RelativeImageView extends View implements ImageObserver
 		byte[] buffer;
 		try (
 				ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
-				BufferedInputStream in = new BufferedInputStream(resource);
-		) {
+				FilterInputStream in = new BufferedInputStream(resource);
+		)
+		{
 
 			buffer = new byte[1024];
 			int n;
@@ -1441,7 +1465,7 @@ public class RelativeImageView extends View implements ImageObserver
 		private Color fg;
 		private Segment segment;
 
-		ImageLabelView(Element e, String text)
+		private ImageLabelView(Element e, String text)
 		{
 			super(e);
 			reset(text);

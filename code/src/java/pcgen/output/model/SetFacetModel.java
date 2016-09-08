@@ -19,6 +19,7 @@ package pcgen.output.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
@@ -76,18 +77,12 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		this.facet = facet;
 	}
 
-	/**
-	 * @see java.lang.Iterable#iterator()
-	 */
 	@Override
 	public Iterator<T> iterator()
 	{
 		return facet.getSet(id).iterator();
 	}
 
-	/**
-	 * @see freemarker.template.TemplateSequenceModel#get(int)
-	 */
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
@@ -95,12 +90,12 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		{
 			return null;
 		}
-		ArrayList<T> list = new ArrayList<>(facet.getSet(id));
+		List<T> list = new ArrayList<>(facet.getSet(id));
 		if (index >= list.size())
 		{
 			return null;
 		}
-		return WRAPPER_FACET.wrap(id, list.get(index));
+		return SetFacetModel.WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
 	/*

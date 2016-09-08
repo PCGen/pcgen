@@ -65,7 +65,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	private final TempBonusMenu tempMenu;
 	private CharacterFacade character;
 	
-	public PCGenMenuBar(PCGenFrame frame)
+	PCGenMenuBar(PCGenFrame frame)
 	{
 		this.frame = frame;
 		this.actionMap = frame.getActionMap();

@@ -26,10 +26,11 @@ import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.ObjectWrapperFacet;
 import pcgen.cdom.facet.analysis.ResultFacet;
+import pcgen.util.Logging;
+
 import freemarker.template.TemplateHashModel;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
-import pcgen.util.Logging;
 
 /**
  * A InfoModel is a TemplateHashModel that wraps the Info data in a CDOMObject
@@ -71,8 +72,6 @@ public class InfoModel implements TemplateHashModel
 
 	/**
 	 * Acts as a hash for producing the contents of this model.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
 	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
@@ -117,9 +116,6 @@ public class InfoModel implements TemplateHashModel
 		return replacedvars;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

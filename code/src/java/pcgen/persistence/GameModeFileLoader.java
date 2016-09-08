@@ -77,34 +77,28 @@ public class GameModeFileLoader extends PCGenTask
 {
 
 	private static final FilenameFilter gameModeFileFilter =
-			new FilenameFilter()
+			(aFile, aString) ->
 			{
-
-        @Override
-				public boolean accept(File aFile, String aString)
+				try
 				{
-					try
-					{
-						final File d = new File(aFile, aString);
+					final File d = new File(aFile, aString);
 
-						if (d.isDirectory())
-						{
-							// the directory must contain
-							// a "miscinfo.lst" file and a
-							// "statsandchecks.lst" file to be
-							// a complete gameMode
-							return new File(d, "statsandchecks.lst").exists() &&
-									new File(d, "miscinfo.lst").exists();
-						}
-					}
-					catch (SecurityException e)
+					if (d.isDirectory())
 					{
-						Logging.errorPrint("GameModes.listGameFiles", e);
+						// the directory must contain
+						// a "miscinfo.lst" file and a
+						// "statsandchecks.lst" file to be
+						// a complete gameMode
+						return new File(d, "statsandchecks.lst").exists() &&
+								new File(d, "miscinfo.lst").exists();
 					}
-
-					return false;
+				}
+				catch (SecurityException e)
+				{
+					Logging.errorPrint("GameModes.listGameFiles", e);
 				}
 
+				return false;
 			};
 
 	@Override
@@ -116,7 +110,7 @@ public class GameModeFileLoader extends PCGenTask
 	@Override
 	public void execute()
 	{
-		String[] gameFiles = getGameFilesList();
+		String[] gameFiles = GameModeFileLoader.getGameFilesList();
 		if ((gameFiles != null) && (gameFiles.length > 0))
 		{
 			setMaximum(gameFiles.length + 1);
@@ -185,7 +179,7 @@ public class GameModeFileLoader extends PCGenTask
 		{
 			File specGameModeDir = new File(gameModeDir, gameFile);
 			File miscInfoFile = new File(specGameModeDir, "miscinfo.lst");
-			final GameMode gm = loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
+			final GameMode gm = GameModeFileLoader.loadGameModeMiscInfo(gameFile, miscInfoFile.toURI());
 			if (gm != null)
 			{
 				String gmName = gm.getName();
@@ -241,7 +235,7 @@ public class GameModeFileLoader extends PCGenTask
 			}
 			try
 			{
-				addDefaultWieldCategories(gm.getModeContext());
+				GameModeFileLoader.addDefaultWieldCategories(gm.getModeContext());
 			}
 			catch (PersistenceLayerException ple)
 			{

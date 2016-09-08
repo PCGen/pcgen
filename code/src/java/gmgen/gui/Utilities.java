@@ -23,11 +23,12 @@
 package gmgen.gui; // hm.binkley.gui;
 
 
+import java.awt.event.InputEvent;
+import java.awt.event.MouseEvent;
+
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
-import java.awt.event.InputEvent;
-import java.awt.event.MouseEvent;
 
 /**
  * {@code Utilities}.
@@ -51,7 +52,7 @@ final class Utilities
 	 *
 	 * @return {@code ImageIcon}, the icon or {@code null} on failure
 	 */
-		static ImageIcon getImageIcon(final String location)
+	static ImageIcon getImageIcon(final String location)
 	{
 		return getImageIcon(location, null);
 	}

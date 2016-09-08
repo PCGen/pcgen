@@ -95,12 +95,8 @@ public class SystemHP
 	 */
 	public void setCurrent(int current)
 	{
-		int currentHP = current;
-		
-		if (currentHP > max)
-		{
-			currentHP = max;
-		}
+
+		int currentHP = Integer.min(current, max);
 
 		if (currentHP > this.current)
 		{
@@ -146,7 +142,7 @@ public class SystemHP
 		}
 		else
 		{
-			if (damage > cbt.getHP().getAttribute().getValue())
+			if (damage > cbt.getHP().attribute.getValue())
 			{
 				return true;
 			}
@@ -241,12 +237,8 @@ public class SystemHP
 	{
 		SystemHP hp = cbt.getHP();
 
-		if (damage > hp.getMax())
-		{
-			return true;
-		}
+		return damage > hp.max;
 
-		return false;
 	}
 
 	/**
@@ -256,11 +248,7 @@ public class SystemHP
 	public void setMax(int hpmax)
 	{
 		this.max = hpmax;
-
-		if (max > current)
-		{
-			current = max;
-		}
+		current = Integer.min(current, max);
 	}
 
 	/**
@@ -296,7 +284,7 @@ public class SystemHP
 	 */
 	public void setSubdual(int subdual)
 	{
-		subdualDamage(subdual - getSubdual());
+		subdualDamage(subdual - this.subdual);
 	}
 
 	/**
@@ -312,9 +300,9 @@ public class SystemHP
 	 * Apply damage because of the Bleeding state
 	 * @return the state
 	 */
-	public State bleed()
+	State bleed()
 	{
-		if (state == State.Bleeding && !firstround)
+		if ((state == State.Bleeding) && !firstround)
 		{
 			damage(1);
 		}
@@ -348,14 +336,14 @@ public class SystemHP
 			SettingsHandler.getGMGenOption(
 				"Initiative.Damage.Disabled",
 				1);
-		
+
 		int disabledLowRange = 0;
 		if (disabledType == 2)
 		{
-			disabledLowRange = -1 * Math.max(0,attribute.getModifier());
+			disabledLowRange = -1 * Math.max(0, attribute.getModifier());
 		}
-		
-		if (current <= 0 && current >= disabledLowRange)
+
+		if ((current <= 0) && (current >= disabledLowRange))
 		{
 			state = State.Disabled;
 		}
@@ -398,9 +386,9 @@ public class SystemHP
 	 * End status that has a duration, e.g. Dazed
 	 * @return state
 	 */
-	public State endDurationedStatus()
+	State endDurationedStatus()
 	{
-		if (state == State.Unconsious || state == State.Dazed)
+		if ((state == State.Unconsious) || (state == State.Dazed))
 		{
 			state = State.Nothing;
 		}
@@ -411,7 +399,7 @@ public class SystemHP
 	/**
 	 * End the round
 	 */
-	public void endRound()
+	void endRound()
 	{
 		firstround = false;
 	}
@@ -421,7 +409,7 @@ public class SystemHP
 	 * @param heal
 	 * @return the state
 	 */
-	public State heal(int heal)
+	State heal(int heal)
 	{
 		if (state != State.Dead)
 		{
@@ -458,7 +446,7 @@ public class SystemHP
 	 * Kill the PC
 	 * @return the state
 	 */
-	public State kill()
+	State kill()
 	{
 		state = State.Dead;
 		current = 0;
@@ -471,18 +459,11 @@ public class SystemHP
 	 * @param type
 	 * @return the state
 	 */
-	public State nonLethalDamage(boolean type)
+	State nonLethalDamage(boolean type)
 	{
 		if (state == State.Nothing)
 		{
-			if (type)
-			{
-				state = State.Unconsious;
-			}
-			else
-			{
-				state = State.Dazed;
-			}
+			state = type ? State.Unconsious : State.Dazed;
 		}
 
 		return state;
@@ -492,7 +473,7 @@ public class SystemHP
 	 * Raise the PC from the dead
 	 * @return the state
 	 */
-	public State raise()
+	State raise()
 	{
 		if (state == State.Dead)
 		{
@@ -507,7 +488,7 @@ public class SystemHP
 	 * Stabilize a bleeding PC
 	 * @return the state
 	 */
-	public State stabilize()
+	State stabilize()
 	{
 		if (state == State.Bleeding)
 		{
@@ -522,7 +503,7 @@ public class SystemHP
 	 * @param damage
 	 * @return the state
 	 */
-	public State subdualDamage(int damage)
+	State subdualDamage(int damage)
 	{
 		subdual += damage;
 
@@ -542,12 +523,12 @@ public class SystemHP
 		int disabledBonus = 0;
 		if (disabledType == 2)
 		{
-			disabledBonus = Math.max(0,attribute.getModifier());
+			disabledBonus = Math.max(0, attribute.getModifier());
 		}
 		
-		if ((state == State.Nothing || state == State.Staggered || state == State.Unconsious) && (subdual > 0))
+		if (((state == State.Nothing) || (state == State.Staggered) || (state == State.Unconsious)) && (subdual > 0))
 		{
-			if (subdual >= current && subdual <= (current + disabledBonus))
+			if ((subdual >= current) && (subdual <= (current + disabledBonus)))
 			{
 				state = State.Staggered;
 			}

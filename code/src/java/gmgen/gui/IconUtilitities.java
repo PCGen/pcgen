@@ -48,7 +48,8 @@ final class IconUtilitities
 	 */
 	public static ImageIcon getImageIcon(String location, String description)
 	{
-		if (!location.startsWith(RESOURCE_URL)) {
+		if (!location.startsWith(RESOURCE_URL))
+		{
 			location = RESOURCE_URL + location;
 		}
 		final URL iconURL =

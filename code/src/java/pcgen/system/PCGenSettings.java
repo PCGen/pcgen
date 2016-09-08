@@ -22,9 +22,10 @@ package pcgen.system;
 
 import java.io.File;
 
-import org.apache.commons.lang.SystemUtils;
-
+import pcgen.output.model.BooleanOptionModel;
 import pcgen.output.publish.OutputDB;
+
+import org.apache.commons.lang.SystemUtils;
 
 /**
  * This stores some of the properties that pcgen uses.
@@ -107,8 +108,27 @@ public final class PCGenSettings extends PropertyContext
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
 		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
 		setProperty(CUSTOM_DATA_DIR, "@data/customsources".replace('/', File.separatorChar));
-		OutputDB.registerBooleanPreference(
+		registerBooleanPreference(
 			OPTION_SHOW_OUTPUT_NAME_FOR_OTHER_ITEMS, false);
+	}
+
+	/**
+	 * Registers a new Boolean Preference for inclusion in the global Models.
+	 *
+	 * @param pref
+	 *            The preference name, as identified in the preference file
+	 * @param defaultValue
+	 *            The default value for the preference if it is not defined
+	 */
+	private static void registerBooleanPreference(String pref,
+	                                              boolean defaultValue)
+	{
+		if ((pref == null) || (pref.isEmpty()))
+		{
+			throw new IllegalArgumentException(
+				"Preference Name may not be null or empty: " + pref);
+		}
+		OutputDB.addGlobalModel(pref, new BooleanOptionModel(pref, defaultValue));
 	}
 
 	@Override

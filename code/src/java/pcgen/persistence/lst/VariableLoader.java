@@ -22,12 +22,12 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.List;
 import java.util.Observable;
-import java.util.Set;
 import java.util.StringTokenizer;
 
+import pcgen.cdom.base.Loadable;
 import pcgen.cdom.content.DatasetVariable;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SystemLoader;
@@ -52,7 +52,7 @@ public class VariableLoader extends Observable
 			{
 				tok = "GLOBAL:" + tok;
 			}
-			DatasetVariable po = new DatasetVariable();
+			Loadable po = new DatasetVariable();
 			boolean success = LstUtils.processToken(context, po, source, tok);
 			if (!success)
 			{
@@ -78,10 +78,10 @@ public class VariableLoader extends Observable
 	 * @throws PersistenceLayerException
 	 */
 	public void loadLstFiles(LoadContext context,
-		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
+	                         Iterable<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles =
+		Collection<CampaignSourceEntry> loadedFiles =
 				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
@@ -104,7 +104,7 @@ public class VariableLoader extends Observable
 	 *            URL from which to read LST formatted data.
 	 */
 	protected void loadLstFile(LoadContext context,
-		CampaignSourceEntry sourceEntry)
+	                           SourceEntry sourceEntry)
 	{
 		setChanged();
 		URI uri = sourceEntry.getURI();
@@ -138,13 +138,13 @@ public class VariableLoader extends Observable
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.length() == 0)
+			if ((line.isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
 
-			if (line.trim().length() == 0)
+			if (line.trim().isEmpty())
 			{
 				// Ignore the line
 			}

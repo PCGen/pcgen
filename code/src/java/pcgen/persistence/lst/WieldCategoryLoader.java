@@ -53,7 +53,7 @@ public class WieldCategoryLoader
 		{
 			Logging.errorPrint("Error Initializing PreParserFactory");
 			Logging.errorPrint("  " + ple.getMessage(), ple);
-			throw new UnreachableError();
+			throw new UnreachableError(ple);
 		}
 	}
 
@@ -141,7 +141,7 @@ public class WieldCategoryLoader
 				qo.addPrerequisite(prereqParser.parse(preKey));
 				cat.addCategorySwitch(qo);
 			}
-			catch (PersistenceLayerException ple)
+			catch (final PersistenceLayerException ple)
 			{
 				Logging.errorPrint("Error parsing Prerequisite in " + source
 						+ ": " + preKey + "\n  " + ple.getMessage());

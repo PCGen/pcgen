@@ -50,9 +50,9 @@ public final class StatAdapter extends AbstractAdapter<Integer> implements
 	}
 
 	@Override
-	public void set(Integer value)
+	public void set(Integer obj)
 	{
-		statValueFacet.set(id, stat, value);
+		statValueFacet.set(id, stat, obj);
 	}
 
 	public static StatAdapter generate(CharID id, PCStat stat)

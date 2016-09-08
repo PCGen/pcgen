@@ -22,18 +22,25 @@
  */
 package gmgen.gui;
 
-import gmgen.GMGenSystem;
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.UIManager;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeModel;
+
+import gmgen.GMGenSystem;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractPreferencesDialog;
 
@@ -48,8 +55,8 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 	private static final String EMPTY = PreferencesDialog.class.getName();
 
     private FlippingSplitPane jSplitPane1;
-    private javax.swing.JTree prefsTree;
-    private PreferencesRootTreeNode root;
+    private JTree prefsTree;
+    private final PreferencesRootTreeNode root;
     private JPanel prefsPane;
     private CardLayout cardLayout;
 
@@ -89,7 +96,8 @@ public class PreferencesDialog extends AbstractPreferencesDialog
             if(uobj instanceof PreferencesPanel)
             {
                 cardLayout.show(prefsPane, uobj.toString());
-            } else
+            }
+            else
             {
                 cardLayout.show(prefsPane, PreferencesDialog.EMPTY);
             }
@@ -108,12 +116,12 @@ public class PreferencesDialog extends AbstractPreferencesDialog
     @Override
     protected void close()
     {
-        SettingsHandler.setGMGenOption(OPTION_NAME_DIVIDER, jSplitPane1.getDividerLocation());
+        SettingsHandler.setGMGenOption(PreferencesDialog.OPTION_NAME_DIVIDER, jSplitPane1.getDividerLocation());
 
-        SettingsHandler.setGMGenOption(OPTION_NAME_X, this.getX());
-        SettingsHandler.setGMGenOption(OPTION_NAME_Y, this.getY());
-        SettingsHandler.setGMGenOption(OPTION_NAME_WIDTH, this.getSize().width);
-        SettingsHandler.setGMGenOption(OPTION_NAME_HEIGHT, this.getSize().height);
+        SettingsHandler.setGMGenOption(PreferencesDialog.OPTION_NAME_X, getX());
+        SettingsHandler.setGMGenOption(PreferencesDialog.OPTION_NAME_Y, getY());
+        SettingsHandler.setGMGenOption(PreferencesDialog.OPTION_NAME_WIDTH, getSize().width);
+        SettingsHandler.setGMGenOption(PreferencesDialog.OPTION_NAME_HEIGHT, getSize().height);
         super.close();
     }
 
@@ -121,17 +129,17 @@ public class PreferencesDialog extends AbstractPreferencesDialog
     protected JComponent getCenter()
     {
         jSplitPane1 = new FlippingSplitPane();
-        prefsTree = new javax.swing.JTree();
+        prefsTree = new JTree();
         prefsTree.setRootVisible(false);
 		prefsTree.setShowsRootHandles(true);
-		cardLayout=new CardLayout();
+		cardLayout = new CardLayout();
 		prefsPane = new JPanel(cardLayout);
-		prefsPane.add(new JPanel(), EMPTY);
+		prefsPane.add(new JPanel(), PreferencesDialog.EMPTY);
 
-        addWindowListener(new java.awt.event.WindowAdapter()
+        addWindowListener(new WindowAdapter()
             {
             @Override
-                public void windowClosing(java.awt.event.WindowEvent e)
+                public void windowClosing(WindowEvent e)
                 {
                     close();
                 }
@@ -151,16 +159,16 @@ public class PreferencesDialog extends AbstractPreferencesDialog
     /** Moves and resizes the preferences dialog based on your last opening of it */
     private void initLast()
     {
-        int iDividerLocation = SettingsHandler.getGMGenOption(OPTION_NAME_DIVIDER, 118);
+        int iDividerLocation = SettingsHandler.getGMGenOption(PreferencesDialog.OPTION_NAME_DIVIDER, 118);
         jSplitPane1.setDividerLocation(iDividerLocation);
 
-        int iWinX = SettingsHandler.getGMGenOption(OPTION_NAME_X, 0);
-        int iWinY = SettingsHandler.getGMGenOption(OPTION_NAME_Y, 0);
-        this.setLocation(iWinX, iWinY);
+        int iWinX = SettingsHandler.getGMGenOption(PreferencesDialog.OPTION_NAME_X, 0);
+        int iWinY = SettingsHandler.getGMGenOption(PreferencesDialog.OPTION_NAME_Y, 0);
+        setLocation(iWinX, iWinY);
 
-        int iWinWidth = SettingsHandler.getGMGenOption(OPTION_NAME_WIDTH, 550);
-        int iWinHeight = SettingsHandler.getGMGenOption(OPTION_NAME_HEIGHT, 385);
-        this.setSize(iWinWidth, iWinHeight);
+        int iWinWidth = SettingsHandler.getGMGenOption(PreferencesDialog.OPTION_NAME_WIDTH, 550);
+        int iWinHeight = SettingsHandler.getGMGenOption(PreferencesDialog.OPTION_NAME_HEIGHT, 385);
+        setSize(iWinWidth, iWinHeight);
     }
 
     /** Sets all the widgets to reflect the current preferences */
@@ -171,9 +179,9 @@ public class PreferencesDialog extends AbstractPreferencesDialog
         {
             panel.initPreferences();
             // add panel to card layout
-            JPanel jp = new JPanel(new BorderLayout());
-            JLabel comp = new JLabel(panel.toString());
+            Component comp = new JLabel(panel.toString());
             comp.setFont(UIManager.getFont("TitledBorder.font"));
+            Container jp = new JPanel(new BorderLayout());
             jp.add(comp, BorderLayout.NORTH);
             jp.add(panel, BorderLayout.CENTER);
 

@@ -21,12 +21,14 @@
 package gmgen.gui;
 
 
-/** 
+import javax.swing.JPanel;
+
+/**
  * This interface defines what a preferences panel needs to be able to do.
  *
  * @author  devon
  */
-public abstract class PreferencesPanel extends javax.swing.JPanel
+public abstract class PreferencesPanel extends JPanel
 {
 	/** Apply the preferences */ 
 	public abstract void applyPreferences();
