@@ -77,6 +77,8 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AgeSet;
@@ -178,7 +180,8 @@ import pcgen.gui2.util.HtmlInfoBuilder;
 import pcgen.io.ExportException;
 import pcgen.io.ExportHandler;
 import pcgen.io.PCGIOHandler;
-import pcgen.output.channel.ChannelCompatibility;
+import pcgen.output.channel.ChannelUtilities;
+import pcgen.output.channel.compat.StatAdapter;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasClosedMessage;
 import pcgen.system.CharacterManager;
@@ -310,6 +313,22 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		undoManager = new UndoManager();
 	}
 
+	private static WriteableReferenceFacade<Integer> getStatScore(CharID id,
+	                                                              PCStat stat)
+	{
+		String channelName = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.STATINPUT);
+		if (channelName == null)
+		{
+			return StatAdapter.generate(id, stat);
+		}
+		else
+		{
+			return (WriteableReferenceFacade<Integer>) ChannelUtilities
+				.getChannel(id, stat, channelName);
+		}
+	}
+
 	@Override
 	public void closeCharacter()
 	{
@@ -373,7 +392,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			if (stat instanceof PCStat)
 			{
-				statScoreMap.put(stat, ChannelCompatibility.getStatScore(theCharacter.getCharID(), (PCStat) stat));
+				statScoreMap.put(stat, getStatScore(theCharacter.getCharID(), (PCStat) stat));
 			}
 			else
 			{
