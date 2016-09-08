@@ -17,18 +17,18 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.SizeAdjustment;
-import plugin.lsttokens.choose.SizeToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.choose.SizeToken;
 
 public class SizeTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<SizeAdjustment>
 {
 
-	static SizeToken pca = new SizeToken();
+	static final SizeToken pca = new SizeToken();
 
 	@Test
 	public void testEmpty()

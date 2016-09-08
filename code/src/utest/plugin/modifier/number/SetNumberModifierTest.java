@@ -17,10 +17,6 @@
  */
 package plugin.modifier.number;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.LegalScope;
@@ -29,9 +25,12 @@ import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SplitFormulaSetup;
 import pcgen.base.util.FormatManager;
-import plugin.modifier.testsupport.EvalManagerUtilities;
 
-public class SetNumberModifierTest extends TestCase
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
+import static org.junit.Assert.*;
+
+public class SetNumberModifierTest
 {
 
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
@@ -46,13 +45,9 @@ public class SetNumberModifierTest extends TestCase
 			m.getModifier(100, null, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
@@ -203,7 +198,7 @@ public class SetNumberModifierTest extends TestCase
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", null, varScope, numManager);
 		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
+		assertSame(Number.class, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
 
@@ -218,7 +213,7 @@ public class SetNumberModifierTest extends TestCase
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6+5", iSetup.getFormulaManager(), varScope, numManager);
 		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
-		assertEquals(Number.class, modifier.getVariableFormat());
+		assertSame(Number.class, modifier.getVariableFormat());
 		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
 		evalManager.push(EvaluationManager.FMANAGER, iSetup.getFormulaManager());
 		assertEquals(11, modifier.process(evalManager));

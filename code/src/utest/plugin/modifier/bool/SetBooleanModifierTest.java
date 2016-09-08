@@ -17,50 +17,46 @@
  */
 package plugin.modifier.bool;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
-import plugin.modifier.testsupport.EvalManagerUtilities;
+import pcgen.rules.persistence.token.ModifierFactory;
 
-public class SetBooleanModifierTest extends TestCase
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
+import static org.junit.Assert.*;
+
+public class SetBooleanModifierTest
 {
 
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<Boolean> booleanManager = new BooleanManager();
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private FormatManager<Boolean> booleanManager = new BooleanManager();
 
 	@Test
 	public void testInvalidConstruction()
 	{
 		try
 		{
-			SetModifierFactory m = new SetModifierFactory();
+			ModifierFactory m = new SetModifierFactory();
 			m.getModifier(100, null, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
 	@Test
 	public void testGetModifier()
 	{
-		SetModifierFactory factory = new SetModifierFactory();
+		ModifierFactory factory = new SetModifierFactory();
 		Modifier<Boolean> modifier =
 				factory.getModifier(5, "True", null, varScope, booleanManager);
 		assertEquals(5l<<32, modifier.getPriority());
-		assertEquals(Boolean.class, modifier.getVariableFormat());
+		assertSame(Boolean.class, modifier.getVariableFormat());
 		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));
 	}
 

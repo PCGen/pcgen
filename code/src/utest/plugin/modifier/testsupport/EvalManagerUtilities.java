@@ -2,8 +2,12 @@ package plugin.modifier.testsupport;
 
 import pcgen.base.formula.base.EvaluationManager;
 
-public class EvalManagerUtilities
+public final class EvalManagerUtilities
 {
+
+	private EvalManagerUtilities()
+	{
+	}
 
 	public static EvaluationManager getInputEM(Object input)
 	{

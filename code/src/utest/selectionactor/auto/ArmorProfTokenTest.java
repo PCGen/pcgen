@@ -17,17 +17,17 @@
  */
 package selectionactor.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.ArmorProf;
+
+import org.junit.Test;
 import plugin.lsttokens.auto.ArmorProfToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
 {
 
-	private static final ArmorProfToken cra = new ArmorProfToken();
+	private static final ChooseSelectionActor<ArmorProf> cra = new ArmorProfToken();
 
 	@Test
 	public void testEmpty()

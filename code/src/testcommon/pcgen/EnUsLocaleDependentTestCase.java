@@ -33,8 +33,6 @@ public abstract class EnUsLocaleDependentTestCase extends
 		LocaleDependentTestCase
 {
 
-	static Locale PREVIOUS_LOCALE;
-
 	@Before
 	public void changeLocale()
 	{

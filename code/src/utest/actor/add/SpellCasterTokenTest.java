@@ -17,18 +17,18 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.PCClass;
-import plugin.lsttokens.add.SpellCasterToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.add.SpellCasterToken;
 
 public class SpellCasterTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCClass>
 {
 
-	static SpellCasterToken pca = new SpellCasterToken();
+	private static final Persistent<PCClass> pca = new SpellCasterToken();
 
 	@Test
 	public void testEmpty()

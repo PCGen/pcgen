@@ -17,179 +17,176 @@
  */
 package plugin.modifier.number;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
+import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
-import plugin.modifier.testsupport.EvalManagerUtilities;
+import pcgen.rules.persistence.token.ModifierFactory;
 
-public class AddNumberModifierTest extends TestCase
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
+import static org.junit.Assert.*;
+
+public class AddNumberModifierTest
 {
-	private LegalScope varScope = new SimpleLegalScope(null, "Global");
-	FormatManager<Number> numManager = new NumberManager();
+	private final LegalScope varScope = new SimpleLegalScope(null, "Global");
+	private FormatManager<Number> numManager = new NumberManager();
 
 	@Test
 	public void testInvalidConstruction()
 	{
 		try
 		{
-			AddModifierFactory m = new AddModifierFactory();
+			ModifierFactory m = new AddModifierFactory();
 			m.getModifier(100, null, null, null, null);
 			fail("Expected AddModifier with null adder to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
 	@Test
 	public void testProcessNegative1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-5), modifier.process(-2, -3));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-5, modifier.process(-2, -3));
 	}
 
 	@Test
 	public void testProcessNegative2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-6), modifier.process(-4, -2));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-6, modifier.process(-4, -2));
 	}
 
 	@Test
 	public void testProcessPositive1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(5), modifier.process(2, 3));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(5, modifier.process(2, 3));
 	}
 
 	@Test
 	public void testProcessPositive2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(7), modifier.process(4, 3));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(7, modifier.process(4, 3));
 	}
 
 	@Test
 	public void testProcessZero1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(3), modifier.process(0, 3));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(3, modifier.process(0, 3));
 	}
 
 	@Test
 	public void testProcessZero2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(4), modifier.process(4, 0));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(4, modifier.process(4, 0));
 	}
 
 	@Test
 	public void testProcessZero3()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-3), modifier.process(0, -3));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-3, modifier.process(0, -3));
 	}
 
 	@Test
 	public void testProcessZero4()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-4), modifier.process(-4,0));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-4, modifier.process(-4,0));
 	}
 
 	@Test
 	public void testProcessMixed1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-2), modifier.process(5,-7));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-2, modifier.process(5,-7));
 	}
 
 	@Test
 	public void testProcessMixed2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Integer.valueOf(-1), modifier.process(-4,3));
+		BasicCalculation modifier = new AddModifierFactory();
+		assertEquals(-1, modifier.process(-4,3));
 	}
 
 	@Test
 	public void testProcessDoubleNegative1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(-1.7), modifier.process(-0.3, -1.4));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-1.7, modifier.process(-0.3, -1.4));
 	}
 
 	@Test
 	public void testProcessDoubleNegative2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(-7.1), modifier.process(-4.7, -2.4));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-7.1, modifier.process(-4.7, -2.4));
 	}
 
 	@Test
 	public void testProcessDoublePositive1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(6.1), modifier.process(2.6, 3.5));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(6.1, modifier.process(2.6, 3.5));
 	}
 
 	@Test
 	public void testProcessDoublePositive2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(7.5), modifier.process(4.4, 3.1));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(7.5, modifier.process(4.4, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(3.1), modifier.process(0.0, 3.1));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(3.1, modifier.process(0.0, 3.1));
 	}
 
 	@Test
 	public void testProcessDoubleZero2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(4.2), modifier.process(4.2, 0.0));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(4.2, modifier.process(4.2, 0.0));
 	}
 
 	@Test
 	public void testProcessDoubleZero3()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(-3.4), modifier.process(0.0, -3.4));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-3.4, modifier.process(0.0, -3.4));
 	}
 
 	@Test
 	public void testProcessDoubleZero4()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(-4.3), modifier.process(-4.3,0.0));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-4.3, modifier.process(-4.3,0.0));
 	}
 
 	@Test
 	public void testProcessDoubleMixed1()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(1.6), modifier.process(3.2,-1.6));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(1.6, modifier.process(3.2,-1.6));
 	}
 
 	@Test
 	public void testProcessDoubleMixed2()
 	{
-		AddModifierFactory modifier = new AddModifierFactory();
-		assertEquals(Double.valueOf(-1.1), modifier.process(-4.2,3.1));
+		BasicCalculation<Number> modifier = new AddModifierFactory();
+		assertEquals(-1.1, modifier.process(-4.2,3.1));
 	}
 
 	@Test

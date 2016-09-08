@@ -2,7 +2,6 @@ package pcgen.rules.persistence;
 
 import java.net.URI;
 
-import junit.framework.TestCase;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.format.table.DataTable;
@@ -12,23 +11,27 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
-public class TableLoaderTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class TableLoaderTest
 {
 
 	private LoadContext context;
 	private URI uri;
 	private TableLoader loader;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		uri = new URI("file:/Test%20Case");
 		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
 			new ConsolidatedListCommitStrategy());
 		loader = new TableLoader();
 	}
 
+	@Test
 	public void testNoNames()
 	{
 		try
@@ -42,6 +45,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testNoFormats()
 	{
 		try
@@ -56,6 +60,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testNoData()
 	{
 		try
@@ -70,6 +75,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testTwoStartAtData()
 	{
 		try
@@ -84,6 +90,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testTwoStartAtFormat()
 	{
 		try
@@ -98,6 +105,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testTwoStart()
 	{
 		try
@@ -111,6 +119,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testNoEnd()
 	{
 		try
@@ -124,6 +133,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testNoStart()
 	{
 		try
@@ -137,6 +147,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testResetOnEnd()
 	{
 		try
@@ -151,6 +162,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testBadEnd()
 	{
 		try
@@ -165,6 +177,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testBadStart()
 	{
 		try
@@ -179,6 +192,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testSkippedName()
 	{
 		try
@@ -193,6 +207,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMissingName()
 	{
 		try
@@ -207,6 +222,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMissingName2()
 	{
 		try
@@ -222,6 +238,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testSkippedFormat()
 	{
 		try
@@ -236,6 +253,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMissingFormat()
 	{
 		try
@@ -250,6 +268,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMissingFormat2()
 	{
 		try
@@ -265,6 +284,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testTooMuchData()
 	{
 		try
@@ -273,20 +293,13 @@ public class TableLoaderTest extends TestCase
 				"STARTTABLE:A\nName,Value\nSTRING,NUMBER\nFoo,1,2\nENDTABLE:A\n");
 			fail("Expected Failure");
 		}
-		catch (PersistenceLayerException e)
-		{
-			//Yes
-		}
-		catch (IllegalArgumentException e)
-		{
-			//Yes
-		}
-		catch (IndexOutOfBoundsException e)
+		catch (PersistenceLayerException | IndexOutOfBoundsException | IllegalArgumentException e)
 		{
 			//Yes
 		}
 	}
 
+	@Test
 	public void testBadFormat()
 	{
 		try
@@ -295,16 +308,13 @@ public class TableLoaderTest extends TestCase
 				"STARTTABLE:A\nName,Value\nSTRING,NIMBLER\nFoo,1\nENDTABLE:A\n");
 			fail("Expected Failure");
 		}
-		catch (PersistenceLayerException e)
-		{
-			//Yes
-		}
-		catch (IllegalArgumentException e)
+		catch (PersistenceLayerException | IllegalArgumentException e)
 		{
 			//Yes
 		}
 	}
 
+	@Test
 	public void testDataIncorrectFormat()
 	{
 		try
@@ -313,11 +323,7 @@ public class TableLoaderTest extends TestCase
 				"STARTTABLE:A\nName,Value\nSTRING,NUMBER\nFoo,Bar\nENDTABLE:A\n");
 			fail("Expected Failure");
 		}
-		catch (PersistenceLayerException e)
-		{
-			//Yes
-		}
-		catch (IllegalArgumentException e)
+		catch (PersistenceLayerException | IllegalArgumentException e)
 		{
 			//Yes
 		}
@@ -326,6 +332,7 @@ public class TableLoaderTest extends TestCase
 	//TODO Blank Data in middle of Row?
 	//TODO Blank Data at end of row?
 
+	@Test
 	public void testBasic()
 	{
 		try
@@ -360,6 +367,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testIndependence()
 	{
 		try
@@ -392,6 +400,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testDuplicateIndependence()
 	{
 		try
@@ -425,6 +434,7 @@ public class TableLoaderTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testMismatchedFormat()
 	{
 		try

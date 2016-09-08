@@ -21,7 +21,7 @@ import java.lang.reflect.Field;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.facet.model.ClassFacet;
 
-public class ClassFacetInfoInequality implements
+class ClassFacetInfoInequality implements
 		InequalityTest<ClassFacet.ClassInfo>
 {
 

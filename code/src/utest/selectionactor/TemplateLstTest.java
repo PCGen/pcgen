@@ -17,17 +17,17 @@
  */
 package selectionactor;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCTemplate;
+
+import org.junit.Test;
 import plugin.lsttokens.TemplateLst;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class TemplateLstTest extends AbstractSelectionActorTest<PCTemplate>
 {
 
-	static TemplateLst csa = new TemplateLst();
+	private static final ChooseSelectionActor<PCTemplate> csa = new TemplateLst();
 
 	@Test
 	public void testEmpty()
