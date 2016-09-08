@@ -28,8 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -39,18 +37,21 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CampaignInfoFactory;
-import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
-import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.gui2.facade.Gui2CampaignInfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang.ArrayUtils;
 
 /**
  *
@@ -59,7 +60,7 @@ import pcgen.util.Logging;
 public class FacadeFactory
 {
 
-	private static PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");
+	private static final PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");
 	private static DefaultListFacade<SourceSelectionFacade> quickSources = null;
 	private static DefaultListFacade<CampaignFacade> campaigns = null;
 	private static DefaultListFacade<GameModeFacade> gamemodes = null;
@@ -68,7 +69,7 @@ public class FacadeFactory
 	private static DefaultListFacade<SourceSelectionFacade> customSources;
 	private static Map<String, CampaignFacade> campaignMap;
 	private static Map<GameModeFacade, DefaultListFacade<CampaignFacade>> campaignListMap = null;
-	private static CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
+	private static final CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
 
 	static void initialize()
 	{
@@ -397,7 +398,7 @@ public class FacadeFactory
 		private final DefaultReferenceFacade<GameModeFacade> gameModeRef;
 		private final String name;
 
-		public BasicSourceSelectionFacade(String name, ListFacade<CampaignFacade> campaignModel, GameModeFacade gameMode)
+		private BasicSourceSelectionFacade(String name, ListFacade<CampaignFacade> campaignModel, GameModeFacade gameMode)
 		{
 			this.name = name;
 			this.campaignModel = campaignModel;
@@ -463,23 +464,23 @@ public class FacadeFactory
 
 	}
 
-	private static class CustomSourceSelectionFacade implements SourceSelectionFacade
+	private static final class CustomSourceSelectionFacade implements SourceSelectionFacade
 	{
 
-		private PropertyContext context;
-		private String name;
+		private final PropertyContext context;
+		private final String name;
 		private LoadingState loadingState = LoadingState.LOADED;
 		private String errorMessage = null;
 
-		public CustomSourceSelectionFacade(String name)
+		private CustomSourceSelectionFacade(String name)
 		{
 			this.name = name;
-			this.context = sourcesContext.createChildContext(name);
+			this.context = FacadeFactory.sourcesContext.createChildContext(name);
 		}
 
-		private DefaultListFacade<CampaignFacade> campaigns =
+		private final DefaultListFacade<CampaignFacade> campaigns =
                 new DefaultListFacade<>();
-		private DefaultReferenceFacade<GameModeFacade> gameModeRef =
+		private final WriteableReferenceFacade<GameModeFacade> gameModeRef =
                 new DefaultReferenceFacade<>();
 
         @Override
@@ -525,12 +526,12 @@ public class FacadeFactory
 			return errorMessage;
 		}
 
-		void setLoadingState(LoadingState loadingState)
+		private void setLoadingState(LoadingState loadingState)
 		{
 			this.loadingState = loadingState;
 		}
 
-		void setErrorMessage(String errorMessage)
+		private void setErrorMessage(String errorMessage)
 		{
 			this.errorMessage = errorMessage;
 		}

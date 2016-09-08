@@ -38,8 +38,10 @@ import java.util.logging.Handler;
 import java.util.logging.LogRecord;
 
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -101,7 +103,10 @@ import pcgen.persistence.lst.GenericLocalVariableLoader;
 import pcgen.persistence.lst.GlobalModifierLoader;
 import pcgen.persistence.lst.KitLoader;
 import pcgen.persistence.lst.LstFileLoader;
+import pcgen.persistence.lst.LstLineFileLoader;
+import pcgen.persistence.lst.LstObjectFileLoader;
 import pcgen.persistence.lst.PCClassLoader;
+import pcgen.persistence.lst.SourceEntry;
 import pcgen.persistence.lst.VariableLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
@@ -127,59 +132,59 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	/*
 	 * File lists
 	 */
-	private final HashMapToList<ListKey<?>, CampaignSourceEntry> fileLists = new HashMapToList<>();
+	private final AbstractMapToList<ListKey<?>, CampaignSourceEntry> fileLists = new HashMapToList<>();
 
 	/*
 	 * Loaders
 	 */
-	private PCClassLoader classLoader = new PCClassLoader();
-	private GenericLoader<Language> languageLoader =
+	private final PCClassLoader classLoader = new PCClassLoader();
+	private final LstObjectFileLoader<Language> languageLoader =
 			new GenericLoader<>(Language.class);
-	private AbilityCategoryLoader abilityCategoryLoader =
+	private final LstLineFileLoader abilityCategoryLoader =
 			new AbilityCategoryLoader();
-	private CompanionModLoader companionModLoader = new CompanionModLoader();
-	private KitLoader kitLoader = new KitLoader();
-	private BioSetLoader bioLoader = new BioSetLoader();
-	private AbilityLoader abilityLoader = new AbilityLoader();
-	private FeatLoader featLoader = new FeatLoader();
-	private GenericLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
-	private GenericLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "EQUIPMENT");
-	private GenericLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "EQUIPMENT.PART");
-	private GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
-	private GenericLoader<Skill> skillLoader = new GenericLocalVariableLoader<>(Skill.class, "SKILL");
-	private GenericLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
-	private GenericLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
-	private GenericLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
-	private GenericLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
-	private GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
-	private GenericLoader<PCCheck> savesLoader = new GenericLocalVariableLoader<>(PCCheck.class, "SAVE");
-	private GenericLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
-	private GenericLoader<PCStat> statLoader = new GenericLocalVariableLoader<>(PCStat.class, "STAT");
-	private GenericLoader<SizeAdjustment> sizeLoader = new GenericLocalVariableLoader<>(SizeAdjustment.class, "SIZE");
-	private GenericLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
-	private CDOMControlLoader dataControlLoader = new CDOMControlLoader();
-	private VariableLoader variableLoader = new VariableLoader();
-	private TableLoader tableLoader = new TableLoader();
-	private GlobalModifierLoader globalModifierLoader =
+	private final LstLineFileLoader companionModLoader = new CompanionModLoader();
+	private final LstObjectFileLoader kitLoader = new KitLoader();
+	private final LstLineFileLoader bioLoader = new BioSetLoader();
+	private final LstObjectFileLoader abilityLoader = new AbilityLoader();
+	private final LstObjectFileLoader featLoader = new FeatLoader();
+	private final LstObjectFileLoader<PCTemplate> templateLoader = new GenericLoader<>(PCTemplate.class);
+	private final LstObjectFileLoader<Equipment> equipmentLoader = new GenericLocalVariableLoader<>(Equipment.class, "EQUIPMENT");
+	private final LstObjectFileLoader<EquipmentModifier> eqModLoader = new GenericLocalVariableLoader<>(EquipmentModifier.class, "EQUIPMENT.PART");
+	private final LstObjectFileLoader<Race> raceLoader = new GenericLoader<>(Race.class);
+	private final LstObjectFileLoader<Skill> skillLoader = new GenericLocalVariableLoader<>(Skill.class, "SKILL");
+	private final LstObjectFileLoader<WeaponProf> wProfLoader = new GenericLoader<>(WeaponProf.class);
+	private final LstObjectFileLoader<ArmorProf> aProfLoader = new GenericLoader<>(ArmorProf.class);
+	private final LstObjectFileLoader<ShieldProf> sProfLoader = new GenericLoader<>(ShieldProf.class);
+	private final LstObjectFileLoader<Deity> deityLoader = new GenericLoader<>(Deity.class);
+	private final LstObjectFileLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
+	private final LstObjectFileLoader<PCCheck> savesLoader = new GenericLocalVariableLoader<>(PCCheck.class, "SAVE");
+	private final LstObjectFileLoader<PCAlignment> alignmentLoader = new GenericLoader<>(PCAlignment.class);
+	private final LstObjectFileLoader<PCStat> statLoader = new GenericLocalVariableLoader<>(PCStat.class, "STAT");
+	private final LstObjectFileLoader<SizeAdjustment> sizeLoader = new GenericLocalVariableLoader<>(SizeAdjustment.class, "SIZE");
+	private final LstObjectFileLoader<Spell> spellLoader = new GenericLoader<>(Spell.class);
+	private final LstLineFileLoader dataControlLoader = new CDOMControlLoader();
+	private final VariableLoader variableLoader = new VariableLoader();
+	private final LstLineFileLoader tableLoader = new TableLoader();
+	private final LstLineFileLoader globalModifierLoader =
 			new GlobalModifierLoader();
-	private DynamicLoader dynamicLoader = new DynamicLoader();
+	private final LstLineFileLoader dynamicLoader = new DynamicLoader();
 
 	/*
 	 * Other properties
 	 */
-	private final List<CampaignSourceEntry> licenseFiles = new ArrayList<>();
-	private final Set<String> sourcesSet = new TreeSet<>();
-	private List<Campaign> loadedCampaigns = new ArrayList<>();
-	private StringBuilder sec15 = new StringBuilder(500);
-	private StringBuilder licensesToDisplayString = new StringBuilder(500);
-	private StringBuilder matureCampaigns = new StringBuilder(100);
+	private final Collection<CampaignSourceEntry> licenseFiles = new ArrayList<>();
+	private final Collection<String> sourcesSet = new TreeSet<>();
+	private final Collection<Campaign> loadedCampaigns = new ArrayList<>();
+	private final StringBuilder sec15 = new StringBuilder(500);
+	private final StringBuilder licensesToDisplayString = new StringBuilder(500);
+	private final StringBuilder matureCampaigns = new StringBuilder(100);
 	private final CampaignSourceEntry globalCampaign;
 	private boolean showD20 = false;
 	private boolean showLicensed = true;
 	private boolean showMature = false;
 	private boolean showOGL = false;
-	private List<Campaign> selectedCampaigns;
-	private GameMode selectedGame;
+	private final List<Campaign> selectedCampaigns;
+	private final GameMode selectedGame;
 	private DataSet dataset = null;
 	private int progress = 0;
 	private final UIDelegate uiDelegate;
@@ -238,7 +243,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Globals.initPreferences();
 		Globals.emptyLists();
 
-		LoadHandler handler = new LoadHandler();
+		Handler handler = new LoadHandler();
 		Logging.registerHandler(handler);
 		try
 		{
@@ -266,9 +271,9 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	/**
 	 * @return a list of licenses read from the campaign license files
 	 */
-	public List<String> getOtherLicenses()
+	public Iterable<String> getOtherLicenses()
 	{
-		List<String> licenses = new ArrayList<>();
+		Collection<String> licenses = new ArrayList<>();
 		for (CampaignSourceEntry licenseFile : licenseFiles)
 		{
 			try
@@ -452,7 +457,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				URI.create("file:/" + eqModLoader.getClass().getName()
 					+ ".java");
 		context.setSourceURI(uri);
-		CampaignSourceEntry source =
+		SourceEntry source =
 				new CampaignSourceEntry(new Campaign(), uri);
 		LoadContext subContext = context.dropIntoContext("EQUIPMENT");
 		String aLine;
@@ -490,7 +495,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		sourcesSet.clear();
 		licenseFiles.clear();
 
-		if (selectedCampaigns.size() == 0)
+		if (selectedCampaigns.isEmpty())
 		{
 			throw new PersistenceLayerException(
 				"You must select at least one campaign to load.");
@@ -910,7 +915,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		//
 		final List<String> gDeities = Globals.getGlobalDeityList();
 
-		if ((gDeities != null) && (gDeities.size() != 0))
+		if ((gDeities != null) && (!gDeities.isEmpty()))
 		{
 			for (String aLine : gDeities)
 			{
@@ -997,14 +1002,11 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	 *
 	 * @param aSelectedCampaignsList
 	 *            List of Campaigns to load
-	 * @param currentPC
-	 * @param game
-	 *            The gamemode that the campaigns are part of.
 	 */
 	private Collection<Campaign> readPccFiles(
-		List<Campaign> aSelectedCampaignsList)
+			Iterable<Campaign> aSelectedCampaignsList)
 	{
-		Set<Campaign> loadedSet = new HashSet<>();
+		Collection<Campaign> loadedSet = new HashSet<>();
 
 		// Create aggregate collections of source files to load
 		// along with any options required by the campaigns...
@@ -1040,7 +1042,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 			{
 				List<String> licenseList =
 						campaign.getSafeListFor(ListKey.LICENSE);
-				if (licenseList != null && licenseList.size() > 0)
+				if (licenseList != null && !licenseList.isEmpty())
 				{
 					licensesToDisplayString.append(licenseList);
 				}
@@ -1135,7 +1137,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 		Set<String> keys = aCamp.getKeysFor(MapKey.PROPERTY);
 		if (keys != null)
 		{
-			for (String key : keys)
+			for (final String key : keys)
 			{
 				String value = aCamp.get(MapKey.PROPERTY, key);
 				if (key.contains("."))
@@ -1150,11 +1152,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 				SettingsHandler.setPCGenOption(key, value);
 			}
 			// Make sure any game mode settings are applied.
-			for (GameMode game : SystemCollections
-				.getUnmodifiableGameModeList())
-			{
-				game.applyPreferences();
-			}
+			SystemCollections.getUnmodifiableGameModeList().forEach(GameMode::applyPreferences);
 		}
 	}
 
@@ -1238,7 +1236,7 @@ public class SourceFileLoader extends PCGenTask implements Observer
 	private class LoadHandler extends Handler
 	{
 
-		public LoadHandler()
+		private LoadHandler()
 		{
 			setLevel(Logging.LST_WARNING);
 		}

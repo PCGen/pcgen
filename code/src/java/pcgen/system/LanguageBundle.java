@@ -27,7 +27,7 @@ import java.util.ResourceBundle;
 import pcgen.util.Logging;
 
 /**
- * <code>LanguageBundle</code> manages the localisation of the PCGen interface. 
+ * {@code LanguageBundle} manages the localisation of the PCGen interface.
  * It provides a set of features to translate il8n keys into text in the 
  * language chosen in preferences.
  *
@@ -39,8 +39,12 @@ public final class LanguageBundle
 	private static final String BUNDLE_NAME = "pcgen.resources.lang"; //$NON-NLS-1$
 
 	/** Undefined Property */
-	public static final String UNDEFINED = " not defined."; //$NON-NLS-1$
+	private static final String UNDEFINED = " not defined."; //$NON-NLS-1$
 	private static ResourceBundle bundle;
+
+	private LanguageBundle()
+	{
+	}
 
 	/**
 	 * Get the Mnemonic
@@ -76,7 +80,9 @@ public final class LanguageBundle
 	{
 		String string = getString(aKey);
 		if (varargs != null && varargs.length > 0)
+		{
 			return MessageFormat.format(string, varargs);
+		}
 		return string;
 	}
 
@@ -84,7 +90,7 @@ public final class LanguageBundle
 	{
 		final String mnemonic = getProperty(property);
 
-		if (mnemonic.length() != 0)
+		if (!mnemonic.isEmpty())
 		{
 			return mnemonic.charAt(0);
 		}
@@ -170,12 +176,21 @@ public final class LanguageBundle
 	 */
 	public static String getPrettyMultiplier(double d)
 	{
-		if (0.25d == d)
-			return LanguageBundle.getString("in_multQuarter"); //$NON-NLS-1$
-		else if (0.5d == d)
-			return LanguageBundle.getString("in_multHalf"); //$NON-NLS-1$
-		else if (0.75d == d)
-			return LanguageBundle.getString("in_multThreeQuarter"); //$NON-NLS-1$
-		else return MessageFormat.format(LanguageBundle.getString("in_multiply"), d); //$NON-NLS-1$
+		if (d == 0.25d)
+		{
+			return getString("in_multQuarter"); //$NON-NLS-1$
+		}
+		else if (d == 0.5d)
+		{
+			return getString("in_multHalf"); //$NON-NLS-1$
+		}
+		else if (d == 0.75d)
+		{
+			return getString("in_multThreeQuarter"); //$NON-NLS-1$
+		}
+		else
+		{
+			return MessageFormat.format(getString("in_multiply"), d); //$NON-NLS-1$
+		}
 	}
 }
