@@ -24,6 +24,7 @@ import java.io.File;
 import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.Collection;
+import java.util.Map;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
@@ -46,18 +47,21 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.BioSetLoader;
 import pcgen.persistence.lst.EquipIconLoader;
 import pcgen.persistence.lst.EquipSlotLoader;
-import pcgen.persistence.lst.GameModeLoader;
+import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.persistence.lst.LevelLoader;
 import pcgen.persistence.lst.LoadInfoLoader;
 import pcgen.persistence.lst.LocationLoader;
 import pcgen.persistence.lst.LstFileLoader;
 import pcgen.persistence.lst.LstLineFileLoader;
+import pcgen.persistence.lst.LstToken;
+import pcgen.persistence.lst.LstUtils;
 import pcgen.persistence.lst.MigrationLoader;
 import pcgen.persistence.lst.PointBuyLoader;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.persistence.lst.SimplePrefixLoader;
 import pcgen.persistence.lst.SizeAdjustmentLoader;
 import pcgen.persistence.lst.StatsAndChecksLoader;
+import pcgen.persistence.lst.TokenStore;
 import pcgen.persistence.lst.TraitLoader;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.AbstractReferenceContext;
@@ -106,6 +110,50 @@ public class GameModeFileLoader extends PCGenTask
 				}
 
 			};
+
+	/**
+	 * Parse the MISC game information line in the game mode file
+	 * @param gameMode
+	 * @param aLine
+	 * @param source
+	 * @param lineNum
+	 */
+	private static void parseMiscGameInfoLine(GameMode gameMode, String aLine,
+	                                          URI source, int lineNum)
+	{
+		if (gameMode == null)
+		{
+			return;
+		}
+
+		final int idxColon = aLine.indexOf(':');
+		if (idxColon < 0)
+		{
+			return;
+		}
+
+		final String key = aLine.substring(0, idxColon);
+		final String value = aLine.substring(idxColon + 1).trim();
+		Map<String, LstToken> tokenMap =
+				TokenStore.inst().getTokenMap(GameModeLstToken.class);
+		GameModeLstToken token = (GameModeLstToken) tokenMap.get(key);
+		if (token != null)
+		{
+			LstUtils.deprecationCheck(token, gameMode.getName(), source, value);
+			if (!token.parse(gameMode, value.intern(), source))
+			{
+				Logging.errorPrint("Error parsing misc. game info "
+					+ gameMode.getName() + '/' + source + ':'
+					+ Integer.toString(lineNum) + " \"" + aLine + "\"");
+			}
+		}
+		else
+		{
+			Logging.errorPrint("Illegal misc. game info " + gameMode.getName()
+				+ '/' + source + ':' + Integer.toString(lineNum)
+				+ " \"" + aLine + "\"");
+		}
+	}
 
 	@Override
 	public String getMessage()
@@ -410,7 +458,7 @@ public class GameModeFileLoader extends PCGenTask
 				gameMode.getModeContext().getReferenceContext().importObject(AbilityCategory.FEAT);
 			}
 
-			GameModeLoader.parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
+			parseMiscGameInfoLine(gameMode, aLine, uri, i + 1);
 		}
 		
 		// Record how the FEAT category was configured

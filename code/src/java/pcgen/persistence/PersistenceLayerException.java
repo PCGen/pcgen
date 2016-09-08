@@ -36,11 +36,10 @@ public final class PersistenceLayerException extends PcgenException
 	 */
 	public PersistenceLayerException()
 	{
-		super();
 	}
 
 	/**
-	 * Constructs an instance of <code>PersistenceLayerException</code> with the specified detail message.
+	 * Constructs an instance of {@code PersistenceLayerException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public PersistenceLayerException(String msg)

@@ -4,12 +4,6 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.base.format.StringManager;
 import pcgen.base.util.BasicIndirect;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -27,15 +21,20 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.util.enumeration.Visibility;
-import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class SelectableTokenIntegrationTest extends TestCase
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import plugin.lsttokens.testsupport.TokenRegistration;
+import static org.junit.Assert.*;
+
+public class SelectableTokenIntegrationTest
 {
 
 	private static final String PROP_1 = "Property";
 	private static final String PROP_2 = "Psychology";
 	private static final StringManager STRING_MGR = new StringManager();
-	static SelectableToken token = new SelectableToken();
+	private static final SelectableToken token = new SelectableToken();
 	FactDefinition cd;
 
 	protected LoadContext context;
@@ -44,7 +43,7 @@ public class SelectableTokenIntegrationTest extends TestCase
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign =
 				new CampaignSourceEntry(new Campaign(), new URI(
@@ -52,7 +51,6 @@ public class SelectableTokenIntegrationTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -65,7 +63,7 @@ public class SelectableTokenIntegrationTest extends TestCase
 		resetContext();
 	}
 
-	protected void resetContext()
+	private void resetContext()
 	{
 		URI testURI = testCampaign.getURI();
 		context =

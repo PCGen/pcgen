@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -38,9 +34,13 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class StatIntegrationTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+import plugin.lsttokens.testsupport.BuildUtilities;
+import static org.junit.Assert.*;
+
+public class StatIntegrationTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -63,10 +63,9 @@ public class StatIntegrationTest extends TestCase
 	private PCStat stat2;
 	private Object tsource = new Object();
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -278,23 +277,23 @@ public class StatIntegrationTest extends TestCase
 		assertTrue(nonAbilityFacet.isNonAbility(id, stat1));
 	}
 	
-	private void causeLockNonAbility(CDOMObject r, PCStat stat)
+	private static void causeLockNonAbility(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.NONSTAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
-	private void causeUnLockNonAbility(CDOMObject r, PCStat stat)
+	private static void causeUnLockNonAbility(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
-	private void causeLock(CDOMObject r, PCStat stat, int i)
+	private static void causeLock(CDOMObject r, PCStat stat, int i)
 	{
 		StatLock sl = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(i));
 		r.addToListFor(ListKey.STAT_LOCKS, sl);
 	}
 
-	private void causeUnlock(CDOMObject r, PCStat stat)
+	private static void causeUnlock(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.UNLOCKED_STATS, CDOMDirectSingleRef.getRef(stat));
 	}

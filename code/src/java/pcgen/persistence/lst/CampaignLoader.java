@@ -212,26 +212,26 @@ public class CampaignLoader extends LstLineFileLoader
 		{
 			return;
 		}
-		
-		for (Prerequisite prereq : prereqList)
+
+		prereqList.forEach(prereq ->
 		{
 			if (prereq.isCharacterRequired())
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<>();
+				List<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,
-							Constants.TAB);
+								Constants.TAB);
 				Logging.log(Logging.LST_ERROR, "Prereq " + prereq.getKind()
-					+ " is not supported in PCC files. Prereq was " + lstString
-					+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
+						+ " is not supported in PCC files. Prereq was " + lstString
+						+ " in " + campaign.getSourceURI() + ". Prereq will be ignored.");
 			}
 			else
 			{
 				validatePrereqs(prereq.getPrerequisites());
 			}
-		}
+		});
 	}
 }

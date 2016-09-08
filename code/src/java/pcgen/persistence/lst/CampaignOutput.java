@@ -95,7 +95,8 @@ public final class CampaignOutput
 				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		} finally
+		}
+		finally
 		{
 			try
 			{
