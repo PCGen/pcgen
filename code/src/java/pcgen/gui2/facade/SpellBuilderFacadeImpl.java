@@ -429,7 +429,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		{
 			for (int i = minSpellLevel; i <= maxSpellLevel; i++)
 			{
-				spellLevelValues.add(Integer.valueOf(i));
+				spellLevelValues.add(i);
 			}
 		}
 		availSpellLevels.setContents(spellLevelValues);
@@ -622,7 +622,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		List<Integer> levelsForCasting = new ArrayList<>(20);
 		for (int i = min; i <= max; i++)
 		{
-			levelsForCasting.add(Integer.valueOf(i));
+			levelsForCasting.add(i);
 		}
 		availCasterlevels.setContents(levelsForCasting);
 	}

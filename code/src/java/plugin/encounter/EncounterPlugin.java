@@ -714,13 +714,13 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		catch (NumberFormatException e)
 		{
 			String[] dice = numMonsters.split("d");
-			num = Integer.valueOf(0);
+			num = 0;
 
 			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
 				num =
-						Integer.valueOf(num.intValue()
-							+ roll.nextInt(Integer.parseInt(dice[1])) + 1);
+						num.intValue()
+								+ roll.nextInt(Integer.parseInt(dice[1])) + 1;
 			}
 		}
 
@@ -1363,7 +1363,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				int size = display.getLevelHitDie(pcClass, j + 1).getDie();
 				PCClassLevel classLevel = display.getActiveClassLevel(pcClass, j);
 				aPC.setHP(classLevel,
-					Integer.valueOf(new Dice(1, size, bonus).roll()));
+						new Dice(1, size, bonus).roll());
 			}
 		}
 

@@ -70,7 +70,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
-		Integer con = Integer.valueOf(3);
+		Integer con = 3;
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));
 		assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE)

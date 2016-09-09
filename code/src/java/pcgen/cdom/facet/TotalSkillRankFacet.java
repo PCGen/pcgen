@@ -40,7 +40,7 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		SkillRankChangeListener,
 		pcgen.cdom.facet.BonusSkillRankChangeFacet.SkillRankChangeListener
 {
-	private static final Double DOUBLE_ZERO = Double.valueOf(0.0d);
+	private static final Double DOUBLE_ZERO = 0.0d;
 
 	private SkillRankFacet skillRankFacet;
 

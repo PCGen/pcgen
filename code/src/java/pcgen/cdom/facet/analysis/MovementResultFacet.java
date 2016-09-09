@@ -247,7 +247,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	
 					if (!found)
 					{
-						setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
+						setMyMoveRates(moveType, 0.0, 0.0, "", 0);
 					}
 				}
 			}

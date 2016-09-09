@@ -65,7 +65,7 @@ public class SourceModel implements TemplateHashModel
 		if (key.equals("custom"))
 		{
 			Boolean isCustom =
-					Boolean.valueOf(cdo.isType(Constants.TYPE_CUSTOM));
+					cdo.isType(Constants.TYPE_CUSTOM);
 			return SimpleWrapperLibrary.wrap(isCustom);
 		}
 		else if (key.equals("long"))

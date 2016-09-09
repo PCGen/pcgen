@@ -39,7 +39,7 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 	@Override
 	public Character getSeparator()
 	{
-		return Character.valueOf('|');
+		return '|';
 	}
 
 	@Test

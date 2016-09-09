@@ -913,7 +913,7 @@ public abstract class JepCountType
 					}
 				}
 			}
-			return Double.valueOf(count);
+			return (double) count;
 		}
 
 		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)

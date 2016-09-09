@@ -68,7 +68,7 @@ public class CritmultToken extends AbstractNonEmptyToken<Equipment> implements
 		}
 		else if ("-".equals(value))
 		{
-			cm = Integer.valueOf(-1);
+			cm = -1;
 		}
 		if (cm == null)
 		{

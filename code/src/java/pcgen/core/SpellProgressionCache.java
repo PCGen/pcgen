@@ -603,7 +603,7 @@ public class SpellProgressionCache implements Cloneable {
 			List<Formula> spellProgression = null;
 			boolean found = false;
 			if(progressionMap != null) {
-				Integer key = Integer.valueOf(classLevel);
+				Integer key = classLevel;
 				if (!progressionMap.containsKey(key)) {
 					//No spellcasting at level key, check previous levels
 					if (progressionMap.firstKey() < classLevel) {
