@@ -31,16 +31,9 @@ import pcgen.exception.PcgenException;
  */
 public final class PersistenceLayerException extends PcgenException
 {
-	/**
-	 * Creates a new instance of <code>Exception</code> without detail message.
-	 */
-	public PersistenceLayerException()
-	{
-		super();
-	}
 
 	/**
-	 * Constructs an instance of <code>PersistenceLayerException</code> with the specified detail message.
+	 * Constructs an instance of {@code PersistenceLayerException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public PersistenceLayerException(String msg)
@@ -49,7 +42,7 @@ public final class PersistenceLayerException extends PcgenException
 	}
 
 	/**
-	 * Constructs an instance of <code>PersistenceLayerException</code> with the specified {@link Throwable rootCause}
+	 * Constructs an instance of {@code PersistenceLayerException} with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param rootCause the root cause of the exception.
 	 * @param msg the detail message.

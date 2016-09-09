@@ -22,9 +22,11 @@ package pcgen.gui2;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Container;
 import java.awt.GridLayout;
 import javax.swing.BorderFactory;
+import javax.swing.JComponent;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JProgressBar;
@@ -56,9 +58,9 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 
 	private void initComponents()
 	{
-		JPanel pane = new JPanel(new BorderLayout());
+		JComponent pane = new JPanel(new BorderLayout());
 		pane.setBorder(BorderFactory.createLineBorder(Color.BLACK, 3));
-		JLabel splashLabel = new JLabel(Icons.SplashPcgen_Ennie.getImageIcon());
+		Component splashLabel = new JLabel(Icons.SplashPcgen_Ennie.getImageIcon());
 		pane.add(splashLabel, BorderLayout.NORTH);
 		loadingLabel.setBorder(BorderFactory.createEmptyBorder(10, 7, 10, 10));
 		pane.add(loadingLabel, BorderLayout.CENTER);
@@ -101,18 +103,12 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 		if (!dirty)
 		{
 			dirty = true;
-			SwingUtilities.invokeLater(new Runnable()
+			SwingUtilities.invokeLater(() ->
 			{
-
-				@Override
-				public void run()
-				{
-					PCGenTask task = event.getSource();
-					loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
-					loadingLabel.setText(task.getMessage());
-					dirty = false;
-				}
-
+				PCGenTask task = event.getSource();
+				loadProgress.getModel().setRangeProperties(task.getProgress(), 1, 0, task.getMaximum(), true);
+				loadingLabel.setText(task.getMessage());
+				dirty = false;
 			});
 		}
 
