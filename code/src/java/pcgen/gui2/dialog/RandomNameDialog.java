@@ -70,7 +70,7 @@ public class RandomNameDialog extends JDialog
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		if (frame != null)
 		{
-			Utility.setDialogRelativeLocation(frame, this);
+			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
 		

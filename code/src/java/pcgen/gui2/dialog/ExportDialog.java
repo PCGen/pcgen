@@ -101,7 +101,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	public static void showExportDialog(PCGenFrame parent)
 	{
 		ExportDialog dialog = new ExportDialog(parent);
-		Utility.setDialogRelativeLocation(parent, dialog);
+		Utility.setComponentRelativeLocation(parent, dialog);
 		dialog.setVisible(true);
 	}
 

@@ -1314,7 +1314,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel(null);
 			SinglePrefDialog prefsDialog = new SinglePrefDialog(parent, charStatsPanel);
 			charStatsPanel.setParent(prefsDialog);
-			Utility.setDialogRelativeLocation(parent, prefsDialog);
+			Utility.setComponentRelativeLocation(parent, prefsDialog);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
 		}
@@ -1340,7 +1340,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			KitSelectionDialog kitDialog
 					= new KitSelectionDialog(frame, character);
-			Utility.setDialogRelativeLocation(frame, kitDialog);
+			Utility.setComponentRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);
 		}
 
