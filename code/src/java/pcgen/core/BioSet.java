@@ -348,7 +348,7 @@ public final class BioSet extends PObject implements NonInteractive
 			}
 			final String tagValue = iter.next();
 			SortedMap<String, SortedMap<String, String>> races = ageSets
-					.get(Integer.valueOf(ageBracket));
+					.get(ageBracket);
 			if (races == null)
 			{
 				races = new TreeMap<>();

@@ -81,7 +81,7 @@ public class ReachFacet implements ItemFacet<CharID, Integer>
 	@Override
 	public Integer get(CharID id)
 	{
-		return Integer.valueOf(getReach(id));
+		return getReach(id);
 	}
 
 	public void setTemplateFacet(TemplateFacet templateFacet)

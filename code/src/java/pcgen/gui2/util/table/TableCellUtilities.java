@@ -82,7 +82,7 @@ public final class TableCellUtilities
 		@Override
 		public Object getCellEditorValue()
 		{
-			return Boolean.valueOf(button.isSelected());
+			return button.isSelected();
 		}
 
 		@Override

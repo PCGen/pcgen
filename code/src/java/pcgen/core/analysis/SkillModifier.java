@@ -41,7 +41,7 @@ public final class SkillModifier
 		int bonus = 0;
 		if (aPC == null)
 		{
-			return Integer.valueOf(0);
+			return 0;
 		}
 
 		String keyName = sk.getKeyName();

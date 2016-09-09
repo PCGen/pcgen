@@ -228,7 +228,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		{
 			numAttacks = numAttacks.substring(1);
 		}
-		anEquip.put(ObjectKey.ATTACKS_PROGRESS, Boolean.valueOf(!attacksFixed));
+		anEquip.put(ObjectKey.ATTACKS_PROGRESS, !attacksFixed);
 		try
 		{
 			int bonusAttacks = Integer.parseInt(numAttacks) - 1;
@@ -268,8 +268,8 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			{
 				try
 				{
-					handsrequired = Integer.valueOf(Integer
-							.parseInt(hString));
+					handsrequired = Integer
+							.parseInt(hString);
 				}
 				catch (NumberFormatException exc)
 				{
@@ -298,11 +298,11 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 
 		if (!ControlUtilities.hasControlToken(context, CControl.CRITRANGE))
 		{
-			equipHead.put(IntegerKey.CRIT_RANGE, Integer.valueOf(1));
+			equipHead.put(IntegerKey.CRIT_RANGE, 1);
 		}
 		if (!ControlUtilities.hasControlToken(context, CControl.CRITMULT))
 		{
-			equipHead.put(IntegerKey.CRIT_MULT, Integer.valueOf(2));
+			equipHead.put(IntegerKey.CRIT_MULT, 2);
 		}
 
 		return anEquip;

@@ -68,7 +68,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
 		{
 			return Integer.valueOf(arg0.getPriority()).compareTo(
-				Integer.valueOf(arg1.getPriority()));
+					arg1.getPriority());
 		}
 	};
 

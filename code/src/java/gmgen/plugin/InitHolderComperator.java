@@ -44,16 +44,16 @@ public class InitHolderComperator implements Comparator<InitHolder>
 		InitHolder i2 = o2;
 		SystemInitiative init1 = i1.getInitiative();
 		SystemInitiative init2 = i2.getInitiative();
-		Integer initval1 = Integer.valueOf(init1.getCurrentInitiative());
-		Integer initval2 = Integer.valueOf(init2.getCurrentInitiative());
+		Integer initval1 = init1.getCurrentInitiative();
+		Integer initval2 = init2.getCurrentInitiative();
 
 		int comp = initval2.compareTo(initval1);
 		if (comp != 0)
 		{
 			return comp;
 		}
-		Integer dexval1 = Integer.valueOf(init1.getAttribute().getValue());
-		Integer dexval2 = Integer.valueOf(init2.getAttribute().getValue());
+		Integer dexval1 = init1.getAttribute().getValue();
+		Integer dexval2 = init2.getAttribute().getValue();
 
 		return dexval1.compareTo(dexval2);
 	}

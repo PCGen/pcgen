@@ -486,7 +486,7 @@ public final class PCGIOHandler extends IOHandler
 
 					if (iRoll > iSides)
 					{
-						currentPC.setHP(pcl, Integer.valueOf(iSides));
+						currentPC.setHP(pcl, iSides);
 						fixMade = true;
 					}
 				}

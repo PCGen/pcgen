@@ -2656,7 +2656,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Assume a max of 10 attack cycles
 		for (int total = 0; total < 10; ++total)
 		{
-			ab.add(Integer.valueOf(0));
+			ab.add(0);
 		}
 
 		// Some classes (like the Monk or Ranged Sniper) use
@@ -2676,7 +2676,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				final int d = ab.get(c).intValue() + b;
 
 				// set new value for iteration
-				ab.set(c, Integer.valueOf(d));
+				ab.set(c, d);
 			}
 
 			if (c != 3)
@@ -2913,7 +2913,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			bonus = Math.max(bonus, masterBonus);
 		}
 
-		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
+		variableProcessor.addCachedVariable(cacheLookup, (float) bonus);
 		return (int) bonus;
 	}
 
@@ -4687,11 +4687,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
 			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
 
-			variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
+			variableProcessor.addCachedVariable(cacheLookup, (float) masterBAB);
 			return masterBAB;
 		}
 		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
-		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(bab));
+		variableProcessor.addCachedVariable(cacheLookup, (float) bab);
 		return bab;
 	}
 
@@ -7555,7 +7555,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			tempQty = newQty.floatValue();
 		} else
 		{
-			newQty = Float.valueOf(tempQty);
+			newQty = tempQty;
 		}
 		boolean addAll = false;
 		boolean mergeItem = false;

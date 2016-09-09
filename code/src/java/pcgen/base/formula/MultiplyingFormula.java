@@ -76,7 +76,7 @@ public class MultiplyingFormula implements ReferenceFormula<Integer>
 		}
 		//Must calculate before rounding, consider 1.4 * 3
 		double d = numbers[0].doubleValue() * multiplier;
-		return Integer.valueOf((int) d);
+		return (int) d;
 	}
 
 	/**
