@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -38,9 +34,13 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
-import plugin.lsttokens.testsupport.BuildUtilities;
 
-public class StatIntegrationTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+import plugin.lsttokens.testsupport.BuildUtilities;
+import static org.junit.Assert.*;
+
+public class StatIntegrationTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -53,20 +53,16 @@ public class StatIntegrationTest extends TestCase
 	private CharID altid;
 	private UnlockedStatFacet unlockedFacet;
 	private StatLockFacet lockFacet;
-	private NonStatStatFacet nonStatStatFacet;
-	private NonStatToStatFacet nonStatToStatFacet;
 	private NonAbilityFacet nonAbilityFacet;
 	private RaceFacet rfacet;
 	private TemplateFacet tfacet;
-	private CDOMObjectConsolidationFacet cdomFacet;
 	private PCStat stat1;
 	private PCStat stat2;
-	private Object tsource = new Object();
+	private final Object tsource = new Object();
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -75,14 +71,14 @@ public class StatIntegrationTest extends TestCase
 		unlockedFacet = new UnlockedStatFacet();
 		lockFacet = new StatLockFacet();
 		lockFacet.setFormulaResolvingFacet(new FormulaResolvingFacet());
-		nonStatStatFacet = new NonStatStatFacet();
-		nonStatToStatFacet = new NonStatToStatFacet();
 		nonAbilityFacet = new NonAbilityFacet();
+		NonStatStatFacet nonStatStatFacet = new NonStatStatFacet();
 		nonAbilityFacet.setNonStatStatFacet(nonStatStatFacet);
+		NonStatToStatFacet nonStatToStatFacet = new NonStatToStatFacet();
 		nonAbilityFacet.setNonStatToStatFacet(nonStatToStatFacet);
 		rfacet = new RaceFacet();
 		tfacet = new TemplateFacet();
-		cdomFacet = new CDOMObjectConsolidationFacet();
+		CDOMObjectConsolidationFacet cdomFacet = new CDOMObjectConsolidationFacet();
 		CDOMObjectBridge bridge = new CDOMObjectBridge();
 		cdomFacet.setBridgeFacet(bridge);
 		rfacet.addDataFacetChangeListener(cdomFacet);
@@ -190,7 +186,7 @@ public class StatIntegrationTest extends TestCase
 	@Test
 	public void testUnlockInnocent()
 	{
-		Race r1 = new Race();
+		CDOMObject r1 = new Race();
 		causeUnlock(r1, stat2);
 		testNonAbilityUnset();
 		testLockUnset();
@@ -278,23 +274,23 @@ public class StatIntegrationTest extends TestCase
 		assertTrue(nonAbilityFacet.isNonAbility(id, stat1));
 	}
 	
-	private void causeLockNonAbility(CDOMObject r, PCStat stat)
+	private static void causeLockNonAbility(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.NONSTAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
-	private void causeUnLockNonAbility(CDOMObject r, PCStat stat)
+	private static void causeUnLockNonAbility(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.NONSTAT_TO_STAT_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
 
-	private void causeLock(CDOMObject r, PCStat stat, int i)
+	private static void causeLock(CDOMObject r, PCStat stat, int i)
 	{
 		StatLock sl = new StatLock(CDOMDirectSingleRef.getRef(stat), FormulaFactory.getFormulaFor(i));
 		r.addToListFor(ListKey.STAT_LOCKS, sl);
 	}
 
-	private void causeUnlock(CDOMObject r, PCStat stat)
+	private static void causeUnlock(CDOMObject r, PCStat stat)
 	{
 		r.addToListFor(ListKey.UNLOCKED_STATS, CDOMDirectSingleRef.getRef(stat));
 	}
