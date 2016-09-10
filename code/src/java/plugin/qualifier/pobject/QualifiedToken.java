@@ -28,7 +28,7 @@ import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -164,7 +164,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = new AddFilterConverter<>(c, this);
 		conv = negated ? new NegateFilterConverter<>(conv) : conv;
@@ -172,7 +172,7 @@ public class QualifiedToken<T extends CDOMObject> implements QualifierToken<T>,
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, T po)
+	public boolean allow(PlayerCharacterImpl pc, T po)
 	{
 		return pc.isQualified(po);
 	}

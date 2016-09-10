@@ -26,7 +26,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentChoice;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.system.LanguageBundle;
@@ -41,7 +41,7 @@ public class EquipmentChoiceDriver
 	 * @param bAdd being added
 	 * @return an integer where apparently (from how it's used) only 0 is significant
 	 */
-	public static boolean getChoice(final int pool, final Equipment parent, EquipmentModifier eqMod, final boolean bAdd, PlayerCharacter pc)
+	public static boolean getChoice(final int pool, final Equipment parent, EquipmentModifier eqMod, final boolean bAdd, PlayerCharacterImpl pc)
 	{
 		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
@@ -177,7 +177,7 @@ public class EquipmentChoiceDriver
 		final boolean   bAdd,
 		final boolean   forEqBuilder,
 		final int       numSelected,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
 		String                choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);

@@ -22,7 +22,7 @@
  */
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * The Class <code>PCHPTermEvaluator</code> is responsible for
@@ -50,7 +50,7 @@ public class PCHPTermEvaluator
 	 * @see pcgen.core.term.BasePCTermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return (float) pc.hitPoints();
 	}

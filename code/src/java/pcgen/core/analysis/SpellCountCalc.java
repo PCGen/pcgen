@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -35,8 +35,8 @@ import pcgen.core.spell.Spell;
 public class SpellCountCalc
 {
 
-	public static int memorizedSpellForLevelBook(PlayerCharacter pc, PCClass cl, int aLevel,
-			String bookName)
+	public static int memorizedSpellForLevelBook(PlayerCharacterImpl pc, PCClass cl, int aLevel,
+	                                             String bookName)
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
@@ -56,7 +56,7 @@ public class SpellCountCalc
 	}
 
 	public static int memorizedSpecialtiesForLevelBook(int aLevel, String bookName,
-			PlayerCharacter pc, PCClass cl)
+	                                                   PlayerCharacterImpl pc, PCClass cl)
 	{
 		int m = 0;
 		final List<CharacterSpell> aList =
@@ -78,7 +78,7 @@ public class SpellCountCalc
 		return m;
 	}
 
-	public static boolean isSpecialtySpell(PlayerCharacter pc, PCClass cl, Spell aSpell)
+	public static boolean isSpecialtySpell(PlayerCharacterImpl pc, PCClass cl, Spell aSpell)
 	{
 		String specialty = pc.getAssoc(cl, AssociationKey.SPECIALTY);
 		if (specialty != null)
@@ -96,7 +96,7 @@ public class SpellCountCalc
 		return false;
 	}
 
-	public static boolean isProhibited(Spell aSpell, PCClass cl, PlayerCharacter aPC)
+	public static boolean isProhibited(Spell aSpell, PCClass cl, PlayerCharacterImpl aPC)
 	{
 		if (!aSpell.qualifies(aPC, aSpell))
 		{

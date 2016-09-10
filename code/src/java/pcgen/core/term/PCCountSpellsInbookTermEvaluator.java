@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 
 public class PCCountSpellsInbookTermEvaluator
@@ -39,7 +39,7 @@ public class PCCountSpellsInbookTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return SettingsHandler.getPrintSpellsWithPC() ?
 			   (float) pc.countSpellsInBook(book) : 0f;

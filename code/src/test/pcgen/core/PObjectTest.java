@@ -137,7 +137,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			template.addToListFor(ListKey.BONUS, aBonus);
 		}
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(race);
 		pc.addTemplate(template);
 		pc.calcActiveBonuses();
@@ -216,7 +216,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(pObj, "STACK", "YES");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "TestPsion 1");
 
-		PlayerCharacter aPC = getCharacter();
+		PlayerCharacterImpl aPC = getCharacter();
 		CNAbility cna = AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "TestPsion 1");
 		pObj = cna.getAbility();
 		BonusAddition.applyBonus("SPELLKNOWN|CLASS=TestPsion;LEVEL=1|1", "TestPsion 1",
@@ -266,7 +266,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
-		PlayerCharacter aPC = getCharacter();
+		PlayerCharacterImpl aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
 		aPC.calcActiveBonuses();
@@ -305,7 +305,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		Ability pObj = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Ability.class,
 						AbilityCategory.FEAT, "Toughness");
-		PlayerCharacter aPC = getCharacter();
+		PlayerCharacterImpl aPC = getCharacter();
 		int baseHP = aPC.hitPoints();
 		AbstractCharacterTestCase.applyAbility(aPC, AbilityCategory.FEAT, pObj, "");
 		aPC.calcActiveBonuses();
@@ -327,7 +327,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		final Race pobj = new Race();
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Description should match", "Description 1.", pc
 			.getDescription(pobj));
 
@@ -408,7 +408,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(race);
 		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));

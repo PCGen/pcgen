@@ -26,7 +26,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
@@ -74,7 +74,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Race race)
+	public boolean allow(PlayerCharacterImpl pc, Race race)
 	{
 		Formula raceSize = race.get(FormulaKey.SIZE);
 		return size.get().getKeyName().equals(raceSize.toString());
@@ -108,7 +108,7 @@ public class BaseSizeToken implements PrimitiveToken<Race>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 		Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);

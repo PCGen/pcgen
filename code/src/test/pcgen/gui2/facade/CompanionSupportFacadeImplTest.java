@@ -34,7 +34,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.DataSet;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.Follower;
@@ -86,7 +86,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	@Test
 	public void testAddCompanion()
 	{
-		PlayerCharacter master = getCharacter();
+		PlayerCharacterImpl master = getCharacter();
 		master.setRace(masterRace);
 		master.setFileName("Master.pcg");
 		master.setName("Master1");
@@ -96,7 +96,7 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 						new DefaultReferenceFacade<>(),
 					new CharacterFacadeImpl(master, uiDelegate, dataSetFacade));
 		
-		PlayerCharacter companion = new PlayerCharacter();
+		PlayerCharacterImpl companion = new PlayerCharacterImpl();
 		companion.setRace(companionRace);
 		companion.setFileName("Companion.pcg");
 		companion.setName("Companion1");

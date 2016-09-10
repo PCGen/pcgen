@@ -30,7 +30,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
@@ -47,7 +47,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		TestHelper.makeEquipment("Item One\tTYPE:Goods.Magic\tSIZE:S");
 		TestHelper.makeEquipment("Item Two\tTYPE:Goods.General\tSIZE:M");
@@ -75,7 +75,7 @@ public class PreSizeTest extends AbstractCharacterTestCase
 
 	public void testEquipmentPreSize() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		Globals.getContext().getReferenceContext().resolveReferences(null);
 
 		is(eq1.sizeInt(), eq(3), "Item one is expected size");

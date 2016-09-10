@@ -32,7 +32,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.spell.Spell;
@@ -43,8 +43,8 @@ public class EqModCost
 	private static final String s_CHARGES = "CHARGES";
 
 	public static BigDecimal addItemCosts(EquipmentModifier eqMod,
-			final PlayerCharacter aPC, final String bonusType, final int qty,
-			final Equipment parent)
+	                                      final PlayerCharacterImpl aPC, final String bonusType, final int qty,
+	                                      final Equipment parent)
 	{
 		double val = 0;
 

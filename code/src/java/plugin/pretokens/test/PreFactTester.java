@@ -21,7 +21,7 @@ import pcgen.base.util.Indirect;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Reducible;
 import pcgen.cdom.enumeration.FactKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -40,7 +40,7 @@ public class PreFactTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter aPC, CDOMObject source) throws PrerequisiteException
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl aPC, CDOMObject source) throws PrerequisiteException
 	{
 		final int number;
 		try

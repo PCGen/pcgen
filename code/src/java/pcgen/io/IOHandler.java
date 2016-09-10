@@ -29,7 +29,7 @@ import java.io.OutputStream;
 import java.util.List;
 
 import pcgen.core.GameMode;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
@@ -52,7 +52,7 @@ public abstract class IOHandler
 	 * @param aPC        the PlayerCharacter to store the read data
 	 * @param path   the name of the input file, i.e. the file to be read
 	 */
-	public final void read(PlayerCharacter aPC, String path)
+	public final void read(PlayerCharacterImpl aPC, String path)
 	{
 		internalRead(aPC, path, true);
 	}
@@ -65,14 +65,14 @@ public abstract class IOHandler
 	 *
 	 * @param path a character (PCG) file path
 	 */
-	public final void readForPreview(final PlayerCharacter aPC,
+	public final void readForPreview(final PlayerCharacterImpl aPC,
 		final String path)
 	{
 		internalRead(aPC, path, false);
 	}
 
-	private void internalRead(final PlayerCharacter aPC, final String path,
-		final boolean validate)
+	private void internalRead(final PlayerCharacterImpl aPC, final String path,
+	                          final boolean validate)
 	{
 		InputStream in = null;
 
@@ -120,7 +120,7 @@ public abstract class IOHandler
 	 * @throws IOException
 	 * @throws NullPointerException
 	 */
-	public final void write(PlayerCharacter aPC, String filename)
+	public final void write(PlayerCharacterImpl aPC, String filename)
 			throws IOException, NullPointerException
 	{
 		write(aPC, null, null, filename);
@@ -136,7 +136,7 @@ public abstract class IOHandler
 	 * @throws IOException
 	 * @throws NullPointerException
 	 */
-	public final void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
+	public final void write(PlayerCharacterImpl aPC, GameMode mode, List<CampaignFacade> campaigns, String filename)
 		throws IOException, NullPointerException
 	{
 		OutputStream out = null;
@@ -220,8 +220,8 @@ public abstract class IOHandler
 	 * @param in    the stream to be read from
 	 * @param validate
 	 */
-	protected abstract void read(PlayerCharacter aPC, InputStream in,
-		final boolean validate);
+	protected abstract void read(PlayerCharacterImpl aPC, InputStream in,
+	                             final boolean validate);
 
 	/////////////////////////////////////////////////////////////////////////////
 	////////////////////////////// Abstract /////////////////////////////////////
@@ -235,5 +235,5 @@ public abstract class IOHandler
 	 * @param aPC   the PlayerCharacter to write
 	 * @param out   the stream to be written to
 	 */
-	protected abstract void write(PlayerCharacter aPC, GameMode mode, List<CampaignFacade> campaigns, OutputStream out);
+	protected abstract void write(PlayerCharacterImpl aPC, GameMode mode, List<CampaignFacade> campaigns, OutputStream out);
 }

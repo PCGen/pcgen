@@ -22,13 +22,13 @@ package pcgen.core.analysis;
 import java.util.Iterator;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.BonusObj;
 
 public class BonusActivation
 {
 
-	public static void deactivateBonuses(CDOMObject po, PlayerCharacter aPC)
+	public static void deactivateBonuses(CDOMObject po, PlayerCharacterImpl aPC)
 	{
 		for (BonusObj bonus : po.getRawBonusList(aPC))
 		{
@@ -36,7 +36,7 @@ public class BonusActivation
 		}
 	}
 
-	public static void activateBonuses(CDOMObject po, PlayerCharacter aPC)
+	public static void activateBonuses(CDOMObject po, PlayerCharacterImpl aPC)
 	{
 		for (Iterator<BonusObj> ab = po.getRawBonusList(aPC).iterator(); ab.hasNext();)
 		{

@@ -32,6 +32,7 @@ import java.util.Iterator;
 
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.io.PCGFile;
@@ -165,7 +166,7 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 
 		if (PCGFile.isPCGenCharacterFile(pcFile))
 		{
-			PlayerCharacter playerCharacter =
+			PlayerCharacterImpl playerCharacter =
 					CharacterManager.openPlayerCharacter(pcFile, delegate,
 						delegate.getLoadedDataSetRef().get(),
 						message.isBlockLoadedMessage());

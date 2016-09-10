@@ -40,7 +40,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.rules.context.LoadContext;
@@ -136,14 +136,14 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, CNAbility choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, CNAbility choice, PlayerCharacterImpl pc)
 	{
 		// build a list of available choices and choices already made.
 		processApplication(pc, choice, choice.getChooseInfo());
 	}
 
-	private <T> void processApplication(PlayerCharacter pc, CNAbility choice,
-		ChooseInformation<T> chooseInfo)
+	private <T> void processApplication(PlayerCharacterImpl pc, CNAbility choice,
+	                                    ChooseInformation<T> chooseInfo)
 	{
 		List<T> available = new ArrayList<>(chooseInfo.getSet(pc));
 		List<? extends T> selected =
@@ -192,7 +192,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 	}
 
 	@Override
-	public boolean allow(CNAbility choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(CNAbility choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return true;
 	}

@@ -20,14 +20,14 @@ package plugin.qualifier.language;
 import java.util.Collection;
 
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Language>
 {
 
 	@Override
-	protected Collection<Language> getPossessed(PlayerCharacter pc)
+	protected Collection<Language> getPossessed(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getLanguageSet();
 	}

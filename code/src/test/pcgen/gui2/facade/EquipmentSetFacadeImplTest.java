@@ -11,7 +11,7 @@ import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
@@ -74,7 +74,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 */
 	public void testInitWithEquipment()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		Equipment item = new Equipment();
 		item.setName(SATCHEL);
@@ -126,7 +126,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 */
 	public void testSlotManagementOnInitWithEquipment()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		Equipment weapon = new Equipment();
 		weapon.setName("Morningstar");
@@ -273,7 +273,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	public void testBonusSlot()
 	{
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipmentSetFacadeImpl esfi =
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es,
 					dataset, equipmentList, todoManager, null);
@@ -402,7 +402,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 
 	private EquipmentSetFacadeImpl prepareEquipmentSet()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet es = new EquipSet("0.1", "Unit Test Equip");
 		pc.addEquipSet(es);
 		Equipment item = new Equipment();
@@ -446,8 +446,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty)
+	private EquipSet addEquipToEquipSet(PlayerCharacterImpl pc, EquipSet es,
+	                                    Equipment item, float qty)
 	{
 		return addEquipToEquipSet(pc, es, item, qty, Constants.EQUIP_LOCATION_EQUIPPED);
 	}
@@ -460,8 +460,8 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet addEquipToEquipSet(PlayerCharacter pc, EquipSet es,
-		Equipment item, float qty, String locName)
+	private EquipSet addEquipToEquipSet(PlayerCharacterImpl pc, EquipSet es,
+	                                    Equipment item, float qty, String locName)
 	{
 		String id = EquipmentSetFacadeImpl.getNewIdPath(pc.getDisplay(), es);
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);

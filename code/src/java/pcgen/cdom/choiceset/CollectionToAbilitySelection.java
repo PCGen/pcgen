@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class CollectionToAbilitySelection implements
@@ -84,7 +84,7 @@ public class CollectionToAbilitySelection implements
 	}
 
 	@Override
-	public Collection<AbilitySelection> getSet(PlayerCharacter pc)
+	public Collection<AbilitySelection> getSet(PlayerCharacterImpl pc)
 	{
 		Collection<? extends AbilityWithChoice> aColl =
 				collection.getCollection(pc, new ExpandingConverter(pc));
@@ -96,7 +96,7 @@ public class CollectionToAbilitySelection implements
 		return returnSet;
 	}
 
-	private void processAbility(PlayerCharacter character,
+	private void processAbility(PlayerCharacterImpl character,
 		Set<AbilitySelection> returnSet, AbilityWithChoice awc)
 	{
 		Ability a = awc.getAbility();
@@ -128,7 +128,7 @@ public class CollectionToAbilitySelection implements
 	}
 
 	private Collection<AbilitySelection> addMultiplySelectableAbility(
-		final PlayerCharacter aPC, Ability ability, String subName)
+			final PlayerCharacterImpl aPC, Ability ability, String subName)
 	{
 		boolean isPattern = false;
 		String nameRoot = null;
@@ -188,7 +188,7 @@ public class CollectionToAbilitySelection implements
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	private <T> List<String> getAvailableList(final PlayerCharacterImpl aPC,
 		ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();
@@ -260,9 +260,9 @@ public class CollectionToAbilitySelection implements
 			Converter<Ability, AbilityWithChoice>
 	{
 
-		private final PlayerCharacter character;
+		private final PlayerCharacterImpl character;
 
-		public ExpandingConverter(PlayerCharacter pc)
+		public ExpandingConverter(PlayerCharacterImpl pc)
 		{
 			character = pc;
 		}

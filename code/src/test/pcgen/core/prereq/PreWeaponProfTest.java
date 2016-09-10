@@ -37,7 +37,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
@@ -74,7 +74,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testOneOption() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
@@ -112,7 +112,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiple() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
@@ -149,7 +149,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
 		PCTemplate pctlb = new PCTemplate();
 		LoadContext context = Globals.getContext();
@@ -188,7 +188,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testInverse() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
@@ -227,7 +227,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testWeaponProfAddedWithAutoWeaponProf() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -269,7 +269,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 	 */
 	public void testWithFeatThatGrantsBonus() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCTemplate pctls = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");

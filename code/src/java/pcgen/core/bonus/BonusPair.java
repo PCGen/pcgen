@@ -21,7 +21,7 @@ package pcgen.core.bonus;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class BonusPair
 {
@@ -36,7 +36,7 @@ public class BonusPair
 		creatorObj = source;
 	}
 
-	public Number resolve(PlayerCharacter aPC)
+	public Number resolve(PlayerCharacterImpl aPC)
 	{
 		String source;
 		if (creatorObj instanceof CDOMObject)

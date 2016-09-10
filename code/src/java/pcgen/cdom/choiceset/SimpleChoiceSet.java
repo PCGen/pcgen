@@ -32,7 +32,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A SimpleChoiceSet contains Objects
@@ -233,7 +233,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this SimpleChoiceSet contains.
 	 */
 	@Override
-	public Set<T> getSet(PlayerCharacter pc)
+	public Set<T> getSet(PlayerCharacterImpl pc)
 	{
 		return new HashSet<>(set);
 	}

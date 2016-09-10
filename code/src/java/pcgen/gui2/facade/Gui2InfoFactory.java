@@ -82,7 +82,7 @@ import pcgen.core.Movement;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -153,14 +153,14 @@ public class Gui2InfoFactory implements InfoFactory
 	/** Constant for HTML bold end tag */
 	private static final String END_BOLD = "</b>"; //$NON-NLS-1$
 
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	private final CharacterDisplay charDisplay;
 	
 	/**
 	 * Create a new Gui2InfoFactory instance for the character.
 	 * @param pc The character
 	 */
-	public Gui2InfoFactory(PlayerCharacter pc)
+	public Gui2InfoFactory(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 		this.charDisplay = pc ==  null ? null : pc.getDisplay();

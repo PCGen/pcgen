@@ -21,14 +21,14 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<PCClass>
 {
 
 	@Override
-	protected Collection<PCClass> getPossessed(PlayerCharacter pc)
+	protected Collection<PCClass> getPossessed(PlayerCharacterImpl pc)
 	{
 		return new ArrayList<>(pc.getDisplay().getClassSet());
 	}

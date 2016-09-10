@@ -27,7 +27,7 @@ import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.DomainApplication;
 import pcgen.core.spell.Spell;
 
@@ -75,7 +75,7 @@ public class DomainSpellsFacet extends
 			PCClass domainClass = getClassKeyed(id, classKey);
 			if (domainClass != null)
 			{
-				PlayerCharacter pc = trackingFacet.getPC(id);
+				PlayerCharacterImpl pc = trackingFacet.getPC(id);
 				final int maxLevel = pc.getSpellSupport(domainClass).getMaxCastLevel();
 				DomainApplication.addSpellsToClassForLevels(pc, domain,
 						domainClass, 0, maxLevel);

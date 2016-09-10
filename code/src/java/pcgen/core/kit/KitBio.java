@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * Code to represent a bio setting choices for a Kit.
@@ -80,7 +80,7 @@ public class KitBio extends BaseKit
 	 * @param aPC The character to apply the kit to.
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		if (theCharacterName != null)
 		{
@@ -119,7 +119,7 @@ public class KitBio extends BaseKit
 	 * @return true if OK
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		selectedGender = null;

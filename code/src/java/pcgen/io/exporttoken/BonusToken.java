@@ -24,7 +24,7 @@
 package pcgen.io.exporttoken;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.utils.CoreUtility;
@@ -55,7 +55,7 @@ public class BonusToken extends Token
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getBonusToken(tokenSource, pc);
@@ -67,7 +67,7 @@ public class BonusToken extends Token
 	 * @param pc
 	 * @return bonus token
 	 */
-	public static String getBonusToken(String tokenSource, PlayerCharacter pc)
+	public static String getBonusToken(String tokenSource, PlayerCharacterImpl pc)
 	{
 		StringTokenizer bonusTok = new StringTokenizer(tokenSource, ".", false);
 

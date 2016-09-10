@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
@@ -79,7 +80,7 @@ public class AbilityListToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -102,7 +103,7 @@ public class AbilityListToken extends Token
 	 * @param aCategory The ability category being output.
 	 * @return The token value.
 	 */
-	protected String getTokenForCategory(PlayerCharacter pc,
+	protected String getTokenForCategory(PlayerCharacterImpl pc,
 		final StringTokenizer aTok, final String tokenString,
 		final AbilityCategory aCategory)
 	{
@@ -181,7 +182,7 @@ public class AbilityListToken extends Token
 	 * @param aCategory The category of ability required.
 	 * @return List of feats.
 	 */
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacterImpl pc,
 		final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();

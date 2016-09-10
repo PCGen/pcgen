@@ -29,7 +29,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -43,7 +43,7 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -52,7 +52,7 @@ public class EQRangeTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.EQRANGE))
 		{

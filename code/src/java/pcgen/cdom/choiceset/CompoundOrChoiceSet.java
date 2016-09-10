@@ -30,7 +30,7 @@ import java.util.logging.Level;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 /**
@@ -116,7 +116,7 @@ public class CompoundOrChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 *         contains.
 	 */
 	@Override
-	public Set<T> getSet(PlayerCharacter pc)
+	public Set<T> getSet(PlayerCharacterImpl pc)
 	{
 		Set<T> returnSet = new HashSet<>();
 		for (PrimitiveChoiceSet<T> cs : pcsSet)

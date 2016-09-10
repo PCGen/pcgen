@@ -27,7 +27,7 @@ import java.util.List;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 
@@ -44,7 +44,7 @@ public class KitRace extends BaseKit
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
@@ -66,7 +66,7 @@ public class KitRace extends BaseKit
 	 * @param warnings List
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC, List<String> warnings)
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC, List<String> warnings)
 	{
 		apply(aPC);
 		return true;

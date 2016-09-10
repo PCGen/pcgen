@@ -17,7 +17,7 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 
@@ -25,7 +25,7 @@ public abstract class AbstractExportToken extends Token
 {
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getToken(tokenSource, pc.getDisplay(), eh);

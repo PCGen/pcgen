@@ -34,7 +34,7 @@ import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -256,7 +256,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Equipment e, PlayerCharacterImpl pc)
 	{
 		e = e.clone();
 		e.setQty(1);
@@ -265,7 +265,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Equipment e, PlayerCharacterImpl pc)
 	{
 		pc.removeAutoEquipment(e, obj);
 	}

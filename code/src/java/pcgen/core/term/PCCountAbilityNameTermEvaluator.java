@@ -28,7 +28,7 @@ import java.util.List;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountAbilityNameTermEvaluator
 		extends BasePCCountAbilitiesTermEvaluator implements TermEvaluator
@@ -53,7 +53,7 @@ public class PCCountAbilityNameTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Float count = 0f;
 
@@ -80,7 +80,7 @@ public class PCCountAbilityNameTermEvaluator
 	}
 
 	@Override
-	List<CNAbility> getAbilities(PlayerCharacter pc)
+	List<CNAbility> getAbilities(PlayerCharacterImpl pc)
 	{
 		return pc.getCNAbilities(abCat);
 	}

@@ -51,7 +51,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
@@ -111,7 +111,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		//Stats
@@ -423,7 +423,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testDoubleWeapon()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		WeaponToken token = new WeaponToken();
 
@@ -538,7 +538,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testEnhancedDoubleWeapon()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		WeaponToken token = new WeaponToken();
 		// Test magical enhancements to the double weapon H1:+1, H2:+2
@@ -564,7 +564,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testBastardSword()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("2-handed prof should be martial",
 			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
@@ -591,7 +591,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testLargeLongSword()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
@@ -618,7 +618,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testLargeWpnBonus()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
@@ -675,7 +675,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testNaturalWeapon()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Prof should be SillyBite", "SillyBite", bite
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
@@ -702,7 +702,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testWpnFinesse()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 		LoadContext context = Globals.getContext();
@@ -752,7 +752,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testWpnReach()
 	{
 		LoadContext context = Globals.getContext();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.addEquipment(largeSword);
 		EquipSet es =
 				new EquipSet("0.1.3", "Large Sword", largeSword.getName(),
@@ -801,7 +801,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testAmmunition()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.addEquipment(largeSword);
 		EquipSet es =
 				new EquipSet("0.1.3", "Large Sword", largeSword.getName(),
@@ -843,7 +843,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testTwohandedEquipped()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.addEquipment(longSpear);
 		EquipSet es =
 				new EquipSet("0.1.3", "Longspear", longSpear.getName(),
@@ -865,7 +865,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testTwohandedNotequipped()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.addEquipment(fineSword);
 		LocaleDependentTestCase.before(Locale.US);
 		EquipSet es =
@@ -899,7 +899,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testFeatBonus()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		WeaponToken token = new WeaponToken();
 		assertEquals("weapon name", dblWpn.getName(),
 			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
@@ -921,7 +921,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testTemplateBonus()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		WeaponToken token = new WeaponToken();
 		assertEquals("weapon name", dblWpn.getName(),
 			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));

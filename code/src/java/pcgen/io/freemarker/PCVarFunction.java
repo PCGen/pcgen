@@ -22,7 +22,8 @@ package pcgen.io.freemarker;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
+
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
 
@@ -35,13 +36,13 @@ import freemarker.template.TemplateModelException;
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {
-	private PlayerCharacter pc;
+	private PlayerCharacterImpl pc;
 
 	/**
 	 * Create a new instance of PCVarFunction
 	 * @param pc The character being exported.
 	 */
-	public PCVarFunction(PlayerCharacter pc)
+	public PCVarFunction(PlayerCharacterImpl pc)
 	{
 		super();
 		this.pc = pc;

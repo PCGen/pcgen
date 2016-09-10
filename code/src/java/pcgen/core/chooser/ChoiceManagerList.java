@@ -24,7 +24,7 @@ package pcgen.core.chooser;
 import java.util.List;
 
 import pcgen.cdom.base.ChooseDriver;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * Choice Manager List interface
@@ -45,7 +45,7 @@ public interface ChoiceManagerList<T> {
 	 * @param selectedList
 	 */
 	public abstract void getChoices(
-			final PlayerCharacter aPc,
+			final PlayerCharacterImpl aPc,
 			final List<T> availableList,
 			final List<T> selectedList);
 
@@ -57,7 +57,7 @@ public interface ChoiceManagerList<T> {
 	 * @return the list of selected items
 	 */
 	public abstract List<T> doChooser(
-			PlayerCharacter aPc,
+			PlayerCharacterImpl aPc,
 			final List<T> availableList,
 			final List<T> selectedList,
 			final List<String> reservedList);
@@ -70,7 +70,7 @@ public interface ChoiceManagerList<T> {
 	 * @return 
 	 */
 	public abstract List<T> doChooserRemove (
-			PlayerCharacter aPc,
+			PlayerCharacterImpl aPc,
 			final List<T> availableList,
 			final List<T> selectedList,
 			final List<String> reservedList);
@@ -83,7 +83,7 @@ public interface ChoiceManagerList<T> {
 	 * @param selected
 	 */
 	public abstract boolean applyChoices(
-			final PlayerCharacter aPC,
+			final PlayerCharacterImpl aPC,
 			final List<T> selected);
 
 	/**
@@ -95,11 +95,11 @@ public interface ChoiceManagerList<T> {
 	 * @return The number of choices that may be made 
 	 */
 	public int getNumEffectiveChoices(final List<? extends T> selectedList,
-		final List<String> reservedList, PlayerCharacter aPc);
+		final List<String> reservedList, PlayerCharacterImpl aPc);
 
-	public abstract boolean conditionallyApply(PlayerCharacter pc, T item);
+	public abstract boolean conditionallyApply(PlayerCharacterImpl pc, T item);
 
-	public abstract void restoreChoice(PlayerCharacter pc, ChooseDriver owner, String choice);
+	public abstract void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, String choice);
 
 	public void setController(ChooseController<T> cc);
 
@@ -107,9 +107,9 @@ public interface ChoiceManagerList<T> {
 
 	public int getChoicesPerUnitCost();
 
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T selection);
 
-	public void applyChoice(PlayerCharacter pc, ChooseDriver owner, T selection);
+	public void applyChoice(PlayerCharacterImpl pc, ChooseDriver owner, T selection);
 
 	public abstract T decodeChoice(String choice);
 

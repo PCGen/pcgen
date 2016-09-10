@@ -25,7 +25,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class KitTable extends BaseKit
 {
@@ -66,7 +66,7 @@ public class KitTable extends BaseKit
 		 * @param inValue the value to test.
 		 * @return True if value falls within a range
 		 */
-		public boolean isIn(PlayerCharacter pc, int inValue)
+		public boolean isIn(PlayerCharacterImpl pc, int inValue)
 		{
 			int lv = lowRange.resolve(pc, "").intValue();
 			int hv = highRange.resolve(pc, "").intValue();
@@ -80,7 +80,7 @@ public class KitTable extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		throw new UnsupportedOperationException();
 	}
@@ -92,13 +92,13 @@ public class KitTable extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		throw new UnsupportedOperationException();
 	}
 
-	public KitGear getEntry(PlayerCharacter pc, int value)
+	public KitGear getEntry(PlayerCharacterImpl pc, int value)
 	{
 		for (TableEntry entry : list)
 		{

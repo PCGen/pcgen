@@ -26,7 +26,7 @@ import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.GameModeFileLoader;
@@ -45,7 +45,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 @SuppressWarnings("nls")
 public abstract class AbstractCharacterTestCase extends PCGenTestCase
 {
-	private PlayerCharacter character = null;
+	private PlayerCharacterImpl character = null;
 	protected PCStat str;
 	protected PCStat cha;
 	protected PCStat dex;
@@ -183,7 +183,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		assertTrue(ref.resolveReferences(null));
 		context.loadCampaignFacets();
 
-		character = new PlayerCharacter();
+		character = new PlayerCharacterImpl();
 	}
 
 	protected void additionalSetUp() throws Exception
@@ -227,7 +227,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	/**
 	 * @return Returns the character.
 	 */
-	public PlayerCharacter getCharacter()
+	public PlayerCharacterImpl getCharacter()
 	{
 		return character;
 	}
@@ -239,8 +239,8 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * @param stat The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
-	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
-			final int value)
+	public void setPCStat(final PlayerCharacterImpl pc, final PCStat stat,
+	                      final int value)
 	{
 		pc.setStat(stat,  value);
 	}
@@ -266,7 +266,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * @return <tt>true</tt> if the character has the ability with the
 	 *         criteria specified.
 	 */
-	public boolean hasAbility(PlayerCharacter pc,
+	public boolean hasAbility(PlayerCharacterImpl pc,
 		final AbilityCategory aCategory, final Nature anAbilityType,
 		final Ability anAbility)
 	{
@@ -282,7 +282,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		return false;
 	}
 
-	public static CNAbility applyAbility(PlayerCharacter character,
+	public static CNAbility applyAbility(PlayerCharacterImpl character,
 		AbilityCategory cat, Ability a, String assoc)
 	{
 		if (a.getCDOMCategory() == null)
@@ -318,7 +318,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	}
 
 	protected CNAbility finalize(Ability a, String string,
-		PlayerCharacter pc, AbilityCategory cat)
+	                             PlayerCharacterImpl pc, AbilityCategory cat)
 	{
 		return applyAbility(pc, cat, a, string);
 	}

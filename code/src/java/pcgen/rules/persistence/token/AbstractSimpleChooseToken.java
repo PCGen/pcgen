@@ -39,6 +39,7 @@ import pcgen.cdom.primitive.CompoundOrPrimitive;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.ChoiceSetLoadUtilities;
 
@@ -200,19 +201,19 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, T st, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
-	private void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc,
+	private void applyChoice(ChooseDriver owner, T st, PlayerCharacterImpl pc,
 		ChooseSelectionActor<T> ca)
 	{
 		ca.applyChoice(owner, st, pc);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -226,7 +227,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -240,7 +241,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public List<T> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
+	public List<T> getCurrentlySelected(ChooseDriver owner, PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

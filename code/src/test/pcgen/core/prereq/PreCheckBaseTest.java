@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -67,7 +67,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 	 */
 	public void testBase() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
 		character.calcActiveBonuses();
@@ -95,7 +95,7 @@ public class PreCheckBaseTest extends AbstractCharacterTestCase
 
 	public void testBonus() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		final BonusObj fortBonus = Bonus.newBonus(context, "SAVE|Fortitude|1");

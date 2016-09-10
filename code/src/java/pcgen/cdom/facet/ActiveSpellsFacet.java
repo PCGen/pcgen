@@ -31,7 +31,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellBook;
@@ -121,7 +121,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	{
 		Race race = raceFacet.get(id);
 		removeAll(id, race);
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		for (SpellLikeAbility sla : spellsFacet.getQualifiedSet(id))
 		{
 			Formula times = sla.getCastTimes();

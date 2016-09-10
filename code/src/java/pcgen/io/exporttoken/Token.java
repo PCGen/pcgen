@@ -23,7 +23,7 @@
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 
 import java.util.StringTokenizer;
@@ -60,7 +60,7 @@ public abstract class Token
 	 * 						(may be null for a once off conversion).
 	 * @return The value of the token.
 	 */
-	public abstract String getToken(String tokenSource, PlayerCharacter pc,
+	public abstract String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh);
 
 	/**

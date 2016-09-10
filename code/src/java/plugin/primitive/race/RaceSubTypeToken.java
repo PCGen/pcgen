@@ -25,7 +25,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -69,7 +69,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Race race)
+	public boolean allow(PlayerCharacterImpl pc, Race race)
 	{
 		return race.containsInList(ListKey.RACESUBTYPE, racetype);
 	}
@@ -102,7 +102,7 @@ public class RaceSubTypeToken implements PrimitiveToken<Race>, PrimitiveFilter<R
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Race, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<Race, R> c)
 	{
 		return c.convert(allRaces, this);
 	}

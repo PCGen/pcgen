@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
@@ -42,7 +42,7 @@ public interface ChooseSelectionActor<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	void applyChoice(ChooseDriver obj, T item, PlayerCharacter pc);
+	void applyChoice(ChooseDriver obj, T item, PlayerCharacterImpl pc);
 
 	/**
 	 * Removes the given choice from the given PlayerCharacter.
@@ -56,7 +56,7 @@ public interface ChooseSelectionActor<T>
 	 *            The PlayerCharacter from which the given choice should be
 	 *            removed.
 	 */
-	void removeChoice(ChooseDriver obj, T item, PlayerCharacter pc);
+	void removeChoice(ChooseDriver obj, T item, PlayerCharacterImpl pc);
 
 	/**
 	 * Returns the source of this ChooseSelectionActor. Provided primarily to

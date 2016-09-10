@@ -29,7 +29,7 @@ import java.util.Collection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountAbilitiesTypeNatureAllTermEvaluator
 		extends BasePCCountAbilitiesTypeTermEvaluator implements TermEvaluator 
@@ -49,7 +49,7 @@ public class PCCountAbilitiesTypeNatureAllTermEvaluator
 	}
 
 	@Override
-	Collection<CNAbility> getAbilities(PlayerCharacter pc)
+	Collection<CNAbility> getAbilities(PlayerCharacterImpl pc)
 	{
 		return pc.getPoolAbilities(abCat, Nature.NORMAL);
 	}

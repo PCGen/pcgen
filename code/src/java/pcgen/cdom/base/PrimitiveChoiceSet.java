@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A PrimitiveChoiceSet contains references to Objects. Often these are
@@ -58,7 +58,7 @@ public interface PrimitiveChoiceSet<T>
 		}
 
 		@Override
-		public Collection getSet(PlayerCharacter pc)
+		public Collection getSet(PlayerCharacterImpl pc)
 		{
 			return Collections.emptyList();
 		}};
@@ -80,7 +80,7 @@ public interface PrimitiveChoiceSet<T>
 	 * @return A Set containing the Objects which this PrimitiveChoiceSet
 	 *         contains.
 	 */
-	public Collection<? extends T> getSet(PlayerCharacter pc);
+	public Collection<? extends T> getSet(PlayerCharacterImpl pc);
 
 	/**
 	 * The class of object this PrimitiveChoiceSet contains.

@@ -30,7 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -292,13 +292,13 @@ public class LangToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, Language l, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Language l, PlayerCharacterImpl pc)
 	{
 		pc.addAutoLanguage(l, obj);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, Language l, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Language l, PlayerCharacterImpl pc)
 	{
 		pc.removeAutoLanguage(l, obj);
 	}

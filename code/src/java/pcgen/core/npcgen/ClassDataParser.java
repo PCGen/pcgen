@@ -51,7 +51,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SystemCollections;
@@ -636,7 +636,7 @@ class ClassDataHandler extends DefaultHandler
 				{
 					// TODO This null for source is incorrect!
 					// TODO Not sure if effect of null for PC
-					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacter) null,
+					if (PrereqHandler.passesAll(apo.getPrerequisiteList(), (PlayerCharacterImpl) null,
 							null))
 					{
 						int lvl = apo

@@ -32,7 +32,7 @@ import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
@@ -189,7 +189,7 @@ public class SpellReferenceChoiceSet implements
 	 *         SpellReferenceChoiceSet contains.
 	 */
 	@Override
-	public Set<CDOMListObject<Spell>> getSet(PlayerCharacter pc)
+	public Set<CDOMListObject<Spell>> getSet(PlayerCharacterImpl pc)
 	{
 		Set<CDOMListObject<Spell>> returnSet = new HashSet<>();
 		for (CDOMReference<? extends CDOMListObject<Spell>> ref : set)

@@ -115,7 +115,7 @@ public class AgeSet implements BonusContainer
 	}
 
     @Override
-	public void activateBonuses(PlayerCharacter pc)
+	public void activateBonuses(PlayerCharacterImpl pc)
 	{
 		if (bonuses != null)
 		{
@@ -127,7 +127,7 @@ public class AgeSet implements BonusContainer
 	}
 
     @Override
-	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
+	public List<BonusObj> getActiveBonuses(PlayerCharacterImpl pc)
 	{
 		if (bonuses == null)
 		{

@@ -31,7 +31,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * <code>KitLevelAbility</code>.
@@ -96,19 +96,19 @@ public final class KitLevelAbility extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		return doApplication(aPC);
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		doApplication(aPC);
 	}
 
-	private boolean doApplication(PlayerCharacter aPC)
+	private boolean doApplication(PlayerCharacterImpl aPC)
 	{
 		PCClass theClass = theClassName.get();
 		PCClass classKeyed = aPC.getClassKeyed(theClass.getKeyName());
@@ -134,8 +134,8 @@ public final class KitLevelAbility extends BaseKit
 		return false;
 	}
 
-	private <T> void process(PlayerCharacter pc, PCClass cl,
-		PersistentTransitionChoice<T> ch)
+	private <T> void process(PlayerCharacterImpl pc, PCClass cl,
+	                         PersistentTransitionChoice<T> ch)
 	{
 		List<T> list = new ArrayList<>();
 		for (String s : choiceList)

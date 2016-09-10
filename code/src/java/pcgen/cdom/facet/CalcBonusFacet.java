@@ -24,7 +24,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * CalcBonusFacet is a Facet that triggers when an object is added in order to
@@ -60,7 +60,7 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		aPC.calcActiveBonuses();
 	}
 
@@ -81,7 +81,7 @@ public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		aPC.calcActiveBonuses();
 	}
 

@@ -54,7 +54,7 @@ public final class AbilityUtilities
 		// private constructor, do nothing
 	}
 
-	public static void finaliseAbility(PlayerCharacter aPC, CNAbilitySelection cnas)
+	public static void finaliseAbility(PlayerCharacterImpl aPC, CNAbilitySelection cnas)
 	{
 		CNAbility cna = cnas.getCNAbility();
 		Ability ability = cna.getAbility();
@@ -87,7 +87,7 @@ public final class AbilityUtilities
 	}
 
 	public static void adjustPool(final Ability ability,
-			final PlayerCharacter aPC, final boolean addIt)
+	                              final PlayerCharacterImpl aPC, final boolean addIt)
 	{
 		double abilityCount =
 				ability.getSafe(ObjectKey.SELECTION_COST).doubleValue();
@@ -147,8 +147,8 @@ public final class AbilityUtilities
 	 *
 	 * @return true if the association has already been selected
 	 */
-	public static boolean alreadySelected(PlayerCharacter pc, Ability ability,
-		String selection, boolean allowStack)
+	public static boolean alreadySelected(PlayerCharacterImpl pc, Ability ability,
+	                                      String selection, boolean allowStack)
 	{
 		Collection<CNAbility> cnAbilities = pc.getMatchingCNAbilities(ability);
 		if (cnAbilities.isEmpty())
@@ -223,7 +223,7 @@ public final class AbilityUtilities
 		return a;
 	}
 
-	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacter pc,
+	public static void driveChooseAndAdd(CNAbility cna, PlayerCharacterImpl pc,
 		boolean toAdd)
 	{
 		Ability ability = cna.getAbility();
@@ -257,7 +257,7 @@ public final class AbilityUtilities
 	}
 
 	private static <T> void processSelection(
-		PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
+			PlayerCharacterImpl pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
 	{
 		ArrayList<T> availableList = new ArrayList<>();
 		ArrayList<T> selectedList = new ArrayList<>();

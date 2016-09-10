@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class PCSizeModEvaluatorTermEvaluator 
@@ -37,7 +37,7 @@ public class PCSizeModEvaluatorTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		if (pc.hasControl(CControl.SIZEMODDEFENSE))
 		{

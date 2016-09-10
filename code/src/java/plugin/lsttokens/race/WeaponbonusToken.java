@@ -32,7 +32,7 @@ import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.Changes;
@@ -154,13 +154,13 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<Race>
 
 	@Override
 	public void applyChoice(CDOMObject owner, WeaponProf choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		pc.addWeaponBonus(owner, choice);
 	}
 
 	@Override
-	public boolean allow(WeaponProf item, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(WeaponProf item, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return true;
 	}
@@ -180,15 +180,15 @@ public class WeaponbonusToken extends AbstractTokenWithSeparator<Race>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		WeaponProf choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          WeaponProf choice)
 	{
 		pc.addWeaponBonus(owner, choice);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		WeaponProf choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         WeaponProf choice)
 	{
 		pc.removeWeaponBonus(owner, choice);
 	}

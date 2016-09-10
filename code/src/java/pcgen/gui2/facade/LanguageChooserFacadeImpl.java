@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -59,7 +59,7 @@ import pcgen.facade.util.ListFacade;
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {
-	private final PlayerCharacter theCharacter;
+	private final PlayerCharacterImpl theCharacter;
 	private final CharacterDisplay charDisplay;
 	private ChooseDriver source;
 	private String name;

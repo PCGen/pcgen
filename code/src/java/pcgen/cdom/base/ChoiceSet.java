@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A ChoiceSet is a named container of a Collection of objects (stored in a
@@ -152,7 +152,7 @@ public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<? extends T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacterImpl pc)
 	{
 		return pcs.getSet(pc);
 	}

@@ -32,7 +32,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.EquipSet;
 import pcgen.core.utils.CoreUtility;
 
@@ -56,7 +56,7 @@ public class EquipSetMigration
 	 * @param pc The character being updated.
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 */
-	public static void migrateEquipSets(PlayerCharacter pc, int pcgVer[])
+	public static void migrateEquipSets(PlayerCharacterImpl pc, int pcgVer[])
 	{
 		if (CoreUtility.compareVersions(pcgVer, new int[]{6, 1, 3}) < 0)
 		{
@@ -71,7 +71,7 @@ public class EquipSetMigration
 	 * their output order
 	 * @param pc The character to have equipment sets renumbered.
 	 */
-	static void renumberEquipmentSets(PlayerCharacter pc)
+	static void renumberEquipmentSets(PlayerCharacterImpl pc)
 	{
 		Collection<EquipSet> allEquipSets = pc.getDisplay().getEquipSet();
 		List<EquipSet> sortedChildrenEs = getSortedChildren(allEquipSets, "0");

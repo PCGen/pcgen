@@ -31,7 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A ReferenceChoiceSet contains references to Objects. Often these are
@@ -148,7 +148,7 @@ public class ReferenceChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 *         contains.
 	 */
 	@Override
-	public Set<T> getSet(PlayerCharacter pc)
+	public Set<T> getSet(PlayerCharacterImpl pc)
 	{
 		Set<T> returnSet = new HashSet<>();
 		for (CDOMReference<T> ref : refCollection)

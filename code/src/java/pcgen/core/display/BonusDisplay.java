@@ -23,7 +23,7 @@ package pcgen.core.display;
 
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class BonusDisplay
 {
@@ -42,7 +42,7 @@ public class BonusDisplay
 	
 		Object targetObj = ti.target;
 	
-		if (targetObj instanceof PlayerCharacter)
+		if (targetObj instanceof PlayerCharacterImpl)
 		{
 			buffer.append("PC");
 		}

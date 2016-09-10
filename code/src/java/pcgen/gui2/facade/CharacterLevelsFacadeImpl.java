@@ -40,7 +40,7 @@ import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.SkillUtilities;
 import pcgen.core.analysis.ChooseActivation;
@@ -73,7 +73,7 @@ public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
 		CharacterLevelsFacade, DataFacetChangeListener<CharID, Skill>, BonusChangeListener
 {
-	private PlayerCharacter theCharacter;
+	private PlayerCharacterImpl theCharacter;
 	private CharacterDisplay charDisplay;
 
 	private UIDelegate delegate;
@@ -93,8 +93,8 @@ public class CharacterLevelsFacadeImpl extends
 	 * @param dataSetFacade The datasets that the character is using.
 	 * @param characterFacadeImpl The facade managing the character.
 	 */
-	CharacterLevelsFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
-		TodoManager todoManager, DataSetFacade dataSetFacade, CharacterFacadeImpl characterFacadeImpl)
+	CharacterLevelsFacadeImpl(PlayerCharacterImpl pc, UIDelegate delegate,
+	                          TodoManager todoManager, DataSetFacade dataSetFacade, CharacterFacadeImpl characterFacadeImpl)
 	{
 		this.theCharacter = pc;
 		this.characterFacadeImpl = characterFacadeImpl;

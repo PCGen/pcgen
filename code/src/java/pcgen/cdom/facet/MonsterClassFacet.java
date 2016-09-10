@@ -32,7 +32,7 @@ import pcgen.cdom.facet.model.ClassFacet.ClassInfo;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
@@ -99,7 +99,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 			}
 		}
 
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		final List<PCLevelInfo> existingLevelInfo =
                 new ArrayList<>(levelInfoFacet.getSet(id));
 		levelInfoFacet.removeAll(id);
@@ -176,7 +176,7 @@ public class MonsterClassFacet implements DataFacetChangeListener<CharID, CDOMOb
 			CharID id = dfce.getCharID();
 			int levelCount = formulaResolvingFacet.resolve(id, lcf.getLevelCount(), "")
 					.intValue();
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			pc.incrementClassLevel(-levelCount, lcf.getPCClass(), true);
 		}
 	}

@@ -42,7 +42,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.SpellLevel;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
@@ -120,7 +120,7 @@ public final class KitSpells extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		theSpells = null;
@@ -238,7 +238,7 @@ public final class KitSpells extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		for (KitSpellBookEntry sbe : theSpells)
 		{
@@ -248,7 +248,7 @@ public final class KitSpells extends BaseKit
 	}
 
 	private PCClass findDefaultSpellClass(final CDOMSingleRef<PCClass> ref,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		if (castingClass == null)
 		{
@@ -273,7 +273,7 @@ public final class KitSpells extends BaseKit
 	 * @param  aSpell   A Spell to add to the PC
 	 * @param  pcClass  The class instance the spells are to be added to.
 	 */
-	private void updatePCSpells(final PlayerCharacter pc,
+	private void updatePCSpells(final PlayerCharacterImpl pc,
 		final KitSpellBookEntry aSpell, final PCClass pcClass)
 	{
 		Spell spell = aSpell.getSpell();

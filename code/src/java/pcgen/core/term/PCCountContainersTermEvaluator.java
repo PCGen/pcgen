@@ -28,9 +28,9 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.cdom.base.Constants;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountContainersTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -41,7 +41,7 @@ public class PCCountContainersTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		final int merge = Constants.MERGE_ALL;
 

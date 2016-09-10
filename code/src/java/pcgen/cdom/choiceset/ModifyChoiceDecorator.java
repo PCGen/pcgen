@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A ModifyChoiceDecorator is a PrimitiveChoiceSet that returns the MULT:YES
@@ -103,7 +103,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 	 *         contains and which are also possessed by the PlayerCharacter.
 	 */
 	@Override
-	public Set<CNAbility> getSet(PlayerCharacter pc)
+	public Set<CNAbility> getSet(PlayerCharacterImpl pc)
 	{
 		Collection<? extends Ability> collection = pcs.getSet(pc);
 		List<CNAbility> pcfeats = pc.getPoolAbilities(AbilityCategory.FEAT);

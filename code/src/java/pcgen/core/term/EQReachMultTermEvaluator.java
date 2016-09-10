@@ -27,7 +27,7 @@ package pcgen.core.term;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -41,7 +41,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -50,7 +50,7 @@ public class EQReachMultTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		if (pc.hasControl(CControl.EQREACH))
 		{
 			Logging.errorPrint("REACHMULT term"

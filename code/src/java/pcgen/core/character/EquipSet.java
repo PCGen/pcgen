@@ -31,7 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.core.BonusManager;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -486,7 +486,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	 * Apply this EquipSet to a PlayerCharacter object.
 	 * @param aPC the PC to equip the item on
 	 */
-	public void equipItem(PlayerCharacter aPC)
+	public void equipItem(PlayerCharacterImpl aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(getIdPath(), Constants.EQUIP_SET_PATH_SEPARATOR);
 

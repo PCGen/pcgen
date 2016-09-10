@@ -24,7 +24,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -61,7 +61,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Language l)
+	public boolean allow(PlayerCharacterImpl pc, Language l)
 	{
 		return pc.getDisplay().getLanguageBonusSelectionList().contains(l);
 	}
@@ -85,7 +85,7 @@ public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Language, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<Language, R> c)
 	{
 		return c.convert(allLanguages, this);
 	}

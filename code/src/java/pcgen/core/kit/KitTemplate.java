@@ -31,7 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.util.chooser.ChooserFactory;
 
@@ -49,7 +49,7 @@ public class KitTemplate extends BaseKit
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
 			buildSelectedTemplateMap(aPC, true);
@@ -81,7 +81,7 @@ public class KitTemplate extends BaseKit
 	 * @param warnings List
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
@@ -101,7 +101,7 @@ public class KitTemplate extends BaseKit
 	 * @return The map of templates and child templates to be added
 	 */
 	private HashMapToList<PCTemplate, PCTemplate> buildSelectedTemplateMap(
-		PlayerCharacter aPC, boolean apply)
+			PlayerCharacterImpl aPC, boolean apply)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);

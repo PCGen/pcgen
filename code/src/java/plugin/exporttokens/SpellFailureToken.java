@@ -27,7 +27,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.io.exporttoken.Token;
@@ -51,13 +51,13 @@ public class SpellFailureToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return Integer.toString(getSpellFailure(pc));
 	}
 
-	private int getSpellFailure(PlayerCharacter pc)
+	private int getSpellFailure(PlayerCharacterImpl pc)
 	{
 		String spellFailVar =
 				ControlUtilities.getControlToken(Globals.getContext(),

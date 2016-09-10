@@ -28,7 +28,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * TemplateFeatFacet is a Facet that tracks the selections from the FEAT tokens
@@ -70,7 +70,7 @@ public class TemplateFeatFacet extends
 					source.get(ObjectKey.TEMPLATE_FEAT);
 			if (choice != null)
 			{
-				PlayerCharacter pc = trackingFacet.getPC(id);
+				PlayerCharacterImpl pc = trackingFacet.getPC(id);
 				Collection<? extends CNAbilitySelection> result =
 						choice.driveChoice(pc);
 				choice.act(result, source, pc);
@@ -104,7 +104,7 @@ public class TemplateFeatFacet extends
 				source.get(ObjectKey.TEMPLATE_FEAT);
 		if (choice != null)
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			choice.remove(source, pc);
 		}
 		removeAll(id, source);

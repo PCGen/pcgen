@@ -113,7 +113,7 @@ public class FollowerOption extends ConcretePrereqObject implements
 	 * @see pcgen.cdom.base.ConcretePrereqObject#qualifies(pcgen.core.PlayerCharacter, Object)
 	 */
 	@Override
-	public boolean qualifies(final PlayerCharacter aPC, Object source)
+	public boolean qualifies(final PlayerCharacterImpl aPC, Object source)
 	{
 		if (theAdjustment != 0)
 		{

@@ -28,7 +28,7 @@ import java.util.LinkedHashMap;
 import java.util.Set;
 
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -55,7 +55,7 @@ public class HitDiceToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -82,7 +82,7 @@ public class HitDiceToken extends Token
 	 * @param pc
 	 * @return the medium version of the HITDICE token
 	 */
-	public static String getHitDiceToken(PlayerCharacter pc)
+	public static String getHitDiceToken(PlayerCharacterImpl pc)
 	{
 		StringBuilder ret = new StringBuilder();
 		String del = "";
@@ -141,7 +141,7 @@ public class HitDiceToken extends Token
 	 * @param pc
 	 * @return the HITDICE token
 	 */
-	public static String getMediumToken(PlayerCharacter pc)
+	public static String getMediumToken(PlayerCharacterImpl pc)
 	{
 		StringBuilder ret = new StringBuilder();
 		String del = "";

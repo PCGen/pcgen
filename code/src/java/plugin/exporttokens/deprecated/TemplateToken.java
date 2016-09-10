@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -75,7 +75,7 @@ public class TemplateToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -165,7 +165,7 @@ public class TemplateToken extends Token
 	 *
 	 * @return a list of feats
 	 */
-	public static List<CNAbilitySelection> feats(PlayerCharacter pc, PCTemplate pct)
+	public static List<CNAbilitySelection> feats(PlayerCharacterImpl pc, PCTemplate pct)
 	{
 		final List<CNAbilitySelection> feats = new ArrayList<>();
 	
@@ -228,7 +228,7 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of FEAT sub token
 	 */
-	private static String getFeatToken(PCTemplate template, PlayerCharacter pc)
+	private static String getFeatToken(PCTemplate template, PlayerCharacterImpl pc)
 	{
 		List<CNAbilitySelection> fList = feats(pc, template);
 		return StringUtil.join(fList, ", ");
@@ -241,8 +241,8 @@ public class TemplateToken extends Token
 	 * @param aLabel
 	 * @return value of MOD sub token
 	 */
-	public static String getModToken(PlayerCharacter pc, PCTemplate template,
-		String aLabel)
+	public static String getModToken(PlayerCharacterImpl pc, PCTemplate template,
+	                                 String aLabel)
 	{
 		StringBuilder retString = new StringBuilder();
 
@@ -294,7 +294,7 @@ public class TemplateToken extends Token
 	 * @param pc
 	 * @return value of SA sub token
 	 */
-	public static String getSAToken(PCTemplate template, PlayerCharacter pc)
+	public static String getSAToken(PCTemplate template, PlayerCharacterImpl pc)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		List<SpecialAbility> saList = new ArrayList<>();

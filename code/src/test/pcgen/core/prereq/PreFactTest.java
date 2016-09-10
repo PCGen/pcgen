@@ -22,7 +22,7 @@ package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
@@ -52,7 +52,7 @@ public class PreFactTest extends AbstractCharacterTestCase
 	 */
 	public void testFact() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		Race race = new Race();
 		BuildUtilities.setFact(race, "ABB", "Hgln");
 		race.setName("Hobgoblin");

@@ -37,7 +37,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.TestHelper;
 
 /**
@@ -136,7 +136,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		Globals.getContext().unconditionallyProcess(pobj, "CHOOSE", "LANG|ALL");
 		Globals.getContext().unconditionallyProcess(pobj, "MULT", "YES");
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Foo");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%LIST");
@@ -172,7 +172,7 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 
 		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, pobj, "Foo");
@@ -193,7 +193,7 @@ public class AspectTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().constructCDOMObject(Language.class, "Associated 3");
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1 test %2");
 		aspect.addVariable("TestVar");

@@ -32,7 +32,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * An AbilityFromClassChoiceSet is a PrimitiveChoiceSet that draws Abilities
@@ -141,7 +141,7 @@ public class AbilityFromClassChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CNAbilitySelection> getSet(PlayerCharacterImpl pc)
 	{
 		PCClass aClass = pc.getClassKeyed(classRef.get().getKeyName());
 		Set<CNAbilitySelection> set = new HashSet<>();

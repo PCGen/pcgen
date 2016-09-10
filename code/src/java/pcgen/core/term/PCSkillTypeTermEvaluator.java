@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import java.util.Collection;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.util.enumeration.View;
@@ -45,7 +45,7 @@ public class PCSkillTypeTermEvaluator
 	}
 	
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		int count = 0;
 		Collection<Skill> skills = pc.getDisplay().getSkillSet();

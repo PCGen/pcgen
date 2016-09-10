@@ -36,7 +36,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -75,7 +75,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		LoadContext context = Globals.getContext();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, dex, 14);
 		dex.removeListFor(ListKey.BONUS);
 		BonusObj aBonus = Bonus.newBonus(context, "COMBAT|AC|10|TYPE=Base");
@@ -188,7 +188,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testNonMagic() throws Exception
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		EquipSet es =
 				new EquipSet("0.1.2", "Chain Shirt", chainShirt.getName(),
 					chainShirt);
@@ -212,7 +212,7 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testMagic() throws Exception
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		chainShirt.addEqModifiers("MWORKA.PLUS1A", true);
 		EquipSet es =
 				new EquipSet("0.1.2", "Chain Shirt", chainShirt.getName(),

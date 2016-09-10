@@ -72,7 +72,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 		valueList.add(value);
 	}
 
-	public boolean isProhibited(Spell s, PlayerCharacter aPC, CDOMObject owner)
+	public boolean isProhibited(Spell s, PlayerCharacterImpl aPC, CDOMObject owner)
 	{
 		/*
 		 * Note the rule is only "Prohibit Cleric/Druid spells based on

@@ -2,7 +2,7 @@ package plugin.exporttokens.deprecated;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.PCStringKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -30,7 +30,7 @@ public class MiscToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String tokens[] = tokenSource.split(",", 2);

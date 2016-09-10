@@ -35,6 +35,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 
 public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
@@ -155,13 +156,13 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, T st, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -175,7 +176,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -189,7 +190,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	}
 
 	@Override
-	public List<T> getCurrentlySelected(ChooseDriver owner, PlayerCharacter pc)
+	public List<T> getCurrentlySelected(ChooseDriver owner, PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

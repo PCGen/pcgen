@@ -51,7 +51,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -387,7 +387,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner,
-		CNAbilitySelection choice, PlayerCharacter pc)
+		CNAbilitySelection choice, PlayerCharacterImpl pc)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ab = cna.getAbility();
@@ -408,7 +408,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public boolean allow(CNAbilitySelection choice,
-		PlayerCharacter pc, boolean allowStack)
+	                     PlayerCharacterImpl pc, boolean allowStack)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ability = cna.getAbility();
@@ -439,8 +439,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          CNAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -449,8 +449,8 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         CNAbilitySelection choice)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability ab = cna.getAbility();

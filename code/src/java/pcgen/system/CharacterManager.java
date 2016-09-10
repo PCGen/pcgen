@@ -22,16 +22,14 @@ package pcgen.system;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterStubFacade;
@@ -40,7 +38,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.gui2.facade.CharacterFacadeImpl;
@@ -53,7 +50,6 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
@@ -102,7 +98,7 @@ public final class CharacterManager
 		try
 		{
 			@SuppressWarnings("unchecked")
-			PlayerCharacter pc = new PlayerCharacter(campaigns);
+			PlayerCharacterImpl pc = new PlayerCharacterImpl(campaigns);
 			Globals.getPCList().add(pc);
 			CharacterFacade character = new CharacterFacadeImpl(pc, delegate, dataset);
 			String name = createNewCharacterName();
@@ -146,7 +142,7 @@ public final class CharacterManager
 	 */
 	public static CharacterFacade openCharacter(File file, UIDelegate delegate, DataSetFacade dataset)
 	{
-		final PlayerCharacter newPC = openPcInternal(file, delegate, dataset, false);
+		final PlayerCharacterImpl newPC = openPcInternal(file, delegate, dataset, false);
 
 		if (newPC == null)
 		{
@@ -167,10 +163,10 @@ public final class CharacterManager
 	 * @param blockLoadedMessage Should we stop the character loaded message being sent out to listeners.
 	 * @return The character that was opened.
 	 */
-	public static PlayerCharacter openPlayerCharacter(File file,
-		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
+	public static PlayerCharacterImpl openPlayerCharacter(File file,
+	                                                      UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
 	{
-		final PlayerCharacter newPC = openPcInternal(file, delegate, dataset, blockLoadedMessage);
+		final PlayerCharacterImpl newPC = openPcInternal(file, delegate, dataset, blockLoadedMessage);
 
 		if (newPC == null)
 		{
@@ -182,16 +178,16 @@ public final class CharacterManager
 	}
 	
 	@SuppressWarnings("unchecked")
-	private static PlayerCharacter openPcInternal(File file,
-		UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
+	private static PlayerCharacterImpl openPcInternal(File file,
+	                                                  UIDelegate delegate, DataSetFacade dataset, boolean blockLoadedMessage)
 	{
 		@SuppressWarnings("rawtypes")
 		List campaigns = ListFacades.wrap(dataset.getCampaigns());
 		final PCGIOHandler ioHandler = new PCGIOHandler();
-		final PlayerCharacter newPC;
+		final PlayerCharacterImpl newPC;
 		try
 		{
-			newPC = new PlayerCharacter(campaigns);
+			newPC = new PlayerCharacterImpl(campaigns);
 			newPC.setFileName(file.getAbsolutePath());
 			ioHandler.read(newPC, file.getAbsolutePath());
 			// Ensure any custom equipment held by the character is added to the dataset's list
@@ -233,7 +229,7 @@ public final class CharacterManager
 	}
 
 	private static CharacterFacade createChracterFacade(UIDelegate delegate,
-		DataSetFacade dataset, final PlayerCharacter newPC)
+		DataSetFacade dataset, final PlayerCharacterImpl newPC)
 	{
 		CharacterFacade character = new CharacterFacadeImpl(newPC, delegate, dataset);
 		characters.addElement(character);

@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -66,7 +66,7 @@ public class PreLangTest extends AbstractCharacterTestCase
 	 */
 	public void testLang() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.addFreeLanguage(elven, elven);
 
 		Prerequisite prereq;

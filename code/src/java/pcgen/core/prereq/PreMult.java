@@ -28,7 +28,7 @@ import org.apache.commons.lang.StringUtils;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
@@ -42,7 +42,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
     @Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source) throws PrerequisiteException {
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
 
@@ -77,7 +77,7 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.Equipment)
 	 */
     @Override
-	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException {
+	public int passes(final Prerequisite prereq, final Equipment equipment, PlayerCharacterImpl aPC) throws PrerequisiteException {
 		int runningTotal=0;
 		final int targetNumber = Integer.parseInt( prereq.getOperand() );
 

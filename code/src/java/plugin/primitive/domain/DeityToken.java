@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.list.DomainList;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -81,7 +81,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc, Converter<Domain, R> c)
 	{
 		HashSet<R> returnSet = new HashSet<>();
 		Deity deity = pc.getDisplay().getDeity();

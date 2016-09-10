@@ -27,7 +27,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.helper.SpellLevelInfo;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
@@ -236,7 +236,7 @@ public class SpellLevelChooseInformation implements
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<SpellLevel> getSet(PlayerCharacter pc)
+	public Collection<SpellLevel> getSet(PlayerCharacterImpl pc)
 	{
 		Set<SpellLevel> list = new HashSet<>();
 		for (SpellLevelInfo sli : info)
@@ -294,8 +294,8 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          SpellLevel choice)
 	{
 		choiceActor.restoreChoice(pc, owner, choice);
 	}
@@ -313,8 +313,8 @@ public class SpellLevelChooseInformation implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel item)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                         SpellLevel item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
 	}

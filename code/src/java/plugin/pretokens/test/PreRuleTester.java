@@ -27,7 +27,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -56,7 +56,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC) throws PrerequisiteException
+		PlayerCharacterImpl aPC) throws PrerequisiteException
 	{
 		int runningTotal = 0;
 		int targetNumber;
@@ -94,7 +94,7 @@ public class PreRuleTester extends AbstractPrerequisiteTest implements Prerequis
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;

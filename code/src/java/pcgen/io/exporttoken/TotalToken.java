@@ -24,7 +24,7 @@
 package pcgen.io.exporttoken;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.utils.CoreUtility;
@@ -59,7 +59,7 @@ public class TotalToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -134,7 +134,7 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the VALUE sub token
 	 */
-	public static String getValueToken(PlayerCharacter pc)
+	public static String getValueToken(PlayerCharacterImpl pc)
 	{
 		return BigDecimalHelper.trimZeros(pc.totalValue()) + " "
 			+ SettingsHandler.getGame().getCurrencyDisplay();

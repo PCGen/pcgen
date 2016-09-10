@@ -31,7 +31,7 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * RemoveFacet is a Facet that triggers when an object has a REMOVE token
@@ -70,7 +70,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();
@@ -87,7 +87,7 @@ public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	}
 
 	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-		final PlayerCharacter pc)
+		final PlayerCharacterImpl pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

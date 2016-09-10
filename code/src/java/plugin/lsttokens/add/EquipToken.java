@@ -38,7 +38,7 @@ import pcgen.cdom.choiceset.QualifiedDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -190,7 +190,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner, Equipment choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		Equipment bEquipment = choice.clone();
 		bEquipment.setQty(1);
@@ -198,7 +198,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(Equipment choice, PlayerCharacter pc,
+	public boolean allow(Equipment choice, PlayerCharacterImpl pc,
 			boolean allowStack)
 	{
 		return true;
@@ -217,15 +217,15 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			Equipment choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          Equipment choice)
 	{
 		// No action required
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			Equipment choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         Equipment choice)
 	{
 		pc.removeEquipment(choice);
 	}

@@ -29,7 +29,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -58,7 +58,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 	 */
 	@Override
 	public int passes(final Prerequisite prereq, final Equipment equipment,
-		PlayerCharacter aPC) throws PrerequisiteException
+		PlayerCharacterImpl aPC) throws PrerequisiteException
 	{
 		if (aPC == null)
 		{
@@ -100,7 +100,7 @@ public class PreVariableTester extends AbstractPrerequisiteTest implements Prere
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		String src = (source == null) ? Constants.EMPTY_STRING : source.getQualifiedKey();

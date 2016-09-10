@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreAbilityParser;
@@ -65,7 +65,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 						"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
@@ -91,7 +91,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 						"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",
@@ -124,7 +124,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 						"General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
@@ -163,7 +163,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("Dancer", "BARDIC", "General.Bardic");
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
@@ -207,7 +207,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(strangeness));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,KEY_Dancer",
@@ -248,7 +248,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(pa));
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq =
 				parser.parse("ability", "1,CATEGORY.BARDIC,TYPE.General", false,
@@ -288,7 +288,7 @@ public class PreAbilityTest extends AbstractCharacterTestCase
 		ab2.addToListFor(ListKey.SERVES_AS_ABILITY, CDOMDirectSingleRef.getRef(fas));
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		PreAbilityParser parser = new PreAbilityParser();
 		Prerequisite prereq2 =
 			parser.parse("ability", "1,CATEGORY.BARDIC,ANY",

@@ -32,7 +32,8 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
+
 import plugin.pretokens.test.PreTemplateTester;
 
 public class PreTemplateTest extends AbstractCharacterTestCase
@@ -56,7 +57,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void test990007_1()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
@@ -79,7 +80,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void test990007_2()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("template");
@@ -97,7 +98,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void test990007_3()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
@@ -120,7 +121,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void test990007_4()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
@@ -143,7 +144,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void test990007_5()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Dragon");
@@ -171,7 +172,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 	 */
 	public void testBadOperand()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("template");

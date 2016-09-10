@@ -23,7 +23,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.UnarmedDamageDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -50,7 +50,7 @@ public class DamageToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -68,7 +68,7 @@ public class DamageToken extends Token
 	 * @param pc
 	 * @return unarmed sub token
 	 */
-	public static String getUnarmedToken(PlayerCharacter pc)
+	public static String getUnarmedToken(PlayerCharacterImpl pc)
 	{
 		return UnarmedDamageDisplay.getUnarmedDamageString(pc, true, true);
 	}

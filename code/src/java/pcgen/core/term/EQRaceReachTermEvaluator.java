@@ -28,7 +28,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -42,7 +42,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -51,7 +51,7 @@ public class EQRaceReachTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		if (pc.hasControl(CControl.PCREACH))
 		{
 			Logging.errorPrint("RACEREACH term"

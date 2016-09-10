@@ -20,7 +20,7 @@ package pcgen.cdom.facet;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifyingObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -53,7 +53,7 @@ public class PrerequisiteFacet
 	 */
 	public boolean qualifies(CharID id, QualifyingObject obj, Object source)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		CDOMObject cdo = null;
 		if (source instanceof CDOMObject)
 		{

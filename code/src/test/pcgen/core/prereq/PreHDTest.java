@@ -34,7 +34,7 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -91,7 +91,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 				CDOMDirectSingleRef.getRef(raceClass), FormulaFactory
 						.getFormulaFor(3)));
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 
 		Prerequisite prereq;
@@ -147,7 +147,7 @@ public class PreHDTest extends AbstractCharacterTestCase
 						.getFormulaFor(3)));
 		Globals.getContext().getReferenceContext().importObject(race1);
 
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(race1);
 
 		Prerequisite prereq;

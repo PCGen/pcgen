@@ -20,7 +20,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
@@ -224,7 +224,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<? extends T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacterImpl pc)
 	{
 		return pcs.getSet(pc);
 	}
@@ -277,7 +277,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item)
 	{
 		choiceActor.restoreChoice(pc, owner, item);
 	}
@@ -295,7 +295,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
 	}

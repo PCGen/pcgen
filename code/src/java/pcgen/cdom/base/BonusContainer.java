@@ -19,14 +19,14 @@ package pcgen.cdom.base;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.BonusObj;
 
 public interface BonusContainer
 {
 
-	void activateBonuses(PlayerCharacter pc);
+	void activateBonuses(PlayerCharacterImpl pc);
 
-	List<BonusObj> getActiveBonuses(PlayerCharacter pc);
+	List<BonusObj> getActiveBonuses(PlayerCharacterImpl pc);
 
 }

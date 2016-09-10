@@ -32,7 +32,7 @@ import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.AgeSet;
 import pcgen.core.BioSet;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * AgeSetKitFacet stores
@@ -70,7 +70,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	{
 		CharID id = dfce.getCharID();
 		AgeSet ageSet = ageSetFacet.get(id);
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		// TODO Is ageSet null check necessary?
 		if (ageSet == null || pc.isImporting())
 		{

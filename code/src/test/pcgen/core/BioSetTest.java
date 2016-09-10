@@ -169,7 +169,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 		final int[] MAX_AGE = {34, 52, 69, 110};
 
 		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
-		final PlayerCharacter pc = getCharacter();
+		final PlayerCharacterImpl pc = getCharacter();
 		final Race human = new Race();
 		human.setName("NAME_Human");
 		human.put(StringKey.KEY_NAME, "Human");
@@ -207,7 +207,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 	 */
 	public void testAgeSet()
 	{
-		final PlayerCharacter pc = getCharacter();
+		final PlayerCharacterImpl pc = getCharacter();
 		CharacterDisplay display = pc.getDisplay();
 		final Race human = new Race();
 		human.setName("Human");

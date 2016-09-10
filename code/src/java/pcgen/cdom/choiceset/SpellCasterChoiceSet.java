@@ -35,7 +35,7 @@ import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A SpellCasterChoiceSet contains references to PCClass Objects.
@@ -72,7 +72,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		}
 
 		@Override
-		public Set<PCClass> getSet(PlayerCharacter pc)
+		public Set<PCClass> getSet(PlayerCharacterImpl pc)
 		{
 			return Collections.emptySet();
 		}
@@ -237,7 +237,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	 *         contains.
 	 */
 	@Override
-	public Set<PCClass> getSet(PlayerCharacter pc)
+	public Set<PCClass> getSet(PlayerCharacterImpl pc)
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");
 		Set<PCClass> returnSet = new HashSet<>();

@@ -29,7 +29,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
+
 import plugin.exporttokens.VarToken;
 
 /**
@@ -58,7 +59,7 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		final PCClass varClass = new PCClass();
 		varClass.setName("varClass");

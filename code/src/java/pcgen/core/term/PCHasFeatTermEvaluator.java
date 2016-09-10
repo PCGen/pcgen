@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCHasFeatTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -40,7 +40,7 @@ public class PCHasFeatTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		boolean hasFeat =
 				pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)

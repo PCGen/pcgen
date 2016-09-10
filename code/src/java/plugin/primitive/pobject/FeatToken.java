@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
@@ -82,7 +82,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		return "ABILITY=FEAT[" + ref.getLSTformat(useAny) + "]";
 	}
 
-	private <R> List<R> getList(PlayerCharacter pc, Ability a)
+	private <R> List<R> getList(PlayerCharacterImpl pc, Ability a)
 	{
 		// workaround for cloning issue
 		List<R> availableList = new ArrayList<>();
@@ -132,7 +132,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		/*
 		 * In theory the converter can be ignored here, since an equivalent

@@ -5,7 +5,7 @@ import java.util.Stack;
 import org.nfunk.jep.ParseException;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.VariableProcessor;
 import pcgen.core.analysis.SkillModifier;
@@ -65,15 +65,15 @@ public class SkillInfoCommand extends PCGenCommand
 
 		if ((param1 instanceof String) && (param2 instanceof String))
 		{
-			PlayerCharacter pc = null;
+			PlayerCharacterImpl pc = null;
 
 			if (parent instanceof VariableProcessor)
 			{
 				pc = ((VariableProcessor) parent).getPc();
 			}
-			else if (parent instanceof PlayerCharacter)
+			else if (parent instanceof PlayerCharacterImpl)
 			{
-				pc = (PlayerCharacter) parent;
+				pc = (PlayerCharacterImpl) parent;
 			}
 			if (pc == null)
 			{

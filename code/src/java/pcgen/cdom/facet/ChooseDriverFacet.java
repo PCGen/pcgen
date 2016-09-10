@@ -22,7 +22,7 @@ import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.ScopeFacetChangeEvent;
 import pcgen.cdom.facet.event.ScopeFacetChangeListener;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -54,7 +54,7 @@ public class ChooseDriverFacet
 		@Override
 		public void dataAdded(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
-			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			PlayerCharacterImpl pc = trackingFacet.getPC(dfce.getCharID());
 			if (!pc.isAllowInteraction())
 			{
 				return;
@@ -79,7 +79,7 @@ public class ChooseDriverFacet
 			}
 		}
 
-		private <T> void addAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		private <T> void addAssoc(ChoiceManagerList<T> aMan, PlayerCharacterImpl pc,
 			ChooseDriver obj, T sel)
 		{
 			aMan.applyChoice(pc, obj, sel);
@@ -104,7 +104,7 @@ public class ChooseDriverFacet
 		@Override
 		public void dataRemoved(ScopeFacetChangeEvent<CharID, CDOMObject, Object> dfce)
 		{
-			PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+			PlayerCharacterImpl pc = trackingFacet.getPC(dfce.getCharID());
 			if (!pc.isAllowInteraction())
 			{
 				return;
@@ -128,7 +128,7 @@ public class ChooseDriverFacet
 			}
 		}
 
-		private <T> void removeAssoc(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+		private <T> void removeAssoc(ChoiceManagerList<T> aMan, PlayerCharacterImpl pc,
 			ChooseDriver obj, T sel)
 		{
 			aMan.removeChoice(pc, obj, sel);

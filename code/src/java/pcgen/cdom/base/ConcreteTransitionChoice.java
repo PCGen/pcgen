@@ -25,7 +25,7 @@ import java.util.Set;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.util.StringPClassUtil;
@@ -177,7 +177,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 *         selects.
 	 */
 	@Override
-	public Collection<? extends T> driveChoice(PlayerCharacter pc)
+	public Collection<? extends T> driveChoice(PlayerCharacterImpl pc)
 	{
 		int numChoices = choiceCount.resolve(pc, "").intValue();
 		boolean pickall = (numChoices == Integer.MAX_VALUE);
@@ -277,7 +277,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	 */
 	@Override
 	public void act(Collection<? extends T> choicesMade, CDOMObject owner,
-			PlayerCharacter apc)
+			PlayerCharacterImpl apc)
 	{
 		if (choiceActor == null)
 		{

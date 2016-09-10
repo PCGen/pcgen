@@ -31,7 +31,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -61,7 +61,7 @@ public class FollowerToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		/* FOLLOWER%.subtag stuff handled in here*/
@@ -123,13 +123,13 @@ public class FollowerToken extends Token
 
 		String token = "".equals(followerToken) ? "NAME" : followerToken;
 
-		for (PlayerCharacter eachPC : Globals.getPCList())
+		for (PlayerCharacterImpl eachPC : Globals.getPCList())
 		{
 			CharacterDisplay eachDisplay = eachPC.getDisplay();
 			if (follower.getFileName().equals(eachDisplay.getFileName())
 				&& follower.getName().equals(eachDisplay.getName()))
 			{
-				PlayerCharacter newPC = eachPC;
+				PlayerCharacterImpl newPC = eachPC;
 				eh.replaceToken(token, bw, newPC);
 			}
 		}

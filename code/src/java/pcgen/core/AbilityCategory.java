@@ -384,7 +384,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	 * @param pc The character to be tested.
 	 * @return <tt>true</tt> if these abilities should be displayed.
 	 */
-	public boolean isVisibleTo(PlayerCharacter pc, View v)
+	public boolean isVisibleTo(PlayerCharacterImpl pc, View v)
 	{
 		if (visibility.equals(Visibility.QUALIFY))
 		{

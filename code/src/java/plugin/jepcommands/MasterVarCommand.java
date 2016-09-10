@@ -22,6 +22,7 @@ import java.util.Stack;
 import org.nfunk.jep.ParseException;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 
@@ -85,7 +86,7 @@ public class MasterVarCommand extends PCGenCommand
 			{
 				throw new ParseException("Invalid parent for function");
 			}
-			PlayerCharacter master = pc.getMasterPC();
+			PlayerCharacterImpl master = pc.getMasterPC();
             if (master == null)
 			{
 				throw new ParseException("Invalid: PC had no master");
@@ -118,7 +119,7 @@ public class MasterVarCommand extends PCGenCommand
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else if (parent instanceof PlayerCharacter)
+		else if (parent instanceof PlayerCharacterImpl)
 		{
 			pc = (PlayerCharacter) parent;
 		}

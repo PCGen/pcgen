@@ -41,6 +41,7 @@ import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
@@ -161,7 +162,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		{
 			for (Object obj : theView.getLoadedList().getSelectedValuesList())
 			{
-				PlayerCharacter pc = model.get(obj);
+				PlayerCharacterImpl pc = model.get(obj);
 				savePC(pc, false);
 			}
 		}
@@ -170,7 +171,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		{
 			for (Object obj : theView.getLoadedList().getSelectedValuesList())
 			{
-				PlayerCharacter pc = model.get(obj);
+				PlayerCharacterImpl pc = model.get(obj);
 				savePC(pc, true);
 			}
 		}
@@ -334,7 +335,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	public boolean savePC(PlayerCharacterImpl aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;

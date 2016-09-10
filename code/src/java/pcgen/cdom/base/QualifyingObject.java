@@ -21,7 +21,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A QualifyingObject is an object that contains a list of Prerequisites. This
@@ -41,6 +41,6 @@ public interface QualifyingObject
 	 *            resolution)
 	 * @return true if the given PlayerCharacter passes all the prerequisites.
 	 */
-	public boolean qualifies(PlayerCharacter playerCharacter, Object owner);
+	public boolean qualifies(PlayerCharacterImpl playerCharacter, Object owner);
 
 }

@@ -30,7 +30,7 @@ import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -56,7 +56,7 @@ public class LevelToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -111,7 +111,7 @@ public class LevelToken extends Token
 	 * @param pcl
 	 * @return the HP for the level
 	 */
-	public static String getLevelHP(PlayerCharacter pc, PCLevelInfo pcl)
+	public static String getLevelHP(PlayerCharacterImpl pc, PCLevelInfo pcl)
 	{
 		String classKeyName = pcl.getClassKeyName();
 		PCClass aClass = pc.getClassKeyed(classKeyName);

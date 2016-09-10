@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -71,7 +71,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	 */
 	public void testCSkill() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
 		myClass = character.getClassKeyed("My Class");
@@ -127,7 +127,7 @@ public class PreCSkillTest extends AbstractCharacterTestCase
 	}
 	public void testCSkillServesAs() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
 		myClass = character.getClassKeyed("My Class");

@@ -29,7 +29,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Description;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
@@ -53,7 +53,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	 */
 	public void testGetChoices()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		Gui2InfoFactory ca = new Gui2InfoFactory(pc);
 
 		Ability choiceAbility =
@@ -80,7 +80,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	 */
 	public void testGetHTMLInfoTempBonus()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		Gui2InfoFactory infoFactory = new Gui2InfoFactory(pc);
 
 		Ability tbAbility =

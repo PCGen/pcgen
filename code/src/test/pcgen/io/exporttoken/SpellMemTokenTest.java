@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -149,7 +149,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpontaneousCasterKnown()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		String spellBook = "Travel";
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
@@ -184,7 +184,7 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testPreparedCaster()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		String spellBook = "Travel";
 		character.setRace(human);
 		character.incrementClassLevel(1, divineClass, true);

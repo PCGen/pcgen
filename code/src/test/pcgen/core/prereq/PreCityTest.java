@@ -26,7 +26,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCAttribute;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -57,7 +57,7 @@ public class PreCityTest extends AbstractCharacterTestCase
 	 */
 	public void testCity() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setPCAttribute(PCAttribute.RESIDENCE, "Klamath");
 
 		Prerequisite prereq;

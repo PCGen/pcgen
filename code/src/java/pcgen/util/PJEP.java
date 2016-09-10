@@ -32,7 +32,7 @@ import org.nfunk.jep.Node;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommand;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.VariableProcessor;
 import pcgen.persistence.lst.LstUtils;
 import pcgen.system.PluginLoader;
@@ -260,14 +260,14 @@ public final class PJEP extends JEP
 
 			if (param1 instanceof String)
 			{
-				PlayerCharacter aPC = null;
+				PlayerCharacterImpl aPC = null;
 				if (parent instanceof VariableProcessor)
 				{
 					aPC = ((VariableProcessor) parent).getPc();
 				}
-				else if (parent instanceof PlayerCharacter)
+				else if (parent instanceof PlayerCharacterImpl)
 				{
-					aPC = (PlayerCharacter) parent;
+					aPC = (PlayerCharacterImpl) parent;
 				}
 				if (aPC == null)
 				{

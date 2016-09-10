@@ -21,6 +21,7 @@
 
 import gmgen.plugin.PlayerCharacterOutput;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 import javax.swing.DefaultListModel;
 
@@ -35,7 +36,7 @@ public class PCGTrackerModel extends DefaultListModel
 		super();
 	}
 
-	public void add(PlayerCharacter pc)
+	public void add(PlayerCharacterImpl pc)
 	{
 		if (pc != null)
 		{
@@ -51,7 +52,7 @@ public class PCGTrackerModel extends DefaultListModel
 		return lpc.getPC();
 	}
 
-	public PlayerCharacter get(Object o)
+	public PlayerCharacterImpl get(Object o)
 	{
 		if (contains(o))
 		{
@@ -78,14 +79,14 @@ public class PCGTrackerModel extends DefaultListModel
 
 	private static class LoadedPC
 	{
-		private PlayerCharacter pc;
+		private PlayerCharacterImpl pc;
 
-		public LoadedPC(PlayerCharacter pc)
+		public LoadedPC(PlayerCharacterImpl pc)
 		{
 			this.pc = pc;
 		}
 
-		public PlayerCharacter getPC()
+		public PlayerCharacterImpl getPC()
 		{
 			return pc;
 		}

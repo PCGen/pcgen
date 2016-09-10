@@ -37,7 +37,7 @@ import pcgen.cdom.helper.Aspect;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.Prerequisite;
@@ -74,7 +74,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
 		Ability ab1 = TestHelper.makeAbility("Perform (Dance)", AbilityCategory.FEAT, "General.Fighter");
@@ -130,7 +130,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals(
 			"Age In Years: 2000, Colour: Green, Shape: Icosahedron, Sides: 20, Size: L",
@@ -144,7 +144,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("5", tok.getToken("ABILITY.FEAT.0.ASPECTCOUNT", character,
 			eh));
@@ -157,7 +157,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals(
 			"Shape: Icosahedron",
@@ -181,7 +181,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("", tok
 			.getToken("ABILITY.FEAT.0.ASPECT.-5", character, eh));
@@ -201,7 +201,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.3", character,
 			eh));
@@ -222,7 +222,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals(
 			"Perform (Dance)",
@@ -239,7 +239,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals(
 			"KEY_Perform (Dance)",
@@ -257,7 +257,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("",
 			tok.getToken("ABILITY.FEAT.0.ASSOCIATED", character, eh));
@@ -276,7 +276,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityToken tok = new AbilityToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("0",
 			tok.getToken("ABILITY.FEAT.0.ASSOCIATEDCOUNT", character, eh));

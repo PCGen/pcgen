@@ -25,7 +25,7 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
@@ -41,7 +41,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 
 	@Override
 	public int passes(final Prerequisite prereq,
-		final PlayerCharacter character, CDOMObject source)
+	                  final PlayerCharacterImpl character, CDOMObject source)
 	{
 		CharacterDisplay display = character.getDisplay();
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
@@ -169,7 +169,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 		return foo;
 	}
 
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character,
+	private int getRunningTotal(Skill aSkill, PlayerCharacterImpl character,
 		Prerequisite prereq, boolean foundMatch, int runningTotal,
 		int requiredRanks, String situation)
 	{

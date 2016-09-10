@@ -32,7 +32,7 @@ import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.ChronicleEntry;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 import pcgen.util.TestHelper;
@@ -57,7 +57,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		visibleEntry = TestHelper.buildChronicleEntry(true, "Kingmaker", "17Dec2012", "Vic",
 			"Ruling council", "Finns folly", 150,
@@ -74,7 +74,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	public void testFieldChoice() throws IOException
 	{
 		FileAccess.setCurrentOutputFilter("xml");
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Field Campaign", visibleEntry.getCampaign(),
 			evaluateToken("CAMPAIGNHISTORY.0.CAMPAIGN", character));
 		assertEquals("Field ADVENTURE", visibleEntry.getAdventure(),
@@ -101,7 +101,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	public void testVisibility() throws IOException
 	{
 		FileAccess.setCurrentOutputFilter("xml");
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Default visibility", visibleEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.0.ADVENTURE", character));
 		assertEquals("Default visibility", "",
@@ -127,7 +127,7 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	}
 
 	
-	private String evaluateToken(String token, PlayerCharacter pc)
+	private String evaluateToken(String token, PlayerCharacterImpl pc)
 		throws IOException
 	{
 		StringWriter retWriter = new StringWriter();

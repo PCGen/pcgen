@@ -31,7 +31,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -62,7 +62,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
 		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
@@ -444,7 +444,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 	public void testCountAbilitiesByName()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
@@ -482,7 +482,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 
 	public void testCountAbilitiesByKey()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
@@ -533,7 +533,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 	 */
 	public void testCountClassesFallThrough()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		String test = "countdistinct(\"CLASSES\")";
 		is(character.getVariableValue(test,""), eq(1.0, 0.1), test);
 		

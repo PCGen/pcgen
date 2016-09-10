@@ -25,15 +25,15 @@ package pcgen.core.prereq;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * @author wardc
  *
  */
 public interface PrerequisiteTest {
-	public int passes(Prerequisite prereq, PlayerCharacter character, CDOMObject source) throws PrerequisiteException;
-	public int passes(Prerequisite prereq, Equipment equipment, PlayerCharacter aPC) throws PrerequisiteException;
+	public int passes(Prerequisite prereq, PlayerCharacterImpl character, CDOMObject source) throws PrerequisiteException;
+	public int passes(Prerequisite prereq, Equipment equipment, PlayerCharacterImpl aPC) throws PrerequisiteException;
 	public String toHtmlString(Prerequisite prereq);
 	public String kindHandled();
 }

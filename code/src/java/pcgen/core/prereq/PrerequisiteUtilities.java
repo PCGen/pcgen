@@ -44,7 +44,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
@@ -76,7 +76,7 @@ public final class PrerequisiteUtilities
 	 * @return An HTML representation of whether a set of PreRequisites passed for a given PC and Source.
 	 */
 	public static String preReqHTMLStringsForList(
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		final CDOMObject aObj,
 		final Collection<Prerequisite> aList,
 		final boolean includeHeader)
@@ -188,7 +188,7 @@ public final class PrerequisiteUtilities
 	 */
 	public static int passesAbilityTest(
 		final Prerequisite prereq,
-		final PlayerCharacter character,
+		final PlayerCharacterImpl character,
 		final int numMatches,
 		String categoryName)
 	{
@@ -317,7 +317,7 @@ public final class PrerequisiteUtilities
 	 */
 	private static int dealWithSubKey(
 		Prerequisite prereq,
-		PlayerCharacter character,
+		PlayerCharacterImpl character,
 		String key,
 		Ability ability)
 	{
@@ -418,7 +418,7 @@ public final class PrerequisiteUtilities
 	 * @return The number of matches made
 	 */
 	private static int countSubKeyWildcardMatch(
-		final PlayerCharacter character,
+		final PlayerCharacterImpl character,
 		final boolean countMults,
 		String preWilcard,
 		Ability ability)
@@ -443,7 +443,7 @@ public final class PrerequisiteUtilities
 	}
 
 	private static int countSubKeyType(
-		PlayerCharacter aPC,
+		PlayerCharacterImpl aPC,
 		Ability ability, String type, boolean countMults)
 	{
 		final List<String> selectedList = aPC.getConsolidatedAssociationList(ability);
@@ -479,7 +479,7 @@ public final class PrerequisiteUtilities
 	 * @return A list of categories matching.
 	 */
 	private static Set<Ability> buildAbilityList(
-		final PlayerCharacter character,
+		final PlayerCharacterImpl character,
 		String categoryName)
 	{
 		final Set<Ability> abilityList = new WrappedMapSet<>(IdentityHashMap.class);

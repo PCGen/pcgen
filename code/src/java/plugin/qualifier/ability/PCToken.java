@@ -27,7 +27,7 @@ import pcgen.cdom.reference.CategorizedCreator;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Ability;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
@@ -48,7 +48,7 @@ public class PCToken extends AbstractPCQualifierToken<Ability>
 	}
 
 	@Override
-	protected Collection<Ability> getPossessed(PlayerCharacter pc)
+	protected Collection<Ability> getPossessed(PlayerCharacterImpl pc)
 	{
 		HashSet<Ability> hs = new HashSet<>();
 		for (CNAbility cna : pc.getCNAbilities(category))

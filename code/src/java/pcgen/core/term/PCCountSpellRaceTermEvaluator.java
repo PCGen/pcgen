@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 
 public class PCCountSpellRaceTermEvaluator 
@@ -37,7 +37,7 @@ public class PCCountSpellRaceTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		final CDOMObject aSpellRace = pc.getSpellClassAtIndex(0);
 		return (aSpellRace instanceof Race) ? 1f : 0f;

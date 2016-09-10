@@ -23,8 +23,8 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
 //import pcgen.core.bonus.TypedBonus;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -52,7 +52,7 @@ public class BonusListToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getBonusListToken(tokenSource, pc);
@@ -65,7 +65,7 @@ public class BonusListToken extends Token
 	 * @return String of Bonus List
 	 */
 	public static String getBonusListToken(String tokenSource,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		StringTokenizer bTok =
 				new StringTokenizer(tokenSource.substring(10), ".", false);

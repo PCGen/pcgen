@@ -26,7 +26,7 @@ import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 
@@ -50,8 +50,8 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		ChooseDriver owner = getOwner();
 		T t = construct("Templ");
 		T t2 = construct("Templ2");
-		PlayerCharacter pc1 = new PlayerCharacter();
-		PlayerCharacter pc2 = new PlayerCharacter();
+		PlayerCharacterImpl pc1 = new PlayerCharacterImpl();
+		PlayerCharacterImpl pc2 = new PlayerCharacterImpl();
 		preparePC(pc1, owner);
 		preparePC(pc2, owner);
 		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
@@ -79,7 +79,7 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
-	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
+	protected void preparePC(PlayerCharacterImpl pc1, ChooseDriver owner)
 	{
 	}
 
@@ -106,8 +106,8 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 			finishLoad(Globals.getContext());
 			InequalityTester it = InequalityTesterInst.getInstance();
 			ChooseDriver owner = getOwner();
-			PlayerCharacter pc1 = new PlayerCharacter();
-			PlayerCharacter pc2 = new PlayerCharacter();
+			PlayerCharacterImpl pc1 = new PlayerCharacterImpl();
+			PlayerCharacterImpl pc2 = new PlayerCharacterImpl();
 			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			ChooseSelectionActor<T> actor = getActor();
 			actor.applyChoice(owner, t, pc2);

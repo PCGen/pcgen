@@ -32,7 +32,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
@@ -53,7 +53,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source)
 	{
 		CharacterDisplay display = character.getDisplay();
 		final int requiredRanks = Integer.parseInt(prereq.getOperand());
@@ -290,7 +290,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 		}
 		return found;
 	}
-	private int getRunningTotal(Skill aSkill, PlayerCharacter character, Prerequisite prereq
+	private int getRunningTotal(Skill aSkill, PlayerCharacterImpl character, Prerequisite prereq
 		, boolean foundMatch, int runningTotal, int requiredRanks )
 	{
 		if (foundMatch)

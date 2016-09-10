@@ -33,7 +33,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.CompanionList;
 import pcgen.core.FollowerOption;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
@@ -69,7 +69,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 {
 
 	private DefaultListFacade<CompanionFacadeDelegate> companionList;
-	private final PlayerCharacter theCharacter;
+	private final PlayerCharacterImpl theCharacter;
 	private final CharacterDisplay charDisplay;
 	private DefaultListFacade<CompanionStubFacade> availCompList;
 	private DefaultMapFacade<String, Integer> maxCompanionsMap;
@@ -85,7 +85,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	 * @param fileRef The reference to the character's file. 
 	 * @param pcFacade The UI facade for the master.
 	 */
-	public CompanionSupportFacadeImpl(PlayerCharacter theCharacter,
+	public CompanionSupportFacadeImpl(PlayerCharacterImpl theCharacter,
 		TodoManager todoManager, ReferenceFacade<String> nameRef,
 		ReferenceFacade<File> fileRef,
 		CharacterFacadeImpl pcFacade)
@@ -175,7 +175,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			if (compFacade instanceof CharacterFacadeImpl)
 			{
 				CharacterFacadeImpl compFacadeImpl = (CharacterFacadeImpl) compFacade;
-				PlayerCharacter pc = compFacadeImpl.getTheCharacter();
+				PlayerCharacterImpl pc = compFacadeImpl.getTheCharacter();
 				pc.setMaster(pc.getDisplay().getMaster());
 				compFacadeImpl.refreshClassLevelModel();
 				compFacadeImpl.postLevellingUpdates();

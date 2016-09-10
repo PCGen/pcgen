@@ -39,7 +39,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.BonusAddition;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -241,7 +241,7 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, PCClass choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, PCClass choice, PlayerCharacterImpl pc)
 	{
 		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
 		if (theClass == null)
@@ -262,7 +262,7 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public boolean allow(PCClass choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(PCClass choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return true;
 	}
@@ -280,8 +280,8 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			PCClass choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          PCClass choice)
 	{
 		if (owner instanceof PCClassLevel)
 		{
@@ -293,8 +293,8 @@ public class SpellCasterToken extends AbstractToken implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			PCClass choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         PCClass choice)
 	{
 		PCClass theClass = pc.getClassKeyed(choice.getKeyName());
 

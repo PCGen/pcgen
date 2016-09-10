@@ -29,7 +29,7 @@ import java.util.Collection;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
@@ -39,7 +39,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	protected boolean visible;
 	protected boolean hidden;
 
-	abstract Collection<CNAbility> getAbilities(PlayerCharacter pc);
+	abstract Collection<CNAbility> getAbilities(PlayerCharacterImpl pc);
 
 	/**
 	 * This function takes a list of feats and returns the number of visible,
@@ -54,7 +54,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @return the number of matching abilities
 	 */
 	protected Float countVisibleAbilities(
-			PlayerCharacter pc,
+			PlayerCharacterImpl pc,
 			final Iterable<CNAbility> aList,
 			final boolean visible,
 			final boolean hidden)
@@ -84,7 +84,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 	 * @return The number of occurrences of the ability.
 	 */
 	protected Float countVisibleAbility(
-			PlayerCharacter pc,
+			PlayerCharacterImpl pc,
 			final CNAbility cna,
 			final boolean visible,
 			final boolean hidden,

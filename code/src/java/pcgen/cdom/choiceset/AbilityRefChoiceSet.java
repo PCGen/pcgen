@@ -44,7 +44,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Deity;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 
 /**
@@ -185,7 +185,7 @@ public class AbilityRefChoiceSet implements
 	 *         contains.
 	 */
 	@Override
-	public Set<CNAbilitySelection> getSet(PlayerCharacter pc)
+	public Set<CNAbilitySelection> getSet(PlayerCharacterImpl pc)
 	{
 		Set<CNAbilitySelection> returnSet = new LinkedHashSet<>();
 		for (CDOMReference<Ability> ref : abilityRefSet)
@@ -208,7 +208,7 @@ public class AbilityRefChoiceSet implements
 	}
 
 	private Collection<CNAbilitySelection> addMultiplySelectableAbility(
-			final PlayerCharacter aPC, Ability ability, String subName)
+			final PlayerCharacterImpl aPC, Ability ability, String subName)
 	{
 		boolean isPattern = false;
 		String nameRoot = null;
@@ -295,7 +295,7 @@ public class AbilityRefChoiceSet implements
 		return returnList;
 	}
 
-	private <T> List<String> getAvailableList(final PlayerCharacter aPC,
+	private <T> List<String> getAvailableList(final PlayerCharacterImpl aPC,
 		ChooseInformation<T> chooseInfo)
 	{
 		final List<String> availableList = new ArrayList<>();

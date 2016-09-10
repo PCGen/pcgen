@@ -36,7 +36,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 
 /**
@@ -61,7 +61,7 @@ public class KitStat extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		for (Map.Entry<CDOMSingleRef<PCStat>, Formula> me : statMap.entrySet())
@@ -86,7 +86,7 @@ public class KitStat extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		testApply(null, aPC, null);
 	}
@@ -97,7 +97,7 @@ public class KitStat extends BaseKit
 		return "Stats";
 	}
 
-	private void recalculateSkillPoints(PlayerCharacter aPC)
+	private void recalculateSkillPoints(PlayerCharacterImpl aPC)
 	{
 		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();

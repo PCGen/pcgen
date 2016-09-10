@@ -29,7 +29,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.NoteItem;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -51,7 +51,7 @@ public class NoteToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		StringTokenizer tok = new StringTokenizer(tokenSource, ".");
@@ -144,7 +144,7 @@ public class NoteToken extends Token
 		return sb.toString().trim();
 	}
 
-	public static List<NoteItem> getNoteList(PlayerCharacter pc, String name)
+	public static List<NoteItem> getNoteList(PlayerCharacterImpl pc, String name)
 	{
 		List<NoteItem> noteList = new ArrayList<>();
 		List<NoteItem> resultList;

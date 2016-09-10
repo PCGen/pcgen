@@ -34,7 +34,7 @@ import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 
 /**
@@ -177,7 +177,7 @@ public class HitPointFacet extends
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
 			boolean first = true;
@@ -327,7 +327,7 @@ public class HitPointFacet extends
 				}
 				else
 				{
-					PlayerCharacter pc = trackingFacet.getPC(id);
+					PlayerCharacterImpl pc = trackingFacet.getPC(id);
 					if (!pc.isImporting())
 					{
 						roll =

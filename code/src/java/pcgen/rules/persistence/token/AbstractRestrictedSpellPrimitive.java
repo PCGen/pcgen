@@ -29,7 +29,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
@@ -230,8 +230,8 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 
 	public abstract CharSequence getPrimitiveLST();
 
-	public boolean allow(PlayerCharacter pc, int level, String source,
-			Spell spell, CDOMList<Spell> optionalList)
+	public boolean allow(PlayerCharacterImpl pc, int level, String source,
+	                     Spell spell, CDOMList<Spell> optionalList)
 	{
 		if (restriction != null)
 		{
@@ -313,7 +313,7 @@ public abstract class AbstractRestrictedSpellPrimitive implements
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);

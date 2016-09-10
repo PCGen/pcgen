@@ -35,7 +35,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -74,7 +74,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCClass myClass = new PCClass();
 		myClass.setName("My Class");
@@ -165,7 +165,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("5");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
@@ -181,7 +181,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		prereq.setOperand("5");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
 	}
@@ -197,7 +197,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 		prereq.setOperand("8");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
@@ -214,7 +214,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("2");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
@@ -232,7 +232,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("9");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
 	}
@@ -249,7 +249,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("6");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
@@ -265,7 +265,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("8");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
@@ -282,7 +282,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("8");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
 	}
@@ -292,7 +292,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	 */
 	public void testPass() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCClass myClass = new PCClass();
 		myClass.setName("My Class");
@@ -329,7 +329,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 
 		prereq.addPrerequisite(subreq);
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 	}
@@ -346,7 +346,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 		subreq.setOperand("7");
 		subreq.setTotalValues(true);
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final boolean passes = PrereqHandler.passes(subreq, character, null);
 		assertTrue(passes);
 	}
@@ -354,7 +354,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 
 	public void testLevelsTwoClasses() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESKILL:2,Balance=4,Tumble=2");
@@ -363,7 +363,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 	public void testServesAsExactMatch() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESKILL:2,Target=4,Target2=4");
@@ -380,7 +380,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	}
 	public void testServesAsTypeMatch() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESKILL:1,TYPE.INT=4");
@@ -408,7 +408,7 @@ public class PreSkillTest extends AbstractCharacterTestCase
 	
 	public void testServesAsTotalsMatch() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		

@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 
 public class PCCasterLevelTotalTermEvaluator
@@ -41,13 +41,13 @@ public class PCCasterLevelTotalTermEvaluator
 
 	// Makes no sense without a spell
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return 0f;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacterImpl pc, final CharacterSpell aSpell) {
 
 		int iLev = 0;
 

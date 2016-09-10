@@ -175,7 +175,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	public void testMonsterSkillPoints()
 	{
 		// Create a medium bugbear first level
-		PlayerCharacter bugbear = new PlayerCharacter();
+		PlayerCharacterImpl bugbear = new PlayerCharacterImpl();
 		bugbear.setRace(bugbearRace);
 		setPCStat(bugbear, intel, 12);
 
@@ -196,7 +196,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getSkillPointsGained(bugbear));
 
 		// Craete a huge bugbear first level
-		bugbear = new PlayerCharacter();
+		bugbear = new PlayerCharacterImpl();
 		bugbear.setRace(bigBugbearRace);
 		assertEquals("big bugbear", "L", bugbear.getDisplay().getSize());
 		setPCStat(bugbear, intel, 10);
@@ -217,7 +217,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 			.getSkillPointsGained(bugbear));
 
 		// Create a nymph - first level
-		PlayerCharacter nymph = new PlayerCharacter();
+		PlayerCharacterImpl nymph = new PlayerCharacterImpl();
 		nymph.setRace(nymphRace);
 		assertEquals("nymph", "M", nymph.getDisplay().getSize());
 		setPCStat(nymph, intel, 10);
@@ -282,7 +282,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Test no prereqs and no bypass fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
@@ -366,7 +366,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 				FormulaFactory.getFormulaFor(2));
 
 		// Setup character without prereqs
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Test no prereqs and no bypass fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
@@ -410,7 +410,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	public void testQualifies() throws Exception
 	{
 		// Setup character without prereqs
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Test no prereqs and no qualifies fails class and var
 		assertFalse("PC with no prereqs should fail class qual test.", prClass
@@ -519,7 +519,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(megaCasterClass.getOriginalClassLevel(2), "CAST", "3,1,2,3,4,5,6,7,8,9,10");
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		assertEquals("Highest spell level for class", 10, character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
 
 		character.incrementClassLevel(1, megaCasterClass);
@@ -588,7 +588,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Test retrieval for a non-spell casting class.
 		character.incrementClassLevel(1, nqClass);
@@ -664,7 +664,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Test retrieval for a non-spell casting class.
 		character.incrementClassLevel(1, nqClass);
@@ -781,7 +781,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		assertEquals(1, assocs.size());
 
 		// Add the class to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(1, pcclass, true);
 		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
@@ -801,7 +801,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatMonster()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
@@ -818,7 +818,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatMonster()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
 		assertEquals("Bonus list empty", 0, bonusList.size());
@@ -837,7 +837,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testDefaultLevelsPerFeatNonMonster()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
 		assertEquals("Bonus list starting size", 3, bonusList.size());
@@ -854,7 +854,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 	 */
 	public void testLevelsPerFeatNonMonster()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);

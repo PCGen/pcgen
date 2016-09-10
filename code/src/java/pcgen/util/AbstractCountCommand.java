@@ -24,7 +24,7 @@ package pcgen.util;
 
 import java.util.Stack;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.VariableProcessor;
 
 /**
@@ -70,17 +70,17 @@ public abstract class AbstractCountCommand extends PCGenCommand
 	 *
 	 * @return the pc
 	 */
-	protected PlayerCharacter getPC()
+	protected PlayerCharacterImpl getPC()
 	{
-		PlayerCharacter pc = null;
+		PlayerCharacterImpl pc = null;
 		if (parent instanceof VariableProcessor)
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
 		else
-		if (parent instanceof PlayerCharacter)
+		if (parent instanceof PlayerCharacterImpl)
 		{
-			pc = (PlayerCharacter) parent;
+			pc = (PlayerCharacterImpl) parent;
 		}
 		return pc;
 	}

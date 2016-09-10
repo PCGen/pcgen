@@ -57,7 +57,7 @@ import pcgen.core.Kit;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -453,7 +453,7 @@ public class TestHelper
 	 * @param aKey
 	 * @return boolean
 	 */
-	public static boolean hasWeaponProfKeyed(PlayerCharacter pc,
+	public static boolean hasWeaponProfKeyed(PlayerCharacterImpl pc,
 			final String aKey)
 	{
 		WeaponProf wp = Globals.getContext().getReferenceContext()

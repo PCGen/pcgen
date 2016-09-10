@@ -23,7 +23,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 
 import org.junit.Test;
@@ -66,7 +66,7 @@ public class CcskillTokenTest extends AbstractSelectionActorTest<Skill>
 	}
 
 	@Override
-	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
+	protected void preparePC(PlayerCharacterImpl pc1, ChooseDriver owner)
 	{
 		PCClass c1 = Globals.getContext().getReferenceContext().constructCDOMObject(PCClass.class, "Class1");
 		pc1.setDefaultDomainSource(new ClassSource(c1));

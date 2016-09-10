@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
@@ -42,7 +42,7 @@ public class PCSkillTotalTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Skill aSkill = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Skill.class, total);

@@ -79,10 +79,10 @@ public class BonusManager
 
 	private Set<String> tempBonusFilters = new TreeSet<>();
 
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	private Map<String, String> checkpointMap;
 
-	public BonusManager(PlayerCharacter p)
+	public BonusManager(PlayerCharacterImpl p)
 	{
 		pc = p;
 	}
@@ -882,7 +882,7 @@ public class BonusManager
 		return total;
 	}
 
-	public BonusManager buildDeepClone(PlayerCharacter apc)
+	public BonusManager buildDeepClone(PlayerCharacterImpl apc)
 	{
 		BonusManager clone = new BonusManager(apc);
 		clone.activeBonusBySource.putAll(activeBonusBySource);
@@ -966,7 +966,7 @@ public class BonusManager
 				creatorName = ((CDOMObject) aCO).getKeyName();
 			}
 
-			if (aTO instanceof PlayerCharacter)
+			if (aTO instanceof PlayerCharacterImpl)
 			{
 				targetName = ((PlayerCharacter) aTO).getName();
 			}
@@ -1135,7 +1135,7 @@ public class BonusManager
 				creatorName = ((CDOMObject) aCO).getKeyName();
 			}
 
-			if (aTO instanceof PlayerCharacter)
+			if (aTO instanceof PlayerCharacterImpl)
 			{
 				targetName = ((PlayerCharacter) aTO).getName();
 			}
@@ -1212,7 +1212,7 @@ public class BonusManager
 		{
 			return "NONE";
 		}
-		if (source instanceof PlayerCharacter)
+		if (source instanceof PlayerCharacterImpl)
 		{
 			return ((PlayerCharacter) source).getName();
 		}

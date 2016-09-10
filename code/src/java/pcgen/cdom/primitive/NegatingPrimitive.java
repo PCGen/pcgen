@@ -23,7 +23,7 @@ import java.util.Collection;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 {
@@ -48,7 +48,7 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		Collection<? extends R> result = all.getCollection(pc, c);
 		ArrayList<R> list = new ArrayList<>(result);

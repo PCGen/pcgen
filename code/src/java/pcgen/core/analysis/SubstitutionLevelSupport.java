@@ -26,7 +26,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SubstitutionClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.PCClassLoader;
@@ -38,8 +38,8 @@ public class SubstitutionLevelSupport
 {
 
 	private static boolean levelArrayQualifies(int level,
-			final PlayerCharacter pc, final String aLine,
-			final SourceEntry tempSource, CDOMObject source)
+	                                           final PlayerCharacterImpl pc, final String aLine,
+	                                           final SourceEntry tempSource, CDOMObject source)
 	{
 		final PCClassLoader classLoader = new PCClassLoader(); 
 		PCClass dummyClass = new PCClass();   
@@ -60,7 +60,7 @@ public class SubstitutionLevelSupport
 	 * Apply the level mods to a class
 	 * @param aClass
 	 */
-	public static void applyLevelArrayModsToLevel(SubstitutionClass sc, final PCClass aClass, final int aLevel, final PlayerCharacter aPC)
+	public static void applyLevelArrayModsToLevel(SubstitutionClass sc, final PCClass aClass, final int aLevel, final PlayerCharacterImpl aPC)
 	{
 		List<DeferredLine> levelArray = sc.getListFor(ListKey.SUB_CLASS_LEVEL);
 		if (levelArray == null)
@@ -92,7 +92,7 @@ public class SubstitutionLevelSupport
 		}
 	}
 
-	public static boolean qualifiesForSubstitutionLevel(PCClass cl, SubstitutionClass sc, PlayerCharacter pc, int level) 
+	public static boolean qualifiesForSubstitutionLevel(PCClass cl, SubstitutionClass sc, PlayerCharacterImpl pc, int level)
 	{ 
 		List<DeferredLine> levelArray = sc.getListFor(ListKey.SUB_CLASS_LEVEL);
 		if (levelArray == null)

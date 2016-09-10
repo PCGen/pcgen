@@ -38,13 +38,13 @@ import pcgen.core.Domain;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.WeaponProf;
 import pcgen.core.display.CharacterDisplay;
 
-public class TransparentPlayerCharacter extends PlayerCharacter
+public class TransparentPlayerCharacter extends PlayerCharacterImpl
 {
 
 	public final TransparentCharacterDisplay display;

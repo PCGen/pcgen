@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 import pcgen.facade.core.SpellFacade;
@@ -46,12 +46,12 @@ import pcgen.util.SortKeyAware;
  */
 public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 {
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	private final Spell spell;
 	private final CharacterSpell charSpell;
 	private final SpellInfo spellInfo;
 
-	public SpellFacadeImplem(PlayerCharacter pc, Spell spell, CharacterSpell charSpell, SpellInfo spellInfo)
+	public SpellFacadeImplem(PlayerCharacterImpl pc, Spell spell, CharacterSpell charSpell, SpellInfo spellInfo)
 	{
 		this.pc = pc;
 		this.spell = spell;

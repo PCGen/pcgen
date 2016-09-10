@@ -287,7 +287,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
@@ -300,7 +300,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetBonusFeatsForNewLevel3() throws Exception
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(3, pcClass, true);
@@ -316,7 +316,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetMonsterBonusFeatsForNewLevel1() throws Exception
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(giantRace);
 		character.incrementClassLevel(1, pcClass, true);
@@ -333,7 +333,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetNumFeatsFromLevels()
 	{
 		readyToRun();
-		final PlayerCharacter pc = new PlayerCharacter();
+		final PlayerCharacterImpl pc = new PlayerCharacterImpl();
 		pc.setRace(human);
 		assertEquals("Should start at 0", 0, pc.getNumFeatsFromLevels(), 0.001);
 
@@ -365,7 +365,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetMonsterBonusFeatsForNewLevel2() throws Exception
 	{
 		readyToRun();
-		final PlayerCharacter pc = new PlayerCharacter();
+		final PlayerCharacterImpl pc = new PlayerCharacterImpl();
 
 		pc.setRace(giantRace);
 		is((int) pc.getRemainingFeatPoints(true), eq(2),
@@ -403,7 +403,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 				Bonus.newBonus(context, "VAR|GiantClass1|CL=Giant");
 		giantClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, babClassBonus);
 
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		// NOTE: This will add 4 levels of giantClass to the character 
 		character.setRace(giantRace);
 		character.incrementClassLevel(4, giantClass, true);
@@ -424,7 +424,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatMod()");
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.setStat(str, 16);
 		character.incrementClassLevel(2, pcClass, true);
@@ -443,7 +443,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetVariableValueStatModNew()");
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.setStat(str, 16);
 		character.incrementClassLevel(2, pcClass, true);
@@ -460,7 +460,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableCaching()
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.setStat(str, 16);
 		character.incrementClassLevel(2, pcClass, true);
@@ -488,7 +488,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testModFeat()
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
 
@@ -517,7 +517,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testExoticWpnProf()
 	{
 		readyToRun();
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 
 		assertFalse("Not yet proficient in Weapon A", TestHelper.hasWeaponProfKeyed(character, "Weapon A"));
@@ -552,7 +552,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		readyToRun();
 		//Logging.setDebugMode(true);
 		Logging.debugPrint("\n\n\ntestGetClassVar()");
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.incrementClassLevel(2, classWarmind, true);
 
@@ -567,7 +567,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testMaxValue()
 	{
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		setPCStat(pc, str, 8);
@@ -637,7 +637,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testSkillsVisibility()
 	{
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 
 		Skill guiSkill = new Skill();
 		Skill outputSkill = new Skill();
@@ -687,7 +687,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testAddSpells()
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.incrementClassLevel(1, pcClass, true);
 
@@ -797,7 +797,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testAvailableSpellsMemorizedDivine()
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.setStat(wis, 15);
 		character.incrementClassLevel(1, classMemDivine, true);
@@ -895,7 +895,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testIsNonAbility()
 	{
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 
 		//Base
 		assertEquals("Initially character should not have a locked ability", false, pc.isNonAbility(str));
@@ -939,7 +939,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testStackDifferentAbiltyCat()
 	{
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		double base = pc.getTotalBonusTo("HP", "CURRENTMAX");
 		
 		assertEquals("Check repeatability of bonus", base, pc.getTotalBonusTo(
@@ -974,7 +974,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	 */
 	public void testNestedAbilities()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		Ability resToAcid =
 				TestHelper.makeAbility("Resistance To Acid", specialAbilityCat, "Foo");
 		Ability resToAcidOutputVirt =
@@ -1008,7 +1008,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetPartialStatFor()
 	{
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		setPCStat(pc, str, 14);
@@ -1048,7 +1048,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		Ability ab = TestHelper.makeAbility("Tester1", AbilityCategory.FEAT, "Empty Container");
 		Ability mab = TestHelper.makeAbility("Tester2", AbilityCategory.FEAT, "Mount Container");
 		Ability fab = TestHelper.makeAbility("Tester3", AbilityCategory.FEAT, "Familiar Container");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		CharacterDisplay display = pc.getDisplay();
 		
 		addAbility(AbilityCategory.FEAT, ab);
@@ -1103,7 +1103,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(template, "ABILITY", "FEAT|VIRTUAL|KEY_Swelter");
 		context.unconditionallyProcess(templateNorm, "ABILITY", "FEAT|NORMAL|KEY_Swelter");
 		readyToRun();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		
 		List<Ability> abList = pc.getAggregateAbilityListNoDuplicates(AbilityCategory.FEAT);
 		assertEquals(0, abList.size());
@@ -1151,7 +1151,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		li.addLoadScoreValue(10, new BigDecimal("100.0"));
 		li.addLoadMultiplier("LIGHT", new Float(100), "100", 0);
 
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		setPCStat(pc, str, 10);
 		pc.setRace(human);
 		pc.calcActiveBonuses();
@@ -1191,7 +1191,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 		paladin.put(ObjectKey.EX_CLASS, context.getReferenceContext().getCDOMReference(PCClass.class, exPaladin.getKeyName()));
 		readyToRun();
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		// Add a level of the class
 		pc.incrementClassLevel(2, paladin, true, false);
 		PCClass pcPalClass = pc.getClassKeyed(paladin.getKeyName());
@@ -1213,7 +1213,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testGetVariableCachingRollTopNode()
 	{
 		readyToRun();
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		character.setRace(human);
 		character.setStat(str, 16);
 		character.incrementClassLevel(2, pcClass, true);
@@ -1241,7 +1241,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testCheckSkillModChangeNoBonus()
 	{
 		readyToRun();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.setRace(human);
 		character.setStat(intel, 10);
 		character.incrementClassLevel(2, pcClass, true);
@@ -1277,7 +1277,7 @@ public class PlayerCharacterTest extends AbstractCharacterTestCase
 	public void testCheckSkillModChangeWithBonus()
 	{
 		readyToRun();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		character.setRace(human);
 		character.setStat(intel, 10);
 		PCTemplate template = TestHelper.makeTemplate("grantsskills");

@@ -2,7 +2,7 @@ package plugin.jepcommands;
 
 import org.nfunk.jep.ParseException;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.VariableProcessorEq;
 import pcgen.core.VariableProcessorPC;
 import pcgen.util.Logging;
@@ -77,9 +77,9 @@ public class GetVarCommand extends PCGenCommand
         if (param1 instanceof String)
 		{
             Float result = null;
-            if (parent instanceof PlayerCharacter)
+            if (parent instanceof PlayerCharacterImpl)
 			{
-				final PlayerCharacter character = (PlayerCharacter) parent;
+				final PlayerCharacterImpl character = (PlayerCharacterImpl) parent;
 				result = getVariableForCharacter(character, param1);
 			}
 			else if (parent instanceof Equipment)
@@ -135,7 +135,7 @@ public class GetVarCommand extends PCGenCommand
 		}
 	}
 
-	protected Float getVariableForCharacter(final PlayerCharacter character, final Object param1)
+	protected Float getVariableForCharacter(final PlayerCharacterImpl character, final Object param1)
 	{
         return character.getVariableValue((String) param1, variableSource);
 	}

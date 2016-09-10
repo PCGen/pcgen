@@ -121,7 +121,7 @@ public final class PCTemplate extends PObject implements TemplateFacade, ChooseD
 	}
 
 	@Override
-	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
+	public List<BonusObj> getRawBonusList(PlayerCharacterImpl pc)
 	{
 		List<BonusObj> list = new ArrayList<>(super.getRawBonusList(pc));
 		/*

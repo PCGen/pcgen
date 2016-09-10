@@ -28,7 +28,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.prereq.PrereqHandler;
@@ -45,7 +45,7 @@ public class BonusCalc
 	 * @param aPC the Player Character that the bonus will apply to
 	 * @return the bonus to the given stat.
 	 */
-	public static int getStatMod(PObject po, PCStat stat, final PlayerCharacter aPC)
+	public static int getStatMod(PObject po, PCStat stat, final PlayerCharacterImpl aPC)
 	{
 		return (int) BonusCalc.charBonusTo(po, "STAT", stat.getKeyName(), aPC);
 	}
@@ -56,7 +56,7 @@ public class BonusCalc
 		String aName,
 		final Object obj,
 		final Collection<BonusObj> aBonusList,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		if ((aBonusList == null) || (aBonusList.size() == 0))
 		{
@@ -169,7 +169,7 @@ public class BonusCalc
 		PObject po,
 		final String aType,
 		final String aName,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		return bonusTo(po, aType, aName, aPC, po.getBonusList(aPC), aPC);
 	}
@@ -178,7 +178,7 @@ public class BonusCalc
 		Equipment po,
 		final String aType,
 		final String aName,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		return bonusTo(po, aType, aName, po, po.getBonusList(po), aPC);
 	}
@@ -206,7 +206,7 @@ public class BonusCalc
 		final Object obj,
 		final int iTimes,
 		final BonusObj aBonusObj,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		final StringTokenizer aTok = new StringTokenizer(bString, "|");
 	
@@ -250,9 +250,9 @@ public class BonusCalc
 	
 		double iBonus = 0;
 	
-		if (obj instanceof PlayerCharacter)
+		if (obj instanceof PlayerCharacterImpl)
 		{
-			iBonus = ((PlayerCharacter) obj).getVariableValue(aString, "").doubleValue();
+			iBonus = ((PlayerCharacterImpl) obj).getVariableValue(aString, "").doubleValue();
 		}
 		else if (obj instanceof Equipment)
 		{
@@ -274,9 +274,9 @@ public class BonusCalc
 		final String possibleBonusTypeString = aBonusObj.getTypeString();
 	
 		// must meet criteria before adding any bonuses
-		if (obj instanceof PlayerCharacter)
+		if (obj instanceof PlayerCharacterImpl)
 		{
-			if (!aBonusObj.qualifies((PlayerCharacter) obj, po))
+			if (!aBonusObj.qualifies((PlayerCharacterImpl) obj, po))
 			{
 				return 0;
 			}

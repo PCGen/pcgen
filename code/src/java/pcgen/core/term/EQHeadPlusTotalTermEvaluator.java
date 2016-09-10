@@ -23,7 +23,7 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * The Class <code>EQHeadPlusTotalTermEvaluator</code> is responsible for producing 
@@ -53,7 +53,7 @@ public class EQHeadPlusTotalTermEvaluator extends BaseEQTermEvaluator implements
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -65,7 +65,7 @@ public class EQHeadPlusTotalTermEvaluator extends BaseEQTermEvaluator implements
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return Integer.toString(eq.calcPlusForHead(primary));
 	}
 

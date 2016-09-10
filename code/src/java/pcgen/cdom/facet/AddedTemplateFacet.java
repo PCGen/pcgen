@@ -32,7 +32,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
@@ -70,7 +70,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	{
 		List<PCTemplate> list = new ArrayList<>();
 		removeAll(id, po);
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
 			for (CDOMReference<PCTemplate> ref : po
@@ -120,7 +120,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	public Collection<PCTemplate> remove(CharID id, CDOMObject po)
 	{
 		List<PCTemplate> list = new ArrayList<>();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (!pc.isImporting())
 		{
 			for (CDOMReference<PCTemplate> ref : po
@@ -237,7 +237,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	{
 		CharID id = dfce.getCharID();
 		CDOMObject cdo = dfce.getCDOMObject();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		Collection<PCTemplate> list = getFromSource(id, cdo);
 		/*
 		 * If someone pre-set the list, then we use the preset list. If not, we
@@ -283,7 +283,7 @@ public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTempl
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		Collection<PCTemplate> list = getFromSource(id, cdo);
 		if (list != null)
 		{

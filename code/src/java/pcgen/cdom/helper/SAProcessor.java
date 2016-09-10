@@ -23,15 +23,15 @@ import java.util.List;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.QualifiedActor;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 import pcgen.util.Logging;
 
 public final class SAProcessor implements QualifiedActor<SpecialAbility, SpecialAbility>
 {
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 
-	public SAProcessor(PlayerCharacter pc)
+	public SAProcessor(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 	}

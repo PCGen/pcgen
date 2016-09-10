@@ -20,14 +20,14 @@ package plugin.qualifier.template;
 import java.util.Collection;
 
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<PCTemplate>
 {
 
 	@Override
-	protected Collection<PCTemplate> getPossessed(PlayerCharacter pc)
+	protected Collection<PCTemplate> getPossessed(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getTemplateSet();
 	}

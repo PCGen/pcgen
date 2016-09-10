@@ -29,7 +29,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.UIPropertyContext;
 
@@ -66,7 +66,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 
 		// If we are importing these levels will have been saved with the
 		// character so don't apply them again.
@@ -100,7 +100,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	{
 		PCTemplate template = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 
 		List<LevelCommandFactory> lcfList = template
 				.getSafeListFor(ListKey.ADD_LEVEL);
@@ -131,7 +131,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	private void add(Formula levels, PCClass cl, PlayerCharacter pc)
+	private void add(Formula levels, PCClass cl, PlayerCharacterImpl pc)
 	{
 		apply(pc, cl, levels.resolve(pc, "").intValue());
 	}
@@ -152,7 +152,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	public void remove(Formula levels, PCClass cl, PlayerCharacter pc)
+	public void remove(Formula levels, PCClass cl, PlayerCharacterImpl pc)
 	{
 		apply(pc, cl, -levels.resolve(pc, "").intValue());
 	}
@@ -175,7 +175,7 @@ public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate
 	 * @throws NullPointerException
 	 *             if the given PlayerCharacter is null
 	 */
-	private void apply(PlayerCharacter pc, PCClass pcClass, int levels)
+	private void apply(PlayerCharacterImpl pc, PCClass pcClass, int levels)
 	{
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();
 		SettingsHandler.setShowHPDialogAtLevelUp(false);

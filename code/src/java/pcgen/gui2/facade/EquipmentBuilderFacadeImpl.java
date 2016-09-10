@@ -40,7 +40,7 @@ import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SpecialProperty;
 import pcgen.core.analysis.EqModSpellInfo;
@@ -75,7 +75,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	private final Equipment equip;
 	private final Map<EquipmentHead, DefaultListFacade<EquipModFacade>> availListMap;
 	private final Map<EquipmentHead, DefaultListFacade<EquipModFacade>> selectedListMap;
-	private final PlayerCharacter character;
+	private final PlayerCharacterImpl character;
 	private final Equipment baseEquipment;
 	private final EnumSet<EquipmentHead> equipHeads;
 	private DefaultReferenceFacade<SizeAdjustmentFacade> sizeRef;
@@ -87,7 +87,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	 * @param character The character the equipment will be for.
 	 * @param delegate The handler for UI functions such as dialogs.
 	 */
-	EquipmentBuilderFacadeImpl(Equipment equip, PlayerCharacter character, UIDelegate delegate)
+	EquipmentBuilderFacadeImpl(Equipment equip, PlayerCharacterImpl character, UIDelegate delegate)
 	{
 		this.equip = equip;
 		this.character = character;

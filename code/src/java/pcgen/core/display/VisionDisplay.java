@@ -21,13 +21,13 @@ import java.util.Collection;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Vision;
 
 public class VisionDisplay
 {
 
-	public static String getVision(final PlayerCharacter aPC, CDOMObject cdo)
+	public static String getVision(final PlayerCharacterImpl aPC, CDOMObject cdo)
 	{
 		if (aPC == null)
 		{

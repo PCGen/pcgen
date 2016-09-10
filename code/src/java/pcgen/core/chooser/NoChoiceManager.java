@@ -26,7 +26,7 @@ import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class NoChoiceManager implements ChoiceManagerList<String>
 {
@@ -48,8 +48,8 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public void getChoices(PlayerCharacter pc, List<String> availableList,
-		List<String> selectedList)
+	public void getChoices(PlayerCharacterImpl pc, List<String> availableList,
+                           List<String> selectedList)
 	{
 		availableList.addAll(info.getSet(pc));
 		selectedList.addAll(pc.getAssociationList(owner));
@@ -63,13 +63,13 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public boolean conditionallyApply(PlayerCharacter pc, String item)
+	public boolean conditionallyApply(PlayerCharacterImpl pc, String item)
 	{
 		throw new UnsupportedOperationException();
 	}
 
     @Override
-	public boolean applyChoices(PlayerCharacter pc, List<String> selected)
+	public boolean applyChoices(PlayerCharacterImpl pc, List<String> selected)
 	{
 		List<? extends String> oldSelections =
 				info.getChoiceActor().getCurrentlySelected(owner, pc);
@@ -91,7 +91,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public List<String> doChooser(PlayerCharacter aPc,
+	public List<String> doChooser(PlayerCharacterImpl aPc,
 		final List<String> availableList, final List<String> selectedList,
 		final List<String> reservedList)
 	{
@@ -100,7 +100,7 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public List<String> doChooserRemove(PlayerCharacter aPC,
+	public List<String> doChooserRemove(PlayerCharacterImpl aPC,
 		List<String> availableList, List<String> selectedList,
 		List<String> reservedList)
 	{
@@ -132,21 +132,21 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver target,
-		String choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver target,
+                              String choice)
 	{
 		info.restoreChoice(pc, target, info.decodeChoice(Globals.getContext(), choice));
 	}
 
     @Override
 	public int getNumEffectiveChoices(List<? extends String> selectedList,
-		List<String> reservedList, PlayerCharacter aPc)
+		List<String> reservedList, PlayerCharacterImpl aPc)
 	{
 		return 0;
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, String selection)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver obj, String selection)
 	{
 		info.removeChoice(pc, obj, selection);
 	}
@@ -158,8 +158,8 @@ public class NoChoiceManager implements ChoiceManagerList<String>
 	}
 
 	@Override
-	public void applyChoice(PlayerCharacter pc, ChooseDriver cdo,
-		String selection)
+	public void applyChoice(PlayerCharacterImpl pc, ChooseDriver cdo,
+	                        String selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, Constants.EMPTY_STRING, pc);
 	}

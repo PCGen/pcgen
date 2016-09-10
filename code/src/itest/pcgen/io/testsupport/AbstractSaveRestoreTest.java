@@ -65,7 +65,7 @@ import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -87,8 +87,8 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 {
 
 	protected LoadContext context;
-	protected PlayerCharacter pc;
-	protected PlayerCharacter reloadedPC;
+	protected PlayerCharacterImpl pc;
+	protected PlayerCharacterImpl reloadedPC;
 	protected CharID id;
 	private static URI URI;
 	private static boolean setup = false;
@@ -168,9 +168,9 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
-		pc = new PlayerCharacter();
+		pc = new PlayerCharacterImpl();
 		setBoilerplate();
-		reloadedPC = new PlayerCharacter(Collections.emptyList());
+		reloadedPC = new PlayerCharacterImpl(Collections.emptyList());
 		id = pc.getCharID();
 	}
 
@@ -361,7 +361,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
 	}
 	
-	protected void dumpPC(PlayerCharacter plchar)
+	protected void dumpPC(PlayerCharacterImpl plchar)
 	{
 		GameMode mode = SettingsHandler.getGame();
 		String pcgString =

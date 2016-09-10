@@ -25,7 +25,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.RaceSelectionFacet;
 import pcgen.cdom.facet.model.RaceFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
@@ -46,7 +46,7 @@ public class RaceInputFacet
 
 	public boolean set(CharID id, Race race)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(race))
 		{
 			ChoiceManagerList<?> aMan =
@@ -59,8 +59,8 @@ public class RaceInputFacet
 		}
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc, Race race,
-		ChoiceManagerList<T> aMan)
+	private <T> boolean processChoice(CharID id, PlayerCharacterImpl pc, Race race,
+	                                  ChoiceManagerList<T> aMan)
 	{
 		List<T> selectedList = new ArrayList<>();
 		List<T> availableList = new ArrayList<>();
@@ -91,7 +91,7 @@ public class RaceInputFacet
 
 	public void importSelection(CharID id, Race race, String choice)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(race))
 		{
 			ChoiceManagerList<?> aMan =
@@ -115,7 +115,7 @@ public class RaceInputFacet
 		Race old = raceFacet.get(id);
 		if (raceFacet.set(id, race) && (old != null))
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			if (pc.isAllowInteraction())
 			{
 				raceSelectionFacet.remove(id, old);
@@ -131,7 +131,7 @@ public class RaceInputFacet
 	public void remove(CharID id)
 	{
 		Race r = raceFacet.remove(id);
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && (r != null))
 		{
 			raceSelectionFacet.remove(id, r);

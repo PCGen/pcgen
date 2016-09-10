@@ -35,7 +35,7 @@ import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.UnitSet;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -133,7 +133,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testList() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("no vision", "", new VisionToken().getToken(
 			"VISION", pc, null));
 
@@ -154,7 +154,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testPositional() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("no vision", "", new VisionToken().getToken(
 			"VISION.0", pc, null));
 
@@ -187,7 +187,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testListMetric() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
 		assertTrue(SettingsHandler.getGame().selectUnitSet(metricUS.getDisplayName()));

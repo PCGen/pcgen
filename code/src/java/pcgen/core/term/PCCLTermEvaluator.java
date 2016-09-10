@@ -24,8 +24,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 
 public class PCCLTermEvaluator
@@ -41,13 +41,13 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc)
+	public String evaluate (PlayerCharacterImpl pc)
 	{
 		final PCClass aClass = pc.getClassKeyed(classKey);
 
@@ -60,7 +60,7 @@ public class PCCLTermEvaluator
 	}
 
 	@Override
-	public String evaluate (PlayerCharacter pc, Spell aSpell)
+	public String evaluate (PlayerCharacterImpl pc, Spell aSpell)
 	{
 		return evaluate(pc);
 	}

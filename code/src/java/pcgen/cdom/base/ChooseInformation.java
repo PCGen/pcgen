@@ -20,7 +20,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
 
@@ -48,11 +48,11 @@ public interface ChooseInformation<T>
 
 	ClassIdentity<? super T> getClassIdentity();
 
-	Collection<? extends T> getSet(PlayerCharacter pc);
+	Collection<? extends T> getSet(PlayerCharacterImpl pc);
 	
-	void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+	void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item);
 
-	void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+	void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item);
 
 	ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost);
 

@@ -34,7 +34,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
@@ -78,7 +78,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		myClass = new PCClass();
 		myClass.setName("My Class");
@@ -124,7 +124,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, cha, 12);
 		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
@@ -185,7 +185,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		item3.put(StringKey.KEY_NAME, "IC3");
 		item3.setCDOMCategory(AbilityCategory.FEAT);
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreAbilityParser producer = new PreAbilityParser();
 
@@ -241,7 +241,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		final Prerequisite prereq =
 				producer.parse("SKILL", "2,TYPE.Knowledge=4",
 					false, false);
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse("Should not pass 2 knowledge skill test with 1 skill",
 			passes);

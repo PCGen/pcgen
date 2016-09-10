@@ -1,7 +1,8 @@
 package plugin.jepcommands;
 
 import org.nfunk.jep.ParseException;
-import pcgen.core.PlayerCharacter;
+
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
 
@@ -70,14 +71,14 @@ public class CharBonusToCommand extends PCGenCommand
 
         if ((param1 instanceof String) && (param2 instanceof String))
 		{
-			PlayerCharacter pc = null;
+			PlayerCharacterImpl pc = null;
 			if (parent instanceof VariableProcessor)
 			{
 				pc = ((VariableProcessor) parent).getPc();
 			}
-			else if (parent instanceof PlayerCharacter)
+			else if (parent instanceof PlayerCharacterImpl)
 			{
-				pc = (PlayerCharacter) parent;
+				pc = (PlayerCharacterImpl) parent;
 			}
 			if (pc == null)
 			{

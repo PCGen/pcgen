@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCSPellBaseStatTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -42,7 +42,7 @@ public class PCSPellBaseStatTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		final PCClass aClass = pc.getClassKeyed(classKey);
 

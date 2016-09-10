@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A PersistentChoiceActor is a ChoiceActor that is designed to be saved and
@@ -45,7 +45,7 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>, Persistent<T>
 	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner, T item);
 
 	/**
 	 * Removes a choice from a PlayerCharacter.
@@ -57,5 +57,5 @@ public interface PersistentChoiceActor<T> extends ChoiceActor<T>, Persistent<T>
 	 * @param item
 	 *            The choice being removed from the given PlayerCharacter.
 	 */
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner, T item);
 }

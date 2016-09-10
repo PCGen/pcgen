@@ -20,7 +20,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.base.formula.Formula;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -38,7 +38,7 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	public boolean allowsStacking();
 
-	Collection<? extends T> driveChoice(PlayerCharacter apc);
+	Collection<? extends T> driveChoice(PlayerCharacterImpl apc);
 
 	void setStackLimit(int limit);
 
@@ -46,7 +46,7 @@ public interface TransitionChoice<T> extends BasicChoice<T>
 
 	Formula getCount();
 
-	void act(Collection<? extends T> name, CDOMObject owner, PlayerCharacter pc);
+	void act(Collection<? extends T> name, CDOMObject owner, PlayerCharacterImpl pc);
 
 	void setRequired(boolean required);
 

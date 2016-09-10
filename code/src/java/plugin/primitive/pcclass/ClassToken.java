@@ -25,7 +25,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -67,7 +67,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, PCClass cl)
+	public boolean allow(PlayerCharacterImpl pc, PCClass cl)
 	{
 		return pcclass.equals(cl.get(StringKey.KEY_NAME));
 	}
@@ -100,7 +100,7 @@ public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCCl
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);

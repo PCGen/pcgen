@@ -20,7 +20,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.base.util.ObjectContainer;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A CDOMReference stores references to Objects. Often these are CDOMObjects,
@@ -197,7 +197,7 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		return c.convert(this);
 	}

@@ -962,7 +962,7 @@ public final class Globals
 		return bonusFeatLevels.get(0);
 	}
 
-	static int getBonusStatsForLevel(final int level, final PlayerCharacter aPC)
+	static int getBonusStatsForLevel(final int level, final PlayerCharacterImpl aPC)
 	{
 		int num = 0;
 
@@ -985,7 +985,7 @@ public final class Globals
 	 */
 	public static <T> List<T> getChoiceFromList(final String title,
 	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
-	                                            final PlayerCharacter pc)
+	                                            final PlayerCharacterImpl pc)
 	{
 		return getChoiceFromList(title, choiceList, selectedList, pool, false, false, pc);
 	}
@@ -1003,7 +1003,7 @@ public final class Globals
 	 */
 	public static <T> List<T> getChoiceFromList(final String title,
 	                                            final List<T> choiceList, final List<T> selectedList, final int pool,
-	                                            final boolean forceChoice, final boolean preferRadioSelection, final PlayerCharacter pc)
+	                                            final boolean forceChoice, final boolean preferRadioSelection, final PlayerCharacterImpl pc)
 	{
 		List<T> startingSelectedList = new ArrayList<>();
 		if (selectedList != null)
@@ -1263,7 +1263,7 @@ public final class Globals
 		}
 	}
 
-	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacter aPC)
+	private static int bonusParsing(final String l, final int level, int num, final PlayerCharacterImpl aPC)
 	{
 		// should be in format levelnum,rangenum[,numchoices] 
 		final StringTokenizer aTok = new StringTokenizer(l, "|", false);

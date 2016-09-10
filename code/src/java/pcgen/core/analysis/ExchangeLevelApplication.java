@@ -27,7 +27,7 @@ import pcgen.cdom.content.LevelExchange;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.core.utils.MessageType;
@@ -38,7 +38,7 @@ import pcgen.util.chooser.ChooserFactory;
 public class ExchangeLevelApplication
 {
 
-	public static void exchangeLevels(final PlayerCharacter aPC, PCClass newcl)
+	public static void exchangeLevels(final PlayerCharacterImpl aPC, PCClass newcl)
 	{
 		LevelExchange le = newcl.get(ObjectKey.EXCHANGE_LEVEL);
 	

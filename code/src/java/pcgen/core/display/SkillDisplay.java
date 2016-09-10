@@ -28,7 +28,7 @@ import java.util.List;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.SkillComparator;
 import pcgen.util.enumeration.View;
@@ -54,7 +54,7 @@ public final class SkillDisplay
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc,
+	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacterImpl pc,
 		final List<Skill> skills)
 	{
 		Collections.sort(skills, new Comparator<Skill>()
@@ -120,12 +120,12 @@ public final class SkillDisplay
 	 * 
 	 * @return An ArrayList of the skill objects in output order.
 	 */
-	public static List<Skill> getSkillListInOutputOrder(PlayerCharacter pc)
+	public static List<Skill> getSkillListInOutputOrder(PlayerCharacterImpl pc)
 	{
 		return getSkillListInOutputOrder(pc, new ArrayList<>(pc.getSkillSet()));
 	}
 
-	public static void updateSkillsOutputOrder(PlayerCharacter pc, Skill aSkill)
+	public static void updateSkillsOutputOrder(PlayerCharacterImpl pc, Skill aSkill)
 	{
 		// in order to get the selected table to sort properly
 		// we need to sort the PC's skill list now that the
@@ -149,12 +149,12 @@ public final class SkillDisplay
 		}
 	}
 
-	public static void resortSelected(PlayerCharacter pc, SkillsOutputOrder sortSelection)
+	public static void resortSelected(PlayerCharacterImpl pc, SkillsOutputOrder sortSelection)
 	{
 		resortSelected(pc, sortSelection.getComparator(pc));
 	}
 
-	private static void resortSelected(PlayerCharacter pc, SkillComparator comparator)
+	private static void resortSelected(PlayerCharacterImpl pc, SkillComparator comparator)
 	{
 		if ((pc == null) || (comparator == null))
 		{
@@ -179,7 +179,7 @@ public final class SkillDisplay
 	 * character's skills.
 	 * @return highest output index
 	 */
-	private static int getHighestOutputIndex(PlayerCharacter pc)
+	private static int getHighestOutputIndex(PlayerCharacterImpl pc)
 	{
 		int maxOutputIndex = 0;
 		final Iterable<Skill> skillList = new ArrayList<>(pc.getSkillSet());

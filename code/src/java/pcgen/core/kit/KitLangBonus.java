@@ -32,7 +32,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Kit;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 
@@ -57,7 +57,7 @@ public class KitLangBonus extends BaseKit
 	 * @param aPC The PlayerCharacter the languages are to be applied to
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		CNAbility cna = aPC.getBonusLanguageAbility();
 		for (Language l : theLanguages)
@@ -77,7 +77,7 @@ public class KitLangBonus extends BaseKit
 	 * @return true, if the languages could be added
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 			List<String> warnings)
 	{
 		theLanguages = new ArrayList<>();

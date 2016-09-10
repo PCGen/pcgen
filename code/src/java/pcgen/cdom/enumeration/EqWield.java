@@ -18,14 +18,14 @@
 package pcgen.cdom.enumeration;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public enum EqWield
 {
 	Unarmed
 	{
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
+		public boolean checkWield(PlayerCharacterImpl pc, Equipment equipment)
 		{
 			//TODO What is appropriate here?
 			return false;
@@ -34,7 +34,7 @@ public enum EqWield
 	Light
 	{
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
+		public boolean checkWield(PlayerCharacterImpl pc, Equipment equipment)
 		{
 			return equipment.isWeaponLightForPC(pc);
 		}
@@ -48,7 +48,7 @@ public enum EqWield
 		}
 
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
+		public boolean checkWield(PlayerCharacterImpl pc, Equipment equipment)
 		{
 			return equipment.isWeaponOneHanded(pc);
 		}
@@ -62,11 +62,11 @@ public enum EqWield
 		}
 
 		@Override
-		public boolean checkWield(PlayerCharacter pc, Equipment equipment)
+		public boolean checkWield(PlayerCharacterImpl pc, Equipment equipment)
 		{
 			return equipment.isWeaponTwoHanded(pc);
 		}
 	};
 
-	public abstract boolean checkWield(PlayerCharacter pc, Equipment equipment);
+	public abstract boolean checkWield(PlayerCharacterImpl pc, Equipment equipment);
 }

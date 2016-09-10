@@ -28,7 +28,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class PCArmourACcheckTermEvaluator
@@ -40,7 +40,7 @@ public class PCArmourACcheckTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.EQACCHECK))

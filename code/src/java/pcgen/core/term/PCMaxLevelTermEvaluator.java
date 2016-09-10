@@ -21,7 +21,7 @@
 package pcgen.core.term;
 
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 		TermEvaluator
@@ -35,7 +35,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		if (classKey.length() == 0)
 		{

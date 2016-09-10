@@ -1,7 +1,7 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 
@@ -27,17 +27,17 @@ import pcgen.core.spell.Spell;
  */
 public interface TermEvaluator
 {
-	String evaluate(PlayerCharacter pc);
+	String evaluate(PlayerCharacterImpl pc);
 
-	String evaluate(PlayerCharacter pc, final Spell aSpell);
+	String evaluate(PlayerCharacterImpl pc, final Spell aSpell);
 
-	String evaluate(Equipment eq, boolean primary, PlayerCharacter pc);
+	String evaluate(Equipment eq, boolean primary, PlayerCharacterImpl pc);
 
-	Float resolve(PlayerCharacter pc);
+	Float resolve(PlayerCharacterImpl pc);
 
-	Float resolve(PlayerCharacter pc, final CharacterSpell aSpell);
+	Float resolve(PlayerCharacterImpl pc, final CharacterSpell aSpell);
 
-	Float resolve(Equipment eq, boolean primary, PlayerCharacter pc);
+	Float resolve(Equipment eq, boolean primary, PlayerCharacterImpl pc);
 
 	boolean isSourceDependant();
 

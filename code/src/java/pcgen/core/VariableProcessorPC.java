@@ -41,7 +41,7 @@ public class VariableProcessorPC extends VariableProcessor
 	 *
 	 * @param pc The character to be processed.
 	 */
-	public VariableProcessorPC(PlayerCharacter pc)
+	public VariableProcessorPC(PlayerCharacterImpl pc)
 	{
 		super(pc);
 	}

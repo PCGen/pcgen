@@ -29,7 +29,7 @@ import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class PCHandsTermEvaluator
@@ -42,7 +42,7 @@ public class PCHandsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter display)
+	public Float resolve(PlayerCharacterImpl display)
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.CREATUREHANDS))

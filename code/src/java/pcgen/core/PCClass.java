@@ -202,7 +202,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * is this ever out of sync or can this method be removed/made private??
 	 */
 	public double getBonusTo(final String argType, final String argMname,
-		final int asLevel, final PlayerCharacter aPC)
+		final int asLevel, final PlayerCharacterImpl aPC)
 	{
 		double i = 0;
 
@@ -309,7 +309,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * VERY confusing as far as object interaction. Can we get rid of
 	 * PCLevelInfo altogether?
 	 */
-	public final int getSkillPool(final PlayerCharacter aPC)
+	public final int getSkillPool(final PlayerCharacterImpl aPC)
 	{
 		int returnValue = 0;
 		// //////////////////////////////////
@@ -422,7 +422,7 @@ public class PCClass extends PObject implements ClassFacade
 		return null;
 	}
 
-	public void setLevel(final int newLevel, final PlayerCharacter aPC)
+	public void setLevel(final int newLevel, final PlayerCharacterImpl aPC)
 	{
 		final int curLevel = aPC.getLevel(this);
 
@@ -470,7 +470,7 @@ public class PCClass extends PObject implements ClassFacade
 	 * handled here.
 	 * @param aPC The character to bonus.
 	 */
-	void addFeatPoolBonus(final PlayerCharacter aPC)
+	void addFeatPoolBonus(final PlayerCharacterImpl aPC)
 	{
 		Integer mLevPerFeat = get(IntegerKey.LEVELS_PER_FEAT);
 		int startLevel;
@@ -621,7 +621,7 @@ public class PCClass extends PObject implements ClassFacade
 		return SettingsHandler.getGame().getBabAttCyc();
 	}
 
-	public int baseAttackBonus(final PlayerCharacter aPC)
+	public int baseAttackBonus(final PlayerCharacterImpl aPC)
 	{
 		if (aPC.getLevel(this) == 0)
 		{
@@ -772,7 +772,7 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	public String getUdamForLevel(
 		int aLevel,
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		boolean adjustForPCSize)
 	{
 		aLevel += (int) aPC.getTotalBonusTo("UDAM", "CLASS." + getKeyName());
@@ -789,7 +789,7 @@ public class PCClass extends PObject implements ClassFacade
 	 */
 	String getUDamForEffLevel(
 		int aLevel,
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		boolean adjustForPCSize)
 	{
 		int pcSize = adjustForPCSize ? aPC.sizeInt() : aPC.getDisplay().racialSizeInt();
@@ -883,7 +883,7 @@ public class PCClass extends PObject implements ClassFacade
 	public boolean addLevel(
 		final boolean argLevelMax,
 		final boolean bSilent,
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		final boolean ignorePrereqs)
 	{
 
@@ -1126,7 +1126,7 @@ public class PCClass extends PObject implements ClassFacade
 		return true;
 	}
 
-	public int getSkillPointsForLevel(final PlayerCharacter aPC,
+	public int getSkillPointsForLevel(final PlayerCharacterImpl aPC,
 		PCClassLevel classLevel, int characterLevel)
 	{
 		// Update Skill Points. Modified 20 Nov 2002 by sage_sam
@@ -1146,14 +1146,14 @@ public class PCClass extends PObject implements ClassFacade
 	 * is massively a REFACTOR item to put this into the PlayerCharacter that is
 	 * doing the removal.
 	 */
-	void doMinusLevelMods(final PlayerCharacter aPC, final int oldLevel)
+	void doMinusLevelMods(final PlayerCharacterImpl aPC, final int oldLevel)
 	{
 		PCClassLevel pcl = aPC.getActiveClassLevel(this, oldLevel);
 		CDOMObjectUtilities.removeAdds(pcl, aPC);
 		CDOMObjectUtilities.restoreRemovals(pcl, aPC);
 	}
 
-	void subLevel(final PlayerCharacter aPC)
+	void subLevel(final PlayerCharacterImpl aPC)
 	{
 
 		if (aPC != null)
@@ -1520,7 +1520,7 @@ public class PCClass extends PObject implements ClassFacade
 	}
 
 	@Override
-	public boolean qualifies(PlayerCharacter aPC, Object owner)
+	public boolean qualifies(PlayerCharacterImpl aPC, Object owner)
 	{
 		if (Globals.checkRule(RuleConstants.CLASSPRE))
 		{

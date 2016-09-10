@@ -22,7 +22,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 
 /**
@@ -55,7 +55,7 @@ public class TotalWeightFacet
 		final Float floatZero = 0f;
 		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
 		
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		for (Equipment eq : equipmentFacet.getSet(id))
 		{
 			// Loop through the list of top

@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountTempBonusNamesTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -35,7 +35,7 @@ public class PCCountTempBonusNamesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return (float) pc.getNamedTempBonusList().size();
 	}

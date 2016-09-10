@@ -23,7 +23,7 @@ import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.converter.DereferencingConverter;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 {
@@ -58,7 +58,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	}
 
 	@Override
-	public Collection<? extends T> getSet(PlayerCharacter pc)
+	public Collection<? extends T> getSet(PlayerCharacterImpl pc)
 	{
 		return primitive.getCollection(pc, new DereferencingConverter<>(pc));
 	}

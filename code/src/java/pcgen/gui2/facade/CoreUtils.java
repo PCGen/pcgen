@@ -34,7 +34,7 @@ import pcgen.cdom.meta.CorePerspective;
 import pcgen.cdom.meta.CorePerspectiveDB;
 import pcgen.cdom.meta.CoreViewNodeBase;
 import pcgen.cdom.meta.FacetView;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -42,7 +42,7 @@ import pcgen.util.Logging;
 
 public class CoreUtils
 {
-	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
+	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacterImpl pc,
 		CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
@@ -183,7 +183,7 @@ public class CoreUtils
 		}
 	}
 
-	private static String getRequirementsInfo(PlayerCharacter pc, Object object)
+	private static String getRequirementsInfo(PlayerCharacterImpl pc, Object object)
 	{
 		if (object instanceof PrereqObject)
 		{
@@ -248,12 +248,12 @@ public class CoreUtils
 
 		private final T object;
 		private final List<String> sourceDesc;
-		private final PlayerCharacter pc;
+		private final PlayerCharacterImpl pc;
 
 		/**
 		 * Create a new instance of CoreUtils.LocationCoreViewNode
 		 */
-		public ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
+		public ObjectCoreViewNode(PlayerCharacterImpl pc, T object, List<String> sourceDesc)
 		{
 			this.pc = pc;
 			this.object = object;

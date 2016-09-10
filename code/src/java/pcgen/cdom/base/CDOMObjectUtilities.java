@@ -22,7 +22,7 @@ import java.util.Comparator;
 import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * CDOMObjectUtilities is a utility class designed to provide utility methods
@@ -130,7 +130,7 @@ public final class CDOMObjectUtilities
 		}
 	}
 
-	public static void addAdds(CDOMObject cdo, PlayerCharacter pc)
+	public static void addAdds(CDOMObject cdo, PlayerCharacterImpl pc)
 	{
 		if (!pc.isAllowInteraction())
 		{
@@ -147,7 +147,7 @@ public final class CDOMObjectUtilities
 		}
 	}
 
-	public static void removeAdds(CDOMObject cdo, PlayerCharacter pc)
+	public static void removeAdds(CDOMObject cdo, PlayerCharacterImpl pc)
 	{
 		if (!pc.isAllowInteraction())
 		{
@@ -164,7 +164,7 @@ public final class CDOMObjectUtilities
 		}
 	}
 
-	public static void checkRemovals(CDOMObject cdo, PlayerCharacter pc)
+	public static void checkRemovals(CDOMObject cdo, PlayerCharacterImpl pc)
 	{
 		if (!pc.isAllowInteraction())
 		{
@@ -181,7 +181,7 @@ public final class CDOMObjectUtilities
 		}
 	}
 
-	public static void restoreRemovals(CDOMObject cdo, PlayerCharacter pc)
+	public static void restoreRemovals(CDOMObject cdo, PlayerCharacterImpl pc)
 	{
 		if (!pc.isAllowInteraction())
 		{
@@ -199,7 +199,7 @@ public final class CDOMObjectUtilities
 	}
 
 	private static <T> void driveChoice(CDOMObject cdo, TransitionChoice<T> tc,
-			final PlayerCharacter pc)
+			final PlayerCharacterImpl pc)
 	{
 		tc.act(tc.driveChoice(pc), cdo, pc);
 	}

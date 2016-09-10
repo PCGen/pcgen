@@ -14,7 +14,7 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Vision;
 import pcgen.util.enumeration.VisionType;
 
@@ -47,7 +47,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVision2Pass() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST,
@@ -78,7 +78,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionFail() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST, CDOMDirectSingleRef
@@ -102,7 +102,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionPass() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -126,7 +126,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionPresentTen() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -154,7 +154,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionNotPresentTen() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -182,7 +182,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionPresentZero() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -209,7 +209,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionNotPresentZero() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -237,7 +237,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionZeroTen() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -264,7 +264,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionNotZeroTen() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -292,7 +292,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionZeroZero() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();
@@ -319,7 +319,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 	 */
 	public void testVisionNotZeroZero() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		final PCTemplate template = new PCTemplate();
 
 		final Prerequisite prereq = new Prerequisite();

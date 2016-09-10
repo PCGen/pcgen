@@ -26,7 +26,7 @@ package plugin.exporttokens;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
@@ -54,7 +54,7 @@ public class InitiativeBonusToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return Delta.toString(getInitiativeBonusToken(pc));
@@ -65,7 +65,7 @@ public class InitiativeBonusToken extends Token
 	 * @param pc
 	 * @return the token
 	 */
-	public static int getInitiativeBonusToken(PlayerCharacter pc)
+	public static int getInitiativeBonusToken(PlayerCharacterImpl pc)
 	{
 		String initiativeVar = ControlUtilities
 				.getControlToken(Globals.getContext(), CControl.INITIATIVEBONUS);

@@ -76,6 +76,7 @@ import org.jdom.output.Format;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
@@ -329,7 +330,7 @@ public class Initiative extends javax.swing.JPanel
 	 * @param pc
 	 * @param type
 	 */
-	public void addPcgCombatant(PlayerCharacter pc, String type)
+	public void addPcgCombatant(PlayerCharacterImpl pc, String type)
 	{
 		String name = initList.getUniqueName(pc.getDisplay().getName());
 
@@ -867,7 +868,7 @@ public class Initiative extends javax.swing.JPanel
 			if (cbt instanceof PcgCombatant)
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) cbt;
-				PlayerCharacter pc = pcgcbt.getPC();
+				PlayerCharacterImpl pc = pcgcbt.getPC();
 
 				PCStat stat = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(PCStat.class, "CON");

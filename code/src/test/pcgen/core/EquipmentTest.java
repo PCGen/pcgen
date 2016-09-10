@@ -382,7 +382,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 
 		Equipment aEquip = eq.clone();
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
-		PlayerCharacter thePC = getCharacter();
+		PlayerCharacterImpl thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
 		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
@@ -404,7 +404,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Equipment aEquip = eq.clone();
 		aEquip.setBase();
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
-		PlayerCharacter thePC = getCharacter();
+		PlayerCharacterImpl thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
 		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());

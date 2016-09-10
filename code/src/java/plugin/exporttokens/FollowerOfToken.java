@@ -23,7 +23,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -50,7 +50,7 @@ public class FollowerOfToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getFollowerOfToken(pc);
@@ -62,10 +62,10 @@ public class FollowerOfToken extends Token
 	 * @param pc
 	 * @return Token
 	 */
-	public static String getFollowerOfToken(PlayerCharacter pc)
+	public static String getFollowerOfToken(PlayerCharacterImpl pc)
 	{
 		String retString = "";
-		PlayerCharacter masterPC = pc.getMasterPC();
+		PlayerCharacterImpl masterPC = pc.getMasterPC();
 
 		if (masterPC != null)
 		{

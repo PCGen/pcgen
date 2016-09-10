@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
@@ -58,7 +58,7 @@ public class CheckToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		// If there is a .NOSIGN then replace that with an empty String
@@ -103,8 +103,8 @@ public class CheckToken extends Token
 	 * @param saveMods
 	 * @return int
 	 */
-	public static int getCheckToken(PlayerCharacter pc, String saveType,
-		String saveMods)
+	public static int getCheckToken(PlayerCharacterImpl pc, String saveType,
+	                                String saveMods)
 	{
 		PCCheck check = getNameToken(saveType);
 		return pc.calculateSaveBonus(check, "".equals(saveMods) ? "TOTAL"

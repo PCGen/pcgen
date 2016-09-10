@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCVarDefinedTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -38,7 +38,7 @@ public class PCVarDefinedTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return pc.hasVariable(var) ? 1f : 0f;
 	}

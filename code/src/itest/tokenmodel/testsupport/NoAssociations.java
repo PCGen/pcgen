@@ -19,14 +19,14 @@ package tokenmodel.testsupport;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.helper.CNAbilitySelection;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class NoAssociations implements AssocCheck, CASAssocCheck
 {
 
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 
-	public NoAssociations(PlayerCharacter pc)
+	public NoAssociations(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 	}

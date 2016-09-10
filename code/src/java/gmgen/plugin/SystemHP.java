@@ -22,7 +22,7 @@ package gmgen.plugin;
 
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 
 /**
@@ -135,7 +135,7 @@ public class SystemHP
 		if (cbt instanceof PcgCombatant)
 		{
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
-			PlayerCharacter pc = pcgcbt.getPC();
+			PlayerCharacterImpl pc = pcgcbt.getPC();
 
 			PCStat stat = Globals.getContext().getReferenceContext()
 					.silentlyGetConstructedCDOMObject(PCStat.class, "CON");
@@ -173,7 +173,7 @@ public class SystemHP
 			if (cbt instanceof PcgCombatant)
 			{
 				PcgCombatant pcgcbt = (PcgCombatant) cbt;
-				PlayerCharacter pc = pcgcbt.getPC();
+				PlayerCharacterImpl pc = pcgcbt.getPC();
 				String size = pc.getDisplay().getSize();
 
 				//FIX: This needs to be moved to pcgen's sizeAdjustment.lst

@@ -22,7 +22,7 @@ import java.util.Collection;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class AddFilterConverter<B, R> implements Converter<B, R>
 {
@@ -69,7 +69,7 @@ public class AddFilterConverter<B, R> implements Converter<B, R>
 		}
 
 		@Override
-		public boolean allow(PlayerCharacter pc, T obj)
+		public boolean allow(PlayerCharacterImpl pc, T obj)
 		{
 			return filter1.allow(pc, obj) == filter2.allow(pc, obj);
 		}

@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -67,7 +67,7 @@ public class PreHPTest extends AbstractCharacterTestCase
 	 */
 	public void testHP() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		character.incrementClassLevel(1, myClass, true);

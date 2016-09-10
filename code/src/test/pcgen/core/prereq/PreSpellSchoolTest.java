@@ -32,7 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
@@ -128,7 +128,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("2");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
@@ -141,7 +141,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 
 	public void testTwoClassSchool() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory
@@ -171,7 +171,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.LT);
 		prereq.setOperand("2");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
@@ -184,7 +184,7 @@ public class PreSpellSchoolTest extends AbstractCharacterTestCase
 
 	public void testNotTwoClassSchool() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory

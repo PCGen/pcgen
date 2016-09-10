@@ -19,7 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -36,13 +36,13 @@ public class VariableCheckingFacet
 
 	public Number getVariableValue(CharID id, String var)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		return pc.getVariableValue(var, Constants.EMPTY_STRING);
 	}
 
 	public Number getVariableValue(CharID id, String var, String context)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		return pc.getVariableValue(var, context);
 	}
 }

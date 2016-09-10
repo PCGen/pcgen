@@ -29,14 +29,14 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 
 public final class SkillModifier
 {
 
-	public static Integer modifier(Skill sk, PlayerCharacter aPC)
+	public static Integer modifier(Skill sk, PlayerCharacterImpl aPC)
 	{
 		int bonus = 0;
 		if (aPC == null)
@@ -116,7 +116,7 @@ public final class SkillModifier
 	 * @param pc
 	 * @return modifier
 	 */
-	public static int getStatMod(Skill sk, PlayerCharacter pc)
+	public static int getStatMod(Skill sk, PlayerCharacterImpl pc)
 	{
 		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat == null)

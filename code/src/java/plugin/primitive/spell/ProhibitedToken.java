@@ -24,7 +24,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
@@ -81,7 +81,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
+	public boolean allow(PlayerCharacterImpl pc, Spell spell)
 	{
 		for (PCClass cl : pc.getDisplay().getClassSet())
 		{
@@ -121,7 +121,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);

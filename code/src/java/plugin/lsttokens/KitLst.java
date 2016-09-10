@@ -39,7 +39,7 @@ import pcgen.cdom.choiceset.QualifiedDecorator;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
@@ -172,13 +172,13 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Kit choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Kit choice, PlayerCharacterImpl pc)
 	{
 		Kit.applyKit(choice, pc);
 	}
 
 	@Override
-	public boolean allow(Kit choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(Kit choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		for (Kit k : pc.getKitInfo())
 		{

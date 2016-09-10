@@ -32,7 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.SubClassApplication;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
@@ -75,7 +75,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.put(StringKey.KEY_NAME, "KEY_MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
 		SubClassApplication.setSubClassKey(character, character
 				.getClassKeyed("KEY_MyClass"), "MySubClass");
@@ -104,7 +104,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 		SubClassApplication.setSubClassKey(character, character
@@ -134,7 +134,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		SubClassApplication.setSubClassKey(character, character
 				.getClassKeyed("MyClass"), "MySubClass");
@@ -163,7 +163,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -187,7 +187,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		SubClassApplication.setSubClassKey(character, character
 				.getClassKeyed("MyClass"), "MySubClass");

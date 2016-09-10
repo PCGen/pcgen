@@ -29,7 +29,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
@@ -98,7 +98,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 			Integer returnValue = null;
 			if (initiative != null && aSkillKey != null)
 			{
-				PlayerCharacter pc = initiative.getPC();
+				PlayerCharacterImpl pc = initiative.getPC();
 				Skill skill = Globals.getContext().getReferenceContext()
 						.silentlyGetConstructedCDOMObject(Skill.class,
 								aSkillKey);

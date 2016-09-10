@@ -30,6 +30,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.EqToken;
@@ -90,7 +91,7 @@ public class EqContainersToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -248,7 +249,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return AC Mod Token
 	 */
-	public static int getAcModToken(PlayerCharacter pc, Equipment eq)
+	public static int getAcModToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.getACMod(pc).intValue();
 	}
@@ -269,7 +270,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return alternative damage token
 	 */
-	public static String getAltDamageToken(PlayerCharacter pc, Equipment eq)
+	public static String getAltDamageToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.getAltDamage(pc);
 	}
@@ -280,7 +281,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Attacks token
 	 */
-	public static double getAttacksToken(PlayerCharacter pc, Equipment eq)
+	public static double getAttacksToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.bonusTo(pc, "COMBAT", "ATTACKS", true);
 	}
@@ -329,7 +330,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Content Weight Token
 	 */
-	public static float getContentWeightToken(PlayerCharacter pc, Equipment eq)
+	public static float getContentWeightToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		if (eq.getChildCount() == 0)
 		{
@@ -344,7 +345,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Cost token
 	 */
-	public static BigDecimal getCostToken(PlayerCharacter pc, Equipment eq)
+	public static BigDecimal getCostToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.getCost(pc);
 	}
@@ -365,7 +366,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Damage Token
 	 */
-	public static String getDamageToken(PlayerCharacter pc, Equipment eq)
+	public static String getDamageToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		String retString = eq.getDamage(pc);
 
@@ -398,7 +399,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Item Weight Token
 	 */
-	public static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
+	public static float getItemWeightToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.getWeight(pc).floatValue();
 	}
@@ -449,7 +450,7 @@ public class EqContainersToken extends Token
 	 * @param pc
 	 * @return Name Token
 	 */
-	public static String getNameToken(Equipment eq, PlayerCharacter pc)
+	public static String getNameToken(Equipment eq, PlayerCharacterImpl pc)
 	{
 		return OutputNameFormatting.parseOutputName(eq, pc);
 	}
@@ -480,7 +481,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Special Property Token
 	 */
-	public static String getSPropToken(PlayerCharacter pc, Equipment eq)
+	public static String getSPropToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return eq.getSpecialProperties(pc);
 	}
@@ -491,7 +492,7 @@ public class EqContainersToken extends Token
 	 * @param eq
 	 * @return Total Weight Token
 	 */
-	public static float getTotalWeightToken(PlayerCharacter pc, Equipment eq)
+	public static float getTotalWeightToken(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return getContentWeightToken(pc, eq) + getItemWeightToken(pc, eq);
 	}

@@ -29,7 +29,7 @@ import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.SkillFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * KitChoiceFacet is a Facet that triggers when an object has a KIT token in
@@ -69,7 +69,7 @@ public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObjec
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		if (!aPC.isImporting())
 		{
 			CDOMObject cdo = dfce.getCDOMObject();

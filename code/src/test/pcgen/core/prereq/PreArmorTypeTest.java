@@ -26,7 +26,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -44,7 +44,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	 */
 	public void testPassesPrerequisitePlayerCharacter()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment armor = new Equipment();
 		armor.setName("Leather");
@@ -89,7 +89,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	 */
 	public void testType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment armor = new Equipment();
 		armor.setName("Chainmail");
@@ -135,7 +135,7 @@ public class PreArmorTypeTest extends AbstractCharacterTestCase
 	 */
 	public void testList() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Ability mediumProf =
 				TestHelper.makeAbility("Armor Proficiency (Medium)", AbilityCategory.FEAT,

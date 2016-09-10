@@ -23,7 +23,7 @@ import java.util.Set;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.PrimitiveChoiceSet;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A QualifiedDecorator decorates a PrimitiveChoiceSet in order to restrict the
@@ -113,7 +113,7 @@ public class QualifiedDecorator<T extends CDOMObject> implements
 	 *         contains.
 	 */
 	@Override
-	public Set<T> getSet(PlayerCharacter pc)
+	public Set<T> getSet(PlayerCharacterImpl pc)
 	{
 		Set<T> returnSet = new HashSet<>();
 		for (T item : underlyingPCS.getSet(pc))

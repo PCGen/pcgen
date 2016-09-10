@@ -25,13 +25,13 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 
 public class OutputNameFormatting
 {
 
-	public static String parseOutputName(CDOMObject po, PlayerCharacter aPC)
+	public static String parseOutputName(CDOMObject po, PlayerCharacterImpl aPC)
 	{
 		return parseOutputName(getOutputName(po), aPC);
 	}
@@ -42,7 +42,7 @@ public class OutputNameFormatting
 	 * @param aPC
 	 * @return the output name to get a useable Name token
 	 */
-	private static String parseOutputName(final String aString, final PlayerCharacter aPC)
+	private static String parseOutputName(final String aString, final PlayerCharacterImpl aPC)
 	{
 		final int varIndex = aString.indexOf('|');
 	

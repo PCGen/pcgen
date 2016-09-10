@@ -28,7 +28,7 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.WieldCategory;
@@ -50,7 +50,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 */
 	public void testPassesPrerequisitePlayerCharacter()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");
@@ -86,7 +86,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 */
 	public void testType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");
@@ -122,7 +122,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 */
 	public void testWield() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Test Race");
@@ -182,7 +182,7 @@ public class PreEquipSecondaryTest extends AbstractCharacterTestCase
 	 */
 	public void testNotEquipped() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");

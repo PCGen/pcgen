@@ -29,7 +29,7 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.ReachFacet;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -47,7 +47,7 @@ public class ReachToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -68,7 +68,7 @@ public class ReachToken extends Token
 		return retString;
 	}
 
-	public static int getReachToken(PlayerCharacter pc)
+	public static int getReachToken(PlayerCharacterImpl pc)
 	{
 		String pcReach = pc.getControl(CControl.PCREACH);
 		if (pcReach == null)
@@ -79,14 +79,14 @@ public class ReachToken extends Token
 		return ((Number) pc.getGlobal(pcReach)).intValue();
 	}
 
-	public static String getToken(PlayerCharacter pc)
+	public static String getToken(PlayerCharacterImpl pc)
 	{
 		return Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 			getReachToken(pc))
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
-	public static String getSquaresToken(PlayerCharacter pc)
+	public static String getSquaresToken(PlayerCharacterImpl pc)
 	{
 		return new DecimalFormat("#.#").format(getReachToken(pc)
 			/ SettingsHandler.getGame().getSquareSize());

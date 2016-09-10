@@ -24,7 +24,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -71,7 +71,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Skill skill)
+	public boolean allow(PlayerCharacterImpl pc, Skill skill)
 	{
 		return skill.getSafe(ObjectKey.USE_UNTRAINED).booleanValue();
 	}
@@ -95,7 +95,7 @@ public class UseUntrainedToken implements PrimitiveToken<Skill>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 		Converter<Skill, R> c)
 	{
 		return c.convert(allSkills, this);

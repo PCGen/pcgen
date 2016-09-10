@@ -23,7 +23,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -48,7 +48,7 @@ public class SRToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getSRToken(pc) + "";
@@ -59,7 +59,7 @@ public class SRToken extends Token
 	 * @param pc
 	 * @return the value of the SR token for export
 	 */
-	public static int getSRToken(PlayerCharacter pc)
+	public static int getSRToken(PlayerCharacterImpl pc)
 	{
 		return pc.getSR();
 	}

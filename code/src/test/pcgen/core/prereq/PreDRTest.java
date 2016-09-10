@@ -28,7 +28,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -63,7 +63,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 */
 	public void testDR() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 
 		Prerequisite prereq;
@@ -98,7 +98,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiOr() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 
 		Prerequisite prereq;
@@ -129,7 +129,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 
 	public void testMultiAnd() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 
 		Prerequisite prereq;

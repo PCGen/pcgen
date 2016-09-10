@@ -24,8 +24,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -42,7 +42,7 @@ public class PCSizeIntEQTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		int modSize = 0;
 		

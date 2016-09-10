@@ -31,7 +31,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
 
@@ -60,7 +60,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		// Make some ability categories and add them to the game mode
 		AbilityCategory bardCategory = Globals.getContext().getReferenceContext()
@@ -432,7 +432,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 	public void testCountAbilitiesByName()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
@@ -473,7 +473,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 
 	public void testCountAbilitiesByKey()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		AbilityCategory gCat = Globals.getContext().getReferenceContext()
 				.constructNowIfNecessary(AbilityCategory.class, "CLERICAL");
@@ -522,7 +522,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 	 */
 	public void testCountCampaignHistory()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		String countDefault = "count(\"CAMPAIGNHISTORY\")";
 		String countVisible = "count(\"CAMPAIGNHISTORY\",\"EXPORT=YES\")";
 		String countHidden = "count(\"CAMPAIGNHISTORY\",\"EXPORT=NO\")";

@@ -156,7 +156,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("%CHOICE");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
@@ -175,7 +175,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
@@ -206,7 +206,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("Testing");
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
@@ -228,7 +228,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		dummy.put(VariableKey.getConstant("TestVar"), FormulaFactory
 				.getFormulaFor(2));
 		Globals.getContext().getReferenceContext().resolveReferences(null);
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 
 		final Description desc = new Description("%1 test %3 %2");
 		desc.addVariable("TestVar");
@@ -254,7 +254,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 			desc.getDescription(pc, wrappedPCA));
 	}
 
-	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+	private static <T> void add(ChoiceManagerList<T> aMan, PlayerCharacterImpl pc,
 		ChooseDriver obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);

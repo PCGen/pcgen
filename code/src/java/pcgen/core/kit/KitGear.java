@@ -42,7 +42,7 @@ import pcgen.core.EquipmentModifier;
 import pcgen.core.EquipmentUtilities;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.character.EquipSet;
 
@@ -131,7 +131,7 @@ public final class KitGear extends BaseKit
 		return info.toString();
 	}
 
-	private void processLookups(Kit aKit, PlayerCharacter aPC)
+	private void processLookups(Kit aKit, PlayerCharacterImpl aPC)
 	{
 		Collection<NamedFormula> lookups = getLookups();
 		if (lookups == null)
@@ -174,7 +174,7 @@ public final class KitGear extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		actingQuantity = quantity;
@@ -417,7 +417,7 @@ public final class KitGear extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		final Equipment existing =
 				aPC.getEquipmentNamed(theEquipment.getName());

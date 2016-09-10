@@ -24,7 +24,7 @@ package pcgen.cdom.base;
 import java.util.Collection;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A SelectableSet is a named container of a Collection of objects.
@@ -47,6 +47,6 @@ public interface SelectableSet<T>
 
 	void setTitle(String title);
 
-	Collection<? extends T> getSet(PlayerCharacter pc);
+	Collection<? extends T> getSet(PlayerCharacterImpl pc);
 
 }

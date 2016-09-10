@@ -27,15 +27,15 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 
 public class PcgSystemInitiative extends SystemInitiative
 {
-	protected final PlayerCharacter pc;
+	protected final PlayerCharacterImpl pc;
 	private final CharacterDisplay display;
 
-	public PcgSystemInitiative(PlayerCharacter pc)
+	public PcgSystemInitiative(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 		display = pc.getDisplay();

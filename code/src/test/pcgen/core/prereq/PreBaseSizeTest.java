@@ -31,7 +31,7 @@ import pcgen.cdom.formula.FixedSizeFormula;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.bonus.Bonus;
@@ -71,7 +71,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 */
 	public void testBaseSize() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 
 		Prerequisite prereq;
@@ -119,7 +119,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 */
 	public void testModBaseSize() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setRace(race);
 		character.addTemplate(template);
 
@@ -168,7 +168,7 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 	 */
 	public void testBaseSizePlusMod() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		character.setRace(race);

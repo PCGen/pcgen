@@ -33,7 +33,7 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.XPTable;
@@ -123,7 +123,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// Set game mode skill cost to be the same for class and cross-slass
 		setGameSkillRankData(false);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(4, fighterClass);
 		pc.incrementClassLevel(4, wizardClass);
 		pc.incrementClassLevel(3, fighterClass);
@@ -238,7 +238,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// Set game mode skill cost to be double for cross-class
 		setGameSkillRankData(true);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(4, fighterClass);
 		pc.incrementClassLevel(4, wizardClass);
 		pc.incrementClassLevel(3, fighterClass);
@@ -345,7 +345,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// Set game mode skill cost to be the double for cross-class
 		setGameSkillRankData(true);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(1, wizardClass);
 		pc.incrementClassLevel(1, fighterClass);
 		
@@ -387,7 +387,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// Set game mode skill cost to be the same for class and cross-slass
 		setGameSkillRankData(false);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(4, fighterClass);
 		pc.incrementClassLevel(4, wizardClass);
 		pc.incrementClassLevel(3, fighterClass);
