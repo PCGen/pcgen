@@ -7764,7 +7764,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public void adjustAbilities(final Category<Ability> aCategory, final BigDecimal arg)
 	{
-		if (arg.equals(BigDecimal.ZERO))
+		if (arg.compareTo(BigDecimal.ZERO) == 0)
 		{
 			return;
 		}
