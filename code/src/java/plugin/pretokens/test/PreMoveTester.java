@@ -39,13 +39,7 @@ public class PreMoveTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
 
-	/** Constructor */
-	public PreMoveTester()
-	{
-		super();
-	}
-
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */
