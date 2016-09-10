@@ -109,7 +109,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 		{
 			final String aType = t.getType();
 	
-			if (!"".equals(aType))
+			if (aType != null && !aType.isEmpty())
 			{
 				critterTypes.add(aType);
 			}
