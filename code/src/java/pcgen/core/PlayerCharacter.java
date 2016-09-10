@@ -3090,7 +3090,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.setWholeItemName(eqm.getName());
 				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 1 only"));
 
-				if (eqm.getOutputName().indexOf("Head 1 only") < 0)
+				if (!eqm.getOutputName()
+						.contains("Head 1 only"))
 				{
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
 				}
@@ -3127,7 +3128,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.setWholeItemName(eqm.getName());
 				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 2 only"));
 
-				if (eqm.getOutputName().indexOf("Head 2 only") < 0)
+				if (!eqm.getOutputName()
+						.contains("Head 2 only"))
 				{
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
 				}
@@ -3169,7 +3171,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				// Add "Thrown" to the name of the weapon
 				eqr.setName(EquipmentUtilities.appendToName(eqr.getName(), "Thrown"));
 
-				if (eqr.getOutputName().indexOf("Thrown") < 0)
+				if (!eqr.getOutputName()
+						.contains("Thrown"))
 				{
 					eqr.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqr.getOutputName(), "Thrown"));
 				}
@@ -5688,11 +5691,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				found = true;
 				replacement = String.valueOf(fVal.intValue());
-			} else if ((inCalc.indexOf("MIN") >= 0) || (inCalc.indexOf("MAX") >= 0))
+			} else if ((inCalc.contains("MIN")) || (inCalc.contains("MAX")))
 			{
 				found = true;
 				replacement = String.valueOf(fVal.intValue());
-			} else if (inCalc.toUpperCase().indexOf("MIN(") >= 0 || inCalc.toUpperCase().indexOf("MAX(") >= 0)
+			} else if (inCalc.toUpperCase()
+					.contains("MIN(") || inCalc.toUpperCase()
+					.contains("MAX("))
 			{
 				found = true;
 				replacement = String.valueOf(fVal.intValue());

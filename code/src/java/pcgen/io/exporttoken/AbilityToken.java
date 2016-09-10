@@ -554,7 +554,7 @@ public class AbilityToken extends Token
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
-			else if (tokenSource.indexOf(".ASSOCIATED.") > -1)
+			else if (tokenSource.contains(".ASSOCIATED."))
 			{
 				final String key =
 						tokenSource
@@ -585,7 +585,7 @@ public class AbilityToken extends Token
 			{
 				retString = getAspectString(pc, abilities);
 			}
-			else if (tokenSource.indexOf(".ASPECT.") > -1)
+			else if (tokenSource.contains(".ASPECT."))
 			{
 				final String key =
 						tokenSource
@@ -598,7 +598,7 @@ public class AbilityToken extends Token
 						Integer.toString(aAbility
 							.getSafeSizeOfMapFor(MapKey.ASPECT));
 			}
-			else if (tokenSource.indexOf(".HASASPECT.") > -1)
+			else if (tokenSource.contains(".HASASPECT."))
 			{
 				final String key =
 						tokenSource.substring(tokenSource
@@ -607,11 +607,11 @@ public class AbilityToken extends Token
 						getHasAspectString(pc, aAbility,
 							AspectName.getConstant(key));
 			}
-			else if (tokenSource.indexOf(".NAME") > -1)
+			else if (tokenSource.contains(".NAME"))
 			{
 				retString = aAbility.getDisplayName();
 			}
-			else if (tokenSource.indexOf(".KEY") > -1)
+			else if (tokenSource.contains(".KEY"))
 			{
 				retString = aAbility.getKeyName();
 			}

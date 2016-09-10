@@ -197,7 +197,7 @@ public class BonusCheckingFacet
 			if (bonus.getTypeOfBonus().equals(bonusName))
 			{
 				String bonusInfo = bonus.getBonusInfo();
-				if (bonusInfo.indexOf("%LIST") >= 0)
+				if (bonusInfo.contains("%LIST"))
 				{
 					// We have a %LIST that needs to be expanded
 					List<BonusPair> bpList = pc.getStringListFromBonus(bonus);

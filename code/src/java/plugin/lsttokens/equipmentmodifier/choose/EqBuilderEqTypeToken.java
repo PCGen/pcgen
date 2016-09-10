@@ -89,7 +89,7 @@ public class EqBuilderEqTypeToken implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value, context);
 		}
-		if (value.indexOf("||") != -1)
+		if (value.contains("||"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value, context);
@@ -144,7 +144,7 @@ public class EqBuilderEqTypeToken implements
 		}
 		else
 		{
-			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			if (!chooseString.contains(getTokenName() + '|'))
 			{
 				return null;
 			}
