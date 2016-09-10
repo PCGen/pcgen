@@ -26,6 +26,7 @@
 package plugin.pretokens.test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -90,7 +91,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 	 * @return the list of types
 	 */
     @Deprecated
-	public static ArrayList<String> getCritterTypes(CharacterDisplay display)
+	public static List<String> getCritterTypes(CharacterDisplay display)
 	{
 		ArrayList<String> critterTypes = new ArrayList<>();
 	

@@ -60,7 +60,7 @@ public class AbstractCNASEnforcingFacet extends
 				return false;
 			}
 		}
-		ArrayList<SourcedCNAS> newList = new ArrayList<>(1);
+		List<SourcedCNAS> newList = new ArrayList<>(1);
 		newList.add(new SourcedCNAS(cnas, source));
 		list.add(newList);
 		fireDataFacetChangeEvent(id, cnas, DataFacetChangeEvent.DATA_ADDED);
