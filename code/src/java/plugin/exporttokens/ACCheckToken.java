@@ -26,7 +26,7 @@ package plugin.exporttokens;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
@@ -53,7 +53,7 @@ public class ACCheckToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return Delta.toString(getACCheckToken(tokenSource, pc));
@@ -66,7 +66,7 @@ public class ACCheckToken extends Token
 	 * @param pc - The PC to calculate the ACCHECK for 
 	 * @return THe ACCHECK Penalty
 	 */
-	public static int getACCheckToken(String tokenSource, PlayerCharacter pc)
+	public static int getACCheckToken(String tokenSource, PlayerCharacterImpl pc)
 	{
 		String acCheckVar =
 				ControlUtilities.getControlToken(Globals.getContext(),

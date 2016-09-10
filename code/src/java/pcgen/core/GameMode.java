@@ -1794,7 +1794,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param aPC
 	 * @return purchase mode base score
 	 */
-	public int getPurchaseModeBaseStatScore(final PlayerCharacter aPC)
+	public int getPurchaseModeBaseStatScore(final PlayerCharacterImpl aPC)
 	{
 		int minVal = getPurchaseScoreMin(aPC);
 		for (int i = 0, x = getPurchaseScoreMax() - getPurchaseScoreMin() + 1; i < x; ++i)
@@ -1871,7 +1871,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param pc
 	 * @return the maximum score you can purchase
 	 */
-	public int getPurchaseScoreMax(final PlayerCharacter pc)
+	public int getPurchaseScoreMax(final PlayerCharacterImpl pc)
 	{
 		if (pc == null)
 		{
@@ -1912,7 +1912,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param pc
 	 * @return the minimum score you can purchase
 	 */
-	public int getPurchaseScoreMin(final PlayerCharacter pc)
+	public int getPurchaseScoreMin(final PlayerCharacterImpl pc)
 	{
 		if (pc == null)
 		{

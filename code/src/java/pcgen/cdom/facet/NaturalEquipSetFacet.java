@@ -22,7 +22,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.EquipSet;
 
 /**
@@ -53,7 +53,7 @@ public class NaturalEquipSetFacet implements DataFacetChangeListener<CharID, Equ
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Equipment> dfce)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(dfce.getCharID());
+		PlayerCharacterImpl pc = trackingFacet.getPC(dfce.getCharID());
 		EquipSet eSet = pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
 		if (eSet != null)
 		{

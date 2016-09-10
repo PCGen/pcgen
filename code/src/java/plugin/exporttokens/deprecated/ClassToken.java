@@ -32,7 +32,7 @@ import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
@@ -59,7 +59,7 @@ public class ClassToken extends Token {
 	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 			ExportHandler eh) {
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 		aTok.nextToken();
@@ -145,7 +145,7 @@ public class ClassToken extends Token {
 	 * @param classNumber
 	 * @return level token
 	 */
-	public static String getSAListToken(PlayerCharacter pc, int classNumber) {
+	public static String getSAListToken(PlayerCharacterImpl pc, int classNumber) {
 		if (pc.getDisplay().getClassCount() > classNumber) {
 			PCClass pcClass = pc.getDisplay().getClassList().get(classNumber);
 			List<String> saList = getClassSpecialAbilityList(pcClass, pc);
@@ -166,7 +166,7 @@ public class ClassToken extends Token {
 	 * @return List of special abilities
 	 */
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
-			final PlayerCharacter aPC) {
+			final PlayerCharacterImpl aPC) {
 		CharacterDisplay display = aPC.getDisplay();
 		final List<String> formattedList = new ArrayList<>();
 

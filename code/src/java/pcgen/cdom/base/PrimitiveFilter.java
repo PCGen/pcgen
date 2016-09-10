@@ -17,10 +17,10 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 @FunctionalInterface
 public interface PrimitiveFilter<T>
 {
-	public boolean allow(PlayerCharacter pc, T obj);
+	public boolean allow(PlayerCharacterImpl pc, T obj);
 }

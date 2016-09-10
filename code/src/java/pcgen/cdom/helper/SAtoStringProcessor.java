@@ -19,14 +19,14 @@ package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.QualifiedActor;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 
 public final class SAtoStringProcessor implements QualifiedActor<SpecialAbility, String>
 {
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 
-	public SAtoStringProcessor(PlayerCharacter pc)
+	public SAtoStringProcessor(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 	}

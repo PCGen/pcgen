@@ -33,7 +33,7 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.EquipSet;
@@ -129,7 +129,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testBonusStacking()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, dex, 10);
@@ -207,7 +207,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testStatMods()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, dex, 10);
@@ -292,7 +292,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	public void testLevelStat()
 	{
 		StatToken statTok = new StatToken();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		setPCStat(pc, dex, 10);
 
 		PCClass myClass = new PCClass();
@@ -345,7 +345,7 @@ public class StatTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testLockedStats()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		StatToken statTok = new StatToken();
 
 		setPCStat(pc, wis, 10);

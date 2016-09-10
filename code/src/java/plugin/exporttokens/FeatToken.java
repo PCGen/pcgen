@@ -3,7 +3,7 @@ package plugin.exporttokens;
 import java.util.StringTokenizer;
 
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
@@ -30,7 +30,7 @@ public class FeatToken extends AbilityToken
 	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 

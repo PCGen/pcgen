@@ -26,7 +26,7 @@ import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.TemplateSelectionFacet;
 import pcgen.cdom.facet.UnconditionalTemplateFacet;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -47,7 +47,7 @@ public class TemplateInputFacet
 
 	public boolean add(CharID id, PCTemplate obj)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
@@ -61,7 +61,7 @@ public class TemplateInputFacet
 		return true;
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc,
+	private <T> boolean processChoice(CharID id, PlayerCharacterImpl pc,
 		PCTemplate obj, ChoiceManagerList<T> aMan)
 	{
 		List<T> selectedList = new ArrayList<>();
@@ -93,7 +93,7 @@ public class TemplateInputFacet
 
 	public void importSelection(CharID id, PCTemplate obj, String choice)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
@@ -124,7 +124,7 @@ public class TemplateInputFacet
 	public void remove(CharID id, PCTemplate obj)
 	{
 		unconditionalTemplateFacet.remove(id, obj);
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction())
 		{
 			templateSelectionFacet.remove(id, obj);

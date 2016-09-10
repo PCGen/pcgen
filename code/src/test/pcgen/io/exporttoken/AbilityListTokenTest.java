@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.io.ExportHandler;
 import pcgen.util.TestHelper;
@@ -92,7 +92,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityListToken tok = new AbilityListToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		is(tok.getToken("ABILITYLIST.FEAT", character, eh), 
 				strEq("Perform (Dance), Perform (Oratory), Silent Step"), "ABILITYLIST.FEAT");
@@ -111,7 +111,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	{
 		AbilityListToken tok = new AbilityListToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		is(tok.getToken("ABILITYLIST.BARDIC", character, eh),
 			strEq("Perform (Dance)"),
@@ -124,7 +124,7 @@ public class AbilityListTokenTest extends AbstractCharacterTestCase
 	public void testCount()
 	{
 //		verbose = true;
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		AbilityCategory featCategory = 
 			SettingsHandler.getGame().getAbilityCategory("Feat");

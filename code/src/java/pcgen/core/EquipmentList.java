@@ -83,7 +83,7 @@ public final class EquipmentList {
 	 *          TODO
 	 * @return the Equipment matching the name
 	 */
-	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacter aPC) {
+	public static Equipment getEquipmentFromName(final String baseName, final PlayerCharacterImpl aPC) {
 		final List<String> modList = new ArrayList<>();
 		final List<String> namList = new ArrayList<>();
 		final List<String> sizList = new ArrayList<>();
@@ -542,7 +542,7 @@ public final class EquipmentList {
 			// skip over default size
 			gensizes.remove(defaultSize);
 
-			PlayerCharacter dummyPc = new PlayerCharacter();
+			PlayerCharacterImpl dummyPc = new PlayerCharacterImpl();
 			for (Equipment eq : ref.getConstructedCDOMObjects(Equipment.class))
 			{
 				//
@@ -609,16 +609,16 @@ public final class EquipmentList {
 		}
 	}
 
-	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacter aPC) {
+	private static void createItem(final Equipment eq, final SizeAdjustment sa, final PlayerCharacterImpl aPC) {
 		createItem(eq, null, sa, aPC, "", null);
 	}
 
-	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacter aPC, final String choice,
-			final EquipmentChoice equipChoice) {
+	private static void createItem(final Equipment eq, final EquipmentModifier eqMod, final PlayerCharacterImpl aPC, final String choice,
+	                               final EquipmentChoice equipChoice) {
 		createItem(eq, eqMod, null, aPC, choice, equipChoice);
 	}
 
-	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa, final PlayerCharacter aPC,
+	private static void createItem(Equipment eq, final EquipmentModifier eqMod, final SizeAdjustment sa, final PlayerCharacterImpl aPC,
 			final String choice, final EquipmentChoice equipChoice) {
 		if (eq == null) { return; }
 

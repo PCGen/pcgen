@@ -19,7 +19,7 @@ package plugin.qualifier.weaponprof;
 
 import java.util.Collection;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
@@ -27,7 +27,7 @@ public class PCToken extends AbstractPCQualifierToken<WeaponProf>
 {
 
 	@Override
-	protected Collection<WeaponProf> getPossessed(PlayerCharacter pc)
+	protected Collection<WeaponProf> getPossessed(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getWeaponProfSet();
 	}

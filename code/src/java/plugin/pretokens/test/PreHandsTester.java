@@ -27,7 +27,7 @@ package plugin.pretokens.test;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -43,7 +43,7 @@ public class PreHandsTester extends AbstractPrerequisiteTest implements
 {
 
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter display, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl display, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal;

@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * The Class <code>PCBaseHDTermEvaluator</code> is responsible for calculating
@@ -51,7 +51,7 @@ public class PCBaseHDTermEvaluator
 	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getBaseHD();
 	}

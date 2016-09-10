@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.facade.core.AbilityCategoryFacade;
 import pcgen.facade.core.AbilityFacade;
@@ -59,7 +59,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 	@Test
 	public final void testRebuildAbilityListsNoMult()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategoryFacade> categories = ca.getActiveAbilityCategories();
@@ -84,7 +84,7 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 	@Test
 	public final void testRebuildAbilityListsMult()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategoryFacade> categories = ca.getActiveAbilityCategories();

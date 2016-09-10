@@ -24,7 +24,7 @@ import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusPair;
 
@@ -62,7 +62,7 @@ public class BonusCheckingFacet
 	 */
 	public double getBonus(CharID id, String bonusType, String bonusName)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		return pc.getTotalBonusTo(bonusType, bonusName);
 	}
 
@@ -123,7 +123,7 @@ public class BonusCheckingFacet
 	private Number getBonusValue(CharID id, BonusObj bonus,
 		String sourceIdentifier)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		return bonus.resolve(pc, sourceIdentifier);
 	}
 
@@ -156,7 +156,7 @@ public class BonusCheckingFacet
 	public double getAllBonusValues(CharID id, Collection<BonusObj> bonuses,
 		String sourceIdentifier)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		double value = 0;
 		for (BonusObj bo : bonuses)
 		{
@@ -190,7 +190,7 @@ public class BonusCheckingFacet
 	 */
 	public Collection<String> getExpandedBonusInfo(CharID id, String bonusName)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		List<String> list = new ArrayList<>();
 		for (BonusObj bonus : pc.getActiveBonusList())
 		{

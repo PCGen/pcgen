@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
@@ -53,7 +53,7 @@ public final class SkillCostDisplay
 	 *            True if the abbreviated form should be used.
 	 * @return The explanation of the misc modifier's make-up.
 	 */
-	public static String getModifierExplanation(Skill sk, PlayerCharacter aPC,
+	public static String getModifierExplanation(Skill sk, PlayerCharacterImpl aPC,
 			boolean shortForm)
 	{
 		double bonusObjTotal = 0.0;
@@ -200,7 +200,7 @@ public final class SkillCostDisplay
 	}
 	
 	public static String getSituationModifierExplanation(Skill sk,
-		String situation, PlayerCharacter aPC, boolean shortForm)
+	                                                     String situation, PlayerCharacterImpl aPC, boolean shortForm)
 	{
 		List<String> explanation = new ArrayList<>();
 		String keyName = sk.getKeyName();
@@ -279,7 +279,7 @@ public final class SkillCostDisplay
 		bonusDetails.append('[').append(description).append(']');
 	}
 
-	public static String getRanksExplanation(PlayerCharacter pc, Skill sk)
+	public static String getRanksExplanation(PlayerCharacterImpl pc, Skill sk)
 	{
 		StringBuilder sb = new StringBuilder(100);
 		boolean needComma = false;

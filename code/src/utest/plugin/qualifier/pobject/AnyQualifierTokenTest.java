@@ -22,7 +22,7 @@ import java.util.Collection;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
@@ -111,7 +111,7 @@ public class AnyQualifierTokenTest extends
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
 		finishLoad();
-		PlayerCharacter pc = new TransparentPlayerCharacter();
+		PlayerCharacterImpl pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
@@ -129,7 +129,7 @@ public class AnyQualifierTokenTest extends
 		initializeObjects();
 		assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
 		finishLoad();
-		PlayerCharacter pc = new TransparentPlayerCharacter();
+		PlayerCharacterImpl pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);

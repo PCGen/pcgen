@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.PersistenceLayerException;
@@ -80,7 +80,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -108,7 +108,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.addToListFor(ListKey.SERVES_AS_CLASS, CDOMDirectSingleRef.getRef(warrior));
 		pcClass.addToListFor(ListKey.SERVES_AS_CLASS, CDOMDirectSingleRef.getRef(ranger));
 		
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(3, pcClass);
 		
 		final Prerequisite prereq = new Prerequisite();
@@ -134,7 +134,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -163,7 +163,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass2 = new PCClass();
 		pcClass2.setName("Other Class");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 
@@ -200,7 +200,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, cha, 12);
 		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
@@ -240,7 +240,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, cha, 12);
 		setPCStat(character, intel, 12);
 		character.incrementClassLevel(1, pcClass);
@@ -280,7 +280,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		BuildUtilities.setFact(pcClass2, "SpellType", "Arcane");
 		context.unconditionallyProcess(pcClass2.getOriginalClassLevel(1), "CAST", "5,4");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		character.incrementClassLevel(2, pcClass2);
 
@@ -307,7 +307,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -330,7 +330,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -353,7 +353,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		pcClass.setName("Monk");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -382,7 +382,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, cha, 12);
 		character.incrementClassLevel(1, pcClass);
 
@@ -407,7 +407,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final PCClass pcClass = new PCClass();
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -438,7 +438,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().buildDerivedObjects();
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, cha, 12);
 		character.incrementClassLevel(1, pcClass);
 
@@ -468,7 +468,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 		context.loadCampaignFacets();
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 		setPCStat(character, cha, 12);
 
@@ -497,7 +497,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		final Prerequisite singlePrereq =
 				parser.parse("CLASSLEVELMAX", "1,Monk=1,Fighter=1", false, false);
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		assertTrue("Should pass with no levels", PrereqHandler.passes(prereq,
 			character, null));
@@ -553,7 +553,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass.setName("MyClass");
 		BuildUtilities.setFact(pcClass, "SpellType", "Arcane");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -579,7 +579,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.setName("MyClass2");
 		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final Prerequisite prereq = new Prerequisite();
@@ -609,7 +609,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.setName("MyClass2");
 		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
@@ -634,7 +634,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.setName("MyClass2");
 		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRECLASS:2,ANY=1");
@@ -657,7 +657,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 		pcClass2.setName("MyClass2");
 		BuildUtilities.setFact(pcClass2, "SpellType", "Divine");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRECLASS:2,ANY=2");
@@ -696,7 +696,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 			pcClass.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRECLASS:2,SPELLCASTER=1");
@@ -732,7 +732,7 @@ public class PreClassTest extends AbstractCharacterTestCase
 			pcClass.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRECLASS:2,SPELLCASTER.ARCANE=1");

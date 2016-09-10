@@ -56,7 +56,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		locker = new PCTemplate();
@@ -88,7 +88,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	@Test
 	public void testGetBaseStatFor()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
 
 		// Bonus should not affect base stat
@@ -113,7 +113,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	@Test
 	public void testGetTotalStatFor()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 
 		// Bonus should affect total stat
@@ -137,7 +137,7 @@ public class StatListTest extends AbstractCharacterTestCase
 	 */
 	public void testMinValueStat()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 		assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
 

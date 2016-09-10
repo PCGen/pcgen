@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class EQBaseCostTermEvaluator
 		extends BaseEQTermEvaluator implements TermEvaluator 
@@ -40,7 +40,7 @@ public class EQBaseCostTermEvaluator
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -49,7 +49,7 @@ public class EQBaseCostTermEvaluator
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return eq.getSafe(ObjectKey.COST).toString();
 	}
 	

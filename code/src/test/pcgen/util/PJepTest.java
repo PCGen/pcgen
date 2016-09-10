@@ -37,7 +37,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 
 /**
@@ -287,7 +287,7 @@ public class PJepTest extends AbstractCharacterTestCase
 
 	public void testJepIf()
 	{
-		final PlayerCharacter character = new PlayerCharacter();
+		final PlayerCharacterImpl character = new PlayerCharacterImpl();
 		Float val;
 		val = character.getVariableValue("var(\"UseAlternateDamage\")", "");
 		assertEquals("Undefined variable should return 0", 0.0, val

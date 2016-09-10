@@ -96,6 +96,7 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.Race;
 import pcgen.core.RollingMethods;
@@ -207,7 +208,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		HitPointListener 
 {
 
-	private static PlayerCharacter DUMMY_PC = new PlayerCharacter();
+	private static PlayerCharacterImpl DUMMY_PC = new PlayerCharacterImpl();
 	private List<ClassFacade> pcClasses;
 	private DefaultListFacade<TempBonusFacade> appliedTempBonuses;
 	private DefaultListFacade<TempBonusFacade> availTempBonuses;
@@ -225,7 +226,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultReferenceFacade<String> tabName;
 	private DefaultReferenceFacade<String> name;
 	private DefaultReferenceFacade<String> playersName;
-	private PlayerCharacter theCharacter;
+	private PlayerCharacterImpl theCharacter;
 	private CharacterDisplay charDisplay;
 	private DefaultReferenceFacade<EquipmentSetFacade> equipSet;
 	private DefaultListFacade<LanguageFacade> languages;
@@ -285,7 +286,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private boolean allowDebt;
 
 	private int lastExportCharSerial = 0;
-	private PlayerCharacter lastExportChar = null;
+	private PlayerCharacterImpl lastExportChar = null;
 	private LanguageListener langListener;
 	private TemplateListener templateListener;
 	private XPListener xpListener;
@@ -298,8 +299,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param delegate the UIDelegate for this CharacterFacade
 	 * @param dataSetFacade The data set in use for the character
 	 */
-	public CharacterFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
-		DataSetFacade dataSetFacade)
+	public CharacterFacadeImpl(PlayerCharacterImpl pc, UIDelegate delegate,
+	                           DataSetFacade dataSetFacade)
 	{
 		this.delegate = delegate;
 		theCharacter = pc;
@@ -1102,7 +1103,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		return i;
 	}
 
-	private static int getPurchaseCostForStat(final PlayerCharacter aPC, int statValue)
+	private static int getPurchaseCostForStat(final PlayerCharacterImpl aPC, int statValue)
 	{
 		final int iMax = SettingsHandler.getGame().getPurchaseScoreMax(aPC);
 		final int iMin = SettingsHandler.getGame().getPurchaseScoreMin(aPC);
@@ -2626,9 +2627,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * the meantime. 
 	 * @return A copy of the current character.
 	 */
-	private synchronized PlayerCharacter getExportCharacter()
+	private synchronized PlayerCharacterImpl getExportCharacter()
 	{
-		PlayerCharacter exportPc = lastExportChar;
+		PlayerCharacterImpl exportPc = lastExportChar;
 		if (exportPc == null || theCharacter.getSerial() != lastExportCharSerial)
 		{
 			// Calling preparePCForOutput will mark export character as modified, so compare original character serial when checking for real changes
@@ -2665,7 +2666,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			try
 			{
 				Logging.log(Logging.DEBUG, "Starting export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
-				PlayerCharacter exportPc =  getExportCharacter();
+				PlayerCharacterImpl exportPc =  getExportCharacter();
 				//PlayerCharacter exportPc =  theCharacter;
 				theHandler.write(exportPc, buf);
 				Logging.log(Logging.DEBUG, "Finished export at serial " + theCharacter.getSerial() + " to " + theHandler.getTemplateFile());
@@ -3251,7 +3252,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	/**
 	 * @return the PlayerCharacter the facade is fronting for.
 	 */
-	PlayerCharacter getTheCharacter()
+	PlayerCharacterImpl getTheCharacter()
 	{
 		return theCharacter;
 	}

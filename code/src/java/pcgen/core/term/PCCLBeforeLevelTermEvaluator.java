@@ -24,8 +24,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCLBeforeLevelTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -43,7 +43,7 @@ public class PCCLBeforeLevelTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacterImpl pc) {
 
 		final PCClass aClass = pc.getClassKeyed(source);
 

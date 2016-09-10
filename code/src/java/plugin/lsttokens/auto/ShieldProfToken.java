@@ -33,7 +33,7 @@ import pcgen.cdom.content.ConditionalSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ShieldProfProvider;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.ShieldProf;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
@@ -270,13 +270,13 @@ public class ShieldProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacterImpl pc)
 	{
 		pc.addShieldProf(obj, sp);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, ShieldProf sp, PlayerCharacterImpl pc)
 	{
 		pc.removeShieldProf(obj, sp);
 	}

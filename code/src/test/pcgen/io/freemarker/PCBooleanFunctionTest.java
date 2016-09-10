@@ -36,7 +36,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
@@ -76,7 +76,7 @@ public class PCBooleanFunctionTest extends AbstractJunit4CharacterTestCase
 	@Test
 	public void testExec() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		ExportHandler eh = new ExportHandler(new File(""));
 		PCBooleanFunction pcbf = new PCBooleanFunction(pc, eh);
 		

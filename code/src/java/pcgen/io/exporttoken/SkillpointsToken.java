@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -61,7 +61,7 @@ public class SkillpointsToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
@@ -128,7 +128,7 @@ public class SkillpointsToken extends Token
 	 * @param pc
 	 * @return unused skill points for the PC
 	 */
-	public static int getUnusedSkillPoints(PlayerCharacter pc)
+	public static int getUnusedSkillPoints(PlayerCharacterImpl pc)
 	{
 		float usedPoints = 0;
 
@@ -148,7 +148,7 @@ public class SkillpointsToken extends Token
 	 * @param pc
 	 * @return unused skill points for the PC
 	 */
-	public static int getUnusedSkillPoints(PlayerCharacter pc, int classNum)
+	public static int getUnusedSkillPoints(PlayerCharacterImpl pc, int classNum)
 	{
 		float usedPoints = 0;
 
@@ -170,7 +170,7 @@ public class SkillpointsToken extends Token
 	 * @param pc
 	 * @return the used skill points for the PC
 	 */
-	public static int getUsedSkillPoints(PlayerCharacter pc)
+	public static int getUsedSkillPoints(PlayerCharacterImpl pc)
 	{
 		float usedPoints = 0;
 		for (Skill aSkill : pc.getDisplay().getSkillSet())
@@ -195,7 +195,7 @@ public class SkillpointsToken extends Token
 	 * @param pc
 	 * @return the used skill points for the PC
 	 */
-	public static int getUsedSkillPoints(PlayerCharacter pc, int classNum)
+	public static int getUsedSkillPoints(PlayerCharacterImpl pc, int classNum)
 	{
 		CharacterDisplay display = pc.getDisplay();
 		if (classNum < 0 || classNum >= display.getClassCount())

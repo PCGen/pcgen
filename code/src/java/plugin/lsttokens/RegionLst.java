@@ -21,7 +21,7 @@ import pcgen.cdom.base.Ungranted;
 import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
@@ -137,7 +137,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Region choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Region choice, PlayerCharacterImpl pc)
 	{
 		if (!pc.getDisplay().getRegionString().equalsIgnoreCase(choice.toString()))
 		{
@@ -146,7 +146,7 @@ public class RegionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(Region choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(Region choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return true;
 	}

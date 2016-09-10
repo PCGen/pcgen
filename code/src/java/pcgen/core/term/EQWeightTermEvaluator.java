@@ -27,8 +27,8 @@ package pcgen.core.term;
 import java.math.BigDecimal;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.PlayerCharacterImpl;
 
 public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -41,7 +41,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -50,7 +50,7 @@ public class EQWeightTermEvaluator extends BaseEQTermEvaluator implements TermEv
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 
 		if (eq.isCalculatingCost() && eq.isWeightAlreadyUsed())
 		{

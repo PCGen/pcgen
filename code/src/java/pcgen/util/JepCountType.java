@@ -57,7 +57,7 @@ import pcgen.core.Domain;
 import pcgen.core.Equipment;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.display.SkillDisplay;
 import pcgen.system.PCGenSettings;
@@ -78,7 +78,7 @@ public abstract class JepCountType
 	{
 		@Override
 		protected Double countData(Collection<? extends CNAbility> filtered,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 		{
 			if (assocList.isEmpty())
 			{
@@ -106,7 +106,7 @@ public abstract class JepCountType
 
 		@Override
 		protected Double countData(Collection<? extends CNAbility> filtered,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 		{
 			double accum = 0;
 			for (final CNAbility ab : filtered)
@@ -138,13 +138,13 @@ public abstract class JepCountType
 			{
 				@Override
 				protected Collection<ChronicleEntry> getData(
-					final PlayerCharacter pc)
+					final PlayerCharacterImpl pc)
 				{
 					return pc.getDisplay().getChronicleEntries();
 				}
 
 				@Override
-				public Double count(PlayerCharacter pc, Object[] params)
+				public Double count(PlayerCharacterImpl pc, Object[] params)
 					throws ParseException
 				{
 					final Object[] par =
@@ -191,7 +191,7 @@ public abstract class JepCountType
 	public static final JepCountType CLASSES = new JepCountCDOMObject<PCClass>()
 	{
 		@Override
-		protected Collection<PCClass> getData(final PlayerCharacter pc)
+		protected Collection<PCClass> getData(final PlayerCharacterImpl pc)
 		{
 			return pc.getDisplay().getClassSet();
 		}
@@ -200,7 +200,7 @@ public abstract class JepCountType
 	public static final JepCountType DOMAINS = new JepCountCDOMObject<Domain>()
 	{
 		@Override
-		protected Collection<Domain> getData(final PlayerCharacter pc)
+		protected Collection<Domain> getData(final PlayerCharacterImpl pc)
 		{
 			return pc.getDisplay().getDomainSet();
 		}
@@ -209,7 +209,7 @@ public abstract class JepCountType
 	public static final JepCountType EQUIPMENT = new JepCountCDOMObject<Equipment>()
 	{
 		@Override
-		protected Collection<Equipment> getData(final PlayerCharacter pc)
+		protected Collection<Equipment> getData(final PlayerCharacterImpl pc)
 		{
 			return pc.getEquipmentListInOutputOrder();
 		}
@@ -284,7 +284,7 @@ public abstract class JepCountType
 	public static final JepCountType FOLLOWERS = new JepCountType()
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Number count(PlayerCharacterImpl pc, Object[] params)
 		{
 			//TODO what if params is not empty??
 			return pc.getDisplay().getFollowerList().size();
@@ -294,7 +294,7 @@ public abstract class JepCountType
 	public static final JepCountType LANGUAGES = new JepCountCDOMObject<Language>()
 	{
 		@Override
-		protected Collection<Language> getData(final PlayerCharacter pc)
+		protected Collection<Language> getData(final PlayerCharacterImpl pc)
 		{
 			return pc.getDisplay().getLanguageSet();
 		}
@@ -303,7 +303,7 @@ public abstract class JepCountType
 	public static final JepCountType RACESUBTYPE = new JepCountType()
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Number count(PlayerCharacterImpl pc, Object[] params)
 			throws ParseException
 		{
 			return pc.getDisplay().getRacialSubTypeCount();
@@ -314,7 +314,7 @@ public abstract class JepCountType
 	public static final JepCountType SKILLS = new JepCountCDOMObject<Skill>()
 	{
 		@Override
-		protected Collection<Skill> getData(PlayerCharacter pc)
+		protected Collection<Skill> getData(PlayerCharacterImpl pc)
 		{
 			return pc.getDisplay().getSkillSet();
 		}
@@ -325,14 +325,14 @@ public abstract class JepCountType
 	public static final JepCountType SPELLBOOKS = new JepCountType()
 	{
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Number count(PlayerCharacterImpl pc, Object[] params)
 		{
 			//TODO what if params is not empty??
 			return pc.getDisplay().getSpellBookCount();
 		}
 	};
 
-	public abstract Number count(PlayerCharacter pc, Object[] params)
+	public abstract Number count(PlayerCharacterImpl pc, Object[] params)
 		throws ParseException;
 
 	private static final class AspectFilter implements ObjectFilter<CNAbility>
@@ -484,7 +484,7 @@ public abstract class JepCountType
 			extends JepCountFilterable<T>
 	{
 		@Override
-		public Double count(PlayerCharacter pc, Object[] params)
+		public Double count(PlayerCharacterImpl pc, Object[] params)
 			throws ParseException
 		{
 			return super.count(pc, validateParams(params));
@@ -558,7 +558,7 @@ public abstract class JepCountType
 
 	public static abstract class JepCountFilterable<T> extends JepCountType
 	{
-		protected abstract Collection<T> getData(final PlayerCharacter pc);
+		protected abstract Collection<T> getData(final PlayerCharacterImpl pc);
 
 		protected static ParameterTree convertParams(final Object[] params)
 		{
@@ -617,7 +617,7 @@ public abstract class JepCountType
 		}
 
 		@Override
-		public Double count(PlayerCharacter pc, Object[] params)
+		public Double count(PlayerCharacterImpl pc, Object[] params)
 			throws ParseException
 		{
 			final ParameterTree pt = convertParams(params);
@@ -635,7 +635,7 @@ public abstract class JepCountType
 		}
 
 		protected Double countData(final Collection<? extends T> filtered,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 		{
 			return (double) filtered.size();
 		}
@@ -650,7 +650,7 @@ public abstract class JepCountType
 		protected final List<String> assocList = new ArrayList<>();
 
 		@Override
-		protected Collection<CNAbility> getData(final PlayerCharacter pc)
+		protected Collection<CNAbility> getData(final PlayerCharacterImpl pc)
 		{
 			assocList.clear();
 			return pc.getCNAbilities();
@@ -825,7 +825,7 @@ public abstract class JepCountType
 	{
 
 		@Override
-		public Number count(PlayerCharacter pc, Object[] params)
+		public Number count(PlayerCharacterImpl pc, Object[] params)
 			throws ParseException
 		{
 			SkillFilter sf = null;
@@ -885,7 +885,7 @@ public abstract class JepCountType
 			return processCount(pc, sf, v);
 		}
 
-		private Number processCount(PlayerCharacter pc, SkillFilter sf, View v)
+		private Number processCount(PlayerCharacterImpl pc, SkillFilter sf, View v)
 		{
 			if (sf == null)
 			{
@@ -916,7 +916,7 @@ public abstract class JepCountType
 			return (double) count;
 		}
 
-		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)
+		private SkillFilter getDefaultSkillFilter(PlayerCharacterImpl pc)
 		{
 			if (pc == null)
 			{

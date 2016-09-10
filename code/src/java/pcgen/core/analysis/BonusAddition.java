@@ -21,7 +21,7 @@ package pcgen.core.analysis;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.util.Logging;
@@ -41,7 +41,7 @@ public final class BonusAddition
 	 *            The character to apply thr bonus to.
 	 */
 	public static void applyBonus(String bonusString, String chooseString,
-			PlayerCharacter aPC, CDOMObject target)
+	                              PlayerCharacterImpl aPC, CDOMObject target)
 	{
 		bonusString = makeBonusString(bonusString, chooseString, aPC);
 
@@ -60,7 +60,7 @@ public final class BonusAddition
 	 * @param aPC
 	 *            The player character to remove th bonus from.
 	 */
-	public static void removeBonus(String bonusString, PlayerCharacter aPC,
+	public static void removeBonus(String bonusString, PlayerCharacterImpl aPC,
 			CDOMObject target)
 	{
 		BonusObj toRemove = null;
@@ -87,7 +87,7 @@ public final class BonusAddition
 	}
 
 	private static String makeBonusString(String bonusString,
-			String chooseString, PlayerCharacter aPC)
+			String chooseString, PlayerCharacterImpl aPC)
 	{
 		// assumption is that the chooseString is in the form
 		// class/type[space]level

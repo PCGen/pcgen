@@ -24,7 +24,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -54,7 +54,7 @@ public class PreItemTest extends AbstractCharacterTestCase
 	 */
 	public void testPassesPrerequisitePlayerCharacter()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");
@@ -87,7 +87,7 @@ public class PreItemTest extends AbstractCharacterTestCase
 	 */
 	public void testType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Equipment longsword = new Equipment();
 		longsword.setName("Longsword");

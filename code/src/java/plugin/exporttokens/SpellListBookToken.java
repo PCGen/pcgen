@@ -25,7 +25,7 @@ package plugin.exporttokens;
 
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
 import pcgen.io.ExportHandler;
@@ -59,7 +59,7 @@ public class SpellListBookToken extends SpellListToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();

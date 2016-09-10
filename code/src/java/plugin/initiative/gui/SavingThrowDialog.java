@@ -36,7 +36,8 @@ import javax.swing.JTextField;
 
 import pcgen.core.Globals;
 import pcgen.core.PCCheck;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
+
 import plugin.initiative.SaveModel;
 import plugin.initiative.XMLCombatant;
 
@@ -309,7 +310,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		if (cbt instanceof PcgCombatant)
 		{
 			PcgCombatant pcgcbt = (PcgCombatant) cbt;
-			PlayerCharacter pc = pcgcbt.getPC();
+			PlayerCharacterImpl pc = pcgcbt.getPC();
 			new PlayerCharacterOutput(pc);
 			List<PCCheck> checkList = Globals.getContext().getReferenceContext()
 					.getOrderSortedCDOMObjects(PCCheck.class);

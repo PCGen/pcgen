@@ -24,6 +24,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.UserInputManager;
 import pcgen.rules.context.LoadContext;
@@ -73,7 +74,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public Collection<String> getSet(PlayerCharacter pc)
+	public Collection<String> getSet(PlayerCharacterImpl pc)
 	{
 		return Collections.singletonList("USERINPUT");
 	}
@@ -91,21 +92,21 @@ public class UserChooseInformation implements ChooseInformation<String>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 	}
 
 	@Override
 	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -118,14 +119,14 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
-		ChooseSelectionActor<String> csa)
+	private void applyChoice(ChooseDriver owner, PlayerCharacterImpl pc, String choice,
+	                         ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();

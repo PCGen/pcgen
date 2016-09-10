@@ -34,7 +34,7 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener;
 import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SubClass;
 
 /**
@@ -77,7 +77,7 @@ public class ClassSkillListFacet extends
 			}
 			else
 			{
-				PlayerCharacter pc = trackingFacet.getPC(id);
+				PlayerCharacterImpl pc = trackingFacet.getPC(id);
 				for (ClassSkillList st : csc.driveChoice(pc))
 				{
 					add(id, cl, st, cl);

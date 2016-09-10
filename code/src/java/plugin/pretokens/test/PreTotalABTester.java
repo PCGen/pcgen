@@ -25,7 +25,7 @@
 package plugin.pretokens.test;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
@@ -41,7 +41,7 @@ public class PreTotalABTester extends AbstractPrerequisiteTest implements Prereq
 	@Override
 	public int passes(
 		final Prerequisite prereq,
-		final PlayerCharacter character,
+		final PlayerCharacterImpl character,
 		CDOMObject source)
 		throws PrerequisiteException
 	{

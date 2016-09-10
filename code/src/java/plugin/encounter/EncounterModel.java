@@ -29,7 +29,7 @@ import javax.swing.DefaultListModel;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 
 /**
@@ -45,7 +45,7 @@ public class EncounterModel extends DefaultListModel
 	private String dir;
 
 	/** All the characters or creatures in combat. */
-	private PlayerCharacter[] PCs;
+	private PlayerCharacterImpl[] PCs;
 
 	/**
 	 * Creates a new instance of EncounterModel
@@ -101,11 +101,11 @@ public class EncounterModel extends DefaultListModel
 	public void setPCs(int len)
 	{
 		int x;
-		PCs = (PlayerCharacter[]) Array.newInstance(PlayerCharacter.class, len);
+		PCs = (PlayerCharacterImpl[]) Array.newInstance(PlayerCharacterImpl.class, len);
 
 		for (x = 0; x < len; x++)
 		{
-			PCs[x] = new PlayerCharacter();
+			PCs[x] = new PlayerCharacterImpl();
 		}
 	}
 
@@ -113,7 +113,7 @@ public class EncounterModel extends DefaultListModel
 	 * Gets all the characters in the encounter.
 	 * @return the <code>Array</code> of characters.
 	 */
-	public PlayerCharacter[] getPCs()
+	public PlayerCharacterImpl[] getPCs()
 	{
 		return PCs;
 	}

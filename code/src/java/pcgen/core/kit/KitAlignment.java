@@ -29,7 +29,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCAlignment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.RaceAlignment;
 
 /**
@@ -49,7 +49,7 @@ public class KitAlignment extends BaseKit
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		aPC.setAlignment(align);
 	}
@@ -62,7 +62,7 @@ public class KitAlignment extends BaseKit
 	 * @param warnings List
 	 */
 	@Override
-	public boolean testApply(Kit k, PlayerCharacter aPC, List<String> warnings)
+	public boolean testApply(Kit k, PlayerCharacterImpl aPC, List<String> warnings)
 	{
 		align = null;
 		if (alignments.size() == 1)

@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.helper.WeaponProfProvider;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.core.prereq.Prerequisite;
@@ -341,13 +341,13 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacterImpl pc)
 	{
 		pc.addWeaponProf(obj, wp);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, WeaponProf wp, PlayerCharacterImpl pc)
 	{
 		pc.removeWeaponProf(obj, wp);
 	}

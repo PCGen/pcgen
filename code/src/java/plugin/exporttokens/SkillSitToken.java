@@ -39,6 +39,7 @@ import pcgen.cdom.helper.SkillSituation;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.analysis.QualifiedName;
@@ -76,7 +77,7 @@ public class SkillSitToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		SkillDetails details = SkillToken.buildSkillDetails(tokenSource);
@@ -96,8 +97,8 @@ public class SkillSitToken extends Token
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Object getSkill(PlayerCharacter pc, SkillDetails details,
-		ExportHandler eh)
+	private Object getSkill(PlayerCharacterImpl pc, SkillDetails details,
+	                        ExportHandler eh)
 	{
 		Object skill = null;
 		try
@@ -187,7 +188,7 @@ public class SkillSitToken extends Token
 		return skill;
 	}
 
-	private synchronized List<Skill> getSkillList(PlayerCharacter pc)
+	private synchronized List<Skill> getSkillList(PlayerCharacterImpl pc)
 	{
 		if (pc == lastPC && pc.getSerial() == lastPCSerial)
 		{
@@ -213,7 +214,7 @@ public class SkillSitToken extends Token
 	 * @return The skill tag output value.
 	 */
 	protected String getSkillProperty(Object aSkill, String property,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		if (aSkill == null)
 		{
@@ -237,7 +238,7 @@ public class SkillSitToken extends Token
 	 * @return The value of the property.
 	 */
 	private String getSkillPropValue(Object skillSit, int property,
-		String propertyText, PlayerCharacter pc)
+		String propertyText, PlayerCharacterImpl pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 

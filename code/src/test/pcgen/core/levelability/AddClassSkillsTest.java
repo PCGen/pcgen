@@ -45,7 +45,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -88,7 +88,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 				"Intelligence.Knowledge", intel, false, SkillArmorCheck.NONE);
 		}
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 	}
 
@@ -108,7 +108,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	public void testBasicChoicesList()
 	{
 		PCClass po = new PCClass();
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");

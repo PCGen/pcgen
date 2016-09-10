@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.content.CNAbility;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 
 public class PCBonusLangTermEvaluator 
@@ -38,7 +38,7 @@ public class PCBonusLangTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		int nml = pc.getDisplay().totalNonMonsterLevels();
 		if ((nml > 1) || (nml > 0 && pc.getDisplay().totalHitDice() > 0))

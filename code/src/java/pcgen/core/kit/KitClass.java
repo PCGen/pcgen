@@ -30,7 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SubClass;
 import pcgen.core.analysis.SubClassApplication;
@@ -69,7 +69,7 @@ public class KitClass extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		theLevel = -1;
@@ -97,7 +97,7 @@ public class KitClass extends BaseKit
 		return true;
 	}
 
-	private void applySubClass(PlayerCharacter aPC)
+	private void applySubClass(PlayerCharacterImpl aPC)
 	{
 		if (subClass != null)
 		{
@@ -115,7 +115,7 @@ public class KitClass extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		applySubClass(aPC);
 		addLevel(aPC, theLevel, theClass, doLevelAbilities);
@@ -126,8 +126,8 @@ public class KitClass extends BaseKit
 		theClass = null;
 	}
 
-	private void addLevel(final PlayerCharacter pc, final int numLevels,
-		final PCClass aClass, final boolean doLevelAbilitiesIn)
+	private void addLevel(final PlayerCharacterImpl pc, final int numLevels,
+	                      final PCClass aClass, final boolean doLevelAbilitiesIn)
 	{
 		// We want to level up as quietly as possible for kits.
 		boolean tempShowHP = SettingsHandler.getShowHPDialogAtLevelUp();

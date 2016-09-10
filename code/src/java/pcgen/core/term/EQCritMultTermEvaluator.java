@@ -28,7 +28,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.util.Logging;
 
@@ -43,7 +43,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.CRITMULT))
@@ -63,7 +63,7 @@ public class EQCritMultTermEvaluator extends BaseEQTermEvaluator implements Term
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		if (ControlUtilities.hasControlToken(Globals.getContext(),
 			CControl.CRITMULT))
 		{

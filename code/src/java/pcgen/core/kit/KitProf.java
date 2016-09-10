@@ -36,7 +36,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
@@ -93,7 +93,7 @@ public final class KitProf extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		thePObject = null;
@@ -250,7 +250,7 @@ public final class KitProf extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		PersistentTransitionChoice<WeaponProf> wpPTC = getPTC(thePObject);
 		Collection<?> choices = wpPTC.getChoices().getSet(aPC);

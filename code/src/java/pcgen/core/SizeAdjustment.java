@@ -41,7 +41,7 @@ public final class SizeAdjustment extends PObject implements
 	 * @return active bonuses
 	 **/
 	@Override
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacterImpl aPC)
 	{
 		BonusActivation.activateBonuses(this, aPC);
 

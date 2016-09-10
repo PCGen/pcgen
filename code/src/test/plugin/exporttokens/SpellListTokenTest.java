@@ -35,7 +35,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.Bonus;
@@ -148,7 +148,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListBookToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
@@ -172,7 +172,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListCastToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.setStat(cha, 12);
@@ -189,7 +189,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListClassToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
@@ -207,7 +207,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListDcStatToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);
@@ -225,7 +225,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListDcToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		setPCStat(character, cha, 14);
@@ -255,7 +255,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellListTypeToken()
 	{
-		PlayerCharacter character = new PlayerCharacter();
+		PlayerCharacterImpl character = new PlayerCharacterImpl();
 
 		character.setRace(human);
 		character.incrementClassLevel(1, arcaneClass, true);

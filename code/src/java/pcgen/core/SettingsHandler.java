@@ -833,7 +833,7 @@ public final class SettingsHandler
 		return options;
 	}
 
-	public static Dimension getOptionsFromProperties(final PlayerCharacter aPC)
+	public static Dimension getOptionsFromProperties(final PlayerCharacterImpl aPC)
 	{
 		Dimension d = new Dimension(0, 0);
 
@@ -1033,7 +1033,7 @@ public final class SettingsHandler
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 
-	public static void setOptionsProperties(final PlayerCharacter aPC)
+	public static void setOptionsProperties(final PlayerCharacterImpl aPC)
 	{
 		if (getBackupPcgPath() != null && !getBackupPcgPath().getPath().equals(""))
 		{
@@ -1526,7 +1526,7 @@ public final class SettingsHandler
 	 * @param  path  a string containing the path to the HTML output sheet
 	 * @param aPC
 	 */
-	public static void setSelectedCharacterHTMLOutputSheet(final String path, final PlayerCharacter aPC)
+	public static void setSelectedCharacterHTMLOutputSheet(final String path, final PlayerCharacterImpl aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
@@ -1542,7 +1542,7 @@ public final class SettingsHandler
 	 * @return    the <code>selectedCharacterHTMLOutputSheet</code> property
 	 * @param aPC
 	 **/
-	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacter aPC)
+	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacterImpl aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
@@ -1561,7 +1561,7 @@ public final class SettingsHandler
 	 * @param path  a string containing the path to the PDF output sheet
 	 * @param aPC
 	 */
-	public static void setSelectedCharacterPDFOutputSheet(final String path, final PlayerCharacter aPC)
+	public static void setSelectedCharacterPDFOutputSheet(final String path, final PlayerCharacterImpl aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
@@ -1577,7 +1577,7 @@ public final class SettingsHandler
 	 * @return    the <code>selectedCharacterPDFOutputSheet</code> property
 	 * @param aPC
 	 */
-	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacter aPC)
+	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacterImpl aPC)
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
@@ -2073,7 +2073,7 @@ public final class SettingsHandler
 	 * Opens (options.ini) for writing and calls {@link SettingsHandler#setOptionsProperties(PlayerCharacter)}.
 	 * @param aPC
 	 */
-	public static void writeOptionsProperties(final PlayerCharacter aPC)
+	public static void writeOptionsProperties(final PlayerCharacterImpl aPC)
 	{
 		writeFilePaths();
 		writeFilterSettings();

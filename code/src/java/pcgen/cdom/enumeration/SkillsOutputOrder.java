@@ -22,7 +22,7 @@
  */
 package pcgen.cdom.enumeration;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SkillComparator;
 
 /**
@@ -34,7 +34,7 @@ public enum SkillsOutputOrder
 {
 	NAME_ASC {
 		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
+		public SkillComparator getComparator(PlayerCharacterImpl pc)
 		{
 			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
 				SkillComparator.RESORT_ASCENDING);
@@ -43,7 +43,7 @@ public enum SkillsOutputOrder
 
 	NAME_DSC {
 		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
+		public SkillComparator getComparator(PlayerCharacterImpl pc)
 		{
 			return new SkillComparator(pc, SkillComparator.RESORT_NAME,
 				SkillComparator.RESORT_DESCENDING);
@@ -52,7 +52,7 @@ public enum SkillsOutputOrder
 
 	TRAINED_ASC {
 		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
+		public SkillComparator getComparator(PlayerCharacterImpl pc)
 		{
 			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
 				SkillComparator.RESORT_ASCENDING);
@@ -61,7 +61,7 @@ public enum SkillsOutputOrder
 
 	TRAINED_DSC {
 		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
+		public SkillComparator getComparator(PlayerCharacterImpl pc)
 		{
 			return new SkillComparator(pc, SkillComparator.RESORT_TRAINED,
 				SkillComparator.RESORT_DESCENDING);
@@ -70,11 +70,11 @@ public enum SkillsOutputOrder
 
 	MANUAL {
 		@Override
-		public SkillComparator getComparator(PlayerCharacter pc)
+		public SkillComparator getComparator(PlayerCharacterImpl pc)
 		{
 			return null;
 		}
 	};
 
-	public abstract SkillComparator getComparator(PlayerCharacter pc);
+	public abstract SkillComparator getComparator(PlayerCharacterImpl pc);
 }

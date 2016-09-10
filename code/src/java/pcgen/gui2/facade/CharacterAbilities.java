@@ -48,7 +48,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.AbilityCategoryFacade;
@@ -81,7 +81,7 @@ import pcgen.util.enumeration.View;
 public class CharacterAbilities
 {
 
-	private final PlayerCharacter theCharacter;
+	private final PlayerCharacterImpl theCharacter;
 	private final CharacterDisplay charDisplay;
 	private UIDelegate delegate;
 
@@ -100,8 +100,8 @@ public class CharacterAbilities
 	 * @param dataSetFacade The datasets that the character is using.
 	 * @param todoManager The user tasks tracker.
 	 */
-	public CharacterAbilities(PlayerCharacter pc, UIDelegate delegate,
-		DataSetFacade dataSetFacade, TodoManager todoManager)
+	public CharacterAbilities(PlayerCharacterImpl pc, UIDelegate delegate,
+	                          DataSetFacade dataSetFacade, TodoManager todoManager)
 	{
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();

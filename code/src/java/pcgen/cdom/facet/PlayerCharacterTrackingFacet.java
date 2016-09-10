@@ -22,6 +22,7 @@ import java.lang.ref.WeakReference;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -34,7 +35,7 @@ public class PlayerCharacterTrackingFacet extends AbstractStorageFacet<CharID>
 		setCache(id, new WeakReference<>(pc));
 	}
 
-	public PlayerCharacter getPC(CharID id)
+	public PlayerCharacterImpl getPC(CharID id)
 	{
 		WeakReference<PlayerCharacter> wr = (WeakReference<PlayerCharacter>) getCache(id);
 		/*

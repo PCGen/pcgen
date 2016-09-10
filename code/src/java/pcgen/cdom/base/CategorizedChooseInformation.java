@@ -22,7 +22,7 @@ import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.CDOMChoiceManager;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.rules.context.LoadContext;
@@ -247,7 +247,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	 *         PlayerCharacter.
 	 */
 	@Override
-	public Collection<T> getSet(PlayerCharacter pc)
+	public Collection<T> getSet(PlayerCharacterImpl pc)
 	{
 		return Collections.unmodifiableCollection(pcs.getSet(pc));
 	}
@@ -305,7 +305,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item)
 	{
 		choiceActor.restoreChoice(pc, owner, item);
 	}
@@ -323,7 +323,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item)
 	{
 		choiceActor.removeChoice(pc, owner, item);
 	}

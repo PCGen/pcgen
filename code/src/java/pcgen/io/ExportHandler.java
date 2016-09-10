@@ -46,11 +46,6 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.Version;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -64,6 +59,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.character.CharacterSpell;
@@ -96,6 +92,12 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import freemarker.template.Configuration;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.Version;
 
 /**
  * This class deals with exporting a PC to various types of output sheets 
@@ -192,8 +194,8 @@ public final class ExportHandler
 	 * @param aString the string which will have its tokens replaced 
 	 * @param output the object that represents the sheet we are exporting
 	 */
-	public void replaceTokenSkipMath(PlayerCharacter aPC, String aString,
-		BufferedWriter output)
+	public void replaceTokenSkipMath(PlayerCharacterImpl aPC, String aString,
+	                                 BufferedWriter output)
 	{
 		final boolean oldSkipMath = skipMath;
 		skipMath = true;
@@ -211,7 +213,7 @@ public final class ExportHandler
 	 * @param out the Writer to be written to
 	 * @throws ExportException If the export fails.
 	 */
-	public void write(PlayerCharacter aPC, BufferedWriter out) throws ExportException
+	public void write(PlayerCharacterImpl aPC, BufferedWriter out) throws ExportException
 	{
 		if (templateFile == null)
 		{
@@ -310,7 +312,7 @@ public final class ExportHandler
 	 * @param outputWriter The destination for the output.
 	 * @throws ExportException If the export fails.
 	 */
-	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter) throws ExportException
+	private void exportCharacterUsingFreemarker(PlayerCharacterImpl aPC, BufferedWriter outputWriter) throws ExportException
 	{
 		Configuration cfg = new Configuration();
 
@@ -419,7 +421,7 @@ public final class ExportHandler
 	 */
 	public void write(Collection<PlayerCharacter> PCs, BufferedWriter out)
 	{
-		write(PCs.toArray(new PlayerCharacter[PCs.size()]), out);
+		write((PlayerCharacterImpl[]) PCs.toArray(new PlayerCharacter[PCs.size()]), out);
 	}
 
 	/**
@@ -465,7 +467,7 @@ public final class ExportHandler
 	 * @param aPC The PC that holds the data that we need to get the info from
 	 * @return The result
 	 */
-	private int getVarValue(String varString, PlayerCharacter aPC)
+	private int getVarValue(String varString, PlayerCharacterImpl aPC)
 	{
 		String vString = varString;
 
@@ -499,7 +501,7 @@ public final class ExportHandler
 	 * @return the altered variable string
 	 */
 	private String processCountEquipmentTokens(String vString,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		int countIndex = vString.indexOf("COUNT[EQ");
 		while (countIndex >= 0)
@@ -547,7 +549,7 @@ public final class ExportHandler
 	 * @param aPC The PC to get the token value out of
 	 * @return The altered variable string
 	 */
-	private String processStringLengthTokens(String vString, PlayerCharacter aPC)
+	private String processStringLengthTokens(String vString, PlayerCharacterImpl aPC)
 	{
 		int strlenIndex = vString.indexOf("STRLEN[", 0);
 		while (strlenIndex >= 0)
@@ -669,7 +671,7 @@ public final class ExportHandler
 	 * @return true if the expression was evaluated successfully, else false
 	 */
 	private boolean evaluateExpression(final String expr,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		// Deal with the AND case
 		if (expr.indexOf(".AND.") > 0)
@@ -994,7 +996,7 @@ public final class ExportHandler
 	 * @param aPC The PC we are outputting
 	 */
 	private void evaluateIIF(final IIFNode node, final BufferedWriter output,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		// Comma is a delimiter for a higher-level parser, so 
 		// we'll use a semicolon and replace it with a comma for
@@ -1022,7 +1024,7 @@ public final class ExportHandler
 	 */
 	private void evaluateIIFChildren(final List<?> children,
 		final BufferedWriter output,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		for (Object aChild : children)
 		{
@@ -1100,7 +1102,7 @@ public final class ExportHandler
 	 */
 	private void loopFOR(final FORNode node, final int start, final int end,
 		final int step, final BufferedWriter output,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		for (int x = start; ((step < 0) ? x >= end : x <= end); x += step)
 		{
@@ -1121,7 +1123,7 @@ public final class ExportHandler
 	 * @return true if the loop should be stopped.
 	 */
 	private boolean processLoop(FORNode node, BufferedWriter output,
-		PlayerCharacter aPC, int index)
+	                            PlayerCharacterImpl aPC, int index)
 	{
 		loopVariables.put(node.var(), index);
 		int numberOfChildrenNodes = node.children().size();
@@ -1198,7 +1200,7 @@ public final class ExportHandler
 	 * @param aPC the PC being exported
 	 * @return String
 	 */
-	private String mathMode(String aString, PlayerCharacter aPC)
+	private String mathMode(String aString, PlayerCharacterImpl aPC)
 	{
 		String str = aString;
 
@@ -1524,7 +1526,7 @@ public final class ExportHandler
 	 * @param aPC PC we are exporting
 	 * @return Processed string
 	 */
-	private String processBracketedTokens(String str, PlayerCharacter aPC)
+	private String processBracketedTokens(String str, PlayerCharacterImpl aPC)
 	{
 		while (str.lastIndexOf('(') != -1)
 		{
@@ -1871,7 +1873,7 @@ public final class ExportHandler
 	 * @param aPC The PC that we are outputting
 	 */
 	private void replaceLine(String aLine, BufferedWriter output,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		// Find the last index of the | character
 		int lastIndex = aLine.lastIndexOf('|');
@@ -1945,7 +1947,7 @@ public final class ExportHandler
 	 * @return value
 	 */
 	public int replaceToken(String aString, BufferedWriter output,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		try
 		{
@@ -2211,7 +2213,7 @@ public final class ExportHandler
 	 * @param aPC The PC we are exporting
 	 */
 	private void processLoopToken(String tokenString, BufferedWriter output,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		FileAccess.maxLength(-1);
 
@@ -2233,7 +2235,7 @@ public final class ExportHandler
 	 * @param aPC
 	 * @return 0 If we should not be writing something out 
 	 */
-	private int dealWithFilteredTokens(String aString, PlayerCharacter aPC)
+	private int dealWithFilteredTokens(String aString, PlayerCharacterImpl aPC)
 	{
 		// Start by stating that we are allowed to write
 		canWrite = true;
@@ -2974,7 +2976,7 @@ public final class ExportHandler
 	 * @param aPC PC we are exporting
 	 */
 	private void replaceTokenForDfor(String aString, BufferedWriter output,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		StringTokenizer aTok;
 
@@ -3224,7 +3226,7 @@ public final class ExportHandler
 	 * @param aPC PC we are exporting
 	 */
 	private void replaceTokenOIF(String aString, java.io.Writer output,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		int iParenCount = 0;
 		final String[] tokenizedString = new String[3];
@@ -3330,7 +3332,7 @@ public final class ExportHandler
 	 * @param aPC
 	 * @return 0
 	 */
-	private int replaceTokenSpellListBook(String aString, PlayerCharacter aPC)
+	private int replaceTokenSpellListBook(String aString, PlayerCharacterImpl aPC)
 	{
 		int sbookNum = 0;
 
@@ -3370,7 +3372,7 @@ public final class ExportHandler
 	 * @param aString String to process
 	 * @param aPC PC we are exporting
 	 */
-	private void replaceTokenVar(String aString, PlayerCharacter aPC)
+	private void replaceTokenVar(String aString, PlayerCharacterImpl aPC)
 	{
 		final StringTokenizer aTok =
 				new StringTokenizer(aString.substring(5), ".", false);
@@ -3459,7 +3461,7 @@ public final class ExportHandler
 	 * @param PCs the PlayerCharacter[] which compromises the Party to write
 	 * @param out the Writer to be written to
 	 */
-	private void write(PlayerCharacter[] PCs, BufferedWriter out)
+	private void write(PlayerCharacterImpl[] PCs, BufferedWriter out)
 	{
 		// Set an output filter based on the type of template in use.
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
@@ -3585,8 +3587,8 @@ public final class ExportHandler
 	 * @param between Whether we are processing a line between pipes
 	 * @return true if we processed successfully
 	 */
-	private boolean processPipedLine(PlayerCharacter[] PCs, String aLine,
-		StringBuilder buf, BufferedWriter out, boolean between)
+	private boolean processPipedLine(PlayerCharacterImpl[] PCs, String aLine,
+	                                 StringBuilder buf, BufferedWriter out, boolean between)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aLine, "|", false);
 
@@ -3648,7 +3650,7 @@ public final class ExportHandler
 					if ((charNum >= 0)
 						&& (charNum < Globals.getPCList().size()))
 					{
-						PlayerCharacter currPC = PCs[charNum];
+						PlayerCharacterImpl currPC = PCs[charNum];
 						replaceToken(aString, out, currPC);
 					}
 					else if (aString.startsWith("EXPORT"))
@@ -3674,8 +3676,8 @@ public final class ExportHandler
 	 * @param out The Output we are writing to
 	 * @param tokenString The token string to process
 	 */
-	private void doPartyForToken(PlayerCharacter[] PCs, BufferedWriter out,
-		String tokenString)
+	private void doPartyForToken(PlayerCharacterImpl[] PCs, BufferedWriter out,
+	                             String tokenString)
 	{
 		PartyForParser forParser = new PartyForParser(tokenString, PCs.length);
 
@@ -3687,7 +3689,7 @@ public final class ExportHandler
 				FileAccess.write(out, forParser.startOfLine());
 			}
 
-			PlayerCharacter currPC = (0 <= i && i < PCs.length) ? PCs[i] : null;
+			PlayerCharacterImpl currPC = (0 <= i && i < PCs.length) ? PCs[i] : null;
 
 			String[] tokens = forParser.tokenString().split("\\\\\\\\");
 
@@ -3795,7 +3797,7 @@ public final class ExportHandler
 	 * @param aString The token string to convert
 	 * @return token string
 	 */
-	public static String getTokenString(final PlayerCharacter aPC,
+	public static String getTokenString(final PlayerCharacterImpl aPC,
 		final String aString)
 	{
 		final StringTokenizer tok = new StringTokenizer(aString, ".,", false);

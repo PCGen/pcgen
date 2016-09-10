@@ -46,7 +46,7 @@ import pcgen.core.PCAlignment;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
@@ -156,7 +156,7 @@ public final class NPCGenerator
 	}
 
 	private WeightedCollection<SkillChoice> getSkillWeights(final PCClass aClass,
-										final PlayerCharacter aPC)
+										final PlayerCharacterImpl aPC)
 	{
 		WeightedCollection<SkillChoice> WeightedCollection = theConfiguration.getSkillWeights(aClass.getKeyName());
 		if (WeightedCollection == null)
@@ -183,8 +183,8 @@ public final class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectSkills(final PlayerCharacter aPC, final WeightedCollection<SkillChoice> skillList,
-									 final PCClass aClass, final int level)
+	private void selectSkills(final PlayerCharacterImpl aPC, final WeightedCollection<SkillChoice> skillList,
+	                          final PCClass aClass, final int level)
 	{
 		// Select a potential skill
 
@@ -298,7 +298,7 @@ public final class NPCGenerator
 		return option.getList().getRandomValue();
 	}
 
-	private List<PCStat> getStatWeights(PlayerCharacter pc, final PCClass aClass)
+	private List<PCStat> getStatWeights(PlayerCharacterImpl pc, final PCClass aClass)
 	{
 		final WeightedCollection<PCStat> stats = new WeightedCollection<>(
                 theConfiguration.getStatWeights(aClass.getKeyName()));
@@ -314,7 +314,7 @@ public final class NPCGenerator
 		return ret;
 	}
 
-	private void generateStats(final PlayerCharacter aPC, final PCClass aClass, final RollMethod aRollMethod)
+	private void generateStats(final PlayerCharacterImpl aPC, final PCClass aClass, final RollMethod aRollMethod)
 	{
 		final List<PCStat> statOrder = getStatWeights(aPC, aClass);
 		Logging.debugPrint( "NPCGenerator: Stat order is " + statOrder ); //$NON-NLS-1$
@@ -355,7 +355,7 @@ public final class NPCGenerator
 		return weightedCollection;
 	}
 
-	private void selectFeats(final PlayerCharacter aPC, final WeightedCollection<Ability> aFeatList)
+	private void selectFeats(final PlayerCharacterImpl aPC, final WeightedCollection<Ability> aFeatList)
 	{
 		while ((int)aPC.getRemainingFeatPoolPoints() > 0)
 		{
@@ -370,7 +370,7 @@ public final class NPCGenerator
 		}
 	}
 
-	private void selectDeity( final PlayerCharacter aPC, final PCClass aClass )
+	private void selectDeity(final PlayerCharacterImpl aPC, final PCClass aClass )
 	{
 		// Copy the list since we may modify it
 		final WeightedCollection<Deity> deities = new WeightedCollection<>(theConfiguration.getDeityWeights(aClass.getKeyName()));
@@ -392,7 +392,7 @@ public final class NPCGenerator
 		}
 	}
 	
-	private void selectDomains( final PlayerCharacter aPC, final PCClass aClass )
+	private void selectDomains(final PlayerCharacterImpl aPC, final PCClass aClass )
 	{
 		final WeightedCollection<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
 		for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
@@ -424,7 +424,7 @@ public final class NPCGenerator
 		}
 	}
 	
-	private WeightedCollection<Spell> getKnownSpellWeights(PlayerCharacter pc, final PCClass aClass, final int aLevel )
+	private WeightedCollection<Spell> getKnownSpellWeights(PlayerCharacterImpl pc, final PCClass aClass, final int aLevel )
 	{
 		WeightedCollection<Spell> WeightedCollection = theConfiguration.getKnownSpellWeights(pc, aClass.getKeyName(), aLevel);
 		if (WeightedCollection == null)
@@ -439,7 +439,7 @@ public final class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private WeightedCollection<Spell> getPreparedSpellWeights(PlayerCharacter pc, final PCClass aClass, final int aLevel )
+	private WeightedCollection<Spell> getPreparedSpellWeights(PlayerCharacterImpl pc, final PCClass aClass, final int aLevel )
 	{
 		WeightedCollection<Spell> WeightedCollection = theConfiguration.getPreparedSpellWeights(aClass.getKeyName(), aLevel, pc);
 		if (WeightedCollection == null)
@@ -454,7 +454,7 @@ public final class NPCGenerator
 		return WeightedCollection;
 	}
 
-	private void selectDomainSpell( final PlayerCharacter aPC, final PCClass aClass, final int aLevel )
+	private void selectDomainSpell(final PlayerCharacterImpl aPC, final PCClass aClass, final int aLevel )
 	{
 		if (!aPC.hasDomains())
 		{
@@ -477,7 +477,7 @@ public final class NPCGenerator
 		selectSpell( aPC, aClass, domain, "Prepared Spells", domainSpells, aLevel ); //$NON-NLS-1$
 	}
 	
-	private void selectSpell( final PlayerCharacter aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel )
+	private void selectSpell(final PlayerCharacterImpl aPC, final PCClass aClass, final Domain aDomain, final String aBookName, final WeightedCollection<Spell> aSpellList, final int aLevel )
 	{
 		boolean added = false;
 		while ( !added )
@@ -507,7 +507,7 @@ public final class NPCGenerator
 		}
 	}
 	
-	private void selectSubClass( final PlayerCharacter aPC, final PCClass aClass )
+	private void selectSubClass(final PlayerCharacterImpl aPC, final PCClass aClass )
 	{
 		WeightedCollection<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
 		if (subClasses != null && subClasses.size() > 0)
@@ -528,7 +528,7 @@ public final class NPCGenerator
 	 * @param levels <tt>List</tt> of level choices
 	 * @param aRollMethod the RollMethod to use for stats
 	 */
-	public void generate(	final PlayerCharacter aPC, 
+	public void generate(	final PlayerCharacterImpl aPC,
 							final AlignGeneratorOption align,
 							final RaceGeneratorOption aRace, 
 							final GenderGeneratorOption aGender,

@@ -28,7 +28,7 @@ import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -128,7 +128,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<Skill, R> c)
 	{
 		Converter<Skill, R> conv = new AddFilterConverter<>(c, this);
 		conv = negated ? new NegateFilterConverter<>(conv) : conv;
@@ -136,7 +136,7 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Skill sk)
+	public boolean allow(PlayerCharacterImpl pc, Skill sk)
 	{
 		Collection<PCClass> classlist = pc.getClassSet();
 		for (PCClass cl : classlist)

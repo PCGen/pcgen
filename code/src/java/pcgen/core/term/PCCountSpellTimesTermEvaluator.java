@@ -30,7 +30,7 @@ import java.util.List;
 
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.character.SpellInfo;
 
@@ -54,7 +54,7 @@ public class PCCountSpellTimesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		String bookName = (classNum == -1) ? Globals.getDefaultSpellBook() :
 						  (bookNum > 0)    ? pc.getDisplay().getSpellBookNames().get(bookNum) :

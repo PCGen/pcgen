@@ -20,7 +20,7 @@ package plugin.primitive.spell;
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
@@ -48,7 +48,7 @@ public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
+	public boolean allow(PlayerCharacterImpl pc, Spell spell)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> levelInfo =
 				pc.getSpellLevelInfo(spell);

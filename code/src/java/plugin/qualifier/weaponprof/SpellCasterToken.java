@@ -27,7 +27,7 @@ import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -117,13 +117,13 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<WeaponProf, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<WeaponProf, R> c)
 	{
 		return pcs.getCollection(pc, new AddFilterConverter<>(c, this));
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, WeaponProf po)
+	public boolean allow(PlayerCharacterImpl pc, WeaponProf po)
 	{
 		return pc.isSpellCaster(1);
 	}

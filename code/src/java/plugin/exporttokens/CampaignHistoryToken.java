@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.ChronicleEntry;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -66,7 +66,7 @@ public class CampaignHistoryToken extends Token
 	}
 
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".");

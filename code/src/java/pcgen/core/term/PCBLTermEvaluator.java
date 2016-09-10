@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCBLTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -39,7 +39,7 @@ public class PCBLTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacterImpl pc) {
 
 		if (source.length() == 0) {
 			return 0f;

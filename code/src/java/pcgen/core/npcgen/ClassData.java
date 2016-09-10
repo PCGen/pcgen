@@ -34,7 +34,7 @@ import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SubClass;
 import pcgen.core.spell.Spell;
 
@@ -294,7 +294,7 @@ public class ClassData
 		}
 	}
 	
-	public WeightedCollection<Spell> getKnownSpellWeights( final int aLevel, PlayerCharacter pc ) 
+	public WeightedCollection<Spell> getKnownSpellWeights( final int aLevel, PlayerCharacterImpl pc )
 	{
 		if ( theKnownSpellWeights == null )
 		{
@@ -346,7 +346,7 @@ public class ClassData
 		}
 	}
 	
-	public WeightedCollection<Spell> getPreparedSpellWeights( final int aLevel, PlayerCharacter pc ) 
+	public WeightedCollection<Spell> getPreparedSpellWeights( final int aLevel, PlayerCharacterImpl pc )
 	{
 		if ( thePreparedSpellWeights == null )
 		{

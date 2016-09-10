@@ -24,7 +24,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.Follower;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.io.ExportHandler;
@@ -73,7 +73,7 @@ public class FollowerListToken extends AbstractExportToken
 
 		for (Follower aF : display.getFollowerList())
 		{
-			for (PlayerCharacter nPC : Globals.getPCList())
+			for (PlayerCharacterImpl nPC : Globals.getPCList())
 			{
 				CharacterDisplay nDisplay = nPC.getDisplay();
 				if (aF.getFileName().equals(nDisplay.getFileName()))

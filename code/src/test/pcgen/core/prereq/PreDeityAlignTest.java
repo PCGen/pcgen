@@ -29,7 +29,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -62,7 +62,7 @@ public class PreDeityAlignTest extends AbstractCharacterTestCase
 	 */
 	public void testAbbrev() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setAlignment(ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,

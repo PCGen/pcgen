@@ -22,7 +22,7 @@ import java.util.Collection;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class NegateFilterConverter<B, R> implements Converter<B, R>
 {
@@ -41,7 +41,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	private static final PrimitiveFilter PREVENT = new PrimitiveFilter()
 	{
 		@Override
-		public boolean allow(PlayerCharacter pc, Object obj)
+		public boolean allow(PlayerCharacterImpl pc, Object obj)
 		{
 			return false;
 		}
@@ -75,7 +75,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 		}
 
 		@Override
-		public boolean allow(PlayerCharacter pc, T obj)
+		public boolean allow(PlayerCharacterImpl pc, T obj)
 		{
 			return !filter.allow(pc, obj);
 		}

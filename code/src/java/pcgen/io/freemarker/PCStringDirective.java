@@ -26,7 +26,7 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
@@ -48,7 +48,7 @@ import freemarker.template.TemplateModelException;
 public class PCStringDirective extends CharacterExportAction implements
 		TemplateDirectiveModel, TemplateMethodModelEx
 {
-	private PlayerCharacter pc;
+	private PlayerCharacterImpl pc;
 	private ExportHandler eh;
 
 	/**
@@ -56,7 +56,7 @@ public class PCStringDirective extends CharacterExportAction implements
 	 * @param pc The character being exported.
 	 * @param eh The managing export handler.
 	 */
-	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
+	public PCStringDirective(PlayerCharacterImpl pc, ExportHandler eh)
 	{
 		super();
 		this.pc = pc;

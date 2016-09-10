@@ -179,7 +179,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassLevel1() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(1, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
@@ -191,7 +191,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassLevel2() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(2, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
@@ -203,7 +203,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassLevel1() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(1, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.01);
@@ -215,7 +215,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassLevel2() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(2, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
@@ -227,7 +227,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassLevel3() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(3, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
@@ -240,7 +240,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiClassPCLevel4PCLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, pcClass);
 		pc.incrementClassLevel(4, pcClass2);
@@ -253,7 +253,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiClassNPCLevel4NPCLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, npcClass);
 		pc.incrementClassLevel(4, npcClass2);
@@ -266,7 +266,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiClassNPCLevel4PCLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(standardRace);
 		pc.incrementClassLevel(4, npcClass);
 		pc.incrementClassLevel(4, pcClass);
@@ -280,7 +280,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassKoboldLevel1() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(1, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.0);
@@ -292,7 +292,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassKoboldLevel2() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(2, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.01);
@@ -304,7 +304,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassKoboldLevel3() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(3, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
@@ -316,7 +316,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassKoboldLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(4, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1"), pc.getDisplay().calcCR(), 0.0);
@@ -328,7 +328,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassKoboldLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(koboldRace);
 		pc.incrementClassLevel(4, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("3"), pc.getDisplay().calcCR(), 0.0);
@@ -341,7 +341,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassDrowNobleLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(drowNobleRace);
 		pc.incrementClassLevel(4, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.0);
@@ -353,7 +353,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testNPCClassDrowNobleLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(drowNobleRace);
 		pc.incrementClassLevel(4, npcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("4"), pc.getDisplay().calcCR(), 0.0);
@@ -365,7 +365,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassBabauKeyLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(4, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("10"), pc.getDisplay().calcCR(), 0.0);
@@ -377,7 +377,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassBabauNonKeyLevel4() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(4, pcClass2);
 		assertEquals(SettingsHandler.getGame().getCRInteger("8"), pc.getDisplay().calcCR(), 0.0);
@@ -388,7 +388,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassBabauNonKeyLevel10() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(babauRace);
 		pc.incrementClassLevel(10, pcClass2);
 		assertEquals(SettingsHandler.getGame().getCRInteger("13"), pc.getDisplay().calcCR(), 0.0);
@@ -400,7 +400,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassDyradKeyLevel8() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(dryadRace);
 		pc.incrementClassLevel(8, pcClass2);
 		assertEquals(SettingsHandler.getGame().getCRInteger("15"), pc.getDisplay().calcCR(), 0.0);
@@ -411,7 +411,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testPCClassDryadNonKeyLevel8() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(dryadRace);
 		pc.incrementClassLevel(8, pcClass);
 		assertEquals(SettingsHandler.getGame().getCRInteger("11"), pc.getDisplay().calcCR(), 0.0);
@@ -423,7 +423,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testCompanion() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(companionRace);
 		pc.incrementClassLevel(4, companionClass);
 		assertNull(pc.getDisplay().calcCR());
@@ -435,7 +435,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testZombie() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(zombieRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/2"), pc.getDisplay().calcCR(), 0.0);
 	}
@@ -445,7 +445,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testDireRat() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(direRatRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/3"), pc.getDisplay().calcCR(), 0.0);
 	}
@@ -455,7 +455,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testMite() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(miteRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/4"), pc.getDisplay().calcCR(), 0.0);
 	}
@@ -465,7 +465,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testBeetle() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(beetleRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/6"), pc.getDisplay().calcCR(), 0.0);
 	}
@@ -475,7 +475,7 @@ public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
 	 */
 	public void testCentipede() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(centipedeRace);
 		assertEquals(SettingsHandler.getGame().getCRInteger("1/8"), pc.getDisplay().calcCR(), 0.0);
 	}

@@ -36,7 +36,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -136,7 +136,7 @@ public class EquipmentToken implements QualifierToken<ArmorProf>,
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc,
 			Converter<ArmorProf, R> c)
 	{
 		Set<R> returnSet = new HashSet<>();

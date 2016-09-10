@@ -37,6 +37,7 @@ import pcgen.cdom.helper.SpellLevel;
 import pcgen.cdom.helper.SpellLevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -186,14 +187,14 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, SpellLevel st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, SpellLevel st, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                         SpellLevel choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -207,8 +208,8 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		SpellLevel choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          SpellLevel choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -223,7 +224,7 @@ public class SpellLevelToken extends AbstractTokenWithSeparator<CDOMObject>
 
 	@Override
 	public List<SpellLevel> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

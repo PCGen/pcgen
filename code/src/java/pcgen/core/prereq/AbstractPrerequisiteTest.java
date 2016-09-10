@@ -28,7 +28,7 @@ package pcgen.core.prereq;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.system.LanguageBundle;
 
 /**
@@ -56,8 +56,8 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	 */
     @Override
 	public int passes(
-	    final Prerequisite    prereq,
-	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+		    final Prerequisite    prereq,
+		    final PlayerCharacterImpl character, CDOMObject source) throws PrerequisiteException
 	{
 		String name    = this.getClass().getName();
 		String eString = LanguageBundle.getFormattedString(
@@ -86,7 +86,7 @@ public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 	public int passes(
 	    final Prerequisite prereq,
 	    final Equipment    equipment,
-	    PlayerCharacter    character) throws PrerequisiteException
+	    PlayerCharacterImpl character) throws PrerequisiteException
 	{
 		if (character == null)
 		{

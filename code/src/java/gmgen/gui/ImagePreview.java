@@ -15,7 +15,7 @@ import javax.swing.JFileChooser;
 import javax.swing.JPanel;
 import javax.swing.UIManager;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
@@ -39,7 +39,7 @@ public final class ImagePreview
 
 	private final JFileChooser jfc;
 
-	private PlayerCharacter aPC;
+	private PlayerCharacterImpl aPC;
 	private Image image;
 
 	/**
@@ -99,7 +99,7 @@ public final class ImagePreview
 
 		if (PCGFile.isPCGenCharacterFile(file))
 		{
-			aPC = new PlayerCharacter(Collections.emptyList());
+			aPC = new PlayerCharacterImpl(Collections.emptyList());
 
 			new PCGIOHandler().readForPreview(aPC, file.getAbsolutePath());
 

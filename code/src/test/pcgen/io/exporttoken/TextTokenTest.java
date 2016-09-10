@@ -29,6 +29,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import plugin.exporttokens.TextToken;
 
@@ -70,7 +71,7 @@ public class TextTokenTest extends AbstractCharacterTestCase
 	{
 		TextToken tok = new TextToken();
 		ExportHandler eh = new ExportHandler(null);
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		assertEquals("TEXT.LOWER.NAME",
 			"the vitamins are in my fresh brussels sprouts", tok.getToken(

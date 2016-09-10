@@ -38,6 +38,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractTokenWithSeparator;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
@@ -136,14 +137,14 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 
 	@Override
 	public void applyChoice(ChooseDriver owner, AbilitySelection st,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, st);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                         AbilitySelection choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -157,8 +158,8 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		AbilitySelection choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          AbilitySelection choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -173,7 +174,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 
 	@Override
 	public List<AbilitySelection> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

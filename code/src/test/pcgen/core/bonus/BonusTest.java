@@ -38,7 +38,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.character.EquipSet;
@@ -96,7 +96,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		saddle.setName("Saddle, Test");
 		saddle.addToListFor(ListKey.TYPE, Type.getConstant("SADDLE"));
 
-		final PlayerCharacter pc = getCharacter();
+		final PlayerCharacterImpl pc = getCharacter();
 		BonusActivation.activateBonuses(rideSkill, pc);
 		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
 		assertEquals("Bonus value", -5.0, iBonus, 0.05);
@@ -122,7 +122,7 @@ public class BonusTest extends AbstractCharacterTestCase
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
-		final PlayerCharacter pc = getCharacter();
+		final PlayerCharacterImpl pc = getCharacter();
 
 		// Create a variable
 		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory.ZERO);
@@ -219,7 +219,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testBonuswithLISTValue()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
@@ -246,7 +246,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 	public void testBonuswithLISTValueTwoAssoc()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
@@ -281,7 +281,7 @@ public class BonusTest extends AbstractCharacterTestCase
 
 	public void testBonuswithLISTValueTwoAssocInfoList()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		setPCStat(character, intel, 18);
@@ -322,7 +322,7 @@ public class BonusTest extends AbstractCharacterTestCase
 	 */
 	public void testSpellKnownBonusWithLISTValue()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 		context.getReferenceContext().constructNowIfNecessary(PCClass.class, "Wizard");
 

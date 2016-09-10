@@ -27,7 +27,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
@@ -87,7 +87,7 @@ public class CompoundOrPrimitive<T> implements PrimitiveCollection<T>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		Set<R> returnSet = new LinkedHashSet<>();
 		for (PrimitiveCollection<T> cs : primCollection)

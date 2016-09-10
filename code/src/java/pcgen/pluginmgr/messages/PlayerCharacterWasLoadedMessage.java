@@ -22,7 +22,7 @@
  */
 package pcgen.pluginmgr.messages;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
@@ -37,7 +37,7 @@ import pcgen.pluginmgr.PCGenMessage;
 public class PlayerCharacterWasLoadedMessage extends PCGenMessage
 {
 
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 
 	/**
 	 * Create a new instance of PlayerCharacterWasLoadedMessage
@@ -45,13 +45,13 @@ public class PlayerCharacterWasLoadedMessage extends PCGenMessage
 	 * @param pc The character that was loaded.
 	 */
 	public PlayerCharacterWasLoadedMessage(
-		Object source, PlayerCharacter pc)
+		Object source, PlayerCharacterImpl pc)
 	{
 		super(source);
 		this.pc = pc;
 	}
 
-	public PlayerCharacter getPc()
+	public PlayerCharacterImpl getPc()
 	{
 		return pc;
 	}

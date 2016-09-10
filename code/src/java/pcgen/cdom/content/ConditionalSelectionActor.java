@@ -20,7 +20,7 @@ package pcgen.cdom.content;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.base.ConcretePrereqObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
@@ -76,7 +76,7 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 	 *            applied.
 	 */
 	@Override
-	public void applyChoice(ChooseDriver cdo, T choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver cdo, T choice, PlayerCharacterImpl pc)
 	{
 		if (qualifies(pc, cdo))
 		{
@@ -101,7 +101,7 @@ public class ConditionalSelectionActor<T> extends ConcretePrereqObject implement
 	 *            removed.
 	 */
 	@Override
-	public void removeChoice(ChooseDriver cdo, T choice, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver cdo, T choice, PlayerCharacterImpl pc)
 	{
 		actor.removeChoice(cdo, choice, pc);
 	}

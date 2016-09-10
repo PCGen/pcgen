@@ -26,9 +26,9 @@ package pcgen.core.term;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 
 public class PCCountSpellsLevelsInBookTermEvaluator
@@ -46,7 +46,7 @@ public class PCCountSpellsLevelsInBookTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		String bookName = Globals.getDefaultSpellBook();
 

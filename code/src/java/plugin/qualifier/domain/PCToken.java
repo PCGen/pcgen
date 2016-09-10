@@ -20,14 +20,14 @@ package plugin.qualifier.domain;
 import java.util.Collection;
 
 import pcgen.core.Domain;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Domain>
 {
 
 	@Override
-	protected Collection<Domain> getPossessed(PlayerCharacter pc)
+	protected Collection<Domain> getPossessed(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getDomainSet();
 	}

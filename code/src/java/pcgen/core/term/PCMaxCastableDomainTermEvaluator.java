@@ -28,7 +28,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCMaxCastableDomainTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -42,7 +42,7 @@ public class PCMaxCastableDomainTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Domain domain = Globals.getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(Domain.class, domainKey);

@@ -27,7 +27,7 @@ import java.util.Stack;
 
 import org.nfunk.jep.ParseException;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.AbstractCountCommand;
 import pcgen.util.JepCountType;
 import pcgen.util.Logging;
@@ -75,7 +75,7 @@ public class CountCommand extends AbstractCountCommand
 	public void run(final Stack inStack) throws ParseException
 	{
 		// Grab the character under scrutiny
-		final PlayerCharacter pc = getPC();
+		final PlayerCharacterImpl pc = getPC();
 
 		if (pc == null)
 		{

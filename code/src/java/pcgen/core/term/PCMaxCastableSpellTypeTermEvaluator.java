@@ -24,8 +24,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.PCClass;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCMaxCastableSpellTypeTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -39,7 +39,7 @@ public class PCMaxCastableSpellTypeTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Float max = 0f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())

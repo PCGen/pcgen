@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCBABTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -36,7 +36,7 @@ public class PCBABTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return (float) pc.baseAttackBonus();
 	}

@@ -53,7 +53,7 @@ public class VariableProcessorEq extends VariableProcessor
 	 */
 	public VariableProcessorEq(
 			Equipment eq,
-			PlayerCharacter pc,
+			PlayerCharacterImpl pc,
 			boolean primaryHead)
 	{
 		super(pc);

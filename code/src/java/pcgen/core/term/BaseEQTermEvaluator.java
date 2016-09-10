@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -33,20 +33,20 @@ public abstract class BaseEQTermEvaluator
 {
 	protected String originalText;
 
-	public String evaluate(PlayerCharacter pc) {
+	public String evaluate(PlayerCharacterImpl pc) {
 		return "0.0";
 	}
 
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(PlayerCharacterImpl pc, final Spell aSpell) {
 		return "0.0";
 	}
 
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(pc));
 	}
 
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacterImpl pc, final CharacterSpell aSpell) {
 		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 

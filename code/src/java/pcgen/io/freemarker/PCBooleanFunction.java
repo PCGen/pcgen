@@ -22,7 +22,7 @@ package pcgen.io.freemarker;
 
 import java.util.List;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import freemarker.template.TemplateMethodModelEx;
 import freemarker.template.TemplateModelException;
@@ -36,7 +36,7 @@ import freemarker.template.TemplateModelException;
  */
 public class PCBooleanFunction extends CharacterExportAction implements TemplateMethodModelEx
 {
-	private PlayerCharacter pc;
+	private PlayerCharacterImpl pc;
 	private ExportHandler eh;
 
 	/**
@@ -44,7 +44,7 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 	 * @param pc The character being exported.
 	 * @param eh The managing export handler.
 	 */
-	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
+	public PCBooleanFunction(PlayerCharacterImpl pc, ExportHandler eh)
 	{
 		super();
 		this.pc = pc;

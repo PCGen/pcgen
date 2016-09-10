@@ -47,7 +47,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.BodyStructure;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SystemCollections;
 import pcgen.core.character.EquipSet;
 import pcgen.core.character.EquipSlot;
@@ -84,7 +84,7 @@ import pcgen.util.enumeration.Tab;
 class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
 {
-	private final PlayerCharacter theCharacter;
+	private final PlayerCharacterImpl theCharacter;
 	private final CharacterDisplay charDisplay;
 	private EquipSet eqSet;
 	private final UIDelegate delegate;
@@ -117,7 +117,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 * @param todoManager The user tasks tracker.
 	 * @param characterFacadeImpl The UI facade for the character.
 	 */
-	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacter pc,
+	public EquipmentSetFacadeImpl(UIDelegate delegate, PlayerCharacterImpl pc,
 		EquipSet eqSet, DataSetFacade dataSet,
 		EquipmentListFacadeImpl purchasedList, TodoManager todoManager,
 		CharacterFacadeImpl characterFacadeImpl)

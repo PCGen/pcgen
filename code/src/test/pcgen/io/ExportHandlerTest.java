@@ -50,6 +50,7 @@ import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -103,7 +104,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		final LevelInfo levelInfo = new LevelInfo();
@@ -219,7 +220,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 */
 	public void testWpnLoop() throws IOException
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		// Test each token for old and new syntax processing.
 
@@ -240,7 +241,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	 */
 	public void testEqtypeLoop() throws Exception
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		final String gemLoop =
 				"FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
 
@@ -258,7 +259,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 	public void testJepIif() throws IOException
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals("Basic JEP boolean", new Float(1.0), character
 			.getVariableValue("max(0,2)==2", ""));
 		assertEquals("JEP boolean in IF", "true", evaluateToken(
@@ -269,7 +270,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	
 	public void testFor() throws IOException
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		Ability dummyFeat1 = new Ability();
 		dummyFeat1.setName("1");
 		dummyFeat1.setCDOMCategory(AbilityCategory.FEAT);
@@ -340,7 +341,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	
 	public void testForNoMoreItems() throws IOException
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("Test for evaluates correctly", "SF",
 			evaluateToken(
 				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
@@ -361,7 +362,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		Ability dummyFeat = new Ability();
 		dummyFeat.setName("DummyFeat");
 		dummyFeat.setCDOMCategory(AbilityCategory.FEAT);
-		final PlayerCharacter pc = getCharacter();
+		final PlayerCharacterImpl pc = getCharacter();
 
 		// Create a variable
 		dummyFeat.put(VariableKey.getConstant("NegLevels"), FormulaFactory
@@ -448,7 +449,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 			result);
 	}
 	
-	private String evaluateToken(String token, PlayerCharacter pc)
+	private String evaluateToken(String token, PlayerCharacterImpl pc)
 		throws IOException
 	{
 		StringWriter retWriter = new StringWriter();

@@ -21,7 +21,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transition class, designed to allow things to be taken out of
@@ -56,7 +56,7 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CharID, CDOM
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		pc.processAddition(cdo);
 	}
 
@@ -79,7 +79,7 @@ public class ObjectAdditionFacet implements DataFacetChangeListener<CharID, CDOM
 	{
 		CDOMObject cdo = dfce.getCDOMObject();
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		pc.processRemoval(cdo);
 	}
 

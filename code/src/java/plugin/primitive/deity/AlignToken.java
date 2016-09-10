@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -71,7 +71,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Deity deity)
+	public boolean allow(PlayerCharacterImpl pc, Deity deity)
 	{
 		CDOMSingleRef<PCAlignment> alignRef = deity.get(ObjectKey.ALIGNMENT);
 		return (alignRef != null) && alignment.get().equals(alignRef.get());
@@ -105,7 +105,7 @@ public class AlignToken implements PrimitiveToken<Deity>, PrimitiveFilter<Deity>
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Deity, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<Deity, R> c)
 	{
 		return c.convert(allDeities, this);
 	}

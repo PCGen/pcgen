@@ -78,7 +78,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
@@ -125,7 +125,7 @@ public final class PCGVer2Creator implements IOConstants
 	 * author: Thomas Behr 2002-11-13
 	 */
 
-	private final PlayerCharacter thePC;
+	private final PlayerCharacterImpl thePC;
 	private final CharacterDisplay charDisplay;
 	private GameMode mode;
 	private List<? extends CampaignFacade> campaigns;
@@ -134,7 +134,7 @@ public final class PCGVer2Creator implements IOConstants
 	 * Constructor
 	 * @param aPC
 	 */
-	public PCGVer2Creator(final PlayerCharacter aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
+	public PCGVer2Creator(final PlayerCharacterImpl aPC, GameMode mode, List<? extends CampaignFacade> campaigns)
 	{
 		thePC = aPC;
 		charDisplay = aPC.getDisplay();
@@ -2710,7 +2710,7 @@ public final class PCGVer2Creator implements IOConstants
 		cb.append('|');
 		cb.append(TAG_TEMPBONUSTARGET).append(':');
 
-		if (target instanceof PlayerCharacter)
+		if (target instanceof PlayerCharacterImpl)
 		{
 			cb.append(TAG_PC);
 		}

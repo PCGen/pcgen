@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import pcgen.cdom.helper.ProfProvider;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.ShieldProf;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
@@ -38,7 +38,7 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 {
 
 	@Override
-	protected Collection<ShieldProf> getPossessed(PlayerCharacter pc)
+	protected Collection<ShieldProf> getPossessed(PlayerCharacterImpl pc)
 	{
 		// Not used as we have overridden allow below, so return an empty set
 		return new ArrayList<>();
@@ -51,7 +51,7 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, ShieldProf po)
+	public boolean allow(PlayerCharacterImpl pc, ShieldProf po)
 	{
 		Collection<ProfProvider<ShieldProf>> providers = pc.getShieldProfList();
 		for (ProfProvider<ShieldProf> profProvider : providers)

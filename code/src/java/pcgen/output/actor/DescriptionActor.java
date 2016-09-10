@@ -33,7 +33,7 @@ import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.helper.SpringHelper;
 import pcgen.core.Description;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.output.base.OutputActor;
 
 /**
@@ -70,7 +70,7 @@ public class DescriptionActor implements OutputActor<PObject>
 		}
 		PlayerCharacterTrackingFacet charStore =
 				SpringHelper.getBean(PlayerCharacterTrackingFacet.class);
-		PlayerCharacter aPC = charStore.getPC(id);
+		PlayerCharacterImpl aPC = charStore.getPC(id);
 		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
 		for ( final Description desc : theBenefits )

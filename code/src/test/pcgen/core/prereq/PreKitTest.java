@@ -27,7 +27,7 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.TestHelper;
 import plugin.pretokens.test.PreKitTester;
 
@@ -58,7 +58,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testKitPresence()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
 		// Note this is a shortcut rather than doing a full apply of the kit
@@ -80,7 +80,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testKitAbsence()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("kit");
@@ -98,7 +98,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testSpecificKitAbsent()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Kit kit = TestHelper.makeKit("Default Werebear");
 		// Note this is a shortcut rather than doing a full apply of the kit
@@ -120,7 +120,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testNotAbsent()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
 		// Note this is a shortcut rather than doing a full apply of the kit
@@ -142,7 +142,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testWildcard()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Kit kit = TestHelper.makeKit("Dungeoneering Kit (Common)");
 		// Note this is a shortcut rather than doing a full apply of the kit
@@ -164,7 +164,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 	 */
 	public void testBadOperand()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("kit");

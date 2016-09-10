@@ -27,7 +27,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -59,7 +59,7 @@ public class PreLegsTest extends AbstractCharacterTestCase
 	 */
 	public void testLegs() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		Race race = new Race();
 		race.put(IntegerKey.LEGS, 2);
 

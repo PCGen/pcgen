@@ -25,7 +25,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.facade.core.InfoFacade;
 import pcgen.core.spell.Spell;
 import pcgen.gui2.facade.TempBonusHelper;
@@ -81,7 +81,7 @@ public class TempBonusTest extends AbstractCharacterTestCase
 	
 	public void testEquipmentTemporaryBonus() throws PersistenceLayerException
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");

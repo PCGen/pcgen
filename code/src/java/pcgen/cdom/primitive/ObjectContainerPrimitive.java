@@ -23,7 +23,7 @@ import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * An ObjectContainerPrimitive wraps an ObjectContainer to become a
@@ -63,7 +63,7 @@ public class ObjectContainerPrimitive<T> implements PrimitiveCollection<T>
 	 *      pcgen.cdom.base.Converter)
 	 */
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 		Converter<T, R> c)
 	{
 		return c.convert(group);

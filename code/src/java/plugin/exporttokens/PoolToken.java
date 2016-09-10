@@ -24,6 +24,7 @@
 package plugin.exporttokens;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
@@ -46,7 +47,7 @@ public class PoolToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -68,7 +69,7 @@ public class PoolToken extends Token
 		return pc.getCostPool();
 	}
 
-	public static int getCurrentToken(PlayerCharacter pc)
+	public static int getCurrentToken(PlayerCharacterImpl pc)
 	{
 		return pc.getPoolAmount();
 	}

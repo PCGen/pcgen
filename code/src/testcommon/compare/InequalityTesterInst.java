@@ -34,7 +34,7 @@ import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.facet.model.ClassFacet;
 import pcgen.cdom.formula.MonitorableVariableStore;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpellSupportForPCClass;
 
 public final class InequalityTesterInst implements InequalityTester
@@ -52,7 +52,7 @@ public final class InequalityTesterInst implements InequalityTester
 		INEQ_MAP.put(WeakReference.class, new WeakReferenceInequality());
 		INEQ_MAP.put(IdentityHashMap.class, new IdentityHashMapInequality());
 		INEQ_MAP.put(ClassFacet.ClassInfo.class, new ClassFacetInfoInequality());
-		INEQ_MAP.put(PlayerCharacter.class, new IgnoreInequality());
+		INEQ_MAP.put(PlayerCharacterImpl.class, new IgnoreInequality());
 		INEQ_MAP.put(SpellSupportForPCClass.class, new IgnoreInequality());
 		INEQ_MAP.put(ScopeInstanceFactory.class, new IgnoreInequality());
 		INEQ_MAP.put(AggressiveSolverManager.class, new IgnoreInequality());

@@ -43,7 +43,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.character.CharacterSpell;
@@ -81,7 +81,7 @@ public class SpellMemToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter aPC,
+	public String getToken(String tokenSource, PlayerCharacterImpl aPC,
 		ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();
@@ -505,7 +505,7 @@ public class SpellMemToken extends Token
 	 * @param aSpell The generic spell.
 	 * @return The annotation string indicating domain/specialty status
 	 */
-	private String getBonusSpellValue(PlayerCharacter aPC,
+	private String getBonusSpellValue(PlayerCharacterImpl aPC,
 		final int spellLevel, String sString, String altLabel,
 		final PObject aObject, String bookName, CharacterSpell cs, Spell aSpell)
 	{
@@ -546,7 +546,7 @@ public class SpellMemToken extends Token
 	}
 
 	private static String replaceTokenSpellMemSourceLevel(Spell aSpell,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		final HashMapToList<CDOMList<Spell>, Integer> tempHash = aPC.getSpellLevelInfo(aSpell);
 		StringBuilder tempSource = new StringBuilder();
@@ -593,7 +593,7 @@ public class SpellMemToken extends Token
 			String sType,
 			String sKey,
 			String sAlt,
-			PlayerCharacter aPC)
+			PlayerCharacterImpl aPC)
 	{
 		if (SettingsHandler.isROG())
 		{

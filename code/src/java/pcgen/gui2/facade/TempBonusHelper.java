@@ -38,7 +38,7 @@ import pcgen.core.BonusManager;
 import pcgen.core.BonusManager.TempBonusInfo;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.EquipBonus;
@@ -82,8 +82,8 @@ public class TempBonusHelper
 	 * was cancelled.
 	 */
 	static Object getTempBonusTarget(CDOMObject originObj,
-		PlayerCharacter theCharacter, UIDelegate delegate,
-		InfoFactory infoFactory)
+	                                 PlayerCharacterImpl theCharacter, UIDelegate delegate,
+	                                 InfoFactory infoFactory)
 	{
 		List<InfoFacade> possibleTargets =
 				getListOfApplicableEquipment(originObj, theCharacter);
@@ -163,7 +163,7 @@ public class TempBonusHelper
 	 * @return The list of possible equipment.
 	 */
 	public static List<InfoFacade> getListOfApplicableEquipment(CDOMObject originObj,
-		PlayerCharacter theCharacter)
+		PlayerCharacterImpl theCharacter)
 	{
 		CharacterDisplay charDisplay = theCharacter.getDisplay();
 		List<InfoFacade> possibleEquipment = new ArrayList<>();
@@ -236,7 +236,7 @@ public class TempBonusHelper
 	 *            The character the bonus is being applied to.
 	 */
 	static TempBonusFacadeImpl applyBonusToCharacterEquipment(
-		Equipment aEq, CDOMObject originObj, PlayerCharacter theCharacter) 
+		Equipment aEq, CDOMObject originObj, PlayerCharacterImpl theCharacter)
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
@@ -297,7 +297,7 @@ public class TempBonusHelper
 	 * @param theCharacter The character the bonus is being applied to.
 	 */
 	static TempBonusFacadeImpl applyBonusToCharacter(CDOMObject originObj,
-		PlayerCharacter theCharacter)
+		PlayerCharacterImpl theCharacter)
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
@@ -349,7 +349,7 @@ public class TempBonusHelper
 		return list;
 	}
 
-	static void removeBonusFromCharacter(PlayerCharacter pc, Equipment aEq, CDOMObject aCreator)
+	static void removeBonusFromCharacter(PlayerCharacterImpl pc, Equipment aEq, CDOMObject aCreator)
 	{
 
 		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : pc
@@ -374,7 +374,7 @@ public class TempBonusHelper
 					((Equipment) aT).setAppliedName(EMPTY_STRING);
 				}
 			}
-			else if ((aT instanceof PlayerCharacter) && (aEq == null))
+			else if ((aT instanceof PlayerCharacterImpl) && (aEq == null))
 			{
 				pc.removeTempBonus(aBonus);
 			}
@@ -391,7 +391,7 @@ public class TempBonusHelper
 	 * @return The new values for the bonus.
 	 */
 	private static BonusInfo getBonusChoice(String oldValue, final CDOMObject source,
-			String repeatValue, PlayerCharacter pc)
+			String repeatValue, PlayerCharacterImpl pc)
 	{
 		String value = oldValue;
 

@@ -27,7 +27,7 @@
 package pcgen.core.prereq;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * The Class <code>PreStatTest</code> checks that PreStatTester is working correctly.
@@ -44,7 +44,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	 */
 	public void testPrePositive()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("stat");
@@ -67,7 +67,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	 */
 	public void testPreZero()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("stat");
@@ -90,7 +90,7 @@ public class PreStatTest extends AbstractCharacterTestCase
 	 */
 	public void testPreNegative()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("stat");

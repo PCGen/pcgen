@@ -23,7 +23,7 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.PrerequisiteFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.BonusToken;
 import pcgen.util.Logging;
@@ -80,7 +80,7 @@ public class ArmorClassFacet
 
 		if (addList != null)
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			for (ACControl acc : addList)
 			{
 				if (prerequisiteFacet.qualifies(id, acc, null))
@@ -93,7 +93,7 @@ public class ArmorClassFacet
 
 		if (removeList != null)
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			for (ACControl acc : removeList)
 			{
 				if (prerequisiteFacet.qualifies(id, acc, null))

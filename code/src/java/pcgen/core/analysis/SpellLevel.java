@@ -34,7 +34,7 @@ import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
@@ -44,7 +44,7 @@ public class SpellLevel
 
 	public static boolean levelForKeyContains(Spell sp,
 			List<? extends CDOMList<Spell>> lists, int levelMatch,
-			PlayerCharacter aPC)
+			PlayerCharacterImpl aPC)
 	{
 		if (lists == null || aPC == null)
 		{
@@ -65,7 +65,7 @@ public class SpellLevel
 	}
 
 	public static Integer[] levelForKey(Spell sp,
-			List<? extends CDOMList<Spell>> lists, PlayerCharacter aPC)
+			List<? extends CDOMList<Spell>> lists, PlayerCharacterImpl aPC)
 	{
 		List<Integer> list = new ArrayList<>();
 
@@ -90,7 +90,7 @@ public class SpellLevel
 	 * @return The level of the spell, or -1 if not found.
 	 */
 	public static int getFirstLvlForKey(Spell sp, CDOMList<Spell> list,
-			PlayerCharacter aPC)
+			PlayerCharacterImpl aPC)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> wLevelInfo = aPC.getSpellLevelInfo(sp);
 		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
@@ -113,7 +113,7 @@ public class SpellLevel
 	 * @param aPC
 	 * @return true if the spell is of the given level in any spell list
 	 */
-	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacter aPC)
+	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacterImpl aPC)
 	{
 		Integer levelKey = aLevel;
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
@@ -163,7 +163,7 @@ public class SpellLevel
 	}
 
 	public static int getFirstLevelForKey(Spell sp,
-			List<? extends CDOMList<Spell>> lists, PlayerCharacter aPC)
+			List<? extends CDOMList<Spell>> lists, PlayerCharacterImpl aPC)
 	{
 		Integer[] levelInt = levelForKey(sp, lists, aPC);
 		int result = -1;

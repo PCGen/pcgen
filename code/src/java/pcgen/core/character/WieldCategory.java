@@ -37,7 +37,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.prereq.PrereqHandler;
@@ -178,7 +178,7 @@ public final class WieldCategory implements Loadable
 	 *            Equipment to get the weild category for.
 	 * @return The ajusted WieldCategory
 	 */
-	public WieldCategory adjustForSize(final PlayerCharacter pc,
+	public WieldCategory adjustForSize(final PlayerCharacterImpl pc,
 			final Equipment eq)
 	{
 		if (pc == null || eq == null || eq.get(ObjectKey.WIELD) == null)
@@ -230,7 +230,7 @@ public final class WieldCategory implements Loadable
 		return pcWCat;
 	}
 
-	private WieldCategory getSwitch(PlayerCharacter pc, Equipment eq)
+	private WieldCategory getSwitch(PlayerCharacterImpl pc, Equipment eq)
 	{
 		WieldCategory pcWCat = this;
 		// TODO what if more than one matches??

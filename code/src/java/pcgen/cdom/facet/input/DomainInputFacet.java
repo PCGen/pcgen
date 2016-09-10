@@ -27,7 +27,7 @@ import pcgen.cdom.facet.PlayerCharacterTrackingFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.ChooseActivation;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
@@ -48,7 +48,7 @@ public class DomainInputFacet
 
 	public boolean add(CharID id, Domain obj, ClassSource source)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (pc.isAllowInteraction() && ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
@@ -62,7 +62,7 @@ public class DomainInputFacet
 		return true;
 	}
 
-	private <T> boolean processChoice(CharID id, PlayerCharacter pc,
+	private <T> boolean processChoice(CharID id, PlayerCharacterImpl pc,
 		Domain obj, ChoiceManagerList<T> aMan, ClassSource source)
 	{
 		List<T> selectedList = new ArrayList<>();
@@ -95,7 +95,7 @@ public class DomainInputFacet
 	public void importSelection(CharID id, Domain obj, String choice,
 		ClassSource source)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		if (ChooseActivation.hasNewChooseToken(obj))
 		{
 			ChoiceManagerList<?> aMan =
@@ -136,7 +136,7 @@ public class DomainInputFacet
 
 	public void remove(CharID id, Domain obj)
 	{
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 		/*
 		 * TODO This order of operations differs from Race and Template - is
 		 * there a reason selection is first here and second there? Arguably

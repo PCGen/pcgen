@@ -44,7 +44,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.DeprecatedToken;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -157,7 +157,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 
 	@Override
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		if (!pc.isImporting())
 		{
@@ -173,7 +173,7 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CNAbilitySelection choice, PlayerCharacterImpl pc,
 			boolean allowStack)
 	{
 		Ability ability = choice.getCNAbility().getAbility();
@@ -203,8 +203,8 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          CNAbilitySelection choice)
 	{
 		// No action required
 	}
@@ -216,8 +216,8 @@ public class TemplateFeatToken extends AbstractTokenWithSeparator<PCTemplate> im
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{

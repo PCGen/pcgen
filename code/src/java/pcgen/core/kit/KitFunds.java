@@ -26,7 +26,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * <code>KitFunds</code>.
@@ -49,7 +49,7 @@ public final class KitFunds extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		theQty = -1;
@@ -62,7 +62,7 @@ public final class KitFunds extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		aPC.adjustGold(theQty);
 	}

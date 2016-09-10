@@ -37,7 +37,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
@@ -202,13 +202,13 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner, Language choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		pc.addAddLanguage(choice, owner);
 	}
 
 	@Override
-	public boolean allow(Language choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(Language choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return !pc.hasLanguage(choice);
 	}
@@ -226,15 +226,15 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			Language choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          Language choice)
 	{
 		pc.addAddLanguage(choice, owner);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			Language choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         Language choice)
 	{
 		pc.removeAddLanguage(choice, owner);
 	}

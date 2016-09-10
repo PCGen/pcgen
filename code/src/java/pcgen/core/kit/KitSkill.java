@@ -35,7 +35,7 @@ import pcgen.core.Globals;
 import pcgen.core.Kit;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
 import pcgen.core.analysis.ChooseActivation;
@@ -136,7 +136,7 @@ public final class KitSkill extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		skillsToAdd = new ArrayList<>();
@@ -210,7 +210,7 @@ public final class KitSkill extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		/** @todo Fix this to return what panes need to be refreshed */
 		for (KitSkillAdd ksa : skillsToAdd)
@@ -233,7 +233,7 @@ public final class KitSkill extends BaseKit
 	 * @return <code>true</code> for success
 	 * TODO What about throwing on failure?
 	 */
-	private boolean updatePCSkills(final PlayerCharacter pc,
+	private boolean updatePCSkills(final PlayerCharacterImpl pc,
 		final Skill aSkill, final int aRank, final double aCost,
 		List<Language> langList, final PCClass pcClass)
 	{
@@ -298,7 +298,7 @@ public final class KitSkill extends BaseKit
 		return "Skills";
 	}
 
-	private List<Skill> getSkillChoices(PlayerCharacter aPC)
+	private List<Skill> getSkillChoices(PlayerCharacterImpl aPC)
 	{
 		final List<Skill> skillsOfType = new ArrayList<>();
 
@@ -323,9 +323,9 @@ public final class KitSkill extends BaseKit
 		return skillChoices;
 	}
 
-	private KitSkillAdd addRanks(PlayerCharacter pc, PCClass pcClass,
-		Skill aSkill, double ranksLeftToAdd, boolean isFree,
-		List<String> warnings)
+	private KitSkillAdd addRanks(PlayerCharacterImpl pc, PCClass pcClass,
+	                             Skill aSkill, double ranksLeftToAdd, boolean isFree,
+	                             List<String> warnings)
 	{
 		if (!isFree && pcClass.getSkillPool(pc) == 0)
 		{

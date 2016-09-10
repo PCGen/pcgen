@@ -25,17 +25,17 @@ import java.util.List;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class AbilityChooseController extends ChooseController<Ability>
 {
 	private final Ability ability;
 	private final AbilityCategory ac;
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	ChoiceManagerList<?> ccm;
 
 	public AbilityChooseController(Ability a, AbilityCategory cat,
-			PlayerCharacter aPC, ChoiceManagerList<?> cont)
+	                               PlayerCharacterImpl aPC, ChoiceManagerList<?> cont)
 	{
 		if (a == null)
 		{

@@ -53,7 +53,7 @@ public abstract class VariableProcessor
 	
 	/** The current indenting to be used for debug output of jep evaluations. */
 	protected String jepIndent = "";
-	protected PlayerCharacter pc;
+	protected PlayerCharacterImpl pc;
 
 	private int cachePaused;
 	private int serial;
@@ -110,7 +110,7 @@ public abstract class VariableProcessor
 	 * Create a new Variable Processor instance.
 	 * @param pc The character the processor is for.
 	 */
-	public VariableProcessor(PlayerCharacter pc)
+	public VariableProcessor(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 	}
@@ -845,7 +845,7 @@ public abstract class VariableProcessor
 	 *
 	 * @return The PlayerCharacter instance.
 	 */
-	public PlayerCharacter getPc()
+	public PlayerCharacterImpl getPc()
 	{
 		return pc;
 	}

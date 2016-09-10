@@ -135,7 +135,7 @@ public final class LevelInfo
 	 * @param calcPC
 	 * @return The maximum number of ranks allowed for a class skill
 	 */
-	public BigDecimal getMaxClassSkillRank(final int levelArg, final PlayerCharacter calcPC)
+	public BigDecimal getMaxClassSkillRank(final int levelArg, final PlayerCharacterImpl calcPC)
 	{
 		return getMaxSkillRank(levelArg, calcPC, maxClassSkillString);
 	}
@@ -148,7 +148,7 @@ public final class LevelInfo
 	 * @param calcPC
 	 * @return The maximum number of ranks allowed for a cross-class skill
 	 */
-	public BigDecimal getMaxCrossClassSkillRank(final int levelArg, final PlayerCharacter calcPC)
+	public BigDecimal getMaxCrossClassSkillRank(final int levelArg, final PlayerCharacterImpl calcPC)
 	{
 		return getMaxSkillRank(levelArg, calcPC, maxCrossClassSkillString);
 	}
@@ -162,7 +162,7 @@ public final class LevelInfo
 	 * @param maxSkillString
 	 * @return The maximum number of ranks allowed for a skill of the passed in type
 	 */
-	private BigDecimal getMaxSkillRank(final int levelArg, final PlayerCharacter calcPC, final String maxSkillString)
+	private BigDecimal getMaxSkillRank(final int levelArg, final PlayerCharacterImpl calcPC, final String maxSkillString)
 	{
 		double ranks;
 		if (calcPC == null) {

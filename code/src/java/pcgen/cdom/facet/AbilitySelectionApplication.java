@@ -28,7 +28,7 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.helper.CNAbilitySelection;
 import pcgen.core.Ability;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class AbilitySelectionApplication implements
@@ -41,7 +41,7 @@ public class AbilitySelectionApplication implements
 	public void dataAdded(DataFacetChangeEvent<CharID, CNAbilitySelection> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = pcFacet.getPC(id);
+		PlayerCharacterImpl pc = pcFacet.getPC(id);
 		CNAbilitySelection cnas = dfce.getCDOMObject();
 		CNAbility cna = cnas.getCNAbility();
 		Ability ability = cna.getAbility();
@@ -57,7 +57,7 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void applySelection(PlayerCharacter pc,
+	private <T> void applySelection(PlayerCharacterImpl pc,
 		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
 	{
 		Ability ability = cna.getAbility();
@@ -85,7 +85,7 @@ public class AbilitySelectionApplication implements
 	{
 		CharID id = dfce.getCharID();
 		CNAbilitySelection cnas = dfce.getCDOMObject();
-		PlayerCharacter pc = pcFacet.getPC(id);
+		PlayerCharacterImpl pc = pcFacet.getPC(id);
 		CNAbility cna = cnas.getCNAbility();
 		Ability ability = cna.getAbility();
 		String selection = cnas.getSelection();
@@ -100,7 +100,7 @@ public class AbilitySelectionApplication implements
 		}
 	}
 
-	private <T> void removeSelection(PlayerCharacter pc,
+	private <T> void removeSelection(PlayerCharacterImpl pc,
 		ChooseInformation<T> chooseInfo, CNAbility cna, String selection)
 	{
 		T obj = chooseInfo.decodeChoice(Globals.getContext(), selection);

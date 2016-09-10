@@ -49,7 +49,7 @@ import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileFilter;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.PCGFile;
@@ -358,7 +358,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 */
 	public void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
 	{
-			PlayerCharacter pc = message.getPc();
+			PlayerCharacterImpl pc = message.getPc();
 			String type = "PC";
 			String player = pc.getDisplay().getPlayersName();
 

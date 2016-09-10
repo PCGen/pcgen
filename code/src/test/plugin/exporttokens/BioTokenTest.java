@@ -32,6 +32,7 @@ import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.NotePCAttribute;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.FileAccess;
 
@@ -72,7 +73,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 	public void testBioExport() throws Exception
 	{
 		FileAccess.setCurrentOutputFilter("xml");
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 		assertEquals(
 			"Default Bio",
 			"<para>Test bio entry</para><para>2nd line</para><para>Third line</para><para>last one</para>",
@@ -107,7 +108,7 @@ public class BioTokenTest extends AbstractCharacterTestCase
 		assertEquals("New Style Bio start only", expected, actual);
 	}
 
-	private String evaluateToken(String token, PlayerCharacter pc)
+	private String evaluateToken(String token, PlayerCharacterImpl pc)
 		throws IOException
 	{
 		StringWriter retWriter = new StringWriter();

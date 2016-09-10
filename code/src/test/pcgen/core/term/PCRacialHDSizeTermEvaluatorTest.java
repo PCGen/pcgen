@@ -37,7 +37,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -106,7 +106,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 */
 	public void testBugbearWithNoClassLevels()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(bugbearRace);
 		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
 	}
@@ -116,7 +116,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 */
 	public void testBugbearWithClassLevels()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(bugbearRace);
 		pc.incrementClassLevel(1, pcClass);
 		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
@@ -127,7 +127,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	 */
 	public void testHuman()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setRace(humanRace);
 		pc.incrementClassLevel(1, pcClass);
 		assertEquals("Human racial HD size should be 0", 0, eval.resolve(pc.getDisplay()), 0.001);

@@ -108,7 +108,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	 * @return active bonuses
 	 */
     @Override
-	public List<BonusObj> getActiveBonuses(PlayerCharacter pc)
+	public List<BonusObj> getActiveBonuses(PlayerCharacterImpl pc)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 		for (BonusObj bonus : getBonuses())
@@ -127,7 +127,7 @@ public final class PointBuyMethod implements BonusContainer, Loadable
 	 * @param aPC
 	 */
     @Override
-	public void activateBonuses(final PlayerCharacter aPC)
+	public void activateBonuses(final PlayerCharacterImpl aPC)
 	{
 		for (BonusObj bonus : getBonuses())
 		{

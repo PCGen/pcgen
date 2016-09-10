@@ -33,7 +33,7 @@ import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.core.ChronicleEntry;
 import pcgen.core.NoteItem;
 import pcgen.cdom.enumeration.NotePCAttribute;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.facade.core.ChronicleEntryFacade;
 import pcgen.facade.core.DescriptionFacade;
@@ -74,7 +74,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	private static final String NOTE_NAME_GM_NOTES = LanguageBundle
 		.getString("in_gmNotes"); //$NON-NLS-1$
 
-	private final PlayerCharacter theCharacter;
+	private final PlayerCharacterImpl theCharacter;
 	private final CharacterDisplay charDisplay;
 	private final DefaultListFacade<ChronicleEntryFacade> chronicleEntries;
 	private DefaultListFacade<NoteFacade> notes;
@@ -83,7 +83,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 
 	private final DefaultListFacade<BiographyField> customBiographyFields;
 
-	private static DefaultReferenceFacade<String> newDefaultBioFieldFor(final PlayerCharacter pc, final PCStringKey key)
+	private static DefaultReferenceFacade<String> newDefaultBioFieldFor(final PlayerCharacterImpl pc, final PCStringKey key)
 	{
 		return new DefaultReferenceFacade<>(pc.getDisplay().getSafeStringFor(key));
 	}
@@ -92,7 +92,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 	 * Create a new DescriptionFacadeImpl instance for the character.
 	 * @param pc The character.
 	 */
-	DescriptionFacadeImpl(PlayerCharacter pc)
+	DescriptionFacadeImpl(PlayerCharacterImpl pc)
 	{
 		theCharacter = pc;
 		charDisplay = pc.getDisplay();

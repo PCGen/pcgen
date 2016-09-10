@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
@@ -69,7 +69,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 */
 	public void testLevel() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, myClass, true);
 
 		myClass = character.getClassKeyed("MY_CLASS");
@@ -94,7 +94,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 */
 	public void testHD() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(2, myClass, true);
 
 		myClass = character.getClassKeyed("MY_CLASS");
@@ -120,7 +120,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 	 */
 	public void testPCLevel() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		LoadContext context = Globals.getContext();
 
 		character.incrementClassLevel(2, myClass, true);

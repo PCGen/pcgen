@@ -45,7 +45,7 @@ import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillModifier;
 import pcgen.core.analysis.SkillRankControl;
@@ -64,7 +64,7 @@ import pcgen.util.enumeration.View;
  */
 public class PcgCombatant extends Combatant
 {
-	protected PlayerCharacter pc;
+	protected PlayerCharacterImpl pc;
 	private CharacterDisplay display;
 	protected PcRenderer renderer;
 	private float crAdj = 0;
@@ -75,7 +75,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@param  pc  PCGen pc that this combatant represents
 	 */
-	public PcgCombatant(PlayerCharacter pc, PCGenMessageHandler mh)
+	public PcgCombatant(PlayerCharacterImpl pc, PCGenMessageHandler mh)
 	{
 		messageHandler = mh;
 		this.pc = pc;
@@ -96,7 +96,7 @@ public class PcgCombatant extends Combatant
 	 *@param  pc    PCGen pc that this combatant represents
 	 *@param  type  PC/Enemy/Ally/Non Combatant
 	 */
-	public PcgCombatant(PlayerCharacter pc, String type, PCGenMessageHandler mh)
+	public PcgCombatant(PlayerCharacterImpl pc, String type, PCGenMessageHandler mh)
 	{
 		this(pc, mh);
 		setCombatantType(type);
@@ -120,7 +120,7 @@ public class PcgCombatant extends Combatant
 			}
 			if (pc == null)
 			{
-				pc = new PlayerCharacter();
+				pc = new PlayerCharacterImpl();
 				pc.setName(combatant.getAttributeValue("name"));
 			}
 			this.display = pc.getDisplay();
@@ -218,7 +218,7 @@ public class PcgCombatant extends Combatant
 	 *
 	 *@return    The PCGen PC
 	 */
-	public PlayerCharacter getPC()
+	public PlayerCharacterImpl getPC()
 	{
 		return pc;
 	}
@@ -1041,7 +1041,7 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacterImpl aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
 		{
 			Set<PObject> classes = new HashSet<>();
 			classes.addAll(classList);

@@ -20,7 +20,7 @@ package pcgen.core.prereq;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.system.LanguageBundle;
 
@@ -47,8 +47,8 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	 */
     @Override
 	public final int passes(
-	    final Prerequisite    prereq,
-	    final PlayerCharacter character, CDOMObject source) throws PrerequisiteException
+		    final Prerequisite    prereq,
+		    final PlayerCharacterImpl character, CDOMObject source) throws PrerequisiteException
 	{
 		return passes(prereq, character == null ? null : character.getDisplay(), source);
 	}
@@ -73,7 +73,7 @@ public abstract class AbstractDisplayPrereqTest extends AbstractPrerequisiteTest
 	public final int passes(
 	    final Prerequisite prereq,
 	    final Equipment    equipment,
-	    PlayerCharacter    character) throws PrerequisiteException
+	    PlayerCharacterImpl character) throws PrerequisiteException
 	{
 		return passes(prereq, equipment, character == null ? null : character.getDisplay());
 	}

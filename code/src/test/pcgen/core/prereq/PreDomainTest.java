@@ -33,7 +33,7 @@ import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -66,7 +66,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 */
 	public void testDeity() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		PCClass cl = new PCClass();
 		character.setDefaultDomainSource(new ClassSource(cl, 1));
@@ -97,7 +97,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 */
 	public void testMultiple() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCClass cl = new PCClass();
 		character.setDefaultDomainSource(new ClassSource(cl, 1));
 
@@ -143,7 +143,7 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	 */
 	public void testAny() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		PCClass cl = new PCClass();
 		character.setDefaultDomainSource(new ClassSource(cl, 1));
 

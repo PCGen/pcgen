@@ -25,14 +25,14 @@
 package pcgen.core.term;
 
 import pcgen.cdom.content.CNAbility;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountAbilitiesTermEvaluator
 {
 	protected String[] types;
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Float count = 0f;
 

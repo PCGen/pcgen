@@ -27,7 +27,7 @@ import java.util.List;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.EquipSet;
 import pcgen.util.TestHelper;
 
@@ -61,7 +61,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 */
 	public void testMigrateEquipSetsNoEquip()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
 		assertEquals("No equipsets", 0, pc.getDisplay().getEquipSet().size());
 	}
@@ -71,7 +71,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 */
 	public void testMigrateEquipSetsSimpleEquipSet()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
 		pc.addEquipSet(eSet);
 		pc.setCalcEquipSetId("0.1");
@@ -105,7 +105,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 */
 	public void testRenumberEquipmentSetsNestedEquipSet()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
 		pc.addEquipSet(eSet);
 		pc.setCalcEquipSetId("0.1");
@@ -140,7 +140,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 */
 	public void testRenumberEquipmentSetsMultipleEquipSet()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
 		pc.addEquipSet(eSet);
 		pc.setCalcEquipSetId("0.1");
@@ -191,7 +191,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 */
 	public void testMigrateEquipSetsNoMigrate()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		EquipSet eSet = new EquipSet("0.1", "Battle gear");
 		pc.addEquipSet(eSet);
 		pc.setCalcEquipSetId("0.1");
@@ -235,7 +235,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	 * @param qty The number to be placed in the location.
 	 * @return The new EquipSet object for the item.
 	 */
-	private EquipSet equipItem(PlayerCharacter pc, 
+	private EquipSet equipItem(PlayerCharacterImpl pc,
 		Equipment item, float qty, String locName, String id)
 	{
 		EquipSet newSet = new EquipSet(id, locName, item.getName(), item);

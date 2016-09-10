@@ -20,7 +20,7 @@ package plugin.qualifier.race;
 import java.util.Collection;
 import java.util.Collections;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
@@ -28,7 +28,7 @@ public class PCToken extends AbstractPCQualifierToken<Race>
 {
 
 	@Override
-	protected Collection<Race> getPossessed(PlayerCharacter pc)
+	protected Collection<Race> getPossessed(PlayerCharacterImpl pc)
 	{
 		Race race = pc.getDisplay().getRace();
 		if (race == null)

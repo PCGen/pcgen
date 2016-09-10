@@ -27,7 +27,7 @@ import java.util.Set;
 
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
@@ -46,7 +46,7 @@ public class StatApplication
 	// are calculated, so an increase to the appropriate stat can give more
 	// skill points
 	//
-	public static int askForStatIncrease(final PlayerCharacter aPC,
+	public static int askForStatIncrease(final PlayerCharacterImpl aPC,
 	                                     final int statsToChoose, final boolean isPre)
 	{
 		//

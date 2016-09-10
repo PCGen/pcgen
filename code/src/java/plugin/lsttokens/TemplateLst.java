@@ -33,7 +33,7 @@ import pcgen.cdom.reference.CDOMCompoundOrReference;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
@@ -245,14 +245,14 @@ public class TemplateLst extends AbstractToken implements
 
 	@Override
 	public void removeChoice(ChooseDriver owner, PCTemplate choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		pc.removeTemplate(choice);
 	}
 
 	@Override
 	public void applyChoice(ChooseDriver owner, PCTemplate choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		pc.addTemplate(choice);
 	}

@@ -558,7 +558,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return active bonuses
 	 */
 	@Override
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacterImpl aPC)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
@@ -600,7 +600,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return a list of bonusObj's of aType and aName
 	 */
-	public List<BonusObj> getBonusListOfType(PlayerCharacter pc,
+	public List<BonusObj> getBonusListOfType(PlayerCharacterImpl pc,
 		final String aType, final String aName, final boolean bPrimary)
 	{
 
@@ -674,7 +674,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The cost value
 	 */
-	public BigDecimal getCost(final PlayerCharacter aPC)
+	public BigDecimal getCost(final PlayerCharacterImpl aPC)
 	{
 		BigDecimal c = BigDecimal.ZERO;
 
@@ -805,7 +805,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param primaryHead Are we calculating for the primary or alternate head.
 	 * @return The cost of the head
 	 */
-	private BigDecimal getPreSizingCostForHead(final PlayerCharacter aPC,
+	private BigDecimal getPreSizingCostForHead(final PlayerCharacterImpl aPC,
 		boolean primaryHead)
 	{
 		BigDecimal c = BigDecimal.ZERO;
@@ -847,8 +847,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The cost, non doubling cost and total plus of the head
 	 */
 	private EquipmentHeadCostSummary getPostSizingCostForHead(
-		final PlayerCharacter aPC, final List<BigDecimal> modifierCosts,
-		boolean primaryHead)
+			final PlayerCharacterImpl aPC, final List<BigDecimal> modifierCosts,
+			boolean primaryHead)
 	{
 		EquipmentHeadCostSummary costSum = new EquipmentHeadCostSummary();
 		EquipmentHead head = getEquipmentHeadReference(primaryHead ? 1 : 2);
@@ -935,8 +935,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param primaryHead Is the formula for an eqmod on the main (or only) head  
 	 * @return The value of the formula
 	 */
-	private String calcEqModCost(final PlayerCharacter aPC, String costFormula,
-		boolean primaryHead)
+	private String calcEqModCost(final PlayerCharacterImpl aPC, String costFormula,
+	                             boolean primaryHead)
 	{
 		Pattern pat = Pattern.compile("BASECOST");
 		Matcher mat = pat.matcher(costFormula);
@@ -1058,7 +1058,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the number of slots required to use this item.
 	 */
-	public int getHands(final PlayerCharacter aPC)
+	public int getHands(final PlayerCharacterImpl aPC)
 	{
 		return getSlots(aPC);
 	}
@@ -1070,7 +1070,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return display string of bonuses and special properties
 	 */
-	public String getInterestingDisplayString(final PlayerCharacter aPC)
+	public String getInterestingDisplayString(final PlayerCharacterImpl aPC)
 	{
 		final StringBuilder s = new StringBuilder(100);
 		String t = getSpecialProperties(aPC);
@@ -1135,7 +1135,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC
 	 *            The PC with the Equipment
 	 */
-	public void setIsEquipped(final boolean aFlag, final PlayerCharacter aPC)
+	public void setIsEquipped(final boolean aFlag, final PlayerCharacterImpl aPC)
 	{
 
 		equipped = aFlag;
@@ -1988,7 +1988,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC the PC with the Equipment
 	 * @return slots
 	 */
-	public int getSlots(final PlayerCharacter aPC)
+	public int getSlots(final PlayerCharacterImpl aPC)
 	{
 		int iSlots = getSafe(IntegerKey.SLOTS);
 
@@ -2027,7 +2027,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC with the Equipment
 	 * @return special properties of an Equipment.
 	 */
-	public String getSpecialProperties(final PlayerCharacter aPC)
+	public String getSpecialProperties(final PlayerCharacterImpl aPC)
 	{
 		final List<EquipmentModifier> modList;
 		EquipmentHead head = getEquipmentHeadReference(1);
@@ -2182,7 +2182,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
     @Override
 	public Float getVariableValue(final String varName, final String src,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 		return getVariableValue(varName, src, bonusPrimary, aPC);
 	}
@@ -2205,7 +2205,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The value of the variable
 	 */
 	public Float getVariableValue(String varName, final String src,
-		final boolean bPrimary, final PlayerCharacter aPC)
+		final boolean bPrimary, final PlayerCharacterImpl aPC)
 	{
 		VariableProcessor vp = new VariableProcessorEq(this, aPC, bPrimary);
 		return vp.getVariableValue(null, varName, src, 0);
@@ -2255,8 +2255,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * 			  Is this for the main head (true), or the secondary one (false)?
 	 * @return The visible value
 	 */
-	public boolean isVisible(PlayerCharacter pc, EquipmentModifier eqMod,
-		boolean primaryHead, View v)
+	public boolean isVisible(PlayerCharacterImpl pc, EquipmentModifier eqMod,
+	                         boolean primaryHead, View v)
 	{
 		Visibility vis = eqMod.getSafe(ObjectKey.VISIBILITY);
 
@@ -2277,7 +2277,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The weight value
 	 */
-	public Float getWeight(final PlayerCharacter aPC)
+	public Float getWeight(final PlayerCharacterImpl aPC)
 	{
 		if (virtualItem)
 		{
@@ -2306,7 +2306,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has this Equipment
 	 * @return weight as double
 	 */
-	public double getWeightAsDouble(final PlayerCharacter aPC)
+	public double getWeightAsDouble(final PlayerCharacterImpl aPC)
 	{
 		if (isVirtual())
 		{
@@ -2354,7 +2354,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 * @deprecated due to ACCHECK code control
 	 */
-	public Integer preFormulaAcCheck(final PlayerCharacter aPC)
+	public Integer preFormulaAcCheck(final PlayerCharacterImpl aPC)
 	{
 		return Math.min(getSafe(IntegerKey.AC_CHECK)
 			+ (int) bonusTo(aPC, "EQMARMOR", "ACCHECK", true), 0);
@@ -2469,7 +2469,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The PC that the modifier is being added for.
 	 */
 	public void addEqModifier(final EquipmentModifier eqMod,
-		final boolean bPrimary, final PlayerCharacter aPC)
+		final boolean bPrimary, final PlayerCharacterImpl aPC)
 	{
 		addEqModifier(eqMod, bPrimary, aPC, null, null);
 	}
@@ -2494,7 +2494,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            secondary options.
 	 */
 	public void addEqModifier(final EquipmentModifier eqMod,
-		final boolean bPrimary, final PlayerCharacter aPC,
+		final boolean bPrimary, final PlayerCharacterImpl aPC,
 		final String selectedChoice, final EquipmentChoice equipChoice)
 	{
 		boolean bImporting = false;
@@ -2716,8 +2716,8 @@ public final class Equipment extends PObject implements Serializable,
 	 *            should we ask the parent object also?
 	 * @return returns a double which is the sum of all bonuses
 	 */
-	public double bonusTo(final PlayerCharacter aPC, final String aType,
-		final String aName, final boolean bPrimary)
+	public double bonusTo(final PlayerCharacterImpl aPC, final String aType,
+	                      final String aName, final boolean bPrimary)
 	{
 		return bonusTo(aPC, aType, aName, this, bPrimary);
 	}
@@ -2738,8 +2738,8 @@ public final class Equipment extends PObject implements Serializable,
 	 *          If true get bonuses for primary head
 	 * @return bonus
 	 */
-	private double bonusTo(final PlayerCharacter aPC, final String aType,
-		final String aName, final Object anObj, final boolean bPrimary)
+	private double bonusTo(final PlayerCharacterImpl aPC, final String aType,
+	                       final String aName, final Object anObj, final boolean bPrimary)
 	{
 
 		StringBuilder sB = new StringBuilder(aType.toUpperCase());
@@ -2877,8 +2877,8 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return True if eqMod is addable
 	 */
-	public boolean canAddModifier(PlayerCharacter pc, PrereqObject eqMod,
-		boolean bPrimary)
+	public boolean canAddModifier(PlayerCharacterImpl pc, PrereqObject eqMod,
+	                              boolean bPrimary)
 	{
 
 		// Make sure we are qualified
@@ -2899,7 +2899,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return 0 on object error, 1 on can fit, 2 on too heavy, 3 on properties
 	 *         problem (unimplemented), 4 on capacity error
 	 */
-	public int canContain(final PlayerCharacter aPC, final Object obj)
+	public int canContain(final PlayerCharacterImpl aPC, final Object obj)
 	{
 
 		if (obj instanceof Equipment)
@@ -3174,7 +3174,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param child
 	 *            The child to add
 	 */
-	public void insertChild(final PlayerCharacter aPC, final Object child)
+	public void insertChild(final PlayerCharacterImpl aPC, final Object child)
 	{
 
 		if (child == null)
@@ -3317,7 +3317,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * Note that this *should not* be done until full data load is complete to
 	 * ensure that there is not a race condition on resolving sizes.
 	 */
-	public void setToCustomSize(PlayerCharacter pc)
+	public void setToCustomSize(PlayerCharacterImpl pc)
 	{
 		CDOMSingleRef<SizeAdjustment> csr = get(ObjectKey.CUSTOMSIZE);
 		if (csr != null)
@@ -3347,7 +3347,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return Description of the Return Value
 	 */
-	public boolean meetsPreReqs(PlayerCharacter pc)
+	public boolean meetsPreReqs(PlayerCharacterImpl pc)
 	{
 		return PrereqHandler.passesAll(getPrerequisiteList(), this, pc);
 	}
@@ -3451,7 +3451,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return a name generated from the Base Equipement type and any EqMods applied
 	 */
-	public String nameItemFromModifiers(final PlayerCharacter pc)
+	public String nameItemFromModifiers(final PlayerCharacterImpl pc)
 	{
 
 		final String itemName = getItemNameFromModifiers(getBaseItemName());
@@ -3513,7 +3513,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param child
 	 *            The child to remove
 	 */
-	public void removeChild(final PlayerCharacter pc, final Object child)
+	public void removeChild(final PlayerCharacterImpl pc, final Object child)
 	{
 
 		final int i = indexOfChild(child);
@@ -3547,7 +3547,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The PC carrying the item
 	 */
 	public void removeEqModifier(final EquipmentModifier eqMod,
-		final boolean bPrimary, PlayerCharacter pc)
+		final boolean bPrimary, PlayerCharacterImpl pc)
 	{
 
 		final EquipmentModifier aMod =
@@ -3588,7 +3588,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param bPrimary Which head is this for?
 	 * @param head The head being updated.
 	 */
-	private void restoreEqModsAfterRemove(PlayerCharacter pc,
+	private void restoreEqModsAfterRemove(PlayerCharacterImpl pc,
 		final EquipmentModifier eqMod, final boolean bPrimary,
 		EquipmentHead head)
 	{
@@ -3663,7 +3663,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The PC carrying the item
 	 */
 	public void removeEqModifiers(final String aString, final boolean bPrimary,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
@@ -3687,7 +3687,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param newSize
 	 *            The new size for the item
 	 */
-	public void resizeItem(final PlayerCharacter pc, SizeAdjustment newSize)
+	public void resizeItem(final PlayerCharacterImpl pc, SizeAdjustment newSize)
 	{
 		setBase();
 
@@ -3917,7 +3917,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @param pc The PC carrying the item
 	 */
-	public void updateContainerContentsString(final PlayerCharacter pc)
+	public void updateContainerContentsString(final PlayerCharacterImpl pc)
 	{
 		final StringBuilder tempStringBuilder =
 				new StringBuilder(getChildCount() * 20);
@@ -3960,7 +3960,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * @param aPC The PC carrying the item
 	 */
-	public void setDefaultCrit(final PlayerCharacter aPC)
+	public void setDefaultCrit(final PlayerCharacterImpl aPC)
 	{
 
 		if (isWeapon())
@@ -4147,7 +4147,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param saSize The size to adjust for
 	 * @return The costAdjustedForSize value
 	 */
-	private BigDecimal getCostAdjustedForSize(final PlayerCharacter aPC,
+	private BigDecimal getCostAdjustedForSize(final PlayerCharacterImpl aPC,
 		final SizeAdjustment saSize)
 	{
 		BigDecimal c = getSafe(ObjectKey.COST);
@@ -4324,7 +4324,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The specialAbilityList value
 	 */
 	private List<String> getSpecialAbilityList(
-		final Iterable<EquipmentModifier> eqModList, final PlayerCharacter pc)
+		final Iterable<EquipmentModifier> eqModList, final PlayerCharacterImpl pc)
 	{
 
 		final List<String> saList = new ArrayList<>();
@@ -4496,7 +4496,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param newSA the size to adjust for
 	 * @return The weightAdjustedForSize value
 	 */
-	private BigDecimal getWeightAdjustedForSize(final PlayerCharacter aPC,
+	private BigDecimal getWeightAdjustedForSize(final PlayerCharacterImpl aPC,
 		final SizeAdjustment newSA)
 	{
 
@@ -4541,7 +4541,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param baseEq The unmodified Equipment
 	 * @param newSA  The size to adjust for
 	 */
-	private void adjustACForSize(final PlayerCharacter aPC,
+	private void adjustACForSize(final PlayerCharacterImpl aPC,
 		final Equipment baseEq, final SizeAdjustment newSA)
 	{
 		if ((getRawBonusList(aPC) != null) && isArmor())
@@ -4640,7 +4640,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return 
 	 *            True if the container is capable of holding the item
 	 */
-	private boolean checkChildWeight(final PlayerCharacter aPC,
+	private boolean checkChildWeight(final PlayerCharacterImpl aPC,
 		final Float aFloat)
 	{
 
@@ -4936,7 +4936,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            the PC that has the Equipment
 	 */
 	private void removeEqModifier(final String aString, final boolean bPrimary,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 
 		final StringTokenizer aTok = new StringTokenizer(aString, "|");
@@ -5177,7 +5177,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The character being checked.
 	 */
 	@Override
-	public void activateBonuses(final PlayerCharacter aPC)
+	public void activateBonuses(final PlayerCharacterImpl aPC)
 	{
 		for (final BonusObj bonus : getRawBonusList(aPC))
 		{
@@ -5414,7 +5414,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if finessable
 	 */
-	public boolean isFinessable(final PlayerCharacter pc)
+	public boolean isFinessable(final PlayerCharacterImpl pc)
 	{
 		WieldCategory wCat = getEffectiveWieldCategory(pc);
 		return isType("Finesseable") || (wCat != null && wCat.isFinessable());
@@ -5426,7 +5426,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is light for the specified pc.
 	 */
-	public boolean isWeaponLightForPC(final PlayerCharacter pc)
+	public boolean isWeaponLightForPC(final PlayerCharacterImpl pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5445,7 +5445,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon can be used one handed.
 	 */
-	public boolean isWeaponOneHanded(final PlayerCharacter pc)
+	public boolean isWeaponOneHanded(final PlayerCharacterImpl pc)
 	{
 
 		if (pc == null && !isWeapon())
@@ -5464,7 +5464,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is too large or too small.
 	 */
-	public boolean isWeaponOutsizedForPC(final PlayerCharacter pc)
+	public boolean isWeaponOutsizedForPC(final PlayerCharacterImpl pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5483,7 +5483,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param pc The PlayerCharacter wielding the weapon
 	 * @return true if the weapon is too large.
 	 */
-	public boolean isWeaponTooLargeForPC(final PlayerCharacter pc)
+	public boolean isWeaponTooLargeForPC(final PlayerCharacterImpl pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5502,7 +5502,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            The PlayerCharacter wielding the weapon.
 	 * @return true if the weapon is two-handed for the specified pc
 	 */
-	public boolean isWeaponTwoHanded(final PlayerCharacter pc)
+	public boolean isWeaponTwoHanded(final PlayerCharacterImpl pc)
 	{
 
 		if (pc == null || !isWeapon())
@@ -5522,7 +5522,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PlayerCharacter using the weapon
 	 * @return The minimum WieldCategory required to use the weapon.
 	 */
-	public WieldCategory getEffectiveWieldCategory(final PlayerCharacter aPC)
+	public WieldCategory getEffectiveWieldCategory(final PlayerCharacterImpl aPC)
 	{
 		CDOMSingleRef<WeaponProf> ref = get(ObjectKey.WEAPON_PROF);
 		WeaponProf wp = ref == null ? null : ref.get();
@@ -5657,7 +5657,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The acMod value
 	 */
-	public Integer getACMod(final PlayerCharacter aPC)
+	public Integer getACMod(final PlayerCharacterImpl aPC)
 	{
 		String acMod = aPC.getControl(CControl.EQACMOD);
 		if (acMod != null)
@@ -5681,12 +5681,12 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The damage value
 	 */
-	public String getDamage(final PlayerCharacter aPC)
+	public String getDamage(final PlayerCharacterImpl aPC)
 	{
 		return getDamage(aPC, true);
 	}
 
-	private String getDamage(PlayerCharacter apc, boolean bPrimary)
+	private String getDamage(PlayerCharacterImpl apc, boolean bPrimary)
 	{
 		int headnum = bPrimary ? 1 : 2;
 		EquipmentHead head = getEquipmentHeadReference(headnum);
@@ -5749,7 +5749,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return the alternate damage for this item.
 	 */
-	public String getAltDamage(final PlayerCharacter aPC)
+	public String getAltDamage(final PlayerCharacterImpl aPC)
 	{
 		return getDamage(aPC, false);
 	}
@@ -5764,7 +5764,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            about the secondary head.
 	 * @return The bonusToDamage value
 	 */
-	public int getBonusToDamage(final PlayerCharacter aPC,
+	public int getBonusToDamage(final PlayerCharacterImpl aPC,
 		final boolean bPrimary)
 	{
 		return (int) bonusTo(aPC, "WEAPON", "DAMAGE", bPrimary);
@@ -5780,7 +5780,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            about the secondary head.
 	 * @return The bonusToHit value
 	 */
-	public int getBonusToHit(final PlayerCharacter aPC, final boolean bPrimary)
+	public int getBonusToHit(final PlayerCharacterImpl aPC, final boolean bPrimary)
 	{
 		return (int) bonusTo(aPC, "WEAPON", "TOHIT", bPrimary);
 	}
@@ -5911,7 +5911,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param aPC The PC that has the Equipment
 	 * @return contained value
 	 */
-	public double getContainedValue(final PlayerCharacter aPC)
+	public double getContainedValue(final PlayerCharacterImpl aPC)
 	{
 		double total = 0;
 
@@ -5945,7 +5945,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * 
 	 * @return The containedWeight value
 	 */
-	public Float getContainedWeight(final PlayerCharacter aPC)
+	public Float getContainedWeight(final PlayerCharacterImpl aPC)
 	{
 		return getContainedWeight(aPC, false);
 	}
@@ -6014,7 +6014,7 @@ public final class Equipment extends PObject implements Serializable,
 	 *            Should we recurse child objects?
 	 * @return The containedWeight value
 	 */
-	public Float getContainedWeight(final PlayerCharacter aPC,
+	public Float getContainedWeight(final PlayerCharacterImpl aPC,
 		final boolean effective)
 	{
 		Float total = 0f;
@@ -6620,7 +6620,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @param eLoc the Location to add the weapon to
 	 * @param aPC the PC to quip the weapon on
 	 */
-	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
+	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacterImpl aPC)
 	{
 		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2f : num;
 		setNumberEquipped(numEquipped.intValue());
@@ -6646,7 +6646,7 @@ public final class Equipment extends PObject implements Serializable,
 		Float num,
 		EquipmentLocation eLoc,
 		boolean equip,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		setLocation(eLoc);
 		setQty(num);
@@ -6703,7 +6703,7 @@ public final class Equipment extends PObject implements Serializable,
 		removeListFor(ListKey.TEMP_BONUS);
 	}
 
-	public boolean altersAC(PlayerCharacter pc)
+	public boolean altersAC(PlayerCharacterImpl pc)
 	{
 		String alterAC = pc.getControl(CControl.ALTERSAC);
 		if (alterAC != null)

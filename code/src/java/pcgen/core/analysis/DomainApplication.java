@@ -37,7 +37,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.QualifiedObject;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.prereq.PrereqHandler;
@@ -50,7 +50,7 @@ public class DomainApplication
 	 * 
 	 * @param pc
 	 */
-	public static void applyDomain(PlayerCharacter pc, Domain d)
+	public static void applyDomain(PlayerCharacterImpl pc, Domain d)
 	{
 		ClassSource source = pc.getDomainSource(d);
 		PCClass aClass = pc.getClassKeyed(source.getPcclass().getKeyName());
@@ -127,7 +127,7 @@ public class DomainApplication
 	 * @param pc The character
 	 * @param domain The domain.
 	 */
-	public static void removeDomain(PlayerCharacter pc, Domain domain)
+	public static void removeDomain(PlayerCharacterImpl pc, Domain domain)
 	{
 		ClassSource source = pc.getDomainSource(domain);
 		PCClass aClass = pc.getClassKeyed(source.getPcclass().getKeyName());
@@ -180,8 +180,8 @@ public class DomainApplication
 	 * @param domain The domain.
 	 * @param aClass The class which would have the spells allocated.
 	 */
-	public static void removeSpellsFromClassForLevels(PlayerCharacter pc, Domain domain,
-			PCClass aClass)
+	public static void removeSpellsFromClassForLevels(PlayerCharacterImpl pc, Domain domain,
+	                                                  PCClass aClass)
 	{
 		if (aClass == null)
 		{
@@ -198,8 +198,8 @@ public class DomainApplication
 		}
 	}
 	
-	public static void addSpellsToClassForLevels(PlayerCharacter pc, Domain d,
-			PCClass aClass, int minLevel, int maxLevel)
+	public static void addSpellsToClassForLevels(PlayerCharacterImpl pc, Domain d,
+	                                             PCClass aClass, int minLevel, int maxLevel)
 	{
 		if (aClass == null)
 		{
@@ -236,7 +236,7 @@ public class DomainApplication
 		}
 	}
 
-	private static void addDomain(final PlayerCharacter aPC, PCClass cl, Domain d)
+	private static void addDomain(final PlayerCharacterImpl aPC, PCClass cl, Domain d)
 	{
 		if (d.qualifies(aPC, d))
 		{
@@ -249,7 +249,7 @@ public class DomainApplication
 	}
 
 	public static void addDomainsUpToLevel(PCClass cl, final int aLevel,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 	
 		// any domains set by level would have already been saved
@@ -293,7 +293,7 @@ public class DomainApplication
 	}
 
 	public static void removeDomainsForLevel(PCClass cl, final int removedLevel,
-		final PlayerCharacter aPC)
+		final PlayerCharacterImpl aPC)
 	{
 	
 		/*

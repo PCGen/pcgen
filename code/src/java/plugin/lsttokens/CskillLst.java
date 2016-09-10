@@ -32,7 +32,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
@@ -256,13 +256,13 @@ public class CskillLst extends AbstractTokenWithSeparator<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		pc.addGlobalCost(SkillCost.CLASS, skill, obj);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		pc.removeGlobalCost(SkillCost.CLASS, skill, obj);
 	}

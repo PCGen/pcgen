@@ -36,7 +36,7 @@ import pcgen.cdom.list.ClassSkillList;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
@@ -288,13 +288,13 @@ public class MoncskillToken extends AbstractTokenWithSeparator<Race> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		pc.addMonCSkill(skill, obj);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		pc.removeMonCSkill(skill, obj);
 	}

@@ -25,7 +25,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
@@ -62,7 +62,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, PCClass pcc)
+	public boolean allow(PlayerCharacterImpl pc, PCClass pcc)
 	{
 		return isSpellCaster(pcc);
 	}
@@ -93,7 +93,7 @@ public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilte
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<PCClass, R> c)
 	{
 		return c.convert(allClasses, this);

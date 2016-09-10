@@ -51,6 +51,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.BenefitFormatting;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.io.ExportHandler;
@@ -114,7 +115,7 @@ public class AbilityToken extends Token
 	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		// Skip the ABILITY token itself
@@ -150,8 +151,8 @@ public class AbilityToken extends Token
 	 * @return The token value.
 	 */
 	protected String getTokenForCategory(String tokenSource,
-		PlayerCharacter pc, ExportHandler eh, final StringTokenizer aTok,
-		final String tokenString, final AbilityCategory aCategory)
+	                                     PlayerCharacterImpl pc, ExportHandler eh, final StringTokenizer aTok,
+	                                     final String tokenString, final AbilityCategory aCategory)
 	{
 		boolean cacheAbilityProcessingData =
 				(cachedPC != pc || !aCategory.equals(lastCategory)
@@ -508,7 +509,7 @@ public class AbilityToken extends Token
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
-	private String getRetString(String tokenSource, PlayerCharacter pc,
+	private String getRetString(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
 	{
 		String retString = "";
@@ -638,7 +639,7 @@ public class AbilityToken extends Token
 		return Nature.NORMAL;
 	}
 
-	private String getAssociationString(PlayerCharacter pc,
+	private String getAssociationString(PlayerCharacterImpl pc,
 		List<CNAbility> abilities, String key)
 	{
 		int index = Integer.parseInt(key);
@@ -671,7 +672,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
+	private String getAspectString(PlayerCharacterImpl pc, List<CNAbility> abilities)
 	{
 		if (abilities.size() == 0)
 		{
@@ -704,7 +705,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return the aspect string
 	 */
-	private String getAspectString(PlayerCharacter pc,
+	private String getAspectString(PlayerCharacterImpl pc,
 		List<CNAbility> abilities, String key)
 	{
 		if (key == null)
@@ -752,7 +753,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @return Y if the aspect is present, N if not.
 	 */
-	private String getHasAspectString(PlayerCharacter pc, Ability ability, AspectName key)
+	private String getHasAspectString(PlayerCharacterImpl pc, Ability ability, AspectName key)
 	{
 		List<Aspect> aspects = ability.get(MapKey.ASPECT, key);
 		Aspect aspect = Aspect.lastPassingAspect(aspects, pc, ability);
@@ -774,7 +775,7 @@ public class AbilityToken extends Token
 	 *            The category of ability being reported.
 	 * @return List of abilities.
 	 */
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacterImpl pc,
 		final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();

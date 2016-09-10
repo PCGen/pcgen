@@ -28,7 +28,7 @@ import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Domain;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.display.DescriptionFormatting;
@@ -59,7 +59,7 @@ public class DomainToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -124,7 +124,7 @@ public class DomainToken extends Token
 	 * @param domainIndex
 	 * @return POWER sub token
 	 */
-	public static String getPowerToken(PlayerCharacter pc, int domainIndex)
+	public static String getPowerToken(PlayerCharacterImpl pc, int domainIndex)
 	{
 		try
 		{

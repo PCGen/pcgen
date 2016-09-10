@@ -40,7 +40,7 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		context.resolveDeferredTokens();
 		context.getReferenceContext().resolveReferences(null);
 
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		assertEquals("M", pc.getDisplay().getSize());
 		pc.setRace(race);
 		assertEquals("S", pc.getDisplay().getSize());

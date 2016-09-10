@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentList;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.utils.CoreUtility;
@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 
 public class CharacterUtils
 {
-	public static void selectClothes(final PlayerCharacter aPC)
+	public static void selectClothes(final PlayerCharacterImpl aPC)
 	{
 		if (Globals.checkRule(RuleConstants.FREECLOTHES)
 			&& ((aPC.getDisplay().totalNonMonsterLevels()) == 1)) //$NON-NLS-1$

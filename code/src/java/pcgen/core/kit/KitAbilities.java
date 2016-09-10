@@ -42,7 +42,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * <code>KitAbiltiies</code>.
@@ -123,7 +123,7 @@ public final class KitAbilities extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		abilitiesToAdd = new ArrayList<>();
@@ -249,7 +249,7 @@ public final class KitAbilities extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		for (CNAbilitySelection cnas : abilitiesToAdd)
 		{

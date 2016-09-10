@@ -59,7 +59,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpellProhibitor;
@@ -110,7 +110,7 @@ import pcgen.util.enumeration.View;
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
 {
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	private final CharacterDisplay charDisplay;
 	private UIDelegate delegate;
 
@@ -141,9 +141,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * @param todoManager The user tasks tracker.
 	 * @param pcFacade The character facade. 
 	 */
-	public SpellSupportFacadeImpl(PlayerCharacter pc, UIDelegate delegate,
-		DataSetFacade dataSet, TodoManager todoManager,
-		CharacterFacadeImpl pcFacade)
+	public SpellSupportFacadeImpl(PlayerCharacterImpl pc, UIDelegate delegate,
+	                              DataSetFacade dataSet, TodoManager todoManager,
+	                              CharacterFacadeImpl pcFacade)
 	{
 		this.pc = pc;
 		this.infoFactory = pcFacade.getInfoFactory();
@@ -779,7 +779,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	}
 
 	private static String getNumCast(PCClass aClass, int level,
-	                                 PlayerCharacter pc)
+	                                 PlayerCharacterImpl pc)
 	{
 		String sbook = Globals.getDefaultSpellBook();
 		final String cast =
@@ -789,7 +789,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return cast;
 	}
 
-	private static int getDC(PCClass aClass, int level, PlayerCharacter pc)
+	private static int getDC(PCClass aClass, int level, PlayerCharacterImpl pc)
 	{
 		return pc.getDC(new Spell(), aClass, level, 0, aClass);
 	}

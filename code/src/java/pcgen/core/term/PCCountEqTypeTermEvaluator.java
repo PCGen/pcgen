@@ -27,9 +27,9 @@ package pcgen.core.term;
 import java.util.List;
 import java.util.ArrayList;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentUtilities;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountEqTypeTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -49,7 +49,7 @@ public class PCCountEqTypeTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc) {
+	public Float resolve(PlayerCharacterImpl pc) {
 
 		List<Equipment> aList = new ArrayList<>();
 		

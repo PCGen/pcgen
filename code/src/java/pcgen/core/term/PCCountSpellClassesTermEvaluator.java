@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCCountSpellClassesTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -35,7 +35,7 @@ public class PCCountSpellClassesTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return (float) pc.getSpellClassCount();
 	}

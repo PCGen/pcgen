@@ -26,7 +26,7 @@ import org.apache.commons.lang.StringUtils;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
 import pcgen.util.chooser.ChooserFactory;
@@ -48,8 +48,8 @@ public class UserInputManager extends CDOMChoiceManager<String>
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
     @Override
-	public List<String> doChooser(PlayerCharacter aPc, final List<String> availableList,
-			final List<String> selectedList, final List<String> reservedList)
+	public List<String> doChooser(PlayerCharacterImpl aPc, final List<String> availableList,
+                                  final List<String> selectedList, final List<String> reservedList)
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 

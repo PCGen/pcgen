@@ -25,7 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -57,7 +57,7 @@ public class PreCharactertypeTest extends AbstractCharacterTestCase
 	 */
 	public void testCharactertype() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setCharacterType("PC");
 
 		Prerequisite prereq;

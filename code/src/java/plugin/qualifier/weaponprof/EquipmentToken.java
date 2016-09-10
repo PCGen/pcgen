@@ -35,7 +35,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
@@ -137,7 +137,7 @@ public class EquipmentToken implements QualifierToken<WeaponProf>,
 
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc,
 			Converter<WeaponProf, R> c)
 	{
 		Set<R> returnSet = new HashSet<>();

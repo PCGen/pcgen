@@ -37,7 +37,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.Changes;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
@@ -178,13 +178,13 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 
 	@Override
 	public void applyChoice(CDOMObject owner, PCTemplate choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		pc.addTemplate(choice);
 	}
 
 	@Override
-	public boolean allow(PCTemplate choice, PlayerCharacter pc,
+	public boolean allow(PCTemplate choice, PlayerCharacterImpl pc,
 			boolean allowStack)
 	{
 		return !pc.hasTemplate(choice);
@@ -204,15 +204,15 @@ public class TemplateToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-			PCTemplate choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          PCTemplate choice)
 	{
 		//No action required
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-			PCTemplate choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         PCTemplate choice)
 	{
 		pc.removeTemplate(choice);
 	}

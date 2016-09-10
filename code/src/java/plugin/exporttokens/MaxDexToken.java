@@ -27,7 +27,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
@@ -53,7 +53,7 @@ public class MaxDexToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";
@@ -73,7 +73,7 @@ public class MaxDexToken extends Token
 	 * @param pc
 	 * @return the value for the MAXDEX token
 	 */
-	public static String getMaxDexToken(String tokenSource, PlayerCharacter pc)
+	public static String getMaxDexToken(String tokenSource, PlayerCharacterImpl pc)
 	{
 		String retString = "";
 		int mod = process(pc);
@@ -86,7 +86,7 @@ public class MaxDexToken extends Token
 		return retString;
 	}
 
-	private static int process(PlayerCharacter pc)
+	private static int process(PlayerCharacterImpl pc)
 	{
 		String maxDexVar =
 				ControlUtilities.getControlToken(Globals.getContext(),

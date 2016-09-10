@@ -21,7 +21,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.AssociationListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 
 /**
@@ -138,7 +138,7 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner, T item)
 	{
 		pc.addAssoc(this, AssociationListKey.ADD, item);
 		choiceActor.restoreChoice(pc, owner, item);
@@ -154,7 +154,7 @@ public class ConcretePersistentTransitionChoice<T> extends
 	 *            The PlayerCharacter from which the choice should be removed.
 	 */
 	@Override
-	public void remove(CDOMObject owner, PlayerCharacter pc)
+	public void remove(CDOMObject owner, PlayerCharacterImpl pc)
 	{
 		List<Object> ch = pc.removeAllAssocs(this, AssociationListKey.ADD);
 		if (ch != null)

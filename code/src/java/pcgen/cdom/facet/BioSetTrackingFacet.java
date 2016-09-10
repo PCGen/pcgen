@@ -24,7 +24,7 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.cdom.facet.model.BioSetFacet;
 import pcgen.core.BioSet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * BioSetTrackingFacet is a Facet that triggers when characteristics related to
@@ -60,7 +60,7 @@ public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter pc = trackingFacet.getPC(id);
+		PlayerCharacterImpl pc = trackingFacet.getPC(id);
 
 		if (!pc.isImporting())
 		{

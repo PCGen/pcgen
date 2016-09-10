@@ -7,7 +7,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.BonusCalc;
 import pcgen.core.analysis.OutputNameFormatting;
 import pcgen.core.display.CharacterDisplay;
@@ -41,7 +41,7 @@ public class ArmorToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		if (tokenSource.startsWith("ARMOR")
@@ -60,7 +60,7 @@ public class ArmorToken extends Token
 	 * @return token
 	 *
 	 */
-	public static String getArmorToken(String tokenSource, PlayerCharacter pc, ExportHandler eh)
+	public static String getArmorToken(String tokenSource, PlayerCharacterImpl pc, ExportHandler eh)
 	{
 		return replaceTokenArmor(tokenSource, pc, eh);
 	}
@@ -73,7 +73,7 @@ public class ArmorToken extends Token
 	 * @param eh The ExportHandler to advise if there are no more items.
 	 * @return int
 	 */
-	private static String replaceTokenArmor(String aString, PlayerCharacter aPC, ExportHandler eh)
+	private static String replaceTokenArmor(String aString, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final StringTokenizer aTok = new StringTokenizer(aString, ".");
 		final String[] tokens = new String[aTok.countTokens()];
@@ -255,7 +255,7 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmor(int armor, String property,
-		int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	                                         int equipped, int merge, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList =
 				aPC.getEquipmentOfTypeInOutputOrder("Armor", equipped, merge);
@@ -288,7 +288,7 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmorItem(int item, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	                                             String property, int equipped, int merge, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		// select all pieces of equipment of status==equipped
 		// filter all AC relevant stuff
@@ -328,7 +328,7 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmorShield(int shield, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	                                               String property, int equipped, int merge, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList =
 				aPC.getEquipmentOfTypeInOutputOrder("Shield", subtype,
@@ -355,7 +355,7 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmorShirt(int shirt, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	                                              String property, int equipped, int merge, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList =
 				aPC.getEquipmentOfTypeInOutputOrder("Shirt", subtype, equipped,
@@ -382,7 +382,7 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmorSuit(int suit, String subtype,
-		String property, int equipped, int merge, PlayerCharacter aPC, ExportHandler eh)
+	                                             String property, int equipped, int merge, PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList =
 				aPC.getEquipmentOfTypeInOutputOrder("Suit", subtype, equipped,
@@ -415,8 +415,8 @@ public class ArmorToken extends Token
 	 * @return int
 	 */
 	private static String _replaceTokenArmorVarious(int index, String type,
-		String subtype, String property, int equipped, int merge,
-		PlayerCharacter aPC, ExportHandler eh)
+	                                                String subtype, String property, int equipped, int merge,
+	                                                PlayerCharacterImpl aPC, ExportHandler eh)
 	{
 		final List<Equipment> aArrayList = new ArrayList<>();
 
@@ -443,7 +443,7 @@ public class ArmorToken extends Token
 	}
 
 	private static String _writeArmorProperty(Equipment eq, String property,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		CharacterDisplay display = aPC.getDisplay();
 		StringBuilder ret = new StringBuilder();

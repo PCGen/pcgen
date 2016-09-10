@@ -30,7 +30,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
@@ -61,7 +61,7 @@ public class VAbilityListToken extends AbilityListToken
 	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
 	 */
 	@Override
-	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
+	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacterImpl pc,
 		final AbilityCategory aCategory)
 	{
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();

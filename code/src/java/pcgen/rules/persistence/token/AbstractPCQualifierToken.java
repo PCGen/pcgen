@@ -27,7 +27,7 @@ import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.SelectionCreator;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
@@ -85,7 +85,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 		return pcs != null;
 	}
 
-	protected abstract Collection<T> getPossessed(PlayerCharacter pc);
+	protected abstract Collection<T> getPossessed(PlayerCharacterImpl pc);
 
 	@Override
 	public String getLSTformat(boolean useAny)
@@ -160,7 +160,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		Converter<T, R> conv = c;
 		conv = negated ? new NegateFilterConverter<>(conv) : conv;
@@ -169,7 +169,7 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, T po)
+	public boolean allow(PlayerCharacterImpl pc, T po)
 	{
 		return getPossessed(pc).contains(po);
 	}

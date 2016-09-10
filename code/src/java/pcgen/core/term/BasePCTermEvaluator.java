@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
@@ -35,31 +35,31 @@ public abstract class BasePCTermEvaluator
 {
 	protected String originalText;
 
-	public String evaluate(PlayerCharacter pc) {
+	public String evaluate(PlayerCharacterImpl pc) {
 		return Integer.toString(resolve(pc).intValue());
 	}
 
-	public String evaluate(PlayerCharacter pc,  final Spell aSpell) {
+	public String evaluate(PlayerCharacterImpl pc, final Spell aSpell) {
 		return evaluate(pc);	
 	}
 
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return evaluate(pc);
 	}
 	
-	public abstract Float resolve(PlayerCharacter pc);
+	public abstract Float resolve(PlayerCharacterImpl pc);
 
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacterImpl pc, final CharacterSpell aSpell) {
 		return convertToFloat(originalText, evaluate(pc, aSpell == null ? null : aSpell.getSpell()));
 	}
 
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
 
@@ -89,8 +89,8 @@ public abstract class BasePCTermEvaluator
 		return retVal;
 	}
 
-	public Float localToFloat(PlayerCharacter pc, String localVar,
-		CDOMObject owner)
+	public Float localToFloat(PlayerCharacterImpl pc, String localVar,
+	                          CDOMObject owner)
 	{
 		Object o = pc.getLocal(owner, localVar);
 		if (o instanceof Float)

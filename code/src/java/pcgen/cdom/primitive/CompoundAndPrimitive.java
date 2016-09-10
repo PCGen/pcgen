@@ -26,7 +26,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
@@ -86,7 +86,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c)
 	{
 		Collection<? extends R> returnSet = null;
 		for (PrimitiveCollection<T> cs : primCollection)

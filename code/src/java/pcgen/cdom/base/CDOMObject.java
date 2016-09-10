@@ -50,7 +50,7 @@ import pcgen.cdom.util.ListKeyMapToList;
 import pcgen.cdom.util.MapKeyMap;
 import pcgen.core.Description;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.bonus.BonusObj;
 
@@ -1125,7 +1125,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @param pc the current player character
 	 * @return the list of bonuses for this object
 	 */
-	public List<BonusObj> getRawBonusList(PlayerCharacter pc)
+	public List<BonusObj> getRawBonusList(PlayerCharacterImpl pc)
 	{
 		List<BonusObj> bonusList = getSafeListFor(ListKey.BONUS);
 		if (pc != null)
@@ -1142,7 +1142,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @return active bonuses
 	 */
 	@Override
-	public List<BonusObj> getActiveBonuses(final PlayerCharacter pc)
+	public List<BonusObj> getActiveBonuses(final PlayerCharacterImpl pc)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
@@ -1157,7 +1157,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return aList;
 	}
 
-	public List<BonusObj> getBonusList(PlayerCharacter assocStore)
+	public List<BonusObj> getBonusList(PlayerCharacterImpl assocStore)
 	{
 		return getRawBonusList(assocStore);
 	}
@@ -1202,7 +1202,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 * @param pc
 	 */
 	@Override
-	public void activateBonuses(final PlayerCharacter pc)
+	public void activateBonuses(final PlayerCharacterImpl pc)
 	{
 		BonusActivation.activateBonuses(this, pc);
 	}

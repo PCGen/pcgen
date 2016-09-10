@@ -24,7 +24,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.EqToken;
@@ -50,7 +50,7 @@ public enum SkillArmorCheck
 	NONE
 	{
 		@Override
-		public int calculateBonus(PlayerCharacter pc)
+		public int calculateBonus(PlayerCharacterImpl pc)
 		{
 			return 0;
 		}
@@ -58,13 +58,13 @@ public enum SkillArmorCheck
 	YES, NONPROF
 	{
 		@Override
-		protected boolean useEquipment(PlayerCharacter pc, Equipment equipment)
+		protected boolean useEquipment(PlayerCharacterImpl pc, Equipment equipment)
 		{
 			return !pc.isProficientWith(equipment);
 		}
 
 		@Override
-		protected int calculateMin(PlayerCharacter pc)
+		protected int calculateMin(PlayerCharacterImpl pc)
 		{
 			return 0;
 		}
@@ -80,14 +80,14 @@ public enum SkillArmorCheck
 	WEIGHT
 	{
 		@Override
-		protected int calculateMax(PlayerCharacter pc)
+		protected int calculateMax(PlayerCharacterImpl pc)
 		{
 			return -(int) (pc.getDisplay().totalWeight().doubleValue() / 5.0);
 		}
 
 	};
 
-	public int calculateBonus(PlayerCharacter pc)
+	public int calculateBonus(PlayerCharacterImpl pc)
 	{
 		int min = 0;
 		int max = 0;
@@ -108,7 +108,7 @@ public enum SkillArmorCheck
 		return 1;
 	}
 
-	protected int calculateMin(PlayerCharacter pc)
+	protected int calculateMin(PlayerCharacterImpl pc)
 	{
 		int penalty = 0;
 		if (Globals.checkRule(RuleConstants.SYS_LDPACSK))
@@ -142,7 +142,7 @@ public enum SkillArmorCheck
 		return penalty;
 	}
 
-	protected int calculateMax(PlayerCharacter pc)
+	protected int calculateMax(PlayerCharacterImpl pc)
 	{
 		String acCheckVar =
 				ControlUtilities.getControlToken(Globals.getContext(),
@@ -157,7 +157,7 @@ public enum SkillArmorCheck
 	/**
 	 * @deprecated due to PCACCHECK code control
 	 */
-	protected int calculateMaxOld(PlayerCharacter pc)
+	protected int calculateMaxOld(PlayerCharacterImpl pc)
 	{
 		int max = 0;
 		final List<Equipment> itemList = pc.getEquipmentOfType("Armor", 1);
@@ -178,7 +178,7 @@ public enum SkillArmorCheck
 		return max;
 	}
 
-	protected boolean useEquipment(PlayerCharacter pc, Equipment eq)
+	protected boolean useEquipment(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return true;
 	}

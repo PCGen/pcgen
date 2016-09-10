@@ -110,7 +110,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 		return distance.hashCode() ^ visionType.hashCode();
 	}
 
-	public String toString(PlayerCharacter aPC)
+	public String toString(PlayerCharacterImpl aPC)
 	{
 		return toString(distance.resolve(aPC, "").intValue());
 	}

@@ -187,7 +187,7 @@ public final class BioSet extends PObject implements NonInteractive
 	 * @param randomizeStr .-delimited list of attributes to randomize. (AGE.HT.WT.EYES.HAIR.SKIN are the possible values.)
 	 * @param pc The Player Character
 	 */
-	public void randomize(final String randomizeStr, final PlayerCharacter pc)
+	public void randomize(final String randomizeStr, final PlayerCharacterImpl pc)
 	{
 		if ((pc == null) || (pc.getRace() == null))
 		{
@@ -405,7 +405,7 @@ public final class BioSet extends PObject implements NonInteractive
 		return sb.toString();
 	}
 
-	private void generateAge(final int ageCategory, final boolean useClassOnly, final PlayerCharacter pc)
+	private void generateAge(final int ageCategory, final boolean useClassOnly, final PlayerCharacterImpl pc)
 	{
 		// Can't find a base age for the category,
 		// then there's nothing to do
@@ -494,7 +494,7 @@ public final class BioSet extends PObject implements NonInteractive
 		}
 	}
 
-	private String generateBioValue(final String addKey, final PlayerCharacter pc)
+	private String generateBioValue(final String addKey, final PlayerCharacterImpl pc)
 	{
 		final String line = getTokenNumberInMaps(addKey, 0, pc.getDisplay().getRegionString(), pc
 			.getRace().getKeyName().trim());
@@ -521,7 +521,7 @@ public final class BioSet extends PObject implements NonInteractive
 		return rv;
 	}
 
-	private void generateHeightWeight(final PlayerCharacter pc)
+	private void generateHeightWeight(final PlayerCharacterImpl pc)
 	{
 		int baseHeight = 0;
 		int baseWeight = 0;

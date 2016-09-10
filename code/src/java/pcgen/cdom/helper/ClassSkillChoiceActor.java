@@ -27,6 +27,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.SubClass;
 import pcgen.core.analysis.SkillRankControl;
@@ -91,7 +92,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 *            ClassSkillChoiceActor should be applied.
 	 */
 	@Override
-	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacterImpl pc)
 	{
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
@@ -153,7 +154,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 * @return true if the given Skill should be allowed as a selection.
 	 */
 	@Override
-	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(Skill choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return !pc.isClassSkill(source, choice);
 	}
@@ -211,7 +212,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 *            The Skill being restored to the given PlayerCharacter.
 	 */
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner, Skill choice)
 	{
 		PCClass pcc = getSourceClass(pc);
 		if (pcc == null)
@@ -266,7 +267,7 @@ public class ClassSkillChoiceActor implements PersistentChoiceActor<Skill>
 	 *            The Skill being removed from the given PlayerCharacter.
 	 */
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner, Skill choice)
 	{
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
 		if (applyRank != null)

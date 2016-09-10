@@ -25,7 +25,7 @@
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.core.display.CharacterDisplay;
@@ -45,7 +45,7 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source)
 	{
 		CharacterDisplay display = character.getDisplay();
 		int runningTotal = 0;

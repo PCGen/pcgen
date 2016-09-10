@@ -31,7 +31,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Ability;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
@@ -68,7 +68,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * @param specialty -1 = inSpecialty insensitive;<br>0 = inSpecialty==false; and <br> 1 = inSpecialty==true
 	 * @return info index
 	 */
-	public int getInfoIndexFor(PlayerCharacter pc, final String bookName, final int level, final int specialty)
+	public int getInfoIndexFor(PlayerCharacterImpl pc, final String bookName, final int level, final int specialty)
 	{
 		if (infoList.isEmpty())
 		{
@@ -121,7 +121,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 	 * is speciality spell
 	 * @return TRUE if speciality spell
 	 */
-	public boolean isSpecialtySpell(PlayerCharacter pc)
+	public boolean isSpecialtySpell(PlayerCharacterImpl pc)
 	{
 		final boolean result;
 
@@ -426,7 +426,7 @@ public final class CharacterSpell implements Comparable<CharacterSpell>
 		this.fixedCasterLevel = fixedCasterLevel;
 	}
 
-	public String getVariableSource(PlayerCharacter pc)
+	public String getVariableSource(PlayerCharacterImpl pc)
 	{
 		if (owner instanceof Domain)
 		{

@@ -26,7 +26,7 @@ import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -69,7 +69,7 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
+	public boolean allow(PlayerCharacterImpl pc, Spell spell)
 	{
 		return spell.containsInList(ListKey.SPELL_SCHOOL, school.get());
 	}
@@ -106,7 +106,7 @@ public class SchoolToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<Spell, R> c)
 	{
 		return c.convert(allSpells, this);

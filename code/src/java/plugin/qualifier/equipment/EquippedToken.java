@@ -28,7 +28,7 @@ import pcgen.cdom.converter.NegateFilterConverter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.SelectionCreator;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
@@ -130,7 +130,7 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 		Converter<Equipment, R> c)
 	{
 		Converter<Equipment, R> conv =
@@ -140,7 +140,7 @@ public class EquippedToken implements QualifierToken<Equipment>,
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Equipment sk)
+	public boolean allow(PlayerCharacterImpl pc, Equipment sk)
 	{
 		return pc.getEquippedEquipmentSet().contains(sk);
 	}

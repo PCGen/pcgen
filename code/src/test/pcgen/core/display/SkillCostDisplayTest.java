@@ -32,7 +32,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.core.bonus.Bonus;
@@ -105,7 +105,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 
 		}
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.incrementClassLevel(1, pcClass);
 	}
 
@@ -129,7 +129,7 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		bluff =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					Skill.class, "KEY_bluff");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		setPCStat(pc, cha, 10);
 
 		assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(

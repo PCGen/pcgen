@@ -26,7 +26,7 @@ import java.util.List;
 
 import pcgen.base.formula.Formula;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * <code>KitSelect</code>.
@@ -62,7 +62,7 @@ public final class KitSelect extends BaseKit
 	}
 
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		aKit.setSelectValue(theFormula.resolve(aPC, "").intValue());
@@ -70,7 +70,7 @@ public final class KitSelect extends BaseKit
 	}
 
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		// Nothing to do.
 	}

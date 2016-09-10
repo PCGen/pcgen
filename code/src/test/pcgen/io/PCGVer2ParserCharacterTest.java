@@ -30,7 +30,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
@@ -66,7 +66,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		Race rakshasha =
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, "Rakshasa");
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setImporting(true);
 		PCGVer2Parser pcgParser = new PCGVer2Parser(pc);
 		

@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * This is a transitional class from PCGen 5.15+ to the final CDOM core. It is
@@ -37,9 +37,9 @@ public interface PersistentTransitionChoice<T> extends TransitionChoice<T>,
 	// Not sure where to put?
 	T castChoice(Object item);
 
-	void remove(CDOMObject owner, PlayerCharacter pc);
+	void remove(CDOMObject owner, PlayerCharacterImpl pc);
 
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, T item);
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner, T item);
 	
 	public Class<?> getChoiceClass();
 

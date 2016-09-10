@@ -52,7 +52,7 @@ import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.util.DefaultReferenceFacade;
@@ -100,7 +100,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	private String reqSpellType = "";
 	private List<String> subTypeList = new ArrayList<>();
 
-	private PlayerCharacter character;
+	private PlayerCharacterImpl character;
 	private Type requiredType;
 	private List<AvailableSpell> classSpells;
 	private CDOMList<Spell> spellList;
@@ -116,7 +116,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 	 * @param equip The equipment, if any, that the spell will be associated with.
 	 */
 	public SpellBuilderFacadeImpl(String choiceValue,
-		PlayerCharacter character, Equipment equip)
+	                              PlayerCharacterImpl character, Equipment equip)
 	{
 		this.character = character;
 		masterAvailableSpellFacet = FacetLibrary.getFacet(MasterAvailableSpellFacet.class);	

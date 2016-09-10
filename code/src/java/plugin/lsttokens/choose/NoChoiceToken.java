@@ -32,6 +32,7 @@ import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.NoChoiceManager;
 import pcgen.rules.context.LoadContext;
@@ -127,7 +128,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public Collection<String> getSet(PlayerCharacter pc)
+	public Collection<String> getSet(PlayerCharacterImpl pc)
 	{
 		return Collections.singletonList("");
 	}
@@ -169,19 +170,19 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, String st, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, "");
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc,
+	private void applyChoice(ChooseDriver owner, PlayerCharacterImpl pc,
 		ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, "", pc);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), "");
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -195,8 +196,8 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          String choice)
 	{
 		pc.addAssoc(owner, getListKey(), "");
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -211,7 +212,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 
 	@Override
 	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

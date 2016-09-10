@@ -21,7 +21,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SizeAdjustment;
 
 /**
@@ -109,7 +109,7 @@ public class FixedSizeFormula implements Formula
 	 *         represents.
 	 */
 	@Override
-	public Integer resolve(PlayerCharacter pc, String source)
+	public Integer resolve(PlayerCharacterImpl pc, String source)
 	{
 		return resolveStatic();
 	}
@@ -137,7 +137,7 @@ public class FixedSizeFormula implements Formula
 	 */
 	@Override
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter apc, String source)
+	                      PlayerCharacterImpl apc, String source)
 	{
 		return resolveStatic();
 	}

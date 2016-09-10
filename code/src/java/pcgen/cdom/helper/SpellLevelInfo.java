@@ -28,7 +28,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.converter.AddFilterConverter;
 import pcgen.cdom.converter.DereferencingConverter;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class SpellLevelInfo implements PrimitiveFilter<PCClass>
@@ -58,7 +58,7 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 		return sb.toString();
 	}
 
-	public Collection<SpellLevel> getLevels(PlayerCharacter pc)
+	public Collection<SpellLevel> getLevels(PlayerCharacterImpl pc)
 	{
 		List<SpellLevel> list = new ArrayList<>();
 		Converter<PCClass, PCClass> conv = new AddFilterConverter<>(
@@ -82,7 +82,7 @@ public class SpellLevelInfo implements PrimitiveFilter<PCClass>
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, PCClass cl)
+	public boolean allow(PlayerCharacterImpl pc, PCClass cl)
 	{
 		return pc.getClassKeyed(cl.getKeyName()) != null;
 	}

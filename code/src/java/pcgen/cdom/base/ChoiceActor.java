@@ -17,7 +17,7 @@
  */
 package pcgen.cdom.base;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A ChoiceActor is an object that can limit and apply choices of a particular
@@ -42,7 +42,7 @@ public interface ChoiceActor<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(CDOMObject owner, T item, PlayerCharacter pc);
+	public void applyChoice(CDOMObject owner, T item, PlayerCharacterImpl pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
@@ -61,6 +61,6 @@ public interface ChoiceActor<T>
 	 * @return true if the given choice should be allowed for the
 	 *         PlayerCharacter under the provided stacking conditions.
 	 */
-	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
+	public boolean allow(T item, PlayerCharacterImpl pc, boolean allowStack);
 	
 }

@@ -36,7 +36,7 @@ import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.choiceset.ReferenceChoiceSet;
 import pcgen.cdom.enumeration.ListKey;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.Changes;
@@ -212,13 +212,13 @@ public class SkillToken extends AbstractToken implements
 	}
 
 	@Override
-	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacter pc)
+	public void applyChoice(CDOMObject owner, Skill choice, PlayerCharacterImpl pc)
 	{
 		SkillRankControl.modRanks(1.0, null, true, pc, choice);
 	}
 
 	@Override
-	public boolean allow(Skill choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(Skill choice, PlayerCharacterImpl pc, boolean allowStack)
 	{
 		return true;
 	}
@@ -236,13 +236,13 @@ public class SkillToken extends AbstractToken implements
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner, Skill choice)
 	{
 		// No action required
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner, Skill choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner, Skill choice)
 	{
 		SkillRankControl.modRanks(-1.0, null, true, pc, choice);
 	}

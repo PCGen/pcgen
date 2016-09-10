@@ -20,16 +20,16 @@
 package pcgen.core.chooser;
 
 import pcgen.core.Ability;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 
 public class SkillChooseController extends ChooseController<Ability>
 {
 	private final Skill skill;
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 
-	public SkillChooseController(Skill sk, PlayerCharacter aPC)
+	public SkillChooseController(Skill sk, PlayerCharacterImpl aPC)
 	{
 		if (sk == null)
 		{

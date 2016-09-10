@@ -37,7 +37,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.AbilityLoader;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -98,7 +98,7 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		context.getReferenceContext().validate(null);
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 
-		PlayerCharacter aPC = getCharacter();
+		PlayerCharacterImpl aPC = getCharacter();
 
 		Collection<Integer> levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
 		assertEquals("Initial number of spell levels incorrect", 0, levels.size());

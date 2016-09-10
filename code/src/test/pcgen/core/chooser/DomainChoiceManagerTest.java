@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
@@ -66,7 +66,7 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
-		PlayerCharacter aPC = getCharacter();
+		PlayerCharacterImpl aPC = getCharacter();
 
 		ChoiceManagerList choiceManager = ChooserUtilities.getChoiceManager(
 				pObj, aPC);

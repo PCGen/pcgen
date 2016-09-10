@@ -21,14 +21,14 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.core.Deity;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 public class PCToken extends AbstractPCQualifierToken<Deity>
 {
 
 	@Override
-	protected Collection<Deity> getPossessed(PlayerCharacter pc)
+	protected Collection<Deity> getPossessed(PlayerCharacterImpl pc)
 	{
 		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)

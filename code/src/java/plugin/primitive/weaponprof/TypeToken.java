@@ -25,7 +25,7 @@ import pcgen.cdom.base.Converter;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
@@ -45,7 +45,7 @@ public class TypeToken implements PrimitiveToken<WeaponProf>
 	}
 
 	@Override
-	public <R> Collection<R> getCollection(PlayerCharacter pc,
+	public <R> Collection<R> getCollection(PlayerCharacterImpl pc,
 		Converter<WeaponProf, R> c)
 	{
 		List<WeaponProf> profs = pc.getWeaponProfsInTarget(typeRef);

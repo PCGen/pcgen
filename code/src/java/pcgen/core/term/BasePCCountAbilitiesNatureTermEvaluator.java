@@ -24,7 +24,7 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public abstract class BasePCCountAbilitiesNatureTermEvaluator
 		extends BasePCCountAbilitiesTermEvaluator
@@ -34,7 +34,7 @@ public abstract class BasePCCountAbilitiesNatureTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return countVisibleAbilities(pc, getAbilities(pc), visible, hidden);
 	}

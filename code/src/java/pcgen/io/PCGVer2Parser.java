@@ -96,7 +96,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -182,7 +182,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private final List<String> warnings = new ArrayList<>();
 	private Cache cache;
-	private PlayerCharacter thePC;
+	private PlayerCharacterImpl thePC;
 	private final Set<String> seenStats = new HashSet<>();
 	private final Set<Language> cachedLanguages = new HashSet<>();
 
@@ -199,7 +199,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Constructor
 	 * @param aPC
 	 */
-	PCGVer2Parser(PlayerCharacter aPC)
+	PCGVer2Parser(PlayerCharacterImpl aPC)
 	{
 		thePC = aPC;
 	}

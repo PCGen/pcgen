@@ -22,7 +22,7 @@ import pcgen.cdom.base.TransitionChoice;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 
 /**
@@ -68,7 +68,7 @@ public class ClassSpellListFacet
 		}
 		else
 		{
-			PlayerCharacter pc = trackingFacet.getPC(id);
+			PlayerCharacterImpl pc = trackingFacet.getPC(id);
 			for (CDOMListObject<Spell> st : csc.driveChoice(pc))
 			{
 				spellListFacet.add(id, st, pcc);

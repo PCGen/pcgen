@@ -31,7 +31,7 @@ import pcgen.cdom.enumeration.FactSetKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -65,7 +65,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 */
 	public void testBoolean() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -99,7 +99,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 */
 	public void testFormat() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -142,7 +142,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 */
 	public void testName() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -170,7 +170,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 */
 	public void testNewFormat() throws PersistenceLayerException
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -213,7 +213,7 @@ public class PreDeityTest extends AbstractCharacterTestCase
 	 */
 	public void testPantheon() throws PersistenceLayerException
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 

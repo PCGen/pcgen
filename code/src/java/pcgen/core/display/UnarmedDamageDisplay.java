@@ -21,7 +21,7 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Delta;
 
 public class UnarmedDamageDisplay
@@ -36,7 +36,7 @@ public class UnarmedDamageDisplay
 	 * @param adjustForPCSize
 	 * @return the unarmed damage string
 	 */
-	public static String getUnarmedDamageString(PlayerCharacter pc,
+	public static String getUnarmedDamageString(PlayerCharacterImpl pc,
 		final boolean includeStrBonus, final boolean adjustForPCSize)
 	{
 		CharacterDisplay display = pc.getDisplay();

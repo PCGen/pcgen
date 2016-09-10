@@ -25,7 +25,7 @@ import java.util.List;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SubstitutionClass;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
@@ -38,7 +38,7 @@ public class SubstitutionClassApplication
 {
 
 	public static void checkForSubstitutionClass(PCClass cl, final int aLevel,
-			final PlayerCharacter aPC)
+			final PlayerCharacterImpl aPC)
 	{
 		List<SubstitutionClass> substitutionClassList = cl
 				.getListFor(ListKey.SUBSTITUTION_CLASS);
@@ -106,7 +106,7 @@ public class SubstitutionClassApplication
 	 */
 	private static void buildSubstitutionClassChoiceList(PCClass cl,
 			final List<PCClass> choiceList, final int level,
-			final PlayerCharacter aPC)
+			final PlayerCharacterImpl aPC)
 	{
 
 		for (SubstitutionClass sc : cl.getListFor(ListKey.SUBSTITUTION_CLASS))

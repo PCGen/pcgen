@@ -28,7 +28,7 @@ import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.facade.core.ChooserFacade.ChooserTreeViewType;
 import pcgen.gui2.facade.Gui2InfoFactory;
 import pcgen.system.LanguageBundle;
@@ -57,8 +57,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
     @Override
-	public void getChoices(PlayerCharacter pc, List<T> availableList,
-			List<T> selectedList)
+	public void getChoices(PlayerCharacterImpl pc, List<T> availableList,
+                           List<T> selectedList)
 	{
 		availableList.addAll(info.getSet(pc));
 		List<? extends T> selected = info.getChoiceActor()
@@ -83,7 +83,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param item
 	 */
     @Override
-	public boolean conditionallyApply(PlayerCharacter pc, T item)
+	public boolean conditionallyApply(PlayerCharacterImpl pc, T item)
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
@@ -107,7 +107,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param selected
 	 */
     @Override
-	public boolean applyChoices(PlayerCharacter pc, List<T> selected)
+	public boolean applyChoices(PlayerCharacterImpl pc, List<T> selected)
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
@@ -145,8 +145,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @return list The list of the new selections made by the user (unchanged if the dialog was cancelled)
 	 */
     @Override
-	public List<T> doChooser(PlayerCharacter aPc, final List<T> availableList,
-			final List<T> selectedList, final List<String> reservedList)
+	public List<T> doChooser(PlayerCharacterImpl aPc, final List<T> availableList,
+                             final List<T> selectedList, final List<String> reservedList)
 	{
 		int effectiveChoices = getNumEffectiveChoices(selectedList, reservedList, aPc);
 
@@ -194,7 +194,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 */
     @Override
 	public int getNumEffectiveChoices(final List<? extends T> selectedList,
-		final List<String> reservedList, PlayerCharacter aPc)
+		final List<String> reservedList, PlayerCharacterImpl aPc)
 	{
 		int selectedPoolValue = (selectedList.size() + (choicesPerUnitCost - 1))
 				/ choicesPerUnitCost;
@@ -233,8 +233,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	 * @param selectedList
 	 */
     @Override
-	public List<T> doChooserRemove(PlayerCharacter pc, List<T> availableList,
-			List<T> selectedList, List<String> reservedList)
+	public List<T> doChooserRemove(PlayerCharacterImpl pc, List<T> availableList,
+                                   List<T> selectedList, List<String> reservedList)
 	{
 		return doChooser(pc, availableList, selectedList, reservedList);
 	}
@@ -263,7 +263,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
     @Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver target, String choice)
 	{
 		if (choice.length() > 0)
 		{
@@ -288,7 +288,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver obj, T selection)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver obj, T selection)
 	{
 		info.removeChoice(pc, obj, selection);
 	}
@@ -300,7 +300,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	}
 
 	@Override
-	public void applyChoice(PlayerCharacter pc, ChooseDriver cdo, T selection)
+	public void applyChoice(PlayerCharacterImpl pc, ChooseDriver cdo, T selection)
 	{
 		info.getChoiceActor().applyChoice(cdo, selection, pc);
 	}

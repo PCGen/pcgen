@@ -24,7 +24,7 @@ import pcgen.cdom.facet.MasterAvailableSpellFacet;
 import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.cdom.reference.CDOMSingleRef;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
@@ -61,7 +61,7 @@ public class DomainListToken extends AbstractRestrictedSpellPrimitive
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Spell spell)
+	public boolean allow(PlayerCharacterImpl pc, Spell spell)
 	{
 		DomainSpellList list = spelllist.get();
 		DataSetID datasetID = pc.getCharID().getDatasetID();

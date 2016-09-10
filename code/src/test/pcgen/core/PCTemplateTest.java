@@ -155,7 +155,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(template);
 		assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
@@ -217,7 +217,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		//pc.getAutomaticAbilityList(AbilityCategory.FEAT);
@@ -293,7 +293,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(template);
 		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
@@ -376,7 +376,7 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(template);
 		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab1));

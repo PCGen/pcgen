@@ -29,7 +29,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 
 public class QualifiedName
@@ -48,7 +48,7 @@ public class QualifiedName
 	 *         the times the ability is applied e.g. " (3x)", or a list of the
 	 *         sub-choices e.g. " (Sub1, Sub2, ...)".
 	 */
-	public static String qualifiedName(PlayerCharacter pc, List<CNAbility> list)
+	public static String qualifiedName(PlayerCharacterImpl pc, List<CNAbility> list)
 	{
 		Ability a = AbilityUtilities.validateCNAList(list);
 		String outputName = OutputNameFormatting.getOutputName(a);
@@ -68,7 +68,7 @@ public class QualifiedName
 		return aStrBuf.toString();
 	}
 
-	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacter pc, 
+	private static <T> void processChooseInfo(StringBuilder aStrBuf, PlayerCharacterImpl pc,
 		ChooseInformation<T> chooseInfo, List<CNAbility> list)
 	{
 		List<T> allSelections = new ArrayList<>();
@@ -90,7 +90,7 @@ public class QualifiedName
 		}
 	}
 
-	public static String qualifiedName(PlayerCharacter pc, Skill s)
+	public static String qualifiedName(PlayerCharacterImpl pc, Skill s)
 	{
 		String outputName = OutputNameFormatting.getOutputName(s);
 		if (!pc.hasAssociations(s))

@@ -25,7 +25,7 @@ package plugin.exporttokens;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
@@ -56,7 +56,7 @@ public class SpellListTypeToken extends SpellListToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		StringBuilder retValue = new StringBuilder();

@@ -35,7 +35,7 @@ import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.util.CControl;
 import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.analysis.BonusCalc;
 
 public class TemplateModifier
@@ -52,7 +52,7 @@ public class TemplateModifier
 	 * 
 	 * @return a string explaining the Template
 	 */
-	public static String modifierString(PCTemplate pct, PlayerCharacter aPC)
+	public static String modifierString(PCTemplate pct, PlayerCharacterImpl aPC)
 	{
 		StringBuilder mods = new StringBuilder(50); // More likely to be
 		// true than 16

@@ -52,7 +52,7 @@ import pcgen.cdom.reference.ReferenceManufacturer;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.chooser.ChoiceManagerList;
 import pcgen.core.chooser.ChooserUtilities;
 import pcgen.persistence.lst.DeprecatedToken;
@@ -276,7 +276,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 
 	@Override
 	public void applyChoice(CDOMObject owner, CNAbilitySelection choice,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		CNAbility cna = choice.getCNAbility();
 		Ability anAbility = cna.getAbility();
@@ -309,7 +309,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 		pc.adjustAbilities(AbilityCategory.FEAT, new BigDecimal(-cost));
 	}
 
-	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacter pc,
+	private static <T> void remove(ChoiceManagerList<T> aMan, PlayerCharacterImpl pc,
 		ChooseDriver obj, String choice)
 	{
 		T sel = aMan.decodeChoice(choice);
@@ -317,7 +317,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public boolean allow(CNAbilitySelection choice, PlayerCharacter pc,
+	public boolean allow(CNAbilitySelection choice, PlayerCharacterImpl pc,
 			boolean allowStack)
 	{
 		// Only allow those already selected
@@ -368,8 +368,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void restoreChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                          CNAbilitySelection choice)
 	{
 		// String featName = choice.getAbilityKey();
 		// Ability aFeat = pc.getAbilityKeyed(AbilityCategory.FEAT,
@@ -378,8 +378,8 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, CDOMObject owner,
-		CNAbilitySelection choice)
+	public void removeChoice(PlayerCharacterImpl pc, CDOMObject owner,
+	                         CNAbilitySelection choice)
 	{
 		if (!pc.isImporting())
 		{

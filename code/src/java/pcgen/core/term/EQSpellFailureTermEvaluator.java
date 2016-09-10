@@ -27,7 +27,7 @@ package pcgen.core.term;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.util.Logging;
 
 public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -41,7 +41,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -50,7 +50,7 @@ public class EQSpellFailureTermEvaluator extends BaseEQTermEvaluator implements 
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		if (pc.hasControl(CControl.EQSPELLFAILURE))
 		{
 			Logging.errorPrint("EQSPELLFAIL term is disabled "

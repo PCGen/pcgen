@@ -27,7 +27,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.EquipSet;
 import freemarker.core.Environment;
 import freemarker.template.TemplateDirectiveBody;
@@ -48,13 +48,13 @@ import freemarker.template.TemplateModelException;
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {
-	private PlayerCharacter pc;
+	private PlayerCharacterImpl pc;
 
 	/**
 	 * Create a new instance of EquipSetLoopDirective
 	 * @param pc The character being exported.
 	 */
-	public EquipSetLoopDirective(PlayerCharacter pc)
+	public EquipSetLoopDirective(PlayerCharacterImpl pc)
 	{
 		super();
 		this.pc = pc;

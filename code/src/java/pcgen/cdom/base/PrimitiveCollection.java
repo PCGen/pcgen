@@ -21,7 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 
 import pcgen.cdom.enumeration.GroupingState;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public interface PrimitiveCollection<T>
 {
@@ -48,13 +48,13 @@ public interface PrimitiveCollection<T>
 		}
 
 		@Override
-		public Collection getCollection(PlayerCharacter pc, Converter c)
+		public Collection getCollection(PlayerCharacterImpl pc, Converter c)
 		{
 			return Collections.emptyList();
 		}
 	};
 
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c);
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc, Converter<T, R> c);
 
 	/**
 	 * Returns the GroupingState for this PrimitiveCollection. The GroupingState

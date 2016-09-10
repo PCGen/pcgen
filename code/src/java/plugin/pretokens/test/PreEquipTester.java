@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.WieldCategory;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractPrerequisiteTest;
@@ -51,7 +51,7 @@ public class PreEquipTester extends AbstractPrerequisiteTest implements Prerequi
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
-	public int passes(final Prerequisite prereq, final PlayerCharacter character, CDOMObject source)
+	public int passes(final Prerequisite prereq, final PlayerCharacterImpl character, CDOMObject source)
 		throws PrerequisiteException
 	{
 		int runningTotal = 0;

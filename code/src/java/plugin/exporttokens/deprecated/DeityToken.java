@@ -44,7 +44,7 @@ import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
 import pcgen.core.PCAlignment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.OutputNameFormatting;
@@ -88,7 +88,7 @@ public class DeityToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = "";

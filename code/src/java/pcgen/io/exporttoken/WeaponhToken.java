@@ -36,7 +36,7 @@ import pcgen.cdom.inst.EquipmentHead;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.WeaponProf;
 import pcgen.core.character.WieldCategory;
@@ -77,7 +77,7 @@ public class WeaponhToken extends WeaponToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		StringTokenizer aTok = new StringTokenizer(tokenSource, ".", false);

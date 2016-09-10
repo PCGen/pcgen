@@ -27,7 +27,7 @@ package pcgen.core.term;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Globals;
 import pcgen.core.PObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 
 public class PCCountSpellsKnownTermEvaluator
@@ -43,7 +43,7 @@ public class PCCountSpellsKnownTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Float count = 0f;
 

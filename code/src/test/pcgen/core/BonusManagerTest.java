@@ -65,7 +65,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		final BonusObj negBonus = Bonus.newBonus(context, "COMBAT|AC|-2|TYPE=Armor");
 		testObj.addToListFor(ListKey.BONUS, negBonus);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(testObj);
 		// Run the check a few times to ensure no randomness issues 
 		for (int i = 0; i < 10; i++)
@@ -89,7 +89,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		final BonusObj posBonus = Bonus.newBonus(context, "COMBAT|AC|5|TYPE=Armor");
 		testObj.addToListFor(ListKey.BONUS, posBonus);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(testObj);
 
 		// Run the check a few times to ensure no randomness issues 
@@ -117,7 +117,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		final BonusObj posBonus2 = Bonus.newBonus(context, "COMBAT|AC|4|TYPE=Armor");
 		testObj.addToListFor(ListKey.BONUS, posBonus2);
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.addTemplate(testObj);
 		
 		// Run the check a few times to ensure no randomness issues 

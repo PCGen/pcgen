@@ -36,7 +36,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.AbilityUtilities;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 
@@ -71,7 +71,7 @@ public class ChooserUtilities
 	 *         routine to build the list of choices without processing them.
 	 */
 	public static boolean modChoices(final ChooseDriver aPObject,
-	                                 List availableList, final List selectedList, final PlayerCharacter aPC,
+	                                 List availableList, final List selectedList, final PlayerCharacterImpl aPC,
 	                                 final boolean addIt, final AbilityCategory category)
 	{
 		availableList.clear();
@@ -107,7 +107,7 @@ public class ChooserUtilities
 	}
 
 	public static <T> ChoiceManagerList<T> getConfiguredController(
-			final ChooseDriver aPObject, final PlayerCharacter aPC,
+			final ChooseDriver aPObject, final PlayerCharacterImpl aPC,
 			final AbilityCategory category, List<String> reservedList)
 	{
 		ChoiceManagerList aMan = getChoiceManager(aPObject, aPC);
@@ -225,7 +225,7 @@ public class ChooserUtilities
 	 * @return an initialized ChoiceManager
 	 */
 	public static ChoiceManagerList getChoiceManager(ChooseDriver aPObject,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		ChooseInformation<?> chooseInfo = aPObject.getChooseInfo();
 		if (chooseInfo != null)

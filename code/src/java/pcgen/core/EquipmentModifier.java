@@ -68,7 +68,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 *
 	 * @return  returns all BonusObjs that are "active"
 	 */
-	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacter aPC)
+	public List<BonusObj> getActiveBonuses(final Equipment caller, final PlayerCharacterImpl aPC)
 	{
 		final List<BonusObj> aList = new ArrayList<>();
 
@@ -92,7 +92,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * as a stand-alone behavior.
 	 */
 	@Override
-	public List<BonusObj> getBonusList(PlayerCharacter pc)
+	public List<BonusObj> getBonusList(PlayerCharacterImpl pc)
 	{
 		throw new UnsupportedOperationException(
 			"Cannot resolve bonuses on EqMod via PlayerCharacter - requires Equipment");
@@ -191,7 +191,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @return  a list of strings representing Special properties to be
 	 * applied to the Equipment
 	 */
-	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacter pc)
+	public List<String> getSpecialProperties(final Equipment caller, final PlayerCharacterImpl pc)
 	{
 		final List<String> retList = new ArrayList<>();
 		for (SpecialProperty sp : getSafeListFor(ListKey.SPECIAL_PROPERTIES))
@@ -224,7 +224,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 	 * @return bonus
 	 */
 	public double bonusTo(
-		final PlayerCharacter  aPC,
+		final PlayerCharacterImpl aPC,
 		final String           aType,
 		final String           aName,
 		final Equipment obj)
@@ -272,7 +272,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getDisplayName();
 	}
 
-	public int getSR(Equipment parent, PlayerCharacter aPC)
+	public int getSR(Equipment parent, PlayerCharacterImpl aPC)
 	{
 		SpellResistance sr = get(ObjectKey.SR);
 		if (sr == null)

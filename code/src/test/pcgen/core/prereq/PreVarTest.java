@@ -21,7 +21,7 @@ import pcgen.core.Ability;
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.SpecialAbility;
 import pcgen.core.analysis.SkillModifier;
@@ -62,7 +62,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 	 */
 	public void testVarPass() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		PreVariableParser parser = new PreVariableParser();
 
@@ -84,7 +84,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 
 	public void testMutiplePositive() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, str, 10);
 		setPCStat(character, dex, 14);
 		character.calcActiveBonuses();
@@ -109,7 +109,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 
 	public void testMutipleNegative() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		setPCStat(character, str, 10);
 		setPCStat(character, dex, 14);
 		character.calcActiveBonuses();
@@ -148,7 +148,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 					"CLASS:NotAWarrior\tPREVARGTEQ:MyVar,1", se);
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
-			PlayerCharacter character = this.getCharacter();
+			PlayerCharacterImpl character = this.getCharacter();
 			assertFalse(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, warrior);
 			assertTrue(notawarrior.qualifies(character, notawarrior));
@@ -176,7 +176,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 					"file://test"));
 			loader.completeObject(context, se, spellcaster);
 			context.getReferenceContext().resolveReferences(null);
-			PlayerCharacter character = this.getCharacter();
+			PlayerCharacterImpl character = this.getCharacter();
 			setPCStat(character, intel, 16);
 			assertTrue(spellcaster.qualifies(character, spellcaster));
 		}
@@ -200,7 +200,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(spellcaster, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:BASESPELLSTAT,2");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		PlayerCharacter character = this.getCharacter();
+		PlayerCharacterImpl character = this.getCharacter();
 		setPCStat(character, intel, 16);
 		PCClassLoader loader = new PCClassLoader();
 		try
@@ -242,7 +242,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 					"file://test"));
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
-			PlayerCharacter character = this.getCharacter();
+			PlayerCharacterImpl character = this.getCharacter();
 			character.incrementClassLevel(1, notawarrior);
 			assertEquals(0, SkillModifier.modifier(concentration, character)
 					.intValue());
@@ -279,7 +279,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 					"file://test"));
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
-			PlayerCharacter character = this.getCharacter();
+			PlayerCharacterImpl character = this.getCharacter();
 			assertFalse(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior); //Fails
 			assertEquals(0, SkillModifier.modifier(concentration, character)
@@ -307,7 +307,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(level1, "SAB",
 				"Test Works|PREVARGTEQ:CL,3");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		PlayerCharacter character = this.getCharacter();
+		PlayerCharacterImpl character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
 		try
@@ -340,7 +340,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(warrior, "SAB",
 				"Test Works|PREVARGTEQ:CL,2");
 		assertTrue(context.getReferenceContext().resolveReferences(null));
-		PlayerCharacter character = this.getCharacter();
+		PlayerCharacterImpl character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
 		try

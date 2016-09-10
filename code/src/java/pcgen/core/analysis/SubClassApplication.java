@@ -28,7 +28,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpellProhibitor;
 import pcgen.core.SubClass;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
@@ -43,7 +43,7 @@ import pcgen.util.enumeration.ProhibitedSpellType;
 public class SubClassApplication
 {
 
-	public static void checkForSubClass(PlayerCharacter aPC, PCClass cl)
+	public static void checkForSubClass(PlayerCharacterImpl aPC, PCClass cl)
 	{
 		List<SubClass> subClassList = cl.getListFor(ListKey.SUB_CLASS);
 		if (subClassList == null || subClassList.isEmpty())
@@ -196,7 +196,7 @@ public class SubClassApplication
 		}
 	}
 
-	public static void setSubClassKey(PlayerCharacter pc, PCClass cl, final String aKey)
+	public static void setSubClassKey(PlayerCharacterImpl pc, PCClass cl, final String aKey)
 	{
 		if (aKey == null || cl == null)
 		{

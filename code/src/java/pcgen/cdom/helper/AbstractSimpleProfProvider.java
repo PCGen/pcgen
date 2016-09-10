@@ -18,7 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.cdom.base.CDOMObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A AbstractSimpleProfProvider is an object that provides proficiency based on
@@ -80,7 +80,7 @@ public abstract class AbstractSimpleProfProvider<T extends CDOMObject>
 	 */
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public boolean qualifies(PlayerCharacter playerCharacter, Object owner)
+	public boolean qualifies(PlayerCharacterImpl playerCharacter, Object owner)
 	{
 		return true;
 	}

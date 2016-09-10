@@ -27,7 +27,7 @@ import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.character.EquipSet;
 
@@ -52,7 +52,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	@Test
 	public void testDefaultEquipSet()
 	{
-		PlayerCharacter pc = new PlayerCharacter();
+		PlayerCharacterImpl pc = new PlayerCharacterImpl();
 		CharacterFacadeImpl charFacade =
 				new CharacterFacadeImpl(pc, uiDelegate, dataset);
 		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);

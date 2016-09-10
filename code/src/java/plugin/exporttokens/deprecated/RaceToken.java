@@ -30,7 +30,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SpecialAbility;
@@ -64,7 +64,7 @@ public class RaceToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		String retString = Constants.EMPTY_STRING;
@@ -124,7 +124,7 @@ public class RaceToken extends Token
 		return returnString.toString();
 	}
 
-	private static String getRaceToken(PlayerCharacter pc)
+	private static String getRaceToken(PlayerCharacterImpl pc)
 	{
 		String retString = Constants.EMPTY_STRING;
 

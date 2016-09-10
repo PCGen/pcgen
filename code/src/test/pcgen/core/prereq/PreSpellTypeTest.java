@@ -32,7 +32,7 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
@@ -121,7 +121,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.GTEQ);
 		prereq.setOperand("2");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
@@ -134,7 +134,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 	public void testTwoType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESPELLTYPE:2,Arcane=2,Divine=2");
@@ -149,7 +149,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 	public void testTwoClassType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESPELLTYPE:3,Arcane=2,Divine=2");
@@ -177,7 +177,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.LT);
 		prereq.setOperand("2");
 
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
 		assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
@@ -190,7 +190,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 	public void testNotTwoType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("!PRESPELLTYPE:2,Arcane=2,Divine=2");
@@ -205,7 +205,7 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 	public void testNotTwoClassType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("!PRESPELLTYPE:3,Arcane=2,Divine=2");

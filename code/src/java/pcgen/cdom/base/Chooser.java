@@ -20,6 +20,7 @@ package pcgen.cdom.base;
 import java.util.List;
 
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * A Chooser is designed to be saved and restored with a PlayerCharacter. This
@@ -47,7 +48,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being restored to the given PlayerCharacter.
 	 */
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item);
 
 	/**
 	 * Removes a choice from a PlayerCharacter.
@@ -59,7 +60,7 @@ public interface Chooser<T> extends Persistent<T>
 	 * @param item
 	 *            The choice being removed from the given PlayerCharacter.
 	 */
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item);
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, T item);
 
 	/**
 	 * Applies the given choice to the given PlayerCharacter.
@@ -72,7 +73,7 @@ public interface Chooser<T> extends Persistent<T>
 	 *            The PlayerCharacter to which the given choice should be
 	 *            applied.
 	 */
-	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc);
+	public void applyChoice(ChooseDriver owner, T item, PlayerCharacterImpl pc);
 
 	/**
 	 * Returns true if the given choice should be allowed for the
@@ -108,5 +109,5 @@ public interface Chooser<T> extends Persistent<T>
 	 *            being returned.
 	 */
 	public List<? extends T> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc);
+		PlayerCharacterImpl pc);
 }

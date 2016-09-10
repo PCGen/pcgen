@@ -170,7 +170,7 @@ public class Description extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getDescription( final PlayerCharacter aPC, List<? extends Object> objList )
+	public String getDescription(final PlayerCharacterImpl aPC, List<? extends Object> objList )
 	{
 		if (objList.size() == 0)
 		{

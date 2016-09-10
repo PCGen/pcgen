@@ -79,7 +79,7 @@ public class QualifiedObject<T> extends ConcretePrereqObject implements Qualifyi
 	 * @param owner TODO
      * @return qualifying object
 	 */
-    public T getObject( final PlayerCharacter aPC, CDOMObject owner )
+    public T getObject(final PlayerCharacterImpl aPC, CDOMObject owner )
 	{
 		if (aPC == null || qualifies(aPC, owner))
 		{

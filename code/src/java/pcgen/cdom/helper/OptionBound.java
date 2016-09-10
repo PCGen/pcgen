@@ -18,7 +18,7 @@
 package pcgen.cdom.helper;
 
 import pcgen.base.formula.Formula;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * An OptionBound represents a range of values between two Formulas. This range
@@ -73,7 +73,7 @@ public class OptionBound
 	 *         (inclusive) when the bounds are resolved within the context of
 	 *         the given PlayerCharacter; false otherwise.
 	 */
-	public boolean isOption(PlayerCharacter pc, int value)
+	public boolean isOption(PlayerCharacterImpl pc, int value)
 	{
 		return (minOption == null || minOption.resolve(pc, "").intValue() <= value)
 				&& (maxOption == null || maxOption.resolve(pc, "").intValue() >= value);

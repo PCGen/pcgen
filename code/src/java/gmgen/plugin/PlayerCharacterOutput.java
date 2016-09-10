@@ -45,7 +45,7 @@ import pcgen.core.PCAlignment;
 import pcgen.core.PCCheck;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.analysis.QualifiedName;
 import pcgen.core.display.CharacterDisplay;
@@ -61,10 +61,10 @@ import pcgen.util.enumeration.AttackType;
  */
 public class PlayerCharacterOutput
 {
-	private PlayerCharacter pc;
+	private PlayerCharacterImpl pc;
 	private CharacterDisplay display;
 
-	public PlayerCharacterOutput(PlayerCharacter pc)
+	public PlayerCharacterOutput(PlayerCharacterImpl pc)
 	{
 		this.pc = pc;
 		this.display = pc == null ? null : pc.getDisplay();

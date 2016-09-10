@@ -94,7 +94,7 @@ public class SpellSupportForPCClass
 	 * @return the highest level of spells that this class can cast, or -1 if
 	 *         this class can not cast spells
 	 */
-	public int getMaxCastLevel(PlayerCharacter aPC)
+	public int getMaxCastLevel(PlayerCharacterImpl aPC)
 	{
 		if (castForLevelMap == null)
 		{
@@ -134,7 +134,7 @@ public class SpellSupportForPCClass
 	 * @param aPC The character to be checked.
 	 * @return true if the character can cast spells for this class, false if not.
 	 */
-	public boolean canCastSpells(PlayerCharacter aPC)
+	public boolean canCastSpells(PlayerCharacterImpl aPC)
 	{
 		if (!updateSpellCache(false) || !spellCache.hasCastProgression())
 		{
@@ -155,7 +155,7 @@ public class SpellSupportForPCClass
 		
 	}
 	
-	public int getKnownForLevel(int spellLevel, PlayerCharacter aPC)
+	public int getKnownForLevel(int spellLevel, PlayerCharacterImpl aPC)
 	{
 		int total = 0;
 		int stat = 0;
@@ -306,7 +306,7 @@ public class SpellSupportForPCClass
 		return updateSpellCache(false) && spellCache.hasKnownProgression();
 	}
 
-	public int getSpecialtyKnownForLevel(int spellLevel, PlayerCharacter aPC)
+	public int getSpecialtyKnownForLevel(int spellLevel, PlayerCharacterImpl aPC)
 	{
 		int total;
 		total = (int) aPC.getTotalBonusTo("SPECIALTYSPELLKNOWN", "CLASS."
@@ -398,7 +398,7 @@ public class SpellSupportForPCClass
 	 * PCCLASSLEVELONLY This calculation is dependent upon the class level and
 	 * is therefore appropriate only for PCClassLevel
 	 */
-	void calcCastPerDayMapForLevel(final PlayerCharacter aPC)
+	void calcCastPerDayMapForLevel(final PlayerCharacterImpl aPC)
 	{
 		//
 		// TODO: Shouldn't we be using Globals.getLevelInfo().size() instead of
@@ -417,7 +417,7 @@ public class SpellSupportForPCClass
 	}
 
 	public boolean isAutoKnownSpell(Spell aSpell, int spellLevel,
-			boolean useMap, PlayerCharacter aPC)
+			boolean useMap, PlayerCharacterImpl aPC)
 	{
 		List<KnownSpellIdentifier> knownSpellsList = source.getListFor(ListKey.KNOWN_SPELLS);
 		if (knownSpellsList == null)
@@ -456,7 +456,7 @@ public class SpellSupportForPCClass
 	}
 
 	public int getNumFromCastList(int iCasterLevel, int iSpellLevel,
-			PlayerCharacter aPC)
+			PlayerCharacterImpl aPC)
 	{
 		if (iCasterLevel == 0)
 		{
@@ -472,14 +472,14 @@ public class SpellSupportForPCClass
 		return castListForLevel.get(iSpellLevel).resolve(aPC, "").intValue();
 	}
 
-	public int getCastForLevel(int spellLevel, PlayerCharacter aPC)
+	public int getCastForLevel(int spellLevel, PlayerCharacterImpl aPC)
 	{
 		return getCastForLevel(spellLevel, Globals.getDefaultSpellBook(), true,
 				true, aPC);
 	}
 
 	public int getCastForLevel(int spellLevel, String bookName,
-			boolean includeAdj, boolean limitByStat, PlayerCharacter aPC)
+			boolean includeAdj, boolean limitByStat, PlayerCharacterImpl aPC)
 	{
 		int pcLevel = aPC.getLevel(source);
 		int total = 0;
@@ -662,7 +662,7 @@ public class SpellSupportForPCClass
 		return total;
 	}
 
-	public int getHighestLevelSpell(PlayerCharacter pc)
+	public int getHighestLevelSpell(PlayerCharacterImpl pc)
 	{
 		final String classKeyName = "CLASS." + source.getKeyName();
 		int mapHigh = getHighestLevelSpell();
@@ -684,7 +684,7 @@ public class SpellSupportForPCClass
 	}
 
 	public String getBonusCastForLevelString(int spellLevel, String bookName,
-			PlayerCharacter aPC)
+			PlayerCharacterImpl aPC)
 	{
 		if (getCastForLevel(spellLevel, bookName, true, true, aPC) > 0)
 		{
@@ -726,7 +726,7 @@ public class SpellSupportForPCClass
 		return "";
 	}
 
-	public boolean hasKnownSpells(PlayerCharacter aPC)
+	public boolean hasKnownSpells(PlayerCharacterImpl aPC)
 	{
 		for (int i = 0; i <= getHighestLevelSpell(); i++)
 		{

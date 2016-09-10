@@ -24,8 +24,8 @@
 
 package pcgen.core.term;
 
-import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.FormulaKey;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCRaceSizeTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator
@@ -36,7 +36,7 @@ public class PCRaceSizeTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return pc.getDisplay().getRace().getSafe(FormulaKey.SIZE).resolve(pc, "").floatValue();
 	}

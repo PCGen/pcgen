@@ -133,7 +133,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param  thingsToAdd  The list of things that will be added by this kit
 	 *                      wrapped in KitWrapper objects
 	 */
-	public void processKit(final PlayerCharacter pc,
+	public void processKit(final PlayerCharacterImpl pc,
 		final List<BaseKit> thingsToAdd)
 	{
 		processKit(pc, thingsToAdd, -1);
@@ -150,7 +150,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param  kitNo        An integer that will be used to set the kit number
 	 *                      in items of equipment added by this kit
 	 */
-	public void processKit(final PlayerCharacter pc,
+	public void processKit(final PlayerCharacterImpl pc,
 		final List<BaseKit> thingsToAdd, final int kitNo)
 	{
 		BigDecimal totalCostToBeCharged = getTotalCostToBeCharged(pc);
@@ -182,7 +182,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param	aPC The character used to evaluate expressions in relation to
 	 * @return  String
 	 */
-	public int getBuyRate(PlayerCharacter aPC)
+	public int getBuyRate(PlayerCharacterImpl aPC)
 	{
 		QualifiedObject<Formula> buy = get(ObjectKey.EQUIP_BUY);
 		Formula f = (buy == null ? null : buy.getObject(aPC, this));
@@ -210,7 +210,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param	aPC The character used to evaluate expressions in relation to
 	 * @return  total cost, or null if no total cost was specified.
 	 */
-	public BigDecimal getTotalCost(PlayerCharacter aPC)
+	public BigDecimal getTotalCost(PlayerCharacterImpl aPC)
 	{
 		QualifiedObject<Formula> buy = get(ObjectKey.KIT_TOTAL_COST);
 		Formula f = (buy == null ? null : buy.getObject(aPC, this));
@@ -229,7 +229,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param	aPC The character used to evaluate expressions in relation to
 	 * @return  Cost to be charged, or null if no total cost was specified.
 	 */
-	public BigDecimal getTotalCostToBeCharged(PlayerCharacter aPC)
+	public BigDecimal getTotalCostToBeCharged(PlayerCharacterImpl aPC)
 	{
 		BigDecimal theCost = null; 
 		BigDecimal fixedTotalCost = getTotalCost(aPC);
@@ -254,7 +254,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 *
 	 * @return  Whether the kit is visible
 	 */
-	public boolean isVisible(PlayerCharacter aPC, View v)
+	public boolean isVisible(PlayerCharacterImpl aPC, View v)
 	{
 		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);
 		if (kitVisible == Visibility.QUALIFY)
@@ -302,7 +302,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
-		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();
+		PlayerCharacterImpl tempPC = subkit ? aPC : aPC.clone();
 		
 		for (KitStat kStat : getStats())
 		{
@@ -360,7 +360,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 * @param aPC the PC this kit is being applied to.
 	 * @return the Kit info for this PC
 	 */
-	public String getInfo(PlayerCharacter aPC)
+	public String getInfo(PlayerCharacterImpl aPC)
 	{
 		StringBuilder info = new StringBuilder(255);
 		info.append("<html>");
@@ -405,13 +405,13 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return info.toString();
 	}
 
-	private String getPreReqHTMLStrings(PlayerCharacter aPC)
+	private String getPreReqHTMLStrings(PlayerCharacterImpl aPC)
 	{
 		return PrerequisiteUtilities.preReqHTMLStringsForList(aPC, this,
 			getPrerequisiteList(), false);
 	}
 
-	public static void applyKit(final Kit aKit, final PlayerCharacter aPC)
+	public static void applyKit(final Kit aKit, final PlayerCharacterImpl aPC)
 	{
 		if (aKit == null)
 		{

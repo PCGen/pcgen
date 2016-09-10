@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
@@ -164,7 +164,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, T choice, PlayerCharacterImpl pc)
 	{
 		Ability ab = ability.get();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
@@ -172,7 +172,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 	
 	private void detailedApply(ChooseDriver obj, ChooseInformation<T> ci,
-		T choice, PlayerCharacter pc)
+		T choice, PlayerCharacterImpl pc)
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(
@@ -194,7 +194,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, T choice, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, T choice, PlayerCharacterImpl pc)
 	{
 		Ability ab = ability.get();
 		ChooseInformation ci = ab.get(ObjectKey.CHOOSE_INFO);
@@ -202,7 +202,7 @@ public class AbilityTargetSelector<T> extends ConcretePrereqObject implements
 	}
 	
 	private void detailedRemove(ChooseDriver obj, ChooseInformation<T> ci,
-		T choice, PlayerCharacter pc)
+		T choice, PlayerCharacterImpl pc)
 	{
 		String string = ci.encodeChoice(choice);
 		CNAbilitySelection appliedSelection = new CNAbilitySelection(

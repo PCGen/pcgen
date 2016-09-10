@@ -24,14 +24,14 @@ import java.util.Set;
 import pcgen.base.util.ObjectContainer;
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveFilter;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class DereferencingConverter<T> implements Converter<T, T>
 {
 
-	private final PlayerCharacter character;
+	private final PlayerCharacterImpl character;
 
-	public DereferencingConverter(PlayerCharacter pc)
+	public DereferencingConverter(PlayerCharacterImpl pc)
 	{
 		character = pc;
 	}

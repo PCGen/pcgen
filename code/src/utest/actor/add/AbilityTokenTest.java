@@ -26,7 +26,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.Language;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
@@ -127,7 +127,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 			fail();
 		}
 		finishLoad(context);
-		PlayerCharacter pc = new PlayerCharacter();
+		PlayerCharacterImpl pc = new PlayerCharacterImpl();
 		Object source = UserSelection.getInstance();
 		
 		CNAbilitySelection badCACAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(oc, Nature.AUTOMATIC, badCA), "Foo");

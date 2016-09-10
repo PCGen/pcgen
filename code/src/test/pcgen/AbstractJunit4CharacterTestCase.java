@@ -49,7 +49,7 @@ import pcgen.core.LevelInfo;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.core.SystemCollections;
@@ -70,7 +70,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 @SuppressWarnings("nls")
 abstract public class AbstractJunit4CharacterTestCase
 {
-	private PlayerCharacter character = null;
+	private PlayerCharacterImpl character = null;
 	protected PCStat str;
 	protected PCStat cha;
 	protected PCStat dex;
@@ -226,7 +226,7 @@ abstract public class AbstractJunit4CharacterTestCase
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
 
-		character = new PlayerCharacter();
+		character = new PlayerCharacterImpl();
 	}
 
 	protected void additionalSetUp() throws Exception
@@ -256,7 +256,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	/**
 	 * @return Returns the character.
 	 */
-	public PlayerCharacter getCharacter()
+	public PlayerCharacterImpl getCharacter()
 	{
 		return character;
 	}
@@ -264,7 +264,7 @@ abstract public class AbstractJunit4CharacterTestCase
 	/**
 	 * @param aCharacter The character to set.
 	 */
-	public void setCharacter(final PlayerCharacter aCharacter)
+	public void setCharacter(final PlayerCharacterImpl aCharacter)
 	{
 		this.character = aCharacter;
 	}
@@ -276,13 +276,13 @@ abstract public class AbstractJunit4CharacterTestCase
 	 * @param statName The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
-	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
-			final int value)
+	public void setPCStat(final PlayerCharacterImpl pc, final PCStat stat,
+	                      final int value)
 	{
 		pc.setStat(stat,  value);
 	}
 
-	public static CNAbility applyAbility(PlayerCharacter character,
+	public static CNAbility applyAbility(PlayerCharacterImpl character,
 		AbilityCategory cat, Ability a, String assoc)
 	{
 		if (a.getCDOMCategory() == null)

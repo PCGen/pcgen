@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Set;
 
 import pcgen.base.util.ListSet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteUtilities;
@@ -262,7 +262,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 	 * 
 	 * @return <tt>true</tt> if the PC passes all the prerequisites.
 	 */
-	public boolean qualifies(final PlayerCharacter aPC, Object owner)
+	public boolean qualifies(final PlayerCharacterImpl aPC, Object owner)
 	{
 		return !hasPrerequisites()
 				|| PrereqHandler.passesAll(getPrerequisiteList(), aPC, owner);

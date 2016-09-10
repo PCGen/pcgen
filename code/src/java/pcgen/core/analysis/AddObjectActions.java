@@ -26,12 +26,12 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class AddObjectActions
 {
 
-	public static void doBaseChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void doBaseChecks(CDOMObject po, final PlayerCharacterImpl aPC)
 	{
 		aPC.setDirty(true);
 		for (TransitionChoice<Kit> kit : po.getSafeListFor(ListKey.KIT_CHOICE))
@@ -45,7 +45,7 @@ public class AddObjectActions
 		}
 	}
 
-	public static void globalChecks(CDOMObject po, final PlayerCharacter aPC)
+	public static void globalChecks(CDOMObject po, final PlayerCharacterImpl aPC)
 	{
 		doBaseChecks(po, aPC);
 		CDOMObjectUtilities.addAdds(po, aPC);

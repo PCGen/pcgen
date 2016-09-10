@@ -29,7 +29,7 @@ import pcgen.base.lang.ObjectUtil;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.PointBuyMethod;
 import pcgen.core.SettingsHandler;
 import pcgen.core.bonus.BonusObj;
@@ -123,7 +123,7 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @param  arg  the number of skill points gained
 	 */
-	public void setSkillPointsGained(PlayerCharacter aPC, final int arg)
+	public void setSkillPointsGained(PlayerCharacterImpl aPC, final int arg)
 	{
 		final int bonusPoints = getBonusSkillPool(aPC);
 		setFixedSkillPointsGained(arg + bonusPoints);
@@ -133,7 +133,7 @@ public final class PCLevelInfo implements Cloneable
 	 * @param pc TODO
 	 * @return  the number of skill points gained
 	 */
-	public int getSkillPointsGained(PlayerCharacter pc)
+	public int getSkillPointsGained(PlayerCharacterImpl pc)
 	{
 		// If this information in not saved on PCG, then try to recalc it
 		if ((skillPointsGained == Integer.MIN_VALUE) && (classKeyName.length() > 0))
@@ -270,7 +270,7 @@ public final class PCLevelInfo implements Cloneable
 	 *
 	 * @return  the number of bonus skill points added by this level
 	 */
-	private int getBonusSkillPool(PlayerCharacter aPC)
+	private int getBonusSkillPool(PlayerCharacterImpl aPC)
 	{
 		int           returnValue = 0;
 		final PCClass aClass      = aPC.getClassKeyed(classKeyName);

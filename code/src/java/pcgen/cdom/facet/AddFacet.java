@@ -27,7 +27,7 @@ import pcgen.cdom.facet.model.DeityFacet;
 import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * AddFacet is a Facet that triggers when an object has an ADD token
@@ -66,7 +66,7 @@ public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		if (!aPC.isImporting())
 		{
 			CDOMObjectUtilities.addAdds(dfce.getCDOMObject(), aPC);
@@ -90,7 +90,7 @@ public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
 	{
 		CharID id = dfce.getCharID();
-		PlayerCharacter aPC = trackingFacet.getPC(id);
+		PlayerCharacterImpl aPC = trackingFacet.getPC(id);
 		if (!aPC.isImporting())
 		{
 			CDOMObjectUtilities.removeAdds(dfce.getCDOMObject(), aPC);

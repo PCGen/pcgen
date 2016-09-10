@@ -33,7 +33,7 @@ import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.core.Ability;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.EntityEncoder;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.util.Logging;
@@ -240,7 +240,7 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return The fully substituted description string.
 	 */
-	public String getAspectText(final PlayerCharacter aPC,
+	public String getAspectText(final PlayerCharacterImpl aPC,
 		List<CNAbility> abilities)
 	{
 		final StringBuilder buf = new StringBuilder(50);
@@ -388,8 +388,8 @@ public class Aspect extends ConcretePrereqObject
 			&& (theVariables == null || theVariables.equals(other.theVariables));
 	}
 
-	public static String printAspect(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities, boolean printName)
+	public static String printAspect(PlayerCharacterImpl pc, AspectName key,
+	                                 List<CNAbility> abilities, boolean printName)
 	{
 		if (abilities.size() == 0)
 		{
@@ -410,20 +410,20 @@ public class Aspect extends ConcretePrereqObject
 		return buff.toString();
 	}
 
-	public static String printAspect(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities)
+	public static String printAspect(PlayerCharacterImpl pc, AspectName key,
+	                                 List<CNAbility> abilities)
 	{
 		return printAspect(pc, key, abilities, true);
 	}
 
-	public static String printAspectValue(PlayerCharacter pc, AspectName key,
-		List<CNAbility> abilities)
+	public static String printAspectValue(PlayerCharacterImpl pc, AspectName key,
+	                                      List<CNAbility> abilities)
 	{
 		return printAspect(pc, key, abilities, false);
 	}
 
 	public static Aspect lastPassingAspect(List<Aspect> aspects,
-		PlayerCharacter pc, Ability a)
+	                                       PlayerCharacterImpl pc, Ability a)
 	{
 		Aspect retAspect = null;
 		if (aspects != null)

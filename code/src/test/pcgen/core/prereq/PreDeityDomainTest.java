@@ -31,7 +31,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -64,7 +64,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 	 */
 	public void testSingle() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 
@@ -89,7 +89,7 @@ public class PreDeityDomainTest extends AbstractCharacterTestCase
 
 	public void testMultiple() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		Prerequisite prereq;
 

@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 
 /**
@@ -73,7 +73,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testFail() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -97,7 +97,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testNeqFails() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -121,7 +121,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testNeqPasses() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -145,7 +145,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPass() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -168,7 +168,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPassServesAsName() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -194,7 +194,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	public void testRaceTypeEq()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -213,7 +213,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	
 	public void testRaceTypeNeq()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -241,7 +241,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPassServesAsRaceSubType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -302,7 +302,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPassServesAsRaceType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -347,7 +347,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPassServesAsType() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");
@@ -389,7 +389,7 @@ public class PreRaceTest extends AbstractCharacterTestCase
 	 */
 	public void testPassServesAsNameWildcard()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Race race = new Race();
 		race.setName("Human");

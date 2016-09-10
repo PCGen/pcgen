@@ -23,7 +23,7 @@ package pcgen.core.prereq;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Deity;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
 import plugin.lsttokens.testsupport.BuildUtilities;
@@ -51,7 +51,7 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 	 */
 	public void testFact() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		Deity deity = new Deity();
 		BuildUtilities.addToFactSet(deity, "PANTHEON", "Greek");
 		BuildUtilities.addToFactSet(deity, "PANTHEON", "War");

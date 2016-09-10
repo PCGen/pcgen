@@ -31,7 +31,7 @@ import pcgen.core.Globals;
 import pcgen.core.LevelInfo;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
@@ -72,7 +72,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		final LevelInfo levelInfo = new LevelInfo();
 		levelInfo.setLevelString("LEVEL");
@@ -184,7 +184,7 @@ public class SkillSitTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testSkillToken()
 	{
-		PlayerCharacter character = getCharacter();
+		PlayerCharacterImpl character = getCharacter();
 
 		SkillSitToken token = new SkillSitToken();
 

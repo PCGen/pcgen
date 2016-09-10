@@ -19,7 +19,7 @@ package pcgen.cdom.base;
 
 import pcgen.base.formula.Formula;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * JEPFormula is a variable-value Formula designed to be run through the JEP
@@ -93,7 +93,7 @@ public class JEPFormula implements Formula
 	 *             if the given PlayerCharacter is null
 	 */
 	@Override
-	public Float resolve(PlayerCharacter character, String source)
+	public Float resolve(PlayerCharacterImpl character, String source)
 	{
 		return character.getVariableValue(formula, source);
 	}
@@ -133,7 +133,7 @@ public class JEPFormula implements Formula
 	 */
 	@Override
 	public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter pc, String source)
+	                      PlayerCharacterImpl pc, String source)
 	{
 		return equipment.getVariableValue(formula, source, primary, pc);
 	}

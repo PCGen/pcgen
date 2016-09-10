@@ -34,7 +34,7 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityUtilities;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
@@ -65,7 +65,7 @@ public final class PrereqHandler
 	 */
 	public static boolean passesAll(
 		final Collection<Prerequisite> prereqList,
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		final Object caller)
 	{
 		if (prereqList == null || prereqList.isEmpty())
@@ -108,7 +108,7 @@ public final class PrereqHandler
 	public static boolean passesAll(
 		final Collection<Prerequisite> prereqList,
 		final Equipment equip,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		if (prereqList == null)
 		{
@@ -133,7 +133,7 @@ public final class PrereqHandler
 	 */
 	public static boolean passes(
 		final Prerequisite prereq,
-		final PlayerCharacter aPC,
+		final PlayerCharacterImpl aPC,
 		final Object caller)
 	{
 		if (aPC == null && prereq.isCharacterRequired())
@@ -199,7 +199,7 @@ public final class PrereqHandler
 	public static boolean passes(
 		final Prerequisite preReq,
 		final Equipment equip,
-		PlayerCharacter aPC)
+		PlayerCharacterImpl aPC)
 	{
 		if (equip == null)
 		{

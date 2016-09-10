@@ -25,7 +25,7 @@ import pcgen.cdom.base.PrimitiveFilter;
 import pcgen.cdom.enumeration.EqWield;
 import pcgen.cdom.enumeration.GroupingState;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
@@ -92,7 +92,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, Equipment eq)
+	public boolean allow(PlayerCharacterImpl pc, Equipment eq)
 	{
 		return category.checkWield(pc, eq);
 	}
@@ -125,7 +125,7 @@ public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveF
 	}
 
 	@Override
-	public <R> Collection<? extends R> getCollection(PlayerCharacter pc,
+	public <R> Collection<? extends R> getCollection(PlayerCharacterImpl pc,
 			Converter<Equipment, R> c)
 	{
 		return c.convert(allEquipment, this);

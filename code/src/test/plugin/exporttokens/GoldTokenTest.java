@@ -28,7 +28,7 @@ import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.SourceFileLoader;
 import plugin.exporttokens.deprecated.GoldToken;
 
@@ -51,7 +51,7 @@ public class GoldTokenTest extends AbstractCharacterTestCase
 	public void testGetToken()
 	{
 		SourceFileLoader.createLangBonusObject(Globals.getContext());
-		PlayerCharacter pc = super.getCharacter();
+		PlayerCharacterImpl pc = super.getCharacter();
 		assertEquals("No money", "0", goldToken.getToken("", pc, null));
 		
 		pc.setGold(new BigDecimal("500"));

@@ -53,7 +53,7 @@ import pcgen.core.AbilityCategory;
 import pcgen.core.Equipment;
 import pcgen.core.GameMode;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SpecialAbility;
 import pcgen.core.character.EquipSet;
 import pcgen.facade.core.CampaignFacade;
@@ -118,7 +118,7 @@ public final class PCGIOHandler extends IOHandler
 	}
 
 	public static void buildSALIST(String aChoice, List<String> aAvailable,
-								   List<String> aBonus, final PlayerCharacter currentPC)
+								   List<String> aBonus, final PlayerCharacterImpl currentPC)
 	{
 		// SALIST:Smite|VAR|%|1
 		// SALIST:Turn ,Rebuke|VAR|%|1
@@ -206,8 +206,8 @@ public final class PCGIOHandler extends IOHandler
 	 * @param validate
 	 */
     @Override
-	public void read(PlayerCharacter pcToBeRead, InputStream in,
-					 final boolean validate)
+	public void read(PlayerCharacterImpl pcToBeRead, InputStream in,
+                     final boolean validate)
 	{
 		warnings.clear();
 
@@ -325,7 +325,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param out           the stream to be written to
 	 */
     @Override
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
+	public void write(PlayerCharacterImpl pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, OutputStream out)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
@@ -371,7 +371,7 @@ public final class PCGIOHandler extends IOHandler
 	 * @param campaigns     The character's sources.
 	 * @param outFile       The file to write the character to.
 	 */
-	public void write(PlayerCharacter pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
+	public void write(PlayerCharacterImpl pcToBeWritten, GameMode mode, List<CampaignFacade> campaigns, File outFile)
 	{
 		final String pcgString;
 		pcgString = (new PCGVer2Creator(pcToBeWritten, mode, campaigns)).createPCGString();
@@ -417,7 +417,7 @@ public final class PCGIOHandler extends IOHandler
 	 * private helper methods
 	 * ###############################################################
 	 */
-	private void sanityChecks(PlayerCharacter currentPC, PCGParser parser)
+	private void sanityChecks(PlayerCharacterImpl currentPC, PCGParser parser)
 	{
 		// Hit point sanity check
 		boolean fixMade = false;
@@ -533,7 +533,7 @@ public final class PCGIOHandler extends IOHandler
 	 * 
 	 * @param currentPC The character being loaded.
 	 */
-	private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
+	private void resolveDuplicateEquipmentSets(PlayerCharacterImpl currentPC)
 	{
 		boolean anyMoved = false;
 		List<EquipSet> equipSetList =

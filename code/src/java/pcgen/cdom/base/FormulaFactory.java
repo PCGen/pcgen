@@ -27,7 +27,7 @@ import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * FormulaFactory is a utility class which creates Formula objects based on the
@@ -173,7 +173,7 @@ public final class FormulaFactory
 		 * @return the Number in this NumberFormula.
 		 */
 		@Override
-		public Number resolve(PlayerCharacter pc, String source)
+		public Number resolve(PlayerCharacterImpl pc, String source)
 		{
 			return number;
 		}
@@ -186,7 +186,7 @@ public final class FormulaFactory
 		 */
 		@Override
 		public Number resolve(Equipment equipment, boolean primary,
-			PlayerCharacter pc, String source)
+		                      PlayerCharacterImpl pc, String source)
 		{
 			return number;
 		}

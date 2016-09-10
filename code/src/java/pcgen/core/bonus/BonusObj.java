@@ -35,7 +35,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.QualifyingObject;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.utils.CoreUtility;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.LoadContext;
@@ -243,7 +243,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 * @param string 
 	 * @return bonus value as a double
 	 */
-	public Number resolve(PlayerCharacter pc, String string)
+	public Number resolve(PlayerCharacterImpl pc, String string)
 	{
 		return bonusFormula.resolve(pc, string);
 	}

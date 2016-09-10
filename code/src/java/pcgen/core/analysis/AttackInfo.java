@@ -23,7 +23,7 @@
  */
 package pcgen.core.analysis;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.util.Delta;
 import pcgen.util.enumeration.AttackType;
@@ -44,8 +44,8 @@ public class AttackInfo
 	 *                  SIZE, STAT, TOTAL or an empty string
 	 * @return The token value.
 	 */
-	public static String getAttackInfo(PlayerCharacter pc, AttackType attackType,
-		String modifier)
+	public static String getAttackInfo(PlayerCharacterImpl pc, AttackType attackType,
+	                                   String modifier)
 	{
 		if (modifier.equals("TOTAL"))
 		{
@@ -76,7 +76,7 @@ public class AttackInfo
 	 * @param at
 	 * @return total ATTACK token
 	 */
-	public static int getTotalToken(PlayerCharacter pc, AttackType at)
+	public static int getTotalToken(PlayerCharacterImpl pc, AttackType at)
 	{
 		final int tohitBonus =
 				(int) pc.getTotalBonusTo("TOHIT", "TOHIT")
@@ -87,8 +87,8 @@ public class AttackInfo
 		return tohitBonus + totalBonus;
 	}
 
-	public static String getSubToken(PlayerCharacter pc, AttackType attackType,
-		String modifier)
+	public static String getSubToken(PlayerCharacterImpl pc, AttackType attackType,
+	                                 String modifier)
 	{
 		if (modifier.equals("BASE"))
 		{
@@ -128,7 +128,7 @@ public class AttackInfo
 	 * @param pc
 	 * @return base ATTACK token
 	 */
-	public static int getBaseToken(PlayerCharacter pc)
+	public static int getBaseToken(PlayerCharacterImpl pc)
 	{
 		return pc.baseAttackBonus();
 	}
@@ -138,7 +138,7 @@ public class AttackInfo
 	 * @param pc
 	 * @return epic ATTACK token
 	 */
-	public static int getEpicToken(PlayerCharacter pc)
+	public static int getEpicToken(PlayerCharacterImpl pc)
 	{
 		return (int) pc.getBonusDueToType("COMBAT", "TOHIT", "EPIC");
 	}
@@ -149,7 +149,7 @@ public class AttackInfo
 	 * @param at
 	 * @return misc ATTACK token
 	 */
-	public static int getMiscToken(PlayerCharacter pc, AttackType at)
+	public static int getMiscToken(PlayerCharacterImpl pc, AttackType at)
 	{
 		int tohitBonus =
 				((int) pc.getTotalBonusTo("TOHIT", "TOHIT") 
@@ -172,7 +172,7 @@ public class AttackInfo
 	 * @param aType
 	 * @return size ATTACK token
 	 */
-	public static int getSizeToken(PlayerCharacter pc, AttackType aType)
+	public static int getSizeToken(PlayerCharacterImpl pc, AttackType aType)
 	{
 		int tohitBonus =
 				(int) pc.getSizeAdjustmentBonusTo("TOHIT", "TOHIT")

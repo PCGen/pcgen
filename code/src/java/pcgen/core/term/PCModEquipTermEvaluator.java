@@ -26,7 +26,7 @@ package pcgen.core.term;
 
 import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.util.Logging;
 
@@ -42,12 +42,12 @@ public class PCModEquipTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return (float) process(pc);
 	}
 
-	private int process(PlayerCharacter pc)
+	private int process(PlayerCharacterImpl pc)
 	{
 		if (modEq.equals("AC"))
 		{

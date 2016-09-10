@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -38,14 +38,14 @@ public class EQSizeTermEvaluator extends BaseEQTermEvaluator implements TermEval
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return (float) eq.sizeInt();
 	}
 
 	@Override
 	public String evaluate(
-			Equipment eq, boolean primary, PlayerCharacter pc)
+			Equipment eq, boolean primary, PlayerCharacterImpl pc)
 	{
 		return String.valueOf(eq.sizeInt());		
 	}

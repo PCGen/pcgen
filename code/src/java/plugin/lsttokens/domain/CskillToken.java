@@ -32,7 +32,7 @@ import pcgen.cdom.reference.PatternMatchingReference;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Domain;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
@@ -249,14 +249,14 @@ public class CskillToken extends AbstractTokenWithSeparator<Domain> implements
 		return Domain.class;
 	}
 	@Override
-	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
 		pc.addLocalCost(pcc, skill, SkillCost.CLASS, obj);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, Skill skill, PlayerCharacterImpl pc)
 	{
 		PCClass pcc = pc.getDomainSource((Domain) obj).getPcclass();
 		pc.removeLocalCost(pcc, skill, SkillCost.CLASS, obj);

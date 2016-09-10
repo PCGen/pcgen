@@ -3,7 +3,7 @@ package plugin.jepcommands;
 import org.nfunk.jep.ParseException;
 
 import pcgen.core.GameMode;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.VariableProcessor;
 import pcgen.util.PCGenCommand;
@@ -62,14 +62,14 @@ public class ClassLevelCommand extends PCGenCommand
 		}
 		src = src.substring(6);
 
-		PlayerCharacter pc = null;
+		PlayerCharacterImpl pc = null;
 		if (parent instanceof VariableProcessor)
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else if (parent instanceof PlayerCharacter)
+		else if (parent instanceof PlayerCharacterImpl)
 		{
-			pc = (PlayerCharacter) parent;
+			pc = (PlayerCharacterImpl) parent;
 		}
 		if (pc == null)
 		{
@@ -154,7 +154,7 @@ public class ClassLevelCommand extends PCGenCommand
 			throw new ParseException("Unable to determine class name");
 		}
 
-		PlayerCharacter pc = getPC();
+		PlayerCharacterImpl pc = getPC();
 
 		String cl = className;
 		if (applied != null)
@@ -181,16 +181,16 @@ public class ClassLevelCommand extends PCGenCommand
 		inStack.push(result);
 	}
 
-	private PlayerCharacter getPC() throws ParseException
+	private PlayerCharacterImpl getPC() throws ParseException
 	{
-		PlayerCharacter pc = null;
+		PlayerCharacterImpl pc = null;
 		if (parent instanceof VariableProcessor)
 		{
 			pc = ((VariableProcessor) parent).getPc();
 		}
-		else if (parent instanceof PlayerCharacter)
+		else if (parent instanceof PlayerCharacterImpl)
 		{
-			pc = (PlayerCharacter) parent;
+			pc = (PlayerCharacterImpl) parent;
 		}
 		if (pc == null)
 		{

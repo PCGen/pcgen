@@ -24,7 +24,7 @@ package pcgen.pluginmgr.messages;
 
 import java.io.File;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
@@ -42,7 +42,7 @@ public class RequestOpenPlayerCharacterMessage extends PCGenMessage
 {
 	private final File file;
 	private final boolean blockLoadedMessage;
-	private PlayerCharacter playerCharacter;
+	private PlayerCharacterImpl playerCharacter;
 
 	/**
 	 * Create a new instance of RequestOpenPlayerCharacterMessage
@@ -68,12 +68,12 @@ public class RequestOpenPlayerCharacterMessage extends PCGenMessage
 		return blockLoadedMessage;
 	}
 
-	public void setPlayerCharacter(PlayerCharacter playerCharacter)
+	public void setPlayerCharacter(PlayerCharacterImpl playerCharacter)
 	{
 		this.playerCharacter = playerCharacter;
 	}
 
-	public PlayerCharacter getPlayerCharacter()
+	public PlayerCharacterImpl getPlayerCharacter()
 	{
 		return playerCharacter;
 	}

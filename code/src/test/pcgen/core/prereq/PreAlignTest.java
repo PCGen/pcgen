@@ -28,7 +28,7 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Deity;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
 /**
@@ -61,7 +61,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 */
 	public void testNegative() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setAlignment(ng);
 
 		Prerequisite prereq;
@@ -84,7 +84,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 */
 	public void testAbbrev() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setAlignment(ng);
 
 		Prerequisite prereq = new Prerequisite();
@@ -119,7 +119,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 	 */
 	public void testDeity() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setAlignment(ng);
 		character.setDeity(deity);
 		assertEquals("Deity should have been set for character.", deity,
@@ -139,7 +139,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 
 	public void testMulti() throws Exception
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 		character.setAlignment(ng);
 
 		final PreParserFactory factory = PreParserFactory.getInstance();

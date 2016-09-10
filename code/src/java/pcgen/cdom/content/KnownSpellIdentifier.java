@@ -26,7 +26,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.list.ClassSpellList;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 
 /**
@@ -140,7 +140,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * @return A Collection of Spells contained by this KnownSpellIdentifier
 	 *         within the given lists.
 	 */
-	public Collection<Spell> getContainedSpells(PlayerCharacter pc,
+	public Collection<Spell> getContainedSpells(PlayerCharacterImpl pc,
 			List<ClassSpellList> classSpellLists)
 	{
 		if (ref == null)

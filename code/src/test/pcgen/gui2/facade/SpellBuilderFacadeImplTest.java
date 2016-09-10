@@ -32,7 +32,7 @@ import pcgen.cdom.facet.MasterAvailableSpellFacet;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.facade.core.InfoFacade;
@@ -155,7 +155,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 
 	private SpellBuilderFacadeImpl createSpellBuilder()
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		CharacterFacadeImpl charFacade =
 				new CharacterFacadeImpl(pc, uiDelegate, dataset);
 		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);

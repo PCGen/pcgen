@@ -29,7 +29,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
@@ -42,7 +42,7 @@ public class SkillInfoUtilities
 	 * 
 	 * @return description
 	 */
-	public static String getKeyStatFromStats(PlayerCharacter pc, Skill sk)
+	public static String getKeyStatFromStats(PlayerCharacterImpl pc, Skill sk)
 	{
 		CDOMSingleRef<PCStat> stat = sk.get(ObjectKey.KEY_STAT);
 		if (stat == null)
@@ -80,7 +80,7 @@ public class SkillInfoUtilities
 	 * @param typeList
 	 * @return List of stats that apply
 	 */
-	public static List<PCStat> getKeyStatList(PlayerCharacter pc, Skill sk, List<Type> typeList)
+	public static List<PCStat> getKeyStatList(PlayerCharacterImpl pc, Skill sk, List<Type> typeList)
 	{
 		List<PCStat> aList = new ArrayList<>();
 		if (Globals.getGameModeHasPointPool())

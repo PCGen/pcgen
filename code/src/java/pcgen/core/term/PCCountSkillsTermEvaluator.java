@@ -27,7 +27,7 @@ package pcgen.core.term;
 import java.util.List;
 
 import pcgen.cdom.enumeration.SkillFilter;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.util.enumeration.View;
 
@@ -43,7 +43,7 @@ public class PCCountSkillsTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		int count = 0;
 		//TODO This is a bug, it assumes export

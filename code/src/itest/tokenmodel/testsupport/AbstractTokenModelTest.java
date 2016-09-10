@@ -51,7 +51,7 @@ import pcgen.core.Language;
 import pcgen.core.PCAlignment;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.PersistenceLayerException;
@@ -75,7 +75,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 {
 
 	protected LoadContext context;
-	protected PlayerCharacter pc;
+	protected PlayerCharacterImpl pc;
 	protected CharID id;
 
 	public AbstractTokenModelTest()
@@ -138,7 +138,7 @@ public abstract class AbstractTokenModelTest extends TestCase
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
-		pc = new PlayerCharacter();
+		pc = new PlayerCharacterImpl();
 		id = pc.getCharID();
 	}
 

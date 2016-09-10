@@ -103,7 +103,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 */
 	public void testDomainSpell() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		setPCStat(pc, cha, 15);
 		pc.incrementClassLevel(1, divineClass);
 		PCClass cls = pc.getClassKeyed(divineClass.getKeyName());
@@ -122,7 +122,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 	 */
 	public void testPcClassSpell() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.incrementClassLevel(1, divineClass);
 		
 		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(pc.getClassKeyed(divineClass.getKeyName()));

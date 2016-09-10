@@ -540,7 +540,7 @@ public final class EquipmentChoice
 		final int             available,
 		final int             numSelected,
 		final boolean         forEqBuilder,
-		PlayerCharacter       pc)
+		PlayerCharacterImpl pc)
 	{
 		final StringTokenizer titleTok       = new StringTokenizer(choiceString, "|", false);
 		while (!forEqBuilder && titleTok.hasMoreTokens())

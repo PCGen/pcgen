@@ -23,7 +23,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SkillUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
@@ -49,7 +49,7 @@ public class MaxCCSkillLevelToken extends Token
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		return getMaxCCSkillLevelToken(pc);
@@ -60,7 +60,7 @@ public class MaxCCSkillLevelToken extends Token
 	 * @param pc
 	 * @return value of token
 	 */
-	public static String getMaxCCSkillLevelToken(PlayerCharacter pc)
+	public static String getMaxCCSkillLevelToken(PlayerCharacterImpl pc)
 	{
 		return SkillUtilities.maxCrossClassSkillForLevel(pc.getDisplay().getTotalLevels(),
 			pc).toString();

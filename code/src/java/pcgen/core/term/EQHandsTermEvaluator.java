@@ -25,8 +25,8 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
 import pcgen.cdom.enumeration.IntegerKey;
+import pcgen.core.PlayerCharacterImpl;
 
 public class EQHandsTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {
@@ -39,7 +39,7 @@ public class EQHandsTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -48,7 +48,7 @@ public class EQHandsTermEvaluator extends BaseEQTermEvaluator implements TermEva
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return Integer.toString(eq.getSafe(IntegerKey.SLOTS));
 	}
 

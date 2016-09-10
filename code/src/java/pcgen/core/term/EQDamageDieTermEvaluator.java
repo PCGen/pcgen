@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RollInfo;
 
 public class EQDamageDieTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
@@ -39,7 +39,7 @@ public class EQDamageDieTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public Float resolve(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc)
+			PlayerCharacterImpl pc)
 	{
 		return convertToFloat(originalText, evaluate(eq, primary, pc));
 	}
@@ -48,7 +48,7 @@ public class EQDamageDieTermEvaluator extends BaseEQTermEvaluator implements Ter
 	public String evaluate(
 			Equipment eq,
 			boolean primary,
-			PlayerCharacter pc) {
+			PlayerCharacterImpl pc) {
 		return Float.toString(new RollInfo(eq.getDamage(pc)).getSides());
 	}
 

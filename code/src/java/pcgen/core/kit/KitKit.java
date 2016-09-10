@@ -31,7 +31,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.cdom.reference.ReferenceUtilities;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * Applies the Kit
@@ -52,7 +52,7 @@ public class KitKit extends BaseKit
 	 * @param aPC The PlayerCharacter the alignment is applied to
 	 */
 	@Override
-	public void apply(PlayerCharacter aPC)
+	public void apply(PlayerCharacterImpl aPC)
 	{
 		for (Map.Entry<Kit, List<BaseKit>> me : appliedKits.entrySet())
 		{
@@ -68,7 +68,7 @@ public class KitKit extends BaseKit
 	 * @param warnings List The warign list to be populated if anything fails.
 	 */
 	@Override
-	public boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 		List<String> warnings)
 	{
 		appliedKits = new HashMap<>();

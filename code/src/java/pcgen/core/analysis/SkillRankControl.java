@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.core.Globals;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.RuleConstants;
 import pcgen.core.Skill;
 import pcgen.core.chooser.ChooserUtilities;
@@ -54,7 +54,7 @@ public class SkillRankControl
 	 * @param pc
 	 * @return rank + bonus ranks (racial, class, etc. bonuses)
 	 */
-	public static Float getTotalRank(PlayerCharacter pc, Skill sk)
+	public static Float getTotalRank(PlayerCharacterImpl pc, Skill sk)
 	{
 		if (pc == null)
 		{
@@ -89,7 +89,7 @@ public class SkillRankControl
 	 * @param aClass
 	 * @param aPC
 	 */
-	public static void setZeroRanks(PCClass aClass, PlayerCharacter aPC,
+	public static void setZeroRanks(PCClass aClass, PlayerCharacterImpl aPC,
 			Skill sk)
 	{
 		if (aClass == null)
@@ -121,7 +121,7 @@ public class SkillRankControl
 	 * @return message
 	 */
 	public static String modRanks(double rankMod, PCClass aClass,
-			boolean ignorePrereqs, PlayerCharacter aPC, Skill sk)
+	                              boolean ignorePrereqs, PlayerCharacterImpl aPC, Skill sk)
 	{
 		int i = 0;
 
@@ -207,8 +207,8 @@ public class SkillRankControl
 		return "";
 	}
 
-	public static void replaceClassRank(PlayerCharacter pc, Skill sk,
-			PCClass oldClass, PCClass newClass)
+	public static void replaceClassRank(PlayerCharacterImpl pc, Skill sk,
+	                                    PCClass oldClass, PCClass newClass)
 	{
 		Double rank = pc.getSkillRankForLocalClass(sk, oldClass);
 		if (rank != null)
@@ -219,7 +219,7 @@ public class SkillRankControl
 	}
 
 	private static double modRanks2(double rankChange, double curRank,
-			PCClass pcc, PlayerCharacter aPC, Skill sk)
+	                                PCClass pcc, PlayerCharacterImpl aPC, Skill sk)
 	{
 		double newRank = curRank + rankChange;
 
@@ -267,7 +267,7 @@ public class SkillRankControl
 	 * @param aPC
 	 * @return bonus to skill rank
 	 */
-	public static double getSkillRankBonusTo(PlayerCharacter aPC, Skill sk)
+	public static double getSkillRankBonusTo(PlayerCharacterImpl aPC, Skill sk)
 	{
 		double bonus = aPC.getTotalBonusTo("SKILLRANK", sk.getKeyName());
 		for (Type singleType : sk.getTrueTypeList(false))
@@ -280,7 +280,7 @@ public class SkillRankControl
 		return bonus;
 	}
 
-	private static void updateAdds(PlayerCharacter aPC, Skill sk, double bonus)
+	private static void updateAdds(PlayerCharacterImpl aPC, Skill sk, double bonus)
 	{
 		// Check for ADDs
 		List<PersistentTransitionChoice<?>> adds = sk.getListFor(ListKey.ADD);
@@ -337,7 +337,7 @@ public class SkillRankControl
 	 * @param currentLevel The character;s level before the removal.
 	 * @param pointsToRemove The number of points that need to be refunded.
 	 */
-	public static void removeSkillsForTopLevel(PlayerCharacter pc,
+	public static void removeSkillsForTopLevel(PlayerCharacterImpl pc,
 		PCClass classBeingLevelledDown, int currentLevel, int pointsToRemove)
 	{
 

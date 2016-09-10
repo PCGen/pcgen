@@ -33,6 +33,7 @@ import pcgen.cdom.choiceset.SimpleChoiceSet;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
@@ -154,7 +155,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, String choice)
+	public void removeChoice(PlayerCharacterImpl pc, ChooseDriver owner, String choice)
 	{
 		pc.removeAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -168,8 +169,8 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner,
-		String choice)
+	public void restoreChoice(PlayerCharacterImpl pc, ChooseDriver owner,
+	                          String choice)
 	{
 		pc.addAssoc(owner, getListKey(), choice);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
@@ -189,12 +190,12 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, String choice, PlayerCharacterImpl pc)
 	{
 		restoreChoice(pc, owner, choice);
 	}
 
-	private void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc,
+	private void applyChoice(ChooseDriver owner, String st, PlayerCharacterImpl pc,
 		ChooseSelectionActor<String> ca)
 	{
 		ca.applyChoice(owner, st, pc);
@@ -202,7 +203,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 
 	@Override
 	public List<String> getCurrentlySelected(ChooseDriver owner,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		return pc.getAssocList(owner, getListKey());
 	}

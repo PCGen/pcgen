@@ -30,7 +30,7 @@ import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.spell.Spell;
 
 public class PCMaxCastableClassTermEvaluator 
@@ -49,7 +49,7 @@ public class PCMaxCastableClassTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		Float max = -1f;
 		for (PCClass spClass : pc.getDisplay().getClassSet())

@@ -27,7 +27,7 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.AbilityCategory;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.util.Logging;
 
@@ -94,7 +94,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 
 	@Override
 	public void applyChoice(ChooseDriver obj, AbilitySelection as,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		CNAbility cna = CNAbilityFactory.getCNAbility(category.get(), nature, as.getObject());
 		CNAbilitySelection cnas = new CNAbilitySelection(cna, as.getSelection());
@@ -110,7 +110,7 @@ public class AbilitySelector extends ConcretePrereqObject implements
 
 	@Override
 	public void removeChoice(ChooseDriver obj, AbilitySelection as,
-		PlayerCharacter pc)
+		PlayerCharacterImpl pc)
 	{
 		CNAbilitySelection cnas = pc.getAssociatedSelection(as);
 		if (cnas == null)

@@ -35,7 +35,7 @@ import pcgen.cdom.enumeration.SubClassCategory;
 import pcgen.cdom.reference.CategorizedCDOMReference;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.SubClass;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.Changes;
@@ -213,13 +213,13 @@ public class FavoredclassToken extends AbstractTokenWithSeparator<PCTemplate>
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, PCClass cls, PlayerCharacterImpl pc)
 	{
 		pc.addFavoredClass(cls, obj);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, PCClass cls, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, PCClass cls, PlayerCharacterImpl pc)
 	{
 		pc.removeFavoredClass(cls, obj);
 	}

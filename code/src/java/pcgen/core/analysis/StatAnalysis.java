@@ -20,7 +20,7 @@
 package pcgen.core.analysis;
 
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class StatAnalysis
 {
@@ -33,7 +33,7 @@ public class StatAnalysis
 	 * @param useEquip Should equipment bonuses be included?
 	 * @return The value of the stat
 	 */
-	public static int getPartialStatFor(PlayerCharacter aPC, PCStat stat, boolean useTemp, boolean useEquip)
+	public static int getPartialStatFor(PlayerCharacterImpl aPC, PCStat stat, boolean useTemp, boolean useEquip)
 	{
 		if (aPC.hasNonStatStat(stat))
 		{

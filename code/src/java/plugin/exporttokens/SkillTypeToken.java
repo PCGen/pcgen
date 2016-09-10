@@ -23,7 +23,7 @@
  */
 package plugin.exporttokens;
 
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Skill;
 import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
@@ -63,7 +63,7 @@ public class SkillTypeToken extends SkillToken
 	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
-	public String getToken(String tokenSource, PlayerCharacter pc,
+	public String getToken(String tokenSource, PlayerCharacterImpl pc,
 		ExportHandler eh)
 	{
 		SkillDetails details = buildSkillDetails(tokenSource);
@@ -90,7 +90,7 @@ public class SkillTypeToken extends SkillToken
 	 * @param eh The ExportHandler
 	 * @return The matching skill, or null if none match.
 	 */
-	private Skill getSkill(String tokenSource, PlayerCharacter pc,
+	private Skill getSkill(String tokenSource, PlayerCharacterImpl pc,
 		SkillDetails details, ExportHandler eh)
 	{
 		int skillIndex;

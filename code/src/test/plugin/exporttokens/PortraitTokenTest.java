@@ -30,7 +30,7 @@ import javax.imageio.ImageIO;
 
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.Constants;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * The Class <code>PortraitTokenTest</code> checks the function of PortraitToken.
@@ -51,7 +51,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testThumb() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setName("PortraitTokenTest");
 		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, Constants.THUMBNAIL_SIZE, Constants.THUMBNAIL_SIZE));
@@ -70,7 +70,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testThumbScaling() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setName("PortraitTokenTest");
 		pc.setPortraitPath("code/src/java/pcgen/resources/images/SplashPcgen_Alpha.png");
 		pc.setPortraitThumbnailRect(new Rectangle(160, 70, 140, 140));
@@ -91,7 +91,7 @@ public class PortraitTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testThumbInvalid() throws Exception
 	{
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		pc.setName("PortraitTokenTest");
 		String thumbResult = portraitToken.getToken("PORTRAIT.THUMB", pc, null);
 		assertNull("No image or rect should be null", thumbResult);

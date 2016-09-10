@@ -64,7 +64,7 @@ import pcgen.cdom.util.CControl;
 import pcgen.core.Equipment;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
@@ -375,7 +375,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	public void handleTransferToTracker()
 	{
 		int i;
-		PlayerCharacter aPC;
+		PlayerCharacterImpl aPC;
 		JFrame oldRoot = Globals.getRootFrame();
 		Globals.setRootFrame(GMGenSystem.inst);
 		theModel.setPCs(theModel.size());
@@ -731,7 +731,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return toReturn;
 	}
 
-	private String getNewIdPath(PlayerCharacter aPC, EquipSet eSet)
+	private String getNewIdPath(PlayerCharacterImpl aPC, EquipSet eSet)
 	{
 		String pid = "0";
 		int newID = 0;
@@ -790,7 +790,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return result;
 	}
 
-	private void addAllToEquipSet(PlayerCharacter aPC, EquipSet eqSet)
+	private void addAllToEquipSet(PlayerCharacterImpl aPC, EquipSet eqSet)
 	{
 		for (Equipment eq : aPC.getDisplay().getEquipmentSet())
 		{
@@ -798,7 +798,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private EquipSet createDefaultEquipset(PlayerCharacter aPC)
+	private EquipSet createDefaultEquipset(PlayerCharacterImpl aPC)
 	{
 		EquipSet eSet;
 
@@ -926,7 +926,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private void handleEquipment(PlayerCharacter aPC)
+	private void handleEquipment(PlayerCharacterImpl aPC)
 	{
 		EquipSet eqSet = createDefaultEquipset(aPC);
 		addAllToEquipSet(aPC, eqSet);
@@ -934,7 +934,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		aPC.setCalcEquipmentList();
 	}
 
-	private void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
+	private void handleMonster(PlayerCharacterImpl aPC, LevelCommandFactory lcf)
 	{
 		PCClass cl = lcf.getPCClass();
 		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
@@ -953,7 +953,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private void handleNonMonster(PlayerCharacter aPC)
+	private void handleNonMonster(PlayerCharacterImpl aPC)
 	{
 		PCClass mclass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
@@ -966,7 +966,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-	private boolean handleRace(PlayerCharacter aPC, int number)
+	private boolean handleRace(PlayerCharacterImpl aPC, int number)
 	{
 		Race race =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, (String) theModel.getElementAt(number));
@@ -982,7 +982,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return true;
 	}
 
-	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
+	private final List<String> locationChoices(PlayerCharacterImpl pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -1065,7 +1065,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return aList;
 	}
 
-	private int getHands(PlayerCharacter pc)
+	private int getHands(PlayerCharacterImpl pc)
 	{
 		String solverValue = pc.getControl(CControl.CREATUREHANDS);
 		if (solverValue == null)
@@ -1087,7 +1087,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 * @param eqI
 	 * @return single location
 	 **/
-	private static String getSingleLocation(PlayerCharacter pc, Equipment eqI)
+	private static String getSingleLocation(PlayerCharacterImpl pc, Equipment eqI)
 	{
 		// Handle natural weapons
 		if (eqI.isNatural())
@@ -1123,8 +1123,8 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return "";
 	}
 
-	private String getEquipLocation(PlayerCharacter pc, EquipSet eSet,
-		String locName, Equipment eqI)
+	private String getEquipLocation(PlayerCharacterImpl pc, EquipSet eSet,
+	                                String locName, Equipment eqI)
 	{
 		String location = locName;
 
@@ -1168,8 +1168,8 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return location;
 	}
 
-	private static boolean canAddEquip(PlayerCharacter pc, EquipSet eSet,
-		String locName, Equipment eqI)
+	private static boolean canAddEquip(PlayerCharacterImpl pc, EquipSet eSet,
+	                                   String locName, Equipment eqI)
 	{
 		String idPath = eSet.getIdPath();
 
@@ -1316,8 +1316,8 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		return true;
 	}
 
-	private EquipSet addEquipToTarget(PlayerCharacter aPC, EquipSet eSet,
-		String locName, Equipment eqI, Float newQty)
+	private EquipSet addEquipToTarget(PlayerCharacterImpl aPC, EquipSet eSet,
+	                                  String locName, Equipment eqI, Float newQty)
 	{
 		String location = getEquipLocation(aPC, eSet, locName, eqI);
 
@@ -1349,7 +1349,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		updateUI();
 	}
 
-	private void rollHP(PlayerCharacter aPC)
+	private void rollHP(PlayerCharacterImpl aPC)
 	{
 		CharacterDisplay display = aPC.getDisplay();
 		for (PCClass pcClass : display.getClassSet())

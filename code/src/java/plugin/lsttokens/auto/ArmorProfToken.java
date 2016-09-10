@@ -34,7 +34,7 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.helper.ArmorProfProvider;
 import pcgen.core.ArmorProf;
 import pcgen.core.Equipment;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -272,13 +272,13 @@ public class ArmorProfToken extends AbstractNonEmptyToken<CDOMObject> implements
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacterImpl pc)
 	{
 		pc.addArmorProf(obj, ap);
 	}
 
 	@Override
-	public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacter pc)
+	public void removeChoice(ChooseDriver obj, ArmorProf ap, PlayerCharacterImpl pc)
 	{
 		pc.removeArmorProf(obj, ap);
 	}

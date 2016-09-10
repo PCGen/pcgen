@@ -40,9 +40,9 @@ public final class SkillComparator implements Comparator<Skill>
 	public static final boolean RESORT_DESCENDING = false;
 	private boolean sortOrder = RESORT_ASCENDING;
 	private int sort = RESORT_NAME;
-	private final PlayerCharacter pc;
+	private final PlayerCharacterImpl pc;
 	
-	public SkillComparator(PlayerCharacter aPC, final int sort, final boolean sortOrder)
+	public SkillComparator(PlayerCharacterImpl aPC, final int sort, final boolean sortOrder)
 	{
 		this.sort = sort;
 		this.sortOrder = sortOrder;

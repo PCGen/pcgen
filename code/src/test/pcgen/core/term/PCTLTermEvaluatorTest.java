@@ -35,7 +35,7 @@ import pcgen.core.Campaign;
 import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SizeAdjustment;
 import pcgen.persistence.lst.CampaignSourceEntry;
@@ -94,7 +94,7 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 	{
 		PCTLTermEvaluator tlEval = new PCTLTermEvaluator("TL");
 		
-		PlayerCharacter pc = getCharacter();
+		PlayerCharacterImpl pc = getCharacter();
 		
 		assertEquals("Before adding levels, shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
 		

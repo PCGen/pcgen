@@ -37,7 +37,7 @@ import pcgen.core.Description;
 import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SizeAdjustment;
@@ -119,7 +119,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 
 	public void testClassLevel()
 	{
-		PlayerCharacter pc = this.getCharacter();
+		PlayerCharacterImpl pc = this.getCharacter();
 		pc.setRace(nymphRace);
 		pc.incrementClassLevel(1, megaCasterClass);
 		is(pc.getVariableValue("classlevel(\"Humanoid\")", ""), eq(0.0, 0.001),
@@ -161,7 +161,7 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 
 	public void testClassLevelAppliedAs()
 	{
-		PlayerCharacter pc = this.getCharacter();
+		PlayerCharacterImpl pc = this.getCharacter();
 		pc.setRace(nymphRace);
 		pc.incrementClassLevel(1, megaCasterClass);
 		is(pc.getVariableValue("classlevel(\"APPLIEDAS=NONEPIC\")", "CLASS:MegaCaster"), eq(1.0, 0.001),

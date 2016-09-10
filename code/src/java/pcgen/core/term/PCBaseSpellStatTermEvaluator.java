@@ -29,7 +29,7 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 public class PCBaseSpellStatTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
@@ -44,7 +44,7 @@ public class PCBaseSpellStatTermEvaluator
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		PCClass pcClass = pc.getClassKeyed(source);
 
@@ -57,7 +57,7 @@ public class PCBaseSpellStatTermEvaluator
 		return (float) getBaseSpellStatBonus(pc, pcClass);
 	}
 
-	private int getBaseSpellStatBonus(PlayerCharacter pc, PCClass pcClass)
+	private int getBaseSpellStatBonus(PlayerCharacterImpl pc, PCClass pcClass)
 	{
 		if (pcClass == null)
 		{

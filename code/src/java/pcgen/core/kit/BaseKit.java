@@ -34,7 +34,7 @@ import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Loadable;
 import pcgen.cdom.helper.OptionBound;
 import pcgen.core.Kit;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 
 /**
  * Common code for the kits.
@@ -65,7 +65,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 *            the Select value
 	 * @return true if the value is an option
 	 */
-	public boolean isOption(PlayerCharacter pc, int val)
+	public boolean isOption(PlayerCharacterImpl pc, int val)
 	{
 		if (bounds != null)
 		{
@@ -97,7 +97,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 * @param aValue
 	 * @return the answer
 	 */
-	public static String eval(PlayerCharacter aPC, String aValue)
+	public static String eval(PlayerCharacterImpl aPC, String aValue)
 	{
 		String ret = aValue;
 
@@ -165,7 +165,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 *            A list of warnings generated while attempting to apply the kit
 	 * @return true if OK
 	 */
-	public abstract boolean testApply(Kit aKit, PlayerCharacter aPC,
+	public abstract boolean testApply(Kit aKit, PlayerCharacterImpl aPC,
 			List<String> warnings);
 
 	/**
@@ -174,7 +174,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 	 * @param aPC
 	 *            The character to apply the kit to.
 	 */
-	public abstract void apply(PlayerCharacter aPC);
+	public abstract void apply(PlayerCharacterImpl aPC);
 
 	/**
 	 * Get object name

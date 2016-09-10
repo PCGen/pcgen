@@ -29,7 +29,7 @@ import pcgen.cdom.helper.ClassSource;
 import pcgen.core.Domain;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
 import pcgen.core.character.CharacterSpell;
 
 public class PCCasterLevelClassTermEvaluator
@@ -46,13 +46,13 @@ public class PCCasterLevelClassTermEvaluator
 
 	// Makes no sense without a spell
 	@Override
-	public Float resolve(PlayerCharacter pc)
+	public Float resolve(PlayerCharacterImpl pc)
 	{
 		return 0f;
 	}
 
 	@Override
-	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
+	public Float resolve(PlayerCharacterImpl pc, final CharacterSpell aSpell) {
 
 		// check if this is a domain spell
 		Domain domain = Globals.getContext().getReferenceContext()

@@ -33,7 +33,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
-import pcgen.core.PlayerCharacter;
+import pcgen.core.PlayerCharacterImpl;
+
 import plugin.pretokens.test.PreTypeTester;
 
 public class PreTypeTest extends AbstractCharacterTestCase
@@ -57,7 +58,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	 */
 	public void test996803_1()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
@@ -80,7 +81,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 	 */
 	public void test996803_2()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Half-Celestial");
@@ -99,7 +100,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 
 	public void test996803_3()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final Prerequisite prereq = new Prerequisite();
 		prereq.setKind("type");
@@ -113,7 +114,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 
 	public void test996803_4()
 	{
-		final PlayerCharacter character = getCharacter();
+		final PlayerCharacterImpl character = getCharacter();
 
 		final PCTemplate template = new PCTemplate();
 		template.setName("Fiendish");
