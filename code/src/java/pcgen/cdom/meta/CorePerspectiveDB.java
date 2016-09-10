@@ -19,6 +19,7 @@ package pcgen.cdom.meta;
 
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
@@ -43,7 +44,7 @@ public final class CorePerspectiveDB
             new HashMap<>();
 	private static HashMap<Object, FacetView<?>> facetToView =
             new HashMap<>();
-	private static HashMap<Object, CorePerspective> facetToPerspective =
+	private static Map<Object, CorePerspective> facetToPerspective =
             new HashMap<>();
 	private static HashMapToList<Object, Object> virtualParents =
             new HashMapToList<>();

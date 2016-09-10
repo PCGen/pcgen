@@ -905,7 +905,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @return classList
 	 */
-	public ArrayList<PCClass> getClassList()
+	public List<PCClass> getClassList()
 	{
 		/*
 		 * TODO This is a discussion we have to have about where items are sorted
@@ -6585,7 +6585,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public List<? extends PObject> getSpellClassList()
 	{
-		final ArrayList<PObject> aList = new ArrayList<>();
+		final List<PObject> aList = new ArrayList<>();
 
 		Race race = getRace();
 		if (!getCharacterSpells(race).isEmpty())
@@ -8430,7 +8430,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		final ArrayList<CharacterSpell> aList = new ArrayList<>();
+		final List<CharacterSpell> aList = new ArrayList<>();
 		if (csList.size() == 0)
 		{
 			return aList;
@@ -9118,7 +9118,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
+		List<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(level))
@@ -9136,7 +9136,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
 
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
+		List<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(bookName))

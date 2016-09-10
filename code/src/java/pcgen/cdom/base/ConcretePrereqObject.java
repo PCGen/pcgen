@@ -248,7 +248,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return false;
 		}
-		ArrayList<Prerequisite> removed = new ArrayList<>(
+		List<Prerequisite> removed = new ArrayList<>(
                 thePrereqs);
 		removed.removeAll(otherPRL);
 		return removed.isEmpty();
