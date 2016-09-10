@@ -555,7 +555,7 @@ public class EquipmentModels
 
 	}
 
-	private class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
+	private static class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
 	{
 
 		private JSpinner spinner = new JSpinner();
