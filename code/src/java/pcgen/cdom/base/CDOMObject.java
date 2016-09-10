@@ -824,22 +824,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		{
 			return false;
 		}
-		if (cdomListMods == null ? cdo.cdomListMods != null : !cdomListMods.equals(cdo.cdomListMods))
-		{
-			// System.err.println("CDOM Inequality ListMods");
-			// System.err.println(cdomListMods + " " + cdo.cdomListMods);
-			// System.err.println(cdomListMods.getKeySet() + " "
-			// + cdo.cdomListMods.getKeySet());
-			// for (CDOMReference<? extends CDOMList<? extends PrereqObject>>
-			// key : cdomListMods
-			// .getKeySet())
-			// {
-			// System.err.println(cdomListMods.getSecondaryKeySet(key));
-			// System.err.println(cdo.cdomListMods.getSecondaryKeySet(key));
-			// }
-			return false;
-		}
-		return true;
+		return cdomListMods == null ? cdo.cdomListMods == null : cdomListMods.equals(cdo.cdomListMods);
 	}
 
 	public final <T extends CDOMObject> void putToList(

@@ -457,11 +457,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override
@@ -532,11 +528,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override
