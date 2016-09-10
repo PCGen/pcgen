@@ -402,7 +402,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			});
 		}
 
-		Utility.centerDialog(pmsFrame);
+		Utility.centerComponent(pmsFrame);
 
 		// ensure the frame is visible (in case user selects menu item again).
 		pmsFrame.setVisible(true);
