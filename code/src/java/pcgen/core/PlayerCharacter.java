@@ -6618,26 +6618,24 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return false;
 		}
 
-		if (filter == SkillFilter.Ranks)
+		switch (filter)
 		{
-			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0);
-		}
-		else if (filter == SkillFilter.NonDefault)
-		{
-			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 ||
-					SkillModifier.modifier(skill, this) !=
-					SkillModifier.getStatMod(skill, this) +
-					getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
-		}
-		else if (filter == SkillFilter.Usable)
-		{
-			return qualifySkill(skill)
-				&& (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || skill
-					.getSafe(ObjectKey.USE_UNTRAINED));
-		}
-		else
-		{
-			return qualifySkill(skill);
+			case Ranks:
+				return (SkillRankControl.getTotalRank(this, skill)
+						        .floatValue() > 0);
+			case NonDefault:
+				return (SkillRankControl.getTotalRank(this, skill)
+						        .floatValue() > 0 ||
+						        SkillModifier.modifier(skill, this) !=
+								        SkillModifier.getStatMod(skill, this) +
+										        getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
+			case Usable:
+				return qualifySkill(skill)
+						&& (SkillRankControl.getTotalRank(this, skill)
+								    .floatValue() > 0 || skill
+						.getSafe(ObjectKey.USE_UNTRAINED));
+			default:
+				return qualifySkill(skill);
 		}
 	}
 

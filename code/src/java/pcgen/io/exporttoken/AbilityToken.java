@@ -205,24 +205,20 @@ public class AbilityToken extends Token
 			// The optional visibility (v) or type (w) has been provided, so deal with those 
 			catch (NumberFormatException exc)
 			{
-				if (bString.equals("VISIBLE"))
+				switch (bString)
 				{
-					view = View.VISIBLE_EXPORT;
-					continue;
-				}
-				else if (bString.equals("HIDDEN"))
-				{
-					view = View.HIDDEN_EXPORT;
-					continue;
-				}
-				else if (bString.equals("ALL"))
-				{
-					view = View.ALL;
-					continue;
-				}
-				else
-				{
-					abilityType = bString;
+					case "VISIBLE":
+						view = View.VISIBLE_EXPORT;
+						continue;
+					case "HIDDEN":
+						view = View.HIDDEN_EXPORT;
+						continue;
+					case "ALL":
+						view = View.ALL;
+						continue;
+					default:
+						abilityType = bString;
+						break;
 				}
 			}
 		}

@@ -315,61 +315,66 @@ public class PcgCombatant extends Combatant
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
-		if (columnName.equals("Name"))
+		switch (columnName)
 		{
-			// Character's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{
-			// Player's Name
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{
-			// XML Combatant's Status
-			setStatus(State.getStateLocalised(strData));
-		}
-		else if (columnName.equals("+"))
-		{
-			// Initative bonus
-			Integer intData = Integer.valueOf(strData);
-			init.setBonus(intData.intValue());
-		}
-		else if (columnName.equals("Init"))
-		{
-			// Initative
-			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
-		}
-		else if (columnName.equals("#"))
-		{
-			// Number (for tokens)
-			Integer intData = Integer.valueOf(strData);
-			setNumber(intData.intValue());
-		}
-		else if (columnName.equals("HP"))
-		{
-			// Current Hit Points
-			Integer intData = Integer.valueOf(strData);
-			hitPoints.setCurrent(intData.intValue());
-		}
-		else if (columnName.equals("HP Max"))
-		{
-			// Maximum Hit Points
-			Integer intData = Integer.valueOf(strData);
-			hitPoints.setMax(intData.intValue());
-		}
-		else if (columnName.equals("Dur"))
-		{
-			// Duration
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
-		}
-		else if (columnName.equals("Type"))
-		{
-			// Type
-			setCombatantType(strData);
+			case "Name":
+				// Character's Name
+				setName(strData);
+				break;
+			case "Player":
+				// Player's Name
+				setPlayer(strData);
+				break;
+			case "Status":
+				// XML Combatant's Status
+				setStatus(State.getStateLocalised(strData));
+				break;
+			case "+":
+			{
+				// Initative bonus
+				Integer intData = Integer.valueOf(strData);
+				init.setBonus(intData.intValue());
+				break;
+			}
+			case "Init":
+			{
+				// Initative
+				Integer intData = Integer.valueOf(strData);
+				init.setCurrentInitiative(intData.intValue());
+				break;
+			}
+			case "#":
+			{
+				// Number (for tokens)
+				Integer intData = Integer.valueOf(strData);
+				setNumber(intData.intValue());
+				break;
+			}
+			case "HP":
+			{
+				// Current Hit Points
+				Integer intData = Integer.valueOf(strData);
+				hitPoints.setCurrent(intData.intValue());
+				break;
+			}
+			case "HP Max":
+			{
+				// Maximum Hit Points
+				Integer intData = Integer.valueOf(strData);
+				hitPoints.setMax(intData.intValue());
+				break;
+			}
+			case "Dur":
+			{
+				// Duration
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData.intValue());
+				break;
+			}
+			case "Type":
+				// Type
+				setCombatantType(strData);
+				break;
 		}
 	}
 
