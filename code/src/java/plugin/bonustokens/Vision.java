@@ -49,7 +49,6 @@ public final class Vision extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual type of vision that may be bonused.
 	 * @param tagNumber the index of the vision type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of vision.
 	 */
 	@Override

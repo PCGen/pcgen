@@ -202,8 +202,7 @@ public final class FormulaFactory
 
 		/**
 		 * Returns the consistent-with-equals hashCode for this NumberFormula
-		 * 
-		 * @see java.lang.Object#hashCode()
+		 *
 		 */
 		@Override
 		public int hashCode()
@@ -215,8 +214,7 @@ public final class FormulaFactory
 		 * Returns true if this NumberFormula is equal to the given Object.
 		 * Equality is defined as being another NumberFormula object with equal
 		 * value.
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -297,8 +295,7 @@ public final class FormulaFactory
 
 		/**
 		 * Returns the consistent-with-equals hashCode for this SimpleFormula
-		 * 
-		 * @see java.lang.Object#hashCode()
+		 *
 		 */
 		@Override
 		public int hashCode()
@@ -310,8 +307,7 @@ public final class FormulaFactory
 		 * Returns true if this SimpleFormula is equal to the given Object.
 		 * Equality is defined as being another SimpleFormula object with equal
 		 * value.
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)

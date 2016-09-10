@@ -249,8 +249,7 @@ public class MapKeyMap
 	 * Returns the consistent-with-equals hashCode for this MapKeyMap.
 	 * 
 	 * @return the int
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -268,8 +267,7 @@ public class MapKeyMap
 	 *            the o
 	 * 
 	 * @return true, if equals
-	 * 
-	 * @see java.lang.Object#equals(Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
