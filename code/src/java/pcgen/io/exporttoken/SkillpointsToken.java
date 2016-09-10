@@ -183,7 +183,7 @@ public class SkillpointsToken extends Token
 					rank = 0.0d;
 				}
 				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);
-				usedPoints += (rank * skillCost.getCost());
+				usedPoints = (float) (usedPoints + (rank * skillCost.getCost()));
 			}
 		}
 
@@ -217,7 +217,7 @@ public class SkillpointsToken extends Token
 				}
 				SkillCost skillCost =
 						pc.getSkillCostForClass(aSkill, targetClass);
-				usedPoints += (rank * skillCost.getCost());
+				usedPoints = (float) (usedPoints + (rank * skillCost.getCost()));
 			}
 		}
 
