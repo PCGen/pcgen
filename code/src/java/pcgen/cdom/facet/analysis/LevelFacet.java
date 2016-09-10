@@ -235,11 +235,11 @@ public class LevelFacet extends AbstractStorageFacet<CharID> implements
 		{
 			if (lce.getPCClass().isMonster())
 			{
-				lci.monsterLevels = lci.monsterLevels + levelChange;
+				lci.monsterLevels += levelChange;
 			}
 			else
 			{
-				lci.nonMonsterLevels = lci.nonMonsterLevels + levelChange;
+				lci.nonMonsterLevels += levelChange;
 			}
 			support.fireLevelChangeEvent(id);
 		}
