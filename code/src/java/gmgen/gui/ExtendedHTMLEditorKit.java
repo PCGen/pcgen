@@ -435,7 +435,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             }
 
             if (caret != -1) {
-                result.append(source.substring(caret, source.indexOf(">", caret) + 1));
+                result.append(source.substring(caret, source.indexOf('>', caret) + 1));
             }
         } while (caret != -1);
 
@@ -454,8 +454,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         int caret;
 
         if ((caret = source.indexOf(idString)) != -1) {
-            position[0] = source.lastIndexOf("<", caret);
-            position[1] = source.indexOf(">", caret) + 1;
+            position[0] = source.lastIndexOf('<', caret);
+            position[1] = source.indexOf('>', caret) + 1;
         }
 
         if (closingTag) {
