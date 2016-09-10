@@ -32,7 +32,7 @@ import java.util.Locale;
 
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
@@ -44,7 +44,7 @@ import junit.textui.TestRunner;
  * @author wardc
  */
 @SuppressWarnings("nls")
-public class PreReqHandlerTest extends PCGenTestCase
+public class PreReqHandlerTest extends TestCase
 {
 
 	/**
@@ -67,7 +67,7 @@ public class PreReqHandlerTest extends PCGenTestCase
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 * 
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

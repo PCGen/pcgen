@@ -52,7 +52,7 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	}
 
 	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	protected void setUp() throws Exception

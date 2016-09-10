@@ -61,7 +61,7 @@ public class MapKeyMapTest
 	private Aspect breedAspect;
 
 	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Before
 	public void setUp() throws Exception

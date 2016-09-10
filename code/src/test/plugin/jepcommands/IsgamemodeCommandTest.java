@@ -24,13 +24,12 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
+import pcgen.PCGenTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
-
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-
-import pcgen.PCGenTestCase;
 
 /**
  * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
@@ -56,7 +55,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 	 * @see TestCase#setUp()
 	 */
 	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
 	protected void setUp() throws Exception

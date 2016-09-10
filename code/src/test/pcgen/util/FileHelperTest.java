@@ -24,12 +24,12 @@ import java.io.File;
 
 import org.apache.commons.lang.SystemUtils;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 
 /**
  * FileHelperTest
  */
-public class FileHelperTest extends PCGenTestCase
+public class FileHelperTest extends TestCase
 {
 
 	final static String BACK_ONE = ".." + File.separator;
