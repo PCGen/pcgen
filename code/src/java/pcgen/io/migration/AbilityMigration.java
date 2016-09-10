@@ -36,7 +36,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class AbilityMigration
+public final class AbilityMigration
 {
 
 	private static Map<int[], List<MigrationRule>> abilityChangesForVer = new HashMap<>();
