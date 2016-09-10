@@ -338,8 +338,7 @@ public class EquipmentModels
 					data[i][0] = path.getEquipment();
 					data[i][1] = equipSet.getQuantity(path);
 				}
-				Object[] columns = new Object[]
-				{
+				Object[] columns = {
 					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 				};
@@ -451,8 +450,7 @@ public class EquipmentModels
 					data[i][1] = unequippedList.getQuantity(equipmentFacade);
 					data[i][2] = getInitialNode(equipMap, equipSet, equipmentFacade); 
 				}
-				Object[] columns = new Object[]
-				{
+				Object[] columns = {
 					LanguageBundle.getString("in_equipItem"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipQuantityAbbrev"), //$NON-NLS-1$
 					LanguageBundle.getString("in_equipContainer") //$NON-NLS-1$
