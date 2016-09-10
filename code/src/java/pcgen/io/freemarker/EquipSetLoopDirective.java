@@ -56,7 +56,6 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 	 */
 	public EquipSetLoopDirective(PlayerCharacter pc)
 	{
-		super();
 		this.pc = pc;
 	}
 

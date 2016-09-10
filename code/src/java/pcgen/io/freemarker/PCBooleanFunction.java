@@ -46,7 +46,6 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 	 */
 	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}

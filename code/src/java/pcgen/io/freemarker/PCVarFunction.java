@@ -43,7 +43,6 @@ public class PCVarFunction implements TemplateMethodModelEx
 	 */
 	public PCVarFunction(PlayerCharacter pc)
 	{
-		super();
 		this.pc = pc;
 	}
 

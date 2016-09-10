@@ -46,7 +46,6 @@ public class PCHasVarFunction extends CharacterExportAction implements TemplateM
 	 */
 	public PCHasVarFunction(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}
