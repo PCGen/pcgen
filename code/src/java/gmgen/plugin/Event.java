@@ -227,45 +227,38 @@ public class Event implements InitHolder
 
 		for ( String columnName : columnOrder )
 		{
-			if (columnName.equals("Name"))
-			{ // Event's name
-				rowVector.add(getName());
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name who cast the spell
-				rowVector.add("Owner: " + getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Event's Status
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Init"))
-			{ // Event's Initiative
-				rowVector.add("" + init.getCurrentInitiative());
-			}
-			else if (columnName.equals("Dur"))
-			{ // Event's Duration
-				rowVector.add("" + getDuration());
-			}
-			else if (columnName.equals("#"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, -
-				rowVector.add("-");
+			switch (columnName)
+			{
+				case "Name":  // Event's name
+					rowVector.add(getName());
+					break;
+				case "Player":  // Player's Name who cast the spell
+					rowVector.add("Owner: " + getPlayer());
+					break;
+				case "Status":  // Event's Status
+					rowVector.add(getStatus());
+					break;
+				case "+":  // Ignored
+					rowVector.add("");
+					break;
+				case "Init":  // Event's Initiative
+					rowVector.add("" + init.getCurrentInitiative());
+					break;
+				case "Dur":  // Event's Duration
+					rowVector.add("" + getDuration());
+					break;
+				case "#":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP Max":  // Ignored
+					rowVector.add("");
+					break;
+				case "Type":  //PC, Enemy, Ally, -
+					rowVector.add("-");
+					break;
 			}
 		}
 
@@ -338,29 +331,31 @@ public class Event implements InitHolder
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
-		if (columnName.equals("Name"))
-		{ // Spell's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{ // Name of the player who cast the spell
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{ // SPell's status
-			setStatus(State.getStateLocalised(strData));
-		}
-		else if (columnName.equals("Init"))
-		{ // Spell's Initiative
+		switch (columnName)
+		{
+			case "Name":  // Spell's Name
+				setName(strData);
+				break;
+			case "Player":  // Name of the player who cast the spell
+				setPlayer(strData);
+				break;
+			case "Status":  // SPell's status
+				setStatus(State.getStateLocalised(strData));
+				break;
+			case "Init":
+			{ // Spell's Initiative
 
-			Integer intData = Integer.valueOf(strData);
-			init.setCurrentInitiative(intData.intValue());
-		}
-		else if (columnName.equals("Dur"))
-		{ // Spell's duration
+				Integer intData = Integer.valueOf(strData);
+				init.setCurrentInitiative(intData.intValue());
+				break;
+			}
+			case "Dur":
+			{ // Spell's duration
 
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData.intValue());
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData.intValue());
+				break;
+			}
 		}
 	}
 
