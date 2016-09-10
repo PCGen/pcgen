@@ -25,7 +25,7 @@ package gmgen.pluginmgr.messages;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>EditMenuPasteSelectionMessage</code> encapsulates an advisory that the
+ * The Class {@code EditMenuPasteSelectionMessage} encapsulates an advisory that the
  * GMGen edit &gt; paste menu item has been selected.
  *
  * <br>

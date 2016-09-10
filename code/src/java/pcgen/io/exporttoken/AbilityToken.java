@@ -58,7 +58,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>AbilityToken</code> handles the output of ability information.
+ * {@code AbilityToken} handles the output of ability information.
  * 
  * The format is ABILITY.u.v.w.x.y.z where:
  * <ul>

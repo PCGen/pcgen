@@ -402,7 +402,7 @@ public class PcgCombatant extends Combatant
 		 * <p>
 		 * This sets the text of the JTextPane for the specified PC. It uses an
 		 * output sheet template, specified by the templateName option; it uses
-		 * <code>pcgen.io.ExportHandler</code> to transform the template file
+		 * {@code pcgen.io.ExportHandler} to transform the template file
 		 * into an StringWriter, and then sets the text of the text pane as html.
 		 * This allows us easy access to changing the content or format of the stat
 		 * block, and also allows us to easily use a different output format if

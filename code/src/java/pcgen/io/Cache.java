@@ -26,7 +26,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>Cache</code><br>
+ * {@code Cache}<br>
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *

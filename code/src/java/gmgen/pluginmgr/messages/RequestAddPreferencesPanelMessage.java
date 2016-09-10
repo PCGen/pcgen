@@ -26,7 +26,7 @@ import gmgen.gui.PreferencesPanel;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>RequestAddPreferencesPanelMessage</code> encapsulates
+ * The Class {@code RequestAddPreferencesPanelMessage} encapsulates
  * a request to add a panel to the GMGen preferences.
  *
  * <br>

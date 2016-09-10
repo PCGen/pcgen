@@ -26,7 +26,7 @@ package pcgen.io.exporttoken;
 import java.util.StringTokenizer;
 
 /**
- * <code>SpellListToken</code> is the base class for the SPELLLIST
+ * {@code SpellListToken} is the base class for the SPELLLIST
  * family of tokens.
  *
  *
@@ -46,7 +46,7 @@ public abstract class SpellListToken extends Token
 
 	// ================== Inner class =======================
 	/**
-	 * <code>SpellListTokenParams</code> is ...
+	 * {@code SpellListTokenParams} is ...
 	 *
 	 */
 	protected final static class SpellListTokenParams

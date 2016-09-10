@@ -72,7 +72,7 @@ import pcgen.util.SwingWorker;
 
 
 /**
- * <code>GMGenSystem</code> is the main class of the GMGen application.
+ * {@code GMGenSystem} is the main class of the GMGen application.
  * 
  * It holds the controller for every tab as well as the menu bar.
  */

@@ -41,7 +41,7 @@ import pcgen.io.ExportHandler;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>AbilityListToken</code> handles the output of a comma separated 
+ * {@code AbilityListToken} handles the output of a comma separated
  * list of ability information.
  * 
  * The format is ABILITYLIST.y.z where
