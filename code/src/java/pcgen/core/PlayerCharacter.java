@@ -4221,10 +4221,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		for (Equipment eq : getEquipmentSet())
 		{
-			if (eq.typeStringContains(aType))
-			{
-				aList.add(eq);
-			} else if (aType.equalsIgnoreCase("CONTAINED") && (eq.getParent() != null))
+			if (eq.typeStringContains(aType) || aType.equalsIgnoreCase("CONTAINED") && (eq.getParent() != null))
 			{
 				aList.add(eq);
 			}
@@ -5693,16 +5690,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			String replacement = "0";
 
 			final Float fVal = getVariableValue(aSpell, inCalc, aSpellClass);
-			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f))
-			{
-				found = true;
-				replacement = String.valueOf(fVal.intValue());
-			} else if ((inCalc.contains("MIN")) || (inCalc.contains("MAX")))
-			{
-				found = true;
-				replacement = String.valueOf(fVal.intValue());
-			} else if (inCalc.toUpperCase()
-					.contains("MIN(") || inCalc.toUpperCase()
+			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f)
+					|| (inCalc.contains("MIN"))
+					|| (inCalc.contains("MAX"))
+					|| inCalc.toUpperCase()
+					.contains("MIN(")
+					|| inCalc.toUpperCase()
 					.contains("MAX("))
 			{
 				found = true;
