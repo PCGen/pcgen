@@ -60,14 +60,6 @@ public class MapKeyMap
 	private final DoubleKeyMap map = new DoubleKeyMap();
 
 	/**
-	 * Creates a new (empty) MapKeyMap.
-	 */
-	public MapKeyMap()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * Copies the key/value combinations from the given MapKeyMap into this
 	 * MapKeyMap. If this MapKeyMap already contained a mapping for the any of
 	 * the key combinations in the given MapKeyMap, the previous value is

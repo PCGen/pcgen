@@ -43,11 +43,6 @@ public class SpellProhibitor extends ConcretePrereqObject
 	private ProhibitedSpellType type = null;
 	private List<String> valueList = null;
 
-	public SpellProhibitor()
-	{
-		// Empty Construtor
-	}
-
 	public ProhibitedSpellType getType()
 	{
 		return type;

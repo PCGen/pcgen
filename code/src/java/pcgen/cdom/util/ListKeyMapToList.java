@@ -70,14 +70,6 @@ public class ListKeyMapToList
 	private final HashMapToList map = new HashMapToList();
 
 	/**
-	 * Creates a new (empty) ListKeyMapToList
-	 */
-	public ListKeyMapToList()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * Adds all of the Lists in the given ListKeyMapToList to this
 	 * ListKeyMapToList. The resulting lists are independent (protecting the
 	 * internal structure of ListKeyMapToList), however, since ListKeyMapToList
