@@ -1,5 +1,4 @@
-/*
- * PCGen code quality tasks. This file specifies the code quality
+/* PCGen code quality tasks. This file specifies the code quality
  * reports to be run as part of the PCGen nightly build. It is
  * called from the main build.gradle file.
  *
@@ -25,11 +24,6 @@ pmd {
 	toolVersion = "5.5.1"
 }
 
-jdepend {
-	ignoreFailures = true
-	sourceSets = []
-}
-
 findbugs {
 	ignoreFailures = true
 //	effort = 'max'
@@ -48,5 +42,4 @@ tasks.withType(FindBugs) {
 						'DoInsideDoPrivileged', 'CyclomaticComplexity']
 	}
 }
-
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain', 'findbugs'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugs'] }
