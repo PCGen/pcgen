@@ -46,7 +46,7 @@ import pcgen.core.PlayerCharacter;
  * @param <T>
  *            the Class contained within this ChoiceSet
  */
-public class ChoiceSet<T> extends ConcretePrereqObject implements PrereqObject,
+public class ChoiceSet<T> extends ConcretePrereqObject implements
 		SelectableSet<T>
 {
 

@@ -36,8 +36,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * A prerequisite parser class that handles the parsing of pre birthplace tokens.
  *
  */
-public class PreBirthplaceParser extends AbstractPrerequisiteParser implements
-		PrerequisiteParserInterface
+public class PreBirthplaceParser extends AbstractPrerequisiteParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

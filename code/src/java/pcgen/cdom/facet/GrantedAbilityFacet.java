@@ -44,7 +44,6 @@ import pcgen.util.enumeration.View;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
-		DataFacetChangeListener<CharID, CNAbilitySelection>,
 		SetFacet<CharID, CNAbilitySelection>
 {
 
