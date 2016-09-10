@@ -103,7 +103,6 @@ public class EquipmentLoader implements Loader
 
 	private List<CDOMObject> processToken(StringBuilder sb, String objectName,
 			CDOMObject obj, String token, ConversionDecider decider, int line)
-			throws PersistenceLayerException, InterruptedException
 	{
 		final int colonLoc = token.indexOf(':');
 		if (colonLoc == -1)

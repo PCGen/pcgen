@@ -651,7 +651,6 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	 *         file.
 	 */
 	private Vector<?> getMonsterFromTable(String table)
-		throws FileNotFoundException
 	{
 		String tablePath;
 		String tableEntry;
