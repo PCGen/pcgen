@@ -58,7 +58,6 @@ public class PCStringDirective extends CharacterExportAction implements
 	 */
 	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}

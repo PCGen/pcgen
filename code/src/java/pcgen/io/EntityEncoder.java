@@ -64,7 +64,6 @@ public final class EntityEncoder
 	 */
 	private EntityEncoder()
 	{
-		super();
 	}
 
 	/**

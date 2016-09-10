@@ -53,7 +53,6 @@ public class PatternFilter implements OutputFilter
 	 */
 	public PatternFilter(String templateFileName) throws IOException
 	{
-		super();
 
 		int idx = templateFileName.lastIndexOf('.');
 		if (idx < 0)

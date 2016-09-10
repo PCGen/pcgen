@@ -41,7 +41,6 @@ public class CharacterFilter implements OutputFilter
 	 */
 	public CharacterFilter(String templateFileName)
 	{
-		super();
 
 		final int idx = templateFileName.lastIndexOf('.');
 

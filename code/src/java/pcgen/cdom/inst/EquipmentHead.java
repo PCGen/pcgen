@@ -68,7 +68,6 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 	 */
 	public EquipmentHead(VarScoped source, int idx)
 	{
-		super();
 		if (source == null)
 		{
 			throw new IllegalArgumentException(

@@ -83,7 +83,6 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 		
 		public SourceDest(S source, D destination)
 		{
-			super();
 			this.source = source;
 			this.destination = destination;
 		}
