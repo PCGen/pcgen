@@ -1345,7 +1345,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public void setGold(final BigDecimal amt)
 	{
-		if (amt == null) return;
+		if (amt == null)
+		{
+			return;
+		}
 
 		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
 		BigDecimal oldAmt = goldFacet.get(id);
@@ -3328,7 +3331,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		int i = getMaxCharacterDomains();
 		if (i == 0 && !hasDefaultDomainSource())
+		{
 			i = (int) source.getBonusTo("DOMAIN", "NUMBER", getLevel(source), aPC);
+		}
 		return i;
 	}
 
