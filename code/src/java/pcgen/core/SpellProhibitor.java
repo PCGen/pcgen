@@ -79,7 +79,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 		 * Alignment" - thus this Globals check is only relevant to the
 		 * Alignment type
 		 */
-		if (type.equals(ProhibitedSpellType.ALIGNMENT)
+		if (type == ProhibitedSpellType.ALIGNMENT
 				&& !Globals.checkRule(RuleConstants.PROHIBITSPELLS))
 		{
 			return false;
@@ -123,7 +123,7 @@ public class SpellProhibitor extends ConcretePrereqObject
 		}
 		SpellProhibitor other = (SpellProhibitor) o;
 		if ((type == null && other.type == null)
-				|| (type != null && type.equals(other.type)))
+				|| (type != null && type == other.type))
 		{
 			return (other.valueList == null && valueList == null)
 					|| valueList != null && valueList.equals(other.valueList);
