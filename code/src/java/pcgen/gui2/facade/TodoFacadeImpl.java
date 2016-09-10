@@ -117,7 +117,7 @@ public class TodoFacadeImpl implements TodoFacade
 	    }
 
 	    // Sort first by tab 
-	    if (!(this.tab == that.getTab()))
+	    if (this.tab != that.getTab())
 	    {
 	    	return this.tab.compareTo(that.getTab());
 	    }
