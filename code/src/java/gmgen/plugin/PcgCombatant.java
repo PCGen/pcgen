@@ -1124,7 +1124,7 @@ public class PcgCombatant extends Combatant
 
 			String region = pcOut.getRegion(); //|REGION|.|%|
 
-			if (!"".equals(region) && (region != null)
+			if (region != null && !region.isEmpty() && (region != null)
 				&& !"None".equals(region))
 			{
 				statBuf.append(" From " + region + " ");
