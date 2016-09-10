@@ -120,11 +120,10 @@ public class EqBuilderEqTypeToken implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " must have TITLE= as its second argument : " + value, context);
 		}
-		StringBuilder sb = new StringBuilder(value.length() + 20);
-		sb.append(first).append('|').append(second.substring(6));
-		sb.append("|TYPE=EQTYPES");
+		String sb = first + '|' + second.substring(6) +
+				"|TYPE=EQTYPES";
 		// Old format: CHOOSE:COUNT=ALL|desired TYPE(s)|TYPE=EQTYPES
-		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb.toString());
+		context.getObjectContext().put(obj, StringKey.CHOICE_STRING, sb);
 		return ParseResult.SUCCESS;
 	}
 
