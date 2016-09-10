@@ -94,7 +94,7 @@ public class AttackToken extends Token
 			// SHORT means we only return the first attack bonus
 			if ("SHORT".equalsIgnoreCase(format))
 			{
-				int sepPos = retString.indexOf("/");
+				int sepPos = retString.indexOf('/');
 				if (sepPos >= 0)
 				{
 					retString = retString.substring(0, sepPos);
