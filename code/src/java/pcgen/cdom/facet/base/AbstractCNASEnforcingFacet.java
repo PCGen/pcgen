@@ -190,7 +190,7 @@ public class AbstractCNASEnforcingFacet extends
 		remove(dfce.getCharID(), dfce.getCDOMObject(), dfce.getSource());
 	}
 
-	protected class SourcedCNAS
+	protected static class SourcedCNAS
 	{
 		public final CNAbilitySelection cnas;
 		public final Object source;
