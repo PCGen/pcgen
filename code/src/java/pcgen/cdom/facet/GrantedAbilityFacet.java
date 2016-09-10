@@ -98,7 +98,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			{
 				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().equals(cat)
-					&& cna.getNature().equals(n))
+					&& cna.getNature() == n)
 				{
 					returnList.add(cna);
 				}
@@ -155,7 +155,7 @@ public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 			{
 				CNAbility cna = array.get(0).cnas.getCNAbility();
 				if (cna.getAbilityCategory().getParentCategory().equals(cat)
-					&& cna.getNature().equals(n))
+					&& cna.getNature() == n)
 				{
 					returnList.add(cna);
 				}
