@@ -5808,7 +5808,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		for (Equipment eq : getEquipmentMasterList())
 		{
-			totalValue = totalValue.add(eq.getCost(this).multiply(new BigDecimal(eq.qty())));
+			totalValue = totalValue.add(eq.getCost(this).multiply(BigDecimal.valueOf(eq.qty())));
 		}
 
 		return totalValue;
