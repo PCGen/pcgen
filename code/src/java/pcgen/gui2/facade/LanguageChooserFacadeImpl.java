@@ -97,7 +97,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 	 */
 	private void buildLanguageList()
 	{
-		if (source == null || !(source instanceof Skill ))
+		if (!(source instanceof Skill))
 		{
 			buildBonusLangList();
 		}
