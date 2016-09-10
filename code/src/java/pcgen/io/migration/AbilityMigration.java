@@ -50,7 +50,7 @@ public class AbilityMigration
 	 * @return The new ability key, or the passed in one if it has not changed.
 	 */
 	public static CategorisedKey getNewAbilityKey(String abilityCategory,
-		String abilityKey, int pcgVer[], String gameModeName)
+	                                              String abilityKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> abilityChangeList =
 				abilityChangesForVer.get(pcgVer);
