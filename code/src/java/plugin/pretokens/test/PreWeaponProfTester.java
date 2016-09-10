@@ -143,10 +143,7 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 		return countedTotal(prereq, runningTotal);
 	}
 
-	/**
-	 * @see pcgen.core.prereq.PrerequisiteTest#kindHandled()
-	 */
-    @Override
+	@Override
 	public String kindHandled()
 	{
 		return "WEAPONPROF"; //$NON-NLS-1$

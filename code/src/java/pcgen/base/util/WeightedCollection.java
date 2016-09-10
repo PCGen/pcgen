@@ -654,8 +654,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Returns the next element in the iteration.
 		 * 
 		 * @return The next element.
-		 * 
-		 * @see java.util.Iterator#next()
+		 *
 		 */
 		@Override
 		public E next()
@@ -666,8 +665,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Removes from the WeightedCollection the last element returned from
 		 * the iteration.
-		 * 
-		 * @see java.util.Iterator#remove()
+		 *
 		 */
 		@Override
 		public void remove()
@@ -710,8 +708,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		/**
 		 * Compare two WeightedItem objects
-		 * 
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

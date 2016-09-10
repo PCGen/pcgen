@@ -65,7 +65,6 @@ public class AutoListShieldProfFacet extends
 	 *         ProfProvider
 	 * 
 	 *         (non-Javadoc)
-	 * @see pcgen.cdom.facet.base.AbstractItemConvertingFacet#convert(java.lang.Object)
 	 */
 	@Override
 	protected ProfProvider<ShieldProf> convert(ShieldProf ap)
