@@ -2050,11 +2050,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (int i = 0; i < abilityList.size(); i++)
 		{
 			final String ability = abilityList.get(i);
-			if (!sortList.contains(ability))
-			{
-				sortList.add(ability);
-				numTimes[i] = 1;
-			} else
+			if (sortList.contains(ability))
 			{
 				for (int j = 0; j < sortList.size(); j++)
 				{
@@ -2064,6 +2060,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						numTimes[j]++;
 					}
 				}
+			}
+			else
+			{
+				sortList.add(ability);
+				numTimes[i] = 1;
 			}
 		}
 
@@ -7894,12 +7895,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				{
 					int select = ability.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 					double relativeCost = cost / select;
-					if (!aCategory.allowFractionalPool())
-					{
-						spent += (int) Math.ceil(relativeCost);
-					} else
+					if (aCategory.allowFractionalPool())
 					{
 						spent += relativeCost;
+					}
+					else
+					{
+						spent += (int) Math.ceil(relativeCost);
 					}
 				}
 			}
