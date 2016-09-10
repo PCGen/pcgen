@@ -586,7 +586,7 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 			{
 				return true;
 			}
-			if (o instanceof Target)
+			if (o instanceof AbstractItemConvertingFacet.Target)
 			{
 				Target other = (Target) o;
 				return dest.equals(other.dest) && set.equals(other.set);
