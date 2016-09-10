@@ -20,7 +20,6 @@
  */
 package gmgen;
 
-import static pcgen.system.LanguageBundle.getFormattedString;
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
@@ -66,6 +65,7 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
@@ -164,7 +164,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Starts the GMGen renderer
      */
     public GMGenSystem() {
-        super(getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
+        super(LanguageBundle.getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
         pluginManager = PluginManager.getInstance();
         messageHandler = pluginManager.getPostbox();
         new Renderer().start();
