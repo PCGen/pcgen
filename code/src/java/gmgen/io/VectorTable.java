@@ -246,12 +246,9 @@ public class VectorTable extends AbstractList
 		 * special consideration for a Set or something that VectorTables are stored in, 
 		 * then a special comparator should be built, in my opinion - thpr 10/29/06
 		 */
-		if (o != null && o.toString().equals(name))
-		{
-			return true;
-		}
+		return o != null && o.toString()
+				.equals(name);
 
-		return false;
 	}
 
 	/**
