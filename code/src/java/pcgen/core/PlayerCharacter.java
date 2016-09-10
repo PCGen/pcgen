@@ -693,15 +693,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			// PC does not have that equipset ID
 			// so we need to find one they do have
-			for (EquipSet eSet : equipSetFacet.getSet(id))
-			{
-				if (eSet.getParentIdPath().equals(Constants.EQUIP_SET_ROOT_ID))
-				{
-					calcEquipSetId = eSet.getIdPath();
 
-					return calcEquipSetId;
-				}
-			}
+			return equipSetFacet.getSet(id)
+					.stream()
+					.filter(v -> v.getParentIdPath().equals(Constants.EQUIP_SET_ROOT_ID))
+					.findFirst()
+					.get()
+					.getIdPath();
 		}
 
 		return calcEquipSetId;
@@ -765,18 +763,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// loop through all the EquipSet's and create equipment
 		// then set status to equipped and add to PC's equipment list
-		for (EquipSet es : pcEquipSetList)
-		{
-			if (es.getItem() == null || !es.isPartOf(calcId))
-			{
-				continue;
-			}
+		pcEquipSetList.stream()
+				.filter(es -> (es.getItem() != null) && es.isPartOf(calcId))
+				.forEach(es -> {
+					es.equipItem(this);
+					es.addNoteToItem();
+					addLocalEquipment(es.getItem());
+				});
 
-			es.equipItem(this);
-			es.addNoteToItem();
-
-			addLocalEquipment(es.getItem());
-		}
 
 		// loop through all equipment and make sure that
 		// containers contents are updated
@@ -861,24 +855,20 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		setDirty(true);
 
-		for (Follower aF : getFollowerList())
+		// Found race and type of follower so add bonus to the master
+		getFollowerList().forEach(aF ->
 		{
 			final CompanionList cList = aF.getType();
-			final String rType = cList.getKeyName();
-			final Race fRace = aF.getRace();
-
-			for (CompanionMod cm : Globals.getContext().getReferenceContext().getManufacturer(
-				CompanionMod.class, cList).getAllObjects())
-			{
-				final String aType = cm.getType();
-				if (aType.equalsIgnoreCase(rType) && cm.appliesToRace(fRace))
-				{
-					// Found race and type of follower
-					// so add bonus to the master
-					companionModFacet.add(id, cm);
-				}
-			}
-		}
+			// Found race and type of follower so add bonus to the master
+			Globals.getContext()
+					.getReferenceContext()
+					.getManufacturer(CompanionMod.class, cList)
+					.getAllObjects()
+					.stream()
+					.filter(v -> v.getType().equalsIgnoreCase(cList.getKeyName()))
+					.forEach(cm -> companionModFacet.add(id, cm)
+					);
+		});
 	}
 
 	/**
@@ -889,15 +879,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public PCClass getClassKeyed(final String key)
 	{
-		for (PCClass aClass : getClassSet())
-		{
-			if (aClass.getKeyName().equalsIgnoreCase(key))
-			{
-				return aClass;
-			}
-		}
-
-		return null;
+		return getClassSet().stream()
+				.filter(v -> v.getKeyName().equalsIgnoreCase(key))
+				.findFirst()
+				.orElse(null);
 	}
 
 	/**
@@ -1155,17 +1140,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * Set the characters eye colour.
-	 *
-	 * @param aString
-	 *            the colour of their eyes
-	 */
-	public void setEyeColor(final String aString)
-	{
-		setStringFor(PCStringKey.EYECOLOR, aString);
-	}
-
-	/**
 	 * Get a number that represents the number of feats added to this character
 	 * by BONUS statements.
 	 *
@@ -1244,13 +1218,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		double bonus = 0d;
-		for (final Map.Entry<String, Double> stringDoubleEntry : featByLevelType.entrySet())
-		{
-			Double existing = stringDoubleEntry.getValue();
-			bonus += CoreUtility.epsilonFloor(existing);
-		}
-		return bonus;
+		return featByLevelType.entrySet().stream()
+				.mapToDouble(Map.Entry::getValue)
+				.reduce(0, (a, b) -> a + CoreUtility.epsilonFloor(b));
 	}
 
 	/**
@@ -3415,8 +3385,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int getOffHandLightBonus()
 	{
-		final int div = getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
-		return div;
+		return getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
 	}
 
 	public boolean isProficientWith(final Equipment eq)
@@ -4094,9 +4063,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		int result = tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
-
-		return (result);
+		return (tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses));
 	}
 
 	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
@@ -5547,12 +5514,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public int modToACFromEquipment()
 	{
-		int bonus = 0;
-		for (Equipment eq : getEquippedEquipmentSet())
-		{
-			bonus += eq.getACMod(this).intValue();
-		}
-		return bonus;
+		return getEquippedEquipmentSet().stream()
+				.mapToInt(v -> v.getACMod(this))
+				.sum();
 	}
 
 	/**
@@ -8001,8 +7965,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (list instanceof AbilityList)
 			{
-				CDOMReference r = ref;
-				processAbilityList(cdo, r);
+				processAbilityList(cdo, (CDOMReference) ref);
 				break; // Only do once
 			}
 		}
@@ -9754,7 +9717,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return skillRankFacet.get(id, sk, localClass);
 	}
 
-	public int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
+	int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
 	{
 		return knownSpellFacet.getSize(id, list, level);
 	}
@@ -9771,16 +9734,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (spellLists.contains(list))
 			{
-				for (int lvl : availSpellFacet.getScopes2(id, list))
+				for (final int lvl : availSpellFacet.getScopes2(id, list))
 				{
-					for (Spell spell : availSpellFacet.getSet(id, list, lvl))
-					{
-						spellList.add(spell);
-					}
+					spellList.addAll(availSpellFacet.getSet(id, list, lvl));
 				}
 			}
 		}
-
 		return spellList;
 	}
 
@@ -9844,15 +9803,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		for (Domain d : getDomainSet())
-		{
-			if (pcc.getKeyName().equals(
-				getDomainSource(d).getPcclass().getKeyName()))
-			{
-				DomainApplication.addSpellsToClassForLevels(this, d, pcc, 0,
-					maxCastableLevel);
-			}
-		}
+		getDomainSet().stream()
+				.filter(
+						(Domain v) -> pcc.getKeyName().equals(getDomainSource(v).getPcclass().getKeyName()))
+				.forEach(v ->
+						DomainApplication.addSpellsToClassForLevels(this, v, pcc, 0, maxCastableLevel));
 	}
 
 	public void removeKnownSpellsForClassLevel(PCClass pcc)
@@ -9917,8 +9872,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 	}
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
@@ -9928,8 +9882,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category");
 		}
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 	}
 
 	public List<?> getDetailedAssociations(ChooseDriver cd)
@@ -9940,8 +9893,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
 	}
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
@@ -9951,20 +9903,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Set<CNAbility> set = new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 	}
 
 	public Collection<CNAbilitySelection> getSaveAbilities()

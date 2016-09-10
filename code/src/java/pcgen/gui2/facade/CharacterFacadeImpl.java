@@ -2081,8 +2081,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setEyeColor(String color)
 	{
-		eyeColor.set(color);
-		theCharacter.setEyeColor(color);
+		theCharacter.setStringFor(PCStringKey.EYECOLOR, color);
 	}
 
 	@Override

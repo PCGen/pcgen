@@ -40,6 +40,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.NonInteractive;
 import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
+import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.util.Logging;
 
@@ -223,7 +224,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 		if (ranList.contains("EYES"))
 		{
-			pc.setEyeColor(generateBioValue("EYES", pc));
+			pc.setStringFor(PCStringKey.EYECOLOR, generateBioValue("EYES", pc));
 		}
 
 		if (ranList.contains("HAIR"))
