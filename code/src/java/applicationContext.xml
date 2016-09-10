@@ -591,7 +591,7 @@
 	</bean>
 	<bean id="statCalcFacet" class="pcgen.cdom.facet.StatCalcFacet"/>
 	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
-	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
+	<bean id="statBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="statFacet" ref="statFacet"/>
