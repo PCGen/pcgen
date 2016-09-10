@@ -28,8 +28,6 @@ package pcgen.persistence.lst;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
 import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -45,6 +43,9 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PObjectLoaderTest extends PCGenTestCase
@@ -68,7 +69,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 	/**
 	 * Sets up the test case by loading the system plugins.
 	 * 
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

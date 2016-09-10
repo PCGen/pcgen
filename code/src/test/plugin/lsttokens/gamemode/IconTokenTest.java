@@ -24,7 +24,7 @@ package plugin.lsttokens.gamemode;
 
 import java.net.URI;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
@@ -36,12 +36,12 @@ import pcgen.core.SettingsHandler;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class IconTokenTest extends PCGenTestCase
+public class IconTokenTest extends TestCase
 {
 	private URI uri;
 	
 	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	protected void setUp() throws Exception

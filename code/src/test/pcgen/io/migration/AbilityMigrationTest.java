@@ -22,7 +22,7 @@
  */
 package pcgen.io.migration;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -35,7 +35,7 @@ import pcgen.io.migration.AbilityMigration.CategorisedKey;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilityMigrationTest extends PCGenTestCase
+public class AbilityMigrationTest extends TestCase
 {
 	
 	private String gameMode;

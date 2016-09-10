@@ -30,7 +30,7 @@ import java.net.URI;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
@@ -42,7 +42,7 @@ import pcgen.rules.context.LoadContext;
  * Static methods are also made available should other test classes require
  * BioSet loading functions.
  */
-public final class BioSetLoaderTest extends PCGenTestCase
+public final class BioSetLoaderTest extends TestCase
 {
 	/**
 	 * The sample Bio set data for testing.

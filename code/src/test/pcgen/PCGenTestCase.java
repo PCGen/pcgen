@@ -2,60 +2,44 @@ package pcgen;
 
 import java.math.BigDecimal;
 
-import junit.framework.TestCase;
 import pcgen.core.GameMode;
 import pcgen.core.LevelInfo;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.LoadInfo;
 import pcgen.persistence.GameModeFileLoader;
-import pcgen.util.Logging;
 import pcgen.util.TestChecker;
-import pcgen.util.testchecker.BoolAnd;
 import pcgen.util.testchecker.BoolNot;
-import pcgen.util.testchecker.BoolOr;
-import pcgen.util.testchecker.BoolXor;
 import pcgen.util.testchecker.CompareDeadband;
 import pcgen.util.testchecker.CompareEqualBoolean;
-import pcgen.util.testchecker.CompareEqualByte;
-import pcgen.util.testchecker.CompareEqualChar;
-import pcgen.util.testchecker.CompareEqualDouble;
-import pcgen.util.testchecker.CompareEqualFloat;
-import pcgen.util.testchecker.CompareEqualIgnoreCaseString;
 import pcgen.util.testchecker.CompareEqualInt;
-import pcgen.util.testchecker.CompareEqualLong;
 import pcgen.util.testchecker.CompareEqualObject;
-import pcgen.util.testchecker.CompareEqualShort;
 import pcgen.util.testchecker.CompareEqualString;
-import pcgen.util.testchecker.CompareGreaterOrEqual;
 import pcgen.util.testchecker.CompareGreaterThan;
-import pcgen.util.testchecker.CompareLessOrEqual;
-import pcgen.util.testchecker.CompareLessThan;
 import pcgen.util.testchecker.CompareNull;
-import pcgen.util.testchecker.CompareSame;
-import pcgen.util.testchecker.CompareSubstring;
+
+import junit.framework.TestCase;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby
- * when a unit test throws an exception, and then <code>tearDown</code> will not
+ * when a unit test throws an exception, and then {@code tearDown} will not
  * unwind correctly, the original exception from the unit test is buried by the
- * exception from <code>tearDown</code>.
+ * exception from {@code tearDown}.
  *
  * The solution is to override {@link #runBare()} and save the exception from
- * the unit test, rethrowing it after <code>tearDown</code> finishes.
+ * the unit test, rethrowing it after {@code tearDown} finishes.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
+ * @deprecated the described bug no longer exists on modern versions of junit
  */
 @SuppressWarnings("nls")
+@Deprecated
 public abstract class PCGenTestCase extends TestCase
 {
-	protected boolean verbose = false;
 	protected int     count   = 0;
-	protected int     errors  = 0;
 
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
-	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	protected void setUp() throws Exception
@@ -76,11 +60,10 @@ public abstract class PCGenTestCase extends TestCase
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
 		count  = 0;
-		errors = 0;
 	}
 
 	/**
-	 * Constructs a new <code>PCGenTestCase</code>.
+	 * Constructs a new {@code PCGenTestCase}.
 	 *
 	 * @see TestCase#TestCase()
 	 */
@@ -90,7 +73,7 @@ public abstract class PCGenTestCase extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>PCGenTestCase</code> with the given <var>name</var>.
+	 * Constructs a new {@code PCGenTestCase} with the given <var>name</var>.
 	 *
 	 * @param name The name of the test case
      * @see TestCase#TestCase(String)
@@ -116,12 +99,6 @@ public abstract class PCGenTestCase extends TestCase
 		try
 		{
 			runTest();
-
-			if (verbose && 0 != errors)
-			{
-				Logging.errorPrint("Failed " + errors + " of " + count + " interruptable tests");
-				fail("Failed " + errors + " of " + count + " interruptable tests");
-			}
 		}
 
 		catch (final Throwable t)
@@ -140,7 +117,7 @@ public abstract class PCGenTestCase extends TestCase
 
 			finally
 			{
-				if (null != thrown)
+				if (thrown != null)
 				{
 					// Replace any tear down exception with
 					// unit test exception
@@ -154,25 +131,7 @@ public abstract class PCGenTestCase extends TestCase
 	{
         count += 1;
 
-		if (verbose)
-		{
-			if (matches.check(something))
-			{
-				Logging.errorPrint("OK - unlabelled test case");
-			}
-			else
-			{
-				Logging.errorPrint("\n!!! Not OK !!! - unlabelled test case");
-
-				final StringBuilder message = new StringBuilder("  Expected: ");
-				matches.scribe(message);
-				message.append("\n  but got: ").append(something).append('\n');
-
-				Logging.errorPrint(message.toString());
-                errors += 1;
-			}
-		}
-		else if (!matches.check(something))
+		if (!matches.check(something))
 		{
 
 			final StringBuilder message = new StringBuilder("\nExpected: ");
@@ -186,25 +145,7 @@ public abstract class PCGenTestCase extends TestCase
 	{
         count += 1;
 
-		if (verbose)
-		{
-			if (matches.check(something))
-			{
-				Logging.errorPrint("OK - " + testCase);
-			}
-			else
-			{
-				Logging.errorPrint("\n!!! Not OK !!! - " + testCase);
-
-				final StringBuilder message = new StringBuilder("  Expected: ");
-				matches.scribe(message);
-				message.append("\n  but got: ").append(something).append("\n");
-				
-				Logging.errorPrint(message.toString());
-                errors += 1;
-			}
-		}
-		else if (!matches.check(something))
+		if (!matches.check(something))
 		{
 
 			final StringBuilder message = new StringBuilder("\nExpected: ");
@@ -216,118 +157,43 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	public CompareEqualString strEq(final String s)
+	public static CompareEqualString strEq(final String s)
 	{
 		return new CompareEqualString(s);
 	}
 
-	public CompareEqualIgnoreCaseString strEqIC(final String s)
-	{
-		return new CompareEqualIgnoreCaseString(s);
-	}
-
-	public CompareEqualObject eq(final Object operand)
+	public static CompareEqualObject eq(final Object operand)
 	{
 		return new CompareEqualObject(operand);
 	}
 
-	public CompareEqualBoolean eq(final boolean bo)
+	public static CompareEqualBoolean eq(final boolean bo)
 	{
 		return new CompareEqualBoolean(bo);
 	}
 
-	public CompareEqualByte eq(final byte operand)
-	{
-		return new CompareEqualByte(operand);
-	}
-
-	public CompareEqualShort eq(final short operand)
-	{
-		return new CompareEqualShort(operand);
-	}
-
-	public CompareEqualChar eq(final char operand)
-	{
-		return new CompareEqualChar(operand);
-	}
-
-	public CompareEqualInt eq(final int operand)
+	public static CompareEqualInt eq(final int operand)
 	{
 		return new CompareEqualInt(operand);
 	}
 
-	public CompareEqualLong eq(final long operand)
-	{
-		return new CompareEqualLong(operand);
-	}
-
-	public CompareEqualFloat eq(final float operand)
-	{
-		return new CompareEqualFloat(operand);
-	}
-
-	public CompareEqualDouble eq(final double operand)
-	{
-		return new CompareEqualDouble(operand);
-	}
-
-	public CompareDeadband eq(final double operand, final double error)
+	public static CompareDeadband eq(final double operand, final double error)
 	{
 		return new CompareDeadband(operand, error);
 	}
 
-	public CompareNull eqnull()
+	protected static CompareNull eqnull()
 	{
 		return new CompareNull();
 	}
 
-	public CompareSame same(final Object operand)
-	{
-		return new CompareSame(operand);
-	}
-
-	public CompareSubstring stringContains(final String substring)
-	{
-		return new CompareSubstring(substring);
-	}
-
-	public BoolNot not(final TestChecker c)
+	public static BoolNot not(final TestChecker c)
 	{
 		return new BoolNot(c);
 	}
 
-	public BoolAnd and(final TestChecker left, final TestChecker right)
-	{
-		return new BoolAnd(left, right);
-	}
-
-	public BoolOr or(final TestChecker left, final TestChecker right)
-	{
-		return new BoolOr(left, right);
-	}
-
-	public BoolXor xor(final TestChecker left, final TestChecker right)
-	{
-		return new BoolXor(left, right);
-	}
-
-	public CompareGreaterThan gt(Comparable operand)
+	protected static CompareGreaterThan gt(Comparable operand)
 	{
 		return new CompareGreaterThan(operand);
-	}
-
-	public CompareGreaterOrEqual ge(Comparable operand)
-	{
-		return new CompareGreaterOrEqual(operand);
-	}
-
-	public CompareLessThan lt(Comparable operand)
-	{
-		return new CompareLessThan(operand);
-	}
-
-	public CompareLessOrEqual le(Comparable operand)
-	{
-		return new CompareLessOrEqual(operand);
 	}
 }

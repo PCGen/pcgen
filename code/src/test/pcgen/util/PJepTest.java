@@ -34,7 +34,7 @@ import junit.framework.TestSuite;
 import org.nfunk.jep.SymbolTable;
 
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PlayerCharacter;

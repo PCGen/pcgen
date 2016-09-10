@@ -23,7 +23,7 @@
 
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.rules.context.LoadContext;
@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class CampaignTest extends PCGenTestCase
+public class CampaignTest extends TestCase
 {
 
 	Campaign testCamp = new Campaign();

@@ -26,7 +26,8 @@ import pcgen.core.term.TermEvaulatorException;
  * Current Ver: $Revision:$
  */
 
-public class TermUtilitiesTest extends PCGenTestCase {
+public class TermUtilitiesTest extends PCGenTestCase
+{
 
     public TermUtilitiesTest(String name) {
         super(name);
