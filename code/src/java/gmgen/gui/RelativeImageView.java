@@ -343,7 +343,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 
 		View view = getAltView();
-		float retValue = 0f;
+		float retValue = 0.0f;
 
 		if (view != null)
 		{
@@ -380,8 +380,8 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if (view != null)
 			{
-				view.setSize(Math.max(0f, width - (DEFAULT_WIDTH + leftInset + rightInset)),
-				    Math.max(0f, height - (topInset + bottomInset)));
+				view.setSize(Math.max(0.0f, width - (DEFAULT_WIDTH + leftInset + rightInset)),
+				    Math.max(0.0f, height - (topInset + bottomInset)));
 			}
 		}
 	}
@@ -687,11 +687,11 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if ("top".equals(alignment))
 			{
-				vAlign = 0f;
+				vAlign = 0.0f;
 			}
 			else if ("middle".equals(alignment))
 			{
-				vAlign = .5f;
+				vAlign = 0.5f;
 			}
 		}
 
@@ -810,7 +810,7 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 		}
 
-		return 0f;
+		return 0.0f;
 	}
 
 	/** Determines if path is in the form of a URL

@@ -91,7 +91,7 @@ public class EncounterModel extends DefaultListModel
 			cr = 0;
 		}
 
-		return (int) (cr + .5);
+		return (int) (cr + 0.5);
 	}
 
 	/**

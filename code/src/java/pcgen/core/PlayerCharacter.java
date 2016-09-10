@@ -831,7 +831,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						removeLocalEquipment(anEquip);
 						anEquip.setIsEquipped(false, this);
 						anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
-						anEquip.setNumberCarried(0f);
+						anEquip.setNumberCarried(0.0f);
 					}
 
 					eq.setIsEquipped(true, this);
@@ -1237,14 +1237,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				Double existing = featByLevelType.get(pcClass.get(StringKey.LEVEL_TYPE));
 				if (existing == null)
 				{
-					existing = 0d;
+					existing = 0.0d;
 				}
 				existing += bonus;
 				featByLevelType.put(pcClass.get(StringKey.LEVEL_TYPE), existing);
 			}
 		}
 
-		double bonus = 0d;
+		double bonus = 0.0d;
 		for (final Map.Entry<String, Double> stringDoubleEntry : featByLevelType.entrySet())
 		{
 			Double existing = stringDoubleEntry.getValue();

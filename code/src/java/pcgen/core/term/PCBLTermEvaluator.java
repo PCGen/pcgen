@@ -42,7 +42,7 @@ public class PCBLTermEvaluator
 	public Float resolve(PlayerCharacter pc) {
 
 		if (source.length() == 0) {
-			return 0f;
+			return 0.0f;
 		}
 
 		return (float) pc.getTotalBonusTo("PCLEVEL", source);

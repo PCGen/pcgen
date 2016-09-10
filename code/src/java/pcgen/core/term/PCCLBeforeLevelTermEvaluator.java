@@ -57,7 +57,7 @@ public class PCCLBeforeLevelTermEvaluator
 			return (float) pc.getDisplay().getLevel(aClass);
 		}
 		
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

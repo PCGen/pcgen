@@ -267,7 +267,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 			infoSplit.setTopComponent(split);
 			infoSplit.setBottomComponent(infoPane);
-			infoSplit.setResizeWeight(.8);
+			infoSplit.setResizeWeight(0.8);
 			pane.add(infoSplit, BorderLayout.CENTER);
 			if (availTable != null)
 			{

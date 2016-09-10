@@ -48,7 +48,7 @@ public class PCVerbatimTextTermEvaluator
 	
 	@Override
 	public Float resolve(CharacterDisplay display) {
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

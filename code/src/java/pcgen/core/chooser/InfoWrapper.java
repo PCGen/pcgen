@@ -107,7 +107,7 @@ public class InfoWrapper implements InfoFacade, SortKeyAware
 	{
 		if (obj instanceof Number)
 		{
-			return SORTABLE_NUMBER_FORMAT.format(100000d + ((Number) obj)
+			return SORTABLE_NUMBER_FORMAT.format(100000.0d + ((Number) obj)
 				.doubleValue());
 		}
 		return toString();

@@ -148,7 +148,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 		@Override
 		public Float getRank(Skill sk)
 		{
-			return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
+			return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0.0f
 				: new Float(skillSet.get(sk));
 		}
 
@@ -202,7 +202,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public Float getRank(Skill sk)
 	{
-		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0f
+		return ((skillSet == null) || (skillSet.get(sk) == null)) ? 0.0f
 			: new Float(skillSet.get(sk));
 	}
 

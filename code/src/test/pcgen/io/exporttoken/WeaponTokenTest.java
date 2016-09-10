@@ -311,7 +311,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		}
 		bite.put(IntegerKey.SLOTS, 0);
 		bite.setQty(Float.valueOf(1));
-		bite.setNumberCarried(1f);
+		bite.setNumberCarried(1.0f);
 		bite.put(ObjectKey.ATTACKS_PROGRESS, false);
 		bite.getEquipmentHead(1).put(StringKey.DAMAGE, "1d10");
 		bite.getEquipmentHead(1).put(IntegerKey.CRIT_MULT, 2);
@@ -328,7 +328,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		longbow.addToListFor(ListKey.CAPACITY,
 			new Capacity("Arrow", BigDecimal.ONE));
 		longbow.setQty(Float.valueOf(1));
-		longbow.setNumberCarried(1f);
+		longbow.setNumberCarried(1.0f);
 		
 		arrow = new Equipment();
 		arrow.setName("Arrow");

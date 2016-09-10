@@ -89,7 +89,7 @@ public class PCEqTypeTermEvaluator
 			return convertToFloat(originalText, sTok);
 		}
 
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

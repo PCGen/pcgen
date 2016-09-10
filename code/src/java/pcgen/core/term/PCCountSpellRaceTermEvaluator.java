@@ -40,7 +40,7 @@ public class PCCountSpellRaceTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		final CDOMObject aSpellRace = pc.getSpellClassAtIndex(0);
-		return (aSpellRace instanceof Race) ? 1f : 0f;
+		return (aSpellRace instanceof Race) ? 1.0f : 0.0f;
 	}
 
 	@Override

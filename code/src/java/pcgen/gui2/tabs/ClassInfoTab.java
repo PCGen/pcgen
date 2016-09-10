@@ -176,7 +176,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		topPane.setRightComponent(selPanel);
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	private void initListeners()

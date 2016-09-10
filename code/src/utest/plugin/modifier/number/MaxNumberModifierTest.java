@@ -172,7 +172,7 @@ public class MaxNumberModifierTest extends TestCase
 	public void testProcessDoubleZero4()
 	{
 		BasicCalculation modifier = new MaxModifierFactory();
-		assertEquals(0d, modifier.process(-4.3,0.0));
+		assertEquals(0.0d, modifier.process(-4.3, 0.0));
 	}
 
 	@Test

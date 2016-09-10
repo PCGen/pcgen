@@ -41,7 +41,7 @@ public class PCCountVisibleTemplatesTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		for ( PCTemplate template : display.getTemplateSet() )
 		{

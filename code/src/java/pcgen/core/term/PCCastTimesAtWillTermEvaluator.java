@@ -45,12 +45,12 @@ public class PCCastTimesAtWillTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return -1f;
+		return -1.0f;
 	}
 
 	@Override
 	public Float resolve(PlayerCharacter pc, final CharacterSpell aSpell) {
-		return -1f;
+		return -1.0f;
 	}
 
 	@Override
