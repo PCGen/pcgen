@@ -103,7 +103,7 @@ public final class Compatibility
 	}
 
 	public static PersistentTransitionChoice<?> processOldAdd(
-			LoadContext context, String first) throws PersistenceLayerException
+			LoadContext context, String first)
 	{
 		int openParenLoc = first.indexOf('(');
 		if (openParenLoc == -1)
