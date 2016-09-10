@@ -101,7 +101,7 @@ public class OrCommand extends PCGenCommand
             // If we're haven't found a true value yet
             if (operand instanceof Number)
             {
-                if (((Number) operand).doubleValue() != 0d) {
+                if (((Number) operand).doubleValue() != 0.0d) {
                     result = operand;
                     break;
                 }

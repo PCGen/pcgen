@@ -150,10 +150,10 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
-		topPane.setResizeWeight(.75);
+		topPane.setResizeWeight(0.75);
 
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	@Override

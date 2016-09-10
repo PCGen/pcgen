@@ -52,7 +52,7 @@ public class PCShieldACcheckTermEvaluator
 				+ " when EQACCHECK CodeControl is used");
 		}
 
-		Float maxCheck = 0f;
+		Float maxCheck = 0.0f;
 
 		for ( Equipment eq : pc.getEquipmentOfType("Shield", 1) )
 		{

@@ -181,7 +181,7 @@ public class DomainInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		splitPane.setLeftComponent(deityInfo);
 		splitPane.setRightComponent(domainInfo);
 		setBottomComponent(splitPane);
-		setResizeWeight(.65);
+		setResizeWeight(0.65);
 	}
 
 	public DynamicTableColumnModel createDomainColumnModel()

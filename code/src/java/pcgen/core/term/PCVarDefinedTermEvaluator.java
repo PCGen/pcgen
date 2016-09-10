@@ -40,7 +40,7 @@ public class PCVarDefinedTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return pc.hasVariable(var) ? 1f : 0f;
+		return pc.hasVariable(var) ? 1.0f : 0.0f;
 	}
 
 	@Override

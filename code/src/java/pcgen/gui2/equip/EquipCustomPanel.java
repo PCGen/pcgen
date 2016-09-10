@@ -295,7 +295,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		bottomPane.setLeftComponent(equipModInfoPane);
 		bottomPane.setRightComponent(equipInfoPane);
 		setBottomComponent(bottomPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	/**

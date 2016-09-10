@@ -50,7 +50,7 @@ public class PCSkillTotalTermEvaluator
 		Float totalRank = SkillRankControl.getTotalRank(pc, aSkill);
 		totalRank += SkillModifier.modifier(aSkill, pc);
 
-		return (aSkill == null) ? 0f : totalRank;
+		return (aSkill == null) ? 0.0f : totalRank;
 	}
 
 	@Override

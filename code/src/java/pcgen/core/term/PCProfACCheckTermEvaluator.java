@@ -54,7 +54,7 @@ public class PCProfACCheckTermEvaluator
 		}
 		if ("".equals(eqKey))
 		{
-			return 0f;
+			return 0.0f;
 		}
 		else
 		{
@@ -63,7 +63,7 @@ public class PCProfACCheckTermEvaluator
 
 			if (eq == null || pc.isProficientWith(eq))
 			{
-				return 0f;
+				return 0.0f;
 			}
 			else
 			{
