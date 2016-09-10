@@ -494,7 +494,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			{
 				return false;
 			}
-			HashMap<Integer, PCClassLevel> levelMap =
+			Map<Integer, PCClassLevel> levelMap =
                     new HashMap<>();
 			map.put(pcc, levelMap);
 			/*

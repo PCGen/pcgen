@@ -58,7 +58,7 @@ public class MasterAvailableSpellFacet extends
 	{
 		DataSetID dsID = lc.getDataSetID();
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists =
+		List<CDOMReference<CDOMList<Spell>>> useLists =
                 new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{

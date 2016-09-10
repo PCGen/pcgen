@@ -24,6 +24,7 @@ package gmgen.plugin;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
@@ -1046,7 +1047,7 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, ArrayList<PObject> classList, String spellBookName)
+		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList, String spellBookName)
 		{
 			Set<PObject> classes = new HashSet<>();
 			classes.addAll(classList);
