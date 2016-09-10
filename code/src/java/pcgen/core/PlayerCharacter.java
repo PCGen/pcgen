@@ -5344,7 +5344,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int i = Math.max(0, (int) getStatBonusTo("LANG", "BONUS"));
 		if (getRace() != null)
 		{
-			i += getTotalBonusTo("LANGUAGES", "NUMBER");
+			i = (int) (i + getTotalBonusTo("LANGUAGES", "NUMBER"));
 		}
 		return i;
 	}
@@ -8491,7 +8491,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaDC += BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this);
+				metaDC = (int) (metaDC + BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this));
 			}
 		}
 
@@ -8623,7 +8623,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaConcentration += BonusCalc.charBonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this);
+				metaConcentration = (int) (metaConcentration
+						                           + BonusCalc.charBonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this));
 			}
 		}
 

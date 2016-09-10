@@ -241,8 +241,8 @@ public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		}
 		if (ret != -1)
 		{
-			ret += bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName()
-					.toUpperCase());
+			ret = (int) (ret + bonusCheckingFacet.getBonus(id, "FOLLOWERS", cl.getKeyName()
+					.toUpperCase()));
 		}
 		return ret;
 	}
