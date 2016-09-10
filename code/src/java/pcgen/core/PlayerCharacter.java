@@ -3685,7 +3685,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 					if (iMult > 0)
 					{
-						rangeInFeet = (rangeInFeet * iMult);
+						rangeInFeet *= iMult;
 					}
 				}
 			}
