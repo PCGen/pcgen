@@ -101,7 +101,7 @@ public class VectorTable extends AbstractList
 		/* if o is a container, adds it to rows and header and returns true, else returns false.    */
 		if (o instanceof Vector)
 		{
-			if (((Vector) o).isEmpty())
+			if (((Collection) o).isEmpty())
 			{
 				return false;
 			}
@@ -125,7 +125,7 @@ public class VectorTable extends AbstractList
 		{
 			try
 			{
-				((Vector) rows.elementAt(x)).clear();
+				((Collection) rows.elementAt(x)).clear();
 			}
 			catch (Exception e)
 			{
@@ -157,7 +157,7 @@ public class VectorTable extends AbstractList
 		{
 			try
 			{
-				if (((Vector) rows.elementAt(x)).contains(o))
+				if (((Collection) rows.elementAt(x)).contains(o))
 				{
 					found = true;
 
@@ -197,7 +197,7 @@ public class VectorTable extends AbstractList
 			return null;
 		}
 
-		x = ((Vector) rows.firstElement()).indexOf(Y);
+		x = ((List) rows.firstElement()).indexOf(Y);
 		y = header.indexOf(X);
 
 		try
@@ -300,9 +300,9 @@ public class VectorTable extends AbstractList
 				{
 					try
 					{
-						if (((Vector) rows.elementAt(x)).contains(o))
+						if (((Collection) rows.elementAt(x)).contains(o))
 						{
-							((Vector) rows.elementAt(x)).remove(o);
+							((Collection) rows.elementAt(x)).remove(o);
 							success = true;
 						}
 					}
