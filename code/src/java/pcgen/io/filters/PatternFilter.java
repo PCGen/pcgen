@@ -105,7 +105,7 @@ public class PatternFilter implements OutputFilter
 					if (aLine.length() == 0 || aLine.charAt(0) == '#') {
                                         continue;
                                     }
-					else if (0 < aLine.indexOf("\t#")) {
+					else if (aLine.indexOf("\t#") > 0) {
                                         aLineWOComment =
                                                         aLine.substring(0, aLine.indexOf("\t#"));
                                     }

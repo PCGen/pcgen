@@ -5568,7 +5568,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
 
-		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
+		int penaltyForLoad = (load == Load.MEDIUM) ? -3 : (load == Load.HEAVY) ? -6 : 0;
 
 		final IdentityList<Equipment> vEqList = new IdentityList<>(tempBonusItemList);
 
