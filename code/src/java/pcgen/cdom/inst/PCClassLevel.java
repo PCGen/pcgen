@@ -50,7 +50,7 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 	public boolean equals(Object obj)
 	{
 		return obj instanceof PCClassLevel
-				&& ((PCClassLevel) obj).isCDOMEqual(this);
+				&& ((CDOMObject) obj).isCDOMEqual(this);
 	}
 
 	/**

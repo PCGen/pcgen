@@ -23,6 +23,7 @@
  */
 package plugin.bonustokens;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PCClass;
@@ -77,7 +78,7 @@ public final class UDam extends BonusObj
 			}
 			return Constants.LST_CLASS_DOT + obj;
 		}
-		return Constants.LST_CLASS_DOT + ((PCClass) obj).getKeyName();
+		return Constants.LST_CLASS_DOT + ((VarScoped) obj).getKeyName();
 	}
 
 	/**

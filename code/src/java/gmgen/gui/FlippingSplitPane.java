@@ -298,7 +298,7 @@ public class FlippingSplitPane extends JSplitPane
 	{
 		if (c instanceof FlippingSplitPane)
 		{
-			((FlippingSplitPane) c).resetToPreferredSizes();
+			((JSplitPane) c).resetToPreferredSizes();
 		}
 	}
 
@@ -369,7 +369,7 @@ public class FlippingSplitPane extends JSplitPane
 	{
 		if (c instanceof FlippingSplitPane)
 		{
-			((FlippingSplitPane) c).setContinuousLayout(newContinuousLayout);
+			((JSplitPane) c).setContinuousLayout(newContinuousLayout);
 		}
 	}
 
@@ -385,7 +385,7 @@ public class FlippingSplitPane extends JSplitPane
 	{
 		if (c instanceof FlippingSplitPane)
 		{
-			((FlippingSplitPane) c)
+			((JSplitPane) c)
 					.setOneTouchExpandable(newOneTouchExpandable);
 		}
 	}
@@ -402,7 +402,7 @@ public class FlippingSplitPane extends JSplitPane
 	{
 		if (c instanceof FlippingSplitPane)
 		{
-			((FlippingSplitPane) c).setOrientation(newOrientation);
+			((JSplitPane) c).setOrientation(newOrientation);
 		}
 	}
 
