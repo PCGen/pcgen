@@ -106,8 +106,8 @@ public final class PrerequisiteWriterFactory implements PluginLoader
 	}
 
     @Override
-	public void loadPlugin(Class<?> clazz) throws Exception
-	{
+	public void loadPlugin(Class<?> clazz) throws PersistenceLayerException, InstantiationException, IllegalAccessException
+    {
 		register((PrerequisiteWriterInterface) clazz.newInstance());
 }
 
