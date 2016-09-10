@@ -34,7 +34,7 @@ import pcgen.io.exporttoken.SpellListToken;
 import java.util.List;
 
 /**
- * <code>SpellListBookToken</code> gives a comma delimited list of spells
+ * {@code SpellListBookToken} gives a comma delimited list of spells
  * known for the specified spellcaster class number and level (if any).
  *
  *

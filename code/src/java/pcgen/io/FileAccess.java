@@ -32,7 +32,7 @@ import pcgen.io.filters.OutputFilter;
 import pcgen.io.filters.PatternFilter;
 
 /**
- * <code>FileAccess</code>.
+ * {@code FileAccess}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

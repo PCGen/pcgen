@@ -178,17 +178,6 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	@Override
-	public boolean allow(AbilitySelection choice, PlayerCharacter pc,
-		boolean allowStack)
-	{
-		/*
-		 * This is universally true, as any filter for qualify, etc. was dealt
-		 * with by the ChoiceSet built during parse
-		 */
-		return true;
-	}
-
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override

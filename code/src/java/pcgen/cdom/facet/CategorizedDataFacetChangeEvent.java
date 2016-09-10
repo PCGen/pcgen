@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.Nature;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 
 /**
- * The Class <code>CategorizedDataFacetChangeEvent</code> indicates that a facet
+ * The Class {@code CategorizedDataFacetChangeEvent} indicates that a facet
  * with a category has changed. This is usually used for Ability add/remove
  * events to allow the listener to determine the category and nature to which
  * the ability is being applied.

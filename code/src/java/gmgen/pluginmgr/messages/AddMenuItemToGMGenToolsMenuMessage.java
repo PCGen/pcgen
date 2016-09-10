@@ -27,7 +27,7 @@ import javax.swing.JMenuItem;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>AddMenuItemToGMGenToolsMenuMessage</code> encapsulates a 
+ * The Class {@code AddMenuItemToGMGenToolsMenuMessage} encapsulates a
  * request for a menu item to be shown in the GMGen tools menu.
  *
  * <br>

@@ -75,25 +75,6 @@ public interface Chooser<T> extends Persistent<T>
 	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc);
 
 	/**
-	 * Returns true if the given choice should be allowed for the
-	 * PlayerCharacter under the provided stacking conditions.
-	 * 
-	 * @param item
-	 *            The choice being tested to see if it should be allowed for the
-	 *            given PlayerCharacter
-	 * @param pc
-	 *            The PlayerCharacter to be used in determining if the given
-	 *            choice is allowed.
-	 * @param allowStack
-	 *            True if the given choice should be allowed to stack (meaning
-	 *            the PC can have more than one instance of the choice); false
-	 *            otherwise
-	 * @return true if the given choice should be allowed for the
-	 *         PlayerCharacter under the provided stacking conditions.
-	 */
-	public boolean allow(T item, PlayerCharacter pc, boolean allowStack);
-
-	/**
 	 * Returns a list of the items *for this ChoiceActor* that have been
 	 * previously selected. Note that this does not identify whether a PC has
 	 * previously taken an item through another means (that is resolved by the

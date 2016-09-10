@@ -25,7 +25,7 @@ package gmgen.pluginmgr.messages;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>FileMenuSaveMessage</code> encapsulates an event 
+ * The Class {@code FileMenuSaveMessage} encapsulates an event
  * that the GMGen file save menu item was selected. 
  *
  * <br>

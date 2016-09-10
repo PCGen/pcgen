@@ -43,7 +43,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>EquipmentPanel</code> is responsible for 
+ * The Class {@code EquipmentPanel} is responsible for
  * displaying equipment related preferences and allowing the 
  * preferences to be edited by the user.
  * 

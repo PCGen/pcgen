@@ -170,16 +170,6 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		return pc.getAssocList(owner, getListKey());
 	}
 
-	@Override
-	public boolean allow(Ability choice, PlayerCharacter pc, boolean allowStack)
-	{
-		/*
-		 * This is universally true, as any filter for qualify, etc. was dealt
-		 * with by the ChoiceSet built during parse
-		 */
-		return true;
-	}
-
 	private static final Class<Ability> ABILITY_CLASS = Ability.class;
 
 	@Override
@@ -202,12 +192,12 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 		return CDOMObject.class;
 	}
 
-	protected String getDefaultTitle()
+	protected static String getDefaultTitle()
 	{
 		return "Ability choice";
 	}
 
-	protected AssociationListKey<Ability> getListKey()
+	protected static AssociationListKey<Ability> getListKey()
 	{
 		return AssociationListKey.getKeyFor(ABILITY_CLASS, "CHOOSE*FEAT");
 	}

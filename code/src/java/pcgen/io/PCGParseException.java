@@ -23,7 +23,7 @@ package pcgen.io;
 import pcgen.cdom.base.Constants;
 
 /**
- * <code>ParseException</code><br>
+ * {@code ParseException}<br>
  *
  *
  * @author ???

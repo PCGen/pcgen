@@ -163,12 +163,6 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 	}
 
 	@Override
-	public boolean allow(String choice, PlayerCharacter pc, boolean allowStack)
-	{
-		return true;
-	}
-
-	@Override
 	public void applyChoice(ChooseDriver owner, String st, PlayerCharacter pc)
 	{
 		restoreChoice(pc, owner, "");
