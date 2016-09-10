@@ -5,6 +5,7 @@
     Checkstyle-Configuration: PCG
 -->
 <module name="Checker">
+  <property name="charset" value="UTF-8"/>
   <property name="severity" value="warning"/>
   <module name="TreeWalker">
     <property name="cacheFile" value="checkstyle-cachefile"/>
@@ -13,13 +14,16 @@
       <property name="allowUndeclaredRTE" value="true"/>
       <property name="allowMissingParamTags" value="true"/>
       <property name="allowMissingReturnTag" value="true"/>
+      <property name="allowMissingThrowsTags" value="true" />
       <property name="allowMissingPropertyJavadoc" value="true"/>
     </module>
     <module name="JavadocType"/>
     <module name="JavadocVariable">
       <property name="scope" value="public"/>
     </module>
-    <module name="ConstantName"/>
+    <module name="ConstantName">
+      <property name="applyToPrivate" value="false" />
+    </module>
     <module name="LocalFinalVariableName"/>
     <module name="LocalVariableName"/>
     <module name="MemberName"/>
@@ -28,7 +32,9 @@
     <module name="ParameterName"/>
     <module name="StaticVariableName"/>
     <module name="TypeName"/>
-    <module name="AvoidStarImport"/>
+    <module name="AvoidStarImport">
+      <property name="allowStaticMemberImports" value="true"/>
+    </module>
     <module name="IllegalImport"/>
     <module name="RedundantImport"/>
     <module name="UnusedImports"/>
@@ -41,7 +47,6 @@
     <module name="MethodParamPad"/>
     <module name="NoWhitespaceAfter"/>
     <module name="NoWhitespaceBefore"/>
-    <module name="OperatorWrap"/>
     <module name="ParenPad"/>
     <module name="TypecastParenPad"/>
     <module name="WhitespaceAfter"/>
@@ -49,14 +54,17 @@
       <property name="tokens" value="ASSIGN"/>
     </module>
     <module name="ModifierOrder"/>
-    <module name="AvoidNestedBlocks"/>
+    <module name="AvoidNestedBlocks">
+      <property name="allowInSwitchCase" value="true" />
+    </module>
     <module name="EmptyBlock"/>
     <module name="LeftCurly">
       <property name="option" value="nl"/>
     </module>
     <module name="NeedBraces"/>
     <module name="RightCurly">
-      <property name="option" value="alone"/>
+      <!-- Permit single line to allow for empty ctors like Foo() {}-->
+      <property name="option" value="alone_or_singleline" />
     </module>
     <module name="EmptyStatement"/>
     <module name="EqualsHashCode"/>
@@ -75,13 +83,21 @@
     <module name="FinalClass"/>
     <module name="HideUtilityClassConstructor"/>
     <module name="InterfaceIsType"/>
-    <module name="VisibilityModifier"/>
+    <module name="VisibilityModifier">
+      <property name="protectedAllowed" value="true" />
+      <property name="allowPublicFinalFields" value="true" />
+      <property name="allowPublicImmutableFields" value="true" />
+    </module>
     <module name="ArrayTypeStyle"/>
     <module name="TodoComment">
       <property name="severity" value="info"/>
     </module>
-    <module name="UpperEll"/>
+    <module name="UpperEll">
+      <property name="severity" value="error"/>
+    </module>
   </module>
-  <module name="NewlineAtEndOfFile"/>
+  <module name="NewlineAtEndOfFile">
+    <property name="lineSeparator" value="lf"/>
+  </module>
   <module name="Translation"/>
 </module>
