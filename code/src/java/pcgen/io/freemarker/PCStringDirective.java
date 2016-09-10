@@ -44,8 +44,8 @@ import freemarker.template.TemplateModelException;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PCStringDirective extends CharacterExportAction implements
-		TemplateDirectiveModel, TemplateMethodModelEx
+public class PCStringDirective implements
+		TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction
 {
 	private PlayerCharacter pc;
 	private ExportHandler eh;

@@ -37,7 +37,7 @@ import pcgen.util.Logging;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public abstract class CharacterExportAction
+public interface CharacterExportAction
 {
 
 	/**
@@ -47,7 +47,7 @@ public abstract class CharacterExportAction
 	 * @param modelEh The ExportHandler managing the output.
 	 * @return The value fot he export token for the character.
 	 */
-	public String getExportVariable(String exportToken, PlayerCharacter pc, ExportHandler modelEh)
+	default String getExportVariable(String exportToken, PlayerCharacter pc, ExportHandler modelEh)
 	{
 		final StringWriter sWriter = new StringWriter();
 		final BufferedWriter aWriter = new BufferedWriter(sWriter);
