@@ -578,7 +578,12 @@ public class RelativeImageView extends View implements ImageObserver
 
 		if (anImage != null)
 		{
-			if (!hasPixels(anImage))
+			if (hasPixels(anImage))
+			{
+				// Draw the image
+				g.drawImage(anImage, rect.x + leftInset, rect.y + topInset, width, height, imageObserver);
+			}
+			else
 			{
 				// No pixels yet, use the default
 				Icon icon = getLoadingImageIcon();
@@ -587,11 +592,6 @@ public class RelativeImageView extends View implements ImageObserver
 				{
 					icon.paintIcon(getContainer(), g, rect.x + leftInset, rect.y + topInset);
 				}
-			}
-			else
-			{
-				// Draw the image
-				g.drawImage(anImage, rect.x + leftInset, rect.y + topInset, width, height, imageObserver);
 			}
 		}
 		else
