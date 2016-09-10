@@ -35,6 +35,7 @@ import java.util.StringTokenizer;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import junit.framework.TestCase;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.AssociatedPrereqObject;

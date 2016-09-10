@@ -31,6 +31,7 @@ import java.util.Iterator;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
+import junit.framework.TestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
