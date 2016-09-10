@@ -217,7 +217,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	private DefaultListFacade<CharacterLevelFacade> pcClassLevels;
     private DefaultListFacade<HandedFacade> availHands;
     private DefaultListFacade<GenderFacade> availGenders;
-	private Map<StatFacade, WriteableReferenceFacade<Integer>> statScoreMap;
+	private Map<StatFacade, WriteableReferenceFacade<Number>> statScoreMap;
 	private UndoManager undoManager;
 	private DelegatingDataSet dataSet;
 	private DefaultReferenceFacade<RaceFacade> race;
@@ -1068,9 +1068,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		for (StatFacade stat : dataSet.getStats())
 		{
-			ReferenceFacade<Integer> facade = getScoreBaseRef(stat);
+			ReferenceFacade<Number> facade = getScoreBaseRef(stat);
 
-			if (facade.get() != 0)
+			if (facade.get().intValue() != 0)
 			{
 				return false;
 			}
@@ -1561,9 +1561,9 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @see pcgen.core.facade.CharacterFacade#getScoreTotalRef(pcgen.core.facade.StatFacade)
 	 */
 	@Override
-	public ReferenceFacade<Integer> getScoreBaseRef(StatFacade stat)
+	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
 	{
-		WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
+		WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
 		if (score == null)
 		{
 			score = new DefaultReferenceFacade<>(theCharacter.getTotalStatFor((PCStat) stat));
@@ -1656,7 +1656,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setScoreBase(StatFacade stat, int score)
 	{
-		WriteableReferenceFacade<Integer> facade = statScoreMap.get(stat);
+		WriteableReferenceFacade<Number> facade = statScoreMap.get(stat);
 		if (facade == null)
 		{
 			facade = new DefaultReferenceFacade<>(score);
@@ -3285,8 +3285,8 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 			// Make sure all scores are within the valid range
 			for (StatFacade stat : statScoreMap.keySet())
 			{
-				WriteableReferenceFacade<Integer> score = statScoreMap.get(stat);
-				if (score.get() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
+				WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
+				if (score.get().intValue() < SettingsHandler.getGame().getPurchaseScoreMin(theCharacter)
 						&& stat instanceof PCStat)
 				{
 					setStatToPurchaseNeutral((PCStat) stat, score);
@@ -3306,7 +3306,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	 * @param pcStat The stata ebing adjusted.
 	 * @param scoreRef The reference tothe current score.
 	 */
-	private void setStatToPurchaseNeutral(PCStat pcStat, WriteableReferenceFacade<Integer> scoreRef)
+	private void setStatToPurchaseNeutral(PCStat pcStat, WriteableReferenceFacade<Number> scoreRef)
 	{
 		int newScore = SettingsHandler.getGame().getPurchaseModeBaseStatScore(theCharacter);
 		if (StringUtils.isNotEmpty(validateNewStatBaseScore(newScore, pcStat, charDisplay.totalNonMonsterLevels())))

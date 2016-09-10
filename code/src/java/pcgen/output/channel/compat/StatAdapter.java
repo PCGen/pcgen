@@ -25,16 +25,16 @@ import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 
-public final class StatAdapter extends AbstractAdapter<Integer> implements
-		WriteableReferenceFacade<Integer>,
-		ScopeFacetChangeListener<CharID, PCStat, Integer>
+public final class StatAdapter extends AbstractAdapter<Number> implements
+		WriteableReferenceFacade<Number>,
+		ScopeFacetChangeListener<CharID, PCStat, Number>
 {
 	private StatValueFacet statValueFacet = FacetLibrary
 		.getFacet(StatValueFacet.class);
 
 	private final CharID id;
 	private final PCStat stat;
-	private int lastKnown;
+	private Number lastKnown;
 
 	private StatAdapter(CharID id, PCStat stat)
 	{
@@ -44,13 +44,13 @@ public final class StatAdapter extends AbstractAdapter<Integer> implements
 	}
 
 	@Override
-	public Integer get()
+	public Number get()
 	{
 		return statValueFacet.get(id, stat);
 	}
 
 	@Override
-	public void set(Integer value)
+	public void set(Number value)
 	{
 		statValueFacet.set(id, stat, value);
 	}
@@ -63,7 +63,7 @@ public final class StatAdapter extends AbstractAdapter<Integer> implements
 	}
 
 	@Override
-	public void dataAdded(ScopeFacetChangeEvent<CharID, PCStat, Integer> dfce)
+	public void dataAdded(ScopeFacetChangeEvent<CharID, PCStat, Number> dfce)
 	{
 		if (dfce.getCharID().equals(id) && dfce.getScope().equals(stat))
 		{
@@ -72,7 +72,7 @@ public final class StatAdapter extends AbstractAdapter<Integer> implements
 	}
 
 	@Override
-	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCStat, Integer> dfce)
+	public void dataRemoved(ScopeFacetChangeEvent<CharID, PCStat, Number> dfce)
 	{
 		if (dfce.getCharID().equals(id) && dfce.getScope().equals(stat))
 		{

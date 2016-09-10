@@ -1536,7 +1536,7 @@ public class CharacterDisplay
 
 	public Integer getStat(PCStat stat)
 	{
-		return statValueFacet.get(id, stat);
+		return statValueFacet.get(id, stat).intValue();
 	}
 
 	public boolean containsRacialSubType(RaceSubType st)

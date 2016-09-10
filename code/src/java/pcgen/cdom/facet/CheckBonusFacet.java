@@ -53,6 +53,7 @@ public class CheckBonusFacet
 	 * @return The Bonus value provided solely by Checks, for a given Bonus type
 	 *         and Bonus name on the Player Character identified by the given
 	 *         CharID
+	 * @deprecated by STATMODSAVE Code Control
 	 */
 	public double getCheckBonusTo(CharID id, String type, String name)
 	{
