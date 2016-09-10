@@ -515,7 +515,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * Class that replaces the default ViewFactory and supports the proper
      * rendering of both URL-based and local images.
      */
-    private static class HTMLFactoryExtended extends HTMLFactory implements ViewFactory {
+    private static class HTMLFactoryExtended extends HTMLFactory
+    {
 
         /**
          * Method to handle IMG tags and invoke the image loader.

@@ -43,7 +43,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreWeaponProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 {
 
 	/**
