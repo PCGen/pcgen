@@ -532,11 +532,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			//map.get(pcc) doesn't seem to find the monster class
 			//Map<Integer, PCClassLevel> localMap = map.get(pcc);
 			Map<Integer, PCClassLevel> localMap = null;
-			for (PCClass k : map.keySet())
+			for (final Map.Entry<PCClass, Map<Integer, PCClassLevel>> pcClassMapEntry : map.entrySet())
 			{
-				if (pcc.equals(k))
+				if (pcc.equals(pcClassMapEntry.getKey()))
 				{
-					localMap = map.get(k);
+					localMap = pcClassMapEntry.getValue();
 					break;
 				}
 			}
