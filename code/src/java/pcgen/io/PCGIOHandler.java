@@ -66,7 +66,7 @@ import org.apache.commons.lang.StringUtils;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * <code>PCGIOHandler</code><br>
+ * {@code PCGIOHandler}<br>
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
  * @author Thomas Behr 11-03-02

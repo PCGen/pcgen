@@ -28,7 +28,7 @@ import java.util.List;
 import pcgen.facade.core.CoreViewNodeFacade;
 
 /**
- * The Class <code>CoreViewNodeBase</code> is a base for defining nodes
+ * The Class {@code CoreViewNodeBase} is a base for defining nodes
  * represents an object stored in a facet.
  *
  * <br>

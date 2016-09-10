@@ -103,7 +103,7 @@ import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
 /**
- * <code>PCGVer2Creator</code><br>
+ * {@code PCGVer2Creator}<br>
  * Creates a line oriented format.
  * Each line should adhere to the following grammar:<br>
  *

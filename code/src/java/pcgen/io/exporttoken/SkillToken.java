@@ -49,7 +49,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillToken</code> is the base class for the SKILL
+ * {@code SkillToken} is the base class for the SKILL
  * family of tokens. It also handles the processing of the SKILL
  * token itself, which outputs select information about a
  * choosen skill. The format for this tag is SKILL.id.property
@@ -589,7 +589,7 @@ public class SkillToken extends Token
 
 	// ================== Inner class =======================
 	/**
-	 * <code>SkillDetails</code> holds the parsed details of a skill
+	 * {@code SkillDetails} holds the parsed details of a skill
 	 * token. Note that apart from updating the properties array contents,
 	 * instances of this class are immutable.
 	 *

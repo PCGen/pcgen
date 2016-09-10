@@ -147,7 +147,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
- * <code>PCGVer2Parser</code>
+ * {@code PCGVer2Parser}
  * Parses a line oriented format.
  * Each line should adhere to the following grammar:<br>
  *

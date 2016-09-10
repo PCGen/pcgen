@@ -24,7 +24,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <code>FORNode</code>.
+ * {@code FORNode}.
  *
  * @author Mark Hulsman &lt;mark_hulsman@users.sourceforge.net&gt;
  */

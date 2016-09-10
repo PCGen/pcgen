@@ -27,8 +27,8 @@ import javax.swing.event.ChangeListener;
 import java.awt.Component;
 
 /**
- *  This class is the main <code>JPanel</code> for the whole application. It is
- *  a <code>JTabbedPane</code> so that it can hold many tabs for each section of
+ *  This class is the main {@code JPanel} for the whole application. It is
+ *  a {@code JTabbedPane} so that it can hold many tabs for each section of
  *  functionality.<br>
  *  Created on February 20, 2003.<br>
  *  Updated on February 26, 2003.
@@ -48,7 +48,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	public static int currentPane;
 
 	/**
-	 *  The <code>JPanel</code> that holds the panes.
+	 *  The {@code JPanel} that holds the panes.
 	 */
 	private static JTabbedPane tabbedPane;
 
@@ -70,7 +70,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	}
 
 	/**
-	 *  Gets the <code>JPanel</code> that is the tabbed pane.
+	 *  Gets the {@code JPanel} that is the tabbed pane.
 	 *
 	 *@return    the tabbed pane.
 	 */
@@ -81,7 +81,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 
 	/**
 	 *  Inserts a pane into the panel in an arbitrary index. The system will call
-	 *  it sending it a <code>JPanel</code> and that will be placed in the view.
+	 *  it sending it a {@code JPanel} and that will be placed in the view.
 	 *
 	 *@param  paneName  the name to be on the tab.
 	 *@param  pane      the pane to be displayed.
@@ -93,7 +93,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	}
 
 	/**
-	 *  Places the whole <code>JTabbedPane</code> on the main frame setting it
+	 *  Places the whole {@code JTabbedPane} on the main frame setting it
 	 *  visible.
 	 *
 	 */

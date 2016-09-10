@@ -37,7 +37,7 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.utils.CoreUtility;
 
 /**
- * The Class <code>EquipSetMigration</code> updates a character's equipment 
+ * The Class {@code EquipSetMigration} updates a character's equipment
  * sets to match newer requirements.
  *
  * <br>

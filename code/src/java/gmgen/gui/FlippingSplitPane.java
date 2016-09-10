@@ -39,7 +39,7 @@ import java.awt.event.MouseEvent;
  * the divider.
  * 
  * <p>({@code JSplitPane} is used to divide two (and only two)
- * {@code Component}s.  The two <code>Component</code>s are graphically
+ * {@code Component}s.  The two {@code Component}s are graphically
  * divided based on the look and feel implementation, and the two
  * {@code Component}s can then be interactively resized by the user.
  * Information on using {@code JSplitPane} is in <a
@@ -318,7 +318,7 @@ public class FlippingSplitPane extends JSplitPane
 	 * {@code invertOrientation} is a convenience function to turn horizontal
 	 * into vertical orientations and the converse.
 	 *
-	 * @param orientation {@code int}, either <code>HORIZONTAL_ORIENTATION</code>
+	 * @param orientation {@code int}, either {@code HORIZONTAL_ORIENTATION}
 	 * or {@code VERTICAL_ORIENTATION}
 	 *
 	 * @return {@code int}, the inverse
