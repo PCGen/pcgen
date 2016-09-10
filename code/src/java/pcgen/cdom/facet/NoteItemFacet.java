@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
+import pcgen.cdom.facet.base.AbstractScopeFacetConsolidator;
 import pcgen.core.NoteItem;
 
 /**
@@ -27,7 +28,7 @@ import pcgen.core.NoteItem;
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
-public class NoteItemFacet extends AbstractListFacet<CharID, NoteItem>
+public class NoteItemFacet extends AbstractScopeFacetConsolidator
 {
 
 }
