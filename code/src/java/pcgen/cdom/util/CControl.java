@@ -46,4 +46,12 @@ public class CControl
 
 	public static final String STATINPUT = "STATINPUT";
 
+	public static final String BASESAVE = "BASESAVE";
+	public static final String TOTALSAVE = "TOTALSAVE";
+	public static final String MISCSAVE = "MISCSAVE";
+	public static final String EPICSAVE = "EPICSAVE";
+	public static final String MAGICSAVE = "MAGICSAVE";
+	public static final String STATMODSAVE = "STATMODSAVE";
+	public static final String RACESAVE = "RACESAVE";
+
 }
