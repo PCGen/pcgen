@@ -113,7 +113,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(IntegerKey key)
 	{
-		return integerChar == null ? false : integerChar.containsKey(key);
+		return integerChar != null && integerChar.containsKey(key);
 	}
 
 	public final Integer get(IntegerKey key)
@@ -154,7 +154,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(StringKey key)
 	{
-		return stringChar == null ? false : stringChar.containsKey(key);
+		return stringChar != null && stringChar.containsKey(key);
 	}
 
 	public final String get(StringKey key)
@@ -195,7 +195,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(FormulaKey key)
 	{
-		return formulaChar == null ? false : formulaChar.containsKey(key);
+		return formulaChar != null && formulaChar.containsKey(key);
 	}
 
 	public final Formula get(FormulaKey key)
@@ -236,7 +236,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(VariableKey key)
 	{
-		return variableChar == null ? false : variableChar.containsKey(key);
+		return variableChar != null && variableChar.containsKey(key);
 	}
 
 	public final Formula get(VariableKey key)
@@ -276,7 +276,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(ObjectKey<?> key)
 	{
-		return objectChar == null ? false : objectChar.containsKey(key);
+		return objectChar != null && objectChar.containsKey(key);
 	}
 
 	public final <OT> OT get(ObjectKey<OT> key)
@@ -316,7 +316,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsKey(FactKey<?> key)
 	{
-		return factChar == null ? false : factChar.containsKey(key);
+		return factChar != null && factChar.containsKey(key);
 	}
 
 	public final <FT> Indirect<FT> get(FactKey<FT> key)
@@ -368,7 +368,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsSetFor(FactSetKey<?> key)
 	{
-		return factSetChar == null ? false : factSetChar.containsListFor(key);
+		return factSetChar != null && factSetChar.containsListFor(key);
 	}
 
 	public final <T> void addToSetFor(FactSetKey<T> key, Indirect<T> element)
@@ -418,12 +418,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final <T> boolean containsInSet(FactSetKey<T> key, ObjectContainer<T> element)
 	{
-		return factSetChar == null ? false : factSetChar.containsInList(key, element);
+		return factSetChar != null && factSetChar.containsInList(key, element);
 	}
 
 	public final <T> boolean containsAnyInSet(FactSetKey<T> key, Collection<ObjectContainer<T>> elementCollection)
 	{
-		return factSetChar == null ? false : factSetChar.containsAnyInList(key, elementCollection);
+		return factSetChar != null && factSetChar.containsAnyInList(key, elementCollection);
 	}
 
 	public final <T> List<ObjectContainer<T>> removeSetFor(FactSetKey<T> key)
@@ -438,7 +438,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final <T> boolean removeFromSetFor(FactSetKey<T> key, Indirect<T> element)
 	{
-		boolean removed = factSetChar == null ? false : factSetChar.removeFromListFor(key, element);
+		boolean removed = factSetChar != null && factSetChar.removeFromListFor(key, element);
 		if (removed && factSetChar.isEmpty())
 		{
 			factSetChar = null;
@@ -453,7 +453,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final boolean containsListFor(ListKey<?> key)
 	{
-		return listChar == null ? false : listChar.containsListFor(key);
+		return listChar != null && listChar.containsListFor(key);
 	}
 
 	public final <T> void addToListFor(ListKey<T> key, T element)
@@ -573,12 +573,12 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final <T> boolean containsInList(ListKey<T> key, T element)
 	{
-		return listChar == null ? false : listChar.containsInList(key, element);
+		return listChar != null && listChar.containsInList(key, element);
 	}
 
 	public final <T> boolean containsAnyInList(ListKey<T> key, Collection<T> elementCollection)
 	{
-		return listChar == null ? false : listChar.containsAnyInList(key, elementCollection);
+		return listChar != null && listChar.containsAnyInList(key, elementCollection);
 	}
 
 	public final <T> T getElementInList(ListKey<T> key, int index)
@@ -598,7 +598,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 
 	public final <T> boolean removeFromListFor(ListKey<T> key, T element)
 	{
-		boolean removed = listChar == null ? false : listChar.removeFromListFor(key, element);
+		boolean removed = listChar != null && listChar.removeFromListFor(key, element);
 		if (removed && listChar.isEmpty())
 		{
 			listChar = null;
@@ -714,7 +714,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	 */
 	public final <K, V> boolean removeFromMap(MapKey<K, V> mapKey, K key2)
 	{
-		boolean removed = mapChar == null ? false : mapChar.removeFromMapFor(mapKey, key2);
+		boolean removed = mapChar != null && mapChar.removeFromMapFor(mapKey, key2);
 		if (removed && mapChar.isEmpty())
 		{
 			mapChar = null;
@@ -872,7 +872,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	public final boolean hasListMods(
 		CDOMReference<? extends CDOMList<?>> listRef)
 	{
-		return cdomListMods == null ? false : cdomListMods.containsListFor(listRef);
+		return cdomListMods != null && cdomListMods.containsListFor(listRef);
 	}
 
 	public final <BT extends CDOMObject, L extends CDOMList<BT>> Collection<CDOMReference<BT>> getListMods(
