@@ -314,8 +314,9 @@ public class VariableLibrary
 	{
 		if (scopeInst == null)
 		{
-			throw new IllegalArgumentException("Cannot get VariableID "
-				+ varName + " for " + messageScope + " scope");
+			throw new IllegalArgumentException(
+				"Cannot get VariableID " + varName + " for "
+					+ messageScope.getLegalScope().getName() + " scope");
 		}
 		checkLegalVarName(varName);
 		FormatManager<?> formatManager =
