@@ -22,7 +22,7 @@
  */
 package gmgen.plugin;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 import pcgen.util.Logging;
 
 import java.util.List;

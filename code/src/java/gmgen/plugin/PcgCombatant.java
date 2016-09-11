@@ -30,7 +30,7 @@ import java.util.List;
 import java.util.Set;
 
 import org.apache.commons.lang.StringUtils;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
