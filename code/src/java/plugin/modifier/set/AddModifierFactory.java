@@ -179,7 +179,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		@Override
 		public long getPriority()
 		{
-			return (userPriority << 32) + 3;
+			return ((long)userPriority << 32) + 3;
 		}
 
 		@Override
