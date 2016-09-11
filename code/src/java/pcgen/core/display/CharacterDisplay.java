@@ -1534,7 +1534,7 @@ public class CharacterDisplay
 		return substitutionClassFacet.get(id, lvl);
 	}
 
-	public Integer getStat(PCStat stat)
+	public int getStat(PCStat stat)
 	{
 		return statValueFacet.get(id, stat).intValue();
 	}
