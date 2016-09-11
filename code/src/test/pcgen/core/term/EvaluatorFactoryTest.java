@@ -5,7 +5,6 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.core.Globals;
@@ -13,6 +12,10 @@ import pcgen.core.PCStat;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.util.TestHelper;
+
+import junit.framework.TestCase;
+import static pcgen.PCGenTestCase.eq;
+import static pcgen.PCGenTestCase.is;
 
 /**
  * EvaluatorFactory Tester.
@@ -37,7 +40,7 @@ import pcgen.util.TestHelper;
  * Current Ver: $Revision:$
  */
 
-public class EvaluatorFactoryTest extends PCGenTestCase
+public class EvaluatorFactoryTest extends TestCase
 {
 
 	public EvaluatorFactoryTest(String name) {

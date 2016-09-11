@@ -10,53 +10,19 @@ import pcgen.util.testchecker.CompareEqualString;
 import pcgen.util.testchecker.CompareGreaterThan;
 import pcgen.util.testchecker.CompareNull;
 
-import junit.framework.TestCase;
 import org.jetbrains.annotations.Contract;
+import static org.junit.Assert.*;
 
 /**
- * Test case base for PCGen.  This addresses a common bug with JUnit whereby
- * when a unit test throws an exception, and then {@code tearDown} will not
- * unwind correctly, the original exception from the unit test is buried by the
- * exception from {@code tearDown}.
- *
- * The solution is to override {@link #runBare()} and save the exception from
- * the unit test, rethrowing it after {@code tearDown} finishes.
- *
  * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
  * @deprecated the described bug no longer exists on modern versions of junit
  */
 @SuppressWarnings("nls")
 @Deprecated
-public abstract class PCGenTestCase extends TestCase
+public final class PCGenTestCase
 {
-	/**
-	 * Sets up some basic stuff that must be present for tests to work.
-	 */
-	@Override
-	protected void setUp() throws Exception
+	private PCGenTestCase()
 	{
-		super.setUp();
-	}
-
-	/**
-	 * Constructs a new {@code PCGenTestCase}.
-	 *
-	 * @see TestCase#TestCase()
-	 */
-	protected PCGenTestCase()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Constructs a new {@code PCGenTestCase} with the given <var>name</var>.
-	 *
-	 * @param name The name of the test case
-     * @see TestCase#TestCase(String)
-	 */
-	public PCGenTestCase(final String name)
-	{
-		super(name);
 	}
 
 	public static void is(final Object something, final TestChecker matches)

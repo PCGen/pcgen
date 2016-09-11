@@ -4,11 +4,13 @@ import pcgen.PCGenTestCase;
 import pcgen.cdom.content.BaseDice;
 import pcgen.util.TestHelper;
 
+import junit.framework.TestCase;
+
 /**
  * This class tests global areas of PCGen
  */
 @SuppressWarnings("nls")
-public class GlobalsTest extends PCGenTestCase
+public class GlobalsTest extends TestCase
 {
 	/**
 	 * Constructs a new <code>GlobalsTest</code>.

@@ -35,6 +35,7 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import junit.framework.TestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -44,7 +45,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
-public abstract class AbstractCharacterTestCase extends PCGenTestCase
+public abstract class AbstractCharacterTestCase extends TestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -195,7 +196,6 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractCharacterTestCase()
 	{

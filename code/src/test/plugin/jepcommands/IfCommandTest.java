@@ -25,12 +25,13 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import pcgen.PCGenTestCase;
-
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
+import static pcgen.PCGenTestCase.eq;
+import static pcgen.PCGenTestCase.is;
 
 /**
  * <code>IfCommandTest</code> tests the functioning of the jep if plugin
@@ -38,7 +39,7 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */
-public class IfCommandTest extends PCGenTestCase
+public class IfCommandTest extends TestCase
 {
 
 	/**
@@ -60,19 +61,15 @@ public class IfCommandTest extends PCGenTestCase
 
     }
 
-    private static boolean runIf(final Stack stack, final PostfixMathCommandI pCommand)
+    private static void runIf(final Stack stack, final PostfixMathCommandI pCommand)
     {
-        boolean b;
         try
         {
             pCommand.run(stack);
-            b = true;
         }
         catch (ParseException e)
         {
-            b = false;
         }
-        return b;
     }
 
     /* Test the case where the condition is a zero double */

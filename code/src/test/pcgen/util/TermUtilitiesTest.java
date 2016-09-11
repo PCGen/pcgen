@@ -3,6 +3,8 @@ package pcgen.util;
 import pcgen.PCGenTestCase;
 import pcgen.core.term.TermEvaulatorException;
 
+import junit.framework.TestCase;
+
 /**
  * TermUtilities Tester.
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
@@ -26,7 +28,7 @@ import pcgen.core.term.TermEvaulatorException;
  * Current Ver: $Revision:$
  */
 
-public class TermUtilitiesTest extends PCGenTestCase
+public class TermUtilitiesTest extends TestCase
 {
 
     public TermUtilitiesTest(String name) {
