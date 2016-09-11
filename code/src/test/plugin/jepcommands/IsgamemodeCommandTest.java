@@ -24,12 +24,13 @@ package plugin.jepcommands;
 
 import java.util.Stack;
 
-import pcgen.PCGenTestCase;
-
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
+import static pcgen.PCGenTestCase.eq;
+import static pcgen.PCGenTestCase.is;
 
 /**
  * The Class <code>IsgamemodeCommandTest</code> is responsible for checking 
@@ -38,7 +39,7 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class IsgamemodeCommandTest extends PCGenTestCase
+public class IsgamemodeCommandTest extends TestCase
 {
 
 	/**
