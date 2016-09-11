@@ -126,7 +126,7 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	protected void is(final Object something, final TestChecker matches)
+	protected static void is(final Object something, final TestChecker matches)
 	{
 		if (!matches.check(something))
 		{
@@ -138,7 +138,7 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	protected void is(final Object something, final TestChecker matches, final String testCase)
+	protected static void is(final Object something, final TestChecker matches, final String testCase)
 	{
 		if (!matches.check(something))
 		{
