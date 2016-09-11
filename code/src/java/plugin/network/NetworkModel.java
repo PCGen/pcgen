@@ -19,16 +19,6 @@
  */
  package plugin.network;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ExtendedHTMLDocument;
-import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.util.LogReceiver;
-import gmgen.util.LogUtilities;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,7 +39,17 @@ import javax.swing.JTextPane;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ExtendedHTMLDocument;
+import gmgen.gui.ExtendedHTMLEditorKit;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.util.LogReceiver;
+import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
+
 import plugin.network.gui.NetworkView;
 
 /**
@@ -229,7 +229,7 @@ public class NetworkModel
 					}
 					else if (t instanceof NetworkServer.Handler)
 					{
-						((NetworkServer.Handler) t).setRun(false);
+						((NetworkServer.Handler) t).sendExitMessage();
 					}
 				}
 				if (serverThread != null)

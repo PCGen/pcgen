@@ -19,17 +19,17 @@
  */
  package plugin.network;
 
-import gmgen.plugin.SystemInitiative;
-
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-public class NetworkInitiative extends SystemInitiative
+import gmgen.plugin.SystemInitiative;
+
+class NetworkInitiative extends SystemInitiative
 {
-	private String uid;
-	private Socket sock;
+	private final String uid;
+	private final Socket sock;
 
 	NetworkInitiative(String uid, Socket sock)
 	{
@@ -72,12 +72,12 @@ public class NetworkInitiative extends SystemInitiative
 	void recieveNetMessage(String message)
 	{
 		String type = "";
-		String value = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
 		if (st.hasMoreTokens())
 		{
 			type = st.nextToken();
 		}
+		String value = "";
 		if (st.hasMoreTokens())
 		{
 			value = st.nextToken();
@@ -85,7 +85,7 @@ public class NetworkInitiative extends SystemInitiative
 
 		try
 		{
-			if (type != "" && value != "")
+			if ((type != "") && (value != ""))
 			{
 				if (type.equals("INITBONUS"))
 				{
