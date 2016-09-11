@@ -66,7 +66,7 @@ public abstract class PCGenTestCase extends TestCase
 	 *
 	 * @see TestCase#TestCase()
 	 */
-	public PCGenTestCase()
+	protected PCGenTestCase()
 	{
 		// Do Nothing
 	}
@@ -80,50 +80,6 @@ public abstract class PCGenTestCase extends TestCase
 	public PCGenTestCase(final String name)
 	{
 		super(name);
-	}
-	
-	/**
-	 * Fixes {@link TestCase#runBare()} to not swallow a throwable from {@link
-	 * #runTest()} if {@link #tearDown()} also throws.
-	 *
-	 * @throws Throwable
-	 */
-	@Override
-	public void runBare() throws Throwable
-	{
-		setUp();
-
-		Throwable thrown = null;
-
-		try
-		{
-			runTest();
-		}
-
-		catch (final Throwable t)
-		{
-			thrown = t;
-
-		}
-
-		finally
-		{
-			try
-			{
-				tearDown();
-
-			}
-
-			finally
-			{
-				if (thrown != null)
-				{
-					// Replace any tear down exception with
-					// unit test exception
-					throw thrown;
-				}
-			}
-		}
 	}
 
 	protected static void is(final Object something, final TestChecker matches)
