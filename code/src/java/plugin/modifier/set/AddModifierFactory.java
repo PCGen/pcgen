@@ -18,6 +18,7 @@
 package plugin.modifier.set;
 
 import java.lang.reflect.Array;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -44,7 +45,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class ARRAY_CLASS = new Object[0].getClass();
+	private static final Class ARRAY_CLASS = Object[].class;
 
 	/**
 	 * Identifies that this AddModifier acts upon java.util.Set objects.
@@ -55,7 +56,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	@Override
 	public Class<T[]> getVariableFormat()
 	{
-		return ARRAY_CLASS;
+		return AddModifierFactory.ARRAY_CLASS;
 	}
 
 	/**
@@ -92,7 +93,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		return new AddDirectArrayModifier(fmtManager, userPriority, toAdd);
 	}
 
-	public class AddDirectArrayModifier extends AddArrayModifier
+	private final class AddDirectArrayModifier extends AddArrayModifier
 	{
 		/**
 		 * The objects to be added to the active set when this AddModifier is
@@ -100,8 +101,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		public AddDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toAdd)
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
+		                               int userPriority, T[] toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;
@@ -121,7 +122,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 	}
 
-	public class AddIndirectArrayModifier extends AddArrayModifier
+	private final class AddIndirectArrayModifier extends AddArrayModifier
 	{
 		/**
 		 * The objects to be added to the active set when this AddModifier is
@@ -129,8 +130,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		public AddIndirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, Indirect<T[]> toAdd)
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
+		                                 int userPriority, Indirect<T[]> toAdd)
 		{
 			super(formatManager, userPriority);
 			this.toAdd = toAdd;
@@ -153,7 +154,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	public abstract class AddArrayModifier implements PCGenModifier<T[]>
+	abstract class AddArrayModifier implements PCGenModifier<T[]>
 	{
 
 		/**
@@ -163,8 +164,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 		private final FormatManager<T[]> fmtManager;
 
-		public AddArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority)
+		AddArrayModifier(FormatManager<T[]> formatManager,
+		                 int userPriority)
 		{
 			this.fmtManager = formatManager;
 			this.userPriority = userPriority;
@@ -188,14 +189,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			@SuppressWarnings("unchecked")
 			T[] input = (T[]) evalManager.peek(EvaluationManager.INPUT);
 			Set<T> newSet = new HashSet<>();
-			for (T o : input)
-			{
-				newSet.add(o);
-			}
-			for (T o : getArray())
-			{
-				newSet.add(o);
-			}
+			Collections.addAll(newSet, input);
+			Collections.addAll(newSet, getArray());
 			Class<?> component =
 					fmtManager.getManagedClass().getComponentType();
 			@SuppressWarnings("unchecked")
