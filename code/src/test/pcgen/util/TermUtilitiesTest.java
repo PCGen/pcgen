@@ -51,14 +51,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED"};
+			String[] types = {"EQUIPPED"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray01 Single Type EQUIPPED");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -69,14 +69,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOTEQUIPPED"};
+			String[] types = {"NOTEQUIPPED"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.NOTEQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray02 Single Type NOTEQUIPPED");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray02 Single Type NOTEQUIPPED");
 	}
 
 	/**
@@ -87,14 +87,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED", "FOO"};
+			String[] types = {"EQUIPPED", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.EQUIPPED.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EqtypesTypesArray03 EQUIPPED with spurious type");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EqtypesTypesArray03 EQUIPPED with spurious type");
 	}
 
 	/**
@@ -105,14 +105,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "NOT", "FOO"};
+			String[] types = {"BAR", "NOT", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray04 Exclude FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray04 Exclude FOO");
 	}
 
 	/**
@@ -123,14 +123,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "ADD", "FOO"};
+			String[] types = {"BAR", "ADD", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray05 Include FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray05 Include FOO");
 	}
 
 	/**
@@ -141,14 +141,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"BAR", "IS", "FOO"};
+			String[] types = {"BAR", "IS", "FOO"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.BAR.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray06 Only FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray06 Only FOO");
 	}
 
 	/**
@@ -159,14 +159,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			String[] types = {"QUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUX.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EqtypesTypesArray07 All options");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EqtypesTypesArray07 All options");
 	}
 
 	/**
@@ -177,14 +177,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			String[] types = {"QUUX", "NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
 			TermUtilities.checkEqTypeTypesArray("COUNT[EQTYPE.QUUX.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EqtypesTypesArray08 All options with spurious");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EqtypesTypesArray08 All options with spurious");
 	}
 
 	/**
@@ -195,14 +195,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED"};
+			String[] types = {"EQUIPPED"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray01 Single Type EQUIPPED");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EquipmentTypesArray01 Single Type EQUIPPED");
 	}
 
 	/**
@@ -213,14 +213,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOTEQUIPPED"};
+			String[] types = {"NOTEQUIPPED"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOTEQUIPPED]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EquipmentTypesArray02 Single Type NOTEQUIPPED");
 	}
 
 	/**
@@ -231,14 +231,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"EQUIPPED", "FOO"};
+			String[] types = {"EQUIPPED", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.EQUIPPED.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray03 EQUIPPED with spurious type");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EquipmentTypesArray03 EQUIPPED with spurious type");
 	}
 
 	/**
@@ -249,14 +249,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO"};
+			String[] types = {"NOT", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray04 Exclude FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EquipmentTypesArray04 Exclude FOO");
 	}
 
 	/**
@@ -267,14 +267,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"ADD", "FOO"};
+			String[] types = {"ADD", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.ADD.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray05 Include FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EquipmentTypesArray05 Include FOO");
 	}
 
 	/**
@@ -285,14 +285,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"IS", "FOO"};
+			String[] types = {"IS", "FOO"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.IS.FOO]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray06 Only FOO");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EquipmentTypesArray06 Only FOO");
 	}
 
 	/**
@@ -303,14 +303,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
+			String[] types = {"NOT", "FOO", "ADD", "BAR", "IS", "BAZ"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "EquipmentTypesArray07 All options");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "EquipmentTypesArray07 All options");
 	}
 
 	/**
@@ -321,14 +321,14 @@ public class TermUtilitiesTest extends PCGenTestCase
 		try
 		{
 			ok = true;
-			String[] types = new String[]{"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
+			String[] types = {"NOT", "FOO", "ADD", "BAR", "IS", "BAZ", "QUX"};
 			TermUtilities.checkEquipmentTypesArray("COUNT[EQUIPMENT.NOT.FOO.ADD.BAR.IS.BAZ.QUX]", types, 0);
 		}
 		catch (TermEvaulatorException e)
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "EquipmentTypesArray08 All options with spurious");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "EquipmentTypesArray08 All options with spurious");
 	}
 
 
@@ -351,8 +351,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "one int is ok");
-		is(nums[0], eq(3), "one int is ok:first");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "one int is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(3), "one int is ok:first");
 	}
 
 	/**
@@ -374,10 +374,10 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		
-		is(ok, eq(true), "two ints is ok");
-		is(nums[0], eq(3), "two ints is ok:first");
-		is(nums[1], eq(57), "two ints is ok:second");
+
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "two ints is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(3), "two ints is ok:first");
+		PCGenTestCase.is(nums[1], PCGenTestCase.eq(57), "two ints is ok:second");
 	}
 
 	/**
@@ -400,10 +400,10 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "three ints is ok");
-		is(nums[0], eq(3), "three ints is ok:first");
-		is(nums[1], eq(57), "three ints is ok:second");
-		is(nums[2], eq(67), "three ints is ok:second");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "three ints is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(3), "three ints is ok:first");
+		PCGenTestCase.is(nums[1], PCGenTestCase.eq(57), "three ints is ok:second");
+		PCGenTestCase.is(nums[2], PCGenTestCase.eq(67), "three ints is ok:second");
 	}
 
 	/**
@@ -426,7 +426,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "three ints plus spurious non-int fails");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "three ints plus spurious non-int fails");
 	}
 
 	/**
@@ -448,8 +448,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(true), "Extracts Text correctly");		
-		is(inside, strEq("MARSHMALLOWS.FOO"), "Text is correct ExtractContentsOfBrackets01");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "Extracts Text correctly");
+		PCGenTestCase.is(inside, PCGenTestCase.strEq("MARSHMALLOWS.FOO"), "Text is correct ExtractContentsOfBrackets01");
 	}
 
 	/**
@@ -470,7 +470,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "Fail, no ] found");		
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "Fail, no ] found");
 	}
 
 	/**
@@ -491,7 +491,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 			ok = false;
 		}
 
-		is(ok, eq(false), "Fail, ] not the last char");		
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "Fail, ] not the last char");
 	}
 
 
@@ -511,8 +511,8 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: one int is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: one int is ok - first");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "ConvertToIntegers: one int is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(1), "ConvertToIntegers: one int is ok - first");
 	}
 
 	/**
@@ -531,9 +531,9 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: two ints is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: two ints is ok:first");
-		is(nums[1], eq(2), "ConvertToIntegers: two ints is ok:second");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "ConvertToIntegers: two ints is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(1), "ConvertToIntegers: two ints is ok:first");
+		PCGenTestCase.is(nums[1], PCGenTestCase.eq(2), "ConvertToIntegers: two ints is ok:second");
 	}
 
 	/**
@@ -552,10 +552,10 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(true), "ConvertToIntegers: three ints is ok");
-		is(nums[0], eq(1), "ConvertToIntegers: three ints is ok:first");
-		is(nums[1], eq(2), "ConvertToIntegers: three ints is ok:second");
-		is(nums[2], eq(3), "ConvertToIntegers: three ints is ok:third");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(true), "ConvertToIntegers: three ints is ok");
+		PCGenTestCase.is(nums[0], PCGenTestCase.eq(1), "ConvertToIntegers: three ints is ok:first");
+		PCGenTestCase.is(nums[1], PCGenTestCase.eq(2), "ConvertToIntegers: three ints is ok:second");
+		PCGenTestCase.is(nums[2], PCGenTestCase.eq(3), "ConvertToIntegers: three ints is ok:third");
 	}
 
 	/**
@@ -573,7 +573,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "ConvertToIntegers: three ints plus spurious non-int fails");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "ConvertToIntegers: three ints plus spurious non-int fails");
 	}
 
 	/**
@@ -591,7 +591,7 @@ public class TermUtilitiesTest extends PCGenTestCase
 		{
 			ok = false;
 		}
-		is(ok, eq(false), "ConvertToIntegers: ask for three with four present fails");
+		PCGenTestCase.is(ok, PCGenTestCase.eq(false), "ConvertToIntegers: ask for three with four present fails");
 	}
 
 
