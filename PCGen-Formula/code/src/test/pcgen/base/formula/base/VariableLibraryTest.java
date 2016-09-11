@@ -363,7 +363,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.getVariableID(null, "Walk");
 			fail("null scope must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
