@@ -21,26 +21,31 @@
  */
 package plugin.network.gui;
 
-import pcgen.core.SettingsHandler;
-import pcgen.system.LanguageBundle;
-import plugin.network.NetworkModel;
-import plugin.network.NetworkPlugin;
-
-import javax.swing.*;
-import javax.swing.border.TitledBorder;
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+
+import javax.swing.BoxLayout;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextField;
+import javax.swing.border.TitledBorder;
+
+import gmgen.gui.PreferencesPanel;
+import pcgen.core.SettingsHandler;
+import pcgen.system.LanguageBundle;
+
+import plugin.network.NetworkModel;
+import plugin.network.NetworkPlugin;
 
 /**
  *  Dialog for editing preferences.
  *
  *@author     devon
  */
-public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
+public class PreferencesNetworkingPanel extends PreferencesPanel
 {
-	private NetworkModel model;
-	private JPanel serverPanel;
-	private JPanel clientPanel;
+	private final NetworkModel model;
 	private JTextField serverPort;
 	private JTextField userName;
 
@@ -54,12 +59,12 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		initPreferences();
 	}
 
-	public void setPortNumber(int port)
+	private void setPortNumber(int port)
 	{
 		serverPort.setText(Integer.toString(port));
 	}
 
-	public int getPortNumber()
+	private int getPortNumber()
 	{
 		int port = 80;
 		try
@@ -73,12 +78,12 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		return port;
 	}
 
-	public void setUserName(String username)
+	private void setUserName(String username)
 	{
 		userName.setText(username);
 	}
 
-	public String getUserName()
+	private String getUserName()
 	{
 		return userName.getText();
 	}
@@ -127,7 +132,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 		JPanel topPanel = new JPanel();
 		topPanel.setLayout(new BoxLayout(topPanel, BoxLayout.Y_AXIS));
 
-		serverPanel = new JPanel();
+		JPanel serverPanel = new JPanel();
 		serverPanel.setLayout(new BoxLayout(serverPanel, BoxLayout.Y_AXIS));
 		serverPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_network_server"))); //$NON-NLS-1$
 
@@ -142,7 +147,7 @@ public class PreferencesNetworkingPanel extends gmgen.gui.PreferencesPanel
 
 		topPanel.add(serverPanel);
 
-		clientPanel = new JPanel();
+		JPanel clientPanel = new JPanel();
 		clientPanel.setLayout(new BoxLayout(clientPanel, BoxLayout.Y_AXIS));
 		clientPanel.setBorder(new TitledBorder(LanguageBundle.getString("in_plugin_network_client"))); //$NON-NLS-1$
 
