@@ -1,13 +1,5 @@
 package pcgen;
 
-import java.math.BigDecimal;
-
-import pcgen.core.GameMode;
-import pcgen.core.LevelInfo;
-import pcgen.core.SettingsHandler;
-import pcgen.core.SystemCollections;
-import pcgen.core.system.LoadInfo;
-import pcgen.persistence.GameModeFileLoader;
 import pcgen.util.TestChecker;
 import pcgen.util.testchecker.BoolNot;
 import pcgen.util.testchecker.CompareDeadband;
@@ -37,7 +29,6 @@ import org.jetbrains.annotations.Contract;
 @Deprecated
 public abstract class PCGenTestCase extends TestCase
 {
-
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
 	 */
@@ -45,20 +36,6 @@ public abstract class PCGenTestCase extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		final GameMode gamemode = new GameMode("3.5");
-		gamemode.setBonusFeatLevels("3|3");
-		gamemode.setAlignmentText("Alignment");
-		gamemode.addLevelInfo("Normal", new LevelInfo());
-		gamemode.addXPTableName("Normal");
-		gamemode.setDefaultXPTableName("Normal");
-		gamemode.clearLoadContext();
-		LoadInfo loadable =
-				gamemode.getModeContext().getReferenceContext().constructNowIfNecessary(
-					LoadInfo.class, gamemode.getName());
-		loadable.addLoadScoreValue(0, BigDecimal.ONE);
-		GameModeFileLoader.addDefaultTabInfo(gamemode);
-		SystemCollections.addToGameModeList(gamemode);
-		SettingsHandler.setGame("3.5");
 	}
 
 	/**
