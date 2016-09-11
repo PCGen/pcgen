@@ -24,7 +24,7 @@ package plugin.experience;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import pcgen.system.LanguageBundle;
 

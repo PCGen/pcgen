@@ -22,7 +22,7 @@ import java.util.List;
 import java.util.Locale;
 import java.util.Map;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  * Localized String. This class is used when there is language dependent

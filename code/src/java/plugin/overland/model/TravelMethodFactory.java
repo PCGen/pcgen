@@ -29,10 +29,10 @@ import java.util.TreeMap;
 import java.util.Vector;
 import java.util.logging.Level;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
