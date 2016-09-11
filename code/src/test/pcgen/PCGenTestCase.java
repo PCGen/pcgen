@@ -82,7 +82,7 @@ public abstract class PCGenTestCase extends TestCase
 		super(name);
 	}
 
-	protected static void is(final Object something, final TestChecker matches)
+	public static void is(final Object something, final TestChecker matches)
 	{
 		if (!matches.check(something))
 		{
@@ -94,7 +94,7 @@ public abstract class PCGenTestCase extends TestCase
 		}
 	}
 
-	protected static void is(final Object something, final TestChecker matches, final String testCase)
+	public static void is(final Object something, final TestChecker matches, final String testCase)
 	{
 		if (!matches.check(something))
 		{
@@ -139,7 +139,7 @@ public abstract class PCGenTestCase extends TestCase
 	}
 
 	@Contract(" -> !null")
-	protected static CompareNull eqnull()
+	public static CompareNull eqnull()
 	{
 		return new CompareNull();
 	}
@@ -151,7 +151,7 @@ public abstract class PCGenTestCase extends TestCase
 	}
 
 	@Contract("_ -> !null")
-	protected static CompareGreaterThan gt(Comparable operand)
+	public static CompareGreaterThan gt(Comparable operand)
 	{
 		return new CompareGreaterThan(operand);
 	}

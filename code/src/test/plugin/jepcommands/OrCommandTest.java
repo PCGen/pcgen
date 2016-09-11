@@ -29,6 +29,7 @@ import pcgen.PCGenTestCase;
 import pcgen.util.testchecker.CompareEqualDouble;
 
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
@@ -39,7 +40,7 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */
-public class OrCommandTest extends PCGenTestCase
+public class OrCommandTest extends TestCase
 {
 
 	/**
@@ -87,11 +88,11 @@ public class OrCommandTest extends PCGenTestCase
 
         c.setCurNumberOfParameters(2);
 
-        runOr(s, c);
+        OrCommandTest.runOr(s, c);
 
         final Double result = (Double) s.pop();
 
-        is(result, eq(1.0, 0.1), "if (1.0,2.0) returns 1.0");
+        PCGenTestCase.is(result, PCGenTestCase.eq(1.0, 0.1), "if (1.0,2.0) returns 1.0");
     }
 
     /* Test the case where the first operand is false, but the second is true */
@@ -105,11 +106,11 @@ public class OrCommandTest extends PCGenTestCase
 
         c.setCurNumberOfParameters(2);
 
-        runOr(s, c);
+        OrCommandTest.runOr(s, c);
 
         final Double result = s.pop();
 
-        is(result, eq(2.0, 0.1), "if (0.0,2.0) returns 2.0");
+        PCGenTestCase.is(result, PCGenTestCase.eq(2.0, 0.1), "if (0.0,2.0) returns 2.0");
     }
 
     /* Test the case where the first two operands are false*/
@@ -124,11 +125,11 @@ public class OrCommandTest extends PCGenTestCase
 
         c.setCurNumberOfParameters(3);
 
-        runOr(s, c);
+        OrCommandTest.runOr(s, c);
 
         final Boolean result = s.pop();
 
-        is(result, eq(true), "if (false,false,true) returns true");
+        PCGenTestCase.is(result, PCGenTestCase.eq(true), "if (false,false,true) returns true");
     }
 
     /* Test the case where false and zero are skipped */
@@ -143,11 +144,11 @@ public class OrCommandTest extends PCGenTestCase
 
         c.setCurNumberOfParameters(3);
 
-        runOr(s, c);
+        OrCommandTest.runOr(s, c);
 
         final Object result = s.pop();
 
-        is(result, eq(true), "if (0.0,false,true) returns true");
+        PCGenTestCase.is(result, PCGenTestCase.eq(true), "if (0.0,false,true) returns true");
     }
 
     /* Test the case where false and zero are skipped */
@@ -163,10 +164,10 @@ public class OrCommandTest extends PCGenTestCase
 
         c.setCurNumberOfParameters(4);
 
-        runOr(s, c);
+        OrCommandTest.runOr(s, c);
 
         final Object result = s.pop();
 
-        is(result, new CompareEqualDouble(0.0), "if (false,false,false,false) returns 0.0");
+        PCGenTestCase.is(result, new CompareEqualDouble(0.0), "if (false,false,false,false) returns 0.0");
     }
 }
