@@ -36,7 +36,6 @@ import junit.framework.TestCase;
 @Deprecated
 public abstract class PCGenTestCase extends TestCase
 {
-	protected int     count   = 0;
 
 	/**
 	 * Sets up some basic stuff that must be present for tests to work.
@@ -59,7 +58,6 @@ public abstract class PCGenTestCase extends TestCase
 		GameModeFileLoader.addDefaultTabInfo(gamemode);
 		SystemCollections.addToGameModeList(gamemode);
 		SettingsHandler.setGame("3.5");
-		count  = 0;
 	}
 
 	/**
@@ -129,8 +127,6 @@ public abstract class PCGenTestCase extends TestCase
 
 	protected void is(final Object something, final TestChecker matches)
 	{
-        count += 1;
-
 		if (!matches.check(something))
 		{
 
@@ -143,8 +139,6 @@ public abstract class PCGenTestCase extends TestCase
 
 	protected void is(final Object something, final TestChecker matches, final String testCase)
 	{
-        count += 1;
-
 		if (!matches.check(something))
 		{
 
