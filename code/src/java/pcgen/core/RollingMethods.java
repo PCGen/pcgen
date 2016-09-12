@@ -23,13 +23,15 @@
  */
 package pcgen.core;
 
-import pcgen.base.util.RandomUtil;
-import pcgen.util.Logging;
-
 import java.util.Arrays;
 import java.util.Stack;
 import java.util.Vector;
-import org.nfunk.jep.*;
+
+import pcgen.base.util.RandomUtil;
+import pcgen.util.Logging;
+
+import org.nfunk.jep.JEP;
+import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.List;
 import org.nfunk.jep.function.PostfixMathCommand;
 
@@ -42,538 +44,531 @@ import org.nfunk.jep.function.PostfixMathCommand;
 public final class RollingMethods
 {
 
-    private RollingMethods()
-    {
-    }
+	private RollingMethods()
+	{
+	}
 
-    /**
-     * Roll <var>times</var> number of dice with <var>sides</var>
-     * shape.
-     *
-     * @param times int how many dice to roll?
-     * @param sides int what shape dice?
-     *
-     * @return int dice total
-     */
-    public static int roll(final int times, final int sides)
-    {
-        return roll(times, sides, times, 0, 0);
-    }
+	/**
+	 * Roll <var>times</var> number of dice with <var>sides</var>
+	 * shape.
+	 *
+	 * @param times int how many dice to roll?
+	 * @param sides int what shape dice?
+	 * @return int dice total
+	 */
+	public static int roll(final int times, final int sides)
+	{
+		return roll(times, sides, times, 0);
+	}
 
-    /**
-     * One random number between 1 and <var>sides</var>, good, for
-     * example, for rolling percentage dice.
-     *
-     * @param sides int what shape die?
-     *
-     * @return int die roll
-     */
-    public static int roll(final int sides)
-    {
-        return RandomUtil.getRandomInt(sides) + 1;
-    }
+	/**
+	 * One random number between 1 and <var>sides</var>, good, for
+	 * example, for rolling percentage dice.
+	 *
+	 * @param sides int what shape die?
+	 * @return int die roll
+	 */
+	public static int roll(final int sides)
+	{
+		return RandomUtil.getRandomInt(sides) + 1;
+	}
 
-    /**
-     * Roll <var>times</var> dice with <var>sides</var> shape,
-     * sort them, and return the sum of only those listed in
-     * <var>keep</var> (0-indexed).
-     *
-     * @param times int how many dice to roll?
-     * @param sides int what shape dice?
-     * @param keep int[] which dice to keep (0-indexed)?
-     *
-     * @return int dice total
-     */
-    public static int roll(int times, final int sides, final int[] keep)
-    {
-        // return roll (times, sides, keep, 0, 0);
-        final int[] rolls = new int[times];
+	/**
+	 * Roll <var>times</var> dice with <var>sides</var> shape,
+	 * sort them, and return the sum of only those listed in
+	 * <var>keep</var> (0-indexed).
+	 *
+	 * @param times int how many dice to roll?
+	 * @param sides int what shape dice?
+	 * @param keep  int[] which dice to keep (0-indexed)?
+	 * @return int dice total
+	 */
+	private static int roll(int times, final int sides, final int[] keep)
+	{
+		// return roll (times, sides, keep, 0, 0);
+		final int[] rolls = new int[times];
 
-        --times;
-        while (times >= 0)
-        {
-            rolls[times] = RandomUtil.getRandomInt(sides);
-            --times;
-        }
+		--times;
+		while (times >= 0)
+		{
+			rolls[times] = RandomUtil.getRandomInt(sides);
+			--times;
+		}
 
-        java.util.Arrays.sort(rolls);
+		Arrays.sort(rolls);
 
-        int total = keep.length; // keep the +1 at the end
+		int total = keep.length; // keep the +1 at the end
 
-        for (final int aKeep : keep)
-        {
-            total += rolls[aKeep]; // 0-indexed
-        }
+		for (final int aKeep : keep)
+		{
+			total += rolls[aKeep]; // 0-indexed
+		}
 
-        return total;
-    }
+		return total;
+	}
 
-    /**
-     * Roll <var>times</var> bizarre dice.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     *
-     * @return what the die says
-     */
-    //TODO: convert to stream API
-    public static int roll(int times, final int[] shape)
-    {
-        int total = 0;
+	/**
+	 * Roll <var>times</var> bizarre dice.
+	 *
+	 * @param times int how many dice to roll?
+	 * @param shape int[] array of values of sides of die
+	 * @return what the die says
+	 */
+	//TODO: convert to stream API
+	public static int roll(int times, final int[] shape)
+	{
 
-        --times;
-        while (times >= 0)
-        {
-            total += shape[RandomUtil.getRandomInt(shape.length)];
-            --times;
-        }
+		--times;
+		int total = 0;
+		while (times >= 0)
+		{
+			total += shape[RandomUtil.getRandomInt(shape.length)];
+			--times;
+		}
 
-        return total;
-    }
+		return total;
+	}
 
-    /**
-     * Roll <var>times</var> bizarre dice, keeping
-     * <var>keep</var> of them in ascending order.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     * @param keep int[] which dice to keep
-     *
-     * @return what the die says
-     */
+	/**
+	 * Roll <var>times</var> bizarre dice, keeping
+	 * <var>keep</var> of them in ascending order.
+	 *
+	 * @param times int how many dice to roll?
+	 * @param shape int[] array of values of sides of die
+	 * @param keep  int[] which dice to keep
+	 * @return what the die says
+	 */
 
-    //TODO: convert to stream API
-    public static int roll(int times, final int[] shape, final int[] keep)
-    {
-        final int[] rolls = new int[times];
+	//TODO: convert to stream API
+	public static int roll(int times, final int[] shape, final int[] keep)
+	{
+		final int[] rolls = new int[times];
 
-        --times;
-        while (times >= 0)
-        {
-            rolls[times] = shape[RandomUtil.getRandomInt(shape.length)];
-            --times;
-        }
+		--times;
+		while (times >= 0)
+		{
+			rolls[times] = shape[RandomUtil.getRandomInt(shape.length)];
+			--times;
+		}
 
-        Arrays.sort(rolls);
+		Arrays.sort(rolls);
 
-        int total = 0;
+		int total = 0;
 
-        for (final int aKeep : keep)
-        {
-            total += rolls[aKeep]; // 0-indexed
-        }
+		for (final int aKeep : keep)
+		{
+			total += rolls[aKeep]; // 0-indexed
+		}
 
-        return total;
-    }
+		return total;
+	}
 
-    private static int getLeftIndex(final StringBuilder expression, int startIndex)
-    {
-        int startIndex1 = startIndex;
-        int parenth = 0;
-        char c;
-        do
-        {
-            startIndex1--;
-            if (startIndex1 >= 0)
-            {
-                c = expression.charAt(startIndex1);
-            }
-            else
-            {
-                break;
-            }
-            if (c == ')')
-            {
-                parenth++;
-            }
-            else if (c == '(')
-            {
-                parenth--;
-            }
-        } while ((parenth > 0) || (c == 'd') || (c == '*') || (c == '/') || (c == ' ') ||
-                Character.isDigit(c));
-        return startIndex1 + 1;
-    }
+	private static int getLeftIndex(final StringBuilder expression, int startIndex)
+	{
+		int startIndex1 = startIndex;
+		int parenth = 0;
+		char c;
+		do
+		{
+			startIndex1--;
+			if (startIndex1 >= 0)
+			{
+				c = expression.charAt(startIndex1);
+			}
+			else
+			{
+				break;
+			}
+			if (c == ')')
+			{
+				parenth++;
+			}
+			else if (c == '(')
+			{
+				parenth--;
+			}
+		} while ((parenth > 0)
+				         || (c == 'd')
+				         || (c == '*')
+				         || (c == '/')
+				         || (c == ' ')
+				         || Character.isDigit(c));
+		return startIndex1 + 1;
+	}
 
-    private static int getRightIndex(final StringBuilder expression, int startIndex)
-    {
-        int startIndex1 = startIndex;
-        int parenth = 0;
-        char c;
-        do
-        {
-            startIndex1++;
-            if (startIndex1 < expression.length())
-            {
-                c = expression.charAt(startIndex1);
-            }
-            else
-            {
-                break;
-            }
-            if (c == '(')
-            {
-                parenth++;
-            }
-            else if (c == ')')
-            {
-                parenth--;
-            }
-        } while ((parenth > 0) || (c == '*') || (c == '/') || (c == ' ') ||
-                Character.isDigit(c));
-        return startIndex1;
-    }
+	private static int getRightIndex(final StringBuilder expression, int startIndex)
+	{
+		int startIndex1 = startIndex;
+		int parenth = 0;
+		char c;
+		do
+		{
+			startIndex1++;
+			if (startIndex1 < expression.length())
+			{
+				c = expression.charAt(startIndex1);
+			}
+			else
+			{
+				break;
+			}
+			if (c == '(')
+			{
+				parenth++;
+			}
+			else if (c == ')')
+			{
+				parenth--;
+			}
+		} while ((parenth > 0)
+				         || (c == '*')
+				         || (c == '/')
+				         || (c == ' ')
+				         || Character.isDigit(c));
+		return startIndex1;
+	}
 
-    /**
-     * Takes many forms including "2d6-2" and returns the result
-     * Whitespace is ignored; case insensitive;  Most simple math
-     * operations (including exponentiation) are supported
-     * Functions builtin include max, min, roll
-     *  Add new functions to DiceExpressionFunctions
-     *
-     * @param method String formatted string representing dice roll
-     *
-     * @return int dice total
-     */
-    public static int roll(final String method)
-    {
-        int r = 0;
+	/**
+	 * Takes many forms including "2d6-2" and returns the result
+	 * Whitespace is ignored; case insensitive;  Most simple math
+	 * operations (including exponentiation) are supported
+	 * Functions builtin include max, min, roll
+	 * Add new functions to DiceExpressionFunctions
+	 *
+	 * @param method String formatted string representing dice roll
+	 * @return int dice total
+	 */
+	public static int roll(final String method)
+	{
+		int r = 0;
 
-        if (method.length() <= 0)
-        {
-            return r;
-        }
-        final StringBuilder expression = new StringBuilder(method.replaceAll("d%",
-                                                                       "1d100"));
-        int index = expression.lastIndexOf("d");
-        while (index != -1)
-        {
-            expression.insert(getRightIndex(expression, index), ')');
-            expression.setCharAt(index, ',');
-            expression.insert(getLeftIndex(expression, index), "roll(");
-            index = expression.lastIndexOf("d", index + 4);
-        }
-        String exp = expression.toString();
-        exp = exp.replaceAll("\\[", "list(").replaceAll("\\]", ")");
-        final JEP jep = new JEP();
-        jep.addStandardFunctions();
-        jep.addFunction("roll", new Roll());
-        jep.addFunction("top", new Top());
-        jep.addFunction("reroll", new Reroll());
-        jep.addFunction("list", new List());
-        jep.parseExpression(exp);
-        if (!jep.hasError())
-        {
-            r = (int) jep.getValue();
-        }
-        else
-        {
-            Logging.errorPrint("Bad dice: " + expression + ":" +
-                               jep.getErrorInfo());
-        }
-        return r;
-    }
+		if (method.length() <= 0)
+		{
+			return r;
+		}
+		final StringBuilder
+				expression =
+				new StringBuilder(method.replaceAll("d%", "1d100"));
+		int index = expression.lastIndexOf("d");
+		while (index != -1)
+		{
+			expression.insert(getRightIndex(expression, index), ')');
+			expression.setCharAt(index, ',');
+			expression.insert(getLeftIndex(expression, index), "roll(");
+			index = expression.lastIndexOf("d", index + 4);
+		}
+		String exp = expression.toString();
+		exp = exp.replaceAll("\\[", "list(").replaceAll("\\]", ")");
+		final JEP jep = new JEP();
+		jep.addStandardFunctions();
+		jep.addFunction("roll", new Roll());
+		jep.addFunction("top", new Top());
+		jep.addFunction("reroll", new Reroll());
+		jep.addFunction("list", new List());
+		jep.parseExpression(exp);
+		if (jep.hasError())
+		{
+			Logging.errorPrint("Bad dice: " + expression + ':' + jep.getErrorInfo());
+		}
+		else
+		{
+			r = (int) jep.getValue();
+		}
+		return r;
+	}
 
-    /**
-     * Roll {{@code times}} 1d{{@code sides}}, reroll any result <= {{@code reroll}}.
-     * Add together the highest {{@code numToKeep}} dice then add {{@code modifier}}
-     * and return the result.
-     *
-     * @param times
-     * @param sides
-     * @param numToKeep
-     * @param reroll
-     * @param modifier
-     * @return the result of the die roll
-     */
-    private static int roll(
-            final int times,
-            final int sides,
-            final int numToKeep,
-            final int reroll,
-            final int modifier)
-    {
-        final int[] dieRoll = new int[times];
-        final int keep = (numToKeep > times) ? times : numToKeep;
+	/**
+	 * Roll {{@code times}} 1d{{@code sides}}, reroll any result <= {{@code reroll}}.
+	 * Add together the highest {{@code numToKeep}} dice then add {{@code modifier}}
+	 * and return the result.
+	 *
+	 * @param times
+	 * @param sides
+	 * @param numToKeep
+	 * @param reroll
+	 * @return the result of the die roll
+	 */
+	private static int roll(final int times, final int sides, final int numToKeep,
+	                        final int reroll)
 
-        for (int i = 0; i < times; ++i)
-        {
-            dieRoll[i] = roll(sides - reroll) + reroll;
-        }
+	{
+		final int[] dieRoll = new int[times];
+		final int keep = (numToKeep > times) ? times : numToKeep;
 
-        Arrays.sort(dieRoll);
+		for (int i = 0; i < times; ++i)
+		{
+			dieRoll[i] = roll(sides - reroll) + reroll;
+		}
 
-        if (Logging.isDebugMode())
-        {
-            final StringBuilder rollString = new StringBuilder(times << 2);
-            rollString.append(dieRoll[0]);
+		Arrays.sort(dieRoll);
 
-            if (times > 1)
-            {
-                for (int i = 1; i < times; ++i)
-                {
-                    rollString.append(" + ").append(dieRoll[i]);
-                }
-            }
-            Logging.debugPrint(rollString.toString());
-        }
+		if (Logging.isDebugMode())
+		{
+			final StringBuilder rollString = new StringBuilder(times << 2);
+			rollString.append(dieRoll[0]);
 
-        // Now add together the highest "keep" dice
+			if (times > 1)
+			{
+				for (int i = 1; i < times; ++i)
+				{
+					rollString.append(" + ").append(dieRoll[i]);
+				}
+			}
+			Logging.debugPrint(rollString.toString());
+		}
 
-        int total = 0;
-        for (int j = times - keep; j < times; j++)
-        {
-            total += dieRoll[j];
-        }
+		// Now add together the highest "keep" dice
 
-        return total + modifier;
-    }
+		int total = 0;
+		for (int j = times - keep; j < times; j++)
+		{
+			total += dieRoll[j];
+		}
 
-    /**
-     * @author RossLodge
-     * 
-     * <p>This class forms the basis for the dJEP extensions to the JEP library.
-     * It evaluates a {@code ROLL} token, which is an operator that comes
-     * in precedence between multiplicative and additive operators.</p>
-     * 
-     * <p>The class receives two parameters, the number of rolls and the number of
-     * faces per die, as in "3d6," or whatever.  It initializes a random number
-     * generator, which must be a subclass of {@code edu.cornell.lassp.houle.RngPack.RandomElement}.
-     * A default randomizer class is provided that wraps the java.util.Random class.
-     * The class used may be changed via setRandomClassName.</p>
-     * 
-     * <p>The class provides very minimal retrieval of individual rolls, via the
-     * {@code getRolls()} method.</p>
-     */
-    private static final class Roll extends PostfixMathCommand
-    {
+		return total;
+	}
 
-        /**
-         * 
-         * <p>The default (and only) constructor.  Sets the number
-         * of parameters for the JEP package, and calls {@code setRandom()} to
-         * initialize the randomizer.</p>
-         */
-        private Roll()
-        {
-            numberOfParameters = -1;
-        }
+	/**
+	 * @author RossLodge
+	 *         <p>This class forms the basis for the dJEP extensions to the JEP library.
+	 *         It evaluates a {@code ROLL} token, which is an operator that comes
+	 *         in precedence between multiplicative and additive operators.</p>
+	 *         <p>The class receives two parameters, the number of rolls and the
+	 *         number of
+	 *         faces per die, as in "3d6," or whatever.  It initializes a random number
+	 *         generator, which must be a subclass of {@code edu.cornell.lassp.houle
+	 *         .RngPack.RandomElement}.
+	 *         A default randomizer class is provided that wraps the java.util.Random
+	 *         class.
+	 *         The class used may be changed via setRandomClassName.</p>
+	 *         <p>The class provides very minimal retrieval of individual rolls, via the
+	 *         {@code getRolls()} method.</p>
+	 */
+	private static final class Roll extends PostfixMathCommand
+	{
 
-        /**
-         * <p>The run command for the JEP framework.  This receives the arguments
-         * to the operator as a stack, pops off the two it needs, does type checking,
-         * rolls the dice on the randomizer, and pushes the result back onto the stack.
-         * Logging is performed if it is turned on.</p>
-         * 
-         * @see org.nfunk.jep.function.PostfixMathCommandI#run(java.util.Stack)
-         */
-        @Override
-        public void run(final Stack stack) throws ParseException
-        {
-            // check the stack
-            checkStack(stack);
-            if (curNumberOfParameters < 2)
-            {
-                throw new ParseException("Too few parameters");
-            }
-            if (curNumberOfParameters > 4)
-            {
-                throw new ParseException("Too many parameters");
-            }
+		/**
+		 * <p>The default (and only) constructor.  Sets the number
+		 * of parameters for the JEP package, and calls {@code setRandom()} to
+		 * initialize the randomizer.</p>
+		 */
+		private Roll()
+		{
+			numberOfParameters = -1;
+		}
 
-            int numToKeep = 0;
-            int[] keep = null;
-            int reroll = 0;
-            while (curNumberOfParameters > 2)
-            {
-                final Object param = stack.pop();
-                if ((param instanceof Top.TopRolls) && (numToKeep == 0))
-                {
-                    numToKeep = ((Top.TopRolls) param).getRolls();
-                }
-                else if ((param instanceof Reroll.Rerolls) && (reroll == 0))
-                {
-                    reroll = ((Reroll.Rerolls) param).getRolls();
-                }
-                else if ((param instanceof Vector) && (curNumberOfParameters == 3))
-                {
-                    if (numToKeep != 0)
-                    {
-                        throw new ParseException("Redundant Arugments");
-                    }
-                    if (reroll != 0)
-                    {
-                        throw new ParseException("Reroll not compatable with older syntax, use top(NUMBER) instead");
-                    }
-                    final Vector vec = (Vector) param;
-                    keep = new int[vec.size()];
-                    for (int x = 0; x < vec.size(); x++)
-                    {
-                        keep[x] = ((int) Math.round((Double) vec.get(x))) -
-                                1;
-                    }
-                }
-                else
-                {
-                    throw new ParseException("Invalid parameter type");
-                }
-                curNumberOfParameters--;
-            }
+		/**
+		 * <p>The run command for the JEP framework.  This receives the arguments
+		 * to the operator as a stack, pops off the two it needs, does type checking,
+		 * rolls the dice on the randomizer, and pushes the result back onto the stack.
+		 * Logging is performed if it is turned on.</p>
+		 *
+		 * @see org.nfunk.jep.function.PostfixMathCommandI#run(Stack)
+		 */
+		@Override
+		public void run(final Stack stack) throws ParseException
+		{
+			// check the stack
+			checkStack(stack);
+			if (curNumberOfParameters < 2)
+			{
+				throw new ParseException("Too few parameters");
+			}
+			if (curNumberOfParameters > 4)
+			{
+				throw new ParseException("Too many parameters");
+			}
 
-            // get the parameter from the stack
-            Object faces = stack.pop();
-            final Object numberOfRolls = stack.pop();
-            if (faces instanceof Vector)
-            {
-                final java.util.List vec = (java.util.List) faces;
-                faces = vec.get(RandomUtil.getRandomInt(vec.size()));
-            }
-            // check whether the argument is of the right type
-            if ((faces instanceof Double) &&
-                    (numberOfRolls instanceof Double))
-            {
-                // calculate the result
-                //Integer.MAX_VALUE
-                final double dRolls = (Double) numberOfRolls;
-                final double dFaces = (Double) faces;
-                if ((dRolls > Integer.MAX_VALUE) || (dFaces >
-                        Integer.MAX_VALUE))
-                {
-                    throw new ParseException("Values greater than " +
-                                             Integer.MAX_VALUE +
-                                             " not allowed.");
-                }
-                int iRolls = (int) Math.round(((Double) numberOfRolls).doubleValue());
-                int iFaces = (int) Math.round(((Double) faces).doubleValue());
-                if (numToKeep == 0)
-                {
-                    numToKeep = iRolls;
-                }
-                double result = 0;
-                if (keep == null)
-                {
-                    result = roll(iRolls, iFaces, numToKeep, reroll, 0);
-                }
-                else
-                {
-                    result = roll(iRolls, iFaces, keep);
-                }
-                // push the result on the inStack
-                stack.push(new Double(result));
-            }
-            else
-            {
-                throw new ParseException("Invalid parameter type");
-            }
-        }
+			int numToKeep = 0;
+			int[] keep = null;
+			int reroll = 0;
+			while (curNumberOfParameters > 2)
+			{
+				final Object param = stack.pop();
+				if ((param instanceof Top.TopRolls) && (numToKeep == 0))
+				{
+					numToKeep = ((Top.TopRolls) param).getRolls();
+				}
+				else if ((param instanceof Reroll.Rerolls) && (reroll == 0))
+				{
+					reroll = ((Reroll.Rerolls) param).getRolls();
+				}
+				else if ((param instanceof Vector) && (curNumberOfParameters == 3))
+				{
+					if (numToKeep != 0)
+					{
+						throw new ParseException("Redundant Arugments");
+					}
+					if (reroll != 0)
+					{
+						throw new ParseException("Reroll not compatable with older "
+								                         + "syntax, use top(NUMBER) "
+								                         + "instead");
+					}
+					final Vector vec = (Vector) param;
+					keep = new int[vec.size()];
+					for (int x = 0; x < vec.size(); x++)
+					{
+						keep[x] = ((int) Math.round((Double) vec.get(x))) - 1;
+					}
+				}
+				else
+				{
+					throw new ParseException("Invalid parameter type");
+				}
+				curNumberOfParameters--;
+			}
 
-    }
+			// get the parameter from the stack
+			Object faces = stack.pop();
+			final Object numberOfRolls = stack.pop();
+			if (faces instanceof Vector)
+			{
+				final java.util.List<Object> vec = (java.util.List<Object>) faces;
+				faces = vec.get(RandomUtil.getRandomInt(vec.size()));
+			}
+			// check whether the argument is of the right type
+			if ((faces instanceof Double) && (numberOfRolls instanceof Double))
+			{
+				// calculate the result
+				//Integer.MAX_VALUE
+				final double dRolls = (Double) numberOfRolls;
+				final double dFaces = (Double) faces;
+				if ((dRolls > Integer.MAX_VALUE) || (dFaces > Integer.MAX_VALUE))
+				{
+					throw new ParseException("Values greater than "
+							                         + Integer.MAX_VALUE
+							                         + " not allowed.");
+				}
+				int iRolls = Math.round(((Double) numberOfRolls).intValue());
+				int iFaces = Math.round(((Double) faces).intValue());
+				double result;
+				if (keep == null)
+				{
+					result = RollingMethods.roll(iRolls, iFaces, numToKeep, reroll);
+				}
+				else
+				{
+					result = RollingMethods.roll(iRolls, iFaces, keep);
+				}
+				// push the result on the inStack
+				stack.push(new Double(result));
+			}
+			else
+			{
+				throw new ParseException("Invalid parameter type");
+			}
+		}
 
-    private static final class Top extends PostfixMathCommand
-    {
+	}
 
-        private Top()
-        {
-            numberOfParameters = 1;
-        }
+	private static final class Top extends PostfixMathCommand
+	{
 
-        @Override
-        public void run(final Stack stack) throws ParseException
-        {
-            final Object param = stack.pop();
-            if (param instanceof Double)
-            {
-                final double dRolls = (Double) param;
-                if (dRolls > Integer.MAX_VALUE)
-                {
-                    throw new ParseException("Values greater than " +
-                                             Integer.MAX_VALUE + " not allowed.");
-                }
-                final int iRolls = (int) Math.round(dRolls);
-                if (iRolls > 0)
-                {
-                    stack.push(new TopRolls(iRolls));
-                }
-                else
-                {
-                    throw new ParseException("Values less than 1 are not allowed");
-                }
-            }
-            else
-            {
-                throw new ParseException("Invalid parameter type");
-            }
-        }
+		private Top()
+		{
+			numberOfParameters = 1;
+		}
 
-        static final class TopRolls
-        {
+		@Override
+		public void run(final Stack stack) throws ParseException
+		{
+			final Object param = stack.pop();
+			if (param instanceof Double)
+			{
+				final double dRolls = (Double) param;
+				if (dRolls > Integer.MAX_VALUE)
+				{
+					throw new ParseException("Values greater than "
+							                         + Integer.MAX_VALUE
+							                         + " not allowed.");
+				}
+				final int iRolls = (int) Math.round(dRolls);
+				if (iRolls > 0)
+				{
+					stack.push(new TopRolls(iRolls));
+				}
+				else
+				{
+					throw new ParseException("Values less than 1 are not allowed");
+				}
+			}
+			else
+			{
+				throw new ParseException("Invalid parameter type");
+			}
+		}
 
-            private final Integer rolls;
+		static final class TopRolls
+		{
 
-            private TopRolls(final Integer rolls)
-            {
-                this.rolls = rolls;
-            }
+			private final Integer rolls;
 
-            public Integer getRolls()
-            {
-                return rolls;
-            }
+			private TopRolls(final Integer rolls)
+			{
+				this.rolls = rolls;
+			}
 
-        }
-    }
+			public Integer getRolls()
+			{
+				return rolls;
+			}
 
-    private static final class Reroll extends PostfixMathCommand
-    {
+		}
+	}
 
-        private Reroll()
-        {
-            numberOfParameters = 1;
-        }
+	private static final class Reroll extends PostfixMathCommand
+	{
 
-        @Override
-        public void run(final Stack stack) throws ParseException
-        {
-            final Object param = stack.pop();
-            if (param instanceof Double)
-            {
-                final double dRolls = (Double) param;
-                if (dRolls > Integer.MAX_VALUE)
-                {
-                    throw new ParseException("Values greater than " +
-                                             Integer.MAX_VALUE + " not allowed.");
-                }
-                final int iRolls = (int) Math.round(dRolls);
-                if (iRolls > 0)
-                {
-                    stack.push(new Rerolls(iRolls));
-                }
-                else
-                {
-                    throw new ParseException("Values less than 1 are not allowed");
-                }
-            }
-            else
-            {
-                throw new ParseException("Invalid parameter type");
-            }
-        }
+		private Reroll()
+		{
+			numberOfParameters = 1;
+		}
 
-        static final class Rerolls
-        {
+		@Override
+		public void run(final Stack stack) throws ParseException
+		{
+			final Object param = stack.pop();
+			if (param instanceof Double)
+			{
+				final double dRolls = (Double) param;
+				if (dRolls > Integer.MAX_VALUE)
+				{
+					throw new ParseException("Values greater than "
+							                         + Integer.MAX_VALUE
+							                         + " not allowed.");
+				}
+				final int iRolls = (int) Math.round(dRolls);
+				if (iRolls > 0)
+				{
+					stack.push(new Rerolls(iRolls));
+				}
+				else
+				{
+					throw new ParseException("Values less than 1 are not allowed");
+				}
+			}
+			else
+			{
+				throw new ParseException("Invalid parameter type");
+			}
+		}
 
-            private final Integer rolls;
+		static final class Rerolls
+		{
 
-            private Rerolls(final Integer rolls)
-            {
-                this.rolls = rolls;
-            }
+			private final Integer rolls;
 
-            public Integer getRolls()
-            {
-                return rolls;
-            }
+			private Rerolls(final Integer rolls)
+			{
+				this.rolls = rolls;
+			}
 
-        }
-    }
+			public Integer getRolls()
+			{
+				return rolls;
+			}
+
+		}
+	}
 }
