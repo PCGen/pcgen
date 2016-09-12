@@ -36,7 +36,7 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.output.channel.ChannelUtilities;
 
-public class InputFunction implements Function
+class InputFunction implements Function
 {
 
 	/**
