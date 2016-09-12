@@ -22,17 +22,19 @@
  */
 package pcgen.gui2.tools; // hm.binkley.gui;
 
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
+import javax.swing.SwingUtilities;
+
+import org.jetbrains.annotations.Contract;
+
 /**
- * <code>Utilities</code>.
+ * {@code Utilities}.
  *
  * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision: 198 $
  *
  * @see SwingConstants
  */
@@ -70,7 +72,6 @@ public final class Utilities
 
     private Utilities()
     {
-        super();
     }
 
     /**
@@ -81,6 +82,7 @@ public final class Utilities
      *
      * @return {@code boolean}, the condition
      */
+    @Contract(pure = true)
     static boolean isRightMouseButton(MouseEvent e)
     {
         return e.isPopupTrigger() || SwingUtilities.isRightMouseButton(e);
@@ -94,7 +96,8 @@ public final class Utilities
      *
      * @return {@code boolean}, the condition
      */
-    static boolean isShiftLeftMouseButton(MouseEvent e)
+    @Contract(pure = true)
+    static boolean isShiftLeftMouseButton(InputEvent e)
     {
         return ((e.getModifiers() & InputEvent.BUTTON1_MASK) ==
                 InputEvent.BUTTON1_MASK) && e.isShiftDown();

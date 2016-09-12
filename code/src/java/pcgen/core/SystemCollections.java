@@ -19,8 +19,6 @@
  * Created 2003-07-12 14:02
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -40,9 +38,8 @@ import pcgen.core.system.MigrationRule;
  * Contains lists of stuff loaded from system-wide lst files.
  *
  * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
- * @version    $Revision$
  **/
-public class SystemCollections
+public final class SystemCollections
 {
 	/** The following are loaded from system files.
 	 * <ul>

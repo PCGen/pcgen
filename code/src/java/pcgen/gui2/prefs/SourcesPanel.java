@@ -52,11 +52,8 @@ import pcgen.util.Logging;
  * displaying source related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel

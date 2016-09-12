@@ -51,11 +51,8 @@ import pcgen.system.LanguageBundle;
  * allowing game mode dependent settings to be copied from another 
  * gamemode.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel

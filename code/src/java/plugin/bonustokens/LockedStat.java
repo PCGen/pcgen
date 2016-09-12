@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.bonustokens;
@@ -37,11 +35,8 @@ import pcgen.rules.context.LoadContext;
  * BONUS:LOCKEDSTAT|x|y
  * 
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class LockedStat extends BonusObj
 {

@@ -36,7 +36,6 @@ import plugin.pretokens.test.PreKitTester;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreKitTest extends AbstractCharacterTestCase
 {

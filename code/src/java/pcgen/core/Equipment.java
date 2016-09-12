@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -108,7 +106,6 @@ import pcgen.util.enumeration.Visibility;
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt; created December
  *         27
  * @author 2001
- * @version $Revision$
  */
 public final class Equipment extends PObject implements Serializable,
 		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
@@ -3016,9 +3013,6 @@ public final class Equipment extends PObject implements Serializable,
 		return getName().compareToIgnoreCase(e.getName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -3141,9 +3135,6 @@ public final class Equipment extends PObject implements Serializable,
 		return sbuf.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -4803,7 +4794,7 @@ public final class Equipment extends PObject implements Serializable,
 
 		if (getChildType("Total") == null)
 		{
-			setChildType("Total", 0f);
+			setChildType("Total", 0.0f);
 		}
 
 		String canContain = "";
@@ -6026,7 +6017,7 @@ public final class Equipment extends PObject implements Serializable,
 	public Float getContainedWeight(final PlayerCharacter aPC,
 		final boolean effective)
 	{
-		Float total = 0f;
+		Float total = 0.0f;
 
 		if ((getSafe(ObjectKey.CONTAINER_CONSTANT_WEIGHT) && !effective)
 			|| (getChildCount() == 0))
@@ -6631,7 +6622,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public void addWeaponToLocation(Float num, EquipmentLocation eLoc, PlayerCharacter aPC)
 	{
-		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2f : num;
+		Float numEquipped = (eLoc == EquipmentLocation.EQUIPPED_TWO_HANDS) ? 2.0f : num;
 		setNumberEquipped(numEquipped.intValue());
 
 		setLocation(eLoc);
@@ -6661,7 +6652,7 @@ public final class Equipment extends PObject implements Serializable,
 		setQty(num);
 		setIsEquipped(equip, aPC);
 
-		Float numCarried = (eLoc == EquipmentLocation.NOT_CARRIED) ? 0f : num;
+		Float numCarried = (eLoc == EquipmentLocation.NOT_CARRIED) ? 0.0f : num;
 
 		setNumberCarried(numCarried);
 	}
@@ -6739,10 +6730,7 @@ public final class Equipment extends PObject implements Serializable,
 		return type.split("\\.");
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public List<String> getTypesForDisplay()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

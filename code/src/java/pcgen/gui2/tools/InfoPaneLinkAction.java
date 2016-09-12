@@ -38,7 +38,6 @@ import pcgen.util.Logging;
  * in an info pane such as the source info pane.
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class InfoPaneLinkAction
 		implements HyperlinkListener

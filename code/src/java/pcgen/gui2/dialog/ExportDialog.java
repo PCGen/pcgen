@@ -88,7 +88,7 @@ import pcgen.util.Logging;
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class ExportDialog extends JDialog implements ActionListener, ListSelectionListener
+public final class ExportDialog extends JDialog implements ActionListener, ListSelectionListener
 {
 
 	private static final String PDF_EXPORT_DIR_PROP = "pdfExportDir";
@@ -101,7 +101,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	public static void showExportDialog(PCGenFrame parent)
 	{
 		ExportDialog dialog = new ExportDialog(parent);
-		Utility.setDialogRelativeLocation(parent, dialog);
+		Utility.setComponentRelativeLocation(parent, dialog);
 		dialog.setVisible(true);
 	}
 

@@ -33,11 +33,8 @@ import java.util.Map;
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author devon
- * @version $Revision$
  */
 public class VariableHashMap extends HashMap<String, String>
 {

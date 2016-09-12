@@ -12,8 +12,6 @@
  * you entered into with Sun.
  *
  * Current Ver: $Revision: 5184 $
- * Last Editor: $Author: cpmeister $
- * Last Edited: $Date: 2008-02-13 17:03:32 -0800 (Wed, 13 Feb 2008) $
  *
  **/
 package pcgen.gui2.util;
@@ -67,7 +65,6 @@ import pcgen.util.Logging;
  * by using a JTree as a renderer (and editor) for the cells in a
  * particular column in the JTable.
  *
- * @version 1.2 10/27/98
  *
  * @author Philip Milne
  * @author Scott Violet
@@ -297,7 +294,6 @@ public class JTreeTable extends JTableEx
 	 * all of the event dispatching support provided by the superclass:
 	 * the AbstractTableModel.
 	 *
-	 * @version 1.2 10/27/98
 	 *
 	 * @author Philip Milne
 	 * @author Scott Violet
@@ -944,7 +940,7 @@ public class JTreeTable extends JTableEx
 		addMouseListener(new PopupListener(this, aPopupMenu));
 	}
 
-	private class PopupListener extends MouseAdapter
+	private final class PopupListener extends MouseAdapter
 	{
 
 		private JPopupMenu theMenu;

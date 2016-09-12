@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision: 1821 $
  *
- * Last Editor: $Author: jdempsey $
  *
- * Last Edited: $Date: 2006-12-28 17:12:38 +1100 (Thu, 28 Dec 2006) $
  *
  */
 package plugin.pretokens.writer;
@@ -40,11 +38,8 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 /**
  * <code>PreAbilityWriter</code> outputs ability prereqs.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 1777 $
  */
 public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

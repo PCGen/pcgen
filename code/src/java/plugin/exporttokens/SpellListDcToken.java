@@ -34,11 +34,8 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListDcToken</code> outputs the DC casting that level 
  * of spell for the indicated class.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class SpellListDcToken extends SpellListToken

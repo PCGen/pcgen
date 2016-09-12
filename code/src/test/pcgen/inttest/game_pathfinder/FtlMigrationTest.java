@@ -62,7 +62,6 @@ import pcgen.util.TestHelper;
  * <p>
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @Ignore
 @SuppressWarnings("nls")

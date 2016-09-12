@@ -33,10 +33,7 @@ import pcgen.util.Logging;
  * Handle the MaxSpellLevel token which outputs the maximum level spell 
  * castable by the character for the specified class. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class MaxSpellLevelToken extends Token
 {

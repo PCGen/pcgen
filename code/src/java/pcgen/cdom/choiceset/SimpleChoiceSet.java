@@ -17,7 +17,6 @@
  * 
  * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
  * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;

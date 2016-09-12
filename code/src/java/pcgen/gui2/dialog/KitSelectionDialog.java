@@ -45,11 +45,8 @@ import pcgen.system.LanguageBundle;
  * other rules items.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class KitSelectionDialog extends JDialog
@@ -75,7 +72,7 @@ public class KitSelectionDialog extends JDialog
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeDialogToScreen(this);
+		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()
@@ -97,10 +94,7 @@ public class KitSelectionDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		//must be the ok command

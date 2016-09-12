@@ -270,9 +270,6 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void addCompanion(CharacterFacade companion, String companionType)
 	{
@@ -348,9 +345,6 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		return followerOpt;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void removeCompanion(CompanionFacade companion)
 	{
@@ -483,27 +477,18 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		return companionList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementAdded(ListEvent<CharacterFacade> e)
 	{
 		linkCompanion(e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementRemoved(ListEvent<CharacterFacade> e)
 	{
 		unlinkCompanion(e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementsChanged(ListEvent<CharacterFacade> e)
 	{
@@ -515,9 +500,6 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 		// TODO: Unlink characters no longer open 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementModified(ListEvent<CharacterFacade> e)
 	{
@@ -537,9 +519,6 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			this.follower = followerIn;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<File> e)
 		{
@@ -560,9 +539,6 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 			this.follower = followerIn;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<String> e)
 		{

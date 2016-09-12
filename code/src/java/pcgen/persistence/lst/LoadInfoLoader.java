@@ -20,8 +20,6 @@
  * Created on February 24, 2003, 10:29 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -34,7 +32,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {

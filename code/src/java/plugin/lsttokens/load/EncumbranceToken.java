@@ -20,8 +20,6 @@
  * Created on September 2, 2002, 8:02 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.load;
@@ -107,7 +105,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		else
 		{
 			moveFormula = "";
-			checkPenalty = Integer.valueOf(0);
+			checkPenalty = 0;
 		}
 
 		info.addLoadMultiplier(tokens[0].toUpperCase(), new Float(mult),

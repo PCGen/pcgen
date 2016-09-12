@@ -32,11 +32,8 @@ import pcgen.facade.util.ReferenceFacade;
  * companion (i.e. animal companion, familiar, follower etc) for a character.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class CompanionStub implements CompanionStubFacade
@@ -56,27 +53,18 @@ public class CompanionStub implements CompanionStubFacade
 		this.companionType = companionType;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<RaceFacade> getRaceRef()
 	{
 		return race;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getCompanionType()
 	{
 		return companionType;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

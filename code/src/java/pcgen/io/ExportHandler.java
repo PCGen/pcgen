@@ -19,8 +19,6 @@
  * Created on March 07, 2002, 8:30 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -109,7 +107,6 @@ import pcgen.util.enumeration.View;
  * constructs that can be found in the character sheet templates. 
  *
  * @author Thomas Behr
- * @version $Revision$
  */
 public final class ExportHandler
 {
@@ -3822,10 +3819,9 @@ public final class ExportHandler
 	 */
 
 	/**
-	 * <code>PStringTokenizer</code>
+	 * {@code PStringTokenizer}
 	 *
 	 * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
-	 * @version $Revision$
 	 */
 	private static final class PStringTokenizer
 	{

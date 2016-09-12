@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: zaister $
- * Last Edited: $Date$
  */
 package pcgen.core;
 

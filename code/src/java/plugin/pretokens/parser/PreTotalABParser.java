@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision: 18181 $
  *
- * Last Editor: $Author: javydreamercsw $
  *
- * Last Edited: $Date: 2012-11-06 14:50:30 -0500 (Tue, 06 Nov 2012) $
  *
  */
 package plugin.pretokens.parser;

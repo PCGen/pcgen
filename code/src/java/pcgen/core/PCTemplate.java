@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -44,7 +42,6 @@ import pcgen.util.enumeration.View;
  * <code>PCTemplate</code>.
  * 
  * @author Mark Hulsman &lt;hulsmanm@purdue.edu&gt;
- * @version $Revision$
  */
 public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
 {

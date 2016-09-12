@@ -45,11 +45,8 @@ import pcgen.system.LanguageBundle;
  * filtered to only those matching the search text.
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class SearchFilterPanel extends JPanel
 		implements DisplayableFilter<Object, Object>, DocumentListener, ActionListener
@@ -127,9 +124,6 @@ public class SearchFilterPanel extends JPanel
 		this.filterHandler = handler;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

@@ -29,12 +29,10 @@ import java.util.EventListener;
  * that can act on a PCGenMessage. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
+@FunctionalInterface
 public interface PCGenMessageHandler extends EventListener
 {
 	/**

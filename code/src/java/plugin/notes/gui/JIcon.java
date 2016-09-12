@@ -45,7 +45,6 @@ import pcgen.gui2.tools.Icons;
  *  JIcon into their associated application.
  *
  *@author     soulcatcher
- *@since    August 1, 2003, 4:48 PM
  */
 public class JIcon extends JPanel
 {

@@ -52,7 +52,7 @@ public class TotalWeightFacet
 	public Float getTotalWeight(CharID id)
 	{
 		float totalWeight = 0;
-		final Float floatZero = Float.valueOf(0);
+		final Float floatZero = 0.0f;
 		boolean firstClothing = !Globals.checkRule(RuleConstants.CLOTHINGENCUMBRANCE);
 		
 		PlayerCharacter pc = trackingFacet.getPC(id);
@@ -87,7 +87,7 @@ public class TotalWeightFacet
 			}
 		}
 
-		return Float.valueOf(totalWeight);
+		return totalWeight;
 	}
 
 	public void setEquipmentFacet(EquipmentFacet equipmentFacet)

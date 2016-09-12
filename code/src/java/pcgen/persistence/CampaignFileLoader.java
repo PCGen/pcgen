@@ -25,9 +25,6 @@ import java.io.FilenameFilter;
 import java.net.URI;
 import java.util.ArrayList;
 import java.util.LinkedList;
-import java.util.List;
-
-import org.apache.commons.lang.StringUtils;
 
 import pcgen.core.Campaign;
 import pcgen.core.Globals;
@@ -37,6 +34,8 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang.StringUtils;
 
 /**
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
@@ -147,7 +146,7 @@ public class CampaignFileLoader extends PCGenTask
 	{
 		// This may modify the globals list; need a local copy so
 		// the iteration doesn't fail.
-		List<Campaign> initialCampaigns =
+		Iterable<Campaign> initialCampaigns =
 				new ArrayList<>(Globals.getCampaignList());
 
         CampaignLoader campaignLoader = new CampaignLoader();

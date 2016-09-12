@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.core.utils;
@@ -46,7 +44,6 @@ public class MessageWrapper {
 	 * @param parent
 	 */
 	public MessageWrapper(final Object message, final String title, final MessageType messageType, final Object parent) {
-		super();
 		this.message = message;
 		this.title = title;
 		this.messageType = messageType;
@@ -60,7 +57,6 @@ public class MessageWrapper {
 	 * @param messageType
 	 */
 	public MessageWrapper(final Object message, final String title, final MessageType messageType) {
-		super();
 		this.message = message;
 		this.title = title;
 		this.messageType = messageType;

@@ -266,11 +266,8 @@ public class ConvertPanel extends JPanel
 	/**
 		 * The Class <code>PreviousButtonListener</code> ...
 		 * 
-		 * Last Editor: $Author: $
-		 * Last Edited: $Date:  $
 		 * 
 		 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
-		 * @version $Revision:  $
 		 */
 	public class PreviousButtonListener implements ActionListener
 	{

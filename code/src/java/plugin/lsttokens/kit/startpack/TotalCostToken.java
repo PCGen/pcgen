@@ -19,8 +19,6 @@
  * Created on 8 September, 2013
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.startpack;

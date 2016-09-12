@@ -47,7 +47,6 @@ import pcgen.rules.context.LoadContext;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {

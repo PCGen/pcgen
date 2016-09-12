@@ -38,11 +38,8 @@ import pcgen.util.Logging;
  * of an old key when loading an older character.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class NewKeyToken implements MigrationLstToken
 {

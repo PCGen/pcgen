@@ -36,11 +36,8 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * The Class <code>AspectTokenTest</code> is responsible for verifying that
  * the Ability AspectToken is working properly 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {

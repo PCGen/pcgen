@@ -45,11 +45,8 @@ import pcgen.persistence.lst.FeatLoader;
  * The Class <code></code> ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PCBooleanFunctionTest extends AbstractJunit4CharacterTestCase
@@ -58,9 +55,6 @@ public class PCBooleanFunctionTest extends AbstractJunit4CharacterTestCase
 
 	private Ability fooFeat;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

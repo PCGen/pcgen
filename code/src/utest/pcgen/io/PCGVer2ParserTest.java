@@ -21,32 +21,17 @@
 package pcgen.io;
 
 import pcgen.system.PCGenPropBundle;
-import junit.framework.Test;
-import junit.framework.TestCase;
-import junit.framework.TestSuite;
+
+import org.junit.Test;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
 /**
  */
-public class PCGVer2ParserTest extends TestCase
+public class PCGVer2ParserTest
 {
-	/**
-	 * Quick test suite creation - adds all methods beginning with "test"
-	 * @return The Test suite
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PCGVer2ParserTest.class);
-	}
 
-	/**
-	 * Basic constructor, name only.
-	 * @param name The name of the test class.
-	 */
-	public PCGVer2ParserTest(String name)
-	{
-		super(name);
-	}
-
+	@Test
 	public void test_1045596_1() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -63,6 +48,7 @@ public class PCGVer2ParserTest extends TestCase
 		assertEquals(null, suffix);
 	}
 
+	@Test
 	public void test_1045596_2() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -79,6 +65,7 @@ public class PCGVer2ParserTest extends TestCase
 		assertEquals(null, suffix);
 	}
 
+	@Test
 	public void test_1045596_3() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -95,6 +82,7 @@ public class PCGVer2ParserTest extends TestCase
 		assertEquals(null, suffix);
 	}
 
+	@Test
 	public void test_1045596_4() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -111,6 +99,7 @@ public class PCGVer2ParserTest extends TestCase
 		assertEquals("RC1", suffix);
 	}
 
+	@Test
 	public void test_1045596_5() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -127,6 +116,7 @@ public class PCGVer2ParserTest extends TestCase
 		assertEquals("autobuild.20041119-18:00", suffix);
 	}
 
+	@Test
 	public void test_1045596_6()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -138,10 +128,11 @@ public class PCGVer2ParserTest extends TestCase
 		}
 		catch (PCGParseException e)
 		{
-			assertEquals("Not a Version Line.", e.getMessage());
+			assertThat(e.getMessage(), is("Not a Version Line."));
 		}
 	}
 
+	@Test
 	public void test_1045596_7()
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -161,6 +152,7 @@ public class PCGVer2ParserTest extends TestCase
 	 * Test parsing of version line for broken 5.12RC1 version number.
 	 * @throws PCGParseException
 	 */
+	@Test
 	public void test_1045596_8() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -182,6 +174,7 @@ public class PCGVer2ParserTest extends TestCase
 	 * Test that the currently specified version can be parsed.
 	 * @throws PCGParseException
 	 */
+	@Test
 	public void testCurrVersion() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);
@@ -189,11 +182,12 @@ public class PCGVer2ParserTest extends TestCase
 		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
 		int[] version = parser.getPcgenVersion();
-		String suffix = parser.getPcgenVersionSuffix();
+		parser.getPcgenVersionSuffix();
 
-		assertEquals(3, version.length);
+		assertThat("version length is correct", version.length, is(3));
 	}
 	
+	@Test
 	public void testCompareVersionTo() throws PCGParseException
 	{
 		PCGVer2Parser parser = new PCGVer2Parser(null);

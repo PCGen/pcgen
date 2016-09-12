@@ -19,8 +19,6 @@
  * Created on January 23, 2006
  *
  * Current Ver: $Revision: 1777 $
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
  */
 package plugin.pretokens.test;
@@ -39,11 +37,8 @@ import pcgen.system.LanguageBundle;
  * <code>PreAbilityParser</code> tests whether a character passes ability
  * prereqs.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-12-17 15:36:01 +1100 (Sun, 17 Dec 2006) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 1777 $
  */
 public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {

@@ -20,8 +20,6 @@
  * this code was moved and changed from FeatLoader.java
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -42,7 +40,6 @@ import pcgen.util.Logging;
 /**
  * 
  * @author David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public class AbilityLoader extends LstObjectFileLoader<Ability>
 {

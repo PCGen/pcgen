@@ -50,11 +50,8 @@ import pcgen.system.LanguageBundle;
  * The Class <code>LanguagePanel</code> is responsible for 
  * managing the language and unit set preferences.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
@@ -334,9 +331,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return langCountry;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

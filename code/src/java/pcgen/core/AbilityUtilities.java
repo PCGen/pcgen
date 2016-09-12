@@ -46,9 +46,8 @@ import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
  * General utilities related to the Ability class.
  *
  * @author   Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version  $Revision$
  */
-public class AbilityUtilities
+public final class AbilityUtilities
 {
 	private AbilityUtilities ()
 	{

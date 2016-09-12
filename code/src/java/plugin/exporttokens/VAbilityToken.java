@@ -39,11 +39,8 @@ import pcgen.io.exporttoken.AbilityToken;
  * <code>VAbilityToken</code> deals with the VABILITY output 
  * token.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class VAbilityToken extends AbilityToken
 {
@@ -79,9 +76,6 @@ public class VAbilityToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

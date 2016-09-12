@@ -20,8 +20,6 @@
  * Created on July 10, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -34,7 +32,6 @@ import pcgen.core.Race;
 /**
  * <code>Follower.java</code>
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  **/
 public final class Follower implements Comparable<Object>, Cloneable
 {

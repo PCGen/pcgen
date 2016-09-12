@@ -41,7 +41,6 @@ import pcgen.rules.context.EditorLoadContext;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class AbilityLoader extends BasicLoader<Ability>
 {
@@ -65,9 +64,6 @@ public class AbilityLoader extends BasicLoader<Ability>
 		context = lc;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<CDOMObject> process(StringBuilder sb, int line,
 		String lineString, ConversionDecider decider)

@@ -29,11 +29,8 @@ import pcgen.core.PlayerCharacter;
  * The Class <code>EQAltPlusTotalTermEvaluator</code> is responsible for producing 
  * the value of the ALTPLUSTOTAL token for use in equipment and eqmod cost formulas. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class EQAltPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {

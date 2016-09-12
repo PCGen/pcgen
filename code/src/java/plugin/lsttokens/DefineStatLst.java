@@ -46,11 +46,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * DEFINESTAT:MINVALUE|stat|value
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 {

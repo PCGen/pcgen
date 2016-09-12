@@ -279,13 +279,13 @@ public class NetworkModel
 		pane.setEditorKit(htmlKit);
 		ExtendedHTMLDocument extDoc =
 				(ExtendedHTMLDocument) (htmlKit.createDefaultDocument());
-		extDoc.putProperty("number", Integer.valueOf(0));
+		extDoc.putProperty("number", 0);
 		logPane.add("Logs", new JScrollPane(pane));
 
 		JTextPane pane2 = new JTextPane();
 		EditorKit kit = pane2.getEditorKit();
 		Document doc = kit.createDefaultDocument();
-		doc.putProperty("number", Integer.valueOf(1));
+		doc.putProperty("number", 1);
 	}
 
 	public void log(String title, String message)
@@ -490,7 +490,6 @@ public class NetworkModel
 		 *
 		 * @param owner the owner of the message being logged.
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String owner, String message)
@@ -506,7 +505,6 @@ public class NetworkModel
 		 * Logs a message not associated with a specific owner.
 		 *
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String message)

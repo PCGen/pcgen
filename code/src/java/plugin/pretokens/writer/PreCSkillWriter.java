@@ -22,8 +22,6 @@
  * @ author	Greg Bingleman <byngl@hotmail.com>
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.writer;
@@ -70,7 +68,7 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		checkValidOperator(prereq, operatorsHandled());
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
 				writer.write('!');
 			}
@@ -101,14 +99,14 @@ public class PreCSkillWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		if (!po.equals(prereq.getOperator()))
+		if (po != prereq.getOperator())
 		{
 			writer.write('!');
 		}
 
 		writer.write("PRE" + kindHandled().toUpperCase() + ":"
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
-		writer.write(po.equals(PrerequisiteOperator.GTEQ) ? prereq.getOperand()
+		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand()
 				: "1");
 		for (Prerequisite p : prereq.getPrerequisites())
 		{

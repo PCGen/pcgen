@@ -35,14 +35,10 @@ import pcgen.util.Logging;
  * the rules object was first coded in the old format.  
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class MinVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)
@@ -60,9 +56,6 @@ public class MinVerToken extends VersionAwareToken implements MigrationLstToken
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{

@@ -39,11 +39,8 @@ import pcgen.system.LanguageBundle;
  * stats for their character. The output sheet to be displayed is specified in 
  * the game mode miscinfo.lst file using the INFOSHEET tag.
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *    
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>

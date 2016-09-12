@@ -18,7 +18,6 @@
 package pcgen.cdom.facet.model;
 
 import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
-import pcgen.cdom.facet.model.DomainFacet;
 import pcgen.cdom.helper.ClassSource;
 import pcgen.cdom.testsupport.AbstractSingleSourceListFacetTest;
 import pcgen.core.Domain;
@@ -30,7 +29,7 @@ public class DomainFacetTest extends
 	private DomainFacet facet = new DomainFacet();
 
 	@Override
-	protected ClassSource developSource(Domain obj)
+	protected ClassSource developSource()
 	{
 		PCClass cl = new PCClass();
 		cl.setName("Class" + n++);

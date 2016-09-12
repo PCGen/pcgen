@@ -32,11 +32,9 @@ import javax.swing.JPanel;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 /**
  *@author     devon
- *@since    April 7, 2003
  */
 public class StartEvent extends javax.swing.JDialog
 {
@@ -101,7 +99,7 @@ public class StartEvent extends javax.swing.JDialog
 		this.initiative = initiative;
 		tName.grabFocus();
 		tPlayer.setText(player);
-		lInit.setValue(Integer.valueOf(init));
+		lInit.setValue(init);
 		initCheckBox();
 	}
 
@@ -284,7 +282,7 @@ public class StartEvent extends javax.swing.JDialog
 		initiativeLabel = new javax.swing.JLabel();
 		sInit = Utils.buildSlider(1, 50);
 		lInit = Utils.buildIntegerFieldWithSlider(sInit);
-		lInit.setValue(Integer.valueOf(1));
+		lInit.setValue(1);
 
 		java.awt.GridBagConstraints gridBagConstraints;
 		initiativeLabel.setText("Initiative");
@@ -320,7 +318,7 @@ public class StartEvent extends javax.swing.JDialog
 		durationLabel = new javax.swing.JLabel();
 		sDuration = Utils.buildSlider(1, 50);
 		lDuration = Utils.buildIntegerFieldWithSlider(sDuration);
-		lDuration.setValue(Integer.valueOf(1));
+		lDuration.setValue(1);
 
 		java.awt.GridBagConstraints gridBagConstraints;
 		durationLabel.setText("Duration");

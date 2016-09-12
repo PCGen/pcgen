@@ -28,7 +28,6 @@ import gmgen.plugin.Combatant;
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
- * @version 2.10
  */
 public class ExperienceListItem
 {

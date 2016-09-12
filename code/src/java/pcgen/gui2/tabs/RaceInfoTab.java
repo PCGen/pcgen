@@ -68,11 +68,9 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class <code>RaceInfoTab</code> is the component used in the Race tab.
  * <br>
- * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-16 12:20:14
  * -0800 (Wed, 16 Feb 2011) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 14578 $
  */
 @SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -152,10 +150,10 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 		selPanel.add(box, BorderLayout.SOUTH);
 
 		topPane.setRightComponent(selPanel);
-		topPane.setResizeWeight(.75);
+		topPane.setResizeWeight(0.75);
 
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	@Override
@@ -447,9 +445,6 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			return columns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

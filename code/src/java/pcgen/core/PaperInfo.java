@@ -34,7 +34,6 @@ import pcgen.system.LanguageBundle;
  * The Paper information for output sheets
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 public final class PaperInfo implements Loadable
 {

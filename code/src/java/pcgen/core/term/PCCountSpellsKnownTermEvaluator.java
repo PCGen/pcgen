@@ -19,8 +19,6 @@
  * Created 07-Aug-2008 22:41:16
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -47,7 +45,7 @@ public class PCCountSpellsKnownTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		if (SettingsHandler.getPrintSpellsWithPC())
 		{

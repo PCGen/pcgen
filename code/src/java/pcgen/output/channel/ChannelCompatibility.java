@@ -31,14 +31,16 @@ public class ChannelCompatibility
 	public static WriteableReferenceFacade<Integer> getStatScore(CharID id,
 		PCStat stat)
 	{
-		if (ControlUtilities.hasControlToken(Globals.getContext(),
-			CControl.STATSCORE))
+		String channelName = ControlUtilities
+			.getControlToken(Globals.getContext(), CControl.STATINPUT);
+		if (channelName == null)
 		{
-			return (WriteableReferenceFacade<Integer>) ChannelUtilities.getChannel(id, stat, CControl.STATSCORE);
+			return StatAdapter.generate(id, stat);
 		}
 		else
 		{
-			return StatAdapter.generate(id, stat);
+			return (WriteableReferenceFacade<Integer>) ChannelUtilities
+				.getChannel(id, stat, channelName);
 		}
 	}
 }

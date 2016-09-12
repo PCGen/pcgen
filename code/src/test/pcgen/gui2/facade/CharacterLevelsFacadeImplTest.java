@@ -23,14 +23,7 @@
 package pcgen.gui2.facade;
 
 
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertFalse;
-import static org.junit.Assert.assertTrue;
-
 import java.net.URI;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.AbstractJunit4CharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -44,19 +37,22 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.core.XPTable;
+import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.facade.core.DataSetFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * CharacterLevelsFacadeImplTest checks that CharacterLevelsFacadeImpl is working ok.
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCase
 {
@@ -88,9 +84,6 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		Globals.getContext().loadCampaignFacets();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
@@ -227,14 +220,11 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		assertEquals(
 			"Level for 1 rank umd - scan from lvl 1 as higher all spent for non prohibited class",
 			charLvlsFI.getElementAt(0),
-			charLvlsFI.findNextLevelForSkill(umdSkill,
-				charLvlsFI.getElementAt(17), 1.0f));
+			charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.umdSkill, charLvlsFI.getElementAt(17), 1.0f));
 		// 6. Advise that the skill cannot be advanced.
-		assertEquals(
-			"Level for rank 21 spellcraft - cannot be advanced",
-			null,
-			charLvlsFI.findNextLevelForSkill(spellcraftSkill,
-				charLvlsFI.getElementAt(2), 21.0f));
+		assertNull("Level for rank 21 spellcraft - cannot be advanced",
+				charLvlsFI.findNextLevelForSkill(CharacterLevelsFacadeImplTest.spellcraftSkill,
+						charLvlsFI.getElementAt(2), 21.0f));
 	}
 
 	/**
@@ -279,7 +269,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 			"Level for 7 ranks climb",
 			charLvlsFI.getElementAt(3),
 			charLvlsFI.findNextLevelForSkill(climbSkill,
-				charLvlsFI.getElementAt(3), 7f));
+				charLvlsFI.getElementAt(3), 7.0f));
 		assertEquals(
 			"Level for 7.5 ranks climb",
 			charLvlsFI.getElementAt(4),
@@ -339,10 +329,7 @@ public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCa
 		// 6. Advise that the skill cannot be advanced.
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(18)).setSkillPointsRemaining(4);
 		charLvlsFI.getLevelInfo(charLvlsFI.getElementAt(19)).setSkillPointsRemaining(4);
-		assertEquals(
-			"Level for rank 23.5 climb - cannot be advanced",
-			null,
-			charLvlsFI.findNextLevelForSkill(climbSkill,
+		assertNull("Level for rank 23.5 climb - cannot be advanced", charLvlsFI.findNextLevelForSkill(climbSkill,
 				charLvlsFI.getElementAt(2), 23.5f));
 		
 	}

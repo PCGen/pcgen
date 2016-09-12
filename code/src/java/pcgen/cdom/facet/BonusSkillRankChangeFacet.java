@@ -20,6 +20,7 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Type;
@@ -58,7 +59,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 */
 	public void reset(CharID id)
 	{
-		HashMap<Skill, Double> map = getConstructingInfo(id);
+		Map<Skill, Double> map = getConstructingInfo(id);
 		for (Skill s : Globals.getContext().getReferenceContext()
 			.getConstructedCDOMObjects(Skill.class))
 		{
@@ -141,6 +142,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * 
 	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface SkillRankChangeListener
 	{
 
@@ -281,7 +283,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 
 		public synchronized SkillRankChangeListener[] getSkillRankChangeListeners()
 		{
-			return (listeners.toArray(new SkillRankChangeListener[0]));
+			return (listeners.toArray(new SkillRankChangeListener[listeners.size()]));
 		}
 
 		/**
@@ -373,7 +375,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	@Override
 	public void copyContents(CharID source, CharID copy)
 	{
-		HashMap<Skill, Double> map = getInfo(source);
+		Map<Skill, Double> map = getInfo(source);
 		if (map != null)
 		{
 			getConstructingInfo(copy).putAll(map);
@@ -382,7 +384,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 
 	public double getRank(CharID id, Skill skill)
 	{
-		HashMap<Skill, Double> map = getInfo(id);
+		Map<Skill, Double> map = getInfo(id);
 		if (map != null)
 		{
 			Double rank = map.get(skill);

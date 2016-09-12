@@ -49,11 +49,8 @@ import pcgen.util.TestHelper;
  * <code>PreArmorProfTest</code> tests that the PREARMORPROF tag is
  * working correctly.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreArmorProfTest extends AbstractCharacterTestCase
 {

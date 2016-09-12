@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.prereq;
@@ -151,9 +149,9 @@ public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTe
 		}
 		
 		return LanguageBundle.getFormattedString("PreMult.toHtml",  //$NON-NLS-1$
-				new Object[] {prereq.getOperator().toDisplayString(),
-						prereq.getOperand(),
-						str.toString()} );
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(),
+				str.toString());
 
 	}
 

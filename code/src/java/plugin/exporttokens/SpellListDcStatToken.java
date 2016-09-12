@@ -33,11 +33,8 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListDcStatToken</code> outputs the STAT used to 
  * figure out DC of spell
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class SpellListDcStatToken extends SpellListToken

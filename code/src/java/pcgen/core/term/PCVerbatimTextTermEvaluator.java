@@ -19,8 +19,6 @@
  * Created 04-Aug-2008 17:11:19
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -50,7 +48,7 @@ public class PCVerbatimTextTermEvaluator
 	
 	@Override
 	public Float resolve(CharacterDisplay display) {
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

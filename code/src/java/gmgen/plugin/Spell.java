@@ -30,8 +30,6 @@ import java.util.Vector;
 
 /**
  *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public class Spell extends Event
 {
@@ -96,45 +94,38 @@ public class Spell extends Event
 
 		for ( String columnName : columnOrder )
 		{
-			if (columnName.equals("Name"))
-			{ // Spell's name
-				rowVector.add("Spell: " + getName());
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name who cast the spell
-				rowVector.add("Owner: " + getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Spell's Status
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Init"))
-			{ // Spell's Initiative
-				rowVector.add("" + init.getCurrentInitiative());
-			}
-			else if (columnName.equals("Dur"))
-			{ // Spell's Duration
-				rowVector.add("" + getDuration());
-			}
-			else if (columnName.equals("#"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Ignored
-				rowVector.add("");
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, -
-				rowVector.add("-");
+			switch (columnName)
+			{
+				case "Name":  // Spell's name
+					rowVector.add("Spell: " + getName());
+					break;
+				case "Player":  // Player's Name who cast the spell
+					rowVector.add("Owner: " + getPlayer());
+					break;
+				case "Status":  // Spell's Status
+					rowVector.add(getStatus());
+					break;
+				case "+":  // Ignored
+					rowVector.add("");
+					break;
+				case "Init":  // Spell's Initiative
+					rowVector.add("" + init.getCurrentInitiative());
+					break;
+				case "Dur":  // Spell's Duration
+					rowVector.add("" + getDuration());
+					break;
+				case "#":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP":  // Ignored
+					rowVector.add("");
+					break;
+				case "HP Max":  // Ignored
+					rowVector.add("");
+					break;
+				case "Type":  //PC, Enemy, Ally, -
+					rowVector.add("-");
+					break;
 			}
 		}
 

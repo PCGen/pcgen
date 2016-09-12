@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * $Id$
  */
@@ -34,7 +32,6 @@ package pcgen.core;
  * is that an interface uses a little less memory.)
  *
  * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version    $Revision$
  */
 public interface RuleConstants
 {

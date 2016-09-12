@@ -29,11 +29,8 @@ import pcgen.core.PlayerCharacter;
  * providing the internal variable HP, which has the value of
  * the character's maximum total hit points. 
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCHPTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

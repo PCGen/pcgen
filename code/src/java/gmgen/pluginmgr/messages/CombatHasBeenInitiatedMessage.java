@@ -26,15 +26,12 @@ import gmgen.plugin.InitHolderList;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>CombatHasBeenInitiatedMessage</code> encapsulates an advisory 
+ * The Class {@code CombatHasBeenInitiatedMessage} encapsulates an advisory
  * message that the user has kicked off combat.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 @SuppressWarnings("serial")

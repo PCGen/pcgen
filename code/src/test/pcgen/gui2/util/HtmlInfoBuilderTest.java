@@ -35,16 +35,13 @@ import junit.textui.TestRunner;
 /**
  * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase
 {
-	public static void main(String args[])
+	public static void main(String[] args)
 	{
 		TestRunner.run(HtmlInfoBuilderTest.class);
 	}

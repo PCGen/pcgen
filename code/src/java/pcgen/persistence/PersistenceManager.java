@@ -35,7 +35,6 @@ import pcgen.persistence.lst.LstSystemLoader;
  * do the loading of system files.
  *
  * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public final class PersistenceManager
 {
@@ -43,12 +42,8 @@ public final class PersistenceManager
 	private static final PersistenceManager managerInstance =
 			new PersistenceManager();
 
-	/**
-	 * Private to make it impossible to create another instance
-	 */
 	private PersistenceManager()
 	{
-		// Empty Constructor
 	}
 
 	/**

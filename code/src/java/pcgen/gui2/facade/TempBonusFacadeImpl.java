@@ -51,11 +51,8 @@ import pcgen.util.SortKeyAware;
  * displaying the temporary bonus on the UI. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class TempBonusFacadeImpl implements TempBonusFacade,
@@ -102,9 +99,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		active = newActive;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSource()
 	{
@@ -112,9 +106,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			Globals.getSourceDisplay(), true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceForNodeDisplay()
 	{
@@ -122,27 +113,18 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			SourceFormat.LONG, false);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getKeyName()
 	{
 		return getOriginObj().getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
     	return getOriginObj().getSafe(ObjectKey.NAME_PI);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getOriginType()
 	{
@@ -173,9 +155,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return LanguageBundle.getString("in_itmRemBonButUnkownBonusType"); //$NON-NLS-1$
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isActive()
 	{
@@ -190,9 +169,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return target;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(TempBonusFacadeImpl o)
 	{
@@ -217,9 +193,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 			o.getOriginObj().getDisplayName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -238,9 +211,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return originObj;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -253,9 +223,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -297,9 +264,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
@@ -307,9 +271,6 @@ public class TempBonusFacadeImpl implements TempBonusFacade,
 		return StringUtil.join(types, ".");
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{

@@ -20,10 +20,10 @@ package plugin.pretokens;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
-import pcgen.testsupport.TestSupport;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDeityAlignParser;
 import plugin.pretokens.writer.PreDeityAlignWriter;
+import util.Alignment;
 
 public class PreDeityAlignRoundRobin extends AbstractAlignRoundRobin
 {
@@ -46,7 +46,7 @@ public class PreDeityAlignRoundRobin extends AbstractAlignRoundRobin
 		super.setUp();
 		TokenRegistration.register(new PreDeityAlignParser());
 		TokenRegistration.register(new PreDeityAlignWriter());
-		TestSupport.createAllAlignments();
+		Alignment.createAllAlignments();
 	}
 
 	@Override

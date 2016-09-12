@@ -20,8 +20,6 @@
  * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.system;
@@ -43,7 +41,6 @@ import pcgen.util.Logging;
  * encumbrance
  * 
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class LoadInfo implements Loadable
 {

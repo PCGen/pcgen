@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -43,7 +41,6 @@ import pcgen.system.LanguageBundle;
  * prerequisites. 
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
- * @version $Revision$
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

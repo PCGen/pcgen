@@ -49,11 +49,8 @@ import pcgen.system.LanguageBundle;
  * character. This allows the creation of custom notes about the character.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class NoteInfoPane extends JPanel implements CharacterInfoTab

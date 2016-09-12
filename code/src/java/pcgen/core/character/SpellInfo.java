@@ -20,8 +20,6 @@
  * Created on July 10, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.character;
 
@@ -39,7 +37,6 @@ import pcgen.core.Globals;
  * and the list of meta-magic feats which have been applied.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class SpellInfo implements Comparable<SpellInfo>
 {

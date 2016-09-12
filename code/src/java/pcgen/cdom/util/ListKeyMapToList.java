@@ -18,8 +18,6 @@
  * Created on June 18, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.cdom.util;
 
@@ -70,14 +68,6 @@ public class ListKeyMapToList
 	 */
 	@SuppressWarnings("rawtypes")
 	private final HashMapToList map = new HashMapToList();
-
-	/**
-	 * Creates a new (empty) ListKeyMapToList
-	 */
-	public ListKeyMapToList()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Adds all of the Lists in the given ListKeyMapToList to this

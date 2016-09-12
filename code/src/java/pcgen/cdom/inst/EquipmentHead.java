@@ -34,7 +34,7 @@ import pcgen.core.EquipmentModifier;
  * "head" of a weapon. It is possible for a weapon to have more than one "head",
  * such as a Double Axe.
  */
-public final class EquipmentHead extends CDOMObject implements VarScoped
+public final class EquipmentHead extends CDOMObject
 {
 	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
 		.getFacet(SolverManagerFacet.class);
@@ -68,7 +68,6 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 	 */
 	public EquipmentHead(VarScoped source, int idx)
 	{
-		super();
 		if (source == null)
 		{
 			throw new IllegalArgumentException(

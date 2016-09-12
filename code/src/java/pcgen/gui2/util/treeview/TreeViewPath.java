@@ -193,9 +193,6 @@ public class TreeViewPath<E>
         return new TreeViewPath<>(parentPath, length + 1);
     }
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

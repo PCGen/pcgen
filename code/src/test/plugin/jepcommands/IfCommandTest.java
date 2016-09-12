@@ -34,11 +34,8 @@ import java.util.Stack;
 /**
  * <code>IfCommandTest</code> tests the functioning of the jep if plugin
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class IfCommandTest extends PCGenTestCase
 {

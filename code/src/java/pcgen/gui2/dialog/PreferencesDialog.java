@@ -20,8 +20,6 @@
  * Created on July 8th, 2002.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.gui2.dialog;
@@ -91,7 +89,6 @@ import pcgen.system.PCGenSettings;
  *  PCGen preferences dialog
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
@@ -153,7 +150,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.setSelectionRow(1);
 
 		pack();
-		Utility.setDialogRelativeLocation(getParent(), this);
+		Utility.setComponentRelativeLocation(getParent(), this);
 	}
 
 	public static void show(JFrame frame)

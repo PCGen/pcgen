@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -37,9 +35,10 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
-import java.util.TreeMap;
 import java.util.logging.Level;
+
 import javax.swing.JFrame;
+
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.BaseDice;
@@ -52,7 +51,6 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.character.EquipSlot;
 import pcgen.core.chooser.CDOMChooserFacadeImpl;
-import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.gui2.facade.Gui2InfoFactory;
@@ -92,7 +90,6 @@ public final class Globals
 	/** we need maps for efficient lookups */
 	private static final Map<URI, Campaign>    campaignMap     = new HashMap<>();
 	private static final Map<String, Campaign> campaignNameMap = new HashMap<>();
-	private static Map<String, Spell>    spellMap        = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 	private static final Map<String, String>   eqSlotMap       = new HashMap<>();
 
 	/** We use lists for efficient iteration */
@@ -512,48 +509,6 @@ public final class Globals
 	}
 
 	/**
-	 * Get spell by key
-	 * @param aKey
-	 * @return Spell
-	 */
-	public static Spell getSpellKeyed(final String aKey)
-	{
-		return getSpellMap().get(aKey);
-	}
-
-	/**
-	 * Get spell map
-	 * @return spell map
-	 */
-	public static Map<String, Spell> getSpellMap()
-	{
-		return Collections.unmodifiableMap(spellMap);
-	}
-
-	/**
-	 * Add spell to the spell map.
-	 * 
-	 * @param key The key the object is associated with.
-	 * @param spell The object to be added to the map.
-	 */
-	public static void addToSpellMap(final String key, final Spell spell)
-	{
-		spellMap.put(key, spell);
-	}
-
-	/**
-	 * Remove the item with the listed key from the global spell map.
-	 * 
-	 * @param key The key of the item to be removed.
-	 * @return Previous value associated with specified key, or null 
-	 * if there was no mapping for key.
-	 */
-	public static Object removeFromSpellMap(final String key)
-	{
-		return spellMap.remove(key);
-	}
-
-	/**
 	 * Sets whether to use the GUI or not
 	 * @param aBool
 	 */
@@ -814,7 +769,6 @@ public final class Globals
 		//////////////////////////////////////
 
 		// Clear Maps (not strictly necessary, but done for consistency)
-		spellMap = new TreeMap<>(String.CASE_INSENSITIVE_ORDER);
 		VisionType.clearConstants();
 
 		// Perform other special cleanup

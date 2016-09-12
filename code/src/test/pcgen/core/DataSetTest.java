@@ -28,7 +28,6 @@ import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.BodyStructureFacade;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.core.prereq.Prerequisite;
@@ -40,11 +39,8 @@ import plugin.pretokens.parser.PreAbilityParser;
  * correctly.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class DataSetTest extends PCGenTestCase

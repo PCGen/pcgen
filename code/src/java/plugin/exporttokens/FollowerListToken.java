@@ -35,11 +35,8 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * Deal with FOLLOWERLIST Token
  * 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 1030 $
  */
 public class FollowerListToken extends AbstractExportToken
 {

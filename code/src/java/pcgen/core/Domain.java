@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -41,7 +39,6 @@ import pcgen.facade.core.InfoFacade;
  * <code>Domain</code>.
  *
  * @author   Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public final class Domain extends PObject implements InfoFacade, ChooseDriver

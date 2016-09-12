@@ -390,9 +390,9 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	{
 		saveBase.setText(Integer.toString(base));
 		saveAbility.setText(Integer.toString(ability));
-		saveMagic.setValue(Integer.valueOf(magic));
+		saveMagic.setValue(magic);
 		saveMisc.setText(Integer.toString(misc));
-		saveTemp.setValue(Integer.valueOf(temp));
+		saveTemp.setValue(temp);
 		calculate();
 	}
 
@@ -423,7 +423,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private void setSaveType(int dc, int saveType)
 	{
-		saveDC.setValue(Integer.valueOf(dc));
+		saveDC.setValue(dc);
 
 		if (saveType == FORT_SAVE)
 		{

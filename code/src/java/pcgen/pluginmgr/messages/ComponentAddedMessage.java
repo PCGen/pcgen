@@ -30,11 +30,8 @@ import pcgen.pluginmgr.PCGenMessageHandler;
  * been added to the system. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ComponentAddedMessage extends PCGenMessage
 {

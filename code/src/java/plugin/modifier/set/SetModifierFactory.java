@@ -39,7 +39,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 {
 
 	@SuppressWarnings("rawtypes")
-	private static final Class ARRAY_CLASS = new Object[0].getClass();
+	private static final Class ARRAY_CLASS = Object[].class;
 
 	/**
 	 * @see pcgen.rules.persistence.token.ModifierFactory#getIdentification()
@@ -60,9 +60,6 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		return ARRAY_CLASS;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
 		FormulaManager ignored, LegalScope varScope,
@@ -81,7 +78,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		return new SetDirectArrayModifier(fmtManager, userPriority, toSet);
 	}
 
-	public class SetDirectArrayModifier extends SetArrayModifier
+	private final class SetDirectArrayModifier extends SetArrayModifier
 	{
 		/**
 		 * The objects to be set to the active set when this SetModifier is
@@ -89,25 +86,19 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private T[] toSet;
 
-		public SetDirectArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority, T[] toSet)
+		private SetDirectArrayModifier(FormatManager<T[]> formatManager,
+		                               int userPriority, T[] toSet)
 		{
 			super(formatManager, userPriority);
 			this.toSet = toSet;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return getFormatManager().unconvert(toSet);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -131,18 +122,12 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 			this.toSet = toSet;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return toSet.getUnconverted();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -154,7 +139,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 	/**
 	 * The Modifier that implements SET for Set objects
 	 */
-	public abstract class SetArrayModifier implements PCGenModifier<T[]>
+	abstract class SetArrayModifier implements PCGenModifier<T[]>
 	{
 
 		/**
@@ -164,34 +149,25 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 
 		private final FormatManager<T[]> fmtManager;
 
-		public SetArrayModifier(FormatManager<T[]> formatManager,
-			int userPriority)
+		SetArrayModifier(FormatManager<T[]> formatManager,
+		                 int userPriority)
 		{
 			this.fmtManager = formatManager;
 			this.userPriority = userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getUserPriority()
 		{
 			return userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public long getPriority()
 		{
-			return (userPriority << 32) + 0;
+			return ((long) userPriority << 32);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T[] process(EvaluationManager evalManager)
 		{
@@ -205,27 +181,18 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		protected abstract T[] getArray();
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Class<T[]> getVariableFormat()
 		{
 			return fmtManager.getManagedClass();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 		public void getDependencies(DependencyManager fdm)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getIdentification()
 		{

@@ -19,8 +19,6 @@
  * Created on November 30, 2003, 15:24
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -49,9 +47,8 @@ import pcgen.util.Logging;
  * probably try to disentangle modifierlist into it's own class later.
  *
  * @author Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
- * @version $Revision$
  */
-public class EquipmentList {
+public final class EquipmentList {
 
 	/** this is determined by preferences */
 	private static boolean autoGeneration = false;

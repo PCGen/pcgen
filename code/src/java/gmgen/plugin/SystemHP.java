@@ -220,12 +220,8 @@ public class SystemHP
 			}
 		}
 
-		if (damage >= damageThreshold)
-		{
-			return true;
-		}
+		return damage >= damageThreshold;
 
-		return false;
 	}
 
 	/**
@@ -241,12 +237,8 @@ public class SystemHP
 	{
 		SystemHP hp = cbt.getHP();
 
-		if (damage > hp.getMax())
-		{
-			return true;
-		}
+		return damage > hp.getMax();
 
-		return false;
 	}
 
 	/**

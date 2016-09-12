@@ -35,23 +35,16 @@ import pcgen.util.Logging;
  * the rules object was last coded in the old format.  
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class MaxVerToken extends VersionAwareToken implements MigrationLstToken
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return "MAXVER";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean parse(MigrationRule migrationRule, String value,
 		String gameModeName)

@@ -21,13 +21,12 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision: 7951 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2008-10-05 15:21:21 -0400 (Sun, 05 Oct 2008) $
  *
  */
 package plugin.pretokens.test;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
@@ -42,7 +41,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl &lt;byngl@hotmail.com&gt;
  *
  */
-public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreRaceTypeTester extends AbstractDisplayPrereqTest
 {
 
 	/*
@@ -92,7 +91,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 	 * @return the list of types
 	 */
     @Deprecated
-	public static ArrayList<String> getCritterTypes(CharacterDisplay display)
+	public static List<String> getCritterTypes(CharacterDisplay display)
 	{
 		ArrayList<String> critterTypes = new ArrayList<>();
 	
@@ -111,7 +110,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest implements Prer
 		{
 			final String aType = t.getType();
 	
-			if (!"".equals(aType))
+			if (aType != null && !aType.isEmpty())
 			{
 				critterTypes.add(aType);
 			}

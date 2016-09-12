@@ -29,11 +29,8 @@ import java.util.List;
  * debugging tool. This exposes the objects within the core for inspection.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface CoreViewNodeFacade
 {

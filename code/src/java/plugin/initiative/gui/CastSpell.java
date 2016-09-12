@@ -41,7 +41,6 @@ import plugin.initiative.SpellModel;
  * initiative tracker.
  * </p>
  * @author     devon
- * @since    April 7, 2003
  */
 @SuppressWarnings("serial")
 public class CastSpell extends StartEvent

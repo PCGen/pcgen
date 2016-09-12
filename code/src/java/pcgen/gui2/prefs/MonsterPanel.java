@@ -41,11 +41,8 @@ import pcgen.system.LanguageBundle;
  * displaying monster related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 @SuppressWarnings("serial")
 public class MonsterPanel extends PCGenPrefsPanel

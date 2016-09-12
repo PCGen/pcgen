@@ -29,11 +29,8 @@ import java.util.EventObject;
  * associated data, was modified in some way.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class ChangeEvent extends EventObject
 {

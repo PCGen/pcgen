@@ -35,11 +35,8 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * integrating the Spring framework into PCGen.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class SpringHelper
 {

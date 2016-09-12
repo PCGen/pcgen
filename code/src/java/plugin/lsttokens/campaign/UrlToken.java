@@ -43,11 +43,9 @@ import pcgen.util.Logging;
 /**
  * <code>UrlToken</code> is responsible for parsing the URL campaign token.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-01-27 22:03:36
  * -0500 (Sun, 27 Jan 2008) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class UrlToken implements CDOMPrimaryToken<Campaign>
 {

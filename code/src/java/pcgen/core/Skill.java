@@ -45,7 +45,6 @@ import pcgen.facade.core.SkillFacade;
  * <code>Skill</code>.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		VarScoped
@@ -111,7 +110,7 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	 *
 	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
-	public class SkillBonusComparator implements Comparator<BonusObj>
+	public final class SkillBonusComparator implements Comparator<BonusObj>
 	{
 
 		private final Skill skill;
@@ -121,9 +120,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 			this.skill = skill;
 			
 		}
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(BonusObj arg0, BonusObj arg1)
 		{

@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
@@ -117,9 +115,6 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

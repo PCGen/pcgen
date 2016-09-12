@@ -26,11 +26,8 @@ package pcgen.facade.core;
  * The Class <code>ChronicleEntryFacade</code> is ...
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface ChronicleEntryFacade
 {

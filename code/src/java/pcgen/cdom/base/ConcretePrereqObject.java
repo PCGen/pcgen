@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision: 5686 $
- * Last Editor: $Author: $
- * Last Edited: $Date: 2008-03-23 18:14:22 -0400 (Sun, 23 Mar 2008) $
  *
  */
 package pcgen.cdom.base;
@@ -250,7 +248,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return false;
 		}
-		ArrayList<Prerequisite> removed = new ArrayList<>(
+		List<Prerequisite> removed = new ArrayList<>(
                 thePrereqs);
 		removed.removeAll(otherPRL);
 		return removed.isEmpty();

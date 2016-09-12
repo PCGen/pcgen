@@ -107,18 +107,12 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			this.toAdd = toAdd;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return getFormatManager().unconvert(toAdd);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -142,18 +136,12 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			this.toAdd = toAdd;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getInstructions()
 		{
 			return toAdd.getUnconverted();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		protected T[] getArray()
 		{
@@ -182,27 +170,18 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			this.userPriority = userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getUserPriority()
 		{
 			return userPriority;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public long getPriority()
 		{
-			return (userPriority << 32) + 3;
+			return ((long)userPriority << 32) + 3;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T[] process(EvaluationManager evalManager)
 		{
@@ -231,27 +210,18 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		protected abstract T[] getArray();
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public Class<T[]> getVariableFormat()
 		{
 			return fmtManager.getManagedClass();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 		public void getDependencies(DependencyManager fdm)
 		{
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getIdentification()
 		{

@@ -41,11 +41,8 @@ import pcgen.util.enumeration.View;
  * <code>AbilityAllToken</code> deals with the ABILITYALL output 
  * token.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityAllToken extends AbilityToken
 {
@@ -101,9 +98,6 @@ public class AbilityAllToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

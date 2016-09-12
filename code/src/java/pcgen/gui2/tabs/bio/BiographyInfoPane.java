@@ -78,11 +78,8 @@ import pcgen.system.LanguageBundle;
  * updated by the user.
  *
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision: 15691 $
  */
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
@@ -269,9 +266,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFields.removeListListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<BiographyField> e)
 		{
@@ -285,9 +279,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.repaint();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
@@ -298,9 +289,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<BiographyField> e)
 		{
@@ -310,9 +298,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<BiographyField> e)
 		{
@@ -722,11 +707,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			switch (numComponents)
 			{
 				case 3:
-					gbc.weightx = .3333;
+					gbc.weightx = 0.3333;
 					break;
 
 				case 2:
-					gbc.weightx = .5;
+					gbc.weightx = 0.5;
 					break;
 
 				default:
@@ -871,9 +856,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void itemStateChanged(ItemEvent e)
 		{

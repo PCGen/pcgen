@@ -41,14 +41,14 @@ public final class FormulaFactory
 	 * minimize memory usage in the many cases where a default Formula of ZERO
 	 * is required.
 	 */
-	public static final Formula ZERO = new NumberFormula(Integer.valueOf(0));
+	public static final Formula ZERO = new NumberFormula(0);
 
 	/**
 	 * A Formula for the integer constant ONE. This is done in order to minimize
 	 * memory usage in the many cases where a default Formula of ONE is
 	 * required.
 	 */
-	public static final Formula ONE = new NumberFormula(Integer.valueOf(1));
+	public static final Formula ONE = new NumberFormula(1);
 
 	private FormulaFactory()
 	{
@@ -320,27 +320,18 @@ public final class FormulaFactory
 				&& ((SimpleFormula<?>) obj).value.equals(value);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void getDependencies(DependencyManager fdm)
 		{
 			//None
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T resolve(EvaluationManager evalManager)
 		{
 			return value;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void isValid(FormatManager<T> formatManager,
 			FormulaSemantics semantics)

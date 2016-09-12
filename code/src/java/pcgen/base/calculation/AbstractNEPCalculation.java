@@ -45,7 +45,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 *            The BasicCalculation to be performed when this
 	 *            AbstractNEPCalculation is processed
 	 */
-	public AbstractNEPCalculation(BasicCalculation<T> calc)
+	protected AbstractNEPCalculation(BasicCalculation<T> calc)
 	{
 		if (calc == null)
 		{
@@ -54,35 +54,23 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 		basicCalc = calc;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T> getVariableFormat()
 	{
 		return basicCalc.getVariableFormat();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return basicCalc.getIdentification();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getInherentPriority()
 	{

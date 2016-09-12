@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.character;
 
@@ -42,7 +40,6 @@ import pcgen.core.spell.Spell;
  * <code>PCClass</code>.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {

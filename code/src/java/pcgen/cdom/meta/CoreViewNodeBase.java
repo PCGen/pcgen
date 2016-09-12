@@ -28,23 +28,17 @@ import java.util.List;
 import pcgen.facade.core.CoreViewNodeFacade;
 
 /**
- * The Class <code>CoreViewNodeBase</code> is a base for defining nodes
+ * The Class {@code CoreViewNodeBase} is a base for defining nodes
  * represents an object stored in a facet.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
 	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<CoreViewNodeFacade> getGrantedByNodes()
 	{

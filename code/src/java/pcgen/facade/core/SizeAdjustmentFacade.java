@@ -29,7 +29,6 @@ package pcgen.facade.core;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface SizeAdjustmentFacade extends InfoFacade
 {

@@ -31,11 +31,8 @@ import pcgen.core.GameMode;
  * as being callable by the EquipIconLoader.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public interface EquipIconLstToken extends LstToken
 {

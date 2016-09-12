@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.RaceToken;
@@ -31,9 +32,9 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<Race>
 {
 
-	static RaceToken subtoken = new RaceToken();
+	private static final CDOMSecondaryToken subtoken = new RaceToken();
 
-	private static final plugin.qualifier.race.PCToken PC_TOKEN =
+	private static final LstToken PC_TOKEN =
 			new plugin.qualifier.race.PCToken();
 
 	@Override

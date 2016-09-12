@@ -122,9 +122,6 @@ public class PreCampaignParser extends AbstractPrerequisiteListParser implements
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected boolean allowsNegate()
 	{

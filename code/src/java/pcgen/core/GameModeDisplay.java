@@ -19,8 +19,6 @@
  * Created on September 22, 2002, 4:30 PM
  *
  * Current Ver: $Revision: 17100 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-09-01 03:33:25 +0200 (Sa, 01 Sep 2012) $
  *
  */
 package pcgen.core;
@@ -32,7 +30,6 @@ import pcgen.facade.core.GameModeDisplayFacade;
  * Handles game modes.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision: 17100 $
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {

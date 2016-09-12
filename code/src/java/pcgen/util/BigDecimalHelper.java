@@ -26,7 +26,6 @@ import java.math.RoundingMode;
 /**
  * This contains helper functions for BigDecimal.
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
- * @version    $Revision$
  */
 public class BigDecimalHelper
 {

@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -47,10 +45,9 @@ import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>WeaponhToken</code>.
+ * {@code WeaponhToken}.
  *
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponhToken extends WeaponToken
 {

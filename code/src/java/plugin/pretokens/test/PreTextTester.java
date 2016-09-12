@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -80,11 +78,8 @@ public class PreTextTester extends AbstractDisplayPrereqTest implements Prerequi
 	{
 		return LanguageBundle.getFormattedString(
 			    "AbstractPrerequisiteTest.toHtml",
-			    new Object[]
-			    {
-			    	prereq.getOperator().toDisplayString(), "",
-				    "", prereq.getKey()
-			    });
+				prereq.getOperator().toDisplayString(), "",
+				"", prereq.getKey());
 	}
 
 }

@@ -39,7 +39,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * <code>Spell</code> represents a magic spell from the games rules.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public final class Spell extends PObject implements InfoFacade, Ungranted
@@ -99,9 +98,6 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 		return allowed || !prohibited;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

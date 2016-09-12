@@ -30,11 +30,8 @@ import junit.framework.TestCase;
  * Verify the function of the OutputNameFormatting class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class OutputNameFormattingTest extends TestCase
 {

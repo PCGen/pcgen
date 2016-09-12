@@ -30,12 +30,9 @@ import pcgen.core.bonus.MultiTagBonusObj;
  * allows the LST code to specify how many of a monster's hit dice
  * do not gain skills.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author	James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 
 public final class MonNonSkillHD extends MultiTagBonusObj

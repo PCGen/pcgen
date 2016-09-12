@@ -31,7 +31,6 @@ import pcgen.inttest.PcgenFtlTestCase;
  * See the PCG file for details
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase

@@ -19,8 +19,6 @@
  * Created on Mar 29, 2003, 00:00
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus;
@@ -45,7 +43,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		{
 			if (getBonusTag(i).equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}

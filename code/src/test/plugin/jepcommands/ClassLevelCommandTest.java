@@ -46,11 +46,9 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
  * 
- * Last Editor: $Author: nuance $ Last Edited: $Date: 2007-10-26 22:19:47 -0400
  * (Fri, 26 Oct 2007) $
  * 
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision: 4432 $
  */
 public class ClassLevelCommandTest extends AbstractCharacterTestCase
 {

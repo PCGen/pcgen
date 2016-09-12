@@ -20,8 +20,6 @@
  * Created on May 20th, 2002
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.utils;
 
@@ -38,7 +36,6 @@ import java.util.List;
  * Tests the CoreUtility class.
  *
  * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
  * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
@@ -81,8 +78,8 @@ public class CoreUtilityTest extends PCGenTestCase
 
 	public void testCompareVersions()
 	{
-		int[] firstVer = new int[]{5, 13, 6};
-		int[] secondVer = new int[]{5, 13, 6};
+		int[] firstVer = {5, 13, 6};
+		int[] secondVer = {5, 13, 6};
 		
 		assertEquals("Check for equal values", 0, CoreUtility.compareVersions(firstVer, secondVer));
 		secondVer[2] = 4;

@@ -19,8 +19,6 @@
  * Created on April 29th, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -81,7 +79,6 @@ import pcgen.util.Logging;
 /**
  * <code>EquipSet.java</code>
  * @author Jayme Cox &lt;jaymecox@excite.com&gt;
- * @version $Revision$
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {

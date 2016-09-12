@@ -17,17 +17,17 @@
  */
 package selectionactor.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Language;
+
+import org.junit.Test;
 import plugin.lsttokens.auto.LangToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class LangTokenTest extends AbstractSelectionActorTest<Language>
 {
 
-	private static final LangToken cra = new LangToken();
+	private static final ChooseSelectionActor cra = new LangToken();
 
 	@Test
 	public void testEmpty()

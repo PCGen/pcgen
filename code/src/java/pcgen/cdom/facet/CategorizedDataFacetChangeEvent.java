@@ -33,11 +33,9 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * the ability is being applied.
  * 
  * <br>
- * Last Editor: $Author$ Last Edited: $Date: 2013-01-14 17:25:32 -0500
  * (Mon, 14 Jan 2013) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>

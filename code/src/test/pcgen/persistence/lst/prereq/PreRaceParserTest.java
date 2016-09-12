@@ -38,7 +38,6 @@ import plugin.pretokens.parser.PreRaceParser;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreRaceParserTest extends EnUsLocaleDependentTestCase
 {

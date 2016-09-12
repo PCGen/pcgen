@@ -43,13 +43,10 @@ import pcgen.gui2.util.FacadeListModel;
  * for selection to work.  
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public abstract class DeferredCharacterComboBoxModel<E> extends
@@ -87,18 +84,12 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object getSelectedItem()
 	{
 		return selectedItem;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSelectedItem(Object item)
 	{
@@ -106,9 +97,6 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 		fireContentsChanged(this, -1, -1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void referenceChanged(ReferenceEvent<E> e)
 	{
@@ -123,18 +111,12 @@ public abstract class DeferredCharacterComboBoxModel<E> extends
 	 */
 	public abstract void commitSelectedItem(Object item);
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void focusGained(FocusEvent e)
 	{
 		// Ignored
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void focusLost(FocusEvent e)
 	{

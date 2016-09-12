@@ -60,7 +60,7 @@ import pcgen.util.Logging;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class FopTask implements Runnable
+public final class FopTask implements Runnable
 {
 	private static final FopFactory FOP_FACTORY = createFopFactory();
 	private static FOUserAgent userAgent;

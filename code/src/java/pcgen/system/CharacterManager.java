@@ -29,10 +29,6 @@ import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
-import org.apache.commons.lang.ArrayUtils;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
@@ -57,6 +53,10 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang.ObjectUtils;
+import org.apache.commons.lang.StringUtils;
+
 /**
  * This class stores the characters that are currently opened by
  * PCGen. It also handles creating new characters and opening
@@ -66,13 +66,10 @@ import pcgen.util.Logging;
  * changes to the list of available characters.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- * @version $Revision$
  */
-public class CharacterManager
+public final class CharacterManager
 {
 
 	private static final PartyFacadeImpl characters;
@@ -115,7 +112,7 @@ public class CharacterManager
 			messageHandler.handleMessage(new PlayerCharacterWasLoadedMessage(delegate, pc));
 			return character;
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			Logging.errorPrint("Unable to create character with data " //$NON-NLS-1$
 				+ dataset, e);
@@ -224,7 +221,7 @@ public class CharacterManager
 			return newPC;
 	
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			Logging.errorPrint("Unable to load character " + file, e); //$NON-NLS-1$
 			delegate.showErrorMessage(
@@ -276,7 +273,7 @@ public class CharacterManager
 		}
 		warningMsg.appendLineBreak();
 		warningMsg.append("<UL>"); //$NON-NLS-1$
-		for (String string : warnings)
+		for (final String string : warnings)
 		{
 			warningMsg.appendLineBreak();
 			warningMsg.append("<li>"); //$NON-NLS-1$
@@ -311,10 +308,8 @@ public class CharacterManager
 	{
 		Logging.log(Logging.INFO, "Loading party " + file.getAbsolutePath()); //$NON-NLS-1$
 		PCGIOHandler ioHandler = new PCGIOHandler();
-		for (File charFile : ioHandler.readCharacterFileList(file))
-		{
-			openCharacter(charFile, delegate, dataset);
-		}
+		ioHandler.readCharacterFileList(file).forEach(charFile ->
+				openCharacter(charFile, delegate, dataset));
 		characters.setFile(file);
 		return characters;
 	}
@@ -323,13 +318,13 @@ public class CharacterManager
 	{
 		PCGIOHandler ioHandler = new PCGIOHandler();
 		List<File> files = ioHandler.readCharacterFileList(pcpFile);
-		if (files == null || files.isEmpty())
+		if ((files == null) || files.isEmpty())
 		{
 			return null;
 		}
 		GameModeFacade gameMode = null;
 		HashSet<CampaignFacade> campaignSet = new HashSet<>();
-		for (File file : files)
+		for (final File file : files)
 		{
 			SourceSelectionFacade selection = getRequiredSourcesForCharacter(file, delegate);
 			if (selection == null)
@@ -349,7 +344,7 @@ public class CharacterManager
 				return null;
 			}
 
-			for (CampaignFacade campaign : selection.getCampaigns())
+			for (final CampaignFacade campaign : selection.getCampaigns())
 			{
 				campaignSet.add(campaign);
 			}
@@ -376,11 +371,11 @@ public class CharacterManager
 		SourceSelectionFacade selection = ioHandler.readSources(pcgFile);
 		if (!ioHandler.getErrors().isEmpty())
 		{
-			for (String msg : ioHandler.getErrors())
+			ioHandler.getErrors().forEach(msg ->
 			{
 				delegate.showErrorMessage(Constants.APPLICATION_NAME, msg);
 				Logging.errorPrint(msg);
-			}
+			});
 			return null;
 		}
 		return selection;
@@ -435,14 +430,14 @@ public class CharacterManager
 			{
 				((CharacterFacadeImpl) character).save();
 			}
-			catch (NullPointerException e)
+			catch (final NullPointerException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
 										  "Could not save " + character.getNameRef().get());
 				return false;
 			}
-			catch (IOException e)
+			catch (final IOException e)
 			{
 				Logging.errorPrint("Could not save " + character.getNameRef().get(), e);
 				delegate.showErrorMessage(Constants.APPLICATION_NAME,
@@ -500,7 +495,7 @@ public class CharacterManager
 
 	public static void removeAllCharacters()
 	{
-		for (CharacterFacade characterFacade : characters)
+		for (final CharacterFacade characterFacade : characters)
 		{
 			recentCharacters.addRecentFile(characterFacade.getFileRef().get());
 			// This advises the message handler also.
@@ -532,7 +527,7 @@ public class CharacterManager
 		if (compFile == null || StringUtils.isEmpty(compFile.getName()))
 		{
 			String compName = companion.getNameRef().get();
-			for (CharacterFacade character : CharacterManager.getCharacters())
+			for (final CharacterFacade character : getCharacters())
 			{
 				String charName = character.getNameRef().get();
 				if (ObjectUtils.equals(compName, charName))
@@ -543,7 +538,7 @@ public class CharacterManager
 		}
 		else
 		{
-			for (CharacterFacade character : CharacterManager.getCharacters())
+			for (final CharacterFacade character : getCharacters())
 			{
 				File charFile = character.getFileRef().get();
 				if (compFile.equals(charFile))
@@ -568,7 +563,7 @@ public class CharacterManager
 
 	private static boolean isNameUsed(String name)
 	{
-		for (CharacterFacade character : characters)
+		for (final CharacterFacade character : characters)
 		{
 			if (character.getNameRef().get().equals(name))
 			{
@@ -580,96 +575,3 @@ public class CharacterManager
 
 }
 
-final class RecentFileList extends AbstractListFacade<File>
-{
-
-	private static final int MAX_RECENT_FILES = 8;
-	private final LinkedList<File> fileList = new LinkedList<>();
-	private final String contextProp;
-
-	public RecentFileList(String contextProp)
-	{
-		this.contextProp = contextProp;
-		String[] recentFiles = PCGenSettings.getInstance().getStringArray(contextProp);
-		if (!ArrayUtils.isEmpty(recentFiles))
-		{
-			URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
-			for (int i = recentFiles.length-1; i >= 0 ; i--)
-			{
-				addRecentFile(new File(userdir.resolve(recentFiles[i])));
-			}
-		}
-	}
-
-	private void updateRecentFileProp()
-	{
-		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
-
-		List<String> uris = new ArrayList<>(fileList.size());
-		for (File file : fileList)
-		{
-			URI uri = userdir.relativize(file.toURI());
-			uris.add(uri.toString());
-		}
-		PCGenSettings.getInstance().setStringArray(contextProp, uris);
-	}
-
-	public void addRecentFile(File file)
-	{
-		if (file == null || !file.isFile())
-		{
-			return;
-		}
-		//Remove the file if it already exists, that way it gets moved to the top
-		int index = indexOf(file);
-		if (index != -1)
-		{
-			File oldFile = fileList.remove(index);
-			fireElementRemoved(this, oldFile, index);
-		}
-		//add it to the front
-		fileList.addFirst(file);
-		fireElementAdded(this, file, 0);
-		//then remove any overflowing files
-		if (fileList.size() > MAX_RECENT_FILES)
-		{
-			File oldFile = fileList.removeLast();
-			fireElementRemoved(this, oldFile, MAX_RECENT_FILES);
-		}
-		updateRecentFileProp();
-	}
-
-    @Override
-	public File getElementAt(int index)
-	{
-		return fileList.get(index);
-	}
-
-    @Override
-	public int getSize()
-	{
-		return fileList.size();
-	}
-
-	@Override
-	public boolean containsElement(File element)
-	{
-		return indexOf(element) != -1;
-	}
-
-	private int indexOf(File element)
-	{
-		if (element != null)
-		{
-			for (int i = 0; i < fileList.size(); i++)
-			{
-				if (fileList.get(i).getAbsolutePath().equals(element.getAbsolutePath()))
-				{
-					return i;
-				}
-			}
-		}
-		return -1;
-	}
-
-}

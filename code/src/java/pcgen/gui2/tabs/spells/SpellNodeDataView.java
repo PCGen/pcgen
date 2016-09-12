@@ -99,9 +99,6 @@ class SpellNodeDataView implements DataView<SuperNode>
 		return columns;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getPrefsKey()
 	{

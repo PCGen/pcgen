@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -884,7 +882,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		while (tok.hasMoreTokens())
 		{
 			String line = tok.nextToken();
-			if (line.trim().length() > 0)
+			if (!line.trim().isEmpty())
 			{
 				System.out.println("Processing line:'" + line + "'.");
 				reconstClass =
@@ -976,8 +974,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		classPreRule = new RuleCheck();
 		classPreRule.setName("CLASSPRE");
 		classPreRule.setDefault(false);
-		GameMode gameMode = gamemode;
-		gameMode.getModeContext().getReferenceContext().importObject(classPreRule);
+		gamemode.getModeContext().getReferenceContext().importObject(classPreRule);
 
 		prClass = new PCClass();
 		prClass.setName("PreReqClass");

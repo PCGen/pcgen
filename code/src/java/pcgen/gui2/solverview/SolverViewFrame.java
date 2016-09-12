@@ -113,7 +113,7 @@ public class SolverViewFrame extends JFrame
 	{
 		updateObjects();
 		ScopeInstance scope =
-				scopeFacet.get(activeIdentifier, selectedScope, activeObject);
+				scopeFacet.get(activeIdentifier, selectedScope.getName(), activeObject);
 		if (variableLibraryFacet
 			.isLegalVariableName(activeIdentifier.getDatasetID(),
 				scope.getLegalScope(), varNameText))
@@ -236,7 +236,7 @@ public class SolverViewFrame extends JFrame
 			{
 				if (cdo.getLocalScopeName().equals(scopeName))
 				{
-					if (scopeFacet.get(activeIdentifier, selectedScope, cdo) != null)
+					if (scopeFacet.get(activeIdentifier, selectedScope.getName(), cdo) != null)
 					{
 						objectChooser.addItem(new ObjectNameDisplayer(cdo));
 					}
@@ -309,7 +309,7 @@ public class SolverViewFrame extends JFrame
 		setTitle("Core Variable Debug View");
 		getContentPane().setSize(500, 400);
 		pack();
-		Utility.centerFrame(this, true);
+		Utility.centerComponent(this, true);
 	}
 
 	private static class SolverTableModel<T> extends AbstractTableModel

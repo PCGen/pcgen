@@ -40,11 +40,8 @@ import pcgen.util.enumeration.View;
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 // SKILLSUBSET

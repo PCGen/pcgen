@@ -34,10 +34,7 @@ import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
  * class spell list.
  *
  * <br>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  * 
- * @version $Revision:  $
  */
 public class ClassListToken extends AbstractRestrictedSpellPrimitive
 {

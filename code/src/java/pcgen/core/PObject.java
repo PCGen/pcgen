@@ -18,8 +18,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -51,7 +49,6 @@ import pcgen.system.PCGenSettings;
  * This is the base class for several objects in the PCGen database.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  * @author Joe.Frazier
  *
  */

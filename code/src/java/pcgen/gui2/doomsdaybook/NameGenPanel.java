@@ -33,7 +33,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -1042,9 +1041,6 @@ public class NameGenPanel extends JPanel
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public InputSource resolveEntity(String publicId, String systemId)
 		{

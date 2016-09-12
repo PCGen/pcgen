@@ -17,18 +17,18 @@
  */
 package actor.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.WeaponProf;
-import plugin.lsttokens.pcclass.WeaponbonusToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.pcclass.WeaponbonusToken;
 
 public class WeaponBonusListActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<WeaponProf>
 {
 
-	static WeaponbonusToken pca = new WeaponbonusToken();
+	private static final WeaponbonusToken pca = new WeaponbonusToken();
 
 	@Test
 	public void testEmpty()

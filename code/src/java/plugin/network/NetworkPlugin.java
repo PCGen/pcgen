@@ -27,7 +27,6 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenuItem;
@@ -51,7 +50,6 @@ import plugin.network.gui.PreferencesNetworkingPanel;
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
- * @version 2.10
  */
 public class NetworkPlugin implements InteractivePlugin
 {

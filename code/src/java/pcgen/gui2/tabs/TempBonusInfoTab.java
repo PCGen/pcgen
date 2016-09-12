@@ -75,11 +75,9 @@ import pcgen.util.enumeration.Tab;
  * temporary bonus should be applied to their character.
  *
  * <br>
- * Last Editor: $Author$ Last Edited: $Date: 2014-05-17 15:43:31
  * -0700 (Sat, 17 May 2014) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {
@@ -154,7 +152,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 
 		topPane.setRightComponent(selPanel);
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	@Override
@@ -532,9 +530,6 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 			return !context.getTempBonuses().containsElement(element);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{

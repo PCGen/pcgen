@@ -1,101 +1,11 @@
 # CVS $Revision: $ $Author: $ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
 SOURCELONG:Curse of the Crimson Throne, Chapter 3 - Escape from Old Korvosa	SOURCESHORT:AP9	SOURCEWEB:http://paizo.com/pathfinder/adventurePath/curseOfTheCrimsonThrone/v5748btpy82t5	SOURCEDATE:2008-05
 
-
-STARTPACK:Achaekek (The Mantis God) Default	TYPE:Default Monster.Aberration	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Achaekek (The Mantis God)]
-ALIGN:LE
-STAT:STR=11|DEX=10|CON=10|INT=10|WIS=10|CHA=10
-RACE:Achaekek (The Mantis God)	!PRERACE:1,%
-NAME:Achaekek, The Mantis God
-SKILL:Climb		RANK:34
-SKILL:Acrobatics	RANK:34
-SKILL:Perception	RANK:34
-SKILL:Stealth	RANK:34
-ABILITY:CATEGORY=FEAT|Awesome Blow
-ABILITY:CATEGORY=FEAT|Combat Reflexes
-ABILITY:CATEGORY=FEAT|Hover
-ABILITY:CATEGORY=FEAT|Improved Bull Rush
-ABILITY:CATEGORY=FEAT|Improved Critical(Claws)
-ABILITY:CATEGORY=FEAT|Improved Critical(Bite)
-ABILITY:CATEGORY=FEAT|Improved Critical(Sting)
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Iron Will
-ABILITY:CATEGORY=FEAT|Multiattack
-ABILITY:CATEGORY=FEAT|Power Attack
-ABILITY:CATEGORY=FEAT|Wingover
-ABILITY:CATEGORY=FEAT|Flyby Attack
-ABILITY:CATEGORY=FEAT|Weapon Focus (Claws)
-ABILITY:CATEGORY=FEAT|Weapon Focus (Bite)
-ABILITY:CATEGORY=FEAT|Weapon Focus (Sting)
-ABILITY:CATEGORY=FEAT|Snatch
-
-
-STARTPACK:Beatific One Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Beatific One]
-ALIGN:LE
-RACE:Beatific One	!PRERACE:1,%
-NAME:Beatific One
-STAT:STR=10|DEX=10|CON=10|INT=10|WIS=10|CHA=11
-SKILL:Acrobatics			RANK:11
-SKILL:Appraise			RANK:11
-SKILL:Climb				RANK:11
-SKILL:Escape Artist		RANK:11
-SKILL:Knowledge (Planes)	RANK:4
-SKILL:Perception			RANK:11
-SKILL:Perform (Dance)		RANK:7
-SKILL:Stealth			RANK:11
-SKILL:Sense Motive		RANK:11
-SKILL:Survival			RANK:11
-ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Deflect Arrows
-ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Improved Disarm
-ABILITY:CATEGORY=Monk Bonus Feat|Monk Bonus Feat ~ Improved Grapple
-ABILITY:CATEGORY=FEAT|Dodge
-ABILITY:CATEGORY=FEAT|Mobility
-ABILITY:CATEGORY=FEAT|Snatch Arrows
-ABILITY:CATEGORY=FEAT|Spring Attack
-ABILITY:CATEGORY=FEAT|Great Fortitude
-ABILITY:CATEGORY=FEAT|Combat Reflexes
-GEAR:Temple Sword		SIZE:PC	LOCATION:Primary Hand
-GEAR:Spear			SIZE:PC	LOCATION:Equipped
-GEAR:Kukri			SIZE:PC	LOCATION:Equipped
-GEAR:Flurry of Blows			LOCATION:Equipped
-
-
 STARTPACK:Rajput Ambari Default	TYPE:Default Monster.Undead	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rajput Ambari]
 ALIGN:TN
 RACE:Rajput Ambari	!PRERACE:1,%
 NAME:Rajput Ambari
 STAT:STR=10|DEX=11|CON=10|INT=10|WIS=10|CHA=11
-
-
-STARTPACK:Rakshasa Maharajah Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Rakshasa Maharajah]
-ALIGN:LE
-RACE:Rakshasa Maharajah	!PRERACE:1,%
-NAME:Rakshasa Maharajah
-STAT:STR=11|DEX=10|CON=10|INT=11|WIS=10|CHA=11
-ABILITY:CATEGORY=FEAT|Combat Casting
-ABILITY:CATEGORY=FEAT|Eschew Materials
-ABILITY:CATEGORY=FEAT|Hover
-ABILITY:CATEGORY=FEAT|Improved Initiative
-ABILITY:CATEGORY=FEAT|Maximize Spell
-ABILITY:CATEGORY=FEAT|Quicken Spell
-ABILITY:CATEGORY=FEAT|Widen Spell
-ABILITY:CATEGORY=FEAT|Still Spell
-ABILITY:CATEGORY=FEAT|Spell Penetration
-SKILL:Appraise			RANK:18
-SKILL:Bluff				RANK:18
-SKILL:Diplomacy			RANK:18
-SKILL:Disguise			RANK:18
-SKILL:Intimidate			RANK:18
-SKILL:Knowledge (Arcana)	RANK:18
-SKILL:Knowledge (Nobility)	RANK:18
-SKILL:Linguistics			RANK:18
-SKILL:Perception			RANK:18
-SKILL:Sense Motive		RANK:18
-SKILL:Spellcraft			RANK:18
-SKILL:Stealth			RANK:18
-SKILL:Survival			RANK:18
-SPELLS:SPELLBOOK=Known Spells|CLASS=Sorcerer|Arcane Mark|Daze|Detect Magic|Flare|Mage Hand|Message|Prestidigitation|Read Magic|Touch of Fatigue|Identify|Mage Armor|Magic Missile|Obscuring Mist|Ray of Enfeeblement|Darkness|Misdirection|Resist Energy|See Invisibility|Touch of Idiocy|Fireball|Slow|Vampiric Touch|Dimension Door|Invisibility (Greater)|Globe of Invulnerability (Lesser)|Solid Fog|Dominate Person|Seeming|Teleport|Flesh to Stone|Dispel Magic (Greater)|Bull's Strength (Mass)|Delayed Blast Fireball|Hold Person (Mass)|Hold Monster|Haste
-GEAR:Falchion	SIZE:PC	LOCATION:Primary Hand	EQMOD:PLUS3W
 
 
 STARTPACK:Sikari Macaque Swarm Default	TYPE:Default Monster.Outsider	VISIBLE:QUALIFY	EQUIPBUY:0	PREMULT:1,[!PRERACE:1,%],[PRERACE:1,Sikari Macaque Swarm]

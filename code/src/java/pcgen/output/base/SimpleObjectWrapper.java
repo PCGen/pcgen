@@ -24,6 +24,7 @@ import freemarker.template.TemplateModelException;
  * SimpleObjectWrapper is an advanced form of wrapper serving the Freemarker
  * Template Engine.
  */
+@FunctionalInterface
 public interface SimpleObjectWrapper
 {
 	/**

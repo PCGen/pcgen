@@ -51,7 +51,6 @@ import pcgen.util.Logging;
  * </pre>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CampaignHistoryToken extends Token
 {
@@ -60,18 +59,12 @@ public class CampaignHistoryToken extends Token
 
 	private static enum Visibility {ALL, HIDDEN, VISIBLE};
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)

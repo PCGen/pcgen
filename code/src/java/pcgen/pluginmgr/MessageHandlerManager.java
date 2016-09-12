@@ -32,11 +32,8 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  * and ensures that they get advised of any messages in order. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class MessageHandlerManager
@@ -85,9 +82,6 @@ public class MessageHandlerManager
 	private final class PCGenMessagePostbox implements PCGenMessageHandler
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

@@ -19,8 +19,6 @@
  * Created on November 19, 2001, 4:28 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -52,7 +50,6 @@ import pcgen.util.Delta;
  * Definition and games rules for an equipment modifier.
  *
  * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version  $Revision$
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade
 {
@@ -309,10 +306,7 @@ public final class EquipmentModifier extends PObject implements Comparable<Objec
 		return getKeyName().compareTo(o.toString());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);

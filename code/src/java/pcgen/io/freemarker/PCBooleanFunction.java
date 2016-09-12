@@ -33,7 +33,6 @@ import freemarker.template.TemplateModelException;
  * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")} 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCBooleanFunction extends CharacterExportAction implements TemplateMethodModelEx
 {
@@ -47,14 +46,10 @@ public class PCBooleanFunction extends CharacterExportAction implements Template
 	 */
 	public PCBooleanFunction(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

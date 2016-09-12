@@ -443,11 +443,23 @@ public final class RollingMethods
                                              Integer.MAX_VALUE +
                                              " not allowed.");
                 }
-                final int iRolls = (int) Math.round((Double) numberOfRolls);
-                final int iFaces = (int) Math.round((Double) faces);
-                double i = (keep == null) ? RollingMethods.roll(iRolls, iFaces, numToKeep, reroll, 0) : RollingMethods.roll(iRolls, iFaces, keep);
+                int iRolls = (int) Math.round(((Double) numberOfRolls).doubleValue());
+                int iFaces = (int) Math.round(((Double) faces).doubleValue());
+                if (numToKeep == 0)
+                {
+                    numToKeep = iRolls;
+                }
+                double result = 0;
+                if (keep == null)
+                {
+                    result = roll(iRolls, iFaces, numToKeep, reroll, 0);
+                }
+                else
+                {
+                    result = roll(iRolls, iFaces, keep);
+                }
                 // push the result on the inStack
-                stack.push(new Double(i));
+                stack.push(new Double(result));
             }
             else
             {

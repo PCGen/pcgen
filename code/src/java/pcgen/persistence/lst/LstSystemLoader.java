@@ -19,8 +19,6 @@
  * Created on February 22, 2002, 10:29 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -40,7 +38,6 @@ import pcgen.persistence.SystemLoader;
  * ???
  * @deprecated
  * @author David Rice &lt;david-pcgen@jcuz.com&gt;
- * @version $Revision$
  */
 public final class LstSystemLoader implements SystemLoader
 {

@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -72,7 +70,7 @@ import pcgen.util.enumeration.Visibility;
  * @author boomer70
  *
  */
-public class NPCGenerator
+public final class NPCGenerator
 {
 	private static final NPCGenerator theInstance = new NPCGenerator();
 

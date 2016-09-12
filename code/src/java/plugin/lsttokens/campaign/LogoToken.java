@@ -40,11 +40,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>LogoToken</code> parses the LOGO Token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken

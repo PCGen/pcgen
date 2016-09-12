@@ -31,7 +31,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Campaign;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -42,11 +41,8 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * The Class <code>AbilityListTokenTest</code> verifies the processing of the 
  * AbilityListToken.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class AbilityListTokenTest extends PCGenTestCase
 {

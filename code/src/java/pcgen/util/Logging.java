@@ -48,7 +48,6 @@ import pcgen.core.SettingsHandler;
  * Java logging API.
  * 
  * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
- * @version    $Revision$
  */
 public class Logging
 {

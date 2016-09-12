@@ -22,8 +22,6 @@
  */
 package pcgen.gui2.facade;
 
-import java.io.File;
-
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -51,11 +49,8 @@ import pcgen.util.TestHelper;
  * The Class <code></code> ...
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -67,9 +62,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 	private CompanionList companionList;
 	private TodoManager todoManager;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -122,9 +114,6 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{

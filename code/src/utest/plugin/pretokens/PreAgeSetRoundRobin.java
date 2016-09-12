@@ -33,11 +33,8 @@ import plugin.pretokens.writer.PreAgeSetWriter;
  * <code>PreAgeSetRoundRobin</code> verifies that preageset tags can be 
  * read and written.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {

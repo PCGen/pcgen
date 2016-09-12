@@ -44,11 +44,8 @@ import pcgen.util.TestHelper;
  * The Class <code>SkillModifierTest</code> is responsible for checking that the 
  * SkillModifier class is operating correctly.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {

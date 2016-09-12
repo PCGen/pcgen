@@ -19,8 +19,6 @@
  * Created on March 22, 2002, 12:15 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -52,10 +50,8 @@ import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.enumeration.AssociationListKey;
 import pcgen.cdom.enumeration.BiographyField;
-import pcgen.cdom.enumeration.BooleanPCAttribute;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.enumeration.HandedPCAttr;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
@@ -151,7 +147,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
- * <code>PCGVer2Parser</code>
+ * {@code PCGVer2Parser}
  * Parses a line oriented format.
  * Each line should adhere to the following grammar:<br>
  *
@@ -164,7 +160,6 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  *
  *
  * @author Thomas Behr 22-03-02
- * @version $Revision$
  */
 final class PCGVer2Parser implements PCGParser, IOConstants
 {
@@ -388,7 +383,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			sourceStr = sourceStr.substring(6);
 
 			//oSource = aPC.getSpellNamed(sourceStr);
-			oSource = Globals.getSpellKeyed(sourceStr);
+			oSource = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_EQUIPMENT + '='))
 		{
@@ -586,7 +582,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 **/
 	private void parseIgnoreCostLine(String line)
 	{
-		thePC.setPCAttribute(BooleanPCAttribute.IGNORE_COST, line.endsWith(VALUE_Y));
+		thePC.setIgnoreCost(line.endsWith(VALUE_Y));
 	}
 
 	/**
@@ -595,7 +591,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 **/
 	private void parseAllowDebtLine(String line)
 	{
-		thePC.setPCAttribute(BooleanPCAttribute.ALLOW_DEBT, line.endsWith(VALUE_Y));
+		thePC.setAllowDebt(line.endsWith(VALUE_Y));
 	}
 
 	/**
@@ -3144,14 +3140,15 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			warnings.add(msg);
 
 		}
-		thePC.setPCAttribute(HandedPCAttr.HANDED, h);;
+		thePC.setHanded(h);
 	}
 
 	private void parseHeightLine(final String line)
 	{
 		try
 		{
-			thePC.setPCAttribute(NumericPCAttribute.HEIGHT, Integer.parseInt(line.substring(TAG_HEIGHT.length() + 1)));
+			thePC
+				.setHeight(Integer.parseInt(line.substring(TAG_HEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -4129,7 +4126,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					SettingsHandler.getGame().getName());
 
 				// either NULL (no spell) a Spell instance,
-				aSpell = Globals.getSpellMap().get(spellName);
+				aSpell = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell == null)
 				{
@@ -5626,7 +5624,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_SPELL))
 			{
-				final Spell aSpell = Globals.getSpellKeyed(cKey);
+				final Spell aSpell = 
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
+								Spell.class, cKey);
 
 				if (aSpell != null)
 				{

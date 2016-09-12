@@ -16,8 +16,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision: 285 $
- * Last Editor:     $Author: nuance $
- * Last Edited:     $Date: 2006-03-17 15:19:49 +0000 (Fri, 17 Mar 2006) $
  *
  * Copyright 2006 Andrew Wilson <nuance@sourceforge.net>
  */

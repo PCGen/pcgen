@@ -25,11 +25,8 @@ package pcgen.core.doomsdaybook;
  * on a variable. These are actions such as setting, adding or 
  * multiplying the variable's current value.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author Devon D Jones
- * @version $Revision$
  */
 public class Operation implements Comparable
 {

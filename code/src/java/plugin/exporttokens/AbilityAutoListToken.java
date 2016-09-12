@@ -42,11 +42,8 @@ import pcgen.io.exporttoken.AbilityListToken;
  * y is the category (FEAT, FIGHTER etc, or ALL)
  * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityAutoListToken extends AbilityListToken
 {

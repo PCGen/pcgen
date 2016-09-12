@@ -18,8 +18,6 @@
  * Created on June 18, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.cdom.enumeration;
 

@@ -19,8 +19,6 @@
  * Created on March 16, 2006
  *
  * Current Ver: $Revision: $
- * Last Editor: $Author: $
- * Last Edited: $Date: $
  */
 package pcgen.cdom.content;
 

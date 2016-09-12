@@ -328,8 +328,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Description should match", pc
-			.getDescription(pobj), "Description 1.");
+		assertEquals("Description should match", "Description 1.", pc
+			.getDescription(pobj));
 
 		final Description desc2 = new Description("Description 2.");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc2);

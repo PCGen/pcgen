@@ -19,26 +19,27 @@
  *
  * Current Ver: $Revision: $
  *
- * Last Editor: $Author: $
  *
- * Last Edited: $Date:  $
  *
  */
 package pcgen.cdom.content;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.FormulaFactory;
+
+import org.junit.Test;
+import static org.junit.Assert.*;
 
 /**
  * This class tests the handling of DRs in PCGen
  */
 @SuppressWarnings("nls")
-public class DamageReductionTest extends TestCase
+public class DamageReductionTest
 {
 
 	/**
 	 * Test the basic DR Handling
 	 */
+	@Test
 	public void testBasicDRHandling()
 	{
 		DamageReduction dr1 = new DamageReduction(FormulaFactory

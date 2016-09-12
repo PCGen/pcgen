@@ -33,11 +33,8 @@ import java.util.regex.Matcher;
 /**
  * <code>ParameterTreeTest</code> is ...
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {

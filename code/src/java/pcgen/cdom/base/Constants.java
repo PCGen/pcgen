@@ -30,7 +30,6 @@ import java.text.DecimalFormat;
  * is that an interface uses a little less memory.)
  *
  * @author     Jonas Karlsson
- * @version    $Revision$
  */
 public interface Constants
 {
@@ -371,7 +370,7 @@ public interface Constants
 
 	// TODO: this is broken in some sad way whereby if you change the case
 	// of FEAT to Feat, the pre-req tree fails on the Feats tab.
-	/** For accessing <code>CategorisableStore</code>. */
+	/** For accessing {@code CategorisableStore}. */
 	String FEAT_CATEGORY = "FEAT"; //$NON-NLS-1$
 
 	/** An empty string. */

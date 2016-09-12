@@ -240,7 +240,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			infoPane.setTitle(LanguageBundle.getString("in_igEqInfo")); //$NON-NLS-1$
 			splitPane.setRightComponent(infoPane);
 		}
-		splitPane.setResizeWeight(.25);
+		splitPane.setResizeWeight(0.25);
 		setResizeWeight(1);
 		setBottomComponent(splitPane);
 	}
@@ -920,9 +920,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			return columns;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -1045,9 +1042,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			purchasedTable.refreshModelData();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -1358,9 +1352,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void showPopup(MouseEvent e)
 		{
@@ -1481,9 +1472,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void showPopup(MouseEvent e)
 		{

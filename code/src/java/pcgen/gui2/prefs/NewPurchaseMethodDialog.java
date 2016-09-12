@@ -37,7 +37,6 @@ import java.awt.event.WindowEvent;
 
 /**
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 class NewPurchaseMethodDialog extends JDialog
 {
@@ -61,7 +60,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 
 	/** Creates new form JDialog
@@ -72,7 +71,7 @@ class NewPurchaseMethodDialog extends JDialog
 	{
 		super(parent, modal);
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 
 	public String getEnteredName()

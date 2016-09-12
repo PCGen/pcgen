@@ -95,9 +95,9 @@ public class ChargesToken extends AbstractNonEmptyToken<EquipmentModifier>
 		}
 
 		context.getObjectContext().put(mod, IntegerKey.MIN_CHARGES,
-				Integer.valueOf(minCharges));
+				minCharges);
 		context.getObjectContext().put(mod, IntegerKey.MAX_CHARGES,
-				Integer.valueOf(maxCharges));
+				maxCharges);
 		return ParseResult.SUCCESS;
 	}
 

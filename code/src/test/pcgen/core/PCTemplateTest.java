@@ -50,11 +50,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {

@@ -35,23 +35,18 @@ import pcgen.util.enumeration.Tab;
  * 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TabLoader extends SimpleLoader<TabInfo>
 {
 
-	private List<String> deprecatedTabNames = Arrays.asList(new String[]{
-		"ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
-		"NATURALWEAPONS", "SOURCEINFO"});
+	private List<String> deprecatedTabNames = Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
+			"NATURALWEAPONS", "SOURCEINFO");
 
 	public TabLoader()
 	{
 		super(TabInfo.class);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String processFirstToken(LoadContext context, String token)
 	{

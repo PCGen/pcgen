@@ -176,7 +176,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 
 		topPane.setRightComponent(selPanel);
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	private void initListeners()
@@ -545,9 +545,6 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -803,7 +800,7 @@ public class ClassInfoTab extends FlippingSplitPane implements CharacterInfoTab
 				if (data != null)
 				{
 					text = character.getInfoFactory().getHTMLInfo(
-							(ClassFacade) data, null);
+							data, null);
 					infoPane.setText(text);
 				}
 				else

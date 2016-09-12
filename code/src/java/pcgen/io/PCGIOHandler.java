@@ -19,8 +19,6 @@
  * Created on March 11, 2002, 8:30 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -43,9 +41,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.enumeration.Nature;
@@ -66,12 +61,15 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.lang.StringUtils;
+import org.jetbrains.annotations.Nullable;
+
 /**
- * <code>PCGIOHandler</code><br>
+ * {@code PCGIOHandler}<br>
  * Reading and Writing PlayerCharacters in PCGen's own format (PCG).
  *
  * @author Thomas Behr 11-03-02
- * @version $Revision$
  */
 public final class PCGIOHandler extends IOHandler
 {
@@ -489,7 +487,7 @@ public final class PCGIOHandler extends IOHandler
 
 					if (iRoll > iSides)
 					{
-						currentPC.setHP(pcl, Integer.valueOf(iSides));
+						currentPC.setHP(pcl, iSides);
 						fixMade = true;
 					}
 				}
@@ -539,10 +537,10 @@ public final class PCGIOHandler extends IOHandler
 	private void resolveDuplicateEquipmentSets(PlayerCharacter currentPC)
 	{
 		boolean anyMoved = false;
-		List<EquipSet> equipSetList =
+		Iterable<EquipSet> equipSetList =
 				new ArrayList<>(currentPC.getDisplay().getEquipSet());
 		Map<String, EquipSet> idMap = new HashMap<>();
-		for (EquipSet es : equipSetList)
+		for (final EquipSet es : equipSetList)
 		{
 			String idPath = es.getIdPath();
 			if (idMap.containsKey(idPath))
@@ -600,7 +598,7 @@ public final class PCGIOHandler extends IOHandler
 	 * Pick one of two equipment sets sharing a path to be moved to a new path. 
 	 * Only non containers will be moved to avoid issues with contents.   
 	 * @param equipSet1 The first equipment set at a path.
-	 * @param equipSet1 The second equipment set at a path.
+	 * @param equipSet2 The second equipment set at a path.
 	 * @return The equipment set that should be move,d or null if none are safe.
 	 */
 	private EquipSet chooseItemToBeMoved(EquipSet equipSet1, EquipSet equipSet2)
@@ -647,7 +645,7 @@ public final class PCGIOHandler extends IOHandler
 		String[] files = charFiles.split(",");
 
 		List<File> fileList = new ArrayList<>();
-		for (String fileName : files)
+		for (final String fileName : files)
 		{
 			// try to find it in the party's directory
 			File characterFile = new File(partyFile.getParent(), fileName);
@@ -673,7 +671,7 @@ public final class PCGIOHandler extends IOHandler
 		return fileList;
 	}
 
-	public void write(File partyFile, List<File> characterFiles)
+	public static void write(File partyFile, List<File> characterFiles)
 	{
 		String versionLine = "VERSION:" + PCGenPropBundle.getVersionNumber();
 		String[] files = new String[characterFiles.size()];
@@ -732,6 +730,7 @@ public final class PCGIOHandler extends IOHandler
 		return null;
 	}
 
+	@Nullable
 	private SourceSelectionFacade internalReadSources(InputStream in)
 	{
 		// Read lines from file

@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus;
@@ -45,7 +43,7 @@ import pcgen.util.Logging;
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class Bonus
+public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
 

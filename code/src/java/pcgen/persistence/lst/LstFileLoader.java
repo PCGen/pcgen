@@ -19,8 +19,6 @@
  * Created on September 22, 2003, 11:29 AM
  *
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 

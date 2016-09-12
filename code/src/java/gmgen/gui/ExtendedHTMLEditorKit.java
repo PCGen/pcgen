@@ -41,7 +41,6 @@ import javax.swing.text.html.StyleSheet;
  * relative image paths.
  *
  * @author &lt;a href="mailto:jal@grimor.com"&gt;Frits Jalvingh &lt;/a&gt;
- * @version 1.0
  */
 public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
@@ -436,7 +435,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             }
 
             if (caret != -1) {
-                result.append(source.substring(caret, source.indexOf(">", caret) + 1));
+                result.append(source.substring(caret, source.indexOf('>', caret) + 1));
             }
         } while (caret != -1);
 
@@ -455,8 +454,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
         int caret;
 
         if ((caret = source.indexOf(idString)) != -1) {
-            position[0] = source.lastIndexOf("<", caret);
-            position[1] = source.indexOf(">", caret) + 1;
+            position[0] = source.lastIndexOf('<', caret);
+            position[1] = source.indexOf('>', caret) + 1;
         }
 
         if (closingTag) {
@@ -516,7 +515,8 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
      * Class that replaces the default ViewFactory and supports the proper
      * rendering of both URL-based and local images.
      */
-    private static class HTMLFactoryExtended extends HTMLFactory implements ViewFactory {
+    private static class HTMLFactoryExtended extends HTMLFactory
+    {
 
         /**
          * Method to handle IMG tags and invoke the image loader.

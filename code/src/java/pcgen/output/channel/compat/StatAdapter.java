@@ -25,7 +25,7 @@ import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 
-public class StatAdapter extends AbstractAdapter<Integer> implements
+public final class StatAdapter extends AbstractAdapter<Integer> implements
 		WriteableReferenceFacade<Integer>,
 		ScopeFacetChangeListener<CharID, PCStat, Integer>
 {

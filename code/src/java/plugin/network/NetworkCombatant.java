@@ -38,8 +38,6 @@ import org.jdom.Element;
 
 /**
  *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public class NetworkCombatant extends Combatant
 {

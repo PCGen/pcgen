@@ -42,11 +42,8 @@ import pcgen.system.LanguageBundle;
  * the constructor and implement the commit to process the selections.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public abstract class GeneralChooserFacadeBase implements ChooserFacade
@@ -143,27 +140,18 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getAvailableList()
 	{
 		return availableList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final ListFacade<InfoFacade> getSelectedList()
 	{
 		return selectedList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void addSelected(InfoFacade item)
 	{
@@ -176,9 +164,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void removeSelected(InfoFacade item)
 	{
@@ -187,24 +172,15 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<Integer> getRemainingSelections()
 	{
 		return numSelectionsRemain;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public abstract void commit();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final void rollback()
 	{
@@ -213,9 +189,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		numSelectionsRemain.set(maxNewSelections);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final String getName()
 	{
@@ -228,9 +201,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return availableTableTypeNameTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getAvailableTableTitle()
 	{
@@ -261,9 +231,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return selectionCountName;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBranchNames(InfoFacade item)
 	{
@@ -280,9 +247,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		return branches;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChooserTreeViewType getDefaultView()
 	{
@@ -306,9 +270,6 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.requireCompleteSelection = requireCompleteSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isRequireCompleteSelection()
 	{
@@ -330,18 +291,12 @@ public abstract class GeneralChooserFacadeBase implements ChooserFacade
 		this.preferRadioSelection = preferRadioSelection;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isInfoAvailable()
 	{
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public InfoFactory getInfoFactory()
 	{

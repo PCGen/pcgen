@@ -19,8 +19,6 @@
  * Created on September 27, 2002, 5:30 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -350,7 +348,7 @@ public final class BioSet extends PObject implements NonInteractive
 			}
 			final String tagValue = iter.next();
 			SortedMap<String, SortedMap<String, String>> races = ageSets
-					.get(Integer.valueOf(ageBracket));
+					.get(ageBracket);
 			if (races == null)
 			{
 				races = new TreeMap<>();
@@ -575,7 +573,7 @@ public final class BioSet extends PObject implements NonInteractive
 
 				if ((baseHeight != 0) && (htAdd != 0))
 				{
-					pc.setPCAttribute(NumericPCAttribute.HEIGHT, baseHeight + htAdd);
+					pc.setHeight(baseHeight + htAdd);
 				}
 
 				if ((totalWeight != null) && (baseWeight != 0) && (wtAdd != 0))

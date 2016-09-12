@@ -39,7 +39,6 @@ import pcgen.core.Race;
  * Updated on March 12, 2003
  * 
  * @author John Dells &lt;JohnDells@woh.rr.com&gt;
- * @version 2.10
  */
 public class EncounterModel extends DefaultListModel
 {
@@ -92,7 +91,7 @@ public class EncounterModel extends DefaultListModel
 			cr = 0;
 		}
 
-		return (int) (cr + .5);
+		return (int) (cr + 0.5);
 	}
 
 	/**

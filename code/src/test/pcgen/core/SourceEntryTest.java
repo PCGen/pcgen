@@ -33,11 +33,8 @@ import pcgen.cdom.enumeration.StringKey;
 /**
  * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class SourceEntryTest extends TestCase
 {

@@ -18,11 +18,8 @@ import pcgen.util.enumeration.View;
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision$
  */
 public class VFeatToken extends AbilityToken
 {
@@ -74,9 +71,6 @@ public class VFeatToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

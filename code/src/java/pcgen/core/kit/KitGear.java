@@ -50,7 +50,6 @@ import pcgen.core.character.EquipSet;
  * <code>KitGear</code>.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @version $Revision$
  */
 public final class KitGear extends BaseKit
 {

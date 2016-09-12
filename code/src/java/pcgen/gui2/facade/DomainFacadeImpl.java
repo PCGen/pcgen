@@ -39,11 +39,8 @@ import pcgen.util.SortKeyAware;
  * enforced by the UI.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		DomainFacade, SortKeyAware
@@ -116,27 +113,18 @@ public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		return getRawObject().toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isNamePI()
 	{
 		return getRawObject().isNamePI();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getType()
 	{
 		return getRawObject().getType();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSortKey()
 	{

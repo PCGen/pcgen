@@ -209,9 +209,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		return new TabTitle(Tab.COMPANIONS);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{
@@ -612,7 +609,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				String type = (String) selectedElement;
 				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
-				Utility.setDialogRelativeLocation(CompanionInfoTab.this, companionDialog);
+				Utility.setComponentRelativeLocation(CompanionInfoTab.this, companionDialog);
 				companionDialog.setVisible(true);
 				CharacterFacade comp = companionDialog.getNewCompanion();
 				if (comp != null)
@@ -793,9 +790,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -1149,9 +1143,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

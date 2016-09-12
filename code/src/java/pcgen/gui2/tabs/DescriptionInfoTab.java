@@ -60,11 +60,9 @@ import pcgen.util.enumeration.Tab;
  * implemented description tab.
  *
  * <br>
- * Last Editor: $Author: jdempsey $ Last Edited: $Date: 2010-09-29 05:59:43
  * -0700 (Wed, 29 Sep 2010) $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 13208 $
  */
 @SuppressWarnings("serial")
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -245,9 +243,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<NoteFacade> e)
 		{
@@ -258,9 +253,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			addPage(notePane);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<NoteFacade> e)
 		{
@@ -303,9 +295,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<NoteFacade> e)
 		{
@@ -320,9 +309,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<NoteFacade> e)
 		{

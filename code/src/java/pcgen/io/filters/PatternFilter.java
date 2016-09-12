@@ -37,7 +37,6 @@ import pcgen.util.Logging;
  * into safe XML equivalents for outputting to xml files.
  *    
  * @author apsen
- * @version $Revision: $
  */
 public class PatternFilter implements OutputFilter
 {
@@ -54,7 +53,6 @@ public class PatternFilter implements OutputFilter
 	 */
 	public PatternFilter(String templateFileName) throws IOException
 	{
-		super();
 
 		int idx = templateFileName.lastIndexOf('.');
 		if (idx < 0)
@@ -107,7 +105,7 @@ public class PatternFilter implements OutputFilter
 					if (aLine.length() == 0 || aLine.charAt(0) == '#') {
                                         continue;
                                     }
-					else if (0 < aLine.indexOf("\t#")) {
+					else if (aLine.indexOf("\t#") > 0) {
                                         aLineWOComment =
                                                         aLine.substring(0, aLine.indexOf("\t#"));
                                     }

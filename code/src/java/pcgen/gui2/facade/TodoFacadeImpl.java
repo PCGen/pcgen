@@ -30,11 +30,8 @@ import pcgen.util.enumeration.Tab;
  * to be done for a character.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class TodoFacadeImpl implements TodoFacade
 {
@@ -120,7 +117,7 @@ public class TodoFacadeImpl implements TodoFacade
 	    }
 
 	    // Sort first by tab 
-	    if (!(this.tab == that.getTab()))
+	    if (this.tab != that.getTab())
 	    {
 	    	return this.tab.compareTo(that.getTab());
 	    }
@@ -142,9 +139,6 @@ public class TodoFacadeImpl implements TodoFacade
 		return EQUAL;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSubTabName()
 	{

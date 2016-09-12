@@ -19,8 +19,6 @@
  * Created 04-Aug-2008 01:18:35
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -45,7 +43,7 @@ public class PCCasterLevelRaceTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override
@@ -56,7 +54,7 @@ public class PCCasterLevelRaceTermEvaluator
 													 Constants.NONE,
 													 source,
 													 0);
-		return lev > 0f ? lev : 0f;
+		return lev > 0.0f ? lev : 0.0f;
 	}
 
 	@Override

@@ -19,8 +19,6 @@
  * Created 04-Aug-2008 02:27:58
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -50,7 +48,7 @@ public class PCCasterLevelClassTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

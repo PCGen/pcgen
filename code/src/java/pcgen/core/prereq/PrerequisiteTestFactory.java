@@ -18,7 +18,6 @@
  *
  * Created on November 28, 2003
  *
- * Current Ver: $Revision$ Last Editor: $Author$ Last Edited: $Date$
  *
  */
 package pcgen.core.prereq;
@@ -34,7 +33,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PrerequisiteTestFactory implements PluginLoader{
+public final class PrerequisiteTestFactory implements PluginLoader{
 	private static PrerequisiteTestFactory instance = null;
 	private static Map<String, PrerequisiteTest> testLookup = new HashMap<>();
 

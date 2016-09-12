@@ -45,11 +45,8 @@ import pcgen.util.Logging;
  * displaying choices the user needs to make as part of the conversion 
  * of some data items. 
  * 
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2009-01-27 03:21:06 -0500 (Tue, 27 Jan 2009) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 9113 $
  */
 @SuppressWarnings("serial")
 public class ConversionInputDialog extends JDialog implements

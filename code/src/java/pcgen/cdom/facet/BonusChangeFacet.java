@@ -127,6 +127,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * 
 	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface BonusChangeListener
 	{
 
@@ -310,8 +311,8 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		public synchronized BonusChangeListener[] getBonusChangeListeners(
 				String type, String name)
 		{
-			return (listeners.getListFor(type, name)
-					.toArray(new BonusChangeListener[0]));
+			List<BonusChangeListener> listFor = listeners.getListFor(type, name);
+			return (listFor.toArray(new BonusChangeListener[listFor.size()]));
 		}
 
 		/**

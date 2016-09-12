@@ -49,7 +49,6 @@ import java.util.*;
  * This defines the preferences tree
  *
  * @author devon
- * @since August 27, 2003
  */
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {
@@ -711,7 +710,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public void checkSave()
 	{
-		if (((String) userObject).equals("Logs"))
+		if (userObject.equals("Logs"))
 		{
 			if (isTreeDirty())
 			{

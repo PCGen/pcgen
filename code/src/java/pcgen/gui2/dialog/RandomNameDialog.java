@@ -46,11 +46,8 @@ import pcgen.system.LanguageBundle;
  * generate a random name for their character.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
 public class RandomNameDialog extends JDialog
@@ -73,7 +70,7 @@ public class RandomNameDialog extends JDialog
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		if (frame != null)
 		{
-			Utility.setDialogRelativeLocation(frame, this);
+			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
 		

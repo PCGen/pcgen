@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -39,7 +37,6 @@ import pcgen.io.exporttoken.WeaponToken;
  * <code>WeaponoToken</code>.
  * 
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponoToken extends WeaponToken
 {

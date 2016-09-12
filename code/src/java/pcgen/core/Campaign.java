@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -48,7 +46,6 @@ import pcgen.rules.context.RuntimeLoadContext;
  * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class Campaign extends PObject implements CampaignFacade, NonInteractive
 {
@@ -173,36 +170,24 @@ public class Campaign extends PObject implements CampaignFacade, NonInteractive
 		return get(StringKey.CAMPAIGN_SETTING);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSourceShort()
 	{
 		return get(StringKey.SOURCE_SHORT);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getBookTypeList()
 	{
 		return getSafeListFor(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBookTypes()
 	{
 		return getListAsString(ListKey.BOOK_TYPE);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getStatus()
 	{

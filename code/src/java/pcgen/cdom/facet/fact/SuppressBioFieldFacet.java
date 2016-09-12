@@ -31,15 +31,12 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
- * The Class <code>SuppressBioFieldFacet</code> tracks the biography fields that
+ * The Class {@code SuppressBioFieldFacet} tracks the biography fields that
  * should be hidden from output.
  * 
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>

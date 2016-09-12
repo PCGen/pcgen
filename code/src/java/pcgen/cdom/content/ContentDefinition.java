@@ -103,9 +103,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 		displayName = name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDisplayName()
 	{
@@ -209,7 +206,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 */
 	public void setSelectable(boolean set)
 	{
-		selectable = Boolean.valueOf(set);
+		selectable = set;
 	}
 
 	/**
@@ -249,7 +246,7 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 			throw new UnsupportedOperationException(
 				"Global ContentDefinition cannot be required");
 		}
-		required = Boolean.valueOf(set);
+		required = set;
 	}
 
 	/**
@@ -268,9 +265,6 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 		return required;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getLSTformat()
 	{

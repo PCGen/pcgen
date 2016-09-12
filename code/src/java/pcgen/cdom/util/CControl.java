@@ -1,6 +1,6 @@
 package pcgen.cdom.util;
 
-public class CControl
+public final class CControl
 {
 	public static final String CRITMULT = "CRITMULT";
 
@@ -44,6 +44,6 @@ public class CControl
 	public static final String INITIATIVEMISC = "INITIATIVEMISC";
 	public static final String INITIATIVEBONUS = "INITIATIVEBONUS";
 
-	public static final String STATSCORE = "STATSCORE";
+	public static final String STATINPUT = "STATINPUT";
 
 }

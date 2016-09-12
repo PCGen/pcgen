@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 16:08:40
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -61,7 +59,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 			final boolean visible,
 			final boolean hidden)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		for (CNAbility ability : aList)
 		{

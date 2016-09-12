@@ -104,11 +104,8 @@ import pcgen.util.enumeration.View;
  * by the UI layer on the character's spells.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
@@ -362,9 +359,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 				new GeneralChooserFacadeBase(label, availableList,
                         new ArrayList<>(), 99, infoFactory)
 		{
-			/**
-			 * {@inheritDoc}
-			 */
 			@Override
 			public void commit()
 			{
@@ -500,7 +494,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		{
 			JOptionPane.showMessageDialog(null, LanguageBundle
 				.getFormattedString(
-					"InfoPreparedSpells.add.list.fail", new Object[]{spellList}), //$NON-NLS-1$
+					"InfoPreparedSpells.add.list.fail", spellList), //$NON-NLS-1$
 				Constants.APPLICATION_NAME, JOptionPane.ERROR_MESSAGE);
 
 			return;
@@ -1117,54 +1111,36 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		return castingClasses;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isAutoSpells()
 	{
 		return pc.getAutoSpells();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setAutoSpells(boolean autoSpells)
 	{
 		pc.setAutoSpells(autoSpells);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isUseHigherKnownSlots()
 	{
 		return pc.getUseHigherKnownSlots();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUseHigherPreppedSlots(boolean useHigher)
 	{
 		pc.setUseHigherPreppedSlots(useHigher);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isUseHigherPreppedSlots()
 	{
 		return pc.getUseHigherPreppedSlots();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUseHigherKnownSlots(boolean useHigher)
 	{
@@ -1206,27 +1182,18 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		defaultSpellBook.set(bookName);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementAdded(ListEvent<EquipmentFacade> e)
 	{
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementRemoved(ListEvent<EquipmentFacade> e)
 	{
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void elementsChanged(ListEvent<EquipmentFacade> e)
 	{
@@ -1239,9 +1206,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		updateSpellBooks((Equipment) e.getElement());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void quantityChanged(EquipmentListEvent e)
 	{
@@ -1333,9 +1297,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void previewSpells()
 	{
@@ -1379,9 +1340,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		SettingsHandler.setPrintSpellsWithPC(aBool);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void exportSpells()
 	{
@@ -1551,18 +1509,12 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			return rootNode;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getCount()
 		{
 			return count;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void addCount(int num)
 		{
@@ -1707,54 +1659,36 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			this.rootNode = rootNode;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public ClassFacade getSpellcastingClass()
 		{
 			return null;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSpellLevel()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public SpellFacade getSpell()
 		{
 			return null;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public RootNode getRootNode()
 		{
 			return rootNode;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int getCount()
 		{
 			return 1;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void addCount(int num)
 		{

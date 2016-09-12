@@ -26,12 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>Cache</code><br>
+ * {@code Cache}<br>
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *
  * @author Thomas Behr 08-00-02
- * @version $Revision$
  */
 final class Cache
 {

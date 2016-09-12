@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 20:27:43
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -42,7 +40,7 @@ public class PCCountSpellRaceTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		final CDOMObject aSpellRace = pc.getSpellClassAtIndex(0);
-		return (aSpellRace instanceof Race) ? 1f : 0f;
+		return (aSpellRace instanceof Race) ? 1.0f : 0.0f;
 	}
 
 	@Override

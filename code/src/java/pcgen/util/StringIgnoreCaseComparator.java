@@ -31,7 +31,6 @@ import java.io.Serializable;
  * <code>JComboBoxEx</code> and the like.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision$
  */
 public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {
@@ -41,8 +40,7 @@ public final class StringIgnoreCaseComparator implements Comparator<Object>, Ser
 		// TODO: Exception needs to be handled
 	}
 
-	/** {@inheritDoc} */
-    @Override
+	@Override
 	public int compare(Object o1, Object o2)
 	{
 		// Treat null as the empty string.

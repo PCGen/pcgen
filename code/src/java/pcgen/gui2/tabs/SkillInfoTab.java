@@ -119,7 +119,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private void initComponents()
 	{
 		setOrientation(VERTICAL_SPLIT);
-		setResizeWeight(.70);
+		setResizeWeight(0.70);
 
 		JSpinner spinner = new JSpinner();
 		spinner.setEditor(new JSpinner.NumberEditor(spinner, "#0.#")); //$NON-NLS-1$
@@ -238,9 +238,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -394,9 +391,6 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			updateSelectedIndex(false);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void valueChanged(ListSelectionEvent e)
 		{
@@ -611,7 +605,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			SkillCost cost = levels.getSkillCost(targetLevel, skill);
 			if (value < 0)
 			{
-				value = Float.valueOf(0);
+				value = 0.0f;
 			}
 			float max =
 					levels.getMaxRanks(targetLevel, cost,
@@ -664,7 +658,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				return null;
 			}
-			return value + 1f / cost.getCost();
+			return value + 1.0f / cost.getCost();
 		}
 
 		@Override
@@ -677,7 +671,7 @@ public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			}
 			CharacterLevelsFacade levels = character.getCharacterLevelsFacade();
 			SkillCost cost = levels.getSkillCost(level, skill);
-			return value - 1f / cost.getCost();
+			return value - 1.0f / cost.getCost();
 		}
 
 	}

@@ -45,11 +45,8 @@ import pcgen.util.Logging;
  * The Class <code>PreCampaignTester</code> is responsible for testing if the 
  * currently loaded sources satisfy the campaign prerequisite.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
@@ -242,8 +239,8 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 
 		final String foo = LanguageBundle.getFormattedString(
 				"PreCampaign.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), prereq.getKey() });
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

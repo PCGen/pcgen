@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.util;
 
@@ -29,9 +27,8 @@ import java.io.IOException;
  * Assorted path and filename methods.
  *
  * @author     John Watson &lt;john@sleazyweasel.com&gt;
- * @version    $Revision$
  **/
-public class FileHelper
+public final class FileHelper
 {
 	/** Private constructor to disable instantiation. */
 	private FileHelper()

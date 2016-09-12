@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */package plugin.pretokens.test;
 
@@ -152,8 +150,8 @@ public class PreSkillMultTester extends AbstractPrerequisiteTest implements Prer
 
 		final String foo =
 				LanguageBundle.getFormattedString("PreSkillMult.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), skillName});
+						prereq.getOperator().toDisplayString(),
+						prereq.getOperand(), skillName);
 		return foo;
 	}
 

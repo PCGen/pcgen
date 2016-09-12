@@ -1443,7 +1443,7 @@ public class PCClass extends PObject implements ClassFacade
 		if (!levelMap.containsKey(lvl))
 		{
 			PCClassLevel classLevel = new PCClassLevel();
-			classLevel.put(IntegerKey.LEVEL, Integer.valueOf(lvl));
+			classLevel.put(IntegerKey.LEVEL, lvl);
 			classLevel.setName(getDisplayName() + "(" + lvl + ")");
 			classLevel.put(StringKey.QUALIFIED_KEY, getQualifiedKey());
 			classLevel.put(ObjectKey.SOURCE_CAMPAIGN, get(ObjectKey.SOURCE_CAMPAIGN));
@@ -1519,9 +1519,6 @@ public class PCClass extends PObject implements ClassFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean qualifies(PlayerCharacter aPC, Object owner)
 	{

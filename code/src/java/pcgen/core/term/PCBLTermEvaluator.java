@@ -19,8 +19,6 @@
  * Created 03-Aug-2008 23:31:20
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -44,7 +42,7 @@ public class PCBLTermEvaluator
 	public Float resolve(PlayerCharacter pc) {
 
 		if (source.length() == 0) {
-			return 0f;
+			return 0.0f;
 		}
 
 		return (float) pc.getTotalBonusTo("PCLEVEL", source);

@@ -43,11 +43,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * The Class <code>AbstractSpellListToken</code> ...
  *
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision:  $
  */
 public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<CDOMObject>
 {

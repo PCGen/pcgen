@@ -10,11 +10,8 @@ import pcgen.io.exporttoken.AbilityListToken;
 /**
  * <code>FeatListToken</code> deals with FEATLIST Token
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision$
  */
 public class FeatListToken extends AbilityListToken
 {

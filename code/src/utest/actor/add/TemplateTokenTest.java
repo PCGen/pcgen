@@ -17,18 +17,18 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.PCTemplate;
-import plugin.lsttokens.add.TemplateToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.add.TemplateToken;
 
 public class TemplateTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<PCTemplate>
 {
 
-	static TemplateToken pca = new TemplateToken();
+	private static final Persistent<PCTemplate> pca = new TemplateToken();
 
 	@Test
 	public void testEmpty()

@@ -25,18 +25,15 @@ package pcgen.system;
 import pcgen.core.SettingsHandler;
 
 /**
- * The Class <code>LegacySettings</code> stores the settings managed by the 
+ * The Class {@code LegacySettings} stores the settings managed by the
  * original SettingsHandler class. It is expected that most settings will be 
  * migrated away to other PropertyContexts as part of the CDOM UI project. 
  *
  * <br>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-11-19 14:05:26 -0800 (Fri, 19 Nov 2010) $
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: 13875 $
  */
-public class LegacySettings extends PropertyContext
+final class LegacySettings extends PropertyContext
 {
 	/** Our singleton instance */
 	private static final LegacySettings instance = new LegacySettings();

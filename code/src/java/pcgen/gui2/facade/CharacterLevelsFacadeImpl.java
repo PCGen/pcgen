@@ -66,11 +66,8 @@ import pcgen.util.enumeration.Tab;
  * the user interface to work with the class levels of a character.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class CharacterLevelsFacadeImpl extends
 		AbstractListFacade<CharacterLevelFacade> implements
@@ -274,7 +271,7 @@ public class CharacterLevelsFacadeImpl extends
 			numHp = 1;
 		}
 
-		return Integer.valueOf(numHp);
+		return numHp;
 
 	}
 
@@ -302,7 +299,7 @@ public class CharacterLevelsFacadeImpl extends
 		PCClassLevel classLevel = getClassLevel(level);
 		if (classLevel != null)
 		{
-			theCharacter.setHP(classLevel, Integer.valueOf(hp));
+			theCharacter.setHP(classLevel, hp);
 			fireHitPointEvent(this, getLevelIndex(level), false);
 		}
 	}
@@ -342,9 +339,6 @@ public class CharacterLevelsFacadeImpl extends
 		return classLevel.getSkillPointsGained(theCharacter);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
@@ -408,9 +402,6 @@ public class CharacterLevelsFacadeImpl extends
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isClassSkillForMaxRanks(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -469,15 +460,12 @@ public class CharacterLevelsFacadeImpl extends
 		{
 			Float ranks =  SkillRankControl.getTotalRank(theCharacter, (Skill) skill);
 			Integer mods = SkillModifier.modifier((Skill) skill, theCharacter);
-			return Integer.valueOf(mods.intValue() + ranks.intValue());
+			return mods.intValue() + ranks.intValue();
 		}
 		
 		return 0;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public SkillBreakdown getSkillBreakdown(CharacterLevelFacade level, SkillFacade skill)
 	{
@@ -631,9 +619,6 @@ public class CharacterLevelsFacadeImpl extends
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CharacterLevelFacade findNextLevelForSkill(SkillFacade skill,
 		CharacterLevelFacade baseLevel, float newRank)
@@ -1044,9 +1029,6 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
@@ -1061,9 +1043,6 @@ public class CharacterLevelsFacadeImpl extends
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Skill> dfce)
 	{
@@ -1075,9 +1054,6 @@ public class CharacterLevelsFacadeImpl extends
 		fireSkillBonusEvent(this, 0, true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void bonusChange(BonusChangeEvent bce)
 	{

@@ -63,19 +63,19 @@ public class UnarmedDamageFacetTest extends
 	@Override
 	protected List<String> getObject()
 	{
-		return Arrays.asList(new String[]{"1d2", "1d3", "1d4"});
+		return Arrays.asList("1d2", "1d3", "1d4");
 	}
 
 	@Override
 	protected List<String> getAltObject()
 	{
-		return Arrays.asList(new String[]{"2d2", "2d3", "2d4"});
+		return Arrays.asList("2d2", "2d3", "2d4");
 	}
 
 	@Override
 	protected List<String> getThirdObject()
 	{
-		return Arrays.asList(new String[]{"3d2", "3d3", "3d4"});
+		return Arrays.asList("3d2", "3d3", "3d4");
 	}
 
 	@Override

@@ -17,7 +17,6 @@ public class GlobalsTest extends PCGenTestCase
 	 */
 	public GlobalsTest()
 	{
-		super();
 	}
 
 	/**

@@ -33,7 +33,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class RaceMigrationTest extends PCGenTestCase
 {
@@ -43,6 +42,7 @@ public class RaceMigrationTest extends PCGenTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -67,6 +67,7 @@ public class RaceMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(raceRuleDiffGame, "modern");
 	}
 
+	@Override
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();

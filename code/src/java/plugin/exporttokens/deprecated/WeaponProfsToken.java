@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -36,7 +34,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * <code>WeaponProfsToken</code>.
  *
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponProfsToken extends AbstractExportToken
 {

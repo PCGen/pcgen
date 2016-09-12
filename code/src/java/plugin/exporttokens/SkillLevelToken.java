@@ -35,11 +35,8 @@ import pcgen.util.Logging;
  * the character obtained at the specified level. The format 
  * for this tag is SKILLLEVEL.x.TOTAL 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 
 // SKILLLEVEL

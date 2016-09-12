@@ -58,7 +58,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>AbilityToken</code> handles the output of ability information.
+ * {@code AbilityToken} handles the output of ability information.
  * 
  * The format is ABILITY.u.v.w.x.y.z where:
  * <ul>
@@ -73,7 +73,6 @@ import pcgen.util.enumeration.View;
  * </ul>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision: $
  */
 public class AbilityToken extends Token
 {
@@ -206,24 +205,20 @@ public class AbilityToken extends Token
 			// The optional visibility (v) or type (w) has been provided, so deal with those 
 			catch (NumberFormatException exc)
 			{
-				if (bString.equals("VISIBLE"))
+				switch (bString)
 				{
-					view = View.VISIBLE_EXPORT;
-					continue;
-				}
-				else if (bString.equals("HIDDEN"))
-				{
-					view = View.HIDDEN_EXPORT;
-					continue;
-				}
-				else if (bString.equals("ALL"))
-				{
-					view = View.ALL;
-					continue;
-				}
-				else
-				{
-					abilityType = bString;
+					case "VISIBLE":
+						view = View.VISIBLE_EXPORT;
+						continue;
+					case "HIDDEN":
+						view = View.HIDDEN_EXPORT;
+						continue;
+					case "ALL":
+						view = View.ALL;
+						continue;
+					default:
+						abilityType = bString;
+						break;
 				}
 			}
 		}
@@ -555,7 +550,7 @@ public class AbilityToken extends Token
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
-			else if (tokenSource.indexOf(".ASSOCIATED.") > -1)
+			else if (tokenSource.contains(".ASSOCIATED."))
 			{
 				final String key =
 						tokenSource
@@ -586,7 +581,7 @@ public class AbilityToken extends Token
 			{
 				retString = getAspectString(pc, abilities);
 			}
-			else if (tokenSource.indexOf(".ASPECT.") > -1)
+			else if (tokenSource.contains(".ASPECT."))
 			{
 				final String key =
 						tokenSource
@@ -599,7 +594,7 @@ public class AbilityToken extends Token
 						Integer.toString(aAbility
 							.getSafeSizeOfMapFor(MapKey.ASPECT));
 			}
-			else if (tokenSource.indexOf(".HASASPECT.") > -1)
+			else if (tokenSource.contains(".HASASPECT."))
 			{
 				final String key =
 						tokenSource.substring(tokenSource
@@ -608,11 +603,11 @@ public class AbilityToken extends Token
 						getHasAspectString(pc, aAbility,
 							AspectName.getConstant(key));
 			}
-			else if (tokenSource.indexOf(".NAME") > -1)
+			else if (tokenSource.contains(".NAME"))
 			{
 				retString = aAbility.getDisplayName();
 			}
-			else if (tokenSource.indexOf(".KEY") > -1)
+			else if (tokenSource.contains(".KEY"))
 			{
 				retString = aAbility.getKeyName();
 			}

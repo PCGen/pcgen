@@ -19,8 +19,6 @@
  * Refactored out of PObject July 22, 2005
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.prereq;
 
@@ -540,7 +538,8 @@ public final class PrerequisiteUtilities
 		for (String spell : selectedList)
 		{
 			//TODO Case sensitivity?
-			final Spell sp = Globals.getSpellKeyed(spell);
+			final Spell sp = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, spell);
 
 			if (sp == null)
 			{

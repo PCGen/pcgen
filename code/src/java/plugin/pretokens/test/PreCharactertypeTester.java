@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision: 14992 $
- * Last Editor: $Author: nuance $
- * Last Edited: $Date: 2011-05-15 15:23:29 +0200 (So, 15 Mai 2011) $
  *
  */
 package plugin.pretokens.test;

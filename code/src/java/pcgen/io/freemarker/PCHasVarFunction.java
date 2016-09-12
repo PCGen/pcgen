@@ -33,7 +33,6 @@ import freemarker.template.TemplateModelException;
  * true if so. e.g. ${pchasvar("Foo")} 
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class PCHasVarFunction extends CharacterExportAction implements TemplateMethodModelEx
 {
@@ -47,14 +46,10 @@ public class PCHasVarFunction extends CharacterExportAction implements TemplateM
 	 */
 	public PCHasVarFunction(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@SuppressWarnings("rawtypes")
 	@Override
 	public Object exec(List arg0) throws TemplateModelException

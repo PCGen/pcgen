@@ -21,13 +21,12 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.output.prereq;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -38,7 +37,7 @@ import pcgen.util.Logging;
 /**
  * A Factory for PreReq Writing 
  */
-public class PrerequisiteWriterFactory implements PluginLoader
+public final class PrerequisiteWriterFactory implements PluginLoader
 {
 	private static PrerequisiteWriterFactory instance = null;
 	private static Map<String, PrerequisiteWriterInterface> parserLookup =
@@ -108,9 +107,10 @@ public class PrerequisiteWriterFactory implements PluginLoader
 	}
 
     @Override
-	public void loadPlugin(Class<?> clazz) throws Exception
-	{
-		register((PrerequisiteWriterInterface) clazz.newInstance());
+	public void loadPlugin(Class<?> clazz) throws PersistenceLayerException, InstantiationException, IllegalAccessException, NoSuchMethodException, InvocationTargetException
+    {
+		register((PrerequisiteWriterInterface) clazz.getConstructor()
+				.newInstance());
 }
 
     @Override

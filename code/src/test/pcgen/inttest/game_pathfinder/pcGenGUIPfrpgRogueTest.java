@@ -31,7 +31,6 @@ import junit.framework.TestSuite;
  * See the PCG file for details
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase

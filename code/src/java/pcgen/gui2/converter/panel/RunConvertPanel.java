@@ -81,11 +81,8 @@ import pcgen.util.Logging;
  * The Class <code>RunConvertPanel</code> provides a display while 
  * the conversion is being run.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {

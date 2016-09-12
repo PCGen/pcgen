@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.output.prereq;
@@ -61,9 +59,6 @@ public class PrerequisiteMultWriter extends AbstractPrerequisiteWriter
 	}
 
     
-    /**
-     * {@inheritDoc}
-     */
     @Override
 	public void write(Writer writer, Prerequisite prereq)
 		throws PersistenceLayerException

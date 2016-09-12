@@ -153,13 +153,13 @@ public class DamageReductionFacet extends
 						}
 						else
 						{
-							for (int j = 0; j < splits.length; j++)
+							for (String split : splits)
 							{
-								Integer current = andMap.get(splits[j]);
+								Integer current = andMap.get(split);
 								if ((current == null)
 										|| (current.intValue() < rawDrValue))
 								{
-									andMap.put(splits[j], rawDrValue);
+									andMap.put(split, rawDrValue);
 								}
 							}
 						}
@@ -180,11 +180,11 @@ public class DamageReductionFacet extends
 			Integer reduction = me.getValue();
 			String[] orValues = OR_PATTERN.split(origBypass);
 			boolean shouldAdd = true;
-			for (int j = 0; j < orValues.length; j++)
+			for (String orValue : orValues)
 			{
 				// See if we already have a value for this type from the 'and'
 				// processing.
-				Integer andDR = andMap.get(orValues[j]);
+				Integer andDR = andMap.get(orValue);
 				if (andDR != null && andDR >= reduction)
 				{
 					shouldAdd = false;

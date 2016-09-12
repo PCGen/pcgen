@@ -146,9 +146,6 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		return equipmentList.size();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void modifyElement(EquipmentFacade equipment)
 	{

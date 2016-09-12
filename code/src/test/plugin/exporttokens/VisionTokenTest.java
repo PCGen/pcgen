@@ -45,11 +45,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>VisionTokenTest</code> tests the function of the VISION token.  
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {

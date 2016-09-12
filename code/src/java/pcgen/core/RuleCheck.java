@@ -18,8 +18,6 @@
  * Created on Novmeber 06, 2003, 11:59 PM PST
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -34,7 +32,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
  * GUI by the users
  * 
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class RuleCheck implements Loadable
 {

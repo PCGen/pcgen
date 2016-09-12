@@ -24,7 +24,6 @@ import java.io.File;
 /**
  * This class is used to set the file filters in add/save dialogs.
  * @author Expires 2003
- * @version 2.10
  */
 public class SimpleFileFilter extends FileFilter
 {

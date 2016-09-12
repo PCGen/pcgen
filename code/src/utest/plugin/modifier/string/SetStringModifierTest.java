@@ -17,18 +17,18 @@
  */
 package plugin.modifier.string;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
-import plugin.modifier.testsupport.EvalManagerUtilities;
+import pcgen.rules.persistence.token.ModifierFactory;
 
-public class SetStringModifierTest extends TestCase
+import org.junit.Test;
+import plugin.modifier.testsupport.EvalManagerUtilities;
+import static org.junit.Assert.*;
+
+public class SetStringModifierTest
 {
 
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
@@ -43,20 +43,16 @@ public class SetStringModifierTest extends TestCase
 			m.getModifier(100, null, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep!
-		}
-		catch (NullPointerException e)
-		{
-			//Yep! okay too!
 		}
 	}
 
 	@Test
 	public void testGetModifier()
 	{
-		SetModifierFactory factory = new SetModifierFactory();
+		ModifierFactory<String> factory = new SetModifierFactory();
 		Modifier<String> modifier =
 				factory.getModifier(5, "MyString", null, varScope, stringManager);
 		assertEquals(5l<<32, modifier.getPriority());

@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 22:55:19
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -51,20 +49,20 @@ public class PCMaxCastableDomainTermEvaluator
 
 		if (domain == null)
 		{
-			return 0f;
+			return 0.0f;
 		}
 
 		ClassSource source = pc.getDomainSource(domain);
 		if (source == null)
 		{
-			return 0f;
+			return 0.0f;
 		}
 		
 		String classKey = source.getPcclass().getKeyName();
 		PCClass spClass = pc.getClassKeyed(classKey);
 		int cutoff = pc.getSpellSupport(spClass).getHighestLevelSpell();
 
-		Float max = 0f;
+		Float max = 0.0f;
 
 		if (pc.getSpellSupport(spClass).hasCastList())
 		{

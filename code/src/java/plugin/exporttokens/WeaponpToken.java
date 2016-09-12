@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -36,7 +34,6 @@ import java.util.StringTokenizer;
  * <code>WeaponpToken</code>.
  * 
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponpToken extends WeaponToken
 {

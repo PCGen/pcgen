@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -33,7 +31,6 @@ import pcgen.base.lang.UnreachableError;
  * A simple structure.
  *
  * @author Felipe Diniz &lt;fdiniz@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public final class ClassType implements Cloneable
 {

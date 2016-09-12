@@ -50,11 +50,8 @@ import pcgen.system.CharacterManager;
  * to the main PCGen program from the GMGen bus.
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 public class GMGenMessageHandler implements PCGenMessageHandler
 {
@@ -73,9 +70,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 	
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{

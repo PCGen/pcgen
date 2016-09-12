@@ -1,0 +1,38 @@
+# CVS $Revision: $ $Author: $ -- Fri Jan 29 20:50:52 2016 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Undead Slayer's Handbook	SOURCESHORT:USH	SOURCEWEB:http://paizo.com/products/btpy94vx?Pathfinder-Player-Companion-Undead-Slayer-s-Handbook	SOURCEDATE:2014-04
+# ORIGINAL ENTRY: Gwen T. (evilpixie87)
+# ORIGINAL ENTRY DATE: 27 May 2016
+
+# ==============================
+# New Adventuring Gear
+# ==============================
+
+Bottled Sunlight					TYPE:Goods.Alchemical.Consumable			COST:200	WT:2		SOURCEPAGE:p.13
+Carrion Bait					TYPE:Goods.Alchemical.Consumable			COST:25	WT:2		SOURCEPAGE:p.11
+Drug (Synthetic Mumia)				TYPE:Goods.Drug.Consumable				COST:150	WT:0		SOURCEPAGE:p.9		SPROP:Type ingested or injury; Addiction moderate, Fortitude DC 14; Effects  1 hr; +2  on saves against spells and effects with the curse or disease descriptor, fatigue; Damage 1d2 Wis damage
+Ectoplasmic Tracer				TYPE:Goods.Alchemical.Consumable			COST:100	WT:7		SOURCEPAGE:p.13
+Garlic Tablets					TYPE:Goods.Alchemical.Consumable			COST:20	WT:0.5	SOURCEPAGE:p.9
+Ghost Hunter's Kit				TYPE:Kit							COST:670	WT:22		SOURCEPAGE:p.13		SPROP:This sturdy satchel includes 10 candles, three flasks of holy water, one potion of lesser restoration, a crowbar, a folding shovel, four sunrods, one spiritbane spike, and a wooden holy symbol.
+Gravedigger's Kit					TYPE:Kit							COST:265	WT:22		SOURCEPAGE:p.11		SPROP:This kit includes 20 feet of chain, a good lock, 1 dose of alchemical cement, a folding shovel, a stubborn nail, and a leather-bound copy of the Pharasmin holy text, The Bones Land in a Spiral.
+Light Kit						TYPE:Kit							COST:170	WT:6		SOURCEPAGE:p.11		SPROP:This small kit contains an ioun torch, flash powder, a pair of sunrods, four torches, and six tindertwigs
+Necrobane Formaldehyde				TYPE:Goods.Alchemical.Consumable			COST:60	WT:3		SOURCEPAGE:p.11
+Necrosalt						TYPE:Goods.Alchemical.Consumable			COST:150	WT:0.5	SOURCEPAGE:p.15
+Pyramid Buster's Kit				TYPE:Kit							COST:310	WT:8		SOURCEPAGE:p.9		SPROP:This kit contains three sticks of chalk, five sheets of parchment, 1 dose of synthetic mumia, a flask of alchemist's fire, a tangleburn bag, and a pair of sunrods.
+Seance Kit						TYPE:Kit							COST:290	WT:12		SOURCEPAGE:p.13		SPROP:This stained mahogany box contains a nonmagical spirit planchette set (see  Pathfinder Adventure Path  #43, or treat as a board game worth 25 gp), 10 candles, 10 candlesticks, one entertainer's outfit, one harrow deck, one magnet, 10 sticks of incense, one scroll of augury, and two scrolls of prestidigitation.
+Skeleton Slayer's Kit				TYPE:Kit							COST:120	WT:32		SOURCEPAGE:p.15		SPROP:This kit contains three flasks of acid, a club, a sling, 10 sling bullets, two flasks of holy water, a tanglefoot bag, 50 feet of hemp rope, a crowbar, and a wooden holy symbol.
+Spiritbane Spike					TYPE:Goods.Alchemical.Consumable			COST:300	WT:1		SOURCEPAGE:p.13
+Undeath Aid Kit					TYPE:Kit							COST:500	WT:0.5	SOURCEPAGE:p.9		SPROP:This small leather satchel contains 1 dose of each of antiplague, antitoxin, padzahr, soul stimulant, and twitch tonic·
+Warding Ash						TYPE:Goods.Alchemical.Consumable			COST:100	WT:0.5	SOURCEPAGE:p.15
+Zombie Slayer's Kit				TYPE:Kit							COST:170	WT:31		SOURCEPAGE:p.15		SPROP:This large satchel contains a shovel, two flasks of oil, a bullseye lantern, a flask of alchemist's fire, two flasks of holy water, 50 feet of hemp rope, a crowbar, a hammer and 10 nails, two vials of antiplague, and a wooden holy symbol.
+
+# ==============================
+# New Magic Items
+# ==============================
+
+Gloves of Stolen Unlife				TYPE:Magic.Wondrous.Glove				COST:3040	WT:1		SOURCEPAGE:p.28
+Hood of the Living				TYPE:Magic.Wondrous.Headgear				COST:2840	WT:1		SOURCEPAGE:p.28
+Infiltrator's Onyx				TYPE:Magic.Wondrous.Consumable			COST:800	WT:0		SOURCEPAGE:p.28
+Ring of Protected Life				TYPE:Magic.Ring						COST:9000	WT:1		SOURCEPAGE:p.29
+
+
+

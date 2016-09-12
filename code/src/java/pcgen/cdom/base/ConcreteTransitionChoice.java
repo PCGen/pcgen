@@ -330,7 +330,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	@Override
 	public void setStackLimit(int limit)
 	{
-		stackLimit = Integer.valueOf(limit);
+		stackLimit = limit;
 	}
 
 	/**

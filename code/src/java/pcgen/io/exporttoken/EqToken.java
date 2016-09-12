@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -319,7 +317,7 @@ public class EqToken extends Token
 			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
 			if (eq.isType("Both") && eq.isType("Melee"))
 			{
-				return Integer.valueOf(0);
+				return 0;
 			}
 			return ((Number) eq.getLocalVariable(pc.getCharID(), rangeVar)).intValue();
 		}

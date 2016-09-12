@@ -66,14 +66,11 @@ import pcgen.system.LanguageBundle;
  * of levelling up a character. 
  *
  * <br>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @version $Revision$
  */
 @SuppressWarnings("serial")
-public class PostLevelUpDialog extends JDialog implements ActionListener
+public final class PostLevelUpDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterLevelsFacade levels;
@@ -113,7 +110,7 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		PostLevelUpDialog dialog =
 				new PostLevelUpDialog(frame, character, oldLevel);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -138,9 +135,6 @@ public class PostLevelUpDialog extends JDialog implements ActionListener
 				return super.getCellEditor(row, column);
 			}
 
-			/**
-			 * {@inheritDoc}
-			 */
 			@Override
 			public TableCellRenderer getCellRenderer(int row, int column)
 			{

@@ -30,7 +30,6 @@ import java.io.Serializable;
  * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
- * @version $Revision$
  */
 public final class StringComparator<E> implements Comparator<E>, Serializable
 {
@@ -40,8 +39,7 @@ public final class StringComparator<E> implements Comparator<E>, Serializable
 		// TODO: Exception needs to be handled
 	}
 
-	/** {@inheritDoc} */
-    @Override
+	@Override
 	public int compare(E o1, E o2)
 	{
 		// Treat null as the empty string.

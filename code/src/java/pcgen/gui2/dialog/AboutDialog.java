@@ -19,8 +19,6 @@
  * Created on May 7, 2010, 1:01:02 PM
  *
  * Current Ver: $Revision: 11596 $ <br>
- * Last Editor: $Author: cpmeister $ <br>
- * Last Edited: $Date: 2010-04-04 17:08:01 -0700 (Sun, 04 Apr 2010) $
  *
  */
 package pcgen.gui2.dialog;
@@ -80,7 +78,7 @@ public class AboutDialog extends JDialog
 		getContentPane().add(new MainAbout(), BorderLayout.CENTER);
 		pack();
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
-		Utility.setDialogRelativeLocation(frame, this);
+		Utility.setComponentRelativeLocation(frame, this);
 		Utility.installEscapeCloseOperation(this);
 	}
 
@@ -91,7 +89,6 @@ public class AboutDialog extends JDialog
  * to it.
  *
  * @author  Tom Epperly &lt;tomepperly@home.com&gt;
- * @version $Revision: 11596 $
  * Modified 4/8/02 by W Robert Reed III (Mynex)
  * Adds List Monkeys Display area
  * Cleaned up naming schema

@@ -27,13 +27,13 @@ import java.util.MissingResourceException;
 import java.util.PropertyResourceBundle;
 import java.util.ResourceBundle;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.output.publish.OutputDB;
 import pcgen.util.Logging;
+
 import freemarker.template.ObjectWrapper;
 import freemarker.template.TemplateModel;
 import freemarker.template.TemplateModelException;
+import org.apache.commons.lang.StringUtils;
 
 /**
  * This class is used to manage the properties of the PCGen application
@@ -41,12 +41,12 @@ import freemarker.template.TemplateModelException;
  *
  * @author sage_sam
  */
-public class PCGenPropBundle
+public final class PCGenPropBundle
 {
 	private static ResourceBundle d_properties = null;
 	private static ResourceBundle autobuildProperties = null;
 
-	/**
+	/*
 	 * This static initializer loads the resources from the PCGenProp resource bundle.
 	 */
 	static
@@ -268,7 +268,7 @@ public class PCGenPropBundle
 	}
 
 	/**
-	 * @return A display formatted version of the autobuild details, or blank if unknown. 
+	 * @return A display formatted version of the autobuild details, or blank if unknown.
 	 */
 	static String getAutobuildString()
 	{
