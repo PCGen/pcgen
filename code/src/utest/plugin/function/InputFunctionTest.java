@@ -112,9 +112,9 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
-		evaluatesTo(formula, node, Integer.valueOf(0));
+		evaluatesTo(formula, node, 0);
 		strChannel.set(2);
-		evaluatesTo(formula, node, Integer.valueOf(2));
+		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertEquals(rv.toString(), formula);

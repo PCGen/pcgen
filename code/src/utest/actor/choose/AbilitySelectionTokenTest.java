@@ -24,11 +24,6 @@ package actor.choose;
 
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.content.AbilitySelection;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -38,8 +33,12 @@ import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.choose.AbilitySelectionToken;
 import plugin.lsttokens.choose.StringToken;
+import static org.junit.Assert.*;
 
 /**
  * Unit test of the class AbilitySelectionToken.
@@ -47,14 +46,13 @@ import plugin.lsttokens.choose.StringToken;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilitySelectionTokenTest extends TestCase
+public class AbilitySelectionTokenTest
 {
 
-	static AbilitySelectionToken pca = new AbilitySelectionToken();
+	static final AbilitySelectionToken pca = new AbilitySelectionToken();
 
 	protected LoadContext context;
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

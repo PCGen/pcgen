@@ -79,7 +79,7 @@ public class DIWarningDialog extends JDialog implements
 		this.introText = introText;
 		
 		initComponents();
-		Utility.setDialogRelativeLocation(parent, this);
+		Utility.setComponentRelativeLocation(parent, this);
 	}
 	
 	/**

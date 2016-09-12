@@ -58,7 +58,6 @@ public class PCStringDirective extends CharacterExportAction implements
 	 */
 	public PCStringDirective(PlayerCharacter pc, ExportHandler eh)
 	{
-		super();
 		this.pc = pc;
 		this.eh = eh;
 	}
@@ -66,7 +65,7 @@ public class PCStringDirective extends CharacterExportAction implements
 	@SuppressWarnings("rawtypes")
 	@Override
 	public void execute(Environment env, Map params, TemplateModel[] loopVars,
-		TemplateDirectiveBody body) throws TemplateException, IOException
+		TemplateDirectiveBody body) throws IOException, TemplateModelException
 	{
 		// Check if no parameters were given:
 		if (params.size() != 1 || params.get("tag") == null)

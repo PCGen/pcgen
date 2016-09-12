@@ -1531,7 +1531,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public void showTipsOfTheDay()
 	{
 		TipOfTheDay tips = new TipOfTheDay(this);
-		Utility.setDialogRelativeLocation(this, tips);
+		Utility.setComponentRelativeLocation(this, tips);
 		tips.setVisible(true);
 	}
 
@@ -1544,7 +1544,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this);
 		}
-		Utility.setDialogRelativeLocation(this, sourceSelectionDialog);
+		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
 		sourceSelectionDialog.setVisible(true);
 	}
 
@@ -1753,14 +1753,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			&& chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
-			Utility.setDialogRelativeLocation(this, dialog);
+			Utility.setComponentRelativeLocation(this, dialog);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
 		else
 		{
 			ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-			Utility.setDialogRelativeLocation(this, dialog);
+			Utility.setComponentRelativeLocation(this, dialog);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
@@ -1905,7 +1905,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.getRootPane().setDefaultButton(jClose);
 		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
@@ -1972,7 +1972,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 
@@ -2040,7 +2040,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(505, size));
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 
@@ -2055,7 +2055,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	{
 		EquipCustomizerDialog eqDialog =
 				new EquipCustomizerDialog(this, character, equipBuilder);
-		Utility.setDialogRelativeLocation(this, eqDialog);
+		Utility.setComponentRelativeLocation(this, eqDialog);
 		eqDialog.setVisible(true);
 		CustomEquipResult result =
 				eqDialog.isCancelled() ? CustomEquipResult.CANCELLED : eqDialog
@@ -2068,7 +2068,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
 	{
 		SpellChoiceDialog spellDialog = new SpellChoiceDialog(this, spellBuilderFI);
-		Utility.setDialogRelativeLocation(this, spellDialog);
+		Utility.setComponentRelativeLocation(this, spellDialog);
 		spellDialog.setVisible(true);
 		return !spellDialog.isCancelled();
 	}

@@ -1552,7 +1552,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	{
 		if (stat instanceof PCStat && !charDisplay.isNonAbility((PCStat) stat))
 		{
-			return Integer.valueOf(theCharacter.getStatModFor((PCStat) stat));
+			return theCharacter.getStatModFor((PCStat) stat);
 		}
 		return 0;
 	}

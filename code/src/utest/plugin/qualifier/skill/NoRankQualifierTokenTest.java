@@ -19,18 +19,19 @@ package plugin.qualifier.skill;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.ChooseInformation;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.testsupport.AbstractQualifierTokenTestCase;
@@ -42,13 +43,13 @@ public class NoRankQualifierTokenTest extends
 		AbstractQualifierTokenTestCase<CDOMObject, Skill>
 {
 
-	static ChooseLst token = new ChooseLst();
-	static SkillToken subtoken = new SkillToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	private static final CDOMPrimaryToken token = new ChooseLst();
+	private static final CDOMSecondaryToken subtoken = new SkillToken();
+	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private Skill s1, s2, s3;
 	private PCClass cl1;
 
-	private static final NoRankToken NORANK_TOKEN = new NoRankToken();
+	private static final LstToken NORANK_TOKEN = new NoRankToken();
 
 	public NoRankQualifierTokenTest()
 	{
@@ -98,7 +99,7 @@ public class NoRankQualifierTokenTest extends
 		return false;
 	}
 
-		@Test
+	@Test
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();

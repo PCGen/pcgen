@@ -27,7 +27,7 @@ import java.awt.Component;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>RequestAddTabToGMGenMessage</code> is a message 
+ * The Class {@code RequestAddTabToGMGenMessage} is a message
  * requesting that a tab be added to the GMGen user interface. 
  *
  * <br>

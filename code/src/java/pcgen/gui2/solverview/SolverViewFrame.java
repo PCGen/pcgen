@@ -309,7 +309,7 @@ public class SolverViewFrame extends JFrame
 		setTitle("Core Variable Debug View");
 		getContentPane().setSize(500, 400);
 		pack();
-		Utility.centerFrame(this, true);
+		Utility.centerComponent(this, true);
 	}
 
 	private static class SolverTableModel<T> extends AbstractTableModel

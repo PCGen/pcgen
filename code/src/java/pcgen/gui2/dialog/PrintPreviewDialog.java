@@ -92,7 +92,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
 		JDialog dialog = new PrintPreviewDialog(frame);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -161,12 +161,12 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		pageBox.addItem("0 of 0");
 		pageBox.setActionCommand(PAGE_COMMAND);
 		pageBox.addActionListener(this);
-		zoomBox.addItem(Double.valueOf(0.25));
-		zoomBox.addItem(Double.valueOf(0.50));
+		zoomBox.addItem(0.25);
+		zoomBox.addItem(0.50);
 
-		zoomBox.addItem(Double.valueOf(0.75));
-		zoomBox.addItem(Double.valueOf(1.00));
-		zoomBox.setSelectedItem(Double.valueOf(0.75));
+		zoomBox.addItem(0.75);
+		zoomBox.addItem(1.00);
+		zoomBox.setSelectedItem(0.75);
 		zoomBox.setRenderer(new DefaultListCellRenderer()
 		{
 

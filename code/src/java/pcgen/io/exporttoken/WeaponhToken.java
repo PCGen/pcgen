@@ -45,7 +45,7 @@ import pcgen.io.ExportHandler;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>WeaponhToken</code>.
+ * {@code WeaponhToken}.
  *
  * @author	binkley
  */

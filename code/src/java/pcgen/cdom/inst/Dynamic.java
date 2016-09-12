@@ -24,7 +24,7 @@ import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
 
-public class Dynamic implements Loadable, VarScoped, Categorized<Dynamic>
+public class Dynamic implements VarScoped, Categorized<Dynamic>
 {
 
 	private URI sourceURI;

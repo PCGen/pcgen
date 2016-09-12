@@ -33,7 +33,7 @@ import pcgen.cdom.reference.UnconstructedValidator;
 import pcgen.util.Logging;
 
 public abstract class AbstractCategory<T extends Categorized<T>> implements
-		Loadable, Category<T>, ManufacturableFactory<T>
+		Category<T>
 {
 
 	private String categoryName;

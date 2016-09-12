@@ -91,7 +91,7 @@ public final class PCGenDataConvert extends JFrame
 
 		frame.getContentPane().add(installPanel);
 		frame.pack();
-		Utility.centerFrame(frame, false);
+		Utility.centerComponent(frame, false);
 		return frame;
 	}
 

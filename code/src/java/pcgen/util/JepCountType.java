@@ -906,14 +906,14 @@ public abstract class JepCountType
 						double bonus =
 								pc.getTotalBonusTo("SITUATION", sk.getKeyName()
 									+ "=" + situation);
-						if (bonus > .01 || bonus < -0.01)
+						if (bonus > 0.01 || bonus < -0.01)
 						{
 							count++;
 						}
 					}
 				}
 			}
-			return Double.valueOf(count);
+			return (double) count;
 		}
 
 		private SkillFilter getDefaultSkillFilter(PlayerCharacter pc)

@@ -1,6 +1,6 @@
 package pcgen.cdom.util;
 
-public class CControl
+public final class CControl
 {
 	public static final String CRITMULT = "CRITMULT";
 

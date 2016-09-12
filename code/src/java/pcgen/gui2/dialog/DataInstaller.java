@@ -460,7 +460,7 @@ public class DataInstaller extends JFrame
 		initComponents();
 
 		setIconImage(Icons.PCGenApp.getImageIcon().getImage());
-		Utility.centerFrame(this, false);
+		Utility.centerComponent(this, false);
 	}
 
 	/**

@@ -1104,11 +1104,11 @@ public class OverPanel extends javax.swing.JPanel
 	private void updateMidUI()
 	{
 		Object inn = txtDayInn.getValue();
-		float DayInn = inn instanceof Number ? ((Number) inn).floatValue() : 0f;
+		float DayInn = inn instanceof Number ? ((Number) inn).floatValue() : 0.0f;
 		Object food = txtDayFood.getValue();
-		float DayFood = food instanceof Number ? ((Number) food).floatValue() : 0f;
+		float DayFood = food instanceof Number ? ((Number) food).floatValue() : 0.0f;
 		Object animal = txtDayAnimal.getValue();
-		float DayAnimal = animal instanceof Number ? ((Number) txtDayAnimal.getValue()).floatValue() : 0f;
+		float DayAnimal = animal instanceof Number ? ((Number) txtDayAnimal.getValue()).floatValue() : 0.0f;
 		float result = DayInn + DayFood + DayAnimal;
 
 		txtDayTotal.setValue(result);

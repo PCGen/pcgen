@@ -138,7 +138,7 @@ public class TemplateInfoTab extends FlippingSplitPane implements CharacterInfoT
 
 		topPane.setRightComponent(selPanel);
 		setBottomComponent(infoPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	@Override

@@ -36,7 +36,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class RaceMigration
+public final class RaceMigration
 {
 	private static Map<int[], List<MigrationRule>> raceChangesForVer = new HashMap<>();
 
@@ -47,7 +47,7 @@ public class RaceMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new race key, or the passed in one if it has not changed.
 	 */
-	public static String getNewRaceKey(String raceKey, int pcgVer[], String gameModeName)
+	public static String getNewRaceKey(String raceKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> raceChangeList = raceChangesForVer.get(pcgVer);
 		if (raceChangeList == null)

@@ -106,23 +106,22 @@ public class Effect extends Event
 		String columnName = columnOrder.get(colNumber);
 		String strData = String.valueOf(data);
 
-		if (columnName.equals("Name"))
-		{ // Spell's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{ // Name of the player who cast the spell
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{ // SPell's status
-			setStatus(State.getState(strData));
-		}
-		else if (columnName.equals("Dur"))
-		{ // Spell's duration
+		switch (columnName)
+		{
+			case "Name":  // Spell's Name
+				setName(strData);
+				break;
+			case "Player":  // Name of the player who cast the spell
+				setPlayer(strData);
+				break;
+			case "Status":  // SPell's status
+				setStatus(State.getState(strData));
+				break;
+			case "Dur":  // Spell's duration
 
-			Integer intData = Integer.valueOf(strData);
-			setDuration(intData);
+				Integer intData = Integer.valueOf(strData);
+				setDuration(intData);
+				break;
 		}
 	}
 }

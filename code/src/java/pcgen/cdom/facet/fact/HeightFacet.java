@@ -46,7 +46,7 @@ public class HeightFacet extends AbstractItemFacet<CharID, Integer> implements
 	 */
 	public boolean setHeight(CharID id, int height)
 	{
-		return set(id, Integer.valueOf(height));
+		return set(id, height);
 	}
 
 	/**

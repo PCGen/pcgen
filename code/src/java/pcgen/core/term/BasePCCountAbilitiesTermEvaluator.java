@@ -59,7 +59,7 @@ public abstract class BasePCCountAbilitiesTermEvaluator extends BasePCTermEvalua
 			final boolean visible,
 			final boolean hidden)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		for (CNAbility ability : aList)
 		{

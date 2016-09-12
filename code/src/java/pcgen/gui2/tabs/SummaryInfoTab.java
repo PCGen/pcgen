@@ -234,7 +234,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		classComboBox.setRenderer(classBoxRenderer);
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 0.1;
-		gbc.weighty = .7;
+		gbc.weighty = 0.7;
 		add(basicsPanel, gbc);
 
 		setPanelTitle(todoPanel, LanguageBundle.getString("in_tipsString")); //$NON-NLS-1$
@@ -252,7 +252,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		setPanelTitle(racePanel, LanguageBundle.getString("in_raceString")); //$NON-NLS-1$
 		setPanelTitle(classPanel, LanguageBundle.getString("in_sumClassLevel")); //$NON-NLS-1$
 		initRightPanel(rightPanel);
-		gbc.weightx = .1;
+		gbc.weightx = 0.1;
 		gbc.weighty = 1;
 		add(rightPanel, gbc);
 	}
@@ -1314,7 +1314,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel(null);
 			SinglePrefDialog prefsDialog = new SinglePrefDialog(parent, charStatsPanel);
 			charStatsPanel.setParent(prefsDialog);
-			Utility.setDialogRelativeLocation(parent, prefsDialog);
+			Utility.setComponentRelativeLocation(parent, prefsDialog);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
 		}
@@ -1340,7 +1340,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			KitSelectionDialog kitDialog
 					= new KitSelectionDialog(frame, character);
-			Utility.setDialogRelativeLocation(frame, kitDialog);
+			Utility.setComponentRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);
 		}
 

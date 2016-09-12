@@ -48,11 +48,11 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		Integer con;
 		if (isPositiveAllowed())
 		{
-			con = Integer.valueOf(3);
+			con = 3;
 		}
 		else
 		{
-			con = Integer.valueOf(-3);
+			con = -3;
 		}
 		assertTrue(parse(con.toString()));
 		assertTrue(parseSecondary(con.toString()));

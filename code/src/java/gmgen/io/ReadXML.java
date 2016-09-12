@@ -20,6 +20,7 @@ package gmgen.io;
 
 import java.io.File;
 import java.io.IOException;
+import java.util.List;
 import java.util.Vector;
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -130,7 +131,7 @@ public class ReadXML
 
 			for (int x = 0; x < rows; x++)
 			{
-				Vector<String> row = new Vector<>();
+				List<String> row = new Vector<>();
 
 				for (int y = 0; y < cols; y++)
 				{

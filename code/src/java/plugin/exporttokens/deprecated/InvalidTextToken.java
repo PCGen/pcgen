@@ -49,19 +49,16 @@ public class InvalidTextToken extends AbstractExportToken
 		ExportHandler eh)
 	{
 		String sourceText = tokenSource.substring(12);
-		
-		if (sourceText.equals("TOHIT"))
+
+		switch (sourceText)
 		{
-			return SettingsHandler.getInvalidToHitText(); 
-		}
-		else if (sourceText.equals("DAMAGE"))
-		{
-			return SettingsHandler.getInvalidDmgText();
-		}
-		else
-		{
-			Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
-			return "";
+			case "TOHIT":
+				return SettingsHandler.getInvalidToHitText();
+			case "DAMAGE":
+				return SettingsHandler.getInvalidDmgText();
+			default:
+				Logging.errorPrint("Invalid INVALIDTEXT token:" + tokenSource);
+				return "";
 		}
 	}
 }

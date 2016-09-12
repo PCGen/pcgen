@@ -267,7 +267,7 @@ public class LanguageTableModel extends AbstractTableModel
 				LanguageChooserFacade chooser = choosers.getElementAt(
 						table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
-				Utility.setDialogRelativeLocation(frame, dialog);
+				Utility.setComponentRelativeLocation(frame, dialog);
 				dialog.setVisible(true);
 			}
 			else

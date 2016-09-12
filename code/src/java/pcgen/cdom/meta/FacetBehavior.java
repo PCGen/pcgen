@@ -18,6 +18,7 @@
 package pcgen.cdom.meta;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -66,20 +67,20 @@ public final class FacetBehavior
 	{
 		map = new CaseInsensitiveMap<>();
 		Field[] fields = FacetBehavior.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod)
-				&& java.lang.reflect.Modifier.isFinal(mod)
-				&& java.lang.reflect.Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod)
+					&& Modifier.isFinal(mod)
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof FacetBehavior)
 					{
-						map.put(fields[i].getName(), (FacetBehavior) obj);
+						map.put(field.getName(), (FacetBehavior) obj);
 					}
 				}
 				catch (IllegalArgumentException | IllegalAccessException e)

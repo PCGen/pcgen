@@ -22,11 +22,6 @@
  */
 package pcgen.gui2.tools; // hm.binkley.gui;
 
-import pcgen.util.Logging;
-import pcgen.system.LanguageBundle;
-
-import javax.swing.*;
-import javax.swing.plaf.TabbedPaneUI;
 import java.awt.Color;
 import java.awt.Component;
 import java.awt.Dimension;
@@ -38,6 +33,25 @@ import java.awt.event.MouseEvent;
 import java.util.HashSet;
 import java.util.Set;
 
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JTabbedPane;
+import javax.swing.JTextField;
+import javax.swing.SwingConstants;
+import javax.swing.plaf.TabbedPaneUI;
+
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 /**
  * <code>SpinningTabbedPane</code>.
  *
@@ -48,7 +62,7 @@ import java.util.Set;
 public class SpinningTabbedPane extends JTabbedPane
 {
 
-    static final long serialVersionUID = 4980035692406423131L;
+    private static final long serialVersionUID = 4980035692406423131L;
     private static final int PLACE_OFFSET = 0;
     private static final int MOVE_LEFT_RIGHT_OFFSET = 4;
     private static final int MOVE_UP_DOWN_OFFSET = 8;
@@ -162,8 +176,9 @@ public class SpinningTabbedPane extends JTabbedPane
         LanguageBundle.getString("in_spinTips31"),
         LanguageBundle.getString("in_spinTips32")
     };
-    private PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-    private Set<Component> locked = new HashSet<>();
+    private final PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
+    private final Set<Component> locked = new HashSet<>();
+    @Nullable
     private SpinningTabbedPane parent = null;
 
     public SpinningTabbedPane()
@@ -183,13 +198,13 @@ public class SpinningTabbedPane extends JTabbedPane
     }
 
     @Override
-    public final void setTitleAt(int index, String title)
+    public final void setTitleAt(int index, @Nullable String title)
     {
         String extra = getExtraTitleAt(index);
 
         if (extra != null)
         {
-            if ((title == null) || (title.length() == 0))
+            if ((title == null) || (title.isEmpty()))
             {
                 title = extra;
             }
@@ -229,7 +244,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return -1;
     }
 
-    private static void setMenuItem(JMenuItem menuItem, int offset)
+    private static void setMenuItem(@NotNull JMenuItem menuItem, int offset)
     {
         String label = labels[offset];
 
@@ -245,6 +260,7 @@ public class SpinningTabbedPane extends JTabbedPane
     }
 
     // Need to use action events instead  XXX
+    @NotNull
     private static SpinningTabbedPane createPane()
     {
         return new SpinningTabbedPane();
@@ -283,6 +299,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return n;
     }
 
+    @NotNull
     private int[] getMovableTabIndices()
     {
         int x = getTabCount();
@@ -319,7 +336,7 @@ public class SpinningTabbedPane extends JTabbedPane
             return "";
         }
 
-        if ((title.length() == 0) || !(c instanceof SpinningTabbedPane))
+        if ((title.isEmpty()) || !(c instanceof SpinningTabbedPane))
         {
             return title;
         }
@@ -372,22 +389,6 @@ public class SpinningTabbedPane extends JTabbedPane
         return locked.contains(getComponentAt(index));
     }
 
-    /*
-    private static final void addPopupMenuItems(JPopupMenu popupMenu, int index, MouseEvent e)
-    {
-    }
-     */
-    private void addNewTab()
-    {
-        add(new JPanel());
-    }
-
-    private void lockTabAt(int index)
-    {
-        locked.add(getComponentAt(index));
-        setIconAt(index, Utilities.LOCK_ICON);
-    }
-
     /**
      * Spin tabs starting at index to the end, stopping when we find
      * another spun tab.  If the first tab is itself spun, spin it as
@@ -398,7 +399,7 @@ public class SpinningTabbedPane extends JTabbedPane
      */
     private void spinTabsAt(int index, int placement)
     {
-        SpinningTabbedPane pane = createPane();
+        SpinningTabbedPane pane = SpinningTabbedPane.createPane();
 
         moveTabAtTo(index, -1, pane);
 
@@ -460,7 +461,7 @@ public class SpinningTabbedPane extends JTabbedPane
         }
     }
 
-    private void moveTabAtTo(int fromIndex, int toIndex, JTabbedPane to)
+    private void moveTabAtTo(int fromIndex, int toIndex, @NotNull JTabbedPane to)
     {
         Component c = getComponentAt(fromIndex);
 
@@ -505,11 +506,11 @@ public class SpinningTabbedPane extends JTabbedPane
     {
         SpinningTabbedPane pane = (SpinningTabbedPane) getComponentAt(index);
 
-        int offset = offsetForPlacement(pane.getTabPlacement()) + TAB_OFFSET;
+        int offset = SpinningTabbedPane.offsetForPlacement(pane.getTabPlacement()) + SpinningTabbedPane.TAB_OFFSET;
 
         setTitleAt(index, getPlainTitleAt(index));
-        setIconAt(index, icons[offset]);
-        setToolTipTextAt(index, tips[offset]);
+        setIconAt(index, SpinningTabbedPane.icons[offset]);
+        setToolTipTextAt(index, SpinningTabbedPane.tips[offset]);
     }
 
     public interface PopupMenuPolicy
@@ -594,10 +595,10 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private class CloseAction extends IndexedAction
+    private final class CloseAction extends IndexedAction
     {
 
-        public CloseAction(int index)
+        private CloseAction(int index)
         {
             super(index, LanguageBundle.getString("in_close"),
                   Utilities.CLOSE_ICON,
@@ -628,16 +629,16 @@ public class SpinningTabbedPane extends JTabbedPane
 
                 if (c instanceof SpinningTabbedPane)
                 { // tab is spun
-                    this.add(new JMenuItem(new UngroupChildAction(index)));
+                    add(new JMenuItem(new UngroupChildAction(index)));
                     addSeparator();
 
                     // Add backwards to get clockwise choices; skip
                     // tab's own direction since already spun
                     for (int j = 3; j > 0; --j)
                     {
-                        this.add(new JMenuItem(new PlaceAction((SpinningTabbedPane) c,
-                                                               placementForSlot(j,
-                                                                                placement))));
+                        add(new JMenuItem(new PlaceAction((SpinningTabbedPane) c,
+                                                          SpinningTabbedPane.placementForSlot(j,
+                                                                                              placement))));
                     }
 
                     first = false;
@@ -645,15 +646,15 @@ public class SpinningTabbedPane extends JTabbedPane
             }
             else
             { // we are spun
-                this.add(new JMenuItem(new UngroupSelfAction()));
+                add(new JMenuItem(new UngroupSelfAction()));
 
                 if (c instanceof SpinningTabbedPane) // tab is spun
                 {
-                    this.add(new JMenuItem(new UngroupChildAction(index)));
+                    add(new JMenuItem(new UngroupChildAction(index)));
                 }
                 else // tab is not spun
                 {
-                    this.add(new JMenuItem(new UngroupSingleAction(index)));
+                    add(new JMenuItem(new UngroupSingleAction(index)));
                 }
 
                 first = false;
@@ -669,23 +670,23 @@ public class SpinningTabbedPane extends JTabbedPane
                 // Add backwards to get clockwise choices
                 for (int j = 4; j > 0; --j)
                 {
-                    this.add(new JMenuItem(new GroupAction(index,
-                                                           placementForSlot(j,
-                                                                            placement))));
+                    add(new JMenuItem(new GroupAction(index,
+                                                      SpinningTabbedPane.placementForSlot(j,
+                                                                                          placement))));
                 }
             }
         }
 
     }
 
-    private class GroupAction extends IndexedAction
+    private final class GroupAction extends IndexedAction
     {
 
-        private int placement;
+        private final int placement;
 
-        public GroupAction(int index, int placement)
+        private GroupAction(int index, int placement)
         {
-            super(index, offsetForPlacement(placement) + GROUP_OFFSET);
+            super(index, SpinningTabbedPane.offsetForPlacement(placement) + SpinningTabbedPane.GROUP_OFFSET);
             this.placement = placement;
         }
 
@@ -698,10 +699,16 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private class LockAction extends IndexedAction
+    private final class LockAction extends IndexedAction
     {
 
-        public LockAction(int index)
+        private void lockTabAt(int index)
+        {
+            locked.add(getComponentAt(index));
+            setIconAt(index, Utilities.LOCK_ICON);
+        }
+
+        private LockAction(int index)
         {
             super(index, LanguageBundle.getString("in_lock"),
                   Utilities.LOCK_ICON, LanguageBundle.getMnemonic("in_mn_lock"));
@@ -760,7 +767,7 @@ public class SpinningTabbedPane extends JTabbedPane
             setSelectedIndex(i);
         }
 
-        private int next(int current, int[] indices)
+        private int next(int current, @NotNull int[] indices)
         {
             for (int i = 0,  x = indices.length - 1; i < x; ++i)
             {
@@ -773,7 +780,7 @@ public class SpinningTabbedPane extends JTabbedPane
             return -1;
         }
 
-        private int previous(int current, int[] indices)
+        private int previous(int current, @NotNull int[] indices)
         {
             for (int i = 1; i < indices.length; ++i)
             {
@@ -800,25 +807,19 @@ public class SpinningTabbedPane extends JTabbedPane
 
             // Only you can prevent out of range errors.
             int primum = -1;
-
-            // Only you can prevent out of range errors.
             int secundum = -1;
-
-            // Only you can prevent out of range errors.
             int penultimatum = -1;
-
-            // Only you can prevent out of range errors.
             int ultimatum = -1;
 
             switch (indices.length)
             {
                 case 0:
-                    this.setEnabled(false);
+                    setEnabled(false);
 
                     break;
 
                 case 1:
-                    this.setEnabled(false);
+                    setEnabled(false);
 
                     break;
 
@@ -835,6 +836,8 @@ public class SpinningTabbedPane extends JTabbedPane
                     secundum = penultimatum = indices[1];
                     ultimatum = indices[2];
 
+                    break;
+
                 default:
                     primum = indices[0];
                     secundum = indices[1];
@@ -842,9 +845,9 @@ public class SpinningTabbedPane extends JTabbedPane
                     ultimatum = indices[indices.length - 1];
             }
 
-            for (int i = 0; i < indices.length; ++i)
+            for (int indice : indices)
             {
-                if (index < indices[i])
+                if (index < indice)
                 {
                     continue;
                 }
@@ -853,19 +856,19 @@ public class SpinningTabbedPane extends JTabbedPane
                 {
                     if (index > secundum)
                     {
-                        this.add(new MoveTabMenuItem(index, SwingConstants.TOP));
+                        add(new MoveTabMenuItem(index, SwingConstants.TOP));
                     }
 
-                    this.add(new MoveTabMenuItem(index, SwingConstants.LEFT));
+                    add(new MoveTabMenuItem(index, SwingConstants.LEFT));
                 }
 
                 if (index < ultimatum)
                 {
-                    this.add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
+                    add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
 
                     if (index < penultimatum)
                     {
-                        this.add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
+                        add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
                     }
                 }
 
@@ -880,33 +883,38 @@ public class SpinningTabbedPane extends JTabbedPane
 
         MoveTabMenuItem(int index, int placement)
         {
-            int offset = offsetForPlacement(placement);
+            int offset = SpinningTabbedPane.offsetForPlacement(placement);
 
             switch (getTabPlacement())
             {
                 case SwingConstants.TOP:
                 case SwingConstants.BOTTOM:
-                    offset += MOVE_LEFT_RIGHT_OFFSET;
+                    offset += SpinningTabbedPane.MOVE_LEFT_RIGHT_OFFSET;
 
                     break;
 
                 case SwingConstants.LEFT:
                 case SwingConstants.RIGHT:
-                    offset += MOVE_UP_DOWN_OFFSET;
+                    offset += SpinningTabbedPane.MOVE_UP_DOWN_OFFSET;
 
                     break;
             }
 
             addActionListener(new MoveActionListener(index, placement));
-            setMenuItem(this, offset);
+            SpinningTabbedPane.setMenuItem(this, offset);
         }
 
     }
 
-    private class NewAction extends IndexedAction
+    private final class NewAction extends IndexedAction
     {
 
-        public NewAction()
+        private void addNewTab()
+        {
+            add(new JPanel());
+        }
+
+        private NewAction()
         {
             super(0, LanguageBundle.getString("in_new"), Utilities.NEW_ICON,
                   LanguageBundle.getMnemonic("in_mn_new"));
@@ -931,23 +939,23 @@ public class SpinningTabbedPane extends JTabbedPane
             // Add backwards to get clockwise choices
             for (int j = 3; j > 0; --j)
             {
-                this.add(new JMenuItem(new PlaceAction(SpinningTabbedPane.this,
-                                                       placementForSlot(j,
-                                                                        placement))));
+                add(new JMenuItem(new PlaceAction(SpinningTabbedPane.this,
+                                                  SpinningTabbedPane.placementForSlot(j,
+                                                                                      placement))));
             }
         }
 
     }
 
-    private class PlaceAction extends IndexedAction
+    private final class PlaceAction extends IndexedAction
     {
 
-        private SpinningTabbedPane pane;
-        private int placement;
+        private final SpinningTabbedPane pane;
+        private final int placement;
 
-        public PlaceAction(SpinningTabbedPane pane, int placement)
+        private PlaceAction(SpinningTabbedPane pane, int placement)
         {
-            super(0, offsetForPlacement(placement) + PLACE_OFFSET);
+            super(0, SpinningTabbedPane.offsetForPlacement(placement) + SpinningTabbedPane.PLACE_OFFSET);
             this.pane = pane;
             this.placement = placement;
         }
@@ -964,7 +972,7 @@ public class SpinningTabbedPane extends JTabbedPane
     {
 
         @Override
-        public void mousePressed(MouseEvent e)
+        public void mousePressed(@NotNull MouseEvent e)
         {
             if (Utilities.isRightMouseButton(e))
             {
@@ -973,21 +981,18 @@ public class SpinningTabbedPane extends JTabbedPane
                 final int index = indexAtLocation(x, y);
                 final int aTabPlacement = getTabPlacement();
 
-                JPopupMenu popupMenu = new JPopupMenu();
-
                 JMenuItem newMenuItem = null;
-                JMenuItem closeMenuItem = null;
-                JMenuItem lockMenuItem = null;
-                JMenuItem renameMenuItem = null;
-                JMenu groupMenu = null;
-                JMenu moveMenu = null;
-                JMenu placeMenu = null;
 
                 if (policy.canNew(index))
                 {
                     newMenuItem = new JMenuItem(new NewAction());
                 }
 
+                JMenu moveMenu = null;
+                JMenu groupMenu = null;
+                JMenuItem renameMenuItem = null;
+                JMenuItem lockMenuItem = null;
+                JMenuItem closeMenuItem = null;
                 if (index >= 0)
                 {
                     final int spinTabPlacement = getSpinTabPlacementAt(index);
@@ -1015,13 +1020,14 @@ public class SpinningTabbedPane extends JTabbedPane
                                                   : spinTabPlacement);
                     }
 
-                    if (policy.hasMoveMenu(index, e) && (getMovableTabCount() >
-                            1) && !isTabLockedAt(index))
+                    if (policy.hasMoveMenu(index, e) && (getMovableTabCount()
+                                                                 > 1) && !isTabLockedAt(index))
                     {
                         moveMenu = new MoveMenu(index);
                     }
                 }
 
+                JMenu placeMenu = null;
                 if (policy.hasPlaceMenu(index, e))
                 {
                     placeMenu = new PlaceMenu(aTabPlacement);
@@ -1038,6 +1044,7 @@ public class SpinningTabbedPane extends JTabbedPane
                 final boolean usePlaceMenu = (placeMenu != null) &&
                         (placeMenu.getMenuComponentCount() > 0);
 
+                JPopupMenu popupMenu = new JPopupMenu();
                 if ((popupMenu.getComponentCount() > 0) && (useNewMenuItem ||
                         useCloseMenuItem))
                 {
@@ -1102,19 +1109,19 @@ public class SpinningTabbedPane extends JTabbedPane
                 final int index = indexAtLocation(e.getX(), e.getY());
 
                 // 3 is magic; it's the next clock position. XXX
-                spinTabsAt(index, placementForSlot(3, getTabPlacement()));
+                spinTabsAt(index, SpinningTabbedPane.placementForSlot(3, getTabPlacement()));
                 setSelectedIndex(index);
             }
         }
 
     }
 
-    private class RenameAction extends IndexedAction
+    private final class RenameAction extends IndexedAction
     {
 
-        private MouseEvent evt;
+        private final MouseEvent evt;
 
-        public RenameAction(int index, MouseEvent e)
+        private RenameAction(int index, MouseEvent e)
         {
             super(index, LanguageBundle.getString("in_rename") + "...", null,
                   LanguageBundle.getMnemonic("in_mn_rename"));
@@ -1126,11 +1133,11 @@ public class SpinningTabbedPane extends JTabbedPane
         {
             int x = evt.getX();
             int y = evt.getY();
-            JPopupMenu popupMenu = new JPopupMenu();
             String title = getPlainTitleAt(getIndex());
             JTextField textField = new JTextField(title);
 
             Logging.errorPrint("document? " + textField.getDocument());
+            JPopupMenu popupMenu = new JPopupMenu();
             textField.addActionListener(new RenameTextFieldActionListener(getIndex(),
                                                                           textField,
                                                                           popupMenu));
@@ -1181,9 +1188,9 @@ public class SpinningTabbedPane extends JTabbedPane
     private class RenameTextFieldActionListener implements ActionListener
     {
 
-        private JPopupMenu popupMenu;
-        private JTextField textField;
-        private int anIndex;
+        private final JPopupMenu popupMenu;
+        private final JTextField textField;
+        private final int anIndex;
 
         RenameTextFieldActionListener(int index, JTextField textField,
                                       JPopupMenu popupMenu)
@@ -1196,19 +1203,19 @@ public class SpinningTabbedPane extends JTabbedPane
     	@Override
         public void actionPerformed(ActionEvent e)
         {
-            SpinningTabbedPane.this.setTitleAt(anIndex, textField.getText());
+            setTitleAt(anIndex, textField.getText());
             popupMenu.setVisible(false); // why? XXX
         }
 
     }
 
-    private class UngroupChildAction extends IndexedAction
+    private final class UngroupChildAction extends IndexedAction
     {
 
-        public UngroupChildAction(int index)
+        private UngroupChildAction(int index)
         {
-            super(index, offsetForPlacement(getTabPlacement()) +
-                  UNGROUP_CHILD_OFFSET);
+            super(index, SpinningTabbedPane.offsetForPlacement(getTabPlacement()) +
+                    SpinningTabbedPane.UNGROUP_CHILD_OFFSET);
         }
 
     	@Override
@@ -1224,13 +1231,13 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private class UngroupSelfAction extends IndexedAction
+    private final class UngroupSelfAction extends IndexedAction
     {
 
-        public UngroupSelfAction()
+        private UngroupSelfAction()
         {
-            super(0, offsetForPlacement(parent.getTabPlacement()) +
-                  UNGROUP_SELF_OFFSET);
+            super(0, SpinningTabbedPane.offsetForPlacement(parent.getTabPlacement()) +
+                    SpinningTabbedPane.UNGROUP_SELF_OFFSET);
 
         }
 
@@ -1239,7 +1246,7 @@ public class SpinningTabbedPane extends JTabbedPane
         {
             final int index = parent.indexOfComponent(SpinningTabbedPane.this);
             final int newIndex = getSelectedIndex();
-            SpinningTabbedPane aParent = SpinningTabbedPane.this.parent;
+            SpinningTabbedPane aParent = parent;
 
             unspinAll();
             aParent.setSelectedIndex(index + newIndex);
@@ -1247,13 +1254,13 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private class UngroupSingleAction extends IndexedAction
+    private final class UngroupSingleAction extends IndexedAction
     {
 
-        public UngroupSingleAction(int index)
+        private UngroupSingleAction(int index)
         {
-            super(index, offsetForPlacement(parent.getTabPlacement()) +
-                  UNGROUP_SINGLE_OFFSET);
+            super(index, SpinningTabbedPane.offsetForPlacement(parent.getTabPlacement()) +
+                    SpinningTabbedPane.UNGROUP_SINGLE_OFFSET);
         }
 
     	@Override
@@ -1266,10 +1273,10 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private class UnlockAction extends IndexedAction
+    private final class UnlockAction extends IndexedAction
     {
 
-        public UnlockAction(int index)
+        private UnlockAction(int index)
         {
             super(index, LanguageBundle.getString("in_unlock"),
                   Utilities.LOCK_ICON,
@@ -1284,33 +1291,33 @@ public class SpinningTabbedPane extends JTabbedPane
 
     }
 
-    private static abstract class IndexedAction extends AbstractAction
+    private abstract static class IndexedAction extends AbstractAction
     {
 
-        private int index;
+        private final int index;
 
-        public IndexedAction(int index, int offset)
+        private IndexedAction(int index, int offset)
         {
-            this(index, labels[offset], icons[offset]);
-            String label = labels[offset];
+            this(index, SpinningTabbedPane.labels[offset], SpinningTabbedPane.icons[offset]);
+            String label = SpinningTabbedPane.labels[offset];
             if (label != null)
             {
-                putValue(MNEMONIC_KEY, (int) label.charAt(0));
+                putValue(Action.MNEMONIC_KEY, (int) label.charAt(0));
             }
-            putValue(SHORT_DESCRIPTION, tips[index]);
+            putValue(Action.SHORT_DESCRIPTION, SpinningTabbedPane.tips[index]);
         }
 
-        public IndexedAction(int index, String name, ImageIcon icon)
+        private IndexedAction(int index, String name, ImageIcon icon)
         {
             super(name, icon);
             this.index = index;
         }
 
-        public IndexedAction(int index, String name, ImageIcon icon,
+        private IndexedAction(int index, String name, ImageIcon icon,
                               int mnemonic)
         {
             this(index, name, icon);
-            putValue(MNEMONIC_KEY, mnemonic);
+            putValue(Action.MNEMONIC_KEY, mnemonic);
         }
 
         public int getIndex()

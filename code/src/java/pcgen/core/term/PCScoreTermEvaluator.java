@@ -44,7 +44,7 @@ public class PCScoreTermEvaluator
 	{
 		if ("".equals(stat))
 		{
-			return 0f;
+			return 0.0f;
 		}
 		PCStat pcs = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class, stat);

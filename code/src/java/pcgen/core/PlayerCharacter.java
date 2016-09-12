@@ -831,7 +831,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						removeLocalEquipment(anEquip);
 						anEquip.setIsEquipped(false, this);
 						anEquip.setLocation(EquipmentLocation.NOT_CARRIED);
-						anEquip.setNumberCarried(0f);
+						anEquip.setNumberCarried(0.0f);
 					}
 
 					eq.setIsEquipped(true, this);
@@ -905,7 +905,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @return classList
 	 */
-	public ArrayList<PCClass> getClassList()
+	public List<PCClass> getClassList()
 	{
 		/*
 		 * TODO This is a discussion we have to have about where items are sorted
@@ -1237,14 +1237,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				Double existing = featByLevelType.get(pcClass.get(StringKey.LEVEL_TYPE));
 				if (existing == null)
 				{
-					existing = 0d;
+					existing = 0.0d;
 				}
 				existing += bonus;
 				featByLevelType.put(pcClass.get(StringKey.LEVEL_TYPE), existing);
 			}
 		}
 
-		double bonus = 0d;
+		double bonus = 0.0d;
 		for (final Map.Entry<String, Double> stringDoubleEntry : featByLevelType.entrySet())
 		{
 			Double existing = stringDoubleEntry.getValue();
@@ -1345,7 +1345,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public void setGold(final BigDecimal amt)
 	{
-		if (amt == null) return;
+		if (amt == null)
+		{
+			return;
+		}
 
 		// The equality comparison in AbstractItemFacet doesn't work on BigDecimal, need to use compareTo
 		BigDecimal oldAmt = goldFacet.get(id);
@@ -2050,11 +2053,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (int i = 0; i < abilityList.size(); i++)
 		{
 			final String ability = abilityList.get(i);
-			if (!sortList.contains(ability))
-			{
-				sortList.add(ability);
-				numTimes[i] = 1;
-			} else
+			if (sortList.contains(ability))
 			{
 				for (int j = 0; j < sortList.size(); j++)
 				{
@@ -2064,6 +2063,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						numTimes[j]++;
 					}
 				}
+			}
+			else
+			{
+				sortList.add(ability);
+				numTimes[i] = 1;
 			}
 		}
 
@@ -2656,7 +2660,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Assume a max of 10 attack cycles
 		for (int total = 0; total < 10; ++total)
 		{
-			ab.add(Integer.valueOf(0));
+			ab.add(0);
 		}
 
 		// Some classes (like the Monk or Ranged Sniper) use
@@ -2676,7 +2680,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				final int d = ab.get(c).intValue() + b;
 
 				// set new value for iteration
-				ab.set(c, Integer.valueOf(d));
+				ab.set(c, d);
 			}
 
 			if (c != 3)
@@ -2913,7 +2917,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			bonus = Math.max(bonus, masterBonus);
 		}
 
-		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf((float) bonus));
+		variableProcessor.addCachedVariable(cacheLookup, (float) bonus);
 		return (int) bonus;
 	}
 
@@ -3090,7 +3094,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.setWholeItemName(eqm.getName());
 				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 1 only"));
 
-				if (eqm.getOutputName().indexOf("Head 1 only") < 0)
+				if (!eqm.getOutputName()
+						.contains("Head 1 only"))
 				{
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 1 only"));
 				}
@@ -3127,7 +3132,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.setWholeItemName(eqm.getName());
 				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 2 only"));
 
-				if (eqm.getOutputName().indexOf("Head 2 only") < 0)
+				if (!eqm.getOutputName()
+						.contains("Head 2 only"))
 				{
 					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
 				}
@@ -3169,7 +3175,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				// Add "Thrown" to the name of the weapon
 				eqr.setName(EquipmentUtilities.appendToName(eqr.getName(), "Thrown"));
 
-				if (eqr.getOutputName().indexOf("Thrown") < 0)
+				if (!eqr.getOutputName()
+						.contains("Thrown"))
 				{
 					eqr.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqr.getOutputName(), "Thrown"));
 				}
@@ -3328,7 +3335,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		int i = getMaxCharacterDomains();
 		if (i == 0 && !hasDefaultDomainSource())
+		{
 			i = (int) source.getBonusTo("DOMAIN", "NUMBER", getLevel(source), aPC);
+		}
 		return i;
 	}
 
@@ -3378,7 +3387,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				maxRanks = SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes, this);
 			}
-		} else if (!this.isClassSkill(aSkill) && (this.getSkillCostForClass(aSkill, aClass).equals(SkillCost.CLASS)))
+		} else if (!this.isClassSkill(aSkill) && (this.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS))
 		{
 			// Cross class skill - but as cost is 1 only return a whole number
 			maxRanks = new BigDecimal(SkillUtilities.maxCrossClassSkillForLevel(levelForSkillPurposes, this).intValue()); // This was (int) (i/2.0) previously
@@ -3685,7 +3694,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 					if (iMult > 0)
 					{
-						rangeInFeet = (rangeInFeet * iMult);
+						rangeInFeet *= iMult;
 					}
 				}
 			}
@@ -4212,10 +4221,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		for (Equipment eq : getEquipmentSet())
 		{
-			if (eq.typeStringContains(aType))
-			{
-				aList.add(eq);
-			} else if (aType.equalsIgnoreCase("CONTAINED") && (eq.getParent() != null))
+			if (eq.typeStringContains(aType) || aType.equalsIgnoreCase("CONTAINED") && (eq.getParent() != null))
 			{
 				aList.add(eq);
 			}
@@ -4687,11 +4693,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
 			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
 
-			variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(masterBAB));
+			variableProcessor.addCachedVariable(cacheLookup, (float) masterBAB);
 			return masterBAB;
 		}
 		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
-		variableProcessor.addCachedVariable(cacheLookup, Float.valueOf(bab));
+		variableProcessor.addCachedVariable(cacheLookup, (float) bab);
 		return bab;
 	}
 
@@ -5357,60 +5363,57 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
 	{
-		new File(aDirectory).list(new FilenameFilter() {
-			@Override
-			public boolean accept(final File dir, final String name)
-			{
-				final File descriptionFile = new File(dir, name);
+		new File(aDirectory).list((dir, name) ->
+		                          {
+			                          final File descriptionFile = new File(dir, name);
 
-				if (PCGFile.isPCGenListFile(descriptionFile))
-				{
-					BufferedReader descriptionReader = null;
+			                          if (PCGFile.isPCGenListFile(descriptionFile))
+			                          {
+				                          BufferedReader descriptionReader = null;
 
-					try
-					{
-						if (descriptionFile.exists())
-						{
-							final char[] inputLine;
+				                          try
+				                          {
+					                          if (descriptionFile.exists())
+					                          {
+						                          final char[] inputLine;
 
-							// final BufferedReader descriptionReader = new
-							// BufferedReader(new FileReader(descriptionFile));
-							descriptionReader = new BufferedReader(new InputStreamReader(new FileInputStream(
-									descriptionFile), "UTF-8"));
+						                          // final BufferedReader descriptionReader = new
+						                          // BufferedReader(new FileReader(descriptionFile));
+						                          descriptionReader = new BufferedReader(new InputStreamReader(new FileInputStream(
+								                          descriptionFile), "UTF-8"));
 
-							final int length = (int) descriptionFile.length();
-							inputLine = new char[length];
-							descriptionReader.read(inputLine, 0, length);
-							setDescriptionLst(getDescriptionLst() + new String(inputLine));
-						}
-					} catch (IOException exception)
-					{
-						Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
-					} finally
-					{
-						if (descriptionReader != null)
-						{
-							try
-							{
-								descriptionReader.close();
-							} catch (IOException e)
-							{
-								Logging.errorPrint(
-										"Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
-										e);
+						                          final int length = (int) descriptionFile.length();
+						                          inputLine = new char[length];
+						                          descriptionReader.read(inputLine, 0, length);
+						                          setDescriptionLst(getDescriptionLst() + new String(inputLine));
+					                          }
+				                          } catch (IOException exception)
+				                          {
+					                          Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
+				                          } finally
+				                          {
+					                          if (descriptionReader != null)
+					                          {
+						                          try
+						                          {
+							                          descriptionReader.close();
+						                          } catch (IOException e)
+						                          {
+							                          Logging.errorPrint(
+									                          "Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
+									                          e);
 
-								// Not much to do...
-							}
-						}
-					}
-				} else if (dir.isDirectory())
-				{
-					loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
-				}
+							                          // Not much to do...
+						                          }
+					                          }
+				                          }
+			                          } else if (dir.isDirectory())
+			                          {
+				                          loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
+			                          }
 
-				return false;
-			}
-		});
+			                          return false;
+		                          });
 
 		return false;
 	}
@@ -5564,7 +5567,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		Load load = getHouseRuledLoadType();
 		int bonus = 0;
 
-		int penaltyForLoad = (Load.MEDIUM == load) ? -3 : (Load.HEAVY == load) ? -6 : 0;
+		int penaltyForLoad = (load == Load.MEDIUM) ? -3 : (load == Load.HEAVY) ? -6 : 0;
 
 		final IdentityList<Equipment> vEqList = new IdentityList<>(tempBonusItemList);
 
@@ -5684,15 +5687,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			String replacement = "0";
 
 			final Float fVal = getVariableValue(aSpell, inCalc, aSpellClass);
-			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f))
-			{
-				found = true;
-				replacement = String.valueOf(fVal.intValue());
-			} else if ((inCalc.indexOf("MIN") >= 0) || (inCalc.indexOf("MAX") >= 0))
-			{
-				found = true;
-				replacement = String.valueOf(fVal.intValue());
-			} else if (inCalc.toUpperCase().indexOf("MIN(") >= 0 || inCalc.toUpperCase().indexOf("MAX(") >= 0)
+			if (!CoreUtility.doublesEqual(fVal.floatValue(), 0.0f)
+					|| (inCalc.contains("MIN"))
+					|| (inCalc.contains("MAX"))
+					|| inCalc.toUpperCase()
+					.contains("MIN(")
+					|| inCalc.toUpperCase()
+					.contains("MAX("))
 			{
 				found = true;
 				replacement = String.valueOf(fVal.intValue());
@@ -5808,7 +5809,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		for (Equipment eq : getEquipmentMasterList())
 		{
-			totalValue = totalValue.add(eq.getCost(this).multiply(new BigDecimal(eq.qty())));
+			totalValue = totalValue.add(eq.getCost(this).multiply(BigDecimal.valueOf(eq.qty())));
 		}
 
 		return totalValue;
@@ -6584,7 +6585,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public List<? extends PObject> getSpellClassList()
 	{
-		final ArrayList<PObject> aList = new ArrayList<>();
+		final List<PObject> aList = new ArrayList<>();
 
 		Race race = getRace();
 		if (!getCharacterSpells(race).isEmpty())
@@ -6612,26 +6613,24 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return false;
 		}
 
-		if (filter == SkillFilter.Ranks)
+		switch (filter)
 		{
-			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0);
-		}
-		else if (filter == SkillFilter.NonDefault)
-		{
-			return (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 ||
-					SkillModifier.modifier(skill, this) !=
-					SkillModifier.getStatMod(skill, this) +
-					getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
-		}
-		else if (filter == SkillFilter.Usable)
-		{
-			return qualifySkill(skill)
-				&& (SkillRankControl.getTotalRank(this, skill).floatValue() > 0 || skill
-					.getSafe(ObjectKey.USE_UNTRAINED));
-		}
-		else
-		{
-			return qualifySkill(skill);
+			case Ranks:
+				return (SkillRankControl.getTotalRank(this, skill)
+						        .floatValue() > 0);
+			case NonDefault:
+				return (SkillRankControl.getTotalRank(this, skill)
+						        .floatValue() > 0 ||
+						        SkillModifier.modifier(skill, this) !=
+								        SkillModifier.getStatMod(skill, this) +
+										        getSizeAdjustmentBonusTo("SKILL", skill.getKeyName()));
+			case Usable:
+				return qualifySkill(skill)
+						&& (SkillRankControl.getTotalRank(this, skill)
+								    .floatValue() > 0 || skill
+						.getSafe(ObjectKey.USE_UNTRAINED));
+			default:
+				return qualifySkill(skill);
 		}
 	}
 
@@ -7555,7 +7554,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			tempQty = newQty.floatValue();
 		} else
 		{
-			newQty = Float.valueOf(tempQty);
+			newQty = tempQty;
 		}
 		boolean addAll = false;
 		boolean mergeItem = false;
@@ -7894,12 +7893,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				{
 					int select = ability.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 					double relativeCost = cost / select;
-					if (!aCategory.allowFractionalPool())
-					{
-						spent += (int) Math.ceil(relativeCost);
-					} else
+					if (aCategory.allowFractionalPool())
 					{
 						spent += relativeCost;
+					}
+					else
+					{
+						spent += (int) Math.ceil(relativeCost);
 					}
 				}
 			}
@@ -8430,7 +8430,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		final ArrayList<CharacterSpell> aList = new ArrayList<>();
+		final List<CharacterSpell> aList = new ArrayList<>();
 		if (csList.size() == 0)
 		{
 			return aList;
@@ -9118,7 +9118,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> csList = new ArrayList<>(getCharacterSpells(spellSource));
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
+		List<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(level))
@@ -9136,7 +9136,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
 
-		ArrayList<CharacterSpell> aList = new ArrayList<>();
+		List<CharacterSpell> aList = new ArrayList<>();
 		for (CharacterSpell cs : csList)
 		{
 			if (cs.hasSpellInfoFor(bookName))
@@ -9871,19 +9871,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		List<CharacterSpell> spellsToBeRemoved =
                 new ArrayList<>();
 
-		for (Iterator<? extends CharacterSpell> iter =
-				getCharacterSpells(pcc).iterator(); iter.hasNext();)
+		for (final CharacterSpell charSpell : getCharacterSpells(pcc))
 		{
-			final CharacterSpell charSpell = iter.next();
-
 			final Spell aSpell = charSpell.getSpell();
 
 			// Check that the character can still cast spells of this level.
 			final Integer[] spellLevels =
 					SpellLevel.levelForKey(aSpell, lists, this);
-			for (Integer i = 0; i < spellLevels.length; i++)
+			for (final Integer spellLevel : spellLevels)
 			{
-				final int spellLevel = spellLevels[i];
 				if (spellLevel == -1)
 				{
 					continue;
@@ -9891,7 +9887,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 				final boolean isKnownAtThisLevel =
 						spellSupport.isAutoKnownSpell(aSpell, spellLevel, true,
-							this);
+						                              this);
 
 				if (!isKnownAtThisLevel)
 				{

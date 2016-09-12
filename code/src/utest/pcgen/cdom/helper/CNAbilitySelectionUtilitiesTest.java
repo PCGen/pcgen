@@ -1,9 +1,5 @@
 package pcgen.cdom.helper;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -12,7 +8,12 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 
-public class CNAbilitySelectionUtilitiesTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+import static junit.framework.TestCase.assertFalse;
+import static junit.framework.TestCase.assertTrue;
+
+public class CNAbilitySelectionUtilitiesTest
 {
 
 	AbilityCategory feat;
@@ -23,10 +24,9 @@ public class CNAbilitySelectionUtilitiesTest extends TestCase
 	Ability stackyes;
 	Ability othernomult;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		CNAbilityFactory.reset();
 		feat = new AbilityCategory();
 		feat.setName("FEAT");

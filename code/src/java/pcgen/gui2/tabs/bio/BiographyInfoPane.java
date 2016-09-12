@@ -707,11 +707,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			switch (numComponents)
 			{
 				case 3:
-					gbc.weightx = .3333;
+					gbc.weightx = 0.3333;
 					break;
 
 				case 2:
-					gbc.weightx = .5;
+					gbc.weightx = 0.5;
 					break;
 
 				default:

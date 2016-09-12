@@ -37,7 +37,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class SourceMigration
+public final class SourceMigration
 {
 
 	private static Map<int[], List<MigrationRule>> sourceChangesForVer = new HashMap<>();
@@ -49,7 +49,7 @@ public class SourceMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new source key, or the passed in one if it has not changed.
 	 */
-	public static String getNewSourceKey(String sourceKey, int pcgVer[], String gameModeName)
+	public static String getNewSourceKey(String sourceKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> sourceChangeList = sourceChangesForVer.get(pcgVer);
 		if (sourceChangeList == null)

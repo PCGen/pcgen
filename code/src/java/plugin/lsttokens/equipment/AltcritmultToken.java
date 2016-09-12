@@ -69,7 +69,7 @@ public class AltcritmultToken extends AbstractNonEmptyToken<Equipment>
 		}
 		else if ("-".equals(value))
 		{
-			cm = Integer.valueOf(-1);
+			cm = -1;
 		}
 		if (cm == null)
 		{

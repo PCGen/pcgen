@@ -48,14 +48,14 @@ public class PCSPellBaseStatTermEvaluator
 
 		if (aClass == null)
 		{
-			return 0f;
+			return 0.0f;
 		}
 
 		CDOMSingleRef<PCStat> ss = aClass.get(ObjectKey.SPELL_STAT);
 
 		if (ss == null)
 		{
-			return 10f;
+			return 10.0f;
 		}
 
 		return (float) pc.getDisplay().getTotalStatFor(ss.get());

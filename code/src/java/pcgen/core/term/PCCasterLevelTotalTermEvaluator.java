@@ -43,7 +43,7 @@ public class PCCasterLevelTotalTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

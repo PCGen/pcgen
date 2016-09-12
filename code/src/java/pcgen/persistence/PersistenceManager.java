@@ -42,12 +42,8 @@ public final class PersistenceManager
 	private static final PersistenceManager managerInstance =
 			new PersistenceManager();
 
-	/**
-	 * Private to make it impossible to create another instance
-	 */
 	private PersistenceManager()
 	{
-		// Empty Constructor
 	}
 
 	/**

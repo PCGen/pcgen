@@ -36,7 +36,7 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class EquipmentMigration
+public final class EquipmentMigration
 {
 	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<>();
 
@@ -47,7 +47,7 @@ public class EquipmentMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new equipment key, or the passed in one if it has not changed.
 	 */
-	public static String getNewEquipmentKey(String equipKey, int pcgVer[], String gameModeName)
+	public static String getNewEquipmentKey(String equipKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> equipChangeList = equipChangesForVer.get(pcgVer);
 		if (equipChangeList == null)

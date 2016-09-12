@@ -36,7 +36,7 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	/**
 	 * The user priority for this CalculationModifier.
 	 */
-	private final long userPriority;
+	private final int userPriority;
 
 	/**
 	 * The NEPCalculation to be performed by this CalculationModifier.
@@ -71,13 +71,13 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	@Override
 	public int getUserPriority()
 	{
-		return (int) userPriority;
+		return userPriority;
 	}
 
 	@Override
 	public long getPriority()
 	{
-		return (userPriority << 32) + toDo.getInherentPriority();
+		return ((long)userPriority << 32) + toDo.getInherentPriority();
 	}
 
 	@Override

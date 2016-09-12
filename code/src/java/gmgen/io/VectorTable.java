@@ -42,7 +42,7 @@ public class VectorTable extends AbstractList
 
 	/**
 	 * Creates an instance of this class with a table's name being passed to it.
-	 * @param s the <code>name</code> of the table that is being held in this
+	 * @param s the {@code name} of the table that is being held in this
 	 *          class.
 	 */
 	private VectorTable(String s)
@@ -53,8 +53,8 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Creates an instance of this class with a default <code>String</code> as
-	 * the <code>name</code> of the table that is being held.
+	 * Creates an instance of this class with a default {@code String} as
+	 * the {@code name} of the table that is being held.
 	 */
 	VectorTable()
 	{
@@ -62,9 +62,9 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Checks if the table it empty.  If the <code>row</code> is empty, the
+	 * Checks if the table it empty.  If the {@code row} is empty, the
 	 * table is empty.
-	 * @return <b><code>true</code></b> if the table is empty.
+	 * @return <b>{@code true}</b> if the table is empty.
 	 */
     @Override
 	public boolean isEmpty()
@@ -91,7 +91,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Adds an <code>Object</code> to the 2 dimensional table.
+	 * Adds an {@code Object} to the 2 dimensional table.
 	 * @param o an entry that will be placed in the table.
 	 * @return true or false
 	 */
@@ -114,7 +114,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Calls clear on every <code>Vector</code> in <code>rows</code>.
+	 * Calls clear on every {@code Vector} in <code>rows</code>.
 	 */
     @Override
 	public void clear()
@@ -137,9 +137,9 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Checks to see if the paramater can be found in either <code>rows</code>
-	 * or an <code>element</code> of <code>rows</code>.
-	 * @param o the <code>Object</code> that needs to be found in the table.
+	 * Checks to see if the paramater can be found in either {@code rows}
+	 * or an {@code element} of <code>rows</code>.
+	 * @param o the {@code Object} that needs to be found in the table.
 	 * @return <b>true</b> if the object is found.  Otherwise <b>false</b>.
 	 */
     @Override
@@ -174,11 +174,11 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Looks up <code>Object</code> X  in <code>header</code>, and the
-	 * <code>Object</code> <code>Y</code> in <code>rows</code> 0, and
-	 * <code>returns</code> the resulting cell.
+	 * Looks up {@code Object} X  in <code>header</code>, and the
+	 * {@code Object} <code>Y</code> in <code>rows</code> 0, and
+	 * {@code returns} the resulting cell.
 	 * @param X the header to look for.
-	 * @param Y the item in the <code>row</code> to look for.
+	 * @param Y the item in the {@code row} to look for.
 	 * @return the resulting cell from the lookup.
 	 */
 	public Object crossReference(Object X, Object Y)
@@ -220,10 +220,10 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Finds the element at a certain <code>index</code> in the
-	 * <code>rows</code>.
-	 * @param index the <code>index</code> number of the item to find.
-	 * @return the item at the specified <code>index</code>.
+	 * Finds the element at a certain {@code index} in the
+	 * {@code rows}.
+	 * @param index the {@code index} number of the item to find.
+	 * @return the item at the specified {@code index}.
 	 */
 	public Object elementAt(int index)
 	{
@@ -231,10 +231,10 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Tests whether the paramater passed in is equal to the <code>String</code>
+	 * Tests whether the paramater passed in is equal to the {@code String}
 	 * representation of this class.
-	 * @param o the <code>Object</code> that needs to be compared.
-	 * @return true if the two <code>Strings</code> are equal.
+	 * @param o the {@code Object} that needs to be compared.
+	 * @return true if the two {@code Strings} are equal.
 	 */
 	@Override
 	public boolean equals(Object o)
@@ -246,19 +246,16 @@ public class VectorTable extends AbstractList
 		 * special consideration for a Set or something that VectorTables are stored in, 
 		 * then a special comparator should be built, in my opinion - thpr 10/29/06
 		 */
-		if (o != null && o.toString().equals(name))
-		{
-			return true;
-		}
+		return o != null && o.toString()
+				.equals(name);
 
-		return false;
 	}
 
 	/**
-	 * Gets an entry from the table given an <code>index</code>.
-	 * @param index the <code>index</code> value of the item that must be
+	 * Gets an entry from the table given an {@code index}.
+	 * @param index the {@code index} value of the item that must be
 	 *        retrieved.
-	 * @return the <code>Object</code> that is looked up.
+	 * @return the {@code Object} that is looked up.
 	 */
     @Override
 	public Object get(int index)
@@ -267,7 +264,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the <code>hashCode</code> value for the <code>Vector</code>.
+	 * Gets the {@code hashCode} value for the <code>Vector</code>.
 	 * @return the hash code.
 	 */
 	@Override
@@ -277,9 +274,9 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Takes an <code>Object</code> out of the table if it exists in the table.
-	 * @param o the <code>Object</code> that needs to be removed.
-	 * @return <b><code>true</code></b> if the <code>Object</code> is removed
+	 * Takes an {@code Object} out of the table if it exists in the table.
+	 * @param o the {@code Object} that needs to be removed.
+	 * @return <b>{@code true}</b> if the <code>Object</code> is removed
 	 *         successfully.
 	 */
     @Override
@@ -321,8 +318,8 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the <code>row</code> <code>Vector</code>.
-	 * @return the number of items in the <code>row</code>.
+	 * Gets the number of items in the {@code row} <code>Vector</code>.
+	 * @return the number of items in the {@code row}.
 	 */
     @Override
 	public int size()
@@ -331,9 +328,9 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the <code>row</code> <code>Vector</code>.
-	 * It is the same as the <code>size()</code> method in this class.
-	 * @return the number of items in the <code>row</code>.
+	 * Gets the number of items in the {@code row} <code>Vector</code>.
+	 * It is the same as the {@code size()} method in this class.
+	 * @return the number of items in the {@code row}.
 	 */
 	public int sizeY()
 	{
@@ -341,10 +338,10 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Stores the <code>row</code> <code>Vector</code> as an <code>array</code>
-	 * of <code>Objects</code>.
-	 * @return an <code>array</code> that consists of the items from the
-	 *          <code>row</code> <code>Vector</code>.
+	 * Stores the {@code row} <code>Vector</code> as an <code>array</code>
+	 * of {@code Objects}.
+	 * @return an {@code array} that consists of the items from the
+	 *          {@code row} <code>Vector</code>.
 	 */
     @Override
 	public Object[] toArray()
@@ -354,8 +351,8 @@ public class VectorTable extends AbstractList
 
 	/**
 	 * Doesn't do much
-	 * @param x the <code>index</code> of the item in the table to be stored.
-	 * @return an <code>array</code> that consists of the specified item from
+	 * @param x the {@code index} of the item in the table to be stored.
+	 * @return an {@code array} that consists of the specified item from
 	 *         the table.
 	 */
 	public Object[] toArray(int x)
@@ -369,8 +366,8 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the <code>name</code> of the table that this class is holding.
-	 * @return the <code>name</code>.
+	 * Gets the {@code name} of the table that this class is holding.
+	 * @return the {@code name}.
 	 */
 	@Override
 	public String toString()

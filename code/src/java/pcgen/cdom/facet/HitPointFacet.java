@@ -340,7 +340,7 @@ public class HitPointFacet extends
 			roll += ((int) bonusCheckingFacet.getBonus(id, "HP", "CURRENTMAXPERLEVEL"));
 		}
 		PCClassLevel classLevel = classFacet.getClassLevel(id, pcc, level - 1);
-		set(id, classLevel, Integer.valueOf(roll));
+		set(id, classLevel, roll);
 	}
 
 	public void setClassFacet(ClassFacet classFacet)

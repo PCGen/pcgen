@@ -113,7 +113,7 @@ public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Bo
 	@Override
 	public Boolean get(CharID id)
 	{
-		return Boolean.valueOf(contains(id, Boolean.TRUE));
+		return contains(id, Boolean.TRUE);
 	}
 
 }

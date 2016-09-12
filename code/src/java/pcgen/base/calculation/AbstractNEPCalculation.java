@@ -45,7 +45,7 @@ public abstract class AbstractNEPCalculation<T> implements NEPCalculation<T>
 	 *            The BasicCalculation to be performed when this
 	 *            AbstractNEPCalculation is processed
 	 */
-	public AbstractNEPCalculation(BasicCalculation<T> calc)
+	protected AbstractNEPCalculation(BasicCalculation<T> calc)
 	{
 		if (calc == null)
 		{

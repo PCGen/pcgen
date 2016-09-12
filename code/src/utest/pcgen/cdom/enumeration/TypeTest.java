@@ -20,8 +20,9 @@ package pcgen.cdom.enumeration;
 
 import java.util.Collection;
 import java.util.HashSet;
-import static org.junit.Assert.fail;
+
 import org.junit.Test;
+import static org.junit.Assert.*;
 
 
 /**
@@ -48,7 +49,7 @@ public class TypeTest
 		}
 		catch (ClassCastException cce)
 		{
-			fail();
+			fail("type can't be sorted by adding to hashset");
 		}
 
 	}

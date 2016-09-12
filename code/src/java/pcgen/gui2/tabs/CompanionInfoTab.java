@@ -609,7 +609,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				String type = (String) selectedElement;
 				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
-				Utility.setDialogRelativeLocation(CompanionInfoTab.this, companionDialog);
+				Utility.setComponentRelativeLocation(CompanionInfoTab.this, companionDialog);
 				companionDialog.setVisible(true);
 				CharacterFacade comp = companionDialog.getNewCompanion();
 				if (comp != null)

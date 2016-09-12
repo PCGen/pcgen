@@ -76,43 +76,43 @@ public class LoopDirective implements TemplateDirectiveModel
 			String paramName = (String) entry.getKey();
 			TemplateModel paramValue = (TemplateModel) entry.getValue();
 
-			if (paramName.equals("from"))
+			switch (paramName)
 			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				fromVal =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-			}
-			else if (paramName.equals("to"))
-			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				toVal =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-			}
-			else if (paramName.equals("step"))
-			{
-				if (!(paramValue instanceof TemplateNumberModel))
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter " + "must be a number.");
-				}
-				step =
-						((TemplateNumberModel) paramValue).getAsNumber()
-							.intValue();
-				if (step == 0)
-				{
-					throw new TemplateModelException("The \"" + paramName
-						+ "\" parameter must not be 0.");
-				}
+				case "from":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					fromVal =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					break;
+				case "to":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					toVal =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					break;
+				case "step":
+					if (!(paramValue instanceof TemplateNumberModel))
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter " + "must be a number.");
+					}
+					step =
+							((TemplateNumberModel) paramValue).getAsNumber()
+									.intValue();
+					if (step == 0)
+					{
+						throw new TemplateModelException("The \"" + paramName
+								                                 + "\" parameter must not be 0.");
+					}
+					break;
 			}
 		}
 

@@ -26,7 +26,7 @@ import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 /**
- * <code>EntityEncoder</code><br>
+ * {@code EntityEncoder}<br>
  * Encodes reserved characters and escape sequences as entities<br>
  * Decodes entities as reserved characters and escape sequences
  *
@@ -64,7 +64,6 @@ public final class EntityEncoder
 	 */
 	private EntityEncoder()
 	{
-		super();
 	}
 
 	/**

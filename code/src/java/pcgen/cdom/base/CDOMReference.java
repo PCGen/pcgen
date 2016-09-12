@@ -65,7 +65,7 @@ public abstract class CDOMReference<T> implements ObjectContainer<T>,
 	 * @throws IllegalArgumentException
 	 *             if the given Class or name is null
 	 */
-	public CDOMReference(Class<T> objClass, String refName)
+	protected CDOMReference(Class<T> objClass, String refName)
 	{
 		if (objClass == null)
 		{

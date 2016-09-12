@@ -35,7 +35,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>IOHandler</code><br>
+ * {@code IOHandler}<br>
  * Abstract IO handler class<br>
  * An IO handler is responsible for reading and/or writing 
  * PlayerCharacters in a specific format from/to a stream

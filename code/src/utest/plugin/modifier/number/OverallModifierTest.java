@@ -17,19 +17,20 @@
  */
 package plugin.modifier.number;
 
-import junit.framework.TestCase;
+import pcgen.base.calculation.CalculationInfo;
 
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class OverallModifierTest extends TestCase
+public class OverallModifierTest
 {
 
 	@Test
-	public void testPriority()
+	public void OverallModifierTest()
 	{
-		AddModifierFactory add = new AddModifierFactory();
-		MultiplyModifierFactory mult = new MultiplyModifierFactory();
-		SetModifierFactory set = new SetModifierFactory();
+		CalculationInfo<Number> add = new AddModifierFactory();
+		CalculationInfo<Number> mult = new MultiplyModifierFactory();
+		CalculationInfo<Number> set = new SetModifierFactory();
 
 		assertTrue(add.getInherentPriority() > mult.getInherentPriority());
 		assertTrue(mult.getInherentPriority() > set.getInherentPriority());

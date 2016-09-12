@@ -413,10 +413,10 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 				if (CoreUtility.doublesEqual(realValue, 0.5)) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_half")); //$NON-NLS-1$
-				} else if (realValue <= .7) {
+				} else if (realValue <= 0.7) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_easier")); //$NON-NLS-1$
-				} else if ((realValue > .7) && (realValue < 1.5)) {
+				} else if ((realValue > 0.7) && (realValue < 1.5)) {
 					getExperienceMultNameLabel().setText(
 							LanguageBundle.getString("in_plugin_xp_normal")); //$NON-NLS-1$
 				} else if (realValue >= 1.5) {
@@ -444,7 +444,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
 		jPanel8.add(addExperienceToPartyButton, gridBagConstraints);
 
-		experienceMultLabel.setText(LanguageBundle.getPrettyMultiplier(1d));
+		experienceMultLabel.setText(LanguageBundle.getPrettyMultiplier(1.0d));
 		gridBagConstraints = new java.awt.GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;

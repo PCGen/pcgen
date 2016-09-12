@@ -809,7 +809,10 @@
 		<xsl:if test="count(.//spell) &gt; 0">
 	<!-->		<fo:block break-before="page">	-->
 			<fo:block>
-				<xsl:apply-templates mode="spells.memorized"/>
+				<xsl:apply-templates mode="spells.memorized">
+					<xsl:sort select="@type"/>
+					<xsl:sort select="@name"/>
+				</xsl:apply-templates>
 			</fo:block>
 		</xsl:if>
 	</xsl:template>
@@ -929,7 +932,7 @@
 								<xsl:with-param name="attribute" select="'spells.memorized.header'"/>
 							</xsl:call-template>
 							<fo:block font-size="10pt">
-								Spellbook: <xsl:value-of select="@name"/>
+								<xsl:value-of select="@type"/>: <xsl:value-of select="@name"/>
 							</fo:block>
 						</fo:table-cell>
 					</fo:table-row>

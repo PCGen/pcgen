@@ -200,24 +200,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			File sheetDir = new File(previewDir, game.getCharSheetDir());
 			if (sheetDir.exists() && sheetDir.isDirectory())
 			{
-				File[] files = sheetDir.listFiles(new FileFilter()
+				File[] files = sheetDir.listFiles(pathname -> pathname.isFile() && !pathname.isHidden());
+				Arrays.sort(files, (f1, f2) ->
 				{
-
-					@Override
-					public boolean accept(File pathname)
-					{
-						return pathname.isFile() && !pathname.isHidden();
-					}
-
-				});
-				Arrays.sort(files, new Comparator<File>()
-				{
-					@Override
-					public int compare(File f1, File f2)
-					{
-						// TODO I18N Use a Collator 
-						return f1.toString().compareToIgnoreCase(f2.toString());
-					}
+					// TODO I18N Use a Collator
+					return f1.toString().compareToIgnoreCase(f2.toString());
 				});
 				model = new DefaultComboBoxModel(files);
 
@@ -457,11 +444,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override
@@ -532,11 +515,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override

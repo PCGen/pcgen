@@ -22,6 +22,7 @@ package pcgen.base.test;
  * This is done with a system other than .equals() since there may be exceptions
  * to true equality that we need to handle
  */
+@FunctionalInterface
 public interface InequalityTester
 {
 	/**

@@ -109,7 +109,7 @@ public class PCCountSpellTimesTermEvaluator
 			}
 		}
 
-		return 0f;		
+		return 0.0f;
 	}
 
 	@Override

@@ -31,7 +31,7 @@ import pcgen.util.Logging;
 public abstract class PCGenTask
 {
 
-	private EventListenerList listenerList = new EventListenerList();
+	private final EventListenerList listenerList = new EventListenerList();
 	private int progress = 0;
 	private int maximum = 0;
 	private String message;
@@ -118,7 +118,7 @@ public abstract class PCGenTask
 		}
 	}
 
-	protected void sendErrorMessage(Exception e)
+	protected void sendErrorMessage(Throwable e)
 	{
 		LogRecord record = new LogRecord(Logging.ERROR, e.getMessage());
 		record.setThrown(e);

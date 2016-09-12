@@ -3301,7 +3301,7 @@
 			<!-- FOR,${bar},COUNT[SPELLSINBOOK0.${spellbook}.0],COUNT[SPELLSINBOOK0.${spellbook}.0],1,1 -->
 			<#if (foo = 0 || bar = 0) >
 			<!-- Either we do not have a innate race, or if we do we do not have any 0 level spell for the innate race -->
-			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}">
+			<spellbook number="${spellbook}" name="${pcstring('SPELLBOOKNAME.${spellbook}')}" type="${pcstring('SPELLBOOK.${spellbook}.TYPE')}">
 			<@loop from=pcvar('COUNT[SPELLRACE]') to=pcvar('COUNT[SPELLRACE]+COUNT[CLASSES]-1') ; class , class_has_next><#-- TODO: Loop was of early exit type 1 -->
 			<class number="${class}" spelllistclass="${pcstring('SPELLLISTCLASS.${class}')}" spellcasterlevel="${pcstring('SPELLLISTCLASS.${class}.LEVEL')}" spellcastertype="${pcstring('SPELLLISTTYPE.${class}')}" memorize="${pcstring('SPELLLISTMEMORIZE.${class}')}">
 			 <@loop from=0 to=pcvar('MAXSPELLLEVEL.${class}') ; level , level_has_next><#-- TODO: Loop was of early exit type 1 -->

@@ -296,7 +296,7 @@ public final class SkillCostDisplay
 			needComma = true;
 		}
 		double bonus = SkillRankControl.getSkillRankBonusTo(pc, sk);
-		if (bonus != 0d)
+		if (bonus != 0.0d)
 		{
 			if (sb.length() > 0)
 			{
