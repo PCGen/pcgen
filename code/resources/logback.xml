@@ -39,7 +39,7 @@
     </root>
 
     <contextListener class="ch.qos.logback.classic.jul.LevelChangePropagator"/>
-    <statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />
+    <!--<statusListener class="ch.qos.logback.core.status.OnConsoleStatusListener" />-->
     <jmxConfigurator />
 
 </configuration>
