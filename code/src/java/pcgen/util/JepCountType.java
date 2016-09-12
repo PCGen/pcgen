@@ -36,8 +36,6 @@ import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
 
-import org.nfunk.jep.ParseException;
-
 import pcgen.base.lang.UnreachableError;
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.cdom.base.CDOMObject;
@@ -65,6 +63,8 @@ import pcgen.util.AbstractCountCommand.JepAbilityCountEnum;
 import pcgen.util.AbstractCountCommand.JepEquipmentCountEnum;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
+
+import org.nfunk.jep.ParseException;
 
 public abstract class JepCountType
 {
@@ -269,6 +269,7 @@ public abstract class JepCountType
 						//						}
 						//					}
 					}
+					break;
 				case LOC:
 					break;
 				case TYP:

@@ -46,8 +46,7 @@ public final class ResourceChecker
 	 * @param sb
 	 * @return TRUE if the resource exists in the jar
 	 */
-	public static boolean hasResource(final String resourceName,
-		final String jarName, StringBuilder sb)
+	static boolean hasResource(final String resourceName, final String jarName, StringBuilder sb)
 	{
 		try
 		{
