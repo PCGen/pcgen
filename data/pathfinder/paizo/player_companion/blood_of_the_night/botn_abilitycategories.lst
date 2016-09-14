@@ -8,7 +8,7 @@
 # ==============================
 
 # Ability Category					Visible		Editable?		Change Pool?	Fractional values?	Category of Object		Type of Object			Plural description for UI		Display Location
-ABILITYCATEGORY:Dhampir Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:DhampirSubrace								DISPLAYLOCATION:Racial Abilities
+ABILITYCATEGORY:Dhampir Subrace			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:DhampirSubrace								DISPLAYLOCATION:Racial Abilities
 
 # ==============================
 # Dhampir Racial Traits
