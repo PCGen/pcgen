@@ -12,9 +12,10 @@
 # i.e. `# WIDGETS` becomes `<h1 id="widgets">WIDGETS</h1>`. But the `id`
 # attribute is always generated in lowercase.
 
-import bs4 # Requires package `beautifulsoup4` for HTML parsing
 import os
 import codecs
+
+import bs4 # Requires package `beautifulsoup4` for HTML parsing
 
 def list_all_html_files():
     html_files = list()
