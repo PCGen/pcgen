@@ -19,15 +19,15 @@ package pcgen.base.formula.base;
 
 import java.util.Set;
 
-import org.junit.Test;
-
-import junit.framework.TestCase;
 import pcgen.base.format.BooleanManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.testsupport.SimpleVarScoped;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class VariableLibraryTest extends TestCase
 {

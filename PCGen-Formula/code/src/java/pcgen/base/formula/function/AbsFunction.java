@@ -47,7 +47,7 @@ public class AbsFunction extends AbstractUnaryFunction
 	{
 		if (n instanceof Integer)
 		{
-			return Integer.valueOf(Math.abs(((Integer) n).intValue()));
+			return Integer.valueOf(Math.abs(n.intValue()));
 		}
 		return Double.valueOf(Math.abs(n.doubleValue()));
 	}
