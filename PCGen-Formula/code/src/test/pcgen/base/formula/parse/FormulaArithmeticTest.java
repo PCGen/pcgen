@@ -131,7 +131,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.5));
+		evaluatesTo(formula, node, Double.valueOf(-0.5));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -145,7 +145,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(.2));
+		evaluatesTo(formula, node, Double.valueOf(0.2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -416,7 +416,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.9));
+		evaluatesTo(formula, node, Double.valueOf(-0.9));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2373,7 +2373,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(.625));
+		evaluatesTo(formula, node, Double.valueOf(0.625));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2387,7 +2387,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(.7));
+		evaluatesTo(formula, node, Double.valueOf(0.7));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2416,7 +2416,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isStatic(formula, node, true);
 		//Note integer math
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.25));
+		evaluatesTo(formula, node, Double.valueOf(-0.25));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2430,7 +2430,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.625));
+		evaluatesTo(formula, node, Double.valueOf(-0.625));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2487,7 +2487,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.625));
+		evaluatesTo(formula, node, Double.valueOf(-0.625));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2501,7 +2501,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(-.7));
+		evaluatesTo(formula, node, Double.valueOf(-0.7));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2785,7 +2785,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(.8));
+		evaluatesTo(formula, node, Double.valueOf(0.8));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -2799,7 +2799,7 @@ public class FormulaArithmeticTest extends AbstractFormulaTestCase
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, true);
 		assertTrue(getVariables(node).isEmpty());
-		evaluatesTo(formula, node, Double.valueOf(.6));
+		evaluatesTo(formula, node, Double.valueOf(0.6));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));

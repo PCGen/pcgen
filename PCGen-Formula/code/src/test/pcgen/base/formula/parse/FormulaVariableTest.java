@@ -181,7 +181,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		assertEquals("a", var0.getName());
 		assertEquals(getGlobalScopeInst(), var0.getScope());
 		//Note integer math
-		evaluatesTo(formula, node, Double.valueOf(.2));
+		evaluatesTo(formula, node, Double.valueOf(0.2));
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
@@ -282,7 +282,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		String formula = "a*(b+c)";
 		store.put(getVariable("a"), 2);
 		store.put(getVariable("b"), 1.2);
-		store.put(getVariable("c"), -.3);
+		store.put(getVariable("c"), -0.3);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
@@ -299,7 +299,7 @@ public class FormulaVariableTest extends AbstractFormulaTestCase
 		String formula = "((a/(((b-c)))))";
 		store.put(getVariable("a"), 3);
 		store.put(getVariable("b"), 1.2);
-		store.put(getVariable("c"), -.3);
+		store.put(getVariable("c"), -0.3);
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
