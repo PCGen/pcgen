@@ -108,8 +108,7 @@ public class SolverTest extends TestCase
 		try
 		{
 			//have to be bad about generics to even get this to be set up to fail
-			Modifier m = badm;
-			solver.addModifier(m, new Object());
+			solver.addModifier((Modifier) badm, new Object());
 			fail("wrong type must be rejected");
 		}
 		catch (IllegalArgumentException e)

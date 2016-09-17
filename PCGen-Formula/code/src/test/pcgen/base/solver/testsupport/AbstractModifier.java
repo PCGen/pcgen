@@ -102,8 +102,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 	@Override
 	public long getPriority()
 	{
-		long l = priority;
-		return (l << 32) + inherent;
+		return ((long) priority << 32) + inherent;
 	}
 
 	@Override

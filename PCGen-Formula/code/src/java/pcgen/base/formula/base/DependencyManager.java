@@ -94,7 +94,7 @@ public class DependencyManager extends MappedDeque
 	 */
 	public List<VariableID<?>> getVariables()
 	{
-		List<VariableID<?>> vars = peek(VARIABLES);
+		List<VariableID<?>> vars = peek(DependencyManager.VARIABLES);
 		if (vars == null)
 		{
 			vars = Collections.emptyList();
