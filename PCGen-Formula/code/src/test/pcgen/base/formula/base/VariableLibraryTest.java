@@ -514,7 +514,7 @@ public class VariableLibraryTest extends TestCase
 		try
 		{
 			Object o = varLib.getVariableFormat(globalScope, null);
-			assertTrue(null == o);
+			assertTrue(o == null);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -528,7 +528,7 @@ public class VariableLibraryTest extends TestCase
 		assertTrue(
 			numberManager.equals(varLib.getVariableFormat(eqScope, "Walk")));
 		//work indirect
-		assertTrue(null == varLib.getVariableFormat(globalScope, "Float"));
+		assertTrue(varLib.getVariableFormat(globalScope, "Float") == null);
 	}
 
 	@Test
