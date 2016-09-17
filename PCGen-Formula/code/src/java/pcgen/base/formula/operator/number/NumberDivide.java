@@ -64,7 +64,7 @@ public class NumberDivide implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		if (left instanceof Integer && right instanceof Integer)
+		if ((left instanceof Integer) && (right instanceof Integer))
 		{
 			int leftInt = ((Integer) left).intValue();
 			int rightInt = ((Integer) right).intValue();

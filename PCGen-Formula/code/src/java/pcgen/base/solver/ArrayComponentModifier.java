@@ -91,7 +91,7 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		@SuppressWarnings("unchecked")
 		T[] input = (T[]) manager.peek(EvaluationManager.INPUT);
 		int length = input.length;
-		if (location > length - 1)
+		if (location > (length - 1))
 		{
 			return input;
 		}

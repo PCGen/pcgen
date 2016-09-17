@@ -64,7 +64,7 @@ public class NumberSubtract implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		if (left instanceof Integer && right instanceof Integer)
+		if ((left instanceof Integer) && (right instanceof Integer))
 		{
 			return (Integer) left - (Integer) right;
 		}
