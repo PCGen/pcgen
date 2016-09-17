@@ -106,7 +106,7 @@ public class VariableID<T>
 			throw new IllegalArgumentException(
 				"Variable Name cannot start/end with whitespace");
 		}
-		if (varName.length() == 0)
+		if (varName.isEmpty())
 		{
 			throw new IllegalArgumentException("Variable Name cannot be empty");
 		}

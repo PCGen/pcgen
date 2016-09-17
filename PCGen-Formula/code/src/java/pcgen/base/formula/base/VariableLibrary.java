@@ -338,7 +338,7 @@ public class VariableLibrary
 		{
 			throw new IllegalArgumentException("Variable Name cannot be null");
 		}
-		if (varName.length() == 0)
+		if (varName.isEmpty())
 		{
 			throw new IllegalArgumentException("Variable Name cannot be empty");
 		}
