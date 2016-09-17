@@ -61,13 +61,9 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 			library.addFunction(null);
 			fail("Expected null function to be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | UnsupportedOperationException e)
 		{
 			//Yep
-		}
-		catch (UnsupportedOperationException e)
-		{
-			//Yep, works, too
 		}
 	}
 

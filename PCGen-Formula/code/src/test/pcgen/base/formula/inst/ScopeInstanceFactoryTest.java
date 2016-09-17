@@ -54,13 +54,9 @@ public class ScopeInstanceFactoryTest extends TestCase
 			new ScopeInstanceFactory(null);
 			fail("null library must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 	}
 

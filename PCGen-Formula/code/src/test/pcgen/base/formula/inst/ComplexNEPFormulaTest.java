@@ -81,11 +81,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			new ComplexNEPFormula("3+5").isValid(numberMgr, null);
 			fail("Expected null FormulaSemantics to fail");
 		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -94,11 +90,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			new ComplexNEPFormula("3+5").isValid(null, fs);
 			fail("Expected null FormatManager to fail");
 		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -262,11 +254,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			new ComplexNEPFormula("3+5").resolve(null);
 			fail("Expected null FormulaManager to fail");
 		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		catch (NullPointerException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

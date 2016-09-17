@@ -30,13 +30,9 @@ public class LegalScopeLibraryTest extends TestCase
 			library.registerScope(null);
 			fail("null must be rejected in registerScope");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
-		}
-		catch (NullPointerException e)
-		{
-			//ok too
 		}
 	}
 
@@ -48,13 +44,9 @@ public class LegalScopeLibraryTest extends TestCase
 			library.registerScope(new BadLegalScope());
 			fail("null name must be rejected in registerScope");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
-		}
-		catch (NullPointerException e)
-		{
-			//ok too
 		}
 		library.registerScope(subScope);
 		try
@@ -78,13 +70,9 @@ public class LegalScopeLibraryTest extends TestCase
 			library.getChildScopes(null);
 			fail("null must be rejected in getChildScopes");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
-		}
-		catch (NullPointerException e)
-		{
-			//ok too
 		}
 	}
 

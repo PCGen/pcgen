@@ -51,26 +51,18 @@ public class SimpleOperatorLibraryTest extends TestCase
 			library.addAction((OperatorAction) null);
 			fail("Expected null action to be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep
-		}
-		catch (NullPointerException e)
-		{
-			//We can work with this too
 		}
 		try
 		{
 			library.addAction((UnaryAction) null);
 			fail("Expected null action to be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//Yep
-		}
-		catch (NullPointerException e)
-		{
-			//We can work with this too
 		}
 	}
 

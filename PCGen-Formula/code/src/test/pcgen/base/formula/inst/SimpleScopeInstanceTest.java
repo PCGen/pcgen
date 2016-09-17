@@ -47,13 +47,9 @@ public class SimpleScopeInstanceTest extends TestCase
 			new SimpleScopeInstance(scopeInst, null);
 			fail("null scope must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -78,13 +74,9 @@ public class SimpleScopeInstanceTest extends TestCase
 			new SimpleScopeInstance(null, local);
 			fail("non global scope without parent instance must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
 		SimpleScopeInstance globalInst = new SimpleScopeInstance(null, scope);

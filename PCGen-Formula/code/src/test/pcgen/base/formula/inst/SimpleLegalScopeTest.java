@@ -41,13 +41,9 @@ public class SimpleLegalScopeTest extends TestCase
 			scope = new SimpleLegalScope(scope, null);
 			fail("null name must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 	}
 
