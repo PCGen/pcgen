@@ -237,7 +237,7 @@ public class FullDumpVisitor implements FormulaParserVisitor
 		}
 		Object rvr = node.jjtAccept(reconVisitor, new StringBuilder(1000));
 		System.err.print(": ");
-		System.err.println(rvr.toString());
+		System.err.println(rvr);
 		int numChildren = node.jjtGetNumChildren();
 		for (int i = 0; i < numChildren; i++)
 		{
