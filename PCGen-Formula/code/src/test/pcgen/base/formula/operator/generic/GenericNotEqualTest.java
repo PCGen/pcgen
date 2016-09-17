@@ -18,7 +18,6 @@
 package pcgen.base.formula.operator.generic;
 
 import junit.framework.TestCase;
-import pcgen.base.formula.operator.generic.GenericNotEqual;
 
 public class GenericNotEqualTest extends TestCase
 {
