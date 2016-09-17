@@ -15,7 +15,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  */
-package pcgen.base.formula;
 
 /**
  * pcgen.base.formula is a package that is designed to read/write, validate, and
@@ -42,3 +41,4 @@ package pcgen.base.formula;
  * accept any java.lang.Number that is provided, but only guarantees values work
  * within the calculating ability of Integer and Double as described above.
  */
+package pcgen.base.formula;
