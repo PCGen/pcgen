@@ -26,7 +26,7 @@ import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
-public class TestUtilities
+public final class TestUtilities
 {
 
 	public static SimpleNode doParse(String formula)
