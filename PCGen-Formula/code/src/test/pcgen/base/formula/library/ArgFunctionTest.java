@@ -53,7 +53,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		five.setToken("5");
 		String formula = "abs(-4.5)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		Node[] array = new Node[]{four, five, node};
+		Node[] array = {four, five, node};
 		FunctionLibrary functionLibrary = getFunctionLibrary();
 		functionLibrary.addFunction(new ArgFunction(array));
 		functionLibrary.addFunction(new AbsFunction());
