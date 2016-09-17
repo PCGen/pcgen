@@ -127,7 +127,7 @@ public class GenericFunction implements Function
 		int maxArg = myArgs.getMaximumArgument() + 1;
 		if (maxArg != args.length)
 		{
-			semantics.setInvalid("Function " + getFunctionName()
+			semantics.setInvalid("Function " + functionName
 				+ " required: " + maxArg + " arguments, but was provided "
 				+ args.length + " " + Arrays.asList(args));
 			return null;
