@@ -112,7 +112,7 @@ public class BooleanOrTest extends TestCase
 			assertNull(op.evaluate(Boolean.TRUE, Double.valueOf(4.5)));
 			fail();
 		}
-		catch (Exception e)
+		catch (RuntimeException e)
 		{
 			//expected
 		}
@@ -121,7 +121,7 @@ public class BooleanOrTest extends TestCase
 			assertNull(op.evaluate(new Object(), Boolean.FALSE));
 			fail();
 		}
-		catch (Exception e)
+		catch (RuntimeException e)
 		{
 			//expected
 		}
