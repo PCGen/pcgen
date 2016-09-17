@@ -63,9 +63,6 @@ public class ArgWrappingLibrary implements FunctionLibrary
 		throw new UnsupportedOperationException();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Function getFunction(String functionName)
 	{

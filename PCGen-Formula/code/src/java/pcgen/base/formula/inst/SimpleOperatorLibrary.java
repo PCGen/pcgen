@@ -47,27 +47,18 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 	private final HashMapToList<Operator, UnaryAction> unaryMTL =
 			new HashMapToList<Operator, UnaryAction>();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void addAction(OperatorAction action)
 	{
 		operatorMTL.addToListFor(action.getOperator(), action);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void addAction(UnaryAction action)
 	{
 		unaryMTL.addToListFor(action.getOperator(), action);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(Operator operator, Object o)
 	{
@@ -92,9 +83,6 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 				+ " cannot process " + o.getClass().getSimpleName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> processAbstract(Operator operator, Class<?> format)
 	{
@@ -118,9 +106,6 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(Operator operator, Object o1, Object o2)
 	{
@@ -147,9 +132,6 @@ public class SimpleOperatorLibrary implements OperatorLibrary
 				+ o2.getClass().getSimpleName());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> processAbstract(Operator operator, Class<?> format1,
 		Class<?> format2)

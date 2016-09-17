@@ -81,9 +81,6 @@ public class SimpleLegalScope implements LegalScope
 		return name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

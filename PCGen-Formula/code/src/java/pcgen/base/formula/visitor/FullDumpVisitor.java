@@ -57,153 +57,102 @@ public class FullDumpVisitor implements FormulaParserVisitor
 	private final ReconstructionVisitor reconVisitor =
 			new ReconstructionVisitor();
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(SimpleNode node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTRoot node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTLogical node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTEquality node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTRelational node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTArithmetic node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTGeometric node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTUnaryMinus node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTUnaryNot node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTExpon node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTParen node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTNum node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTPCGenSingleWord node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTPCGenBracket node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTFParen node, Object data)
 	{
 		return dump(node, data);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
 	{

@@ -84,18 +84,12 @@ public class SimpleScopeInstance implements ScopeInstance
 		this.scope = scope;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public LegalScope getLegalScope()
 	{
 		return scope;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ScopeInstance getParentScope()
 	{

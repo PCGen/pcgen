@@ -158,9 +158,6 @@ public class VariableID<T>
 		return formatManager.getManagedClass();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -170,9 +167,6 @@ public class VariableID<T>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -193,9 +187,6 @@ public class VariableID<T>
 			&& formatManager.equals(other.formatManager) && scope.equals(other.scope);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
