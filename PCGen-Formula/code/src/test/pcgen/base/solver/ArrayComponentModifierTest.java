@@ -56,7 +56,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals((100l << 32), acm.getPriority());
+		assertEquals((100L << 32), acm.getPriority());
 	}
 
 	@Test
