@@ -136,7 +136,7 @@ public class ScopeInstanceFactoryTest extends TestCase
 
 	}
 
-	public class Scoped implements VarScoped
+	public final class Scoped implements VarScoped
 	{
 
 		private final String name;
