@@ -122,9 +122,9 @@ public class DependencyManager extends MappedDeque
 		ScopeInstance scopeInst, Class<?> assertedFormat)
 	{
 		DependencyManager fdm = new DependencyManager();
-		fdm.set(DependencyManager.FMANAGER, formulaManager);
-		fdm.set(DependencyManager.INSTANCE, scopeInst);
-		fdm.set(DependencyManager.ASSERTED, assertedFormat);
+		fdm.set(FMANAGER, formulaManager);
+		fdm.set(INSTANCE, scopeInst);
+		fdm.set(ASSERTED, assertedFormat);
 		return fdm;
 	}
 }
