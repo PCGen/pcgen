@@ -17,14 +17,13 @@
  */
 package pcgen.base.solver;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class SolverFactoryTest extends TestCase
 {
@@ -134,8 +133,7 @@ public class SolverFactoryTest extends TestCase
 		try
 		{
 			//intentionally break generics
-			AbstractModifier mod = setNumber;
-			factory.addSolverFormat(String.class, mod);
+			factory.addSolverFormat(String.class, (AbstractModifier) setNumber);
 			fail("Should not be able to add Format with mismatch");
 		}
 		catch (IllegalArgumentException e)

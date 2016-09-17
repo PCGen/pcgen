@@ -143,14 +143,8 @@ public class IfFunction implements Function
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
 		 */
-		if (b.booleanValue())
-		{
-			return args[1].jjtAccept(visitor, manager);
-		}
-		else
-		{
-			return args[2].jjtAccept(visitor, manager);
-		}
+		final int which = (b) ? 1 : 2;
+		return args[which].jjtAccept(visitor, manager);
 	}
 
 	/**
