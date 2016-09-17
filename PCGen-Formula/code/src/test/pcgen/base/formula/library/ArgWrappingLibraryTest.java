@@ -49,7 +49,7 @@ public class ArgWrappingLibraryTest extends AbstractFormulaTestCase
 		args = new Node[]{zero};
 		ASTNum onenode = new ASTNum(0);
 		onenode.setToken("1");
-		Node[] masterargs = new Node[]{onenode};
+		Node[] masterargs = {onenode};
 		library = new ArgWrappingLibrary(underlying, masterargs);
 	}
 

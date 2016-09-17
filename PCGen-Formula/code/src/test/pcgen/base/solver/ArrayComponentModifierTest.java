@@ -88,7 +88,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		Modifier cm = AbstractModifier.setNumber(6, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		Number[] array = new Number[]{1, 2, 3, 4, 5, 6, 7};
+		Number[] array = {1, 2, 3, 4, 5, 6, 7};
 		EvaluationManager manager = new EvaluationManager();
 		manager.set(EvaluationManager.INPUT, array);
 		Object[] result = acm.process(manager);
@@ -103,7 +103,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		Modifier cm = AbstractModifier.setNumber(77, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		Number[] array = new Number[]{1, 2, 3, 4};
+		Number[] array = {1, 2, 3, 4};
 		//Should be no effect
 		EvaluationManager manager = new EvaluationManager();
 		manager.set(EvaluationManager.INPUT, array);
