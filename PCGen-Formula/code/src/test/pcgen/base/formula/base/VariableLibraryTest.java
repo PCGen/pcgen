@@ -537,7 +537,6 @@ public class VariableLibraryTest extends TestCase
 		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		varScopeLib.registerScope(globalScope);
-		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		SimpleLegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
 		varScopeLib.registerScope(eqScope);
