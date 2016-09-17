@@ -243,7 +243,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			@Override
 			public String getInstructions()
 			{
-				return "*" + value.toString();
+				return "*" + value;
 			}
 		};
 	}
