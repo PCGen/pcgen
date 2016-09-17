@@ -279,7 +279,7 @@ public class Solver<T>
 		 */
 		private String reportString;
 		
-		public DefaultValue(String formatName)
+		private DefaultValue(String formatName)
 		{
 			this.reportString = "for " + formatName;
 		}
@@ -303,7 +303,7 @@ public class Solver<T>
 		private final Modifier<IT> modifier;
 		private final Object source;
 
-		public ModInfo(Modifier<IT> modifier, Object source)
+		private ModInfo(Modifier<IT> modifier, Object source)
 		{
 			this.modifier = modifier;
 			this.source = source;
