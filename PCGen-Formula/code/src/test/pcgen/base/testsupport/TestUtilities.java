@@ -29,6 +29,10 @@ import pcgen.base.formula.parse.SimpleNode;
 public final class TestUtilities
 {
 
+	private TestUtilities()
+	{
+	}
+
 	public static SimpleNode doParse(String formula)
 	{
 		try
