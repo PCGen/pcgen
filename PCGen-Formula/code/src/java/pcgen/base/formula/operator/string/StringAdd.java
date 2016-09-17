@@ -66,8 +66,8 @@ public class StringAdd implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		return (String) Objects.requireNonNull(left)
-			+ (String) Objects.requireNonNull(right);
+		return Objects.requireNonNull(left)
+			+ Objects.requireNonNull(right);
 	}
 
 }
