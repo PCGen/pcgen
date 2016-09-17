@@ -136,10 +136,10 @@ public class VariableLibraryTest extends TestCase
 	public void testAssertVariable()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
-		SimpleLegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
-		SimpleLegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		//Dupe is safe
@@ -188,7 +188,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testIsLegalVIDFail()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope(null, "Global");
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		try
@@ -214,10 +214,10 @@ public class VariableLibraryTest extends TestCase
 	public void testIsLegalVID()
 	{
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
-		SimpleLegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
+		LegalScope spScope = new SimpleLegalScope(globalScope, "Spell");
 		SimpleLegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
-		SimpleLegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
+		LegalScope eqPartScope = new SimpleLegalScope(eqScope, "Part");
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		assertTrue(varLib.isLegalVariableID(globalScope, "Walk"));
@@ -251,7 +251,7 @@ public class VariableLibraryTest extends TestCase
 	@Test
 	public void testKnownVarScopeFail()
 	{
-		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		LegalScope globalScope = new SimpleLegalScope(null, "Global");
 		assertTrue(
 			varLib.assertLegalVariableID("Walk", globalScope, numberManager));
 		try
@@ -537,14 +537,14 @@ public class VariableLibraryTest extends TestCase
 		BooleanManager booleanManager = FormatUtilities.BOOLEAN_MANAGER;
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		varScopeLib.registerScope(globalScope);
-		SimpleLegalScope eqScope =
+		LegalScope eqScope =
 				new SimpleLegalScope(globalScope, "Equipment");
 		varScopeLib.registerScope(eqScope);
 		SimpleVarScoped eq = new SimpleVarScoped();
 		eq.scopeName = "Equipment";
 		eq.name = "Sword";
 		ScopeInstance eqInst = instanceFactory.get("Equipment", eq);
-		SimpleLegalScope abScope = new SimpleLegalScope(globalScope, "Ability");
+		LegalScope abScope = new SimpleLegalScope(globalScope, "Ability");
 		varScopeLib.registerScope(abScope);
 		SimpleVarScoped ab = new SimpleVarScoped();
 		ab.scopeName = "Ability";
