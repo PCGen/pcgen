@@ -64,7 +64,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 
 	private static final Class<Number> NUMBER_CLASS = Number.class;
 	private static final Class<Number[]> NUMBER_ARR_CLASS =
-			(Class<Number[]>) new Number[]{}.getClass();
+			(Class<Number[]>) Number[].class;
 
 	private final Class<T> format;
 	private final int priority;

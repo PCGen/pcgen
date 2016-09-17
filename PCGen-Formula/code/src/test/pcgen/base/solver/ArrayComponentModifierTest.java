@@ -64,7 +64,7 @@ public class ArrayComponentModifierTest extends TestCase
 	{
 		Modifier cm = AbstractModifier.setNumber(3, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
-		assertEquals(new Number[]{}.getClass(), acm.getVariableFormat());
+		assertEquals(Number[].class, acm.getVariableFormat());
 	}
 
 	@Test
