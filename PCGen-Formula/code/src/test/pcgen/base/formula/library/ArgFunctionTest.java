@@ -168,7 +168,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		 * Safe and "ignored" - if this test fails, need to change what FDM is
 		 * passed in - it should NOT contain an ArgumentDependencyManager
 		 */
-		assertTrue(null == fdm.peek(ArgumentDependencyManager.KEY));
+		assertTrue(fdm.peek(ArgumentDependencyManager.KEY) == null);
 		DependencyVisitor dv = new DependencyVisitor();
 		dv.visit(node, fdm);
 	}
