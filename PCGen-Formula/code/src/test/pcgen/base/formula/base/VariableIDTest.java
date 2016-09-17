@@ -49,13 +49,9 @@ public class VariableIDTest extends TestCase
 			new VariableID(null, null, null);
 			fail("nulls must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		ScopeInstance globalInst = instanceFactory.getGlobalInstance("Global");
 		try
@@ -63,65 +59,45 @@ public class VariableIDTest extends TestCase
 			new VariableID(globalInst, numberManager, null);
 			fail("null name must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
 			new VariableID(globalInst, null, "VAR");
 			fail("null FormatManager must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
 			new VariableID(null, numberManager, "VAR");
 			fail("null scope must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
 			new VariableID(globalInst, numberManager, "");
 			fail("empty name must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
 			new VariableID(globalInst, numberManager, " test");
 			fail("padded name must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 	}
 

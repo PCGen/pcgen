@@ -54,13 +54,9 @@ public class SimpleFormulaManagerTest extends TestCase
 			new SimpleFormulaManager(null, null, null, null, null);
 			fail("nulls must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -68,13 +64,9 @@ public class SimpleFormulaManagerTest extends TestCase
 				defaultStore);
 			fail("null ftn lib must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -82,13 +74,9 @@ public class SimpleFormulaManagerTest extends TestCase
 				defaultStore);
 			fail("null op lib must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -96,13 +84,9 @@ public class SimpleFormulaManagerTest extends TestCase
 				defaultStore);
 			fail("null var lib must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -110,13 +94,9 @@ public class SimpleFormulaManagerTest extends TestCase
 				defaultStore);
 			fail("null results must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 		try
 		{
@@ -124,13 +104,9 @@ public class SimpleFormulaManagerTest extends TestCase
 				resultsStore, null);
 			fail("null defaults must be rejected");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok, too			
 		}
 	}
 
