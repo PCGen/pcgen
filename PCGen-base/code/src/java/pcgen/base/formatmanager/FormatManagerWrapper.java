@@ -58,9 +58,6 @@ public class FormatManagerWrapper implements FormatManagerFactory
 		formatManager = fmtManager;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> build(String formatSub, FormatManagerLibrary library)
 	{
@@ -73,9 +70,6 @@ public class FormatManagerWrapper implements FormatManagerFactory
 			+ " may not contain a subformat");
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBuilderBaseFormat()
 	{
