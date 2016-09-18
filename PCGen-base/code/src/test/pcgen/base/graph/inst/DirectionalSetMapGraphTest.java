@@ -47,7 +47,7 @@ public class DirectionalSetMapGraphTest extends
 	}
 
 	public class TestDirectionalGraphEdge extends DefaultGraphEdge<Integer>
-			implements DirectionalEdge<Integer>, GraphEdge<Integer>
+			implements DirectionalEdge<Integer>
 	{
 		public TestDirectionalGraphEdge(Integer v1, Integer v2)
 		{

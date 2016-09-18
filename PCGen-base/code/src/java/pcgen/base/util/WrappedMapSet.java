@@ -45,7 +45,7 @@ import java.util.Set;
  * @param <T>
  *            The type of object stored in this WrappedMapSet
  */
-public class WrappedMapSet<T> extends AbstractSet<T> implements Set<T>
+public class WrappedMapSet<T> extends AbstractSet<T>
 {
 	/**
 	 * The object used to indicate that a given Key in the underlying Map is
