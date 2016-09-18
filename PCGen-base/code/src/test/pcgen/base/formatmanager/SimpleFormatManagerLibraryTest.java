@@ -25,13 +25,13 @@ import pcgen.base.util.FormatManager;
 
 public class SimpleFormatManagerLibraryTest extends TestCase
 {
-	private static final Number[] ARR_N3_4_5 = new Number[]{
+	private static final Number[] ARR_N3_4_5 = {
 		Integer.valueOf(-3), Integer.valueOf(4), Integer.valueOf(5)};
-	private static final Number[] ARR_N3_4P1_5 = new Number[]{
+	private static final Number[] ARR_N3_4P1_5 = {
 		Integer.valueOf(-3), Double.valueOf(4.1), Integer.valueOf(5)};
-	private static final Number[] ARR_1P4 = new Number[]{Double.valueOf(1.4)};
-	private static final Number[] ARR_N3 = new Number[]{Integer.valueOf(-3)};
-	private static final Number[] ARR_1 = new Number[]{Integer.valueOf(1)};
+	private static final Number[] ARR_1P4 = {Double.valueOf(1.4)};
+	private static final Number[] ARR_N3 = {Integer.valueOf(-3)};
+	private static final Number[] ARR_1 = {Integer.valueOf(1)};
 
 	private SimpleFormatManagerLibrary library;
 
