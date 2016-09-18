@@ -29,7 +29,6 @@ import pcgen.base.graph.base.NodeChangeEvent;
 public class GraphChangeSupportTest extends TestCase
 {
 
-	private Graph source;
 	private GraphChangeSupport support;
 
 	/**
@@ -41,7 +40,7 @@ public class GraphChangeSupportTest extends TestCase
 	@Override
 	protected void setUp() throws Exception
 	{
-		source = new SimpleListGraph();
+		Graph source = new SimpleListGraph();
 		support = new GraphChangeSupport(source);
 	}
 
