@@ -108,7 +108,7 @@ public final class StringUtil
 				result.append(separator);
 			}
 			needjoin = true;
-			result.append(obj.toString());
+			result.append(obj);
 		}
 
 		return result;

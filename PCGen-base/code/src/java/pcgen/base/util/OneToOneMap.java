@@ -230,7 +230,7 @@ public class OneToOneMap<K, V>
 	@Override
 	public String toString()
 	{
-		return "OneToOneMap: " + forwardMap.toString();
+		return "OneToOneMap: " + forwardMap;
 	}
 
 }
