@@ -26,7 +26,6 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
 
 /**
  * Represents a DoubleKeyMap of objects to Lists. List management is done
@@ -201,7 +200,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	 */
 	public void addAll(DoubleKeyMapToList<K1, K2, V> dkmtl)
 	{
-		for (Entry<K1, MapToList<K2, V>> me : dkmtl.mtmtl.entrySet())
+		for (Map.Entry<K1, MapToList<K2, V>> me : dkmtl.mtmtl.entrySet())
 		{
 			MapToList<K2, V> localMap = getMapToListFor(me.getKey());
 			localMap.addAllLists(me.getValue());
