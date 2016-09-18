@@ -199,7 +199,7 @@ public class ArrayFormatManagerTest extends TestCase
 
 	public void testManagedClass()
 	{
-		assertEquals(new Number[]{}.getClass(), manager.getManagedClass());
+		assertEquals(Number[].class, manager.getManagedClass());
 	}
 
 	public void testHashCodeEquals()
