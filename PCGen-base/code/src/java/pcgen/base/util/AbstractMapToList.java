@@ -537,7 +537,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	{
 		// Need to 'clone' the Set, since Map returns a set that is still
 		// associated with the Map
-		Set<K> set = this.getEmptySet();
+		Set<K> set = getEmptySet();
 		set.addAll(mapToList.keySet());
 		return set;
 	}
