@@ -23,8 +23,12 @@ import java.lang.reflect.InvocationTargetException;
 /**
  * Support class for running Junit tests
  */
-public class TestSupport
+public final class TestSupport
 {
+
+	private TestSupport()
+	{
+	}
 
 	/**
 	 * Utility method for Unit tests to invoke private constructors
