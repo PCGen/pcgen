@@ -49,7 +49,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	/**
 	 * The class showing the class of array managed by this ArrayFormatManager.
 	 */
-	private final transient Class<T[]> formatClass;
+	private final Class<T[]> formatClass;
 
 	/**
 	 * Constructs a new ArrayFormatManager with the given underlying component
