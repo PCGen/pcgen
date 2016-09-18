@@ -257,7 +257,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		 *            The underlying ObjectContainer with the objects contained
 		 *            in this ArrayObjectContainer
 		 */
-		public ArrayIndirect(Indirect<T>[] toSet)
+		private ArrayIndirect(Indirect<T>[] toSet)
 		{
 			array = toSet;
 		}

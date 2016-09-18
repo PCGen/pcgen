@@ -305,7 +305,7 @@ public class IdentityList<T> implements List<T>
 		 * @param item
 		 *            The underlying item for this Identity
 		 */
-		public Identity(T item)
+		private Identity(T item)
 		{
 			underlying = item;
 		}
@@ -356,7 +356,7 @@ public class IdentityList<T> implements List<T>
 		 * @param iterator
 		 *            The ListIterator underlying this IdentityIterator
 		 */
-		public IdentityIterator(ListIterator<Identity<I>> iterator)
+		private IdentityIterator(ListIterator<Identity<I>> iterator)
 		{
 			iter = iterator;
 		}
