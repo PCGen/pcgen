@@ -271,7 +271,7 @@ public class Solver<T>
 	/**
 	 * Carries the Default Value information for display in diagnosis
 	 */
-	private class DefaultValue
+	private final class DefaultValue
 	{
 		/**
 		 * The reporting String indicating that the value is the default value

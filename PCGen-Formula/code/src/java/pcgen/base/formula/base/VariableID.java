@@ -166,7 +166,7 @@ public class VariableID<T>
 	{
 		int prime = 31;
 		int result = prime + varName.hashCode();
-		result = prime * result + scope.hashCode();
+		result = (prime * result) + scope.hashCode();
 		return result;
 	}
 
