@@ -61,24 +61,16 @@ public class FixedStringListTest extends TestCase
 			new FixedStringList((Collection) null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
-		}
-		catch (NullPointerException e)
-		{
-			// OK too
 		}
 		try
 		{
 			new FixedStringList(-1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
-		{
-			// OK
-		}
-		catch (NegativeArraySizeException e)
+		catch (IllegalArgumentException | NegativeArraySizeException e)
 		{
 			// OK
 		}

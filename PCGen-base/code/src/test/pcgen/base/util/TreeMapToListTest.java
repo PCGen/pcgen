@@ -76,11 +76,7 @@ public class TreeMapToListTest extends TestCase
 			dkm.addToListFor(null, CONST_F);
 			fail();
 		}
-		catch (NullPointerException e)
-		{
-			// OK
-		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			// OK
 		}

@@ -28,13 +28,9 @@ public class OrderedPairTest extends TestCase
 			new OrderedPair(null, 4);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 
@@ -45,13 +41,9 @@ public class OrderedPairTest extends TestCase
 			new OrderedPair(4, null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 
@@ -62,13 +54,9 @@ public class OrderedPairTest extends TestCase
 			OrderedPair.valueOf(null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 
