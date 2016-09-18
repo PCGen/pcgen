@@ -21,9 +21,6 @@ import java.util.Arrays;
 
 import pcgen.base.graph.base.Edge;
 import pcgen.base.graph.base.Graph;
-import pcgen.base.graph.inst.DefaultGraphEdge;
-import pcgen.base.graph.inst.DefaultHyperEdge;
-import pcgen.base.graph.inst.SimpleListGraph;
 
 public class SimpleListGraphTest extends AbstractGraphTestCase<Edge<Integer>>
 {

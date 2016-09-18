@@ -26,9 +26,6 @@ import java.util.List;
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.Graph;
 import pcgen.base.graph.base.GraphEdge;
-import pcgen.base.graph.inst.DefaultDirectionalHyperEdge;
-import pcgen.base.graph.inst.DefaultGraphEdge;
-import pcgen.base.graph.inst.DirectionalSetMapGraph;
 
 public class DirectionalSetMapGraphTest extends
 		AbstractGraphTestCase<DirectionalEdge<Integer>>

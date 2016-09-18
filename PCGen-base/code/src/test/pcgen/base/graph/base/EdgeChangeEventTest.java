@@ -17,8 +17,6 @@
  */
 package pcgen.base.graph.base;
 
-import pcgen.base.graph.base.Edge;
-import pcgen.base.graph.base.EdgeChangeEvent;
 import pcgen.base.graph.inst.DefaultGraphEdge;
 import pcgen.base.graph.inst.SimpleListMapGraph;
 import junit.framework.TestCase;

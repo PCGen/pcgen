@@ -21,7 +21,6 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import pcgen.base.graph.inst.DefaultHyperEdge;
 import junit.framework.TestCase;
 
 public class DefaultHyperEdgeTest extends TestCase
