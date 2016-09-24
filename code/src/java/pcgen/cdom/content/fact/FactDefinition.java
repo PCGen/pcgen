@@ -61,9 +61,6 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		getFactKey();
 	}
 
-	/**
-	 * @see ContentDefinition#activateOutput(DataSetID)
-	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
  	{
@@ -79,9 +76,6 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		}
 	}
 
-	/**
-	 * @see ContentDefinition#activateTokens(LoadContext)
-	 */
 	@Override
 	protected void activateTokens(LoadContext context)
 	{
@@ -119,18 +113,12 @@ public class FactDefinition<T extends CDOMObject, F> extends
 		factName = name;
 	}
 
-	/**
-	 * @see FactInfo#getFactName()
-	 */
 	@Override
 	public String getFactName()
 	{
 		return factName;
 	}
 
-	/**
-	 * @see FactInfo#getFactKey()
-	 */
 	@Override
 	public FactKey<F> getFactKey()
 	{
