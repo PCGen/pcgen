@@ -62,7 +62,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateOutput(DataSetID)
+	 * @see ContentDefinition#activateOutput(DataSetID)
 	 */
 	@Override
 	protected void activateOutput(DataSetID dsID)
@@ -82,7 +82,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.ContentDefinition#activateTokens(pcgen.rules.context.LoadContext)
+	 * @see ContentDefinition#activateTokens(LoadContext)
 	 */
 	@Override
 	protected void activateTokens(LoadContext context)
@@ -122,7 +122,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.factset.FactSetInfo#getFactSetName()
+	 * @see FactSetInfo#getFactSetName()
 	 */
 	@Override
 	public String getFactSetName()
@@ -131,7 +131,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	}
 
 	/**
-	 * @see pcgen.cdom.content.factset.FactSetInfo#getFactSetKey()
+	 * @see FactSetInfo#getFactSetKey()
 	 */
 	@Override
 	public FactSetKey<F> getFactSetKey()

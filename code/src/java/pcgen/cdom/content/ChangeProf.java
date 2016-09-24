@@ -98,7 +98,7 @@ public class ChangeProf extends ConcretePrereqObject
 	/**
 	 * Returns a consistent-with-equals hashCode for this ChangeProf
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -110,7 +110,7 @@ public class ChangeProf extends ConcretePrereqObject
 	 * Returns true if the given object is a ChangeProf with identical source
 	 * and target Group
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

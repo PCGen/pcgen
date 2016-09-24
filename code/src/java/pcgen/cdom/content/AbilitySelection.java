@@ -248,7 +248,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	}
 
 	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 * @see Reducible#getCDOMObject()
 	 */
 	@Override
 	public CDOMObject getCDOMObject()

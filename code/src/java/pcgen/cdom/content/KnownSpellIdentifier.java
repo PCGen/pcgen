@@ -174,7 +174,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	/**
 	 * Returns the consistent-with-equals hashCode for this KnownSpellIdentifier
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -188,7 +188,7 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 	 * Equality is defined as being another KnownSpellIdentifier object with
 	 * equal spell level and underlying reference.
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

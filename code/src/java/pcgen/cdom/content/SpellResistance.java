@@ -49,7 +49,6 @@ public class SpellResistance extends ConcretePrereqObject
 	 */
 	public SpellResistance(Formula aReduction)
 	{
-		super();
 		reduction = aReduction;
 	}
 
@@ -66,7 +65,7 @@ public class SpellResistance extends ConcretePrereqObject
 	/**
 	 * Returns a String representation of this SpellResistance.
 	 * 
-	 * @see java.lang.Object#toString()
+	 * @see Object#toString()
 	 */
 	@Override
 	public String toString()
@@ -78,7 +77,7 @@ public class SpellResistance extends ConcretePrereqObject
 	 * Returns true if the given object is a SpellResistance with equal
 	 * reduction to this Spell Resistance.
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object other)
@@ -94,7 +93,7 @@ public class SpellResistance extends ConcretePrereqObject
 	/**
 	 * Provides a consistent-with-equals hashCode for this SpellResistance.
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	@Override
 	public int hashCode()

@@ -181,17 +181,17 @@ public class CNAbility extends ConcretePrereqObject implements
 		}
 		
 		// ability details
-		int compare = this.ability.compareTo(other.ability);
+		int compare = ability.compareTo(other.ability);
 		if (compare != equal)
 		{
 			return compare;
 		}
-		compare = this.category.toString().compareTo(other.category.toString());
+		compare = category.toString().compareTo(other.category.toString());
 		if (compare != equal)
 		{
 			return compare;
 		}
-		compare = this.nature.compareTo(other.nature);
+		compare = nature.compareTo(other.nature);
 		return compare;
 	}
 
@@ -232,7 +232,7 @@ public class CNAbility extends ConcretePrereqObject implements
 	}
 
 	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
+	 * @see Reducible#getCDOMObject()
 	 */
 	@Override
 	public CDOMObject getCDOMObject()
