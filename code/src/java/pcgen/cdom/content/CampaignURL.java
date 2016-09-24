@@ -26,7 +26,7 @@ package pcgen.cdom.content;
 import java.net.URI;
 
 /**
- * <code>CampaignURL</code> encapsulates a typed and labelled URL for a
+ * {@code CampaignURL} encapsulates a typed and labelled URL for a
  * campaign.
  * 
  * (Tue, 23 Dec 2008) $
