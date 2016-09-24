@@ -43,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * @param <F>
  *            The format of the data stored in the FactSet
  */
-public class FactSetParser<T extends CDOMObject, F> extends
+class FactSetParser<T extends CDOMObject, F> extends
 		AbstractTokenWithSeparator<T> implements CDOMSecondaryToken<T>
 {
 
@@ -61,7 +61,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 	 * @throws IllegalArgumentException
 	 *             if the given FactSetInfo is null
 	 */
-	public FactSetParser(FactSetInfo<T, F> fsi)
+	FactSetParser(FactSetInfo<T, F> fsi)
 	{
 		if (fsi == null)
 		{
@@ -103,6 +103,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 
 			Indirect<F> indirect = fmtManager.convertIndirect(token);
 			objContext.addToSet(obj, fsk, indirect);
+			firstToken = false;
 		}
 		return ParseResult.SUCCESS;
 	}
@@ -137,18 +138,18 @@ public class FactSetParser<T extends CDOMObject, F> extends
 		{
 			results.add(Constants.LST_DOT_CLEAR_ALL);
 		}
-		if (removedItems != null && !removedItems.isEmpty())
+		if ((removedItems != null) && !removedItems.isEmpty())
 		{
 			context.addWriteMessage(getTokenName() + " does not support "
 				+ Constants.LST_DOT_CLEAR_DOT);
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();
-		if (added != null && added.size() > 0)
+		if ((added != null) && !added.isEmpty())
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean needsPipe = false;
-			for (Indirect<F> indirect : added)
+			for (final Indirect<F> indirect : added)
 			{
 				if (needsPipe)
 				{

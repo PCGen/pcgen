@@ -89,12 +89,12 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 	{
 		context.loadLocalToken(new FactSetParser<>(this));
 		Boolean required = getRequired();
-		if ((required != null) && required.booleanValue())
+		if ((required != null) && required)
 		{
 			context.loadLocalToken(new FactSetDefinitionEnforcer<>(this));
 		}
 		Boolean selectable = getSelectable();
-		if ((selectable != null) && selectable.booleanValue())
+		if ((selectable != null) && selectable)
 		{
 			context.loadLocalToken(new FactSetGroupDefinition<>(this));
 		}
@@ -114,7 +114,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be null");
 		}
-		if (name.length() == 0)
+		if (name.isEmpty())
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be empty");
 		}
