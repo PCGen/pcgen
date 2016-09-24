@@ -169,7 +169,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	@Override
 	public boolean equals(Object obj)
 	{
-		return obj instanceof HitDie && ((HitDie) obj).die == die;
+		return (obj instanceof HitDie) && (((HitDie) obj).die == die);
 	}
 
 	/**
@@ -197,7 +197,7 @@ public class HitDie extends ConcretePrereqObject implements Comparable<HitDie>
 	@Override
 	public int compareTo(HitDie other)
 	{
-		return die == other.die ? 0 : die < other.die ? -1 : 1;
+		return (die == other.die) ? 0 : ((die < other.die) ? -1 : 1);
 	}
 
 }

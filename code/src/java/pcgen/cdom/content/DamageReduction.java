@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -174,9 +173,9 @@ public class DamageReduction extends ConcretePrereqObject implements
 		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
 		int hash = 0;
-		for (Iterator<String> i = list.iterator(); i.hasNext();)
+		for (final String aList : list)
 		{
-			hash += i.next().hashCode();
+			hash += aList.hashCode();
 		}
 		return theReduction.hashCode() + hash;
 	}
