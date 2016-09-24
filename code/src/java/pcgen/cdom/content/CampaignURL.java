@@ -120,22 +120,22 @@ public class CampaignURL implements Comparable<CampaignURL>
 			return 0;
 		}
 
-		if (that.getUrlKind() != urlKind)
+		if (that.urlKind != urlKind)
 		{
-			return urlKind.compareTo(that.getUrlKind());
+			return urlKind.compareTo(that.urlKind);
 		}
 
-		if (!that.getUrlName().equals(urlName))
+		if (!that.urlName.equals(urlName))
 		{
-			return urlName.compareTo(that.getUrlName());
+			return urlName.compareTo(that.urlName);
 		}
 
-		if (!that.getUri().equals(uri))
+		if (!that.uri.equals(uri))
 		{
-			return uri.toString().compareTo(that.getUri().toString());
+			return uri.toString().compareTo(that.uri.toString());
 		}
 
-		return urlDesc.compareTo(that.getUrlDesc());
+		return urlDesc.compareTo(that.urlDesc);
 	}
 
 	@Override
@@ -154,10 +154,10 @@ public class CampaignURL implements Comparable<CampaignURL>
 		if (obj instanceof CampaignURL)
 		{
 			CampaignURL that = (CampaignURL) obj;
-			return that.getUrlKind() == urlKind
-					&& that.getUrlName().equals(urlName)
-					&& that.getUri().equals(uri)
-					&& urlDesc.equals(that.getUrlDesc());
+			return that.urlKind == urlKind
+					&& that.urlName.equals(urlName)
+					&& that.uri.equals(uri)
+					&& urlDesc.equals(that.urlDesc);
 		}
 		return false;
 	}

@@ -55,13 +55,13 @@ public class RollMethod implements Loadable
 	@Override
 	public String getKeyName()
 	{
-		return getDisplayName();
+		return methodName;
 	}
 
 	@Override
 	public String getLSTformat()
 	{
-		return getDisplayName();
+		return methodName;
 	}
 
 	@Override

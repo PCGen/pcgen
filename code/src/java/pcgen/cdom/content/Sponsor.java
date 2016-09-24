@@ -76,7 +76,7 @@ public class Sponsor implements Loadable
 	@Override
 	public String getLSTformat()
 	{
-		return getKeyName();
+		return sponsorKey;
 	}
 
 	@Override

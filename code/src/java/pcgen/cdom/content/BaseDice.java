@@ -62,13 +62,13 @@ public class BaseDice implements Loadable
 	@Override
 	public String getKeyName()
 	{
-		return getDisplayName();
+		return dieName;
 	}
 
 	@Override
 	public String getLSTformat()
 	{
-		return getDisplayName();
+		return dieName;
 	}
 
 	@Override
