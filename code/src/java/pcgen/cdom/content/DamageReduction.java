@@ -91,7 +91,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 * 
 	 * @return Amount of damage this DR reduces
 	 */
-	public int getRawReductionValue()
+	private int getRawReductionValue()
 	{
 		return theReduction.isStatic() ? theReduction.resolveStatic()
 			.intValue() : -1;
@@ -182,10 +182,6 @@ public class DamageReduction extends ConcretePrereqObject implements
 
 	public String getLSTformat()
 	{
-		StringBuilder result = new StringBuilder();
-		result.append(theReduction);
-		result.append('/');
-		result.append(theBypass);
-		return result.toString();
+		return String.valueOf(theReduction) + '/' + theBypass;
 	}
 }
