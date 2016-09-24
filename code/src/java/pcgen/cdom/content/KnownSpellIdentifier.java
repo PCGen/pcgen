@@ -20,6 +20,7 @@ package pcgen.cdom.content;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMList;
@@ -146,28 +147,24 @@ public class KnownSpellIdentifier extends ConcretePrereqObject
 		if (ref == null)
 		{
 			List<Spell> returnList = new ArrayList<>();
-			for (CDOMList<Spell> list : classSpellLists)
+			classSpellLists.forEach(list ->
 			{
 				returnList.addAll(pc.getSpellsIn(list, spellLevel));
-			}
+			});
 			return returnList;
 		}
-		List<Spell> spellList = new ArrayList<>();
-		for (Spell sp : ref.getContainedObjects())
+		Collection<Spell> spellList = new ArrayList<>();
+		ref.getContainedObjects().forEach((Spell sp) ->
 		{
 			HashMapToList<CDOMList<Spell>, Integer> hml = pc.getSpellLevelInfo(sp);
-			for (CDOMList<Spell> cdomList : hml.getKeySet())
-			{
-				if (classSpellLists.contains(cdomList))
-				{
-					if (spellLevel == null
-							|| hml.getListFor(cdomList).contains(spellLevel))
-					{
-						spellList.add(sp);
-					}
-				}
-			}
-		}
+			spellList.addAll(hml.getKeySet().stream()
+			                    .filter(classSpellLists::contains)
+			                    .filter(cdomList -> (spellLevel == null) || hml
+					                                                                .getListFor(cdomList)
+					                                                                .contains(spellLevel))
+			                    .map(cdomList -> sp)
+			                    .collect(Collectors.toList()));
+		});
 		return spellList;
 	}
 
