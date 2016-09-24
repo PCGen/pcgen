@@ -17,10 +17,11 @@
  */
 package pcgen.cdom.content.fact;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
@@ -37,7 +38,7 @@ import pcgen.rules.context.LoadContext;
  * @param <F>
  *            The Type of the Fact being checked in this FactGroup
  */
-public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
+class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 {
 
 	/**
@@ -64,7 +65,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	 * semantically can't change. There is also the assumption that the global
 	 * list of objects cannot change.
 	 */
-	private transient List<T> cache;
+	private List<T> cache;
 
 	/**
 	 * Constructs a new FactGroup from the given context, FactInfo and value.
@@ -78,7 +79,7 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 	 *            The String representation of the value that this FactGroup
 	 *            will be looking for
 	 */
-	public FactGroup(LoadContext context, FactInfo<T, F> fi, String value)
+	FactGroup(LoadContext context, FactInfo<T, F> fi, String value)
 	{
 		if (fi.getUsableLocation().equals(CDOMObject.class))
 		{
@@ -96,30 +97,20 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<>();
-			for (T obj : allObjects.getContainedObjects())
-			{
-				if (contains(obj))
-				{
-					setupCache.add(obj);
-				}
-			}
-			cache = setupCache;
+			cache = allObjects
+					.getContainedObjects()
+					.stream()
+					.filter((Predicate<T>) this::contains)
+					.collect(Collectors.toList());
 		}
 		return Collections.unmodifiableCollection(cache);
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
-	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
@@ -127,19 +118,13 @@ public class FactGroup<T extends CDOMObject, F> implements ObjectContainer<T>
 			+ def.getFormatManager().unconvert(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(T obj)
 	{
 		Indirect<?> fact = obj.get(def.getFactKey());
-		return fact != null && fact.get().equals(toMatch.get());
+		return (fact != null) && fact.get().equals(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

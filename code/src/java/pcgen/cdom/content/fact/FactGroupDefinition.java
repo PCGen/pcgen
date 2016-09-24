@@ -37,7 +37,7 @@ import pcgen.rules.context.LoadContext;
  *            The Type of object this FactGroupDefinition contains (the content
  *            of the fact)
  */
-public class FactGroupDefinition<T extends CDOMObject, F> implements
+class FactGroupDefinition<T extends CDOMObject, F> implements
 		GroupDefinition<T>
 {
 
@@ -55,7 +55,7 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 	 * @throws IllegalArgumentException
 	 *             if the given FactInfo is null
 	 */
-	public FactGroupDefinition(FactInfo<T, F> fi)
+	FactGroupDefinition(FactInfo<T, F> fi)
 	{
 		if (fi == null)
 		{
@@ -64,46 +64,30 @@ public class FactGroupDefinition<T extends CDOMObject, F> implements
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitiveName()
-	 */
 	@Override
 	public String getPrimitiveName()
 	{
 		return def.getFactName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getGroupingState()
-	 */
 	@Override
 	public GroupingState getGroupingState()
 	{
 		return GroupingState.ANY;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{
 		return def.getUsableLocation();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getFormatManager()
-	 */
 	@Override
 	public FormatManager<?> getFormatManager()
 	{
 		return def.getFormatManager();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.GroupDefinition#getPrimitive(pcgen.rules.context.LoadContext,
-	 *      java.lang.String)
-	 */
 	@Override
 	public ObjectContainer<T> getPrimitive(LoadContext context, String value)
 	{

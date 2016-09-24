@@ -55,7 +55,7 @@ public class FactParser<T extends CDOMObject, F> extends
 	 * @throws IllegalArgumentException
 	 *             if the given FactInfo is null
 	 */
-	public FactParser(FactInfo<T, F> fi)
+	FactParser(FactInfo<T, F> fi)
 	{
 		if (fi == null)
 		{
@@ -64,10 +64,6 @@ public class FactParser<T extends CDOMObject, F> extends
 		def = fi;
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.AbstractNonEmptyToken#parseNonEmptyToken(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object, java.lang.String)
-	 */
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context, T obj,
 		String value)
@@ -113,10 +109,6 @@ public class FactParser<T extends CDOMObject, F> extends
 		return "FACT";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.CDOMSecondaryToken#unparse(pcgen.rules.context.LoadContext,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public String[] unparse(LoadContext context, T obj)
 	{
@@ -125,7 +117,7 @@ public class FactParser<T extends CDOMObject, F> extends
 		List<String> results = new ArrayList<>(2);
 		if (removed)
 		{
-			results.add(Constants.LST_DOT_CLEAR);
+			results.add(Constants.LST_DOT_CLEAR)
 		}
 		Indirect<F> fact = context.getObjectContext().getFact(obj, fk);
 		if (fact != null)
