@@ -165,7 +165,7 @@ public class CNAbility extends ConcretePrereqObject implements
 			CNAbility other = (CNAbility) o;
 			return category.equals(other.category)
 					&& ability.equals(other.ability)
-					&& nature.equals(other.nature);
+					&& nature == other.nature;
 		}
 		return false;
 	}
