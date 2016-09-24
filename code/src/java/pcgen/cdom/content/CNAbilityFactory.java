@@ -32,15 +32,15 @@ public final class CNAbilityFactory
 		//Do not instantiate
 	}
 
-	private static Map<CNAbility, CNAbility> map = new HashMap<>();
+	private static final Map<CNAbility, CNAbility> MAP = new HashMap<>();
 
 	public static CNAbility getCNAbility(Category<Ability> cat, Nature n, Ability a)
 	{
 		CNAbility toMatch = new CNAbility(cat, a, n);
-		CNAbility result = map.get(toMatch);
+		CNAbility result = MAP.get(toMatch);
 		if (result == null)
 		{
-			map.put(toMatch, toMatch);
+			MAP.put(toMatch, toMatch);
 			return toMatch;
 		}
 		return result;
@@ -48,6 +48,6 @@ public final class CNAbilityFactory
 
 	public static void reset()
 	{
-		map.clear();
+		MAP.clear();
 	}
 }
