@@ -8,12 +8,15 @@
  * Full build: gradle all 
  */
 plugins {
-  id "ca.coglinc.javacc" version "2.3.1"
+    id "ca.coglinc.javacc" version "2.3.1"
+    id 'java'
+    id 'eclipse'
+    id 'jacoco'
+    id 'ivy-publish'
+    id 'checkstyle'
+    id 'pmd'
+    id 'jdepend'
 }
-apply plugin: 'java'
-apply plugin: 'eclipse'
-apply plugin: "jacoco"
-apply plugin: 'ivy-publish'
 
 group = 'net.sourceforge.pcgen'
 description = """PCGen formula library"""
@@ -21,6 +24,7 @@ description = """PCGen formula library"""
 defaultTasks 'clean', 'build'
 
 sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 ext {
     majorVersion = 1
