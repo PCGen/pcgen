@@ -19,16 +19,6 @@
  */
  package plugin.network;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ExtendedHTMLDocument;
-import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.util.LogReceiver;
-import gmgen.util.LogUtilities;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -49,7 +39,17 @@ import javax.swing.JTextPane;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ExtendedHTMLDocument;
+import gmgen.gui.ExtendedHTMLEditorKit;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.util.LogReceiver;
+import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
+
 import plugin.network.gui.NetworkView;
 
 /**
@@ -151,17 +151,13 @@ public class NetworkModel
 		}
 	}
 
-	public void combatantUpdated(Combatant cbt)
+	void combatantUpdated(Combatant cbt)
 	{
 		if (combat != null)
 		{
-			for (InitHolder iH : combat)
-			{
-				if (iH == cbt)
-				{
-					sendCombatant(cbt);
-				}
-			}
+			combat.stream()
+			      .filter((InitHolder v) -> v == cbt)
+			      .forEach((InitHolder v) -> sendCombatant(cbt));
 		}
 	}
 
@@ -468,13 +464,9 @@ public class NetworkModel
 	{
 		if (combat != null)
 		{
-			for (InitHolder iH : combat)
-			{
-				if (iH instanceof Combatant)
-				{
-					sendCombatant((Combatant) iH);
-				}
-			}
+			combat.stream()
+					.filter(v -> v instanceof Combatant)
+					.forEach((InitHolder v) -> sendCombatant((Combatant) v));
 		}
 	}
 
