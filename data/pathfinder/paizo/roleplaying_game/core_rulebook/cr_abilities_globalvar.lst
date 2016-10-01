@@ -505,6 +505,51 @@ CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat2|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_BonusFeat1|0
 CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_Alignment|0
 
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall10|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall20|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall30|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall40|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall50|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall60|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall70|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall80|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_SlowFall90|0
+
+
+
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_KiPoolAbilities1|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_KiPoolAbilities7|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_KiPoolAbilities10|0
+CATEGORY=Class|Monk.MOD	DEFINE:Monk_CF_KiPoolAbilities16|0
+
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_KiPoolAbilities1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPoolAbilities1=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_KiPoolAbilities7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPoolAbilities7=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_KiPoolAbilities10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPoolAbilities10=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_KiPoolAbilities16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_KiPoolAbilities16=True
+
+
+
+
+
+
+
+
+
+
+
+
+
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall10|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall10=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall20=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall30|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall30=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall40|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall40=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall50|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall50=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall60|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall60=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall70|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall70=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall80|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall80=True
+CATEGORY=Class|Monk.MOD		BONUS:VAR|Monk_CF_SlowFall90|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_SlowFall90=True
+
+
 
 CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_WeaponProficiencies|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_WeaponProficiencies=True
 CATEGORY=Class|Monk.MOD																										BONUS:VAR|Monk_CF_BonusFeat18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Monk_CF_BonusFeat18=True
