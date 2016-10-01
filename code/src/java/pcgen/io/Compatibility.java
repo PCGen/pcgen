@@ -12,18 +12,26 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
+import org.jetbrains.annotations.NotNull;
+import org.jetbrains.annotations.Nullable;
+
 public final class Compatibility
 {
 
-	public static PCTemplate getTemplateFor(PCTemplate template,
-			String templateKey, String feat)
+	private Compatibility()
+	{
+	}
+
+	@Nullable
+	static PCTemplate getTemplateFor(PCTemplate template,
+	                                 String templateKey, String feat)
 	{
 		if (templateKey.charAt(0) == 'L')
 		{
 			int level = Integer.parseInt(templateKey.substring(1));
 			List<PCTemplate> levelTemplates = template
 					.getListFor(ListKey.LEVEL_TEMPLATES);
-			for (PCTemplate templ : levelTemplates)
+			for (final PCTemplate templ : levelTemplates)
 			{
 				if (level == templ.get(IntegerKey.LEVEL))
 				{
@@ -40,7 +48,7 @@ public final class Compatibility
 			int minusLoc = hdString.indexOf('-');
 			if (minusLoc == -1)
 			{
-				if (hdString.indexOf('+') == hdString.length() - 1)
+				if (hdString.indexOf('+') == (hdString.length() - 1))
 				{
 					minhd = Integer.parseInt(hdString.substring(0, hdString
 							.length() - 1));
@@ -59,10 +67,10 @@ public final class Compatibility
 			}
 			List<PCTemplate> levelTemplates = template
 					.getListFor(ListKey.HD_TEMPLATES);
-			for (PCTemplate templ : levelTemplates)
+			for (final PCTemplate templ : levelTemplates)
 			{
-				if (minhd == templ.get(IntegerKey.HD_MIN)
-						&& maxhd == templ.get(IntegerKey.HD_MAX))
+				if ((minhd == templ.get(IntegerKey.HD_MIN))
+						&& (maxhd == templ.get(IntegerKey.HD_MAX)))
 				{
 					return templ;
 				}
@@ -75,6 +83,7 @@ public final class Compatibility
 		return null;
 	}
 
+	@NotNull
 	public static String getKeyFor(PCTemplate pct)
 	{
 		Integer level = pct.get(IntegerKey.LEVEL);
@@ -102,6 +111,7 @@ public final class Compatibility
 		return hd.toString();
 	}
 
+	@Nullable
 	public static PersistentTransitionChoice<?> processOldAdd(
 			LoadContext context, String first) throws PersistenceLayerException
 	{
@@ -112,7 +122,7 @@ public final class Compatibility
 			return null;
 		}
 		int closeParenLoc = first.lastIndexOf(')');
-		if (openParenLoc == -1)
+		if (closeParenLoc == -1)
 		{
 			Logging.errorPrint("Expected to have a ) : " + first);
 			return null;
@@ -120,7 +130,7 @@ public final class Compatibility
 		String key = first.substring(7, openParenLoc);
 		String choices = first.substring(openParenLoc + 1, closeParenLoc);
 		String count = "";
-		if (closeParenLoc != first.length() - 1)
+		if (closeParenLoc != (first.length() - 1))
 		{
 			count = first.substring(closeParenLoc + 1) + '|';
 		}
@@ -132,8 +142,7 @@ public final class Compatibility
 			return null;
 		}
 		context.commit();
-		PersistentTransitionChoice<?> ptc = applied.getListFor(ListKey.ADD).get(0);
-		return ptc;
+		return applied.getListFor(ListKey.ADD).get(0);
 	}
 
 }
