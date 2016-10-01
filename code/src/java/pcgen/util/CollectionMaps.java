@@ -51,21 +51,6 @@ public final class CollectionMaps
         return null;
     }
 
-    public static <K, V, C extends Collection<V>> CollectionMap<K, V, C> createCollectionMap(Class<? extends Map> mapClass,
-                                                                                               Class<? extends Collection> collectionClass)
-    {
-        try
-        {
-            return new BasicCollectionMap(mapClass, collectionClass);
-        }
-        catch (Exception ex)
-        {
-            Logger.getLogger(CollectionMaps.class.getName()).log(Level.SEVERE,
-                                                                 null, ex);
-        }
-        return null;
-    }
-
     public static <K, V, C extends List<V>> ListMap<K, V, C> createListMap(Class<? extends Map> mapClass,
                                                                              Class<? extends List> listClass)
     {

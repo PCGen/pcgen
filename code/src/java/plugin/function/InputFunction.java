@@ -36,14 +36,12 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.output.channel.ChannelUtilities;
 
-public class InputFunction implements Function
+class InputFunction implements Function
 {
 
 	/**
 	 * Returns the function name for this function. This is how it is called by
 	 * a user in a formula.
-	 * 
-	 * @see pcgen.base.formula.base.Function#getFunctionName()
 	 */
 	@Override
 	public String getFunctionName()
@@ -51,9 +49,6 @@ public class InputFunction implements Function
 		return "INPUT";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
