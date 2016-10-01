@@ -32,7 +32,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.apache.commons.lang.math.Fraction;
-import org.jdom.Element;
+import org.jdom2.Element;
 
 import pcgen.util.Logging;
 
