@@ -1,13 +1,13 @@
 package pcgen.io;
 
 import java.io.File;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
 
 /**
  * Tests {@link PCGFile}.
  */
-public class PCGFileTest extends PCGenTestCase
+public class PCGFileTest extends TestCase
 {
 
 	/**

@@ -26,7 +26,7 @@ package plugin.lsttokens.gamemode.abilitycategory;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -44,7 +44,7 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilityListTokenTest extends PCGenTestCase
+public class AbilityListTokenTest extends TestCase
 {
 
 	private RuntimeLoadContext context;

@@ -23,7 +23,7 @@
  */
 package pcgen.core.utils;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.base.lang.StringUtil;
 import pcgen.system.PCGenPropBundle;
 
@@ -39,7 +39,7 @@ import java.util.List;
  * @see pcgen.core.utils.CoreUtility
  */
 @SuppressWarnings("nls")
-public class CoreUtilityTest extends PCGenTestCase
+public class CoreUtilityTest extends TestCase
 {
 	/**
 	 * Constructs a new <code>CoreUtilityTest</code>.

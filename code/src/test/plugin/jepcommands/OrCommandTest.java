@@ -23,13 +23,15 @@
  */
 package plugin.jepcommands;
 
+import java.util.Stack;
+
+import pcgen.PCGenTestCase;
+import pcgen.util.testchecker.CompareEqualDouble;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-import pcgen.PCGenTestCase;
-
-import java.util.Stack;
 
 /**
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
@@ -165,6 +167,6 @@ public class OrCommandTest extends PCGenTestCase
 
         final Object result = s.pop();
 
-        is(result, eq(0.0), "if (false,false,false,false) returns 0.0");
+        is(result, new CompareEqualDouble(0.0), "if (false,false,false,false) returns 0.0");
     }
 }

@@ -23,13 +23,14 @@
  */
 package plugin.jepcommands;
 
+import java.util.Stack;
+
+import pcgen.PCGenTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-import pcgen.PCGenTestCase;
-
-import java.util.Stack;
 
 /**
  * <code>IfCommandTest</code> tests the functioning of the jep if plugin
