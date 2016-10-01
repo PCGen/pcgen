@@ -21,7 +21,6 @@ import java.net.URI;
 
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 import pcgen.cdom.reference.CDOMAllRef;
 import pcgen.cdom.reference.CDOMCategorizedSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;

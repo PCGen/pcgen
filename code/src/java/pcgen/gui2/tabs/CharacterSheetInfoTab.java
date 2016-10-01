@@ -25,9 +25,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
-import java.io.FileFilter;
 import java.util.Arrays;
-import java.util.Comparator;
 
 import javax.swing.Box;
 import javax.swing.ComboBoxModel;

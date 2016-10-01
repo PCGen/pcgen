@@ -41,7 +41,6 @@ import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.HashMapToList;
-import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;

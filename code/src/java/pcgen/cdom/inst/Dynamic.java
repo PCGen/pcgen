@@ -22,7 +22,6 @@ import java.net.URI;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Categorized;
 import pcgen.cdom.base.Category;
-import pcgen.cdom.base.Loadable;
 
 public class Dynamic implements VarScoped, Categorized<Dynamic>
 {
