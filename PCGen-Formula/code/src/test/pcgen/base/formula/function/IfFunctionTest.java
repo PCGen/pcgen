@@ -35,7 +35,6 @@ import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 import pcgen.base.testsupport.TestUtilities;
-import pcgen.base.util.FormatManager;
 
 public class IfFunctionTest extends AbstractFormulaTestCase
 {

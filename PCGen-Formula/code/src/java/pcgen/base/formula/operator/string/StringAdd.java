@@ -66,8 +66,15 @@ public class StringAdd implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		return Objects.requireNonNull(left).toString()
-			+ Objects.requireNonNull(right);
+		/*
+		 * DO NOT attempt to change this to have A.toString() + B and have
+		 * .toString implied on B. That will not catch errors where the items
+		 * are not Strings.  Please leave the casting as indicated.
+		 * 
+		 * See: StringAddTest.testEvaluateMismatch unit test
+		 */
+		return (String) Objects.requireNonNull(left)
+			+ (String) Objects.requireNonNull(right);
 	}
 
 }

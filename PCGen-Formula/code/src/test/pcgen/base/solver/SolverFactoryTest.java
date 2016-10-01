@@ -133,7 +133,7 @@ public class SolverFactoryTest extends TestCase
 		try
 		{
 			//intentionally break generics
-			factory.addSolverFormat(String.class, (Modifier<String>) setNumber);
+			factory.addSolverFormat(String.class, (Modifier) setNumber);
 			fail("Should not be able to add Format with mismatch");
 		}
 		catch (IllegalArgumentException e)
