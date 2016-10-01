@@ -8,15 +8,11 @@
  * Author: James Dempsey 
  */
 
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'jdepend'
-
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	sourceSets = []
+	sourceSets = [sourceSets.main]
 }
 
 pmd {
@@ -25,7 +21,7 @@ pmd {
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
 	ignoreFailures = true
-	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
+	sourceSets = [sourceSets.main]
 	toolVersion = "5.5.1"
 }
 
@@ -34,4 +30,23 @@ jdepend {
 	sourceSets = []
 }
 
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain'] }
+findbugs {
+	ignoreFailures = true
+//	effort = 'max'
+	sourceSets = [sourceSets.main]
+}
+
+tasks.withType(FindBugs) {
+	reports {
+		xml.enabled false
+		html.enabled true
+		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+		excludeFilterConfig resources.text.fromFile('code/standards/findbugs_ignore.xml')
+		reportLevel 'low'
+		// While these can be filtered out later, there is a minor speedup to disabling them here.
+		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
+						'DoInsideDoPrivileged', 'CyclomaticComplexity']
+	}
+}
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain', 'findbugs'] }
