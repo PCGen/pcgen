@@ -22,10 +22,8 @@ package pcgen.system;
 
 import java.io.File;
 import java.io.IOException;
-import java.net.URI;
 import java.util.ArrayList;
 import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.logging.Level;
 
@@ -40,7 +38,6 @@ import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.UIDelegate;
-import pcgen.facade.util.AbstractListFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
 import pcgen.gui2.facade.CharacterFacadeImpl;
@@ -53,7 +50,6 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.PlayerCharacterWasLoadedMessage;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.ArrayUtils;
 import org.apache.commons.lang.ObjectUtils;
 import org.apache.commons.lang.StringUtils;
 
