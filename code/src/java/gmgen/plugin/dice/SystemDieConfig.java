@@ -21,6 +21,7 @@ package gmgen.plugin.dice;
 
 import java.text.MessageFormat;
 import java.util.Random;
+import java.util.stream.IntStream;
 
 public class SystemDieConfig implements DiceConfig
 {
@@ -28,27 +29,31 @@ public class SystemDieConfig implements DiceConfig
 	private final int sides;
 	private final int bias;
 
-	private final ResultCounter counter;
-	private final ResultModifier[] modifiers;
+	private static int systemExplode(final int i) {
+		switch (i) {
+			case 1:
+				return -9;
+			case 20:
+				return 30;
+			default:
+				return i;
+		}
+	}
 
 	public SystemDieConfig(final int n, final int sides, final int bias, final Random random) {
 		this.n = n;
 		this.sides = sides;
 		this.bias = bias;
-		counter = new SimpleSumCounter();
-		modifiers = new ResultModifier[] {
-			new AppendModifier(n, sides, random),
-			new SystemModifier(),
-			new SimpleModifier(bias)
-		};
 	}
 
 	@Override
 	public int roll()
 	{
-		return counter.totalCount(
-				ResultModifier.modify(modifiers)
-		);
+		return IntStream.generate(() -> Die.rand.nextInt(sides) + 1)
+				.map(SystemDieConfig::systemExplode)
+				.map(v -> v + bias)
+				.limit(n)
+				.sum();
 	}
 
 	@Override
