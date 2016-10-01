@@ -23,8 +23,7 @@ ul.navtree li
 
 ul.navtree li.gap
 {
-    list-style-image: none;
-    list-style: none
+    list-style: none;
 }
 
 ul.navtree li a
@@ -41,10 +40,10 @@ img.newindex
  span.deprecated
  {
      color: #FF0000; 
-     font-size: 80%
+     font-size: 80%;
  }
 
  span.note
  {
-     font-size: 80%
+     font-size: 80%;
  }
