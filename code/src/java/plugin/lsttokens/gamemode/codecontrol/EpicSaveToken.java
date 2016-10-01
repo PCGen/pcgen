@@ -21,12 +21,12 @@ import pcgen.cdom.inst.CodeControl;
 import pcgen.cdom.util.CControl;
 import pcgen.rules.persistence.token.AbstractStringStoringToken;
 
-public class MagicSave extends AbstractStringStoringToken<CodeControl>
+public class EpicSaveToken extends AbstractStringStoringToken<CodeControl>
 {
 	@Override
 	public String getTokenName()
 	{
-		return CControl.MAGICSAVE;
+		return CControl.EPICSAVE;
 	}
 
 	@Override
