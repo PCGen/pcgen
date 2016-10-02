@@ -55,7 +55,7 @@ public final class TestSupport
 		{
 			instance = constructor.newInstance();
 		}
-		catch (InvocationTargetException ite)
+		catch (InvocationTargetException | InstantiationException ite)
 		{
 			System.err.println("Instance creation failed with [" + ite.getCause() + "]");
 		}
@@ -63,11 +63,7 @@ public final class TestSupport
 		{
 			System.err.println("Instance creation failed due to access violation.");
 		}
-		catch (InstantiationException ie)
-		{
-			System.err.println("Instance creation failed with [" + ie.getCause() + "]");
-		}
-		
+
 		return instance;
 	}
 }
