@@ -243,16 +243,6 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     rename "(.+)-$version(.+)", '$1$2'
 }
 
-task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
-    outputs.dir("$projectDir/libs")
-    inputs.files(fileTree("$buildDir/libs"))
-
-    from "$buildDir/libs"
-    into "$projectDir/libs"
-    exclude "pcgen-*.jar"
-}
-
 task cleanRoot(type: Delete) {
     description="Clean up things copied to the root folder by the build"
     delete "$projectDir/pcgen.jar"
@@ -266,7 +256,7 @@ task cleanRoot(type: Delete) {
 }
 
 build {
-    it.dependsOn 'copyToRoot', 'syncLibsToRoot'
+    it.dependsOn 'copyToRoot'
 }
 
 clean {
