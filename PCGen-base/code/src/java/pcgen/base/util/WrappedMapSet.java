@@ -21,7 +21,6 @@ import java.util.AbstractSet;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.Map;
-import java.util.Set;
 
 /**
  * A WrappedMapSet allows the conversion of an arbitrary Map into a Set
