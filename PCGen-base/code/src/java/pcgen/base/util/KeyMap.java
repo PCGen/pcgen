@@ -270,7 +270,7 @@ public class KeyMap<V>
 	@Override
 	public String toString()
 	{
-		return "KeyMap: " + forwardMap.toString();
+		return "KeyMap: " + forwardMap;
 	}
 
 	/**
