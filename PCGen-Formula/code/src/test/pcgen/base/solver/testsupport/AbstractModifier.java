@@ -248,4 +248,23 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 		};
 	}
 
+	public static <T> AbstractModifier<T> setObject(final T value, int priority)
+	{
+		Class<T> cl = (Class<T>) value.getClass();
+		return new AbstractModifier<T>(2, cl, priority)
+		{
+			@Override
+			public T process(EvaluationManager manager)
+			{
+				return value;
+			}
+
+			@Override
+			public String getInstructions()
+			{
+				return value.toString();
+			}
+		};
+	}
+
 }

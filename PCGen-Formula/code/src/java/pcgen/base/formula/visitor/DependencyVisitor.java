@@ -227,15 +227,26 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 */
 	public void visitVariable(String varName, DependencyManager manager)
 	{
-		VariableLibrary varLib =
-				manager.get(DependencyManager.FMANAGER).getFactory();
-		VariableID<?> id =
-				varLib.getVariableID(manager.get(DependencyManager.INSTANCE),
-					varName);
+		VariableID<?> id = getVariableID(varName, manager);
 		if (id != null)
 		{
 			manager.addVariable(id);
 		}
+	}
+
+	/**
+	 * Returns the VariableID for the given variable name using the information provided
+	 * in the given DependencyManager.
+	 * 
+	 * @return the VariableID for the given variable name using the information provided
+	 *         in the given DependencyManager
+	 */
+	public VariableID<?> getVariableID(String varName, DependencyManager manager)
+	{
+		VariableLibrary varLib =
+				manager.get(DependencyManager.FMANAGER).getFactory();
+		return varLib.getVariableID(manager.get(DependencyManager.INSTANCE),
+			varName);
 	}
 
 	/**

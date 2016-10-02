@@ -31,6 +31,7 @@ import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -298,5 +299,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected ManagerFactory getManagerFactory()
 	{
 		return managerFactory;
+	}
+
+	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
+	{
+		return localSetup.getInstanceFactory().get(scopeName, vs);
 	}
 }

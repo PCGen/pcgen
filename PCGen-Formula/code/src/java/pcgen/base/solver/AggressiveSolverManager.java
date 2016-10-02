@@ -46,7 +46,7 @@ import pcgen.base.util.FormatManager;
  * the AggressiveSolverManager will build and manage the associated Solver for
  * that VariableID.
  */
-public class AggressiveSolverManager
+public class AggressiveSolverManager implements SolverManager
 {
 
 	/**
@@ -137,6 +137,7 @@ public class AggressiveSolverManager
 	 * @param varID
 	 *            The VariableID used to identify the Solver to be built
 	 */
+	@Override
 	public <T> void createChannel(VariableID<T> varID)
 	{
 		Solver<?> currentSolver = scopedChannels.get(Objects.requireNonNull(varID));
@@ -166,6 +167,7 @@ public class AggressiveSolverManager
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters is null
 	 */
+	@Override
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
@@ -267,6 +269,7 @@ public class AggressiveSolverManager
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters is null
 	 */
+	@Override
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
 		ScopeInstance source)
 	{
@@ -301,16 +304,16 @@ public class AggressiveSolverManager
 	}
 
 	/**
-	 * Process Dependencies for the given VariableID stored in the given
+	 * Process Dependencies to be removed for the given VariableID stored in the given
 	 * DependencyManager.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
-	 *            The VariableID for which dependencies will be captured
+	 *            The VariableID for which dependencies will be removed
 	 * @param dm
-	 *            The DependencyManager to be loaded with the dependencies of
-	 *            the given VariableID
+	 *            The DependencyManager containing the dependencies of the given
+	 *            VariableID
 	 */
 	private <T> void processDependencies(VariableID<T> varID,
 		DependencyManager dm)

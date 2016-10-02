@@ -118,6 +118,12 @@ public class DependencyManager
 	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
 
 	/**
+	 * A TypedKey used for storing the dynamic dependencies for the formula
+	 * served by this DependencyManager.
+	 */
+	public static final TypedKey<DynamicManager> DYNAMIC = new TypedKey<DynamicManager>();
+
+	/**
 	 * Adds a Variable (identified by the VariableID) to the list of
 	 * dependencies for a Formula.
 	 * 
