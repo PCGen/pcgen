@@ -18,7 +18,7 @@
 package pcgen.base.graph.inst;
 
 import pcgen.base.graph.base.GraphEdge;
-import pcgen.base.graph.inst.DefaultGraphEdge;
+
 import junit.framework.TestCase;
 
 public class DefaultGraphEdgeTest extends TestCase

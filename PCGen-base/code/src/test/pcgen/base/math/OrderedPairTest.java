@@ -16,7 +16,6 @@
  */
 package pcgen.base.math;
 
-import pcgen.base.math.OrderedPair;
 import junit.framework.TestCase;
 
 public class OrderedPairTest extends TestCase

@@ -23,7 +23,7 @@ import java.util.Collection;
 import java.util.List;
 
 import pcgen.base.graph.base.DirectionalEdge;
-import pcgen.base.graph.inst.DefaultDirectionalHyperEdge;
+
 import junit.framework.TestCase;
 
 public class DefaultDirectionalHyperEdgeTest extends TestCase
