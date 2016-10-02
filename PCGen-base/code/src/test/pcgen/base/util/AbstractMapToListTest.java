@@ -288,8 +288,7 @@ public abstract class AbstractMapToListTest extends TestCase
 		{
 			//Yep!
 		}
-		assertFalse(dkm.containsAnyInList(Integer.valueOf(2),
-			Collections.EMPTY_LIST));
+		assertFalse(dkm.containsAnyInList(Integer.valueOf(2), Collections.<Character>emptyList()));
 
 		assertTrue(dkm.containsAnyInList(null,
 			Arrays.asList(new Character[]{CONST_A, CONST_F})));
