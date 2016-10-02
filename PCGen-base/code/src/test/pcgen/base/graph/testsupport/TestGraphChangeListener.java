@@ -38,14 +38,6 @@ public class TestGraphChangeListener<T, ET extends Edge<T>> implements
 
 	public int edgeCount = 0;
 
-	/**
-	 * 
-	 */
-	public TestGraphChangeListener()
-	{
-		super();
-	}
-
 	/*
 	 * (non-Javadoc)
 	 * 
