@@ -229,7 +229,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	}
 
 	@Override
-	public boolean hasAdjacentEdges(N gn)
+	public boolean hasAdjacentEdge(N gn)
 	{
 		if (!containsNode(gn))
 		{

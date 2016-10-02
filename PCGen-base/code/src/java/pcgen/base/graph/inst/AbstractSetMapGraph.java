@@ -330,7 +330,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	}
 
 	@Override
-	public boolean hasAdjacentEdges(N node)
+	public boolean hasAdjacentEdge(N node)
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
 		Set<ET> adjacentEdges = nodeEdgeMap.get(node);

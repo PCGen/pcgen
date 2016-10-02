@@ -178,7 +178,7 @@ public interface Graph<N, ET extends Edge<N>>
 	 * @return true if there are Edges that are adjacent (connected) to the given Node;
 	 *         false otherwise
 	 */
-	public boolean hasAdjacentEdges(N node);
+	public boolean hasAdjacentEdge(N node);
 
 	/**
 	 * Returns a Set of the Edges that are adjacent (connected) to the given
