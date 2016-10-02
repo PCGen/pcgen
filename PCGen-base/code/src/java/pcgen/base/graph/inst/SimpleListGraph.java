@@ -228,6 +228,27 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 		return false;
 	}
 
+	@Override
+	public boolean hasAdjacentEdge(N gn)
+	{
+		if (!containsNode(gn))
+		{
+			return false;
+		}
+		for (ET ge : edgeList)
+		{
+			List<N> graphNodes = ge.getAdjacentNodes();
+			for (N node : graphNodes)
+			{
+				if (node.equals(gn))
+				{
+					return true;
+				}
+			}
+		}
+		return false;
+	}
+
 	/**
 	 * Returns a Set of the Edges which are Adjacent (connected) to the given
 	 * Node. Returns null if the given Node is not in the Graph.

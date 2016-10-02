@@ -169,6 +169,18 @@ public interface Graph<N, ET extends Edge<N>>
 	public boolean removeEdge(ET edge);
 
 	/**
+	 * Returns true if there are one or more Edges that are adjacent (connected) to the
+	 * given Node. Returns false if there are no adjacent edges or the given Node is not
+	 * in this Graph.
+	 * 
+	 * @param node
+	 *            The Node for which adjacent Edges should be checked
+	 * @return true if there are one or more Edges that are adjacent (connected) to the
+	 *         given Node; false otherwise
+	 */
+	public boolean hasAdjacentEdge(N node);
+
+	/**
 	 * Returns a Set of the Edges that are adjacent (connected) to the given
 	 * Node. Returns null if the given Node is not present in the Graph.
 	 * 
