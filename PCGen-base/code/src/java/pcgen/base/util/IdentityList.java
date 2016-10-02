@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.lang.reflect.Array;
 import java.util.Collection;
 import java.util.Iterator;
 import java.util.LinkedList;
@@ -277,7 +278,7 @@ public class IdentityList<T> implements List<T>
 		if (newArray.length < size)
 		{
 			returnArray =
-					(V[]) java.lang.reflect.Array.newInstance(newArray
+					(V[]) Array.newInstance(newArray
 						.getClass().getComponentType(), size);
 		}
 		putIntoArray(array, returnArray);
