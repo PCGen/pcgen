@@ -103,7 +103,7 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 	 * themselves, but is present in AbstractListMapGraph in order to speed
 	 * calls to getAdjacentEdges
 	 */
-	private final transient Map<N, Set<ET>> nodeEdgeMap;
+	private final Map<N, Set<ET>> nodeEdgeMap;
 
 	/**
 	 * The GraphChangeSupport object which provides management of
