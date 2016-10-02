@@ -1,0 +1,126 @@
+.TH tofrodos 1 "Version 1.7.13" "2013"
+.SH NAME
+tofrodos
+\- Converts text files between DOS and Unix formats.
+.SH SYNOPSIS
+.B fromdos
+[
+.I options
+] [file...]
+.br
+.B todos
+[
+.I options
+] [file...]
+.br
+.SH DESCRIPTION
+DOS text files traditionally have carriage return and line feed pairs
+as their newline characters while Unix text files have the line feed
+as their newline character.
+.I fromdos
+converts ASCII and Unicode UTF-8 text files from the DOS format to the Unix format, while
+.I todos
+converts them from the Unix format to the DOS format.
+.PP
+The programs accept multiple filenames and wildcards as their arguments.
+You may also use them in a pipe.
+If either program finds its input redirected, it will process stdin
+and place the output on stdout.
+.SH OPTIONS
+.TP
+.BI \-a
+This option is deprecated. Do not use it unless you know what you're doing. By default,
+Tofrodos does the expected thing for text files. That is, when converting from
+DOS to Unix, it will remove carriage returns only if they are followed by line feeds.
+When converting from Unix to DOS, it will add carriage returns only if the linefeeds
+are not already preceeded by carriage returns. When Tofrodos is run on a normal text file that
+has already been converted, the resulting file should be identical to the original. However,
+if you use this option, the program will always remove carriage returns in the DOS to Unix mode
+and always add carriage returns in the Unix to DOS mode even if it is not appropriate.
+.TP
+.BI \-b
+Make a backup of original file. The original file with a
+.I .bak
+extension appended to the original filename, silently replacing any existing file of that name.
+For example, a file called "filename.ext" becomes "filename.ext.bak" replacing any existing file
+having the name "filename.ext.bak".
+Important: the program behaves differently if it is compiled for DOS (as compared to being compiled for Windows, Linux,
+Mac OS X or other systems). In view of the filename restrictions present on DOS, the DOS executable
+will strip the original file extension, if any, from the file before appending the
+.I .bak
+extension. For example, "filename.ext" becomes "filename.bak".
+.TP
+.BI \-d
+Convert from DOS to Unix. This forces the program to convert the file in
+a particular direction. By default, if the program is named
+.I fromdos
+or
+.I dos2unix,
+it will assume that the input file is in a DOS format and convert it to
+a Unix format. If the program is named
+.I todos
+or
+.I unix2dos,
+it will assume that the input file is in a Unix format and convert it to
+a DOS format. Using the
+.I \-d
+option forces the program to convert from a DOS format
+to a Unix format regardless of how the program is named. Likewise, using the
+.I \-u
+option forces the program to convert from a Unix format to a DOS format
+regardless of the name of the program.
+.TP
+.BI \-e
+Abort processing on any error in any file. Normally, the program will
+simply skip to process the next file on the command line when it encounters
+any errors. This option causes it to abort on errors.
+.TP
+.BI \-f
+Force: convert even if the file is not writeable (read-only). By default,
+if the program finds that the file does not have write permission, it will not process
+that file. This option forces the conversion even if the file is read-only.
+.TP
+.BI \-h
+Display a short help screen on the program usage and quit.
+.TP
+.BI \-l <logfile>
+Log error messages to <logfile>. Note that if your command line has an
+error, such as when you specify an unknown option, the error message for the
+command line option error will be issued to stderr instead and not logged.
+.TP
+.BI \-o
+Overwrite the original file (no backup). This is the default.
+.TP
+.BI \-p
+Preserve file ownership and time on Unix-type systems (like Linux). On Windows and MSDOS, it only
+preserves the file time. Note that on many Unix-type systems, including Linux, the file
+ownership will only be preserved if the program is run as root, otherwise it
+will just set the file time and silently fail the change of file
+ownership. On such systems, if you want a warning message when the file ownership
+cannot be changed, use \-v (the verbose flag) as well.
+.TP
+.BI \-u
+Convert from Unix to DOS. See the
+.I \-d
+option above for more information.
+.TP
+.BI \-v
+Verbose.
+.TP
+.BI \-V
+Show version message and quit.
+.SH EXIT CODE
+Tofrodos terminates with an exit code of 0 on success and 1 on error.
+.PP
+If the program is invoked with multiple files on the command line, the default behaviour is to skip to the next
+file in the list if an error is encountered with any file. In such a case, the exit code returned will the
+status of the last file processed (ie, 0 on success, 1 on failure). If this is not desirable, use the \-e option,
+which will force the program to abort immediately with the appropriate exit code on encountering any error.
+.SH AUTHOR
+The program and its documentation are copyrighted (c) 1996-2013 by
+Christopher Heng. All rights reserved. They are distributed under
+the terms of the GNU General Public License Version 2.
+.PP
+The latest version of tofrodos can be obtained from
+.br
+http://www.thefreecountry.com/tofrodos/index.shtml
