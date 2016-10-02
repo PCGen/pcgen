@@ -584,11 +584,7 @@ public class DoubleKeyMapTest extends TestCase
 			dkm.putAll(null);
 			fail();
 		}
-		catch (NullPointerException e)
-		{
-			// OK
-		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			// OK
 		}

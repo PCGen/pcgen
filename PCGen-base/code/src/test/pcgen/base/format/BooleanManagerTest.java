@@ -29,13 +29,9 @@ public class BooleanManagerTest extends TestCase
 			manager.convert(null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 
@@ -59,13 +55,9 @@ public class BooleanManagerTest extends TestCase
 			manager.unconvert(null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 
@@ -76,13 +68,9 @@ public class BooleanManagerTest extends TestCase
 			manager.convertIndirect(null);
 			fail("null value should fail");
 		}
-		catch (NullPointerException e)
+		catch (NullPointerException | IllegalArgumentException e)
 		{
 			//ok
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok as well
 		}
 	}
 

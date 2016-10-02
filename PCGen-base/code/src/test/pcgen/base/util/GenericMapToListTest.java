@@ -71,17 +71,13 @@ public class GenericMapToListTest extends TestCase
 			new GenericMapToList(StrangeMap.class);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | IllegalAccessException e)
 		{
 			fail(e.getMessage());
 		}
 		catch (InstantiationException e)
 		{
 			//OK, expected
-		}
-		catch (IllegalAccessException e)
-		{
-			fail(e.getMessage());
 		}
 	}
 }
