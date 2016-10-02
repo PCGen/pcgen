@@ -329,6 +329,14 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 		return true;
 	}
 
+	@Override
+	public boolean hasAdjacentEdges(N node)
+	{
+		// implicitly returns null if gn is not in the nodeEdgeMap
+		Set<ET> adjacentEdges = nodeEdgeMap.get(node);
+		return adjacentEdges == null ? false : !adjacentEdges.isEmpty();
+	}
+
 	/**
 	 * Returns a Set of the Edges which are Adjacent (connected) to the given
 	 * Node. Returns null if the given Node is not in the Graph.
