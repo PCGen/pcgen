@@ -114,7 +114,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		//assume not empty due to checks on instructions
 		return (value.charAt(0) != separator)
 			&& (value.charAt(value.length() - 1) != separator)
-			&& (value.indexOf(String.valueOf(new char[]{separator, separator})) == -1);
+			&& (!value.contains(String.valueOf(new char[]{separator, separator})));
 	}
 
 	/**
