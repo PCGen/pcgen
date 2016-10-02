@@ -12,6 +12,7 @@
  *
  * Author: James Dempsey
  */
+import org.apache.tools.ant.taskdefs.condition.Os
 
 plugins {
     id 'application'
@@ -155,7 +156,7 @@ dependencies {
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
     compile group: 'xalan', name: 'xalan', version:'2.7.2'
     compile group: 'xerces', name: 'xercesImpl', version:'2.11.0'
-    compile group: 'xml-apis', name: 'xml-apis', version:'2.0.2'
+    compile group: 'xml-apis', name: 'xml-apis', version:'1.0.b2'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.64'
@@ -230,7 +231,8 @@ task copyToLibs(type: Copy) {
     from configurations.runtime
 }
 
-task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
+task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar,
+        'unixLineEndings']) {
     outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
     from "$buildDir/libs/pcgen-${version}.jar"
@@ -241,8 +243,23 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     rename "(.+)-$version(.+)", '$1$2'
 }
 
+//Install the tools from: http://www.thefreecountry.com/tofrodos/
+task unixLineEndings( type: Exec ) {
+    if(Os.isFamily(Os.FAMILY_WINDOWS)){
+        workingDir "$projectDir/code/sbin/tofrodos"
+        commandLine "cmd", "/c", "fromdos $projectDir/code/pcgen.sh"
+    }else if(Os.isFamily(Os.FAMILY_UNIX)){
+        println "If this fails you'll need to install dos2unix."
+        println "For example for Debian: apt-get install dos2unix."
+        println "Or read the installation instructions specific for your OS on readme.txt file."
+        commandLine "dos2unix", "$projectDir/code/pcgen.sh"
+    }
+}
+
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.dir("$projectDir/libs")
+    inputs.files(fileTree("$buildDir/libs"))
 
     from "${buildDir}/libs"
     into "$projectDir/libs"

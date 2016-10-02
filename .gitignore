@@ -47,3 +47,4 @@ data/customsources/*
 /installers/win-installer/includes/data.nsh
 /installers/win-installer/includes/constants.nsh
 /jre/
+.nb-gradle-properties
