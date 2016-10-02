@@ -49,7 +49,7 @@ public class DefaultMap<K, V> extends HashMap<K, V>
 		 * Please note this cannot be done as a get and a test for null, because
 		 * null is a valid map if the key is actually contained within the Map.
 		 */
-		return super.containsKey(key) ? super.get(key) : defaultValue;
+		return containsKey(key) ? super.get(key) : defaultValue;
 	}
 
 	/**
