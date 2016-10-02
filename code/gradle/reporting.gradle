@@ -11,7 +11,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
-	sourceSets = [sourceSets.main]
+	sourceSets = []
 }
 
 pmd {
@@ -20,14 +20,14 @@ pmd {
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
 	ignoreFailures = true
-	sourceSets = [sourceSets.main]
+	sourceSets = []
 	toolVersion = "5.5.1"
 }
 
 findbugs {
 	ignoreFailures = true
 //	effort = 'max'
-	sourceSets = [sourceSets.main]
+	sourceSets = []
 }
 
 tasks.withType(FindBugs) {
