@@ -34,8 +34,7 @@ import pcgen.base.lang.StringUtil;
  * A FixedStringList will always report the size defined at construction and
  * will always iterate over the null values.
  */
-public class FixedStringList extends AbstractList<String> implements
-		List<String>, RandomAccess
+public class FixedStringList extends AbstractList<String> implements RandomAccess
 {
 
 	/**

@@ -35,7 +35,7 @@ import java.util.Set;
  * @param <T>
  *            The type of object stored in this ListSet
  */
-public class ListSet<T> extends AbstractSet<T> implements Set<T>
+public class ListSet<T> extends AbstractSet<T>
 {
 
 	/**
