@@ -47,7 +47,7 @@ public class EvaluationManager extends MappedDeque
 			new TypedKey<ScopeInstance>();
 
 	/**
-	 * A TypedKey used for storing the Format (as a Class<?>) asserted by the
+	 * A TypedKey used for storing the Format (as a Class) asserted by the
 	 * current context of a formula.
 	 */
 	public static final TypedKey<Class<?>> ASSERTED = new TypedKey<Class<?>>();
