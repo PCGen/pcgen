@@ -4,11 +4,13 @@ import pcgen.PCGenTestCase;
 import pcgen.cdom.content.BaseDice;
 import pcgen.util.TestHelper;
 
+import junit.framework.TestCase;
+
 /**
  * This class tests global areas of PCGen
  */
 @SuppressWarnings("nls")
-public class GlobalsTest extends PCGenTestCase
+public class GlobalsTest extends TestCase
 {
 	/**
 	 * Constructs a new <code>GlobalsTest</code>.
@@ -48,16 +50,16 @@ public class GlobalsTest extends PCGenTestCase
 	public void testPreviewTab()
 	{
 		// Expect to be initialised false
-		is(SettingsHandler.isPreviewTabShown(), eq(false), "Initialised False");
+		PCGenTestCase.is(SettingsHandler.isPreviewTabShown(), PCGenTestCase.eq(false), "Initialised False");
 
 		// Set true, expect to get true back
 		SettingsHandler.setPreviewTabShown(true);
-		is(SettingsHandler.isPreviewTabShown(), eq(true), "Show update to True");
+		PCGenTestCase.is(SettingsHandler.isPreviewTabShown(), PCGenTestCase.eq(true), "Show update to True");
 
 		// Set false again to prove it toggles properly
 		SettingsHandler.setPreviewTabShown(false);
-		is(SettingsHandler.isPreviewTabShown(), eq(false),
-			"Show update to False");
+		PCGenTestCase.is(SettingsHandler.isPreviewTabShown(), PCGenTestCase.eq(false),
+		                 "Show update to False");
 	}
 
 //	/**
@@ -391,9 +393,9 @@ public class GlobalsTest extends PCGenTestCase
 	public void testAdjustDamage()
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
-				"size list initialised");
+		PCGenTestCase.is(Globals.getContext().getReferenceContext()
+				.getConstructedObjectCount(SizeAdjustment.class), PCGenTestCase.gt(0),
+		                 "size list initialised");
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
@@ -411,7 +413,7 @@ public class GlobalsTest extends PCGenTestCase
 				SizeAdjustment.class, "S");
 		SizeAdjustment medium = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				SizeAdjustment.class, "M");
-		is(Globals.adjustDamage("1d6", medium, small), strEq("1d4"),
-			"reduction of damage due to smaller size");
+		PCGenTestCase.is(Globals.adjustDamage("1d6", medium, small), PCGenTestCase.strEq("1d4"),
+		                 "reduction of damage due to smaller size");
 	}
 }

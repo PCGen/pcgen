@@ -28,10 +28,8 @@ import java.math.BigDecimal;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.BaseDice;
@@ -43,6 +41,11 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.GenericLoader;
+
+import junit.framework.Test;
+import junit.framework.TestCase;
+import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 
 /**
  * Equipment Test
@@ -114,7 +117,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		eq = eqLoader.parseLine(Globals.getContext(), null,
 			"Dummy	SIZE:M 	KEY:OrigKey	TYPE:Weapon", source);
 		eq = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
-				Equipment.class, OriginalKey);
+				Equipment.class, EquipmentTest.OriginalKey);
 
 		eqDouble = eqLoader.parseLine(Globals.getContext(), null,
 			"Double	SIZE:M 	KEY:DoubleKey	TYPE:Weapon.Double", source);
@@ -149,7 +152,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	// Original Key was what I expected
 	public void testcreateKeyForAutoResize001()
 	{
-		is(this.eq.getKeyName(), strEq(this.OriginalKey));
+		PCGenTestCase.is(this.eq.getKeyName(), PCGenTestCase.strEq(this.OriginalKey));
 	}
 
 	/** 
@@ -163,7 +166,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase()
 					+ this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(newSize), PCGenTestCase.strEq(expectedKey));
 	}
 
 	/** 
@@ -177,13 +180,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(newSize), PCGenTestCase.strEq(expectedKey));
 	}
 
 	/** Try empty new size */
 	public void testcreateKeyForAutoResize004()
 	{
-		is(this.eq.createKeyForAutoResize(null), strEq(this.OriginalKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(null), PCGenTestCase.strEq(this.OriginalKey));
 	}
 
 	/** Ensure that second customisation will work correctly */
@@ -195,7 +198,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(newSize), PCGenTestCase.strEq(expectedKey));
 
 		newSize = diminutive;
 
@@ -203,7 +206,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 				Constants.AUTO_RESIZE_PREFIX + newSize.getKeyName().toUpperCase().substring(0, 1)
 					+ this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(newSize), strEq(expectedKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(newSize), PCGenTestCase.strEq(expectedKey));
 	}
 
 	/** Try nonsense abbreviation for Size */
@@ -211,8 +214,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		String unExpectedKey = Constants.AUTO_RESIZE_PREFIX + "X" + this.OriginalKey;
 
-		is(this.eq.createKeyForAutoResize(null), not(strEq(unExpectedKey)));
-		is(this.eq.createKeyForAutoResize(null), strEq(this.OriginalKey));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(null), PCGenTestCase.not(PCGenTestCase.strEq(unExpectedKey)));
+		PCGenTestCase.is(this.eq.createKeyForAutoResize(null), PCGenTestCase.strEq(this.OriginalKey));
 	}
 
 	/*****************************************************************************
@@ -222,19 +225,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	/** Test with Size that exists and is formatted correctly */
 	public void testcreateNameForAutoResize002()
 	{
-		is(this.eq.createNameForAutoResize(large), strEq("Dummy (Large)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(large), PCGenTestCase.strEq("Dummy (Large)"));
 	}
 
 	/** Test with Abbreviation for Size that exists */
 	public void testcreateNameForAutoResize003()
 	{
-		is(this.eq.createNameForAutoResize(fine), strEq("Dummy (Fine)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(fine), PCGenTestCase.strEq("Dummy (Fine)"));
 	}
 
 	/** Test with Nonexistant size */
 	public void testcreateNameForAutoResize004()
 	{
-		is(this.eq.createNameForAutoResize(null), strEq("Dummy"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(null), PCGenTestCase.strEq("Dummy"));
 	}
 
 	/** Test that size is replaced correctly */
@@ -249,13 +252,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (Large)"));
-		is(eq.getSize(), strEq("L"));
+		PCGenTestCase.is(eq.getKeyName(), PCGenTestCase.strEq(expectedKey));
+		PCGenTestCase.is(eq.getName(), PCGenTestCase.strEq("Pointy Stick (Large)"));
+		PCGenTestCase.is(eq.getSize(), PCGenTestCase.strEq("L"));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(diminutive),
-			strEq("Pointy Stick (Diminutive)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(diminutive),
+		                 PCGenTestCase.strEq("Pointy Stick (Diminutive)"));
 
 	}
 
@@ -272,13 +275,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Large)"));
-		is(eq.getSize(), strEq("L"));
+		PCGenTestCase.is(eq.getKeyName(), PCGenTestCase.strEq(expectedKey));
+		PCGenTestCase.is(eq.getName(), PCGenTestCase.strEq("Pointy Stick (+1/Large)"));
+		PCGenTestCase.is(eq.getSize(), PCGenTestCase.strEq("L"));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(gargantuan),
-			strEq("Pointy Stick (+1/Gargantuan)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(gargantuan),
+		                 PCGenTestCase.strEq("Pointy Stick (+1/Gargantuan)"));
 
 	}
 
@@ -294,13 +297,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Large/Speed)"));
-		is(eq.getSize(), strEq("L"));
+		PCGenTestCase.is(eq.getKeyName(), PCGenTestCase.strEq(expectedKey));
+		PCGenTestCase.is(eq.getName(), PCGenTestCase.strEq("Pointy Stick (+1/Large/Speed)"));
+		PCGenTestCase.is(eq.getSize(), PCGenTestCase.strEq("L"));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(colossal),
-			strEq("Pointy Stick (+1/Colossal/Speed)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(colossal),
+		                 PCGenTestCase.strEq("Pointy Stick (+1/Colossal/Speed)"));
 	}
 
 	/** Test that size is replaced correctly */
@@ -315,13 +318,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		String expectedKey = Constants.AUTO_RESIZE_PREFIX + "L" + this.OriginalKey;
 
 		// confirm test set up
-		is(eq.getKeyName(), strEq(expectedKey));
-		is(eq.getName(), strEq("Pointy Stick (+1/Speed)"));
-		is(eq.getSize(), strEq("L"));
+		PCGenTestCase.is(eq.getKeyName(), PCGenTestCase.strEq(expectedKey));
+		PCGenTestCase.is(eq.getName(), PCGenTestCase.strEq("Pointy Stick (+1/Speed)"));
+		PCGenTestCase.is(eq.getSize(), PCGenTestCase.strEq("L"));
 
 		// Now check that new name is generated Correctly
-		is(this.eq.createNameForAutoResize(colossal),
-			strEq("Pointy Stick (+1/Speed) (Colossal)"));
+		PCGenTestCase.is(this.eq.createNameForAutoResize(colossal),
+		                 PCGenTestCase.strEq("Pointy Stick (+1/Speed) (Colossal)"));
 	}
 
 	public void testResizeItem()
@@ -338,9 +341,9 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		GameMode gameMode = SettingsHandler.getGame();
-		is(Globals.getContext().getReferenceContext()
-				.getConstructedObjectCount(SizeAdjustment.class), gt(0),
-				"size list initialised");
+		PCGenTestCase.is(Globals.getContext().getReferenceContext()
+				.getConstructedObjectCount(SizeAdjustment.class), PCGenTestCase.gt(0),
+		                 "size list initialised");
 		BaseDice d6 = gameMode.getModeContext().getReferenceContext().constructCDOMObject(BaseDice.class, "1d6");
 		d6.addToDownList(new RollInfo("1d4"));
 		d6.addToDownList(new RollInfo("1d3"));
@@ -355,18 +358,18 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		d6.addToUpList(new RollInfo("12d6"));
 		Globals.getContext().getReferenceContext().importObject(d6);
 
-		is(custEq.getSize(), eq("M"), "starting size");
-		is(custEq.getDamage(getCharacter()), eq("1d6"), "starting size");
+		PCGenTestCase.is(custEq.getSize(), PCGenTestCase.eq("M"), "starting size");
+		PCGenTestCase.is(custEq.getDamage(getCharacter()), PCGenTestCase.eq("1d6"), "starting size");
 
 		// Drop the size
 		custEq.resizeItem(getCharacter(), small);
-		is(custEq.getSize(), eq("S"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d4"), "reduce size damage");
+		PCGenTestCase.is(custEq.getSize(), PCGenTestCase.eq("S"), "reduce size size");
+		PCGenTestCase.is(custEq.getDamage(getCharacter()), PCGenTestCase.eq("1d4"), "reduce size damage");
 
 		// Increase the size
 		custEq.resizeItem(getCharacter(), large);
-		is(custEq.getSize(), eq("L"), "reduce size size");
-		is(custEq.getDamage(getCharacter()), eq("1d8"), "reduce size damage");
+		PCGenTestCase.is(custEq.getSize(), PCGenTestCase.eq("L"), "reduce size size");
+		PCGenTestCase.is(custEq.getDamage(getCharacter()), PCGenTestCase.eq("1d8"), "reduce size damage");
 	}
 	
 	/**
@@ -377,17 +380,17 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
-		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
-		assertEquals("Equip size", "S", aEquip.getSize());
-		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
-		assertEquals("Output", "Falchion +1 (Small)$EQMOD=PLUS1W", aEquip.formatSaveLine('$', '=').trim());
+		TestCase.assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		TestCase.assertEquals("Equip size", "S", aEquip.getSize());
+		TestCase.assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		TestCase.assertEquals("Output", "Falchion +1 (Small)$EQMOD=PLUS1W", aEquip.formatSaveLine('$', '=').trim());
 	}
 	
 	/**
@@ -398,7 +401,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
 		aEquip.setBase();
@@ -406,10 +409,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
-		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
-		assertEquals("Equip size", "S", aEquip.getSize());
-		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
-		assertEquals("Output", "OrigKey$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
+		TestCase.assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		TestCase.assertEquals("Equip size", "S", aEquip.getSize());
+		TestCase.assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		TestCase.assertEquals("Output", "OrigKey$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
 		
 	}
 	
@@ -420,13 +423,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		TestCase.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy +1", aEquip
+		TestCase.assertEquals("Name after modifier added", "Dummy +1", aEquip
 			.getItemNameFromModifiers());
 		
 	}
@@ -438,13 +441,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		TestCase.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
+		TestCase.assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
 			.getItemNameFromModifiers());
 		
 	}
@@ -466,7 +469,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HIDDENMOD");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 		loader
 		.parseLine(
 			Globals.getContext(),
@@ -476,8 +479,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	EquipmentModifier eqMod2 =
 			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				EquipmentModifier.class, "HIDDENMOD2");
-	assertNotNull("Eqmod should be present", eqMod);
-	assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 	loader
 	.parseLine(
 		Globals.getContext(),
@@ -487,19 +490,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 EquipmentModifier eqMod3 =
 		Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "HIDDENMOD3");
-assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		TestCase.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		TestCase.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod2, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		TestCase.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod3, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		TestCase.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 
 	}
@@ -511,23 +514,23 @@ assertNotNull("Eqmod should be present", eqMod);
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
-		assertNotNull("Eqmod MWORKW should be present", eqMod);
+		TestCase.assertNotNull("Eqmod MWORKW should be present", eqMod);
 
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+		TestCase.assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		TestCase.assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
 		
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals(
+		TestCase.assertEquals(
 			"Invalid cost when adding an eqmod with a bonus to ITEMCOST", 300,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
-			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		TestCase.assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
+		                      aEquip.getCost(getCharacter()).floatValue(), 0.01);
 	}
 	
 	/**
@@ -548,7 +551,7 @@ assertNotNull("Eqmod should be present", eqMod);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HEADPT");
-		assertNotNull("Eqmod HEADPT should be present", eqMod);
+		TestCase.assertNotNull("Eqmod HEADPT should be present", eqMod);
 
 		loader
 			.parseLine(
@@ -563,26 +566,26 @@ assertNotNull("Eqmod should be present", eqMod);
 	
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+		TestCase.assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
 		Equipment aEquip = eqDouble.clone();
-		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		TestCase.assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
 		
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with no plus", 0,
-			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		TestCase.assertEquals("Invalid cost when adding an eqmod with no plus", 0,
+		                      aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with a plus", 2025,
-			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		TestCase.assertEquals("Invalid cost when adding an eqmod with a plus", 2025,
+		                      aEquip.getCost(getCharacter()).floatValue(), 0.01);
 
 		aEquip.addEqModifier(eqMod2, false, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod to alt head with no plus", 2025,
-			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		TestCase.assertEquals("Invalid cost when adding an eqmod to alt head with no plus", 2025,
+		                      aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, false, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod to alt head with a plus", 4053,
-			aEquip.getCost(getCharacter()).floatValue(), 0.01);
+		TestCase.assertEquals("Invalid cost when adding an eqmod to alt head with a plus", 4053,
+		                      aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 	}
 	
@@ -593,19 +596,19 @@ assertNotNull("Eqmod should be present", eqMod);
 	public void testNameItemFromModifiers()
 	{
 		String name = eq.nameItemFromModifiers(null);
-		assertEquals("Dummy", name);
+		TestCase.assertEquals("Dummy", name);
 		name = eq.nameItemFromModifiers(getCharacter());
-		assertEquals("Dummy", name);
+		TestCase.assertEquals("Dummy", name);
 		
 		name = eqDouble.nameItemFromModifiers(getCharacter());
-		assertEquals("Double", name);
+		TestCase.assertEquals("Double", name);
 		Equipment item = eqDouble.clone();
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		item.addEqModifier(eqModPlus, true, getCharacter());
 		item.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eqDouble));
 		name = item.nameItemFromModifiers(getCharacter());
-		assertEquals("Double +1_-", name);
+		TestCase.assertEquals("Double +1_-", name);
 	}
 	
 	/**
@@ -615,16 +618,16 @@ assertNotNull("Eqmod should be present", eqMod);
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		TestCase.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertFalse("Does not have eqmod yet", aEquip.isPreType("EQMOD=PLUS1W"));
+		TestCase.assertFalse("Does not have eqmod yet", aEquip.isPreType("EQMOD=PLUS1W"));
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertTrue("Should have eqmod now", aEquip.isPreType("EQMOD=PLUS1W"));
-		assertFalse("Should not have eqmod with choice", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		TestCase.assertTrue("Should have eqmod now", aEquip.isPreType("EQMOD=PLUS1W"));
+		TestCase.assertFalse("Should not have eqmod with choice", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
 		aEquip.addAssociation(eqMod, "ChoicE");
-		assertTrue("Should have eqmod with choice now", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
-		assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
+		TestCase.assertTrue("Should have eqmod with choice now", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		TestCase.assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
 		
 	}
 }

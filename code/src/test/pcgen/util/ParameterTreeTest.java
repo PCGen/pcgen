@@ -26,10 +26,13 @@ package pcgen.util;
 
 import java.util.regex.Matcher;
 
-import pcgen.PCGenTestCase;
-
+import junit.framework.TestCase;
 import org.junit.Test;
 import org.nfunk.jep.ParseException;
+import static pcgen.PCGenTestCase.eqnull;
+import static pcgen.PCGenTestCase.is;
+import static pcgen.PCGenTestCase.not;
+import static pcgen.PCGenTestCase.strEq;
 
 /**
  * <code>ParameterTreeTest</code> is ...
@@ -37,7 +40,7 @@ import org.nfunk.jep.ParseException;
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
  */
-public class ParameterTreeTest extends PCGenTestCase 
+public class ParameterTreeTest extends TestCase
 {
 
 

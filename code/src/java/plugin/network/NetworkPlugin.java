@@ -19,13 +19,6 @@
  */
  package plugin.network;
 
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
-import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.io.File;
 
@@ -33,6 +26,12 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;
 import pcgen.pluginmgr.InteractivePlugin;
@@ -40,13 +39,14 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+
 import plugin.network.gui.NetworkView;
 import plugin.network.gui.PreferencesNetworkingPanel;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem
+ * } and will have it's own model and view.<br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
@@ -64,30 +64,22 @@ public class NetworkPlugin implements InteractivePlugin
 
 	private NetworkModel model;
 
-	private JMenuItem netToolsItem = new JMenuItem();
+	private final JMenuItem netToolsItem = new JMenuItem();
 
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates a new instance of NetworkPlugin
-	 */
-	public NetworkPlugin()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
-	public void start(PCGenMessageHandler mh)
+	public void start(PCGenMessageHandler postbox)
 	{
-    	messageHandler = mh;
+    	messageHandler = postbox;
 		model = new NetworkModel();
-		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, getLocalizedName(), model.getView()));
+		messageHandler.handleMessage(new RequestAddTabToGMGenMessage(this, NetworkPlugin.getLocalizedName(), model.getView()));
 		initMenus();
-		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, getLocalizedName(),
-			new PreferencesNetworkingPanel(model)));
+		messageHandler.handleMessage(new RequestAddPreferencesPanelMessage(this, NetworkPlugin.getLocalizedName(),
+		                                                                   new PreferencesNetworkingPanel(model)));
 	}
 
 	@Override
@@ -99,7 +91,7 @@ public class NetworkPlugin implements InteractivePlugin
     @Override
 	public int getPriority()
 	{
-		return SettingsHandler.getGMGenOption(LOG_NAME + ".LoadOrder", 60);
+		return SettingsHandler.getGMGenOption(NetworkPlugin.LOG_NAME + ".LoadOrder", 60);
 	}
 
 	/**
@@ -109,32 +101,32 @@ public class NetworkPlugin implements InteractivePlugin
     @Override
 	public String getPluginName()
 	{
-		return NAME;
+		return NetworkPlugin.NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
 
 	/**
 	 * listens to messages from the GMGen system, and handles them as needed
-	 * @param message the source of the event from the system
+	 * @param msg the source of the event from the system
 	 */
     @Override
-	public void handleMessage(PCGenMessage message)
+	public void handleMessage(PCGenMessage msg)
 	{
-		if (message instanceof CombatHasBeenInitiatedMessage)
+		if (msg instanceof CombatHasBeenInitiatedMessage)
 		{
-			handleCombatRequestMessage((CombatHasBeenInitiatedMessage) message);
+			handleCombatRequestMessage((CombatHasBeenInitiatedMessage) msg);
 		}
-		else if (message instanceof FocusOrStateChangeOccurredMessage)
+		else if (msg instanceof FocusOrStateChangeOccurredMessage)
 		{
-			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) message);
+			handleStateChangedMessage((FocusOrStateChangeOccurredMessage) msg);
 		}
-		else if (message instanceof CombatantHasBeenUpdatedMessage)
+		else if (msg instanceof CombatantHasBeenUpdatedMessage)
 		{
-			handleCombatantUpdatedMessage((CombatantHasBeenUpdatedMessage) message);
+			handleCombatantUpdatedMessage((CombatantHasBeenUpdatedMessage) msg);
 		}
 	}
 
@@ -150,7 +142,7 @@ public class NetworkPlugin implements InteractivePlugin
 			try
 			{
 				GMGenSystemView.getTabPane().setIconAt(
-					GMGenSystemView.getTabPane().indexOfTab(getLocalizedName()), null);
+						GMGenSystemView.getTabPane().indexOfTab(NetworkPlugin.getLocalizedName()), null);
 			}
 			catch (Exception e)
 			{
@@ -186,7 +178,7 @@ public class NetworkPlugin implements InteractivePlugin
 			&& tp.getSelectedComponent().equals(model.getView());
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -201,9 +193,9 @@ public class NetworkPlugin implements InteractivePlugin
 
 	private void initMenus()
 	{
-		netToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
-		netToolsItem.setText(getLocalizedName());
-		netToolsItem.addActionListener(this::toolMenuItem);
+		netToolsItem.setMnemonic(LanguageBundle.getMnemonic(NetworkPlugin.IN_NAME_MN));
+		netToolsItem.setText(NetworkPlugin.getLocalizedName());
+		netToolsItem.addActionListener(NetworkPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, netToolsItem));
 	}
 
@@ -212,10 +204,9 @@ public class NetworkPlugin implements InteractivePlugin
 	 *
 	 * @return    The data directory name
 	 */
+	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
 	}
 }
