@@ -343,7 +343,7 @@ public class IdentityList<T> implements List<T>
 	 * @param <I>
 	 *            The type of object underlying this IdentityIterator
 	 */
-	private class IdentityIterator<I> implements ListIterator<I>
+	private final class IdentityIterator<I> implements ListIterator<I>
 	{
 		/**
 		 * The ListIterator underlying this IdentityIterator.
