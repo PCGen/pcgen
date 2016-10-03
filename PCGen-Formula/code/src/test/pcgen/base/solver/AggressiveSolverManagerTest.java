@@ -21,6 +21,7 @@ import org.junit.Test;
 
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
@@ -32,6 +33,7 @@ import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 {
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private AggressiveSolverManager manager;
 	private SolverFactory solverFactory = new SolverFactory();
 	private VariableLibrary varLibrary;
@@ -49,7 +51,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		globalScopeInst = getGlobalScopeInst();
 		solverFactory.addSolverFormat(Number.class,
 			AbstractModifier.setNumber(0, 0));
-		manager = new AggressiveSolverManager(getFormulaManager(), solverFactory, store);
+		manager = new AggressiveSolverManager(getFormulaManager(), managerFactory, solverFactory, store);
 		FormulaUtilities.loadBuiltInFunctions(getFunctionLibrary());
 		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
 	}
@@ -59,7 +61,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	{
 		try
 		{
-			new AggressiveSolverManager(null, solverFactory, store);
+			new AggressiveSolverManager(null, managerFactory, solverFactory, store);
 			fail("No nulls in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -69,7 +71,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		FormulaManager formulaManager = getFormulaManager();
 		try
 		{
-			new AggressiveSolverManager(formulaManager, null, store);
+			new AggressiveSolverManager(formulaManager, null, solverFactory, store);
 			fail("No nulls in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -78,7 +80,16 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		}
 		try
 		{
-			new AggressiveSolverManager(formulaManager, solverFactory, null);
+			new AggressiveSolverManager(formulaManager, managerFactory, null, store);
+			fail("No nulls in constructor");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			new AggressiveSolverManager(formulaManager, managerFactory, solverFactory, null);
 			fail("No nulls in constructor");
 		}
 		catch (IllegalArgumentException | NullPointerException e)

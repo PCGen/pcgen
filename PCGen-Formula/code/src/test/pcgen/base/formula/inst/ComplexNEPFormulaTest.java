@@ -13,6 +13,7 @@ import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.solver.IndividualSetup;
@@ -20,6 +21,8 @@ import pcgen.base.solver.SplitFormulaSetup;
 
 public class ComplexNEPFormulaTest extends TestCase
 {
+
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 
 	public void testConstructor()
 	{
@@ -75,7 +78,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		BooleanManager booleanMgr = FormatUtilities.BOOLEAN_MANAGER;
 		StringManager stringMgr = new StringManager();
 
-		FormulaSemantics fs = FormulaSemantics.generate(fm, globalScope, null);
+		FormulaSemantics fs =
+				managerFactory.generateFormulaSemantics(fm, globalScope, null);
 		try
 		{
 			new ComplexNEPFormula("3+5").isValid(numberMgr, null);
@@ -229,9 +233,8 @@ public class ComplexNEPFormulaTest extends TestCase
 
 	private DependencyManager setupDM(IndividualSetup indSetup)
 	{
-		DependencyManager dm =
-				DependencyManager.generate(indSetup.getFormulaManager(),
-					indSetup.getGlobalScopeInst(), null);
+		DependencyManager dm = managerFactory.generateDependencyManager(
+			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), null);
 		dm.set(ArgumentDependencyManager.KEY, new ArgumentDependencyManager());
 		return dm;
 	}
@@ -246,9 +249,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
 
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
-		EvaluationManager evalManager =
-				EvaluationManager.generate(indSetup.getFormulaManager(),
-					indSetup.getGlobalScopeInst(), Number.class);
+		EvaluationManager evalManager = managerFactory.generateEvaluationManager(
+			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), Number.class);
 		try
 		{
 			new ComplexNEPFormula("3+5").resolve(null);

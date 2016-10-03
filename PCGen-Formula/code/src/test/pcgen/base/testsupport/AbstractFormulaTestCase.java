@@ -28,6 +28,7 @@ import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -52,6 +53,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 
 	@Override
 	protected void setUp() throws Exception
@@ -139,7 +141,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = FormulaSemantics.generate(
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			localSetup.getFormulaManager(), getGlobalScope(), assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -199,7 +201,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public EvaluationManager generateManager()
 	{
-		return EvaluationManager.generate(localSetup.getFormulaManager(),
+		return managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
 			localSetup.getGlobalScopeInst(), Number.class);
 	}
 
@@ -207,7 +209,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = FormulaSemantics.generate(
+		FormulaSemantics semantics = managerFactory.generateFormulaSemantics(
 			localSetup.getFormulaManager(), getGlobalScope(), assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -219,8 +221,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
-		DependencyManager fdm = DependencyManager.generate(getFormulaManager(),
-			getGlobalScopeInst(), null);
+		DependencyManager fdm = managerFactory
+			.generateDependencyManager(getFormulaManager(), getGlobalScopeInst(), null);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.getVariables();
 	}
@@ -283,5 +285,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected LegalScopeLibrary getScopeLibrary()
 	{
 		return setup.getLegalScopeLibrary();
+	}
+	
+	protected ManagerFactory getManagerFactory()
+	{
+		return managerFactory;
 	}
 }

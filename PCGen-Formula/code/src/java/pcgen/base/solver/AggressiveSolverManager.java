@@ -27,6 +27,7 @@ import java.util.Stack;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableStore;
@@ -54,6 +55,12 @@ public class AggressiveSolverManager
 	 * AggressiveSolverManager.
 	 */
 	private final FormulaManager formulaManager;
+
+	/**
+	 * The ManagerFactory to be used to generate visitor managers in this
+	 * AggressiveSolverManager.
+	 */
+	private final ManagerFactory managerFactory;
 
 	/**
 	 * The relationship from each VariableID to the Solver calculating the value
@@ -96,6 +103,9 @@ public class AggressiveSolverManager
 	 * @param manager
 	 *            The FormulaManager to be used by any Solver in this
 	 *            AggressiveSolverManager
+	 * @param managerFactory
+	 *            The ManagerFactory to be used to generate visitor managers
+	 *            in this AggressiveSolverManager
 	 * @param solverFactory
 	 *            The SolverFactory used to store Defaults and build Solver
 	 *            objects
@@ -104,10 +114,11 @@ public class AggressiveSolverManager
 	 *            calculations of the Solver objects within this
 	 *            AggressiveSolverManager.
 	 */
-	public AggressiveSolverManager(FormulaManager manager,
+	public AggressiveSolverManager(FormulaManager manager, ManagerFactory managerFactory,
 		SolverFactory solverFactory, WriteableVariableStore resultStore)
 	{
 		this.formulaManager = Objects.requireNonNull(manager);
+		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.solverFactory = Objects.requireNonNull(solverFactory);
 		/*
 		 * CONSIDER should ownership transfer of this be complete? We can do
@@ -199,9 +210,8 @@ public class AggressiveSolverManager
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm =
-				DependencyManager.generate(formulaManager, scopeInst, varID
-					.getFormatManager().getManagedClass());
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
+			scopeInst, varID.getFormatManager().getManagedClass());
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.getVariables())
 		{
@@ -236,7 +246,7 @@ public class AggressiveSolverManager
 	{
 		FormatManager<T> formatManager = varID.getFormatManager();
 		EvaluationManager evalManager =
-				EvaluationManager.generate(formulaManager, varID);
+				managerFactory.generateEvaluationManager(formulaManager, varID);
 		Solver<T> solver = solverFactory.getSolver(formatManager, evalManager);
 		scopedChannels.put(varID, solver);
 		graph.addNode(varID);
@@ -289,9 +299,8 @@ public class AggressiveSolverManager
 				"Request to remove Modifier to Solver for " + varID
 					+ " but that channel was never defined");
 		}
-		DependencyManager fdm =
-				DependencyManager.generate(formulaManager, varID.getScope(),
-					varID.getFormatManager().getManagedClass());
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
+			varID.getScope(), varID.getFormatManager().getManagedClass());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
 		//Cast above effectively enforced here

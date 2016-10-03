@@ -68,9 +68,8 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 
 	private void resetManager()
 	{
-		depManager =
-				DependencyManager.generate(getFormulaManager(),
-					getGlobalScopeInst(), null);
+		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
+			getGlobalScopeInst(), null);
 		argManager = new ArgumentDependencyManager();
 		depManager.set(ArgumentDependencyManager.KEY, argManager);
 	}
@@ -162,7 +161,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 				new ReconstructionVisitor().visit(node, new StringBuilder());
 		assertTrue(rv.toString().equals(formula));
 		DependencyManager fdm =
-				DependencyManager.generate(getFormulaManager(),
+				getManagerFactory().generateDependencyManager(getFormulaManager(),
 					getGlobalScopeInst(), null);
 		/*
 		 * Safe and "ignored" - if this test fails, need to change what FDM is
