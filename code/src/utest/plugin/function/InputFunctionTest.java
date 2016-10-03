@@ -19,6 +19,9 @@ package plugin.function;
 
 import org.junit.Test;
 
+import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VariableLibrary;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.solver.AggressiveSolverManager;
@@ -43,6 +46,8 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	private FormulaSetupFacet formulaSetupFacet =
 			FacetLibrary.getFacet(FormulaSetupFacet.class);
 	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private VariableLibraryFacet variableLibraryFacet =
+			FacetLibrary.getFacet(VariableLibraryFacet.class);
 	private VariableStoreFacet variableStoreFacet =
 			FacetLibrary.getFacet(VariableStoreFacet.class);
 	private SolverManagerFacet solverManagerFacet =
@@ -106,8 +111,13 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 	@Test
 	public void testGlobalChannelStrength()
 	{
-		VariableChannel<Number> strChannel = ChannelUtilities
-			.generateGlobalChannel(id, "STR", numberManager);
+		VariableLibrary varLib = variableLibraryFacet.get(id.getDatasetID());
+		ScopeInstanceFactory instFactory = scopeFacet.get(id);
+		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
+		varLib.assertLegalVariableID(ChannelUtilities.createVarName("STR"),
+			globalInstance.getLegalScope(), numberManager);
+		VariableChannel<Number> strChannel =
+				(VariableChannel<Number>) ChannelUtilities.getGlobalChannel(id, "STR");
 		String formula = "input(\"STR\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
