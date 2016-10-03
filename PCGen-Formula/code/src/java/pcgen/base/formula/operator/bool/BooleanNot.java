@@ -39,9 +39,6 @@ public class BooleanNot implements UnaryAction
 		return Operator.NOT;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> abstractEvaluate(Class<?> format)
 	{
@@ -52,9 +49,6 @@ public class BooleanNot implements UnaryAction
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(Object object)
 	{

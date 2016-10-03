@@ -163,9 +163,6 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 		DEPENDENCY_VISITOR.visit(root, depManager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void isValid(FormatManager<T> formatManager,
 		FormulaSemantics semantics)
@@ -188,9 +185,6 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

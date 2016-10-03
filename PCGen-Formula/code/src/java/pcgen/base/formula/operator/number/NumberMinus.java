@@ -55,9 +55,6 @@ public class NumberMinus implements UnaryAction
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(Object object)
 	{

@@ -103,54 +103,36 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyManager fdm)
 	{
 		modifier.getDependencies(fdm);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentification()
 	{
 		return modifier.getIdentification() + " (component)";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T[]> getVariableFormat()
 	{
 		return format;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public long getPriority()
 	{
 		return modifier.getPriority();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getInstructions()
 	{
 		return modifier.getInstructions();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

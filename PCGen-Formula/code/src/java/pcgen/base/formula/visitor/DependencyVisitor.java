@@ -64,7 +64,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 	 * visited, which - through double dispatch - will result in another method
 	 * on this DependencyVisitor being called.
 	 * 
-	 * {@inheritDoc}
+	 *
 	 */
 	@Override
 	public Object visit(SimpleNode node, Object data)

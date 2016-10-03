@@ -64,18 +64,12 @@ public class ArgFunction implements Function
 		this.masterArgs = masterArgs;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getFunctionName()
 	{
 		return FUNCTION_NAME;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
@@ -148,9 +142,6 @@ public class ArgFunction implements Function
 		argManager.addArgument(argNum);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
