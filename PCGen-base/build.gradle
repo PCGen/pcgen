@@ -8,20 +8,17 @@
  * Full build: gradle all 
  */
 
-plugin {
-    id 'java'
-    id 'eclipse'
-    id 'jacoco'
-    id 'ivy-publish'
-}
+apply plugin: 'java'
+apply plugin: 'eclipse'
+apply plugin: "jacoco"
+apply plugin: 'ivy-publish'
 
 group = 'net.sourceforge.pcgen'
 description = """PCGen base library"""
 
 defaultTasks 'clean', 'build'
 
-sourceCompatibility = 1.8
-targetCompatibility = 1.8
+sourceCompatibility = 1.7
 
 ext {
     majorVersion = 1
