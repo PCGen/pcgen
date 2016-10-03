@@ -367,6 +367,15 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		}
 	}
 
+	@Test
+	public void testTrivial()
+	{
+		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
+		VariableID<Number> limbs =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"Limbs");
+		manager.solveChildren(limbs);
+	}
 
 	@Test
 	public void testCircular()
