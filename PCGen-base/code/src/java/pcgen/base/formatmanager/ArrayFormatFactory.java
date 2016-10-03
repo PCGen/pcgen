@@ -35,9 +35,6 @@ public class ArrayFormatFactory implements FormatManagerFactory
 	private static final Pattern ARRAY_PATTERN = Pattern.compile(
 		Pattern.quote("ARRAY["), Pattern.CASE_INSENSITIVE);
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> build(String subFormatName,
 		FormatManagerLibrary library)
@@ -62,9 +59,6 @@ public class ArrayFormatFactory implements FormatManagerFactory
 			library.getFormatManager(subFormatName), ',');
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBuilderBaseFormat()
 	{

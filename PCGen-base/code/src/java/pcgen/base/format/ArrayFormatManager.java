@@ -262,9 +262,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 			array = toSet;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public T[] get()
 		{
