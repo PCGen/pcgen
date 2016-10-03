@@ -22,7 +22,6 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
-import java.util.Map.Entry;
 
 /**
  * Represents a map where the objects are stored using two keys rather than the
@@ -221,7 +220,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 */
 	public final void putAll(DoubleKeyMap<K1, K2, V> dkm)
 	{
-		for (Entry<K1, Map<K2, V>> me : dkm.map.entrySet())
+		for (Map.Entry<K1, Map<K2, V>> me : dkm.map.entrySet())
 		{
 			Map<K2, V> localMap = map.get(me.getKey());
 			if (localMap == null)

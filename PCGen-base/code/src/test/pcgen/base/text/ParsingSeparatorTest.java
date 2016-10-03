@@ -3,7 +3,6 @@ package pcgen.base.text;
 import java.util.NoSuchElementException;
 
 import junit.framework.TestCase;
-import pcgen.base.text.ParsingSeparator.GroupingMismatchException;
 
 public class ParsingSeparatorTest extends TestCase
 {
@@ -87,7 +86,7 @@ public class ParsingSeparatorTest extends TestCase
 			separator.next();
 			fail("Expected ParsingSeparator to fail: mismatched");
 		}
-		catch (GroupingMismatchException e)
+		catch (ParsingSeparator.GroupingMismatchException e)
 		{
 			//ok
 		}
@@ -105,7 +104,7 @@ public class ParsingSeparatorTest extends TestCase
 			separator.next();
 			fail("Expected ParsingSeparator to fail: mismatched");
 		}
-		catch (GroupingMismatchException e)
+		catch (ParsingSeparator.GroupingMismatchException e)
 		{
 			//ok
 		}
@@ -124,7 +123,7 @@ public class ParsingSeparatorTest extends TestCase
 			separator.next();
 			fail("Expected ParsingSeparator to fail: mismatched");
 		}
-		catch (GroupingMismatchException e)
+		catch (ParsingSeparator.GroupingMismatchException e)
 		{
 			//ok
 		}
