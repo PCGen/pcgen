@@ -407,12 +407,16 @@ public class AggressiveSolverManager
 	 */
 	public void solveChildren(VariableID<?> varID)
 	{
-		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : graph
-			.getAdjacentEdges(varID))
+		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
+				graph.getAdjacentEdges(varID);
+		if (adjacentEdges != null)
 		{
-			if (edge.getNodeAt(0).equals(varID))
+			for (DefaultDirectionalGraphEdge<VariableID<?>> edge : adjacentEdges)
 			{
-				solveFromNode(edge.getNodeAt(1));
+				if (edge.getNodeAt(0).equals(varID))
+				{
+					solveFromNode(edge.getNodeAt(1));
+				}
 			}
 		}
 	}
