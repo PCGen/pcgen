@@ -102,7 +102,7 @@ public class StatCalcFacet
 			}
 		}
 
-		y += bonusCheckingFacet.getBonus(id, "STAT", stat.getKeyName());
+		y = (int) (y + bonusCheckingFacet.getBonus(id, "STAT", stat.getKeyName()));
 
 		y = Math.min(maxStatValue, y);
 		return Math.max(minStatValue, y);
@@ -153,8 +153,8 @@ public class StatCalcFacet
 			z = Math.min(maxStatValue, z);
 			return Math.max(minStatValue, z);
 		}
-		Integer score = statValueFacet.get(id, stat);
-		int base = Math.min(maxStatValue, score == null ? 0 : score);
+		Number score = statValueFacet.get(id, stat);
+		int base = Math.min(maxStatValue, score == null ? 0 : score.intValue());
 		return Math.max(minStatValue, base);
 	}
 

@@ -23,35 +23,50 @@
 
 package plugin.initiative.gui;
 
-import gmgen.GMGenSystem;
-import gmgen.plugin.PcgCombatant;
-import pcgen.core.Globals;
-import pcgen.core.Skill;
-import plugin.initiative.OpposedSkillBasicModel;
-import plugin.initiative.OpposedSkillModel;
-import plugin.initiative.OpposedSkillTypeModel;
-
-import javax.swing.JComponent;
-import javax.swing.JDialog;
-import javax.swing.JTable;
-import javax.swing.TransferHandler;
-import java.awt.Dialog;
+import java.awt.Component;
+import java.awt.Container;
+import java.awt.Dimension;
 import java.awt.Frame;
-import java.awt.GraphicsConfiguration;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.HeadlessException;
 import java.awt.datatransfer.DataFlavor;
 import java.awt.datatransfer.Transferable;
 import java.awt.datatransfer.UnsupportedFlavorException;
 import java.awt.event.ActionEvent;
 import java.io.IOException;
-import java.util.Iterator;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 import java.util.TreeSet;
-import java.util.ArrayList;
+import java.util.stream.Collectors;
+
+import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JComboBox;
+import javax.swing.JComponent;
+import javax.swing.JDialog;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.TransferHandler;
+import javax.swing.table.TableModel;
+
+import gmgen.GMGenSystem;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.PcgCombatant;
+import pcgen.core.Globals;
+import pcgen.core.PObject;
+import pcgen.core.Skill;
+
+import plugin.initiative.OpposedSkillBasicModel;
+import plugin.initiative.OpposedSkillModel;
+import plugin.initiative.OpposedSkillTypeModel;
 
 /**
  * <p>
- * This dialog class presents three lists of the <code>PcgCombatant</code>s:
+ * This dialog class presents three lists of the {@code PcgCombatant}s:
  * a list of available combatants, a list of combatants rolling a skill check,
  * and a list of combatants opposing the skill check.  A droplist of skills
  * is presented for both lists.  Because pcgen doesn't contain any information
@@ -79,17 +94,9 @@ import java.util.ArrayList;
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
  *
- * <p>
- * Current Ver: $Revision$
- * </p>
- * <p>
- * </p>
- * <p>
- * </p>
- *
  * @author LodgeR
  */
-public class OpposedCheckDialog extends JDialog
+class OpposedCheckDialog extends JDialog
 {
 
 	/**
@@ -99,7 +106,7 @@ public class OpposedCheckDialog extends JDialog
 	 * table.  It is designed to be shared by all the tables.
 	 * </p>
 	 */
-	private static class CombatantTransferHandler extends TransferHandler
+	private static final class CombatantTransferHandler extends TransferHandler
 	{
 
 		/**
@@ -107,7 +114,7 @@ public class OpposedCheckDialog extends JDialog
 		 * A transferrable class that saves a list of combatants being transferred.
 		 * </p>
 		 */
-		class CombatantTransferable implements Transferable
+		private final class CombatantTransferable implements Transferable
 		{
 
 			/**
@@ -118,24 +125,21 @@ public class OpposedCheckDialog extends JDialog
 			/**
 			 * <p>
 			 * Constructor.  The JTable us used to get the selected rows and store
-			 * them in the <code>items</code> member.
+			 * them in the {@code items} member.
 			 * </p>
 			 *
 			 * @param table The source JTable
 			 */
-			public CombatantTransferable(JTable table)
+			private CombatantTransferable(JTable table)
 			{
 				int[] rows = table.getSelectedRows();
 
-				if (rows != null && rows.length > 0)
+				if ((rows != null) && (rows.length > 0))
 				{
 					OpposedSkillBasicModel model =
 							(OpposedSkillBasicModel) table.getModel();
 					items = new ArrayList<>();
-					for (int i = 0; i < rows.length; i++)
-					{
-						items.add(model.getCombatant(rows[i]));
-					}
+					Arrays.stream(rows).forEach(model::getCombatant);
 				}
 
 			}
@@ -179,7 +183,7 @@ public class OpposedCheckDialog extends JDialog
 		/** The mime type used by the data flavor.  Not really accurate, since
 		 * the transferrable class really returns a List.
 		 */
-		private String mimeType =
+		private final String mimeType =
 				DataFlavor.javaJVMLocalObjectMimeType
 					+ ";class=gmgen.plugin.PcgCombatant";
 		/** The source data model for the transfer. */
@@ -192,13 +196,13 @@ public class OpposedCheckDialog extends JDialog
 		 * Default constructor -- initializes the data flavor.
 		 * </p>
 		 */
-		public CombatantTransferHandler()
+		private CombatantTransferHandler()
 		{
 			try
 			{
 				combatantFlavor = new DataFlavor(mimeType);
 			}
-			catch (ClassNotFoundException e)
+			catch (final ClassNotFoundException e)
 			{
 				//Intentionally left blank
 			}
@@ -210,14 +214,15 @@ public class OpposedCheckDialog extends JDialog
         @Override
 		public boolean canImport(JComponent c, DataFlavor[] flavors)
 		{
-			if (sourceTable == null || c == null
-				|| sourceTable.getName().equals(c.getName()))
+			if ((sourceTable == null) || (c == null)
+					|| sourceTable.getName()
+					.equals(c.getName()))
 			{
 				return false;
 			}
-			for (int i = 0; i < flavors.length; i++)
+			for (final DataFlavor flavor : flavors)
 			{
-				if (combatantFlavor.equals(flavors[i]))
+				if (combatantFlavor.equals(flavor))
 				{
 					return true;
 				}
@@ -246,22 +251,14 @@ public class OpposedCheckDialog extends JDialog
         @Override
 		protected void exportDone(JComponent c, Transferable data, int action)
 		{
-			if (action == MOVE)
+			if (action == TransferHandler.MOVE)
 			{
 				try
 				{
-					List items = (List) data.getTransferData(combatantFlavor);
-					for (Iterator i = items.iterator(); i.hasNext();)
-					{
-						sourceModel.removeCombatant(((PcgCombatant) i.next())
-							.getName());
-					}
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) data.getTransferData(combatantFlavor);
+					items.forEach(item -> sourceModel.removeCombatant(item.getName()));
 				}
-				catch (UnsupportedFlavorException e)
-				{
-					e.printStackTrace();
-				}
-				catch (IOException e)
+				catch (final UnsupportedFlavorException | IOException e)
 				{
 					e.printStackTrace();
 				}
@@ -275,7 +272,7 @@ public class OpposedCheckDialog extends JDialog
         @Override
 		public int getSourceActions(JComponent c)
 		{
-			return MOVE;
+			return TransferHandler.MOVE;
 		}
 
 		/* (non-Javadoc)
@@ -291,18 +288,11 @@ public class OpposedCheckDialog extends JDialog
 						(OpposedSkillBasicModel) table.getModel();
 				try
 				{
-					List items = (List) t.getTransferData(combatantFlavor);
-					for (Iterator i = items.iterator(); i.hasNext();)
-					{
-						model.addCombatant((PcgCombatant) i.next());
-					}
+					Iterable<PcgCombatant> items = (Iterable<PcgCombatant>) t.getTransferData(combatantFlavor);
+					items.forEach(model::addCombatant);
 					return true;
 				}
-				catch (UnsupportedFlavorException ufe)
-				{
-					//Nothing
-				}
-				catch (IOException ioe)
+				catch (final UnsupportedFlavorException | IOException ufe)
 				{
 					//Nothing
 				}
@@ -311,15 +301,15 @@ public class OpposedCheckDialog extends JDialog
 		}
 	}
 
-	/** The shared <code>TransferHandler</code> for all tables */
-	private CombatantTransferHandler transferHandler =
+	/** The shared {@code TransferHandler} for all tables */
+	private final TransferHandler transferHandler =
 			new CombatantTransferHandler();
 	/** Label for the available table */
-	private javax.swing.JLabel availableLabel = null; //
+	private JLabel availableLabel = null; //
 	/** Scroll pane for the available table */
-	private javax.swing.JScrollPane availableScrollPane = null; //
+	private JScrollPane availableScrollPane = null; //
 	/** JTable that holds the available combatants */
-	private javax.swing.JTable availableTable = null; //
+	private JTable availableTable = null; //
 	/** Data model for the available table */
 	private OpposedSkillTypeModel ivjAvailableModel = null;
 	/** Data model for the opposed table */
@@ -327,215 +317,41 @@ public class OpposedCheckDialog extends JDialog
 	/** Data model for the rolling table */
 	private OpposedSkillModel ivjRollingSkillModel = null;
 	/** The main panel; functions as a content pane for the dialog. */
-	private javax.swing.JPanel jContentPane = null;
+	private JPanel jContentPane = null;
 	/** Ok button */
-	private javax.swing.JButton okButton = null; //
+	private JButton okButton = null; //
 	/** Combo box lising skills for the opposing group */
-	private javax.swing.JComboBox opposingComboBox = null; //
+	private JComboBox<Object> opposingComboBox = null; //
 	/** Label for the opposing group */
-	private javax.swing.JLabel opposingGroupLabel = null; //
+	private JLabel opposingGroupLabel = null; //
 	/** Scroll pane for the opposing group table */
-	private javax.swing.JScrollPane opposingGroupScrollPane = null; //
+	private JScrollPane opposingGroupScrollPane = null; //
 	/** Table for the opposing group of combatants */
-	private javax.swing.JTable opposingGroupTable = null; //
+	private JTable opposingGroupTable = null; //
 	/** Button for rolling skill checks */
-	private javax.swing.JButton rollButton = null; //
+	private JButton rollButton = null; //
 	/** Combo box listing skills for the rolling group */
-	private javax.swing.JComboBox rollingComboBox = null; //
+	private JComboBox<Object> rollingComboBox = null; //
 	/** Label for the rolling group */
-	private javax.swing.JLabel rollingGroupLabel = null; //
+	private JLabel rollingGroupLabel = null; //
 	/** Scroll pane for rollingGroupTable */
-	private javax.swing.JScrollPane rollingGroupScrollPane = null; //
+	private JScrollPane rollingGroupScrollPane = null; //
 	/** Table that holds the main (rolling) group of combatants */
-	private javax.swing.JTable rollingGroupTable = null; //
+	private JTable rollingGroupTable = null; //
 	/** Sorted list of skill names */
-	private TreeSet<String> skillNames = new TreeSet<>();
-
-	/**
-	 * This is the default constructor
-	 */
-	public OpposedCheckDialog()
-	{
-		super();
-		skillNames.add("Hide");
-		skillNames.add("Move Silently");
-		skillNames.add("Listen");
-		skillNames.add("Spot");
-		initialize();
-	}
+	private final TreeSet<String> skillNames = new TreeSet<>();
 
 	/**
 	 * <p>Constructor</p>
 	 * @param owner
-	 * @param rollingGroup
-	 * @param availableGroup
-	 * @throws java.awt.HeadlessException
+	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
+	 * @param availableGroup A list comprising the other combatants
+	 * @throws HeadlessException if running without a gui
 	 */
-	public OpposedCheckDialog(Dialog owner, List rollingGroup,
-		List availableGroup) throws HeadlessException
+	OpposedCheckDialog(Frame owner, List<InitHolder> rollingGroup,
+	                   List<InitHolder> availableGroup) throws HeadlessException
 	{
 		super(owner);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param modal
-	 * @param rollingGroup
-	 * @param availableGroup
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Dialog owner, boolean modal, List rollingGroup,
-		List availableGroup) throws HeadlessException
-	{
-		super(owner, modal);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param rollingGroup
-	 * @param availableGroup
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Dialog owner, String title, List rollingGroup,
-		List availableGroup) throws HeadlessException
-	{
-		super(owner, title);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param modal
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Dialog owner, String title, boolean modal,
-		List rollingGroup, List availableGroup) throws HeadlessException
-	{
-		super(owner, title, modal);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param modal
-	 * @param gc
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Dialog owner, String title, boolean modal,
-		GraphicsConfiguration gc, List rollingGroup, List availableGroup)
-		throws HeadlessException
-	{
-		super(owner, title, modal, gc);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Frame owner, List rollingGroup,
-		List availableGroup) throws HeadlessException
-	{
-		super(owner);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param modal
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Frame owner, boolean modal, List rollingGroup,
-		List availableGroup) throws HeadlessException
-	{
-		super(owner, modal);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Frame owner, String title, List rollingGroup,
-		List availableGroup) throws HeadlessException
-	{
-		super(owner, title);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param modal
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 * @throws java.awt.HeadlessException
-	 */
-	public OpposedCheckDialog(Frame owner, String title, boolean modal,
-		List rollingGroup, List availableGroup) throws HeadlessException
-	{
-		super(owner, title, modal);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param owner
-	 * @param title
-	 * @param modal
-	 * @param gc
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 */
-	public OpposedCheckDialog(Frame owner, String title, boolean modal,
-		GraphicsConfiguration gc, List rollingGroup, List availableGroup)
-	{
-		super(owner, title, modal, gc);
-		initializeLists(rollingGroup, availableGroup);
-		initialize();
-	}
-
-	/**
-	 * <p>Constructor</p>
-	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
-	 * @param availableGroup A list comprising the other combatants
-	 */
-	public OpposedCheckDialog(List rollingGroup, List availableGroup)
-	{
-		super();
 		initializeLists(rollingGroup, availableGroup);
 		initialize();
 	}
@@ -550,12 +366,14 @@ public class OpposedCheckDialog extends JDialog
 	 * @param rollingGroup   A list comprising the main (rolling) group of combatants
 	 * @param availableGroup A list comprising the other combatants
 	 */
-	private void initializeLists(List rollingGroup, List availableGroup)
+	private void initializeLists(List<InitHolder> rollingGroup, List<InitHolder> availableGroup)
 	{
-		for (Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
-		{
-			skillNames.add(skill.toString());
-		}
+		skillNames.addAll(Globals.getContext()
+				                  .getReferenceContext()
+				                  .getConstructedCDOMObjects(Skill.class)
+				                  .stream()
+				                  .map(PObject::toString)
+				                  .collect(Collectors.toList()));
 		ivjAvailableModel = new OpposedSkillTypeModel(availableGroup);
 		ivjRollingSkillModel = new OpposedSkillModel(rollingGroup);
 		ivjOpposedSkillModel = new OpposedSkillModel();
@@ -568,11 +386,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JLabel
 	 *
 	 */
-	private javax.swing.JLabel getAvailableLabel()
+	private Component getAvailableLabel()
 	{
 		if (availableLabel == null)
 		{
-			availableLabel = new javax.swing.JLabel();
+			availableLabel = new JLabel();
 			availableLabel.setText("Available Combatants");
 		}
 		return availableLabel;
@@ -585,13 +403,13 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JScrollPane
 	 *
 	 */
-	private javax.swing.JScrollPane getAvailableScrollPane()
+	private Component getAvailableScrollPane()
 	{
 		if (availableScrollPane == null)
 		{
-			availableScrollPane = new javax.swing.JScrollPane();
+			availableScrollPane = new JScrollPane();
 			availableScrollPane.setViewportView(getAvailableTable());
-			availableScrollPane.setPreferredSize(new java.awt.Dimension(300,
+			availableScrollPane.setPreferredSize(new Dimension(300,
 				100));
 		}
 		return availableScrollPane;
@@ -604,11 +422,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JTable
 	 *
 	 */
-	private javax.swing.JTable getAvailableTable()
+	private Component getAvailableTable()
 	{
 		if (availableTable == null)
 		{
-			availableTable = new javax.swing.JTable();
+			availableTable = new JTable();
 			availableTable.setModel(getIvjAvailableModel());
 			availableTable.setDragEnabled(true);
 			availableTable.setTransferHandler(transferHandler);
@@ -624,7 +442,7 @@ public class OpposedCheckDialog extends JDialog
 	 * @return OpposedSkillAvailableModel
 	 *
 	 */
-	private OpposedSkillBasicModel getIvjAvailableModel()
+	private TableModel getIvjAvailableModel()
 	{
 		if (ivjAvailableModel == null)
 		{
@@ -640,7 +458,7 @@ public class OpposedCheckDialog extends JDialog
 	 * @return OpposedSkillModel
 	 *
 	 */
-	private OpposedSkillModel getIvjOpposedSkillModel()
+	private TableModel getIvjOpposedSkillModel()
 	{
 		if (ivjOpposedSkillModel == null)
 		{
@@ -656,7 +474,7 @@ public class OpposedCheckDialog extends JDialog
 	 * @return OpposedSkillModel
 	 *
 	 */
-	private OpposedSkillModel getIvjRollingSkillModel()
+	private TableModel getIvjRollingSkillModel()
 	{
 		if (ivjRollingSkillModel == null)
 		{
@@ -670,76 +488,57 @@ public class OpposedCheckDialog extends JDialog
 	 *
 	 * @return javax.swing.JPanel
 	 */
-	private javax.swing.JPanel getJContentPane()
+	private Container getJContentPane()
 	{
 		if (jContentPane == null)
 		{
-			java.awt.GridBagConstraints consAvailableLabel =
-					new java.awt.GridBagConstraints();
 
-			java.awt.GridBagConstraints consOpposingGroupLabel =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consRollingGroupLabel =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consOkButton =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consRollButton =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consRollingComboBox =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consOpposingGroupPane =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consOpposingComboBox =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consRollingGroupPane =
-					new java.awt.GridBagConstraints();
-
-			java.awt.GridBagConstraints consAvailableTable =
-					new java.awt.GridBagConstraints();
-
-			jContentPane = new javax.swing.JPanel();
-			jContentPane.setLayout(new java.awt.GridBagLayout());
+			jContentPane = new JPanel();
+			jContentPane.setLayout(new GridBagLayout());
+			GridBagConstraints consAvailableTable = new GridBagConstraints();
 			consAvailableTable.gridx = 0;
 			consAvailableTable.gridy = 1;
 			consAvailableTable.weightx = 1.0;
 			consAvailableTable.weighty = 1.0;
-			consAvailableTable.fill = java.awt.GridBagConstraints.BOTH;
+			consAvailableTable.fill = GridBagConstraints.BOTH;
 			consAvailableTable.gridwidth = 2;
+			GridBagConstraints consRollingGroupPane = new GridBagConstraints();
 			consRollingGroupPane.weightx = 1.0;
 			consRollingGroupPane.weighty = 1.0;
-			consRollingGroupPane.fill = java.awt.GridBagConstraints.BOTH;
+			consRollingGroupPane.fill = GridBagConstraints.BOTH;
 			consRollingGroupPane.gridx = 0;
 			consRollingGroupPane.gridy = 4;
+			GridBagConstraints consOpposingComboBox = new GridBagConstraints();
 			consOpposingComboBox.weightx = 1.0;
-			consOpposingComboBox.fill = java.awt.GridBagConstraints.HORIZONTAL;
+			consOpposingComboBox.fill = GridBagConstraints.HORIZONTAL;
 			consOpposingComboBox.gridx = 1;
 			consOpposingComboBox.gridy = 3;
+			GridBagConstraints consOpposingGroupPane = new GridBagConstraints();
 			consOpposingGroupPane.weightx = 1.0;
 			consOpposingGroupPane.weighty = 1.0;
-			consOpposingGroupPane.fill = java.awt.GridBagConstraints.BOTH;
+			consOpposingGroupPane.fill = GridBagConstraints.BOTH;
 			consOpposingGroupPane.gridx = 1;
 			consOpposingGroupPane.gridy = 4;
+			GridBagConstraints consRollingComboBox = new GridBagConstraints();
 			consRollingComboBox.weightx = 1.0;
-			consRollingComboBox.fill = java.awt.GridBagConstraints.HORIZONTAL;
+			consRollingComboBox.fill = GridBagConstraints.HORIZONTAL;
 			consRollingComboBox.gridx = 0;
 			consRollingComboBox.gridy = 3;
+			GridBagConstraints consRollButton = new GridBagConstraints();
 			consRollButton.gridx = 0;
 			consRollButton.gridy = 5;
+			GridBagConstraints consOkButton = new GridBagConstraints();
 			consOkButton.gridx = 1;
 			consOkButton.gridy = 5;
-			jContentPane.setBorder(javax.swing.BorderFactory.createEmptyBorder(
+			jContentPane.setBorder(BorderFactory.createEmptyBorder(
 				5, 5, 5, 5));
+			GridBagConstraints consRollingGroupLabel = new GridBagConstraints();
 			consRollingGroupLabel.gridx = 0;
 			consRollingGroupLabel.gridy = 2;
+			GridBagConstraints consOpposingGroupLabel = new GridBagConstraints();
 			consOpposingGroupLabel.gridx = 1;
 			consOpposingGroupLabel.gridy = 2;
+			GridBagConstraints consAvailableLabel = new GridBagConstraints();
 			consAvailableLabel.gridx = 0;
 			consAvailableLabel.gridy = 0;
 			consAvailableLabel.gridwidth = 2;
@@ -765,11 +564,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JButton
 	 *
 	 */
-	private javax.swing.JButton getOkButton()
+	private Component getOkButton()
 	{
 		if (okButton == null)
 		{
-			okButton = new javax.swing.JButton();
+			okButton = new JButton();
 			okButton.setText("Ok");
 			okButton.addActionListener(this::okButtonActionPerformed);
 
@@ -784,11 +583,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JComboBox
 	 *
 	 */
-	private javax.swing.JComboBox getOpposingComboBox()
+	private Component getOpposingComboBox()
 	{
 		if (opposingComboBox == null)
 		{
-			opposingComboBox = new javax.swing.JComboBox(skillNames.toArray());
+			opposingComboBox = new JComboBox<>(skillNames.toArray());
 			opposingComboBox.setSelectedIndex(-1);
 			opposingComboBox
 				.addActionListener(this::opposingComboBoxActionPerformed);
@@ -804,11 +603,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JLabel
 	 *
 	 */
-	private javax.swing.JLabel getOpposingGroupLabel()
+	private Component getOpposingGroupLabel()
 	{
 		if (opposingGroupLabel == null)
 		{
-			opposingGroupLabel = new javax.swing.JLabel();
+			opposingGroupLabel = new JLabel();
 			opposingGroupLabel.setText("Opposing Group");
 		}
 		return opposingGroupLabel;
@@ -821,13 +620,13 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JScrollPane
 	 *
 	 */
-	private javax.swing.JScrollPane getOpposingGroupScrollPane()
+	private Component getOpposingGroupScrollPane()
 	{
 		if (opposingGroupScrollPane == null)
 		{
-			opposingGroupScrollPane = new javax.swing.JScrollPane();
+			opposingGroupScrollPane = new JScrollPane();
 			opposingGroupScrollPane.setViewportView(getOpposingGroupTable());
-			opposingGroupScrollPane.setPreferredSize(new java.awt.Dimension(
+			opposingGroupScrollPane.setPreferredSize(new Dimension(
 				300, 100));
 		}
 		return opposingGroupScrollPane;
@@ -840,11 +639,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JTable
 	 *
 	 */
-	private javax.swing.JTable getOpposingGroupTable()
+	private Component getOpposingGroupTable()
 	{
 		if (opposingGroupTable == null)
 		{
-			opposingGroupTable = new javax.swing.JTable();
+			opposingGroupTable = new JTable();
 			opposingGroupTable.setModel(getIvjOpposedSkillModel());
 			opposingGroupTable.setDragEnabled(true);
 			opposingGroupTable.setTransferHandler(transferHandler);
@@ -860,11 +659,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JButton
 	 *
 	 */
-	private javax.swing.JButton getRollButton()
+	private Component getRollButton()
 	{
 		if (rollButton == null)
 		{
-			rollButton = new javax.swing.JButton();
+			rollButton = new JButton();
 			rollButton.setText("Roll");
 			rollButton.addActionListener(this::rollButtonActionPerformed);
 
@@ -879,11 +678,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JComboBox
 	 *
 	 */
-	private javax.swing.JComboBox getRollingComboBox()
+	private Component getRollingComboBox()
 	{
 		if (rollingComboBox == null)
 		{
-			rollingComboBox = new javax.swing.JComboBox(skillNames.toArray());
+			rollingComboBox = new JComboBox(skillNames.toArray());
 			rollingComboBox.setSelectedIndex(-1);
 			rollingComboBox
 				.addActionListener(this::rollingComboBoxActionPerformed);
@@ -899,11 +698,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JLabel
 	 *
 	 */
-	private javax.swing.JLabel getRollingGroupLabel()
+	private Component getRollingGroupLabel()
 	{
 		if (rollingGroupLabel == null)
 		{
-			rollingGroupLabel = new javax.swing.JLabel();
+			rollingGroupLabel = new JLabel();
 			rollingGroupLabel.setText("Rolling Group");
 		}
 		return rollingGroupLabel;
@@ -916,14 +715,13 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JScrollPane
 	 *
 	 */
-	private javax.swing.JScrollPane getRollingGroupScrollPane()
+	private Component getRollingGroupScrollPane()
 	{
 		if (rollingGroupScrollPane == null)
 		{
-			rollingGroupScrollPane = new javax.swing.JScrollPane();
+			rollingGroupScrollPane = new JScrollPane();
 			rollingGroupScrollPane.setViewportView(getRollingGroupTable());
-			rollingGroupScrollPane.setPreferredSize(new java.awt.Dimension(300,
-				100));
+			rollingGroupScrollPane.setPreferredSize(new Dimension(300, 100));
 		}
 		return rollingGroupScrollPane;
 	}
@@ -935,11 +733,11 @@ public class OpposedCheckDialog extends JDialog
 	 * @return javax.swing.JTable
 	 *
 	 */
-	private javax.swing.JTable getRollingGroupTable()
+	private Component getRollingGroupTable()
 	{
 		if (rollingGroupTable == null)
 		{
-			rollingGroupTable = new javax.swing.JTable();
+			rollingGroupTable = new JTable();
 			rollingGroupTable.setModel(getIvjRollingSkillModel());
 			rollingGroupTable.setDragEnabled(true);
 			rollingGroupTable.setTransferHandler(transferHandler);
@@ -953,7 +751,7 @@ public class OpposedCheckDialog extends JDialog
 	 */
 	private void initialize()
 	{
-		this.setContentPane(getJContentPane());
+		setContentPane(getJContentPane());
 		pack();
 		setLocationRelativeTo(GMGenSystem.inst);
 	}
@@ -963,9 +761,9 @@ public class OpposedCheckDialog extends JDialog
 	 * Hides the dialog when the OK button is pressed.
 	 * </p>
 	 *
-	 * @param e
+	 * @param e unused
 	 */
-	protected void okButtonActionPerformed(ActionEvent e)
+	private void okButtonActionPerformed(ActionEvent e)
 	{
 		setVisible(false);
 	}
@@ -975,9 +773,9 @@ public class OpposedCheckDialog extends JDialog
 	 * Sets the skill for ivjOpposedSkillModel when a skill is selected.
 	 * </p>
 	 *
-	 * @param e
+	 * @param e unused
 	 */
-	protected void opposingComboBoxActionPerformed(ActionEvent e)
+	private void opposingComboBoxActionPerformed(ActionEvent e)
 	{
 		ivjOpposedSkillModel.setSkill(opposingComboBox.getSelectedItem()
 			.toString());
@@ -988,9 +786,9 @@ public class OpposedCheckDialog extends JDialog
 	 * Rolls the skill checks in both skill tables.
 	 * </p>
 	 *
-	 * @param e
+	 * @param e unused
 	 */
-	protected void rollButtonActionPerformed(ActionEvent e)
+	private void rollButtonActionPerformed(ActionEvent e)
 	{
 		ivjOpposedSkillModel.rollAll();
 		ivjRollingSkillModel.rollAll();
@@ -1001,9 +799,9 @@ public class OpposedCheckDialog extends JDialog
 	 * Sets the skill for ivjRollingSkillModel.
 	 * </p>
 	 *
-	 * @param e
+	 * @param e unused
 	 */
-	protected void rollingComboBoxActionPerformed(ActionEvent e)
+	private void rollingComboBoxActionPerformed(ActionEvent e)
 	{
 		ivjRollingSkillModel.setSkill(rollingComboBox.getSelectedItem()
 			.toString());

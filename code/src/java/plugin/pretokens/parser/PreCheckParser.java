@@ -26,8 +26,12 @@
  */
 package plugin.pretokens.parser;
 
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
+import pcgen.core.Globals;
+import pcgen.core.prereq.Prerequisite;
+import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre check tokens.
@@ -44,4 +48,19 @@ public class PreCheckParser extends AbstractPrerequisiteListParser
 	{
 		return new String[]{"CHECK", "CHECKBASE"};
 	}
+
+	@Override
+	public Prerequisite parse(String kind, String formula, boolean invertResult,
+		boolean overrideQualify) throws PersistenceLayerException
+	{
+		if (ControlUtilities.hasControlToken(Globals.getContext(),
+			CControl.TOTALSAVE))
+		{
+			throw new PersistenceLayerException(
+				"PRECHECK and PRECHECKBASE are disabled when TOTALSAVE CodeControl is used");
+		}
+		return super.parse(kind, formula, invertResult, overrideQualify);
+	}
+    
+    
 }

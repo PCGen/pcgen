@@ -32,7 +32,7 @@ import java.util.Set;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 
 /**
  * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
@@ -42,7 +42,7 @@ import pcgen.PCGenTestCase;
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class PluginBuildTest extends PCGenTestCase
+public class PluginBuildTest extends TestCase
 {
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of

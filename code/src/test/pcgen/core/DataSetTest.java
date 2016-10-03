@@ -24,7 +24,7 @@ package pcgen.core;
 
 import java.util.List;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.facade.core.AbilityFacade;
 import pcgen.facade.core.BodyStructureFacade;
@@ -43,7 +43,7 @@ import plugin.pretokens.parser.PreAbilityParser;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
-public class DataSetTest extends PCGenTestCase
+public class DataSetTest extends TestCase
 {
 
 	public final void testGetEquipmentLocationsAll()

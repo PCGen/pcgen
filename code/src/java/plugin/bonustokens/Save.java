@@ -26,9 +26,12 @@ package plugin.bonustokens;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
+import pcgen.cdom.util.CControl;
+import pcgen.cdom.util.ControlUtilities;
 import pcgen.core.PCCheck;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
+import pcgen.util.Logging;
 
 /**
  * <code>SAVE</code>.  Derived from CHECKS
@@ -40,6 +43,13 @@ public final class Save extends BonusObj
 	@Override
 	protected boolean parseToken(LoadContext context, final String argToken)
 	{
+		if (ControlUtilities.hasControlToken(context, CControl.TOTALSAVE))
+		{
+			Logging.errorPrint(
+				"BONUS:SAVE is disabled when TOTALSAVE code control is used: " + argToken,
+				context);
+			return false;
+		}
 		boolean isBase = false;
 		final String token;
 

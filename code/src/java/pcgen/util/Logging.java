@@ -236,7 +236,7 @@ public class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -259,7 +259,7 @@ public class Logging
 	 */
 	public static void errorPrintLocalised(final String aKey, Object... varargs)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -291,7 +291,7 @@ public class Logging
 	public static void deprecationPrint(final String s,
 		final LoadContext context)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -361,7 +361,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -382,7 +382,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final Object... params)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -402,7 +402,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final LoadContext context)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}
@@ -429,7 +429,7 @@ public class Logging
 	 */
 	public static void errorPrint(final String s, final URI sourceURI)
 	{
-		if (isDebugMode())
+		if (debugMode)
 		{
 			s_TOOLKIT.beep();
 		}

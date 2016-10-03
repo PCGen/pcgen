@@ -37,7 +37,8 @@ import pcgen.util.TestHelper;
  * Current Ver: $Revision:$
  */
 
-public class EvaluatorFactoryTest extends PCGenTestCase {
+public class EvaluatorFactoryTest extends PCGenTestCase
+{
 
 	public EvaluatorFactoryTest(String name) {
 		super(name);

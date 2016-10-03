@@ -22,32 +22,17 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.GMGenSystem;
-import gmgen.gui.FlippingSplitPane;
-import gmgen.io.SimpleFileFilter;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.plugin.Event;
-import gmgen.plugin.InfoCharacterDetails;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.Spell;
-import gmgen.plugin.State;
-import gmgen.plugin.SystemHP;
-import gmgen.plugin.SystemInitiative;
-import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
-import gmgen.util.LogUtilities;
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.Writer;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Vector;
 import java.util.stream.Collectors;
-import java.util.stream.Stream;
+
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -69,10 +54,23 @@ import javax.swing.table.TableColumn;
 import javax.swing.table.TableColumnModel;
 import javax.swing.text.DefaultFormatter;
 import javax.swing.text.NumberFormatter;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.Format;
+
+import gmgen.GMGenSystem;
+import gmgen.gui.FlippingSplitPane;
+import gmgen.io.SimpleFileFilter;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.Event;
+import gmgen.plugin.InfoCharacterDetails;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.Spell;
+import gmgen.plugin.State;
+import gmgen.plugin.SystemHP;
+import gmgen.plugin.SystemInitiative;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
+import gmgen.util.LogUtilities;
 import pcgen.core.Globals;
 import pcgen.core.PCStat;
 import pcgen.core.PlayerCharacter;
@@ -82,10 +80,15 @@ import pcgen.pluginmgr.PluginManager;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.Format;
+import org.jdom2.output.XMLOutputter;
 import plugin.initiative.AttackModel;
 import plugin.initiative.CheckModel;
 import plugin.initiative.DiceRollModel;
-import plugin.initiative.InitOutputter;
 import plugin.initiative.InitiativePlugin;
 import plugin.initiative.PObjectModel;
 import plugin.initiative.SaveModel;
@@ -1733,20 +1736,18 @@ public class Initiative extends javax.swing.JPanel
 		/*if(currentInit > -1) {
 		 party.setAttribute("current_init", Integer.toString(currentInit));
 		 }*/
-		Stream<InitHolderList> initList = Stream.of(this.initList);
-		for (final InitHolder anInitList : this.initList)
-		{
-			party.addContent(anInitList.getSaveElement());
-		}
+		initList.forEach((InitHolder anInitList) -> party.addContent(anInitList.getSaveElement()));
 
-		Document saveDocument = new Document(party);
-		InitOutputter xmlOut = new InitOutputter();
+		XMLOutputter xmlOut = new XMLOutputter();
 		xmlOut.setFormat(Format.getRawFormat().setEncoding("US-ASCII"));
 
-		FileWriter fr = new FileWriter(xml);
-		xmlOut.output(saveDocument, fr);
-		fr.flush();
-		fr.close();
+		try (Writer fr = new FileWriter(xml))
+		{
+			Document saveDocument = new Document(party);
+			xmlOut.output(saveDocument, fr);
+			fr.flush();
+			fr.close();
+		}
 	}
 
 	//** End Preferences Functions **

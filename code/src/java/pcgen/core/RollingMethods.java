@@ -23,13 +23,16 @@
  */
 package pcgen.core;
 
-import pcgen.base.util.RandomUtil;
-import pcgen.util.Logging;
-
 import java.util.Arrays;
 import java.util.Stack;
 import java.util.Vector;
-import org.nfunk.jep.*;
+import java.util.stream.IntStream;
+
+import pcgen.base.util.RandomUtil;
+import pcgen.util.Logging;
+
+import org.nfunk.jep.JEP;
+import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.List;
 import org.nfunk.jep.function.PostfixMathCommand;
 
@@ -87,83 +90,13 @@ public final class RollingMethods
     public static int roll(int times, final int sides, final int[] keep)
     {
         // return roll (times, sides, keep, 0, 0);
-        final int[] rolls = new int[times];
-
-        --times;
-        while (times >= 0)
-        {
-            rolls[times] = RandomUtil.getRandomInt(sides);
-            --times;
-        }
-
-        java.util.Arrays.sort(rolls);
-
-        int total = keep.length; // keep the +1 at the end
-
-        for (final int aKeep : keep)
-        {
-            total += rolls[aKeep]; // 0-indexed
-        }
-
-        return total;
-    }
-
-    /**
-     * Roll <var>times</var> bizarre dice.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     *
-     * @return what the die says
-     */
-    //TODO: convert to stream API
-    public static int roll(int times, final int[] shape)
-    {
-        int total = 0;
-
-        --times;
-        while (times >= 0)
-        {
-            total += shape[RandomUtil.getRandomInt(shape.length)];
-            --times;
-        }
-
-        return total;
-    }
-
-    /**
-     * Roll <var>times</var> bizarre dice, keeping
-     * <var>keep</var> of them in ascending order.
-     *
-     * @param times int how many dice to roll?
-     * @param shape int[] array of values of sides of die
-     * @param keep int[] which dice to keep
-     *
-     * @return what the die says
-     */
-
-    //TODO: convert to stream API
-    public static int roll(int times, final int[] shape, final int[] keep)
-    {
-        final int[] rolls = new int[times];
-
-        --times;
-        while (times >= 0)
-        {
-            rolls[times] = shape[RandomUtil.getRandomInt(shape.length)];
-            --times;
-        }
-
-        Arrays.sort(rolls);
-
-        int total = 0;
-
-        for (final int aKeep : keep)
-        {
-            total += rolls[aKeep]; // 0-indexed
-        }
-
-        return total;
+        int[] ints = IntStream.generate(() -> RandomUtil.getRandomInt(sides))
+                              .limit(times)
+                              .sorted()
+                              .toArray();
+        // keep the +1 at the end
+        return Arrays.stream(keep)
+                     .reduce(keep.length, (a, aKeep) -> a + ints[aKeep]);
     }
 
     private static int getLeftIndex(final StringBuilder expression, int startIndex)
@@ -293,40 +226,13 @@ public final class RollingMethods
             final int reroll,
             final int modifier)
     {
-        final int[] dieRoll = new int[times];
-        final int keep = (numToKeep > times) ? times : numToKeep;
-
-        for (int i = 0; i < times; ++i)
-        {
-            dieRoll[i] = roll(sides - reroll) + reroll;
-        }
-
-        Arrays.sort(dieRoll);
-
-        if (Logging.isDebugMode())
-        {
-            final StringBuilder rollString = new StringBuilder(times << 2);
-            rollString.append(dieRoll[0]);
-
-            if (times > 1)
-            {
-                for (int i = 1; i < times; ++i)
-                {
-                    rollString.append(" + ").append(dieRoll[i]);
-                }
-            }
-            Logging.debugPrint(rollString.toString());
-        }
-
-        // Now add together the highest "keep" dice
-
-        int total = 0;
-        for (int j = times - keep; j < times; j++)
-        {
-            total += dieRoll[j];
-        }
-
-        return total + modifier;
+        return IntStream.generate(
+                () ->  roll(sides - reroll) + reroll
+        )
+                .limit(times)
+                .sorted()
+                .limit(numToKeep)
+                .sum() + modifier;
     }
 
     /**

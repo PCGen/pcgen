@@ -1,13 +1,13 @@
 package pcgen.core;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 
 /**
  * <code>ClassTypeTest</code> <strong>needs documentation</strong>.
  *
  * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
  */
-public class ClassTypeTest extends PCGenTestCase
+public class ClassTypeTest extends TestCase
 {
 	/**
 	 * Constructs a new <code>ClassTypeTest</code>.

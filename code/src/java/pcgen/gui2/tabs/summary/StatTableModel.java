@@ -67,7 +67,7 @@ import pcgen.gui2.util.table.TableCellUtilities;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class StatTableModel extends AbstractTableModel implements ReferenceListener<Integer>
+public class StatTableModel extends AbstractTableModel implements ReferenceListener<Number>
 {
 
 	public static final String EDITABLE_COLUMN_ID = "EDITABLE"; //$NON-NLS-1$
@@ -488,7 +488,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	}
 
 	@Override
-	public void referenceChanged(ReferenceEvent<Integer> e)
+	public void referenceChanged(ReferenceEvent<Number> e)
 	{
 		fireTableDataChanged();
 	}

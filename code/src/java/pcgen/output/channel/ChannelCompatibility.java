@@ -17,6 +17,7 @@
  */
 package pcgen.output.channel;
 
+import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
@@ -28,7 +29,7 @@ import pcgen.output.channel.compat.StatAdapter;
 public class ChannelCompatibility
 {
 
-	public static WriteableReferenceFacade<Integer> getStatScore(CharID id,
+	public static WriteableReferenceFacade<Number> getStatScore(CharID id,
 		PCStat stat)
 	{
 		String channelName = ControlUtilities
@@ -39,8 +40,8 @@ public class ChannelCompatibility
 		}
 		else
 		{
-			return (WriteableReferenceFacade<Integer>) ChannelUtilities
-				.getChannel(id, stat, channelName);
+			return (WriteableReferenceFacade<Number>) ChannelUtilities
+				.generateChannel(id, stat, channelName, FormatUtilities.NUMBER_MANAGER);
 		}
 	}
 }

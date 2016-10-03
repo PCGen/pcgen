@@ -28,6 +28,6 @@ import pcgen.core.PCStat;
  * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatValueFacet extends
-		AbstractAssociationFacet<CharID, PCStat, Integer>
+		AbstractAssociationFacet<CharID, PCStat, Number>
 {
 }

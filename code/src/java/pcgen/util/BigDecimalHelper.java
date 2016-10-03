@@ -21,7 +21,6 @@
 package pcgen.util;
 
 import java.math.BigDecimal;
-import java.math.RoundingMode;
 
 /**
  * This contains helper functions for BigDecimal.
@@ -29,16 +28,6 @@ import java.math.RoundingMode;
  */
 public class BigDecimalHelper
 {
-	/**
-	 * Sets [n] to [dp] decimal places.
-	 * @param n the BigDecimal to format
-	 * @param dp the wanted number of decimal places
-	 * @return the formated BigDecimal
-	 */
-	public static BigDecimal formatBigDecimal(BigDecimal n, int dp)
-	{
-		return n.setScale(dp, RoundingMode.HALF_UP); // Sets scale and rounds up if most significant (cut off) number >= 5
-	}
 
 	/**
 	 * trimBigDecimal ( (BigDecimal) a) to cut off all trailing zeros.

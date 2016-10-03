@@ -21,10 +21,10 @@ import java.io.File;
 import java.text.NumberFormat;
 import java.text.ParseException;
 
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 
 import pcgen.util.Logging;
 import plugin.overland.gui.XMLFilter;

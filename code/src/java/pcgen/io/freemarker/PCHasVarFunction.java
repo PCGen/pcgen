@@ -34,7 +34,7 @@ import freemarker.template.TemplateModelException;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PCHasVarFunction extends CharacterExportAction implements TemplateMethodModelEx
+public class PCHasVarFunction implements TemplateMethodModelEx, CharacterExportAction
 {
 	private PlayerCharacter pc;
 	private ExportHandler eh;
