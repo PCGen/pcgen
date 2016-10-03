@@ -345,7 +345,7 @@ public abstract class AbstractListMapGraph<N, ET extends Edge<N>> implements
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
 		Set<ET> adjacentEdges = nodeEdgeMap.get(node);
-		return adjacentEdges == null ? false : !adjacentEdges.isEmpty();
+		return adjacentEdges != null && !adjacentEdges.isEmpty();
 	}
 
 	/**

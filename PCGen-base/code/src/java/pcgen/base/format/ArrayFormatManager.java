@@ -240,7 +240,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 * can be put into an array), but the interface for FormatManager is
 	 * ObjectContainer<T[]> (a single ObjectContainer resolving to an array).
 	 */
-	private class ArrayIndirect implements Indirect<T[]>
+	private final class ArrayIndirect implements Indirect<T[]>
 	{
 		/**
 		 * The array of ObjectContainer objects used to resolve this
