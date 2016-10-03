@@ -71,18 +71,12 @@ public class GenericFormatManager<T> implements FormatManager<T>
 		this.identifier = Objects.requireNonNull(identifier);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public T convert(String name)
 	{
 		return database.get(underlyingClass, Objects.requireNonNull(name));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Indirect<T> convertIndirect(String name)
 	{
@@ -90,36 +84,24 @@ public class GenericFormatManager<T> implements FormatManager<T>
 			Objects.requireNonNull(name));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String unconvert(T obj)
 	{
 		return database.getName(Objects.requireNonNull(obj));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<T> getManagedClass()
 	{
 		return underlyingClass;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentifierType()
 	{
 		return identifier;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getComponentManager()
 	{

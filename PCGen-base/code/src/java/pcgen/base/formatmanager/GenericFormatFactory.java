@@ -69,9 +69,6 @@ public class GenericFormatFactory<T> implements FormatManagerFactory
 		this.identifier = Objects.requireNonNull(identifier);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> build(String subFormatName,
 		FormatManagerLibrary library)
@@ -80,9 +77,6 @@ public class GenericFormatFactory<T> implements FormatManagerFactory
 			identifier);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBuilderBaseFormat()
 	{
