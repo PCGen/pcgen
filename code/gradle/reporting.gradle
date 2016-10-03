@@ -7,11 +7,14 @@
  * Author: James Dempsey 
  */
 
+apply plugin: 'checkstyle'
+apply plugin: 'pmd'
+
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
-	ignoreFailures = true
 	showViolations = false
 	sourceSets = [sourceSets.main]
+	toolVersion = '7.1.1'
 }
 
 pmd {

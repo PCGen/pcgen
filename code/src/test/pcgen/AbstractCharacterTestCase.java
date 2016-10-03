@@ -35,6 +35,7 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import junit.framework.TestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -44,7 +45,7 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
-public abstract class AbstractCharacterTestCase extends PCGenTestCase
+public abstract class AbstractCharacterTestCase extends TestCase
 {
 	private PlayerCharacter character = null;
 	protected PCStat str;
@@ -195,7 +196,6 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	/**
 	 * Constructs a new {@code AbstractCharacterTestCase}.
 	 *
-	 * @see PCGenTestCase#PCGenTestCase()
 	 */
 	public AbstractCharacterTestCase()
 	{
@@ -239,8 +239,8 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * @param stat The name of the stat to be set (eg DEX)
 	 * @param value The value to be set (eg 18)
 	 */
-	public void setPCStat(final PlayerCharacter pc, final PCStat stat,
-			final int value)
+	public static void setPCStat(final PlayerCharacter pc, final PCStat stat,
+	                             final int value)
 	{
 		pc.setStat(stat,  value);
 	}
@@ -266,12 +266,12 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	 * @return <tt>true</tt> if the character has the ability with the
 	 *         criteria specified.
 	 */
-	public boolean hasAbility(PlayerCharacter pc,
-		final AbilityCategory aCategory, final Nature anAbilityType,
-		final Ability anAbility)
+	protected static boolean hasAbility(PlayerCharacter pc,
+	                                    final AbilityCategory aCategory, final Nature anAbilityType,
+	                                    final Ability anAbility)
 	{
 		Collection<CNAbility> cnabilities = pc.getCNAbilities(aCategory, anAbilityType);
-		for (CNAbility cna : cnabilities)
+		for (final CNAbility cna : cnabilities)
 		{
 			Ability a = cna.getAbility();
 			if (a.getKeyName().equals(anAbility.getKeyName()))
@@ -317,8 +317,8 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 			UserSelection.getInstance(), UserSelection.getInstance());
 	}
 
-	protected CNAbility finalize(Ability a, String string,
-		PlayerCharacter pc, AbilityCategory cat)
+	protected static CNAbility finalize(Ability a, String string,
+	                                    PlayerCharacter pc, AbilityCategory cat)
 	{
 		return applyAbility(pc, cat, a, string);
 	}

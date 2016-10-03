@@ -17,10 +17,11 @@
  */
 package pcgen.cdom.content.factset;
 
-import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 import pcgen.base.util.Indirect;
 import pcgen.base.util.ObjectContainer;
@@ -80,7 +81,7 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 	 *            The String representation of the value that this FactSetGroup
 	 *            will be looking for
 	 */
-	public FactSetGroup(LoadContext context, FactSetInfo<T, F> fsi, String value)
+	FactSetGroup(LoadContext context, FactSetInfo<T, F> fsi, String value)
 	{
 		if (fsi.getUsableLocation().equals(CDOMObject.class))
 		{
@@ -98,30 +99,20 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		}
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getContainedObjects()
-	 */
 	@Override
 	public Collection<T> getContainedObjects()
 	{
 		if (cache == null)
 		{
-			List<T> setupCache = new ArrayList<>();
-			for (T obj : allObjects.getContainedObjects())
-			{
-				if (contains(obj))
-				{
-					setupCache.add(obj);
-				}
-			}
-			cache = setupCache;
+			cache = allObjects
+					.getContainedObjects()
+					.stream()
+					.filter((Predicate<T>) this::contains)
+					.collect(Collectors.toList());
 		}
 		return Collections.unmodifiableCollection(cache);
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getLSTformat(boolean)
-	 */
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
@@ -129,9 +120,6 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 			+ def.getFormatManager().unconvert(toMatch.get());
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#contains(java.lang.Object)
-	 */
 	@Override
 	public boolean contains(T obj)
 	{
@@ -139,20 +127,13 @@ public class FactSetGroup<T extends CDOMObject, F> implements
 		if (factset != null)
 		{
 			F tgt = toMatch.get();
-			for (Indirect<F> indirect : factset)
-			{
-				if (indirect.get().equals(tgt))
-				{
-					return true;
-				}
-			}
+			return factset
+					       .stream()
+					       .anyMatch((Indirect<F> v) -> v.get().equals(tgt));
 		}
 		return false;
 	}
 
-	/**
-	 * @see pcgen.base.util.ObjectContainer#getReferenceClass()
-	 */
 	@Override
 	public Class<T> getReferenceClass()
 	{

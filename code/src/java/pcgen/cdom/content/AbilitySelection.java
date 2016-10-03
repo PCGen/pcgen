@@ -59,7 +59,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 	public static AbilitySelection getAbilitySelectionFromPersistentFormat(
 		LoadContext context, String persistentFormat)
 	{
-		if (persistentFormat.indexOf(Constants.PIPE) < 0)
+		if (!persistentFormat.contains(Constants.PIPE))
 		{
 			return decodeFeatSelectionChoice(context, persistentFormat);
 		}
@@ -217,7 +217,7 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(getAbilityKey());
 		String selection = getSelection();
-		if ((selection != null) && (selection.length() > 0))
+		if ((selection != null) && (!selection.isEmpty()))
 		{
 			sb.append(" (");
 			sb.append(selection);
@@ -247,9 +247,6 @@ public class AbilitySelection extends Selection<Ability, String> implements
 		return selection.compareTo(oselection);
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

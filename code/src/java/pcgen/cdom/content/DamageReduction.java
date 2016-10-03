@@ -26,7 +26,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -92,7 +91,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	 * 
 	 * @return Amount of damage this DR reduces
 	 */
-	public int getRawReductionValue()
+	private int getRawReductionValue()
 	{
 		return theReduction.isStatic() ? theReduction.resolveStatic()
 			.intValue() : -1;
@@ -174,19 +173,15 @@ public class DamageReduction extends ConcretePrereqObject implements
 		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
 		int hash = 0;
-		for (Iterator<String> i = list.iterator(); i.hasNext();)
+		for (final String aList : list)
 		{
-			hash += i.next().hashCode();
+			hash += aList.hashCode();
 		}
 		return theReduction.hashCode() + hash;
 	}
 
 	public String getLSTformat()
 	{
-		StringBuilder result = new StringBuilder();
-		result.append(theReduction);
-		result.append('/');
-		result.append(theBypass);
-		return result.toString();
+		return String.valueOf(theReduction) + '/' + theBypass;
 	}
 }

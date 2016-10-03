@@ -28,7 +28,6 @@ package pcgen.persistence.lst;
 
 import java.util.List;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.VariableKey;
@@ -45,10 +44,13 @@ import pcgen.util.Logging;
 import pcgen.util.TestHelper;
 
 import junit.framework.Test;
+import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import plugin.lsttokens.testsupport.BuildUtilities;
+import static pcgen.PCGenTestCase.eq;
+import static pcgen.PCGenTestCase.is;
 
-public class PObjectLoaderTest extends PCGenTestCase
+public class PObjectLoaderTest extends TestCase
 {
 	public PObjectLoaderTest(String name)
 	{

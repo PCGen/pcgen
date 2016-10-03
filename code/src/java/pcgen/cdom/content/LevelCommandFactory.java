@@ -113,7 +113,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	/**
 	 * Returns the consistent-with-equals hashCode for this LevelCommandFactory
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -126,7 +126,7 @@ public class LevelCommandFactory extends ConcretePrereqObject implements
 	 * Equality is defined as being another LevelCommandFactory object with
 	 * equal PCClass to be added and equal level Formula.
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

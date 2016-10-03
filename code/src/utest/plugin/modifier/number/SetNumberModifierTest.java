@@ -197,7 +197,7 @@ public class SetNumberModifierTest
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", null, varScope, numManager);
-		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertSame(Number.class, modifier.getVariableFormat());
 		assertEquals(6.5, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
@@ -212,7 +212,7 @@ public class SetNumberModifierTest
 		SetModifierFactory factory = new SetModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6+5", iSetup.getFormulaManager(), varScope, numManager);
-		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertSame(Number.class, modifier.getVariableFormat());
 		EvaluationManager evalManager = EvalManagerUtilities.getInputEM(4.3);
 		evalManager.push(EvaluationManager.FMANAGER, iSetup.getFormulaManager());

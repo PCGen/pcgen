@@ -27,16 +27,19 @@ package pcgen.core;
 import java.util.ArrayList;
 import java.util.List;
 
-import pcgen.PCGenTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
+
+import junit.framework.TestCase;
+import static pcgen.PCGenTestCase.is;
+import static pcgen.PCGenTestCase.strEq;
 
 /**
  * @author nuance
  *
  */
-public class EquipmentUtilitiesTest extends PCGenTestCase
+public class EquipmentUtilitiesTest extends TestCase
 {
 
 	/**

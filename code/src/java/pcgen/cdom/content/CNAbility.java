@@ -78,7 +78,7 @@ public class CNAbility extends ConcretePrereqObject implements
 			throw new IllegalArgumentException(
 				"Cannot build CNAbility with null Nature");
 		}
-		if (abil.getKeyName() == null || abil.getKeyName().length() == 0)
+		if (abil.getKeyName() == null || abil.getKeyName().isEmpty())
 		{
 			throw new IllegalArgumentException(
 				"Cannot build CNAbility when Ability has no key");
@@ -165,7 +165,7 @@ public class CNAbility extends ConcretePrereqObject implements
 			CNAbility other = (CNAbility) o;
 			return category.equals(other.category)
 					&& ability.equals(other.ability)
-					&& nature.equals(other.nature);
+					&& nature == other.nature;
 		}
 		return false;
 	}
@@ -181,17 +181,17 @@ public class CNAbility extends ConcretePrereqObject implements
 		}
 		
 		// ability details
-		int compare = this.ability.compareTo(other.ability);
+		int compare = ability.compareTo(other.ability);
 		if (compare != equal)
 		{
 			return compare;
 		}
-		compare = this.category.toString().compareTo(other.category.toString());
+		compare = category.toString().compareTo(other.category.toString());
 		if (compare != equal)
 		{
 			return compare;
 		}
-		compare = this.nature.compareTo(other.nature);
+		compare = nature.compareTo(other.nature);
 		return compare;
 	}
 
@@ -231,9 +231,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return ability.getDisplayName();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

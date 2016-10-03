@@ -102,7 +102,7 @@ public class ChallengeRating extends ConcretePrereqObject
 	/**
 	 * Returns the consistent-with-equals hashCode for this ChallengeRating
 	 * 
-	 * @see java.lang.Object#hashCode()
+	 * @see Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -115,7 +115,7 @@ public class ChallengeRating extends ConcretePrereqObject
 	 * Equality is defined as being another ChallengeRating object with equal
 	 * rating and Prerequisites
 	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 * @see Object#equals(Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

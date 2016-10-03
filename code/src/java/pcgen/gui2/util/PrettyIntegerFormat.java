@@ -30,7 +30,7 @@ import java.text.DecimalFormatSymbols;
  * 
  * @author Vincent Lhote
  */
-public class PrettyIntegerFormat extends DecimalFormat 
+public final class PrettyIntegerFormat extends DecimalFormat
 {
 
 	private static final long serialVersionUID = 2551454019393922738L;
@@ -40,12 +40,11 @@ public class PrettyIntegerFormat extends DecimalFormat
 	/**
 	 * It is usually better to use {@link #getFormat()} to use a single instance of the formatter in the whole program.
 	 */
-	public PrettyIntegerFormat()
+	private PrettyIntegerFormat()
 	{
-		super();
 		// + and - should not need to be internationalized
 		DecimalFormatSymbols decimalFormatSymbols = getDecimalFormatSymbols();
-		decimalFormatSymbols.setMinusSign('\u2212');
+		decimalFormatSymbols.setMinusSign('−');
 		setDecimalFormatSymbols(decimalFormatSymbols);
 		setPositivePrefix("+"); //$NON-NLS-1$
 	}

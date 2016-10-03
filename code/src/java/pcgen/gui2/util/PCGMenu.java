@@ -15,11 +15,8 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21/01/2014
- *
- * $Id$
- */package pcgen.gui2.util;
+ */
+package pcgen.gui2.util;
 
 import java.awt.Dimension;
 import java.awt.Point;
@@ -38,11 +35,10 @@ import javax.swing.JMenu;
 @SuppressWarnings("serial")
 public class PCGMenu extends JMenu
 {
-	public PCGMenu()
-	{
-		super();
-	}
-	
+
+	/**
+	 * @param a action to take when pressed.
+	 */
 	public PCGMenu(Action a)
 	{
 		super(a);
@@ -52,7 +48,7 @@ public class PCGMenu extends JMenu
 	public Point getToolTipLocation(MouseEvent event)
 	{
 		Dimension size = getSize();
-		double oneRowUpHeight = size.getHeight() *-1 -5;
+		double oneRowUpHeight = (size.getHeight() * -1) - 5;
 		return new Point((int) size.getWidth(), (int) oneRowUpHeight);
 	}
 }
