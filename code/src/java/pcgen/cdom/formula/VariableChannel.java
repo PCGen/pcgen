@@ -147,7 +147,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 			{
 				e = new ReferenceEvent<>(source, oldValue, newValue);
 			}
-			listeners[i + 1].referenceChanged(e);
+			listeners[i].referenceChanged(e);
 		}
 	}
 
