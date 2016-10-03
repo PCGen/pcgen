@@ -186,7 +186,7 @@ public class DependencyVisitor implements FormulaParserVisitor
 		DependencyManager manager = (DependencyManager) data;
 		FormulaManager formulaManager =
 				manager.peek(DependencyManager.FMANAGER);
-		FunctionLibrary library = formulaManager.getLibrary();
+		FunctionLibrary library = formulaManager.peek(FormulaManager.FUNCTION);
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);

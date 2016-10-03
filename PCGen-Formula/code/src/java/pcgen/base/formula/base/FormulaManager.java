@@ -17,6 +17,7 @@
  */
 package pcgen.base.formula.base;
 
+import pcgen.base.util.TypedKey;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that
@@ -35,6 +36,8 @@ package pcgen.base.formula.base;
 public interface FormulaManager
 {
 
+	public final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
+
 	/**
 	 * Returns the VariableLibrary used to get VariableIDs.
 	 * 
@@ -52,15 +55,6 @@ public interface FormulaManager
 	public VariableStore getResolver();
 
 	/**
-	 * Returns the FunctionLibrary used to store valid functions in this
-	 * FormulaManager.
-	 * 
-	 * @return The FunctionLibrary used to store valid functions in this
-	 *         FormulaManager
-	 */
-	public FunctionLibrary getLibrary();
-
-	/**
 	 * Returns the OperatorLibrary used to store valid operations in this
 	 * FormulaManager.
 	 * 
@@ -70,20 +64,6 @@ public interface FormulaManager
 	public OperatorLibrary getOperatorLibrary();
 
 	/**
-	 * Returns a new FormulaManager, with similar features to this
-	 * FormulaManager, but with the FunctionLibrary swapped for the given
-	 * FunctionLibrary.
-	 * 
-	 * @param ftnLib
-	 *            The FunctionLibrary to be included in the returned
-	 *            FormulaManager
-	 * @return a new FormulaManager, with similar features to this
-	 *         FormulaManager, but with the FunctionLibrary swapped for the
-	 *         given FunctionLibrary
-	 */
-	public FormulaManager swapFunctionLibrary(FunctionLibrary ftnLib);
-
-	/**
 	 * Returns the default value for a given format (class).
 	 * 
 	 * @param format
@@ -91,5 +71,68 @@ public interface FormulaManager
 	 * @return The default value for a given format (class)
 	 */
 	public <T> T getDefault(Class<T> format);
+
+	/**
+	 * Pushes a new value into the FormulaManager for the given TypedKey.
+	 * 
+	 * @param key
+	 *            The TypeKey for which the given value should be pushed into the
+	 *            FormulaManager
+	 * @param value
+	 *            The value to be pushed into the FormulaManager for the given TypeKey
+	 * @throws IllegalArgumentException
+	 *             if the given key is null
+	 */
+	public <T> void push(TypedKey<T> key, T value);
+
+	/**
+	 * Pops a value from the FormulaManager for the given TypedKey.
+	 * 
+	 * Note that this method will not block or throw an error if the FormulaManager is
+	 * empty. It will simply return the "Default Value" for the given TypeKey. Note null
+	 * is a legal default value.
+	 * 
+	 * @param key
+	 *            The TypeKey for which the given value should be popped from the
+	 *            FormulaManager
+	 * @return The value popped from the FormulaManager for the given TypeKey
+	 * @throws IllegalArgumentException
+	 *             if the given key is null
+	 */
+	public <T> T pop(TypedKey<T> key);
+
+	/**
+	 * Returns the top value of the FormulaManager for the given TypedKey, without
+	 * performing a pop.
+	 * 
+	 * Note that this method will not block or throw an error if the FormulaManager is
+	 * empty. It will simply return the "Default Value" for the given TypeKey. Note null
+	 * is a legal default value.
+	 * 
+	 * @param key
+	 *            The TypeKey for which the top value should be returned
+	 * @return The top value of the FormulaManager for the given TypedKey
+	 * @throws IllegalArgumentException
+	 *             if the given key is null
+	 */
+	public <T> T peek(TypedKey<T> key);
+
+	/**
+	 * Sets a new value into the FormulaManager for the given TypedKey.
+	 * 
+	 * This is effectively a shortcut for calling pop(key) followed by push(key, value).
+	 * This has the same effects as pop of not throwing an error if the FormulaManager is
+	 * currently empty.
+	 * 
+	 * @param key
+	 *            The TypeKey for which the given value should be set as the top value on
+	 *            the FormulaManager
+	 * @param value
+	 *            The value to be set as the top value on the FormulaManager for the given
+	 *            TypeKey
+	 * @throws IllegalArgumentException
+	 *             if the given key is null
+	 */
+	public <T> void set(TypedKey<T> key, T value);
 
 }

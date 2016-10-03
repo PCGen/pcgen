@@ -21,10 +21,10 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.FormulaManager;
-import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
+import pcgen.base.util.MappedDeque;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that
@@ -40,18 +40,13 @@ import pcgen.base.formula.base.VariableStore;
  * context which in the future we can create once for the PC and never have to
  * recreate...)
  */
-public class SimpleFormulaManager implements FormulaManager
+public class SimpleFormulaManager extends MappedDeque implements FormulaManager
 {
 
 	/**
 	 * The DefaultStore used to know the default values for a format (class).
 	 */
 	private final DefaultStore defaultStore;
-
-	/**
-	 * The FunctionLibrary used to store valid functions in this FormulaManager.
-	 */
-	private final FunctionLibrary ftnLibrary;
 
 	/**
 	 * The OperatorLibrary used to store valid operators in this FormulaManager.
@@ -74,9 +69,6 @@ public class SimpleFormulaManager implements FormulaManager
 	 * Constructs a new FormulaManager from the provided FunctionLibrary,
 	 * OperatorLibrary, VariableLibrary, and VariableStore.
 	 * 
-	 * @param ftnLibrary
-	 *            The FunctionLibrary used to store valid functions in this
-	 *            FormulaManager
 	 * @param opLibrary
 	 *            The OperatorLibrary used to store valid operators in this
 	 *            FormulaManager
@@ -89,11 +81,9 @@ public class SimpleFormulaManager implements FormulaManager
 	 *            The DefaultStore used to know default values for each format
 	 *            (class)
 	 */
-	public SimpleFormulaManager(FunctionLibrary ftnLibrary,
-		OperatorLibrary opLibrary, VariableLibrary varLibrary,
+	public SimpleFormulaManager(OperatorLibrary opLibrary, VariableLibrary varLibrary,
 		VariableStore resultStore, DefaultStore defaultStore)
 	{
-		this.ftnLibrary = Objects.requireNonNull(ftnLibrary);
 		this.opLibrary = Objects.requireNonNull(opLibrary);
 		this.varLibrary = Objects.requireNonNull(varLibrary);
 		this.results = Objects.requireNonNull(resultStore);
@@ -125,19 +115,6 @@ public class SimpleFormulaManager implements FormulaManager
 	}
 
 	/**
-	 * Returns the FunctionLibrary used to store valid functions in this
-	 * FormulaManager.
-	 * 
-	 * @return The FunctionLibrary used to store valid functions in this
-	 *         FormulaManager
-	 */
-	@Override
-	public FunctionLibrary getLibrary()
-	{
-		return ftnLibrary;
-	}
-
-	/**
 	 * Returns the OperatorLibrary used to store valid operations in this
 	 * FormulaManager.
 	 * 
@@ -148,25 +125,6 @@ public class SimpleFormulaManager implements FormulaManager
 	public OperatorLibrary getOperatorLibrary()
 	{
 		return opLibrary;
-	}
-
-	/**
-	 * Returns a new FormulaManager, with similar features to this
-	 * FormulaManager, but with the FunctionLibrary swapped for the given
-	 * FunctionLibrary.
-	 * 
-	 * @param ftnLib
-	 *            The FunctionLibrary to be included in the returned
-	 *            FormulaManager
-	 * @return a new FormulaManager, with similar features to this
-	 *         FormulaManager, but with the FunctionLibrary swapped for the
-	 *         given FunctionLibrary
-	 */
-	@Override
-	public FormulaManager swapFunctionLibrary(FunctionLibrary ftnLib)
-	{
-		return new SimpleFormulaManager(ftnLib, opLibrary, varLibrary, results,
-			defaultStore);
 	}
 
 	/**
