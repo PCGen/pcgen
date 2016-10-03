@@ -42,4 +42,4 @@ tasks.withType(FindBugs) {
 						'DoInsideDoPrivileged', 'CyclomaticComplexity']
 	}
 }
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugs'] }
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain'] }
