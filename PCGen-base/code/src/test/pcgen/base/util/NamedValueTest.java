@@ -54,11 +54,11 @@ public class NamedValueTest extends TestCase
 		assertEquals("Foo", nf1.getName());
 		assertEquals(0.0, nf1.getWeight());
 		nf1.addWeight(4.3);
-		assertEquals(4.3, nf1.getWeight(), 10e-8);
+		assertEquals(4.3, nf1.getWeight(), 10.0e-8);
 		nf1.addWeight(2.1);
-		assertEquals(6.4, nf1.getWeight(), 10e-8);
+		assertEquals(6.4, nf1.getWeight(), 10.0e-8);
 		nf1.removeWeight(3.3);
-		assertEquals(3.1, nf1.getWeight(), 10e-8);
+		assertEquals(3.1, nf1.getWeight(), 10.0e-8);
 	}
 
 	@Test
