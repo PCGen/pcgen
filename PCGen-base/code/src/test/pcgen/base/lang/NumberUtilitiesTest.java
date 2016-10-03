@@ -91,7 +91,7 @@ public class NumberUtilitiesTest extends TestCase
 
 	public void testPreciseDouble()
 	{
-		assertEquals(new BigDecimal(1.5), NumberUtilities.getPreciseNumber("1.5"));
+		assertEquals(new BigDecimal("1.5"), NumberUtilities.getPreciseNumber("1.5"));
 	}
 
 	public void testPreciseLargeInteger()
