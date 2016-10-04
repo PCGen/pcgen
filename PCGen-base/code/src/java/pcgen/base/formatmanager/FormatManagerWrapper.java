@@ -41,21 +41,7 @@ public class FormatManagerWrapper implements FormatManagerFactory
 	 */
 	public FormatManagerWrapper(FormatManager<?> fmtManager)
 	{
-		String fmIdent = fmtManager.getIdentifierType();
-		if (fmIdent == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot use a FormatManager with no identifier (was nominally for: "
-					+ fmtManager.getManagedClass() + ")");
-		}
-		Class<?> fmFormat = fmtManager.getManagedClass();
-		if (fmFormat == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot use a FormatManager with no format (was nominally for: "
-					+ fmFormat + ")");
-		}
-		formatManager = fmtManager;
+		formatManager = FormatUtilities.isValid(fmtManager);
 	}
 
 	@Override

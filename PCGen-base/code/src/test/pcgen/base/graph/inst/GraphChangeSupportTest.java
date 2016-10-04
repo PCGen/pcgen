@@ -51,7 +51,7 @@ public class GraphChangeSupportTest extends TestCase
 			new GraphChangeSupport(null);
 			fail();
 		}
-		catch (IllegalArgumentException npe)
+		catch (IllegalArgumentException | NullPointerException npe)
 		{
 			//We expect this
 		}

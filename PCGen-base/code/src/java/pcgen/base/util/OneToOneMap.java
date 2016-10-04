@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -151,16 +152,8 @@ public class OneToOneMap<K, V>
 	 */
 	public V put(K key, V value)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key may not be null");
-		}
-		if (value == null)
-		{
-			throw new IllegalArgumentException("Value may not be null");
-		}
-		K oldKey = reverseMap.get(value);
-		V oldValue = forwardMap.get(key);
+		K oldKey = reverseMap.get(Objects.requireNonNull(value));
+		V oldValue = forwardMap.get(Objects.requireNonNull(key));
 		forwardMap.remove(oldKey);
 		reverseMap.remove(oldValue);
 		forwardMap.put(key, value);

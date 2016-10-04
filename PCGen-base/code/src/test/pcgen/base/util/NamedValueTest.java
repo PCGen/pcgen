@@ -32,7 +32,7 @@ public class NamedValueTest extends TestCase
 			new NamedValue(null, 1.0);
 			fail("Expected NamedValue to reject null argument in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -41,7 +41,7 @@ public class NamedValueTest extends TestCase
 			new NamedValue(null);
 			fail("Expected NamedValue to reject null argument in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}

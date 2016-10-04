@@ -58,7 +58,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 			new DefaultDirectionalGraphEdge<Double>(node1, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -67,7 +67,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 			new DefaultDirectionalGraphEdge<Double>(null, node3);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -76,7 +76,7 @@ public class DefaultDirectionalGraphEdgeTest extends TestCase
 			new DefaultDirectionalGraphEdge<Double>(null, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}

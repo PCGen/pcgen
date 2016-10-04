@@ -65,7 +65,7 @@ public class ArrayFormatFactoryTest extends TestCase
 			factory.build(null, library);
 			fail("null sub form should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok as well
 		}

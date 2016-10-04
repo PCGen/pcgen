@@ -38,7 +38,7 @@ public class ArrayFormatManagerTest extends TestCase
 			new ArrayFormatManager(null, ',');
 			fail("null value should fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok as well
 		}

@@ -66,7 +66,7 @@ public class DoubleKeyMapTest extends TestCase
 			new DoubleKeyMap(null, HashMap.class);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//OK, expected
 		}
@@ -75,7 +75,7 @@ public class DoubleKeyMapTest extends TestCase
 			new DoubleKeyMap(HashMap.class, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//OK, expected
 		}

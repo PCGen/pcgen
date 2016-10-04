@@ -17,6 +17,7 @@
  */
 package pcgen.base.formatmanager;
 
+import java.util.Objects;
 import java.util.regex.Pattern;
 
 import pcgen.base.format.ArrayFormatManager;
@@ -39,12 +40,7 @@ public class ArrayFormatFactory implements FormatManagerFactory
 	public FormatManager<?> build(String subFormatName,
 		FormatManagerLibrary library)
 	{
-		if (subFormatName == null)
-		{
-			throw new IllegalArgumentException(
-				"Array Format cannot be built from no instructions");
-		}
-		if (ARRAY_PATTERN.matcher(subFormatName).find())
+		if (ARRAY_PATTERN.matcher(Objects.requireNonNull(subFormatName)).find())
 		{
 			/*
 			 * This is currently prohibited because - among other things -

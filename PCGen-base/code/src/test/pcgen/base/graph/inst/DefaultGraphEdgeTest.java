@@ -55,7 +55,7 @@ public class DefaultGraphEdgeTest extends TestCase
 			new DefaultGraphEdge<Double>(node1, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -64,7 +64,7 @@ public class DefaultGraphEdgeTest extends TestCase
 			new DefaultGraphEdge<Double>(null, node3);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -73,7 +73,7 @@ public class DefaultGraphEdgeTest extends TestCase
 			new DefaultGraphEdge<Double>(null, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}

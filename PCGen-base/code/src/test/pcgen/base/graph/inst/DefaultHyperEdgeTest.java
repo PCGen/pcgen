@@ -70,7 +70,7 @@ public class DefaultHyperEdgeTest extends TestCase
 			new DefaultHyperEdge<Integer>(null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -157,7 +157,7 @@ public class DefaultHyperEdgeTest extends TestCase
 			edge1.createReplacementEdge(null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//OK
 		}

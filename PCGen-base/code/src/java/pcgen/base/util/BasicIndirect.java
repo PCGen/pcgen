@@ -52,19 +52,10 @@ public class BasicIndirect<T> implements Indirect<T>
 	 * @param obj
 	 *            The single object that this BasicIndirect will contain
 	 * @throws IllegalArgumentException
-	 *             if either argument is null or if the given object is not
-	 *             compatible with the given FormatManager
+	 *             if the given object is not compatible with the given FormatManager
 	 */
 	public BasicIndirect(FormatManager<T> fmtManager, T obj)
 	{
-		if (fmtManager == null)
-		{
-			throw new IllegalArgumentException("Manager may not be null");
-		}
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object may not be null");
-		}
 		//Validate the generics ;)
 		if (!fmtManager.getManagedClass().isAssignableFrom(obj.getClass()))
 		{

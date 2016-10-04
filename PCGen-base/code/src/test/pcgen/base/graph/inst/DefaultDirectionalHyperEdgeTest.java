@@ -332,7 +332,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 			edge1.createReplacementEdge(null, null);
 			fail();
 		}
-		catch (IllegalArgumentException iae)
+		catch (IllegalArgumentException | NullPointerException iae)
 		{
 			// OK
 		}
@@ -341,7 +341,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 			edge1.createReplacementEdge(null, new ArrayList<Integer>());
 			fail();
 		}
-		catch (IllegalArgumentException iae)
+		catch (IllegalArgumentException | NullPointerException iae)
 		{
 			// OK
 		}
@@ -350,7 +350,7 @@ public class DefaultDirectionalHyperEdgeTest extends TestCase
 			edge1.createReplacementEdge(new ArrayList<Integer>(), null);
 			fail();
 		}
-		catch (IllegalArgumentException iae)
+		catch (IllegalArgumentException | NullPointerException iae)
 		{
 			// OK
 		}

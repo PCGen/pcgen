@@ -373,7 +373,7 @@ public class SimpleListGraph<N, ET extends Edge<N>> implements Graph<N, ET>
 	public int hashCode()
 	{
 		// This is really simple, but it works... and prevents a deep hash
-		return nodeList.size() + edgeList.size() * 23;
+		return nodeList.size() + (edgeList.size() * 23);
 	}
 
 	/**

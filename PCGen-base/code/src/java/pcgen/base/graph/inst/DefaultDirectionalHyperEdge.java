@@ -22,6 +22,7 @@ package pcgen.base.graph.inst;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.base.DirectionalHyperEdge;
@@ -285,16 +286,7 @@ public class DefaultDirectionalHyperEdge<N> implements DirectionalHyperEdge<N>
 	public DefaultDirectionalHyperEdge<N> createReplacementEdge(
 		Collection<N> newSourceNodes, Collection<N> newSinkNodes)
 	{
-		if (newSourceNodes == null)
-		{
-			throw new IllegalArgumentException(
-				"Incoming Collection to createReplacementEdge in DefaultGraphEdge cannot be null");
-		}
-		if (newSinkNodes == null)
-		{
-			throw new IllegalArgumentException(
-				"Outgoing Collection to createReplacementEdge in DefaultGraphEdge cannot be null");
-		}
-		return new DefaultDirectionalHyperEdge<N>(newSourceNodes, newSinkNodes);
+		return new DefaultDirectionalHyperEdge<N>(Objects.requireNonNull(newSourceNodes),
+			Objects.requireNonNull(newSinkNodes));
 	}
 }

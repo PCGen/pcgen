@@ -41,7 +41,7 @@ public class BasicIndirectTest extends TestCase
 			new BasicIndirect<String>(new StringManager(), null).equals(indirectDouble);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -50,7 +50,7 @@ public class BasicIndirectTest extends TestCase
 			new BasicIndirect<String>(null, "Hello!");
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -59,7 +59,7 @@ public class BasicIndirectTest extends TestCase
 			new BasicIndirect<String>(null, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}

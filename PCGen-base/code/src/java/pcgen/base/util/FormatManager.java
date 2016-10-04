@@ -43,15 +43,16 @@ public interface FormatManager<T>
 	 * only be used at Runtime after the data load is complete. Otherwise, there
 	 * is no guarantee of results.
 	 * 
+	 * Must throw a RuntimeException if the given String is not a properly
+	 * formatted String for creation of the appropriate type of object.
+	 * The actual type of RuntimeException is implementation dependent.
+	 * 
 	 * @param inputStr
 	 *            The input String which should be converted into the
 	 *            appropriate object
 	 * 
 	 * @return An object of the type for which this FormatManager provides
 	 *         services
-	 * @throws IllegalArgumentException
-	 *             if the given String is not a properly formatted String for
-	 *             creation of the appropriate type of object
 	 */
 	public T convert(String inputStr);
 
@@ -62,15 +63,16 @@ public interface FormatManager<T>
 	 * This indirection is sometimes necessary as objects may not be able to be
 	 * produced during data load.
 	 * 
+	 * Must throw a RuntimeException if the given String is not a properly
+	 * formatted String for creation of the appropriate type of object.
+	 * The actual type of RuntimeException is implementation dependent.
+	 * 
 	 * @param inputStr
 	 *            The input String which should be converted into the
 	 *            appropriate object
 	 * 
 	 * @return An Indirect, which is capable of producing an object of the type
 	 *         for which this FormatManager provides services
-	 * @throws IllegalArgumentException
-	 *             if the given String is not a properly formatted String for
-	 *             creation of the appropriate type of object
 	 */
 	public Indirect<T> convertIndirect(String inputStr);
 
@@ -86,8 +88,8 @@ public interface FormatManager<T>
 	public String unconvert(T obj);
 
 	/**
-	 * Returns the Class of the type of object upon which this FormatManager
-	 * operates.
+	 * Returns the non-null Class of the type of object upon which this
+	 * FormatManager operates.
 	 * 
 	 * @return the Class of the type of object upon which this FormatManager
 	 *         operates
@@ -95,7 +97,7 @@ public interface FormatManager<T>
 	public Class<T> getManagedClass();
 
 	/**
-	 * Returns an identifier indicating the type of object upon which this
+	 * Returns a non-null identifier indicating the type of object upon which this
 	 * FormatManager operates.
 	 * 
 	 * For convenience, this will typically be equivalent to the short name of

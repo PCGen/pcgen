@@ -13,7 +13,7 @@ public class ParsingSeparatorTest extends TestCase
 			new ParsingSeparator(null, ',');
 			fail("Expected ParsingSeparator to reject null base String");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

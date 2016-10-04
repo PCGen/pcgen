@@ -45,7 +45,7 @@ public class EdgeChangeEventTest extends TestCase
 				EdgeChangeEvent.EDGE_ADDED);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}
@@ -56,7 +56,7 @@ public class EdgeChangeEventTest extends TestCase
 				EdgeChangeEvent.EDGE_REMOVED);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK
 		}

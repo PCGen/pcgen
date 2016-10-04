@@ -21,6 +21,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
+import java.util.Objects;
 import java.util.StringTokenizer;
 
 import pcgen.base.lang.StringUtil;
@@ -93,17 +94,10 @@ public class ParsingSeparator implements Iterator<String>
 	 * @param separator
 	 *            The separator for this ParsingSeparator that indicates a new
 	 *            section of the String
-	 * @throws IllegalArgumentException
-	 *             if the given String is null
 	 */
 	public ParsingSeparator(String baseString, char separator)
 	{
-		if (baseString == null)
-		{
-			throw new IllegalArgumentException(
-				"ParsingSeparator cannot take null initialization String");
-		}
-		this.baseString = baseString;
+		this.baseString = Objects.requireNonNull(baseString);
 		this.separator = Character.toString(separator);
 	}
 

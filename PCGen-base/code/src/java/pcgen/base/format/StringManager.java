@@ -17,6 +17,8 @@
  */
 package pcgen.base.format;
 
+import java.util.Objects;
+
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -34,11 +36,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public String convert(String s)
 	{
-		if (s == null)
-		{
-			throw new IllegalArgumentException("String cannot be null");
-		}
-		return s;
+		return Objects.requireNonNull(s);
 	}
 
 	/**
@@ -48,11 +46,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public Indirect<String> convertIndirect(String s)
 	{
-		if (s == null)
-		{
-			throw new IllegalArgumentException("String cannot be null");
-		}
-		return new BasicIndirect<String>(this, s);
+		return new BasicIndirect<String>(this, Objects.requireNonNull(s));
 	}
 
 	/**
@@ -62,12 +56,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public String unconvert(String s)
 	{
-		if (s == null)
-		{
-			throw new IllegalArgumentException(
-				"String to unconvert cannot be null");
-		}
-		return s;
+		return Objects.requireNonNull(s);
 	}
 
 	/**
@@ -98,7 +87,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o == this || o instanceof StringManager;
+		return (o == this) || (o instanceof StringManager);
 	}
 
 	/**

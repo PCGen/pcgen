@@ -130,7 +130,7 @@ public class WrappedMapSetTest extends TestCase
 			ls = new WrappedMapSet<Integer>(null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//:)
 		}

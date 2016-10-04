@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -88,8 +89,8 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	/**
 	 * Constructs a new (empty) TripleKeyMap.
 	 * 
-	 * All of the classes provided as parameters must extend Map, and must have
-	 * a public zero argument constructor.
+	 * All of the classes provided as parameters must be non-null, extend Map, and
+	 * must have a public zero argument constructor.
 	 * 
 	 * @param cl1
 	 *            The Class to be used for the first of the underlying maps for
@@ -100,10 +101,6 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	 * @param cl3
 	 *            The Class to be used for the third of the underlying maps for
 	 *            the TripleKeyMap
-	 * 
-	 * @throws IllegalArgumentException
-	 *             if any of the given Classes is null or does not have a public
-	 *             zero argument constructor
 	 */
 	@SuppressWarnings("rawtypes")
 	public TripleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2,
@@ -111,12 +108,7 @@ public class TripleKeyMap<K1, K2, K3, V> implements Cloneable
 	{
 		super();
 		map = new DoubleKeyMap<K1, K2, Map<K3, V>>(cl1, cl2);
-		if (cl3 == null)
-		{
-			throw new IllegalArgumentException(
-				"Third underlying Class cannot be null for TripleKeyMap");
-		}
-		thirdClass = cl3;
+		thirdClass = Objects.requireNonNull(cl3);
 		/*
 		 * This "useless" call is designed to exercise the code to ensure that
 		 * the given class meets the restrictions imposed by TripleKeyMapToList

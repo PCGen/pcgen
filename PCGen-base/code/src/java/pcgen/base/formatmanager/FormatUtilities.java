@@ -22,6 +22,7 @@ import pcgen.base.format.NumberManager;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.math.OrderedPair;
+import pcgen.base.util.FormatManager;
 
 /**
  * FormatUtilities are utility methods for Format objects.
@@ -90,5 +91,35 @@ public final class FormatUtilities
 		library.addFormatManager(BOOLEAN_MANAGER);
 		library.addFormatManager(ORDEREDPAIR_MANAGER);
 		library.addFormatManagerBuilder(new ArrayFormatFactory());
+	}
+
+	/**
+	 * Returns the given FormatManager if it is a valid FormatManager. Validity means
+	 * basic adherence to the FormatManager interface, meaning getIdentifierType() and
+	 * getManagedClass() may not return null.
+	 * 
+	 * @param fmtManager
+	 *            The FormatManager to be checked to ensure it is valid
+	 * @return The given FormatManager if it is valid.
+	 * @throws IllegalArgumentException
+	 *             if the given FormatManager is not valid
+	 */
+	public static FormatManager<?> isValid(FormatManager<?> fmtManager)
+	{
+		String fmIdent = fmtManager.getIdentifierType();
+		Class<?> fmFormat = fmtManager.getManagedClass();
+		if (fmIdent == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot use a FormatManager with no identifier (was nominally for Class: "
+					+ fmFormat + ")");
+		}
+		if (fmFormat == null)
+		{
+			throw new IllegalArgumentException(
+				"Cannot use a FormatManager with no format (was nominally for Identifier: "
+					+ fmIdent + ")");
+		}
+		return fmtManager;
 	}
 }
