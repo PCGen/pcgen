@@ -21,12 +21,6 @@
  */
 package plugin.network;
 
-import gmgen.plugin.Combatant;
-import gmgen.plugin.State;
-import gmgen.plugin.SystemAttribute;
-import gmgen.plugin.SystemHP;
-import gmgen.plugin.SystemInitiative;
-
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -34,31 +28,32 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
+import gmgen.plugin.Combatant;
+import gmgen.plugin.State;
+import gmgen.plugin.SystemAttribute;
+import gmgen.plugin.SystemHP;
+
 import org.jdom2.Element;
 
 /**
  *@author     devon
  */
-public class NetworkCombatant extends Combatant
+class NetworkCombatant extends Combatant
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
 	protected String name = "";
-	protected String uid;
+	private final String uid;
 	protected String player = "";
-	protected String htmlString = "";
+	private String htmlString = "";
 	protected float cr = 0;
 	protected int xp = 0;
-	protected Socket sock;
+	private final Socket sock;
 
 	/**
 	 *  Creates new Combatant
 	 * @param uid
 	 * @param sock
 	 */
-	public NetworkCombatant(String uid, Socket sock)
+	NetworkCombatant(String uid, Socket sock)
 	{
 		this.uid = uid;
 		this.sock = sock;
@@ -141,64 +136,57 @@ public class NetworkCombatant extends Combatant
 		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for (String columnName : columnOrder)
+		for (final String columnName : columnOrder)
 		{
-			if (columnName.equals("Name"))
-			{ // Character's Name
-				rowVector.add(getName());
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name
-				rowVector.add("Net: " + getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Status of Combatant
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Initiative bonus
-				rowVector.add("" + init.getModifier());
-			}
-			else if (columnName.equals("Init"))
-			{ // Initiative #
-				rowVector.add("" + init.getCurrentInitiative());
-			}
-			else if (columnName.equals("Dur"))
-			{ // Duration
-				if (duration == 0)
-				{
-					rowVector.add("");
-				}
-				else
-				{
-					rowVector.add("" + getDuration());
-				}
-			}
-			else if (columnName.equals("#"))
-			{ // Number (for tokens)
-				rowVector.add("" + number);
-			}
-			else if (columnName.equals("HP"))
-			{ // Current Hit Points
-				int hp = hitPoints.getCurrent();
-				int sub = hitPoints.getSubdual();
+			switch (columnName)
+			{
+				case "Name":  // Character's Name
+					rowVector.add(name);
+					break;
+				case "Player":  // Player's Name
+					rowVector.add("Net: " + player);
+					break;
+				case "Status":  // Status of Combatant
+					rowVector.add(getStatus());
+					break;
+				case "+":  // Initiative bonus
+					rowVector.add(String.valueOf(init.getModifier()));
+					break;
+				case "Init":  // Initiative #
+					rowVector.add(String.valueOf(init.getCurrentInitiative()));
+					break;
+				case "Dur":  // Duration
+					if (duration == 0)
+					{
+						rowVector.add("");
+					}
+					else
+					{
+						rowVector.add(String.valueOf(getDuration()));
+					}
+					break;
+				case "#":  // Number (for tokens)
+					rowVector.add(String.valueOf(number));
+					break;
+				case "HP":  // Current Hit Points
+					int hp = hitPoints.getCurrent();
+					int sub = hitPoints.getSubdual();
 
-				if (sub == 0)
-				{
-					rowVector.add("" + hp);
-				}
-				else if (sub > 0)
-				{
-					rowVector.add(hp + "/" + sub + "s");
-				}
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Max Hit Points
-				rowVector.add("" + hitPoints.getMax());
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, Non-Com
-				rowVector.add(comType);
+					if (sub == 0)
+					{
+						rowVector.add(String.valueOf(hp));
+					}
+					else if (sub > 0)
+					{
+						rowVector.add(hp + "/" + sub + 's');
+					}
+					break;
+				case "HP Max":  // Max Hit Points
+					rowVector.add(String.valueOf(hitPoints.getMax()));
+					break;
+				case "Type":  //PC, Enemy, Ally, Non-Com
+					rowVector.add(comType);
+					break;
 			}
 		}
 
@@ -212,53 +200,46 @@ public class NetworkCombatant extends Combatant
 		String strData = String.valueOf(data);
 
 		//Determine which row was edited
-		if (columnName.equals("Name"))
-		{ // Character's Name
-			setName(strData);
-		}
-		else if (columnName.equals("Player"))
-		{ // Player's Name
-			setPlayer(strData);
-		}
-		else if (columnName.equals("Status"))
-		{ // XML Combatant's Status
-			setStatus((State) data);
-		}
-		else if (columnName.equals("+"))
-		{ // Initiative bonus
-			init.setBonus(Integer.parseInt(strData));
-		}
-		else if (columnName.equals("Init"))
-		{ // Initiative
-			init.setCurrentInitiative(Integer.parseInt(strData));
-		}
-		else if (columnName.equals("#"))
-		{ // Number (for tokens)
-			setNumber(Integer.parseInt(strData));
-		}
-		else if (columnName.equals("HP"))
-		{ // Current Hit Points
-			hitPoints.setCurrent(Integer.parseInt(strData));
-			sendNetMessage("HP|" + hitPoints.getCurrent());
-			sendNetMessage("HPSTATE|" + hitPoints.getState());
-			sendNetMessage("STATUS|" + status);
-		}
-		else if (columnName.equals("HP Max"))
-		{ // Maximum Hit Points
-			hitPoints.setMax(Integer.parseInt(strData));
-			sendNetMessage("HPMAX|" + hitPoints.getMax());
-			sendNetMessage("HP|" + hitPoints.getCurrent());
-			sendNetMessage("HPSTATE|" + hitPoints.getState());
-			sendNetMessage("STATUS|" + status);
-		}
-		else if (columnName.equals("Dur"))
-		{ // Duration
-			setDuration(Integer.parseInt(strData));
-		}
-		else if (columnName.equals("Type"))
+		switch (columnName)
 		{
-			// Type
-			setCombatantType(strData);
+			case "Name":  // Character's Name
+				setName(strData);
+				break;
+			case "Player":  // Player's Name
+				setPlayer(strData);
+				break;
+			case "Status":  // XML Combatant's Status
+				setStatus((State) data);
+				break;
+			case "+":  // Initiative bonus
+				init.setBonus(Integer.parseInt(strData));
+				break;
+			case "Init":  // Initiative
+				init.setCurrentInitiative(Integer.parseInt(strData));
+				break;
+			case "#":  // Number (for tokens)
+				setNumber(Integer.parseInt(strData));
+				break;
+			case "HP":  // Current Hit Points
+				hitPoints.setCurrent(Integer.parseInt(strData));
+				sendNetMessage("HP|" + hitPoints.getCurrent());
+				sendNetMessage("HPSTATE|" + hitPoints.getState());
+				sendNetMessage("STATUS|" + status);
+				break;
+			case "HP Max":  // Maximum Hit Points
+				hitPoints.setMax(Integer.parseInt(strData));
+				sendNetMessage("HPMAX|" + hitPoints.getMax());
+				sendNetMessage("HP|" + hitPoints.getCurrent());
+				sendNetMessage("HPSTATE|" + hitPoints.getState());
+				sendNetMessage("STATUS|" + status);
+				break;
+			case "Dur":  // Duration
+				setDuration(Integer.parseInt(strData));
+				break;
+			case "Type":
+				// Type
+				setCombatantType(strData);
+				break;
 		}
 	}
 
@@ -398,13 +379,7 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("STATUS|" + status);
 	}
 
-    @Override
-	public SystemInitiative getInitiative()
-	{
-		return init;
-	}
-
-    @Override
+	@Override
 	public String getPlayer()
 	{
 		return player;
@@ -429,17 +404,17 @@ public class NetworkCombatant extends Combatant
 			PrintStream os =
 					new PrintStream(new BufferedOutputStream(sock
 						.getOutputStream()), true, "UTF-8");
-			os.print("Pcg: " + uid + ":" + message + "\r\n");
+			os.print("Pcg: " + uid + ':' + message + "\r\n");
 			os.flush();
 			//os.close();
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			// TODO Handle this?
 		}
 	}
 
-	public void recieveNetMessage(String message)
+	void recieveNetMessage(String message)
 	{
 		String type = "";
 		String value = "";
@@ -455,7 +430,7 @@ public class NetworkCombatant extends Combatant
 
 		try
 		{
-			if (type != "" && value != "")
+			if ((type != "") && (value != ""))
 			{
 				if (type.equals("COMTYPE"))
 				{
@@ -515,13 +490,13 @@ public class NetworkCombatant extends Combatant
 				}
 			}
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			// TODO Handle this?
 		}
 	}
 
-	public static void recieveServerMessage(String message, Combatant cbt)
+	static void recieveServerMessage(String message, Combatant cbt)
 	{
 		String type = "";
 		String value = "";
@@ -537,7 +512,7 @@ public class NetworkCombatant extends Combatant
 
 		try
 		{
-			if (type != "" && value != "")
+			if ((type != "") && (value != ""))
 			{
 				if (type.equals("COMTYPE"))
 				{
@@ -593,18 +568,18 @@ public class NetworkCombatant extends Combatant
 				}
 			}
 		}
-		catch (Exception e)
+		catch (final NumberFormatException e)
 		{
 			// TODO Handle This?
 		}
 	}
 
-	public static String getCombatantUid(Combatant cbt, String user)
+	static String getCombatantUid(Combatant cbt, String user)
 	{
-		return cbt.getName() + "-" + cbt.getPlayer() + "-" + user;
+		return cbt.getName() + '-' + cbt.getPlayer() + '-' + user;
 	}
 
-	public static void sendCombatant(Combatant cbt, NetworkClient client)
+	static void sendCombatant(Combatant cbt, NetworkClient client)
 	{
 		String uid = getCombatantUid(cbt, client.getUser());
 		client.sendPcgMessage(uid, "COMTYPE|" + cbt.getCombatantType());

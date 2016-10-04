@@ -19,9 +19,6 @@
  */
  package plugin.network;
 
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -29,15 +26,18 @@ import java.io.PrintStream;
 import java.net.Socket;
 import java.util.StringTokenizer;
 
-public class NetworkClient
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
+
+class NetworkClient
 {
 	private String user = "Client";
-	private NetworkModel model;
+	private final NetworkModel model;
 	private Socket sock;
 	private BufferedReader is;
 	private PrintStream os;
 
-	public NetworkClient(NetworkModel model)
+	NetworkClient(NetworkModel model)
 	{
 		this.model = model;
 		user =
@@ -45,14 +45,14 @@ public class NetworkClient
 					+ ".username", "Player");
 	}
 
-	public void startClient()
+	void startClient()
 	{
 		String host = model.getView().getServerAddressTextField().getText();
 		int port =
 				SettingsHandler.getGMGenOption(
 					NetworkPlugin.LOG_NAME + ".port", 80);
 		model.getView().setConnectionText("Client Status",
-			"Attempting to connect to " + host + ":" + port);
+			"Attempting to connect to " + host + ':' + port);
 
 		try
 		{
@@ -66,7 +66,7 @@ public class NetworkClient
 			new Handler(is).start();
 			sendUserMessage(user);
 			model.getView().setConnectionText("Client Status",
-				"Connected to " + host + ":" + port);
+				"Connected to " + host + ':' + port);
 			SettingsHandler.setGMGenOption(NetworkPlugin.LOG_NAME
 				+ ".ipAddress", host);
 			model.refresh();
@@ -83,34 +83,34 @@ public class NetworkClient
 		return user;
 	}
 
-	public void sendIM(String target, String text)
+	void sendIM(String target, String text)
 	{
-		sendMessage("IM", target + "|" + text);
+		sendMessage("IM", target + '|' + text);
 	}
 
-	public void sendBroadcast(String message)
+	void sendBroadcast(String message)
 	{
 		sendMessage("Broadcast", message);
 	}
 
-	public void sendUserMessage(String aUser)
+	private void sendUserMessage(String aUser)
 	{
 		sendMessage("User", aUser);
 	}
 
-	public void sendLogMessage(String owner, String message)
+	void sendLogMessage(String owner, String message)
 	{
-		sendMessage("Log", owner + "|" + message);
+		sendMessage("Log", owner + '|' + message);
 	}
 
-	public void sendExitMessage()
+	void sendExitMessage()
 	{
 		sendMessage("Exit", "");
 	}
 
-	public void sendPcgMessage(String uid, String message)
+	void sendPcgMessage(String uid, String message)
 	{
-		sendMessage("Pcg", uid + ":" + message);
+		sendMessage("Pcg", uid + ':' + message);
 	}
 
 	private synchronized void sendMessage(String type, String message)
@@ -134,7 +134,7 @@ public class NetworkClient
 
 	private void handlePcgMessage(String message, Socket socket)
 	{
-		int num = message.indexOf(":");
+		int num = message.indexOf(':');
 		String uid = message.substring(0, num);
 		String messagetext = message.substring(num + 1);
 		model.handleServerPcgMessage(uid, messagetext, socket);
@@ -228,7 +228,7 @@ public class NetworkClient
 
 	protected class Handler extends Thread
 	{
-		BufferedReader inputStream;
+		private final BufferedReader inputStream;
 
 		public Handler(BufferedReader is)
 		{
@@ -249,7 +249,7 @@ public class NetworkClient
 					{
 						retString = handleMessage(line, sock);
 
-						if (!retString.equals(""))
+						if (!retString.isEmpty())
 						{
 							os.print(retString + "\r\n");
 							os.flush();
@@ -257,7 +257,7 @@ public class NetworkClient
 					}
 					catch (Exception e)
 					{
-						if (!e.getMessage().equals(""))
+						if (!e.getMessage().isEmpty())
 						{
 							os.print("Error: " + e.getMessage());
 							os.flush();

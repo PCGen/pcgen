@@ -19,12 +19,9 @@
  */
  package plugin.network;
 
-import pcgen.core.SettingsHandler;
-import pcgen.util.Logging;
-import plugin.network.gui.NetworkView;
-
 import java.io.BufferedOutputStream;
 import java.io.BufferedReader;
+import java.io.IOException;
 import java.io.InputStreamReader;
 import java.io.PrintStream;
 import java.net.InetAddress;
@@ -35,14 +32,19 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.StringTokenizer;
 
-public class NetworkServer extends Thread
-{
-	private NetworkModel model;
-	private static List<String> clients = new ArrayList<>();
-	boolean run = true;
-	protected ServerSocket sock;
+import pcgen.core.SettingsHandler;
+import pcgen.util.Logging;
 
-	public NetworkServer(NetworkModel model)
+import plugin.network.gui.NetworkView;
+
+class NetworkServer extends Thread
+{
+	private final NetworkModel model;
+	private static final List<String> clients = new ArrayList<>();
+	private boolean run = true;
+	private ServerSocket sock;
+
+	NetworkServer(NetworkModel model)
 	{
 		this.model = model;
 	}
@@ -54,20 +56,19 @@ public class NetworkServer extends Thread
 		{
 			startServer();
 		}
-		catch (UnknownHostException uhe)
+		catch (final UnknownHostException uhe)
 		{
 			model.getView().setConnectionText("Server Error",
 				"Cannot determine local address");
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			model.getView().setConnectionText("Server Error", e.getMessage());
 		}
 	}
 
-	public void startServer() throws Exception
+	private void startServer() throws IOException
 	{
-		Socket clientSocket;
 		NetworkView view = model.getView();
 		int port =
 				SettingsHandler.getGMGenOption(
@@ -81,12 +82,11 @@ public class NetworkServer extends Thread
 		view.setConnectionText("Server Status", "Started");
 		while (run)
 		{
-			try
+			try(Socket clientSocket = sock.accept())
 			{
-				clientSocket = sock.accept();
 				new Handler(clientSocket).start();
 			}
-			catch (Exception e)
+			catch (final IOException e)
 			{
 				view.setConnectionText("Server Status", "Stopped");
 			}
@@ -103,83 +103,83 @@ public class NetworkServer extends Thread
 				sock.close();
 				this.run = run;
 			}
-			catch (Exception e)
+			catch (final IOException e)
 			{
 				// TODO Handle this?
 			}
 		}
 	}
 
-	public void sendRemoveUser(String user)
+	private void sendRemoveUser(String user)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for (Thread t : tl)
+		for (final Thread t : tl)
 		{
-			if (t instanceof NetworkServer.Handler)
+			if (t instanceof Handler)
 			{
-				((NetworkServer.Handler) t).sendRemoveUser(user);
+				((Handler) t).sendRemoveUser(user);
 			}
 		}
 	}
 
-	public void sendAllAddUser(String user)
+	private void sendAllAddUser(String user)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for (Thread t : tl)
+		for (final Thread t : tl)
 		{
-			if (t instanceof NetworkServer.Handler)
+			if (t instanceof Handler)
 			{
-				((NetworkServer.Handler) t).sendAddUser("GM");
-				for (String client : clients)
+				((Handler) t).sendAddUser("GM");
+				for (final String client : NetworkServer.clients)
 				{
-					((NetworkServer.Handler) t).sendAddUser(client);
+					((Handler) t).sendAddUser(client);
 				}
 			}
 		}
 	}
 
-	public void sendIM(String source, String target, String text)
+	void sendIM(String source, String target, String text)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for (Thread t : tl)
+		for (final Thread t : tl)
 		{
-			if (t instanceof NetworkServer.Handler)
+			if (t instanceof Handler)
 			{
 				if (target.equals("Broadcast"))
 				{
-					((NetworkServer.Handler) t).sendBroadcast(source, text);
+					((Handler) t).sendBroadcast(source, text);
 				}
-				else if (((NetworkServer.Handler) t).getUser().equals(target))
+				else if (((Handler) t).getUser().equals(target))
 				{
-					((NetworkServer.Handler) t).sendIM(source, text);
+					((Handler) t).sendIM(source, text);
 				}
 			}
 		}
 	}
 
-	public void sendBroadcast(String user, String text)
+	private void sendBroadcast(String user, String text)
 	{
 		ThreadGroup tg = getThreadGroup();
 		Thread[] tl = new Thread[tg.activeCount()];
 		tg.enumerate(tl);
-		for (Thread t : tl)
+		for (final Thread t : tl)
 		{
-			if (t instanceof NetworkServer.Handler)
+			if (t instanceof Handler)
 			{
-				((NetworkServer.Handler) t).sendBroadcast(user, text);
+				((Handler) t).sendBroadcast(user, text);
 			}
 		}
 	}
 
 	private String handleUserMessage(String message) throws Exception
 	{
-		for (String test : clients)
+		for (final String test : NetworkServer.clients)
 		{
 			if (test.equals(message))
 			{
@@ -189,23 +189,23 @@ public class NetworkServer extends Thread
 						+ " already connected.  Go to Edit->Preferences in GMGen.  Under the network folder, set the User Name to a different value.");
 			}
 		}
-		clients.add(message);
+		NetworkServer.clients.add(message);
 		sendAllAddUser(message);
 		model.addUser(message);
 		model.log(message, "Network", "Connected");
 		model.getView().setConnectionText("Server Status",
-			message + " Connected.  " + clients.size() + " clients connected");
+			message + " Connected.  " + NetworkServer.clients.size() + " clients connected");
 		return message;
 	}
 
 	private void handleExitMessage(String user) throws Exception
 	{
 		model.log(user, "Network", "Disconnected");
-		for (String test : clients)
+		for (final String test : NetworkServer.clients)
 		{
 			if (test.equals(user))
 			{
-				clients.remove(test);
+				NetworkServer.clients.remove(test);
 				break;
 			}
 			model.removeUser(user);
@@ -217,12 +217,12 @@ public class NetworkServer extends Thread
 	private void handleLogMessage(String user, String message)
 	{
 		String owner = "";
-		String log = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
 		if (st.hasMoreTokens())
 		{
 			owner = st.nextToken();
 		}
+		String log = "";
 		if (st.hasMoreTokens())
 		{
 			log = st.nextToken();
@@ -233,12 +233,12 @@ public class NetworkServer extends Thread
 	private void handleIMMessage(String user, String message)
 	{
 		String owner = "";
-		String log = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
 		if (st.hasMoreTokens())
 		{
 			owner = st.nextToken();
 		}
+		String log = "";
 		if (st.hasMoreTokens())
 		{
 			log = st.nextToken();
@@ -262,7 +262,7 @@ public class NetworkServer extends Thread
 
 	private void handlePcgMessage(String message, Socket socket)
 	{
-		int num = message.indexOf(":");
+		int num = message.indexOf(':');
 		String uid = message.substring(0, num);
 		String messagetext = message.substring(num + 1);
 		model.handlePcgMessage(uid, messagetext, socket);
@@ -315,10 +315,9 @@ public class NetworkServer extends Thread
 
 	protected class Handler extends Thread
 	{
-		Socket socket;
-		PrintStream os = null;
-		boolean isRun = true;
-		String user = "Client";
+		private final Socket socket;
+		private PrintStream os = null;
+		private String user = "Client";
 
 		public Handler(Socket sock)
 		{
@@ -331,27 +330,27 @@ public class NetworkServer extends Thread
 			os.flush();
 		}
 
-		public void sendIM(String source, String message)
+		private void sendIM(String source, String message)
 		{
 			sendMessage("IM", source + "|" + message);
 		}
 
-		public void sendBroadcast(String aUser, String message)
+		private void sendBroadcast(String aUser, String message)
 		{
 			sendMessage("Broadcast", aUser + "|" + message);
 		}
 
-		public void sendRemoveUser(String aUser)
+		private void sendRemoveUser(String aUser)
 		{
 			sendMessage("RemoveUser", aUser);
 		}
 
-		public void sendAddUser(String aUser)
+		private void sendAddUser(String aUser)
 		{
 			sendMessage("AddUser", aUser);
 		}
 
-		public void sendExitMessage()
+		void sendExitMessage()
 		{
 			sendMessage("Exit", "");
 		}
@@ -363,7 +362,7 @@ public class NetworkServer extends Thread
 			try
 			{
 				view.setConnectionText("Server Status", user + " Connected.  "
-					+ clients.size() + " clients connected");
+					+ NetworkServer.clients.size() + " clients connected");
 				BufferedReader is =
 						new BufferedReader(new InputStreamReader(socket
 							.getInputStream(), "UTF-8"));
@@ -374,10 +373,10 @@ public class NetworkServer extends Thread
 				String disconnection = " Disconnected. ";
 				while ((line = is.readLine()) != null)
 				{
-					String retString = "";
 					Logging.debugPrint("Network message from Client: " + line);
 					try
 					{
+						String retString = "";
 						if (user.equals("Client"))
 						{
 							user = handleMessage(line, socket);
@@ -387,15 +386,15 @@ public class NetworkServer extends Thread
 							retString = handleMessage(user, line, socket);
 						}
 
-						if (!retString.equals(""))
+						if (!retString.isEmpty())
 						{
 							os.print(retString + "\r\n");
 							os.flush();
 						}
 					}
-					catch (Exception e)
+					catch (final Exception e)
 					{
-						if (!e.getMessage().equals(""))
+						if (!e.getMessage().isEmpty())
 						{
 							disconnection =
 									" Disconnected, " + e.getMessage() + ". ";
@@ -404,55 +403,30 @@ public class NetworkServer extends Thread
 						}
 						break;
 					}
-					if (!isRun)
-					{
-						break;
-					}
 				}
 				os.close();
 				is.close();
 				socket.close();
 				view.setConnectionText("Server Status", user + disconnection
-					+ clients.size() + " clients connected");
+					+ NetworkServer.clients.size() + " clients connected");
 			}
-			catch (Exception e)
+			catch (final IOException e)
 			{
-				for (String test : clients)
+				for (final String test : NetworkServer.clients)
 				{
 					if (test.equals(user))
 					{
-						clients.remove(test);
+						NetworkServer.clients.remove(test);
 						break;
 					}
 				}
 				view.setConnectionText("Server Error", "IO Error on socket");
-				return;
 			}
-		}
-
-		public void setRun(boolean run)
-		{
-			sendExitMessage();
-		}
-
-		public Socket getSocket()
-		{
-			return socket;
-		}
-
-		public PrintStream getOutputStream()
-		{
-			return os;
 		}
 
 		public String getUser()
 		{
 			return user;
-		}
-
-		public void setOutputStream(PrintStream os)
-		{
-			this.os = os;
 		}
 
 		public void setUser(String user)

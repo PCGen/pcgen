@@ -17,8 +17,6 @@
  */
 package tokencontent;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.Type;
@@ -35,6 +33,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.chooser.ChooserFactory;
+
+import org.junit.Test;
 import plugin.lsttokens.choose.SkillToken;
 import plugin.lsttokens.domain.CcskillToken;
 import plugin.lsttokens.skill.ExclusiveToken;
@@ -43,13 +43,13 @@ import tokenmodel.testsupport.AbstractTokenModelTest;
 public class DomainCcSkillTest extends AbstractTokenModelTest
 {
 
-	private static CcskillToken token = new CcskillToken();
+	private static final CDOMToken<Domain> token = new CcskillToken();
 	private Skill sk;
 	private PCClass dragon;
 	private LocalSkillCostFacet lscFacet;
 	private LocalAddedSkillCostFacet lascFacet;
-	private static SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
-	protected DomainInputFacet domainInputFacet = FacetLibrary
+	private static final SkillToken CHOOSE_SKILL_TOKEN = new SkillToken();
+	private final DomainInputFacet domainInputFacet = FacetLibrary
 		.getFacet(DomainInputFacet.class);
 
 	@Override
