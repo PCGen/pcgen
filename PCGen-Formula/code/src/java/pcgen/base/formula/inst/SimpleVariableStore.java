@@ -84,14 +84,6 @@ public class SimpleVariableStore implements WriteableVariableStore
 	@Override
 	public <T> T put(VariableID<T> varID, T value)
 	{
-		if (varID == null)
-		{
-			throw new IllegalArgumentException("VariableID cannot be null");
-		}
-		if (value == null)
-		{
-			throw new IllegalArgumentException("Value cannot be null");
-		}
 		Class<T> varFormat = varID.getVariableFormat();
 		if (!varFormat.isAssignableFrom(value.getClass()))
 		{

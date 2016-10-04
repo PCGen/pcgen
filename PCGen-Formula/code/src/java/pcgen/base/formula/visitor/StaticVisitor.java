@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.visitor;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.parse.ASTArithmetic;
 import pcgen.base.formula.parse.ASTEquality;
@@ -97,17 +99,10 @@ public class StaticVisitor implements FormulaParserVisitor
 	 * @param fl
 	 *            The FunctionLibrary to be used to get functions when they are
 	 *            encountered in a formula
-	 * @throws IllegalArgumentException
-	 *             if the given FunctionLibrary is null
 	 */
 	public StaticVisitor(FunctionLibrary fl)
 	{
-		if (fl == null)
-		{
-			throw new IllegalArgumentException(
-				"Function Library cannot be null");
-		}
-		this.library = fl;
+		this.library = Objects.requireNonNull(fl);
 	}
 
 	/**

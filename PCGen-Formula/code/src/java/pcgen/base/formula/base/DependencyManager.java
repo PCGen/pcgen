@@ -20,6 +20,7 @@ package pcgen.base.formula.base;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.util.TypedKey;
 import pcgen.base.util.MappedDeque;
@@ -63,8 +64,6 @@ public class DependencyManager extends MappedDeque
 	 * @param varID
 	 *            The VariableID to be added as a dependency of the Formula this
 	 *            VariableDependencyManager represents
-	 * @throws IllegalArgumentException
-	 *             if the given VariableID is null
 	 */
 	public void addVariable(VariableID<?> varID)
 	{
@@ -74,7 +73,7 @@ public class DependencyManager extends MappedDeque
 			vars = new ArrayList<>();
 			set(VARIABLES, vars);
 		}
-		vars.add(varID);
+		vars.add(Objects.requireNonNull(varID));
 	}
 
 	/**

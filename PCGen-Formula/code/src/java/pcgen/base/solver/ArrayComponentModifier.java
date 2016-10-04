@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import java.lang.reflect.Array;
 import java.util.Arrays;
+import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -64,12 +65,8 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 		{
 			throw new IllegalArgumentException("Array Location must be >= 0");
 		}
-		if (mod == null)
-		{
-			throw new IllegalArgumentException("Modifier must not be null");
-		}
 		location = loc;
-		modifier = mod;
+		modifier = Objects.requireNonNull(mod);
 		@SuppressWarnings("unchecked")
 		Class<T[]> fmt =
 				(Class<T[]>) Array.newInstance(mod.getVariableFormat(), 0)

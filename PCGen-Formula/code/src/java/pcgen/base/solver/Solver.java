@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.util.HashMapToList;
@@ -106,7 +107,7 @@ public class Solver<T>
 		//Enforce no dependencies
 		try
 		{
-			defaultModifier.process(evaluationManager);
+			defaultModifier.process(Objects.requireNonNull(evaluationManager));
 		}
 		catch (NullPointerException e)
 		{
@@ -127,20 +128,9 @@ public class Solver<T>
 	 *            The Modifier to be added to this Solver
 	 * @param source
 	 *            The source object for the given Modifier
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	public void addModifier(Modifier<T> modifier, Object source)
 	{
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Cannot add null Modifier");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot add Modifier with null source");
-		}
 		//Ensure someone isn't playing fast and loose with generics
 		Class<?> varFormat = defaultModifier.getVariableFormat();
 		if (!modifier.getVariableFormat().equals(varFormat))
@@ -151,7 +141,7 @@ public class Solver<T>
 					+ modifier.getVariableFormat().getCanonicalName());
 		}
 		modifierList.addToListFor(Long.valueOf(modifier.getPriority()),
-			new ModInfo<>(modifier, source));
+			new ModInfo<>(modifier, Objects.requireNonNull(source)));
 		sourceList.addToListFor(source, modifier);
 	}
 
@@ -167,22 +157,11 @@ public class Solver<T>
 	 * @param source
 	 *            The source object for the Modifier to be removed from this
 	 *            Solver
-	 * @throws IllegalArgumentException
-	 *             if the given Modifier is null
 	 */
 	public void removeModifier(Modifier<T> modifier, Object source)
 	{
-		if (modifier == null)
-		{
-			throw new IllegalArgumentException("Cannot remove null Modifier");
-		}
-		if (source == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot remove Modifier with null source");
-		}
 		modifierList.removeFromListFor(Long.valueOf(modifier.getPriority()),
-			new ModInfo<>(modifier, source));
+			new ModInfo<>(modifier, Objects.requireNonNull(source)));
 		sourceList.removeFromListFor(source, modifier);
 	}
 
@@ -198,12 +177,7 @@ public class Solver<T>
 	 */
 	public void removeFromSource(Object source)
 	{
-		if (source == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot remove Modifiers with null source");
-		}
-		List<Modifier<T>> removed = sourceList.removeListFor(source);
+		List<Modifier<T>> removed = sourceList.removeListFor(Objects.requireNonNull(source));
 		if (removed != null)
 		{
 			for (Modifier<T> modifier : removed)

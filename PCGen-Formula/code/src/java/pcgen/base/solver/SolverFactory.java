@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
 import pcgen.base.formula.base.EvaluationManager;
@@ -126,18 +127,12 @@ public class SolverFactory implements DefaultStore
 	 * @return A new Solver with default Modifier stored in this SolverFactory
 	 *         and with the given ScopeInformation
 	 * @throws IllegalArgumentException
-	 *             if either parameter is null or if no default Modifier for the
-	 *             given format has been provided with the addSolverType method
-	 *             on SolverFactory
+	 *             if no default Modifier for the given format has been provided
+	 *             with the addSolverType method on SolverFactory
 	 */
 	public <T> Solver<T> getSolver(FormatManager<T> formatManager,
 		EvaluationManager evaluationManager)
 	{
-		if (evaluationManager == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot create Solver: EvaluationManager cannot be null");
-		}
 		@SuppressWarnings("unchecked")
 		Modifier<T> defaultModifier =
 				(Modifier<T>) defaultModifierMap.get(formatManager
@@ -148,7 +143,7 @@ public class SolverFactory implements DefaultStore
 				"Cannot create Solver of format " + formatManager
 					+ " because no default was provided for that format");
 		}
-		return new Solver<T>(defaultModifier, evaluationManager);
+		return new Solver<T>(defaultModifier, Objects.requireNonNull(evaluationManager));
 	}
 
 	/**

@@ -54,8 +54,6 @@ public interface NEPFormula<T>
 	 * @param manager
 	 *            The EvaluationManager for the context of the formula
 	 * @return The value calculated for the NEPFormula
-	 * @throws IllegalArgumentException
-	 *             if the given ScopeInformation is null.
 	 */
 	public T resolve(EvaluationManager manager);
 
@@ -92,8 +90,6 @@ public interface NEPFormula<T>
 	 * 
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
-	 * @throws IllegalArgumentException
-	 *             if the given DependencyManager is null
 	 */
 	public void getDependencies(DependencyManager depManager);
 }

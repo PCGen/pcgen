@@ -50,7 +50,7 @@ public class SimpleVariableStoreTest extends TestCase
 			varStore.put(null, Integer.valueOf(4));
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep
 		}
@@ -58,7 +58,7 @@ public class SimpleVariableStoreTest extends TestCase
 		{
 			varStore.put(vid, null);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep
 		}

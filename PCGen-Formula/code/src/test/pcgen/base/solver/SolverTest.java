@@ -91,7 +91,7 @@ public class SolverTest extends TestCase
 			solver.addModifier(null, new Object());
 			fail("Null modifier must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -100,7 +100,7 @@ public class SolverTest extends TestCase
 			solver.addModifier(mod, null);
 			fail("Null source must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -128,7 +128,7 @@ public class SolverTest extends TestCase
 			solver.removeModifier(null, new Object());
 			fail("Null modifier must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -137,7 +137,7 @@ public class SolverTest extends TestCase
 			solver.removeModifier(mod, null);
 			fail("Null source must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -153,7 +153,7 @@ public class SolverTest extends TestCase
 			solver.removeFromSource(null);
 			fail("Null source must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

@@ -18,6 +18,7 @@
 package pcgen.base.formula.inst;
 
 import java.io.StringReader;
+import java.util.Objects;
 
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -87,14 +88,10 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 */
 	public ComplexNEPFormula(String expression)
 	{
-		if (expression == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot make formula from null String");
-		}
 		try
 		{
-			root = new FormulaParser(new StringReader(expression)).query();
+			root = new FormulaParser(new StringReader(Objects.requireNonNull(expression)))
+				.query();
 		}
 		catch (ParseException e)
 		{
@@ -124,8 +121,6 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * @param manager
 	 *            The EvaluationManager for the context of the formula
 	 * @return The value calculated for the ComplexNEPFormula.
-	 * @throws IllegalArgumentException
-	 *             if the given ScopeInformation is null.
 	 */
 	@Override
 	public T resolve(EvaluationManager manager)
@@ -149,18 +144,11 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	 * 
 	 * @param depManager
 	 *            The DependencyManager to be used to capture the dependencies
-	 * @throws IllegalArgumentException
-	 *             if the given DependencyManager is null
 	 */
 	@Override
 	public void getDependencies(DependencyManager depManager)
 	{
-		if (depManager == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot get formula dependencies with null DependencyManager");
-		}
-		DEPENDENCY_VISITOR.visit(root, depManager);
+		DEPENDENCY_VISITOR.visit(root, Objects.requireNonNull(depManager));
 	}
 
 	@Override

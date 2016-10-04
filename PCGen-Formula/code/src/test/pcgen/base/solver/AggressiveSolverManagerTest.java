@@ -62,7 +62,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 			new AggressiveSolverManager(null, solverFactory, store);
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -72,7 +72,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 			new AggressiveSolverManager(formulaManager, null, store);
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -81,7 +81,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 			new AggressiveSolverManager(formulaManager, solverFactory, null);
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -96,7 +96,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 			manager.createChannel(null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

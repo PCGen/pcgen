@@ -20,6 +20,7 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
 
@@ -102,33 +103,18 @@ public class AggressiveSolverManager
 	 *            The WriteableVariableStore used to store results of the
 	 *            calculations of the Solver objects within this
 	 *            AggressiveSolverManager.
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	public AggressiveSolverManager(FormulaManager manager,
 		SolverFactory solverFactory, WriteableVariableStore resultStore)
 	{
-		if (manager == null)
-		{
-			throw new IllegalArgumentException("FormulaManager cannot be null");
-		}
-		if (solverFactory == null)
-		{
-			throw new IllegalArgumentException("SolverFactory cannot be null");
-		}
-		if (resultStore == null)
-		{
-			throw new IllegalArgumentException(
-				"WriteableVariableStore cannot be null");
-		}
-		this.formulaManager = manager;
-		this.solverFactory = solverFactory;
+		this.formulaManager = Objects.requireNonNull(manager);
+		this.solverFactory = Objects.requireNonNull(solverFactory);
 		/*
 		 * CONSIDER should ownership transfer of this be complete? We can do
 		 * getValue for any "reader" that is interested... as long as they have
 		 * this SolverManager...?
 		 */
-		resultsCache = resultStore;
+		resultsCache = Objects.requireNonNull(resultStore);
 	}
 
 	/*
@@ -145,16 +131,10 @@ public class AggressiveSolverManager
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID used to identify the Solver to be built
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	public <T> void createChannel(VariableID<T> varID)
 	{
-		if (varID == null)
-		{
-			throw new IllegalArgumentException("VariableID cannot be null");
-		}
-		Solver<?> currentSolver = scopedChannels.get(varID);
+		Solver<?> currentSolver = scopedChannels.get(Objects.requireNonNull(varID));
 		if (currentSolver != null)
 		{
 			throw new IllegalArgumentException(

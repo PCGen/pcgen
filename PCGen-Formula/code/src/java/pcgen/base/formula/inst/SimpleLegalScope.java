@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.LegalScope;
 
 /**
@@ -43,18 +45,11 @@ public class SimpleLegalScope implements LegalScope
 	 *            null to represent global
 	 * @param name
 	 *            The name of this SimpleLegalScope
-	 * @throws IllegalArgumentException
-	 *             if the given name is null
 	 */
 	public SimpleLegalScope(LegalScope parentScope, String name)
 	{
-		if (name == null)
-		{
-			throw new IllegalArgumentException(
-				"LegalScope must have a non-null name");
-		}
 		this.parent = parentScope;
-		this.name = name;
+		this.name = Objects.requireNonNull(name);
 	}
 
 	/**

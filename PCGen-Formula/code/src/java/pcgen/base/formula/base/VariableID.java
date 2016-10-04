@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.base;
 
+import java.util.Objects;
+
 import pcgen.base.lang.CaseInsensitiveString;
 import pcgen.base.util.FormatManager;
 
@@ -81,25 +83,11 @@ public class VariableID<T>
 	 * @param varName
 	 *            The name of the variable represented by this VariableID
 	 * @throws IllegalArgumentException
-	 *             if any argument is null, or if the name is empty or
-	 *             starts/ends with whitespace
+	 *             if the name is empty or starts/ends with whitespace
 	 */
 	public VariableID(ScopeInstance scopeInst,
 		FormatManager<T> formatManager, String varName)
 	{
-		if (formatManager == null)
-		{
-			throw new IllegalArgumentException(
-				"FormatManager cannot be null");
-		}
-		if (scopeInst == null)
-		{
-			throw new IllegalArgumentException("Scope cannot be null");
-		}
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Variable Name cannot be null");
-		}
 		String trimmed = varName.trim();
 		if (!varName.equals(trimmed))
 		{
@@ -110,8 +98,8 @@ public class VariableID<T>
 		{
 			throw new IllegalArgumentException("Variable Name cannot be empty");
 		}
-		this.formatManager = formatManager;
-		this.scope = scopeInst;
+		this.formatManager = Objects.requireNonNull(formatManager);
+		this.scope = Objects.requireNonNull(scopeInst);
 		this.varName = new CaseInsensitiveString(varName);
 	}
 

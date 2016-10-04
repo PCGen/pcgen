@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.operator.generic;
 
+import java.util.Objects;
+
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.OperatorAction;
 import pcgen.base.formula.parse.Operator;
@@ -64,11 +66,7 @@ public class GenericNotEqual implements OperatorAction
 	@Override
 	public Object evaluate(Object left, Object right)
 	{
-		if (right == null)
-		{
-			throw new IllegalArgumentException("object in equality cannot be null");
-		}
-		return !left.equals(right);
+		return !left.equals(Objects.requireNonNull(right));
 	}
 
 }
