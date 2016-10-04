@@ -626,8 +626,7 @@ public class NameGenPanel extends JPanel
 
 			List<RuleSet> cats = categories.get(catKey);
 			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
-			List<RuleSet> join = new ArrayList<>();
-			join.addAll(cats);
+			List<RuleSet> join = new ArrayList<>(cats);
 			join.retainAll(sexes);
 			join.sort(new DataElementComperator());
 
