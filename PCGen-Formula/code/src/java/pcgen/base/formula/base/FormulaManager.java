@@ -36,6 +36,9 @@ import pcgen.base.util.TypedKey;
 public interface FormulaManager
 {
 
+	/**
+	 * A TypedKey for containing a FunctionLibrary in the FormulaManager
+	 */
 	public final TypedKey<FunctionLibrary> FUNCTION = new TypedKey<>();
 
 	/**
