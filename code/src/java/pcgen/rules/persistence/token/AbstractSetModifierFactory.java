@@ -23,6 +23,7 @@ import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.content.ProcessCalculation;
 
@@ -72,14 +73,9 @@ public abstract class AbstractSetModifierFactory<T> implements
 		return "SET";
 	}
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getModifier(int,
-	 *      java.lang.String, pcgen.base.formula.manager.FormulaManager,
-	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
-	 */
 	@Override
 	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		FormulaManager ignored, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		//TODO if this is Skill, fixed doesn't work :/

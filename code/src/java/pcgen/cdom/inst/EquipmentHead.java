@@ -36,7 +36,7 @@ import pcgen.core.EquipmentModifier;
  */
 public final class EquipmentHead extends CDOMObject
 {
-	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
+	private static final SolverManagerFacet SOLVER_FACET = FacetLibrary
 		.getFacet(SolverManagerFacet.class);
 
 	/*
@@ -143,7 +143,7 @@ public final class EquipmentHead extends CDOMObject
 		{
 			for (VarModifier<?> vm : modifiers)
 			{
-				solverManagerFacet.addModifier(id, vm, this, aMod);
+				SOLVER_FACET.addModifier(id, vm, this, aMod);
 			}
 		}
 	}
@@ -155,7 +155,7 @@ public final class EquipmentHead extends CDOMObject
 		{
 			for (VarModifier<?> vm : modifiers)
 			{
-				solverManagerFacet.addModifier(id, vm, this, aMod);
+				SOLVER_FACET.addModifier(id, vm, this, aMod);
 			}
 		}
 	}

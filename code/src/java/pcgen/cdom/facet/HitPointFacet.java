@@ -112,7 +112,7 @@ public class HitPointFacet extends
 				break;
 
 			case Constants.HP_AVERAGE_ROUNDED_UP:
-				roll = (int)Math.ceil((min + max)/2.0);
+				roll = (int) Math.ceil((min + max) / 2.0);
 
 				break;
 

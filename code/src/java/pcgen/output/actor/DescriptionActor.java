@@ -47,23 +47,26 @@ import pcgen.output.base.OutputActor;
 public class DescriptionActor implements OutputActor<PObject>
 {
 
-	private ListKey<Description> listKey;
+	private final ListKey<Description> listKey;
 
+	/**
+	 * Constructs a new DescriptionActor with the given ListKey as the ListKey used to
+	 * fetch the Description from the CDOMObject.
+	 * 
+	 * @param listKey
+	 *            the ListKey used to fetch the Description from the CDOMObject
+	 */
 	public DescriptionActor(ListKey<Description> listKey)
 	{
 		this.listKey = listKey;
 	}
 	
-	/**
-	 * @see pcgen.output.base.OutputActor#process(pcgen.cdom.enumeration.CharID,
-	 * java.lang.Object)
-	 */
 	@Override
 	public TemplateModel process(CharID id, PObject d)
 			throws TemplateModelException
 	{
 		List<Description> theBenefits = d.getListFor(listKey);
-		if ( theBenefits == null )
+		if (theBenefits == null)
 		{
 			return FacetLibrary.getFacet(ObjectWrapperFacet.class).wrap(id,
 			Constants.EMPTY_STRING);
@@ -73,12 +76,12 @@ public class DescriptionActor implements OutputActor<PObject>
 		PlayerCharacter aPC = charStore.getPC(id);
 		final StringBuilder buf = new StringBuilder(250);
 		boolean needSpace = false;
-		for ( final Description desc : theBenefits )
+		for (final Description desc : theBenefits)
 		{
 			final String str = desc.getDescription(aPC, Collections.singletonList(d));
-			if ( str.length() > 0 )
+			if (str.length() > 0)
 			{
-				if ( needSpace )
+				if (needSpace)
 				{
 					buf.append(' ');
 				}

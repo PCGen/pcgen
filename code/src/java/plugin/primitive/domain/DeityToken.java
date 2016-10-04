@@ -32,6 +32,9 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * DeityToken is a Primitive that includes the Domains granted by the PC's Deity.
+ */
 public class DeityToken implements PrimitiveToken<Domain>
 {
 

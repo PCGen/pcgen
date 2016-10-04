@@ -20,6 +20,7 @@ package pcgen.rules.persistence;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.persistence.token.ModifierFactory;
 
@@ -59,6 +60,9 @@ public class MasterModifierFactory
 	 * @param modInstructions
 	 *            The Instructions of the Modifier (indicating the actual value
 	 *            the Modifier will use)
+	 * @param managerFactory
+	 *            The ManagerFactory to be used to support analyzing the
+	 *            instructions
 	 * @param priorityNumber
 	 *            The user priority of the Modifier to be produced
 	 * @param varScope
@@ -67,8 +71,8 @@ public class MasterModifierFactory
 	 *            The FormatManager for the Modifier to be returned
 	 * @return a Modifier representing the information given in the parameters
 	 */
-	public <T> PCGenModifier<T> getModifier(String modIdentifier,
-		String modInstructions, int priorityNumber, LegalScope varScope,
+	public <T> PCGenModifier<T> getModifier(String modIdentifier, String modInstructions,
+		ManagerFactory managerFactory, int priorityNumber, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		Class<T> varClass = formatManager.getManagedClass();
@@ -80,7 +84,7 @@ public class MasterModifierFactory
 				"Requested unknown ModifierType: " + varClass.getSimpleName()
 					+ " " + modIdentifier);
 		}
-		return factory.getModifier(priorityNumber, modInstructions,
+		return factory.getModifier(priorityNumber, modInstructions, managerFactory,
 			formulaManager, varScope, formatManager);
 	}
 }

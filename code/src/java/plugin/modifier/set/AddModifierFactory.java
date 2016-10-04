@@ -26,6 +26,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
@@ -76,7 +77,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	 */
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
-		FormulaManager ignored, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);
@@ -92,7 +93,11 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		return new AddDirectArrayModifier(fmtManager, userPriority, toAdd);
 	}
 
-	public class AddDirectArrayModifier extends AddArrayModifier
+	/**
+	 * An AddDirectArrayModifier is a PCGenModifier that contains a set of objects to be
+	 * used by the Modifier when executed.
+	 */
+	private final class AddDirectArrayModifier extends AddArrayModifier
 	{
 		/**
 		 * The objects to be added to the active set when this AddModifier is
@@ -100,7 +105,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private T[] toAdd;
 
-		public AddDirectArrayModifier(FormatManager<T[]> formatManager,
+		private AddDirectArrayModifier(FormatManager<T[]> formatManager,
 			int userPriority, T[] toAdd)
 		{
 			super(formatManager, userPriority);
@@ -121,7 +126,11 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 	}
 
-	public class AddIndirectArrayModifier extends AddArrayModifier
+	/**
+	 * An AddIndirectArrayModifier is a PCGenModifier that contains a set of Indirect
+	 * objects to be resolved and used by the Modifier when executed.
+	 */
+	private final class AddIndirectArrayModifier extends AddArrayModifier
 	{
 		/**
 		 * The objects to be added to the active set when this AddModifier is
@@ -129,7 +138,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toAdd;
 
-		public AddIndirectArrayModifier(FormatManager<T[]> formatManager,
+		private AddIndirectArrayModifier(FormatManager<T[]> formatManager,
 			int userPriority, Indirect<T[]> toAdd)
 		{
 			super(formatManager, userPriority);
@@ -153,7 +162,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 	/**
 	 * The Modifier that implements ADD for Set objects
 	 */
-	public abstract class AddArrayModifier implements PCGenModifier<T[]>
+	private abstract class AddArrayModifier implements PCGenModifier<T[]>
 	{
 
 		/**
@@ -163,7 +172,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 
 		private final FormatManager<T[]> fmtManager;
 
-		public AddArrayModifier(FormatManager<T[]> formatManager,
+		protected AddArrayModifier(FormatManager<T[]> formatManager,
 			int userPriority)
 		{
 			this.fmtManager = formatManager;
@@ -179,7 +188,7 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 		@Override
 		public long getPriority()
 		{
-			return ((long)userPriority << 32) + 3;
+			return ((long) userPriority << 32) + 3;
 		}
 
 		@Override

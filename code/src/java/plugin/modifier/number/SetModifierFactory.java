@@ -23,6 +23,7 @@ import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
@@ -50,7 +51,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 
 	@Override
 	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
-		FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
 		try
@@ -60,7 +61,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 		catch (NumberFormatException e)
 		{
 			final NEPFormula<Number> f =
-					FormulaFactory.getValidFormula(instructions,
+					FormulaFactory.getValidFormula(instructions, managerFactory,
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
 					new FormulaCalculation<>(f, this);

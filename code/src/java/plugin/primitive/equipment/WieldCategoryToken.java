@@ -30,6 +30,10 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
+/**
+ * WieldCategoryToken is a Primitive that filters based on the Wield Category of a piece
+ * of Equipment (weapon).
+ */
 public class WieldCategoryToken implements PrimitiveToken<Equipment>, PrimitiveFilter<Equipment>
 {
 	private static final Class<Equipment> EQUIPMENT_CLASS = Equipment.class;

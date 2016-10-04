@@ -19,6 +19,7 @@ package plugin.modifier.bool;
 
 import pcgen.base.format.BooleanManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
@@ -40,7 +41,7 @@ public class SetBooleanModifierTest
 		try
 		{
 			ModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,7 +55,7 @@ public class SetBooleanModifierTest
 	{
 		ModifierFactory factory = new SetModifierFactory();
 		Modifier<Boolean> modifier =
-				factory.getModifier(5, "True", null, varScope, booleanManager);
+				factory.getModifier(5, "True", new ManagerFactory(){}, null, varScope, booleanManager);
 		assertEquals(5l<<32, modifier.getPriority());
 		assertSame(Boolean.class, modifier.getVariableFormat());
 		assertEquals(Boolean.TRUE, modifier.process(EvalManagerUtilities.getInputEM(Boolean.FALSE)));

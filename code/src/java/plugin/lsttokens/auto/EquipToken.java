@@ -258,10 +258,10 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public void applyChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
 	{
-		e = e.clone();
-		e.setQty(1);
-		e.setAutomatic(true);
-		pc.addAutoEquipment(e, obj);
+		Equipment eq = e.clone();
+		eq.setQty(1);
+		eq.setAutomatic(true);
+		pc.addAutoEquipment(eq, obj);
 	}
 
 	@Override

@@ -210,7 +210,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	@Override
 	public ClassIdentity<? super T> getClassIdentity()
 	{
-		return BasicClassIdentity.getInstance(pcs.getChoiceClass());
+		return BasicClassIdentity.getIdentity(pcs.getChoiceClass());
 	}
 
 	/**

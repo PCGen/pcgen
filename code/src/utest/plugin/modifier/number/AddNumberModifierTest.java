@@ -20,6 +20,7 @@ package plugin.modifier.number;
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
@@ -40,7 +41,7 @@ public class AddNumberModifierTest
 		try
 		{
 			ModifierFactory m = new AddModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected AddModifier with null adder to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -194,7 +195,7 @@ public class AddNumberModifierTest
 	{
 		AddModifierFactory factory = new AddModifierFactory();
 		Modifier<Number> modifier =
-				factory.getModifier(35, "6.5", null, varScope, numManager);
+				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
 		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertEquals(Number.class, modifier.getVariableFormat());
 		assertEquals(10.8, modifier.process(EvalManagerUtilities.getInputEM(4.3)));

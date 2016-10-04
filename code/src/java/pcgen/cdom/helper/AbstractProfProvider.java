@@ -131,6 +131,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 	 *         given Equipment TYPE.
 	 */
 	@Override
+	@SuppressWarnings("PMD.AvoidBranchingStatementAsLastInLoop")
 	public boolean providesEquipmentType(String typeString)
 	{
 		if (typeString == null || typeString.length() == 0)

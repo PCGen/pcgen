@@ -2,6 +2,12 @@ package pcgen.cdom.util;
 
 public final class CControl
 {
+	
+	private CControl()
+	{
+		//Do not instantiate Utility class
+	}
+
 	public static final String CRITMULT = "CRITMULT";
 
 	public static final String CRITRANGE = "CRITRANGE";

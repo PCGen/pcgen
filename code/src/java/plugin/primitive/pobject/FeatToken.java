@@ -34,6 +34,12 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
+/**
+ * FeatToken is a Primitive that includes the selections of a different Feat.
+ * 
+ * @param <T> The underlying format of object selected (CHOOSE) by the target Feat
+ */
+@Deprecated
 public class FeatToken<T> implements PrimitiveToken<T>
 {
 
@@ -89,6 +95,7 @@ public class FeatToken<T> implements PrimitiveToken<T>
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
 		for (CNAbility ability : theFeats)
 		{
+			@SuppressWarnings("unchecked")
 			List<? extends R> list =
 					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)

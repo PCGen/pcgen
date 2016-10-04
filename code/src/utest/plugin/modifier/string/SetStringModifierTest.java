@@ -19,6 +19,7 @@ package plugin.modifier.string;
 
 import pcgen.base.format.StringManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
@@ -40,7 +41,7 @@ public class SetStringModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -54,7 +55,7 @@ public class SetStringModifierTest
 	{
 		ModifierFactory<String> factory = new SetModifierFactory();
 		Modifier<String> modifier =
-				factory.getModifier(5, "MyString", null, varScope, stringManager);
+				factory.getModifier(5, "MyString", new ManagerFactory(){}, null, varScope, stringManager);
 		assertEquals(5l<<32, modifier.getPriority());
 		assertEquals(String.class, modifier.getVariableFormat());
 		assertEquals("MyString", modifier.process(EvalManagerUtilities.getInputEM("Wrong Answer")));

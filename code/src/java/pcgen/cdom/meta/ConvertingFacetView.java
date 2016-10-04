@@ -50,7 +50,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	@Override
 	public Collection<Object> getSources(CharID id, Object obj)
 	{
-		return facet.getSourcesFor(id, ((SourceDest) obj).source);
+		return facet.getSourcesFor(id, ((SourceDest) obj).getSource());
 	}
 
 	@Override
@@ -79,9 +79,19 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	
 	private class SourceDest
 	{
-		S source;
-		D destination;
+		private final S source;
+		private final D destination;
 		
+		public S getSource()
+		{
+			return source;
+		}
+
+		public D getDestination()
+		{
+			return destination;
+		}
+
 		public SourceDest(S source, D destination)
 		{
 			this.source = source;

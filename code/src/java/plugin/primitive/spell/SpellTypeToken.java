@@ -25,6 +25,10 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
+/**
+ * SpellTypeToken handles the restriction of a spell choice to a spell from a type of
+ * spell (e.g. Arcane/Divine).
+ */
 public class SpellTypeToken extends AbstractRestrictedSpellPrimitive
 {
 	private String spelltype;

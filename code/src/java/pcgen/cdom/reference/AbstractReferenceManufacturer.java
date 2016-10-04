@@ -1347,6 +1347,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	}
 
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public FormatManager<?> getComponentManager()
 	{
 		return null;

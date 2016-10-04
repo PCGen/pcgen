@@ -29,6 +29,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * SpellcasterToken is a Primitive that filters based on whether a Class is a spellcaster.
+ */
 public class SpellcasterToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCClass>
 {
 

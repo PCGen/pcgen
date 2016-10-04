@@ -22,6 +22,12 @@ import javax.swing.event.EventListenerList;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
+/**
+ * An AbstractAdapter is a framework object used to implement a WriteableReferenceFacade.
+ * 
+ * @param <T>
+ *            The format of the data maintained by this AbstractAdapter
+ */
 public class AbstractAdapter<T>
 {
 	/**
@@ -30,11 +36,23 @@ public class AbstractAdapter<T>
 	 */
 	private final EventListenerList listenerList = new EventListenerList();
 
+	/**
+	 * Adds a ReferenceListener to this AbstractAdapter.
+	 * 
+	 * @param listener
+	 *            The ReferenceListener to be added to this AbstractAdapter
+	 */
 	public void addReferenceListener(ReferenceListener<? super T> listener)
 	{
 		listenerList.add(ReferenceListener.class, listener);
 	}
 
+	/**
+	 * Removes a ReferenceListener from this AbstractAdapter.
+	 * 
+	 * @param listener
+	 *            The ReferenceListener to be removed from this AbstractAdapter
+	 */
 	public void removeReferenceListener(ReferenceListener<? super T> listener)
 	{
 		listenerList.remove(ReferenceListener.class, listener);
@@ -52,7 +70,10 @@ public class AbstractAdapter<T>
 				{
 					e = new ReferenceEvent<>(source, oldValue, newValue);
 				}
-				((ReferenceListener) listeners[i + 1]).referenceChanged(e);
+				@SuppressWarnings("unchecked")
+				ReferenceListener<T> referenceListener =
+						(ReferenceListener<T>) listeners[i + 1];
+				referenceListener.referenceChanged(e);
 			}
 		}
 	}

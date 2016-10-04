@@ -306,8 +306,8 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
-		FormulaSemantics semantics = FormulaSemantics
-			.generate(getFormulaManager(), getGlobalScope(), null);
+		FormulaSemantics semantics = getManagerFactory()
+			.generateFormulaSemantics(getFormulaManager(), getGlobalScope(), null);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{

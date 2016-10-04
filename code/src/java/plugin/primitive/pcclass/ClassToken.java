@@ -29,6 +29,10 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * ClassToken is a Primitive that filters based on the Class (this will include both Class
+ * and Subclass objects for a class).
+ */
 public class ClassToken implements PrimitiveToken<PCClass>, PrimitiveFilter<PCClass>
 {
 	private static final Class<PCClass> PCCLASS_CLASS = PCClass.class;

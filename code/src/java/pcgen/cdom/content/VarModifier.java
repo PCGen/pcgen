@@ -36,19 +36,19 @@ public class VarModifier<T>
 	/**
 	 * The name of the Variable to be modified when this VarModifier is applied.
 	 */
-	public final String varName;
+	private final String varName;
 
 	/**
 	 * The Scope of the variable to be modified when this VarModifier is
 	 * applied.
 	 */
-	public final LegalScope legalScope;
+	private final LegalScope legalScope;
 
 	/**
 	 * The PCGenModifier to be applied to the Variable when this VarModifier is
 	 * applied.
 	 */
-	public final PCGenModifier<T> modifier;
+	private final PCGenModifier<T> modifier;
 
 	/**
 	 * Constructs a new VarModifier containing all the information necessary to
@@ -83,6 +83,36 @@ public class VarModifier<T>
 		this.varName = varName;
 		this.legalScope = legalScope;
 		this.modifier = modifier;
+	}
+
+	/**
+	 * Retrieves the Variable Name for this VarModifier.
+	 * 
+	 * @return the Variable Name for this VarModifier
+	 */
+	public String getVarName()
+	{
+		return varName;
+	}
+
+	/**
+	 * Retrieves the LegalScope for this VarModifier.
+	 * 
+	 * @return the LegalScope for this VarModifier
+	 */
+	public LegalScope getLegalScope()
+	{
+		return legalScope;
+	}
+
+	/**
+	 * Retrieves the PCGenModifier for this VarModifier.
+	 * 
+	 * @return the PCGenModifier for this VarModifier
+	 */
+	public PCGenModifier<T> getModifier()
+	{
+		return modifier;
 	}
 
 	@Override
