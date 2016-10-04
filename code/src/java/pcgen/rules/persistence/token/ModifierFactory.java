@@ -20,6 +20,7 @@ package pcgen.rules.persistence.token;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 
@@ -62,6 +63,9 @@ public interface ModifierFactory<T>
 	 * @param instructions
 	 *            The String form of the instructions of the Modifier to be
 	 *            returned
+	 * @param managerFactory
+	 *            The ManagerFactory to be used to support analyzing the
+	 *            instructions
 	 * @param formulaManager
 	 *            The FormulaManager used, if necessary, to initialize the
 	 *            Modifier to be returned
@@ -71,7 +75,7 @@ public interface ModifierFactory<T>
 	 *            The FormatManager for the Modifier to be returned
 	 */
 	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager);
 
 	public Modifier<T> getFixedModifier(int userPriority,

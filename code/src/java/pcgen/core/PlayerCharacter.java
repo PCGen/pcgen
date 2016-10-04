@@ -269,6 +269,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
+import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
@@ -543,8 +544,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public PlayerCharacter(Collection<Campaign> loadedCampaigns)
 	{
-		id = CharID.getID(Globals.getContext().getDataSetID());
-		doFormulaSetup();
+		LoadContext context = Globals.getContext();
+		id = CharID.getID(context.getDataSetID());
+		doFormulaSetup(context);
 
 		display = new CharacterDisplay(id);
 		SA_TO_STRING_PROC = new SAtoStringProcessor(this);
@@ -557,7 +559,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			ageSetKitSelections[i] = false;
 		}
-		AbstractReferenceContext refContext = Globals.getContext().getReferenceContext();
+		AbstractReferenceContext refContext = context.getReferenceContext();
 		GlobalModifiers gm =
 				refContext.constructNowIfNecessary(GlobalModifiers.class,
 					"Global Modifiers");
@@ -605,7 +607,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		eqm.put(ObjectKey.CURRENT_COST, BigDecimal.ZERO);
 	}
 
-	private void doFormulaSetup()
+	private void doFormulaSetup(LoadContext context)
 	{
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
@@ -613,8 +615,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		scopeFacet.set(id, mySetup.getInstanceFactory());
 		variableStoreFacet.set(id, (MonitorableVariableStore) mySetup.getVariableStore());
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
-		solverManagerFacet.set(id, new AggressiveSolverManager(
-			mySetup.getFormulaManager(), solverFactory, mySetup.getVariableStore()));
+		solverManagerFacet.set(id,
+			new AggressiveSolverManager(mySetup.getFormulaManager(),
+				context.getVariableContext().getManagerFactory(), solverFactory,
+				mySetup.getVariableStore()));
 	}
 
 	@Override
