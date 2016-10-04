@@ -37,19 +37,19 @@ import pcgen.output.wrapper.TypeSafeConstantWrapper;
 public final class SimpleWrapperLibrary
 {
 
-	private static final Collection<SimpleObjectWrapper> list =
+	private static final Collection<SimpleObjectWrapper> WRAPPER_LIST =
             new ArrayList<>();
 	
 	static
 	{
-		list.add(new StringWrapper());
-		list.add(new NumberWrapper());
-		list.add(new BooleanWrapper());
-		list.add(new TypeSafeConstantWrapper());
-		list.add(new CategoryWrapper());
-		list.add(new EnumWrapper());
-		list.add(new OrderedPairWrapper());
-		list.add(new AgeSetWrapper());
+		WRAPPER_LIST.add(new StringWrapper());
+		WRAPPER_LIST.add(new NumberWrapper());
+		WRAPPER_LIST.add(new BooleanWrapper());
+		WRAPPER_LIST.add(new TypeSafeConstantWrapper());
+		WRAPPER_LIST.add(new CategoryWrapper());
+		WRAPPER_LIST.add(new EnumWrapper());
+		WRAPPER_LIST.add(new OrderedPairWrapper());
+		WRAPPER_LIST.add(new AgeSetWrapper());
 	}
 
 	private SimpleWrapperLibrary()
@@ -80,7 +80,7 @@ public final class SimpleWrapperLibrary
 		{
 			return null;
 		}
-		for (SimpleObjectWrapper ow : list)
+		for (SimpleObjectWrapper ow : WRAPPER_LIST)
 		{
 			try
 			{

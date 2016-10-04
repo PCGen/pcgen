@@ -297,9 +297,9 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 	 */
 	private static class SizeFacetInfo
 	{
-		public int sizeInt;
-		public int racialSizeInt;
-		public SizeAdjustment sizeAdj;
+		private int sizeInt;
+		private int racialSizeInt;
+		private SizeAdjustment sizeAdj;
 		
 		@Override
 		public int hashCode()

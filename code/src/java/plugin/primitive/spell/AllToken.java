@@ -25,6 +25,10 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.AbstractRestrictedSpellPrimitive;
 
+/**
+ * AllToken is a Primitive that filters Spells based on restrictions, but without a limit
+ * of what PCClass or Domain can cast a spell.
+ */
 public class AllToken extends AbstractRestrictedSpellPrimitive
 {
 	@Override

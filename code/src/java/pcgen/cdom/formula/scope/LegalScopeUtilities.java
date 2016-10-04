@@ -20,8 +20,13 @@ package pcgen.cdom.formula.scope;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.cdom.helper.SpringHelper;
 
-public class LegalScopeUtilities
+public final class LegalScopeUtilities
 {
+
+	private LegalScopeUtilities()
+	{
+		//Do not construct utility class
+	}
 
 	public static void loadLegalScopeLibrary(LegalScopeLibrary library)
 	{

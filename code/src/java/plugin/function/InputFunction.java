@@ -36,6 +36,10 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 import pcgen.output.channel.ChannelUtilities;
 
+/**
+ * InputFunction is a function designed to allow pulling information from a channel (as
+ * defined by the argument to the input function).
+ */
 public class InputFunction implements Function
 {
 

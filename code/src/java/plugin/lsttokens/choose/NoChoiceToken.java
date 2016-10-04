@@ -49,7 +49,7 @@ public class NoChoiceToken implements CDOMSecondaryToken<CDOMObject>,
 {
 
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-		.getInstance(String.class);
+		.getIdentity(String.class);
 
 	@Override
 	public String getTokenName()

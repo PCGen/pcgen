@@ -35,7 +35,7 @@ import pcgen.cdom.formula.VariableChannel;
  * ChannelUtilities are a class for setting up communication channels from the
  * core to other objects via get(), set(...) and events.
  */
-public class ChannelUtilities
+public final class ChannelUtilities
 {
 	private static final VariableLibraryFacet VARLIB_FACET =
 			FacetLibrary.getFacet(VariableLibraryFacet.class);
@@ -45,6 +45,11 @@ public class ChannelUtilities
 			FacetLibrary.getFacet(VariableStoreFacet.class);
 	private static final SolverManagerFacet MGR_FACET =
 			FacetLibrary.getFacet(SolverManagerFacet.class);
+
+	private ChannelUtilities()
+	{
+		//Do not instantiate Utility Class
+	}
 
 	/**
 	 * Retrieves a Channel for the given CharID, owning object, and name of the
@@ -144,6 +149,7 @@ public class ChannelUtilities
 		VariableLibrary varLib = VARLIB_FACET.get(id.getDatasetID());
 		varLib.assertLegalVariableID(varName, scopeInst.getLegalScope(),
 			formatManager);
+		@SuppressWarnings("unchecked")
 		VariableID<T> varID =
 				(VariableID<T>) varLib.getVariableID(scopeInst, varName);
 		MGR_FACET.get(id).createChannel(varID);
@@ -161,9 +167,16 @@ public class ChannelUtilities
 			RESULT_FACET.get(id), varID);
 	}
 
-	public static String createVarName(String varName)
+	/**
+	 * Creates a channel variable Name from the given channel name.
+	 * 
+	 * @param channelName
+	 *            The Channel name from which the channel variable name should be created
+	 * @return The channel variable name
+	 */
+	public static String createVarName(String channelName)
 	{
-		return "CHANNEL*" + varName;
+		return "CHANNEL*" + channelName;
 	}
 
 }

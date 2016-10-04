@@ -31,6 +31,9 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.util.Logging;
 
+/**
+ * ProhibitedToken is a Primitive that includes spells that have been prohibited for a PC.
+ */
 public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;

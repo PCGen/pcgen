@@ -183,7 +183,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 			{
 				String modText = unparseModifier(vm);
 				StringBuilder sb = new StringBuilder();
-				sb.append(vm.varName);
+				sb.append(vm.getVarName());
 				sb.append(Constants.PIPE);
 				sb.append(modText);
 				modifiers.add(sb.toString());
@@ -199,7 +199,7 @@ public class ModifyLst implements CDOMPrimaryToken<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		PCGenModifier<?> modifier = vm.modifier;
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();

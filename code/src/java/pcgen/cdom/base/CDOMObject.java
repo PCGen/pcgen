@@ -1208,6 +1208,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 	
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public String getLocalScopeName()
 	{
 		//I don't have one
@@ -1215,6 +1216,7 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 	}
 
 	@Override
+	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
 	public VarScoped getVariableParent()
 	{
 		//Fall back to Global

@@ -46,15 +46,9 @@ public interface NEPCalculation<T> extends CalculationInfo<T>
 	 * The NEPCalculation should treat the input as an Immutable object (it does
 	 * not gain ownership of that parameter).
 	 * 
-	 * @param input
-	 *            The input value used (if necessary) to determine the
-	 *            appropriate result of this NEPCalculation
-	 * @param scopeInfo
-	 *            The ScopeInformation that is used (if necessary) to process a
-	 *            Formula that is contained by this NEPCalculation
-	 * @param source
-	 *            The "source" of the process being performed, so it can be
-	 *            referred back to if necessary
+	 * @param evalManager
+	 *            The EvaluationManager used to determine the appropriate result
+	 *            of this NEPCalculation
 	 * @return The resulting value of the NEPCalculation
 	 */
 	public T process(EvaluationManager evalManager);

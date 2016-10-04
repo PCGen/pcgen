@@ -79,6 +79,10 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		return new SetDirectArrayModifier(fmtManager, userPriority, toSet);
 	}
 
+	/**
+	 * A SetDirectArrayModifier is a PCGenModifier that contains a set of objects 
+	 * to be used by the Modifier.
+	 */
 	private final class SetDirectArrayModifier extends SetArrayModifier
 	{
 		/**
@@ -108,7 +112,11 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 
 	}
 
-	public class SetIndirectArrayModifier extends SetArrayModifier
+	/**
+	 * A SetIndirectArrayModifier is a PCGenModifier that contains a set of Indirect objects
+	 * to be resolved and used by the Modifier when executed.
+	 */
+	private final class SetIndirectArrayModifier extends SetArrayModifier
 	{
 		/**
 		 * The objects to be set to the active set when this SetModifier is
@@ -116,7 +124,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 		 */
 		private Indirect<T[]> toSet;
 
-		public SetIndirectArrayModifier(FormatManager<T[]> formatManager,
+		private SetIndirectArrayModifier(FormatManager<T[]> formatManager,
 			int userPriority, Indirect<T[]> toSet)
 		{
 			super(formatManager, userPriority);

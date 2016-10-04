@@ -17,6 +17,8 @@
  */
 package pcgen.cdom.content;
 
+import java.util.Objects;
+
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
@@ -117,13 +119,10 @@ public abstract class ContentDefinition<T extends CDOMObject, F> extends UserCon
 	 *            The Class indicating the "usable location" of this
 	 *            ContentDefinition
 	 */
+	@SuppressWarnings("unchecked")
 	public void setUsableLocation(Class<? extends Loadable> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException("Usable Location cannot be null");
-		}
-		this.usableLocation = (Class<T>) cl;
+		this.usableLocation = (Class<T>) Objects.requireNonNull(cl);
 	}
 
 	/**

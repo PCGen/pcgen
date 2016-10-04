@@ -77,7 +77,7 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	@Override
 	public long getPriority()
 	{
-		return ((long)userPriority << 32) + toDo.getInherentPriority();
+		return ((long) userPriority << 32) + toDo.getInherentPriority();
 	}
 
 	@Override
@@ -113,7 +113,7 @@ public final class CalculationModifier<T> implements PCGenModifier<T>
 	@Override
 	public int hashCode()
 	{
-		return ((int) userPriority) ^ toDo.hashCode();
+		return userPriority ^ toDo.hashCode();
 	}
 
 	@Override

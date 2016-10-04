@@ -26,9 +26,30 @@ import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.output.channel.compat.StatAdapter;
 
-public class ChannelCompatibility
+/**
+ * ChannelCompatibility is a class used to get the appropriate WriteableReferenceFacade
+ * objects based on whether a code control is operated (or not).
+ */
+public final class ChannelCompatibility
 {
 
+	private ChannelCompatibility()
+	{
+		//Do not instantiate Utility Class
+	}
+
+	/**
+	 * Returns the acting WriteableReferenceFacade based on whether the STATINPUT code
+	 * control has been used.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter for which the
+	 *            WriteableReferenceFacade will operate
+	 * @param stat
+	 *            The PCStat for which the WriteableReferenceFacade will operate
+	 * @return The acting WriteableReferenceFacade based on whether the STATINPUT code
+	 *         control has been used
+	 */
 	public static WriteableReferenceFacade<Number> getStatScore(CharID id,
 		PCStat stat)
 	{
@@ -40,8 +61,8 @@ public class ChannelCompatibility
 		}
 		else
 		{
-			return (WriteableReferenceFacade<Number>) ChannelUtilities
-				.generateChannel(id, stat, channelName, FormatUtilities.NUMBER_MANAGER);
+			return ChannelUtilities.generateChannel(id, stat, channelName,
+				FormatUtilities.NUMBER_MANAGER);
 		}
 	}
 }

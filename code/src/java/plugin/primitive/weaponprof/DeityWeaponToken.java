@@ -32,6 +32,10 @@ import pcgen.core.WeaponProf;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * DeityWeaponToken is a Primitive that allows pulling the WeaponProf objects provided by
+ * a Deity.
+ */
 public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 {
 

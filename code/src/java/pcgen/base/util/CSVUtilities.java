@@ -19,15 +19,23 @@ package pcgen.base.util;
 
 import pcgen.base.text.ParsingSeparator;
 
+/**
+ * CSVUtilities are methods that are designed to simplify the processing of CSV-like files.
+ */
 public final class CSVUtilities
 {
+
+	private CSVUtilities()
+	{
+		//Do not construct utility class
+	}
 
 	/**
 	 * Escapes a given entry. This escapes quotes (and detects commas that would
 	 * require the line to be escaped).
 	 * 
-	 * @param entry
-	 *            The entry to be escaped into its encoded state
+	 * @param string
+	 *            The string to be escaped into its encoded state
 	 * @return The escaped entry (with CSV quoting)
 	 */
 	public static String escape(String string)
