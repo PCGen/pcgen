@@ -175,11 +175,13 @@ dependencies {
     itestCompile sourceSets.main.output
     itestCompile configurations.testCompile
     itestCompile sourceSets.test.output
+
     itestRuntime configurations.testRuntime
 
     slowtestCompile sourceSets.main.output
     slowtestCompile configurations.testCompile
     slowtestCompile sourceSets.test.output
+
     slowtestRuntime configurations.testRuntime
 
     findbugs 'com.google.code.findbugs:findbugs:3.0.1'

@@ -1,9 +1,9 @@
-# Run a short(ish) test run on travis-ci after each commit
+# Run tests run on travis-ci after each commit and before each merge
 
 language: java
 jdk:
   - oraclejdk8
-script: ./gradlew clean build test datatest pfinttest
+script: ./gradlew clean build test datatest pfinttest allReports
 
 before_install:
  - sudo apt-get update
