@@ -30,8 +30,8 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.io.File;
 import java.util.Collection;
 import javax.swing.JMenuItem;
@@ -60,8 +60,8 @@ import plugin.experience.gui.PreferencesExperiencePanel;
  * Updated on February 26, 2003
  * @author  Expires 2003
  */
-public class ExperienceAdjusterPlugin implements InteractivePlugin,
-		ActionListener, ChangeListener, KeyListener /*Observer*/
+public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractivePlugin,
+		ActionListener, ChangeListener /*Observer*/
 {
 	/** Log name */
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
@@ -391,25 +391,13 @@ public class ExperienceAdjusterPlugin implements InteractivePlugin,
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, experienceToolsItem));
 	}
 
-    @Override
-	public void keyPressed(KeyEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
+	@Override
 	public void keyReleased(KeyEvent e)
 	{
 		update();
 	}
 
-    @Override
-	public void keyTyped(KeyEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
+	@Override
 	public void stateChanged(ChangeEvent e)
 	{
 		if (e.getSource() == eaView.getExperienceMultSlider())
