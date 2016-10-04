@@ -17,6 +17,11 @@
  */
 package pcgen.base.formula.base;
 
+/**
+ * A ManagerFactory is an object designed to produce the various manager objects used by
+ * the visitors to a Formula. This is an interface to allow extension of these behaviors
+ * by more advanced formula processing systems.
+ */
 public interface ManagerFactory
 {
 	/**
