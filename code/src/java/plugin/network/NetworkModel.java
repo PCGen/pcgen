@@ -22,8 +22,8 @@
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -554,7 +554,7 @@ public class NetworkModel
 		}
 	}
 
-	private class TabFocusListener implements FocusListener
+	private class TabFocusListener extends FocusAdapter
 	{
         @Override
 		public void focusGained(FocusEvent evt)
@@ -562,15 +562,6 @@ public class NetworkModel
 			clearIcon();
 		}
 
-		/**
-		 * This method currently does nothing
-		 * @param evt
-		 */
-        @Override
-		public void focusLost(FocusEvent evt)
-		{
-			// Do Nothing
-		}
 	}
 
 	private class MessageButtonActionListener implements ActionListener

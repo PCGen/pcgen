@@ -19,22 +19,12 @@
  */
  package plugin.encounter;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.dice.Dice;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -50,6 +40,15 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -79,6 +78,7 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -87,8 +87,9 @@ import plugin.encounter.gui.EncounterView;
  * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
  */
-public class EncounterPlugin implements InteractivePlugin, ActionListener,
-		ItemListener, MouseListener
+public class EncounterPlugin extends MouseAdapter
+	implements InteractivePlugin, ActionListener,
+		ItemListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
 	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
@@ -498,30 +499,6 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				//TODO: Should this really be ignored?
 			}
 		}
-	}
-
-    @Override
-	public void mouseEntered(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mouseExited(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mousePressed(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mouseReleased(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
 	}
 
 	private void createView()
