@@ -45,11 +45,8 @@ import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>VisionLst</code> handles the processing of the VISION tag in LST
+ * {@code VisionLst} handles the processing of the VISION tag in LST
  * code.
- *
- * (Sun, 15 Jun 2008) $
- *
  * @author Devon Jones
  */
 public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
@@ -90,7 +87,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							+ ": " + value, context);
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
+		List<AssociatedPrereqObject> edgeList = new ArrayList<>();
 
 		boolean foundClear = false;
 
@@ -168,10 +165,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 						"   (Did you put vision after the " + "PRExxx tags in "
 								+ getTokenName() + ":?)", context);
 			}
-			for (AssociatedPrereqObject edge : edgeList)
-			{
-				edge.addPrerequisite(prereq);
-			}
+			edgeList.forEach(edge -> edge.addPrerequisite(prereq));
 			if (!aTok.hasMoreTokens())
 			{
 				break;
@@ -213,24 +207,22 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			MapToList<Set<Prerequisite>, Vision> m = new HashMapToList<>();
 			for (CDOMReference<Vision> ab : mtl.getKeySet())
 			{
-				for (AssociatedPrereqObject assoc : mtl.getListFor(ab))
-				{
-					m.addAllToListFor(new HashSet<>(assoc
-							.getPrerequisiteList()), ab.getContainedObjects());
-				}
+				mtl.getListFor(ab)
+						.forEach(assoc ->
+							m.addAllToListFor(new HashSet<>(assoc.getPrerequisiteList()), ab.getContainedObjects()));
 			}
 			Set<String> set = new TreeSet<>();
-			for (Set<Prerequisite> prereqs : m.getKeySet())
-			{
-				StringBuilder sb = new StringBuilder(StringUtil.join(m
-						.getListFor(prereqs), Constants.PIPE));
-				if (prereqs != null && !prereqs.isEmpty())
-				{
-					sb.append(Constants.PIPE);
-					sb.append(getPrerequisiteString(context, prereqs));
-				}
-				set.add(sb.toString());
-			}
+			m.getKeySet()
+					.forEach(prereqs ->
+					         {
+						         StringBuilder sb = new StringBuilder(StringUtil.join(m.getListFor(prereqs), Constants.PIPE));
+						         if ((prereqs != null) && !prereqs.isEmpty())
+						         {
+							         sb.append(Constants.PIPE);
+							         sb.append(getPrerequisiteString(context, prereqs));
+						         }
+						         set.add(sb.toString());
+					         });
 			list.addAll(set);
 		}
 		if (list.isEmpty())

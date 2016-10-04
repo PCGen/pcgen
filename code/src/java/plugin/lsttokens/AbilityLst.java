@@ -348,11 +348,11 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 					try
 					{
 						AbilitySelector as = (AbilitySelector) csa;
-						StringBuilder sb = new StringBuilder();
-						sb.append(as.getAbilityCategory().getLSTformat(false)).append(Constants.PIPE);
-						sb.append(as.getNature()).append(Constants.PIPE);
-						sb.append(as.getLstFormat());
-						returnSet.add(sb.toString());
+						String sb = as.getAbilityCategory()
+								.getLSTformat(false) + Constants.PIPE
+								+ as.getNature() + Constants.PIPE
+								+ as.getLstFormat();
+						returnSet.add(sb);
 					}
 					catch (PersistenceLayerException e)
 					{
@@ -534,10 +534,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 				cdo.getListFor(ListKey.GA_CAKEYS);
 		if (lkList != null)
 		{
-			for (ListKey<ChooseSelectionActor<?>> lk : lkList)
-			{
-				cdo.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR, cdo.getListFor(lk));
-			}
+			lkList.forEach(lk -> cdo.addAllToListFor(ListKey.NEW_CHOOSE_ACTOR, cdo.getListFor(lk)));
 		}
 		return true;
 	}
