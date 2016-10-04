@@ -391,10 +391,8 @@ task wrapper(type: Wrapper) {
 
 //Disable failing on javadoc warning
 allprojects {
-    if(JavaVersion.current() == JavaVersion.VERSION_1_8){
-        tasks.withType(Javadoc) {
-            options.addBooleanOption('Xdoclint:none', true)
-        }
+    tasks.withType(Javadoc) {
+        options.addBooleanOption('Xdoclint:none', true)
     }
 }
 
