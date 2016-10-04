@@ -120,6 +120,7 @@ public class GenericFunction implements Function
 		semantics.push(ArgumentDependencyManager.KEY,
 			new ArgumentDependencyManager());
 		formulaManager.push(FormulaManager.FUNCTION, withArgs);
+		@SuppressWarnings("PMD.PrematureDeclaration")
 		FormatManager<?> result =
 				(FormatManager<?>) visitor.visit(root, semantics);
 		formulaManager.pop(FormulaManager.FUNCTION);
