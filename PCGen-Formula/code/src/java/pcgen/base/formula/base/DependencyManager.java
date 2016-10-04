@@ -104,26 +104,4 @@ public class DependencyManager extends MappedDeque
 		}
 		return vars;
 	}
-	
-	/**
-	 * Generates an initialized DependencyManager with the given arguments.
-	 * 
-	 * @param formulaManager
-	 *            The FormulaManager to be contained in the DependencyManager
-	 * @param scopeInst
-	 *            The ScopeInstance to be contained in the DependencyManager
-	 * @param assertedFormat
-	 *            The format currently asserted for the formula served by the
-	 *            DependencyManager
-	 * @return An initialized DependencyManager with the given arguments
-	 */
-	public static DependencyManager generate(FormulaManager formulaManager,
-		ScopeInstance scopeInst, Class<?> assertedFormat)
-	{
-		DependencyManager fdm = new DependencyManager();
-		fdm.set(FMANAGER, formulaManager);
-		fdm.set(INSTANCE, scopeInst);
-		fdm.set(ASSERTED, assertedFormat);
-		return fdm;
-	}
 }

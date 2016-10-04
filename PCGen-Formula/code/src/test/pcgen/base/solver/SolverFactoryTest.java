@@ -19,6 +19,7 @@ package pcgen.base.solver;
 
 import pcgen.base.format.NumberManager;
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
 
@@ -27,6 +28,7 @@ import org.junit.Test;
 
 public class SolverFactoryTest extends TestCase
 {
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;
 	private SolverFactory factory;
 
@@ -38,9 +40,8 @@ public class SolverFactoryTest extends TestCase
 		sfs.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
 		IndividualSetup indSetup = new IndividualSetup(sfs, "Global");
-		evalManager =
-				EvaluationManager.generate(indSetup.getFormulaManager(),
-					indSetup.getGlobalScopeInst(), Number.class);
+		evalManager = managerFactory.generateEvaluationManager(
+			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), Number.class);
 		factory = new SolverFactory();
 	}
 

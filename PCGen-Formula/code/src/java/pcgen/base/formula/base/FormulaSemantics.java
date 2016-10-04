@@ -116,30 +116,4 @@ public class FormulaSemantics extends MappedDeque
 	{
 		return peek(VALID);
 	}
-
-	/**
-	 * Constructs and initializes a new FormulaSemantics object with the
-	 * appropriate keys set to the given parameters.
-	 * 
-	 * @param manager
-	 *            The FormulaManager referenced when a Formula is processed with
-	 *            this FormulaSemantics
-	 * @param legalScope
-	 *            The LegalScope when a Formula is processed with this
-	 *            FormulaSemantics
-	 * @param assertedFormat
-	 *            The asserted Format when a Formula is processed with this
-	 *            FormulaSemantics (may be null)
-	 * @return An initialized FormulaSemantics object with the appropriate keys
-	 *         set to the given parameters
-	 */
-	public static FormulaSemantics generate(FormulaManager manager,
-		LegalScope legalScope, Class<?> assertedFormat)
-	{
-		FormulaSemantics semantics = new FormulaSemantics();
-		semantics.set(FMANAGER, manager);
-		semantics.set(SCOPE, legalScope);
-		semantics.set(ASSERTED, assertedFormat);
-		return semantics;
-	}
 }
