@@ -28,7 +28,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			new ComplexNEPFormula(null);
 			fail("Expected null formula text to fail");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

@@ -21,6 +21,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
@@ -73,12 +74,7 @@ public class ScopeInstanceFactory
 	 */
 	public ScopeInstanceFactory(LegalScopeLibrary library)
 	{
-		if (library == null)
-		{
-			throw new IllegalArgumentException(
-				"LegalScopeLibrary cannot be null");
-		}
-		this.library = library;
+		this.library = Objects.requireNonNull(library);
 	}
 
 	/**

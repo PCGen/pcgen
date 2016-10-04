@@ -88,8 +88,6 @@ public class SimpleFormulaManager implements FormulaManager
 	 * @param defaultStore
 	 *            The DefaultStore used to know default values for each format
 	 *            (class)
-	 * @throws IllegalArgumentException
-	 *             if any parameter is null
 	 */
 	public SimpleFormulaManager(FunctionLibrary ftnLibrary,
 		OperatorLibrary opLibrary, VariableLibrary varLibrary,

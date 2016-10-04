@@ -20,6 +20,7 @@ package pcgen.base.formula.base;
 import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.HashMapToList;
@@ -90,11 +91,7 @@ public class LegalScopeLibrary
 	 */
 	public List<LegalScope> getChildScopes(LegalScope scope)
 	{
-		if (scope == null)
-		{
-			throw new IllegalArgumentException("LegalScope may not be null");
-		}
-		return scopeChildren.getListFor(scope);
+		return scopeChildren.getListFor(Objects.requireNonNull(scope));
 	}
 
 	/**

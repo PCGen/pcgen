@@ -54,7 +54,7 @@ public class VariableLibraryTest extends TestCase
 			new VariableLibrary(null);
 			fail("null must be rejected in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -69,7 +69,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.assertLegalVariableID(null, globalScope, numberManager);
 			fail("null var must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -196,7 +196,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.isLegalVariableID(null, "Walk");
 			fail("null FormatManager must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -204,7 +204,7 @@ public class VariableLibraryTest extends TestCase
 		{
 			assertFalse(varLib.isLegalVariableID(globalScope, null));
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -259,7 +259,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.getKnownLegalScopes(null);
 			fail("null name must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -372,7 +372,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.getVariableID(globalInst, null);
 			fail("null name must be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -507,7 +507,7 @@ public class VariableLibraryTest extends TestCase
 			varLib.getVariableFormat(null, "Walk");
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -516,7 +516,7 @@ public class VariableLibraryTest extends TestCase
 			Object o = varLib.getVariableFormat(globalScope, null);
 			assertTrue(o == null);
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok too
 		}

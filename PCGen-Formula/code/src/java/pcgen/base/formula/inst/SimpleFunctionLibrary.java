@@ -52,16 +52,10 @@ public class SimpleFunctionLibrary implements FunctionLibrary
 	 * If there is an attempt to add a second function with a name already
 	 * matching a "paren" Function within the SimpleFunctionLibrary, then an
 	 * exception will be thrown.
-	 * 
-	 * {@inheritDoc}
 	 */
 	@Override
 	public void addFunction(Function function)
 	{
-		if (function == null)
-		{
-			throw new IllegalArgumentException("Cannot add null Function");
-		}
 		String functionName = function.getFunctionName();
 		if (functionName == null)
 		{

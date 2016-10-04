@@ -19,6 +19,7 @@ package pcgen.base.formula.base;
 
 import java.util.HashMap;
 import java.util.List;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.CaseInsensitiveMap;
@@ -47,17 +48,10 @@ public class VariableLibrary
 	 * @param vsLibrary
 	 *            The LegalScopeLibrary used to to ensure variables are legal
 	 *            within a given scope
-	 * @throws IllegalArgumentException
-	 *             if the given library is null
 	 */
 	public VariableLibrary(LegalScopeLibrary vsLibrary)
 	{
-		if (vsLibrary == null)
-		{
-			throw new IllegalArgumentException(
-				"LegalScopeLibrary cannot be null");
-		}
-		library = vsLibrary;
+		library = Objects.requireNonNull(vsLibrary);
 	}
 
 	/**
@@ -195,16 +189,10 @@ public class VariableLibrary
 	 * 
 	 * @return true if the given LegalScope and variable name are a legal
 	 *         combination; false otherwise
-	 * @throws IllegalArgumentException
-	 *             if the given LegalScope is null
 	 */
 	public boolean isLegalVariableID(LegalScope legalScope, String varName)
 	{
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		if (variableDefs.containsKey(varName, legalScope))
+		if (variableDefs.containsKey(varName, Objects.requireNonNull(legalScope)))
 		{
 			return true;
 		}
@@ -228,17 +216,11 @@ public class VariableLibrary
 	 *            The variable name to be used to determine the FormatManager
 	 * 
 	 * @return The FormatManager for the given LegalScope and variable name
-	 * @throws IllegalArgumentException
-	 *             if the given LegalScope is null
 	 */
 	public FormatManager<?> getVariableFormat(LegalScope legalScope,
 		String varName)
 	{
-		if (legalScope == null)
-		{
-			throw new IllegalArgumentException("LegalScope cannot be null");
-		}
-		FormatManager<?> format = variableDefs.get(varName, legalScope);
+		FormatManager<?> format = variableDefs.get(varName, Objects.requireNonNull(legalScope));
 		if (format == null)
 		{
 			LegalScope parent = legalScope.getParentScope();
@@ -267,8 +249,7 @@ public class VariableLibrary
 	 * @return The Set of LegalScope objects asserted for the given variable
 	 *         name
 	 * @throws IllegalArgumentException
-	 *             if the FormatManager is null or if the given variable name is
-	 *             null, empty, or has leading/trailing whitespace
+	 *             if given variable name is not legal
 	 */
 	public Set<LegalScope> getKnownLegalScopes(String varName)
 	{
@@ -296,9 +277,8 @@ public class VariableLibrary
 	 * @return A VariableID of the given ScopeInstance and variable name if they
 	 *         are are a legal combination
 	 * @throws IllegalArgumentException
-	 *             if the given ScopeInstance is null, the name is invalid, or
-	 *             if the ScopeInstance and variable name are not a legal
-	 *             combination
+	 *             if the name is invalid, or if the ScopeInstance and variable
+	 *             name are not a legal combination
 	 */
 	public VariableID<?> getVariableID(ScopeInstance scopeInst, String varName)
 	{
@@ -334,10 +314,6 @@ public class VariableLibrary
 	 */
 	private void checkLegalVarName(String varName)
 	{
-		if (varName == null)
-		{
-			throw new IllegalArgumentException("Variable Name cannot be null");
-		}
 		if (varName.isEmpty())
 		{
 			throw new IllegalArgumentException("Variable Name cannot be empty");

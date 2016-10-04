@@ -36,7 +36,7 @@ public class ArrayComponentModifierTest extends TestCase
 			new ArrayComponentModifier(5, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -45,7 +45,7 @@ public class ArrayComponentModifierTest extends TestCase
 			new ArrayComponentModifier(-5, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
