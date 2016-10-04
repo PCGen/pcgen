@@ -51,7 +51,7 @@ public class SimpleFormulaManagerTest extends TestCase
 	{
 		try
 		{
-			new SimpleFormulaManager(null, null, null, null, null);
+			new SimpleFormulaManager(null, null, null, null);
 			fail("nulls must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -60,17 +60,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(null, opLibrary, varLibrary, resultsStore,
-				defaultStore);
-			fail("null ftn lib must be rejected");
-		}
-		catch (NullPointerException | IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new SimpleFormulaManager(ftnLibrary, null, varLibrary, resultsStore,
+			new SimpleFormulaManager(null, varLibrary, resultsStore,
 				defaultStore);
 			fail("null op lib must be rejected");
 		}
@@ -80,7 +70,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, opLibrary, null, resultsStore,
+			new SimpleFormulaManager(opLibrary, null, resultsStore,
 				defaultStore);
 			fail("null var lib must be rejected");
 		}
@@ -90,7 +80,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary, null,
+			new SimpleFormulaManager(opLibrary, varLibrary, null,
 				defaultStore);
 			fail("null results must be rejected");
 		}
@@ -100,7 +90,7 @@ public class SimpleFormulaManagerTest extends TestCase
 		}
 		try
 		{
-			new SimpleFormulaManager(ftnLibrary, opLibrary, varLibrary,
+			new SimpleFormulaManager(opLibrary, varLibrary,
 				resultsStore, null);
 			fail("null defaults must be rejected");
 		}

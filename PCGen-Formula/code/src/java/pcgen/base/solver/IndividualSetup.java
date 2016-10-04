@@ -76,9 +76,10 @@ public class IndividualSetup
 		LegalScopeLibrary scopeLibrary = parent.getLegalScopeLibrary();
 		instanceFactory = new ScopeInstanceFactory(scopeLibrary);
 		formulaManager =
-				new SimpleFormulaManager(parent.getFunctionLibrary(),
+				new SimpleFormulaManager(
 					parent.getOperatorLibrary(), parent.getVariableLibrary(),
 					getVariableStore(), parent.getSolverFactory());
+		formulaManager.push(FormulaManager.FUNCTION, parent.getFunctionLibrary());
 		globalScopeInst = instanceFactory.getGlobalInstance(globalName);
 	}
 

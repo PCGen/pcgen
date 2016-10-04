@@ -20,6 +20,7 @@ package pcgen.base.formula.visitor;
 import java.util.Arrays;
 
 import pcgen.base.formatmanager.FormatUtilities;
+import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
@@ -270,8 +271,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary library =
-					semantics.peek(FormulaSemantics.FMANAGER).getLibrary();
+			FunctionLibrary library = semantics.peek(FormulaSemantics.FMANAGER)
+				.peek(FormulaManager.FUNCTION);
 			Function function = library.getFunction(name);
 			if (function == null)
 			{

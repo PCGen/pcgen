@@ -112,16 +112,18 @@ public class GenericFunction implements Function
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
 	{
-		FormulaManager withArgs =
-				getManager(args, semantics.peek(FormulaSemantics.FMANAGER));
+		FormulaManager formulaManager = semantics.peek(FormulaSemantics.FMANAGER);
+		FunctionLibrary withArgs = new ArgWrappingLibrary(
+			formulaManager.peek(FormulaManager.FUNCTION), args);
+
 		//Need to save original to handle "embedded" GenericFunction objects properly
 		semantics.push(ArgumentDependencyManager.KEY,
 			new ArgumentDependencyManager());
-		semantics.push(FormulaSemantics.FMANAGER, withArgs);
-		@SuppressWarnings("PMD.PrematureDeclaration")
+		formulaManager.push(FormulaManager.FUNCTION, withArgs);
 		FormatManager<?> result =
 				(FormatManager<?>) visitor.visit(root, semantics);
-		semantics.pop(FormulaSemantics.FMANAGER);
+		formulaManager.pop(FormulaManager.FUNCTION);
+
 		ArgumentDependencyManager myArgs =
 				semantics.pop(ArgumentDependencyManager.KEY);
 		int maxArg = myArgs.getMaximumArgument() + 1;
@@ -148,11 +150,12 @@ public class GenericFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		FormulaManager withArgs =
-				getManager(args, manager.peek(EvaluationManager.FMANAGER));
-		manager.push(EvaluationManager.FMANAGER, withArgs);
+		FormulaManager formulaManager = manager.peek(EvaluationManager.FMANAGER);
+		FunctionLibrary withArgs = new ArgWrappingLibrary(
+			formulaManager.peek(FormulaManager.FUNCTION), args);
+		formulaManager.push(FormulaManager.FUNCTION, withArgs);
 		Object result = visitor.visit(root, manager);
-		manager.pop(EvaluationManager.FMANAGER);
+		formulaManager.pop(FormulaManager.FUNCTION);
 		return result;
 	}
 
@@ -194,17 +197,11 @@ public class GenericFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		FormulaManager withArgs =
-				getManager(args, manager.peek(DependencyManager.FMANAGER));
-		manager.push(DependencyManager.FMANAGER, withArgs);
+		FormulaManager formulaManager = manager.peek(DependencyManager.FMANAGER);
+		FunctionLibrary withArgs = new ArgWrappingLibrary(
+			formulaManager.peek(FormulaManager.FUNCTION), args);
+		formulaManager.push(FormulaManager.FUNCTION, withArgs);
 		visitor.visit(root, manager);
-		manager.pop(DependencyManager.FMANAGER);
-	}
-
-	private FormulaManager getManager(Node[] args, FormulaManager formulaManager)
-	{
-		FunctionLibrary argLibrary =
-				new ArgWrappingLibrary(formulaManager.getLibrary(), args);
-		return formulaManager.swapFunctionLibrary(argLibrary);
+		formulaManager.pop(FormulaManager.FUNCTION);
 	}
 }

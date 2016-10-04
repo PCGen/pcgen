@@ -154,7 +154,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
-				new StaticVisitor(localSetup.getFormulaManager().getLibrary());
+				new StaticVisitor(localSetup.getFormulaManager().peek(FormulaManager.FUNCTION));
 		boolean isStat =
 				((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
@@ -248,7 +248,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected FunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().getLibrary();
+		return localSetup.getFormulaManager().peek(FormulaManager.FUNCTION);
 	}
 
 	protected OperatorLibrary getOperatorLibrary()

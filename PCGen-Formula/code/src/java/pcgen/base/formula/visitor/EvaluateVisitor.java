@@ -214,8 +214,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary ftnLib =
-					manager.peek(EvaluationManager.FMANAGER).getLibrary();
+			FunctionLibrary ftnLib = manager.peek(EvaluationManager.FMANAGER)
+				.peek(FormulaManager.FUNCTION);
 			Function function = ftnLib.getFunction(name);
 			return function.evaluate(this, args, manager);
 		}
