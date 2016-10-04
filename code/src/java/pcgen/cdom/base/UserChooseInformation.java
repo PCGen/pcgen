@@ -33,7 +33,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 {
 	
 	private static final ClassIdentity<String> STRING_INFO = BasicClassIdentity
-			.getInstance(String.class);
+			.getIdentity(String.class);
 
 	public static final String UCI_NAME = "User Input";
 	

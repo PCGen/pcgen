@@ -78,7 +78,7 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 			StringTokenizer aTok = new StringTokenizer(keys, Constants.DOT, false);
 			while (aTok.hasMoreTokens())
 			{
-				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), new Integer(val));
+				context.getObjectContext().put(race, MapKey.CRMOD, aTok.nextToken(), Integer.valueOf(val));
 			}
 		}
 		catch (NumberFormatException e)

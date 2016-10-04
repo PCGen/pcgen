@@ -115,6 +115,7 @@ public class AbilityToken<T> implements PrimitiveToken<T>
 		List<CNAbility> theFeats = pc.getMatchingCNAbilities(a);
 		for (CNAbility ability : theFeats)
 		{
+			@SuppressWarnings("unchecked")
 			List<? extends R> list =
 					(List<? extends R>) pc.getDetailedAssociations(ability);
 			if (list != null)

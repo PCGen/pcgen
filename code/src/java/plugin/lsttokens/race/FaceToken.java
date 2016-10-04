@@ -121,14 +121,14 @@ public class FaceToken extends AbstractNonEmptyToken<Race> implements
 		{
 			for (VarModifier<?> vm : added)
 			{
-				PCGenModifier<?> modifier = vm.modifier;
-				if (VAR_NAME.equals(vm.varName)
-					&& (vm.legalScope.getParentScope() == null)
+				PCGenModifier<?> modifier = vm.getModifier();
+				if (VAR_NAME.equals(vm.getVarName())
+					&& (vm.getLegalScope().getParentScope() == null)
 					&& (modifier.getUserPriority() == MOD_PRIORITY)
-					&& (vm.modifier.getIdentification()
+					&& (vm.getModifier().getIdentification()
 						.equals(MOD_IDENTIFICATION)))
 				{
-					face = vm.modifier.getInstructions();
+					face = vm.getModifier().getInstructions();
 					if (face.endsWith(",0"))
 					{
 						face = face.substring(0, face.length() - 2);

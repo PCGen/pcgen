@@ -46,7 +46,7 @@ public class SpellLevelChooseInformation implements
 {
 
 	private static final ClassIdentity<SpellLevel> SPELLLEVEL_INFO =
-			BasicClassIdentity.getInstance(SpellLevel.class);
+			BasicClassIdentity.getIdentity(SpellLevel.class);
 
 	private final List<SpellLevelInfo> info;
 

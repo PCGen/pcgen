@@ -294,7 +294,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				sb.append(Constants.PIPE);
 				sb.append(og.getIdentifier());
 				sb.append(Constants.PIPE);
-				sb.append(vm.varName);
+				sb.append(vm.getVarName());
 				sb.append(Constants.PIPE);
 				sb.append(unparseModifier(vm));
 				modifiers.add(sb.toString());
@@ -310,7 +310,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		PCGenModifier<?> modifier = vm.modifier;
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();

@@ -91,7 +91,8 @@ public class InfoModel implements TemplateHashModel
 			//now due to it breaking too many thing...
 			//So we are just logging it for now.
 			//--Connor Petty
-			Logging.errorPrint("CDOMObject [" + cdo.getDisplayName() + "] does not have INFO of type " + key);
+			Logging.errorPrint("CDOMObject [" + cdo.getDisplayName()
+				+ "] does not have INFO of type " + key);
 //			throw new TemplateModelException(
 //				"CDOMObject did not have INFO of type " + key);
 		}

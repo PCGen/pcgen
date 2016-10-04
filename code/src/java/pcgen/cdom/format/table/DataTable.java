@@ -294,6 +294,7 @@ public class DataTable implements Loadable
 		return row[resultingColumnNumber];
 	}
 
+	@SuppressWarnings("PMD.ReturnEmptyArrayRatherThanNull")
 	private Object[] getRow(Object lookupValue)
 	{
 		for (Object[] row : dataByRow)

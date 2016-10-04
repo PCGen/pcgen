@@ -24,6 +24,11 @@ import pcgen.rules.context.LoadContext;
 public final class ControlUtilities
 {
 
+	private ControlUtilities()
+	{
+		//Do not instantiate Utility class
+	}
+
 	public static String getControlToken(LoadContext context, String command)
 	{
 		CodeControl controller =

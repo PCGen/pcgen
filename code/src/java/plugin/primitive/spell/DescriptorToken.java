@@ -29,6 +29,9 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * DescriptorToken is a Primitive that represents the Descriptors that are on a Spell.
+ */
 public class DescriptorToken implements PrimitiveToken<Spell>, PrimitiveFilter<Spell>
 {
 	private static final Class<Spell> SPELL_CLASS = Spell.class;

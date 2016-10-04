@@ -25,6 +25,10 @@ import pcgen.cdom.facet.event.ScopeFacetChangeListener;
 import pcgen.core.PCStat;
 import pcgen.facade.util.WriteableReferenceFacade;
 
+/**
+ * A StatAdapter is the historical compatibility interface (facade) used to wrap to the
+ * gui2 non-channel system for setting and retrieving PCStat values.
+ */
 public final class StatAdapter extends AbstractAdapter<Number> implements
 		WriteableReferenceFacade<Number>,
 		ScopeFacetChangeListener<CharID, PCStat, Number>
@@ -55,6 +59,18 @@ public final class StatAdapter extends AbstractAdapter<Number> implements
 		statValueFacet.set(id, stat, value);
 	}
 
+	/**
+	 * Returns a StatAdapter for the PlayerCharacter represented by the given CharID and
+	 * the given PCStat.
+	 * 
+	 * @param id
+	 *            The CharID representing the PlayerCharacter for which the given
+	 *            StatAdapter should be returned
+	 * @param stat
+	 *            The PCStat for which the StatAdapter will operate
+	 * @return A StatAdapter for the PlayerCharacter represented by the given CharID and
+	 *         the given PCStat.
+	 */
 	public static StatAdapter generate(CharID id, PCStat stat)
 	{
 		StatAdapter sa = new StatAdapter(id, stat);

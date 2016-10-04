@@ -45,9 +45,6 @@ public class SetModelFactory implements ModelFactory
 		facet = sf;
 	}
 
-	/**
-	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
-	 */
 	@Override
 	public SetFacetModel<?> generate(CharID id)
 	{

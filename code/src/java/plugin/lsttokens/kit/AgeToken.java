@@ -58,7 +58,7 @@ public class AgeToken extends AbstractNonEmptyToken<KitBio> implements
 	{
 		try
 		{
-			kitName.setCharacterAge(new Integer(value));
+			kitName.setCharacterAge(Integer.valueOf(value));
 		}
 		catch(NumberFormatException e)
 		{
