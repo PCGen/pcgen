@@ -30,6 +30,7 @@ import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -57,6 +58,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected FormatManager<Number> numberManager = new NumberManager();
 	protected FormatManager<String> stringManager = new StringManager();
 
+	private final ManagerFactory managerFactory = new ManagerFactory(){};
 	protected LoadContext context;
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
@@ -78,7 +80,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
-				FormulaSemantics.generate(localSetup.getFormulaManager(),
+				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
 					getGlobalScope(), assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
@@ -91,7 +93,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
-				new StaticVisitor(localSetup.getFormulaManager().getLibrary());
+				new StaticVisitor(localSetup.getFormulaManager().peek(FormulaManager.FUNCTION));
 		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
 		{
@@ -102,7 +104,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
 		EvaluationManager manager =
-				EvaluationManager.generate(localSetup.getFormulaManager(),
+				managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
 					localSetup.getGlobalScopeInst(), Number.class);
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result.equals(valueOf))
@@ -136,7 +138,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		SemanticsVisitor semanticsVisitor = new SemanticsVisitor();
 		FormulaSemantics semantics =
-				FormulaSemantics.generate(localSetup.getFormulaManager(),
+				managerFactory.generateFormulaSemantics(localSetup.getFormulaManager(),
 					getGlobalScope(), assertedFormat);
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
@@ -149,7 +151,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected List<VariableID<?>> getVariables(SimpleNode node)
 	{
 		DependencyManager fdm =
-				DependencyManager.generate(getFormulaManager(),
+				managerFactory.generateDependencyManager(getFormulaManager(),
 					getGlobalScopeInst(), null);
 		new DependencyVisitor().visit(node, fdm);
 		return fdm.getVariables();
@@ -176,7 +178,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected FunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().getLibrary();
+		return localSetup.getFormulaManager().peek(FormulaManager.FUNCTION);
 	}
 
 	protected OperatorLibrary getOperatorLibrary()
@@ -222,8 +224,13 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public EvaluationManager generateManager()
 	{
-		return EvaluationManager.generate(localSetup.getFormulaManager(),
+		return managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
 			localSetup.getGlobalScopeInst(), Number.class);
+	}
+
+	protected ManagerFactory getManagerFactory()
+	{
+		return managerFactory;
 	}
 
 	private Modifier getDMod(Object o)

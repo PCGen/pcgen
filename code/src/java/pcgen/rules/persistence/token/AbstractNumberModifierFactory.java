@@ -24,6 +24,7 @@ import pcgen.base.calculation.NEPCalculation;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
@@ -33,14 +34,9 @@ public abstract class AbstractNumberModifierFactory<T> implements
 		ModifierFactory<T>, BasicCalculation<T>
 {
 
-	/**
-	 * @see pcgen.rules.persistence.token.ModifierFactory#getModifier(int,
-	 *      java.lang.String, pcgen.base.formula.manager.FormulaManager,
-	 *      pcgen.base.formula.base.LegalScope, pcgen.base.format.FormatManager)
-	 */
 	@Override
 	public PCGenModifier<T> getModifier(int userPriority, String instructions,
-		FormulaManager formulaManager, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
 		try
@@ -49,9 +45,8 @@ public abstract class AbstractNumberModifierFactory<T> implements
 		}
 		catch (NumberFormatException e)
 		{
-			final NEPFormula<T> f =
-					FormulaFactory.getValidFormula(instructions,
-						formulaManager, varScope, formatManager);
+			final NEPFormula<T> f = FormulaFactory.getValidFormula(instructions,
+				managerFactory, formulaManager, varScope, formatManager);
 			NEPCalculation<T> calc = new FormulaCalculation<>(f, this);
 			return new CalculationModifier<>(calc, userPriority);
 		}

@@ -23,6 +23,7 @@ import java.util.Set;
 import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.Modifier;
@@ -37,6 +38,8 @@ public class VariableContext
 {
 
 	private final SplitFormulaSetup formulaSetup = new SplitFormulaSetup();
+	private final ManagerFactory managerFactory = new ManagerFactory(){};
+
 	private MasterModifierFactory modFactory = null;
 	private IndividualSetup dummySetup = null;
 
@@ -85,8 +88,8 @@ public class VariableContext
 	public <T> PCGenModifier<T> getModifier(String modType, String modValue,
 		int priorityNumber, LegalScope varScope, FormatManager<T> formatManager)
 	{
-		return getModFactory().getModifier(modType, modValue, priorityNumber,
-			varScope, formatManager);
+		return getModFactory().getModifier(modType, modValue, managerFactory,
+			priorityNumber, varScope, formatManager);
 	}
 
 	public Set<LegalScope> getKnownLegalScopes(String varName)
@@ -149,6 +152,11 @@ public class VariableContext
 		{
 			return new MonitorableVariableStore();
 		}
+	}
+
+	public ManagerFactory getManagerFactory()
+	{
+		return managerFactory;
 	}
 
 }

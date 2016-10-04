@@ -28,6 +28,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
@@ -73,11 +74,13 @@ public class SetSolverManagerTest
 		vsLib = new LegalScopeLibrary();
 		sl = new VariableLibrary(vsLib);
 		arrayManager = new ArrayFormatManager<>(stringManager, ',');
-		fm = new SimpleFormulaManager(fl, ol, sl, vc, new SolverFactory());
+		ManagerFactory managerFactory = new ManagerFactory(){};
+		fm = new SimpleFormulaManager(ol, sl, vc, new SolverFactory());
+		fm.push(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();
-		manager = new AggressiveSolverManager(fm, solverFactory, vc);
+		manager = new AggressiveSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory m = new SetModifierFactory();
-		Modifier mod = m.getModifier(0, "", null, globalScope, arrayManager);
+		Modifier mod = m.getModifier(0, "", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(STRING_ARRAY, mod);
 	}
 
@@ -98,7 +101,7 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am1 = new AddModifierFactory<>();
-		PCGenModifier mod = am1.getModifier(2000, "France,England", null, globalScope, arrayManager);
+		PCGenModifier mod = am1.getModifier(2000, "France,England", new ManagerFactory(){}, null, globalScope, arrayManager);
 		manager.addModifier(regions, mod, this);
 		array = vc.get(regions);
 		assertThat(2, is(array.length));
@@ -110,7 +113,7 @@ public class SetSolverManagerTest
 		vc.reset();
 
 		ModifierFactory am2 = new AddModifierFactory<>();
-		mod = am2.getModifier(3000, "Greece,England", null, globalScope, arrayManager);
+		mod = am2.getModifier(3000, "Greece,England", new ManagerFactory(){}, null, globalScope, arrayManager);
 		manager.addModifier(regions, mod, this);
 		array = vc.get(regions);
 		assertThat(3, is(array.length));

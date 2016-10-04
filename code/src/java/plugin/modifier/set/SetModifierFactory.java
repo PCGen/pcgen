@@ -22,6 +22,7 @@ import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.util.FormatManager;
 import pcgen.base.util.Indirect;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
@@ -62,7 +63,7 @@ public class SetModifierFactory<T> extends AbstractSetModifierFactory<T[]>
 
 	@Override
 	public PCGenModifier<T[]> getModifier(int userPriority, String instructions,
-		FormulaManager ignored, LegalScope varScope,
+		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T[]> formatManager)
 	{
 		Indirect<T[]> indirect = formatManager.convertIndirect(instructions);

@@ -19,6 +19,7 @@ package plugin.modifier.orderedpair;
 
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.math.OrderedPair;
 import pcgen.base.solver.Modifier;
@@ -41,7 +42,7 @@ public class SetOrderedPairModifierTest
 		try
 		{
 			SetModifierFactory m = new SetModifierFactory();
-			m.getModifier(100, null, null, null, null);
+			m.getModifier(100, null, new ManagerFactory(){}, null, null, null);
 			fail("Expected SetModifier with null set value to fail");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -55,7 +56,7 @@ public class SetOrderedPairModifierTest
 	{
 		ModifierFactory<OrderedPair> factory = new SetModifierFactory();
 		Modifier<OrderedPair> modifier =
-				factory.getModifier(5, "3,2", null, varScope, opManager);
+				factory.getModifier(5, "3,2", new ManagerFactory(){}, null, varScope, opManager);
 		assertEquals(5l<<32, modifier.getPriority());
 		assertEquals(OrderedPair.class, modifier.getVariableFormat());
 		assertEquals(new OrderedPair(3, 2),

@@ -65,7 +65,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 			(MonitorableVariableStore) getVariableStore());
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
 		solverManagerFacet.set(id, new AggressiveSolverManager(
-			getFormulaManager(), solverFactory, getVariableStore()));
+			getFormulaManager(), getManagerFactory(), solverFactory, getVariableStore()));
 	}
 
 	@Test
