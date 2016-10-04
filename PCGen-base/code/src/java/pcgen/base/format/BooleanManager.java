@@ -95,7 +95,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o == this || o instanceof BooleanManager;
+		return (o == this) || (o instanceof BooleanManager);
 	}
 
 	/**

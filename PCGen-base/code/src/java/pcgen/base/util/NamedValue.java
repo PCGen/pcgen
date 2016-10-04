@@ -17,6 +17,8 @@
  */
 package pcgen.base.util;
 
+import java.util.Objects;
+
 /**
  * A NamedValue is a String-double pair (similar to a Map.Entry). This is
  * designed specifically for use in a setting where a key-value pair is
@@ -47,11 +49,7 @@ public final class NamedValue
 	 */
 	public NamedValue(String nvName)
 	{
-		if (nvName == null)
-		{
-			throw new IllegalArgumentException("NamedValue name cannot be null");
-		}
-		name = nvName;
+		name = Objects.requireNonNull(nvName);
 	}
 
 	/**

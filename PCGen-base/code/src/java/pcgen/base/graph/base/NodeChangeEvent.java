@@ -20,6 +20,7 @@
 package pcgen.base.graph.base;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 /**
  * An NodeChangeEvent is an event that indicates when the presence of a
@@ -81,11 +82,7 @@ public class NodeChangeEvent<N> extends EventObject
 	public NodeChangeEvent(Graph<N, ?> graph, N node, int id)
 	{
 		super(graph);
-		if (node == null)
-		{
-			throw new IllegalArgumentException("GraphNode cannot be null");
-		}
-		this.node = node;
+		this.node = Objects.requireNonNull(node);
 		eventID = id;
 	}
 

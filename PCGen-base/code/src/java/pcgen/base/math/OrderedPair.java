@@ -17,6 +17,8 @@
  */
 package pcgen.base.math;
 
+import java.util.Objects;
+
 import pcgen.base.lang.NumberUtilities;
 
 /**
@@ -55,21 +57,11 @@ public class OrderedPair
 	 *            The x value of the OrderedPair
 	 * @param y
 	 *            The y value of the OrderedPair
-	 * @throws IllegalArgumentException
-	 *             if either the x or y value is null
 	 */
 	public OrderedPair(Number x, Number y)
 	{
-		if (x == null)
-		{
-			throw new IllegalArgumentException("x value cannot be null");
-		}
-		if (y == null)
-		{
-			throw new IllegalArgumentException("x value cannot be null");
-		}
-		this.x = x;
-		this.y = y;
+		this.x = Objects.requireNonNull(x);
+		this.y = Objects.requireNonNull(y);
 	}
 
 	/**

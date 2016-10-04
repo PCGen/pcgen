@@ -32,7 +32,7 @@ public class CaseInsensitiveStringTest extends TestCase
 			new CaseInsensitiveString(null);
 			fail("Expected CaseInsensitiveString to reject null argument in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//OK
 		}

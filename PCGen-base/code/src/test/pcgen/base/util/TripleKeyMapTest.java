@@ -436,7 +436,7 @@ public class TripleKeyMapTest extends TestCase
 			new TripleKeyMap(null, HashMap.class, HashMap.class);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK, expected
 		}
@@ -445,7 +445,7 @@ public class TripleKeyMapTest extends TestCase
 			new TripleKeyMap(HashMap.class, null, HashMap.class);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK, expected
 		}
@@ -454,7 +454,7 @@ public class TripleKeyMapTest extends TestCase
 			new TripleKeyMap(HashMap.class, HashMap.class, null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// OK, expected
 		}

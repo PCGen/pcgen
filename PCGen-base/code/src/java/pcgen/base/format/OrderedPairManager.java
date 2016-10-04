@@ -87,7 +87,7 @@ public class OrderedPairManager implements FormatManager<OrderedPair>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o == this || o instanceof OrderedPairManager;
+		return (o == this) || (o instanceof OrderedPairManager);
 	}
 
 	/**

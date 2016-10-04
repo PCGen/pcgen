@@ -21,6 +21,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 
 /**
@@ -121,25 +122,15 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * @param cl2
 	 *            The Class to be used for the secondary underlying map
 	 * @throws IllegalArgumentException
-	 *             if one or both of the given Classes is null or does not have
+	 *             if one or both of the given Classes does not have
 	 *             a public, zero argument constructor.
 	 */
 	@SuppressWarnings("rawtypes")
 	public DoubleKeyMap(Class<? extends Map> cl1, Class<? extends Map> cl2)
 	{
 		super();
-		if (cl1 == null)
-		{
-			throw new IllegalArgumentException(
-				"First underlying Class cannot be null for DoubleKeyMap");
-		}
-		if (cl2 == null)
-		{
-			throw new IllegalArgumentException(
-				"Second underlying Class cannot be null for DoubleKeyMap");
-		}
-		firstClass = cl1;
-		secondClass = cl2;
+		firstClass = Objects.requireNonNull(cl1);
+		secondClass = Objects.requireNonNull(cl2);
 		map = createGlobalMap();
 		/*
 		 * This "useless" call is designed to exercise the code to ensure that

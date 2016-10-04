@@ -71,15 +71,12 @@ public class WrappedMapSet<T> extends AbstractSet<T>
 	 * @throws IllegalArgumentException
 	 *             if the given Class is null or does not have a public, zero
 	 *             argument constructor.
+	 * @throws NullPointerException
+	 *             if the given Class is null
 	 */
 	@SuppressWarnings({"rawtypes", "unchecked"})
 	public <C extends Map> WrappedMapSet(Class<C> cl)
 	{
-		if (cl == null)
-		{
-			throw new IllegalArgumentException(
-				"Class passed to WrappedMapSet must not be null");
-		}
 		try
 		{
 			map = cl.newInstance();

@@ -20,6 +20,7 @@
 package pcgen.base.graph.base;
 
 import java.util.EventObject;
+import java.util.Objects;
 
 /**
  * An EdgeChangeEvent is an event that indicates when the presence of an Edge
@@ -83,11 +84,7 @@ public class EdgeChangeEvent<N, ET extends Edge<N>> extends EventObject
 	public EdgeChangeEvent(Graph<N, ET> graph, ET edge, int id)
 	{
 		super(graph);
-		if (edge == null)
-		{
-			throw new IllegalArgumentException("Edge cannot be null");
-		}
-		this.edge = edge;
+		this.edge = Objects.requireNonNull(edge);
 		eventID = id;
 	}
 

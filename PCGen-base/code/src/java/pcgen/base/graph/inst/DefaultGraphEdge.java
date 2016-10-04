@@ -21,6 +21,7 @@ package pcgen.base.graph.inst;
 
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Objects;
 
 import pcgen.base.graph.base.GraphEdge;
 
@@ -61,18 +62,8 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	public DefaultGraphEdge(N node1, N node2)
 	{
 		super();
-		if (node1 == null)
-		{
-			throw new IllegalArgumentException(
-				"(First) GraphNode of DefaultGraphEdge cannot be null");
-		}
-		if (node2 == null)
-		{
-			throw new IllegalArgumentException(
-				"(Second) GraphNode of DefaultGraphEdge cannot be null");
-		}
-		firstNode = node1;
-		secondNode = node2;
+		firstNode = Objects.requireNonNull(node1);
+		secondNode = Objects.requireNonNull(node2);
 	}
 
 	/**

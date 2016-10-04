@@ -87,7 +87,7 @@ public class NumberManager implements FormatManager<Number>
 	@Override
 	public boolean equals(Object o)
 	{
-		return o == this || o instanceof NumberManager;
+		return (o == this) || (o instanceof NumberManager);
 	}
 
 	/**

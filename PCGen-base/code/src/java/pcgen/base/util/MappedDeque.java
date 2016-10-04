@@ -21,6 +21,7 @@ import java.util.ArrayDeque;
 import java.util.Deque;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.Objects;
 
 /**
  * A MappedDeque is a wrapper that effectively contains a Map from TypedKey
@@ -53,16 +54,10 @@ public class MappedDeque
 	 *            the Deque
 	 * @param value
 	 *            The value to be pushed onto the Deque for the given TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
 	 */
 	public <T> void push(TypedKey<T> key, T value)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key cannot be null");
-		}
-		getDeque(key).push(wrap(value));
+		getDeque(Objects.requireNonNull(key)).push(wrap(value));
 	}
 
 	/**
@@ -76,16 +71,10 @@ public class MappedDeque
 	 *            The TypeKey for which the given value should be popped from
 	 *            the Deque
 	 * @return The value popped from the Deque for the given TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
 	 */
 	public <T> T pop(TypedKey<T> key)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key cannot be null");
-		}
-		Deque<Object> dq = map.get(key);
+		Deque<Object> dq = getDeque(Objects.requireNonNull(key));
 		if ((dq == null) || dq.isEmpty())
 		{
 			return key.getDefaultValue();
@@ -104,16 +93,10 @@ public class MappedDeque
 	 * @param key
 	 *            The TypeKey for which the top value should be returned
 	 * @return The top value of the Deque for the given TypedKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
 	 */
 	public <T> T peek(TypedKey<T> key)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key cannot be null");
-		}
-		Deque<Object> dq = map.get(key);
+		Deque<Object> dq = getDeque(Objects.requireNonNull(key));
 		T value;
 		if ((dq == null) || dq.isEmpty())
 		{
@@ -139,16 +122,10 @@ public class MappedDeque
 	 * @param value
 	 *            The value to be set as the top value on the Deque for the
 	 *            given TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
 	 */
 	public <T> void set(TypedKey<T> key, T value)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key cannot be null");
-		}
-		Deque<Object> dq = getDeque(key);
+		Deque<Object> dq = getDeque(Objects.requireNonNull(key));
 		if (!dq.isEmpty())
 		{
 			dq.pop();

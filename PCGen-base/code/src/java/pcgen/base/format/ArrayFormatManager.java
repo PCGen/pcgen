@@ -64,11 +64,6 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 	 */
 	public ArrayFormatManager(FormatManager<T> underlying, char separator)
 	{
-		if (underlying == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot build from null FormatManager");
-		}
 		@SuppressWarnings("unchecked")
 		Class<T[]> fClass = (Class<T[]>) Array
 			.newInstance(underlying.getManagedClass(), 0).getClass();

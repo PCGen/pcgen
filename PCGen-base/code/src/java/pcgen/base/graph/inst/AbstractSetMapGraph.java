@@ -352,7 +352,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	{
 		// implicitly returns null if gn is not in the nodeEdgeMap
 		Set<ET> s = nodeEdgeMap.get(node);
-		return s == null ? null : new HashSet<ET>(s);
+		return (s == null) ? null : new HashSet<ET>(s);
 	}
 
 	/**
@@ -475,7 +475,7 @@ public abstract class AbstractSetMapGraph<N, ET extends Edge<N>> implements
 	public int hashCode()
 	{
 		// This is really simple, but it works... and prevents a deep hash
-		return nodeMap.size() + edgeSet.size() * 23;
+		return nodeMap.size() + (edgeSet.size() * 23);
 	}
 
 	/**

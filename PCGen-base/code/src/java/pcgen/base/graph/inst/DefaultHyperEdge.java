@@ -57,13 +57,8 @@ public class DefaultHyperEdge<N> implements NonDirectionalEdge<N>
 	public DefaultHyperEdge(Collection<N> nodes)
 	{
 		super();
-		if (nodes == null)
-		{
-			throw new IllegalArgumentException(
-				"GraphNode List of DefaultHyperEdge cannot be null");
-		}
 		/*
-		 * Copy before length check for thread safety
+		 * Copy before empty check for thread safety
 		 */
 		this.nodes = new ArrayList<N>(nodes.size());
 		this.nodes.addAll(nodes);

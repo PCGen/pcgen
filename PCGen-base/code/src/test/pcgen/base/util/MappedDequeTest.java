@@ -52,7 +52,7 @@ public class MappedDequeTest extends TestCase
 			assertNull(deque.peek(null));
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -61,7 +61,7 @@ public class MappedDequeTest extends TestCase
 			assertNull(deque.pop(null));
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -70,7 +70,7 @@ public class MappedDequeTest extends TestCase
 			deque.set(null, CONST_A);
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -79,7 +79,7 @@ public class MappedDequeTest extends TestCase
 			deque.set(null, null);
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -88,7 +88,7 @@ public class MappedDequeTest extends TestCase
 			deque.push(null, CONST_A);
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -97,7 +97,7 @@ public class MappedDequeTest extends TestCase
 			deque.push(null, null);
 			fail("null key is invalid");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}

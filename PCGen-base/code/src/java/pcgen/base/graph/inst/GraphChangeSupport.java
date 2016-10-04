@@ -19,6 +19,8 @@
  */
 package pcgen.base.graph.inst;
 
+import java.util.Objects;
+
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.graph.base.Edge;
@@ -65,12 +67,7 @@ public class GraphChangeSupport<N, ET extends Edge<N>>
 	public GraphChangeSupport(Graph<N, ET> sourceObject)
 	{
 		super();
-		if (sourceObject == null)
-		{
-			throw new IllegalArgumentException(
-				"Source for GraphChangeSupport cannot be null");
-		}
-		source = sourceObject;
+		source = Objects.requireNonNull(sourceObject);
 		listenerList = new EventListenerList();
 	}
 

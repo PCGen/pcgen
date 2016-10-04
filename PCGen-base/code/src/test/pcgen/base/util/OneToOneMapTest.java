@@ -66,7 +66,7 @@ public class OneToOneMapTest extends TestCase
 			otom.put(null, Double.valueOf(5.4));
 			fail("null key should be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep
 		}
@@ -75,7 +75,7 @@ public class OneToOneMapTest extends TestCase
 			otom.put(Integer.valueOf(3), null);
 			fail("null value should be rejected");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep
 		}

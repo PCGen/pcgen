@@ -22,6 +22,7 @@ import java.util.IdentityHashMap;
 import java.util.LinkedHashSet;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.TreeMap;
 
@@ -170,16 +171,8 @@ public class KeyMap<V>
 	 */
 	public V put(String key, V value)
 	{
-		if (key == null)
-		{
-			throw new IllegalArgumentException("Key may not be null");
-		}
-		if (value == null)
-		{
-			throw new IllegalArgumentException("Value may not be null");
-		}
-		String oldKey = reverseMap.get(value);
-		V oldValue = forwardMap.get(key);
+		String oldKey = reverseMap.get(Objects.requireNonNull(value));
+		V oldValue = forwardMap.get(Objects.requireNonNull(key));
 		if (oldKey != null)
 		{
 			forwardMap.remove(oldKey);

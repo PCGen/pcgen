@@ -19,6 +19,8 @@
  */
 package pcgen.base.lang;
 
+import java.util.Objects;
+
 /**
  * CaseInsensitiveString is designed to be a String-like Object which is fast in
  * dealing with case sensitive comparisons in "consistent with equals"
@@ -58,17 +60,10 @@ public class CaseInsensitiveString
 	 * 
 	 * @param str
 	 *            The underlying String of this CaseInsensitiveString
-	 * @throws IllegalArgumentException
-	 *             if the given String is null
 	 */
 	public CaseInsensitiveString(String str)
 	{
-		if (str == null)
-		{
-			throw new IllegalArgumentException(
-				"Cannot make a Case Insensitive String for null");
-		}
-		string = str;
+		string = Objects.requireNonNull(str);
 	}
 
 	@Override
@@ -77,7 +72,7 @@ public class CaseInsensitiveString
 		if (obj instanceof CaseInsensitiveString)
 		{
 			CaseInsensitiveString cis = (CaseInsensitiveString) obj;
-			return string == cis.string || string.equalsIgnoreCase(cis.string);
+			return (string == cis.string) || string.equalsIgnoreCase(cis.string);
 		}
 		return false;
 	}
