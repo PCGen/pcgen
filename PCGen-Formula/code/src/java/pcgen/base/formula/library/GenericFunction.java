@@ -18,6 +18,7 @@
 package pcgen.base.formula.library;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
@@ -84,8 +85,8 @@ public class GenericFunction implements Function
 	 */
 	public GenericFunction(String name, SimpleNode root)
 	{
-		functionName = name;
-		this.root = root;
+		functionName = Objects.requireNonNull(name);
+		this.root = Objects.requireNonNull(root);
 	}
 
 	/**
@@ -112,21 +113,20 @@ public class GenericFunction implements Function
 	public final FormatManager<?> allowArgs(SemanticsVisitor visitor,
 		Node[] args, FormulaSemantics semantics)
 	{
-		FormulaManager formulaManager = semantics.peek(FormulaSemantics.FMANAGER);
+		FormulaManager formulaManager = semantics.get(FormulaSemantics.FMANAGER);
 		FunctionLibrary withArgs = new ArgWrappingLibrary(
-			formulaManager.peek(FormulaManager.FUNCTION), args);
+			formulaManager.get(FormulaManager.FUNCTION), args);
+		FormulaManager subFormulaMgr =
+				formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
 
 		//Need to save original to handle "embedded" GenericFunction objects properly
-		semantics.push(ArgumentDependencyManager.KEY,
-			new ArgumentDependencyManager());
-		formulaManager.push(FormulaManager.FUNCTION, withArgs);
+		ArgumentDependencyManager myArgs = new ArgumentDependencyManager();
+		FormulaSemantics subSemantics =
+				semantics.getWith(ArgumentDependencyManager.KEY, myArgs);
+		subSemantics = subSemantics.getWith(FormulaSemantics.FMANAGER, subFormulaMgr);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		FormatManager<?> result =
-				(FormatManager<?>) visitor.visit(root, semantics);
-		formulaManager.pop(FormulaManager.FUNCTION);
+		FormatManager<?> result = (FormatManager<?>) visitor.visit(root, subSemantics);
 
-		ArgumentDependencyManager myArgs =
-				semantics.pop(ArgumentDependencyManager.KEY);
 		int maxArg = myArgs.getMaximumArgument() + 1;
 		if (maxArg != args.length)
 		{
@@ -151,13 +151,13 @@ public class GenericFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		FormulaManager formulaManager = manager.peek(EvaluationManager.FMANAGER);
-		FunctionLibrary withArgs = new ArgWrappingLibrary(
-			formulaManager.peek(FormulaManager.FUNCTION), args);
-		formulaManager.push(FormulaManager.FUNCTION, withArgs);
-		Object result = visitor.visit(root, manager);
-		formulaManager.pop(FormulaManager.FUNCTION);
-		return result;
+		FormulaManager formulaManager = manager.get(EvaluationManager.FMANAGER);
+		FunctionLibrary withArgs =
+				new ArgWrappingLibrary(formulaManager.get(FormulaManager.FUNCTION), args);
+		FormulaManager subFormulaMgr =
+				formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
+		return visitor.visit(root,
+			manager.getWith(EvaluationManager.FMANAGER, subFormulaMgr));
 	}
 
 	/**
@@ -172,8 +172,7 @@ public class GenericFunction implements Function
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
-		FunctionLibrary argLibrary =
-				new ArgWrappingLibrary(visitor.getLibrary(), args);
+		FunctionLibrary argLibrary = new ArgWrappingLibrary(visitor.getLibrary(), args);
 		StaticVisitor subVisitor = new StaticVisitor(argLibrary);
 		return (Boolean) subVisitor.visit(root, null);
 	}
@@ -198,11 +197,10 @@ public class GenericFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		FormulaManager formulaManager = manager.peek(DependencyManager.FMANAGER);
+		FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
 		FunctionLibrary withArgs = new ArgWrappingLibrary(
-			formulaManager.peek(FormulaManager.FUNCTION), args);
-		formulaManager.push(FormulaManager.FUNCTION, withArgs);
-		visitor.visit(root, manager);
-		formulaManager.pop(FormulaManager.FUNCTION);
+			formulaManager.get(FormulaManager.FUNCTION), args);
+		FormulaManager subFtn = formulaManager.getWith(FormulaManager.FUNCTION, withArgs);
+		visitor.visit(root, manager.getWith(DependencyManager.FMANAGER, subFtn));
 	}
 }

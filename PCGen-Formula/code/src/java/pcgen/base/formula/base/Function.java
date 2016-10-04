@@ -1,19 +1,17 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  * 
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.base.formula.base;
 
@@ -25,48 +23,44 @@ import pcgen.base.formula.visitor.StaticVisitor;
 import pcgen.base.util.FormatManager;
 
 /**
- * A Function is part of a Formula that performs an operation. It can be
- * distinguished by a set of identifying characters surrounding zero or more
- * arguments to the function. (An example is the min function which might look
- * like: "min(a, b)")
+ * A Function is part of a Formula that performs an operation. It can be distinguished by
+ * a set of identifying characters surrounding zero or more arguments to the function. (An
+ * example is the min function which might look like: "min(a, b)")
  * 
- * In practice (but not enforced by this interface), there are two types of
- * functions, parenthesis functions, such as min() and bracket functions like
- * COUNT[]. The two functions are distinct in parsing.
+ * In practice (but not enforced by this interface), there are two types of functions,
+ * parenthesis functions, such as min() and bracket functions like COUNT[]. The two
+ * functions are distinct in parsing.
  * 
- * For ease of use, it is recommended that Function names be considered
- * case-insensitive, but that is not a contractual requirement of this
- * interface. Rather, it is enforced by the system that manages Functions, see
- * pcgen.base.formula.manager.FunctionLibrary
+ * For ease of use, it is recommended that Function names be considered case-insensitive,
+ * but that is not a contractual requirement of this interface. Rather, it is enforced by
+ * the system that manages Functions, see pcgen.base.formula.manager.FunctionLibrary
  * 
- * This interface represents the common behaviors of a function, including the
- * ability to validate the arguments, the ability to evaluate the value of the
- * function, and determine if the function will return a static value (does not
- * depend on any variables).
+ * This interface represents the common behaviors of a function, including the ability to
+ * validate the arguments, the ability to evaluate the value of the function, and
+ * determine if the function will return a static value (does not depend on any
+ * variables).
  * 
- * Note that it is a contractual obligation of the Function interface that the
- * combination of allowArgs() and getDependencies() can identify all situations
- * that could cause evaluate() to fail. For example, the formula "age("Bob")"
- * may be passed by allowArgs() because the database to determine "Bob" being a
- * legal name is not present (and allowArgs is designed to be used as early as
- * possible). If allowArgs returns TRUE and has NOT validated the the person
- * "Bob" actually exists, then then getDependencies() MUST be able to load an
- * appropriate manager with a DependencyManager in order to indicate that "Bob"
- * is a name upon which the formula is dependent.
+ * Note that it is a contractual obligation of the Function interface that the combination
+ * of allowArgs() and getDependencies() can identify all situations that could cause
+ * evaluate() to fail. For example, the formula "age("Bob")" may be passed by allowArgs()
+ * because the database to determine "Bob" being a legal name is not present (and
+ * allowArgs is designed to be used as early as possible). If allowArgs returns TRUE and
+ * has NOT validated the the person "Bob" actually exists, then then getDependencies()
+ * MUST be able to load an appropriate manager with a DependencyManager in order to
+ * indicate that "Bob" is a name upon which the formula is dependent.
  */
 public interface Function
 {
 
 	/**
-	 * Returns the function name for this Function. This is how it is called by
-	 * a user in a formula.
+	 * Returns the function name for this Function. This is how it is called by a user in
+	 * a formula.
 	 * 
-	 * For ease of use, it is recommended that the value returned by this method
-	 * to be evaluated/matched by the formula system in a case-insensitive
-	 * fashion, but that is not strictly required by this interface.
+	 * For ease of use, it is recommended that the value returned by this method to be
+	 * evaluated/matched by the formula system in a case-insensitive fashion, but that is
+	 * not strictly required by this interface.
 	 * 
-	 * It is a contract of the Function interface that this method must never
-	 * return null.
+	 * It is a contract of the Function interface that this method must never return null.
 	 * 
 	 * @return The function name for this Function
 	 */
@@ -75,146 +69,124 @@ public interface Function
 	/**
 	 * Checks if the given arguments are static using the given StaticVisitor.
 	 * 
-	 * Static is defined as producing a known value (meaning none of the
-	 * arguments can ever change). This would allow, for example, the result of
-	 * a Formula to be calculated once and cached if it is static. Any
-	 * formula/function that contains a variable is by definition not static.
+	 * Static is defined as producing a known value (meaning none of the arguments can
+	 * ever change). This would allow, for example, the result of a Formula to be
+	 * calculated once and cached if it is static. Any formula/function that contains a
+	 * variable is by definition not static.
 	 * 
-	 * This method assumes the arguments are valid values in a formula (such as
-	 * a number, variable, or another function).
+	 * This method assumes the arguments are valid values in a formula (such as a number,
+	 * variable, or another function).
 	 * 
-	 * The results of calling this function are not defined (exceptions may be
-	 * thrown) if allowArgs returns a FormulaValidity that indicates the formula
-	 * is not valid. allowArgs should always be called prior to calling this
-	 * method.
+	 * The results of calling this function are not defined (exceptions may be thrown) if
+	 * allowArgs returns a FormulaValidity that indicates the formula is not valid.
+	 * allowArgs should always be called prior to calling this method.
 	 * 
-	 * Note that the static nature of variables or content within the function
-	 * that can be evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as
-	 * part of "max(min(4,T),Y)") should be passed back into the provided
-	 * StaticVisitor for further analysis. Therefore, the function makes no
-	 * direct claims of whether a variable or subfunction is valid or not - that
-	 * responsibility is entirely delegated back to the StaticVisitor.
+	 * Note that the static nature of variables or content within the function that can be
+	 * evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as part of
+	 * "max(min(4,T),Y)") should be passed back into the provided StaticVisitor for
+	 * further analysis. Therefore, the function makes no direct claims of whether a
+	 * variable or subfunction is valid or not - that responsibility is entirely delegated
+	 * back to the StaticVisitor.
 	 * 
-	 * The contract of the Function interface requires that the arguments passed
-	 * to this method are not null and the returned value must not be null. In
-	 * addition, the contract specifies that the args array provided as a
-	 * parameter has ownership transferred to the function. The StaticVisitor or
-	 * other calling object should not reuse or otherwise share a reference to
-	 * the array.
+	 * The contract of the Function interface requires that the arguments passed to this
+	 * method are not null and the returned value must not be null. In addition, the
+	 * contract specifies that the args array provided as a parameter has ownership
+	 * transferred to the function. The StaticVisitor or other calling object should not
+	 * reuse or otherwise share a reference to the array.
 	 * 
 	 * @param visitor
 	 *            The StaticVisitor that visits portions of a Formula
 	 * @param args
 	 *            The arguments to this Function within the Formula
-	 * @return A non-null Boolean value indicating whether the value of this
-	 *         Function is static for the given arguments
+	 * @return A non-null Boolean value indicating whether the value of this Function is
+	 *         static for the given arguments
 	 */
 	Boolean isStatic(StaticVisitor visitor, Node[] args);
 
 	/**
-	 * Checks if the given arguments are valid using the given SemanticsVisitor,
-	 * loading any necessary information into the given FormulaSemantics.
+	 * Checks if the given arguments are valid using the given SemanticsVisitor, loading
+	 * any necessary information into the given FormulaSemantics.
 	 * 
-	 * This must check the entire set of arguments to the function for validity,
-	 * as best can be done (assuming no items are resolvable to actual values).
+	 * This must check the entire set of arguments to the function for validity, as best
+	 * can be done (assuming no items are resolvable to actual values).
 	 * 
-	 * For example: A function such as:
-	 * classlevel("Fighter","APPLIEDAS=NonEpic") should: (a) Ensure that two
-	 * arguments is a legal form (b) Check that the "APPLIEDAS=" string is a
-	 * valid prefix to the second argument (c) Check that "NonEpic" is a valid
+	 * For example: A function such as: classlevel("Fighter","APPLIEDAS=NonEpic") should:
+	 * (a) Ensure that two arguments is a legal form (b) Check that the "APPLIEDAS="
+	 * string is a valid prefix to the second argument (c) Check that "NonEpic" is a valid
 	 * suffix for the second argument.
 	 * 
-	 * Optionally, some processing of to ensure that "Fighter" is a legal first
-	 * argument may be possible. This will be domain-specific.
+	 * Optionally, some processing of to ensure that "Fighter" is a legal first argument
+	 * may be possible. This will be domain-specific.
 	 * 
-	 * This optional situation is a recognition that allowArgs is not required
-	 * to catch situations it cannot reasonably predict: Specifically an
-	 * unconstructed object which should be present at the time of evaluation.
-	 * allowArgs is thus checking mostly for semantic legality, not necessarily
-	 * content legality. However, allowArgs is part of a contractual obligation
-	 * to eventually provide content legality.
+	 * This optional situation is a recognition that allowArgs is not required to catch
+	 * situations it cannot reasonably predict: Specifically an unconstructed object which
+	 * should be present at the time of evaluation. allowArgs is thus checking mostly for
+	 * semantic legality, not necessarily content legality. However, allowArgs is part of
+	 * a contractual obligation to eventually provide content legality.
 	 * 
-	 * Specifically, an example may be "age("Bob")". Since it is intended for
-	 * allowArgs to be used early in a program life-cycle, it is not reasonable
-	 * to assume the database indicating legal names is present. Some checking,
-	 * such as ensuring the name doesn't have illegal symbols ("*" or "$") may
-	 * optionally be reported in allowArgs.
+	 * Specifically, an example may be "age("Bob")". Since it is intended for allowArgs to
+	 * be used early in a program life-cycle, it is not reasonable to assume the database
+	 * indicating legal names is present. Some checking, such as ensuring the name doesn't
+	 * have illegal symbols ("*" or "$") may optionally be reported in allowArgs.
 	 * 
-	 * However, if the database indicating that "Bob" is a legal name is not
-	 * present when allowArgs is (designed to be) called, then it is a
-	 * contractual obligation of the Function interface that getDependencies
-	 * indicate that "Bob" is a required name for the Formula to be evaluated.
+	 * However, if the database indicating that "Bob" is a legal name is not present when
+	 * allowArgs is (designed to be) called, then it is a contractual obligation of the
+	 * Function interface that getDependencies indicate that "Bob" is a required name for
+	 * the Formula to be evaluated.
 	 * 
-	 * Note also that the legality of variables or content within the function
-	 * that can be evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as
-	 * part of "max(min(4,T),Y)") should be passed back into the provided
-	 * SemanticsVisitor for further analysis. Therefore, the function makes no
-	 * direct claims of whether a variable or subfunction is valid or not - that
-	 * responsibility is entirely delegated back to the SemanticsVisitor.
+	 * Note also that the legality of variables or content within the function that can be
+	 * evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as part of
+	 * "max(min(4,T),Y)") should be passed back into the provided SemanticsVisitor for
+	 * further analysis. Therefore, the function makes no direct claims of whether a
+	 * variable or subfunction is valid or not - that responsibility is entirely delegated
+	 * back to the SemanticsVisitor.
 	 * 
-	 * The contract of the Function interface requires that the arguments passed
-	 * to this method are not null and the returned value must not be null. In
-	 * addition, the contract specifies that the args array provided as a
-	 * parameter has ownership transferred to the function. The SemanticsVisitor
-	 * or other calling object should not reuse or otherwise share a reference
-	 * to the array. The given FormulaSemantics object will be modified as
-	 * necessary.
+	 * The contract of the Function interface requires that the arguments passed to this
+	 * method are not null and the returned value must not be null. In addition, the
+	 * contract specifies that the args array provided as a parameter has ownership
+	 * transferred to the function. The SemanticsVisitor or other calling object should
+	 * not reuse or otherwise share a reference to the array. The given FormulaSemantics
+	 * object will be modified as necessary.
 	 * 
 	 * @param visitor
 	 *            The SemanticsVisitor that visits portions of a Formula
 	 * @param args
 	 *            The arguments to this Function within the Formula
 	 * @param semantics
-	 *            The FormulaSemantics object that is used to capture semantic
-	 *            information about this Function
-	 * @return a FormatManager indicating the format of the value returned by
-	 *         this Function
+	 *            The FormulaSemantics object that is used to capture semantic information
+	 *            about this Function
+	 * @return a FormatManager indicating the format of the value returned by this
+	 *         Function
 	 */
 	FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics);
 
-	/*
-	 * TODO Does this need an object to resolve with? (e.g. PC?)
-	 * 
-	 * This is actually inconsistent with terms and existing JEP formulas in
-	 * that they know a context - this does not
-	 * 
-	 * So should that context really be in FormulaScope and we admit that?
-	 * 
-	 * If so, a Formula implicitly has the scope in the EvaluateVisitor... so
-	 * ... how does it access that? It could be direct request and then cast.
-	 * 
-	 * It could be passing in some item to the EvaluateVisitor in order to get
-	 * something processed.
-	 */
 	/**
 	 * Evaluates the given arguments using the given EvaluateVisitor.
 	 * 
 	 * This method assumes the arguments are valid values.
 	 * 
-	 * The results of calling this function are not defined (exceptions may be
-	 * thrown) if allowArgs returns a FormulaValidity that indicates the formula
-	 * is not valid. allowArgs should always be called prior to calling this
-	 * method.
+	 * The results of calling this function are not defined (exceptions may be thrown) if
+	 * allowArgs returns a FormulaValidity that indicates the formula is not valid.
+	 * allowArgs should always be called prior to calling this method.
 	 * 
-	 * Note that the evaluation of variables or content within the function that
-	 * can be evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as part
-	 * of "max(min(4,T),Y)") should be passed back into the provided
-	 * EvaluateVisitor for resolution. Therefore, the function makes no direct
-	 * evaluation a variable or subfunction - that responsibility is entirely
-	 * delegated back to the EvaluateVisitor.
+	 * Note that the evaluation of variables or content within the function that can be
+	 * evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as part of
+	 * "max(min(4,T),Y)") should be passed back into the provided EvaluateVisitor for
+	 * resolution. Therefore, the function makes no direct evaluation a variable or
+	 * subfunction - that responsibility is entirely delegated back to the
+	 * EvaluateVisitor.
 	 * 
-	 * The contract of the Function interface requires that the arguments passed
-	 * to this method are not null and the returned value must not be null. In
-	 * addition, the contract specifies that the args array provided as a
-	 * parameter has ownership transferred to the function. The EvaluateVisitor
-	 * or other calling object should not reuse or otherwise share a reference
-	 * to the array.
+	 * The contract of the Function interface requires that the arguments passed to this
+	 * method are not null and the returned value must not be null. In addition, the
+	 * contract specifies that the args array provided as a parameter has ownership
+	 * transferred to the function. The EvaluateVisitor or other calling object should not
+	 * reuse or otherwise share a reference to the array.
 	 * 
-	 * Note that this returns Object, since we do not know whether the Function
-	 * returns a Boolean or a Double value (or anything else). The semantic
-	 * rules of what is returned must have been clearly provided in allowArgs,
-	 * again, reinforcing the importance of running allowArgs before evaluate.
+	 * Note that this returns Object, since we do not know whether the Function returns a
+	 * Boolean or a Double value (or anything else). The semantic rules of what is
+	 * returned must have been clearly provided in allowArgs, again, reinforcing the
+	 * importance of running allowArgs before evaluate.
 	 * 
 	 * @param visitor
 	 *            The EvaluateVisitor that visits portions of a Formula
@@ -222,40 +194,36 @@ public interface Function
 	 *            The arguments to this Function within the Formula
 	 * @param manager
 	 *            The EvaluationManager for the context of the Function
-	 * @return A non-null object that is the result of performing the
-	 *         calculation defined by this Function
+	 * @return A non-null object that is the result of performing the calculation defined
+	 *         by this Function
 	 */
-	Object evaluate(EvaluateVisitor visitor, Node[] args,
-		EvaluationManager manager);
+	Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager manager);
 
 	/**
-	 * Captures dependencies of this function. This may include Variables (in
-	 * the form of VariableIDs), but is not limited to those as the only
-	 * possible dependency.
+	 * Captures dependencies of this function. This may include Variables (in the form of
+	 * VariableIDs), but is not limited to those as the only possible dependency.
 	 * 
-	 * This must be applied recursively for any contents within this function
-	 * (if this function calls another function, etc. all variables in the tree
-	 * below this function are included)
+	 * This must be applied recursively for any contents within this function (if this
+	 * function calls another function, etc. all variables in the tree below this function
+	 * are included)
 	 * 
-	 * The results of calling this function are not defined if allowArgs returns
-	 * a FormulaValidity that indicates the formula is not valid. allowArgs
-	 * should always be called prior to calling this method.
+	 * The results of calling this function are not defined if allowArgs returns a
+	 * FormulaValidity that indicates the formula is not valid. allowArgs should always be
+	 * called prior to calling this method.
 	 * 
-	 * Note also that the legality of variables or content within the function
-	 * that can be evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as
-	 * part of "max(min(4,T),Y)") should be passed back into the provided
-	 * DependencyVisitor for further analysis. Therefore, the function directly
-	 * makes no claims of whether a variable or subfunction has any dependencies
-	 * - that is entirely the responsibility delegated back to
-	 * DependencyVisitor.
+	 * Note also that the legality of variables or content within the function that can be
+	 * evaluated as a sub formula (e.g. both "min(4,T)" and "Y" as part of
+	 * "max(min(4,T),Y)") should be passed back into the provided DependencyVisitor for
+	 * further analysis. Therefore, the function directly makes no claims of whether a
+	 * variable or subfunction has any dependencies - that is entirely the responsibility
+	 * delegated back to DependencyVisitor.
 	 * 
-	 * The contract of the Function interface requires that the arguments passed
-	 * to this method are not null and the returned value must not be null. The
-	 * provided DependencyManager may be altered in this method (that's kind of
-	 * the idea :P ). In addition, the contract specifies that the args array
-	 * provided as a parameter has ownership transferred to the function. The
-	 * DependencyVisitor or other calling object should not reuse or otherwise
-	 * share a reference to the array.
+	 * The contract of the Function interface requires that the arguments passed to this
+	 * method are not null and the returned value must not be null. The provided
+	 * DependencyManager may be altered in this method (that's kind of the idea :P ). In
+	 * addition, the contract specifies that the args array provided as a parameter has
+	 * ownership transferred to the function. The DependencyVisitor or other calling
+	 * object should not reuse or otherwise share a reference to the array.
 	 * 
 	 * @param visitor
 	 *            The DependencyVisitor that visits portions of a Formula
@@ -268,27 +236,24 @@ public interface Function
 		Node[] args);
 
 	/*
-	 * Note: The "void" return of getDependencies and allowArgs are intentional,
-	 * even though at first glance it seems inconsistent with the visitor
-	 * pattern most of the methods in Function are used with. The reason for
-	 * this design is due to the polymorphic behavior of DependencyManager.
+	 * Note: The non return of the managers are intentional, even though at first glance
+	 * it seems inconsistent with the visitor pattern most of the methods in Function are
+	 * used with. The reason for this design is due to the polymorphic behavior of those
+	 * classes (like DependencyManager).
 	 * 
-	 * In the case of "isStatic" or "evaluate", both of those return a
-	 * definitive class (Boolean or some form of Number). Those are concrete and
-	 * unambiguous behaviors. In the case of DependencyManager, it is *expected*
-	 * that the behavior will be enhanced as domain-specific methods need to
-	 * define domain-specific dependencies.
+	 * In the case of "isStatic" or "evaluate", both of those return a definitive class
+	 * (Boolean or some form of Number). Those are concrete and unambiguous behaviors. In
+	 * the case of DependencyManager, it is *expected* that the behavior will be enhanced
+	 * as domain-specific methods need to define domain-specific dependencies.
 	 * 
-	 * As a result, full replacement of the "active" the DependencyManager is
-	 * prohibited for a Function. The entire ownership of the "active"
-	 * DependencyManager is contained within the DependencyVisitor (which
-	 * presumably only returns the DependencyManager that was originally
-	 * provided in the visit call to the root node).
+	 * As a result, full replacement of the "active" the DependencyManager is prohibited
+	 * for a Function. The entire ownership of the "active" DependencyManager is contained
+	 * within the DependencyVisitor (which presumably only returns the DependencyManager
+	 * that was originally provided in the visit call to the root node).
 	 * 
-	 * So generally, this is restricting behavior in order to protect the
-	 * dependency analysis system from a Function that was designed for a
-	 * specific domain but was used in a more complex situation (of which it is
-	 * not, and should not, be aware).
+	 * So generally, this is restricting behavior in order to protect the dependency
+	 * analysis system from a Function that was designed for a specific domain but was
+	 * used in a more complex situation (of which it is not, and should not, be aware).
 	 */
 
 }

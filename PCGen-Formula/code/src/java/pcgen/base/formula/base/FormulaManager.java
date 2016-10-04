@@ -76,66 +76,27 @@ public interface FormulaManager
 	public <T> T getDefault(Class<T> format);
 
 	/**
-	 * Pushes a new value into the FormulaManager for the given TypedKey.
+	 * Returns a new FormulaManager that has all the characteristics of this
+	 * FormulaManager, except the given key set to the given value.
 	 * 
 	 * @param key
-	 *            The TypeKey for which the given value should be pushed into the
+	 *            The TypeKey for which the given value should be set in the returned
 	 *            FormulaManager
 	 * @param value
-	 *            The value to be pushed into the FormulaManager for the given TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
+	 *            The value to be set in the FormulaManager for the given TypeKey
 	 */
-	public <T> void push(TypedKey<T> key, T value);
+	public <T> FormulaManager getWith(TypedKey<T> key, T value);
 
 	/**
-	 * Pops a value from the FormulaManager for the given TypedKey.
+	 * Gets the value in the FormulaManager for the given TypedKey.
 	 * 
-	 * Note that this method will not block or throw an error if the FormulaManager is
-	 * empty. It will simply return the "Default Value" for the given TypeKey. Note null
-	 * is a legal default value.
-	 * 
-	 * @param key
-	 *            The TypeKey for which the given value should be popped from the
-	 *            FormulaManager
-	 * @return The value popped from the FormulaManager for the given TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
-	 */
-	public <T> T pop(TypedKey<T> key);
-
-	/**
-	 * Returns the top value of the FormulaManager for the given TypedKey, without
-	 * performing a pop.
-	 * 
-	 * Note that this method will not block or throw an error if the FormulaManager is
-	 * empty. It will simply return the "Default Value" for the given TypeKey. Note null
-	 * is a legal default value.
+	 * Note that this method will not throw an error if the FormulaManager is empty or has
+	 * no value for that TypedKey. It will simply return the "Default Value" for the given
+	 * TypeKey. Note null is a legal default value.
 	 * 
 	 * @param key
-	 *            The TypeKey for which the top value should be returned
-	 * @return The top value of the FormulaManager for the given TypedKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
+	 *            The TypeKey for which the value should be returned
+	 * @return The value in the FormulaManager for the given TypedKey
 	 */
-	public <T> T peek(TypedKey<T> key);
-
-	/**
-	 * Sets a new value into the FormulaManager for the given TypedKey.
-	 * 
-	 * This is effectively a shortcut for calling pop(key) followed by push(key, value).
-	 * This has the same effects as pop of not throwing an error if the FormulaManager is
-	 * currently empty.
-	 * 
-	 * @param key
-	 *            The TypeKey for which the given value should be set as the top value on
-	 *            the FormulaManager
-	 * @param value
-	 *            The value to be set as the top value on the FormulaManager for the given
-	 *            TypeKey
-	 * @throws IllegalArgumentException
-	 *             if the given key is null
-	 */
-	public <T> void set(TypedKey<T> key, T value);
-
+	public <T> T get(TypedKey<T> key);
 }

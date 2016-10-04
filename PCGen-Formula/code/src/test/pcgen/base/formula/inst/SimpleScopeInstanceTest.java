@@ -34,9 +34,9 @@ public class SimpleScopeInstanceTest extends TestCase
 	{
 		super.setUp();
 		scope = new SimpleLegalScope(null, "Global");
-		scopeInst = new SimpleScopeInstance(null, scope);
+		scopeInst = new SimpleScopeInstance(null, scope, "Global");
 		local = new SimpleLegalScope(scope, "Local");
-		localInst = new SimpleScopeInstance(scopeInst, local);
+		localInst = new SimpleScopeInstance(scopeInst, local, "Local");
 	}
 
 	@Test
@@ -44,7 +44,7 @@ public class SimpleScopeInstanceTest extends TestCase
 	{
 		try
 		{
-			new SimpleScopeInstance(scopeInst, null);
+			new SimpleScopeInstance(scopeInst, null, "Global");
 			fail("null scope must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -53,7 +53,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(scopeInst, scope);
+			new SimpleScopeInstance(scopeInst, scope, "Ignored");
 			fail("mismatch of inst, built scope must be rejected (scope parent == null)");
 		}
 		catch (IllegalArgumentException e)
@@ -62,7 +62,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(localInst, local);
+			new SimpleScopeInstance(localInst, local, "Ignored");
 			fail("mismatch of inst, built scope must be rejected (neither parent null)");
 		}
 		catch (IllegalArgumentException e)
@@ -71,7 +71,7 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(null, local);
+			new SimpleScopeInstance(null, local, "Ignored");
 			fail("non global scope without parent instance must be rejected");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
@@ -79,22 +79,22 @@ public class SimpleScopeInstanceTest extends TestCase
 			//ok
 		}
 		SimpleLegalScope sublocal = new SimpleLegalScope(local, "SubLocal");
-		SimpleScopeInstance globalInst = new SimpleScopeInstance(null, scope);
+		SimpleScopeInstance globalInst = new SimpleScopeInstance(null, scope, "Global");
 		try
 		{
-			new SimpleScopeInstance(null, local);
+			new SimpleScopeInstance(null, local, "Ignored");
 			fail("Instance should require a parent if not global");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
-		SimpleScopeInstance localInst = new SimpleScopeInstance(globalInst, local);
+		SimpleScopeInstance localInst = new SimpleScopeInstance(globalInst, local, "Local");
 		assertEquals(globalInst, localInst.getParentScope());
 		assertEquals(local, localInst.getLegalScope());
 		try
 		{
-			new SimpleScopeInstance(globalInst, null);
+			new SimpleScopeInstance(globalInst, null, "Ignored");
 			fail("LegalScope cannot be null");
 		}
 		catch (IllegalArgumentException e)
@@ -103,7 +103,16 @@ public class SimpleScopeInstanceTest extends TestCase
 		}
 		try
 		{
-			new SimpleScopeInstance(globalInst, sublocal);
+			new SimpleScopeInstance(globalInst, local, null);
+			fail("Description cannot be null");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			new SimpleScopeInstance(globalInst, sublocal, "Ignored");
 			fail("LegalScope must be a direct child of the scope of the provided instance");
 		}
 		catch (IllegalArgumentException e)

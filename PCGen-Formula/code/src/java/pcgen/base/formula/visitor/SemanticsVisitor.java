@@ -97,8 +97,6 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 * knowledge as to the exact type of SimpleNode encountered, the node is
 	 * visited, which - through double dispatch - will result in another method
 	 * on this SemanticsVisitor being called.
-	 * 
-	 *
 	 */
 	@Override
 	public Object visit(SimpleNode node, Object data)
@@ -256,7 +254,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		if (!(firstChild instanceof ASTPCGenSingleWord))
 		{
 			semantics.setInvalid("Parse Error: Formula "
-				+ " received invalid node format,"
+				+ " received invalid node format within Lookup,"
 				+ " expected: ASTPCGenSingleWord got "
 				+ firstChild.getClass().getName() + ": " + firstChild);
 			return null;
@@ -271,8 +269,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary library = semantics.peek(FormulaSemantics.FMANAGER)
-				.peek(FormulaManager.FUNCTION);
+			FunctionLibrary library = semantics.get(FormulaSemantics.FMANAGER)
+				.get(FormulaManager.FUNCTION);
 			Function function = library.getFunction(name);
 			if (function == null)
 			{
@@ -315,7 +313,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		{
 			semantics.setInvalid("Variable: " + name
 				+ " was not found in scope "
-				+ semantics.peek(FormulaSemantics.SCOPE).getName());
+				+ semantics.get(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		FormatManager<?> componentMgr = formatManager.getComponentManager();
@@ -323,7 +321,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		{
 			semantics.setInvalid("Variable: " + name
 				+ " was not an array in scope "
-				+ semantics.peek(FormulaSemantics.SCOPE).getName());
+				+ semantics.get(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		return componentMgr;
@@ -349,7 +347,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		{
 			semantics.setInvalid("Variable: " + varName
 				+ " was not found in scope "
-				+ semantics.peek(FormulaSemantics.SCOPE).getName());
+				+ semantics.get(FormulaSemantics.SCOPE).getName());
 			return null;
 		}
 		return formatManager;
@@ -371,8 +369,8 @@ public class SemanticsVisitor implements FormulaParserVisitor
 		String varName)
 	{
 		VariableLibrary varLib =
-				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
-		LegalScope legalScope = semantics.peek(FormulaSemantics.SCOPE);
+				semantics.get(FormulaSemantics.FMANAGER).getFactory();
+		LegalScope legalScope = semantics.get(FormulaSemantics.SCOPE);
 		return varLib.getVariableFormat(legalScope, varName);
 	}
 
@@ -413,11 +411,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	}
 
 	/**
-	 * This type of node is ONLY encountered as part of a function. Since the
-	 * function should have "consumed" these elements and not called back into
-	 * SemanticsVisitor, reaching this node in SemanticsVisitor indicates either
-	 * an error in the implementation of the formula or a tree structure problem
-	 * in the formula.
+	 * A Quoted String, thus returns a StringManager.
 	 */
 	@Override
 	public Object visit(ASTQuotString node, Object data)
@@ -469,7 +463,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return null;
 		}
 		OperatorLibrary opLib =
-				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
+				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
 		FormatManager<?> returnedFormat =
 				opLib.processAbstract(op, format1.getManagedClass(),
 					format2.getManagedClass());
@@ -504,7 +498,7 @@ public class SemanticsVisitor implements FormulaParserVisitor
 			return null;
 		}
 		OperatorLibrary opLib =
-				semantics.peek(FormulaSemantics.FMANAGER).getOperatorLibrary();
+				semantics.get(FormulaSemantics.FMANAGER).getOperatorLibrary();
 		FormatManager<?> returnedFormat = opLib.processAbstract(op, format.getManagedClass());
 		//null response means the library couldn't find an appropriate operator
 		if (returnedFormat == null)
@@ -576,12 +570,9 @@ public class SemanticsVisitor implements FormulaParserVisitor
 	 */
 	private Object visitRelational(SimpleNode node, Object data)
 	{
-		//null assertion since we can't assert what each side of the logical expression is
 		FormulaSemantics semantics = (FormulaSemantics) data;
-		semantics.push(FormulaSemantics.ASSERTED, null);
-		Object result = visitOperatorNode(node, semantics);
-		semantics.pop(FormulaSemantics.ASSERTED);
-		return result;
+		//null assertion since we can't assert what each side of the logical expression is
+		return visitOperatorNode(node, semantics.getWith(FormulaSemantics.ASSERTED, null));
 	}
 
 }

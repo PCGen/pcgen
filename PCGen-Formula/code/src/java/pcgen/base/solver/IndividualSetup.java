@@ -20,10 +20,9 @@ package pcgen.base.solver;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ScopeInstance;
-import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleFormulaManager;
-import pcgen.base.formula.inst.SimpleVariableStore;
 
 /**
  * An IndividualSetup is returned by a SplitFormulaSetup. This contains the
@@ -48,38 +47,35 @@ public class IndividualSetup
 	private final ScopeInstance globalScopeInst;
 
 	/**
-	 * The WriteableVariableStore for this DefaultFormulaSetup. Lazily
-	 * Instantiated.
-	 */
-	private WriteableVariableStore variableStore;
-
-	/**
-	 * Constructs a new IndividualSetup with the "global" LegalScope of the
-	 * given name. The IndividualSetup will have a unique Global Scope Instance,
-	 * VariableStore (and thus FormulaManager and ScopeInformation).
+	 * Constructs a new IndividualSetup with the "global" LegalScope of the given name.
+	 * The IndividualSetup will have a unique Global Scope Instance, VariableStore (and
+	 * thus FormulaManager and ScopeInformation).
 	 * 
-	 * Note: A LegalScope object with the given name MUST have been loaded into
-	 * the LegalScopeLibrary of the SplitFormulaSetup or this will throw an
-	 * Exception.
+	 * Note: A LegalScope object with the given name MUST have been loaded into the
+	 * LegalScopeLibrary of the SplitFormulaSetup or this will throw an Exception.
 	 * 
 	 * Note: The LegalScope returned by the LegalScopeLibrary of the given
-	 * SplitFormulaSetup must also be a "Global" scope in that it must return
-	 * null as the parent LegalScope or this will throw an Exception.
+	 * SplitFormulaSetup must also be a "Global" scope in that it must return null as the
+	 * parent LegalScope or this will throw an Exception.
 	 * 
 	 * @param parent
 	 *            The parent SplitFormulaSetup for this IndividualSetup
 	 * @param globalName
 	 *            The name of the "global" LegalScope for this IndividualSetup
+	 * @param variableStore
+	 *            the VariableStore to be used by the FormulaManager in this
+	 *            IndividualSetup
 	 */
-	public IndividualSetup(SplitFormulaSetup parent, String globalName)
+	public IndividualSetup(SplitFormulaSetup parent, String globalName,
+		VariableStore variableStore)
 	{
 		LegalScopeLibrary scopeLibrary = parent.getLegalScopeLibrary();
 		instanceFactory = new ScopeInstanceFactory(scopeLibrary);
-		formulaManager =
-				new SimpleFormulaManager(
-					parent.getOperatorLibrary(), parent.getVariableLibrary(),
-					getVariableStore(), parent.getSolverFactory());
-		formulaManager.push(FormulaManager.FUNCTION, parent.getFunctionLibrary());
+		SimpleFormulaManager fManager = new SimpleFormulaManager(
+			parent.getOperatorLibrary(), parent.getVariableLibrary(),
+			variableStore, parent.getSolverFactory());
+		formulaManager = fManager.getWith(FormulaManager.FUNCTION,
+			parent.getFunctionLibrary());
 		globalScopeInst = instanceFactory.getGlobalInstance(globalName);
 	}
 
@@ -112,30 +108,4 @@ public class IndividualSetup
 	{
 		return globalScopeInst;
 	}
-
-	/**
-	 * Return the VariableStore for this IndividualSetup.
-	 * 
-	 * @return the VariableStore for this IndividualSetup
-	 */
-	public WriteableVariableStore getVariableStore()
-	{
-		if (variableStore == null)
-		{
-			variableStore = buildVariableStore();
-		}
-		return variableStore;
-	}
-	
-	/**
-	 * Builds a new WriteableVariableStore for this IndividualSetup. This is
-	 * intended to be called once during construction of the IndividualSetup.
-	 * 
-	 * @return a new WriteableVariableStore for this IndividualSetup.
-	 */
-	protected WriteableVariableStore buildVariableStore()
-	{
-		return new SimpleVariableStore();
-	}
-
 }

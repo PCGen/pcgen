@@ -214,8 +214,8 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Node[] args = VisitorUtilities.accumulateArguments(argNode);
 		if (argNode instanceof ASTFParen)
 		{
-			FunctionLibrary ftnLib = manager.peek(EvaluationManager.FMANAGER)
-				.peek(FormulaManager.FUNCTION);
+			FunctionLibrary ftnLib = manager.get(EvaluationManager.FMANAGER)
+				.get(FormulaManager.FUNCTION);
 			Function function = ftnLib.getFunction(name);
 			return function.evaluate(this, args, manager);
 		}
@@ -296,7 +296,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Object child2result = node.jjtGetChild(1).jjtAccept(this, data);
 		EvaluationManager manager = (EvaluationManager) data;
 		OperatorLibrary opLib =
-				manager.peek(EvaluationManager.FMANAGER).getOperatorLibrary();
+				manager.get(EvaluationManager.FMANAGER).getOperatorLibrary();
 		return opLib.evaluate(node.getOperator(), child1result, child2result);
 	}
 
@@ -316,7 +316,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 		Object result = node.jjtGetChild(0).jjtAccept(this, data);
 		EvaluationManager manager = (EvaluationManager) data;
 		OperatorLibrary opLib =
-				manager.peek(EvaluationManager.FMANAGER).getOperatorLibrary();
+				manager.get(EvaluationManager.FMANAGER).getOperatorLibrary();
 		return opLib.evaluate(node.getOperator(), result);
 	}
 
@@ -350,10 +350,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	{
 		EvaluationManager manager = (EvaluationManager) data;
 		//Pass in null since we can't assert what each side of the logical expression is
-		manager.push(EvaluationManager.ASSERTED, null);
-		Object result = evaluateOperatorNode(node, manager);
-		manager.pop(EvaluationManager.ASSERTED);
-		return result;
+		return evaluateOperatorNode(node, manager.getWith(EvaluationManager.ASSERTED, null));
 	}
 
 	/**
@@ -367,9 +364,9 @@ public class EvaluateVisitor implements FormulaParserVisitor
 	 */
 	public Object visitVariable(String varName, EvaluationManager manager)
 	{
-		FormulaManager fm = manager.peek(EvaluationManager.FMANAGER);
+		FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 		VariableLibrary varLibrary = fm.getFactory();
-		ScopeInstance scopeInst = manager.peek(EvaluationManager.INSTANCE);
+		ScopeInstance scopeInst = manager.get(EvaluationManager.INSTANCE);
 		FormatManager<?> formatManager =
 				varLibrary
 					.getVariableFormat(scopeInst.getLegalScope(), varName);
@@ -382,7 +379,7 @@ public class EvaluateVisitor implements FormulaParserVisitor
 				return resolver.get(id);
 			}
 		}
-		Class<?> asserted = manager.peek(EvaluationManager.ASSERTED);
+		Class<?> asserted = manager.get(EvaluationManager.ASSERTED);
 		if (asserted == null)
 		{
 			System.out

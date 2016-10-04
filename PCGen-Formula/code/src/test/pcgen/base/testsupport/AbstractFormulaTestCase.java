@@ -34,7 +34,9 @@ import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -62,7 +64,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup = new SplitFormulaSetup();
 		setup.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
-		localSetup = new IndividualSetup(setup, "Global");
+		localSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 		setup.getSolverFactory().addSolverFormat(Number.class, new Modifier(){
 
 			@Override
@@ -154,7 +156,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
-				new StaticVisitor(localSetup.getFormulaManager().peek(FormulaManager.FUNCTION));
+				new StaticVisitor(localSetup.getFormulaManager().get(FormulaManager.FUNCTION));
 		boolean isStat =
 				((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
@@ -201,8 +203,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public EvaluationManager generateManager()
 	{
-		return managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
-			localSetup.getGlobalScopeInst(), Number.class);
+		EvaluationManager em = managerFactory
+			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);
+		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,
@@ -248,7 +251,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected FunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().peek(FormulaManager.FUNCTION);
+		return localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
 	}
 
 	protected OperatorLibrary getOperatorLibrary()
@@ -275,6 +278,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected ScopeInstance getGlobalScopeInst()
 	{
 		return localSetup.getGlobalScopeInst();
+	}
+
+	protected ScopeInstanceFactory getInstanceFactory()
+	{
+		return localSetup.getInstanceFactory();
 	}
 
 	protected FormulaManager getFormulaManager()

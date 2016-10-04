@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.library;
 
+import java.util.Objects;
+
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.parse.Node;
@@ -50,8 +52,8 @@ public class ArgWrappingLibrary implements FunctionLibrary
 	 */
 	public ArgWrappingLibrary(FunctionLibrary functionLibrary, Node[] args)
 	{
-		this.functionLibrary = functionLibrary;
-		this.args = args;
+		this.functionLibrary = Objects.requireNonNull(functionLibrary);
+		this.args = Objects.requireNonNull(args);
 	}
 
 	/**

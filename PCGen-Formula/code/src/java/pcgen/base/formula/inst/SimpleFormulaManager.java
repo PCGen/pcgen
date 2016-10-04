@@ -17,6 +17,8 @@
  */
 package pcgen.base.formula.inst;
 
+import java.util.HashMap;
+import java.util.Map;
 import java.util.Objects;
 
 import pcgen.base.formula.base.DefaultStore;
@@ -24,7 +26,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.VariableStore;
-import pcgen.base.util.MappedDeque;
+import pcgen.base.util.TypedKey;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that
@@ -32,16 +34,14 @@ import pcgen.base.util.MappedDeque;
  * convenient, single location for consolidation of these capabilities (and thus
  * keeps the number of parameters that have to be passed around to a reasonable
  * level).
- * 
- * This is also an object used to "cache" the SemanticsVisitor (since the
- * visitor needs to know some of the contents in the FormulaManager, it can be
- * lazily instantiated but then effectively cached as long as that
- * FormulaManager is reused - especially valuable for things like the global
- * context which in the future we can create once for the PC and never have to
- * recreate...)
  */
-public class SimpleFormulaManager extends MappedDeque implements FormulaManager
+public class SimpleFormulaManager implements FormulaManager
 {
+
+	/**
+	 * The underlying map for this DependencyManager that contains the target objects.
+	 */
+	private final Map<TypedKey<?>, Object> map = new HashMap<TypedKey<?>, Object>();
 
 	/**
 	 * The DefaultStore used to know the default values for a format (class).
@@ -63,7 +63,7 @@ public class SimpleFormulaManager extends MappedDeque implements FormulaManager
 	 * this FormulaManager (thus serves as a storage location for variable
 	 * values).
 	 */
-	private final VariableStore results;
+	private final VariableStore resultStore;
 
 	/**
 	 * Constructs a new FormulaManager from the provided FunctionLibrary,
@@ -86,8 +86,17 @@ public class SimpleFormulaManager extends MappedDeque implements FormulaManager
 	{
 		this.opLibrary = Objects.requireNonNull(opLibrary);
 		this.varLibrary = Objects.requireNonNull(varLibrary);
-		this.results = Objects.requireNonNull(resultStore);
+		this.resultStore = Objects.requireNonNull(resultStore);
 		this.defaultStore = Objects.requireNonNull(defaultStore);
+	}
+	
+	private SimpleFormulaManager(SimpleFormulaManager original, Map<TypedKey<?>, Object> map)
+	{
+		this.opLibrary = original.opLibrary;
+		this.varLibrary = original.varLibrary;
+		this.resultStore = original.resultStore;
+		this.defaultStore = original.defaultStore;
+		this.map.putAll(map);
 	}
 
 	/**
@@ -111,7 +120,7 @@ public class SimpleFormulaManager extends MappedDeque implements FormulaManager
 	@Override
 	public VariableStore getResolver()
 	{
-		return results;
+		return resultStore;
 	}
 
 	/**
@@ -142,6 +151,21 @@ public class SimpleFormulaManager extends MappedDeque implements FormulaManager
 	public <T> T getDefault(Class<T> format)
 	{
 		return defaultStore.getDefault(format);
+	}
+
+	@Override
+	public <T> FormulaManager getWith(TypedKey<T> key, T value)
+	{
+		SimpleFormulaManager replacement = new SimpleFormulaManager(this, map);
+		replacement.map.put(Objects.requireNonNull(key), value);
+		return replacement;
+	}
+
+	@Override
+	public <T> T get(TypedKey<T> key)
+	{
+		Object value = map.get(Objects.requireNonNull(key));
+		return (value == null) ? key.getDefaultValue() : key.cast(value);
 	}
 
 }

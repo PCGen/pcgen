@@ -251,7 +251,7 @@ public class StaticVisitor implements FormulaParserVisitor
 		}
 		else if (argNode instanceof ASTPCGenBracket)
 		{
-			//Array access
+			//Array access (defensive)
 			return Boolean.FALSE;
 		}
 		else

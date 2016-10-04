@@ -46,25 +46,22 @@ package pcgen.base.formula.base;
  * requirement on a developer to have to call back to the scope in order to
  * clean up a collection).
  */
-public interface ScopeInstance
+public interface ScopeInstance extends Identified
 {
 
 	/**
-	 * Returns the LegalScope that serves as a "template" for this
-	 * ScopeInstance.
+	 * Returns the LegalScope that serves as a "template" for this ScopeInstance.
 	 * 
 	 * @return The LegalScope that serves as a "template" for this ScopeInstance
 	 */
 	public LegalScope getLegalScope();
 
 	/**
-	 * Returns the ScopeInstance that serves as a "parent" for this
-	 * ScopeInstance.
+	 * Returns the ScopeInstance that serves as a "parent" for this ScopeInstance.
 	 * 
 	 * Null is a legal return value for a "master" scope.
 	 * 
-	 * @return The ScopeInstance that serves as a "parent" for this
-	 *         ScopeInstance
+	 * @return The ScopeInstance that serves as a "parent" for this ScopeInstance
 	 */
 	public ScopeInstance getParentScope();
 

@@ -30,7 +30,6 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DirectionalSetMapGraph;
@@ -72,7 +71,7 @@ public class AggressiveSolverManager
 	/**
 	 * The "summarized" results of the calculation of each Solver.
 	 */
-	private final WriteableVariableStore resultsCache;
+	private final WriteableVariableStore resultStore;
 
 	/**
 	 * A mathematical graph used to store dependencies between VariableIDs.
@@ -80,7 +79,7 @@ public class AggressiveSolverManager
 	 * this implicitly stores the dependencies between the Solvers that are part
 	 * of this AggressiveSolverManager.
 	 */
-	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> graph =
+	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> dependencies =
 			new DirectionalSetMapGraph<>();
 
 	/**
@@ -120,12 +119,7 @@ public class AggressiveSolverManager
 		this.formulaManager = Objects.requireNonNull(manager);
 		this.managerFactory = Objects.requireNonNull(managerFactory);
 		this.solverFactory = Objects.requireNonNull(solverFactory);
-		/*
-		 * CONSIDER should ownership transfer of this be complete? We can do
-		 * getValue for any "reader" that is interested... as long as they have
-		 * this SolverManager...?
-		 */
-		resultsCache = Objects.requireNonNull(resultStore);
+		this.resultStore = Objects.requireNonNull(resultStore);
 	}
 
 	/*
@@ -173,7 +167,7 @@ public class AggressiveSolverManager
 	 *             if any of the parameters is null
 	 */
 	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
-		Object source)
+		ScopeInstance source)
 	{
 		if (varID == null)
 		{
@@ -187,9 +181,9 @@ public class AggressiveSolverManager
 		{
 			throw new IllegalArgumentException("Source cannot be null");
 		}
-		ScopeInstance scopeInst = varID.getScope();
-		if (!formulaManager.getFactory().isLegalVariableID(
-			scopeInst.getLegalScope(), varID.getName()))
+		
+		if (!formulaManager.getFactory()
+			.isLegalVariableID(varID.getScope().getLegalScope(), varID.getName()))
 		{
 			/*
 			 * The above check allows the implicit create below for only items
@@ -204,14 +198,14 @@ public class AggressiveSolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			//CONSIDER This is create implicit - what we want to do?
+			//CONSIDER This build is implicit - do we want explicit or implicit?
 			solver = unconditionallyBuildSolver(varID);
 		}
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			scopeInst, varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager().getManagedClass());
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.getVariables())
 		{
@@ -223,7 +217,7 @@ public class AggressiveSolverManager
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
-			graph.addEdge(edge);
+			dependencies.addEdge(edge);
 		}
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
@@ -245,11 +239,9 @@ public class AggressiveSolverManager
 	private <T> Solver<T> unconditionallyBuildSolver(VariableID<T> varID)
 	{
 		FormatManager<T> formatManager = varID.getFormatManager();
-		EvaluationManager evalManager =
-				managerFactory.generateEvaluationManager(formulaManager, varID);
-		Solver<T> solver = solverFactory.getSolver(formatManager, evalManager);
+		Solver<T> solver = solverFactory.getSolver(formatManager);
 		scopedChannels.put(varID, solver);
-		graph.addNode(varID);
+		dependencies.addNode(varID);
 		return solver;
 	}
 
@@ -276,7 +268,7 @@ public class AggressiveSolverManager
 	 *             if any of the parameters is null
 	 */
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
-		Object source)
+		ScopeInstance source)
 	{
 		if (varID == null)
 		{
@@ -329,7 +321,7 @@ public class AggressiveSolverManager
 			return;
 		}
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
-				graph.getAdjacentEdges(varID);
+				dependencies.getAdjacentEdges(varID);
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
 		{
 			if (edge.getNodeAt(1) == varID)
@@ -337,7 +329,7 @@ public class AggressiveSolverManager
 				VariableID<?> depID = edge.getNodeAt(0);
 				if (deps.contains(depID))
 				{
-					graph.removeEdge(edge);
+					dependencies.removeEdge(edge);
 					deps.remove(depID);
 				}
 			}
@@ -397,7 +389,7 @@ public class AggressiveSolverManager
 	public void solveChildren(VariableID<?> varID)
 	{
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
-				graph.getAdjacentEdges(varID);
+				dependencies.getAdjacentEdges(varID);
 		if (adjacentEdges != null)
 		{
 			for (DefaultDirectionalGraphEdge<VariableID<?>> edge : adjacentEdges)
@@ -433,8 +425,10 @@ public class AggressiveSolverManager
 		 * Solver should "never" be null here, so we accept risk of NPE, since
 		 * it's always a code bug
 		 */
-		T newValue = solver.process();
-		Object oldValue = resultsCache.put(varID, newValue);
+		EvaluationManager evalManager = managerFactory
+				.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+		T newValue = solver.process(evalManager);
+		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
 	}
 
@@ -463,19 +457,9 @@ public class AggressiveSolverManager
 			throw new IllegalArgumentException("Request to diagnose VariableID "
 				+ varID + " but that channel was never defined");
 		}
-		return solver.diagnose();
-	}
-
-	/**
-	 * Returns the VariableStore used by this AggressiveSolverManager to store
-	 * results of calculations.
-	 * 
-	 * @return The VariableStore used by this AggressiveSolverManager to store
-	 *         results of calculations.
-	 */
-	public VariableStore getVariableStore()
-	{
-		return resultsCache;
+		EvaluationManager evalManager = managerFactory
+				.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+		return solver.diagnose(evalManager);
 	}
 
 	/**

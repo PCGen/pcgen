@@ -40,10 +40,9 @@ public interface ManagerFactory
 		FormulaManager formulaManager, ScopeInstance scopeInst, Class<?> assertedFormat)
 	{
 		DependencyManager fdm = new DependencyManager();
-		fdm.set(DependencyManager.FMANAGER, formulaManager);
-		fdm.set(DependencyManager.INSTANCE, scopeInst);
-		fdm.set(DependencyManager.ASSERTED, assertedFormat);
-		return fdm;
+		fdm = fdm.getWith(DependencyManager.FMANAGER, formulaManager);
+		fdm = fdm.getWith(DependencyManager.INSTANCE, scopeInst);
+		return fdm.getWith(DependencyManager.ASSERTED, assertedFormat);
 	}
 
 	/**
@@ -65,10 +64,9 @@ public interface ManagerFactory
 		LegalScope legalScope, Class<?> assertedFormat)
 	{
 		FormulaSemantics semantics = new FormulaSemantics();
-		semantics.set(FormulaSemantics.FMANAGER, manager);
-		semantics.set(FormulaSemantics.SCOPE, legalScope);
-		semantics.set(FormulaSemantics.ASSERTED, assertedFormat);
-		return semantics;
+		semantics = semantics.getWith(FormulaSemantics.FMANAGER, manager);
+		semantics = semantics.getWith(FormulaSemantics.SCOPE, legalScope);
+		return semantics.getWith(FormulaSemantics.ASSERTED, assertedFormat);
 	}
 
 	/**
@@ -77,43 +75,16 @@ public interface ManagerFactory
 	 * @param formulaManager
 	 *            The FormulaManager used to evaluate formulas processed by this
 	 *            EvaluationManager
-	 * @param scopeInst
-	 *            The ScopeInstance of formulas processed by this EvaluationManager
 	 * @param assertedFormat
 	 *            the format (class) asserted by the current context of a formula
 	 * @return A new EvaluationManager initialized with the given parameters
 	 */
 	public default EvaluationManager generateEvaluationManager(
-		FormulaManager formulaManager, ScopeInstance scopeInst, Class<?> assertedFormat)
+		FormulaManager formulaManager, Class<?> assertedFormat)
 	{
 		EvaluationManager manager = new EvaluationManager();
-		manager.set(EvaluationManager.FMANAGER, formulaManager);
-		manager.set(EvaluationManager.INSTANCE, scopeInst);
-		manager.set(EvaluationManager.ASSERTED, assertedFormat);
-		return manager;
-	}
-
-	/**
-	 * Generates a new EvaluationManager initialized with the given FormulaManager and the
-	 * ScopeInstance and asserted format as implied by the given VariableID.
-	 * 
-	 * @param formulaManager
-	 *            The FormulaManager used to evaluate formulas processed by this
-	 *            EvaluationManager
-	 * @param varID
-	 *            The VariableID to be used to derive the the ScopeInstance and asserted
-	 *            format of the EvaluationManager
-	 * @return A new EvaluationManager initialized with the given FormulaManager and the
-	 *         ScopeInstance Asserted Format of the given VariableID
-	 */
-	public default EvaluationManager generateEvaluationManager(
-		FormulaManager formulaManager, VariableID<?> varID)
-	{
-		EvaluationManager manager = new EvaluationManager();
-		manager.set(EvaluationManager.FMANAGER, formulaManager);
-		manager.set(EvaluationManager.INSTANCE, varID.getScope());
-		manager.set(EvaluationManager.ASSERTED, varID.getVariableFormat());
-		return manager;
+		manager = manager.getWith(EvaluationManager.FMANAGER, formulaManager);
+		return manager.getWith(EvaluationManager.ASSERTED, assertedFormat);
 	}
 
 }

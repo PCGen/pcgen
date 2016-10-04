@@ -1,47 +1,34 @@
 /*
  * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  * 
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.base.solver;
 
-import pcgen.base.format.NumberManager;
-import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.base.ManagerFactory;
-import pcgen.base.formula.inst.SimpleLegalScope;
-import pcgen.base.solver.testsupport.AbstractModifier;
+import org.junit.Test;
 
 import junit.framework.TestCase;
-import org.junit.Test;
+import pcgen.base.format.NumberManager;
+import pcgen.base.solver.testsupport.AbstractModifier;
 
 public class SolverFactoryTest extends TestCase
 {
-	private ManagerFactory managerFactory = new ManagerFactory(){};
-	private EvaluationManager evalManager;
 	private SolverFactory factory;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		SplitFormulaSetup sfs = new SplitFormulaSetup();
-		sfs.getLegalScopeLibrary()
-			.registerScope(new SimpleLegalScope(null, "Global"));
-		IndividualSetup indSetup = new IndividualSetup(sfs, "Global");
-		evalManager = managerFactory.generateEvaluationManager(
-			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), Number.class);
 		factory = new SolverFactory();
 	}
 
@@ -73,7 +60,7 @@ public class SolverFactoryTest extends TestCase
 	{
 		try
 		{
-			factory.getSolver(new NumberManager(), evalManager);
+			factory.getSolver(new NumberManager());
 			fail("Should not be able to get Solver when no default was set");
 		}
 		catch (IllegalArgumentException e)
@@ -82,19 +69,10 @@ public class SolverFactoryTest extends TestCase
 		}
 		try
 		{
-			factory.getSolver(null, evalManager);
+			factory.getSolver(null);
 			fail("Should not be able to get Solver for null FormatManager");
 		}
 		catch (NullPointerException e)
-		{
-			//ok
-		}
-		try
-		{
-			factory.getSolver(new NumberManager(), null);
-			fail("Should not be able to get Solver for null ScopeInfo");
-		}
-		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
@@ -124,7 +102,7 @@ public class SolverFactoryTest extends TestCase
 		}
 		try
 		{
-			factory.addSolverFormat(Number.class, AbstractModifier.add(9,  5));
+			factory.addSolverFormat(Number.class, AbstractModifier.add(9, 5));
 			fail("Should not be able to set Solver for adding modifier");
 		}
 		catch (IllegalArgumentException e)
@@ -144,7 +122,7 @@ public class SolverFactoryTest extends TestCase
 		factory.addSolverFormat(Number.class, AbstractModifier.setNumber(108, 28));
 		try
 		{
-			factory.addSolverFormat(Number.class, AbstractModifier.setNumber(9,  5));
+			factory.addSolverFormat(Number.class, AbstractModifier.setNumber(9, 5));
 			fail("Should not be able to set Default a second time");
 		}
 		catch (IllegalArgumentException e)

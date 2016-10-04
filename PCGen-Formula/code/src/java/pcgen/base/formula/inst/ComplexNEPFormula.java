@@ -90,8 +90,8 @@ public class ComplexNEPFormula<T> implements NEPFormula<T>
 	{
 		try
 		{
-			root = new FormulaParser(new StringReader(Objects.requireNonNull(expression)))
-				.query();
+			StringReader reader = new StringReader(Objects.requireNonNull(expression));
+			root = new FormulaParser(reader).query();
 		}
 		catch (ParseException e)
 		{

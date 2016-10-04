@@ -74,12 +74,9 @@ public class IfFunction implements Function
 		}
 		//Boolean conditional node
 		Node conditionalNode = args[0];
-		semantics.push(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		FormatManager<?> format =
-				(FormatManager<?>) conditionalNode
-					.jjtAccept(visitor, semantics);
-		semantics.pop(FormulaSemantics.ASSERTED);
+		FormatManager<?> format = (FormatManager<?>) conditionalNode.jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -136,9 +133,8 @@ public class IfFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		manager.push(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
-		Boolean b = (Boolean) args[0].jjtAccept(visitor, manager);
-		manager.pop(EvaluationManager.ASSERTED);
+		Boolean b = (Boolean) args[0].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
 		/*
 		 * Note no attempt to cast or interpret the return values since we do
 		 * not know if they are Boolean or Double (see allowArgs)
@@ -196,9 +192,8 @@ public class IfFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		manager.push(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS);
-		args[0].jjtAccept(visitor, manager);
-		manager.pop(DependencyManager.ASSERTED);
+		args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, FormatUtilities.BOOLEAN_CLASS));
 		args[1].jjtAccept(visitor, manager);
 		args[2].jjtAccept(visitor, manager);
 	}

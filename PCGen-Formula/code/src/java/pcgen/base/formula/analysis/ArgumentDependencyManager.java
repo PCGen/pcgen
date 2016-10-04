@@ -27,8 +27,7 @@ import pcgen.base.util.TypedKey;
 public class ArgumentDependencyManager
 {
 	/**
-	 * A TypedKey for use (in a MappedDeque) for storing an
-	 * ArgumentDependencyManager
+	 * A TypedKey for use in storing an ArgumentDependencyManager
 	 */
 	public static final TypedKey<ArgumentDependencyManager> KEY =
 			new TypedKey<ArgumentDependencyManager>();
