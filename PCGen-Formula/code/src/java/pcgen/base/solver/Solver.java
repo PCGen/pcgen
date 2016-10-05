@@ -83,9 +83,6 @@ public class Solver<T>
 	 * 
 	 * @param defaultModifier
 	 *            The "starting" or "default" modifier for this Solver
-	 * @param evaluationManager
-	 *            The underlying EvaluationManager for this Solver, used when a
-	 *            Modifier uses a Formula to determine the output value
 	 */
 	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
 	public Solver(Modifier<T> defaultModifier)
@@ -181,10 +178,12 @@ public class Solver<T>
 	}
 
 	/**
-	 * Process this Solver to provide the value after all Modifiers are
-	 * processed (in priority order).
+	 * Process this Solver to provide the value after all Modifiers are processed (in
+	 * priority order).
 	 * 
-	 * @param evalManager The EvaluationManager used to support evaluation of the Modifiers in this Solver
+	 * @param evalManager
+	 *            The EvaluationManager used to support evaluation of the Modifiers in
+	 *            this Solver
 	 * @return The resulting value after all Modifier objects are processed
 	 */
 	public T process(EvaluationManager evalManager)
