@@ -84,8 +84,7 @@ public final class ChannelUtilities
 	 */
 	public static VariableChannel<?> getGlobalChannel(CharID id, String name)
 	{
-		ScopeInstanceFactory instFactory = SCOPE_FACET.get(id);
-		ScopeInstance globalInstance = instFactory.getGlobalInstance("Global");
+		ScopeInstance globalInstance = SCOPE_FACET.getGlobalScope(id);
 		return getChannel(id, globalInstance, name);
 	}
 
