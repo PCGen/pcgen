@@ -20,30 +20,39 @@ package pcgen.base.solver;
 import java.util.Arrays;
 import java.util.List;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
 
+import junit.framework.TestCase;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.ManagerFactory;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.inst.SimpleLegalScope;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.solver.testsupport.MockStat;
 
 public class SolverTest extends TestCase
 {
 	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private EvaluationManager evalManager;
+	private ScopeInstance inst;
+	private ScopeInstance str;
+	private ScopeInstance con;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
 		SplitFormulaSetup sfs = new SplitFormulaSetup();
-		sfs.getLegalScopeLibrary().registerScope(
-			new SimpleLegalScope(null, "Global"));
-		IndividualSetup indSetup = new IndividualSetup(sfs, "Global");
-		evalManager = managerFactory.generateEvaluationManager(
-			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), Number.class);
+		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
+		sfs.getLegalScopeLibrary().registerScope(globalScope);
+		IndividualSetup indSetup = new IndividualSetup(sfs, "Global", new SimpleVariableStore());
+		inst = indSetup.getGlobalScopeInst();
+		sfs.getLegalScopeLibrary().registerScope(new SimpleLegalScope(globalScope, "STAT"));
+		str = indSetup.getInstanceFactory().get("STAT", new MockStat("STR"));
+		con = indSetup.getInstanceFactory().get("STAT", new MockStat("CON"));
+		evalManager = managerFactory
+			.generateEvaluationManager(indSetup.getFormulaManager(), Number.class);
 	}
 
 	@Test
@@ -52,26 +61,16 @@ public class SolverTest extends TestCase
 		Modifier<Number> mod = AbstractModifier.add(1, 100);
 		try
 		{
-			new Solver<Number>(mod, evalManager);
+			new Solver<Number>(mod);
 			fail("Default Modifier was not static");
 		}
 		catch (IllegalArgumentException e)
 		{
 			//ok
 		}
-		mod = AbstractModifier.setNumber(6, 0);
 		try
 		{
-			new Solver<Number>(mod, null);
-			fail("null Scope Info must be rejected");
-		}
-		catch (IllegalArgumentException e)
-		{
-			//ok
-		}
-		try
-		{
-			new Solver<Number>(null, evalManager);
+			new Solver<Number>(null);
 			fail("null default must be rejected");
 		}
 		catch (IllegalArgumentException e)
@@ -85,11 +84,11 @@ public class SolverTest extends TestCase
 	public void testIllegalAdd()
 	{
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
+		Solver<Number> solver = new Solver<Number>(mod);
 		mod = AbstractModifier.add(1, 100);
 		try
 		{
-			solver.addModifier(null, new Object());
+			solver.addModifier(null, inst);
 			fail("Null modifier must be rejected");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -109,7 +108,7 @@ public class SolverTest extends TestCase
 		try
 		{
 			//have to be bad about generics to even get this to be set up to fail
-			solver.addModifier((Modifier) badm, new Object());
+			solver.addModifier((Modifier) badm, inst);
 			fail("wrong type must be rejected");
 		}
 		catch (IllegalArgumentException e)
@@ -122,11 +121,11 @@ public class SolverTest extends TestCase
 	public void testIllegalRemove()
 	{
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
+		Solver<Number> solver = new Solver<Number>(mod);
 		mod = AbstractModifier.add(1, 100);
 		try
 		{
-			solver.removeModifier(null, new Object());
+			solver.removeModifier(null, inst);
 			fail("Null modifier must be rejected");
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -148,7 +147,7 @@ public class SolverTest extends TestCase
 	public void testIllegalRemoveFromSource()
 	{
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
+		Solver<Number> solver = new Solver<Number>(mod);
 		try
 		{
 			solver.removeFromSource(null);
@@ -165,9 +164,9 @@ public class SolverTest extends TestCase
 	{
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
-		solver.removeModifier(addm, this);
-		assertEquals(Integer.valueOf(6), solver.process());
+		Solver<Number> solver = new Solver<Number>(mod);
+		solver.removeModifier(addm, inst);
+		assertEquals(Integer.valueOf(6), solver.process(evalManager));
 	}
 
 	@Test
@@ -177,20 +176,20 @@ public class SolverTest extends TestCase
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
+		Solver<Number> solver = new Solver<Number>(mod);
 		//harmless
-		solver.removeFromSource(this);
-		assertEquals(Integer.valueOf(6), solver.process());
+		solver.removeFromSource(inst);
+		assertEquals(Integer.valueOf(6), solver.process(evalManager));
 		//now do real stuff
-		solver.addModifier(addm, this);
-		solver.addModifier(multm, new Object());
-		solver.addModifier(setm, this);
-		assertEquals(Integer.valueOf(9), solver.process());
-		solver.removeFromSource(this);
-		assertEquals(Integer.valueOf(12), solver.process());
+		solver.addModifier(addm, inst);
+		solver.addModifier(multm, str);
+		solver.addModifier(setm, inst);
+		assertEquals(Integer.valueOf(9), solver.process(evalManager));
+		solver.removeFromSource(inst);
+		assertEquals(Integer.valueOf(12), solver.process(evalManager));
 		//Harmless
-		solver.removeFromSource(new Object());
-		assertEquals(Integer.valueOf(12), solver.process());
+		solver.removeFromSource(con);
+		assertEquals(Integer.valueOf(12), solver.process(evalManager));
 	}
 
 	@Test
@@ -200,13 +199,13 @@ public class SolverTest extends TestCase
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
-		solver.addModifier(addm, this);
-		solver.addModifier(multm, this);
-		solver.addModifier(setm, this);
-		assertEquals(Integer.valueOf(9), solver.process());
-		solver.removeModifier(addm, this);
-		assertEquals(Integer.valueOf(8), solver.process());
+		Solver<Number> solver = new Solver<Number>(mod);
+		solver.addModifier(addm, inst);
+		solver.addModifier(multm, inst);
+		solver.addModifier(setm, inst);
+		assertEquals(Integer.valueOf(9), solver.process(evalManager));
+		solver.removeModifier(addm, inst);
+		assertEquals(Integer.valueOf(8), solver.process(evalManager));
 	}
 
 	@Test
@@ -217,11 +216,11 @@ public class SolverTest extends TestCase
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 200);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 300);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
-		solver.addModifier(addm, this);
-		solver.addModifier(multm, this);
-		solver.addModifier(setm, this);
-		assertEquals(Integer.valueOf(8), solver.process());
+		Solver<Number> solver = new Solver<Number>(mod);
+		solver.addModifier(addm, inst);
+		solver.addModifier(multm, inst);
+		solver.addModifier(setm, inst);
+		assertEquals(Integer.valueOf(8), solver.process(evalManager));
 	}
 
 	@Test
@@ -230,10 +229,10 @@ public class SolverTest extends TestCase
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 300);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
-		solver.addModifier(addm, this);
-		solver.addModifier(multm, this);
-		assertEquals(Integer.valueOf(14), solver.process());
+		Solver<Number> solver = new Solver<Number>(mod);
+		solver.addModifier(addm, inst);
+		solver.addModifier(multm, inst);
+		assertEquals(Integer.valueOf(14), solver.process(evalManager));
 	}
 
 	@Test
@@ -243,36 +242,35 @@ public class SolverTest extends TestCase
 		Modifier<Number> setm = AbstractModifier.setNumber(4, 100);
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number> mod = AbstractModifier.setNumber(6, 0);
-		Solver<Number> solver = new Solver<Number>(mod, evalManager);
-		List<ProcessStep<Number>> list = solver.diagnose();
+		Solver<Number> solver = new Solver<Number>(mod);
+		List<ProcessStep<Number>> list = solver.diagnose(evalManager);
 		assertNotNull(list);
 		assertEquals(1, list.size());
 		ProcessStep<Number> step = list.get(0);
-		assertEquals("DefaultValue for Number", step.getSourceInfo());
+		assertEquals("Default Value for Number", step.getSourceInfo());
 		assertEquals(6, step.getResult());
 		assertEquals(mod, step.getModifier());
-		solver.addModifier(addm, this);
+		solver.addModifier(addm, inst);
 		//Shouldn't be related (verify list is not reference semantic)
 		assertEquals(1, list.size());
-		Object multSrc = new Object();
-		solver.addModifier(multm, multSrc);
-		solver.addModifier(setm, this);
-		list = solver.diagnose();
+		solver.addModifier(multm, str);
+		solver.addModifier(setm, inst);
+		list = solver.diagnose(evalManager);
 		assertEquals(4, list.size());
 		step = list.get(0);
-		assertEquals("DefaultValue for Number", step.getSourceInfo());
+		assertEquals("Default Value for Number", step.getSourceInfo());
 		assertEquals(6, step.getResult());
 		assertEquals(mod, step.getModifier());
 		step = list.get(1);
-		assertEquals(this, step.getSource());
+		assertEquals(inst, step.getSource());
 		assertEquals(4, step.getResult());
 		assertEquals(setm, step.getModifier());
 		step = list.get(2);
-		assertEquals(multSrc, step.getSource());
+		assertEquals(str, step.getSource());
 		assertEquals(8, step.getResult());
 		assertEquals(multm, step.getModifier());
 		step = list.get(3);
-		assertEquals(this, step.getSource());
+		assertEquals(inst, step.getSource());
 		assertEquals(9, step.getResult());
 		assertEquals(addm, step.getModifier());
 
@@ -282,30 +280,30 @@ public class SolverTest extends TestCase
 	public void testArrayMod()
 	{
 		Solver<Number[]> solver =
-				new Solver<Number[]>(AbstractModifier.setEmptyArray(0), evalManager);
-		assertTrue(Arrays.equals(new Number[]{}, solver.process()));
+				new Solver<Number[]>(AbstractModifier.setEmptyArray(0));
+		assertTrue(Arrays.equals(new Number[]{}, solver.process(evalManager)));
 		Modifier<Number[]> add1 = AbstractModifier.addToArray(1, 10);
-		solver.addModifier(add1, this);
-		assertTrue(Arrays.equals(new Number[]{1}, solver.process()));
+		solver.addModifier(add1, inst);
+		assertTrue(Arrays.equals(new Number[]{1}, solver.process(evalManager)));
 		Modifier<Number[]> add2 = AbstractModifier.addToArray(2, 11);
-		solver.addModifier(add2, this);
-		assertTrue(Arrays.equals(new Number[]{1, 2}, solver.process()));
+		solver.addModifier(add2, inst);
+		assertTrue(Arrays.equals(new Number[]{1, 2}, solver.process(evalManager)));
 		Modifier<Number[]> add3 = AbstractModifier.addToArray(3, 12);
-		solver.addModifier(add3, this);
-		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, solver.process()));
+		solver.addModifier(add3, inst);
+		assertTrue(Arrays.equals(new Number[]{1, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> addm = AbstractModifier.add(1, 100);
 		Modifier<Number[]> addTo1 = new ArrayComponentModifier<>(0, addm);
-		solver.addModifier(addTo1, this);
-		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process()));
+		solver.addModifier(addTo1, inst);
+		assertTrue(Arrays.equals(new Number[]{2, 2, 3}, solver.process(evalManager)));
 		Modifier<Number> multm = AbstractModifier.multiply(2, 100);
 		Modifier<Number[]> multTo2 = new ArrayComponentModifier<>(1, multm);
-		solver.addModifier(multTo2, this);
-		assertTrue(Arrays.equals(new Number[]{2, 4, 3}, solver.process()));
+		solver.addModifier(multTo2, inst);
+		assertTrue(Arrays.equals(new Number[]{2, 4, 3}, solver.process(evalManager)));
 		Modifier<Number> setm = AbstractModifier.setNumber(7, 100);
 		Modifier<Number[]> setTo3 = new ArrayComponentModifier<>(2, setm);
-		solver.addModifier(setTo3, this);
-		assertTrue(Arrays.equals(new Number[]{2, 4, 7}, solver.process()));
-		solver.removeModifier(add1, this);
-		assertTrue(Arrays.equals(new Number[]{3, 6}, solver.process()));
+		solver.addModifier(setTo3, inst);
+		assertTrue(Arrays.equals(new Number[]{2, 4, 7}, solver.process(evalManager)));
+		solver.removeModifier(add1, inst);
+		assertTrue(Arrays.equals(new Number[]{3, 6}, solver.process(evalManager)));
 	}
 }

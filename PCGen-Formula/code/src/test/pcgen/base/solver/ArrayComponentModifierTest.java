@@ -89,8 +89,7 @@ public class ArrayComponentModifierTest extends TestCase
 		Modifier cm = AbstractModifier.setNumber(6, 100);
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = {1, 2, 3, 4, 5, 6, 7};
-		EvaluationManager manager = new EvaluationManager();
-		manager.set(EvaluationManager.INPUT, array);
+		EvaluationManager manager = new EvaluationManager().getWith(EvaluationManager.INPUT, array);
 		Object[] result = acm.process(manager);
 		assertFalse(array == result);
 		array[5] = 6;
@@ -105,8 +104,7 @@ public class ArrayComponentModifierTest extends TestCase
 		ArrayComponentModifier acm = new ArrayComponentModifier(5, cm);
 		Number[] array = {1, 2, 3, 4};
 		//Should be no effect
-		EvaluationManager manager = new EvaluationManager();
-		manager.set(EvaluationManager.INPUT, array);
+		EvaluationManager manager = new EvaluationManager().getWith(EvaluationManager.INPUT, array);
 		Object[] result = acm.process(manager);
 		assertTrue(Arrays.deepEquals(array, result));
 	}

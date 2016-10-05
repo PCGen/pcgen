@@ -71,7 +71,7 @@ public class ComplexNEPFormulaTest extends TestCase
 		LegalScopeLibrary scopeLib = setup.getLegalScopeLibrary();
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		scopeLib.registerScope(globalScope);
-		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
+		IndividualSetup indSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 
 		FormulaManager fm = indSetup.getFormulaManager();
 		NumberManager numberMgr = FormatUtilities.NUMBER_MANAGER;
@@ -124,8 +124,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		new ComplexNEPFormula("if(c||d,\"A\",\"B\")").isValid(stringMgr, fs);
 		assertEquals(true, fs.isValid());
 
-		fs.set(FormulaSemantics.INPUT_FORMAT, numberMgr);
-		new ComplexNEPFormula("value()").isValid(numberMgr, fs);
+		new ComplexNEPFormula("value()").isValid(numberMgr,
+			fs.getWith(FormulaSemantics.INPUT_FORMAT, numberMgr));
 		assertEquals(true, fs.isValid());
 		new ComplexNEPFormula("3^5").isValid(numberMgr, fs);
 		assertEquals(true, fs.isValid());
@@ -138,7 +138,7 @@ public class ComplexNEPFormulaTest extends TestCase
 		LegalScopeLibrary scopeLib = setup.getLegalScopeLibrary();
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		scopeLib.registerScope(globalScope);
-		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
+		IndividualSetup indSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
 		DependencyManager depManager = setupDM(indSetup);
@@ -148,19 +148,19 @@ public class ComplexNEPFormulaTest extends TestCase
 
 		new ComplexNEPFormula("3+5").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
 		new ComplexNEPFormula("3*5").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
 		new ComplexNEPFormula("(3+5)*7").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		setup.getVariableLibrary().assertLegalVariableID("a", globalScope,
@@ -176,7 +176,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			"a")));
 		assertTrue(variables.contains(new VariableID<>(globalInst, numberMgr,
 			"b")));
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
@@ -187,7 +187,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			"a")));
 		assertTrue(variables.contains(new VariableID<>(globalInst, numberMgr,
 			"b")));
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
@@ -198,7 +198,7 @@ public class ComplexNEPFormulaTest extends TestCase
 			"a")));
 		assertTrue(variables.contains(new VariableID<>(globalInst, numberMgr,
 			"b")));
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		setup.getVariableLibrary().assertLegalVariableID("c", globalScope,
@@ -215,19 +215,19 @@ public class ComplexNEPFormulaTest extends TestCase
 			"c")));
 		assertTrue(variables.contains(new VariableID<>(globalInst, booleanMgr,
 			"d")));
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
 		new ComplexNEPFormula("value()").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 
 		depManager = setupDM(indSetup);
 		new ComplexNEPFormula("3^5").getDependencies(depManager);
 		assertTrue(depManager.getVariables().isEmpty());
-		assertEquals(-1, depManager.peek(ArgumentDependencyManager.KEY)
+		assertEquals(-1, depManager.get(ArgumentDependencyManager.KEY)
 			.getMaximumArgument());
 	}
 
@@ -235,8 +235,7 @@ public class ComplexNEPFormulaTest extends TestCase
 	{
 		DependencyManager dm = managerFactory.generateDependencyManager(
 			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), null);
-		dm.set(ArgumentDependencyManager.KEY, new ArgumentDependencyManager());
-		return dm;
+		return dm.getWith(ArgumentDependencyManager.KEY, new ArgumentDependencyManager());
 	}
 
 	public void testResolve()
@@ -246,11 +245,14 @@ public class ComplexNEPFormulaTest extends TestCase
 		LegalScopeLibrary scopeLib = setup.getLegalScopeLibrary();
 		SimpleLegalScope globalScope = new SimpleLegalScope(null, "Global");
 		scopeLib.registerScope(globalScope);
-		IndividualSetup indSetup = new IndividualSetup(setup, "Global");
+		SimpleVariableStore store = new SimpleVariableStore();
+		IndividualSetup indSetup = new IndividualSetup(setup, "Global", store);
 
 		ScopeInstance globalInst = indSetup.getGlobalScopeInst();
 		EvaluationManager evalManager = managerFactory.generateEvaluationManager(
-			indSetup.getFormulaManager(), indSetup.getGlobalScopeInst(), Number.class);
+			indSetup.getFormulaManager(), Number.class);
+		evalManager = evalManager.getWith(EvaluationManager.INSTANCE,
+			indSetup.getGlobalScopeInst());
 		try
 		{
 			new ComplexNEPFormula("3+5").resolve(null);
@@ -273,10 +275,8 @@ public class ComplexNEPFormulaTest extends TestCase
 		setup.getVariableLibrary().assertLegalVariableID("b", globalScope,
 			numberMgr);
 
-		indSetup.getVariableStore().put(
-			new VariableID<>(globalInst, numberMgr, "a"), 4);
-		indSetup.getVariableStore().put(
-			new VariableID<>(globalInst, numberMgr, "b"), 1);
+		store.put(new VariableID<>(globalInst, numberMgr, "a"), 4);
+		store.put(new VariableID<>(globalInst, numberMgr, "b"), 1);
 		assertEquals(3, new ComplexNEPFormula("a-b").resolve(evalManager));
 
 		assertEquals(5,
@@ -289,16 +289,13 @@ public class ComplexNEPFormulaTest extends TestCase
 			booleanMgr);
 		setup.getVariableLibrary().assertLegalVariableID("d", globalScope,
 			booleanMgr);
-		indSetup.getVariableStore().put(
-			new VariableID<>(globalInst, booleanMgr, "c"), false);
-		indSetup.getVariableStore().put(
-			new VariableID<>(globalInst, booleanMgr, "d"), true);
+		store.put(new VariableID<>(globalInst, booleanMgr, "c"), false);
+		store.put(new VariableID<>(globalInst, booleanMgr, "d"), true);
 
 		assertEquals("A",
 			new ComplexNEPFormula("if(c||d,\"A\",\"B\")").resolve(evalManager));
 
-		evalManager.set(EvaluationManager.INPUT, 4);
-		assertEquals(4, new ComplexNEPFormula("value()").resolve(evalManager));
+		assertEquals(4, new ComplexNEPFormula("value()").resolve(evalManager.getWith(EvaluationManager.INPUT, 4)));
 		assertEquals(243.0, new ComplexNEPFormula("3^5").resolve(evalManager));
 	}
 }

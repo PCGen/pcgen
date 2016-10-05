@@ -86,17 +86,21 @@ public class ArrayComponentModifier<T> implements Modifier<T[]>
 	public T[] process(EvaluationManager manager)
 	{
 		@SuppressWarnings("unchecked")
-		T[] input = (T[]) manager.peek(EvaluationManager.INPUT);
+		T[] input = (T[]) manager.get(EvaluationManager.INPUT);
 		int length = input.length;
+		//Safely handle out of bounds if larger
 		if (location > (length - 1))
 		{
 			return input;
 		}
-		manager.push(EvaluationManager.INPUT, input[location]);
+		//We create a new array as defensive (ownership not transferred on INPUT)
 		T[] result = Arrays.copyOf(input, length);
 		System.arraycopy(input, 0, result, 0, length);
-		result[location] = modifier.process(manager);
-		manager.pop(EvaluationManager.INPUT);
+		EvaluationManager subManager =
+				manager.getWith(EvaluationManager.INPUT, input[location]);
+		subManager =
+				subManager.getWith(EvaluationManager.ASSERTED, format.getComponentType());
+		result[location] = modifier.process(subManager);
 		return result;
 	}
 

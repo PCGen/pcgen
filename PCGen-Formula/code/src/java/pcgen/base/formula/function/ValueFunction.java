@@ -65,7 +65,7 @@ public class ValueFunction implements Function
 	{
 		if (args.length == 0)
 		{
-			return semantics.peek(FormulaSemantics.INPUT_FORMAT);
+			return semantics.get(FormulaSemantics.INPUT_FORMAT);
 		}
 		semantics.setInvalid("Function " + "value()"
 			+ " received incorrect # of arguments, expected: 0 got "
@@ -77,7 +77,7 @@ public class ValueFunction implements Function
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
 	{
-		return manager.peek(EvaluationManager.INPUT);
+		return manager.get(EvaluationManager.INPUT);
 	}
 
 	@Override

@@ -17,6 +17,7 @@
  */
 package pcgen.base.solver;
 
+import pcgen.base.formula.base.Identified;
 
 /**
  * A ProcessStep is a piece of diagnostic information about a Solver.
@@ -41,7 +42,7 @@ public class ProcessStep<T>
 	/**
 	 * The source of the Modifier, for tracing where the Modifier came from.
 	 */
-	private final Object source;
+	private final Identified source;
 
 	/**
 	 * The resulting value after the Modifier was applied.
@@ -61,7 +62,7 @@ public class ProcessStep<T>
 	 * @param result
 	 *            The resulting value after the given Modifier was applied
 	 */
-	public ProcessStep(Modifier<T> modifier, Object source, T result)
+	public ProcessStep(Modifier<T> modifier, Identified source, T result)
 	{
 		this.modifier = modifier;
 		this.source = source;
@@ -83,7 +84,7 @@ public class ProcessStep<T>
 	 * 
 	 * @return The source of the Modifier contained in this ProcessStep
 	 */
-	public Object getSource()
+	public Identified getSource()
 	{
 		return source;
 	}
@@ -110,6 +111,6 @@ public class ProcessStep<T>
 	 */
 	public String getSourceInfo()
 	{
-		return source.getClass().getSimpleName() + " " + source;
+		return source.getIdentification();
 	}
 }

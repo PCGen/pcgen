@@ -71,7 +71,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		depManager = getManagerFactory().generateDependencyManager(getFormulaManager(),
 			getGlobalScopeInst(), null);
 		argManager = new ArgumentDependencyManager();
-		depManager.set(ArgumentDependencyManager.KEY, argManager);
+		depManager = depManager.getWith(ArgumentDependencyManager.KEY, argManager);
 	}
 
 	@Test
@@ -167,7 +167,7 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		 * Safe and "ignored" - if this test fails, need to change what FDM is
 		 * passed in - it should NOT contain an ArgumentDependencyManager
 		 */
-		assertTrue(fdm.peek(ArgumentDependencyManager.KEY) == null);
+		assertTrue(fdm.get(ArgumentDependencyManager.KEY) == null);
 		DependencyVisitor dv = new DependencyVisitor();
 		dv.visit(node, fdm);
 	}

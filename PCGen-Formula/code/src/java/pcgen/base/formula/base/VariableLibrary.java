@@ -99,7 +99,7 @@ public class VariableLibrary
 		{
 			throw new IllegalArgumentException("LegalScope cannot be null");
 		}
-		checkLegalVarName(varName);
+		VariableID.checkLegalVarName(varName);
 		if (!variableDefs.containsKey(varName))
 		{
 			//Can't be a conflict
@@ -113,23 +113,13 @@ public class VariableLibrary
 			return formatManager.equals(currentFormat);
 		}
 		//Now, need to check for conflicts
-		LegalScope parent = legalScope.getParentScope();
-		while (parent != null)
-		{
-			if (variableDefs.containsKey(varName, parent))
-			{
-				//Conflict with a higher level scope
-				return false;
-			}
-			parent = parent.getParentScope();
-		}
-		boolean hasChildConflict =
-				hasChildConflict(varName, legalScope, formatManager);
-		if (!hasChildConflict)
+		boolean hasConflict = hasParentConflict(varName, legalScope)
+			|| hasChildConflict(varName, legalScope, formatManager);
+		if (!hasConflict)
 		{
 			addLegalVariable(varName, legalScope, formatManager);
 		}
-		return !hasChildConflict;
+		return !hasConflict;
 	}
 
 	/**
@@ -142,6 +132,25 @@ public class VariableLibrary
 	{
 		library.registerScope(legalScope);
 		variableDefs.put(varName, legalScope, formatManager);
+	}
+
+	/**
+	 * Returns true if there is a conflict the a parent Scope for the given
+	 * variable name.
+	 */
+	private boolean hasParentConflict(String varName, LegalScope legalScope)
+	{
+		LegalScope parent = legalScope.getParentScope();
+		while (parent != null)
+		{
+			if (variableDefs.containsKey(varName, parent))
+			{
+				//Conflict with a higher level scope
+				return true;
+			}
+			parent = parent.getParentScope();
+		}
+		return false;
 	}
 
 	/**
@@ -196,6 +205,7 @@ public class VariableLibrary
 		{
 			return true;
 		}
+		//Recursively check parent
 		LegalScope parent = legalScope.getParentScope();
 		return (parent != null) && isLegalVariableID(parent, varName);
 	}
@@ -224,6 +234,7 @@ public class VariableLibrary
 		if (format == null)
 		{
 			LegalScope parent = legalScope.getParentScope();
+			//Recursively check parent, if possible
 			if (parent != null)
 			{
 				return getVariableFormat(parent, varName);
@@ -253,7 +264,7 @@ public class VariableLibrary
 	 */
 	public Set<LegalScope> getKnownLegalScopes(String varName)
 	{
-		checkLegalVarName(varName);
+		VariableID.checkLegalVarName(varName);
 		return variableDefs.getSecondaryKeySet(varName);
 	}
 
@@ -298,31 +309,15 @@ public class VariableLibrary
 				"Cannot get VariableID " + varName + " for "
 					+ messageScope.getLegalScope().getName() + " scope");
 		}
-		checkLegalVarName(varName);
+		VariableID.checkLegalVarName(varName);
 		FormatManager<?> formatManager =
 				variableDefs.get(varName, scopeInst.getLegalScope());
 		if (formatManager != null)
 		{
 			return new VariableID<>(scopeInst, formatManager, varName);
 		}
+		//Recursively check parent scope
 		return getVarIDMessaged(scopeInst.getParentScope(), varName,
 			messageScope);
-	}
-
-	/**
-	 * Ensure a name is not null, zero length, or whitespace padded.
-	 */
-	private void checkLegalVarName(String varName)
-	{
-		if (varName.isEmpty())
-		{
-			throw new IllegalArgumentException("Variable Name cannot be empty");
-		}
-		String trimmed = varName.trim();
-		if (!varName.equals(trimmed))
-		{
-			throw new IllegalArgumentException(
-				"Variable Name cannot start/end with whitespace");
-		}
 	}
 }

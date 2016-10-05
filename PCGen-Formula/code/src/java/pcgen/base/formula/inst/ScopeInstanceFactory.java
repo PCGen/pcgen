@@ -111,7 +111,7 @@ public class ScopeInstanceFactory
 		ScopeInstance inst = globals.get(name);
 		if (inst == null)
 		{
-			inst = new SimpleScopeInstance(null, legalScope);
+			inst = new SimpleScopeInstance(null, legalScope, "Global Scope");
 			globals.put(name, inst);
 		}
 		return inst;
@@ -203,7 +203,7 @@ public class ScopeInstanceFactory
 			ScopeInstance parentInstance =
 					getMessaged(instScope.getParentScope(), parentObj,
 						parentObj);
-			inst = constructInstance(parentInstance, currentScope);
+			inst = constructInstance(parentInstance, currentScope, original);
 			objectToInstanceCache.put(current, inst);
 		}
 		return inst;
@@ -214,10 +214,10 @@ public class ScopeInstanceFactory
 	 * embedded LegalScopeLibrary.
 	 */
 	private ScopeInstance constructInstance(ScopeInstance parent,
-		LegalScope scope)
+		LegalScope scope, Object representing)
 	{
 		SimpleScopeInstance inst =
-				new SimpleScopeInstance(parent, scope);
+				new SimpleScopeInstance(parent, scope, representing);
 		scopeInstances.addToListFor(parent, scope, inst);
 		return inst;
 	}

@@ -28,7 +28,9 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.FormulaUtilities;
+import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.testsupport.AbstractModifier;
+import pcgen.base.solver.testsupport.MockStat;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
 
 public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
@@ -153,7 +155,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 					"HP");
 		manager.createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		try
 		{
 			manager.addModifier(null, modifier, source);
@@ -208,7 +210,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(hp));
 		manager.createChannel(hp);
 		assertEquals(0, store.get(hp));
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		manager.addModifier(hp, modifier, source);
 		assertEquals(6, store.get(hp));
@@ -221,8 +223,12 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(hitpoints));
 		manager.addModifier(hitpoints, modifier, source);
 		assertEquals(6, store.get(hitpoints));
-		Object altSource = new Object();
-		manager.addModifier(hitpoints, AbstractModifier.setNumber(12, 3), altSource);
+
+		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
+		getScopeLibrary().registerScope(localScope);
+		ScopeInstance strInst = getInstanceFactory().get("STAT", new MockStat("Strength"));
+
+		manager.addModifier(hitpoints, AbstractModifier.setNumber(12, 3), strInst);
 		assertEquals(6, store.get(hitpoints));
 		manager.removeModifier(hitpoints, modifier, source);
 		assertEquals(12, store.get(hitpoints));
@@ -231,7 +237,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testComplex()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> formulaMod = AbstractModifier.add(formula, 100);
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
@@ -272,7 +278,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testChained()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
@@ -331,7 +337,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 					"HP");
 		manager.createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		try
 		{
 			manager.removeModifier(null, modifier, source);
@@ -391,7 +397,7 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testCircular()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
@@ -446,5 +452,37 @@ public class AggressiveSolverManagerTest extends AbstractFormulaTestCase
 			//yes, need to barf on infinite loop
 		}
 
+	}
+
+	@Test
+	public void testAddModifierExternal()
+	{
+		varLibrary.assertLegalVariableID("STR", globalScope, numberManager);
+		VariableID<Number> str =
+				(VariableID<Number>) varLibrary.getVariableID(globalScopeInst,
+					"STR");
+
+		assertEquals(null, store.get(str));
+		manager.createChannel(str);
+		assertEquals(0, store.get(str));
+		
+		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
+		getScopeLibrary().registerScope(localScope);
+
+		ScopeInstance strInst = getInstanceFactory().get("STAT", new MockStat("Strength"));
+
+		varLibrary.assertLegalVariableID("Mod", localScope, numberManager);
+		VariableID<Number> mod =
+				(VariableID<Number>) varLibrary.getVariableID(strInst, "Mod");
+		
+		AbstractModifier<Number> modifier = AbstractModifier.setNumber(3, 5);
+		manager.addModifier(mod, modifier, strInst);
+		assertEquals(3, store.get(mod));
+
+		ComplexNEPFormula formula = new ComplexNEPFormula("mod");
+		Modifier<Number> modMod = AbstractModifier.add(formula, 100);
+
+		manager.addModifier(str, modMod, strInst);
+		assertEquals(3, store.get(str));
 	}
 }

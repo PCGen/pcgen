@@ -184,14 +184,13 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public Object visit(ASTPCGenLookup node, Object data)
 	{
 		DependencyManager manager = (DependencyManager) data;
-		FormulaManager formulaManager =
-				manager.peek(DependencyManager.FMANAGER);
-		FunctionLibrary library = formulaManager.peek(FormulaManager.FUNCTION);
 		ASTPCGenSingleWord fnode = (ASTPCGenSingleWord) node.jjtGetChild(0);
 		String name = fnode.getText();
 		Node argNode = node.jjtGetChild(1);
 		if (argNode instanceof ASTFParen)
 		{
+			FormulaManager formulaManager = manager.get(DependencyManager.FMANAGER);
+			FunctionLibrary library = formulaManager.get(FormulaManager.FUNCTION);
 			Function function = library.getFunction(name);
 			Node[] args = VisitorUtilities.accumulateArguments(argNode);
 			function.getDependencies(this, manager, args);
@@ -229,9 +228,9 @@ public class DependencyVisitor implements FormulaParserVisitor
 	public void visitVariable(String varName, DependencyManager manager)
 	{
 		VariableLibrary varLib =
-				manager.peek(DependencyManager.FMANAGER).getFactory();
+				manager.get(DependencyManager.FMANAGER).getFactory();
 		VariableID<?> id =
-				varLib.getVariableID(manager.peek(DependencyManager.INSTANCE),
+				varLib.getVariableID(manager.get(DependencyManager.INSTANCE),
 					varName);
 		if (id != null)
 		{

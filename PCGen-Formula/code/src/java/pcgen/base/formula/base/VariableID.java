@@ -88,16 +88,7 @@ public class VariableID<T>
 	public VariableID(ScopeInstance scopeInst,
 		FormatManager<T> formatManager, String varName)
 	{
-		String trimmed = varName.trim();
-		if (!varName.equals(trimmed))
-		{
-			throw new IllegalArgumentException(
-				"Variable Name cannot start/end with whitespace");
-		}
-		if (varName.isEmpty())
-		{
-			throw new IllegalArgumentException("Variable Name cannot be empty");
-		}
+		checkLegalVarName(varName);
 		this.formatManager = Objects.requireNonNull(formatManager);
 		this.scope = Objects.requireNonNull(scopeInst);
 		this.varName = new CaseInsensitiveString(varName);
@@ -180,5 +171,21 @@ public class VariableID<T>
 	{
 		return scope.getLegalScope().getName() + " Variable: " + varName + " ("
 			+ formatManager.getIdentifierType() + ")";
+	}
+
+	/**
+	 * Ensure a name is not null, zero length, or whitespace padded.
+	 */
+	public static void checkLegalVarName(String varName)
+	{
+		if (varName.isEmpty())
+		{
+			throw new IllegalArgumentException("Variable Name cannot be empty");
+		}
+		if (!varName.equals(varName.trim()))
+		{
+			throw new IllegalArgumentException(
+				"Variable Name cannot start/end with whitespace");
+		}
 	}
 }

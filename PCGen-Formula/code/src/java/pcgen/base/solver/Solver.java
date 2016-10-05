@@ -22,6 +22,8 @@ import java.util.List;
 import java.util.Objects;
 
 import pcgen.base.formula.base.EvaluationManager;
+import pcgen.base.formula.base.Identified;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.TreeMapToList;
 
@@ -45,12 +47,6 @@ import pcgen.base.util.TreeMapToList;
  */
 public class Solver<T>
 {
-
-	/**
-	 * The underlying EvaluationManager for this Solver, used when a Modifier
-	 * uses a Formula to determine the output value.
-	 */
-	private final EvaluationManager evaluationManager;
 
 	/**
 	 * The "starting" or "default" modifier for this Solver. This is the value
@@ -92,22 +88,17 @@ public class Solver<T>
 	 *            Modifier uses a Formula to determine the output value
 	 */
 	@SuppressWarnings({"PMD.AvoidCatchingNPE", "PMD.AvoidCatchingGenericException"})
-	public Solver(Modifier<T> defaultModifier, EvaluationManager evaluationManager)
+	public Solver(Modifier<T> defaultModifier)
 	{
 		if (defaultModifier == null)
 		{
 			throw new IllegalArgumentException(
 				"Default Modifier cannot be null");
 		}
-		if (evaluationManager == null)
-		{
-			throw new IllegalArgumentException(
-				"EvaluationManager cannot be null");
-		}
 		//Enforce no dependencies
 		try
 		{
-			defaultModifier.process(Objects.requireNonNull(evaluationManager));
+			defaultModifier.process(null);
 		}
 		catch (NullPointerException e)
 		{
@@ -115,7 +106,6 @@ public class Solver<T>
 				"Default Modifier must support null input", e);
 		}
 		this.defaultModifier = defaultModifier;
-		this.evaluationManager = evaluationManager;
 	}
 
 	/**
@@ -129,7 +119,7 @@ public class Solver<T>
 	 * @param source
 	 *            The source object for the given Modifier
 	 */
-	public void addModifier(Modifier<T> modifier, Object source)
+	public void addModifier(Modifier<T> modifier, ScopeInstance source)
 	{
 		//Ensure someone isn't playing fast and loose with generics
 		Class<?> varFormat = defaultModifier.getVariableFormat();
@@ -158,7 +148,7 @@ public class Solver<T>
 	 *            The source object for the Modifier to be removed from this
 	 *            Solver
 	 */
-	public void removeModifier(Modifier<T> modifier, Object source)
+	public void removeModifier(Modifier<T> modifier, ScopeInstance source)
 	{
 		modifierList.removeFromListFor(Long.valueOf(modifier.getPriority()),
 			new ModInfo<>(modifier, Objects.requireNonNull(source)));
@@ -175,7 +165,7 @@ public class Solver<T>
 	 * @throws IllegalArgumentException
 	 *             if the given source object is null
 	 */
-	public void removeFromSource(Object source)
+	public void removeFromSource(ScopeInstance source)
 	{
 		List<Modifier<T>> removed = sourceList.removeListFor(Objects.requireNonNull(source));
 		if (removed != null)
@@ -194,34 +184,41 @@ public class Solver<T>
 	 * Process this Solver to provide the value after all Modifiers are
 	 * processed (in priority order).
 	 * 
+	 * @param evalManager The EvaluationManager used to support evaluation of the Modifiers in this Solver
 	 * @return The resulting value after all Modifier objects are processed
 	 */
-	public T process()
+	public T process(EvaluationManager evalManager)
 	{
-		T result = defaultModifier.process(evaluationManager);
+		T result = defaultModifier.process(null);
 		for (Long priority : modifierList.getKeySet())
 		{
 			for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 			{
-				evaluationManager.set(EvaluationManager.INPUT, result);
-				result = modInfo.modifier.process(evaluationManager);
+				EvaluationManager thisManager =
+						evalManager.getWith(EvaluationManager.INPUT, result);
+				thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
+					modInfo.getSource());
+				result = modInfo.getModifier().process(thisManager);
 			}
 		}
 		return result;
 	}
 
 	/**
-	 * Provides a "debugging" view of the operations taking place in this
-	 * Solver. This returns a List of ProcessStep objects that are an ordered
-	 * list of the steps taken and the value after each step.
+	 * Provides a "debugging" view of the operations taking place in this Solver. This
+	 * returns a List of ProcessStep objects that are an ordered list of the steps taken
+	 * and the value after each step.
 	 * 
-	 * @return A list of ProcessStep objects indicating the operations that take
-	 *         place in this Solver when process() is called
+	 * @param evalManager
+	 *            The EvaluationManager used to support evaluation of the Modifiers in
+	 *            this Solver
+	 * @return A list of ProcessStep objects indicating the operations that take place in
+	 *         this Solver when process() is called
 	 */
-	public List<ProcessStep<T>> diagnose()
+	public List<ProcessStep<T>> diagnose(EvaluationManager evalManager)
 	{
 		List<ProcessStep<T>> steps = new ArrayList<ProcessStep<T>>();
-		T stepResult = defaultModifier.process(evaluationManager);
+		T stepResult = defaultModifier.process(null);
 		steps.add(new ProcessStep<T>(defaultModifier, new DefaultValue(
 			defaultModifier.getVariableFormat().getSimpleName()), stepResult));
 		if (!modifierList.isEmpty())
@@ -230,11 +227,14 @@ public class Solver<T>
 			{
 				for (ModInfo<T> modInfo : modifierList.getListFor(priority))
 				{
-					evaluationManager.set(EvaluationManager.INPUT, stepResult);
-					stepResult = modInfo.modifier.process(evaluationManager);
+					EvaluationManager thisManager =
+							evalManager.getWith(EvaluationManager.INPUT, stepResult);
+					thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
+						modInfo.getSource());
+					stepResult = modInfo.getModifier().process(thisManager);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-					ProcessStep<T> step = new ProcessStep<T>(modInfo.modifier,
-						modInfo.source, stepResult);
+					ProcessStep<T> step = new ProcessStep<T>(modInfo.getModifier(),
+						modInfo.getSource(), stepResult);
 					steps.add(step);
 				}
 			}
@@ -245,23 +245,22 @@ public class Solver<T>
 	/**
 	 * Carries the Default Value information for display in diagnosis
 	 */
-	private final class DefaultValue
+	private final class DefaultValue implements Identified
 	{
 		/**
-		 * The reporting String indicating that the value is the default value
-		 * for a given format
+		 * The format name of the format that this DefaultValue is representing
 		 */
-		private String reportString;
+		private String formatName;
 		
 		private DefaultValue(String formatName)
 		{
-			this.reportString = "for " + formatName;
+			this.formatName = formatName;
 		}
 		
 		@Override
-		public String toString()
+		public String getIdentification()
 		{
-			return reportString;
+			return "Default Value for " + formatName;
 		}
 	}
 
@@ -275,9 +274,9 @@ public class Solver<T>
 	private static final class ModInfo<IT>
 	{
 		private final Modifier<IT> modifier;
-		private final Object source;
+		private final ScopeInstance source;
 
-		private ModInfo(Modifier<IT> modifier, Object source)
+		private ModInfo(Modifier<IT> modifier, ScopeInstance source)
 		{
 			this.modifier = modifier;
 			this.source = source;
@@ -288,7 +287,7 @@ public class Solver<T>
 			return modifier;
 		}
 
-		public Object getSource()
+		public ScopeInstance getSource()
 		{
 			return source;
 		}

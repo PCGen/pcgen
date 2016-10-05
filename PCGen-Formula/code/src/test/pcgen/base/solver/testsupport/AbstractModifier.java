@@ -125,7 +125,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			@Override
 			public Number[] process(EvaluationManager manager)
 			{
-				Number[] input = (Number[]) manager.peek(EvaluationManager.INPUT);
+				Number[] input = (Number[]) manager.get(EvaluationManager.INPUT);
 				Number[] newArray =
 						(Number[]) Array.newInstance(NUMBER_CLASS,
 							input.length + 1);
@@ -192,7 +192,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			@Override
 			public Number process(EvaluationManager manager)
 			{
-				return NumberUtilities.multiply((Number) manager.peek(EvaluationManager.INPUT), value);
+				return NumberUtilities.multiply((Number) manager.get(EvaluationManager.INPUT), value);
 			}
 
 			@Override
@@ -210,7 +210,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			@Override
 			public Number process(EvaluationManager manager)
 			{
-				return NumberUtilities.add((Number) manager.peek(EvaluationManager.INPUT), value);
+				return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), value);
 			}
 
 			@Override
@@ -230,7 +230,7 @@ public abstract class AbstractModifier<T> implements Modifier<T>
 			public Number process(EvaluationManager manager)
 			{
 				Number result = (Number) value.resolve(manager);
-				return NumberUtilities.add((Number) manager.peek(EvaluationManager.INPUT), result);
+				return NumberUtilities.add((Number) manager.get(EvaluationManager.INPUT), result);
 			}
 
 			@Override

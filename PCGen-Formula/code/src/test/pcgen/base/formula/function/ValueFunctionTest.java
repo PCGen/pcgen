@@ -52,8 +52,7 @@ public class ValueFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		isValid(formula, node, numberManager, null);
 		isStatic(formula, node, false);
-		EvaluationManager manager = generateManager();
-		manager.push(EvaluationManager.INPUT, 1);
+		EvaluationManager manager = generateManager().getWith(EvaluationManager.INPUT, 1);
 		performEvaluation(formula, node, Integer.valueOf(1), manager);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());

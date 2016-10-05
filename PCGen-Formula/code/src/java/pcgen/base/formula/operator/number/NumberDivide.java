@@ -68,7 +68,7 @@ public class NumberDivide implements OperatorAction
 		{
 			int leftInt = ((Integer) left).intValue();
 			int rightInt = ((Integer) right).intValue();
-			if ((leftInt % rightInt) == 0)
+			if ((rightInt != 0) && (leftInt % rightInt) == 0)
 			{
 				return leftInt / rightInt;
 			}

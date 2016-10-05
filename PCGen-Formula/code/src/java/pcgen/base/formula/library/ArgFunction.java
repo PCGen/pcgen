@@ -18,6 +18,7 @@
 package pcgen.base.formula.library;
 
 import java.util.Arrays;
+import java.util.Objects;
 
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
@@ -61,7 +62,7 @@ public class ArgFunction implements Function
 	 */
 	public ArgFunction(Node[] masterArgs)
 	{
-		this.masterArgs = masterArgs;
+		this.masterArgs = Objects.requireNonNull(masterArgs);
 	}
 
 	@Override
@@ -133,13 +134,12 @@ public class ArgFunction implements Function
 	private void assertArgs(FormulaSemantics semantics, int argNum)
 	{
 		ArgumentDependencyManager argManager =
-				semantics.peek(ArgumentDependencyManager.KEY);
-		if (argManager == null)
+				semantics.get(ArgumentDependencyManager.KEY);
+		//If not present, they didn't ask, their own fault
+		if (argManager != null)
 		{
-			argManager = new ArgumentDependencyManager();
-			semantics.set(ArgumentDependencyManager.KEY, argManager);
+			argManager.addArgument(argNum);
 		}
-		argManager.addArgument(argNum);
 	}
 
 	@Override
@@ -165,9 +165,10 @@ public class ArgFunction implements Function
 		ASTNum node = (ASTNum) args[0];
 		int argNum = Integer.parseInt(node.getText());
 		ArgumentDependencyManager argManager =
-				manager.peek(ArgumentDependencyManager.KEY);
+				manager.get(ArgumentDependencyManager.KEY);
 		if (argManager != null)
 		{
+			//TODO What if not present - probably an error since it's a REAL dependency... (unlike ignoring it in Semantics)
 			argManager.addArgument(argNum);
 		}
 		visitor.visit((SimpleNode) masterArgs[argNum], manager);
