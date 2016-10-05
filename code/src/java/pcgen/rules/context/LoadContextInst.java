@@ -533,7 +533,7 @@ abstract class LoadContextInst implements LoadContext
 		if (scopeInst == null)
 		{
 			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope);
+			scopeInst = new SimpleScopeInstance(null, legalScope, "Global");
 		}
 		return scopeInst;
 	}
@@ -559,8 +559,8 @@ abstract class LoadContextInst implements LoadContext
 			return this;
 		}
 		LoadContext parentLC = dropIntoContext(parent);
-		SimpleScopeInstance localInst =
-				new SimpleScopeInstance(parentLC.getActiveScope(), lvs);
+		SimpleScopeInstance localInst = new SimpleScopeInstance(parentLC.getActiveScope(),
+			lvs, "Context (during Load)");
 		return new DerivedLoadContext(parentLC, localInst);
 	}
 
@@ -817,8 +817,8 @@ abstract class LoadContextInst implements LoadContext
 			else if (toScope.getParentScope().equals(currentScope))
 			{
 				//Direct drop from this
-				SimpleScopeInstance localInst =
-						new SimpleScopeInstance(scopeInst, toScope);
+				SimpleScopeInstance localInst = new SimpleScopeInstance(scopeInst,
+					toScope, "Context (during Load)");
 				return new DerivedLoadContext(this, localInst);
 			}
 			//Random jump to somewhere else...

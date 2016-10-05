@@ -76,7 +76,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	public T process(EvaluationManager evalManager)
 	{
 		@SuppressWarnings("unchecked")
-		T input = (T) evalManager.peek(EvaluationManager.INPUT);
+		T input = (T) evalManager.get(EvaluationManager.INPUT);
 		T resolved = formula.resolve(evalManager);
 		return getBasicCalculation().process(input, resolved);
 	}

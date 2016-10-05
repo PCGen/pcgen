@@ -37,6 +37,7 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
+import pcgen.base.formula.inst.SimpleVariableStore;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.EvaluateVisitor;
@@ -50,7 +51,6 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
-import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 
 public abstract class AbstractFormulaTestCase extends TestCase
 {
@@ -72,7 +72,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		setup = context.getVariableContext().getFormulaSetup();
 		setup.getSolverFactory().addSolverFormat(Number.class, getDMod(0));
 		setup.getSolverFactory().addSolverFormat(String.class, getDMod(""));
-		localSetup = new PCGenFormulaSetup(setup, "Global");
+		localSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
 	}
 
 	public void isValid(String formula, SimpleNode node,
@@ -93,7 +93,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public void isStatic(String formula, SimpleNode node, boolean b)
 	{
 		StaticVisitor staticVisitor =
-				new StaticVisitor(localSetup.getFormulaManager().peek(FormulaManager.FUNCTION));
+				new StaticVisitor(localSetup.getFormulaManager().get(FormulaManager.FUNCTION));
 		boolean isStat = ((Boolean) staticVisitor.visit(node, null)).booleanValue();
 		if (isStat != b)
 		{
@@ -103,9 +103,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	public void evaluatesTo(String formula, SimpleNode node, Object valueOf)
 	{
-		EvaluationManager manager =
-				managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
-					localSetup.getGlobalScopeInst(), Number.class);
+		EvaluationManager manager = managerFactory
+			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result.equals(valueOf))
 		{
@@ -178,7 +177,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	protected FunctionLibrary getFunctionLibrary()
 	{
-		return localSetup.getFormulaManager().peek(FormulaManager.FUNCTION);
+		return localSetup.getFormulaManager().get(FormulaManager.FUNCTION);
 	}
 
 	protected OperatorLibrary getOperatorLibrary()
@@ -225,7 +224,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	public EvaluationManager generateManager()
 	{
 		return managerFactory.generateEvaluationManager(localSetup.getFormulaManager(),
-			localSetup.getGlobalScopeInst(), Number.class);
+			Number.class);
 	}
 
 	protected ManagerFactory getManagerFactory()

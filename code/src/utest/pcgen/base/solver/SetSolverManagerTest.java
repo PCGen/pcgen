@@ -76,7 +76,7 @@ public class SetSolverManagerTest
 		arrayManager = new ArrayFormatManager<>(stringManager, ',');
 		ManagerFactory managerFactory = new ManagerFactory(){};
 		fm = new SimpleFormulaManager(ol, sl, vc, new SolverFactory());
-		fm.push(FormulaManager.FUNCTION, fl);
+		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();
 		manager = new AggressiveSolverManager(fm, managerFactory, solverFactory, vc);
 		ModifierFactory m = new SetModifierFactory();
@@ -89,7 +89,7 @@ public class SetSolverManagerTest
 	{
 		sl.assertLegalVariableID("Regions", globalScope, arrayManager);
 		ScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope);
+				new SimpleScopeInstance(null, globalScope, "Global");
 		VariableID<String[]> regions =
 				(VariableID<String[]>) sl.getVariableID(scopeInst, "Regions");
 		manager.createChannel(regions);
@@ -102,7 +102,7 @@ public class SetSolverManagerTest
 
 		ModifierFactory am1 = new AddModifierFactory<>();
 		PCGenModifier mod = am1.getModifier(2000, "France,England", new ManagerFactory(){}, null, globalScope, arrayManager);
-		manager.addModifier(regions, mod, this);
+		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
 		assertThat(2, is(array.length));
 		list = Arrays.asList(array);
@@ -114,7 +114,7 @@ public class SetSolverManagerTest
 
 		ModifierFactory am2 = new AddModifierFactory<>();
 		mod = am2.getModifier(3000, "Greece,England", new ManagerFactory(){}, null, globalScope, arrayManager);
-		manager.addModifier(regions, mod, this);
+		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
 		assertThat(3, is(array.length));
 		list = Arrays.asList(array);

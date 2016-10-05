@@ -35,7 +35,9 @@ import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
+
 import pcgen.base.formula.Formula;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.solver.IndividualSetup;
@@ -71,13 +73,12 @@ import pcgen.cdom.enumeration.EquipmentLocation;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.Gender;
-import pcgen.cdom.enumeration.NumericPCAttribute;
-import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -85,6 +86,7 @@ import pcgen.cdom.enumeration.SkillCost;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.cdom.enumeration.SkillsOutputOrder;
 import pcgen.cdom.enumeration.StringKey;
+import pcgen.cdom.enumeration.StringPCAttribute;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.ActiveSpellsFacet;
@@ -270,7 +272,6 @@ import pcgen.io.PCGFile;
 import pcgen.io.exporttoken.EqToken;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
-import pcgen.rules.context.VariableContext.PCGenFormulaSetup;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Delta;
 import pcgen.util.Logging;
@@ -611,14 +612,15 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		SplitFormulaSetup formulaSetup =
 				formulaSetupFacet.get(id.getDatasetID());
-		IndividualSetup mySetup = new PCGenFormulaSetup(formulaSetup, "Global");
+		MonitorableVariableStore varStore = new MonitorableVariableStore();
+		IndividualSetup mySetup = new IndividualSetup(formulaSetup, "Global", varStore);
 		scopeFacet.set(id, mySetup.getInstanceFactory());
-		variableStoreFacet.set(id, (MonitorableVariableStore) mySetup.getVariableStore());
+		variableStoreFacet.set(id, varStore);
 		SolverFactory solverFactory = solverFactoryFacet.get(id.getDatasetID());
 		solverManagerFacet.set(id,
 			new AggressiveSolverManager(mySetup.getFormulaManager(),
 				context.getVariableContext().getManagerFactory(), solverFactory,
-				mySetup.getVariableStore()));
+				varStore));
 	}
 
 	@Override
@@ -10200,9 +10202,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	public <T> void addModifier(VarModifier<T> modifier, VarScoped vs,
-		Object source)
+		VarScoped source)
 	{
-		solverManagerFacet.addModifier(id, modifier, vs, source);
+		ScopeInstance inst = scopeFacet.get(id, source.getLocalScopeName(), source);
+		solverManagerFacet.addModifier(id, modifier, vs, inst);
 	}
 
 	public Object getGlobal(String varName)
