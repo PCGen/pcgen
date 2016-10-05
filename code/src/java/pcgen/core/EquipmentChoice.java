@@ -276,11 +276,16 @@ public final class EquipmentChoice
 	/**
 	 * Add a list of all skills to the available list of the EquipmentChoice object
 	 */
-	public void addSkills() {
-		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
-		{
-			this.getAvailableList().add(skill.getKeyName());
-		}
+	public void addSkills()
+	{
+		Globals
+			.getContext()
+			.getReferenceContext()
+			.getConstructedCDOMObjects(Skill.class)
+			.forEach(skill ->
+			{
+				this.getAvailableList().add(skill.getKeyName());
+			});
 	}
 
 	/**
@@ -351,8 +356,8 @@ public final class EquipmentChoice
 				Ability.class, cat).getAllObjects())
 		{
 			boolean matchesType = (
-					typeString.equalsIgnoreCase("ALL") ||
-					anAbility.isType(typeString)
+					typeString.equalsIgnoreCase("ALL")
+						|| anAbility.isType(typeString)
 								  );
 
 			if ((anAbility.getSafe(ObjectKey.VISIBILITY) == Visibility.DEFAULT)
@@ -376,9 +381,7 @@ public final class EquipmentChoice
 	{
 		for (Equipment aEquip : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Equipment.class))
 		{
-			if (
-				aEquip.isType(typeString) &&
-				!this.getAvailableList().contains(aEquip.getName()))
+			if (aEquip.isType(typeString) && !availableList.contains(aEquip.getName()))
 			{
 				this.getAvailableList().add(aEquip.getName());
 			}
@@ -390,17 +393,15 @@ public final class EquipmentChoice
 	 * the EquipmentChoice object equipChoice
 	 * @param typeString the type of Skill to add to the chooser
 	 */
-	public void addSelectableSkills(
-		final String          typeString)
+	private void addSelectableSkills(final String typeString)
 	{
 		for ( Skill skill : Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class) )
 		{
 			if (
-				(typeString.equalsIgnoreCase("ALL") ||
-					skill.isType(typeString)) &&
-				!this.getAvailableList().contains(skill.getKeyName()))
+				(typeString.equalsIgnoreCase("ALL") || skill.isType(typeString)) &&
+				!availableList.contains(skill.getKeyName()))
 			{
-				this.getAvailableList().add(skill.getKeyName());
+				availableList.add(skill.getKeyName());
 			}
 		}
 	}
@@ -420,8 +421,8 @@ public final class EquipmentChoice
 			 * bug of some form.
 			 */
 			if (
-				!(sibling.equals(this)) &&
-				sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
+				!(sibling.equals(this))
+					&& sibling.getSafe(StringKey.CHOICE_STRING).startsWith(choiceType))
 			{
 				getAvailableList().addAll(parent.getAssociationList(sibling));
 			}
@@ -514,10 +515,7 @@ public final class EquipmentChoice
 	 * @param numSelected
 	 */
 	public void adjustPool(final int available, final int numSelected) {
-		if (
-			(available > 0) &&
-			(this.getMaxSelect() > 0) &&
-			(this.getMaxSelect() != Integer.MAX_VALUE))
+		if ((available > 0) && (maxSelect > 0) && (maxSelect != Integer.MAX_VALUE))
 		{
 			this.setPool(this.getMaxSelect() - numSelected);
 		}
@@ -623,8 +621,7 @@ public final class EquipmentChoice
 				{
 					this.addStats();
 				}
-				else if ("SKILL".equals(kind) || originalkind.equals("SKILL")
-						&& "ANY".equals("SKILL"))
+				else if (originalkind.equals("SKILL") && "ANY".equals("SKILL"))
 				{
 					this.addSkills();
 				}
@@ -688,9 +685,7 @@ public final class EquipmentChoice
 			this.setBAdd(true);
 		}
 
-		if (
-			(this.getAvailableList().size() == 0) &&
-			(this.getMinValue() < this.getMaxValue()))
+		if ((availableList.size() == 0) && (minValue < maxValue))
 		{
 			for (
 				int j = this.getMinValue();
@@ -710,43 +705,34 @@ public final class EquipmentChoice
 				}
 			}
 
-			this.setMinValue(this.getMaxValue());
+			this.minValue = maxValue;
 		}
 	}
 
-	private static class EquipChoiceIterator implements Iterator<Object>
+	private static final class EquipChoiceIterator implements Iterator<Object>
 	{
-		List<Object> choiceList;
-		int currPos;
+		private final List<Object> choiceList;
+		private int currPos;
 
-		EquipChoiceIterator(final List<Object> list)
+		private EquipChoiceIterator(final List<Object> list)
 		{
 			choiceList = list;
-			currPos=0;
+			currPos = 0;
 		}
 
-		/**
-		 * @see java.util.Iterator#hasNext()
-		 */
-        @Override
+		@Override
 		public boolean hasNext()
 		{
 			return currPos<choiceList.size();
 		}
 
-		/**
-		 * @see java.util.Iterator#next()
-		 */
-        @Override
+		@Override
 		public Object next()
 		{
 			return choiceList.get(currPos++);
 		}
 
-		/**
-		 * @see java.util.Iterator#remove()
-		 */
-        @Override
+		@Override
 		public void remove()
 		{
 			throw new UnsupportedOperationException();
