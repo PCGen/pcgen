@@ -159,7 +159,7 @@ dependencies {
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
     compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
     compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.83'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.94'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.95'
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 
     runtime group: 'ch.qos.logback', name: 'logback-classic', version:'1.1.6'

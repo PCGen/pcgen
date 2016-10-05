@@ -62,7 +62,7 @@ public class RemoteModifierFacet extends
 		for (RemoteModifier<?> rm : getSet(id))
 		{
 			VarScoped src = get(id, rm);
-			ScopeInstance inst = scopeFacet.get(id, src.getLocalScopeName(), src);
+			ScopeInstance inst = scopeFacet.get(id, src);
 			processAdd(id, rm, vs, inst);
 			if (vs instanceof Equipment)
 			{
@@ -78,7 +78,7 @@ public class RemoteModifierFacet extends
 		 */
 		if (vs instanceof CDOMObject)
 		{
-			ScopeInstance inst = scopeFacet.get(id, vs.getLocalScopeName(), vs);
+			ScopeInstance inst = scopeFacet.get(id, vs);
 			List<RemoteModifier<?>> list =
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)
@@ -127,7 +127,7 @@ public class RemoteModifierFacet extends
 		for (RemoteModifier<?> rm : getSet(id))
 		{
 			VarScoped src = get(id, rm);
-			ScopeInstance inst = scopeFacet.get(id, src.getLocalScopeName(), src);
+			ScopeInstance inst = scopeFacet.get(id, src);
 			processRemove(id, rm, vs, inst);
 			if (vs instanceof Equipment)
 			{
@@ -143,7 +143,7 @@ public class RemoteModifierFacet extends
 		 */
 		if (vs instanceof CDOMObject)
 		{
-			ScopeInstance inst = scopeFacet.get(id, vs.getLocalScopeName(), vs);
+			ScopeInstance inst = scopeFacet.get(id, vs);
 			List<RemoteModifier<?>> list =
 					((CDOMObject) vs).getListFor(ListKey.REMOTE_MODIFIER);
 			if (list != null)

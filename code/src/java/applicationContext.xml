@@ -392,7 +392,7 @@
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>
 	<bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
-		<property name="scopeFacet" ref="ScopeFacet"/>
+		<property name="scopeFacet" ref="scopeFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>
@@ -502,7 +502,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
-		<property name="scopeFacet" ref="ScopeFacet"/>
+		<property name="scopeFacet" ref="scopeFacet"/>
 		<property name="varScopedFacet" ref="varScopedFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>

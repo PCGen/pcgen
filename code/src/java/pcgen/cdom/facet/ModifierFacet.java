@@ -62,7 +62,7 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			ScopeInstance inst = scopeFacet.get(id, obj.getLocalScopeName(), obj);
+			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)
 			{
 				processAddition(id, obj, vm, inst);
@@ -73,7 +73,7 @@ public class ModifierFacet implements
 			Equipment equip = (Equipment) obj;
 			for (EquipmentHead head : equip.getEquipmentHeads())
 			{
-				ScopeInstance inst = scopeFacet.get(id, head.getLocalScopeName(), head);
+				ScopeInstance inst = scopeFacet.get(id, head);
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{
@@ -113,7 +113,7 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
-			ScopeInstance inst = scopeFacet.get(id, obj.getLocalScopeName(), obj);
+			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)
 			{
 				processRemoval(id, obj, vm, inst);
@@ -124,7 +124,7 @@ public class ModifierFacet implements
 			Equipment equip = (Equipment) obj;
 			for (EquipmentHead head : equip.getEquipmentHeads())
 			{
-				ScopeInstance inst = scopeFacet.get(id, head.getLocalScopeName(), head);
+				ScopeInstance inst = scopeFacet.get(id, head);
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{

@@ -72,6 +72,22 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 		return get(id).get(legalScopeName, scopedObject);
 	}
 
+	public ScopeInstance get(CharID id, VarScoped vs)
+	{
+		String localName = vs.getLocalScopeName();
+		VarScoped active = vs;
+		while (localName == null)
+		{
+			active = active.getVariableParent();
+			if (active == null)
+			{
+				return getGlobalScope(id);
+			}
+			localName = active.getLocalScopeName();
+		}
+		return get(id, localName, vs);
+	}
+
 	/**
 	 * Returns a Collection of VarScoped objects indicating the objects on which
 	 * there are variables for the PlayerCharacter represented by the given
