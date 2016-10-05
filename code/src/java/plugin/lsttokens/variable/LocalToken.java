@@ -140,6 +140,11 @@ public class LocalToken extends AbstractNonEmptyToken<DatasetVariable>
 			return null;
 		}
 		String varName = dv.getKeyName();
+		if (!DatasetVariable.isLegalName(varName))
+		{
+			//internal variable
+			return null;
+		}
 		StringBuilder sb = new StringBuilder();
 		sb.append(scope);
 		sb.append(Constants.PIPE);

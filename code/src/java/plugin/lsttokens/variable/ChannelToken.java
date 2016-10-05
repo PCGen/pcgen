@@ -21,46 +21,69 @@ import java.util.Set;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.util.FormatManager;
+import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.DatasetVariable;
+import pcgen.output.channel.ChannelUtilities;
 import pcgen.rules.context.LoadContext;
+import pcgen.rules.context.VariableContext;
 import pcgen.rules.persistence.token.AbstractNonEmptyToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
-public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
+public class ChannelToken extends AbstractNonEmptyToken<DatasetVariable>
 		implements CDOMPrimaryToken<DatasetVariable>
 {
 
 	@Override
 	public String getTokenName()
 	{
-		return "GLOBAL";
+		return "CHANNEL";
 	}
 
 	@Override
 	protected ParseResult parseNonEmptyToken(LoadContext context,
 		DatasetVariable dv, String value)
 	{
-		//Just a name
+		int pipeLoc = value.indexOf(Constants.PIPE);
+		if (pipeLoc == -1)
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " expected 2 pipe delimited arguments, found no pipe: "
+				+ value);
+		}
+		if (pipeLoc != value.lastIndexOf(Constants.PIPE))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " expected only 2 pipe delimited arguments, found: " + value);
+		}
+		String fullscope = value.substring(0, pipeLoc);
+		String fvName = value.substring(pipeLoc + 1);
+		String format;
+		String varName;
+		int equalLoc = fvName.indexOf('=');
+		if (equalLoc != fvName.lastIndexOf('='))
+		{
+			return new ParseResult.Fail(getTokenName()
+				+ " expected only 2 equal delimited arguments, found: " + value);
+		}
+		if (equalLoc == -1)
+		{
+			//Defaults to NUMBER
+			format = "NUMBER";
+			varName = fvName;
+		}
+		else
+		{
+			format = fvName.substring(0, equalLoc);
+			varName = fvName.substring(equalLoc + 1);
+		}
 		if (dv.getDisplayName() != null)
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " must be the first token on the line");
 		}
-		String format;
-		String varName;
-		int equalLoc = value.indexOf('=');
-		if (equalLoc == -1)
-		{
-			//Defaults to NUMBER
-			format = "NUMBER";
-			varName = value;
-		}
-		else
-		{
-			format = value.substring(0, equalLoc);
-			varName = value.substring(equalLoc + 1);
-		}
+
+		VariableContext varContext = context.getVariableContext();
 		FormatManager<?> formatManager;
 		try
 		{
@@ -73,21 +96,27 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 				+ " does not support format " + format + ", found in " + value
 				+ " due to " + e.getMessage());
 		}
-		LegalScope scope = context.getActiveScope().getLegalScope();
+		LegalScope lvs;
+		if ("GLOBAL".equals(fullscope))
+		{
+			lvs = context.getActiveScope().getLegalScope();
+		}
+		else
+		{
+			lvs = varContext.getScope(fullscope);
+		}
 
 		if (!DatasetVariable.isLegalName(varName))
 		{
 			return new ParseResult.Fail(varName
-				+ " is not a valid variable name");
+				+ " is not a valid channel name");
 		}
-
+		String channelName = ChannelUtilities.createVarName(varName);
 		boolean legal =
-				context.getVariableContext().assertLegalVariableID(scope,
-					formatManager, varName);
+				varContext.assertLegalVariableID(lvs, formatManager, channelName);
 		if (!legal)
 		{
-			Set<LegalScope> known =
-					context.getVariableContext().getKnownLegalScopes(varName);
+			Set<LegalScope> known = varContext.getKnownLegalScopes(varName);
 			StringBuilder sb = new StringBuilder();
 			for (LegalScope v : known)
 			{
@@ -96,23 +125,29 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 			}
 			return new ParseResult.Fail(getTokenName()
 				+ " found a var defined in incompatible variable scopes: "
-				+ value + " was requested in " + scope.getName()
+				+ varName + " was requested in " + fullscope
 				+ " but was previously in " + sb.toString(), context);
 		}
-		dv.setName(varName);
+		dv.setName(channelName);
 		dv.setFormat(format);
-		dv.setScopeName("Global Variables");
+		dv.setScopeName(fullscope);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
 	public String[] unparse(LoadContext context, DatasetVariable dv)
 	{
-		String scope = dv.getScopeName();
-		if (scope != null && !scope.equals("Global Variables"))
+		String varName = dv.getKeyName();
+		if (!varName.startsWith("CHANNEL*"))
 		{
-			//is a local variable
+			//Variable
 			return null;
+		}
+		String scope = dv.getScopeName();
+		if (scope == null || scope.equals("Global Variables"))
+		{
+			//Global channel
+			scope = "GLOBAL";
 		}
 		String format = dv.getFormat();
 		if (format == null)
@@ -120,19 +155,16 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 			//Not a valid object
 			return null;
 		}
-		String varName = dv.getKeyName();
-		if (!DatasetVariable.isLegalName(varName))
-		{
-			//internal variable
-			return null;
-		}
 		StringBuilder sb = new StringBuilder();
+		sb.append(scope);
+		sb.append(Constants.PIPE);
 		if (!format.equals("NUMBER"))
 		{
 			sb.append(format);
 			sb.append('=');
 		}
-		sb.append(varName);
+		//Take off CHANNEL*
+		sb.append(varName.substring(8));
 		return new String[]{sb.toString()};
 	}
 

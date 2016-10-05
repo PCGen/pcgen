@@ -39,7 +39,7 @@ import pcgen.core.Equipment;
  * CDOMObjects added to/removed from the Player Character.
  */
 public class RemoteModifierFacet extends
-		AbstractAssociationFacet<CharID, RemoteModifier<?>, Object> implements
+		AbstractAssociationFacet<CharID, RemoteModifier<?>, VarScoped> implements
 		DataFacetChangeListener<CharID, VarScoped>
 {
 
@@ -58,7 +58,7 @@ public class RemoteModifierFacet extends
 		 */
 		for (RemoteModifier<?> rm : getSet(id))
 		{
-			Object src = get(id, rm);
+			VarScoped src = get(id, rm);
 			processAdd(id, rm, vs, src);
 			if (vs instanceof Equipment)
 			{
