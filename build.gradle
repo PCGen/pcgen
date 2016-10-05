@@ -245,6 +245,8 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.dir("$projectDir/libs")
+    inputs.files(fileTree("$buildDir/libs"))
 
     from "${buildDir}/libs"
     into "$projectDir/libs"
