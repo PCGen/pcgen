@@ -1785,7 +1785,7 @@ public class NotesView extends JPanel
 	 *  This is an abstract drop listener. Extend this to listen for drop events
 	 *  for a particular Component
 	 */
-	public abstract class DropListener implements DropTargetListener
+	public abstract class DropListener extends DropTargetAdapter
 	{
 		/**
 		 *  Checks to see if dragEnter is supported for the actions on this event
@@ -1804,18 +1804,6 @@ public class NotesView extends JPanel
 			{
 				dtde.rejectDrag();
 			}
-		}
-
-		/**
-		 *  Called when drag exit happens. override this id you need anything to
-		 *  happen
-		 *
-		 *@param  dte  DropTargetEvent
-		 */
-        @Override
-		public void dragExit(DropTargetEvent dte)
-		{
-			// TODO:  Method does nothing?
 		}
 
 		/**
@@ -1845,16 +1833,6 @@ public class NotesView extends JPanel
         @Override
 		public abstract void drop(DropTargetDropEvent dtde);
 
-		/**
-		 *  Action has changed - we don't do anything, override if you need it to.
-		 *
-		 *@param  dtde  DropTargetDragEvent
-		 */
-        @Override
-		public void dropActionChanged(DropTargetDragEvent dtde)
-		{
-			// TODO:  Method does nothing?
-		}
 	}
 
 	/**

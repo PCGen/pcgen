@@ -25,8 +25,8 @@ import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
-import java.awt.event.KeyListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -47,6 +47,7 @@ import javax.swing.JTextArea;
 import javax.swing.SwingConstants;
 
 import pcgen.system.LanguageBundle;
+
 import plugin.overland.model.RoomBoard;
 import plugin.overland.model.RoomBoardFactory;
 import plugin.overland.model.TravelMethod;
@@ -1171,7 +1172,7 @@ public class OverPanel extends javax.swing.JPanel
 		updateMidUI(); //propagate changes down
 	}
 
-	private final class KeyListenerImplementation implements KeyListener
+	private final class KeyListenerImplementation extends KeyAdapter
 	{
 		private JButton button;
 
@@ -1184,24 +1185,12 @@ public class OverPanel extends javax.swing.JPanel
 		}
 
 		@Override
-		public void keyTyped(KeyEvent e)
-		{
-			// nothing to do
-		}
-
-		@Override
 		public void keyReleased(KeyEvent e)
 		{
 			if (KeyEvent.VK_ENTER == e.getKeyCode())
 			{
 				button.doClick();
 			}
-		}
-
-		@Override
-		public void keyPressed(KeyEvent e)
-		{
-			// nothing to do
 		}
 
 	}
