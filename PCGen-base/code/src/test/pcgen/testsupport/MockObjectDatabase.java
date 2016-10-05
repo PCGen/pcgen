@@ -1,5 +1,7 @@
 package pcgen.testsupport;
 
+import java.util.Objects;
+
 import pcgen.base.formatmanager.ObjectDatabase;
 import pcgen.base.util.BasicIndirect;
 import pcgen.base.util.DoubleKeyMap;
@@ -20,6 +22,10 @@ public class MockObjectDatabase implements ObjectDatabase
 	public <T> Indirect<T> getIndirect(Class<T> cl, String name)
 	{
 		T underlying = get(cl, name);
+		if (underlying == null)
+		{
+			throw new IllegalArgumentException("Does not contain " + cl.getName() + " " + name);
+		}
 		return new BasicIndirect<>(new Liar(this, underlying), underlying);
 	}
 
@@ -37,8 +43,8 @@ public class MockObjectDatabase implements ObjectDatabase
 
 		public Liar(MockObjectDatabase mockObjectDatabase, Object underlying)
 		{
-			this.mockObjectDatabase = mockObjectDatabase;
-			this.underlying = underlying;
+			this.mockObjectDatabase = Objects.requireNonNull(mockObjectDatabase);
+			this.underlying = Objects.requireNonNull(underlying);
 		}
 
 		@Override

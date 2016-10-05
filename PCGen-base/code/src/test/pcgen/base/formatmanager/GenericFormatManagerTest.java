@@ -88,7 +88,7 @@ public class GenericFormatManagerTest extends TestCase
 		try
 		{
 			manager.convertIndirect("SomeString");
-			fail("null value should fail");
+			fail("invalid value should fail");
 		}
 		catch (IllegalArgumentException e)
 		{
