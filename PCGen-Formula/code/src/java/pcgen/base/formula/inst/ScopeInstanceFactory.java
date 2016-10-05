@@ -139,7 +139,13 @@ public class ScopeInstanceFactory
 	 */
 	public ScopeInstance get(String scopeName, VarScoped obj)
 	{
-		return getMessaged(library.getScope(scopeName), obj, obj);
+		LegalScope scope = library.getScope(scopeName);
+		if (scope == null)
+		{
+			throw new IllegalArgumentException(
+				"Scope with name " + scopeName + " not found");
+		}
+		return getMessaged(scope, obj, obj);
 	}
 
 	/**
