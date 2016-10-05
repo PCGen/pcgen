@@ -26,6 +26,7 @@ import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
 import pcgen.base.formula.inst.FormulaUtilities;
+import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SolverFactory;
 import pcgen.base.solver.SolverManager;
@@ -65,7 +66,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 			getManager().createChannel(null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -111,7 +112,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 					"HP");
 		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		try
 		{
 			getManager().addModifier(null, modifier, source);
@@ -166,7 +167,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(hp));
 		getManager().createChannel(hp);
 		assertEquals(0, store.get(hp));
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
 		getManager().addModifier(hp, modifier, source);
 		assertEquals(6, store.get(hp));
@@ -179,8 +180,12 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		assertEquals(null, store.get(hitpoints));
 		getManager().addModifier(hitpoints, modifier, source);
 		assertEquals(6, store.get(hitpoints));
-		Object altSource = new Object();
-		getManager().addModifier(hitpoints, AbstractModifier.setNumber(12, 3), altSource);
+
+		SimpleLegalScope localScope = new SimpleLegalScope(globalScope, "STAT");
+		getScopeLibrary().registerScope(localScope);
+		ScopeInstance strInst = getInstanceFactory().get("STAT", new MockStat("Strength"));
+
+		getManager().addModifier(hitpoints, AbstractModifier.setNumber(12, 3), strInst);
 		assertEquals(6, store.get(hitpoints));
 		getManager().removeModifier(hitpoints, modifier, source);
 		assertEquals(12, store.get(hitpoints));
@@ -189,7 +194,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testComplex()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> formulaMod = AbstractModifier.add(formula, 100);
 		varLibrary.assertLegalVariableID("Limbs", globalScope, numberManager);
@@ -230,7 +235,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testChained()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 
@@ -289,7 +294,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 					"HP");
 		getManager().createChannel(hp);
 		AbstractModifier<Number> modifier = AbstractModifier.setNumber(6, 5);
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		try
 		{
 			getManager().removeModifier(null, modifier, source);
@@ -340,7 +345,7 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 	@Test
 	public void testCircular()
 	{
-		Object source = new Object();
+		ScopeInstance source = globalScopeInst;
 		ComplexNEPFormula formula = new ComplexNEPFormula("arms+legs");
 		Modifier<Number> limbsMod = AbstractModifier.add(formula, 100);
 

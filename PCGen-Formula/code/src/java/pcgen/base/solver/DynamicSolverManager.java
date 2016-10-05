@@ -18,6 +18,7 @@ package pcgen.base.solver;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+import java.util.Objects;
 import java.util.Set;
 import java.util.Stack;
 
@@ -26,10 +27,10 @@ import pcgen.base.formula.base.DynamicManager;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.base.VariableStore;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -56,6 +57,12 @@ public class DynamicSolverManager implements SolverManager
 	private final FormulaManager formulaManager;
 
 	/**
+	 * The ManagerFactory to be used to generate visitor managers in this
+	 * DynamicSolverManager.
+	 */
+	private final ManagerFactory managerFactory;
+
+	/**
 	 * The relationship from each VariableID to the Solver calculating the value of the
 	 * VariableID.
 	 */
@@ -65,14 +72,14 @@ public class DynamicSolverManager implements SolverManager
 	/**
 	 * The "summarized" results of the calculation of each Solver.
 	 */
-	private final WriteableVariableStore resultsCache;
+	private final WriteableVariableStore resultStore;
 
 	/**
 	 * A mathematical graph used to store dependencies between VariableIDs. Since there is
 	 * a 1:1 relationship with the Solver used for a VariableID, this implicitly stores
 	 * the dependencies between the Solvers that are part of this DynamicSolverManager.
 	 */
-	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> graph =
+	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> dependencies =
 			new DirectionalSetMapGraph<>();
 
 	/**
@@ -102,36 +109,22 @@ public class DynamicSolverManager implements SolverManager
 	 * 
 	 * @param manager
 	 *            The FormulaManager to be used by any Solver in this DynamicSolverManager
+	 * @param managerFactory
+	 *            The ManagerFactory to be used to generate visitor managers in this
+	 *            DynamicSolverManager
 	 * @param solverFactory
 	 *            The SolverFactory used to store Defaults and build Solver objects
 	 * @param resultStore
 	 *            The WriteableVariableStore used to store results of the calculations of
 	 *            the Solver objects within this DynamicSolverManager.
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
-	public DynamicSolverManager(FormulaManager manager, SolverFactory solverFactory,
-		WriteableVariableStore resultStore)
+	public DynamicSolverManager(FormulaManager manager, ManagerFactory managerFactory,
+		SolverFactory solverFactory, WriteableVariableStore resultStore)
 	{
-		if (manager == null)
-		{
-			throw new IllegalArgumentException("FormulaManager cannot be null");
-		}
-		if (solverFactory == null)
-		{
-			throw new IllegalArgumentException("SolverFactory cannot be null");
-		}
-		if (resultStore == null)
-		{
-			throw new IllegalArgumentException("WriteableVariableStore cannot be null");
-		}
-		this.formulaManager = manager;
-		this.solverFactory = solverFactory;
-		/*
-		 * CONSIDER should ownership transfer of this be complete? We can do getValue for
-		 * any "reader" that is interested... as long as they have this SolverManager...?
-		 */
-		resultsCache = resultStore;
+		this.formulaManager = Objects.requireNonNull(manager);
+		this.managerFactory = Objects.requireNonNull(managerFactory);
+		this.solverFactory = Objects.requireNonNull(solverFactory);
+		this.resultStore = Objects.requireNonNull(resultStore);
 	}
 
 	/*
@@ -148,17 +141,11 @@ public class DynamicSolverManager implements SolverManager
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID used to identify the Solver to be built
-	 * @throws IllegalArgumentException
-	 *             if any of the parameters is null
 	 */
 	@Override
 	public <T> void createChannel(VariableID<T> varID)
 	{
-		if (varID == null)
-		{
-			throw new IllegalArgumentException("VariableID cannot be null");
-		}
-		Solver<?> currentSolver = scopedChannels.get(varID);
+		Solver<?> currentSolver = scopedChannels.get(Objects.requireNonNull(varID));
 		if (currentSolver != null)
 		{
 			throw new IllegalArgumentException(
@@ -185,7 +172,8 @@ public class DynamicSolverManager implements SolverManager
 	 *             if any of the parameters is null
 	 */
 	@Override
-	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier, Object source)
+	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier,
+		ScopeInstance source)
 	{
 		if (varID == null)
 		{
@@ -199,9 +187,9 @@ public class DynamicSolverManager implements SolverManager
 		{
 			throw new IllegalArgumentException("Source cannot be null");
 		}
-		ScopeInstance scopeInst = varID.getScope();
-		if (!formulaManager.getFactory().isLegalVariableID(scopeInst.getLegalScope(),
-			varID.getName()))
+
+		if (!formulaManager.getFactory()
+			.isLegalVariableID(varID.getScope().getLegalScope(), varID.getName()))
 		{
 			/*
 			 * The above check allows the implicit create below for only items within the
@@ -215,15 +203,15 @@ public class DynamicSolverManager implements SolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			//CONSIDER This is create implicit - what we want to do?
+			//CONSIDER This build is implicit - do we want explicit or implicit?
 			solver = unconditionallyBuildSolver(varID);
 		}
 		/*
 		 * Now build new edges of things this solver will be dependent upon...
 		 */
-		DependencyManager fdm = DependencyManager.generate(formulaManager, scopeInst,
-			varID.getFormatManager().getManagedClass());
-		fdm.push(DependencyManager.DYNAMIC, new DynamicManager());
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
+			source, varID.getFormatManager().getManagedClass());
+		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.getVariables())
 		{
@@ -235,9 +223,9 @@ public class DynamicSolverManager implements SolverManager
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
-			graph.addEdge(edge);
+			dependencies.addEdge(edge);
 		}
-		DynamicManager dd = fdm.peek(DependencyManager.DYNAMIC);
+		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
 		for (DynamicDependency dep : dd.getDependencies())
 		{
 			VariableID<?> controlVar = dep.getControlVar();
@@ -248,7 +236,7 @@ public class DynamicSolverManager implements SolverManager
 					"Request to add Dynamic Dependency to Solver based on " + controlVar
 						+ " but that variable cannot be VarScoped");
 			}
-			VarScoped vs = (VarScoped) resultsCache.get(controlVar);
+			VarScoped vs = (VarScoped) resultStore.get(controlVar);
 			if (vs == null)
 			{
 				throw new IllegalArgumentException(
@@ -262,7 +250,7 @@ public class DynamicSolverManager implements SolverManager
 					new DefaultDirectionalGraphEdge<>(variableID, varID);
 			DynamicEdge de = new DynamicEdge(dep.getControlVar(), edge, dep);
 			dynamic.addEdge(de);
-			graph.addEdge(de.getTargetEdge());
+			dependencies.addEdge(de.getTargetEdge());
 		}
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
@@ -284,10 +272,9 @@ public class DynamicSolverManager implements SolverManager
 	private <T> Solver<T> unconditionallyBuildSolver(VariableID<T> varID)
 	{
 		FormatManager<T> formatManager = varID.getFormatManager();
-		EvaluationManager evalManager = EvaluationManager.generate(formulaManager, varID);
-		Solver<T> solver = solverFactory.getSolver(formatManager, evalManager);
+		Solver<T> solver = solverFactory.getSolver(formatManager);
 		scopedChannels.put(varID, solver);
-		graph.addNode(varID);
+		dependencies.addNode(varID);
 		return solver;
 	}
 
@@ -315,7 +302,7 @@ public class DynamicSolverManager implements SolverManager
 	 */
 	@Override
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
-		Object source)
+		ScopeInstance source)
 	{
 		if (varID == null)
 		{
@@ -337,9 +324,9 @@ public class DynamicSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
 				+ varID + " but that channel was never defined");
 		}
-		DependencyManager fdm = DependencyManager.generate(formulaManager,
+		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			varID.getScope(), varID.getFormatManager().getManagedClass());
-		fdm.push(DependencyManager.DYNAMIC, new DynamicManager());
+		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
 		//Cast above effectively enforced here
@@ -361,7 +348,7 @@ public class DynamicSolverManager implements SolverManager
 	 */
 	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
 	{
-		DynamicManager dd = dm.peek(DependencyManager.DYNAMIC);
+		DynamicManager dd = dm.get(DependencyManager.DYNAMIC);
 		for (DynamicDependency dep : dd.getDependencies())
 		{
 			VariableID<?> controlVar = dep.getControlVar();
@@ -369,7 +356,7 @@ public class DynamicSolverManager implements SolverManager
 			{
 				if (edge.isDependency(dep))
 				{
-					graph.removeEdge(edge.getTargetEdge());
+					dependencies.removeEdge(edge.getTargetEdge());
 					dynamic.removeEdge(edge);
 				}
 			}
@@ -380,7 +367,7 @@ public class DynamicSolverManager implements SolverManager
 			return;
 		}
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> edges =
-				graph.getAdjacentEdges(varID);
+				dependencies.getAdjacentEdges(varID);
 		for (DefaultDirectionalGraphEdge<VariableID<?>> edge : edges)
 		{
 			if (edge.getNodeAt(1) == varID)
@@ -388,7 +375,7 @@ public class DynamicSolverManager implements SolverManager
 				VariableID<?> depID = edge.getNodeAt(0);
 				if (deps.contains(depID))
 				{
-					graph.removeEdge(edge);
+					dependencies.removeEdge(edge);
 					deps.remove(depID);
 				}
 			}
@@ -444,7 +431,7 @@ public class DynamicSolverManager implements SolverManager
 		{
 			return;
 		}
-		VarScoped vs = (VarScoped) resultsCache.get(varID);
+		VarScoped vs = (VarScoped) resultStore.get(varID);
 		ScopeInstanceFactory siFactory = formulaManager.getScopeInstanceFactory();
 		for (DynamicEdge edge : dynamic.getAdjacentEdges(varID))
 		{
@@ -459,7 +446,7 @@ public class DynamicSolverManager implements SolverManager
 				dynamic.removeNode(varID);
 			}
 			dynamic.removeNode(target);
-			graph.removeEdge(target);
+			dependencies.removeEdge(target);
 			dynamic.addEdge(newEdge);
 			solveFromNode(newTarget.getNodeAt(1));
 		}
@@ -476,7 +463,7 @@ public class DynamicSolverManager implements SolverManager
 	public void solveChildren(VariableID<?> varID)
 	{
 		Set<DefaultDirectionalGraphEdge<VariableID<?>>> adjacentEdges =
-				graph.getAdjacentEdges(varID);
+				dependencies.getAdjacentEdges(varID);
 		if (adjacentEdges != null)
 		{
 			for (DefaultDirectionalGraphEdge<VariableID<?>> edge : adjacentEdges)
@@ -511,8 +498,10 @@ public class DynamicSolverManager implements SolverManager
 		 * Solver should "never" be null here, so we accept risk of NPE, since it's always
 		 * a code bug
 		 */
-		T newValue = solver.process();
-		Object oldValue = resultsCache.put(varID, newValue);
+		EvaluationManager evalManager = managerFactory
+			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+		T newValue = solver.process(evalManager);
+		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
 	}
 
@@ -540,19 +529,9 @@ public class DynamicSolverManager implements SolverManager
 			throw new IllegalArgumentException("Request to diagnose VariableID " + varID
 				+ " but that channel was never defined");
 		}
-		return solver.diagnose();
-	}
-
-	/**
-	 * Returns the VariableStore used by this DynamicSolverManager to store results of
-	 * calculations.
-	 * 
-	 * @return The VariableStore used by this DynamicSolverManager to store results of
-	 *         calculations.
-	 */
-	public VariableStore getVariableStore()
-	{
-		return resultsCache;
+		EvaluationManager evalManager = managerFactory
+			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+		return solver.diagnose(evalManager);
 	}
 
 	/**

@@ -24,6 +24,7 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
 import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
@@ -47,6 +48,7 @@ import pcgen.base.util.TypedKey;
 
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
+	private ManagerFactory managerFactory = new ManagerFactory(){};
 	private DynamicSolverManager manager;
 	private LimbManager limbManager;
 	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
@@ -55,8 +57,8 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		manager = new DynamicSolverManager(getFormulaManager(), getSolverFactory(),
-			getVariableStore());
+		manager = new DynamicSolverManager(getFormulaManager(), managerFactory,
+			getSolverFactory(), getVariableStore());
 		limbManager = new LimbManager();
 		getSolverFactory().addSolverFormat(Limb.class, new Modifier()
 		{
@@ -103,29 +105,42 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	{
 		try
 		{
-			new DynamicSolverManager(null, getSolverFactory(), getVariableStore());
+			new DynamicSolverManager(null, managerFactory, getSolverFactory(),
+				getVariableStore());
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
 		FormulaManager formulaManager = getFormulaManager();
 		try
 		{
-			new DynamicSolverManager(formulaManager, null, getVariableStore());
+			new DynamicSolverManager(formulaManager, null, getSolverFactory(),
+				getVariableStore());
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
 		try
 		{
-			new DynamicSolverManager(formulaManager, getSolverFactory(), null);
+			new DynamicSolverManager(formulaManager, managerFactory, null,
+				getVariableStore());
 			fail("No nulls in constructor");
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
+		{
+			//ok
+		}
+		try
+		{
+			new DynamicSolverManager(formulaManager, managerFactory, getSolverFactory(),
+				null);
+			fail("No nulls in constructor");
+		}
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//ok
 		}
@@ -140,7 +155,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 	@Test
 	public void testDynamic()
 	{
-		Object source = new Object();
+		ScopeInstance source = getGlobalScopeInst();
 		getFunctionLibrary().addFunction(new Dynamic());
 		LegalScope globalScope = getGlobalScope();
 
@@ -336,27 +351,25 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			EvaluationManager manager)
 		{
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, manager);
-			FormulaManager fManager = manager.peek(EvaluationManager.FMANAGER);
+			FormulaManager fManager = manager.get(EvaluationManager.FMANAGER);
 			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
 			ScopeInstance scopeInst = siFactory.get("LIMB", vs);
 			//Rest of Equation
-			manager.push(EvaluationManager.INSTANCE, scopeInst);
-			Object result = args[1].jjtAccept(visitor, manager);
-			manager.pop(EvaluationManager.INSTANCE);
-			return result;
+			return args[1].jjtAccept(visitor,
+				manager.getWith(EvaluationManager.INSTANCE, scopeInst));
 		}
 
 		@Override
 		public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
 			Node[] args)
 		{
-			FormulaManager fManager = manager.peek(DependencyManager.FMANAGER);
+			FormulaManager fManager = manager.get(DependencyManager.FMANAGER);
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
 			VariableID<?> varID = visitor.getVariableID(varName, manager);
 			DynamicDependency dd =
 					new DynamicDependency(fManager.getFactory(), varID, "LIMB", name);
-			manager.peek(DependencyManager.DYNAMIC).addDependency(dd);
+			manager.get(DependencyManager.DYNAMIC).addDependency(dd);
 		}
 
 	}

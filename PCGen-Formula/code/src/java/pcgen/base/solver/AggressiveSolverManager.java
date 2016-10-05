@@ -1,19 +1,17 @@
 /*
  * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
- * This library is free software; you can redistribute it and/or modify it under
- * the terms of the GNU Lesser General Public License as published by the Free
- * Software Foundation; either version 2.1 of the License, or (at your option)
- * any later version.
+ * This library is free software; you can redistribute it and/or modify it under the terms
+ * of the GNU Lesser General Public License as published by the Free Software Foundation;
+ * either version 2.1 of the License, or (at your option) any later version.
  * 
- * This library is distributed in the hope that it will be useful, but WITHOUT
- * ANY WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS
- * FOR A PARTICULAR PURPOSE. See the GNU Lesser General Public License for more
- * details.
+ * This library is distributed in the hope that it will be useful, but WITHOUT ANY
+ * WARRANTY; without even the implied warranty of MERCHANTABILITY or FITNESS FOR A
+ * PARTICULAR PURPOSE. See the GNU Lesser General Public License for more details.
  * 
- * You should have received a copy of the GNU Lesser General Public License
- * along with this library; if not, write to the Free Software Foundation, Inc.,
- * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ * You should have received a copy of the GNU Lesser General Public License along with
+ * this library; if not, write to the Free Software Foundation, Inc., 59 Temple Place,
+ * Suite 330, Boston, MA 02111-1307 USA
  */
 package pcgen.base.solver;
 
@@ -36,22 +34,21 @@ import pcgen.base.graph.inst.DirectionalSetMapGraph;
 import pcgen.base.util.FormatManager;
 
 /**
- * An AggressiveSolverManager manages a series of Solver objects in order to
- * manage dependencies between those Solver objects and ensure that any Solver
- * which needs to be processed to update a value is processed "aggressively" (as
- * soon as a dependency has calculated a new value).
+ * An AggressiveSolverManager manages a series of Solver objects in order to manage
+ * dependencies between those Solver objects and ensure that any Solver which needs to be
+ * processed to update a value is processed "aggressively" (as soon as a dependency has
+ * calculated a new value).
  * 
- * One of the primary characteristic of the AggressiveSolverManager is also that
- * callers will consider items as represented by a given "VariableID", whereas
- * the AggressiveSolverManager will build and manage the associated Solver for
- * that VariableID.
+ * One of the primary characteristic of the AggressiveSolverManager is also that callers
+ * will consider items as represented by a given "VariableID", whereas the
+ * AggressiveSolverManager will build and manage the associated Solver for that
+ * VariableID.
  */
 public class AggressiveSolverManager implements SolverManager
 {
 
 	/**
-	 * The FormulaManager used by the Solver members of this
-	 * AggressiveSolverManager.
+	 * The FormulaManager used by the Solver members of this AggressiveSolverManager.
 	 */
 	private final FormulaManager formulaManager;
 
@@ -62,8 +59,8 @@ public class AggressiveSolverManager implements SolverManager
 	private final ManagerFactory managerFactory;
 
 	/**
-	 * The relationship from each VariableID to the Solver calculating the value
-	 * of the VariableID.
+	 * The relationship from each VariableID to the Solver calculating the value of the
+	 * VariableID.
 	 */
 	private final Map<VariableID<?>, Solver<?>> scopedChannels =
 			new HashMap<VariableID<?>, Solver<?>>();
@@ -74,44 +71,40 @@ public class AggressiveSolverManager implements SolverManager
 	private final WriteableVariableStore resultStore;
 
 	/**
-	 * A mathematical graph used to store dependencies between VariableIDs.
-	 * Since there is a 1:1 relationship with the Solver used for a VariableID,
-	 * this implicitly stores the dependencies between the Solvers that are part
-	 * of this AggressiveSolverManager.
+	 * A mathematical graph used to store dependencies between VariableIDs. Since there is
+	 * a 1:1 relationship with the Solver used for a VariableID, this implicitly stores
+	 * the dependencies between the Solvers that are part of this AggressiveSolverManager.
 	 */
 	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> dependencies =
 			new DirectionalSetMapGraph<>();
 
 	/**
-	 * The SolverFactory to be used to construct the Solver objects that are
-	 * members of this AggressiveSolverFactory.
+	 * The SolverFactory to be used to construct the Solver objects that are members of
+	 * this AggressiveSolverFactory.
 	 */
 	private final SolverFactory solverFactory;
 
 	/**
-	 * Constructs a new AggressiveSolverManager which will use the given
-	 * FormulaMananger and store results in the given VariableStore.
+	 * Constructs a new AggressiveSolverManager which will use the given FormulaMananger
+	 * and store results in the given VariableStore.
 	 * 
 	 * It is assumed that the WriteableVariableStore provided to this
-	 * AggressiveSolverManager will not be shared as a Writeable object to any
-	 * other Object. (So for purposes of ownership, the ownership of that
-	 * WriteableVariableStore transfers to this AggressiveSolverManager. It can
-	 * be shared to other locations as a (readable) VariableStore, as
-	 * necessary.)
+	 * AggressiveSolverManager will not be shared as a Writeable object to any other
+	 * Object. (So for purposes of ownership, the ownership of that WriteableVariableStore
+	 * transfers to this AggressiveSolverManager. It can be shared to other locations as a
+	 * (readable) VariableStore, as necessary.)
 	 * 
 	 * @param manager
 	 *            The FormulaManager to be used by any Solver in this
 	 *            AggressiveSolverManager
 	 * @param managerFactory
-	 *            The ManagerFactory to be used to generate visitor managers
-	 *            in this AggressiveSolverManager
+	 *            The ManagerFactory to be used to generate visitor managers in this
+	 *            AggressiveSolverManager
 	 * @param solverFactory
-	 *            The SolverFactory used to store Defaults and build Solver
-	 *            objects
+	 *            The SolverFactory used to store Defaults and build Solver objects
 	 * @param resultStore
-	 *            The WriteableVariableStore used to store results of the
-	 *            calculations of the Solver objects within this
-	 *            AggressiveSolverManager.
+	 *            The WriteableVariableStore used to store results of the calculations of
+	 *            the Solver objects within this AggressiveSolverManager.
 	 */
 	public AggressiveSolverManager(FormulaManager manager, ManagerFactory managerFactory,
 		SolverFactory solverFactory, WriteableVariableStore resultStore)
@@ -123,14 +116,14 @@ public class AggressiveSolverManager implements SolverManager
 	}
 
 	/*
-	 * Note: This creates a "local" scoped channel that only exists for the item
-	 * in question (item is "in" the VariableID). The key here being that there
-	 * is the ability to have a local variable (e.g. Equipment variable).
+	 * Note: This creates a "local" scoped channel that only exists for the item in
+	 * question (item is "in" the VariableID). The key here being that there is the
+	 * ability to have a local variable (e.g. Equipment variable).
 	 */
 	/**
-	 * Defines a new Variable that requires solving in this
-	 * AggressiveSolverManager. The Variable, identified by the given
-	 * VariableID, will be of the format of the given Class.
+	 * Defines a new Variable that requires solving in this AggressiveSolverManager. The
+	 * Variable, identified by the given VariableID, will be of the format of the given
+	 * Class.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
@@ -151,17 +144,16 @@ public class AggressiveSolverManager implements SolverManager
 	}
 
 	/**
-	 * Adds a Modifier (with the given source object) to the Solver identified
-	 * by the given VariableID.
+	 * Adds a Modifier (with the given source object) to the Solver identified by the
+	 * given VariableID.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
-	 *            The VariableID for which a Modifier should be added to the
-	 *            responsible Solver
+	 *            The VariableID for which a Modifier should be added to the responsible
+	 *            Solver
 	 * @param modifier
-	 *            The Modifier to be added to the Solver for the given
-	 *            VariableID
+	 *            The Modifier to be added to the Solver for the given VariableID
 	 * @param source
 	 *            The source of the Modifier to be added to the Solver
 	 * @throws IllegalArgumentException
@@ -183,17 +175,16 @@ public class AggressiveSolverManager implements SolverManager
 		{
 			throw new IllegalArgumentException("Source cannot be null");
 		}
-		
+
 		if (!formulaManager.getFactory()
 			.isLegalVariableID(varID.getScope().getLegalScope(), varID.getName()))
 		{
 			/*
-			 * The above check allows the implicit create below for only items
-			 * within the VariableLibrary
+			 * The above check allows the implicit create below for only items within the
+			 * VariableLibrary
 			 */
-			throw new IllegalArgumentException(
-				"Request to add Modifier to Solver for " + varID
-					+ " but that channel was never defined");
+			throw new IllegalArgumentException("Request to add Modifier to Solver for "
+				+ varID + " but that channel was never defined");
 		}
 		//Note: This cast is enforced by the solver during addModifier
 		@SuppressWarnings("unchecked")
@@ -213,8 +204,8 @@ public class AggressiveSolverManager implements SolverManager
 		{
 			ensureSolverExists(depID);
 			/*
-			 * Better to use depID here rather than Solver: (1) No order of
-			 * operations risk (2) Process can still write to cache knowing ID
+			 * Better to use depID here rather than Solver: (1) No order of operations
+			 * risk (2) Process can still write to cache knowing ID
 			 */
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
@@ -248,12 +239,12 @@ public class AggressiveSolverManager implements SolverManager
 	}
 
 	/**
-	 * Removes a Modifier (with the given source object) from the Solver
-	 * identified by the given VariableID.
+	 * Removes a Modifier (with the given source object) from the Solver identified by the
+	 * given VariableID.
 	 * 
-	 * For this to have any effect, the combination of Modifier and source must
-	 * be the same (as defined by .equals() equality) as a combination provided
-	 * to the addModifier method for the given VariableID.
+	 * For this to have any effect, the combination of Modifier and source must be the
+	 * same (as defined by .equals() equality) as a combination provided to the
+	 * addModifier method for the given VariableID.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
@@ -261,11 +252,11 @@ public class AggressiveSolverManager implements SolverManager
 	 *            The VariableID for which a Modifier should be removed from the
 	 *            responsible Solver
 	 * @param modifier
-	 *            The Modifier to be removed from the Solver identified by the
-	 *            given VariableID
+	 *            The Modifier to be removed from the Solver identified by the given
+	 *            VariableID
 	 * @param source
-	 *            The source object for the Modifier to be removed from the
-	 *            Solver identified by the given VariableID
+	 *            The source object for the Modifier to be removed from the Solver
+	 *            identified by the given VariableID
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters is null
 	 */
@@ -290,9 +281,8 @@ public class AggressiveSolverManager implements SolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			throw new IllegalArgumentException(
-				"Request to remove Modifier to Solver for " + varID
-					+ " but that channel was never defined");
+			throw new IllegalArgumentException("Request to remove Modifier to Solver for "
+				+ varID + " but that channel was never defined");
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			varID.getScope(), varID.getFormatManager().getManagedClass());
@@ -315,8 +305,7 @@ public class AggressiveSolverManager implements SolverManager
 	 *            The DependencyManager containing the dependencies of the given
 	 *            VariableID
 	 */
-	private <T> void processDependencies(VariableID<T> varID,
-		DependencyManager dm)
+	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
 	{
 		List<VariableID<?>> deps = dm.getVariables();
 		if (deps == null)
@@ -340,19 +329,19 @@ public class AggressiveSolverManager implements SolverManager
 		if (!deps.isEmpty())
 		{
 			/*
-			 * TODO Some form of error here since couldn't find matching edges
-			 * for all dependencies...
+			 * TODO Some form of error here since couldn't find matching edges for all
+			 * dependencies...
 			 */
 		}
 	}
 
 	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from
-	 * the given VariableID.
+	 * Triggers Solvers to be called, recursively through the dependencies, from the given
+	 * VariableID.
 	 * 
 	 * @param varID
-	 *            The VariableID as a starting point for triggering Solvers to
-	 *            be processed
+	 *            The VariableID as a starting point for triggering Solvers to be
+	 *            processed
 	 */
 	public void solveFromNode(VariableID<?> varID)
 	{
@@ -368,9 +357,9 @@ public class AggressiveSolverManager implements SolverManager
 						"Infinite Loop in Variable Processing: " + varStack);
 				}
 				/*
-				 * Only necessary if the answer changes. The problem is that
-				 * this is not doing them in order of a topological sort - it is
-				 * completely random... so things may be processed twice :/
+				 * Only necessary if the answer changes. The problem is that this is not
+				 * doing them in order of a topological sort - it is completely random...
+				 * so things may be processed twice :/
 				 */
 				solveChildren(varID);
 			}
@@ -382,12 +371,12 @@ public class AggressiveSolverManager implements SolverManager
 	}
 
 	/**
-	 * Triggers Solvers to be called, recursively through the dependencies, from
-	 * the children of the given VariableID.
+	 * Triggers Solvers to be called, recursively through the dependencies, from the
+	 * children of the given VariableID.
 	 * 
 	 * @param varID
-	 *            The VariableID for which the children will be used as a
-	 *            starting point for triggering Solvers to be processed
+	 *            The VariableID for which the children will be used as a starting point
+	 *            for triggering Solvers to be processed
 	 */
 	public void solveChildren(VariableID<?> varID)
 	{
@@ -408,48 +397,46 @@ public class AggressiveSolverManager implements SolverManager
 	private Stack<VariableID<?>> varStack = new Stack<>();
 
 	/**
-	 * Processes a single Solver represented by the given VariableID. Returns
-	 * true if the value of the Variable calculated by the Solver has changed
-	 * due to this processing.
+	 * Processes a single Solver represented by the given VariableID. Returns true if the
+	 * value of the Variable calculated by the Solver has changed due to this processing.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
 	 *            The VariableID for which the given Solver should be processed.
 	 * 
-	 * @return true if the value of the Variable calculated by the Solver has
-	 *         changed due to this processing; false otherwise
+	 * @return true if the value of the Variable calculated by the Solver has changed due
+	 *         to this processing; false otherwise
 	 */
 	private <T> boolean processSolver(VariableID<T> varID)
 	{
 		@SuppressWarnings("unchecked")
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		/*
-		 * Solver should "never" be null here, so we accept risk of NPE, since
-		 * it's always a code bug
+		 * Solver should "never" be null here, so we accept risk of NPE, since it's always
+		 * a code bug
 		 */
 		EvaluationManager evalManager = managerFactory
-				.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
 		T newValue = solver.process(evalManager);
 		Object oldValue = resultStore.put(varID, newValue);
 		return !newValue.equals(oldValue);
 	}
 
 	/**
-	 * Provides a List of ProcessStep objects identifying how the current value
-	 * of the variable identified by the given VariableID has been calculated.
+	 * Provides a List of ProcessStep objects identifying how the current value of the
+	 * variable identified by the given VariableID has been calculated.
 	 * 
-	 * The ProcessStep objects are provided in the order of operations, with the
-	 * first object in the list being the first step in the derivation.
+	 * The ProcessStep objects are provided in the order of operations, with the first
+	 * object in the list being the first step in the derivation.
 	 * 
 	 * @param <T>
 	 *            The format (class) of object contained by the given VariableID
 	 * @param varID
-	 *            The VariableID for which the List of ProcessStep objects
-	 *            should be returned.
-	 * @return The List of ProcessStep objects identifying how the current value
-	 *         of the variable identified by the given VariableID has been
-	 *         calculated
+	 *            The VariableID for which the List of ProcessStep objects should be
+	 *            returned.
+	 * @return The List of ProcessStep objects identifying how the current value of the
+	 *         variable identified by the given VariableID has been calculated
 	 */
 	public <T> List<ProcessStep<T>> diagnose(VariableID<T> varID)
 	{
@@ -457,17 +444,17 @@ public class AggressiveSolverManager implements SolverManager
 		Solver<T> solver = (Solver<T>) scopedChannels.get(varID);
 		if (solver == null)
 		{
-			throw new IllegalArgumentException("Request to diagnose VariableID "
-				+ varID + " but that channel was never defined");
+			throw new IllegalArgumentException("Request to diagnose VariableID " + varID
+				+ " but that channel was never defined");
 		}
 		EvaluationManager evalManager = managerFactory
-				.generateEvaluationManager(formulaManager, varID.getVariableFormat());
+			.generateEvaluationManager(formulaManager, varID.getVariableFormat());
 		return solver.diagnose(evalManager);
 	}
 
 	/**
-	 * Returns the Default Value (in the underlying SolverFactory) for the given
-	 * Variable Format.
+	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
+	 * Format.
 	 * 
 	 * @return The Default Value for the given Variable Format.
 	 */

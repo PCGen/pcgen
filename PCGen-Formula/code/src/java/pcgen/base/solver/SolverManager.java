@@ -15,6 +15,7 @@
  */
 package pcgen.base.solver;
 
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 
 /**
@@ -57,7 +58,7 @@ public interface SolverManager
 	 * @throws IllegalArgumentException
 	 *             if any of the parameters is null
 	 */
-	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier, Object source);
+	public <T> void addModifier(VariableID<T> varID, Modifier<T> modifier, ScopeInstance source);
 
 	/**
 	 * Removes a Modifier (with the given source object) from the Solver identified by the
@@ -82,5 +83,5 @@ public interface SolverManager
 	 *             if any of the parameters is null
 	 */
 	public <T> void removeModifier(VariableID<T> varID, Modifier<T> modifier,
-		Object source);
+		ScopeInstance source);
 }
