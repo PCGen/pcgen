@@ -17,7 +17,6 @@
  */
 package pcgen.output.channel;
 
-import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.util.CControl;
 import pcgen.cdom.util.ControlUtilities;
@@ -61,8 +60,8 @@ public final class ChannelCompatibility
 		}
 		else
 		{
-			return ChannelUtilities.generateChannel(id, stat, channelName,
-				FormatUtilities.NUMBER_MANAGER);
+			return (WriteableReferenceFacade<Number>) ChannelUtilities
+				.getChannel(id, stat, channelName);
 		}
 	}
 }
