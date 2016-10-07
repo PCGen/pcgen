@@ -23,8 +23,8 @@ import java.util.Set;
 import java.util.Stack;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.DynamicManager;
 import pcgen.base.formula.base.DynamicDependency;
+import pcgen.base.formula.base.DynamicManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
@@ -325,7 +325,7 @@ public class DynamicSolverManager implements SolverManager
 				+ varID + " but that channel was never defined");
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			varID.getScope(), varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager().getManagedClass());
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);

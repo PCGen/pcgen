@@ -285,7 +285,7 @@ public class AggressiveSolverManager implements SolverManager
 				+ varID + " but that channel was never defined");
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
-			varID.getScope(), varID.getFormatManager().getManagedClass());
+			source, varID.getFormatManager().getManagedClass());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
 		//Cast above effectively enforced here

@@ -20,7 +20,6 @@ package pcgen.base.formula.function;
 import org.junit.Test;
 
 import pcgen.base.formula.base.EvaluationManager;
-import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -28,14 +27,6 @@ import pcgen.base.testsupport.TestUtilities;
 
 public class ValueFunctionTest extends AbstractFormulaTestCase
 {
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		getFunctionLibrary().addFunction(new ValueFunction());
-		getOperatorLibrary().addAction(new NumberMinus());
-	}
 
 	@Test
 	public void testInvalidTooManyArg()

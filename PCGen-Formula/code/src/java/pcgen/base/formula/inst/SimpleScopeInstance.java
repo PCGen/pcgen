@@ -19,6 +19,7 @@ import java.util.Objects;
 
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 
 /**
  * A SimpleScopeInstance is a minimal implementation of the ScopeInstance interface.
@@ -37,9 +38,9 @@ public class SimpleScopeInstance implements ScopeInstance
 	private final LegalScope scope;
 
 	/**
-	 * Contains the Object that this ScopeInstance was instantiated to represent.
+	 * Contains the VarScoped that this ScopeInstance was instantiated to represent.
 	 */
-	private final Object representing;
+	private final VarScoped representing;
 
 	/**
 	 * Constructs a new SimpleScopeInstance with the given parent ScopeInstance and within
@@ -49,9 +50,11 @@ public class SimpleScopeInstance implements ScopeInstance
 	 *            the ScopeInstance that is the parent of this ScopeInstance
 	 * @param scope
 	 *            the LegalScope in which this ScopeInstance was instantiated
+	 * @param representing
+	 *            The VarScoped object that this ScopeInstance represents
 	 */
 	public SimpleScopeInstance(ScopeInstance parent, LegalScope scope,
-		Object representing)
+		VarScoped representing)
 	{
 		this.representing = Objects.requireNonNull(representing);
 		if (scope == null)
@@ -103,6 +106,12 @@ public class SimpleScopeInstance implements ScopeInstance
 	public String getIdentification()
 	{
 		return representing.getClass().getSimpleName() + " " + representing;
+	}
+
+	@Override
+	public VarScoped getOwningObject()
+	{
+		return representing;
 	}
 
 }

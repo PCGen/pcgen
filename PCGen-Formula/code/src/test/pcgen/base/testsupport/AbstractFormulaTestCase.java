@@ -63,6 +63,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		super.setUp();
 		setup = new SplitFormulaSetup();
+		setup.loadBuiltIns();
 		setup.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
 		localSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
@@ -207,6 +208,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		EvaluationManager em = managerFactory
 			.generateEvaluationManager(localSetup.getFormulaManager(), Number.class);
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
+	}
+
+	public EvaluationManager generateManager(Object input)
+	{
+		return generateManager().getWith(EvaluationManager.INPUT, input);
 	}
 
 	protected void isNotValid(String formula, SimpleNode node,

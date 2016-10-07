@@ -111,7 +111,8 @@ public class ScopeInstanceFactory
 		ScopeInstance inst = globals.get(name);
 		if (inst == null)
 		{
-			inst = new SimpleScopeInstance(null, legalScope, "Global Scope");
+			inst = new SimpleScopeInstance(null, legalScope,
+				new GlobalVarScoped(legalScope.getName()));
 			globals.put(name, inst);
 		}
 		return inst;
@@ -220,7 +221,7 @@ public class ScopeInstanceFactory
 	 * embedded LegalScopeLibrary.
 	 */
 	private ScopeInstance constructInstance(ScopeInstance parent,
-		LegalScope scope, Object representing)
+		LegalScope scope, VarScoped representing)
 	{
 		SimpleScopeInstance inst =
 				new SimpleScopeInstance(parent, scope, representing);

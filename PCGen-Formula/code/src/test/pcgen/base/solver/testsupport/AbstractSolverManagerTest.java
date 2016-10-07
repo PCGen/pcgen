@@ -25,7 +25,6 @@ import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ComplexNEPFormula;
-import pcgen.base.formula.inst.FormulaUtilities;
 import pcgen.base.formula.inst.SimpleLegalScope;
 import pcgen.base.solver.Modifier;
 import pcgen.base.solver.SolverFactory;
@@ -51,8 +50,6 @@ public abstract class AbstractSolverManagerTest extends AbstractFormulaTestCase
 		globalScopeInst = getGlobalScopeInst();
 		solverFactory.addSolverFormat(Number.class,
 			AbstractModifier.setNumber(0, 0));
-		FormulaUtilities.loadBuiltInFunctions(getFunctionLibrary());
-		FormulaUtilities.loadBuiltInOperators(getOperatorLibrary());
 	}
 
 	protected abstract SolverManager getManager();

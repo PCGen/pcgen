@@ -22,8 +22,6 @@ import java.util.List;
 import org.junit.Test;
 
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.formula.operator.number.NumberLessThan;
-import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -31,15 +29,6 @@ import pcgen.base.testsupport.TestUtilities;
 
 public class MaxFunctionTest extends AbstractFormulaTestCase
 {
-
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		getFunctionLibrary().addFunction(new MaxFunction());
-		getOperatorLibrary().addAction(new NumberLessThan());
-		getOperatorLibrary().addAction(new NumberMinus());
-	}
 
 	@Test
 	public void testInvalidTooFewArg()
