@@ -79,8 +79,8 @@ public class InputFunction implements Function
 		String inputName = ((SimpleNode) inputNode).getText();
 		String varName = ChannelUtilities.createVarName(inputName);
 		VariableLibrary varLib =
-				semantics.peek(FormulaSemantics.FMANAGER).getFactory();
-		LegalScope scope = semantics.peek(FormulaSemantics.SCOPE);
+				semantics.get(FormulaSemantics.FMANAGER).getFactory();
+		LegalScope scope = semantics.get(FormulaSemantics.SCOPE);
 		FormatManager<?> formatManager =
 				varLib.getVariableFormat(scope, varName);
 		if (formatManager == null)

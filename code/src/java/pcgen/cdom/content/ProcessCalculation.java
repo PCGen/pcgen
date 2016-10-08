@@ -66,7 +66,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	public T process(EvaluationManager evalManager)
 	{
 		@SuppressWarnings("unchecked")
-		T input = evalManager == null ? null : (T) evalManager.peek(EvaluationManager.INPUT);
+		T input = evalManager == null ? null : (T) evalManager.get(EvaluationManager.INPUT);
 		return getBasicCalculation().process(input, obj);
 	}
 
