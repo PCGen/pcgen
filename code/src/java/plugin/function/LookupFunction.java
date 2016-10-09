@@ -91,10 +91,9 @@ public class LookupFunction implements Function
 		}
 
 		//Table name node (must be a DataTable)
-		semantics.push(FormulaSemantics.ASSERTED, DATATABLE_CLASS);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object tableFormat = args[0].jjtAccept(visitor, semantics);
-		semantics.pop(FormulaSemantics.ASSERTED);
+		Object tableFormat = args[0].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, DATATABLE_CLASS));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -112,20 +111,17 @@ public class LookupFunction implements Function
 
 		//Lookup value (at this point we don't know the format - only at runtime)
 		FormatManager<?> lookupFormat = tableFormatManager.getLookupFormat();
-		semantics.push(FormulaSemantics.ASSERTED,
-			lookupFormat.getManagedClass());
-		args[1].jjtAccept(visitor, semantics);
-		semantics.pop(FormulaSemantics.ASSERTED);
+		args[1].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, lookupFormat.getManagedClass()));
 		if (!semantics.isValid())
 		{
 			return null;
 		}
 
 		//Result Column Name (must be a String)
-		semantics.push(FormulaSemantics.ASSERTED, COLUMN_CLASS);
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object resultColumn = args[2].jjtAccept(visitor, semantics);
-		semantics.pop(FormulaSemantics.ASSERTED);
+		Object resultColumn = args[2].jjtAccept(visitor,
+			semantics.getWith(FormulaSemantics.ASSERTED, COLUMN_CLASS));
 		if (!semantics.isValid())
 		{
 			return null;
@@ -157,23 +153,19 @@ public class LookupFunction implements Function
 		EvaluationManager manager)
 	{
 		//Table name node (must be a Table)
-		manager.push(EvaluationManager.ASSERTED, DATATABLE_CLASS);
-		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor, manager);
-		manager.pop(EvaluationManager.ASSERTED);
+		DataTable dataTable = (DataTable) args[0].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, DATATABLE_CLASS));
 
 		FormatManager<?> lookupFormat = dataTable.getFormat(0);
 
 		//Lookup value (format based on the table)
-		manager.push(EvaluationManager.ASSERTED,
-			lookupFormat.getManagedClass());
 		@SuppressWarnings("PMD.PrematureDeclaration")
-		Object lookupValue = args[1].jjtAccept(visitor, manager);
-		manager.pop(EvaluationManager.ASSERTED);
+		Object lookupValue = args[1].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, lookupFormat.getManagedClass()));
 
 		//Result Column Name (must be a tableColumn)
-		manager.push(EvaluationManager.ASSERTED, COLUMN_CLASS);
-		TableColumn column = (TableColumn) args[2].jjtAccept(visitor, manager);
-		manager.pop(EvaluationManager.ASSERTED);
+		TableColumn column = (TableColumn) args[2].jjtAccept(visitor,
+			manager.getWith(EvaluationManager.ASSERTED, COLUMN_CLASS));
 
 		String columnName = column.getName();
 		if (!dataTable.isColumn(columnName))
@@ -182,7 +174,7 @@ public class LookupFunction implements Function
 			System.out.println("Lookup called on invalid column: '" + columnName
 				+ "' is not present on table '" + dataTable.getName()
 				+ "' assuming default for " + fmt.getIdentifierType());
-			FormulaManager fm = manager.peek(EvaluationManager.FMANAGER);
+			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
 		if (!dataTable.hasRow(lookupValue))
@@ -192,7 +184,7 @@ public class LookupFunction implements Function
 				+ "' is not present in the first row of table '"
 				+ dataTable.getName() + "' assuming default for "
 				+ fmt.getIdentifierType());
-			FormulaManager fm = manager.peek(EvaluationManager.FMANAGER);
+			FormulaManager fm = manager.get(EvaluationManager.FMANAGER);
 			return fm.getDefault(fmt.getManagedClass());
 		}
 		return dataTable.lookupExact(lookupValue, columnName);
@@ -205,18 +197,14 @@ public class LookupFunction implements Function
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)
 	{
-		manager.push(DependencyManager.ASSERTED, DATATABLE_CLASS);
-		args[0].jjtAccept(visitor, manager);
-		manager.pop(DependencyManager.ASSERTED);
+		args[0].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, DATATABLE_CLASS));
 
 		//TODO a Semantics Check can tell what this is
-		manager.push(DependencyManager.ASSERTED, null);
-		args[1].jjtAccept(visitor, manager);
-		manager.pop(DependencyManager.ASSERTED);
+		args[1].jjtAccept(visitor, manager.getWith(DependencyManager.ASSERTED, null));
 
-		manager.push(DependencyManager.ASSERTED, COLUMN_CLASS);
-		args[2].jjtAccept(visitor, manager);
-		manager.pop(DependencyManager.ASSERTED);
+		args[2].jjtAccept(visitor,
+			manager.getWith(DependencyManager.ASSERTED, COLUMN_CLASS));
 	}
 
 }
