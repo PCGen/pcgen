@@ -212,6 +212,8 @@ ABILITYCATEGORY:Chronicle_S06-21						VISIBLE:QUALIFY	EDITABLE:YES								CATEGO
 ABILITYCATEGORY:Chronicle_S06-22						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-22											DISPLAYNAME:PFS Scenario #6-22: Out of Anarchy										DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S06-23						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-23											DISPLAYNAME:PFS Scenario #6-23: The Darkest Abduction									DISPLAYLOCATION:Chronicles
 
+ABILITYCATEGORY:Chronicle_S08-01						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S08-01											DISPLAYNAME:PFS Scenario #8-01: Portent's Peril									DISPLAYLOCATION:Chronicles
+
 ABILITYCATEGORY:Chronicle_PZO9500-4						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-4										DISPLAYNAME:Pathfinder Module: Master of the Fallen Fortress							DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_PZO9500-5						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-5										DISPLAYNAME:Pathfinder Module: We be Goblins										DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_PZO9500-6						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_PZO9500-6										DISPLAYNAME:Pathfinder Module: Dawn of the Scarlet Sun								DISPLAYLOCATION:Chronicles
