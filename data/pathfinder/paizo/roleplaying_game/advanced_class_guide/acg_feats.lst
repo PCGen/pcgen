@@ -255,6 +255,9 @@ CATEGORY=FEAT|Extra Hex.MOD	BONUS:ABILITYPOOL|Witch Hex|-1	BONUS:ABILITYPOOL|Hex
 Witch Hex		KEY:Hex Selection ~ Witch Hex		CATEGORY:Internal		TYPE:Hex Selection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Witch Hex|1
 Shaman Hex		KEY:Hex Selection ~ Shaman Hex	CATEGORY:Internal		TYPE:Hex Selection	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Shaman Hex|1
 
+###Block: Backwards feat support
+CATEGORY=FEAT|Raging Vitality.MOD	BONUS:VAR|BloodrageConBonus|2	
+
 
 #
 # End
