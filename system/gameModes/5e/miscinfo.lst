@@ -7,6 +7,8 @@ MENUTOOLTIP:Use 5e character creation settings
 DISPLAYORDER:1
 ALLOWEDMODES:5e
 
+DEFAULTVARIABLEVALUE:NUMBER|0
+
 # message displayed when experience added allows character to advance a level
 LEVELMSG:Congratulations, you can advance with that much experience!
 #
