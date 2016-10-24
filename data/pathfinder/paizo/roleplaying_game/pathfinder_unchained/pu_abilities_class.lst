@@ -376,23 +376,20 @@ Perfect Self			KEY:Unchained Monk ~ Perfect Self				CATEGORY:Special Ability	TYP
 
 ###Block: Flurry of Blows update
 # Ability Name									Define				Modify VAR															Source Page
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryExtraAttacks|min((FlurryLVL+6)/7,3)
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryBABBonus|FlurryLVL-MonkBAB
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryExtraAttacks|2+(MonkLVL>=11)+(MonkLVL>=6)+(MonkLVL>=11)+(MonkLVL>=16)
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryLVL|MonkLVL
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|MonkBAB|MonkLVL*3/4
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryAttacks|2+(MonkLVL>=6)+(MonkLVL>=8)+(MonkLVL>=11)+(MonkLVL>=15)+(MonkLVL>=16)
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB|-1+(FlurryLVL>=5)+(FlurryLVL>=9)+(FlurryLVL>=18)
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FlurryAttacks|2+(MonkLVL>=6)+(MonkLVL>=11)+(MonkLVL>=11)+(MonkLVL>=16)
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB|0
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_1|FAB
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_2|FAB
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_3|FAB-5
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_3|FAB+if(FlurryAttacks==3,-5,0)
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_4|FAB-5
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_5|FAB-10
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_6|FAB-10
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_7|FAB-15
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD																						SOURCEPAGE:p.57
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_6|FAB-15
+CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD						BONUS:VAR|FAB_7|FAB
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryLVL|0
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryExtraAttacks|0
-CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryBABBonus|0
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:MonkBAB|0
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryAttackBonus|0
 CATEGORY=Special Ability|Unchained Monk ~ Flurry of Blows.MOD	DEFINE:FlurryAttacks|0
