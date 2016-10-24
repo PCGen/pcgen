@@ -1,0 +1,133 @@
+# CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
+SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
+
+#Separated into own file so as to not require UM
+
+# Spell Name			Type			Classes of caster
+Anticipate Peril.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Battlemind Link.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Bungle.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Compassionate Ally.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Control Summoned Creature.MOD	TYPE:Psychic	CLASSES:Mesmerist=3
+Curse (Major).MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Curse Of Disgust.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Curse Of Magic Negation.MOD	TYPE:Psychic	CLASSES:Mesmerist=3
+Darkvision (Greater).MOD	TYPE:Psychic	CLASSES:Medium=4
+Daze (Mass).MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Decompose Corpse.MOD		TYPE:Psychic	CLASSES:Medium=1
+Delay Pain.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Delusional Pride.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Diagnose Disease.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Disfiguring Touch.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Disguise Other.MOD		TYPE:Psychic	CLASSES:Medium=2
+Ear-Piercing Scream.MOD		TYPE:Psychic	CLASSES:Medium=1
+Envious Urge.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+False Life (Greater).MOD	TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Forbid Action.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Forbid Action (Greater).MOD	TYPE:Psychic	CLASSES:Mesmerist=4
+Forced Quiet.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Fumbletongue.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Ghostly Disguise.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Haunting Choir.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Haunting Mists.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Howling Agony.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Interrogation.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Joyful Rapture.MOD		TYPE:Psychic	CLASSES:Mesmerist=5
+Loathsome Veil.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Mad Hallucination.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Malicious Spite.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Marionette Possession.MOD	TYPE:Psychic	CLASSES:Mesmerist=3
+Miserable Pity.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Murderous Command.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Oppressive Boredom.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Overwhelming Grief.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Overwhelming Presence.MOD	TYPE:Psychic	CLASSES:Mesmerist=6
+Polypurpose Panacea.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Primal Scream.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Ray Of Sickening.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Reckless Infatuation.MOD	TYPE:Psychic	CLASSES:Mesmerist=2
+Remove Sickness.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Restore Corpse.MOD		TYPE:Psychic	CLASSES:Medium=1
+Serenity.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Share Memory.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Smug Narcissism.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Steal Voice.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Summon Minor Monster.MOD	TYPE:Psychic	CLASSES:Medium=1
+Symbol Of Mirroring.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Terrible Remorse.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Unadulterated Loathing.MOD	TYPE:Psychic	CLASSES:Mesmerist=2
+Unnatural Lust.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Unprepared Combatant.MOD	TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Utter Contempt.MOD		TYPE:Psychic	CLASSES:Mesmerist=4
+Vengeful Outrage.MOD		TYPE:Psychic	CLASSES:Mesmerist=5
+Vision Of Hell.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Vocal Alteration.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Wartrain Mount.MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Waves Of Ecstasy.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
+Witness.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Youthful Appearance.MOD		TYPE:Psychic	CLASSES:Medium=1
+
+
+###Block: Occultist Spells
+Hex Ward.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Icicle Dagger.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True]
+Anticipate Peril.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Diagnose Disease.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Forbid Action.MOD			CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Murderous Command.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Shadow Weapon.MOD				CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Decompose Corpse.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Restore Corpse.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Vocal Alteration.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Youthful Appearance.MOD		CLASSES:Occultist=1[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Share Memory.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Defensive Shock.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Protective Penumbra.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Disguise Other.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Ghostly Disguise.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Symbol Of Mirroring.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Animate Dead (Lesser).MOD	CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Skinsend.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Badger's Ferocity.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Disfiguring Touch.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Masterwork Transformation.MOD	CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Symbol Of Healing.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Symbol Of Revelation.MOD	CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Witness.MOD				CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Control Summoned Creature.MOD	CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Agonize.MOD				CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Sands Of Time.MOD			CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Vision Of Hell.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Illusion=True]
+Toxic Gift.MOD			CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Age Resistance (Lesser).MOD	CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Countless Eyes.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Symbol Of Slowing.MOD		CLASSES:Occultist=3[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Curse Of Magic Negation.MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Soothe Construct.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Symbol Of Sealing.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Unbreakable Construct.MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Symbol Of Scrying.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Curse Of Disgust.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Daze (Mass).MOD			CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+False Life (Greater).MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Age Resistance.MOD		CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Darkvision (Greater).MOD	CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Echolocation.MOD			CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Malfunction.MOD			CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Rapid Repair.MOD			CLASSES:Occultist=4[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Create Demiplane (Lesser).MOD	CLASSES:Occultist=5[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Battlemind Link.MOD		CLASSES:Occultist=5[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Forbid Action (Greater).MOD	CLASSES:Occultist=5[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Curse (Major).MOD			CLASSES:Occultist=5[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Age Resistance (Greater).MOD	CLASSES:Occultist=5[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+Symbol Of Vulnerability.MOD	CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Call Construct.MOD		CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Create Demiplane.MOD		CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True]
+Prediction Of Failure.MOD	CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Divination=True]
+Symbol Of Strife.MOD		CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True]
+Cold Ice Strike.MOD		CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Evocation=True]
+Temporary Resurrection.MOD	CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Control Construct.MOD		CLASSES:Occultist=6[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
+
+Pernicious Poison.MOD		CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True]
+Silk To Steel.MOD			CLASSES:Occultist=2[PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True]
