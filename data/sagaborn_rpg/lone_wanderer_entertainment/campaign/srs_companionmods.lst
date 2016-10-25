@@ -1,0 +1,46 @@
+###Block: Hit Die Tracker
+FOLLOWER:TL=2		TYPE:Animal Companion	HD:1
+FOLLOWER:TL=4		TYPE:Animal Companion	HD:1
+FOLLOWER:TL=6		TYPE:Animal Companion	HD:1
+FOLLOWER:TL=8		TYPE:Animal Companion	HD:1
+###Block: 
+FOLLOWER:TL=2		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Link
+FOLLOWER:TL=4		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Evasion
+FOLLOWER:TL=6		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Share Vision
+FOLLOWER:TL=8		TYPE:Animal Companion	ABILITY:Special Ability|AUTOMATIC|Animal Companion ~ Share Mind
+###Block: 
+FOLLOWER:TL=4		TYPE:Animal Companion	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+FOLLOWER:TL=6		TYPE:Animal Companion	BONUS:COMBAT|AC|2|TYPE=NaturalArmor.STACK
+FOLLOWER:TL=8		TYPE:Animal Companion	BONUS:COMBAT|AC|1|TYPE=NaturalArmor.STACK
+###Block:
+FOLLOWER:TL=3		TYPE:Animal Companion	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+FOLLOWER:TL=6		TYPE:Animal Companion	BONUS:STAT|STR|1	BONUS:STAT|DEX|1
+
+
+
+# Base Eidolon
+FOLLOWER:AnimalCompanionLVL=1	TYPE:Animal Companion	DEFINE:MasterLevel|0		BONUS:VAR|MasterLevel|mastervar("AnimalCompanionLVL")
+
+###Block - HD Progression
+# Class of the Master			Type			Hit Dice
+FOLLOWER:AnimalCompanionBonusHD=1	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=2	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=3	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=4	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=5	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=6	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=7	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=8	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=9	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=10	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=11	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=12	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=13	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=14	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=15	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=16	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=17	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=18	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=19	TYPE:Animal Companion	HD:1
+FOLLOWER:AnimalCompanionBonusHD=20	TYPE:Animal Companion	HD:1
+
