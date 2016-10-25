@@ -52,8 +52,6 @@ fi
 
 # To load all sources takes more than the default 64MB.
 javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m"
-pcgenargs=""
-whosearg=java
 
 while [ "x$1" != x ]
 do
@@ -69,17 +67,13 @@ usage: $0 [java-options] [-- pcgen-options]
 EOM
         exit 0
         ;;
-    -- ) whosearg=pcgen
+    -- ) shift
+	 break
         ;;
-    * ) if [ "$whosearg" = java ]
-        then
-            javaargs="$javaargs $1"
-        else
-            pcgenargs="$pcgenargs $1"
-        fi
+    * ) javaargs="$javaargs $1"
+	shift
         ;;
     esac
-    shift
 done
 
 # PCGen related properties:
@@ -95,4 +89,4 @@ done
 #     -Dpcgen.filter=/path/to/filter.ini
 #     -Dpcgen.options=/path/to/options.ini
 
-exec java -DBROWSER="$BROWSER" $javaargs -jar ./pcgen.jar $pcgenargs
+exec java -DBROWSER="$BROWSER" $javaargs -jar ./pcgen.jar "$@"
