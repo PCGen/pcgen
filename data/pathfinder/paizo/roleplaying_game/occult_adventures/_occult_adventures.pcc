@@ -42,7 +42,6 @@ FORWARDREF:CLASSSPELLLIST|Shaman
 DATACONTROL:oa__datacontrols.lst
 
 ABILITY:oa_abilities_class.lst
-ABILITY:oa_abilities_globalvar.lst
 ABILITY:oa_abilities_race.lst
 ABILITYCATEGORY:oa_abilitycategories.lst
 CLASS:oa_classes.lst
