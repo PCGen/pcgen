@@ -1,0 +1,13 @@
+# CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
+SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
+
+#Separated into own file so as to not require MA
+
+# Spell Name			Type			Classes of caster
+Bleed Glory.MOD			TYPE:Psychic	CLASSES:Medium=1|Mesmerist=3
+Deathless.MOD			TYPE:Psychic	CLASSES:Medium=4
+Lend Path.MOD			TYPE:Psychic	CLASSES:Medium=2
+Mythic Severance.MOD		TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+Restore Mythic Power.MOD	TYPE:Psychic	CLASSES:Medium=2
+Share Glory.MOD			TYPE:Psychic	CLASSES:Medium=1
+Steal Power.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
