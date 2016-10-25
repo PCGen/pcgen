@@ -57,7 +57,7 @@ ARMORPROF:srs_profs_armor.lst
 # Not used yet...
 COMPANIONMOD:srs_companionmods.lst
 EQUIPMOD:srs_equipmods.lst
-#ABILITY:srs_feats.lst
+ABILITY:srs_feats.lst
 KIT:srs_kits.lst
 TEMPLATE:srs_templates.lst
 
