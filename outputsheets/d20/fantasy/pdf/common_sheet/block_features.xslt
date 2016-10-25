@@ -624,7 +624,23 @@
 		</xsl:if>
 	</xsl:template>
 
-
+	<!--
+====================================
+====================================
+	TEMPLATE - Drawbacks
+====================================
+====================================-->
+	<xsl:template match="drawbacks">
+		<xsl:if test="count(drawback) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'drawbacks'" />
+				<xsl:with-param name="title" select="'Drawbacks'" />
+				<xsl:with-param name="list" select="drawback"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
 	<!--
 ====================================
