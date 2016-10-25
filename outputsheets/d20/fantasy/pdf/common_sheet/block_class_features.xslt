@@ -105,15 +105,16 @@ first page
 		<xsl:param name="description" />
 		<xsl:param name="width" select="'wide'" />
 
-		<fo:table table-layout="fixed" width="100%" space-before="2mm" keep-together="always" border-collapse="collapse">
+		<fo:block keep-with-next.within-page="always" keep-together.within-column="always">
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" border-collapse="collapse">
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="concat($attribute, '.border')"/></xsl:call-template>
 			<fo:table-column column-width="18mm"/>
 			<fo:table-column>
 				<xsl:if test="$width = 'wide' ">
-				<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 20" />mm</xsl:attribute>
-				 </xsl:if>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.55 * $pagePrintableWidth - 20" />mm</xsl:attribute>
+				</xsl:if>
 				<xsl:if test="$width = 'narrow' ">
-<xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 18" />mm</xsl:attribute>
+					<xsl:attribute name="column-width"><xsl:value-of select="0.45 * $pagePrintableWidth - 18" />mm</xsl:attribute>
 				</xsl:if>
 			</fo:table-column>
 			<fo:table-body>
@@ -174,6 +175,7 @@ first page
 				</xsl:if>
 			</fo:table-body>
 		</fo:table>
+		</fo:block>
 	</xsl:template>
 
 	<!--
