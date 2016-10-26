@@ -60,7 +60,7 @@
 		<bab.total><subattrib border="" centre="" light=""/></bab.total>
 
 		<skills.header><subattrib centre="" inverse=""/></skills.header>
-		<skills.border><subattrib border="" inverse=""/></skills.border>
+		<skills.border><subattrib border="" normal=""/></skills.border>
 		<skills.darkline><subattrib medium="" /></skills.darkline>
 		<skills.lightline><subattrib light="" /></skills.lightline>
 		<skills.darkline.total><subattrib dark="" /></skills.darkline.total>
@@ -76,7 +76,7 @@
 		<tohit><subattrib border="" centre="" normal=""/></tohit>
 
 		<weapon.title><subattrib border="" centre="" inverse=""/></weapon.title>
-		<weapon.border><subattrib border="" inverse=""/></weapon.border>
+		<weapon.border><subattrib border="" normal=""/></weapon.border>
 		<weapon.hilight><subattrib border="" centre="" light=""/></weapon.hilight>
 		<weapon><subattrib border="" centre="" normal=""/></weapon>
 

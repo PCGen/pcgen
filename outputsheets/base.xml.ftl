@@ -2591,6 +2591,25 @@
 	</traits>
 
 	<!--
+	  ====================================
+	  ====================================
+			Drawbacks
+	  ====================================
+	  ====================================-->
+	<drawbacks>
+	<@loop from=0 to=pcvar('countdistinct("ABILITIES","CATEGORY=Special Ability","TYPE=drawback","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; drawback , drawback_has_next>
+		<drawback>
+			<#if (pcstring("VABILITY.Special Ability.VISIBLE.${drawback}.TYPE=drawback") != "")><#-- TODO: THis doesn't work unless all the virtual abilities are at the start of the loop. Need a new subtag on ABILITYALL of nature -->
+			<name>${pcstring('VABILITY.Special Ability.VISIBLE.${drawback}.TYPE=drawback')} (Granted)</name>
+			<#else>
+			<name>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback')}</name>
+			</#if>
+			<description>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback.DESC')}</description>
+			<source>${pcstring('ABILITYALL.Special Ability.VISIBLE.${drawback}.TYPE=drawback.SOURCE')}</source>
+		</drawback>
+	</@loop>
+	</drawbacks>
+	<!--
 	====================================
 	====================================
 	MASTER ABILITY

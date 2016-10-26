@@ -388,6 +388,7 @@
 						<xsl:apply-templates select="animal_tricks"/>	
 						<xsl:apply-templates select="special_abilities"/>
 						<xsl:apply-templates select="traits"/>
+						<xsl:apply-templates select="drawbacks"/>
 						<xsl:apply-templates select="afflictions"/>
 						<xsl:apply-templates select="racial_traits"/>
 						<xsl:apply-templates select="special_attacks"/>
