@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.bonustokens;
@@ -30,7 +28,7 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * <code>HD</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class HD extends MultiTagBonusObj
 {

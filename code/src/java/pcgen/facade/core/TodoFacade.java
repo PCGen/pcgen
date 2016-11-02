@@ -28,12 +28,9 @@ import pcgen.util.enumeration.Tab;
  * The interface <code>TodoFacade</code> defines what methods must be provided 
  * to support a Todo entry for a character. 
  *
- * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-06-14 03:03:19 -0700 (Mon, 14 Jun 2010) $
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 12156 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface TodoFacade extends Comparable<TodoFacade>
 {

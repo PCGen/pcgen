@@ -36,7 +36,8 @@ public final class PrimitiveUtilities
 		// Cannot construct utility class
 	}
 
-	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER = new Comparator<PrimitiveCollection<?>>()
+	public static final Comparator<PrimitiveCollection<?>> COLLECTION_SORTER =
+			new Comparator<PrimitiveCollection<?>>()
 	{
 		@Override
 		public int compare(PrimitiveCollection<?> lstw1,

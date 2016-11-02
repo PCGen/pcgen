@@ -45,18 +45,14 @@ import pcgen.util.Logging;
  * 
  * <p>Variable substitution is performed by replacing a placeholder indicated
  * by %# with the #th variable in the variable list.  For example, the string
- * <br /><code>&quot;This is %1 variable %3 %2&quot;</code>
- * <br />would be replaced with the string &quot;This is a variable substitution
+ * <br><code>&quot;This is %1 variable %3 %2&quot;</code>
+ * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * 
- * @since 5.15.2
  */
 public class Aspect extends ConcretePrereqObject
 {
@@ -65,7 +61,7 @@ public class Aspect extends ConcretePrereqObject
 	 */
 	private final AspectName key;
 
-	private final List<String> theComponents = new ArrayList<String>();
+	private final List<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -211,7 +207,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		if (theVariables == null)
 		{
-			theVariables = new ArrayList<String>();
+			theVariables = new ArrayList<>();
 		}
 		theVariables.add(aVariable);
 	}
@@ -276,7 +272,7 @@ public class Aspect extends ConcretePrereqObject
 				}
 				else if (var.equals(VAR_LIST))
 				{
-					List<String> assocList = new ArrayList<String>();
+					List<String> assocList = new ArrayList<>();
 					for (CNAbility cna : abilities)
 					{
 						assocList.addAll(aPC.getAssociationList(cna));
@@ -316,7 +312,6 @@ public class Aspect extends ConcretePrereqObject
 	 * 
 	 * @return A String in LST file format for this description.
 	 * 
-	 * @see pcgen.cdom.base.PrereqObject#getPCCText()
 	 */
 	public String getPCCText()
 	{

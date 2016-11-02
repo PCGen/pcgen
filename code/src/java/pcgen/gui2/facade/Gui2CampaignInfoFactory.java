@@ -51,19 +51,13 @@ import pcgen.system.LanguageBundle;
  * The Class <code>Gui2CampaignInfoFactory</code> is responsible for producing 
  * HTML formatted information on campaigns for the new user interface.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(CampaignFacade campaign, List<CampaignFacade> testList)
 	{
@@ -78,7 +72,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		PersistenceManager pman)
 	{
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		for (CampaignFacade campaignFacade : testList)
 		{
 			uris.add(((Campaign) campaignFacade).getSourceURI());
@@ -258,10 +252,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
-	
 	public String getHTMLInfo(SourceSelectionFacade selection)
 	{
 		if (selection.getCampaigns().getSize() == 1)
@@ -316,7 +306,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 	
 	public static List<CampaignURL> getUrlListForKind(Campaign c, URLKind kind)
 	{
-		List<CampaignURL> kindList = new ArrayList<CampaignURL>();
+		List<CampaignURL> kindList = new ArrayList<>();
 		for (CampaignURL url : c.getSafeListFor(ListKey.CAMPAIGN_URL))
 		{
 			if (url.getUrlKind() == kind)
@@ -327,9 +317,6 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 		return kindList;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getRequirementsHTMLString(CampaignFacade campaign,
 		List<CampaignFacade> testList)

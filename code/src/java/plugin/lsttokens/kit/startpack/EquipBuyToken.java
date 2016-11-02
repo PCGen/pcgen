@@ -19,8 +19,6 @@
  * Created on March 6, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.startpack;
@@ -84,7 +82,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			return new ParseResult.Fail("Formula in " + getTokenName()
 					+ " was not valid: " + f.toString(), context);
 		}
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 
 		while (sep.hasNext())
 		{
@@ -97,7 +95,7 @@ public class EquipBuyToken extends AbstractNonEmptyToken<Kit> implements
 			}
 			prereqs.add(prereq);
 		}
-		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<Formula>(f, prereqs));
+		kit.put(ObjectKey.EQUIP_BUY, new QualifiedObject<>(f, prereqs));
 		return ParseResult.SUCCESS;
 	}
 

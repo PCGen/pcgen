@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -71,8 +69,8 @@ public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		return LanguageBundle.getFormattedString("PreLevelMax.toHtml",
-			new Object[]{prereq.getOperator().toDisplayString(),
-				prereq.getOperand()}); // $NON-NLS-1$
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand()); // $NON-NLS-1$
 	}
 
 }

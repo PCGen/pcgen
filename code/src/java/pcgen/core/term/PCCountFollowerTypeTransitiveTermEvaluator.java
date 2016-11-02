@@ -19,8 +19,6 @@
  * Created 07-Aug-2008 00:47:38
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -59,7 +57,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 	{
 		if (display.hasFollowers())
 		{
-			final List<Follower> aList = new ArrayList<Follower>();
+			final List<Follower> aList = new ArrayList<>();
 
 			for ( Follower follower : display.getFollowerList() )
 			{
@@ -84,7 +82,7 @@ public class PCCountFollowerTypeTransitiveTermEvaluator
 			}
 		}
 
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

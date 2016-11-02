@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -39,7 +37,6 @@ import pcgen.io.exporttoken.WeaponToken;
  * <code>WeaponoToken</code>.
  * 
  * @author	binkley
- * @version	$Revision$
  */
 public class WeaponoToken extends WeaponToken
 {
@@ -98,12 +95,12 @@ public class WeaponoToken extends WeaponToken
 	/**
 	 * Creates equipment based on the first Secondary Weapon.
 	 * 
-	 * @param pc The character used to generate the size.
+	 * @param display The character used to generate the size.
 	 * @return The equipment.
 	 */
 	public static Equipment getWeaponEquipment(CharacterDisplay display, final int anIndex)
 	{
-		final List<Equipment> secWeapons = new ArrayList<Equipment>(display.getSecondaryWeapons());
+		final List<Equipment> secWeapons = new ArrayList<>(display.getSecondaryWeapons());
 		if (!secWeapons.isEmpty() && anIndex < secWeapons.size())
 		{
 			return secWeapons.get(anIndex);

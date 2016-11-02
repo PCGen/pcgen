@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus;
@@ -45,12 +43,12 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>BonusObj</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  **/
 public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
 {
-	private List<Object> bonusInfo = new ArrayList<Object>();
-	private Map<String, String> dependMap  = new HashMap<String, String>();
+	private List<Object> bonusInfo = new ArrayList<>();
+	private Map<String, String> dependMap  = new HashMap<>();
 	private Formula bonusFormula = FormulaFactory.ZERO;
 
 	/** The name of the bonus e.g. STAT or COMBAT */
@@ -108,7 +106,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public List<String> getUnparsedBonusInfoList()
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (Object info : bonusInfo)
 		{
 			list.add(unparseToken(info));
@@ -563,9 +561,9 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		final BonusObj bonusObj = (BonusObj) super.clone();
 
-		bonusObj.bonusInfo = new ArrayList<Object>(bonusInfo);
+		bonusObj.bonusInfo = new ArrayList<>(bonusInfo);
 
-		bonusObj.dependMap = new HashMap<String, String>();
+		bonusObj.dependMap = new HashMap<>();
 		bonusObj.setValue(bonusFormula.toString());
 
 		// we want to keep the same references to these objects

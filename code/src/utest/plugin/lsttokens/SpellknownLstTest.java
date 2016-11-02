@@ -49,11 +49,8 @@ import plugin.pretokens.writer.PreRaceWriter;
  * The Class <code>SpellknownLstTest</code> is responsible for testing the 
  * function of the spellknownlst class.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
 public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 {

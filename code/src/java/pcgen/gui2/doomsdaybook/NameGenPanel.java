@@ -19,15 +19,12 @@
  */
  package pcgen.gui2.doomsdaybook;
 
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,7 +33,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.Map;
@@ -55,14 +51,15 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import org.jdom.DataConversionException;
-import org.jdom.DocType;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
+import org.jdom2.DataConversionException;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
 import org.xml.sax.EntityResolver;
 import org.xml.sax.InputSource;
 
+import gmgen.util.LogUtilities;
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -89,7 +86,7 @@ public class NameGenPanel extends JPanel
 	public Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
 	private Map<String, List<RuleSet>> categories =
-			new HashMap<String, List<RuleSet>>();
+            new HashMap<>();
 	private JButton generateButton;
 	private JButton jButton1;
 	private JCheckBox chkStructure;
@@ -376,14 +373,7 @@ public class NameGenPanel extends JPanel
 				if (ele.getTitle() != null)
 				{
 					NameButton nb = new NameButton(ele);
-					nb.addActionListener(new ActionListener()
-					{
-						@Override
-						public void actionPerformed(ActionEvent evt)
-						{
-							NameButtonActionPerformed(evt);
-						}
-					});
+					nb.addActionListener(this::NameButtonActionPerformed);
 					buttonPanel.add(nb);
 				}
 			}
@@ -467,14 +457,7 @@ public class NameGenPanel extends JPanel
 		jLabel4.setText(LanguageBundle.getString("in_rndNameCatalog")); //$NON-NLS-1$
 		jPanel10.add(jLabel4);
 
-		cbCatalog.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCatalogActionPerformed(evt);
-			}
-		});
+		cbCatalog.addActionListener(this::cbCatalogActionPerformed);
 
 		jPanel10.add(cbCatalog);
 
@@ -485,14 +468,7 @@ public class NameGenPanel extends JPanel
 		jLabel1.setText(LanguageBundle.getString("in_rndNameCategory")); //$NON-NLS-1$
 		jPanel8.add(jLabel1);
 
-		cbCategory.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbCategoryActionPerformed(evt);
-			}
-		});
+		cbCategory.addActionListener(this::cbCategoryActionPerformed);
 
 		jPanel8.add(cbCategory);
 
@@ -505,14 +481,7 @@ public class NameGenPanel extends JPanel
 		jPanel11.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		generateButton.setText(LanguageBundle.getString("in_rndNameGenerate")); //$NON-NLS-1$
-		generateButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				generateButtonActionPerformed(evt);
-			}
-		});
+		generateButton.addActionListener(this::generateButtonActionPerformed);
 
 		jPanel11.add(generateButton);
 
@@ -523,14 +492,7 @@ public class NameGenPanel extends JPanel
 		jLabel5.setText(LanguageBundle.getString("in_rndNameSex")); //$NON-NLS-1$
 		jPanel9.add(jLabel5);
 
-		cbSex.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbSexActionPerformed(evt);
-			}
-		});
+		cbSex.addActionListener(this::cbSexActionPerformed);
 
 		jPanel9.add(cbSex);
 
@@ -550,26 +512,12 @@ public class NameGenPanel extends JPanel
 		jPanel12.add(jLabel6);
 
 		cbStructure.setEnabled(false);
-		cbStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cbStructureActionPerformed(evt);
-			}
-		});
+		cbStructure.addActionListener(this::cbStructureActionPerformed);
 		jPanel12.add(cbStructure);
 
 		chkStructure.setSelected(true);
 		chkStructure.setText(LanguageBundle.getString("in_randomButton")); //$NON-NLS-1$
-		chkStructure.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				chkStructureActionPerformed(evt);
-			}
-		});
+		chkStructure.addActionListener(this::chkStructureActionPerformed);
 
 		jPanel12.add(chkStructure);
 
@@ -639,14 +587,7 @@ public class NameGenPanel extends JPanel
 		jButton1.setAlignmentY(0.0F);
 		jButton1.setIconTextGap(0);
 		jButton1.setMargin(new Insets(2, 2, 2, 2));
-		jButton1.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				jButton1ActionPerformed(evt);
-			}
-		});
+		jButton1.addActionListener(this::jButton1ActionPerformed);
 		nameActionPanel.add(jButton1);
 
 		namePanel.add(nameActionPanel);
@@ -685,12 +626,12 @@ public class NameGenPanel extends JPanel
 
 			List<RuleSet> cats = categories.get(catKey);
 			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
-			List<RuleSet> join = new ArrayList<RuleSet>();
+			List<RuleSet> join = new ArrayList<>();
 			join.addAll(cats);
 			join.retainAll(sexes);
 			Collections.sort(join, new DataElementComperator());
 
-			Vector<RuleSet> catalogs = new Vector<RuleSet>();
+			Vector<RuleSet> catalogs = new Vector<>();
 			int oldSelected = -1;
 			int n = 0;
 
@@ -726,15 +667,12 @@ public class NameGenPanel extends JPanel
 	//	Get a list of all the gender categories in the category map
 	private Vector<String> getGenderCategoryNames()
 	{
-		Vector<String> genders = new java.util.Vector<String>();
+		Vector<String> genders = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
 
 		//	Loop through the keys in the categories
-		while (itr.hasNext())
+		for (final String key : keySet)
 		{
-			String key = itr.next();
-
 			//	if the key starts with "Sex" then save it
 			if (key.startsWith("Sex:"))
 			{
@@ -750,7 +688,7 @@ public class NameGenPanel extends JPanel
 	private void loadGenderDD()
 	{
 		Vector<String> genders = getGenderCategoryNames();
-		Vector<String> selectable = new Vector<String>();
+		Vector<String> selectable = new Vector<>();
 		String gender = (String) cbSex.getSelectedItem();
 
 		//	Get the selected category name
@@ -801,7 +739,7 @@ public class NameGenPanel extends JPanel
 
 		if (cat == null)
 		{
-			thiscat = new ArrayList<RuleSet>();
+			thiscat = new ArrayList<>();
 			categories.put(category.getAttributeValue("title"), thiscat);
 		}
 		else
@@ -857,14 +795,11 @@ public class NameGenPanel extends JPanel
 	//	Get a list of category names from the categories map
 	private Vector<String> getCategoryNames()
 	{
-		Vector<String> cats = new java.util.Vector<String>();
+		Vector<String> cats = new java.util.Vector<>();
 		Set<String> keySet = categories.keySet();
-		Iterator<String> itr = keySet.iterator();
 
-		while (itr.hasNext())
+		for (final String key : keySet)
 		{
-			String key = itr.next();
-
 			//	Ignore any category that starts with this
 			if (key.startsWith("Sex:"))
 			{
@@ -908,10 +843,9 @@ public class NameGenPanel extends JPanel
 			loadList(list);
 		}
 
-		ListIterator<?> rulesetIterator = rulesets.listIterator();
-		while (rulesetIterator.hasNext())
+		for (final Object ruleset : rulesets)
 		{
-			Element ruleSet = (Element) rulesetIterator.next();
+			Element ruleSet = (Element) ruleset;
 			rs = loadRuleSet(ruleSet);
 			allVars.addDataElement(rs);
 		}
@@ -923,27 +857,24 @@ public class NameGenPanel extends JPanel
 				new pcgen.core.doomsdaybook.DDList(allVars, list
 					.getAttributeValue("title"), list.getAttributeValue("id"));
 		java.util.List<?> elements = list.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
+		for (final Object element : elements)
 		{
-			Element child = (Element) elementsIterator.next();
+			Element child = (Element) element;
 			String elementName = child.getName();
 
 			if (elementName.equals("VALUE"))
 			{
 				WeightedDataValue dv =
 						new WeightedDataValue(child.getText(), child
-							.getAttribute("weight").getIntValue());
-				java.util.List<?> subElements = child.getChildren("SUBVALUE");
-				ListIterator<?> subElementsIterator =
-						subElements.listIterator();
+								.getAttribute("weight").getIntValue());
+				List<?> subElements = child.getChildren("SUBVALUE");
 
-				while (subElementsIterator.hasNext())
+				for (final Object subElement1 : subElements)
 				{
-					Element subElement = (Element) subElementsIterator.next();
+					Element subElement = (Element) subElement1;
 					dv.addSubValue(subElement.getAttributeValue("type"),
-						subElement.getText());
+							subElement.getText());
 				}
 
 				dataList.add(dv);
@@ -962,11 +893,10 @@ public class NameGenPanel extends JPanel
 				new Rule(allVars, id, id, rule.getAttribute("weight")
 					.getIntValue());
 		java.util.List<?> elements = rule.getChildren();
-		ListIterator<?> elementsIterator = elements.listIterator();
 
-		while (elementsIterator.hasNext())
+		for (final Object element : elements)
 		{
-			Element child = (Element) elementsIterator.next();
+			Element child = (Element) element;
 			String elementName = child.getName();
 
 			if (elementName.equals("GETLIST"))
@@ -1043,7 +973,7 @@ public class NameGenPanel extends JPanel
 		}
 		else
 		{
-			Vector<DataElement> struct = new Vector<DataElement>();
+			Vector<DataElement> struct = new Vector<>();
 
 			for (String key : ((RuleSet) cbCatalog.getSelectedItem()))
 			{
@@ -1111,9 +1041,6 @@ public class NameGenPanel extends JPanel
 
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public InputSource resolveEntity(String publicId, String systemId)
 		{

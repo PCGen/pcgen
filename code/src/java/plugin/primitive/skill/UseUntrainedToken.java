@@ -29,6 +29,9 @@ import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * UseUntrainedToken is a Primitive that represents Whether a Skill can be used untrained.
+ */
 public class UseUntrainedToken implements PrimitiveToken<Skill>,
 		PrimitiveFilter<Skill>
 {

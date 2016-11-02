@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.bonustokens;
@@ -31,7 +29,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>Var</code> deals with bonuses to data defined variables.
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Var extends BonusObj
 {

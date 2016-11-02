@@ -41,7 +41,7 @@ import pcgen.util.chooser.ChooserFactory;
 public class KitTemplate extends BaseKit
 {
 	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
-			new HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>>();
+            new HashMapToList<>();
 
 	/**
 	 * Actually applies the templates to this PC.
@@ -111,14 +111,14 @@ public class KitTemplate extends BaseKit
 				"pcgen.util.chooser.RandomChooser"); //$NON-NLS-1$
 		}
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
-			new HashMapToList<PCTemplate, PCTemplate>();
+                new HashMapToList<>();
 
 		for (CDOMSingleRef<PCTemplate> ref : templateList.getKeySet())
 		{
 			PCTemplate templateToAdd = ref.get();
 			List<CDOMSingleRef<PCTemplate>> subList =
 					templateList.getListFor(ref);
-			List<PCTemplate> subAdded = new ArrayList<PCTemplate>();
+			List<PCTemplate> subAdded = new ArrayList<>();
 			if (subList != null)
 			{
 				for (CDOMSingleRef<PCTemplate> subRef : subList)

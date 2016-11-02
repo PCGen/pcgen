@@ -25,9 +25,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Dimension;
 import java.io.File;
-import java.io.FileFilter;
 import java.util.Arrays;
-import java.util.Comparator;
 
 import javax.swing.Box;
 import javax.swing.ComboBoxModel;
@@ -66,12 +64,10 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>CharacterSheetInfoTab</code> is a placeholder for the
  * character sheet tab.
  *
- * <br/>
- * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-22 22:16:07
+ * <br>
  * -0800 (Tue, 22 Feb 2011) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 14593 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {
@@ -178,9 +174,6 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{
@@ -205,24 +198,11 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 			File sheetDir = new File(previewDir, game.getCharSheetDir());
 			if (sheetDir.exists() && sheetDir.isDirectory())
 			{
-				File[] files = sheetDir.listFiles(new FileFilter()
+				File[] files = sheetDir.listFiles(pathname -> pathname.isFile() && !pathname.isHidden());
+				Arrays.sort(files, (f1, f2) ->
 				{
-
-					@Override
-					public boolean accept(File pathname)
-					{
-						return pathname.isFile() && !pathname.isHidden();
-					}
-
-				});
-				Arrays.sort(files, new Comparator<File>()
-				{
-					@Override
-					public int compare(File f1, File f2)
-					{
-						// TODO I18N Use a Collator 
-						return f1.toString().compareToIgnoreCase(f2.toString());
-					}
+					// TODO I18N Use a Collator
+					return f1.toString().compareToIgnoreCase(f2.toString());
 				});
 				model = new DefaultComboBoxModel(files);
 
@@ -462,11 +442,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override
@@ -537,11 +513,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		@Override
 		public boolean isCellEditable(int rowIndex, int columnIndex)
 		{
-			if (columnIndex >= 0)
-			{
-				return false;
-			}
-			return true;
+			return columnIndex < 0;
 		}
 
 		@Override

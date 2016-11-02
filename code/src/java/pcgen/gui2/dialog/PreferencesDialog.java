@@ -20,8 +20,6 @@
  * Created on July 8th, 2002.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.gui2.dialog;
@@ -90,8 +88,7 @@ import pcgen.system.PCGenSettings;
 /**
  *  PCGen preferences dialog
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
@@ -153,7 +150,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.setSelectionRow(1);
 
 		pack();
-		Utility.setDialogRelativeLocation(getParent(), this);
+		Utility.setComponentRelativeLocation(getParent(), this);
 	}
 
 	public static void show(JFrame frame)
@@ -219,7 +216,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private JPanel buildEmptyPanel(String title, String messageText)
+	private static JPanel buildEmptyPanel(String title, String messageText)
 	{
 		GridBagLayout gridbag = new GridBagLayout();
 		GridBagConstraints c = new GridBagConstraints();
@@ -255,7 +252,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		DefaultMutableTreeNode appearanceNode;
 		DefaultMutableTreeNode gameModeNode;
 
-		panelList = new ArrayList<PCGenPrefsPanel>(15);
+		panelList = new ArrayList<>(15);
 		
 		// Build the settings panel
 		settingsPanel = new JPanel();
@@ -453,7 +450,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
+	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;

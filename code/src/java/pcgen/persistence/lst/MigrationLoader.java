@@ -41,8 +41,7 @@ import pcgen.util.Logging;
  * MigrationLoader is a LstFileLoader that processes the migration.lst file
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationLoader extends LstLineFileLoader
 {

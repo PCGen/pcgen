@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -99,7 +97,7 @@ public class RaceToken extends Token
 			return Constants.EMPTY_STRING;
 		}
 		
-		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		final List<SpecialAbility> saList = new ArrayList<>();
 		Race race = display.getRace();
 		saList.addAll(display.getResolvedUserSpecialAbilities(race));
 		saList.addAll(display.getResolvedSpecialAbilities(race));

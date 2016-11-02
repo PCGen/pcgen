@@ -18,8 +18,6 @@
  * Created on July 25, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.utils;
 
@@ -28,7 +26,7 @@ import java.util.List;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * An object that implements KeyedListContainer safely encapsulates a ListKeyMap
  */

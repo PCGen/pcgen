@@ -52,8 +52,8 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 	{
 		this.character = character;
 		this.purchasedList = character.getPurchasedEquipment();
-		equipmentList = new ArrayList<EquipmentFacade>();
-		quantityMap = new HashMap<EquipmentFacade, Integer>();
+		equipmentList = new ArrayList<>();
+		quantityMap = new HashMap<>();
 		ReferenceFacade<EquipmentSetFacade> ref = character.getEquipmentSetRef();
 		equippedList = ref.get().getEquippedItems();
 		for (EquipmentFacade equipment : purchasedList)
@@ -265,9 +265,6 @@ public class UnequippedList extends AbstractListFacade<EquipmentFacade> implemen
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void modifyElement(EquipmentFacade equipment)
 	{

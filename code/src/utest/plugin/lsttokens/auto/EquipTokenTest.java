@@ -18,7 +18,6 @@ package plugin.lsttokens.auto;
 
 import org.junit.Test;
 
-import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -88,7 +87,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	protected void loadProf(CDOMSingleRef<Equipment> ref)
 	{
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -114,7 +113,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 		CDOMGroupRef<Equipment> ref = primaryContext.getReferenceContext().getCDOMTypeReference(
 				Equipment.class, types);
 		primaryProf.addToListFor(ListKey.EQUIPMENT,
-				new QualifiedObject<CDOMReference<Equipment>>(ref));
+				new QualifiedObject<>(ref));
 	}
 
 	@Override

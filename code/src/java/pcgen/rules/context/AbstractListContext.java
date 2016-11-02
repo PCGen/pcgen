@@ -25,7 +25,6 @@ import java.util.IdentityHashMap;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import pcgen.base.util.DoubleKeyMap;
 import pcgen.base.util.HashMapToList;
 import pcgen.base.util.ListSet;
@@ -42,7 +41,7 @@ import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.base.SimpleAssociatedObject;
 import pcgen.cdom.enumeration.AssociationKey;
 import pcgen.cdom.reference.ReferenceUtilities;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 
 public abstract class AbstractListContext
 {
@@ -322,32 +321,32 @@ public abstract class AbstractListContext
 	{
 
 		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> positiveMap =
-				new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class,
-					IdentityHashMap.class);
+                new DoubleKeyMap<>(HashMap.class,
+                        IdentityHashMap.class);
 
 		private final DoubleKeyMap<URI, CDOMObject, CDOMObject> negativeMap =
-				new DoubleKeyMap<URI, CDOMObject, CDOMObject>(HashMap.class,
-					IdentityHashMap.class);
+                new DoubleKeyMap<>(HashMap.class,
+                        IdentityHashMap.class);
 
 		private final TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>> globalClearSet =
-				new TripleKeyMapToList<URI, CDOMObject, String, CDOMReference<? extends CDOMList<?>>>(
-					HashMap.class, IdentityHashMap.class, HashMap.class);
+                new TripleKeyMapToList<>(
+                        HashMap.class, IdentityHashMap.class, HashMap.class);
 
 		/*
 		 * TODO These maps (throughout this entire class) are probably problems
 		 * because they are not using Identity characteristics
 		 */
 		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> positiveMasterMap =
-				new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>(); //HashMap.class, HashMap.class, IdentityHashMap.class);
+                new TripleKeyMap<>(); //HashMap.class, HashMap.class, IdentityHashMap.class);
 
 		private final TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject> negativeMasterMap =
-				new TripleKeyMap<CDOMReference<? extends CDOMList<?>>, OwnerURI, CDOMObject, AssociatedPrereqObject>(); //HashMap.class, HashMap.class, IdentityHashMap.class);
+                new TripleKeyMap<>(); //HashMap.class, HashMap.class, IdentityHashMap.class);
 
 		private final HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI> masterClearSet =
-				new HashMapToList<CDOMReference<? extends CDOMList<?>>, OwnerURI>();
+                new HashMapToList<>();
 
 		private final HashMapToList<String, OwnerURI> masterAllClear =
-				new HashMapToList<String, OwnerURI>();
+                new HashMapToList<>();
 
 		private URI sourceURI;
 
@@ -451,7 +450,7 @@ public abstract class AbstractListContext
 				}
 			}
 			set = negativeMasterMap.getKeySet();
-			ArrayList<CDOMReference<T>> removelist = new ArrayList<CDOMReference<T>>();
+			ArrayList<CDOMReference<T>> removelist = new ArrayList<>();
 			if (set != null)
 			{
 				LIST: for (CDOMReference<? extends CDOMList<?>> ref : set)
@@ -478,8 +477,8 @@ public abstract class AbstractListContext
 					}
 				}
 			}
-			return new CollectionChanges<CDOMReference<T>>(list, removelist,
-					masterAllClear.containsInList(tokenName, lo));
+			return new CollectionChanges<>(list, removelist,
+                    masterAllClear.containsInList(tokenName, lo));
 		}
 
 		@Override
@@ -487,8 +486,8 @@ public abstract class AbstractListContext
 				String tokenName, CDOMObject owner,
 				CDOMReference<? extends CDOMList<T>> swl)
 		{
-			MapToList<T, AssociatedPrereqObject> map = new TreeMapToList<T, AssociatedPrereqObject>(
-					CDOMObjectUtilities.CDOM_SORTER);
+			MapToList<T, AssociatedPrereqObject> map = new TreeMapToList<>(
+                    CDOMObjectUtilities.CDOM_SORTER);
 			OwnerURI lo = new OwnerURI(extractURI, owner);
 			Set<CDOMObject> added = positiveMasterMap
 					.getTertiaryKeySet(swl, lo);
@@ -500,8 +499,8 @@ public abstract class AbstractListContext
 					map.addToListFor((T) lw, apo);
 				}
 			}
-			MapToList<T, AssociatedPrereqObject> rmap = new TreeMapToList<T, AssociatedPrereqObject>(
-					CDOMObjectUtilities.CDOM_SORTER);
+			MapToList<T, AssociatedPrereqObject> rmap = new TreeMapToList<>(
+                    CDOMObjectUtilities.CDOM_SORTER);
 			Set<CDOMObject> removed = negativeMasterMap
 					.getTertiaryKeySet(swl, lo);
 			for (CDOMObject lw : removed)
@@ -512,8 +511,8 @@ public abstract class AbstractListContext
 					rmap.addToListFor((T) lw, apo);
 				}
 			}
-			return new AssociatedCollectionChanges<T>(map, rmap, masterClearSet
-					.containsInList(swl, lo));
+			return new AssociatedCollectionChanges<>(map, rmap, masterClearSet
+                    .containsInList(swl, lo));
 		}
 
 		public <T extends CDOMObject> void clearMasterList(String tokenName,
@@ -580,7 +579,7 @@ public abstract class AbstractListContext
 				CDOMObject owner, Class<? extends CDOMList<?>> cl)
 		{
 			Set<CDOMReference<? extends CDOMList<?>>> list =
-					new ListSet<CDOMReference<? extends CDOMList<?>>>();
+                    new ListSet<>();
 			for (CDOMReference<? extends CDOMList<?>> ref : getPositive(
 				extractURI, owner).getModifiedLists())
 			{
@@ -635,9 +634,9 @@ public abstract class AbstractListContext
 						&& globalClearSet.getListFor(extractURI, owner,
 							tokenName).contains(swl);
 			
-			return new ListChanges<T>(tokenName,
-				getPositive(extractURI, owner), getNegative(extractURI, owner),
-				swl, hasGlobalClear);
+			return new ListChanges<>(tokenName,
+                    getPositive(extractURI, owner), getNegative(extractURI, owner),
+                    swl, hasGlobalClear);
 		}
 
 		@Override
@@ -744,7 +743,7 @@ public abstract class AbstractListContext
 	@SuppressWarnings("unchecked")
 	<T extends CDOMObject> void cloneInMasterLists(T cdoOld, T cdoNew)
 	{
-		MasterListInterface masterLists = Globals.getMasterLists();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<AssociatedPrereqObject> assocs = masterLists

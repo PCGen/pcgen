@@ -19,8 +19,6 @@
  * Created on September 12, 2005, 8:10 PM
  *
  * Current Ver: $Revision: 1.1 $
- * Last Editor: $Author: byngl $
- * Last Edited: $Date: 2004/12/04 14:14:17 $
  *
  */
 package plugin.lsttokens.gamemode;
@@ -34,7 +32,7 @@ import java.net.URI;
 /**
  * <code>StartStatMaxToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class StartStatMaxToken implements GameModeLstToken
 {

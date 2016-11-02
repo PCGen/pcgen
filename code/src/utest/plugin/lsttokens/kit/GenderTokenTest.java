@@ -29,7 +29,7 @@ public class GenderTokenTest extends AbstractKitTokenTestCase<KitBio>
 {
 
 	static GenderToken token = new GenderToken();
-	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<KitBio>(
+	static CDOMSubLineLoader<KitBio> loader = new CDOMSubLineLoader<>(
 			"TABLE", KitBio.class);
 
 	@Override

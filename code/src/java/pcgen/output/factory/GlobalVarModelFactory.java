@@ -27,9 +27,6 @@ import pcgen.output.model.GlobalVarModel;
  */
 public class GlobalVarModelFactory implements ModelFactory
 {
-	/**
-	 * @see pcgen.output.base.ModelFactory#generate(pcgen.cdom.enumeration.CharID)
-	 */
 	@Override
 	public GlobalVarModel generate(CharID id)
 	{

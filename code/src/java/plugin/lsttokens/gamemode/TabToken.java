@@ -19,8 +19,6 @@
  * Created on September 17, 2005, 2:31 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -36,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * <code>TabToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class TabToken implements GameModeLstToken
 {

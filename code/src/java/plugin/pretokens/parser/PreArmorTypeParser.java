@@ -21,22 +21,18 @@
  *
  * Current Ver: $Revision$
  * 
- * Last Editor: $Author$
  * 
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
 
 import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
-import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
  * A prerequisite parser class that handles the parsing of pre armour tokens.
  *
  */
 public class PreArmorTypeParser extends AbstractPrerequisiteListParser
-		implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

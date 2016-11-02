@@ -41,12 +41,10 @@ import pcgen.system.LanguageBundle;
  * cell with colouring indicating if the item can be known by the character. It
  * is heavily based on QualifiedTreeCellRenderer
  *
- * <br/>
- * Last Editor: $Author$ Last Edited: $Date: 2012-06-05 04:45:57
+ * <br>
  * -0700 (Tue, 05 Jun 2012) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
@@ -56,9 +54,6 @@ public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 	 */
 	private static final long serialVersionUID = -5763535370085434234L;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Component getTreeCellRendererComponent(JTree tree, Object value,
 			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)

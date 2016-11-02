@@ -1,3 +1,22 @@
+/*
+ * SpellLevel.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
@@ -5,7 +24,6 @@ import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 import java.util.TreeSet;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
@@ -15,9 +33,9 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
 import pcgen.core.Domain;
-import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
 
@@ -32,7 +50,7 @@ public class SpellLevel
 		{
 			return false;
 		}
-		Set<Integer> resultList = new TreeSet<Integer>();
+		Set<Integer> resultList = new TreeSet<>();
 		HashMapToList<CDOMList<Spell>, Integer> pcli = aPC.getSpellLevelInfo(sp);
 		for (CDOMList<Spell> spellList : lists)
 		{
@@ -49,7 +67,7 @@ public class SpellLevel
 	public static Integer[] levelForKey(Spell sp,
 			List<? extends CDOMList<Spell>> lists, PlayerCharacter aPC)
 	{
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
 
 		if (lists != null)
 		{
@@ -97,8 +115,8 @@ public class SpellLevel
 	 */
 	public static boolean isLevel(Spell sp, int aLevel, PlayerCharacter aPC)
 	{
-		Integer levelKey = Integer.valueOf(aLevel);
-		MasterListInterface masterLists = Globals.getMasterLists();
+		Integer levelKey = aLevel;
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		for (PCClass pcc : aPC.getClassSet())
 		{
 			ClassSpellList csl = pcc.get(ObjectKey.CLASS_SPELLLIST);

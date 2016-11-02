@@ -17,12 +17,12 @@
  */
 package pcgen.io.testsupport;
 
+import compare.InequalityTesterInst;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.math.BigDecimal;
 import java.net.URI;
 import java.util.Collections;
-
 import junit.framework.TestCase;
 import pcgen.base.test.InequalityTester;
 import pcgen.cdom.base.Constants;
@@ -32,6 +32,7 @@ import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.cdom.enumeration.Handed;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
@@ -82,8 +83,6 @@ import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-import compare.InequalityTesterInst;
-
 public abstract class AbstractSaveRestoreTest extends TestCase
 {
 
@@ -125,9 +124,6 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	}
 
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{
@@ -174,7 +170,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.loadCampaignFacets();
 		pc = new PlayerCharacter();
 		setBoilerplate();
-		reloadedPC = new PlayerCharacter(true, Collections.EMPTY_LIST);
+		reloadedPC = new PlayerCharacter(Collections.emptyList());
 		id = pc.getCharID();
 	}
 
@@ -373,16 +369,16 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		System.err.println(pcgString);
 	}
 
-	protected void setBoilerplate()
+	private void setBoilerplate()
 	{
 		pc.setRace(human);
 		pc.setHeight(0);
-		pc.setWeight(0);
+		pc.setPCAttribute(NumericPCAttribute.WEIGHT, 0);
 		pc.setAllowDebt(false);
 		pc.setHanded(Handed.Right);
 		pc.setGender(Gender.Male);
 		pc.setIgnoreCost(false);
-		pc.setAge(0);
+		pc.setPCAttribute(NumericPCAttribute.AGE, 0);
 		pc.setGold(BigDecimal.ZERO);
 		pc.setXP(0);
 		pc.setRegion(Region.getConstant(Constants.NONE));

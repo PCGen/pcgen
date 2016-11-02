@@ -20,11 +20,7 @@ package pcgen.base.solver;
 import java.util.Arrays;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.format.ArrayFormatManager;
 import pcgen.base.format.NumberManager;
 import pcgen.base.format.StringManager;
@@ -32,7 +28,9 @@ import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FunctionLibrary;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.LegalScopeLibrary;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.SimpleFormulaManager;
@@ -42,14 +40,20 @@ import pcgen.base.formula.inst.SimpleOperatorLibrary;
 import pcgen.base.formula.inst.SimpleScopeInstance;
 import pcgen.base.solver.testsupport.TrackingVariableCache;
 import pcgen.base.util.FormatManager;
+import pcgen.rules.persistence.token.ModifierFactory;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.modifier.set.AddModifierFactory;
 import plugin.modifier.set.SetModifierFactory;
+import static org.hamcrest.CoreMatchers.*;
+import static org.junit.Assert.*;
 
-public class SetSolverManagerTest extends TestCase
+public class SetSolverManagerTest
 {
 	private static final Class<String[]> STRING_ARRAY =
-			(Class<String[]>) new String[0].getClass();
-	private LegalScope globalScope = new SimpleLegalScope(null, "Global");
+			(Class<String[]>) String[].class;
+	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
 	private FunctionLibrary fl;
 	private OperatorLibrary ol;
 	private TrackingVariableCache vc;
@@ -57,25 +61,26 @@ public class SetSolverManagerTest extends TestCase
 	private VariableLibrary sl;
 	private FormulaManager fm;
 	private AggressiveSolverManager manager;
-	private FormatManager<Number> numberManager = new NumberManager();
-	private FormatManager<String> stringManager = new StringManager();
+	private final FormatManager<Number> numberManager = new NumberManager();
+	private final FormatManager<String> stringManager = new StringManager();
 	private ArrayFormatManager<String> arrayManager;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		fl = new SimpleFunctionLibrary();
 		ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
 		vsLib = new LegalScopeLibrary();
 		sl = new VariableLibrary(vsLib);
 		arrayManager = new ArrayFormatManager<>(stringManager, ',');
-		fm = new SimpleFormulaManager(fl, ol, sl, vc);
+		ManagerFactory managerFactory = new ManagerFactory(){};
+		fm = new SimpleFormulaManager(ol, sl, vc, new SolverFactory());
+		fm = fm.getWith(FormulaManager.FUNCTION, fl);
 		SolverFactory solverFactory = new SolverFactory();
-		manager = new AggressiveSolverManager(fm, solverFactory, vc);
-		SetModifierFactory m = new SetModifierFactory();
-		Modifier mod = m.getModifier(0, "", null, globalScope, arrayManager);
+		manager = new AggressiveSolverManager(fm, managerFactory, solverFactory, vc);
+		ModifierFactory m = new SetModifierFactory();
+		Modifier mod = m.getModifier(0, "", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(STRING_ARRAY, mod);
 	}
 
@@ -83,8 +88,8 @@ public class SetSolverManagerTest extends TestCase
 	public void testProcessDependentSet()
 	{
 		sl.assertLegalVariableID("Regions", globalScope, arrayManager);
-		SimpleScopeInstance scopeInst =
-				new SimpleScopeInstance(null, globalScope);
+		ScopeInstance scopeInst =
+				new SimpleScopeInstance(null, globalScope, "Global");
 		VariableID<String[]> regions =
 				(VariableID<String[]>) sl.getVariableID(scopeInst, "Regions");
 		manager.createChannel(regions);
@@ -95,11 +100,11 @@ public class SetSolverManagerTest extends TestCase
 		assertEquals(1, vc.set.size());
 		vc.reset();
 
-		AddModifierFactory<String> am1 = new AddModifierFactory<String>();
-		Modifier<String[]> mod = am1.getModifier(2000, "France,England", null, globalScope, arrayManager);
-		manager.addModifier(regions, mod, this);
+		ModifierFactory am1 = new AddModifierFactory<>();
+		PCGenModifier mod = am1.getModifier(2000, "France,England", new ManagerFactory(){}, null, globalScope, arrayManager);
+		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
-		assertEquals(2, array.length);
+		assertThat(2, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));
@@ -107,11 +112,11 @@ public class SetSolverManagerTest extends TestCase
 		assertEquals(1, vc.set.size());
 		vc.reset();
 
-		AddModifierFactory<String> am2 = new AddModifierFactory<String>();
-		mod = am2.getModifier(3000, "Greece,England", null, globalScope, arrayManager);
-		manager.addModifier(regions, mod, this);
+		ModifierFactory am2 = new AddModifierFactory<>();
+		mod = am2.getModifier(3000, "Greece,England", new ManagerFactory(){}, null, globalScope, arrayManager);
+		manager.addModifier(regions, mod, scopeInst);
 		array = vc.get(regions);
-		assertEquals(3, array.length);
+		assertThat(3, is(array.length));
 		list = Arrays.asList(array);
 		assertTrue(list.contains("England"));
 		assertTrue(list.contains("France"));

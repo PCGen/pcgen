@@ -42,11 +42,8 @@ import pcgen.rules.context.LoadContext;
  * <code>PreLevelMaxTest</code> tests that the PRELEVELMAX tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreLevelMaxTest extends AbstractCharacterTestCase
 {

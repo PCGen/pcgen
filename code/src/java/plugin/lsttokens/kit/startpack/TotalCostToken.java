@@ -19,8 +19,6 @@
  * Created on 8 September, 2013
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.startpack;
@@ -85,7 +83,7 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 			return new ParseResult.Fail("Formula in " + getTokenName()
 					+ " was not valid: " + f.toString(), context);
 		}
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 
 		while (sep.hasNext())
 		{
@@ -98,7 +96,7 @@ public class TotalCostToken extends AbstractNonEmptyToken<Kit> implements
 			}
 			prereqs.add(prereq);
 		}
-		kit.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<Formula>(f, prereqs));
+		kit.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<>(f, prereqs));
 		return ParseResult.SUCCESS;
 	}
 

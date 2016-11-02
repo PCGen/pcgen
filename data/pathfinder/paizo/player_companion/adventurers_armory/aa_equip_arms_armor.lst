@@ -7,9 +7,9 @@ SOURCELONG:Adventurer's Armory	SOURCESHORT:AA	SOURCEWEB:http://paizo.com/product
 #------light---------
 #Armored Kilt
 # Equipment Name	Required Armor Proficiency		Required Shield Proficiency		Type										Cost		Weight	AC Penalty Check	Modifier		Maximum DEX Bonus	Source Page		% of Spell Failure	Combat bonus											Bonus to skill
-Leaf			PROFICIENCY:ARMOR|Studded Leather							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:500	WT:10		ACCHECK:0		EQMOD:LEATHER	MAXDEX:5		SOURCEPAGE:p.18	SPELLFAILURE:5		BONUS:COMBAT|AC|3|TYPE=Armor
+Leaf			PROFICIENCY:ARMOR|Studded Leather							TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:350	WT:10		ACCHECK:0		EQMOD:MWORKA	MAXDEX:5		SOURCEPAGE:p.18	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor
 Parade		PROFICIENCY:ARMOR|Leather								TYPE:Armor.Light.ArmorProfLight.Suit.Standard.Nonmetal	COST:25	WT:20		ACCHECK:-1		EQMOD:LEATHER	MAXDEX:5		SOURCEPAGE:p.5	SPELLFAILURE:15		BONUS:COMBAT|AC|3|TYPE=Armor									BONUS:SKILL|DIPLOMACY|1|TYPE=Circumstance	BONUS:SKILL|INTIMIDATE|1|TYPE=Circumstance
-Rosewood		PROFICIENCY:ARMOR|Leather								TYPE:Armor.Light.ArmorProfLight.Suit.Nonmetal			COST:50	WT:15		ACCHECK:0		EQMOD:LEATHER	MAXDEX:6		SOURCEPAGE:p.18	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor SPROP: Must be watered each day. Has spikes.
+Rosewood		PROFICIENCY:ARMOR|Leather								TYPE:Armor.Light.ArmorProfLight.Suit.Nonmetal			COST:0	WT:15		ACCHECK:0		EQMOD:LEATHER.SPIKE_A	MAXDEX:6		SOURCEPAGE:p.18	SPELLFAILURE:10		BONUS:COMBAT|AC|2|TYPE=Armor SPROP: Must be watered each day.
 #------heavy---------
 Field Plate		PROFICIENCY:ARMOR|Full Plate								TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:1200	WT:50		ACCHECK:-5		EQMOD:STEEL		MAXDEX:1		SOURCEPAGE:p.18	SPELLFAILURE:35		BONUS:COMBAT|AC|7|TYPE=Armor
 Stoneplate		PROFICIENCY:ARMOR|Stoneplate								TYPE:Armor.Heavy.ArmorProfHeavy.Suit.Standard			COST:1800	WT:75		ACCHECK:-6		EQMOD:STONE		MAXDEX:1		SOURCEPAGE:p.14	SPELLFAILURE:35		BONUS:COMBAT|AC|9|TYPE=Armor
@@ -86,7 +86,7 @@ Aldori Dueling Sword						NAMEISPI:YES								PROFICIENCY:WEAPON|Aldori Dueling 
 Falcata																		PROFICIENCY:WEAPON|Falcata			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu								COST:18	WT:4					CRITMULT:x3	CRITRANGE:2							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
 Khopesh																		PROFICIENCY:WEAPON|Khopesh			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Standard.Slashing.HeavyBlade.Tengu								COST:20	WT:8					CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8				EQMOD:STEEL.TRIP		WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
 Rhoka																			PROFICIENCY:WEAPON|Rhoka			TYPE:Weapon.Exotic.Melee.Standard.Slashing														COST:5	WT:6					CRITMULT:x2	CRITRANGE:3							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded												SOURCEPAGE:back cover
-Scorpion Whip			KEY:AA ~ Scorpion Whip											PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Flail.Disarm.Reach.Trip									COST:5	WT:3					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
+Scorpion Whip			KEY:AA ~ Scorpion Whip											PROFICIENCY:WEAPON|Scorpion Whip		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Flail.Disarm.Reach.Trip									COST:5	WT:3					CRITMULT:x2	CRITRANGE:1							DAMAGE:1d4				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover	BONUS:WEAPON|TOHIT|4|PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency(Whip)],[!PREABILITY:1,CATEGORY=FEAT,Exotic Weapon Proficiency(Scorpion Whip)]
 Shotel																		PROFICIENCY:WEAPON|Shotel			TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Piercing.BladeLight											COST:30	WT:2					CRITMULT:x3	CRITRANGE:1							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
 Temple Sword																	PROFICIENCY:WEAPON|Temple Sword		TYPE:Weapon.Resizable.Melee.OneHanded.Exotic.Slashing.Sword												COST:30	WT:3					CRITMULT:x2	CRITRANGE:2							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
 Urumi					KEY:AA ~ Urumi												PROFICIENCY:WEAPON|Urumi			TYPE:Weapon.Resizable.EasternWeapon.Eastern.Melee.OneHanded.Exotic.Slashing.Distracting.Sword						COST:50	WT:6					CRITMULT:x2	CRITRANGE:3							DAMAGE:1d8				EQMOD:STEEL			WIELD:OneHanded										SIZE:M	SOURCEPAGE:back cover
@@ -183,8 +183,8 @@ Hanbo.MOD					TYPE:Monk.Weapon Group Monk
 #
 # Weapon Group Polearm
 #
-Horsechopper.MOD				TYPE:Polearm.Weapon Group Polearms
-Mancatcher.MOD				TYPE:Polearm.Weapon Group Polearms
+Horsechopper.MOD				TYPE:Polearm.Weapon Group Pole Arms
+Mancatcher.MOD				TYPE:Polearm.Weapon Group Pole Arms
 #
 # Weapon Group Thrown
 #

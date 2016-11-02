@@ -30,11 +30,8 @@ import pcgen.core.term.TermEvaluator;
  * formulas or variables into values and is used extensively
  * both in definitions of objects and for output to output sheets.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision$
+ * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class VariableProcessorEq extends VariableProcessor
 {

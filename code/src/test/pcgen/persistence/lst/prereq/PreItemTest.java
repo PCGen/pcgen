@@ -32,11 +32,8 @@ import plugin.pretokens.parser.PreItemParser;
 /**
  * <code>PreItemTest</code> is ...
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @SuppressWarnings("nls")
 public class PreItemTest extends EnUsLocaleDependentTestCase

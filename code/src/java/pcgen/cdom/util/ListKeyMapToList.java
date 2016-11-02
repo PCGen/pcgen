@@ -18,8 +18,6 @@
  * Created on June 18, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.cdom.util;
 
@@ -31,7 +29,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.cdom.enumeration.ListKey;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  * 
  * This encapsulates a MapToList in a typesafe and value-semantic way.
  * 
@@ -70,14 +68,6 @@ public class ListKeyMapToList
 	 */
 	@SuppressWarnings("rawtypes")
 	private final HashMapToList map = new HashMapToList();
-
-	/**
-	 * Creates a new (empty) ListKeyMapToList
-	 */
-	public ListKeyMapToList()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Adds all of the Lists in the given ListKeyMapToList to this

@@ -30,8 +30,8 @@ import java.util.TreeSet;
  * An implementation of the <tt>Collection</tt> interface that allows objects
  * added to the Collection to have a &quot;weight&quot; associated with them.
  * This weight acts as though <i>weight</i> copies of the item were added to
- * the Collection. The <code>size()</code> method returns the total weight of
- * all items in the Collection. The <code>get()</code> method returns the
+ * the Collection. The {@code size()} method returns the total weight of
+ * all items in the Collection. The {@code get()} method returns the
  * &quot;weight&quot; element in the Collection.
  * <p>
  * As an example, if three items are added to the Collection
@@ -41,7 +41,7 @@ import java.util.TreeSet;
  * <li>Item 3, weight 1</li>
  * </ul>
  * The Collection will have a total weight of 3+2+1=6. The call
- * <code>get(4)</code> will return Item 2.
+ * {@code get(4)} will return Item 2.
  * <p>
  * 
  * @author boomer70 and Tom Parker (thpr@users.sourceforge.net)
@@ -62,7 +62,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection()
 	{
-		theData = new ListSet<WeightedItem<E>>();
+		theData = new ListSet<>();
 	}
 
 	/**
@@ -76,7 +76,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 */
 	public WeightedCollection(int initialSize)
 	{
-		theData = new ListSet<WeightedItem<E>>(initialSize);
+		theData = new ListSet<>(initialSize);
 	}
 
 	/**
@@ -113,12 +113,12 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	{
 		if (comp == null)
 		{
-			theData = new ListSet<WeightedItem<E>>();
+			theData = new ListSet<>();
 		}
 		else
 		{
-			theData = new TreeSet<WeightedItem<E>>(
-					new WeightedItemComparator<E>(comp));
+			theData = new TreeSet<>(
+                    new WeightedItemComparator<>(comp));
 		}
 	}
 
@@ -199,7 +199,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 				return true;
 			}
 		}
-		return theData.add(new WeightedItem<E>(element, weight));
+		return theData.add(new WeightedItem<>(element, weight));
 	}
 
 	/**

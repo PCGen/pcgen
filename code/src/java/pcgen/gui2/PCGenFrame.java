@@ -126,14 +126,9 @@ import pcgen.util.chooser.ChooserFactory;
  * The main window for PCGen. In addition this class is responsible for providing 
  * global UI functions such as message dialogs. 
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
- * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
+ * <br>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-@SuppressWarnings("serial")
 public final class PCGenFrame extends JFrame implements UIDelegate
 {
 
@@ -154,9 +149,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public PCGenFrame()
 	{
 		Globals.setRootFrame(this);
-		this.currentSourceSelection = new DefaultReferenceFacade<SourceSelectionFacade>();
-		this.currentCharacterRef = new DefaultReferenceFacade<CharacterFacade>();
-		this.currentDataSetRef = new DefaultReferenceFacade<DataSetFacade>();
+		this.currentSourceSelection = new DefaultReferenceFacade<>();
+		this.currentCharacterRef = new DefaultReferenceFacade<>();
+		this.currentDataSetRef = new DefaultReferenceFacade<>();
 		this.actionMap = new PCGenActionMap(this);
 		this.characterTabs = new CharacterTabs(this);
 		this.statusBar = new PCGenStatusBar(this);
@@ -323,7 +318,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 							{
 								showTipsOfTheDay();
 							}
-							
+
 							if (!SourceSelectionDialog.skipSourceSelection())
 							{
 								showSourceSelectionDialog();
@@ -386,7 +381,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				}
 
 				List<CampaignFacade> campaigns =
-						new ArrayList<CampaignFacade>();
+                        new ArrayList<>();
 				String[] sourceNames = sourcesNameString.split("\\|"); //$NON-NLS-1$
 				for (Iterator<CampaignFacade> iterator =
 						FacadeFactory.getCampaigns().iterator(); iterator
@@ -584,7 +579,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	/**
 	 * @return the status bar for the main PCGen frame
 	 */
-	public final PCGenStatusBar getStatusBar()
+	public PCGenStatusBar getStatusBar()
 	{
 		return statusBar;
 	}
@@ -735,7 +730,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	 */
 	private void prepareForSave(CharacterFacade character, boolean savingAll)
 	{
-		List<CompanionFacade> tobeSaved = new ArrayList<CompanionFacade>(); 
+		List<CompanionFacade> tobeSaved = new ArrayList<>();
 		for (CompanionFacade comp : character.getCompanionSupport().getCompanions())
 		{
 			if (StringUtils.isEmpty(comp.getFileRef().get().getName())
@@ -805,8 +800,8 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		}
 		int saveAllChoice = CLOSE_OPT_CHOOSE;
 
-		List<CharacterFacade> characterList = new ArrayList<CharacterFacade>();
-		List<CharacterFacade> unsavedPCs = new ArrayList<CharacterFacade>();
+		List<CharacterFacade> characterList = new ArrayList<>();
+		List<CharacterFacade> unsavedPCs = new ArrayList<>();
 		for (CharacterFacade characterFacade : characters)
 		{
 			if (characterFacade.isDirty())
@@ -1536,7 +1531,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	public void showTipsOfTheDay()
 	{
 		TipOfTheDay tips = new TipOfTheDay(this);
-		Utility.setDialogRelativeLocation(this, tips);
+		Utility.setComponentRelativeLocation(this, tips);
 		tips.setVisible(true);
 	}
 
@@ -1549,7 +1544,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		{
 			sourceSelectionDialog = new SourceSelectionDialog(this);
 		}
-		Utility.setDialogRelativeLocation(this, sourceSelectionDialog);
+		Utility.setComponentRelativeLocation(this, sourceSelectionDialog);
 		sourceSelectionDialog.setVisible(true);
 	}
 
@@ -1728,9 +1723,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return ret == JOptionPane.OK_OPTION;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
@@ -1746,9 +1738,6 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		PostLevelUpDialog.showPostLevelUpDialog(this, character, oldLevel);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showGeneralChooser(ChooserFacade chooserFacade)
 	{
@@ -1764,14 +1753,14 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			&& chooserFacade.getRemainingSelections().get() == 1)
 		{
 			RadioChooserDialog dialog = new RadioChooserDialog(this, chooserFacade);
-			Utility.setDialogRelativeLocation(this, dialog);
+			Utility.setComponentRelativeLocation(this, dialog);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
 		else
 		{
 			ChooserDialog dialog = new ChooserDialog(this, chooserFacade);
-			Utility.setDialogRelativeLocation(this, dialog);
+			Utility.setComponentRelativeLocation(this, dialog);
 			dialog.setVisible(true);
 			return dialog.isCommitted();
 		}
@@ -1903,28 +1892,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JCheckBox jCheckBox = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		jPanel.add(jCheckBox);
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_LICENSE));
-		jCheckBox.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected());
-			}
-
-		});
+		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_LICENSE, jCheckBox.isSelected()));
 		jPanel.add(jClose);
-		jClose.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				aFrame.dispose();
-			}
-
-		});
-		//IconUtilitities.maybeSetIcon(aFrame, IconUtilitities.RESOURCE_APP_ICON);
+		jClose.addActionListener(evt -> aFrame.dispose());
 
 		HtmlPanel htmlPanel = new HtmlPanel();
 		HtmlRendererContext theRendererContext = new SimpleHtmlRendererContext(htmlPanel, new SimpleUserAgentContext());
@@ -1935,7 +1905,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(700, 500));
 		aFrame.setLocationRelativeTo(this);
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.getRootPane().setDefaultButton(jClose);
 		Utility.installEscapeCloseOperation(aFrame);
 		aFrame.setVisible(true);
@@ -1952,10 +1922,10 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		final JPanel jPanel3 = new JPanel();
 		final JLabel jLabel1 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine1"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JLabel jLabel2 =
 				new JLabel(LanguageBundle.getString("in_matureWarningLine2"), //$NON-NLS-1$
-					SwingConstants.CENTER);
+						SwingConstants.CENTER);
 		final JCheckBox jCheckBox1 = new JCheckBox(LanguageBundle.getString("in_licShowOnLoad")); //$NON-NLS-1$
 		final JButton jClose = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		jClose.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
@@ -2002,7 +1972,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(jPanel3, BorderLayout.SOUTH);
 
 		aFrame.setSize(new Dimension(456, 176));
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 
@@ -2025,27 +1995,9 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		jPanel.add(jCheckBox);
 		final PropertyContext context = PCGenSettings.OPTIONS_CONTEXT;
 		jCheckBox.setSelected(context.getBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD));
-		jCheckBox.addItemListener(new ItemListener()
-		{
-
-			@Override
-			public void itemStateChanged(ItemEvent evt)
-			{
-				context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected());
-			}
-
-		});
+		jCheckBox.addItemListener(evt -> context.setBoolean(PCGenSettings.OPTION_SHOW_SPONSORS_ON_LOAD, jCheckBox.isSelected()));
 		jPanel.add(jClose);
-		jClose.addActionListener(new ActionListener()
-		{
-
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				aFrame.dispose();
-			}
-
-		});
+		jClose.addActionListener(evt -> aFrame.dispose());
 
 		StringBuilder sb = new StringBuilder(500);
 
@@ -2088,7 +2040,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		aFrame.getContentPane().add(htmlPanel, BorderLayout.CENTER);
 		aFrame.getContentPane().add(jPanel, BorderLayout.SOUTH);
 		aFrame.setSize(new Dimension(505, size));
-		Utility.setDialogRelativeLocation(this, aFrame);
+		Utility.setComponentRelativeLocation(this, aFrame);
 		aFrame.setVisible(true);
 	}
 
@@ -2097,16 +2049,13 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		new AboutDialog(this).setVisible(true);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public CustomEquipResult showCustomEquipDialog(CharacterFacade character, 
 		EquipmentBuilderFacade equipBuilder)
 	{
 		EquipCustomizerDialog eqDialog =
 				new EquipCustomizerDialog(this, character, equipBuilder);
-		Utility.setDialogRelativeLocation(this, eqDialog);
+		Utility.setComponentRelativeLocation(this, eqDialog);
 		eqDialog.setVisible(true);
 		CustomEquipResult result =
 				eqDialog.isCancelled() ? CustomEquipResult.CANCELLED : eqDialog
@@ -2115,14 +2064,11 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean showCustomSpellDialog(SpellBuilderFacade spellBuilderFI)
 	{
 		SpellChoiceDialog spellDialog = new SpellChoiceDialog(this, spellBuilderFI);
-		Utility.setDialogRelativeLocation(this, spellDialog);
+		Utility.setComponentRelativeLocation(this, spellDialog);
 		spellDialog.setVisible(true);
 		return !spellDialog.isCancelled();
 	}

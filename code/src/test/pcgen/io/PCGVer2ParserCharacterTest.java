@@ -39,14 +39,10 @@ import pcgen.rules.context.LoadContext;
  * character to be supplied. 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void additionalSetUp() throws Exception
 	{
@@ -75,7 +71,7 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		PCGVer2Parser pcgParser = new PCGVer2Parser(pc);
 		
 		String[] pcgLines =
-				new String[]{"RACE:Rakshasa|ADD:[SPELLCASTER:Sorcerer|CHOICE:Sorcerer]"};
+				{"RACE:Rakshasa|ADD:[SPELLCASTER:Sorcerer|CHOICE:Sorcerer]"};
 		pcgParser.parsePCG(pcgLines);
 		
 		PersistentTransitionChoice<?> tc = rakshasha.getListFor(ListKey.ADD).get(0);

@@ -43,10 +43,8 @@ import pcgen.rules.persistence.token.ParseResult;
  * sum of the sets defined by the two tags.
  * <p>
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityListToken extends
 		AbstractTokenWithSeparator<AbilityCategory> implements

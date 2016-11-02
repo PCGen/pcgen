@@ -25,6 +25,7 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
@@ -32,11 +33,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreCityTest</code> tests that the PRECITY tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreCityTest extends AbstractCharacterTestCase
 {
@@ -60,7 +58,7 @@ public class PreCityTest extends AbstractCharacterTestCase
 	public void testCity() throws Exception
 	{
 		final PlayerCharacter character = getCharacter();
-		character.setResidence("Klamath");
+		character.setPCAttribute(PCAttribute.RESIDENCE, "Klamath");
 
 		Prerequisite prereq;
 

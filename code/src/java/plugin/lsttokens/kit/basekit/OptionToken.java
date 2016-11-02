@@ -19,8 +19,6 @@
  * Created on March 3, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.basekit;
@@ -124,7 +122,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (OptionBound bound : bounds)
 		{
 			Formula min = bound.getOptionMin();

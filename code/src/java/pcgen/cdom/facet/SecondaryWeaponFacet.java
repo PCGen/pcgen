@@ -37,13 +37,10 @@ import pcgen.core.Equipment;
 public class SecondaryWeaponFacet extends AbstractListFacet<CharID, Equipment>
 {
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Collection<Equipment> getCopyForNewOwner(Collection<Equipment> componentSet)
 	{
-		List<Equipment> newCopies = new ArrayList<Equipment>();
+		List<Equipment> newCopies = new ArrayList<>();
 		for (Equipment entry : componentSet)
 		{
 			newCopies.add(entry.clone());

@@ -19,7 +19,6 @@ package compare;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Iterator;
-import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
@@ -32,13 +31,13 @@ public class MapInequality implements InequalityTest<Map<?, ?>>
     @Override
 	public String testInequality(Map<?, ?> m1, Map<?, ?> m2, InequalityTester t, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
 		Set<?> k1 = m1.keySet();
 		Set<?> k2 = m2.keySet();
 		if (k1.size() != k2.size())
 		{
 			return "MI=@" + location + ": Inequality in Map Key Size: " + m1.keySet() + " " + m2.keySet();
 		}
+		Collection<String> reasons = new ArrayList<>();
 		if (!k1.equals(k2))
 		{
 			Iterator<?> i2 = k2.iterator();

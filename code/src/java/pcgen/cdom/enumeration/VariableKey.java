@@ -111,7 +111,7 @@ public final class VariableKey implements TypeSafeConstant
 	{
 		if (typeMap == null)
 		{
-			typeMap = new CaseInsensitiveMap<VariableKey>();
+			typeMap = new CaseInsensitiveMap<>();
 		}
 	}
 

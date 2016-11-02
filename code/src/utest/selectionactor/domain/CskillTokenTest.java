@@ -17,8 +17,6 @@
  */
 package selectionactor.domain;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseDriver;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.helper.ClassSource;
@@ -27,13 +25,15 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
+
+import org.junit.Test;
 import plugin.lsttokens.domain.CskillToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class CskillTokenTest extends AbstractSelectionActorTest<Skill>
 {
 
-	static CskillToken cra = new CskillToken();
+	private static final ChooseSelectionActor cra = new CskillToken();
 
 	@Test
 	public void testEmpty()

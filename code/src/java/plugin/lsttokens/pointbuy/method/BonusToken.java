@@ -18,8 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.pointbuy.method;
@@ -39,7 +37,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>BonusToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		CDOMPrimaryToken<PointBuyMethod>
@@ -71,7 +69,7 @@ public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 	{
 		Collection<BonusObj> added = pbm.getBonuses();
 		String tokenName = getTokenName();
-		Set<String> bonusSet = new TreeSet<String>();
+		Set<String> bonusSet = new TreeSet<>();
 		for (BonusObj bonus : added)
 		{
 			if (tokenName.equals(bonus.getTokenSource()))

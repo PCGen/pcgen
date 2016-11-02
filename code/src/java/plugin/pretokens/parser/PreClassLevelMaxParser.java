@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
@@ -91,7 +89,7 @@ public class PreClassLevelMaxParser extends AbstractPrerequisiteListParser
 	//
 	// Change all occurrences of PRECLASSLEVELMAX to PRECLASS
 	//
-	private void changeFromLevelMax(Prerequisite p)
+	private static void changeFromLevelMax(Prerequisite p)
 	{
 		for (Prerequisite subreq : p.getPrerequisites())
 		{

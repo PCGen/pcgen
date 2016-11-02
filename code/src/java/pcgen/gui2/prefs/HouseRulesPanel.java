@@ -52,11 +52,8 @@ import pcgen.system.LanguageBundle;
  * displaying the house rules preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class HouseRulesPanel extends PCGenPrefsPanel
@@ -211,7 +208,7 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
 		
-		List<String> doneList = new ArrayList<String>();
+		List<String> doneList = new ArrayList<>();
 
 		for (int i = 0; i < hrRadio.length; i++)
 		{

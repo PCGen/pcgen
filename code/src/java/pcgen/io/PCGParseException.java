@@ -23,17 +23,16 @@ package pcgen.io;
 import pcgen.cdom.base.Constants;
 
 /**
- * <code>ParseException</code><br>
+ * {@code ParseException}<br>
  *
  *
  * @author ???
- * @version $Revision$
  */
 final class PCGParseException extends Exception
 {
-	private String errorLine;
-	private String errorMessage;
-	private String errorMethod;
+	private final String errorLine;
+	private final String errorMessage;
+	private final String errorMethod;
 
 	/**
 	 * Constructor

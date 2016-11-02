@@ -52,8 +52,8 @@ public class Utils
 		java.text.NumberFormat numberFormat =
 				java.text.NumberFormat.getIntegerInstance();
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
-		formatter.setMinimum(Integer.valueOf(min));
-		formatter.setMaximum(Integer.valueOf(max));
+		formatter.setMinimum(min);
+		formatter.setMaximum(max);
 		final JFormattedTextField returnValue =
 				new JFormattedTextField(formatter);
 		returnValue.setColumns(3);
@@ -103,8 +103,8 @@ public class Utils
 
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
 		//formatter.getCommitsOnValidEdit();
-		formatter.setMinimum(Float.valueOf(min));
-		formatter.setMaximum(Float.valueOf(max));
+		formatter.setMinimum(min);
+		formatter.setMaximum(max);
 		final JFormattedTextField returnValue =
 				new JFormattedTextField(formatter);
 		returnValue.setColumns(4);
@@ -180,7 +180,7 @@ public class Utils
 				int value = source.getValue();
 				if (!source.getValueIsAdjusting())
 				{ //done adjusting
-					returnValue.setValue(Integer.valueOf(value)); //update ftf value
+					returnValue.setValue(value); //update ftf value
 				}
 				else
 				{ //value is adjusting; just set the text

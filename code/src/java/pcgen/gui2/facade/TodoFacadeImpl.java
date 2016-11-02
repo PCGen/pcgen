@@ -29,12 +29,9 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>TodoFacadeImpl</code> represents a task
  * to be done for a character.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TodoFacadeImpl implements TodoFacade
 {
@@ -120,7 +117,7 @@ public class TodoFacadeImpl implements TodoFacade
 	    }
 
 	    // Sort first by tab 
-	    if (!(this.tab == that.getTab()))
+	    if (this.tab != that.getTab())
 	    {
 	    	return this.tab.compareTo(that.getTab());
 	    }
@@ -142,9 +139,6 @@ public class TodoFacadeImpl implements TodoFacade
 		return EQUAL;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSubTabName()
 	{

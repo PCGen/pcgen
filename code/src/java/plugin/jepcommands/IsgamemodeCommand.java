@@ -40,11 +40,8 @@ import pcgen.util.PCGenCommand;
  * otherwise.
  * </p>
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class IsgamemodeCommand extends PCGenCommand
 {

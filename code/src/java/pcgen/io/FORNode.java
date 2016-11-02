@@ -24,10 +24,9 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <code>FORNode</code>.
+ * {@code FORNode}.
  *
- * @author Mark Hulsman <mark_hulsman@users.sourceforge.net>
- * @version $Revision$
+ * @author Mark Hulsman &lt;mark_hulsman@users.sourceforge.net&gt;
  */
 final class FORNode
 {
@@ -49,7 +48,7 @@ final class FORNode
 	 */
 	FORNode(String _var, String _min, String _max, String _step, boolean _exists)
 	{
-		children = new ArrayList<Object>();
+		children = new ArrayList<>();
 		var = _var;
 		min = _min;
 		max = _max;

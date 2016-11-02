@@ -28,13 +28,11 @@ import plugin.initiative.AttackModel;
 
 import javax.swing.*;
 import javax.swing.event.TableModelEvent;
-import javax.swing.event.TableModelListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.text.DefaultFormatter;
 import java.awt.BorderLayout;
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.ArrayList;
@@ -181,9 +179,11 @@ public class AttackDialog extends JDialog
 	 */
 	protected void handleAcTypeAction(ActionEvent e)
 	{
-		m_field.setValue(Integer.valueOf(((PcgCombatant) m_targetsCombo
-			.getSelectedItem()).getPC().getDisplay().calcACOfType(
-			m_acTypeCombo.getSelectedItem().toString())));
+		m_field.setValue((
+				(PcgCombatant) m_targetsCombo
+						.getSelectedItem()
+		).getPC().getDisplay().calcACOfType(
+				m_acTypeCombo.getSelectedItem().toString()));
 		m_tableModel.setAcType(m_acTypeCombo.getSelectedItem().toString());
 	}
 
@@ -203,7 +203,7 @@ public class AttackDialog extends JDialog
 	 */
 	protected void handleOk()
 	{
-		m_damageList = new ArrayList<Integer>(m_tableModel.getRowCount());
+		m_damageList = new ArrayList<>(m_tableModel.getRowCount());
 		m_targetList = new ArrayList(m_tableModel.getRowCount());
 
 		for (int i = 0; i < m_table.getRowCount(); i++)
@@ -214,7 +214,7 @@ public class AttackDialog extends JDialog
 
 			if (dmg > 0)
 			{
-				m_damageList.add(Integer.valueOf(dmg));
+				m_damageList.add(dmg);
 
 				Object target =
 						m_tableModel.getValueAt(i, m_tableModel
@@ -285,8 +285,8 @@ public class AttackDialog extends JDialog
 		{
 			PcgCombatant combatant =
 					(PcgCombatant) m_targetsCombo.getSelectedItem();
-			m_field.setValue(Integer.valueOf(combatant.getPC().getDisplay().calcACOfType(
-				m_acTypeCombo.getSelectedItem().toString())));
+			m_field.setValue(combatant.getPC().getDisplay().calcACOfType(
+					m_acTypeCombo.getSelectedItem().toString()));
 			m_tableModel.setTarget(combatant);
 		}
 	}
@@ -319,14 +319,7 @@ public class AttackDialog extends JDialog
 		AutoSizingColumnModel columns = new AutoSizingColumnModel();
 
 		m_tableModel = new AttackTableModel();
-		m_tableModel.addTableModelListener(new TableModelListener()
-		{
-            @Override
-			public void tableChanged(TableModelEvent e)
-			{
-				handleTableUpdate(e);
-			}
-		});
+		m_tableModel.addTableModelListener(this::handleTableUpdate);
 		m_table = new JTable(m_tableModel, columns);
 
 		columns.referenceTable(m_table);
@@ -350,14 +343,7 @@ public class AttackDialog extends JDialog
 		bottom.add(Box.createRigidArea(new Dimension(10, 0)));
 
 		JCheckBox checkbox = new JCheckBox("Damage is subdual?");
-		checkbox.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				handleSubdualAction(e);
-			}
-		});
+		checkbox.addActionListener(this::handleSubdualAction);
 
 		bottom.add(checkbox);
 
@@ -407,28 +393,14 @@ public class AttackDialog extends JDialog
 			//If we have combatants, initialize the top panel and populate
 			//the JComboBox
 			m_targetsCombo = new JComboBox(m_combatants);
-			m_targetsCombo.addActionListener(new ActionListener()
-			{
-                @Override
-				public void actionPerformed(ActionEvent e)
-				{
-					handleTargetAction(e);
-				}
-			});
+			m_targetsCombo.addActionListener(this::handleTargetAction);
 			top.add(new JLabel("Attack Character: "));
 			top.add(m_targetsCombo);
 			m_acTypeCombo = new JComboBox();
 			m_acTypeCombo.addItem("Total");
 			m_acTypeCombo.addItem("Flatfooted");
 			m_acTypeCombo.addItem("Touch");
-			m_acTypeCombo.addActionListener(new ActionListener()
-			{
-                @Override
-				public void actionPerformed(ActionEvent e)
-				{
-					handleAcTypeAction(e);
-				}
-			});
+			m_acTypeCombo.addActionListener(this::handleAcTypeAction);
 			top.add(new JLabel("Use AC Type: "));
 			top.add(m_acTypeCombo);
 		}
@@ -455,7 +427,7 @@ public class AttackDialog extends JDialog
 		});
 		top.add(new JLabel("AC"));
 		top.add(m_field);
-		m_field.setValue(Integer.valueOf(15));
+		m_field.setValue(15);
 		handleTargetAction(null);
 		getContentPane().add(top, BorderLayout.NORTH);
 
@@ -519,10 +491,10 @@ public class AttackDialog extends JDialog
 				{
 					{"Bonus", Integer.class, null, Boolean.FALSE,
 						COLUMN_KEY_BONUS},
-					{"Fudge", Integer.class, Integer.valueOf(0), Boolean.TRUE,
+					{"Fudge", Integer.class, 0, Boolean.TRUE,
 						COLUMN_KEY_FUDGE},
 					{"Increment", Integer.class,
-						Integer.valueOf(m_attack.getRangeAsInt()),
+							m_attack.getRangeAsInt(),
 						Boolean.FALSE, COLUMN_KEY_INCREMENT},
 					{"Range", Integer.class, null, Boolean.TRUE,
 						COLUMN_KEY_RANGE},
@@ -553,7 +525,7 @@ public class AttackDialog extends JDialog
 			super();
 
 			int[] attacks = m_attack.getBonusList();
-			Vector<Object> values = new Vector<Object>(columns.length);
+			Vector<Object> values = new Vector<>(columns.length);
 			values.setSize(values.capacity());
 
 			for (int i = 0; i < columns.length; i++)
@@ -564,8 +536,7 @@ public class AttackDialog extends JDialog
 
 			for (int i = 0; i < attacks.length; i++)
 			{
-				values.set(columnFromKey(COLUMN_KEY_BONUS), Integer
-					.valueOf(attacks[i]));
+				values.set(columnFromKey(COLUMN_KEY_BONUS), attacks[i]);
 				values
 					.set(columnFromKey(COLUMN_KEY_DMG), m_attack.getDamage(i));
 				addRow((Vector) values.clone());
@@ -595,7 +566,7 @@ public class AttackDialog extends JDialog
 		{
 			for (int i = 0; i < getRowCount(); i++)
 			{
-				setValueAt(Integer.valueOf(ac), i, columnFromKey(COLUMN_KEY_AC));
+				setValueAt(ac, i, columnFromKey(COLUMN_KEY_AC));
 			}
 		}
 
@@ -744,7 +715,7 @@ public class AttackDialog extends JDialog
 				|| (column == columnFromKey(COLUMN_KEY_RANGE))
 				|| (column == columnFromKey(COLUMN_KEY_ROLL)))
 			{
-				setValueAt(Integer.valueOf(attTotal), row,
+				setValueAt(attTotal, row,
 					columnFromKey(COLUMN_KEY_TOTAL));
 			}
 
@@ -753,9 +724,11 @@ public class AttackDialog extends JDialog
 			{
 				if (getValueAt(row, columnFromKey(COLUMN_KEY_TARGET)) instanceof PcgCombatant)
 				{
-					setValueAt(Integer.valueOf(((PcgCombatant) getValueAt(row,
-						columnFromKey(COLUMN_KEY_TARGET))).getPC().getDisplay()
-						.calcACOfType(m_acType)), row,
+					setValueAt((
+									(PcgCombatant) getValueAt(row,
+											columnFromKey(COLUMN_KEY_TARGET))
+							).getPC().getDisplay()
+									.calcACOfType(m_acType), row,
 						columnFromKey(COLUMN_KEY_AC));
 				}
 			}
@@ -794,7 +767,7 @@ public class AttackDialog extends JDialog
 					critTotal =
 							getIntAt(row, columnFromKey(COLUMN_KEY_CRITROLL))
 								+ attackModifier;
-					setValueAt(Integer.valueOf(critTotal), row,
+					setValueAt(critTotal, row,
 						columnFromKey(COLUMN_KEY_CRITTOTAL));
 				}
 				else
@@ -866,7 +839,7 @@ public class AttackDialog extends JDialog
 						dmg += RollingMethods.roll(damageString);
 					}
 
-					setValueAt(Integer.valueOf(dmg), row,
+					setValueAt(dmg, row,
 						columnFromKey(COLUMN_KEY_DMGTOT));
 				}
 				else
@@ -884,7 +857,7 @@ public class AttackDialog extends JDialog
 		 */
 		private void rollAttack(int row)
 		{
-			setValueAt(Integer.valueOf(RollingMethods.roll("1d20")), row,
+			setValueAt(RollingMethods.roll("1d20"), row,
 				columnFromKey(COLUMN_KEY_ROLL));
 
 			if ((getIntAt(row, columnFromKey(COLUMN_KEY_ROLL)) >= m_attack
@@ -892,7 +865,7 @@ public class AttackDialog extends JDialog
 				&& ((Boolean) getValueAt(row, columnFromKey(COLUMN_KEY_HIT)))
 					.booleanValue())
 			{
-				setValueAt(Integer.valueOf(RollingMethods.roll("1d20")), row,
+				setValueAt(RollingMethods.roll("1d20"), row,
 					columnFromKey(COLUMN_KEY_CRITROLL));
 			}
 			else

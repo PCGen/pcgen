@@ -39,11 +39,8 @@ import pcgen.io.exporttoken.AbilityToken;
  * <code>VAbilityToken</code> deals with the VABILITY output 
  * token.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class VAbilityToken extends AbilityToken
 {
@@ -63,7 +60,7 @@ public class VAbilityToken extends AbilityToken
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
@@ -79,9 +76,6 @@ public class VAbilityToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

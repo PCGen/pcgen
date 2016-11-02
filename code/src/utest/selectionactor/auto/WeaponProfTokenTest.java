@@ -17,17 +17,17 @@
  */
 package selectionactor.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.WeaponProf;
+
+import org.junit.Test;
 import plugin.lsttokens.auto.WeaponProfToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class WeaponProfTokenTest extends AbstractSelectionActorTest<WeaponProf>
 {
 
-	static WeaponProfToken cra = new WeaponProfToken();
+	private static final ChooseSelectionActor cra = new WeaponProfToken();
 
 	@Test
 	public void testEmpty()

@@ -37,12 +37,9 @@ import pcgen.util.Logging;
  * game mode specific information output sheet to be specified that will be 
  * displayed on the summary tab when editing a character. 
  *
- * <br/>
- * Last Editor: $Author: javydreamercsw $
- * Last Edited: $Date: 2012-11-06 20:50:30 +0100 (Di, 06 Nov 2012) $
+ * <br>
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 18181 $
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class OutputSheetToken implements GameModeLstToken
 {
@@ -54,7 +51,7 @@ public class OutputSheetToken implements GameModeLstToken
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
 		String[] tokens = value.split("\\|");
-		List<String> validTags = new ArrayList<String>(Arrays.asList("HTM", "PDF", "TXT"));
+		List<String> validTags = new ArrayList<>(Arrays.asList("HTM", "PDF", "TXT"));
 		
 		if (tokens.length == 2)
 		{

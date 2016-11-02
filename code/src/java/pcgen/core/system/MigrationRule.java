@@ -29,12 +29,9 @@ import pcgen.core.utils.CoreUtility;
  * The Class <code>MigrationRule</code> defines a key change that needs to 
  * be made to a character when it is loaded. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationRule
 {

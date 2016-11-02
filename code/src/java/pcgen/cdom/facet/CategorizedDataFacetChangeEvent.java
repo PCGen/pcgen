@@ -32,12 +32,10 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * events to allow the listener to determine the category and nature to which
  * the ability is being applied.
  * 
- * <br/>
- * Last Editor: $Author$ Last Edited: $Date: 2013-01-14 17:25:32 -0500
+ * <br>
  * (Mon, 14 Jan 2013) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>

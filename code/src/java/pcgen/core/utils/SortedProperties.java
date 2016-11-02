@@ -18,8 +18,6 @@
  * Created on November 07, 2003, 2:15 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.utils;
@@ -32,8 +30,7 @@ import java.util.*;
 /**
  * An subclass of Properties whose output is sorted
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
+ * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  */
 public class SortedProperties extends Properties
 {
@@ -53,7 +50,7 @@ public class SortedProperties extends Properties
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;
-		final SortedMap<Object, Object> aMap = new TreeMap<Object, Object>(this);
+		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
 		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
 		Map.Entry<Object, Object> entry;
 
@@ -76,11 +73,7 @@ public class SortedProperties extends Properties
 
 			bw.flush();
 		}
-		catch (UnsupportedEncodingException ex)
-		{
-			Logging.errorPrint("Error writing to the options.ini file: ", ex);
-		}
-		catch (IOException ex)
+		catch (final IOException ex)
 		{
 			Logging.errorPrint("Error writing to the options.ini file: ", ex);
 		}

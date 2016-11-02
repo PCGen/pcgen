@@ -55,8 +55,8 @@ public class EquippedEquipmentFacet extends
 		Set<Equipment> oldEquipped =
 				(Set<Equipment>) removeCache(id);
 		Set<Equipment> currentEquipment = equipmentFacet.getSet(id);
-		Set<Equipment> newEquipped = new WrappedMapSet<Equipment>(
-				IdentityHashMap.class);
+		Set<Equipment> newEquipped = new WrappedMapSet<>(
+                IdentityHashMap.class);
 		setCache(id, newEquipped);
 		if (oldEquipped != null)
 		{
@@ -126,8 +126,8 @@ public class EquippedEquipmentFacet extends
 		{
 			return Collections.emptySet();
 		}
-		Set<Equipment> returnEquipped = new WrappedMapSet<Equipment>(
-				IdentityHashMap.class);
+		Set<Equipment> returnEquipped = new WrappedMapSet<>(
+                IdentityHashMap.class);
 		returnEquipped.addAll(set);
 		return returnEquipped;
 	}
@@ -185,8 +185,8 @@ public class EquippedEquipmentFacet extends
 		Set<Equipment> set = (Set<Equipment>) getCache(source);
 		if (set != null)
 		{
-			Set<Equipment> newEquipped = new WrappedMapSet<Equipment>(
-					IdentityHashMap.class);
+			Set<Equipment> newEquipped = new WrappedMapSet<>(
+                    IdentityHashMap.class);
 			newEquipped.addAll(set);
 			setCache(copy, newEquipped);
 		}

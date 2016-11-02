@@ -19,8 +19,6 @@
  * Created on September 2, 2002, 8:18 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -43,7 +41,7 @@ import pcgen.util.Logging;
 /**
  * <code>ActypeToken</code>
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class ActypeToken implements GameModeLstToken
 {
@@ -105,7 +103,7 @@ public class ActypeToken implements GameModeLstToken
 	private Collection<ACControl> parseACControl(String str)
 	{
 		StringTokenizer st = new StringTokenizer(str, Constants.PIPE);
-		List<ACControl> acTypes = new ArrayList<ACControl>();
+		List<ACControl> acTypes = new ArrayList<>();
 		String token;
 		while (true)
 		{

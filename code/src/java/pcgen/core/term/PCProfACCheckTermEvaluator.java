@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 23:53:33
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -56,7 +54,7 @@ public class PCProfACCheckTermEvaluator
 		}
 		if ("".equals(eqKey))
 		{
-			return 0f;
+			return 0.0f;
 		}
 		else
 		{
@@ -65,7 +63,7 @@ public class PCProfACCheckTermEvaluator
 
 			if (eq == null || pc.isProficientWith(eq))
 			{
-				return 0f;
+				return 0.0f;
 			}
 			else
 			{

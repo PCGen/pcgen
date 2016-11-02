@@ -93,7 +93,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		DoubleKeyMap<String, String, Double> map = getInfo(id);
 		if (map == null)
 		{
-			map = new DoubleKeyMap<String, String, Double>();
+			map = new DoubleKeyMap<>();
 			setCache(id, map);
 		}
 		return map;
@@ -127,6 +127,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	 * 
 	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
+	@FunctionalInterface
 	public interface BonusChangeListener
 	{
 
@@ -244,7 +245,7 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 	public static class BonusChangeSupport
 	{
 		private DoubleKeyMapToList<String, String, BonusChangeListener> listeners =
-				new DoubleKeyMapToList<String, String, BonusChangeListener>();
+                new DoubleKeyMapToList<>();
 
 		/**
 		 * Adds a new BonusChangeListener to receive BonusChangeEventas from the
@@ -310,8 +311,8 @@ public class BonusChangeFacet extends AbstractStorageFacet<CharID>
 		public synchronized BonusChangeListener[] getBonusChangeListeners(
 				String type, String name)
 		{
-			return (listeners.getListFor(type, name)
-					.toArray(new BonusChangeListener[0]));
+			List<BonusChangeListener> listFor = listeners.getListFor(type, name);
+			return (listFor.toArray(new BonusChangeListener[listFor.size()]));
 		}
 
 		/**

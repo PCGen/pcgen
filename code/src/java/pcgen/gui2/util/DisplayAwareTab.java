@@ -25,12 +25,9 @@ package pcgen.gui2.util;
 /**
  * <code>DisplayAwareTab</code> identifies a tab that wants to be advised when it is displayed.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface DisplayAwareTab
 {

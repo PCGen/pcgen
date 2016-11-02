@@ -27,6 +27,7 @@ import java.util.EventListener;
  *            The Format of the underlying Variable to which the
  *            VariableListener is listening
  */
+@FunctionalInterface
 public interface VariableListener<T> extends EventListener
 {
 	/**

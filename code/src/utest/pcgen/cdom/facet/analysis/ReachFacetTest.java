@@ -61,7 +61,7 @@ public class ReachFacetTest extends TestCase
 		facet = getMockFacet();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
-		bonusInfo = new HashMap<CharID, Double>();
+		bonusInfo = new HashMap<>();
 	}
 
 	@Test

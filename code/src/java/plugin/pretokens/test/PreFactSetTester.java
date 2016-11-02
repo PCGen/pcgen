@@ -77,8 +77,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 		return countedTotal(prereq, runningTotal);
 	}
 
-	private <T> int getRunningTotal(final Prerequisite prereq, final int number,
-		Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
+	private static <T> int getRunningTotal(final Prerequisite prereq, final int number,
+	                                       Iterable<Reducible> objModel, String factval, FactSetKey<T> fk)
 	{
 		T targetVal = fk.getFormatManager().convert(factval);
 		int runningTotal = 0;
@@ -123,8 +123,8 @@ public class PreFactSetTester extends AbstractPrerequisiteTest implements Prereq
 
 		final String foo = LanguageBundle.getFormattedString(
 				"PreFactSet.toHtml", //$NON-NLS-1$
-				new Object[] { prereq.getOperator().toDisplayString(),
-						prereq.getOperand(), prereq.getKey() });
+				prereq.getOperator().toDisplayString(),
+				prereq.getOperand(), prereq.getKey());
 		return foo;
 	}
 

@@ -43,11 +43,9 @@ import pcgen.util.Logging;
 /**
  * <code>UrlToken</code> is responsible for parsing the URL campaign token.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-01-27 22:03:36
  * -0500 (Sun, 27 Jan 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class UrlToken implements CDOMPrimaryToken<Campaign>
 {
@@ -137,7 +135,7 @@ public class UrlToken implements CDOMPrimaryToken<Campaign>
 		Collection<CampaignURL> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{
-			List<String> list = new ArrayList<String>();
+			List<String> list = new ArrayList<>();
 			for (CampaignURL curl : added)
 			{
 				StringBuilder sb = new StringBuilder();

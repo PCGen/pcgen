@@ -32,11 +32,8 @@ import pcgen.persistence.lst.GameModeLstToken;
  * The Class <code>DefaultdatasetToken</code> is responsible for parsing
  * the value of the DEFAULTDATASET tag and processing it against the game mode..
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DefaultdatasetToken implements GameModeLstToken
 {

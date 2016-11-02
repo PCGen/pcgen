@@ -19,21 +19,17 @@
  * Created on September 22, 2002, 4:30 PM
  *
  * Current Ver: $Revision: 17100 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-09-01 03:33:25 +0200 (Sa, 01 Sep 2012) $
  *
  */
 package pcgen.core;
 
-import pcgen.core.GameMode;
 import pcgen.facade.core.GameModeDisplayFacade;
 
 
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 17100 $
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {
@@ -42,7 +38,7 @@ public final class GameModeDisplay implements Comparable<Object>, GameModeDispla
 	/**
 	 * Creates a new instance of GameModeMenuEntry.
 	 *
-	 * @param modeName the mode name
+	 * @param mode the mode name
 	 */
 	public GameModeDisplay(final GameMode mode)
 	{

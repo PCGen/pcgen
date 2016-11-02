@@ -28,11 +28,8 @@ import pcgen.system.LanguageBundle;
  * <code>HtmlInfoBuilder</code> is a helper class for the various
  * setInfoLabelText methods in the gui tabs.
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-02-24 15:41:00 -0800 (Thu, 24 Feb 2011) $
  *
- * @author Koen Van Daele <vandaelek@users.sourceforge.net>
- * @version $Revision: 14600 $
+ * @author Koen Van Daele &lt;vandaelek@users.sourceforge.net&gt;
  */
 public class HtmlInfoBuilder 
 {

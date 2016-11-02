@@ -19,8 +19,6 @@
  * Created on August 16, 2002, 10:00 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -39,8 +37,7 @@ import pcgen.util.Logging;
  * <code>LevelLoader</code> loads up the level system file
  * by processing each line passed to it.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  **/
 public final class LevelLoader
 {

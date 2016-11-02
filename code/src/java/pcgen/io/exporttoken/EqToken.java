@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -188,7 +186,7 @@ public class EqToken extends Token
 			}
 
 			// Get the list of equipment
-			eqList = new ArrayList<Equipment>();
+			eqList = new ArrayList<>();
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
 			{
 				eqList.add(eq);
@@ -319,7 +317,7 @@ public class EqToken extends Token
 			//Need a special breakout based on PlayerCharacter reset of IntegerKey.RANGE
 			if (eq.isType("Both") && eq.isType("Melee"))
 			{
-				return Integer.valueOf(0);
+				return 0;
 			}
 			return ((Number) eq.getLocalVariable(pc.getCharID(), rangeVar)).intValue();
 		}
@@ -1024,7 +1022,6 @@ public class EqToken extends Token
 
 	/**
 	 * Get Equipment Slot Token
-	 * @param pc
 	 * @param eq
 	 * @return Equipment Slot Token
 	 */
@@ -1307,7 +1304,7 @@ public class EqToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())

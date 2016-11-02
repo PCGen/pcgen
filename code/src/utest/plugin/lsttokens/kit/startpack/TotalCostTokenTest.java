@@ -43,7 +43,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {
@@ -165,7 +164,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	@Override
 	protected String[] setAndUnparse(Formula val)
 	{
-		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<Formula>(val));
+		primaryProf.put(ObjectKey.KIT_TOTAL_COST, new QualifiedObject<>(val));
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 

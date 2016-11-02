@@ -94,7 +94,7 @@ public class VisionFacet extends
 					List<Prerequisite> prereqs = apo.getPrerequisiteList();
 					for (Vision v : ref.getContainedObjects())
 					{
-						add(id, new QualifiedObject<Vision>(v, prereqs), cdo);
+						add(id, new QualifiedObject<>(v, prereqs), cdo);
 					}
 				}
 			}
@@ -147,7 +147,7 @@ public class VisionFacet extends
 		{
 			return Collections.emptyList();
 		}
-		Map<VisionType, Integer> map = new HashMap<VisionType, Integer>();
+		Map<VisionType, Integer> map = new HashMap<>();
 		for (Map.Entry<QualifiedObject<Vision>, Set<Object>> me : componentMap
 				.entrySet())
 		{
@@ -189,7 +189,7 @@ public class VisionFacet extends
 				map.put(vType, aVal + (current == null ? 0 : current));
 			}
 		}
-		TreeSet<Vision> returnSet = new TreeSet<Vision>();
+		TreeSet<Vision> returnSet = new TreeSet<>();
 		for (Map.Entry<VisionType, Integer> me : map.entrySet())
 		{
 			returnSet.add(new Vision(me.getKey(), FormulaFactory
@@ -307,7 +307,7 @@ public class VisionFacet extends
 	@Override
 	protected Map<QualifiedObject<Vision>, Set<Object>> getComponentMap()
 	{
-		return new HashMap<QualifiedObject<Vision>, Set<Object>>();
+		return new HashMap<>();
 	}
 
 	public void setFormulaResolvingFacet(

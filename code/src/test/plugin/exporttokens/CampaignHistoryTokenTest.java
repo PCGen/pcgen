@@ -43,7 +43,6 @@ import pcgen.util.TestHelper;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 {

@@ -25,7 +25,7 @@ public class UnitsetToken implements GameModeLstToken
 	{
 		try
 		{
-			SimpleLoader<UnitSet> unitSetLoader = new SimpleLoader<UnitSet>(UnitSet.class);
+			SimpleLoader<UnitSet> unitSetLoader = new SimpleLoader<>(UnitSet.class);
 			unitSetLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}

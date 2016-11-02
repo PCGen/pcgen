@@ -45,12 +45,9 @@ import pcgen.system.LanguageBundle;
  * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
  * generate a random name for their character.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RandomNameDialog extends JDialog
@@ -73,7 +70,7 @@ public class RandomNameDialog extends JDialog
 		setDefaultCloseOperation(WindowConstants.HIDE_ON_CLOSE);
 		if (frame != null)
 		{
-			Utility.setDialogRelativeLocation(frame, this);
+			Utility.setComponentRelativeLocation(frame, this);
 		}
 		cancelled = false;
 		

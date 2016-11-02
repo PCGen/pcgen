@@ -105,7 +105,7 @@ import pcgen.util.enumeration.Tab;
  * This component allows a user to manage a character's companions (animal,
  * familiar, cohort, mount, etc).
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab
@@ -126,7 +126,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				//We do nothing so the table is displayed without a header
 			}
-			
+
 		};
 		this.infoPane = new JEditorPane();
 		this.loadButton = new JButton();
@@ -209,9 +209,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		return new TabTitle(Tab.COMPANIONS);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void tabSelected()
 	{
@@ -612,7 +609,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 				String type = (String) selectedElement;
 				companionDialog.setCharacter(character);
 				companionDialog.setCompanionType(type);
-				Utility.setDialogRelativeLocation(CompanionInfoTab.this, companionDialog);
+				Utility.setComponentRelativeLocation(CompanionInfoTab.this, companionDialog);
 				companionDialog.setVisible(true);
 				CharacterFacade comp = companionDialog.getNewCompanion();
 				if (comp != null)
@@ -661,8 +658,8 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		private CharacterFacade character;
 		private String companionType;
 		private CharacterFacade newCompanion;
-		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<CompanionTreeView>(
-				Arrays.asList(CompanionTreeView.values()));
+		private DefaultListFacade<CompanionTreeView> treeViews = new DefaultListFacade<>(
+                Arrays.asList(CompanionTreeView.values()));
 		
 		public CompanionDialog()
 		{
@@ -793,9 +790,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -816,7 +810,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 	{
 		
 		NAME("in_race"); //$NON-NLS-1$
-		private String name;
+		private final String name;
 		
 		private CompanionTreeView(String name)
 		{
@@ -835,7 +829,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<CompanionStubFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				default:
 					throw new InternalError();
 			}
@@ -1032,7 +1026,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			
 			public RootNode()
 			{
-				this.types = new ArrayList<String>();
+				this.types = new ArrayList<>();
 				this.companions = support.getCompanions();
 				maxMap.addMapListener(this);
 				companions.addListListener(this);
@@ -1149,9 +1143,6 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 		
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

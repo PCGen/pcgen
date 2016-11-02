@@ -34,10 +34,8 @@ import pcgen.base.util.CaseInsensitiveMap;
  * names in a type-safe fashion, so that they can be quickly compared and use
  * less memory when identical Aspect names exist in two CDOMObjects.
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class AspectName implements TypeSafeConstant,
 		Comparable<AspectName>
@@ -123,7 +121,7 @@ public final class AspectName implements TypeSafeConstant,
 	{
 		if (nameMap == null)
 		{
-			nameMap = new CaseInsensitiveMap<AspectName>();
+			nameMap = new CaseInsensitiveMap<>();
 		}
 	}
 

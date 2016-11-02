@@ -41,7 +41,6 @@ import gmgen.util.LogUtilities;
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JFileChooser;
@@ -79,7 +78,6 @@ import plugin.initiative.gui.PreferencesPerformancePanel;
  * Updated on February 26, 2003
  *
  * @author Expires 2003
- * @version 2.10
  */
 public class InitiativePlugin implements InteractivePlugin
 {
@@ -148,10 +146,7 @@ public class InitiativePlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -507,15 +502,7 @@ public class InitiativePlugin implements InteractivePlugin
 	{
 		initToolsItem.setMnemonic('I');
 		initToolsItem.setText("Initiative");
-		initToolsItem.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				initMenuItem(evt);
-			}
-		});
+		initToolsItem.addActionListener(this::initMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, initToolsItem));
 	}
 

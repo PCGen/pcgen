@@ -77,7 +77,7 @@ public class LicenseToken extends AbstractNonEmptyToken<Campaign> implements
 		Changes<CampaignSourceEntry> filechanges =
 				context.getObjectContext().getListChanges(campaign,
 					ListKey.LICENSE_FILE);
-		List<String> set = new ArrayList<String>();
+		List<String> set = new ArrayList<>();
 		Collection<String> added = changes.getAdded();
 		if (added != null && !added.isEmpty())
 		{

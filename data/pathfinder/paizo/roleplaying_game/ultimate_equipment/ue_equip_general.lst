@@ -250,7 +250,7 @@ Valet (Per Day)			TYPE:Service		COST:1	SOURCEPAGE:p.99
 # Equipment Name												Output Name						Type							Number of Pages	Page Usage				Cost		Weight	Modifier		Source Page		Ability								Bonus to Situation							Bonus to skill
 Abacus.MOD																				TYPE:Goods.Tools													COST:2	WT:2					SOURCEPAGE:p.76
 Alchemist's Lab.MOD																																								SOURCEPAGE:p.76
-Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:50					SOURCEPAGE:p.76
+Alchemy Crafting Kit																		TYPE:Goods.Tools.CraftToolsAlchemist									COST:25	WT:5					SOURCEPAGE:p.76
 Antidote Kit																			TYPE:Goods.Tools													COST:100	WT:3					SOURCEPAGE:p.76
 Anvil (Blacksmith).MOD																		TYPE:Goods.Tools													COST:5	WT:100				SOURCEPAGE:p.76
 Anvil (Farrier).MOD																		TYPE:Goods.Tools													COST:5	WT:50					SOURCEPAGE:p.76
@@ -413,7 +413,7 @@ Bandolier																	TYPE:Goods.General.Resizable.Container		CONTAINS:UNLIM
 Banner (Simple)									OUTPUTNAME:Banner, Simple			TYPE:Goods.General															COST:1	WT:2					SOURCEPAGE:p.59																																																				SPROP:A simple banner with one field color and a simple insignia.
 Banner (Complex)									OUTPUTNAME:Banner, Complex			TYPE:Goods.General															COST:5	WT:2					SOURCEPAGE:p.59																																																				SPROP:A banner with two to four field colors and a complex insignia.
 Banner (Detailed)									OUTPUTNAME:Banner, Detailed			TYPE:Goods.General															COST:20	WT:2					SOURCEPAGE:p.59																																																				SPROP:A detailed banner with four or more field colors and a very complex insignia.
-Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
+Barbed Vest.MOD																TYPE:Goods.Clothing.Resizable.Shirt.Cloth													COST:10	WT:4					SOURCEPAGE:p.59																																																				SPROP:Any creature that injures you with a natural or unarmed attack must make a DC 15 Reflex save or take 1 point of damage. If a creature swallows you, it takes 1 point of damage each round until it either spits you up, you escape, or you die. The vest can only be worn over light armor or no armor.
 Barrel.MOD																																										SOURCEPAGE:p.59
 Basket.MOD																																										SOURCEPAGE:p.59
 Bedroll.MOD																																										SOURCEPAGE:p.59
@@ -562,7 +562,7 @@ Marbles.MOD																	TYPE:Goods.General															COST:0.1	WT:2					S
 Mess Kit																	TYPE:Goods.General															COST:0.2	WT:1					SOURCEPAGE:p.68
 Miner's Pick																TYPE:Goods.General															COST:3	WT:10					SOURCEPAGE:p.68
 Mirror (Small/Steel).MOD																																							SOURCEPAGE:p.68
-Mock Armor																	TYPE:Goods.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
+Mock Armor																	TYPE:Goods.Cloth.Clothing.Armor.Resizable													COST:90	WT:10					SOURCEPAGE:p.68	BONUS:SITUATION|Bluff=Conceal Identity|4|TYPE=Circumstance
 Mug or Tankard (Clay).MOD																																							SOURCEPAGE:p.68
 Oil (1 Pint Flask).MOD																																								SOURCEPAGE:p.68
 Paper (Sheet).MOD																																									SOURCEPAGE:p.69

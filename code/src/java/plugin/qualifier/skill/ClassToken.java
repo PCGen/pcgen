@@ -130,8 +130,8 @@ public class ClassToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 	@Override
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<Skill, R> c)
 	{
-		Converter<Skill, R> conv = new AddFilterConverter<Skill, R>(c, this);
-		conv = negated ? new NegateFilterConverter<Skill, R>(conv) : conv;
+		Converter<Skill, R> conv = new AddFilterConverter<>(c, this);
+		conv = negated ? new NegateFilterConverter<>(conv) : conv;
 		return pcs.getCollection(pc, conv);
 	}
 

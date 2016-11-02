@@ -40,11 +40,8 @@ import java.util.List;
  * for this tag is SKILLTYPE.pos.type.property
  * eg SKILLTYPE.2.KNOWLEDGE.RANK
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLTYPE
@@ -108,7 +105,7 @@ public class SkillTypeToken extends SkillToken
 			return null;
 		}
 
-		final List<Skill> skillSubset = new ArrayList<Skill>();
+		final List<Skill> skillSubset = new ArrayList<>();
 		for (Skill bSkill : SkillDisplay.getSkillListInOutputOrder(pc))
 		{
 			if (bSkill.isType(details.getProperty(0)))

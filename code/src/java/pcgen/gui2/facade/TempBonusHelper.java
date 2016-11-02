@@ -56,12 +56,9 @@ import pcgen.util.Logging;
  * The Class <code>TempBonusHelper</code> splits out processing for temporary 
  * bonuses from CnaracterFacadeImpl.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TempBonusHelper
 {
@@ -90,7 +87,7 @@ public class TempBonusHelper
 	{
 		List<InfoFacade> possibleTargets =
 				getListOfApplicableEquipment(originObj, theCharacter);
-		boolean canApplyToPC = hasCharacterTempBonus(originObj, theCharacter);
+		boolean canApplyToPC = hasCharacterTempBonus(originObj);
 		if (possibleTargets.isEmpty())
 		{
 			if (canApplyToPC)
@@ -109,14 +106,11 @@ public class TempBonusHelper
 		{
 			possibleTargets.add(new CharacterInfoFacade(theCharacter.getDisplay()));
 		}
-		final ArrayList<InfoFacade> selectedList = new ArrayList<InfoFacade>();
+		final ArrayList<InfoFacade> selectedList = new ArrayList<>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, possibleTargets,
-					new ArrayList<InfoFacade>(), 1, infoFactory)
+                        new ArrayList<>(), 1, infoFactory)
 				{
-					/**
-					 * {@inheritDoc}
-					 */
 					@Override
 					public void commit()
 					{
@@ -172,7 +166,7 @@ public class TempBonusHelper
 		PlayerCharacter theCharacter)
 	{
 		CharacterDisplay charDisplay = theCharacter.getDisplay();
-		List<InfoFacade> possibleEquipment = new ArrayList<InfoFacade>();
+		List<InfoFacade> possibleEquipment = new ArrayList<>();
 		if (originObj == null)
 		{
 			return possibleEquipment;
@@ -307,7 +301,7 @@ public class TempBonusHelper
 	{
 		TempBonusFacadeImpl appliedBonus = null;
 		String repeatValue = EMPTY_STRING;
-		for (BonusObj aBonus : getTempCharBonusesFor(originObj, theCharacter))
+		for (BonusObj aBonus : getTempCharBonusesFor(originObj))
 		{
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
@@ -347,10 +341,9 @@ public class TempBonusHelper
 		return appliedBonus;
 	}
 	
-	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj,
-		PlayerCharacter theCharacter)
+	private static List<BonusObj> getTempCharBonusesFor(CDOMObject originObj)
 	{
-		List<BonusObj> list = new ArrayList<BonusObj>(5);
+		List<BonusObj> list = new ArrayList<>(5);
 		list.addAll(originObj.getSafeListFor(ListKey.BONUS_ANYPC));
 		list.addAll(originObj.getSafeListFor(ListKey.BONUS_PC));
 		return list;
@@ -439,7 +432,7 @@ public class TempBonusHelper
 			return null;
 		}
 
-		List<Integer> numberList = new ArrayList<Integer>();
+		List<Integer> numberList = new ArrayList<>();
 
 		for (int i = min; i <= max; i++)
 		{
@@ -447,7 +440,7 @@ public class TempBonusHelper
 		}
 
 		// let them choose the number from a radio list
-		List<Integer> selectedList = new ArrayList<Integer>();
+		List<Integer> selectedList = new ArrayList<>();
 		selectedList =
 				Globals.getChoiceFromList(titleString, numberList,
 					selectedList, 1, false, true, pc);
@@ -506,45 +499,30 @@ public class TempBonusHelper
 			
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return EMPTY_STRING;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSourceForNodeDisplay()
 		{
 			return EMPTY_STRING;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKeyName()
 		{
 			return "PC"; //$NON-NLS-1$
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public boolean isNamePI()
 		{
 			return false;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -552,9 +530,6 @@ public class TempBonusHelper
 				charDisplay.getName());
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getType()
 		{
@@ -566,42 +541,36 @@ public class TempBonusHelper
 	//        Public Accessors and Mutators       //
 	////////////////////////////////////////////////
 
-	public static boolean hasAnyPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasAnyPCTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_ANYPC);
 	}
 
-	public static boolean hasPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasPCTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_PC);
 	}
 
-	public static boolean hasNonPCTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasNonPCTempBonus(CDOMObject obj)
 	{
-		return hasEquipmentTempBonus(obj, theCharacter)
-			|| hasAnyPCTempBonus(obj, theCharacter);
+		return hasEquipmentTempBonus(obj)
+			|| hasAnyPCTempBonus(obj);
 	}
 
-	public static boolean hasCharacterTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasCharacterTempBonus(CDOMObject obj)
 	{
-		return hasAnyPCTempBonus(obj, theCharacter)
-			|| hasPCTempBonus(obj, theCharacter);
+		return hasAnyPCTempBonus(obj)
+			|| hasPCTempBonus(obj);
 	}
 
-	public static boolean hasEquipmentTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static boolean hasEquipmentTempBonus(CDOMObject obj)
 	{
 		return obj.containsListFor(ListKey.BONUS_EQUIP);
 	}
 
-	public static Set<String> getEquipmentApplyString(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	public static Set<String> getEquipmentApplyString(CDOMObject obj)
 	{
-		Set<String> set = new HashSet<String>();
+		Set<String> set = new HashSet<>();
 		//Should use hasEquipmentTempBonus first, so we do NOT do getSafeListFor
 		for (EquipBonus bonus : obj.getListFor(ListKey.BONUS_EQUIP))
 		{
@@ -610,12 +579,11 @@ public class TempBonusHelper
 		return set;
 	}
 
-	public static boolean hasTempBonus(CDOMObject obj,
-		PlayerCharacter theCharacter)
+	static boolean hasTempBonus(CDOMObject obj)
 	{
-		return hasEquipmentTempBonus(obj, theCharacter)
-			|| hasAnyPCTempBonus(obj, theCharacter)
-			|| hasPCTempBonus(obj, theCharacter);
+		return hasEquipmentTempBonus(obj)
+			|| hasAnyPCTempBonus(obj)
+			|| hasPCTempBonus(obj);
 	}
 
 }

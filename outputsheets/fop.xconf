@@ -1,0 +1,46 @@
+<?xml version="1.0"?>
+<fop version="1.0">
+
+  <base>.</base>
+  <font-base>fonts</font-base>
+
+  <strict-configuration>true</strict-configuration>
+  <strict-validation>false</strict-validation>
+   
+  <source-resolution>72</source-resolution>
+  <target-resolution>72</target-resolution>
+  
+  <!-- Default page-height and page-width, in case value is specified as auto -->
+  <default-page-settings height="11.00in" width="8.50in"/>
+  
+  <renderers>
+    <renderer mime="application/pdf">
+      <filterList>
+        <value>flate</value>
+      </filterList>
+
+      <fonts>
+		<!--
+			If you want to use a different font family than the default Noto Sans, copy 
+			your font files into the outputsheets/fonts folder and add them here. Then
+			adjust the <xsl:variable> tag in outputsheets/d20/fantasy/pdf/fantasy_common.xsl
+			appropriately.
+			PCGen must be restarted for any change in this file to become effective.
+		-->
+		<font kerning="yes" embed-url="NotoSans/NotoSans-Regular.ttf">
+			<font-triplet name="Noto Sans" style="normal" weight="normal" />
+		</font>
+		<font kerning="yes" embed-url="NotoSans/NotoSans-Bold.ttf">
+			<font-triplet name="Noto Sans" style="normal" weight="bold" />
+		</font>
+		<font kerning="yes" embed-url="NotoSans/NotoSans-Italic.ttf">
+			<font-triplet name="Noto Sans" style="italic" weight="normal" />
+		</font>
+		<font kerning="yes" embed-url="NotoSans/NotoSans-BoldItalic.ttf">
+			<font-triplet name="Noto Sans" style="italic" weight="bold" />
+		</font>
+      </fonts>
+    </renderer>
+  </renderers>
+
+</fop>

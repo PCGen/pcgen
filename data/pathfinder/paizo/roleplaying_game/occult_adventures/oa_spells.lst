@@ -1,0 +1,1180 @@
+SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
+
+# Spell Name			Type					Classes of caster																	School			Subschool			Descriptor					Components						Casting Time			Range			Target Area or Effect												Duration									Save Info										Spell Res			Source Page		Description
+Akashic Form			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 hour			RANGE:Personal	TARGETAREA:You													DURATION:24 hours								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.156	DESC:Store a copy of your body in the Akashic Record, and restore yourself to that form upon your death.
+Analyze Aura			TYPE:Psychic			CLASSES:Medium=2|Mesmerist,Psychic,Spiritualist=3										SCHOOL:Divination												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature or object										DURATION:Concentration, up to (CASTERLEVEL) rounds		SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.156	DESC:Read a creature's or object's alignment, emotion, health, and magic auras.
+Anticipate Thoughts		TYPE:Arcane.Psychic		CLASSES:Bard,Inquisitor,Magus,Mesmerist,Psychic,Sorcerer,Witch,Wizard=2								SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.157	DESC:Gain increasing bonuses to AC and on attack rolls and damage against one creature.
+Apport Animal			TYPE:Arcane.Divine.Psychic	CLASSES:Druid,Medium,Mesmerist,Psychic,Ranger,Sorcerer,Summoner,Witch,Wizard=3						SCHOOL:Conjuration	SUBSCHOOL:Teleportation							COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched animal of Tiny or smaller size							DURATION:Instantaneous or (CASTERLEVEL) hours			SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.157	DESC:Send or receive a Tiny or smaller animal via teleportation.
+Apport Object			TYPE:Arcane.Psychic		CLASSES:Bard,Medium,Mesmerist,Psychic,Sorcerer,Witch,Wizard=3								SCHOOL:Conjuration	SUBSCHOOL:Teleportation							COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object of up to 1 lb. and 1 cu. ft.						DURATION:Instantaneous or (CASTERLEVEL) hours			SAVEINFO:Will negates (object)						SPELLRES:Yes (object)	SOURCEPAGE:p.157	DESC:Send or receive a small object via teleportation.
+Aura Alteration			TYPE:Psychic			CLASSES:Medium,Mesmerist=3|Psychic,Spiritualist=4										SCHOOL:Illusion												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One object or willing creature									DURATION:(CASTERLEVEL) days [D]					SAVEINFO:Will negates (harmless, object)					SPELLRES:Yes		SOURCEPAGE:p.157	DESC:Masks a creature's or an object's alignment, emotion, health, and magic auras.
+Aversion				TYPE:Arcane.Divine.Psychic	CLASSES:Bard,Mesmerist,Psychic=2|Druid,Sorcerer,Witch,Wizard=3							SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) days						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.158	DESC:Cause the target to avoid an object or location.
+Awaken Construct			TYPE:Arcane.Divine.Psychic	CLASSES:Psychic,Shaman=6|Cleric,Sorcerer,Wizard=7									SCHOOL:Transmutation											COMPS:V, S, M (herbs and oils worth 2,000 gp per HD of target), DF	CASTTIME:24 hours	RANGE:Touch	TARGETAREA:Mindless construct touched							DURATION:Instantaneous							SAVEINFO:Will negates								SPELLRES:No			SOURCEPAGE:p.158	DESC:Grant a construct humanlike sentience.
+Babble				TYPE:Arcane.Psychic		CLASSES:Bard,Mesmerist=2|Psychic,Sorcerer,Witch,Wizard=3										SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature; see text										DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.158	DESC:Target becomes nauseated and causes nearby creatures to become fascinated.
+Bilocation				TYPE:Arcane.Psychic		CLASSES:Psychic=8|Sorcerer,Wizard=9														SCHOOL:Conjuration	SUBSCHOOL:Creation							COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One duplicate											DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.158	DESC:Exist in two places at once.
+Burst of Adrenaline		TYPE:Psychic			CLASSES:Mesmerist,Psychic,Spiritualist=1													SCHOOL:Transmutation											COMPS:V, S						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.160	DESC:Gain a +8 bonus to Str, Dex, or Con for one roll, then be fatigued for 1 round.
+Burst of Insight			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic,Spiritualist=1												SCHOOL:Transmutation											COMPS:V, S						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.160	DESC:Gain a +8 bonus to Int, Wis, or Cha for one roll, then be dazed for 1 round.
+Call Spirit				TYPE:Divine.Psychic		CLASSES:Medium=3|Cleric,Shaman,Spiritualist=5												SCHOOL:Conjuration	SUBSCHOOL:Calling								COMPS:V, S						CASTTIME:10 minutes		RANGE:10 ft.	TARGETAREA:Call the spirit of a single deceased humanoid creature					DURATION:Concentration							SAVEINFO:Will negates; see text						SPELLRES:No			SOURCEPAGE:p.160	DESC:Make the spirit of one creature manifest.
+Calm Spirit				TYPE:Divine.Psychic		CLASSES:Medium=1|Cleric,Shaman,Spiritualist=2												SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One incorporeal undead creature or haunt							DURATION:1 minute or (CASTERLEVEL) rounds; see text		SAVEINFO:Will negates or none; see text					SPELLRES:Yes		SOURCEPAGE:p.160	DESC:Postpone hostile action by a haunt or incorporeal undead.
+Catatonia				TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Medium,Mesmerist,Spiritualist=2|Cleric,Psychic,Sorcerer,Witch,Wizard=3				SCHOOL:Necromancy												COMPS:S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Willing creature touched										DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.161	DESC:Make a willing target appear to be dead.
+Charge Object			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic,Spiritualist=1										SCHOOL:Transmutation											COMPS:V, S						CASTTIME:10 minutes		RANGE:Touch		TARGETAREA:Object touched											DURATION:Permanent							SAVEINFO:None; see text								SPELLRES:No			SOURCEPAGE:p.161	DESC:Infuse psychic energy and ownership history into an item.
+Cognitive Block			TYPE:Psychic			CLASSES:Medium,Mesmerist=2|Psychic=3													SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.161	DESC:Add a thought component to all of the target's spells.
+Condensed Ether			TYPE:Arcane.Psychic		CLASSES:Psychic=4|Sorcerer,Wizard=5														SCHOOL:Transmutation											COMPS:V, S, M (crushed amber)			CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:20-ft.-radius spread										DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.162	DESC:Creates a planar conjunction that slows movement, penalizes AC and Reflex saves, and imposes a miss chance on ranged attacks.
+Create Mindscape			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic=4|Sorcerer,Wizard=5											SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Long		TARGETAREA:One creature												DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will disbelief; see text						SPELLRES:Yes		SOURCEPAGE:p.162	DESC:Form an immersive mindscape.
+Create Mindscape (Greater)	TYPE:Arcane.Psychic		CLASSES:Mesmerist,Psychic=6|Sorcerer,Wizard=7												SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Long		TARGETAREA:(CASTERLEVEL) creatures										DURATION:(CASTERLEVEL) days						SAVEINFO:Will disbelief; see text						SPELLRES:Yes		SOURCEPAGE:p.163	DESC:As create mindscape, but affecting more creatures, having a longer duration, and allowing magic alteration.
+Decrepit Disguise			TYPE:Arcane.Psychic		CLASSES:Bard,Medium,Mesmerist,Psychic,Sorcerer,Wizard=1									SCHOOL:Illusion		SUBSCHOOL:Glamer								COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One object of no more than (CASTERLEVEL*10) cu. ft.					DURATION:(CASTERLEVEL) days						SAVEINFO:None (object) or Will disbelief (if interacted with)	SPELLRES:No			SOURCEPAGE:p.163	DESC:Make an object seem worthless.
+Deja Vu				TYPE:Arcane.Psychic		CLASSES:Bard,Mesmerist,Psychic,Sorcerer,Wizard=1											SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:2 rounds								SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.163	DESC:Make a creature repeat its actions.
+Demand Offering			TYPE:Arcane.Divine.Psychic	CLASSES:Antipaladin,Mesmerist=1|Bard,Inquisitor,Psychic,Sorcerer,Witch,Wizard=2					SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:5 ft.		TARGETAREA:One creature												DURATION:Instantaneous or 1 round					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.164	DESC:Make a creature give you an object it's holding.
+Detect Mindscape			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic=2|Sorcerer,Wizard=3											SCHOOL:Divination												COMPS:V, S						CASTTIME:1 standard action	RANGE:60 ft.	TARGETAREA:Cone-shaped emanation										DURATION:Concentration, up to (CASTERLEVEL) minutes [D]	SAVEINFO:Will negates; see text						SPELLRES:No			SOURCEPAGE:p.164	DESC:Sense the presence and attributes of mindscapes.
+Detect Psychic Significance	TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic,Spiritualist=0										SCHOOL:Divination												COMPS:V, S						CASTTIME:1 standard action	RANGE:40 ft.	TARGETAREA:40-ft.-radius burst, centered on you								DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.164	DESC:Find psychically charged items.
+Divide Mind				TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Enchantment					DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:1 minute								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.164	DESC:Partition your mind, allowing you to roll twice on Will saves and Int checks, and to take extra mental actions.
+Dream Council			TYPE:Arcane.Psychic		CLASSES:Medium=4|Mesmerist=5|Bard,Psychic=6|Sorcerer,Wizard=7									SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Unlimited	TARGETAREA:One or more living creatures									DURATION:See text								SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.165	DESC:Communicate with multiple sleeping creatures.
+Dream Scan				TYPE:Arcane.Psychic		CLASSES:Medium=4|Mesmerist,Psychic=5|Bard,Sorcerer,Wizard=6										SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Unlimited	TARGETAREA:One living creature										DURATION:See text								SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.165	DESC:Read a dreaming creature's thoughts.
+Dream Travel			TYPE:Psychic			CLASSES:Mesmerist,Psychic=6															SCHOOL:Conjuration	SUBSCHOOL:Teleportation	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:You and (CASTERLEVEL) creatures								DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.166	DESC:Venture into the Dimension of Dreams to enter the dreams of a designated creature, then exit near that creature's body on the plane where it lies sleeping.
+Dream Voyage			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Conjuration	SUBSCHOOL:Teleportation	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:You and (CASTERLEVEL) creatures or (CASTERLEVEL*10) creatures			DURATION:(CASTERLEVEL) hours or 1 hour [D]			SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.167	DESC:As dream travel, but with more flexibility and able to affect more creatures.
+Ectoplasmic Eruption		TYPE:Psychic			CLASSES:Spiritualist=6|Psychic=7														SCHOOL:Evocation												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:30-ft.-radius burst										DURATION:(CASTERLEVEL) rounds						SAVEINFO:Reflex half and Will partial; see text				SPELLRES:Yes		SOURCEPAGE:p.168	DESC:Deal 6d6 points of damage and entangle creatures in a 30-ft.-radius, and push ethereal and incorporeal creatures onto the Material Plane.
+Ectoplasmic Snare			TYPE:Arcane.Divine.Psychic	CLASSES:Magus,Psychic,Shaman,Sorcerer,Spiritualist,Wizard=3										SCHOOL:Evocation												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Entangling web of ectoplasm									DURATION:Concentration, up to (CASTERLEVEL) rounds [D]	SAVEINFO:Reflex partial; see text						SPELLRES:Yes		SOURCEPAGE:p.168	DESC:Tendril of ectoplasm grapples a creature and tethers you to it.
+Ego Whip I				TYPE:Psychic			CLASSES:Psychic=3																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:Cause a creature to take a -2 penalty to Int, Wis, or Cha and be staggered for 1 round.
+Ego Whip II				TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:As ego whip I, but a -4 penalty and staggered for 1d4 rounds.
+Ego Whip III			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:As ego whip I, but a -6 penalty and staggered for 1d6 rounds.
+Ego Whip IV				TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:As ego whip I, but a -8 penalty and staggered for 1d8 rounds.
+Ego Whip V				TYPE:Psychic			CLASSES:Psychic=7																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:As ego whip I, but a -10 penalty and staggered for 1d10 rounds.
+Emotive Block			TYPE:Psychic			CLASSES:Mesmerist,Spiritualist=2|Psychic=3												SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.169	DESC:Add an emotion component to all of the target's spells.
+Enshroud Thoughts			TYPE:Arcane.Divine.Psychic	CLASSES:Alchemist,Bard,Inquisitor,Medium,Mesmerist,Psychic,Shaman,Witch=2|Ranger=3						SCHOOL:Abjuration						DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:Will negates (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.169	DESC:Ward yourself against thought detection and memory alteration.
+Entrap Spirit			TYPE:Psychic			CLASSES:Medium,Spiritualist=4|Psychic=5											SCHOOL:Necromancy												COMPS:V, S, F (a small silver mirror)	CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Incorporeal creature or haunt									DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.170	DESC:Trap an incorporeal creature or a haunt in a mirror.
+Erase Impressions			TYPE:Psychic			CLASSES:Medium=3|Mesmerist,Spiritualist=4|Psychic=5									SCHOOL:Abjuration												COMPS:V, S						CASTTIME:1 round			RANGE:Touch		TARGETAREA:Object touched											DURATION:Instantaneous							SAVEINFO:Will negates (object)						SPELLRES:Yes (object)	SOURCEPAGE:p.170	DESC:Erase psychic impressions from an object.
+Ethereal Envelope			TYPE:Psychic			CLASSES:Spiritualist=4|Psychic=5														SCHOOL:Conjuration	SUBSCHOOL:Teleportation							COMPS:S, M (empty crystal box)		CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.170	DESC:Shroud your unconscious self in a cocoon on the Ethereal Plane.
+Ethereal Envelopment		TYPE:Psychic			CLASSES:Spiritualist=5|Psychic=7														SCHOOL:Conjuration	SUBSCHOOL:Teleportation							COMPS:S, M (empty crystal box)		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates, see text						SPELLRES:Yes		SOURCEPAGE:p.170	DESC:As ethereal envelope, but able to affect an unwilling creature.
+Ethereal Fists			TYPE:Arcane.Psychic		CLASSES:Spiritualist=3|Magus=4														SCHOOL:Transmutation											COMPS:S						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.171	DESC:Your claws, unarmed strikes, and touch spells affect ethereal creatures.
+Etheric Shards			TYPE:Psychic			CLASSES:Spiritualist=4|Psychic=5												SCHOOL:Evocation						DESCRIPTOR:Force				COMPS:S, M (broken glass)			CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:(CASTERLEVEL) 10-ft. cubes									DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Reflex partial or Reflex negates (see text)			SPELLRES:No			SOURCEPAGE:p.171	DESC:Fill an area with invisible shards that slow movement and damage creatures.
+Explode Head			TYPE:Arcane.Psychic		CLASSES:Psychic=5|Magus,Sorcerer,Wizard=6													SCHOOL:Evocation												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One living corporeal creature									DURATION:Instantaneous							SAVEINFO:Special; see text							SPELLRES:Yes		SOURCEPAGE:p.171	DESC:Explode the head of a creature with 20 hp or fewer and deal damage in a 10-ft. radius around it.
+Foster Hatred			TYPE:Divine.Psychic		CLASSES:Antipaladin=4|Inquisitor,Mesmerist,Spiritualist=5|Psychic=6								SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion			COMPS:S, DF						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Any number of living creatures, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.172	DESC:Cause creatures to hate one type of creature.
+Ghost Whip				TYPE:Arcane.Divine.Psychic	CLASSES:Cleric,Inquisitor,Magus,Psychic,Sorcerer,Spiritualist,Witch,Wizard=2					SCHOOL:Evocation												COMPS:V, S						CASTTIME:1 standard action	RANGE:0 ft.		TARGETAREA:Whip of flexible ectoplasm									DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.172	DESC:Create a ghost touch whip that passes through objects.
+Grave Words				TYPE:Psychic			CLASSES:Medium,Psychic,Spiritualist=0												SCHOOL:Necromancy						DESCRIPTOR:Language-dependent		COMPS:S						CASTTIME:1 minute			RANGE:Touch		TARGETAREA:One dead creature											DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.172	DESC:Force a corpse to babble.
+Hypercognition			TYPE:Arcane.Psychic		CLASSES:Medium,Psychic=2|Alchemist,Bard=3|Sorcerer,Wizard=4										SCHOOL:Divination												COMPS:V						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:See text								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.172	DESC:Rapidly recall everything you know about a subject.
+Id Insinuation I			TYPE:Psychic			CLASSES:Psychic=2																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Concentration + 1 round					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.173	DESC:Confuse one creature for the duration of your concentration + 1 round.
+Id Insinuation II			TYPE:Psychic			CLASSES:Psychic=3																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Two creatures											DURATION:Concentration + 1 round					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.173	DESC:As id insinuation I, but affects two creatures and has a stronger confusion effect.
+Id Insinuation III		TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Three creatures											DURATION:Concentration + 1 round					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.173	DESC:As id insinuation I, but affects three creatures and has a stronger confusion effect.
+Id Insinuation IV			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Four creatures											DURATION:Concentration + 1 round					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.173	DESC:As id insinuation I, but affects four creatures and you select the confusion effect.
+Implant False Reading		TYPE:Psychic			CLASSES:Mesmerist,Psychic=2													SCHOOL:Illusion		SUBSCHOOL:Glamer								COMPS:V, S						CASTTIME:1 minute			RANGE:Touch		TARGETAREA:Object touched											DURATION:(CASTERLEVEL) days						SAVEINFO:None; see text								SPELLRES:No			SOURCEPAGE:p.173	DESC:Instil false psychic impressions into an object.
+Incorporeal Chains		TYPE:Psychic			CLASSES:Spiritualist=5|Psychic=6														SCHOOL:Evocation						DESCRIPTOR:Force				COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(CASTERLEVEL) incorporeal creatures, no two of which can be more than 30 ft. apart	DURATION:Concentration						SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.174	DESC:Grapple incorporeal creatures and deal damage equal to 1d8 + Int.
+Inflict Pain			TYPE:Arcane.Divine.Psychic	CLASSES:Antipaladin,Inquisitor,Medium,Mesmerist,Psychic,Spiritualist=2|Sorcerer,Witch,Wizard=3		SCHOOL:Enchantment					DESCRIPTOR:Mind-affecting, Pain	COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial; see text						SPELLRES:Yes		SOURCEPAGE:p.174	DESC:Target takes a -4 penalty on attack rolls, skill checks, and ability checks.
+Inflict Pain (Mass)		TYPE:Arcane.Divine.Psychic	CLASSES:Antipaladin,Medium=4|Inquisitor,Mesmerist,Spiritualist=5|Psychic=6|Sorcerer,Witch,Wizard=7	SCHOOL:Enchantment					DESCRIPTOR:Mind-affecting, Pain	COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(CASTERLEVEL) creatures, no two of which can be more than 30 ft. apart		DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will partial; see text						SPELLRES:Yes		SOURCEPAGE:p.174	DESC:As inflict pain, but affecting (CASTERLEVEL) creatures.
+Instigate Psychic Duel		TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic,Spiritualist=2										SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.174	DESC:Start a psychic duel between yourself and another creature.
+Intellect Fortress I		TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:20 ft.	TARGETAREA:20-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.174	DESC:Suppress emotion and fear effects in a 20-ft. radius as an immediate action.
+Intellect Fortress II		TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:20 ft.	TARGETAREA:20-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.175	DESC:As intellect fortress I, plus reduce the damage of mind-affecting effects.
+Intellect Fortress III		TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:20 ft.	TARGETAREA:20-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.175	DESC:As intellect fortress II, plus remove partial effects of fear and emotion effects.
+Mental Barrier I			TYPE:Psychic			CLASSES:Psychic=2																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.175	DESC:Gain a +4 shield bonus to AC and resist mind thrust for 1 round as an immediate action.
+Mental Barrier II			TYPE:Psychic			CLASSES:Psychic=3																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.175	DESC:As mental barrier I, but +6 to AC.
+Mental Barrier III		TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.175	DESC:As mental barrier I, but +8 to AC.
+Mental Barrier IV			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.176	DESC:As mental barrier III, plus 25%% chance to prevent critical hits and sneak attacks.
+Mental Barrier V			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.176	DESC:As mental barrier III, plus 50%% chance to prevent critical hits and sneak attacks.
+Mental Block			TYPE:Arcane.Psychic		CLASSES:Mesmerist=1|Bard,Psychic=2														SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.176	DESC:Prevent the target from using its skill ranks, spells, feats, and abilities.
+Microcosm				TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One or more creatures										DURATION:Permanent							SAVEINFO:Will partial (see text)						SPELLRES:Yes		SOURCEPAGE:p.176	DESC:Trap creatures in a veiled mindscape permanently, causing their bodies to waste away in the real world.
+Mind Probe				TYPE:Arcane.Psychic		CLASSES:Medium=3|Mesmerist,Psychic=4|Sorcerer,Wizard=5									SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 minute			RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.176	DESC:Learn answers from a subject's memories.
+Mind Swap				TYPE:Arcane.Psychic		CLASSES:Medium=3|Spiritualist=4|Mesmerist,Psychic,Summoner=5|Sorcerer,Witch,Wizard=6				SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.176	DESC:Switch minds with another creature for (CASTERLEVEL) hours.
+Mind Swap (Major)			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S, M (diamonds worth 10,000 gp)	CASTTIME:1 minute			RANGE:Medium	TARGETAREA:One creature of your same race									DURATION:Instantaneous							SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.176	DESC:Swap minds with another creature forever.
+Mind Thrust I			TYPE:Psychic			CLASSES:Psychic=1																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:Mentally deal 1d6 points of damage per level.
+Mind Thrust II			TYPE:Psychic			CLASSES:Psychic=2																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:As mind thrust I, but deal 1d8 points of damage per level (maximum 5d8).
+Mind Thrust III			TYPE:Psychic			CLASSES:Psychic=3																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:As mind thrust II, but deal a maximum of 10d8 points of damage.
+Mind Thrust IV			TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:As mind thrust II, but a maximum of 15d8 points of damage and target is fatigued for 1 round.
+Mind Thrust V			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:As mind thrust IV, but target is exhausted or fatigued for 1 round.
+Mind Thrust VI			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will half								SPELLRES:Yes		SOURCEPAGE:p.177	DESC:As mind thrust IV, but maximum 20d8 points of damage and target is exhausted or stunned for 1 round.
+Mindlink				TYPE:Arcane.Divine.Psychic	CLASSES:Medium,Mesmerist,Psychic,Shaman,Sorcerer,Spiritualist,Wizard=1						SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched											DURATION:Instantaneous							SAVEINFO:Will negates (harmless)						SPELLRES:Yes		SOURCEPAGE:p.177	DESC:Communicate a great deal of information in an instant.
+Mindscape Door			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic=3|Sorcerer,Wizard=4											SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One illusory portal										DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will negates (see text)						SPELLRES:No			SOURCEPAGE:p.177	DESC:Create a portal allowing entry to and exit from a mindscape.
+Mindwipe				TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic,Sorcerer,Spiritualist,Wizard=4							SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous; see text					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.178	DESC:Erase a portion of the target's mind and experiences, inflicting negative levels.
+Node Of Blasting			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic=3												SCHOOL:Abjuration						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object weighing no more than 10 lbs.						DURATION:Permanent until discharged [D]				SAVEINFO:Will partial; see text						SPELLRES:No			SOURCEPAGE:p.178	DESC:Place a trap on an object to mentally damage a creature that touches it.
+Object Possession			TYPE:Arcane.Psychic		CLASSES:Medium=4|Mesmerist,Psychic,Sorcerer,Spiritualist,Witch,Wizard=5						SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Unattended Large or smaller object (minimum Tiny)					DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:As lesser object possession, but with a larger object.
+Object Possession (Greater)	TYPE:Arcane.Psychic		CLASSES:Psychic,Spiritualist=6|Sorcerer,Witch,Wizard=7								SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:Unattended Gargantuan or smaller object (minimum Tiny) or construct		DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:As possess object, but the object is more powerful and you can possess a construct.
+Object Possession (Lesser)	TYPE:Arcane.Psychic		CLASSES:Medium=2|Mesmerist,Psychic,Spiritualist=3|Sorcerer,Witch,Wizard=4						SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Unattended Tiny or Small object								DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:Project your soul into an object, animating it.
+Object Reading			TYPE:Psychic			CLASSES:Medium=1|Mesmerist,Psychic,Spiritualist=2										SCHOOL:Divination												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One touched object											DURATION:Concentration, up to (CASTERLEVEL) rounds [D]	SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.179	DESC:Read psychic impressions left on an object.
+Oneiric Horror			TYPE:Arcane.Psychic		CLASSES:Medium=1|Bard,Mesmerist,Psychic=2|Sorcerer,Wizard=3										SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One living creature										DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.179	DESC:Distract and fatigue the target with a creature from its nightmares.
+Oneiric Horror (Greater)	TYPE:Arcane.Psychic		CLASSES:Medium=2|Mesmerist=3|Bard,Psychic=4|Sorcerer,Wizard=5									SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One living creature										DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates, Fortitude negates; see text			SPELLRES:Yes		SOURCEPAGE:p.179	DESC:As oneiric horror, plus Str damage.
+Paranoia				TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist=1|Bard,Psychic,Sorcerer,Witch,Wizard=2									SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.179	DESC:Target becomes hostile to all creatures.
+Parchment Swarm			TYPE:Arcane.Psychic		CLASSES:Magus,Sorcerer,Wizard=5												SCHOOL:Transmutation											COMPS:S, M (blank parchment or magic scroll; see text)	CASTTIME:1 standard action	RANGE:Close	TARGETAREA:One creature										DURATION:Instantaneous							SAVEINFO:Reflex half; see text						SPELLRES:Yes		SOURCEPAGE:p.180	DESC:Shredded parchment deals 1d6 points of damage per level, and has a spell effect if you shred a scroll.
+Placebo Effect			TYPE:Psychic			CLASSES:Medium,Mesmerist,Psychic=2														SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, M (a sugar cube)			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched											DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will disbelief (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.180	DESC:Temporarily suppress an affliction or condition.
+Possession				TYPE:Arcane.Psychic		CLASSES:Medium=3|Spiritualist=4|Mesmerist,Psychic,Sorcerer,Summoner,Witch,Wizard=5				SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.180	DESC:Project your soul into a creature's body.
+Possession (Greater)		TYPE:Arcane.Psychic		CLASSES:Spiritualist=6|Psychic,Sorcerer,Witch,Wizard=8									SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) hours [D]					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.181	DESC:As possession, but your body vanishes.
+Primal Regression			TYPE:Arcane.Divine.Psychic	CLASSES:Mesmerist=5|Druid,Psychic,Shaman=6|Witch=7											SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:(CASTERLEVEL/2) creatures, no two of which can be more than 30 feet apart	DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.181	DESC:Make a creature become bestial and unintelligent.
+Psychic Asylum			TYPE:Arcane.Psychic		CLASSES:Mesmerist,Psychic=5|Sorcerer,Wizard=6												SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 swift action		RANGE:Personal	TARGETAREA:You													DURATION:Instantaneous; see text					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.181	DESC:Perform a lengthy mental task in a private mindscape.
+Psychic Crush I			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Necromancy						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will partial and Fortitude partial; see text			SPELLRES:Yes		SOURCEPAGE:p.182	DESC:Sicken a target and cause it to start dying, or deal 3d6 + 1 points of damage per level on a save.
+Psychic Crush II			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Necromancy						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will partial and Fortitude partial; see text			SPELLRES:Yes		SOURCEPAGE:p.182	DESC:As psychic crush I, but deal 5d6 + 1 points of damage per level on a save and harder to resist.
+Psychic Crush III			TYPE:Psychic			CLASSES:Psychic=7																	SCHOOL:Necromancy						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will partial and Fortitude partial; see text			SPELLRES:Yes		SOURCEPAGE:p.183	DESC:As psychic crush I, but deal 7d6 + 1 points of damage per level on a save and harder to resist.
+Psychic Crush IV			TYPE:Psychic			CLASSES:Psychic=8																	SCHOOL:Necromancy						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will partial and Fortitude partial; see text			SPELLRES:Yes		SOURCEPAGE:p.183	DESC:As psychic crush I, but deal 9d6 + 1 points of damage per level on a save and no Fort save at 1/2 hp or fewer.
+Psychic Crush V			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Necromancy						DESCRIPTOR:Mind-affecting		COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Instantaneous							SAVEINFO:Will partial and Fortitude partial; see text			SPELLRES:Yes		SOURCEPAGE:p.183	DESC:As psychic crush IV, but deal 11d6 + 1 points of damage per level on a save.
+Psychic Image			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Illusion		SUBSCHOOL:Shadow								COMPS:V						CASTTIME:1 standard action	RANGE:Long		TARGETAREA:One shadow duplicate										DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will disbelief (if interacted with)				SPELLRES:Yes		SOURCEPAGE:p.183	DESC:Create a perfect illusion of yourself that is incorporeal and capable of casting psychic spells, and switch between it and your body at will.
+Psychic Reading			TYPE:Arcane.Divine.Psychic	CLASSES:Medium,Mesmerist,Psychic,Spiritualist=1|Bard,Inquisitor,Sorcerer,Wizard=2				SCHOOL:Divination												COMPS:V						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One humanoid creature										DURATION:1 round								SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.183	DESC:Read surface thoughts to learn information about a subject.
+Psychic Surgery			TYPE:Psychic			CLASSES:Mesmerist=5|Psychic=6															SCHOOL:Enchantment					DESCRIPTOR:Mind-affecting		COMPS:V, M (diamond dust worth 250 gp)	CASTTIME:10 minutes		RANGE:Touch		TARGETAREA:One willing and living creature								DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.184	DESC:Cure all Int, Wis, and Cha damage and drain, plus remove other mental afflictions and conditions.
+Purge Spirit			TYPE:Arcane.Psychic		CLASSES:Medium,Spiritualist=2|Psychic=3|Sorcerer,Wizard,Witch=4							SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature or haunt										DURATION:Instantaneous							SAVEINFO:Will partial								SPELLRES:Yes		SOURCEPAGE:p.184	DESC:Deal (CASTERLEVEL)d6 points of damage per level to one haunt or spirit creature and stagger it.
+Quintessence			TYPE:Arcane.Psychic		CLASSES:Bard,Medium,Mesmerist,Psychic,Sorcerer,Wizard=1									SCHOOL:Illusion		SUBSCHOOL:Glamer								COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature or object touched									DURATION:(CASTERLEVEL*10) minutes [D]				SAVEINFO:Will negates (harmless) and Will disbelief; see text	SPELLRES:See text		SOURCEPAGE:p.184	DESC:Mask any flaws of or damage to a creature or object.
+Remote Viewing			TYPE:Psychic			CLASSES:Medium=4|Psychic,Spiritualist=5											SCHOOL:Divination		SUBSCHOOL:Scrying								COMPS:V, S, M (incense)				CASTTIME:1 hour			RANGE:See text	TARGETAREA:You													DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.184	DESC:Gain psychic impressions from a distant location.
+Repress Memory			TYPE:Arcane.Psychic		CLASSES:Bard,Mesmerist=5|Psychic=6														SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 round			RANGE:Personal	TARGETAREA:You													DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.184	DESC:Remove a piece of knowledge from your mind.
+Retrocognition			TYPE:Arcane.Psychic		CLASSES:Medium=3|Psychic=5|Sorcerer,Wizard=7										SCHOOL:Divination												COMPS:V, S						CASTTIME:1 minute			RANGE:Personal	TARGETAREA:You													DURATION:Concentration, up to (CASTERLEVEL) minutes		SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.185	DESC:Gain psychic impressions from past events in a location.
+Riding Possession			TYPE:Arcane.Psychic		CLASSES:Medium=2|Spiritualist=3|Mesmerist,Psychic,Sorcerer,Summoner,Witch,Wizard=4				SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) hours [D]; see text			SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.185	DESC:As possession, but you observe instead of control the subject.
+Sealed Life				TYPE:Psychic			CLASSES:Medium=2|Spiritualist=3														SCHOOL:Abjuration												COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.185	DESC:Prevent a creature from transferring life force to or from others.
+Sealed Life (Greater)		TYPE:Psychic			CLASSES:Spiritualist=6																SCHOOL:Abjuration												COMPS:S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.185	DESC:As sealed life, plus death ward and immunity to soul transference.
+Sessile Spirit			TYPE:Divine.Psychic		CLASSES:Medium=2|Spiritualist=3|Inquisitor,Shaman=4|Cleric,Witch=5							SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature or object (see text)								DURATION:(CASTERLEVEL) rounds [D]					SAVEINFO:Will negates (harmless)						SPELLRES:Yes		SOURCEPAGE:p.185	DESC:Cause a spirit inhabiting a creature or an object to go dormant.
+Shadow Body				TYPE:Arcane.Psychic		CLASSES:Spiritualist=5|Sorcerer,Witch,Wizard=7												SCHOOL:Transmutation	SUBSCHOOL:Polymorph							COMPS:V, S						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.186	DESC:Turn your body into a living shadow.
+Spirit-Bound Blade		TYPE:Psychic			CLASSES:Spiritualist=3|Medium,Shaman=4											SCHOOL:Evocation												COMPS:S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Weapon touched											DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will negates (harmless, object)					SPELLRES:No			SOURCEPAGE:p.186	DESC:Give a weapon ghost touch and another ability tied to an emotion.
+Synapse Overload			TYPE:Psychic			CLASSES:Mesmerist=4|Psychic=5															SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Living creature touched										DURATION:Instantaneous							SAVEINFO:Fortitude partial; see text					SPELLRES:Yes		SOURCEPAGE:p.187	DESC:Deal (min(CASTERLEVEL,15))d6 points of damage and stagger target for 1 minute.
+Synaptic Pulse			TYPE:Psychic			CLASSES:Mesmerist,Psychic=3															SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:30 ft.	TARGETAREA:30-ft.-radius spread centered on you								DURATION:1 round								SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.187	DESC:Stun creatures in a 30-ft. radius.
+Synaptic Pulse (Greater)	TYPE:Psychic			CLASSES:Mesmerist=4|Psychic=5															SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:30 ft.	TARGETAREA:30-ft.-radius spread centered on you								DURATION:1d4 rounds; see text						SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.187	DESC:As synaptic pulse, but for 1d4 rounds.
+Synaptic Scramble			TYPE:Psychic			CLASSES:Mesmerist=3|Psychic=4															SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.187	DESC:Prevent the target from communicating and cause it to act randomly.
+Synesthesia				TYPE:Psychic			CLASSES:Mesmerist,Psychic=3															SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One living creature										DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.187	DESC:Target moves at half speed, takes penalties, and has trouble casting spells.
+Synesthesia (Mass)		TYPE:Psychic			CLASSES:Mesmerist=5|Psychic=7															SCHOOL:Illusion		SUBSCHOOL:Phantasm	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One or more living creatures, no two of which can be more than 30 ft. apart	DURATION:(CASTERLEVEL) rounds						SAVEINFO:Will negates								SPELLRES:Yes		SOURCEPAGE:p.188	DESC:As synesthesia, but affecting multiple creatures.
+Talismanic Implement		TYPE:Psychic																						SCHOOL:Evocation												COMPS:V						CASTTIME:10 minutes		RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) hours [D] or until discharged		SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.188	DESC:As contingency, but invests a spell into one of your implements.
+Telekinetic Maneuver		TYPE:Arcane.Psychic		CLASSES:Psychic=3|Magus,Sorcerer,Spiritualist,Wizard=4										SCHOOL:Transmutation											COMPS:V, S						CASTTIME:1 standard action	RANGE:Close		TARGETAREA:One creature												DURATION:Concentration [up to (CASTERLEVEL) rounds]		SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.188	DESC:Perform a telekinetic combat maneuver.
+Telekinetic Projectile		TYPE:Psychic			CLASSES:Psychic,Spiritualist=0													SCHOOL:Evocation												COMPS:V, S						CASTTIME:1 standard action	RANGE:Close																	DURATION:Instantaneous							SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.188	DESC:Telekinetically hurl an object, dealing 1d6 points of damage to the target and object.
+Telekinetic Storm			TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Evocation						DESCRIPTOR:Force				COMPS:V, S						CASTTIME:1 standard action				TARGETAREA:40-ft.-radius burst centered on you								DURATION:Instantaneous							SAVEINFO:Fortitude partial (see text)					SPELLRES:Yes		SOURCEPAGE:p.188	DESC:Deal 1d6 points of damage per level plus daze and stun in a 40-ft. radius.
+Telempathic Projection		TYPE:Psychic			CLASSES:Mesmerist,Psychic,Spiritualist=1													SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Mind-affecting		COMPS:V, S						CASTTIME:1 standard action	RANGE:Medium	TARGETAREA:One creature												DURATION:(CASTERLEVEL) minutes					SAVEINFO:Will negates (see text)						SPELLRES:Yes		SOURCEPAGE:p.188	DESC:Alter the target's attitude or give bonuses to those interacting with the target.
+Telepathy				TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist=4|Psychic=5|Sorcerer,Spiritualist,Wizard=6								SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V						CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.189	DESC:Communicate mentally with creatures within 100 ft.
+Thaumaturgic Circle		TYPE:Arcane.Divine.Psychic	CLASSES:Medium=3|Cleric,Inquisitor,Sorcerer,Summoner,Wizard=4								SCHOOL:Abjuration												COMPS:V, S, M (a 3-ft.-diameter circle of powdered silver), DF	CASTTIME:1 standard action	RANGE:Touch	TARGETAREA:10-ft.-radius emanation from touched creature			DURATION:(CASTERLEVEL*10) minutes					SAVEINFO:Will negates (harmless)						SPELLRES:No; see text	SOURCEPAGE:p.189	DESC:As magic circle, but affecting a non-alignment subtype or outsider race.
+Thought Echo			TYPE:Psychic			CLASSES:Mesmerist,Psychic=1															SCHOOL:Illusion		SUBSCHOOL:Glamer								COMPS:V						CASTTIME:1 round			RANGE:Touch		TARGETAREA:Living creature touched										DURATION:(CASTERLEVEL) minutes [D]					SAVEINFO:Will negates (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.189	DESC:Replace surface thoughts with a mental echo.
+Thought Shield I			TYPE:Psychic			CLASSES:Psychic=2																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.189	DESC:As an immediate action, gain a +4 bonus on Will saves against mind-affecting effects.
+Thought Shield II			TYPE:Psychic			CLASSES:Psychic=3																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.189	DESC:As thought shield I, but +6 on Will saves.
+Thought Shield III		TYPE:Psychic			CLASSES:Psychic=4																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:As thought shield I, but +8 on Will saves and stun creatures that read your thoughts for 1 round.
+Thought Shield IV			TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:1 round								SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:As thought shield III, but stun for 1d4 rounds and resist psychic crush spells.
+Thought Shield V			TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) rounds; see text				SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:As thought shield IV, but lasts 1 round per level.
+Thoughtsense			TYPE:Arcane.Psychic		CLASSES:Medium,Mesmerist,Psychic,Spiritualist=4|Sorcerer,Wizard=5									SCHOOL:Divination						DESCRIPTOR:Mind-affecting		COMPS:V, M (a bit of dried brain tissue)	CASTTIME:1 standard action	RANGE:Personal	TARGETAREA:You													DURATION:(CASTERLEVEL) minutes					SAVEINFO:None									SPELLRES:No			SOURCEPAGE:p.190	DESC:Automatically detect nearby conscious creatures.
+Tower Of Iron Will I		TYPE:Psychic			CLASSES:Psychic=5																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:1 round								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As an immediate action, gives creatures in a 10-ft. radius spell resistance against psychic magic and mind-affecting effects.
+Tower Of Iron Will II		TYPE:Psychic			CLASSES:Psychic=6																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:2 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 2 rounds.
+Tower Of Iron Will III		TYPE:Psychic			CLASSES:Psychic=7																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:3 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 3 rounds.
+Tower Of Iron Will IV		TYPE:Psychic			CLASSES:Psychic=8																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:4 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 4 rounds.
+Tower Of Iron Will V		TYPE:Psychic			CLASSES:Psychic=9																	SCHOOL:Abjuration												COMPS:V						CASTTIME:1 immediate action	RANGE:10 ft.	TARGETAREA:10-ft.-radius emanation centered on you							DURATION:5 rounds								SAVEINFO:None									SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:As tower of iron will I, but lasts 5 rounds.
+Unshakable Zeal			TYPE:Arcane.Divine.Psychic	CLASSES:Bard=5|Inquisitor,Spiritualist=6|Psychic=7											SCHOOL:Enchantment	SUBSCHOOL:Compulsion	DESCRIPTOR:Emotion, Mind-affecting	COMPS:S, F (a silver circlet)			CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:Creature touched											DURATION:(CASTERLEVEL) hours						SAVEINFO:Will negates (harmless)						SPELLRES:Yes (harmless)	SOURCEPAGE:p.190	DESC:Grant benefits on future attempts after failed checks, and protect against fear and emotion effects.
+Wall Of Ectoplasm			TYPE:Arcane.Divine.Psychic	CLASSES:Cleric,Psychic,Sorcerer,Spiritualist,Wizard=5											SCHOOL:Evocation												COMPS:V, S, M (small bit of gauze)		CASTTIME:1 standard action	RANGE:Close		TARGETAREA:Opaque sheet of ectoplasm up to (CASTERLEVEL*10) ft. square or a sphere or hemisphere with a radius of up to (CASTERLEVEL) ft.	DURATION:(CASTERLEVEL) minutes	SAVEINFO:None, and Will negates; see text	SPELLRES:Yes		SOURCEPAGE:p.190	DESC:Wall of spirits blocks movement on Material Plane and Ethereal Plane and causes fear.
+Withdraw Affliction		TYPE:Arcane.Divine.Psychic	CLASSES:Psychic,Shaman,Spiritualist=6|Witch=7												SCHOOL:Necromancy												COMPS:V, S						CASTTIME:1 standard action	RANGE:Touch		TARGETAREA:One afflicted creature										DURATION:Instantaneous							SAVEINFO:None									SPELLRES:Yes		SOURCEPAGE:p.191	DESC:Remove an affliction and inflict it on another creature.
+
+#Core/APG
+Aid.MOD					TYPE:Psychic	CLASSES:Medium=2
+Alter Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Animal Messenger.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Animal Trance.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Animate Rope.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Ant Haul.MOD				TYPE:Psychic	CLASSES:Medium=1
+Arcane Eye.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Augury.MOD					TYPE:Psychic	CLASSES:Medium=2
+
+Bane.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Bear's Endurance.MOD			TYPE:Psychic	CLASSES:Medium=2
+Beguiling Gift.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Bestow Curse.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+Bleed.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Blindness/Deafness.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Blood Biography.MOD			TYPE:Psychic	CLASSES:Medium=2
+Blur.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Borrow Fortune.MOD			TYPE:Psychic	CLASSES:Medium=3
+Borrow Skill.MOD				TYPE:Psychic	CLASSES:Medium=1
+Break Enchantment.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Bull's Strength.MOD			TYPE:Psychic	CLASSES:Medium=2
+Burning Gaze.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+
+Call Animal.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Calm Emotions.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Cast Out.MOD				TYPE:Psychic	CLASSES:Medium=2
+Castigate.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Castigate (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Cat's Grace.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Cause Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Charm Monster.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Charm Monster (Mass).MOD		TYPE:Psychic	CLASSES:Mesmerist=6
+Charm Person.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Clairaudience/Clairvoyance.MOD	TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+Cloak Of Dreams.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Color Spray.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Command.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Command (Greater).MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Command Undead.MOD			TYPE:Psychic	CLASSES:Mesmerist=2[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
+Comprehend Languages.MOD		TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Confess.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
+Confusion.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Confusion (Lesser).MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Create Treasure Map.MOD			TYPE:Psychic	CLASSES:Medium=2
+Crushing Despair.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Cup Of Dust.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+
+Dancing Lights.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Darkvision.MOD				TYPE:Psychic	CLASSES:Medium=2
+Daze.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Daze Monster.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Death Ward.MOD				TYPE:Psychic	CLASSES:Medium=4
+Deathwatch.MOD				TYPE:Psychic	CLASSES:Medium=1
+Deep Slumber.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Delay Poison.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Demand.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+Denounce.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Detect Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Detect Poison.MOD				TYPE:Psychic	CLASSES:Mesmerist=0
+Detect Scrying.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Detect Secret Doors.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Detect Thoughts.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Detect Undead.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Dimension Door.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Dimensional Anchor.MOD			TYPE:Psychic	CLASSES:Medium=3
+Discern Lies.MOD				TYPE:Psychic	CLASSES:Medium=3
+Disguise Self.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Dismissal.MOD				TYPE:Psychic	CLASSES:Medium=4
+Dispel Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Displacement.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Divination.MOD				TYPE:Psychic	CLASSES:Medium=3
+Dominate Animal.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Dominate Person.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Doom.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Dream.MOD					TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+
+Eagle's Splendor.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Elemental Speech.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Enervation.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Enlarge Person.MOD			TYPE:Psychic	CLASSES:Medium=1
+Enter Image.MOD				TYPE:Psychic	CLASSES:Medium=3|Mesmerist=2
+Enthrall.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Euphoric Tranquility.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
+Expeditious Retreat.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Eyebite.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+
+Faerie Fire.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+False Life.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+False Vision.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Fear.MOD					TYPE:Psychic	CLASSES:Medium=4|Mesmerist=3
+Feeblemind.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Find Traps.MOD				TYPE:Psychic	CLASSES:Medium=2
+Flare.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Fly.MOD					TYPE:Psychic	CLASSES:Medium=3
+Foe To Friend.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Fox's Cunning.MOD				TYPE:Psychic	CLASSES:Medium=2
+Freedom Of Movement.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+
+Gaseous Form.MOD				TYPE:Psychic	CLASSES:Medium=3
+Geas (Lesser).MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Geas/Quest.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
+Gentle Repose.MOD				TYPE:Psychic	CLASSES:Medium=2
+Getaway.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+Ghost Sound.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Glibness.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+Glitterdust.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Grease.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Guidance.MOD				TYPE:Psychic	CLASSES:Medium=0
+
+Hallucinatory Terrain.MOD		TYPE:Psychic	CLASSES:Mesmerist=4
+Halt Undead.MOD				TYPE:Psychic	CLASSES:Mesmerist=3[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
+Haste.MOD					TYPE:Psychic	CLASSES:Medium=2
+Helping Hand.MOD				TYPE:Psychic	CLASSES:Medium=2
+Heroism.MOD					TYPE:Psychic	CLASSES:Medium=2
+Hidden Speech.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Hide From Undead.MOD			TYPE:Psychic	CLASSES:Mesmerist=1[PREABILITY:1,CATEGORY=Special Ability,Spirit Walker ~ Spells]
+Hideous Laughter.MOD			TYPE:Psychic	CLASSES:Medium=2|Mesmerist=1
+Hold Animal.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Hold Monster.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Hold Person.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Hold Person (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Honeyed Tongue.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Hypnotic Pattern.MOD			TYPE:Psychic	CLASSES:Mesmerist=2
+Hypnotism.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+
+Identify.MOD				TYPE:Psychic	CLASSES:Medium=1
+Ill Omen.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Illusory Script.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Illusory Wall.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Innocence.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Insanity.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
+Invigorate.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Invigorate (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Invisibility.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Invisibility (Greater).MOD		TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Invisibility (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Invisibility Sphere.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Irresistible Dance.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+
+Jester's Jaunt.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+
+Knock.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+
+Legend Lore.MOD				TYPE:Psychic	CLASSES:Medium=4
+Levitate.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Light.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Locate Creature.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Locate Object.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Lullaby.MOD					TYPE:Psychic	CLASSES:Mesmerist=0
+
+Mage Hand.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Mage's Private Sanctum.MOD		TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Magic Aura.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=1
+Magic Circle Against Chaos.MOD	TYPE:Psychic	CLASSES:Medium=3
+Magic Circle Against Evil.MOD		TYPE:Psychic	CLASSES:Medium=3
+Magic Circle Against Good.MOD		TYPE:Psychic	CLASSES:Medium=3
+Magic Circle Against Law.MOD		TYPE:Psychic	CLASSES:Medium=3
+Magic Mouth.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Major Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Memory Lapse.MOD				TYPE:Psychic	CLASSES:Mesmerist=1
+Message.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Mind Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Minor Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Mirage Arcana.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Mirror Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Misdirection.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Mislead.MOD					TYPE:Psychic	CLASSES:Mesmerist=5
+Modify Memory.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+
+Nightmare.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Nondetection.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+
+Obscure Object.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Obscuring Mist.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Open/Close.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Owl's Wisdom.MOD				TYPE:Psychic	CLASSES:Medium=2
+
+Passwall.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Perceive Cues.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Permanent Image.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Persistent Image.MOD			TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Phantasmal Killer.MOD			TYPE:Psychic	CLASSES:Medium=3|Mesmerist=4
+Phantasmal Revenge.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Phantasmal Web.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Phantom Trap.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+Planar Adaptation.MOD			TYPE:Psychic	CLASSES:Medium=4
+Planar Ally (Lesser).MOD		TYPE:Psychic	CLASSES:Medium=3
+Planar Binding (Lesser).MOD		TYPE:Psychic	CLASSES:Medium=4
+Plane Shift.MOD				TYPE:Psychic	CLASSES:Medium=4
+Poison.MOD					TYPE:Psychic	CLASSES:Mesmerist=4
+Power Word Blind.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Prestidigitation.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Programmed Image.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Project Image.MOD				TYPE:Psychic	CLASSES:Mesmerist=6
+Protection From Chaos.MOD		TYPE:Psychic	CLASSES:Medium=1
+Protection From Evil.MOD		TYPE:Psychic	CLASSES:Medium=1
+Protection From Good.MOD		TYPE:Psychic	CLASSES:Medium=1
+Protection From Law.MOD			TYPE:Psychic	CLASSES:Medium=1
+Prying Eyes.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Pyrotechnics.MOD				TYPE:Psychic	CLASSES:Mesmerist=2
+
+Rage.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
+Ray Of Enfeeblement.MOD			TYPE:Psychic	CLASSES:Mesmerist=1
+Ray Of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Read Magic.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=0
+Reduce Person.MOD				TYPE:Psychic	CLASSES:Medium=1
+Reincarnate.MOD				TYPE:Psychic	CLASSES:Medium=4
+Remove Blindness/Deafness.MOD		TYPE:Psychic	CLASSES:Mesmerist=3
+Remove Curse.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Remove Fear.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Resistance.MOD				TYPE:Psychic	CLASSES:Medium=0
+Restoration.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Restoration (Lesser).MOD		TYPE:Psychic	CLASSES:Mesmerist=2
+Rope Trick.MOD				TYPE:Psychic	CLASSES:Medium=2
+
+Scare.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Scrying.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Scrying (Greater).MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Secret Chest.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Secret Page.MOD				TYPE:Psychic	CLASSES:Mesmerist=3
+See Invisibility.MOD			TYPE:Psychic	CLASSES:Mesmerist=3
+Seek Thoughts.MOD				TYPE:Psychic	CLASSES:Medium=2|Mesmerist=3
+Seeming.MOD					TYPE:Psychic	CLASSES:Medium=4|Mesmerist=5
+Sending.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Shadow Conjuration.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Shadow Evocation.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Shadow Walk.MOD				TYPE:Psychic	CLASSES:Mesmerist=5
+Share Language.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Share Language (Communal)		TYPE:Psychic	CLASSES:Mesmerist=2
+Share Senses.MOD				TYPE:Psychic	CLASSES:Medium=3
+Sift.MOD					TYPE:Psychic	CLASSES:Medium=0
+Silence.MOD					TYPE:Psychic	CLASSES:Mesmerist=2
+Silent Image.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Sleep.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Sleepwalk.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Slow.MOD					TYPE:Psychic	CLASSES:Medium=2
+Solid Fog.MOD				TYPE:Psychic	CLASSES:Mesmerist=4
+Speak With Dead.MOD			TYPE:Psychic	CLASSES:Medium=2
+Spectral Hand.MOD				TYPE:Psychic	CLASSES:Medium=2
+Spider Climb.MOD				TYPE:Psychic	CLASSES:Medium=2
+Spiritual Ally.MOD			TYPE:Psychic	CLASSES:Medium=4
+Spiritual Weapon.MOD			TYPE:Psychic	CLASSES:Medium=2
+Spite.MOD					TYPE:Psychic	CLASSES:Mesmerist=3
+Stabilize.MOD				TYPE:Psychic	CLASSES:Medium=0
+Status.MOD					TYPE:Psychic	CLASSES:Medium=2
+Suggestion.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Suggestion (Mass).MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Summon Monster I.MOD			TYPE:Psychic	CLASSES:Medium=1
+Summon Monster II.MOD			TYPE:Psychic	CLASSES:Medium=2
+Summon Monster IV.MOD			TYPE:Psychic	CLASSES:Medium=3
+Summon Monster V.MOD			TYPE:Psychic	CLASSES:Medium=4
+Symbol Of Pain.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Symbol Of Persuasion.MOD		TYPE:Psychic	CLASSES:Mesmerist=6
+Symbol Of Sleep.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+
+Telepathic Bond.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=4
+Teleport
+Tongues.MOD					TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+Touch Of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist=0
+Touch Of Gracelessness.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Touch Of Idiocy.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+True Seeing.MOD				TYPE:Psychic	CLASSES:Medium=4|Mesmerist=6
+True Strike.MOD				TYPE:Psychic	CLASSES:Medium=1
+
+Undetectable Alignment.MOD		TYPE:Psychic	CLASSES:Mesmerist=1
+Unseen Servant.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Unwilling Shield.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Unwitting Ally.MOD			TYPE:Psychic	CLASSES:Mesmerist=0
+
+Vampiric Touch.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=3
+Vanish.MOD					TYPE:Psychic	CLASSES:Mesmerist=1
+Veil.MOD					TYPE:Psychic	CLASSES:Mesmerist=6
+Ventriloquism.MOD				TYPE:Psychic	CLASSES:Medium,Mesmerist=1
+Virtue.MOD					TYPE:Psychic	CLASSES:Medium=0
+
+Water Walk.MOD				TYPE:Psychic	CLASSES:Medium=2
+Waves Of Exhaustion.MOD			TYPE:Psychic	CLASSES:Mesmerist=6
+Waves Of Fatigue.MOD			TYPE:Psychic	CLASSES:Mesmerist=5
+Whispering Wind.MOD			TYPE:Psychic	CLASSES:Medium,Mesmerist=2
+
+Zone Of Silence.MOD			TYPE:Psychic	CLASSES:Mesmerist=4
+Zone Of Truth.MOD				TYPE:Psychic	CLASSES:Medium=2
+
+###Block: Occultist Spells
+
+Analyze Aura.COPY=Occultist Spell ~ Analyze Aura			
+Apport Object.COPY=Occultist Spell ~ Apport Object			
+Aura Alteration.COPY=Occultist Spell ~ Aura Alteration			
+Aversion.COPY=Occultist Spell ~ Aversion				
+Awaken Construct.COPY=Occultist Spell ~ Awaken Construct			
+Charge Object.COPY=Occultist Spell ~ Charge Object			
+Decrepit Disguise.COPY=Occultist Spell ~ Decrepit Disguise			
+Demand Offering.COPY=Occultist Spell ~ Demand Offering			
+Detect Psychic Significance.COPY=Occultist Spell ~ Detect Psychic Significance	
+Entrap Spirit.COPY=Occultist Spell ~ Entrap Spirit			
+Erase Impressions.COPY=Occultist Spell ~ Erase Impressions			
+Etheric Shards.COPY=Occultist Spell ~ Etheric Shards			
+Ghost Whip.COPY=Occultist Spell ~ Ghost Whip				
+Grave Words.COPY=Occultist Spell ~ Grave Words				
+Implant False Reading.COPY=Occultist Spell ~ Implant False Reading		
+Inflict Pain.COPY=Occultist Spell ~ Inflict Pain			
+Inflict Pain (Mass).COPY=Occultist Spell ~ Inflict Pain (Mass)		
+Instigate Psychic Duel.COPY=Occultist Spell ~ Instigate Psychic Duel		
+Mind Probe.COPY=Occultist Spell ~ Mind Probe				
+Mind Swap.COPY=Occultist Spell ~ Mind Swap				
+Mindlink.COPY=Occultist Spell ~ Mindlink				
+Mindwipe.COPY=Occultist Spell ~ Mindwipe				
+Node Of Blasting.COPY=Occultist Spell ~ Node Of Blasting			
+Object Possession.COPY=Occultist Spell ~ Object Possession			
+Object Possession (Greater).COPY=Occultist Spell ~ Object Possession (Greater)	
+Object Possession (Lesser).COPY=Occultist Spell ~ Object Possession (Lesser)	
+Object Reading.COPY=Occultist Spell ~ Object Reading			
+Parchment Swarm.COPY=Occultist Spell ~ Parchment Swarm			
+Possession.COPY=Occultist Spell ~ Possession				
+Possession (Greater).COPY=Occultist Spell ~ Possession (Greater)		
+Psychic Reading.COPY=Occultist Spell ~ Psychic Reading			
+Purge Spirit.COPY=Occultist Spell ~ Purge Spirit			
+Quintessence.COPY=Occultist Spell ~ Quintessence			
+Remote Viewing.COPY=Occultist Spell ~ Remote Viewing			
+Retrocognition.COPY=Occultist Spell ~ Retrocognition			
+Riding Possession.COPY=Occultist Spell ~ Riding Possession			
+Sessile Spirit.COPY=Occultist Spell ~ Sessile Spirit			
+Spirit-Bound Blade.COPY=Occultist Spell ~ Spirit-Bound Blade		
+Talismanic Implement.COPY=Occultist Spell ~ Talismanic Implement		
+Telekinetic Projectile.COPY=Occultist Spell ~ Telekinetic Projectile		
+Thaumaturgic Circle.COPY=Occultist Spell ~ Thaumaturgic Circle		
+
+Occultist Spell ~ Analyze Aura.MOD				OUTPUTNAME:Analyze Aura										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Apport Object.MOD				OUTPUTNAME:Apport Object									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=true
+Occultist Spell ~ Aura Alteration.MOD			OUTPUTNAME:Aura Alteration										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=true
+Occultist Spell ~ Aversion.MOD				OUTPUTNAME:Aversion										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Awaken Construct.MOD			OUTPUTNAME:Awaken Construct										CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=true
+Occultist Spell ~ Charge Object.MOD				OUTPUTNAME:Charge Object									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=true
+Occultist Spell ~ Decrepit Disguise.MOD			OUTPUTNAME:Decrepit Disguise										CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=true
+Occultist Spell ~ Demand Offering.MOD			OUTPUTNAME:Demand Offering										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Detect Psychic Significance.MOD	OUTPUTNAME:Detect Psychic Significance										CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Entrap Spirit.MOD				OUTPUTNAME:Entrap Spirit									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Erase Impressions.MOD			OUTPUTNAME:Erase Impressions										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=true
+Occultist Spell ~ Etheric Shards.MOD			OUTPUTNAME:Etheric Shards										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=true
+Occultist Spell ~ Ghost Whip.MOD				OUTPUTNAME:Ghost Whip										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=true
+Occultist Spell ~ Grave Words.MOD				OUTPUTNAME:Grave Words										CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Implant False Reading.MOD		OUTPUTNAME:Implant False Reading										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=true
+Occultist Spell ~ Inflict Pain.MOD				OUTPUTNAME:Inflict Pain										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Inflict Pain (Mass).MOD			OUTPUTNAME:Inflict Pain (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Instigate Psychic Duel.MOD		OUTPUTNAME:Instigate Psychic Duel										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=true
+Occultist Spell ~ Mind Probe.MOD				OUTPUTNAME:Mind Probe										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Mind Swap.MOD				OUTPUTNAME:Mind Swap										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Mindlink.MOD				OUTPUTNAME:Mindlink										CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Mindwipe.MOD				OUTPUTNAME:Mindwipe										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=true
+Occultist Spell ~ Node Of Blasting.MOD			OUTPUTNAME:Node Of Blasting										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=true
+Occultist Spell ~ Object Possession.MOD			OUTPUTNAME:Object Possession										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Object Possession (Greater).MOD	OUTPUTNAME:Object Possession (Greater)										CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Object Possession (Lesser).MOD	OUTPUTNAME:Object Possession (Lesser)										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Object Reading.MOD			OUTPUTNAME:Object Reading										CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Parchment Swarm.MOD			OUTPUTNAME:Parchment Swarm										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=true
+Occultist Spell ~ Possession.MOD				OUTPUTNAME:Possession										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Possession (Greater).MOD		OUTPUTNAME:Possession (Greater)										CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Psychic Reading.MOD			OUTPUTNAME:Psychic Reading										CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Purge Spirit.MOD				OUTPUTNAME:Purge Spirit										CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Quintessence.MOD				OUTPUTNAME:Quintessence										CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=true
+Occultist Spell ~ Remote Viewing.MOD			OUTPUTNAME:Remote Viewing										CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Retrocognition.MOD			OUTPUTNAME:Retrocognition										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=true
+Occultist Spell ~ Riding Possession.MOD			OUTPUTNAME:Riding Possession										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Sessile Spirit.MOD			OUTPUTNAME:Sessile Spirit										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=true
+Occultist Spell ~ Spirit-Bound Blade.MOD			OUTPUTNAME:Spirit-Bound Blade										CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=true
+Occultist Spell ~ Talismanic Implement.MOD		OUTPUTNAME:Talismanic Implement										CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=true
+Occultist Spell ~ Telekinetic Projectile.MOD		OUTPUTNAME:Telekinetic Projectile										CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=true
+Occultist Spell ~ Thaumaturgic Circle.MOD			OUTPUTNAME:Thaumaturgic Circle									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=true
+
+
+
+
+
+Resistance.COPY=Occultist Spell ~ Resistance
+Create Water.COPY=Occultist Spell ~ Create Water
+Stabilize.COPY=Occultist Spell ~ Stabilize
+Detect Magic.COPY=Occultist Spell ~ Detect Magic
+Detect Poison.COPY=Occultist Spell ~ Detect Poison
+Detect Psychic Significance.COPY=Occultist Spell ~ Detect Psychic Significance
+Guidance.COPY=Occultist Spell ~ Guidance
+Know Direction.COPY=Occultist Spell ~ Know Direction
+Read Magic.COPY=Occultist Spell ~ Read Magic
+Sift.COPY=Occultist Spell ~ Sift
+Daze.COPY=Occultist Spell ~ Daze
+Dancing Lights.COPY=Occultist Spell ~ Dancing Lights
+Flare.COPY=Occultist Spell ~ Flare
+Light.COPY=Occultist Spell ~ Light
+Spark.COPY=Occultist Spell ~ Spark
+Telekinetic Projectile.COPY=Occultist Spell ~ Telekinetic Projectile
+Ghost Sound.COPY=Occultist Spell ~ Ghost Sound
+Bleed.COPY=Occultist Spell ~ Bleed
+Grave Words.COPY=Occultist Spell ~ Grave Words
+Touch Of Fatigue.COPY=Occultist Spell ~ Touch Of Fatigue
+Mage Hand.COPY=Occultist Spell ~ Mage Hand
+Mending.COPY=Occultist Spell ~ Mending
+Message.COPY=Occultist Spell ~ Message
+Open/Close.COPY=Occultist Spell ~ Open/Close
+Purify Food And Drink.COPY=Occultist Spell ~ Purify Food And Drink
+Alarm.COPY=Occultist Spell ~ Alarm
+Hold Portal.COPY=Occultist Spell ~ Hold Portal
+Shield.COPY=Occultist Spell ~ Shield
+Cure Light Wounds.COPY=Occultist Spell ~ Cure Light Wounds
+Mage Armor.COPY=Occultist Spell ~ Mage Armor
+Mount.COPY=Occultist Spell ~ Mount
+Unseen Servant.COPY=Occultist Spell ~ Unseen Servant
+Comprehend Languages.COPY=Occultist Spell ~ Comprehend Languages
+Detect Secret Doors.COPY=Occultist Spell ~ Detect Secret Doors
+Detect Snares And Pits.COPY=Occultist Spell ~ Detect Snares And Pits
+Identify.COPY=Occultist Spell ~ Identify
+Mindlink.COPY=Occultist Spell ~ Mindlink
+Object Reading.COPY=Occultist Spell ~ Object Reading
+Psychic Reading.COPY=Occultist Spell ~ Psychic Reading
+Charm Person.COPY=Occultist Spell ~ Charm Person
+Command.COPY=Occultist Spell ~ Command
+Hypnotism.COPY=Occultist Spell ~ Hypnotism
+Memory Lapse.COPY=Occultist Spell ~ Memory Lapse
+Sleep.COPY=Occultist Spell ~ Sleep
+Burning Hands.COPY=Occultist Spell ~ Burning Hands
+Floating Disk.COPY=Occultist Spell ~ Floating Disk
+Shocking Grasp.COPY=Occultist Spell ~ Shocking Grasp
+Decrepit Disguise.COPY=Occultist Spell ~ Decrepit Disguise
+Disguise Self.COPY=Occultist Spell ~ Disguise Self
+Magic Aura.COPY=Occultist Spell ~ Magic Aura
+Mask Dweomer.COPY=Occultist Spell ~ Mask Dweomer
+Quintessence.COPY=Occultist Spell ~ Quintessence
+Silent Image.COPY=Occultist Spell ~ Silent Image
+Vanish.COPY=Occultist Spell ~ Vanish
+Cause Fear.COPY=Occultist Spell ~ Cause Fear
+Inflict Light Wounds.COPY=Occultist Spell ~ Inflict Light Wounds
+Sculpt Corpse.COPY=Occultist Spell ~ Sculpt Corpse
+Alter Winds.COPY=Occultist Spell ~ Alter Winds
+Ant Haul.COPY=Occultist Spell ~ Ant Haul
+Break.COPY=Occultist Spell ~ Break
+Charge Object.COPY=Occultist Spell ~ Charge Object
+Crafter's Curse.COPY=Occultist Spell ~ Crafter's Curse
+Crafter's Fortune.COPY=Occultist Spell ~ Crafter's Fortune
+Enlarge Person.COPY=Occultist Spell ~ Enlarge Person
+Erase.COPY=Occultist Spell ~ Erase
+Expeditious Retreat.COPY=Occultist Spell ~ Expeditious Retreat
+Feather Fall.COPY=Occultist Spell ~ Feather Fall
+Gravity Bow.COPY=Occultist Spell ~ Gravity Bow
+Keen Senses.COPY=Occultist Spell ~ Keen Senses
+Lead Blades.COPY=Occultist Spell ~ Lead Blades
+Magic Weapon.COPY=Occultist Spell ~ Magic Weapon
+Negate Aroma.COPY=Occultist Spell ~ Negate Aroma
+Pass Without Trace.COPY=Occultist Spell ~ Pass Without Trace
+Reduce Person.COPY=Occultist Spell ~ Reduce Person
+Arcane Lock.COPY=Occultist Spell ~ Arcane Lock
+Node Of Blasting.COPY=Occultist Spell ~ Node Of Blasting
+Obscure Object.COPY=Occultist Spell ~ Obscure Object
+Resist Energy.COPY=Occultist Spell ~ Resist Energy
+Apport Object.COPY=Occultist Spell ~ Apport Object
+Cure Moderate Wounds.COPY=Occultist Spell ~ Cure Moderate Wounds
+Delay Poison.COPY=Occultist Spell ~ Delay Poison
+Glitterdust.COPY=Occultist Spell ~ Glitterdust
+Analyze Aura.COPY=Occultist Spell ~ Analyze Aura
+Augury.COPY=Occultist Spell ~ Augury
+Blood Biography.COPY=Occultist Spell ~ Blood Biography
+Create Treasure Map.COPY=Occultist Spell ~ Create Treasure Map
+Find Traps.COPY=Occultist Spell ~ Find Traps
+Locate Object.COPY=Occultist Spell ~ Locate Object
+Residual Tracking.COPY=Occultist Spell ~ Residual Tracking
+See Invisibility.COPY=Occultist Spell ~ See Invisibility
+Share Language.COPY=Occultist Spell ~ Share Language
+Status.COPY=Occultist Spell ~ Status
+Aversion.COPY=Occultist Spell ~ Aversion
+Calm Emotions.COPY=Occultist Spell ~ Calm Emotions
+Daze Monster.COPY=Occultist Spell ~ Daze Monster
+Demand Offering.COPY=Occultist Spell ~ Demand Offering
+Inflict Pain.COPY=Occultist Spell ~ Inflict Pain
+Burning Gaze.COPY=Occultist Spell ~ Burning Gaze
+Campfire Wall.COPY=Occultist Spell ~ Campfire Wall
+Continual Flame.COPY=Occultist Spell ~ Continual Flame
+Darkness.COPY=Occultist Spell ~ Darkness
+Flaming Sphere.COPY=Occultist Spell ~ Flaming Sphere
+Ghost Whip.COPY=Occultist Spell ~ Ghost Whip
+Gust Of Wind.COPY=Occultist Spell ~ Gust Of Wind
+Shatter.COPY=Occultist Spell ~ Shatter
+Sound Burst.COPY=Occultist Spell ~ Sound Burst
+Blur.COPY=Occultist Spell ~ Blur
+Implant False Reading.COPY=Occultist Spell ~ Implant False Reading
+Instigate Psychic Duel.COPY=Occultist Spell ~ Instigate Psychic Duel
+Invisibility.COPY=Occultist Spell ~ Invisibility
+Magic Mouth.COPY=Occultist Spell ~ Magic Mouth
+Minor Image.COPY=Occultist Spell ~ Minor Image
+Mirror Image.COPY=Occultist Spell ~ Mirror Image
+Misdirection.COPY=Occultist Spell ~ Misdirection
+Phantom Trap.COPY=Occultist Spell ~ Phantom Trap
+False Life.COPY=Occultist Spell ~ False Life
+Inflict Moderate Wounds.COPY=Occultist Spell ~ Inflict Moderate Wounds
+Object Possession (Lesser).COPY=Occultist Spell ~ Object Possession (Lesser)
+Purge Spirit.COPY=Occultist Spell ~ Purge Spirit
+Scare.COPY=Occultist Spell ~ Scare
+Spectral Hand.COPY=Occultist Spell ~ Spectral Hand
+Accelerate Poison.COPY=Occultist Spell ~ Accelerate Poison
+Chill Metal.COPY=Occultist Spell ~ Chill Metal
+Darkvision.COPY=Occultist Spell ~ Darkvision
+Enter Image.COPY=Occultist Spell ~ Enter Image
+Feast Of Ashes.COPY=Occultist Spell ~ Feast Of Ashes
+Ghostbane Dirge.COPY=Occultist Spell ~ Ghostbane Dirge
+Glide.COPY=Occultist Spell ~ Glide
+Heat Metal.COPY=Occultist Spell ~ Heat Metal
+Knock.COPY=Occultist Spell ~ Knock
+Levitate.COPY=Occultist Spell ~ Levitate
+Make Whole.COPY=Occultist Spell ~ Make Whole
+Perceive Cues.COPY=Occultist Spell ~ Perceive Cues
+Rope Trick.COPY=Occultist Spell ~ Rope Trick
+Spider Climb.COPY=Occultist Spell ~ Spider Climb
+Versatile Weapon.COPY=Occultist Spell ~ Versatile Weapon
+Warp Wood.COPY=Occultist Spell ~ Warp Wood
+Weapon Of Awe.COPY=Occultist Spell ~ Weapon Of Awe
+Wood Shape.COPY=Occultist Spell ~ Wood Shape
+Cloak Of Winds.COPY=Occultist Spell ~ Cloak Of Winds
+Dispel Magic.COPY=Occultist Spell ~ Dispel Magic
+Erase Impressions.COPY=Occultist Spell ~ Erase Impressions
+Explosive Runes.COPY=Occultist Spell ~ Explosive Runes
+Magic Circle Against Chaos.COPY=Occultist Spell ~ Magic Circle Against Chaos
+Magic Circle Against Evil.COPY=Occultist Spell ~ Magic Circle Against Evil
+Magic Circle Against Good.COPY=Occultist Spell ~ Magic Circle Against Good
+Magic Circle Against Law.COPY=Occultist Spell ~ Magic Circle Against Law
+Nondetection.COPY=Occultist Spell ~ Nondetection
+Protection From Energy.COPY=Occultist Spell ~ Protection From Energy
+Thaumaturgic Circle.COPY=Occultist Spell ~ Thaumaturgic Circle
+Create Food And Water.COPY=Occultist Spell ~ Create Food And Water
+Cure Serious Wounds.COPY=Occultist Spell ~ Cure Serious Wounds
+Minor Creation.COPY=Occultist Spell ~ Minor Creation
+Phantom Steed.COPY=Occultist Spell ~ Phantom Steed
+Sepia Snake Sigil.COPY=Occultist Spell ~ Sepia Snake Sigil
+Arcane Sight.COPY=Occultist Spell ~ Arcane Sight
+Clairaudience/Clairvoyance.COPY=Occultist Spell ~ Clairaudience/Clairvoyance
+Follow Aura.COPY=Occultist Spell ~ Follow Aura
+Retrocognition.COPY=Occultist Spell ~ Retrocognition
+Seek Thoughts.COPY=Occultist Spell ~ Seek Thoughts
+Deep Slumber.COPY=Occultist Spell ~ Deep Slumber
+Hold Person.COPY=Occultist Spell ~ Hold Person
+Suggestion.COPY=Occultist Spell ~ Suggestion
+Call Lightning.COPY=Occultist Spell ~ Call Lightning
+Daylight.COPY=Occultist Spell ~ Daylight
+Deeper Darkness.COPY=Occultist Spell ~ Deeper Darkness
+Fireball.COPY=Occultist Spell ~ Fireball
+Invisibility Purge.COPY=Occultist Spell ~ Invisibility Purge
+Lightning Bolt.COPY=Occultist Spell ~ Lightning Bolt
+Talismanic Implement.COPY=Occultist Spell ~ Talismanic Implement
+Tiny Hut.COPY=Occultist Spell ~ Tiny Hut
+Twilight Knife.COPY=Occultist Spell ~ Twilight Knife
+Wind Wall.COPY=Occultist Spell ~ Wind Wall
+Aura Alteration.COPY=Occultist Spell ~ Aura Alteration
+Displacement.COPY=Occultist Spell ~ Displacement
+Illusory Script.COPY=Occultist Spell ~ Illusory Script
+Invisibility Sphere.COPY=Occultist Spell ~ Invisibility Sphere
+Major Image.COPY=Occultist Spell ~ Major Image
+Animate Dead.COPY=Occultist Spell ~ Animate Dead
+Bestow Curse.COPY=Occultist Spell ~ Bestow Curse
+Gentle Repose.COPY=Occultist Spell ~ Gentle Repose
+Inflict Serious Wounds.COPY=Occultist Spell ~ Inflict Serious Wounds
+Riding Possession.COPY=Occultist Spell ~ Riding Possession
+Sessile Spirit.COPY=Occultist Spell ~ Sessile Spirit
+Bloodhound.COPY=Occultist Spell ~ Bloodhound
+Cup Of Dust.COPY=Occultist Spell ~ Cup Of Dust
+Flame Arrow.COPY=Occultist Spell ~ Flame Arrow
+Fly.COPY=Occultist Spell ~ Fly
+Gaseous Form.COPY=Occultist Spell ~ Gaseous Form
+Haste.COPY=Occultist Spell ~ Haste
+Keen Edge.COPY=Occultist Spell ~ Keen Edge
+Magic Vestment.COPY=Occultist Spell ~ Magic Vestment
+Magic Weapon (Greater).COPY=Occultist Spell ~ Magic Weapon (Greater)
+Secret Page.COPY=Occultist Spell ~ Secret Page
+Shrink Item.COPY=Occultist Spell ~ Shrink Item
+Slow.COPY=Occultist Spell ~ Slow
+Stone Shape.COPY=Occultist Spell ~ Stone Shape
+Break Enchantment.COPY=Occultist Spell ~ Break Enchantment
+Dimensional Anchor.COPY=Occultist Spell ~ Dimensional Anchor
+Dismissal.COPY=Occultist Spell ~ Dismissal
+Fire Trap.COPY=Occultist Spell ~ Fire Trap
+Freedom Of Movement.COPY=Occultist Spell ~ Freedom Of Movement
+Globe Of Invulnerability (Lesser).COPY=Occultist Spell ~ Globe Of Invulnerability (Lesser)
+Life Bubble.COPY=Occultist Spell ~ Life Bubble
+Spell Immunity.COPY=Occultist Spell ~ Spell Immunity
+Stoneskin.COPY=Occultist Spell ~ Stoneskin
+True Form.COPY=Occultist Spell ~ True Form
+Cure Critical Wounds.COPY=Occultist Spell ~ Cure Critical Wounds
+Dimension Door.COPY=Occultist Spell ~ Dimension Door
+Major Creation.COPY=Occultist Spell ~ Major Creation
+Arcane Eye.COPY=Occultist Spell ~ Arcane Eye
+Contact Other Plane.COPY=Occultist Spell ~ Contact Other Plane
+Detect Scrying.COPY=Occultist Spell ~ Detect Scrying
+Locate Creature.COPY=Occultist Spell ~ Locate Creature
+Mind Probe.COPY=Occultist Spell ~ Mind Probe
+Scrying.COPY=Occultist Spell ~ Scrying
+Charm Monster.COPY=Occultist Spell ~ Charm Monster
+Confusion.COPY=Occultist Spell ~ Confusion
+Hold Monster.COPY=Occultist Spell ~ Hold Monster
+Mind Swap.COPY=Occultist Spell ~ Mind Swap
+Mindwipe.COPY=Occultist Spell ~ Mindwipe
+Symbol Of Persuasion.COPY=Occultist Spell ~ Symbol Of Persuasion
+Symbol Of Sleep.COPY=Occultist Spell ~ Symbol Of Sleep
+Ball Lightning.COPY=Occultist Spell ~ Ball Lightning
+Etheric Shards.COPY=Occultist Spell ~ Etheric Shards
+Fire Shield.COPY=Occultist Spell ~ Fire Shield
+Ice Storm.COPY=Occultist Spell ~ Ice Storm
+Resilient Sphere.COPY=Occultist Spell ~ Resilient Sphere
+River Of Wind.COPY=Occultist Spell ~ River Of Wind
+Sending.COPY=Occultist Spell ~ Sending
+Shout.COPY=Occultist Spell ~ Shout
+Spirit-Bound Blade.COPY=Occultist Spell ~ Spirit-Bound Blade
+Wall Of Fire.COPY=Occultist Spell ~ Wall Of Fire
+Wall Of Ice.COPY=Occultist Spell ~ Wall Of Ice
+Illusory Wall.COPY=Occultist Spell ~ Illusory Wall
+Invisibility (Greater).COPY=Occultist Spell ~ Invisibility (Greater)
+Wandering Star Motes.COPY=Occultist Spell ~ Wandering Star Motes
+Death Ward.COPY=Occultist Spell ~ Death Ward
+Fear.COPY=Occultist Spell ~ Fear
+Inflict Critical Wounds.COPY=Occultist Spell ~ Inflict Critical Wounds
+Object Possession.COPY=Occultist Spell ~ Object Possession
+Poison.COPY=Occultist Spell ~ Poison
+Possession.COPY=Occultist Spell ~ Possession
+Symbol Of Fear.COPY=Occultist Spell ~ Symbol Of Fear
+Symbol Of Pain.COPY=Occultist Spell ~ Symbol Of Pain
+Air Walk.COPY=Occultist Spell ~ Air Walk
+Parchment Swarm.COPY=Occultist Spell ~ Parchment Swarm
+Planar Adaptation.COPY=Occultist Spell ~ Planar Adaptation
+Rusting Grasp.COPY=Occultist Spell ~ Rusting Grasp
+Treasure Stitching.COPY=Occultist Spell ~ Treasure Stitching
+Dispel Magic (Greater).COPY=Occultist Spell ~ Dispel Magic (Greater)
+Spell Resistance.COPY=Occultist Spell ~ Spell Resistance
+Cure Light Wounds (Mass).COPY=Occultist Spell ~ Cure Light Wounds (Mass)
+Planar Binding (Lesser).COPY=Occultist Spell ~ Planar Binding (Lesser)
+Secret Chest.COPY=Occultist Spell ~ Secret Chest
+Teleport.COPY=Occultist Spell ~ Teleport
+Wall Of Stone.COPY=Occultist Spell ~ Wall Of Stone
+Commune.COPY=Occultist Spell ~ Commune
+Prying Eyes.COPY=Occultist Spell ~ Prying Eyes
+Remote Viewing.COPY=Occultist Spell ~ Remote Viewing
+True Seeing.COPY=Occultist Spell ~ True Seeing
+Command (Greater).COPY=Occultist Spell ~ Command (Greater)
+Dominate Person.COPY=Occultist Spell ~ Dominate Person
+Inflict Pain (Mass).COPY=Occultist Spell ~ Inflict Pain (Mass)
+Mind Fog.COPY=Occultist Spell ~ Mind Fog
+Suggestion (Mass).COPY=Occultist Spell ~ Suggestion (Mass)
+Symbol Of Stunning.COPY=Occultist Spell ~ Symbol Of Stunning
+Call Lightning Storm.COPY=Occultist Spell ~ Call Lightning Storm
+Cone Of Cold.COPY=Occultist Spell ~ Cone Of Cold
+Fire Snake.COPY=Occultist Spell ~ Fire Snake
+Interposing Hand.COPY=Occultist Spell ~ Interposing Hand
+Wall Of Force.COPY=Occultist Spell ~ Wall Of Force
+False Vision.COPY=Occultist Spell ~ False Vision
+Mislead.COPY=Occultist Spell ~ Mislead
+Persistent Image.COPY=Occultist Spell ~ Persistent Image
+Seeming.COPY=Occultist Spell ~ Seeming
+Entrap Spirit.COPY=Occultist Spell ~ Entrap Spirit
+Inflict Light Wounds (Mass).COPY=Occultist Spell ~ Inflict Light Wounds (Mass)
+Object Possession (Greater).COPY=Occultist Spell ~ Object Possession (Greater)
+Suffocation.COPY=Occultist Spell ~ Suffocation
+Symbol Of Weakness.COPY=Occultist Spell ~ Symbol Of Weakness
+Unwilling Shield.COPY=Occultist Spell ~ Unwilling Shield
+Awaken Construct.COPY=Occultist Spell ~ Awaken Construct
+Control Winds.COPY=Occultist Spell ~ Control Winds
+Fabricate.COPY=Occultist Spell ~ Fabricate
+Ghostbane Dirge (Mass).COPY=Occultist Spell ~ Ghostbane Dirge (Mass)
+Overland Flight.COPY=Occultist Spell ~ Overland Flight
+Telekinesis.COPY=Occultist Spell ~ Telekinesis
+Transmute Mud To Rock.COPY=Occultist Spell ~ Transmute Mud To Rock
+Transmute Rock To Mud.COPY=Occultist Spell ~ Transmute Rock To Mud
+Antimagic Field.COPY=Occultist Spell ~ Antimagic Field
+Forbiddance.COPY=Occultist Spell ~ Forbiddance
+Globe Of Invulnerability.COPY=Occultist Spell ~ Globe Of Invulnerability
+Repulsion.COPY=Occultist Spell ~ Repulsion
+Cure Moderate Wounds (Mass).COPY=Occultist Spell ~ Cure Moderate Wounds (Mass)
+Getaway.COPY=Occultist Spell ~ Getaway
+Heal.COPY=Occultist Spell ~ Heal
+Planar Binding.COPY=Occultist Spell ~ Planar Binding
+Wall Of Iron.COPY=Occultist Spell ~ Wall Of Iron
+Analyze Dweomer.COPY=Occultist Spell ~ Analyze Dweomer
+Find The Path.COPY=Occultist Spell ~ Find The Path
+Legend Lore.COPY=Occultist Spell ~ Legend Lore
+Scrying (Greater).COPY=Occultist Spell ~ Scrying (Greater)
+Antipathy.COPY=Occultist Spell ~ Antipathy
+Charm Monster (Mass).COPY=Occultist Spell ~ Charm Monster (Mass)
+Cloak Of Dreams.COPY=Occultist Spell ~ Cloak Of Dreams
+Symbol Of Insanity.COPY=Occultist Spell ~ Symbol Of Insanity
+Sympathy.COPY=Occultist Spell ~ Sympathy
+Blade Barrier.COPY=Occultist Spell ~ Blade Barrier
+Chain Lightning.COPY=Occultist Spell ~ Chain Lightning
+Contagious Flame.COPY=Occultist Spell ~ Contagious Flame
+Contingency.COPY=Occultist Spell ~ Contingency
+Forceful Hand.COPY=Occultist Spell ~ Forceful Hand
+Freezing Sphere.COPY=Occultist Spell ~ Freezing Sphere
+Sirocco.COPY=Occultist Spell ~ Sirocco
+Permanent Image.COPY=Occultist Spell ~ Permanent Image
+Project Image.COPY=Occultist Spell ~ Project Image
+Harm.COPY=Occultist Spell ~ Harm
+Inflict Moderate Wounds (Mass).COPY=Occultist Spell ~ Inflict Moderate Wounds (Mass)
+Possession (Greater).COPY=Occultist Spell ~ Possession (Greater)
+Symbol Of Death.COPY=Occultist Spell ~ Symbol Of Death
+Animate Objects.COPY=Occultist Spell ~ Animate Objects
+Disintegrate.COPY=Occultist Spell ~ Disintegrate
+Enemy Hammer.COPY=Occultist Spell ~ Enemy Hammer
+Ironwood.COPY=Occultist Spell ~ Ironwood
+Planar Adaptation (Mass).COPY=Occultist Spell ~ Planar Adaptation (Mass)
+Statue.COPY=Occultist Spell ~ Statue
+Transformation.COPY=Occultist Spell ~ Transformation
+
+
+# COMMENT: Replaces the Spell List
+Occultist Spell ~ Resistance.MOD						OUTPUTNAME:Resistance									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Create Water.MOD						OUTPUTNAME:Create Water									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Stabilize.MOD						OUTPUTNAME:Stabilize									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Detect Magic.MOD						OUTPUTNAME:Detect Magic									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Detect Poison.MOD						OUTPUTNAME:Detect Poison								CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Detect Psychic Significance.MOD			OUTPUTNAME:Detect Psychic Significance									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Guidance.MOD						OUTPUTNAME:Guidance									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Know Direction.MOD					OUTPUTNAME:Know Direction									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Read Magic.MOD						OUTPUTNAME:Read Magic									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Sift.MOD							OUTPUTNAME:Sift									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Daze.MOD							OUTPUTNAME:Daze									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Dancing Lights.MOD					OUTPUTNAME:Dancing Lights									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Flare.MOD							OUTPUTNAME:Flare									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Light.MOD							OUTPUTNAME:Light									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Spark.MOD							OUTPUTNAME:Spark									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Telekinetic Projectile.MOD				OUTPUTNAME:Telekinetic Projectile									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Ghost Sound.MOD						OUTPUTNAME:Ghost Sound									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Bleed.MOD							OUTPUTNAME:Bleed									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Grave Words.MOD						OUTPUTNAME:Grave Words									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Touch Of Fatigue.MOD					OUTPUTNAME:Touch Of Fatigue									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Mage Hand.MOD						OUTPUTNAME:Mage Hand									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Mending.MOD							OUTPUTNAME:Mending								CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Message.MOD							OUTPUTNAME:Message								CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Open/Close.MOD						OUTPUTNAME:Open/Close									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Purify Food And Drink.MOD				OUTPUTNAME:Purify Food And Drink									CLASSES:.CLEARALL	CLASSES:Occultist=0	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Alarm.MOD							OUTPUTNAME:Alarm									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Hold Portal.MOD						OUTPUTNAME:Hold Portal									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Shield.MOD							OUTPUTNAME:Shield									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Cure Light Wounds.MOD					OUTPUTNAME:Cure Light Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Mage Armor.MOD						OUTPUTNAME:Mage Armor									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Mount.MOD							OUTPUTNAME:Mount									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Unseen Servant.MOD					OUTPUTNAME:Unseen Servant									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Comprehend Languages.MOD				OUTPUTNAME:Comprehend Languages									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Detect Secret Doors.MOD					OUTPUTNAME:Detect Secret Doors								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Detect Snares And Pits.MOD				OUTPUTNAME:Detect Snares And Pits									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Identify.MOD						OUTPUTNAME:Identify									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Mindlink.MOD						OUTPUTNAME:Mindlink									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Object Reading.MOD					OUTPUTNAME:Object Reading									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Psychic Reading.MOD					OUTPUTNAME:Psychic Reading									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Charm Person.MOD						OUTPUTNAME:Charm Person									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Command.MOD							OUTPUTNAME:Command								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Hypnotism.MOD						OUTPUTNAME:Hypnotism									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Memory Lapse.MOD						OUTPUTNAME:Memory Lapse									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Sleep.MOD							OUTPUTNAME:Sleep									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Burning Hands.MOD						OUTPUTNAME:Burning Hands								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Floating Disk.MOD						OUTPUTNAME:Floating Disk								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Shocking Grasp.MOD					OUTPUTNAME:Shocking Grasp									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Decrepit Disguise.MOD					OUTPUTNAME:Decrepit Disguise									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Disguise Self.MOD						OUTPUTNAME:Disguise Self								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Magic Aura.MOD						OUTPUTNAME:Magic Aura									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Mask Dweomer.MOD						OUTPUTNAME:Mask Dweomer									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Quintessence.MOD						OUTPUTNAME:Quintessence									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Silent Image.MOD						OUTPUTNAME:Silent Image									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Vanish.MOD							OUTPUTNAME:Vanish									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Cause Fear.MOD						OUTPUTNAME:Cause Fear									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Light Wounds.MOD				OUTPUTNAME:Inflict Light Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Sculpt Corpse.MOD						OUTPUTNAME:Sculpt Corpse								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Alter Winds.MOD						OUTPUTNAME:Alter Winds									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Ant Haul.MOD						OUTPUTNAME:Ant Haul									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Break.MOD							OUTPUTNAME:Break									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Charge Object.MOD						OUTPUTNAME:Charge Object								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Crafter's Curse.MOD					OUTPUTNAME:Crafter's Curse									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Crafter's Fortune.MOD					OUTPUTNAME:Crafter's Fortune									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Enlarge Person.MOD					OUTPUTNAME:Enlarge Person									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Erase.MOD							OUTPUTNAME:Erase									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Expeditious Retreat.MOD					OUTPUTNAME:Expeditious Retreat								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Feather Fall.MOD						OUTPUTNAME:Feather Fall									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Gravity Bow.MOD						OUTPUTNAME:Gravity Bow									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Keen Senses.MOD						OUTPUTNAME:Keen Senses									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Lead Blades.MOD						OUTPUTNAME:Lead Blades									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Magic Weapon.MOD						OUTPUTNAME:Magic Weapon									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Negate Aroma.MOD						OUTPUTNAME:Negate Aroma									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Pass Without Trace.MOD					OUTPUTNAME:Pass Without Trace									CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Reduce Person.MOD						OUTPUTNAME:Reduce Person								CLASSES:.CLEARALL	CLASSES:Occultist=1	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Arcane Lock.MOD						OUTPUTNAME:Arcane Lock									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Node Of Blasting.MOD					OUTPUTNAME:Node Of Blasting									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Obscure Object.MOD					OUTPUTNAME:Obscure Object									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Resist Energy.MOD						OUTPUTNAME:Resist Energy								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Apport Object.MOD						OUTPUTNAME:Apport Object								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Cure Moderate Wounds.MOD				OUTPUTNAME:Cure Moderate Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Delay Poison.MOD						OUTPUTNAME:Delay Poison									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Glitterdust.MOD						OUTPUTNAME:Glitterdust									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Analyze Aura.MOD						OUTPUTNAME:Analyze Aura									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Augury.MOD							OUTPUTNAME:Augury									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Blood Biography.MOD					OUTPUTNAME:Blood Biography									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Create Treasure Map.MOD					OUTPUTNAME:Create Treasure Map								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Find Traps.MOD						OUTPUTNAME:Find Traps									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Locate Object.MOD						OUTPUTNAME:Locate Object								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Residual Tracking.MOD					OUTPUTNAME:Residual Tracking									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ See Invisibility.MOD					OUTPUTNAME:See Invisibility									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Share Language.MOD					OUTPUTNAME:Share Language									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Status.MOD							OUTPUTNAME:Status									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Aversion.MOD						OUTPUTNAME:Aversion									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Calm Emotions.MOD						OUTPUTNAME:Calm Emotions								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Daze Monster.MOD						OUTPUTNAME:Daze Monster									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Demand Offering.MOD					OUTPUTNAME:Demand Offering									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Inflict Pain.MOD						OUTPUTNAME:Inflict Pain									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Burning Gaze.MOD						OUTPUTNAME:Burning Gaze									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Campfire Wall.MOD						OUTPUTNAME:Campfire Wall								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Continual Flame.MOD					OUTPUTNAME:Continual Flame									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Darkness.MOD						OUTPUTNAME:Darkness									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Flaming Sphere.MOD					OUTPUTNAME:Flaming Sphere									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Ghost Whip.MOD						OUTPUTNAME:Ghost Whip									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Gust Of Wind.MOD						OUTPUTNAME:Gust Of Wind									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Shatter.MOD							OUTPUTNAME:Shatter								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Sound Burst.MOD						OUTPUTNAME:Sound Burst									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Blur.MOD							OUTPUTNAME:Blur									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Implant False Reading.MOD				OUTPUTNAME:Implant False Reading									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Instigate Psychic Duel.MOD				OUTPUTNAME:Instigate Psychic Duel									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Invisibility.MOD						OUTPUTNAME:Invisibility									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Magic Mouth.MOD						OUTPUTNAME:Magic Mouth									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Minor Image.MOD						OUTPUTNAME:Minor Image									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Mirror Image.MOD						OUTPUTNAME:Mirror Image									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Misdirection.MOD						OUTPUTNAME:Misdirection									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Phantom Trap.MOD						OUTPUTNAME:Phantom Trap									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ False Life.MOD						OUTPUTNAME:False Life									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Moderate Wounds.MOD				OUTPUTNAME:Inflict Moderate Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Object Possession (Lesser).MOD			OUTPUTNAME:Object Possession (Lesser)									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Purge Spirit.MOD						OUTPUTNAME:Purge Spirit									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Scare.MOD							OUTPUTNAME:Scare									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Spectral Hand.MOD						OUTPUTNAME:Spectral Hand								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Accelerate Poison.MOD					OUTPUTNAME:Accelerate Poison									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Chill Metal.MOD						OUTPUTNAME:Chill Metal									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Darkvision.MOD						OUTPUTNAME:Darkvision									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Enter Image.MOD						OUTPUTNAME:Enter Image									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Feast Of Ashes.MOD					OUTPUTNAME:Feast Of Ashes									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Ghostbane Dirge.MOD					OUTPUTNAME:Ghostbane Dirge									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Glide.MOD							OUTPUTNAME:Glide									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Heat Metal.MOD						OUTPUTNAME:Heat Metal									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Knock.MOD							OUTPUTNAME:Knock									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Levitate.MOD						OUTPUTNAME:Levitate									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Make Whole.MOD						OUTPUTNAME:Make Whole									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Perceive Cues.MOD						OUTPUTNAME:Perceive Cues								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Rope Trick.MOD						OUTPUTNAME:Rope Trick									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Spider Climb.MOD						OUTPUTNAME:Spider Climb									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Versatile Weapon.MOD					OUTPUTNAME:Versatile Weapon									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Warp Wood.MOD						OUTPUTNAME:Warp Wood									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Weapon Of Awe.MOD						OUTPUTNAME:Weapon Of Awe								CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Wood Shape.MOD						OUTPUTNAME:Wood Shape									CLASSES:.CLEARALL	CLASSES:Occultist=2	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Cloak Of Winds.MOD					OUTPUTNAME:Cloak Of Winds									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Dispel Magic.MOD						OUTPUTNAME:Dispel Magic									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Erase Impressions.MOD					OUTPUTNAME:Erase Impressions									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Explosive Runes.MOD					OUTPUTNAME:Explosive Runes									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Magic Circle Against Chaos.MOD			OUTPUTNAME:Magic Circle Against Chaos									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Magic Circle Against Evil.MOD				OUTPUTNAME:Magic Circle Against Evil								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Magic Circle Against Good.MOD				OUTPUTNAME:Magic Circle Against Good								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Magic Circle Against Law.MOD				OUTPUTNAME:Magic Circle Against Law									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Nondetection.MOD						OUTPUTNAME:Nondetection									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Protection From Energy.MOD				OUTPUTNAME:Protection From Energy									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Thaumaturgic Circle.MOD					OUTPUTNAME:Thaumaturgic Circle								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Create Food And Water.MOD				OUTPUTNAME:Create Food And Water									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Cure Serious Wounds.MOD					OUTPUTNAME:Cure Serious Wounds								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Minor Creation.MOD					OUTPUTNAME:Minor Creation									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Phantom Steed.MOD						OUTPUTNAME:Phantom Steed								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Sepia Snake Sigil.MOD					OUTPUTNAME:Sepia Snake Sigil									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Arcane Sight.MOD						OUTPUTNAME:Arcane Sight									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Clairaudience/Clairvoyance.MOD			OUTPUTNAME:Clairaudience/Clairvoyance									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Follow Aura.MOD						OUTPUTNAME:Follow Aura									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Retrocognition.MOD					OUTPUTNAME:Retrocognition									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Seek Thoughts.MOD						OUTPUTNAME:Seek Thoughts								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Deep Slumber.MOD						OUTPUTNAME:Deep Slumber									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Hold Person.MOD						OUTPUTNAME:Hold Person									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Suggestion.MOD						OUTPUTNAME:Suggestion									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Call Lightning.MOD					OUTPUTNAME:Call Lightning									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Daylight.MOD						OUTPUTNAME:Daylight									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Deeper Darkness.MOD					OUTPUTNAME:Deeper Darkness									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Fireball.MOD						OUTPUTNAME:Fireball									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Invisibility Purge.MOD					OUTPUTNAME:Invisibility Purge									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Lightning Bolt.MOD					OUTPUTNAME:Lightning Bolt									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Talismanic Implement.MOD				OUTPUTNAME:Talismanic Implement									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Tiny Hut.MOD						OUTPUTNAME:Tiny Hut									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Twilight Knife.MOD					OUTPUTNAME:Twilight Knife									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Wind Wall.MOD						OUTPUTNAME:Wind Wall									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Aura Alteration.MOD					OUTPUTNAME:Aura Alteration									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Displacement.MOD						OUTPUTNAME:Displacement									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Illusory Script.MOD					OUTPUTNAME:Illusory Script									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Invisibility Sphere.MOD					OUTPUTNAME:Invisibility Sphere								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Major Image.MOD						OUTPUTNAME:Major Image									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Animate Dead.MOD						OUTPUTNAME:Animate Dead									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Bestow Curse.MOD						OUTPUTNAME:Bestow Curse									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Gentle Repose.MOD						OUTPUTNAME:Gentle Repose								CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Serious Wounds.MOD				OUTPUTNAME:Inflict Serious Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Riding Possession.MOD					OUTPUTNAME:Riding Possession									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Sessile Spirit.MOD					OUTPUTNAME:Sessile Spirit									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Bloodhound.MOD						OUTPUTNAME:Bloodhound									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Cup Of Dust.MOD						OUTPUTNAME:Cup Of Dust									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Flame Arrow.MOD						OUTPUTNAME:Flame Arrow									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Fly.MOD							OUTPUTNAME:Fly									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Gaseous Form.MOD						OUTPUTNAME:Gaseous Form									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Haste.MOD							OUTPUTNAME:Haste									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Keen Edge.MOD						OUTPUTNAME:Keen Edge									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Magic Vestment.MOD					OUTPUTNAME:Magic Vestment									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Magic Weapon (Greater).MOD				OUTPUTNAME:Magic Weapon (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Secret Page.MOD						OUTPUTNAME:Secret Page									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Shrink Item.MOD						OUTPUTNAME:Shrink Item									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Slow.MOD							OUTPUTNAME:Slow									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Stone Shape.MOD						OUTPUTNAME:Stone Shape									CLASSES:.CLEARALL	CLASSES:Occultist=3	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Break Enchantment.MOD					OUTPUTNAME:Break Enchantment									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Dimensional Anchor.MOD					OUTPUTNAME:Dimensional Anchor									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Dismissal.MOD						OUTPUTNAME:Dismissal									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Fire Trap.MOD						OUTPUTNAME:Fire Trap									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Freedom Of Movement.MOD					OUTPUTNAME:Freedom Of Movement								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Globe Of Invulnerability (Lesser).MOD		OUTPUTNAME:Globe Of Invulnerability (Lesser)									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Life Bubble.MOD						OUTPUTNAME:Life Bubble									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Spell Immunity.MOD					OUTPUTNAME:Spell Immunity									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Stoneskin.MOD						OUTPUTNAME:Stoneskin									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ True Form.MOD						OUTPUTNAME:True Form									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Cure Critical Wounds.MOD				OUTPUTNAME:Cure Critical Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Dimension Door.MOD					OUTPUTNAME:Dimension Door									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Major Creation.MOD					OUTPUTNAME:Major Creation									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Arcane Eye.MOD						OUTPUTNAME:Arcane Eye									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Contact Other Plane.MOD					OUTPUTNAME:Contact Other Plane								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Detect Scrying.MOD					OUTPUTNAME:Detect Scrying									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Locate Creature.MOD					OUTPUTNAME:Locate Creature									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Mind Probe.MOD						OUTPUTNAME:Mind Probe									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Scrying.MOD							OUTPUTNAME:Scrying								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Charm Monster.MOD						OUTPUTNAME:Charm Monster								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Confusion.MOD						OUTPUTNAME:Confusion									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Hold Monster.MOD						OUTPUTNAME:Hold Monster									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Mind Swap.MOD						OUTPUTNAME:Mind Swap									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Mindwipe.MOD						OUTPUTNAME:Mindwipe									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Symbol Of Persuasion.MOD				OUTPUTNAME:Symbol Of Persuasion									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Symbol Of Sleep.MOD					OUTPUTNAME:Symbol Of Sleep									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Ball Lightning.MOD					OUTPUTNAME:Ball Lightning									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Etheric Shards.MOD					OUTPUTNAME:Etheric Shards									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Fire Shield.MOD						OUTPUTNAME:Fire Shield									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Ice Storm.MOD						OUTPUTNAME:Ice Storm									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Resilient Sphere.MOD					OUTPUTNAME:Resilient Sphere									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ River Of Wind.MOD						OUTPUTNAME:River Of Wind								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Sending.MOD							OUTPUTNAME:Sending								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Shout.MOD							OUTPUTNAME:Shout									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Spirit-Bound Blade.MOD					OUTPUTNAME:Spirit-Bound Blade									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Wall Of Fire.MOD						OUTPUTNAME:Wall Of Fire									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Wall Of Ice.MOD						OUTPUTNAME:Wall Of Ice									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Illusory Wall.MOD						OUTPUTNAME:Illusory Wall								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Invisibility (Greater).MOD				OUTPUTNAME:Invisibility (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Wandering Star Motes.MOD				OUTPUTNAME:Wandering Star Motes									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Death Ward.MOD						OUTPUTNAME:Death Ward									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Fear.MOD							OUTPUTNAME:Fear									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Critical Wounds.MOD				OUTPUTNAME:Inflict Critical Wounds									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Object Possession.MOD					OUTPUTNAME:Object Possession									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Poison.MOD							OUTPUTNAME:Poison									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Possession.MOD						OUTPUTNAME:Possession									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Symbol Of Fear.MOD					OUTPUTNAME:Symbol Of Fear									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Symbol Of Pain.MOD					OUTPUTNAME:Symbol Of Pain									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Air Walk.MOD						OUTPUTNAME:Air Walk									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Parchment Swarm.MOD					OUTPUTNAME:Parchment Swarm									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Planar Adaptation.MOD					OUTPUTNAME:Planar Adaptation									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Rusting Grasp.MOD						OUTPUTNAME:Rusting Grasp								CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Treasure Stitching.MOD					OUTPUTNAME:Treasure Stitching									CLASSES:.CLEARALL	CLASSES:Occultist=4	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Dispel Magic (Greater).MOD				OUTPUTNAME:Dispel Magic (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Spell Resistance.MOD					OUTPUTNAME:Spell Resistance									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Cure Light Wounds (Mass).MOD				OUTPUTNAME:Cure Light Wounds (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Planar Binding (Lesser).MOD				OUTPUTNAME:Planar Binding (Lesser)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Secret Chest.MOD						OUTPUTNAME:Secret Chest									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Teleport.MOD						OUTPUTNAME:Teleport									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Wall Of Stone.MOD						OUTPUTNAME:Wall Of Stone								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Commune.MOD							OUTPUTNAME:Commune								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Prying Eyes.MOD						OUTPUTNAME:Prying Eyes									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Remote Viewing.MOD					OUTPUTNAME:Remote Viewing									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ True Seeing.MOD						OUTPUTNAME:True Seeing									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Command (Greater).MOD					OUTPUTNAME:Command (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Dominate Person.MOD					OUTPUTNAME:Dominate Person									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Inflict Pain (Mass).MOD					OUTPUTNAME:Inflict Pain (Mass)								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Mind Fog.MOD						OUTPUTNAME:Mind Fog									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Suggestion (Mass).MOD					OUTPUTNAME:Suggestion (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Symbol Of Stunning.MOD					OUTPUTNAME:Symbol Of Stunning									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Call Lightning Storm.MOD				OUTPUTNAME:Call Lightning Storm									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Cone Of Cold.MOD						OUTPUTNAME:Cone Of Cold									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Fire Snake.MOD						OUTPUTNAME:Fire Snake									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Interposing Hand.MOD					OUTPUTNAME:Interposing Hand									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Wall Of Force.MOD						OUTPUTNAME:Wall Of Force								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ False Vision.MOD						OUTPUTNAME:False Vision									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Mislead.MOD							OUTPUTNAME:Mislead								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Persistent Image.MOD					OUTPUTNAME:Persistent Image									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Seeming.MOD							OUTPUTNAME:Seeming								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Entrap Spirit.MOD						OUTPUTNAME:Entrap Spirit								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Light Wounds (Mass).MOD			OUTPUTNAME:Inflict Light Wounds (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Object Possession (Greater).MOD			OUTPUTNAME:Object Possession (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Suffocation.MOD						OUTPUTNAME:Suffocation									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Symbol Of Weakness.MOD					OUTPUTNAME:Symbol Of Weakness									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Unwilling Shield.MOD					OUTPUTNAME:Unwilling Shield									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Awaken Construct.MOD					OUTPUTNAME:Awaken Construct									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Control Winds.MOD						OUTPUTNAME:Control Winds								CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Fabricate.MOD						OUTPUTNAME:Fabricate									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Ghostbane Dirge (Mass).MOD				OUTPUTNAME:Ghostbane Dirge (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Overland Flight.MOD					OUTPUTNAME:Overland Flight									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Telekinesis.MOD						OUTPUTNAME:Telekinesis									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Transmute Mud To Rock.MOD				OUTPUTNAME:Transmute Mud To Rock									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Transmute Rock To Mud.MOD				OUTPUTNAME:Transmute Rock To Mud									CLASSES:.CLEARALL	CLASSES:Occultist=5	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Antimagic Field.MOD					OUTPUTNAME:Antimagic Field									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Forbiddance.MOD						OUTPUTNAME:Forbiddance									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Globe Of Invulnerability.MOD				OUTPUTNAME:Globe Of Invulnerability									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Repulsion.MOD						OUTPUTNAME:Repulsion									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Abjuration=True
+Occultist Spell ~ Cure Moderate Wounds (Mass).MOD			OUTPUTNAME:Cure Moderate Wounds (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Getaway.MOD							OUTPUTNAME:Getaway								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Heal.MOD							OUTPUTNAME:Heal									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Planar Binding.MOD					OUTPUTNAME:Planar Binding									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Wall Of Iron.MOD						OUTPUTNAME:Wall Of Iron									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Conjuration=True
+Occultist Spell ~ Analyze Dweomer.MOD					OUTPUTNAME:Analyze Dweomer									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Find The Path.MOD						OUTPUTNAME:Find The Path								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Legend Lore.MOD						OUTPUTNAME:Legend Lore									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Scrying (Greater).MOD					OUTPUTNAME:Scrying (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Divination=True
+Occultist Spell ~ Antipathy.MOD						OUTPUTNAME:Antipathy									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Charm Monster (Mass).MOD				OUTPUTNAME:Charm Monster (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Cloak Of Dreams.MOD					OUTPUTNAME:Cloak Of Dreams									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Symbol Of Insanity.MOD					OUTPUTNAME:Symbol Of Insanity									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Sympathy.MOD						OUTPUTNAME:Sympathy									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Enchantment=True
+Occultist Spell ~ Blade Barrier.MOD						OUTPUTNAME:Blade Barrier								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Chain Lightning.MOD					OUTPUTNAME:Chain Lightning									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Contagious Flame.MOD					OUTPUTNAME:Contagious Flame									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Contingency.MOD						OUTPUTNAME:Contingency									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Forceful Hand.MOD						OUTPUTNAME:Forceful Hand								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Freezing Sphere.MOD					OUTPUTNAME:Freezing Sphere									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Sirocco.MOD							OUTPUTNAME:Sirocco								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Evocation=True
+Occultist Spell ~ Permanent Image.MOD					OUTPUTNAME:Permanent Image									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Project Image.MOD						OUTPUTNAME:Project Image								CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Illusion=True
+Occultist Spell ~ Harm.MOD							OUTPUTNAME:Harm									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Inflict Moderate Wounds (Mass).MOD			OUTPUTNAME:Inflict Moderate Wounds (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Possession (Greater).MOD				OUTPUTNAME:Possession (Greater)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Symbol Of Death.MOD					OUTPUTNAME:Symbol Of Death									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Necromancy=True
+Occultist Spell ~ Animate Objects.MOD					OUTPUTNAME:Animate Objects									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Disintegrate.MOD						OUTPUTNAME:Disintegrate									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Enemy Hammer.MOD						OUTPUTNAME:Enemy Hammer									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Ironwood.MOD						OUTPUTNAME:Ironwood									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Planar Adaptation (Mass).MOD				OUTPUTNAME:Planar Adaptation (Mass)									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Statue.MOD							OUTPUTNAME:Statue									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+Occultist Spell ~ Transformation.MOD					OUTPUTNAME:Transformation									CLASSES:.CLEARALL	CLASSES:Occultist=6	PREFACT:1,ABILITIES,OccultistSchool_Transmutation=True
+

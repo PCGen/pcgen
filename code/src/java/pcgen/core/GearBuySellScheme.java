@@ -31,12 +31,9 @@ import pcgen.facade.core.GearBuySellFacade;
  * The Class <code>GearBuySellScheme</code> defines a named set of rates for 
  * buying and selling gear.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class GearBuySellScheme implements GearBuySellFacade
 {
@@ -61,9 +58,6 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.cashSellRate = cashSellRate;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getName()
 	{
@@ -126,9 +120,6 @@ public class GearBuySellScheme implements GearBuySellFacade
 		this.name = name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

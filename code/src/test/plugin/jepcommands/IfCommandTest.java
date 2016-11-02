@@ -23,22 +23,20 @@
  */
 package plugin.jepcommands;
 
+import java.util.Stack;
+
+import pcgen.PCGenTestCase;
+
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import org.nfunk.jep.ParseException;
 import org.nfunk.jep.function.PostfixMathCommandI;
-import pcgen.PCGenTestCase;
-
-import java.util.Stack;
 
 /**
  * <code>IfCommandTest</code> tests the functioning of the jep if plugin
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class IfCommandTest extends PCGenTestCase
 {
@@ -81,7 +79,7 @@ public class IfCommandTest extends PCGenTestCase
     public void testIf01()
     {
         final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Double>         s = new Stack<Double>();
+        final Stack<Double>         s = new Stack<>();
 
         s.push(0.0);
         s.push(1.0);
@@ -98,7 +96,7 @@ public class IfCommandTest extends PCGenTestCase
     public void testIf02()
     {
         final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Double>         s = new Stack<Double>();
+        final Stack<Double>         s = new Stack<>();
 
         s.push(1.0);
         s.push(1.0);
@@ -115,7 +113,7 @@ public class IfCommandTest extends PCGenTestCase
     public void testIf03()
     {
         final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Boolean>         s = new Stack<Boolean>();
+        final Stack<Boolean>         s = new Stack<>();
 
         s.push(false);
         s.push(false);
@@ -132,7 +130,7 @@ public class IfCommandTest extends PCGenTestCase
     public void testIf04()
     {
         final PostfixMathCommandI   c = new IfCommand();
-        final Stack<Boolean>         s = new Stack<Boolean>();
+        final Stack<Boolean>         s = new Stack<>();
 
         s.push(true);
         s.push(false);

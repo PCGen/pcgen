@@ -55,19 +55,19 @@ public class TransparentFactory<T extends Loadable> implements
 	@Override
 	public CDOMGroupRef<T> getAllReference()
 	{
-		return new CDOMTransparentAllRef<T>(refClass);
+		return new CDOMTransparentAllRef<>(refClass);
 	}
 
 	@Override
 	public CDOMGroupRef<T> getTypeReference(String... types)
 	{
-		return new CDOMTransparentTypeRef<T>(refClass, types);
+		return new CDOMTransparentTypeRef<>(refClass, types);
 	}
 
 	@Override
 	public CDOMSingleRef<T> getReference(String key)
 	{
-		return new CDOMTransparentSingleRef<T>(refClass, key);
+		return new CDOMTransparentSingleRef<>(refClass, key);
 	}
 
 	@Override
@@ -77,13 +77,7 @@ public class TransparentFactory<T extends Loadable> implements
 		{
 			return refClass.newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new UnreachableError("Class was tested at "
-				+ "construction to ensure it had a public, "
-				+ "zero-argument constructor");
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new UnreachableError("Class was tested at "
 				+ "construction to ensure it had a public, "

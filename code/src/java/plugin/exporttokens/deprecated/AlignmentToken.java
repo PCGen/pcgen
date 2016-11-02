@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -82,7 +80,7 @@ public class AlignmentToken extends AbstractExportToken
 
 	/**
 	 * Get Alignment Short Token
-	 * @param pc
+	 * @param display
 	 * @return Alignment Short Token
 	 */
 	public static String getShortToken(CharacterDisplay display)

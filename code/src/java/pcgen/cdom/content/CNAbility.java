@@ -35,7 +35,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
 
 /**
- * An CNAbility represents an "unresolved" (categorized) Ability & Nature.
+ * An CNAbility represents an "unresolved" (categorized) Ability &amp; Nature.
  */
 public class CNAbility extends ConcretePrereqObject implements
 		QualifyingObject, Comparable<CNAbility>, ChooseDriver, Reducible
@@ -170,9 +170,6 @@ public class CNAbility extends ConcretePrereqObject implements
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(CNAbility other)
 	{

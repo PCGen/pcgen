@@ -30,8 +30,7 @@ import java.io.Serializable;
  * applications such as maintaining a sorted <code>JComboBoxEx</code>
  * and the like.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision$
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable
 {
@@ -41,10 +40,7 @@ public final class ComparableComparator<T extends Comparable<T>> implements Comp
 		// TODO: Exception needs to be handled
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public int compare(T o1, T o2)
 	{
 		return o1.compareTo(o2);

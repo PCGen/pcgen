@@ -19,7 +19,7 @@
  */
  package pcgen.core.doomsdaybook;
 
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 
 import java.util.ArrayList;
 
@@ -30,7 +30,7 @@ import java.util.ArrayList;
  */
 public class RuleSet extends ArrayList<String> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 	Rule retRule;
 	String id;
 	String title;

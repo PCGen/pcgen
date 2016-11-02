@@ -30,32 +30,28 @@ import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
 
 /**
- * <code>Utilities</code>.
+ * {@code Utilities}.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision$
+ * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *
  * @see SwingConstants
  */
-final class Utilities implements SwingConstants
+final class Utilities
 {
 
 	private Utilities()
 	{
-		super();
 	}
 
 	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
+	 * Fetch an {@code ImageIcon} relative to the calling
 	 * location.
 	 *
-	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
+	 * @param location {@code String}, the path to the {@code IconImage} source
 	 *
-	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
-	 * on failure
+	 * @return {@code ImageIcon}, the icon or {@code null} on failure
 	 */
-	static ImageIcon getImageIcon(String location)
+		static ImageIcon getImageIcon(final String location)
 	{
 		return getImageIcon(location, null);
 	}
@@ -64,22 +60,22 @@ final class Utilities implements SwingConstants
 	 * Work around bug in W32; it returns false even on right-mouse
 	 * clicks.
 	 *
-	 * @param e <code>MouseEvent</code>, the event
+	 * @param e {@code MouseEvent}, the event
 	 *
-	 * @return <code>boolean</code>, the condition
+	 * @return {@code boolean}, the condition
 	 */
-	static boolean isRightMouseButton(MouseEvent e)
+	static boolean isRightMouseButton(final MouseEvent e)
 	{
 		return e.isPopupTrigger() || SwingUtilities.isRightMouseButton(e);
 	}
 
 	/**
-	 * <code>isShiftLeftMouseButton</code> detects SHIFT-BUTTON1
+	 * {@code isShiftLeftMouseButton} detects SHIFT-BUTTON1
 	 * events for flipping pane shortcuts.
 	 *
-	 * @param e <code>MouseEvent</code>, the event
+	 * @param e {@code MouseEvent}, the event
 	 *
-	 * @return <code>boolean</code>, the condition
+	 * @return {@code boolean}, the condition
 	 */
 	static boolean isShiftLeftMouseButton(MouseEvent e)
 	{
@@ -87,17 +83,17 @@ final class Utilities implements SwingConstants
 	}
 
 	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
+	 * Fetch an {@code ImageIcon} relative to the calling
 	 * location and using a description.
 	 *
-	 * @param location <code>String</code>, the path to the
-	 * <code>IconImage> source
-	 * @param description <code>String</code>, the description
+	 * @param location {@code String}, the path to the
+	 * {@code IconImage} source
+	 * @param description {@code String}, the description
 	 *
-	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
+	 * @return {@code ImageIcon}, the icon or {@code null}
 	 * on failure
 	 */
-	private static ImageIcon getImageIcon(String location, String description)
+	private static ImageIcon getImageIcon(String location, final String description)
 	{
 		String prefix = "resources/";
 

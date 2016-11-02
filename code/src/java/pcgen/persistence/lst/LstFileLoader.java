@@ -19,8 +19,6 @@
  * Created on September 22, 2003, 11:29 AM
  *
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -43,15 +41,15 @@ import pcgen.util.Logging;
 /**
  * This class is a base class for LST file loaders.
  * 
- * <p/>
+ * <p>
  * This class lays out a skeleton for LST file loading, setting
  * up shared features and functions for loading and parsing of files.
  * 
- * <p/>
+ * <p>
  * This class extends the <tt>Observable</tt> class so interested observers 
  * will be notified of the progress of loading files.
  * 
- * <p />
+ * <p>
  * Instances of LstFileLoader or its subclasses are not thread-safe,
  * so any thread should only acccess a single loader (or group of loaders)
  * at a time.

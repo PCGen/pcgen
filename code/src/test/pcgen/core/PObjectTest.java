@@ -31,7 +31,6 @@ import java.util.Iterator;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.base.lang.UnreachableError;
@@ -163,7 +162,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		String racePCCText = race.getPCCText();
 		assertNotNull("PCC Text for race should not be null", racePCCText);
 
-		GenericLoader<Race> raceLoader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> raceLoader = new GenericLoader<>(Race.class);
 		CampaignSourceEntry source;
 		try
 		{
@@ -328,8 +327,8 @@ public class PObjectTest extends AbstractCharacterTestCase
 		pobj.addToListFor(ListKey.DESCRIPTION, desc1);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Description should match", pc
-			.getDescription(pobj), "Description 1.");
+		assertEquals("Description should match", "Description 1.", pc
+			.getDescription(pobj));
 
 		final Description desc2 = new Description("Description 2.");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc2);
@@ -382,7 +381,7 @@ public class PObjectTest extends AbstractCharacterTestCase
 		{
 			throw new UnreachableError(e);
 		}
-		GenericLoader<Race> loader = new GenericLoader<Race>(Race.class);
+		GenericLoader<Race> loader = new GenericLoader<>(Race.class);
 		loader
 			.parseLine(
 				context,

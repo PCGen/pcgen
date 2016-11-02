@@ -173,7 +173,7 @@ public class AttackModel extends PObjectModel
 
 			if (critMultiple == null)
 			{
-				critMultiple = new ArrayList<String>(tok.countTokens());
+				critMultiple = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -189,7 +189,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (critMultiple == null)
 			{
-				critMultiple = new ArrayList<String>(1);
+				critMultiple = new ArrayList<>(1);
 			}
 			else
 			{
@@ -212,7 +212,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the crit multiple at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index
 	 * @return The crit multiple value.
@@ -261,7 +261,7 @@ public class AttackModel extends PObjectModel
 
 			if (critRange == null)
 			{
-				critRange = new ArrayList<String>(tok.countTokens());
+				critRange = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -277,7 +277,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (critRange == null)
 			{
-				critRange = new ArrayList<String>(1);
+				critRange = new ArrayList<>(1);
 			}
 			else
 			{
@@ -300,7 +300,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the crit range at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index The attack bonus index
 	 * @return The requested crit range.
@@ -368,7 +368,7 @@ public class AttackModel extends PObjectModel
 
 			if (damage == null)
 			{
-				damage = new ArrayList<String>(tok.countTokens());
+				damage = new ArrayList<>(tok.countTokens());
 			}
 			else
 			{
@@ -411,7 +411,7 @@ public class AttackModel extends PObjectModel
 		{
 			if (damage == null)
 			{
-				damage = new ArrayList<String>(1);
+				damage = new ArrayList<>(1);
 			}
 			else
 			{
@@ -433,7 +433,7 @@ public class AttackModel extends PObjectModel
 
 	/**
 	 * <p>Gets the damage dice at the specified attack bonus index, based
-	 * on whether or not the index > or < the first off hand attack index.</p>
+	 * on whether or not the index is greater than or less than the first off hand attack index.</p>
 	 *
 	 * @param index The attack bonus index
 	 * @return The requested damage string.
@@ -573,7 +573,7 @@ public class AttackModel extends PObjectModel
 	{
 		if (toHit == null)
 		{
-			toHit = new ArrayList<String>();
+			toHit = new ArrayList<>();
 		}
 		else
 		{

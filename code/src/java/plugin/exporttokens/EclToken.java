@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -33,10 +31,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 /**
  * Handle the EclToken which outputs the characters ECL.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class EclToken extends AbstractExportToken
 {

@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 19:37:53
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -36,7 +34,7 @@ public abstract class BasePCCountAbilitiesTypeTermEvaluator extends BasePCCountA
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		for (CNAbility anAbility : getAbilities(pc))
 		{

@@ -36,11 +36,8 @@ import pcgen.core.character.EquipSet;
  * CharacterFacadeImpl.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase
@@ -69,6 +66,7 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 	/* (non-Javadoc)
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
+	@Override
 	@Before
 	public void setUp() throws Exception
 	{

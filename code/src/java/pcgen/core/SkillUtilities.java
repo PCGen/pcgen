@@ -20,8 +20,6 @@
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -29,8 +27,7 @@ package pcgen.core;
 import java.math.BigDecimal;
 
 /**
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class SkillUtilities
 {
@@ -42,7 +39,7 @@ public final class SkillUtilities
 
 	/**
 	 * Returns the maximum number of ranks a character can have in a class skill
-	 * at the specified level. <p/>Should this be moved to PCClass?
+	 * at the specified level. <p>Should this be moved to PCClass?
 	 *
 	 * @param level
 	 *            character level to get max skill ranks for
@@ -64,7 +61,7 @@ public final class SkillUtilities
 	}
 
 	/**
-	 * Returns the maximum number of ranks a character can <p/>have in a
+	 * Returns the maximum number of ranks a character can <p>have in a
 	 * cross-class skill at the specified level.
 	 *
 	 * @param level

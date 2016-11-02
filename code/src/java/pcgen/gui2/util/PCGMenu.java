@@ -33,8 +33,7 @@ import javax.swing.JMenu;
  * are overriding the location of the tooltips for the menu.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PCGMenu extends JMenu

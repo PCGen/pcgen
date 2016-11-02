@@ -31,8 +31,7 @@ import java.util.Vector;
 /**
  * Sorted <code>JComboBox</code>.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 14600 $
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public class JComboBoxEx extends JComboBox
 {
@@ -195,7 +194,6 @@ public class JComboBoxEx extends JComboBox
 		return comparator;
 	}
 
-	/** {@inheritDoc} */
 	@Override
 	public void addItem(Object item)
 	{

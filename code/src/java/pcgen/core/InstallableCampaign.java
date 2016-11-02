@@ -27,11 +27,9 @@ package pcgen.core;
  * <code>InstallableCampaign</code> is a campaign (or data set) that can be
  * installed into the PCGen instance.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 17:08:08 -0500
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InstallableCampaign extends Campaign
 {

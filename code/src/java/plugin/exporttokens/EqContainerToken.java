@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -400,9 +398,9 @@ public class EqContainerToken extends Token
 	 * @param eq
 	 * @return Item Weight Token
 	 */
-	public static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
+	private static float getItemWeightToken(PlayerCharacter pc, Equipment eq)
 	{
-		return eq.getWeight(pc).floatValue();
+		return eq.getWeight(pc);
 	}
 
 	/**

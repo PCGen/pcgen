@@ -38,19 +38,16 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * The Class <code>DefineStatLst</code> parses the DEFINESTAT tag. Valid sub tags are:
- * </p>
+ * <p>
  * DEFINESTAT:LOCK|stat|value <br>
  * DEFINESTAT:UNLOCK|stat <br>
  * DEFINESTAT:NONSTAT|stat <br>
  * DEFINESTAT:STAT|stat <br>
  * DEFINESTAT:MINVALUE|stat|value
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 {
@@ -184,7 +181,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			obj, ListKey.STAT_MINVALUE);
 		Changes<StatLock> maxValueChanges = context.getObjectContext().getListChanges(
 			obj, ListKey.STAT_MAXVALUE);
-		TreeSet<String> set = new TreeSet<String>();
+		TreeSet<String> set = new TreeSet<>();
 		if (lockChanges != null && !lockChanges.isEmpty())
 		{
 			if (lockChanges.includesGlobalClear())

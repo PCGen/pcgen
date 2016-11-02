@@ -45,12 +45,9 @@ import pcgen.system.LanguageBundle;
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class EquipCustomizerDialog extends JDialog
@@ -85,7 +82,7 @@ public class EquipCustomizerDialog extends JDialog
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeDialogToScreen(this);
+		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()
@@ -113,10 +110,7 @@ public class EquipCustomizerDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		purchase = e.getSource() == buyButton;

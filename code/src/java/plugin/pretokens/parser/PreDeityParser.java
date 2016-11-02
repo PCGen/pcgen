@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;
@@ -38,11 +36,8 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface
@@ -88,7 +83,7 @@ public class PreDeityParser extends AbstractPrerequisiteListParser implements
 	 *   
 	 * @param prereq The prereq to be scanned.
 	 */
-	private void replaceHasDeityPrereqs(Prerequisite prereq)
+	private static void replaceHasDeityPrereqs(Prerequisite prereq)
 	{
 		String key = prereq.getKey();
 		if ("deity".equalsIgnoreCase(prereq.getKind()) && key != null)

@@ -34,8 +34,7 @@ import pcgen.system.LanguageBundle;
 /**
  * <code>PrePointBuyMethod</code>.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
@@ -78,7 +77,7 @@ public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implement
 	{
 		final String foo =
 				LanguageBundle.getFormattedString("PrePointBuyMethod.toHtml", //$NON-NLS-1$
-					new Object[]{prereq.getKey()});
+						prereq.getKey());
 		return foo;
 	}
 

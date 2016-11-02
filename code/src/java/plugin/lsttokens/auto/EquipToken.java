@@ -143,7 +143,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 				else
 				{
 					ConditionalSelectionActor<Equipment> cca =
-							new ConditionalSelectionActor<Equipment>(this);
+							new ConditionalSelectionActor<>(this);
 					cca.addPrerequisite(prereq);
 					cra = cca;
 				}
@@ -158,7 +158,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 					return ParseResult.INTERNAL_ERROR;
 				}
 				context.getObjectContext().addToList(obj, ListKey.EQUIPMENT,
-						new QualifiedObject<CDOMReference<Equipment>>(ref,
+						new QualifiedObject<>(ref,
 								prereq));
 			}
 		}
@@ -169,7 +169,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
 
 		Changes<ChooseSelectionActor<?>> listChanges = context.getObjectContext()
@@ -179,7 +179,7 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		Collection<QualifiedObject<CDOMReference<Equipment>>> added = changes
 				.getAdded();
 		HashMapToList<List<Prerequisite>, CDOMReference<Equipment>> m =
-				new HashMapToList<List<Prerequisite>, CDOMReference<Equipment>>();
+				new HashMapToList<>();
 		if (added != null)
 		{
 			for (QualifiedObject<CDOMReference<Equipment>> qo : added)
@@ -211,8 +211,8 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 		{
 			List<CDOMReference<Equipment>> eq = m.getListFor(prereqs);
 			WeightedCollection<CDOMReference<Equipment>> refs =
-					new WeightedCollection<CDOMReference<Equipment>>(
-						ReferenceUtilities.REFERENCE_SORTER);
+					new WeightedCollection<>(
+							ReferenceUtilities.REFERENCE_SORTER);
 			refs.addAll(eq);
 			String ab = ReferenceUtilities.joinLstFormat(refs, Constants.PIPE);
 			if (prereqs != null && !prereqs.isEmpty())
@@ -258,10 +258,10 @@ public class EquipToken extends AbstractNonEmptyToken<CDOMObject> implements
 	@Override
 	public void applyChoice(ChooseDriver obj, Equipment e, PlayerCharacter pc)
 	{
-		e = e.clone();
-		e.setQty(1);
-		e.setAutomatic(true);
-		pc.addAutoEquipment(e, obj);
+		Equipment eq = e.clone();
+		eq.setQty(1);
+		eq.setAutomatic(true);
+		pc.addAutoEquipment(eq, obj);
 	}
 
 	@Override

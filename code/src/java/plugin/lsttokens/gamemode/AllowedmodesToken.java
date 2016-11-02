@@ -19,8 +19,6 @@
  * Created on September 8, 2002, 6:25 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -33,7 +31,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * <code>AllowedmodesToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AllowedmodesToken implements GameModeLstToken
 {

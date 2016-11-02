@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultTreeTableModel extends AbstractTreeTableModel
 {

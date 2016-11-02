@@ -61,7 +61,7 @@ public class BuildUtilities
 	public static void setFact(CDOMObject cdo, String factname, String value)
 	{
 		FactKey<String> fk = FactKey.getConstant(factname, STR_MGR);
-		cdo.put(fk, new BasicIndirect<String>(STR_MGR, value));
+		cdo.put(fk, new BasicIndirect<>(STR_MGR, value));
 	}
 	
 	/**

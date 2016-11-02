@@ -27,11 +27,8 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * PortraitThumbnailRectFacet is a Facet that tracks the thumbnail rectangle for 
  * the character's portrait.
  * 
- * Last Editor: $Author$ <br/>
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PortraitThumbnailRectFacet extends AbstractItemFacet<CharID, Rectangle>
 {

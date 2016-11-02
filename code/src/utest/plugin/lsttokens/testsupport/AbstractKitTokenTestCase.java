@@ -56,7 +56,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	protected static CampaignSourceEntry testCampaign;
 
 	@BeforeClass
-	public static final void classSetUp() throws URISyntaxException
+	public static void classSetUp() throws URISyntaxException
 	{
 		testCampaign = new CampaignSourceEntry(new Campaign(), new URI(
 				"file:/Test%20Case"));
@@ -177,7 +177,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
-	public boolean parse(String str) throws PersistenceLayerException
+	public boolean parse(String str)
 	{
 		ParseResult pr = getToken()
 				.parseToken(primaryContext, primaryProf, str);
@@ -195,7 +195,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		return pr.passed();
 	}
 
-	public boolean parseSecondary(String str) throws PersistenceLayerException
+	public boolean parseSecondary(String str)
 	{
 		boolean b = getToken().parseToken(secondaryContext, secondaryProf, str).passed();
 		if (b)

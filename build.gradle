@@ -14,14 +14,18 @@
  */
 
 plugins {
-    id "de.undercouch.download" version "2.1.0"
-    id 'edu.sc.seis.launch4j' version '1.6.1'
-}
+    id 'application'
+    id 'build-dashboard'
+    id 'checkstyle'
+    id 'findbugs'
+    id 'java'
+    id 'maven'
+    id 'pmd'
 
-apply plugin: 'java'
-apply plugin: 'maven'
-apply plugin: 'application'
-apply plugin: 'build-dashboard'
+    id "de.undercouch.download" version "3.1.1"
+    id 'edu.sc.seis.launch4j' version '1.6.1'
+    id 'com.github.ben-manes.versions' version '0.13.0'
+}
 
 group = 'net.sourceforge.pcgen'
 
@@ -29,8 +33,8 @@ description = """PCGen"""
 
 defaultTasks 'clean', 'build'
 
-sourceCompatibility = 1.7
-targetCompatibility = 1.7
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
@@ -61,9 +65,6 @@ applicationDistribution.from('system') {
 applicationDistribution.from('preview') {
     into "preview"
 }
-applicationDistribution.from(artifacts) {
-    into ""
-}
 
 repositories {
     mavenCentral()
@@ -86,7 +87,7 @@ sourceSets {
             srcDirs 'code/src/java'
         }
         resources {
-            srcDirs 'code/src/java'
+            srcDirs = ['code/src/java', 'code/resources' ]
             include '**/*.properties'
             include '**/*.xml'
             include '**/*.gif'
@@ -109,7 +110,6 @@ sourceSets {
             srcDirs = ['code/src/test', 'code/src/testcommon']
         }
     }
-
 }
 
 /* Copy 'master' outputsheets into different genre folders */
@@ -139,47 +139,55 @@ compileJava {
 
 dependencies {
     compile group: 'cobra', name: 'cobra', version:'0.98.4-pcgen'
+
     compile group: 'commons-lang', name: 'commons-lang', version:'2.6'
-    compile group: 'commons-io', name: 'commons-io', version:'2.4'
+    compile group: 'commons-io', name: 'commons-io', version:'2.5'
     compile group: 'rhino', name: 'js', version:'1.7R2'
+    compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
     compile group: 'commons-logging', name: 'commons-logging', version:'1.1.1'
-    compile group: 'org.springframework', name: 'spring-core', version:'3.1.3.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'3.1.3.RELEASE'
-    compile group: 'mrj', name: 'MRJ141Stubs', version:'0'
-    compile group: 'net.sf.squirrel-sql.thirdparty-non-maven', name: 'skinlf', version:'6.7'
-    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'1.0'
+    compile group: 'org.springframework', name: 'spring-core', version:'4.3.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'4.3.2.RELEASE'
+    compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
+    compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.1'
+    compile group: 'org.apache.pdfbox', name: 'fontbox', version:'2.0.2'
     compile group: 'jep', name: 'jep', version:'2.4.1'
     compile group: 'org.freemarker', name: 'freemarker', version:'2.3.23'
-    compile group: 'org.jdom', name: 'jdom', version:'1.1.3'
-    compile group: 'xalan', name: 'xalan', version:'2.7.1'
-    compile group: 'xerces', name: 'xercesImpl', version:'2.10.0'
+    compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
+    compile group: 'xalan', name: 'xalan', version:'2.7.2'
+    compile group: 'xerces', name: 'xercesImpl', version:'2.11.0'
     compile group: 'xml-apis', name: 'xml-apis', version:'1.4.01'
-    compile group: 'org.apache.avalon.framework', name: 'avalon-framework-api', version:'4.3.1'
-    compile group: 'org.apache.avalon.framework', name: 'avalon-framework-impl', version:'4.3.1'
     compile group: 'com.incors.plaf', name: 'kunststoff', version:'2.0.2'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.52'
-    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.60'
+    compile group: 'net.sourceforge.argparse4j', name: 'argparse4j', version: '0.7.0'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-base', version:'1.0.83'
+    compile group: 'net.sourceforge.pcgen', name: 'PCGen-Formula', version:'1.0.95'
+    compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
 
-    //testCompile group: 'org.easymock', name: 'easymock', version:'2.5.2'
-    //testCompile group: 'org.easymock', name: 'easymockclassextension', version:'2.5.2'
-    testCompile group: 'junit', name: 'junit', version:'4.11'
-    testCompile group: 'xmlunit', name: 'xmlunit', version:'1.3'
-    //testCompile group: 'commons-jelly', name: 'commons-jelly-tags-interaction', version:'1.1'
-    //testCompile group: 'jline', name: 'jline', version:'2.9'
-    //testCompile group: 'com.google.collections', name: 'google-collections', version:'1.0'
-    //testCompile group: 'com.cenqua.clover', name: 'clover', version:'1.3.12'
-    //testCompile group: 'emma', name: 'emma', version:'2.1.5320'
-    //testCompile group: 'emma', name: 'emma_ant', version:'2.1.5320'
+    runtime group: 'ch.qos.logback', name: 'logback-classic', version:'1.1.6'
+
+    compileOnly group: 'org.jetbrains', name: 'annotations', version:'15.0'
+    compileOnly group: 'com.yuvimasory', name: 'orange-extensions', version: '1.3.0'
+    compileOnly group: 'com.google.code.findbugs', name: 'annotations', version: '3.0.1'
+
+    testCompile group: 'junit', name: 'junit', version:'4.12'
+    testCompile group: 'xmlunit', name: 'xmlunit', version:'1.6'
+    testCompile group: 'org.hamcrest', name: 'hamcrest-all', version: '1.3'
 
     itestCompile sourceSets.main.output
     itestCompile configurations.testCompile
     itestCompile sourceSets.test.output
+
     itestRuntime configurations.testRuntime
 
     slowtestCompile sourceSets.main.output
     slowtestCompile configurations.testCompile
     slowtestCompile sourceSets.test.output
+
     slowtestRuntime configurations.testRuntime
+
+    findbugs 'com.google.code.findbugs:findbugs:3.0.1'
+    findbugs configurations.findbugsPlugins.dependencies
+
+    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.6.2'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -237,6 +245,8 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
+    outputs.dir("$projectDir/libs")
+    inputs.files(fileTree("$buildDir/libs"))
 
     from "${buildDir}/libs"
     into "$projectDir/libs"
@@ -378,15 +388,13 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.2'
+    gradleVersion = '2.14.1'
 }
 
 //Disable failing on javadoc warning
 allprojects {
-    if(JavaVersion.current() == JavaVersion.VERSION_1_8){
-        tasks.withType(Javadoc) {
-            options.addBooleanOption('Xdoclint:none', true)
-        }
+    tasks.withType(Javadoc) {
+        options.addBooleanOption('Xdoclint:none', true)
     }
 }
 

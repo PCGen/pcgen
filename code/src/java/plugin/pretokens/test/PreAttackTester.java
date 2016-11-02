@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -85,7 +83,7 @@ public class PreAttackTester extends AbstractPrerequisiteTest implements Prerequ
 	{
 		return LanguageBundle
 			.getFormattedString(
-				"PreAttack.toHtml", new Object[]{prereq.getOperator().toDisplayString(), prereq.getOperand()}); //$NON-NLS-1$ //$NON-NLS-2$
+				"PreAttack.toHtml", prereq.getOperator().toDisplayString(), prereq.getOperand()); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
 }

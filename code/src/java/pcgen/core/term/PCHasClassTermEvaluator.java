@@ -19,8 +19,6 @@
  * Created 04-Aug-2008 18:16:20
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -43,7 +41,7 @@ public class PCHasClassTermEvaluator
 
 	@Override
 	public Float resolve(PlayerCharacter pc) {
-		return pc.getClassKeyed(source) != null ? 1f : 0f;
+		return pc.getClassKeyed(source) != null ? 1.0f : 0.0f;
 	}
 
 	@Override

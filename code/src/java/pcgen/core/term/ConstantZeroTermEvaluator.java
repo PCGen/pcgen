@@ -19,8 +19,6 @@
  * Created 22-Sep-2008 01:31:27
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -39,7 +37,7 @@ public class ConstantZeroTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

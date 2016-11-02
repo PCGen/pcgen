@@ -39,7 +39,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
  * Definition and games rules for an Ability.
  *
  * @author   ???
- * @version  $Revision$
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,
@@ -189,7 +188,7 @@ public final class Ability extends PObject implements Categorized<Ability>,
 	public List<String> getTypes()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
-		List<String> typeNames = new ArrayList<String>();
+		List<String> typeNames = new ArrayList<>();
 		for (Type type : trueTypeList) {
 			typeNames.add(type.toString());
 		}

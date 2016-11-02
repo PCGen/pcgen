@@ -24,28 +24,25 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
-
-import junit.framework.TestCase;
-
+import static org.junit.Assert.*;
 import org.junit.Before;
 import org.junit.Test;
-
 import pcgen.base.lang.StringUtil;
 
-public class WeightedCollectionTest extends TestCase {
+public class WeightedCollectionTest
+{
 
-	private static final Integer I3 = Integer.valueOf(3);
+	private static final Integer I3 = 3;
 
-	private static final Integer I2 = Integer.valueOf(2);
+	private static final Integer I2 = 2;
 
-	private static final Integer I1 = Integer.valueOf(1);
+	private static final Integer I1 = 1;
 
-	WeightedCollection<Integer> wc;
+	private WeightedCollection<Integer> wc;
 
-	@Override
 	@Before
 	public void setUp() {
-		wc = new WeightedCollection<Integer>();
+		wc = new WeightedCollection<>();
 	}
 
 	@Test
@@ -61,7 +58,7 @@ public class WeightedCollectionTest extends TestCase {
 	@Test
 	public void testBadCollectionConstructor() {
 		try {
-			new WeightedCollection<Integer>((Collection<Integer>) null);
+            new WeightedCollection<>((Collection<Integer>) null);
 			fail();
 		} catch (NullPointerException npe) {
 			// OK
@@ -72,13 +69,13 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testCollectionConstructorSemantics() {
-		Collection<Integer> c = new ArrayList<Integer>();
+		Collection<Integer> c = new ArrayList<>();
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<Integer>(c);
+		WeightedCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
-		c.add(Integer.valueOf(4));
+		c.add(4);
 		assertEquals(3, col.size());
 		col.clear();
 		assertEquals(4, c.size());
@@ -100,22 +97,22 @@ public class WeightedCollectionTest extends TestCase {
 		assertEquals(6, wc.size());
 		assertTrue(wc.addAll(Arrays.asList(3, 4, 5, 6)));
 		assertEquals(10, wc.size());
-		assertTrue(wc.add(Integer.valueOf(7), 3));
+		assertTrue(wc.add(7, 3));
 		assertEquals(13, wc.size());
-		assertTrue(wc.add(Integer.valueOf(7), 3));
+		assertTrue(wc.add(7, 3));
 		assertEquals(16, wc.size());
 		assertTrue(wc.addAll(Arrays.asList(3, 4, 5, 6), 2));
 		assertEquals(24, wc.size());
-		assertTrue(wc.remove(Integer.valueOf(7)));
+		assertTrue(wc.remove(7));
 		assertEquals(18, wc.size());
-		assertFalse(wc.remove(Integer.valueOf(7)));
+		assertFalse(wc.remove(7));
 		assertEquals(18, wc.size());
 	}
 
 	@Test
 	public void testBadAddNegative() {
 		try {
-			wc.add(Integer.valueOf(4), -3);
+			wc.add(4, -3);
 			fail();
 		} catch (IllegalArgumentException iae) {
 			// OK
@@ -124,7 +121,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testBadAddZero() {
-		assertFalse(wc.add(Integer.valueOf(4), 0));
+		assertFalse(wc.add(4, 0));
 	}
 
 	@Test
@@ -177,24 +174,24 @@ public class WeightedCollectionTest extends TestCase {
 		assertTrue(wc.contains(5));
 		assertTrue(wc.contains(6));
 		assertFalse(wc.contains(7));
-		assertTrue(wc.add(Integer.valueOf(7), 3));
+		assertTrue(wc.add(7, 3));
 		assertEquals(13, wc.size());
 		assertFalse(wc.contains(4));
 		assertTrue(wc.contains(5));
 		assertTrue(wc.contains(6));
 		assertTrue(wc.contains(7));
 		assertFalse(wc.contains(8));
-		assertTrue(wc.add(Integer.valueOf(7), 3));
+		assertTrue(wc.add(7, 3));
 		assertEquals(16, wc.size());
 		assertFalse(wc.contains(8));
 		assertTrue(wc.addAll(Arrays.asList(3, 4, null, 8), 2));
 		assertTrue(wc.contains(8));
 		assertEquals(24, wc.size());
 		assertTrue(wc.contains(7));
-		assertTrue(wc.remove(Integer.valueOf(7)));
+		assertTrue(wc.remove(7));
 		assertFalse(wc.contains(7));
 		assertEquals(18, wc.size());
-		assertFalse(wc.remove(Integer.valueOf(7)));
+		assertFalse(wc.remove(7));
 		assertEquals(18, wc.size());
 		assertTrue(wc.add(null, 5));
 		assertEquals(23, wc.size());
@@ -214,7 +211,7 @@ public class WeightedCollectionTest extends TestCase {
 	public void testEquals() {
 		assertTrue(wc.add(2, 5));
 		assertTrue(wc.add(1, 2));
-		WeightedCollection<Integer> wc2 = new WeightedCollection<Integer>(15);
+		WeightedCollection<Integer> wc2 = new WeightedCollection<>(15);
 		assertTrue(wc2.isEmpty());
 		assertEquals(0, wc2.size());
 		assertTrue(wc2.add(2));
@@ -229,9 +226,9 @@ public class WeightedCollectionTest extends TestCase {
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		assertTrue(wc2.add(2));
-		assertTrue(wc.equals(wc2));
-		assertTrue(wc2.equals(wc));
-		assertTrue(wc.hashCode() == wc2.hashCode());
+		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
+		assertEquals(wc.hashCode(), wc2.hashCode());
 		wc2.add(null);
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
@@ -239,9 +236,9 @@ public class WeightedCollectionTest extends TestCase {
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		wc2.add(null);
-		assertTrue(wc.equals(wc2));
-		assertTrue(wc2.equals(wc));
-		assertTrue(wc.hashCode() == wc2.hashCode());
+		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
+		assertEquals(wc.hashCode(), wc2.hashCode());
 	}
 
 	@Test
@@ -492,7 +489,7 @@ public class WeightedCollectionTest extends TestCase {
 
 	@Test
 	public void testNullComparatorConstructor() {
-		WeightedCollection<String> swc = new WeightedCollection<String>((Comparator<String>) null);
+		WeightedCollection<String> swc = new WeightedCollection<>((Comparator<String>) null);
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
@@ -551,18 +548,18 @@ public class WeightedCollectionTest extends TestCase {
 		assertTrue(swc.add(null, 5));
 		assertEquals(23, swc.size());
 		assertFalse(swc.isEmpty());
-		assertTrue(swc.equals(swc));
+		assertEquals(swc, swc);
 		assertFalse(swc.equals(wc));
 		swc.clear();
 		assertEquals(0, swc.size());
 		assertTrue(swc.isEmpty());
-		assertTrue(swc.equals(swc));
-		assertTrue(swc.equals(wc));
+		assertEquals(swc, swc);
+		assertEquals(swc, wc);
 	}
 
 	@Test
 	public void testInsensitiveComparatorConstructor() {
-		WeightedCollection<String> swc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
+		WeightedCollection<String> swc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
@@ -623,43 +620,45 @@ public class WeightedCollectionTest extends TestCase {
 		assertFalse(swc.remove("Purple"));
 		assertEquals(13, swc.size());
 		assertFalse(swc.isEmpty());
-		assertTrue(swc.equals(swc));
+		assertEquals(swc, swc);
 		assertFalse(swc.equals(wc));
 		swc.clear();
 		assertEquals(0, swc.size());
 	}
 
+	@Test
 	public void testComparatorEquals()
 	{
-		WeightedCollection<String> iwc = new WeightedCollection<String>(String.CASE_INSENSITIVE_ORDER);
-		WeightedCollection<String> swc = new WeightedCollection<String>();
+		WeightedCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
+		WeightedCollection<String> swc = new WeightedCollection<>();
 		assertTrue(iwc.isEmpty());
-		assertTrue(iwc.equals(iwc));
-		assertTrue(swc.equals(swc));
+		assertEquals(iwc, iwc);
+		assertEquals(swc, swc);
 		//See testArchitectureProof() on why this should be True
-		assertTrue(iwc.equals(swc));
-		assertTrue(swc.equals(iwc));
+		assertEquals(iwc, swc);
+		assertEquals(swc, iwc);
 		//See testArchitectureProof() on why this should be True
-		assertTrue(iwc.equals(wc));
+		assertEquals(iwc, wc);
 		iwc.add("asting");
 		swc.add("asting");
 		iwc.add("aString");
 		swc.add("aString");
-		assertTrue(iwc.equals(swc));
-		assertTrue(swc.equals(iwc));
+		assertEquals(iwc, swc);
+		assertEquals(swc, iwc);
 	}
 
+	@Test
 	public void testArchitectureProof()
 	{
-		TreeSet<String> ciSet = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
-		TreeSet<String> csSet = new TreeSet<String>(StringUtil.CASE_SENSITIVE_ORDER);
+		TreeSet<String> ciSet = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+		TreeSet<String> csSet = new TreeSet<>(StringUtil.CASE_SENSITIVE_ORDER);
 		//To prove existing behavior
-		assertTrue(ciSet.equals(csSet));
+		assertEquals(ciSet, csSet);
 		ciSet.add("asting");
 		csSet.add("asting");
 		ciSet.add("aString");
 		csSet.add("aString");
-		assertTrue(ciSet.equals(csSet));
+		assertEquals(ciSet, csSet);
 		assertFalse(ciSet.toString().equals(csSet.toString()));
 	}
 

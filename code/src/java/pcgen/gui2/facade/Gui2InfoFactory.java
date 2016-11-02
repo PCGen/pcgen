@@ -135,12 +135,9 @@ import pcgen.util.enumeration.View;
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class Gui2InfoFactory implements InfoFactory
 {
@@ -150,11 +147,11 @@ public class Gui2InfoFactory implements InfoFactory
 	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
 
 	/** Constant for 2 spaces in HTML */
-	public static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
+	private static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
 	/** Constant for HTML bold start tag */
-	public static final String BOLD = "<b>"; //$NON-NLS-1$
+	private static final String BOLD = "<b>"; //$NON-NLS-1$
 	/** Constant for HTML bold end tag */
-	public static final String END_BOLD = "</b>"; //$NON-NLS-1$
+	private static final String END_BOLD = "</b>"; //$NON-NLS-1$
 
 	private final PlayerCharacter pc;
 	private final CharacterDisplay charDisplay;
@@ -177,10 +174,10 @@ public class Gui2InfoFactory implements InfoFactory
 	{
 		if (!(race instanceof Race))
 		{
-			return EMPTY_STRING;
+			return Gui2InfoFactory.EMPTY_STRING;
 		}
 		String[] favClass =
-				Globals.getContext().unparseSubtoken((Race) race, "FAVCLASS");
+				Globals.getContext().unparseSubtoken(race, "FAVCLASS");
 		return StringUtil.join(favClass, ", ");
 	}
 
@@ -215,7 +212,7 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendSpacer();
 				infoText.appendI18nElement("in_irInfoSubType", StringUtil.join(rst, ", ")); //$NON-NLS-1$
 			}
-			if (race.getType().length() > 0)
+			if (!race.getType().isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nElement("in_irInfoType", race.getType()); //$NON-NLS-1$
@@ -230,13 +227,13 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nElement("in_size", size); //$NON-NLS-1$
 			}
 			String movement = getMovement(raceFacade);
-			if (movement.length() > 0)
+			if (!movement.isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nElement("in_movement", movement); //$NON-NLS-1$
 			}
 			String vision = getVision(raceFacade);
-			if (vision.length() > 0)
+			if (!vision.isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nElement("in_vision", vision); //$NON-NLS-1$
@@ -244,13 +241,13 @@ public class Gui2InfoFactory implements InfoFactory
 
 			String bString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					race.getPrerequisiteList(), false);
-			if (bString.length() > 0)
+			if (!bString.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nElement("in_requirements", bString); //$NON-NLS-1$
 			}
 			String desc = pc.getDescription(race);
-			if (desc.length() > 0)
+			if (!desc.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -280,7 +277,7 @@ public class Gui2InfoFactory implements InfoFactory
 				infoText.appendI18nElement("in_favoredClass", favoredClass); //$NON-NLS-1$
 			}
 			bString = race.getSource();
-			if (bString.length() > 0)
+			if (!bString.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nElement("in_sourceLabel", bString); //$NON-NLS-1$
@@ -325,7 +322,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		// Type
 		aString = aClass.getType();
-		if (isSubClass && (aString.length() == 0))
+		if (isSubClass && (aString.isEmpty()))
 		{
 			aString = parentClass.getType();
 		}
@@ -368,7 +365,7 @@ public class Gui2InfoFactory implements InfoFactory
 			 * identifying this special deferral to the "parentClass" other
 			 * than null SpellBaseStat? - thpr 11/9/06
 			 */
-			if (isSubClass && ((aString == null) || (aString.length() == 0)))
+			if (isSubClass && ((aString == null) || (aString.isEmpty())))
 			{
 				aString = parentClass.getSpellBaseStat();
 			}
@@ -381,20 +378,20 @@ public class Gui2InfoFactory implements InfoFactory
 		aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, aClass
 					.getPrerequisiteList(), false);
-		if (isSubClass && (aString.length() == 0))
+		if (isSubClass && (aString.isEmpty()))
 		{
 			aString =
 					PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 						parentClass.getPrerequisiteList(), false);
 		}
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 		//Description
 		String desc = pc.getDescription(aClass);
-		if (desc.length() > 0)
+		if (!desc.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -412,11 +409,11 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		// Source
 		aString = aClass.getSource();
-		if (isSubClass && (aString.length() == 0))
+		if (isSubClass && (aString.isEmpty()))
 		{
 			aString = parentClass.getSource();
 		}
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_source", aString); //$NON-NLS-1$
@@ -453,7 +450,7 @@ public class Gui2InfoFactory implements InfoFactory
 		appendFacts(infoText, skill);
 
 		String aString = SkillInfoUtilities.getKeyStatFromStats(pc, skill);
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendI18nElement("in_iskKEY_STAT", aString); //$NON-NLS-1$
 		}
@@ -469,7 +466,7 @@ public class Gui2InfoFactory implements InfoFactory
 		String bString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, skill
 					.getPrerequisiteList(), false);
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
 				bString);
@@ -477,7 +474,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		//Description
 		String desc = pc.getDescription(skill);
-		if (desc.length() > 0)
+		if (!desc.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -485,7 +482,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		
 		bString = skill.getSource();
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_iskSource", bString); //$NON-NLS-1$
@@ -495,7 +492,7 @@ public class Gui2InfoFactory implements InfoFactory
 			PCGenSettings.OPTION_SHOW_SKILL_MOD_BREAKDOWN, false))
 		{
 			bString = SkillCostDisplay.getModifierExplanation(skill, pc, false);
-			if (bString.length() != 0)
+			if (!bString.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nFormattedElement("in_iskHtml_PcMod", //$NON-NLS-1$
@@ -507,7 +504,7 @@ public class Gui2InfoFactory implements InfoFactory
 			PCGenSettings.OPTION_SHOW_SKILL_RANK_BREAKDOWN, false))
 		{
 			bString = SkillCostDisplay.getRanksExplanation(pc, skill);
-			if (bString.length() == 0)
+			if (bString.isEmpty())
 			{
 				bString = LanguageBundle.getString("in_none"); //$NON-NLS-1$
 			}
@@ -562,7 +559,7 @@ public class Gui2InfoFactory implements InfoFactory
 		final String cString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					ability.getPrerequisiteList(), false);
-		if (cString.length() > 0)
+		if (!cString.isEmpty())
 		{
 			infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
 				cString);
@@ -593,7 +590,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		
 		final String bene = BenefitFormatting.getBenefits(pc, wrappedAbility);
-		if (bene != null && bene.length() > 0)
+		if (bene != null && !bene.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("Ability.Info.Benefit", //$NON-NLS-1$
@@ -655,7 +652,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 			aString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 			aDeity.getPrerequisiteList(), false);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
@@ -663,7 +660,7 @@ public class Gui2InfoFactory implements InfoFactory
 			}
 
 			aString = aDeity.getSource();
-			if (aString.length() > 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendSpacer();
 				infoText.appendI18nFormattedElement("in_InfoSource", //$NON-NLS-1$
@@ -696,7 +693,7 @@ public class Gui2InfoFactory implements InfoFactory
 			appendFacts(infoText, aDomain);
 
 			String aString = pc.getDescription(aDomain);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nFormattedElement("in_domainGrant", //$NON-NLS-1$
@@ -706,7 +703,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aString =
 					PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 						aDomain.getPrerequisiteList(), false);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendI18nFormattedElement("in_InfoRequirements", //$NON-NLS-1$
 					aString);
@@ -715,7 +712,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aString =
 					PrerequisiteUtilities.preReqHTMLStringsForList(pc, aDomain,
 						domainFI.getPrerequisiteList(), false);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nFormattedElement(
@@ -726,7 +723,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aString =
 					SourceFormat.getFormattedString(aDomain, Globals
 						.getSourceDisplay(), true);
-			if (aString.length() > 0)
+			if (!aString.isEmpty())
 			{
 				infoText.appendI18nFormattedElement("in_InfoSource", //$NON-NLS-1$
 					aString);
@@ -754,7 +751,7 @@ public class Gui2InfoFactory implements InfoFactory
 		final HtmlInfoBuilder b = getEquipmentHtmlInfo(equip);
 
 		String bString = equip.getSource();
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
@@ -830,7 +827,7 @@ public class Gui2InfoFactory implements InfoFactory
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null, equip
 					.getPrerequisiteList(), false);
 
-		if (cString.length() > 0)
+		if (!cString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
@@ -849,7 +846,7 @@ public class Gui2InfoFactory implements InfoFactory
 				Globals.getGameModeUnitSet().displayWeightInUnitSet(
 					equip.getWeight(pc).doubleValue());
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			bString += Globals.getGameModeUnitSet().getWeightUnit();
@@ -873,7 +870,7 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nElement("in_igInfoLabelTextAcCheck", a.toString()); //$NON-NLS-1$
 		}
 
-		if (SettingsHandler.getGame().getACText().length() != 0)
+		if (!SettingsHandler.getGame().getACText().isEmpty())
 		{
 			a = equip.getACMod(pc);
 
@@ -900,7 +897,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = SettingsHandler.getGame().getDamageResistanceText();
 
-		if (bString.length() != 0)
+		if (!bString.isEmpty())
 		{
 			a = EqToken.getEdrTokenInt(pc, equip);
 
@@ -913,7 +910,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = equip.moveString();
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextMove", bString); //$NON-NLS-1$
@@ -921,7 +918,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = equip.getSize();
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextSize", bString); //$NON-NLS-1$
@@ -929,7 +926,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = equip.getDamage(pc);
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 
 			if (equip.isDouble())
@@ -963,7 +960,7 @@ public class Gui2InfoFactory implements InfoFactory
 					WeaponToken.getNewCritRangeString(pc, equip, critRangeVar);
 		}
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_ieInfoLabelTextCritRange", bString); //$NON-NLS-1$
@@ -987,7 +984,7 @@ public class Gui2InfoFactory implements InfoFactory
 					WeaponToken.getNewCritMultString(pc, equip, critMultVar);
 		}
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextCritMult", bString); //$NON-NLS-1$
@@ -999,7 +996,7 @@ public class Gui2InfoFactory implements InfoFactory
 					Globals.getGameModeUnitSet().displayDistanceInUnitSet(
 						EqToken.getRange(pc, equip).intValue());
 
-			if (bString.length() > 0)
+			if (!bString.isEmpty())
 			{
 				b.appendSpacer();
 				b.appendI18nElement("in_igInfoLabelTextRange", bString + //$NON-NLS-1$
@@ -1009,7 +1006,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = equip.getContainerCapacityString();
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextContainer", bString); //$NON-NLS-1$
@@ -1017,7 +1014,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		bString = equip.getContainerContentsString();
 
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendSpacer();
 			b.appendI18nElement("in_igInfoLabelTextCurrentlyContains", bString); //$NON-NLS-1$
@@ -1035,7 +1032,7 @@ public class Gui2InfoFactory implements InfoFactory
 		Map<String, String> qualityMap = equip.getMapFor(MapKey.QUALITY);
 		if (qualityMap != null && !qualityMap.isEmpty())
 		{
-			Set<String> qualities = new TreeSet<String>();
+			Set<String> qualities = new TreeSet<>();
 			for (Map.Entry<String, String> me : qualityMap.entrySet())
 			{
 				qualities.add(new StringBuilder(50).append(me.getKey()).append(
@@ -1048,21 +1045,21 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		//Description
 		String desc = pc.getDescription(equip);
-		if (desc.length() > 0)
+		if (!desc.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 					DescriptionFormatting.piWrapDesc(equip, desc, false));
 		}
 		String IDS = equip.getInterestingDisplayString(pc);
-		if (IDS.length() > 0)
+		if (!IDS.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextProp", IDS); //$NON-NLS-1$
 		}
 
 		String note = equip.getNote();
-		if (note.length() > 0)
+		if (!note.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextNote", note); //$NON-NLS-1$
@@ -1072,9 +1069,6 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
 	{
@@ -1120,7 +1114,7 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		//Description
 		String desc = pc.getDescription(equipMod);
-		if (desc.length() > 0)
+		if (!desc.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -1148,14 +1142,14 @@ public class Gui2InfoFactory implements InfoFactory
 		final String cString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, equip, equipMod
 					.getPrerequisiteList(), false);
-		if (cString.length() > 0)
+		if (!cString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextReq", cString); //$NON-NLS-1$
 		}
 
 		String bString = equipMod.getSource();
-		if (bString.length() > 0)
+		if (!bString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_igInfoLabelTextSource", bString); //$NON-NLS-1$
@@ -1235,14 +1229,14 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_irInfoRaceType", rt.toString()); //$NON-NLS-1$
 		}
 
-		if (template.getType().length() > 0)
+		if (!template.getType().isEmpty())
 		{
 			infoText.appendSpacer();
 			infoText.appendI18nElement("in_irInfoType", template.getType()); //$NON-NLS-1$
 		}
 
 		String aString = pc.getDescription(template);
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -1250,7 +1244,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		aString = TemplateModifier.modifierString(template, pc);
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_modifier", aString); //$NON-NLS-1$
@@ -1259,14 +1253,14 @@ public class Gui2InfoFactory implements InfoFactory
 		aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					template.getPrerequisiteList(), false);
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
 		aString = template.getSource();
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_sourceLabel", aString); //$NON-NLS-1$
@@ -1276,9 +1270,6 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 	
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(KitFacade kitFacade)
 	{
@@ -1298,13 +1289,13 @@ public class Gui2InfoFactory implements InfoFactory
 		String aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					kit.getPrerequisiteList(), false);
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
+		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
@@ -1342,7 +1333,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		String desc = pc.getDescription(kit);
-		if (desc.length() > 0)
+		if (!desc.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
@@ -1350,7 +1341,7 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		aString = kit.getSource();
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_sourceLabel", aString); //$NON-NLS-1$
@@ -1359,9 +1350,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(TempBonusFacade tempBonusFacade)
 	{
@@ -1406,7 +1394,7 @@ public class Gui2InfoFactory implements InfoFactory
 			StringBuilder bonusValues = new StringBuilder(100);
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
-			List<BonusObj> bonusList = new ArrayList<BonusObj>(bonusMap.keySet());
+			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
 			Collections.sort(bonusList, new BonusComparator());
 			for (BonusObj bonusObj : bonusList)
 			{
@@ -1457,7 +1445,7 @@ public class Gui2InfoFactory implements InfoFactory
 			aString = DescriptionFormatting.piWrapDesc(ab,
 						pc.getDescription(wrappedAbility), false);
 		}
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_itmInfoLabelTextDesc", aString); //$NON-NLS-1$
@@ -1466,7 +1454,7 @@ public class Gui2InfoFactory implements InfoFactory
 		aString =
 				PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 					originObj.getPrerequisiteList(), false);
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
@@ -1481,9 +1469,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return infoText.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getHTMLInfo(InfoFacade facade)
 	{
@@ -1542,7 +1527,7 @@ public class Gui2InfoFactory implements InfoFactory
 		infoText.appendTitleElement(facade.toString());
 		infoText.appendLineBreak();
 
-		if (facade.getType().length() > 0)
+		if (!facade.getType().isEmpty())
 		{
 			infoText.appendI18nElement("in_irInfoType", facade.getType()); //$NON-NLS-1$
 			infoText.appendLineBreak();
@@ -1596,9 +1581,6 @@ public class Gui2InfoFactory implements InfoFactory
 			.resolve(pc, EMPTY_STRING));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int getNumMonsterClassLevels(RaceFacade raceFacade)
 	{
@@ -1773,7 +1755,7 @@ public class Gui2InfoFactory implements InfoFactory
 		if (si != null)
 		{
 			final String addString = si.toString(); // would add [featList]
-			if (addString.length() > 0)
+			if (!addString.isEmpty())
 			{
 				b.append(" ").append(addString); //$NON-NLS-1$
 			}
@@ -1845,7 +1827,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		final String cString = PrerequisiteUtilities.preReqHTMLStringsForList(pc, null,
 		aSpell.getPrerequisiteList(), false);
-		if (cString.length() > 0)
+		if (!cString.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_requirements", cString); //$NON-NLS-1$
@@ -1854,7 +1836,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		String spellSource = SourceFormat.getFormattedString(aSpell,
 		Globals.getSourceDisplay(), true);
-		if (spellSource.length() > 0)
+		if (!spellSource.isEmpty())
 		{
 			b.appendLineBreak();
 			b.appendI18nElement("in_source", spellSource); //$NON-NLS-1$
@@ -1863,9 +1845,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getSpellBookInfo(String name)
 	{
@@ -1912,10 +1891,10 @@ public class Gui2InfoFactory implements InfoFactory
 		// Look at each spell on each spellcasting class
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
-			Map<Integer, Integer> spellCountMap = new TreeMap<Integer, Integer>();
+			Map<Integer, Integer> spellCountMap = new TreeMap<>();
 			int highestSpellLevel = -1;
 			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
-			List<CharacterSpell> classSpells = new ArrayList<CharacterSpell>(sp);
+			List<CharacterSpell> classSpells = new ArrayList<>(sp);
 			// Add in the spells granted by objects
 			pc.addBonusKnownSpellsToList(pcClass, classSpells);
 			for (CharacterSpell charSpell : classSpells)
@@ -2008,9 +1987,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return b.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(AbilityFacade ability)
 	{
@@ -2032,9 +2008,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(RaceFacade raceFacade)
 	{
@@ -2054,9 +2027,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(TemplateFacade templateFacade)
 	{
@@ -2075,9 +2045,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(ClassFacade classFacade)
 	{
@@ -2096,9 +2063,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(SkillFacade skillFacade)
 	{
@@ -2118,9 +2082,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(EquipmentFacade equipFacade)
 	{
@@ -2140,9 +2101,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(KitFacade kitFacade)
 	{
@@ -2162,9 +2120,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(DeityFacade deityFacade)
 	{
@@ -2183,9 +2138,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(DomainFacade domainFacade)
 	{
@@ -2208,9 +2160,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(SpellFacade spellFacade)
 	{
@@ -2235,9 +2184,6 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDescription(TempBonusFacade tempBonusFacade)
 	{
@@ -2302,9 +2248,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return wrappedAbility;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDomains(DeityFacade deityFacade)
 	{
@@ -2313,7 +2256,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -2337,7 +2280,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<String>(String.CASE_INSENSITIVE_ORDER);
+		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
 		if (deity != null)
 		{
 			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
@@ -2370,9 +2313,6 @@ public class Gui2InfoFactory implements InfoFactory
 		return ReferenceUtilities.joinLstFormat(wpnList, ",");
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getChoices(AbilityFacade abilityFacade)
 	{
@@ -2401,7 +2341,7 @@ public class Gui2InfoFactory implements InfoFactory
 			return;
 		}
 
-		List<T> choices = new ArrayList<T>();
+		List<T> choices = new ArrayList<>();
 		for (CNAbility ab : targetAbilities)
 		{
 			List<? extends T> sel =
@@ -2413,15 +2353,12 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 
 		String choiceInfo = chooseInfo.composeDisplay(choices).toString();
-		if (choiceInfo.length() > 0)
+		if (!choiceInfo.isEmpty())
 		{
 			result.append(choiceInfo);
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
 	{
@@ -2432,15 +2369,15 @@ public class Gui2InfoFactory implements InfoFactory
 		
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
-		Set<String> targetSet = new HashSet<String>();
-		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj(), pc))
+		Set<String> targetSet = new HashSet<>();
+		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj()))
 		{
 			targetSet.add(LanguageBundle
 				.getString("in_itmBonModelTargetTypeCharacter")); //$NON-NLS-1$
 		}
-		if (TempBonusHelper.hasEquipmentTempBonus(tempBonus.getOriginObj(), pc))
+		if (TempBonusHelper.hasEquipmentTempBonus(tempBonus.getOriginObj()))
 		{
-			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj(), pc));
+			targetSet.addAll(TempBonusHelper.getEquipmentApplyString(tempBonus.getOriginObj()));
 		}
 		StringBuilder target = new StringBuilder(40);
 		for (String string : targetSet)

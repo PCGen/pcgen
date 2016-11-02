@@ -34,12 +34,9 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * is either equipped, unequipped or of all gear owned. Each instance relates to 
  * one type of view.
  * 
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * <br>
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
 {

@@ -28,8 +28,7 @@ import pcgen.rules.context.LoadContext;
 /**
  * Handles the BONUS:SPECIALTYSPELLKNOWN token.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class SpecialtySpellKnown extends BonusObj

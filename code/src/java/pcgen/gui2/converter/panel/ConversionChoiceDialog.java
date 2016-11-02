@@ -47,11 +47,8 @@ import pcgen.util.Logging;
  * displaying choices the user needs to make as part of the conversion 
  * of some data items. 
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ConversionChoiceDialog extends JDialog implements

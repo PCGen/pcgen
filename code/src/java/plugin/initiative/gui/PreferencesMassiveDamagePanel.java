@@ -26,7 +26,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
@@ -241,58 +240,26 @@ public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 		massive1.setSelected(true);
 		massive1.setText(LanguageBundle.getString("in_plugin_init_massive_noTrack")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive1);
-		massive1.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				massiveActionPerformed(evt);
-			}
-		});
+		massive1.addActionListener(this::massiveActionPerformed);
 
 		massivePanel.add(massive1);
 
 		massive2.setText(LanguageBundle.getString("in_plugin_init_massive_50damage")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive2);
-		massive2.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				massiveActionPerformed(evt);
-			}
-		});
+		massive2.addActionListener(this::massiveActionPerformed);
 
 		massivePanel.add(massive2);
 
 		massive3.setText(LanguageBundle.getString("in_plugin_init_massive_ConDamage")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive3);
-		massive3.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				massiveActionPerformed(evt);
-			}
-		});
+		massive3.addActionListener(this::massiveActionPerformed);
 
 		massivePanel.add(massive3);
 
 		massive4
 			.setText(LanguageBundle.getString("in_plugin_init_massive_Half")); //$NON-NLS-1$
 		massiveDamageGroup.add(massive4);
-		massive4.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				massiveActionPerformed(evt);
-			}
-		});
+		massive4.addActionListener(this::massiveActionPerformed);
 
 		massivePanel.add(massive4);
 

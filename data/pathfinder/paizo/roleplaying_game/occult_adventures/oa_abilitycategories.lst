@@ -1,0 +1,86 @@
+# CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
+#SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
+
+# Class feature types
+# Ability Category					VIsible		Editable?		Change Pool?	Category of Object		Type of Object								Plural description for UI		Display Location
+ABILITYCATEGORY:Kineticist Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Kineticist Class Feature.KineticistClassFeatures		PLURAL:Kineticist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Medium Class Feature.MediumClassFeatures			PLURAL:Medium Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Mesmerist Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Mesmerist Class Feature.MesmeristClassFeatures		PLURAL:Mesmerist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Occultist Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Occultist Class Feature.OccultistClassFeatures		PLURAL:Occultist Class Features	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Class Feature		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Psychic Class Feature.PsychicClassFeatures			PLURAL:Psychic Class Features		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Spiritualist Class Feature	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Spiritualist Class Feature.SpiritualistClassFeatures	PLURAL:Spiritualist Class Features	DISPLAYLOCATION:Class Features
+
+# Archetypes
+# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI		Display Location
+ABILITYCATEGORY:Kineticist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Kineticist Archetype	PLURAL:Kineticist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Medium Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Medium Archetype		PLURAL:Medium Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Mesmerist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Mesmerist Archetype	PLURAL:Mesmerist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Occultist Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Occultist Archetype	PLURAL:Occultist Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Psychic Archetype		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Psychic Archetype		PLURAL:Psychic Archetypes		DISPLAYLOCATION:Archetype
+ABILITYCATEGORY:Spiritualist Archetype	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Archetype		TYPE:Spiritualist Archetype	PLURAL:Spiritualist Archetypes	DISPLAYLOCATION:Archetype
+
+# Kineticist class features
+# Ability Category
+ABILITYCATEGORY:Kineticist Wild Talent									VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:Wild Talent	PLURAL:Kineticist Wild Talents	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Element										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Kineticist Element						PLURAL:Kineticist Elements					DISPLAYLOCATION:Class Features	POOL:Pool_KineticistElementalFocus
+ABILITYCATEGORY:Kineticist Blast										VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Simple Blast						PLURAL:Simple Blasts					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Expanded Element	POOL:Pool_KineticistExpandedElement		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Kineticist Expanded Element						PLURAL:Kineticist Expanded Elements					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Utility Wild Talent	POOL:Pool_KineticistUtilityWildTalents	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Utility Wild Talent							PLURAL:Utility Wild Talents						DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Kineticist Infusion Wild Talent	POOL:Pool_KineticistInfusion			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Infusion Wild Talent							PLURAL:Infusion Wild Talents						DISPLAYLOCATION:Class Features
+
+# Medium class features
+# Ability Category					VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI			Display Location
+ABILITYCATEGORY:Medium Spirit Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumSpirit			PLURAL:Medium Spirit Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Champion Weapon Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChampionWeapon		PLURAL:Champion Weapon Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Champion Feat Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:ChampionFeat			PLURAL:Champion Feat Choices			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Hierophant Energy Font Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:HierophantEnergyFont	PLURAL:Hierophant Energy Font Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Marshal Seance Boon			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:SeanceBoon			PLURAL:Marshal Seance Boons			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Trickster Seance Boon		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:TricksterBoon		PLURAL:Trickster Seance Boons			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Trickster Skill Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:TricksterSkill		PLURAL:Trickster Skill Choices		DISPLAYLOCATION:Class Features
+
+# Bonus wizard spells
+ABILITYCATEGORY:Medium Wizard Spell 0	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard0	PLURAL:Medium Wizard Spells 0		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard1	PLURAL:Medium Wizard Spells 1		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard2	PLURAL:Medium Wizard Spells 2		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard3	PLURAL:Medium Wizard Spells 3		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard4	PLURAL:Medium Wizard Spells 4		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 5	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard5	PLURAL:Medium Wizard Spells 5		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Wizard Spell 6	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumWizard6	PLURAL:Medium Wizard Spells 6		DISPLAYLOCATION:Class Features
+
+# Bonus cleric spells
+ABILITYCATEGORY:Medium Cleric Spell 0	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric0	PLURAL:Medium Cleric Spells 0		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 1	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric1	PLURAL:Medium Cleric Spells 1		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 2	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric2	PLURAL:Medium Cleric Spells 2		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 3	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric3	PLURAL:Medium Cleric Spells 3		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 4	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric4	PLURAL:Medium Cleric Spells 4		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 5	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric5	PLURAL:Medium Cleric Spells 5		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Medium Cleric Spell 6	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MediumCleric6	PLURAL:Medium Cleric Spells 6		DISPLAYLOCATION:Class Features
+
+# Mesmerist class features
+# Ability Category				VIsible		Editable?		Change Pool?	Category of Object		Type of Object							Plural description for UI		Display Location
+ABILITYCATEGORY:Mesmerist Trick Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:MesmeristTrick						PLURAL:Mesmerist Trick Choices	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Bold Stare Choice		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:BoldStare							PLURAL:Bold Stare Choices		DISPLAYLOCATION:Class Features
+
+# Mesmerist archetype class features
+# Ability Category							VIsible		Editable?		Change Pool?	Category of Object		Type of Object			Plural description for UI					Display Location
+ABILITYCATEGORY:Injection Improvement Choice			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:InjectionImprovement	PLURAL:Injection Improvement Choices		DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vexing Daredevil Martial Weapon Proficiency	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:VexingDaredevilWpnProf	PLURAL:Vexing Daredevil Martial Weapon Proficiencies	DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Vexing Daredevil Bonus Stare Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Feat			TYPE:Stare				PLURAL:Vexing Daredevil Bonus Stare Feats			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Dazzling Feint Choice				VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	CATEGORY:Special Ability	TYPE:DazzlingFeint		PLURAL:Dazzling Feint Choices					DISPLAYLOCATION:Class Features
+###
+
+
+ABILITYCATEGORY:Phrenic Amplification					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Phrenic Amplification						PLURAL:Phrenic Amplifications					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Psychic Discipline						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Psychic Discipline						PLURAL:Psychic Disciplines					DISPLAYLOCATION:Class Features
+
+
+
+
+ABILITYCATEGORY:Phantom Manifestation					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Phantom Manifestation						PLURAL:Phantom Manifestation					DISPLAYLOCATION:Race Abilities
+ABILITYCATEGORY:Phantom Size							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:Phantom Size						PLURAL:Phantom Size					DISPLAYLOCATION:Race Abilities
+
+ABILITYCATEGORY:Implement School							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School						PLURAL:Implement Schools					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Implement School Focus Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School Focus Power				PLURAL:Implement School Focus Powers			DISPLAYLOCATION:Class Features
+
+
+

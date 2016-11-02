@@ -19,12 +19,14 @@ package pcgen.cdom.inst;
 
 import java.util.List;
 
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.facet.FacetLibrary;
+import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.SolverManagerFacet;
 import pcgen.cdom.facet.analysis.ResultFacet;
 import pcgen.core.EquipmentModifier;
@@ -34,10 +36,11 @@ import pcgen.core.EquipmentModifier;
  * "head" of a weapon. It is possible for a weapon to have more than one "head",
  * such as a Double Axe.
  */
-public final class EquipmentHead extends CDOMObject implements VarScoped
+public final class EquipmentHead extends CDOMObject
 {
-	private static final SolverManagerFacet solverManagerFacet = FacetLibrary
-		.getFacet(SolverManagerFacet.class);
+	private static final SolverManagerFacet SOLVER_FACET = FacetLibrary
+			.getFacet(SolverManagerFacet.class);
+	private static final ScopeFacet SCOPE_FACET = FacetLibrary.getFacet(ScopeFacet.class);
 
 	/*
 	 * Note: The equality issue referenced below (and the reason for the
@@ -68,7 +71,6 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 	 */
 	public EquipmentHead(VarScoped source, int idx)
 	{
-		super();
 		if (source == null)
 		{
 			throw new IllegalArgumentException(
@@ -142,9 +144,10 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
+			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
 			for (VarModifier<?> vm : modifiers)
 			{
-				solverManagerFacet.addModifier(id, vm, this, aMod);
+				SOLVER_FACET.addModifier(id, vm, this, inst);
 			}
 		}
 	}
@@ -154,9 +157,10 @@ public final class EquipmentHead extends CDOMObject implements VarScoped
 		List<VarModifier<?>> modifiers = aMod.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
+			ScopeInstance inst = SCOPE_FACET.get(id, aMod.getLocalScopeName(), aMod);
 			for (VarModifier<?> vm : modifiers)
 			{
-				solverManagerFacet.addModifier(id, vm, this, aMod);
+				SOLVER_FACET.addModifier(id, vm, this, inst);
 			}
 		}
 	}

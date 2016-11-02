@@ -22,14 +22,12 @@
  */
 package gmgen.plugin;
 
-import java.util.ArrayList;
+import gmgen.plugin.dice.Dice;
 import java.util.List;
 import java.util.Vector;
 
 /**
  *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public abstract class Combatant implements InitHolder
 {
@@ -40,7 +38,6 @@ public abstract class Combatant implements InitHolder
 
 	/**  The object that contains all initiative information */
 	public SystemInitiative init;
-	protected List<Effect> effects = new ArrayList<Effect>();
 	protected String comType = "Enemy";
 	protected State status = State.Nothing;
 	protected SystemHP hitPoints;
@@ -50,7 +47,7 @@ public abstract class Combatant implements InitHolder
 	/**
 	 *  Creates new Combatant
 	 */
-	public Combatant()
+	protected Combatant()
 	{
 		// Empty Constructor
 	}
@@ -102,15 +99,6 @@ public abstract class Combatant implements InitHolder
 	public int getDuration()
 	{
 		return duration;
-	}
-
-	/**
-	 * Get effects
-	 * @return effects
-	 */
-	public List<Effect> getEffects()
-	{
-		return effects;
 	}
 
 	/**
@@ -167,71 +155,64 @@ public abstract class Combatant implements InitHolder
 	 *@return              The Row Vector
 	 */
     @Override
-	public Vector<Object> getRowVector(List<String> columnOrder)
+	public Vector<Object> getRowVector(final List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
 		for ( String columnName : columnOrder )
 		{
-			if (columnName.equals("Name"))
-			{ // Character's Name
-				rowVector.add(getName());
-			}
-			else if (columnName.equals("Player"))
-			{ // Player's Name
-				rowVector.add(getPlayer());
-			}
-			else if (columnName.equals("Status"))
-			{ // Status of XMLCombatant
-				rowVector.add(getStatus());
-			}
-			else if (columnName.equals("+"))
-			{ // Initiative bonus
-				rowVector.add(init.getModifier());
-			}
-			else if (columnName.equals("Init"))
-			{ // Initiative #
-				rowVector.add(init.getCurrentInitiative());
-			}
-			else if (columnName.equals("Dur"))
-			{ // Duration
+			switch (columnName)
+			{
+				case "Name":  // Character's Name
+					rowVector.add(getName());
+					break;
+				case "Player":  // Player's Name
+					rowVector.add(getPlayer());
+					break;
+				case "Status":  // Status of XMLCombatant
+					rowVector.add(getStatus());
+					break;
+				case "+":  // Initiative bonus
+					rowVector.add(init.getModifier());
+					break;
+				case "Init":  // Initiative #
+					rowVector.add(init.getCurrentInitiative());
+					break;
+				case "Dur":  // Duration
 
-				if (duration == 0)
-				{
-					rowVector.add("");
-				}
-				else
-				{
-					rowVector.add(getDuration());
-				}
-			}
-			else if (columnName.equals("#"))
-			{ // Number (for tokens)
-				rowVector.add(number);
-			}
-			else if (columnName.equals("HP"))
-			{ // Current Hit Points
+					if (duration == 0)
+					{
+						rowVector.add("");
+					}
+					else
+					{
+						rowVector.add(getDuration());
+					}
+					break;
+				case "#":  // Number (for tokens)
+					rowVector.add(number);
+					break;
+				case "HP":  // Current Hit Points
 
-				int hp = hitPoints.getCurrent();
-				int sub = hitPoints.getSubdual();
+					int hp = hitPoints.getCurrent();
+					int sub = hitPoints.getSubdual();
 
-				if (sub == 0)
-				{
-					rowVector.add(hp);
-				}
-				else if (sub > 0)
-				{
-					rowVector.add(hp + "/" + sub + "s");
-				}
-			}
-			else if (columnName.equals("HP Max"))
-			{ // Max Hit Points
-				rowVector.add(hitPoints.getMax());
-			}
-			else if (columnName.equals("Type"))
-			{ //PC, Enemy, Ally, Non-Com
-				rowVector.add(comType);
+					if (sub == 0)
+					{
+						rowVector.add(hp);
+					}
+					else if (sub > 0)
+					{
+						rowVector.add(hp + "/" + sub + "s");
+					}
+					break;
+				case "HP Max":  // Max Hit Points
+					rowVector.add(hitPoints.getMax());
+					break;
+				case "Type":  //PC, Enemy, Ally, Non-Com
+					rowVector.add(comType);
+					break;
 			}
 		}
 
@@ -271,15 +252,6 @@ public abstract class Combatant implements InitHolder
 	 * @return XP
 	 */
 	public abstract int getXP();
-
-	/**
-	 * Add effect
-	 * @param effect
-	 */
-	public void addEffect(Effect effect)
-	{
-		effects.add(effect);
-	}
 
 	/**  Causes the XMLCombatant to bleed for 1 point of damage */
 	public void bleed()

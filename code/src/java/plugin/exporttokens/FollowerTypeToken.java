@@ -39,11 +39,8 @@ import pcgen.util.Logging;
  * Deal with FOLLOWERTYPE Token
  * 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1030 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerTypeToken extends Token
 {
@@ -152,7 +149,7 @@ public class FollowerTypeToken extends Token
 	private List<Follower> getFollowersOfType(CharacterDisplay display,
 		String typeString)
 	{
-		List<Follower> aList = new ArrayList<Follower>();
+		List<Follower> aList = new ArrayList<>();
 		for (Follower fol : display.getFollowerList())
 		{
 			if (fol.getType().getKeyName().equalsIgnoreCase(typeString))

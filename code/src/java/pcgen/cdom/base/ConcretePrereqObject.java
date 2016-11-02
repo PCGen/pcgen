@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Version: $Revision: 5686 $
- * Last Editor: $Author: $
- * Last Edited: $Date: 2008-03-23 18:14:22 -0400 (Sun, 23 Mar 2008) $
  *
  */
 package pcgen.cdom.base;
@@ -72,8 +70,8 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		 * 5.14 - to be changed once 5.14 code is gone and this can be changed
 		 * to return Collection or Set (or perhaps ListSet?)
 		 */
-		return Collections.unmodifiableList(new ArrayList<Prerequisite>(
-				thePrereqs));
+		return Collections.unmodifiableList(new ArrayList<>(
+                thePrereqs));
 	}
 
 	/**
@@ -120,7 +118,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		final ConcretePrereqObject obj = (ConcretePrereqObject) super.clone();
 		if (thePrereqs != null)
 		{
-			obj.thePrereqs = new ListSet<Prerequisite>();
+			obj.thePrereqs = new ListSet<>();
 			obj.thePrereqs.addAll(thePrereqs);
 		}
 		return obj;
@@ -147,7 +145,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 		if (thePrereqs == null)
 		{
-			thePrereqs = new ListSet<Prerequisite>(prereqs.size());
+			thePrereqs = new ListSet<>(prereqs.size());
 		}
 		for (final Prerequisite pre : prereqs)
 		{
@@ -173,7 +171,7 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		}
 		if (thePrereqs == null)
 		{
-			thePrereqs = new ListSet<Prerequisite>();
+			thePrereqs = new ListSet<>();
 		}
 		thePrereqs.add(preReq);
 	}
@@ -250,8 +248,8 @@ public class ConcretePrereqObject implements Cloneable, PrereqObject
 		{
 			return false;
 		}
-		ArrayList<Prerequisite> removed = new ArrayList<Prerequisite>(
-				thePrereqs);
+		List<Prerequisite> removed = new ArrayList<>(
+                thePrereqs);
 		removed.removeAll(otherPRL);
 		return removed.isEmpty();
 	}

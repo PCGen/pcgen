@@ -19,8 +19,6 @@
  * Created 04-Aug-2008 17:02:58
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -59,7 +57,7 @@ public class PCCLBeforeLevelTermEvaluator
 			return (float) pc.getDisplay().getLevel(aClass);
 		}
 		
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

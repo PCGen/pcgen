@@ -74,7 +74,7 @@ public class AllowDupesToken extends AbstractNonEmptyToken<Campaign> implements
 			return null;
 		}
 		Collection<Class<?>> added = changes.getAdded();
-		Set<String> returnSet = new TreeSet<String>();
+		Set<String> returnSet = new TreeSet<>();
 		for (Class<?> cl : added)
 		{
 			returnSet.add(StringPClassUtil.getStringFor(cl));

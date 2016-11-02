@@ -43,11 +43,8 @@ import pcgen.util.PjepPool;
  * into a value and are used extensively both in defintions of objects
  * and for output to output sheets.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision$
+ * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public abstract class VariableProcessor
 {
@@ -61,10 +58,10 @@ public abstract class VariableProcessor
 	private int cachePaused;
 	private int serial;
 
-	private Map<String, CachedVariable<String>> sVariableCache = 
-			new HashMap<String, CachedVariable<String>>();
-	private Map<String, CachedVariable<Float>>  fVariableCache = 
-			new HashMap<String, CachedVariable<Float>>();
+	private Map<String, CachedVariable<String>> sVariableCache =
+            new HashMap<>();
+	private Map<String, CachedVariable<Float>>  fVariableCache =
+            new HashMap<>();
 
 	protected Float convertToFloat(String element, String foo)
 	{
@@ -691,7 +688,7 @@ public abstract class VariableProcessor
 		{
 			return;
 		}
-		final CachedVariable<Float> cached = new CachedVariable<Float>();
+		final CachedVariable<Float> cached = new CachedVariable<>();
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 //		if (lookup.equals("floor(SCORE/2)-5#STAT:CHA"))
@@ -793,7 +790,7 @@ public abstract class VariableProcessor
 		{
 			return;
 		}
-		final CachedVariable<String> cached = new CachedVariable<String>();
+		final CachedVariable<String> cached = new CachedVariable<>();
 		cached.setSerial( getSerial() );
 		cached.setValue(value);
 

@@ -31,7 +31,7 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TableUtils
 {

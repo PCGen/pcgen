@@ -85,10 +85,10 @@ import pcgen.util.Logging;
 /**
  * The dialog provides the list of output sheets for a character or party to
  * be exported to.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class ExportDialog extends JDialog implements ActionListener, ListSelectionListener
+public final class ExportDialog extends JDialog implements ActionListener, ListSelectionListener
 {
 
 	private static final String PDF_EXPORT_DIR_PROP = "pdfExportDir";
@@ -101,7 +101,7 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	public static void showExportDialog(PCGenFrame parent)
 	{
 		ExportDialog dialog = new ExportDialog(parent);
-		Utility.setDialogRelativeLocation(parent, dialog);
+		Utility.setComponentRelativeLocation(parent, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -121,8 +121,8 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 	{
 		super(parent, true);
 		this.pcgenFrame = parent;
-		this.characterBoxModel = new FacadeComboBoxModel<CharacterFacade>(CharacterManager.getCharacters(),
-																		  parent.getSelectedCharacterRef());
+		this.characterBoxModel = new FacadeComboBoxModel<>(CharacterManager.getCharacters(),
+                parent.getSelectedCharacterRef());
 		this.characterBox = new JComboBox(characterBoxModel);
 		this.partyBox = new JCheckBox("Entire Party");
 		this.exportBox = new JComboBox(SheetFilter.values());
@@ -714,9 +714,9 @@ public class ExportDialog extends JDialog implements ActionListener, ListSelecti
 		HTMLXML("htmlxml", "Standard", "HTM"),
 		PDF("pdf", "PDF", "PDF"),
 		TEXT("text", "Text", "TXT");
-		private String dirFilter;
-		private String description;
-		private String tag;
+		private final String dirFilter;
+		private final String description;
+		private final String tag;
 
 		private SheetFilter(String dirFilter, String description, String tag)
 		{

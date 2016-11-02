@@ -49,11 +49,8 @@ import pcgen.system.LanguageBundle;
  * on a per character basis, such as experience table, character
  * type, and so on. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DefaultsPanel extends PCGenPrefsPanel

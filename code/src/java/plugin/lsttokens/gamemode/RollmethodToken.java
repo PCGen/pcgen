@@ -19,8 +19,6 @@
  * Created on September 2, 2005, 8:39 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -36,7 +34,7 @@ import pcgen.util.Logging;
 /**
  * <code>RollmethodToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class RollmethodToken implements GameModeLstToken
 {
@@ -52,7 +50,7 @@ public class RollmethodToken implements GameModeLstToken
 	{
 		try
 		{
-			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<RollMethod>(RollMethod.class);
+			SimpleLoader<RollMethod> methodLoader = new SimpleLoader<>(RollMethod.class);
 			methodLoader.parseLine(gameMode.getModeContext(), value, source);
 			return true;
 		}

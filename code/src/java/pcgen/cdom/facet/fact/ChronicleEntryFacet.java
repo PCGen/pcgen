@@ -30,12 +30,9 @@ import pcgen.util.Logging;
  * ChronicleEntryFacet is a Facet that tracks the chronicle entries that have 
  * been entered for a Player Character.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ChronicleEntryFacet extends
 		AbstractListFacet<CharID, ChronicleEntry>
@@ -44,7 +41,7 @@ public class ChronicleEntryFacet extends
     @Override
 	protected Collection<ChronicleEntry> getCopyForNewOwner(Collection<ChronicleEntry> componentSet)
 	{
-		List<ChronicleEntry> newCopies = new ArrayList<ChronicleEntry>();
+		List<ChronicleEntry> newCopies = new ArrayList<>();
 		for (ChronicleEntry entry : componentSet)
 		{
 			try
@@ -69,7 +66,7 @@ public class ChronicleEntryFacet extends
 	@Override
 	protected List<ChronicleEntry> getComponentSet()
 	{
-		return new ArrayList<ChronicleEntry>();
+		return new ArrayList<>();
 	}
 
 

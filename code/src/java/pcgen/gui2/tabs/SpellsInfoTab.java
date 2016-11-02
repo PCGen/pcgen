@@ -34,12 +34,9 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
  * to be implemented Seplls tab.
- * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2010-09-29 05:59:43 -0700 (Wed, 29 Sep 2010) $
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 13208 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
@@ -109,9 +106,6 @@ public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, Todo
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

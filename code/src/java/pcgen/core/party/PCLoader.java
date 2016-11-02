@@ -19,8 +19,6 @@
  * Created on Jun 10, 2005
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.party;
 
@@ -31,7 +29,7 @@ import java.io.File;
 /**
  * Interface to identify classes which can load a PC from a file.
  *
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  */
 public interface PCLoader
 {

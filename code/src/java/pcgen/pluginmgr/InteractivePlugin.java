@@ -29,12 +29,9 @@ import java.io.File;
  * any user interactive plugin to PCGen. These plugins are most often defined by 
  * the GMGen module, thus allowing it to be extended.   
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {

@@ -43,11 +43,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * The Class <code>AbstractSpellListToken</code> ...
  *
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<CDOMObject>
 {
@@ -73,7 +70,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 		boolean knownSpells)
 	{
 		TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>> map =
-				new TripleKeyMapToList<String, Integer, CDOMReference<? extends CDOMList<?>>, CDOMReference<Spell>>();
+                new TripleKeyMapToList<>();
 
 		for (CDOMReference listRef : changedLists)
 		{
@@ -129,7 +126,7 @@ public abstract class AbstractSpellListToken extends AbstractTokenWithSeparator<
 	{
 		StringBuilder sb = new StringBuilder(type);
 		Set<Integer> levels = domainMap.getSecondaryKeySet(prereqs);
-		for (Integer level : new TreeSet<Integer>(levels))
+		for (Integer level : new TreeSet<>(levels))
 		{
 			for (CDOMReference<? extends CDOMList<?>> list : domainMap
 					.getTertiaryKeySet(prereqs, level))

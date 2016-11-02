@@ -210,7 +210,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	@Override
 	public ClassIdentity<? super T> getClassIdentity()
 	{
-		return BasicClassIdentity.getInstance(pcs.getChoiceClass());
+		return BasicClassIdentity.getIdentity(pcs.getChoiceClass());
 	}
 
 	/**
@@ -285,7 +285,7 @@ public class BasicChooseInformation<T> implements ChooseInformation<T>
 	@Override
 	public ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost)
 	{
-		return new CDOMChoiceManager<T>(owner, this, null, cost);
+		return new CDOMChoiceManager<>(owner, this, null, cost);
 	}
 
 	@Override

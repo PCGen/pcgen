@@ -10,6 +10,7 @@
 # SOURCE:JDTEST	MAXVER:6.4.00	NEWKEY:Paizo - Pathfinder Roleplaying Game Core Rulebook	MAXDEVVER:6.1.1
 # EQUIPMENT:JDTEST	MAXVER:6.4.00	NEWKEY:Outfit (Explorer's)	MAXVER:6.0.01	MAXVER:6.4.00	MAXDEVVER:6.1.2
 # NEWCATEGORY:Spell-like Ability
+# RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
 
 
@@ -3073,3 +3074,14 @@ ABILITY:Special Ability|Ranger Bonus Feat ~ Greater Shield Focus				MAXVER:6.4.0
 # Fix typo
 EQUIPMENT:Sunblade (Bastard)		NEWKEY:Sun Blade (Bastard)	MAXVER:6.4.01
 EQUIPMENT:Sunblade (Short)		NEWKEY:Sun Blade (Short)	MAXVER:6.4.01
+
+RACE:Eidolon (Biped)		MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Eidolon (Aquatic)		MAXVER:6.6.01		NEWKEY:Eidolon
+
+
+
+RACE:Unchained Eidolon (Biped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Quadruped)	MAXVER:6.6.01		NEWKEY:Eidolon
+RACE:Unchained Eidolon (Serpentine)	MAXVER:6.6.01		NEWKEY:Eidolon

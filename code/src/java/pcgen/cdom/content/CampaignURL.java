@@ -29,11 +29,9 @@ import java.net.URI;
  * <code>CampaignURL</code> encapsulates a typed and labelled URL for a
  * campaign.
  * 
- * Last Editor: $Author$ Last Edited: $Date: 2008-12-23 16:50:16 -0500
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignURL implements Comparable<CampaignURL>
 {

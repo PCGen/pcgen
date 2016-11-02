@@ -38,11 +38,8 @@ import pcgen.util.TestHelper;
  * <code>PreLangTest</code> tests that the PRELANG tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreLangTest extends AbstractCharacterTestCase
 {

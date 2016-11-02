@@ -19,8 +19,6 @@
  * Created on March 6, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.gear;
@@ -149,7 +147,7 @@ public class EqmodToken extends AbstractTokenWithSeparator<KitGear> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (EqModRef modRef : kitGear.getEqMods())
 		{
 			String key = modRef.getRef().getLSTformat(false);

@@ -30,8 +30,7 @@ import pcgen.facade.core.SizeAdjustmentFacade;
 /**
  * <code>SizeAdjustment</code>.
  *
- * @author Greg Bingleman <byngl@users.sourceforge.net>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@users.sourceforge.net&gt;
  */
 public final class SizeAdjustment extends PObject implements
 		SizeAdjustmentFacade, VarScoped

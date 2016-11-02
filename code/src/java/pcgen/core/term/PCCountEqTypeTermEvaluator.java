@@ -19,8 +19,6 @@
  * Created 05-Aug-2008 00:21:49
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -53,7 +51,7 @@ public class PCCountEqTypeTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc) {
 
-		List<Equipment> aList = new ArrayList<Equipment>();
+		List<Equipment> aList = new ArrayList<>();
 		
 		int cur = 0;
 		String aType = types[cur];

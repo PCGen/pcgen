@@ -20,8 +20,6 @@
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -33,8 +31,7 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMSingleRef;
 
 /**
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class EquipmentUtilities
 {
@@ -54,7 +51,7 @@ public final class EquipmentUtilities
 	 */
 	public static List<Equipment> removeEqType(final List<Equipment> aList, final String type)
 	{
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (final Equipment eq : aList)
 		{
@@ -83,7 +80,7 @@ public final class EquipmentUtilities
 	 */
 	public static List<Equipment> removeNotEqType(final List<Equipment> aList, final String aString)
 	{
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : aList)
 		{

@@ -27,25 +27,22 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.MapKey;
 import pcgen.cdom.helper.Aspect;
 
+import org.junit.Before;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
 /**
- * The Class <code>MapKeyMapTest</code> test that the MapKeyMap
+ * The Class {@code MapKeyMapTest} test that the MapKeyMap
  * class is functioning correctly. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class MapKeyMapTest extends TestCase
+public class MapKeyMapTest
 {
 	
 	private static final String BREED = "shetland sheepdog";
@@ -64,30 +61,29 @@ public class MapKeyMapTest extends TestCase
 	private Aspect breedAspect;
 
 	/* (non-Javadoc)
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		mapKeyMap = new MapKeyMap();
 		ageKey = AspectName.getConstant("agE");
 		nameKey = AspectName.getConstant("Name");
 		breedKey = AspectName.getConstant("breed");
 		
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageAspect = new Aspect("age", AGE);
 		ageList.add(ageAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
-		List<Aspect> nameList = new ArrayList<Aspect>();
+		List<Aspect> nameList = new ArrayList<>();
 		nameAspect = new Aspect("name", NAME);
 		nameList.add(nameAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, nameKey, nameList);
-		List<Aspect> breedList = new ArrayList<Aspect>();
+		List<Aspect> breedList = new ArrayList<>();
 		breedAspect = new Aspect("breed", BREED);
 		breedList.add(breedAspect);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, breedKey, breedList);
-		
-		super.setUp();
+
 	}
 
 	/**
@@ -131,7 +127,7 @@ public class MapKeyMapTest extends TestCase
 		assertEquals("Validate initial value of age", ageAspect, mapKeyMap
 			.get(MapKey.ASPECT, ageKey).get(0));
 		Aspect newage = new Aspect("age", "2");
-		List<Aspect> ageList = new ArrayList<Aspect>();
+		List<Aspect> ageList = new ArrayList<>();
 		ageList.add(newage);
 		mapKeyMap.addToMapFor(MapKey.ASPECT, ageKey, ageList);
 		assertEquals("Validate new value of age", newage, mapKeyMap

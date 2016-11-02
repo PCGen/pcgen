@@ -25,23 +25,20 @@ package pcgen.io;
 import pcgen.exception.PcgenException;
 
 /**
- * The Class <code>ExportException</code> indicates an export action failed.
+ * The Class {@code ExportException} indicates an export action failed.
  * This is normally the result of a problem in the export template or in 
  * the system configuration. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ExportException extends PcgenException
 {
 
 	/**
-	 * Constructs an instance of <code>ExportException</code>
+	 * Constructs an instance of {@code ExportException}
 	 *  with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param rootCause the root cause of the exception.

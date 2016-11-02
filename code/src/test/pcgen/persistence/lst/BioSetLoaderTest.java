@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -32,7 +30,7 @@ import java.net.URI;
 import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
@@ -44,7 +42,7 @@ import pcgen.rules.context.LoadContext;
  * Static methods are also made available should other test classes require
  * BioSet loading functions.
  */
-public final class BioSetLoaderTest extends PCGenTestCase
+public final class BioSetLoaderTest extends TestCase
 {
 	/**
 	 * The sample Bio set data for testing.
@@ -106,7 +104,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 	{
 		try
 		{
-			Globals.getBioSet().clearUserMap();
+			SettingsHandler.getGame().getBioSet().clearUserMap();
 		}
 
 		finally
@@ -210,7 +208,7 @@ public final class BioSetLoaderTest extends PCGenTestCase
 						"[Male[BASEHT:55|HTDIEROLL:2d8|BASEWT:100|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]Female[BASEHT:53|HTDIEROLL:2d8|BASEWT:80|WTDIEROLL:2d4|TOTALWT:BASEWT+(HTDIEROLL*WTDIEROLL)]]"}};
 
 		// Check the data loaded in setup to ensure that it has been loaded correctly.
-		final BioSet currBioSet = Globals.getBioSet();
+		final BioSet currBioSet = SettingsHandler.getGame().getBioSet();
 		List<String> baseRaceTag;
 		for (int i = 0; i < BASE_RACE_NAME.length; i++)
 		{

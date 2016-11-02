@@ -18,8 +18,6 @@
  * Created on June 18, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.cdom.enumeration;
 
@@ -31,7 +29,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 
 /**
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Integer Characteristics of an object.
  * It is designed to act as an index to a specific integers within a CDOMObject.
@@ -46,7 +44,7 @@ public class IntegerKey
 	/**
 	 * This Map contains the mappings from Strings to the Type Safe Constant
 	 */
-	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<IntegerKey>();
+	private static CaseInsensitiveMap<IntegerKey> typeMap = new CaseInsensitiveMap<>();
 
 	/**
 	 * @deprecated due to EQACCHECK CodeControl

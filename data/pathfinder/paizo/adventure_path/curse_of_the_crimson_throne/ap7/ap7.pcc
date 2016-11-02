@@ -26,6 +26,12 @@ URL:Paizo Publishing|http://paizo.com/pathfinder/adventurePath/curseOfTheCrimson
 DESC:The King has died, and the city of Korvosa is in chaos! Riots, banditry, monsters, and mayhem are turning the normally safe streets of the city into a war zone. Desperate to regain control of her city, Queen Ileosa seeks heroes to aid her in reclaiming control before the largest city in all Varisia consumes itself from within, as Pathfinder's second Adventure Path, Curse of the Crimson Throne, begins with a bang!
 
 INFOTEXT:This dataset implements rules from a book that was originally designed for the 3.5 ruleset. For this dataset, these rules have been updated to the rules of the Pathfinder Roleplaying Game by the PCGen data team.
+INFOTEXT:For the offical Pathfinder RPG version of the carrion golem, load the Pathfinder RPG Bestiary 2 dataset.
+INFOTEXT:For the offical Pathfinder RPG version of the devilfish, load the Pathfinder RPG Bestiary 2 dataset.
+INFOTEXT:For the offical Pathfinder RPG version of the reefclaw, load the Pathfinder RPG Bestiary 2 dataset.
+INFOTEXT:For the offical Pathfinder RPG version of the raktavarna, use the ratktavarne rakshasa from the Pathfinder RPG Bestiary 3 dataset.
+INFOTEXT:For the offical Pathfinder RPG version of the soulbound doll, load the Pathfinder RPG Bestiary 2 dataset.
+
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a Copyright 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document. Copyright 2000. Wizards of the Coast, Inc; Authors Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.

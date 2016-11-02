@@ -30,16 +30,15 @@ import java.util.Enumeration;
 import java.util.ResourceBundle;
 
 /**
- * Support Windows95 L&F on non-Windows platforms.  This is
+ * Support Windows95 L&amp;F on non-Windows platforms.  This is
  * ridiculously simple.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1256 $
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 {
 	/**
-	 * Support Windows95 L&F on non-Windows platforms.  Simple
+	 * Support Windows95 L&amp;F on non-Windows platforms.  Simple
 	 * return <code>true</code>.
 	 *
 	 * @return boolean <code>true</code> always

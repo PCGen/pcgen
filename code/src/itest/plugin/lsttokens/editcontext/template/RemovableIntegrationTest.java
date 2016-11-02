@@ -33,7 +33,7 @@ public class RemovableIntegrationTest extends
 {
 
 	static RemovableToken token = new RemovableToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

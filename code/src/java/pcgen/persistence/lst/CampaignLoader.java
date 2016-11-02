@@ -19,8 +19,6 @@
  * Created on February 22, 2002, 10:29 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -42,8 +40,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
+ * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public class CampaignLoader extends LstLineFileLoader
 {
@@ -51,7 +48,7 @@ public class CampaignLoader extends LstLineFileLoader
      * The {@link pcgen.core.Campaign Campaign} being loaded by {@link #loadCampaignLstFile(java.net.URI) loadCampaignLstFile}.
      */
 	private Campaign campaign = null;
-	private final List<Campaign> inittedCampaigns = new ArrayList<Campaign>();
+	private final List<Campaign> inittedCampaigns = new ArrayList<>();
 	
 	public static final ListKey[] OTHER_FILE_LISTKEY = {
 		ListKey.FILE_LST_EXCLUDE, ListKey.FILE_COVER};
@@ -65,7 +62,7 @@ public class CampaignLoader extends LstLineFileLoader
 		ListKey.FILE_EQUIP_MOD, ListKey.FILE_KIT, ListKey.FILE_BIO_SET,
 		ListKey.FILE_ALIGNMENT, ListKey.FILE_STAT, ListKey.FILE_SAVE,
 		ListKey.FILE_SIZE, ListKey.FILE_DATACTRL, ListKey.FILE_VARIABLE,
-		ListKey.FILE_DYNAMIC, ListKey.FILE_GLOBALMOD};
+		ListKey.FILE_DYNAMIC, ListKey.FILE_DATATABLE, ListKey.FILE_GLOBALMOD};
 
 	/**
      * This method initializes any campaigns that include other campaigns,
@@ -77,8 +74,6 @@ public class CampaignLoader extends LstLineFileLoader
      *
      * @param baseCampaign Campaign object that may or may not require
      *                     other campaigns
-     * @throws PersistenceLayerException if an error occurs reading a
-     *                                   newly-encountered campaign
      */
     public void initRecursivePccFiles(Campaign baseCampaign)
     //throws PersistenceLayerException
@@ -224,7 +219,7 @@ public class CampaignLoader extends LstLineFileLoader
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<Prerequisite>();
+				ArrayList<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,

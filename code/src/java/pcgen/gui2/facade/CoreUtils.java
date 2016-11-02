@@ -46,12 +46,12 @@ public class CoreUtils
 		CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
-		List<CoreViewNodeFacade> coreViewList = new ArrayList<CoreViewNodeFacade>();
+		List<CoreViewNodeFacade> coreViewList = new ArrayList<>();
 		Collection<Object> locations = CorePerspectiveDB.getLocations(pers);
 		HashMapToList<Object, FacetView<T>> sources =
-				new HashMapToList<Object, FacetView<T>>();
+                new HashMapToList<>();
 		Map<FacetView<T>, CoreViewNodeBase> facetToNode =
-				new HashMap<FacetView<T>, CoreViewNodeBase>();
+                new HashMap<>();
 
 		/*
 		 * Create the nodes that are part of this perspective.
@@ -61,7 +61,7 @@ public class CoreUtils
 			//Create (w/ identifier)
 			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
 			LocationCoreViewNode<T> node =
-					new LocationCoreViewNode<T>(location);
+                    new LocationCoreViewNode<>(location);
 			facetToNode.put(view, node);
 			coreViewList.add(node);
 			//Store what facets listen to my content (for use later)
@@ -101,7 +101,7 @@ public class CoreUtils
 			 */
 			for (T obj : view.getSet(id))
 			{
-				List<String> sourceDesc = new ArrayList<String>();
+				List<String> sourceDesc = new ArrayList<>();
 				for (Object src : view.getSources(id, obj))
 				{
 					if (src instanceof Identified)
@@ -129,7 +129,7 @@ public class CoreUtils
 				}
 				//Insert the contents of the facet as children of this node
 				ObjectCoreViewNode<T> sourceNode =
-						new ObjectCoreViewNode<T>(pc, obj, sourceDesc);
+                        new ObjectCoreViewNode<>(pc, obj, sourceDesc);
 				sourceNode.addGrantedByNode(node);
 				coreViewList.add(sourceNode);
 			}
@@ -211,45 +211,30 @@ public class CoreUtils
 			this.object = object;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Location";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return "";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{
@@ -275,18 +260,12 @@ public class CoreUtils
 			this.sourceDesc = sourceDesc;
 		}
 		
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getNodeType()
 		{
 			return "Source";
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getKey()
 		{
@@ -297,27 +276,18 @@ public class CoreUtils
 			return object.toString();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getSource()
 		{
 			return StringUtil.join(sourceDesc, ", ");
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getRequirements()
 		{
 			return CoreUtils.getRequirementsInfo(pc, object);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String toString()
 		{

@@ -37,12 +37,10 @@ public class CharacterFilter implements OutputFilter
 	 * Create a new CharacterFilter instance suitable for processing output to 
 	 * files produced using the supplied template.
 	 *  
-	 * @param templateFileName The file name of the output template file. 
-	 * @throws IOException If the pattern filter cannot be read.
+	 * @param templateFileName The file name of the output template file.
 	 */
 	public CharacterFilter(String templateFileName)
 	{
-		super();
 
 		final int idx = templateFileName.lastIndexOf('.');
 
@@ -77,7 +75,7 @@ public class CharacterFilter implements OutputFilter
 							new FileInputStream(filterFile), "UTF-8"));
 
 					outputFilterName = filterName;
-					outputFilter = new HashMap<Integer, String>();
+					outputFilter = new HashMap<>();
 
 					for (;;)
 					{
@@ -99,12 +97,7 @@ public class CharacterFilter implements OutputFilter
 										Delta.decode(filterEntry.get(0));
 								outputFilter.put(key, filterEntry.get(1));
 							}
-							catch (NullPointerException e)
-							{
-								Logging.errorPrint(
-									"Exception in setCurrentOutputFilter", e);
-							}
-							catch (NumberFormatException e)
+							catch (NullPointerException | NumberFormatException e)
 							{
 								Logging.errorPrint(
 									"Exception in setCurrentOutputFilter", e);

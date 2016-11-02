@@ -30,8 +30,7 @@ import pcgen.util.Logging;
 /**
  * <code>NoteItem</code>.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class NoteItem implements NoteFacade, Cloneable
 {
@@ -108,9 +107,6 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isRequired()
 	{
@@ -132,9 +128,6 @@ public final class NoteItem implements NoteFacade, Cloneable
 		return name;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected NoteItem clone()
 	{

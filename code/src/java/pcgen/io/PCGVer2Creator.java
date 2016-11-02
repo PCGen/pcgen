@@ -19,8 +19,6 @@
  * Created on March 19, 2002, 4:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -105,7 +103,7 @@ import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
 /**
- * <code>PCGVer2Creator</code><br>
+ * {@code PCGVer2Creator}<br>
  * Creates a line oriented format.
  * Each line should adhere to the following grammar:<br>
  *
@@ -117,7 +115,6 @@ import pcgen.util.StringPClassUtil;
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
  * @author Thomas Behr 19-03-02
- * @version $Revision$
  */
 public final class PCGVer2Creator implements IOConstants
 {
@@ -827,7 +824,7 @@ public final class PCGVer2Creator implements IOConstants
 					.getProhibitedSchools(pcClass);
 			if (prohib != null)
 			{
-				Set<String> set = new TreeSet<String>();
+				Set<String> set = new TreeSet<>();
 				for (SpellProhibitor sp : prohib)
 				{
 					set.addAll(sp.getValueList());
@@ -1218,7 +1215,7 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(TAG_EQSETBONUS).append(':');
 				buffer.append(eSet.getIdPath());
 
-				List<String> trackList = new ArrayList<String>();
+				List<String> trackList = new ArrayList<>();
 
 				for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : eSet
 						.getTempBonusMap().entrySet())
@@ -1300,7 +1297,7 @@ public final class PCGVer2Creator implements IOConstants
 	private void appendEquipmentSetLines(StringBuilder buffer)
 	{
 		// Output all the EquipSets
-		final List<EquipSet> eqSetList = new ArrayList<EquipSet>(charDisplay.getEquipSet());
+		final List<EquipSet> eqSetList = new ArrayList<>(charDisplay.getEquipSet());
 		Collections.sort(eqSetList);
 
 		for (EquipSet eqSet : eqSetList)
@@ -1372,8 +1369,8 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendAbilityLines(StringBuilder buffer)
 	{
-		ArrayList<AbilityCategory> categories = new ArrayList<AbilityCategory>(
-				getGameMode().getAllAbilityCategories());
+		ArrayList<AbilityCategory> categories = new ArrayList<>(
+                getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
@@ -1389,7 +1386,7 @@ public final class PCGVer2Creator implements IOConstants
 		for (final AbilityCategory cat : categories)
 		{
 			final List<CNAbility> normalAbilitiesToSave =
-					new ArrayList<CNAbility>(thePC.getPoolAbilities(cat, Nature.NORMAL));
+                    new ArrayList<>(thePC.getPoolAbilities(cat, Nature.NORMAL));
 			
 			// ABILITY:FEAT|NORMAL|Feat Key|APPLIEDTO:xxx|TYPE:xxx|SAVE:xxx|DESC:xxx
 			Collections.sort(normalAbilitiesToSave);
@@ -2014,7 +2011,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSkillLines(StringBuilder buffer)
 	{
-		List<Skill> skillList = new ArrayList<Skill>(charDisplay.getSkillSet());
+		List<Skill> skillList = new ArrayList<>(charDisplay.getSkillSet());
 		Collections.sort(skillList);
 		for (Skill skill : skillList)
 		{
@@ -2134,7 +2131,7 @@ public final class PCGVer2Creator implements IOConstants
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
 			Collection<? extends CharacterSpell> sp = charDisplay.getCharacterSpells(pcClass);
-			List<CharacterSpell> classSpells = new ArrayList<CharacterSpell>(sp);
+			List<CharacterSpell> classSpells = new ArrayList<>(sp);
 			// Add in the spells granted by objects
 			thePC.addBonusKnownSpellsToList(pcClass, classSpells);
 			Collections.sort(classSpells);
@@ -2283,25 +2280,22 @@ public final class PCGVer2Creator implements IOConstants
 
 	private void appendTempBonuses(StringBuilder buffer)
 	{
-		final List<String> trackList = new ArrayList<String>();
-		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>(
-			new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
-				@Override
-				public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo>  a, Map.Entry<BonusObj, BonusManager.TempBonusInfo>  b)
-				{
-					BonusObj keyA = a.getKey();
-					BonusObj keyB = b.getKey();
-					if (!keyA.getBonusName().equals(keyB.getBonusName()))
-					{
-						return  keyA.getBonusName().compareTo(keyB.getBonusName());
-					}
-					if (!keyA.getBonusInfo().equals(keyB.getBonusInfo()))
-					{
-						return  keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
-					}
-					return keyA.getPCCText().compareTo(keyB.getPCCText());
-				}
-		});
+		final List<String> trackList = new ArrayList<>();
+		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<>(
+                new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
+                    @Override
+                    public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo> a, Map.Entry<BonusObj, BonusManager.TempBonusInfo> b) {
+                        BonusObj keyA = a.getKey();
+                        BonusObj keyB = b.getKey();
+                        if (!keyA.getBonusName().equals(keyB.getBonusName())) {
+                            return keyA.getBonusName().compareTo(keyB.getBonusName());
+                        }
+                        if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
+                            return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
+                        }
+                        return keyA.getPCCText().compareTo(keyB.getPCCText());
+                    }
+                });
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
 		
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())

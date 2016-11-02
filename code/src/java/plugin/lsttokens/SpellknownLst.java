@@ -57,11 +57,8 @@ import pcgen.util.Logging;
  * SPELLKNOWN:CLASS|Name1,Name2=Level1|Spell1,Spell2,Spell3|Name3=Level2|Spell4,Spell5|PRExxx|PRExxx
  * </pre>
  *
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellknownLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
@@ -87,7 +84,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 				+ obj.getClass().getSimpleName(), context);
 		}
 		String workingValue = value;
-		List<Prerequisite> prereqs = new ArrayList<Prerequisite>();
+		List<Prerequisite> prereqs = new ArrayList<>();
 		while (true)
 		{
 			int lastPipeLoc = workingValue.lastIndexOf('|');
@@ -196,7 +193,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 		StringTokenizer clTok = new StringTokenizer(casterString,
 				Constants.COMMA);
 		List<CDOMReference<? extends CDOMList<Spell>>> slList =
-				new ArrayList<CDOMReference<? extends CDOMList<Spell>>>();
+				new ArrayList<>();
 		while (clTok.hasMoreTokens())
 		{
 			String classString = clTok.nextToken();
@@ -246,7 +243,7 @@ public class SpellknownLst extends AbstractSpellListToken implements
 	@Override
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 
 		Collection<CDOMReference<? extends CDOMList<?>>> changedClassLists = context
 				.getListContext().getChangedLists(obj, ClassSpellList.class);

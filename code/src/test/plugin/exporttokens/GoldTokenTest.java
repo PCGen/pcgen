@@ -36,11 +36,8 @@ import plugin.exporttokens.deprecated.GoldToken;
  * Unit test for the <code>GoldToken</code> class.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class GoldTokenTest extends AbstractCharacterTestCase

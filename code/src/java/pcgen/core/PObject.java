@@ -18,8 +18,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -50,10 +48,7 @@ import pcgen.system.PCGenSettings;
  * <code>PObject</code><br>
  * This is the base class for several objects in the PCGen database.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
- */
-/**
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @author Joe.Frazier
  *
  */
@@ -192,7 +187,7 @@ public class PObject extends CDOMObject implements Cloneable, Serializable, Comp
 	{
 		final String myType;
 
-		if (aType.length() == 0)
+		if (aType.isEmpty())
 		{
 			return false;
 		}

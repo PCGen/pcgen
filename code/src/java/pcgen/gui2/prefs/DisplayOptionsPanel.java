@@ -49,11 +49,8 @@ import pcgen.system.PCGenSettings;
  * displaying experience related preferences and allowing the 
  * preferences to be edited by the user.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DisplayOptionsPanel extends PCGenPrefsPanel
@@ -126,7 +123,7 @@ public class DisplayOptionsPanel extends PCGenPrefsPanel
 
 		// Automatically sort the options alphabetically.
 		final SortedMap<String, JComponent> options =
-				new TreeMap<String, JComponent>();
+                new TreeMap<>();
 
 //		options.put(in_showMemory, showMemory);
 //		options.put(in_showImagePreview, showImagePreview);

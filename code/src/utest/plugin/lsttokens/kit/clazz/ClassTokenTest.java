@@ -30,7 +30,7 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 {
 
 	static ClassToken token = new ClassToken();
-	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<KitClass>(
+	static CDOMSubLineLoader<KitClass> loader = new CDOMSubLineLoader<>(
 			"SKILL", KitClass.class);
 
 	@Override

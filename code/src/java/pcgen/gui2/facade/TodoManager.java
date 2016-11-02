@@ -31,12 +31,9 @@ import pcgen.facade.util.ListFacade;
  * Each task is a TodoFacade instance which should have enough information to 
  * direct the user to the field where they can achieve the task.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TodoManager
 {
@@ -44,7 +41,7 @@ public class TodoManager
 
 	TodoManager()
 	{
-		todoList = new DefaultListFacade<TodoFacade>();
+		todoList = new DefaultListFacade<>();
 	}
 	
 	synchronized ListFacade<TodoFacade> getTodoList()

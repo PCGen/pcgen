@@ -20,8 +20,6 @@
  * Created on September 2, 2002, 8:02 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.load;
@@ -37,7 +35,7 @@ import pcgen.util.Logging;
 /**
  * <code>EncumbranceToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		CDOMPrimaryToken<LoadInfo>, DeferredToken<LoadInfo>
@@ -107,7 +105,7 @@ public class EncumbranceToken extends AbstractNonEmptyToken<LoadInfo> implements
 		else
 		{
 			moveFormula = "";
-			checkPenalty = Integer.valueOf(0);
+			checkPenalty = 0;
 		}
 
 		info.addLoadMultiplier(tokens[0].toUpperCase(), new Float(mult),

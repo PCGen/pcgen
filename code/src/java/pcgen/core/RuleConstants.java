@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * $Id$
  */
@@ -33,8 +31,7 @@ package pcgen.core;
  * (The reason for an interface rather than a class
  * is that an interface uses a little less memory.)
  *
- * @author     Greg Bingleman <byngl@hotmail.com>
- * @version    $Revision$
+ * @author     Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public interface RuleConstants
 {

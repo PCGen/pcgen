@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision: 15054 $
  *
- * Last Editor: $Author: nuance $
  *
- * Last Edited: $Date: 2011-05-29 17:19:36 +0200 (So, 29 Mai 2011) $
  *
  */
 package plugin.pretokens.parser;

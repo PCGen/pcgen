@@ -36,7 +36,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class ConcurrentDataView<E> implements DataView<E>
 {
@@ -55,16 +55,7 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 		}
 
 	});
-	private final Runnable refreshRunnable = new Runnable()
-	{
-
-		@Override
-		public void run()
-		{
-			refreshTableData();
-		}
-
-	};
+	private final Runnable refreshRunnable = this::refreshTableData;
 	private final Map<E, List<?>> dataMap;
 	private boolean installed = false;
 
@@ -99,11 +90,7 @@ public abstract class ConcurrentDataView<E> implements DataView<E>
 			{
 				return future.get();
 			}
-			catch (InterruptedException ex)
-			{
-				Logging.errorPrint(null, ex);
-			}
-			catch (ExecutionException ex)
+			catch (InterruptedException | ExecutionException ex)
 			{
 				Logging.errorPrint(null, ex);
 			}

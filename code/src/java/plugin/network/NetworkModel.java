@@ -19,21 +19,11 @@
  */
  package plugin.network;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ExtendedHTMLDocument;
-import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.plugin.Combatant;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.util.LogReceiver;
-import gmgen.util.LogUtilities;
-
 import java.awt.Color;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.event.FocusAdapter;
 import java.awt.event.FocusEvent;
-import java.awt.event.FocusListener;
 import java.net.Socket;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
@@ -49,7 +39,17 @@ import javax.swing.JTextPane;
 import javax.swing.text.Document;
 import javax.swing.text.EditorKit;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ExtendedHTMLDocument;
+import gmgen.gui.ExtendedHTMLEditorKit;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.util.LogReceiver;
+import gmgen.util.LogUtilities;
 import pcgen.core.SettingsHandler;
+
 import plugin.network.gui.NetworkView;
 
 /**
@@ -59,7 +59,7 @@ import plugin.network.gui.NetworkView;
 public class NetworkModel
 {
 	private NetworkView view = new NetworkView();
-	static List<Color> colorList = new ArrayList<Color>();
+	static List<Color> colorList = new ArrayList<>();
 	static
 	{
 		colorList.add(Color.BLACK);
@@ -79,9 +79,9 @@ public class NetworkModel
 	private NetworkClient client;
 	private InitHolderList combat;
 	private HashMap<String, Combatant> sentCombatants =
-			new HashMap<String, Combatant>();
+			new HashMap<>();
 	private HashMap<String, NetworkCombatant> recievedCombatants =
-			new HashMap<String, NetworkCombatant>();
+			new HashMap<>();
 
 	public NetworkModel()
 	{
@@ -151,17 +151,13 @@ public class NetworkModel
 		}
 	}
 
-	public void combatantUpdated(Combatant cbt)
+	void combatantUpdated(Combatant cbt)
 	{
 		if (combat != null)
 		{
-			for (InitHolder iH : combat)
-			{
-				if (iH == cbt)
-				{
-					sendCombatant(cbt);
-				}
-			}
+			combat.stream()
+			      .filter((InitHolder v) -> v == cbt)
+			      .forEach((InitHolder v) -> sendCombatant(cbt));
 		}
 	}
 
@@ -279,13 +275,13 @@ public class NetworkModel
 		pane.setEditorKit(htmlKit);
 		ExtendedHTMLDocument extDoc =
 				(ExtendedHTMLDocument) (htmlKit.createDefaultDocument());
-		extDoc.putProperty("number", Integer.valueOf(0));
+		extDoc.putProperty("number", 0);
 		logPane.add("Logs", new JScrollPane(pane));
 
 		JTextPane pane2 = new JTextPane();
 		EditorKit kit = pane2.getEditorKit();
 		Document doc = kit.createDefaultDocument();
-		doc.putProperty("number", Integer.valueOf(1));
+		doc.putProperty("number", 1);
 	}
 
 	public void log(String title, String message)
@@ -468,13 +464,9 @@ public class NetworkModel
 	{
 		if (combat != null)
 		{
-			for (InitHolder iH : combat)
-			{
-				if (iH instanceof Combatant)
-				{
-					sendCombatant((Combatant) iH);
-				}
-			}
+			combat.stream()
+					.filter(v -> v instanceof Combatant)
+					.forEach((InitHolder v) -> sendCombatant((Combatant) v));
 		}
 	}
 
@@ -490,7 +482,6 @@ public class NetworkModel
 		 *
 		 * @param owner the owner of the message being logged.
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String owner, String message)
@@ -506,7 +497,6 @@ public class NetworkModel
 		 * Logs a message not associated with a specific owner.
 		 *
 		 * @param message the message to log.
-		 *@since        GMGen 3.3
 		 */
         @Override
 		public void logMessage(String message)
@@ -564,7 +554,7 @@ public class NetworkModel
 		}
 	}
 
-	private class TabFocusListener implements FocusListener
+	private class TabFocusListener extends FocusAdapter
 	{
         @Override
 		public void focusGained(FocusEvent evt)
@@ -572,15 +562,6 @@ public class NetworkModel
 			clearIcon();
 		}
 
-		/**
-		 * This method currently does nothing
-		 * @param evt
-		 */
-        @Override
-		public void focusLost(FocusEvent evt)
-		{
-			// Do Nothing
-		}
 	}
 
 	private class MessageButtonActionListener implements ActionListener

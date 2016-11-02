@@ -112,7 +112,7 @@ public class AutoEquipmentFacet extends
 	 */
 	public List<Equipment> getAutoEquipment(CharID id)
 	{
-		List<Equipment> list = new ArrayList<Equipment>();
+		List<Equipment> list = new ArrayList<>();
 		for (QualifiedObject<CDOMReference<Equipment>> qo : getQualifiedSet(id))
 		{
 			Collection<Equipment> equipList = qo.getRawObject().getContainedObjects();

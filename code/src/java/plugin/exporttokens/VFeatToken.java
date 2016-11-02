@@ -18,11 +18,8 @@ import pcgen.util.enumeration.View;
 /**
  * <code>VFeatToken</code> deals with VFEAT output token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author karianna
- * @version $Revision$
  */
 public class VFeatToken extends AbilityToken
 {
@@ -58,7 +55,7 @@ public class VFeatToken extends AbilityToken
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 										   final AbilityCategory aCategory)
 	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)
@@ -74,9 +71,6 @@ public class VFeatToken extends AbilityToken
 		return listOfAbilities;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected Nature getTargetNature()
 	{

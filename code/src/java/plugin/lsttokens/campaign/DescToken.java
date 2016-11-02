@@ -33,11 +33,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>DescToken</code> parses the DESC token for campaigns.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DescToken extends AbstractNonEmptyToken<Campaign> implements
 		CDOMPrimaryToken<Campaign>

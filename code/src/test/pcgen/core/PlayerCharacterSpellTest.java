@@ -45,11 +45,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * code in PlayerCharacter and associated objects.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
@@ -87,7 +84,7 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(divineClass);
 		
 		final String domainLine = "Sun	SPELLLEVEL:DOMAIN|Sun=1|KEY_domainSpell";
-		GenericLoader<Domain> domainLoader = new GenericLoader<Domain>(Domain.class);
+		GenericLoader<Domain> domainLoader = new GenericLoader<>(Domain.class);
 		domainLoader.parseLine(context, null, domainLine, source);
 		sunDomain = context.getReferenceContext().silentlyGetConstructedCDOMObject(Domain.class, "Sun");
 

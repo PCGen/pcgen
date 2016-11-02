@@ -129,7 +129,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (LevelCommandFactory lcf : added)
 		{
 			StringBuilder sb = new StringBuilder();

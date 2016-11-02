@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -228,7 +226,7 @@ public abstract class AbstractPrerequisiteListParser
 						String requirementKey = getRequirementKey(tokens);
 						subreq.setKey(requirementKey);
 						// now back fill all of the previous prereqs with this minimum
-						for (Prerequisite p : new ArrayList<Prerequisite>(prereq.getPrerequisites()))
+						for (Prerequisite p : new ArrayList<>(prereq.getPrerequisites()))
 						{
 							if (p.getOperand().equals("-99"))
 							{

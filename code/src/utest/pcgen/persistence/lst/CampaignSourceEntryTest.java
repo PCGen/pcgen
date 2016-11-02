@@ -36,7 +36,6 @@ import org.junit.Test;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class CampaignSourceEntryTest
 {
@@ -44,7 +43,7 @@ public class CampaignSourceEntryTest
 	private URI sourceUri;
 	
 	@Before
-	public void testSetup() throws Exception
+	public void setup() throws Exception
 	{
 		sourceUri = new URI("file://CampaignSourceEntryTest");
 	}

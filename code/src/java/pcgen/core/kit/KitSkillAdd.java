@@ -29,8 +29,7 @@ import pcgen.core.Skill;
 /**
  * <code>KitSkillAdd</code>.
  *
- * @author Bryan McRoberts <merton_monk@yahoo.com>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  */
 public final class KitSkillAdd //implements java.io.Serializable
 {

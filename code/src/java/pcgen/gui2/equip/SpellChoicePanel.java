@@ -50,8 +50,7 @@ import pcgen.system.LanguageBundle;
 /**
  * SpellChoicePanel provides the user interface for the user to select a spell.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellChoicePanel extends JPanel
@@ -238,9 +237,6 @@ public class SpellChoicePanel extends JPanel
 			this.box = box;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<String> e)
 		{

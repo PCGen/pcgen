@@ -232,7 +232,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	@Override
 	public ClassIdentity<T> getClassIdentity()
 	{
-		return CategorizedClassIdentity.getInstance(underlyingClass,
+		return CategorizedClassIdentity.getIdentity(underlyingClass,
 			category.get());
 	}
 
@@ -313,7 +313,7 @@ public class CategorizedChooseInformation<T extends Categorized<T>> implements
 	@Override
 	public ChoiceManagerList<T> getChoiceManager(ChooseDriver owner, int cost)
 	{
-		return new CDOMChoiceManager<T>(owner, this, null, cost);
+		return new CDOMChoiceManager<>(owner, this, null, cost);
 	}
 
 	@Override

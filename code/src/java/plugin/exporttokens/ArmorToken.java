@@ -292,7 +292,7 @@ public class ArmorToken extends Token
 	{
 		// select all pieces of equipment of status==equipped
 		// filter all AC relevant stuff
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : aPC.getEquipmentListInOutputOrder(merge))
 		{
@@ -418,7 +418,7 @@ public class ArmorToken extends Token
 		String subtype, String property, int equipped, int merge,
 		PlayerCharacter aPC, ExportHandler eh)
 	{
-		final List<Equipment> aArrayList = new ArrayList<Equipment>();
+		final List<Equipment> aArrayList = new ArrayList<>();
 
 		for (Equipment eq : aPC.getEquipmentOfTypeInOutputOrder(type, subtype,
 			equipped, merge))

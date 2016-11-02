@@ -17,18 +17,18 @@
  */
 package actor.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.core.Skill;
-import plugin.lsttokens.add.SkillToken;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
+import plugin.lsttokens.add.SkillToken;
 
 public class SkillTokenTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	static SkillToken pca = new SkillToken();
+	private static final Persistent<Skill> pca = new SkillToken();
 
 	@Test
 	public void testEmpty()

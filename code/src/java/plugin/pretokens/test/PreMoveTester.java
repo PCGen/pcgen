@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -31,23 +29,15 @@ import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteException;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
  * Passes PREMOVE tags
  */
-public class PreMoveTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreMoveTester extends AbstractDisplayPrereqTest
 {
 
-	/** Constructor */
-	public PreMoveTester()
-	{
-		super();
-	}
-
-	/* 
+	/*
 	 * (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter)
 	 */

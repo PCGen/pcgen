@@ -24,20 +24,18 @@
 
 package pcgen.util;
 
-import org.junit.Test;
-import org.nfunk.jep.ParseException;
+import java.util.regex.Matcher;
+
 import pcgen.PCGenTestCase;
 
-import java.util.regex.Matcher;
+import org.junit.Test;
+import org.nfunk.jep.ParseException;
 
 /**
  * <code>ParameterTreeTest</code> is ...
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author andrew wilson <nuance@users.sourceforge.net>
- * @version $Revision$
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {

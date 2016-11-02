@@ -47,11 +47,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 /**
  * <code>SpellListTokenTest</code> is ...
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class SpellListTokenTest extends AbstractCharacterTestCase
@@ -89,7 +86,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 
 		SettingsHandler.getGame().setSpellBaseDC("10+SPELLLEVEL+BASESPELLSTAT");
 
-		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<BonusSpellInfo>(
+		SimpleLoader<BonusSpellInfo> bonusSpellLoader = new SimpleLoader<>(
 				BonusSpellInfo.class);
 		try
 		{

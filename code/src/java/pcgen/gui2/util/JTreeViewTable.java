@@ -77,7 +77,7 @@ import pcgen.util.ListMap;
  * <br>setTableHeader(JTableHeader)
  * <br>setAutoCreateColumnsFromModel(boolean);
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class JTreeViewTable<T> extends JTreeTable
@@ -112,7 +112,7 @@ public class JTreeViewTable<T> extends JTreeTable
 
 	protected <TM> TreeViewTableModel<TM> createDefaultTreeViewTableModel(DataView<TM> dataView)
 	{
-		return new TreeViewTableModel<TM>(dataView);
+		return new TreeViewTableModel<>(dataView);
 	}
 
 	private JCheckBoxMenuItem createMenuItem(TableColumn column)
@@ -177,9 +177,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		return model;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void configureEnclosingScrollPane()
 	{
@@ -205,9 +202,6 @@ public class JTreeViewTable<T> extends JTreeTable
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected void unconfigureEnclosingScrollPane()
 	{
@@ -235,7 +229,7 @@ public class JTreeViewTable<T> extends JTreeTable
 	/**
 	 * This returns data that is currently highlighted by the user. This may
 	 * include branch nodes which are of type Object and not the type managed by
-	 * the table model. Hence we cannot use <T> here.
+	 * the table model. Hence we cannot use &lt;T&gt; here.
 	 *
 	 * @return A list of selected leaf and branch rows.
 	 */
@@ -246,7 +240,7 @@ public class JTreeViewTable<T> extends JTreeTable
 		{
 			return Collections.emptyList();
 		}
-		List<Object> data = new ArrayList<Object>(paths.length);
+		List<Object> data = new ArrayList<>(paths.length);
 		for (TreePath path : paths)
 		{
 			DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getLastPathComponent();

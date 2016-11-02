@@ -109,10 +109,10 @@ public class ChooseFeatToken extends AbstractTokenWithSeparator<CDOMObject> impl
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<Ability>(coll);
+		PrimitiveChoiceSet<Ability> pcs = new CollectionToChoiceSet<>(coll);
 		//Tricky for compatibility...
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>("ABILITY",
+				new CategorizedChooseInformation<>("ABILITY",
 						CDOMDirectSingleRef.getRef(AbilityCategory.FEAT), pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);

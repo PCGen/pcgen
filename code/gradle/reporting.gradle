@@ -1,5 +1,4 @@
-/*
- * PCGen code quality tasks. This file specifies the code quality
+/* PCGen code quality tasks. This file specifies the code quality
  * reports to be run as part of the PCGen nightly build. It is
  * called from the main build.gradle file.
  *
@@ -7,10 +6,6 @@
  * 
  * Author: James Dempsey 
  */
-
-apply plugin: 'checkstyle'
-apply plugin: 'pmd'
-apply plugin: 'jdepend'
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
@@ -25,13 +20,26 @@ pmd {
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
 	ignoreFailures = true
-	sourceSets = [] // This ensures pmd does not run on a normal build, use pmdmain to execute
-	toolVersion = "5.1.0"
+	sourceSets = []
+	toolVersion = "5.5.1"
 }
 
-jdepend {
+findbugs {
 	ignoreFailures = true
+//	effort = 'max'
 	sourceSets = []
 }
 
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'jdependMain'] }
+tasks.withType(FindBugs) {
+	reports {
+		xml.enabled false
+		html.enabled true
+		html.stylesheet resources.text.fromFile('code/standards/fancy-hist.xsl')
+		excludeFilterConfig resources.text.fromFile('code/standards/findbugs_ignore.xml')
+		reportLevel 'low'
+		// While these can be filtered out later, there is a minor speedup to disabling them here.
+		omitVisitors = ['Naming', 'CrossSiteScripting', 'DontUseEnum', 'FinalParameters', 'ImmatureClass',
+						'DoInsideDoPrivileged', 'CyclomaticComplexity']
+	}
+}
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain'] }

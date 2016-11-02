@@ -81,12 +81,9 @@ import pcgen.system.LanguageBundle;
  * The Class <code>EquipCustomPanel</code> displays an available/selected table 
  * pair to allow the creation of a custom piece of equipment.. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class EquipCustomPanel extends FlippingSplitPane
@@ -135,11 +132,11 @@ public class EquipCustomPanel extends FlippingSplitPane
 		this.character = character;
 		this.builder = builder;
 		validHeads =
-				new DefaultListFacade<EquipmentBuilderFacade.EquipmentHead>(
-					builder.getEquipmentHeads());
+                new DefaultListFacade<>(
+                        builder.getEquipmentHeads());
 
-		this.availableTable = new FilteredTreeViewTable<Object, EquipModFacade>();
-		this.selectedTable = new FilteredTreeViewTable<Object, EquipModFacade>();
+		this.availableTable = new FilteredTreeViewTable<>();
+		this.selectedTable = new FilteredTreeViewTable<>();
 		this.nameButton = new JButton();
 		this.spropButton = new JButton();
 		this.costButton = new JButton();
@@ -172,9 +169,9 @@ public class EquipCustomPanel extends FlippingSplitPane
 	private void initHeadMaps()
 	{
 		availEqmodModelMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, EquipCustomPanel.EquipModTreeViewModel>();
+                new HashMap<>();
 		selectedEqmodModelMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, EquipCustomPanel.EquipModTreeViewModel>();
+                new HashMap<>();
 		
 		for (EquipmentHead head : validHeads)
 		{
@@ -219,7 +216,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		upperPanel.add(topPane, BorderLayout.CENTER);
 
 		JPanel availPanel = new JPanel(new BorderLayout());
-		FilterBar<Object, EquipModFacade> bar = new FilterBar<Object, EquipModFacade>();
+		FilterBar<Object, EquipModFacade> bar = new FilterBar<>();
 		bar.addDisplayableFilter(new SearchFilterPanel());
 		availPanel.add(bar, BorderLayout.NORTH);
 
@@ -298,7 +295,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		bottomPane.setLeftComponent(equipModInfoPane);
 		bottomPane.setRightComponent(equipInfoPane);
 		setBottomComponent(bottomPane);
-		setResizeWeight(.75);
+		setResizeWeight(0.75);
 	}
 
 	/**
@@ -586,7 +583,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 			this.builder = builder;
 			this.head = head;
 			this.isAvailModel = isAvailModel;
-			equipMods = new FilteredListFacade<EquipmentBuilderFacade, EquipModFacade>();
+			equipMods = new FilteredListFacade<>();
 			equipMods.setContext(builder);
 			equipMods.setFilter(this);
 			if (isAvailModel)
@@ -683,9 +680,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			return true;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -699,7 +693,7 @@ public class EquipCustomPanel extends FlippingSplitPane
 		NAME(LanguageBundle.getString("in_nameLabel")), //$NON-NLS-1$
 		TYPE_NAME(LanguageBundle.getString("in_typeName")), //$NON-NLS-1$
 		SOURCE_NAME(LanguageBundle.getString("in_sourceName")); //$NON-NLS-1$
-		private String name;
+		private final String name;
 
 		private EquipModTreeView(String name)
 		{
@@ -719,14 +713,14 @@ public class EquipCustomPanel extends FlippingSplitPane
 			switch (this)
 			{
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<EquipModFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				case TYPE_NAME:
 					TreeViewPath<EquipModFacade> path =
 							createTreeViewPath(pobj, (Object[]) pobj
 								.getDisplayType().split("\\.")); //$NON-NLS-1$
 					return Arrays.asList(path);
 				case SOURCE_NAME:
-					return Collections.singletonList(new TreeViewPath<EquipModFacade>(pobj, pobj.getSourceForNodeDisplay()));
+					return Collections.singletonList(new TreeViewPath<>(pobj, pobj.getSourceForNodeDisplay()));
 				default:
 					throw new InternalError();
 			}
@@ -738,18 +732,18 @@ public class EquipCustomPanel extends FlippingSplitPane
 		 * @param path The paths under which the equipment modifier should be shown.
 		 * @return The TreeViewPath.
 		 */
-		protected static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj,
-																	Object... path)
+		private static TreeViewPath<EquipModFacade> createTreeViewPath(EquipModFacade pobj,
+		                                                               Object... path)
 		{
 			if (path.length == 0)
 			{
-				return new TreeViewPath<EquipModFacade>(pobj);
+				return new TreeViewPath<>(pobj);
 			}
 			if (path.length > 2)
 			{
-				return new TreeViewPath<EquipModFacade>(pobj, new Object[]{path[0], path[1]});
+				return new TreeViewPath<>(pobj, path[0], path[1]);
 			}
-			return new TreeViewPath<EquipModFacade>(pobj, path);
+			return new TreeViewPath<>(pobj, path);
 		}
 
 	}
@@ -762,8 +756,8 @@ public class EquipCustomPanel extends FlippingSplitPane
 		public HeadBoxModel()
 		{
 			setListFacade(validHeads);
-			headRef = new DefaultReferenceFacade<EquipmentBuilderFacade.EquipmentHead>(
-				currentHead);
+			headRef = new DefaultReferenceFacade<>(
+                    currentHead);
 			setReference(headRef);
 		}
 
@@ -777,9 +771,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			selectedTable.setTreeViewModel(selectedEqmodModelMap.get(currentHead));
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<EquipmentHead> e)
 		{
@@ -803,9 +794,6 @@ public class EquipCustomPanel extends FlippingSplitPane
 			builder.setSize((SizeAdjustmentFacade) anItem);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void referenceChanged(ReferenceEvent<SizeAdjustmentFacade> e)
 		{

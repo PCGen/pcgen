@@ -47,9 +47,6 @@ public class AbilitySelectionTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Ability>
 {
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{

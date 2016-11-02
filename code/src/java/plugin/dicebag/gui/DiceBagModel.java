@@ -18,10 +18,10 @@
 package plugin.dicebag.gui;
 
 import gmgen.GMGenSystem;
-import org.jdom.Document;
-import org.jdom.Element;
-import org.jdom.input.SAXBuilder;
-import org.jdom.output.XMLOutputter;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.jdom2.output.XMLOutputter;
 import pcgen.util.Logging;
 
 import javax.swing.JOptionPane;
@@ -31,7 +31,7 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.Observable;
-import org.jdom.output.Format;
+import org.jdom2.output.Format;
 import pcgen.core.RollingMethods;
 
 /**
@@ -40,10 +40,10 @@ import pcgen.core.RollingMethods;
  *
  * @author Ross Lodge
  */
-public class DiceBagModel extends Observable
+class DiceBagModel extends Observable
 {
 	/** List of dice strings. */
-	private List<String> m_dice = new ArrayList<String>();
+	private List<String> m_dice = new ArrayList<>();
 
 	/** File path of the last file this bag was saved to, or loaded from. */
 	private String m_filePath;
@@ -57,18 +57,9 @@ public class DiceBagModel extends Observable
 	/**
 	 * <p>Default constructor.</p>
 	 */
-	public DiceBagModel()
+	DiceBagModel()
 	{
-	}
-
-	/**
-	 * <p>Constructs a dicebag with the requested name.</p>
-	 * @param name Name for new dicebag.
-	 */
-	public DiceBagModel(String name)
-	{
-		this();
-		m_name = name;
+		super();
 	}
 
 	/**
@@ -77,7 +68,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @param file File to load the dicebag data from.
 	 */
-	public DiceBagModel(File file)
+	DiceBagModel(File file)
 	{
 		this();
 		loadFromFile(file);
@@ -88,7 +79,7 @@ public class DiceBagModel extends Observable
 	 *
 	 * @return true/false
 	 */
-	public boolean isBagEmpty()
+	boolean isBagEmpty()
 	{
 		return m_dice.isEmpty();
 	}

@@ -31,11 +31,8 @@ import java.util.Map;
  * stage. Items can be added to the map, removed from the map or the map 
  * can be cleared.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapChanges<K, V>
 {

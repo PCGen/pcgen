@@ -1,8 +1,26 @@
+/*
+ * ListSkillCost.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
 package pcgen.cdom.facet.analysis;
 
 import java.util.ArrayList;
 import java.util.Collection;
-import java.util.Iterator;
 import java.util.List;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -51,7 +69,7 @@ public class ListSkillCostFacet extends
 		CharID id = dfce.getCharID();
 		for (CDOMReference ref : cdo.getModifiedLists())
 		{
-			List<ClassSkillList> useList = new ArrayList<ClassSkillList>();
+			List<ClassSkillList> useList = new ArrayList<>();
 			for (Object list : ref.getContainedObjects())
 			{
 				if (list instanceof ClassSkillList)
@@ -64,11 +82,8 @@ public class ListSkillCostFacet extends
 				Collection<CDOMReference<Skill>> mods = cdo.getListMods(ref);
 				for (CDOMReference<Skill> skRef : mods)
 				{
-					for (Iterator<AssociatedPrereqObject> iterator =
-							cdo.getListAssociations(ref, skRef).iterator(); iterator
-						.hasNext();)
+					for (AssociatedPrereqObject apo : (Iterable<AssociatedPrereqObject>) cdo.getListAssociations(ref, skRef))
 					{
-						AssociatedPrereqObject apo = iterator.next();
 						SkillCost sc =
 								apo.getAssociation(AssociationKey.SKILL_COST);
 						for (ClassSkillList csl : useList)

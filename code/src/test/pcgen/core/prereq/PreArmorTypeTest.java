@@ -34,11 +34,8 @@ import pcgen.util.TestHelper;
  * <code>PreArmorTypeTest</code> tests that the PREARMORTYPE tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreArmorTypeTest extends AbstractCharacterTestCase
 {

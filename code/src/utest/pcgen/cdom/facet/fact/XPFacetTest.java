@@ -46,7 +46,7 @@ public class XPFacetTest extends TestCase
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
 		facet = getMockFacet();
-		minXP = new HashMap<Integer, Integer>();
+		minXP = new HashMap<>();
 		minXP.put(1, 0);
 		minXP.put(2, 1000);
 	}
@@ -163,7 +163,7 @@ public class XPFacetTest extends TestCase
 	}
 
 	public XPFacet getMockFacet() throws SecurityException,
-		NoSuchFieldException, IllegalArgumentException, IllegalAccessException
+			IllegalArgumentException
 	{
 		XPFacet f = new XPFacet();
 		LevelFacet fakeFacet = new LevelFacet()

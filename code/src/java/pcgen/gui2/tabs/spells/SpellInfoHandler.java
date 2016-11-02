@@ -33,7 +33,7 @@ import pcgen.gui2.util.JTreeViewTable;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class SpellInfoHandler implements ListSelectionListener
 {

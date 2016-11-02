@@ -38,8 +38,7 @@ import pcgen.core.Race;
  * Created on February 19, 2003<br>
  * Updated on March 12, 2003
  * 
- * @author John Dells <JohnDells@woh.rr.com>
- * @version 2.10
+ * @author John Dells &lt;JohnDells@woh.rr.com&gt;
  */
 public class EncounterModel extends DefaultListModel
 {
@@ -92,7 +91,7 @@ public class EncounterModel extends DefaultListModel
 			cr = 0;
 		}
 
-		return (int) (cr + .5);
+		return (int) (cr + 0.5);
 	}
 
 	/**

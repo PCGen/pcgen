@@ -24,7 +24,6 @@ import java.io.File;
 /**
  * This class is used to set the file filters in add/save dialogs.
  * @author Expires 2003
- * @version 2.10
  */
 public class SimpleFileFilter extends FileFilter
 {
@@ -93,7 +92,7 @@ public class SimpleFileFilter extends FileFilter
 	 * @return true / false on user acceptance.
 	 */
     @Override
-	public boolean accept(File f)
+	public boolean accept(final File f)
 	{
 		//we always allow directories, regardless of their extension
 		if (f.isDirectory())

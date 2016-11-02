@@ -39,11 +39,8 @@ import pcgen.util.TestHelper;
  * <code>StatListTest</code> checks the function of the 
  * StatList class. 
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class StatListTest extends AbstractCharacterTestCase
 {

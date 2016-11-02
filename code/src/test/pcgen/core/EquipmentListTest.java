@@ -27,7 +27,7 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -36,14 +36,11 @@ import pcgen.util.TestHelper;
 /**
  * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
-public class EquipmentListTest extends PCGenTestCase
+public class EquipmentListTest extends TestCase
 {
 
 	private Equipment eq = null;
@@ -82,7 +79,7 @@ public class EquipmentListTest extends PCGenTestCase
 	}
 
 	/**
-	 * @see pcgen.PCGenTestCase#setUp()
+	 * @see junit.framework.TestCase#setUp()
 	 */
 	@Override
 	public void setUp() throws Exception

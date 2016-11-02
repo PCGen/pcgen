@@ -21,7 +21,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import pcgen.base.calculation.Modifier;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
@@ -242,7 +242,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 					+ " had too many arguments: " + value, context);
 			}
 		}
-		Modifier<?> modifier;
+		PCGenModifier<?> modifier;
 		try
 		{
 			FormatManager<?> format =
@@ -282,7 +282,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 			return null;
 		}
 		Collection<RemoteModifier<?>> added = changes.getAdded();
-		List<String> modifiers = new ArrayList<String>();
+		List<String> modifiers = new ArrayList<>();
 		if (added != null && added.size() > 0)
 		{
 			for (RemoteModifier<?> rm : added)
@@ -294,7 +294,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 				sb.append(Constants.PIPE);
 				sb.append(og.getIdentifier());
 				sb.append(Constants.PIPE);
-				sb.append(vm.varName);
+				sb.append(vm.getVarName());
 				sb.append(Constants.PIPE);
 				sb.append(unparseModifier(vm));
 				modifiers.add(sb.toString());
@@ -310,7 +310,7 @@ public class ModifyOtherLst extends AbstractTokenWithSeparator<CDOMObject>
 
 	private String unparseModifier(VarModifier<?> vm)
 	{
-		Modifier<?> modifier = vm.modifier;
+		PCGenModifier<?> modifier = vm.getModifier();
 		String type = modifier.getIdentification();
 		int userPriority = modifier.getUserPriority();
 		StringBuilder sb = new StringBuilder();

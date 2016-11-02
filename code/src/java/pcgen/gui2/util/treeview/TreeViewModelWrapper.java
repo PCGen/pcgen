@@ -26,7 +26,7 @@ import pcgen.facade.util.ListFacades;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TreeViewModelWrapper<E> implements TreeViewModel<E>
 {
@@ -36,7 +36,7 @@ public class TreeViewModelWrapper<E> implements TreeViewModel<E>
 
     public TreeViewModelWrapper(TreeViewModel<E> treeviewModel)
     {
-        this(treeviewModel, new DefaultListFacade<E>());
+        this(treeviewModel, new DefaultListFacade<>());
 		dataModel.setContents(ListFacades.wrap(treeviewModel.getDataModel()));
     }
 

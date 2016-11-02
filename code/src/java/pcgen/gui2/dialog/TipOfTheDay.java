@@ -57,13 +57,12 @@ import pcgen.system.LanguageBundle;
 /**
  *
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision: 1256 $
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class TipOfTheDay extends JDialog implements ActionListener
 {
 
-	static final long serialVersionUID = 6109389084434712217L;
+	private static final long serialVersionUID = 6109389084434712217L;
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 	private static final String NEXT = "next";
 	private static final String PREV = "prev";
@@ -89,7 +88,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		tipHandler.loadTips();
 
 		pack();
-		
+
 		Utility.installEscapeCloseOperation(this);
 
 		showNextTip();
@@ -135,15 +134,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		JLabel iconLabel;
 		final Icon icon = Icons.TipOfTheDay24.getImageIcon();
 
-		if (icon != null)
-		{
-			iconLabel = new JLabel(icon);
-		}
-		else
-		{
-			// XXX Should probably do: Logging.errorPrintLocalised("Missing icon");
-			iconLabel = new JLabel("TipOfTheDay24.gif");
-		}
+		iconLabel = icon != null ? new JLabel(icon) : new JLabel("TipOfTheDay24.gif");
 
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);

@@ -22,7 +22,7 @@
  */
 package pcgen.io.migration;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -33,9 +33,8 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * 
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
-public class SourceMigrationTest extends PCGenTestCase
+public class SourceMigrationTest extends TestCase
 {
 	
 	private String gameMode;
@@ -43,6 +42,7 @@ public class SourceMigrationTest extends PCGenTestCase
 	/**
 	 * @throws java.lang.Exception
 	 */
+	@Override
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -67,9 +67,11 @@ public class SourceMigrationTest extends PCGenTestCase
 		SystemCollections.addToMigrationRulesList(sourceRuleDiffGame, "modern");
 	}
 
-	public void tearDown()
+	@Override
+	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
+		super.tearDown();
 	}
 
 	/**

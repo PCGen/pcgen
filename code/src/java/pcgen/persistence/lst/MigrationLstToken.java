@@ -28,12 +28,9 @@ import pcgen.core.system.MigrationRule;
  * The Interface <code>MigrationLstToken</code> defines a token
  * as being callable by the MigrationLoader.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface MigrationLstToken extends LstToken
 {

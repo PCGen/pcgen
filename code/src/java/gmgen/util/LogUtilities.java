@@ -29,9 +29,8 @@ import java.util.List;
  *  plugins.
  *
  *@author     Tod Milam
- *@since      GMGen 3.3
  */
-public class LogUtilities implements LogReceiver
+public final class LogUtilities implements LogReceiver
 {
 	private static LogUtilities singleton = null;
 	private List<LogReceiver> receivers;
@@ -41,19 +40,17 @@ public class LogUtilities implements LogReceiver
 	 *  The private constructor. Called by inst to create the singleton instance if
 	 *  it doesn't already exist.
 	 *
-	 *@since    GMGen 3.3
 	 */
 	private LogUtilities()
 	{
 		logging = false;
-		receivers = new ArrayList<LogReceiver>();
+		receivers = new ArrayList<>();
 	}
 
 	/**
 	 *  Returns the singleton instance of the LogUtilties class.
 	 *
 	 *@return    LogUtilities the singleton instance of this class.
-	 *@since     GMGen 3.3
 	 */
 	public static LogUtilities inst()
 	{
@@ -90,7 +87,6 @@ public class LogUtilities implements LogReceiver
 	 *
 	 * @param  owner    The owning component of the message
 	 * @param  message  The message to send
-	 * @since        GMGen 3.3
 	 */
     @Override
 	public void logMessage(String owner, String message)
@@ -109,7 +105,6 @@ public class LogUtilities implements LogReceiver
 	 * Log a message without an owner - from LogReceiver
 	 *
 	 * @param  message  The message to send
-	 * @since        GMGen 3.3
 	 */
     @Override
 	public void logMessage(String message)

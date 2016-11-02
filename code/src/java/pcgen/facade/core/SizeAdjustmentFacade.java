@@ -28,8 +28,7 @@ package pcgen.facade.core;
  * interact with Size Adjustment objects.  
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface SizeAdjustmentFacade extends InfoFacade
 {

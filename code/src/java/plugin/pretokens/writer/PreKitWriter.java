@@ -34,8 +34,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 /**
  * Writes PREKIT token
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreKitWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

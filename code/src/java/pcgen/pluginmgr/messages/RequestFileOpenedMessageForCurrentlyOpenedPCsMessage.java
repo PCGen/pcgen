@@ -29,12 +29,9 @@ import pcgen.pluginmgr.PCGenMessage;
  * encapsulates a request to have PCGen send out open messages sent for each 
  * already open PC.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")

@@ -59,12 +59,10 @@ import pcgen.util.enumeration.Tab;
  * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to be
  * implemented description tab.
  *
- * <br/>
- * Last Editor: $Author: jdempsey $ Last Edited: $Date: 2010-09-29 05:59:43
+ * <br>
  * -0700 (Wed, 29 Sep 2010) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 13208 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DescriptionInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -138,7 +136,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	{
 		ModelMap models = new ModelMap();
 		DefaultListModel listModel = new DefaultListModel();
-		List<NoteInfoPane> notePaneList = new ArrayList<NoteInfoPane>();
+		List<NoteInfoPane> notePaneList = new ArrayList<>();
 
 		PageItem firstPage = new PageItem(character, LanguageBundle.getString("in_descBiography"), bioPane); //$NON-NLS-1$
 		listModel.addElement(firstPage);
@@ -245,9 +243,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<NoteFacade> e)
 		{
@@ -258,9 +253,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			addPage(notePane);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<NoteFacade> e)
 		{
@@ -303,9 +295,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<NoteFacade> e)
 		{
@@ -320,9 +309,6 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<NoteFacade> e)
 		{

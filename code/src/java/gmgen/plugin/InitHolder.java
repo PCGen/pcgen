@@ -25,12 +25,10 @@ package gmgen.plugin;
 import java.util.List;
 import java.util.Vector;
 
-import org.jdom.Element;
+import org.jdom2.Element;
 
 /**
  *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
  */
 public interface InitHolder
 {

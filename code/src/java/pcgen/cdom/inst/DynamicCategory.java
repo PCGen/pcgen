@@ -18,13 +18,11 @@
 package pcgen.cdom.inst;
 
 import pcgen.base.formula.base.LegalScope;
-import pcgen.cdom.base.Category;
 import pcgen.cdom.formula.scope.GlobalScope;
 import pcgen.cdom.helper.SpringHelper;
-import pcgen.cdom.reference.ManufacturableFactory;
 
 public final class DynamicCategory extends AbstractCategory<Dynamic> implements
-		Category<Dynamic>, ManufacturableFactory<Dynamic>, LegalScope
+		LegalScope
 {
 	@Override
 	public Class<Dynamic> getReferenceClass()

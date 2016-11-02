@@ -112,7 +112,7 @@ import pcgen.util.enumeration.Tab;
  * This component displays a basic summary of a character such as name,
  * alignment, race, class, and stat information.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler
@@ -234,7 +234,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		classComboBox.setRenderer(classBoxRenderer);
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.weightx = 0.1;
-		gbc.weighty = .7;
+		gbc.weighty = 0.7;
 		add(basicsPanel, gbc);
 
 		setPanelTitle(todoPanel, LanguageBundle.getString("in_tipsString")); //$NON-NLS-1$
@@ -252,7 +252,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		setPanelTitle(racePanel, LanguageBundle.getString("in_raceString")); //$NON-NLS-1$
 		setPanelTitle(classPanel, LanguageBundle.getString("in_sumClassLevel")); //$NON-NLS-1$
 		initRightPanel(rightPanel);
-		gbc.weightx = .1;
+		gbc.weightx = 0.1;
 		gbc.weighty = 1;
 		add(rightPanel, gbc);
 	}
@@ -601,9 +601,6 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		panel.add(comp, gbc);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -995,7 +992,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			classModel = new FacadeComboBoxModel<ClassFacade>(dataset.getClasses(), null);
+			classModel = new FacadeComboBoxModel<>(dataset.getClasses(), null);
 		}
 
 		public void install()
@@ -1317,7 +1314,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			CharacterStatsPanel charStatsPanel = new CharacterStatsPanel(null);
 			SinglePrefDialog prefsDialog = new SinglePrefDialog(parent, charStatsPanel);
 			charStatsPanel.setParent(prefsDialog);
-			Utility.setDialogRelativeLocation(parent, prefsDialog);
+			Utility.setComponentRelativeLocation(parent, prefsDialog);
 			prefsDialog.setVisible(true);
 			character.refreshRollMethod();
 		}
@@ -1343,7 +1340,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 			KitSelectionDialog kitDialog
 					= new KitSelectionDialog(frame, character);
-			Utility.setDialogRelativeLocation(frame, kitDialog);
+			Utility.setComponentRelativeLocation(frame, kitDialog);
 			kitDialog.setVisible(true);
 		}
 
@@ -1640,7 +1637,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			StringBuilder todoText = new StringBuilder("<html><body>"); //$NON-NLS-1$
 
 			int i = 1;
-			SortedSet<TodoFacade> sortedTodos = new TreeSet<TodoFacade>();
+			SortedSet<TodoFacade> sortedTodos = new TreeSet<>();
 			for (TodoFacade item : character.getTodoList())
 			{
 				sortedTodos.add(item);

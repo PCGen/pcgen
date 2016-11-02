@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -96,7 +94,7 @@ public class AttackToken extends Token
 			// SHORT means we only return the first attack bonus
 			if ("SHORT".equalsIgnoreCase(format))
 			{
-				int sepPos = retString.indexOf("/");
+				int sepPos = retString.indexOf('/');
 				if (sepPos >= 0)
 				{
 					retString = retString.substring(0, sepPos);

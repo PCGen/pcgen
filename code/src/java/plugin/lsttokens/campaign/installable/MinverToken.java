@@ -33,11 +33,8 @@ import pcgen.util.Logging;
 /**
  * <code>MinverToken</code> parses MINVER tokens in installable campaigns.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MinverToken implements InstallLstToken
 {

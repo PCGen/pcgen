@@ -78,7 +78,7 @@ public class SizeNumToken extends AbstractIntToken<SizeAdjustment> implements
 		if (hasAny)
 		{
 			Map<Integer, SizeAdjustment> map =
-					new TreeMap<Integer, SizeAdjustment>();
+					new TreeMap<>();
 			for (SizeAdjustment sa : obj)
 			{
 				Integer sizenum = sa.get(IntegerKey.SIZENUM);

@@ -17,11 +17,10 @@
  */
 package pcgen.cdom.enumeration;
 
-import junit.framework.TestCase;
-
 import org.junit.Test;
+import static org.junit.Assert.*;
 
-public class GroupingStateTest extends TestCase
+public class GroupingStateTest
 {
 
 	@Test

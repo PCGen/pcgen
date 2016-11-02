@@ -40,11 +40,8 @@ import pcgen.util.enumeration.View;
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLSUBSET
@@ -113,7 +110,7 @@ public class SkillSubsetToken extends SkillToken
 		// Build the list of matching skills
 		String skillPrefix = details.getProperty(0);
 		int prefixLength = skillPrefix.length();
-		List<Skill> skillSubset = new ArrayList<Skill>();
+		List<Skill> skillSubset = new ArrayList<>();
 		final List<Skill> skills =
 				SkillDisplay.getSkillListInOutputOrder(pc, pc.getDisplay()
 					.getPartialSkillList(View.VISIBLE_EXPORT));

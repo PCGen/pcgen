@@ -18,8 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package plugin.lsttokens;
 
@@ -42,14 +40,14 @@ import pcgen.rules.persistence.token.ParseResult;
 
 /**
  * This class implements support for the FOLLOWERS LST token.
- * <p />
- * <b>Tag Name</b>: <code>FOLLOWERS</code>:x|y<br />
+ * <p>
+ * <b>Tag Name</b>: <code>FOLLOWERS</code>:x|y<br>
  * <b>Variables Used (x)</b>: Text (The type of companion the limit will apply
- * to).<br />
+ * to).<br>
  * <b>Variables Used (y)</b>: Number, variable or formula (Number of this type
  * of companion the master can have)
- * <p />
- * <b>What it does:</b><br/>
+ * <p>
+ * <b>What it does:</b><br>
  * <ul>
  * <li>Limits the number of the specified type of companion the master can
  * have.</li>
@@ -58,12 +56,12 @@ import pcgen.rules.persistence.token.ParseResult;
  * <li>If more than one tag is encountered the highest value is used.</li>
  * <li>The value can be adjusted with the <code>BONUS:FOLLOWERS</code> tag</li>
  * </ul>
- * <b>Where it is used:</b><br />
+ * <b>Where it is used:</b><br>
  * Global tag, would most often be used in class and feat (ability) files,
  * should also be enabled for templates and Domains.
- * <p />
- * <b>Examples:</b><br />
- * <code>FOLLOWERS:Familiar|1</code><br />
+ * <p>
+ * <b>Examples:</b><br>
+ * <code>FOLLOWERS:Familiar|1</code><br>
  * A character is allowed only 1 companion of type Familiar
  *
  * @author divaa01
@@ -145,7 +143,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			return null;
 		}
-		TreeSet<String> returnSet = new TreeSet<String>();
+		TreeSet<String> returnSet = new TreeSet<>();
 		for (FollowerLimit fl : changes.getAdded())
 		{
 			String followerType = fl.getCompanionList().getLSTformat(false);

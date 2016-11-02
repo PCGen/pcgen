@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -100,7 +98,7 @@ public class ClassToken extends Token {
 	/**
 	 * Get the token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return token
 	 */
@@ -126,7 +124,7 @@ public class ClassToken extends Token {
 	/**
 	 * Get Level part of the class token
 	 * 
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return level token
 	 */
@@ -170,9 +168,9 @@ public class ClassToken extends Token {
 	public static List<String> getClassSpecialAbilityList(PCClass pcclass,
 			final PlayerCharacter aPC) {
 		CharacterDisplay display = aPC.getDisplay();
-		final List<String> formattedList = new ArrayList<String>();
+		final List<String> formattedList = new ArrayList<>();
 
-		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		final List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(pcclass));
 		saList.addAll(display.getResolvedSpecialAbilities(pcclass));
 		for (int i = 1; i <= display.getLevel(pcclass); i++)
@@ -256,7 +254,7 @@ public class ClassToken extends Token {
 	}
 
 	/**
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return class Type
 	 */

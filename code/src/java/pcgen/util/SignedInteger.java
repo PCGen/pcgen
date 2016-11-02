@@ -27,12 +27,9 @@ package pcgen.util;
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {
@@ -52,45 +49,30 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		this.value = value;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public double doubleValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public float floatValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int intValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public long longValue()
 	{
 		return value;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{
@@ -101,9 +83,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return String.valueOf(value);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int compareTo(SignedInteger arg0)
 	{
@@ -118,9 +97,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return -1;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -130,9 +106,6 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 		return result;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

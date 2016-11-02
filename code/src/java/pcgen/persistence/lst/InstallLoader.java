@@ -35,11 +35,8 @@ import pcgen.util.Logging;
  * defines how a data set should be installed into an existing PCGen 
  * installation.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InstallLoader extends LstLineFileLoader
 {

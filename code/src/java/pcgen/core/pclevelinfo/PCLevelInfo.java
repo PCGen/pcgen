@@ -40,8 +40,7 @@ import pcgen.core.bonus.BonusUtilities;
  *
  * Represents the data kept about a level that a PC has added.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class PCLevelInfo implements Cloneable
 {
@@ -229,7 +228,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			if (statsPreModified == null)
 			{
-				statsPreModified = new ArrayList<PCLevelInfoStat>();
+				statsPreModified = new ArrayList<>();
 			}
 
 			statList = statsPreModified;
@@ -238,7 +237,7 @@ public final class PCLevelInfo implements Cloneable
 		{
 			if (statsPostModified == null)
 			{
-				statsPostModified = new ArrayList<PCLevelInfoStat>();
+				statsPostModified = new ArrayList<>();
 			}
 
 			statList = statsPostModified;
@@ -323,7 +322,7 @@ public final class PCLevelInfo implements Cloneable
 			{
 				if (clone.statsPostModified == null)
 				{
-					clone.statsPostModified = new ArrayList<PCLevelInfoStat>();
+					clone.statsPostModified = new ArrayList<>();
 				}
 				clone.statsPostModified.add(stat);
 			}
@@ -334,7 +333,7 @@ public final class PCLevelInfo implements Cloneable
 			{
 				if (clone.statsPreModified == null)
 				{
-					clone.statsPreModified = new ArrayList<PCLevelInfoStat>();
+					clone.statsPreModified = new ArrayList<>();
 				}
 				clone.statsPreModified.add(stat);
 			}

@@ -41,11 +41,8 @@ import pcgen.rules.context.LoadContext;
  * <code>ACTokenTest</code> tests the function of the AC token and 
  * thus the calculations of armor class.  
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class AttackTokenTest extends AbstractCharacterTestCase
 {

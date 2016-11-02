@@ -38,11 +38,8 @@ import pcgen.rules.context.LoadContext;
  * <code>PreEquipBothTest</code> tests that the PREEQUIPBOTH tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreEquipBothTest extends AbstractCharacterTestCase
 {

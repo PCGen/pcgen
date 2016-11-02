@@ -24,9 +24,9 @@ public class WeakReferenceInequality implements InequalityTest<WeakReference<?>>
 {
 
     @Override
-	public String testInequality(WeakReference<?> wr1, WeakReference<?> wr2, InequalityTester t, String location)
+	public String testInequality(WeakReference<?> t1, WeakReference<?> t2, InequalityTester t, String location)
 	{
-		return t.testEquality(wr1.get(), wr2.get(), location + "/WR/");
+		return t.testEquality(t1.get(), t2.get(), location + "/WR/");
 	}
 
 }

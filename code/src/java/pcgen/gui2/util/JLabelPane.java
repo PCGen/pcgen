@@ -29,8 +29,7 @@ import javax.swing.JEditorPane;
  *  <code>JLabelPane</code> extends <code>JEditorPane</code> for PCGen
  *  Label panes
  *
- * @author <a href="mailto:jujutsunerd@users.sourceforge.net">Jonas Karlsson</a>
- * @version $Revision: 6206 $
+ * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
  */
 public final class JLabelPane extends JEditorPane
 {

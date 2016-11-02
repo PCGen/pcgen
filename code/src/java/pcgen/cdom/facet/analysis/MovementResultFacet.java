@@ -68,7 +68,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	private FormulaResolvingFacet formulaResolvingFacet;
 	private LoadFacet loadFacet;
 
-	public static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
+	private static final double[] EMPTY_DOUBLE_ARRAY = new double[0];
 
 	/**
 	 * Returns the movement value of the given type for the Player Character
@@ -247,7 +247,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 	
 					if (!found)
 					{
-						setMyMoveRates(moveType, 0.0, Double.valueOf(0.0), "", 0);
+						setMyMoveRates(moveType, 0.0, 0.0, "", 0);
 					}
 				}
 			}
@@ -524,7 +524,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 		public List<NamedValue> getMovementValues(CharID id)
 		{
-			List<NamedValue> list = new ArrayList<NamedValue>();
+			List<NamedValue> list = new ArrayList<>();
 			for (int i = 0; i < countMovementTypes(); i++)
 			{
 				list.add(new NamedValue(getMovementType(i), movement(id, i)));

@@ -19,8 +19,6 @@
  * Created on February 24, 2003, 10:29 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -36,8 +34,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * @author  Jayme Cox <jaymecox@users.sourceforge.net>
- * @version $Revision$
+ * @author  Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  **/
 public final class EquipSlotLoader extends LstLineFileLoader
 {

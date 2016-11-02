@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus;
@@ -43,9 +41,9 @@ import pcgen.util.Logging;
 /**
  * <code>Bonus</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
-public class Bonus
+public final class Bonus
 {
 	static final String BONUS_UNDEFINED = "*UNDEFINED";
 
@@ -62,7 +60,7 @@ public class Bonus
 	 */
 	public static List<BonusObj> sortBonusList(List<BonusObj> listToSort)
 	{
-		final List<BonusObj> tempList = new ArrayList<BonusObj>();
+		final List<BonusObj> tempList = new ArrayList<>();
 
 		// 'BONUS:blah|blah|Foo' depends on
 		// 'BONUS:VAR|Foo|MyGoo' which depends on
@@ -110,7 +108,7 @@ public class Bonus
 
 		listToSort = tempList;
 
-		final ArrayList<BonusObj> tempList2 = new ArrayList<BonusObj>();
+		final ArrayList<BonusObj> tempList2 = new ArrayList<>();
 
 		// go through and move all the static bonuses to the front
 		final int aSize = listToSort.size();

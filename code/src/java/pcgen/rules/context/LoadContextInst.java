@@ -53,7 +53,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
 import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 
-public abstract class LoadContextInst implements LoadContext
+abstract class LoadContextInst implements LoadContext
 {
 
 	private static final PrerequisiteWriter PREREQ_WRITER =
@@ -69,13 +69,13 @@ public abstract class LoadContextInst implements LoadContext
 	
 	private final VariableContext var;
 
-	private final List<Campaign> campaignList = new ArrayList<Campaign>();
+	private final List<Campaign> campaignList = new ArrayList<>();
 
 	private int writeMessageCount = 0;
 
 	private final TokenSupport support = new TokenSupport();
 
-	private final List<Object> dontForget = new ArrayList<Object>();
+	private final List<Object> dontForget = new ArrayList<>();
 
 	//Per file
 	private URI sourceURI;
@@ -533,7 +533,7 @@ public abstract class LoadContextInst implements LoadContext
 		if (scopeInst == null)
 		{
 			LegalScope legalScope = var.getScope("Global");
-			scopeInst = new SimpleScopeInstance(null, legalScope);
+			scopeInst = new SimpleScopeInstance(null, legalScope, "Global");
 		}
 		return scopeInst;
 	}
@@ -559,8 +559,8 @@ public abstract class LoadContextInst implements LoadContext
 			return this;
 		}
 		LoadContext parentLC = dropIntoContext(parent);
-		SimpleScopeInstance localInst =
-				new SimpleScopeInstance(parentLC.getActiveScope(), lvs);
+		SimpleScopeInstance localInst = new SimpleScopeInstance(parentLC.getActiveScope(),
+			lvs, "Context (during Load)");
 		return new DerivedLoadContext(parentLC, localInst);
 	}
 
@@ -817,8 +817,8 @@ public abstract class LoadContextInst implements LoadContext
 			else if (toScope.getParentScope().equals(currentScope))
 			{
 				//Direct drop from this
-				SimpleScopeInstance localInst =
-						new SimpleScopeInstance(scopeInst, toScope);
+				SimpleScopeInstance localInst = new SimpleScopeInstance(scopeInst,
+					toScope, "Context (during Load)");
 				return new DerivedLoadContext(this, localInst);
 			}
 			//Random jump to somewhere else...

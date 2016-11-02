@@ -20,8 +20,6 @@
  * Created on 18-Dec-2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.parser;

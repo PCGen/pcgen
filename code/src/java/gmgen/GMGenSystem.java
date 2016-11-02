@@ -20,7 +20,6 @@
  */
 package gmgen;
 
-import static pcgen.system.LanguageBundle.getFormattedString;
 import gmgen.gui.PreferencesDialog;
 import gmgen.gui.PreferencesRootTreeNode;
 import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
@@ -66,13 +65,14 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.PluginManager;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.RequestFileOpenedMessageForCurrentlyOpenedPCsMessage;
+import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
 
 
 /**
- * <code>GMGenSystem</code> is the main class of the GMGen application.
+ * {@code GMGenSystem} is the main class of the GMGen application.
  * 
  * It holds the controller for every tab as well as the menu bar.
  */
@@ -164,7 +164,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Starts the GMGen renderer
      */
     public GMGenSystem() {
-        super(getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
+        super(LanguageBundle.getFormattedString("in_gmgen_frameTitle", APPLICATION_NAME)); //$NON-NLS-1$
         pluginManager = PluginManager.getInstance();
         messageHandler = pluginManager.getPostbox();
         new Renderer().start();
@@ -208,7 +208,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Returns the GMGen version as a human-readable string.
      * 
      * @return The version
-     * @since GMGen 3.3
      */
     public static String getVersion() {
         return PCGenPropBundle.getVersionNumber();
@@ -220,7 +219,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param event
      *            event that took place
-     * @since GMGen 3.3
      */
     @Override
     public void actionPerformed(ActionEvent event) {
@@ -259,17 +257,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
             ActionListener[] listenerArray = preferencesEditItem
                     .getActionListeners();
 
-            for (int i = 0; i < listenerArray.length; i++) {
-                preferencesEditItem.removeActionListener(listenerArray[i]);
+            for (final ActionListener aListenerArray : listenerArray)
+            {
+                preferencesEditItem.removeActionListener(aListenerArray);
             }
             preferencesEditItem
-                    .addActionListener(new java.awt.event.ActionListener() {
-                        @Override
-                        public void actionPerformed(
-                                java.awt.event.ActionEvent evt) {
-                            mPreferencesActionPerformed(evt);
-                        }
-                    });
+                    .addActionListener(this::mPreferencesActionPerformed);
         }
     }
 
@@ -285,7 +278,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param message
      *            The message passed in from the bus
-     * @since GMGen 3.3
      */
     @Override
     public void handleMessage(PCGenMessage message) {
@@ -318,7 +310,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Handles the clicking on the tool menu.
      * 
-     * @since GMGen 3.3
      */
     public void handleToolsMenu() {
         // TODO
@@ -366,18 +357,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
                 Object[] args = { Boolean.TRUE };
                 prefsEnableMethod.invoke(osxAdapter, args);
             }
-        } catch (NoClassDefFoundError e) {
+        } catch (NoClassDefFoundError | ClassNotFoundException e) {
             // This will be thrown first if the OSXAdapter is loaded on a system
             // without the EAWT
             // because OSXAdapter extends ApplicationAdapter in its def
-        	// TODO Use Logging
-            System.err
-                    .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
-                            + e + ")");
-        } catch (ClassNotFoundException e) {
-            // This shouldn't be reached; if there's a problem with the
-            // OSXAdapter we should get the
-            // above NoClassDefFoundError first.
         	// TODO Use Logging
             System.err
                     .println("This version of Mac OS X does not support the Apple EAWT.  Application Menu handling has been disabled ("
@@ -394,7 +377,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            menu canceled event
-     * @since GMGen 3.3
      */
     @Override
     public void menuCanceled(MenuEvent e) {
@@ -406,7 +388,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            Menu Deselected event
-     * @since GMGen 3.3
      */
     @Override
     public void menuDeselected(MenuEvent e) {
@@ -418,7 +399,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param e
      *            the menu event that happened.
-     * @since GMGen 3.3
      */
     @Override
     public void menuSelected(MenuEvent e) {
@@ -476,7 +456,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         try {
             GMGenSystemView.getTabPane().setSelectedIndex(0);
             theView.showPane();
-        } catch (Exception e) {
+        } catch (RuntimeException e) {
             // TODO
         }
     }
@@ -553,16 +533,12 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
 
             ActionListener[] listenerArray = preferencesEditItem
                     .getActionListeners();
-            for (int i = 0; i < listenerArray.length; i++) {
-                preferencesEditItem.removeActionListener(listenerArray[i]);
+            for (final ActionListener aListenerArray : listenerArray)
+            {
+                preferencesEditItem.removeActionListener(aListenerArray);
             }
 
-            preferencesEditItem.addActionListener(new ActionListener() {
-                @Override
-                public void actionPerformed(ActionEvent evt) {
-                    mPreferencesActionPerformed(evt);
-                }
-            });
+            preferencesEditItem.addActionListener(this::mPreferencesActionPerformed);
         }
 
         systemMenuBar.add(editMenu);
@@ -636,7 +612,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * 
      * @param event
      *            - a window close event
-     * @since GMGen 3.3
      */
     private void exitForm(WindowEvent event) {
         this.setVisible(false);
@@ -646,7 +621,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
      * Initializes all the GUI components and places them in the correct place
      * on the GUI.
      * 
-     * @since GMGen 3.3
      */
     private void initComponents() {
         getContentPane().setLayout(new BorderLayout());

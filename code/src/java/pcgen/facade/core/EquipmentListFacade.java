@@ -27,7 +27,7 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 {

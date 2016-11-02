@@ -18,6 +18,7 @@
 package pcgen.cdom.meta;
 
 import java.lang.reflect.Field;
+import java.lang.reflect.Modifier;
 import java.util.Collection;
 import java.util.HashSet;
 
@@ -54,28 +55,24 @@ public final class CorePerspective
 
 	private static void buildMap()
 	{
-		map = new CaseInsensitiveMap<CorePerspective>();
+		map = new CaseInsensitiveMap<>();
 		Field[] fields = CorePerspective.class.getDeclaredFields();
-		for (int i = 0; i < fields.length; i++)
+		for (Field field : fields)
 		{
-			int mod = fields[i].getModifiers();
+			int mod = field.getModifiers();
 
-			if (java.lang.reflect.Modifier.isStatic(mod) && java.lang.reflect.Modifier.isFinal(mod)
-					&& java.lang.reflect.Modifier.isPublic(mod))
+			if (Modifier.isStatic(mod) && Modifier.isFinal(mod)
+					&& Modifier.isPublic(mod))
 			{
 				try
 				{
-					Object obj = fields[i].get(null);
+					Object obj = field.get(null);
 					if (obj instanceof CorePerspective)
 					{
-						map.put(fields[i].getName(), (CorePerspective) obj);
+						map.put(field.getName(), (CorePerspective) obj);
 					}
 				}
-				catch (IllegalArgumentException e)
-				{
-					throw new UnreachableError(e);
-				}
-				catch (IllegalAccessException e)
+				catch (IllegalArgumentException | IllegalAccessException e)
 				{
 					throw new UnreachableError(e);
 				}
@@ -85,6 +82,6 @@ public final class CorePerspective
 
 	public static Collection<CorePerspective> getAllConstants()
 	{
-		return new HashSet<CorePerspective>(map.values());
+		return new HashSet<>(map.values());
 	}
 }

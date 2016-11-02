@@ -62,21 +62,21 @@ public abstract class AbstractItemFacet<IDT extends PCGenIdentifier, T> extends
 			return false;
 		}
 		T old = get(id);
-		if (old != obj)
+		if (old == obj)
+		{
+			return false;
+		}
+		else
 		{
 			if (old != null)
 			{
 				fireDataFacetChangeEvent(id, old,
-					DataFacetChangeEvent.DATA_REMOVED);
+				                         DataFacetChangeEvent.DATA_REMOVED);
 			}
 			setCache(id, obj);
 			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_ADDED);
 
 			return true;
-		}
-		else
-		{
-			return false;
 		}
 	}
 

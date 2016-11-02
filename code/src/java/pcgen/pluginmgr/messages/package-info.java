@@ -23,12 +23,9 @@
 /**
  * The set of messages which are shared between PCGen and GMGen.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 package pcgen.pluginmgr.messages;

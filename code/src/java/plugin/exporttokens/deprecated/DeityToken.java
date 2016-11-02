@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -161,7 +159,7 @@ public class DeityToken extends Token
 			else if ("PANTHEONLIST".equals(subTag))
 			{
 				FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-				Set<String> pset = new TreeSet<String>();
+				Set<String> pset = new TreeSet<>();
 				for (Indirect<String> indirect : deity.getSafeSetFor(fk))
 				{
 					pset.add(indirect.get());
@@ -212,7 +210,7 @@ public class DeityToken extends Token
 	 */
 	public static String getSAToken(Deity deity, CharacterDisplay display)
 	{
-		final List<SpecialAbility> saList = new ArrayList<SpecialAbility>();
+		final List<SpecialAbility> saList = new ArrayList<>();
 		saList.addAll(display.getResolvedUserSpecialAbilities(deity));
 		saList.addAll(display.getResolvedSpecialAbilities(deity));
 

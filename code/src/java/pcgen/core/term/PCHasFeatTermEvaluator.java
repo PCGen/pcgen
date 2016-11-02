@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 12:05:11
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -47,7 +45,7 @@ public class PCHasFeatTermEvaluator
 		boolean hasFeat =
 				pc.hasAbilityKeyed(AbilityCategory.FEAT, feat)
 					|| pc.hasAbilityKeyed(AbilityCategory.FEAT, AbilityUtilities.removeChoicesFromName(feat));
-		return hasFeat ? 1f : 0f;
+		return hasFeat ? 1.0f : 0.0f;
 	}
 
 	@Override

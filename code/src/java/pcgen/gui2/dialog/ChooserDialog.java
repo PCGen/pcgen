@@ -88,12 +88,9 @@ import pcgen.system.PropertyContext;
  * <p>
  * This class is based heavily on Connor Petty's LanguageChooserDialog class.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>, ListSelectionListener
@@ -125,13 +122,13 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		}
 		else
 		{
-			this.availTable = new JTreeViewTable<InfoFacade>();
+			this.availTable = new JTreeViewTable<>();
 			this.availInput = null;
 		}
 		this.remainingLabel = new JLabel();
 		this.treeViewModel = new GeneralTreeViewModel();
 		this.list = new JListEx();
-		this.listModel = new FacadeListModel<InfoFacade>();
+		this.listModel = new FacadeListModel<>();
 		this.infoPane = new InfoPane();
 
 		treeViewModel.setDelegate(chooser.getAvailableList());
@@ -142,9 +139,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pack();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setVisible(boolean b)
 	{
@@ -273,7 +267,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			JSplitPane infoSplit = new JSplitPane(JSplitPane.VERTICAL_SPLIT);
 			infoSplit.setTopComponent(split);
 			infoSplit.setBottomComponent(infoPane);
-			infoSplit.setResizeWeight(.8);
+			infoSplit.setResizeWeight(0.8);
 			pane.add(infoSplit, BorderLayout.CENTER);
 			if (availTable != null)
 			{
@@ -408,7 +402,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		public ListFacade<? extends TreeView<InfoFacade>> getTreeViews()
 		{
 			DefaultListFacade<TreeView<InfoFacade>> views =
-					new DefaultListFacade<TreeView<InfoFacade>>();
+                    new DefaultListFacade<>();
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME,
 				chooser.getAvailableTableTitle(), chooser));
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.TYPE_NAME,
@@ -451,9 +445,6 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			return Collections.emptyList();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public String getPrefsKey()
 		{
@@ -462,7 +453,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private class ChooserTreeView implements TreeView<InfoFacade>
+	private final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 		
 		private String viewName;
@@ -488,10 +479,10 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			switch (viewType)
 			{
 				case TYPE_NAME:
-					List<TreeViewPath<InfoFacade>> paths = new ArrayList<TreeViewPath<InfoFacade>>();
+					List<TreeViewPath<InfoFacade>> paths = new ArrayList<>();
 					for(String type : chooser.getBranchNames(pobj))
 					{
-						paths.add(new TreeViewPath<InfoFacade>(pobj, type));
+						paths.add(new TreeViewPath<>(pobj, type));
 					}
 					if (!paths.isEmpty())
 					{
@@ -499,7 +490,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 					}
 					// Otherwise treat as a name entry
 				case NAME:
-					return Collections.singletonList(new TreeViewPath<InfoFacade>(pobj));
+					return Collections.singletonList(new TreeViewPath<>(pobj));
 				default:
 					throw new InternalError();
 			}

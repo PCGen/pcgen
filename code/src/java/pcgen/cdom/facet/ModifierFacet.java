@@ -19,6 +19,7 @@ package pcgen.cdom.facet;
 
 import java.util.List;
 
+import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.VarModifier;
@@ -36,6 +37,8 @@ import pcgen.core.Equipment;
 public class ModifierFacet implements
 		DataFacetChangeListener<CharID, CDOMObject>
 {
+	private ScopeFacet scopeFacet;
+
 	private CDOMObjectConsolidationFacet consolidationFacet;
 
 	private SolverManagerFacet solverManagerFacet;
@@ -59,9 +62,10 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
+			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)
 			{
-				processAddition(id, obj, vm);
+				processAddition(id, obj, vm, inst);
 			}
 		}
 		if (obj instanceof Equipment)
@@ -69,21 +73,23 @@ public class ModifierFacet implements
 			Equipment equip = (Equipment) obj;
 			for (EquipmentHead head : equip.getEquipmentHeads())
 			{
+				ScopeInstance inst = scopeFacet.get(id, head);
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{
 					for (VarModifier<?> vm : modifiers)
 					{
-						processAddition(id, head, vm);
+						processAddition(id, head, vm, inst);
 					}
 				}
 			}
 		}
 	}
 
-	private <T> void processAddition(CharID id, VarScoped obj, VarModifier<T> vm)
+	private <T> void processAddition(CharID id, VarScoped obj, VarModifier<T> vm,
+		ScopeInstance inst)
 	{
-		solverManagerFacet.addModifier(id, vm, obj, obj);
+		solverManagerFacet.addModifier(id, vm, obj, inst);
 	}
 
 	/**
@@ -107,9 +113,10 @@ public class ModifierFacet implements
 		List<VarModifier<?>> modifiers = obj.getListFor(ListKey.MODIFY);
 		if (modifiers != null)
 		{
+			ScopeInstance inst = scopeFacet.get(id, obj);
 			for (VarModifier<?> vm : modifiers)
 			{
-				processRemoval(id, obj, vm);
+				processRemoval(id, obj, vm, inst);
 			}
 		}
 		if (obj instanceof Equipment)
@@ -117,21 +124,28 @@ public class ModifierFacet implements
 			Equipment equip = (Equipment) obj;
 			for (EquipmentHead head : equip.getEquipmentHeads())
 			{
+				ScopeInstance inst = scopeFacet.get(id, head);
 				modifiers = head.getListFor(ListKey.MODIFY);
 				if (modifiers != null)
 				{
 					for (VarModifier<?> vm : modifiers)
 					{
-						processRemoval(id, equip, vm);
+						processRemoval(id, equip, vm, inst);
 					}
 				}
 			}
 		}
 	}
 
-	private <T> void processRemoval(CharID id, VarScoped obj, VarModifier<T> vm)
+	private <T> void processRemoval(CharID id, VarScoped obj, VarModifier<T> vm,
+		ScopeInstance inst)
 	{
-		solverManagerFacet.removeModifier(id, vm, obj, obj);
+		solverManagerFacet.removeModifier(id, vm, obj, inst);
+	}
+
+	public void setScopeFacet(ScopeFacet scopeFacet)
+	{
+		this.scopeFacet = scopeFacet;
 	}
 
 	public void setSolverManagerFacet(SolverManagerFacet solverManagerFacet)

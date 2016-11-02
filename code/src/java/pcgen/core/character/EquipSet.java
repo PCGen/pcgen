@@ -15,12 +15,10 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @author Jayme Cox <jaymecox@users.sourceforge.net>
+ * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * Created on April 29th, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.character;
@@ -80,8 +78,7 @@ import pcgen.util.Logging;
 
 /**
  * <code>EquipSet.java</code>
- * @author Jayme Cox <jaymecox@excite.com>
- * @version $Revision$
+ * @author Jayme Cox &lt;jaymecox@excite.com&gt;
  */
 public final class EquipSet implements Comparable<EquipSet>, Cloneable
 {
@@ -90,7 +87,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	
 	private Equipment eq_item;
 	private Float qty = new Float(1);
-	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+	private Map<BonusObj, BonusManager.TempBonusInfo> tempBonusBySource = new IdentityHashMap<>();
 
 	private String id_path = Constants.EMPTY_STRING;
 	private String name = Constants.EMPTY_STRING;

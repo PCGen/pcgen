@@ -44,12 +44,9 @@ import pcgen.system.LanguageBundle;
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class KitSelectionDialog extends JDialog
@@ -75,7 +72,7 @@ public class KitSelectionDialog extends JDialog
 		setDefaultCloseOperation(JDialog.HIDE_ON_CLOSE);
 		initComponents();
 		pack();
-		Utility.resizeDialogToScreen(this);
+		Utility.resizeComponentToScreen(this);
 	}
 
 	private void initComponents()
@@ -97,10 +94,7 @@ public class KitSelectionDialog extends JDialog
 		Utility.installEscapeCloseOperation(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-	@Override 
+	@Override
 	public void actionPerformed(ActionEvent e)
 	{
 		//must be the ok command

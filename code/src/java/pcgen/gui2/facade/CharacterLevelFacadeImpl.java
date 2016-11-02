@@ -30,12 +30,9 @@ import pcgen.facade.core.ClassFacade;
  * the CharacterLevelFacade interface for the new user interface. It provides  
  * a container for information about a particular level of the character. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 {
@@ -65,9 +62,6 @@ public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 		return classFacade;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

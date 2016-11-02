@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -63,7 +61,7 @@ public class LanguagesToken extends AbstractExportToken
 		int startIndex = 0;
 
 		List<Language> languageList =
-				new ArrayList<Language>(display.getSortedLanguageSet());
+				new ArrayList<>(display.getSortedLanguageSet());
 
 		if (aTok.hasMoreTokens())
 		{

@@ -34,12 +34,11 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with equipment 
  * keys that have now been changed in the data.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class EquipmentMigration
+public final class EquipmentMigration
 {
-	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<int[], List<MigrationRule>>();
+	private static Map<int[], List<MigrationRule>> equipChangesForVer = new HashMap<>();
 
 	/**
 	 * Find the new equipment key to replace the provided one.
@@ -48,7 +47,7 @@ public class EquipmentMigration
 	 * @param pcgVer The version of PCGen in which the character was created.
 	 * @return The new equipment key, or the passed in one if it has not changed.
 	 */
-	public static String getNewEquipmentKey(String equipKey, int pcgVer[], String gameModeName)
+	public static String getNewEquipmentKey(String equipKey, int[] pcgVer, String gameModeName)
 	{
 		List<MigrationRule> equipChangeList = equipChangesForVer.get(pcgVer);
 		if (equipChangeList == null)

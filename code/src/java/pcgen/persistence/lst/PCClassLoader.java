@@ -42,8 +42,7 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
+ * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public final class PCClassLoader extends LstObjectFileLoader<PCClass>
 {

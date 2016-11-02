@@ -32,11 +32,8 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * <code>PObjectUtilitiesTest</code> verifies that the PObjectUtilities
  * class is working correctly.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase
@@ -44,14 +41,6 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	private PCClass arcaneClass = null;
 	private PCClass divineClass = null;
 	private PCClass psionicClass = null;
-
-	/**
-	 * Default Constructor
-	 */
-	public PObjectUtilitiesTest()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()

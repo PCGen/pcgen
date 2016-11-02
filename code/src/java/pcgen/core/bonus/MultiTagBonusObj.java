@@ -19,8 +19,6 @@
  * Created on Mar 29, 2003, 00:00
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core.bonus;
@@ -32,8 +30,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>MultiTagBonusObj</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
- * @author  Jonas Karlsson <jujutsunerd@sf.net>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
+ * @author  Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class MultiTagBonusObj extends BonusObj
 {
@@ -45,7 +43,7 @@ public abstract class MultiTagBonusObj extends BonusObj
 		{
 			if (getBonusTag(i).equals(token))
 			{
-				addBonusInfo(Integer.valueOf(i));
+				addBonusInfo(i);
 
 				return true;
 			}

@@ -40,11 +40,8 @@ import pcgen.util.Logging;
 /**
  * Deal with FOLLOWER Token
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2006-05-26 18:25:10 +1000 (Fri, 26 May 2006) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 1030 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerToken extends Token
 {
@@ -99,7 +96,7 @@ public class FollowerToken extends Token
 		}
 
 		String result = "";
-		final List<Follower> followers = new ArrayList<Follower>(pc.getDisplay().getFollowerList());
+		final List<Follower> followers = new ArrayList<>(pc.getDisplay().getFollowerList());
 		if (i < followers.size())
 		{
 			result =

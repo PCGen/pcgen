@@ -56,11 +56,8 @@ import pcgen.system.LanguageBundle;
  * The Class <code>CharacterStatsPanel</code> is responsible for managing 
  * the character stats preferences.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CharacterStatsPanel extends PCGenPrefsPanel
@@ -405,7 +402,7 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 			});
 		}
 
-		Utility.centerDialog(pmsFrame);
+		Utility.centerComponent(pmsFrame);
 
 		// ensure the frame is visible (in case user selects menu item again).
 		pmsFrame.setVisible(true);

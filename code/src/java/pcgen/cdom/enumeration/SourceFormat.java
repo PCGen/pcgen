@@ -193,8 +193,6 @@ public enum SourceFormat
 	/**
 	 * Returns a formatted string representation for this source based on the
 	 * <tt>SourceFormat</tt> passed in.
-
-	 * @see pcgen.core.SourceEntry.SourceFormat
 	 *
 	 * @param cdo
 	 * @param format The format to display the source in

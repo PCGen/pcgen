@@ -49,12 +49,9 @@ import pcgen.system.CharacterManager;
  * The Class <code>GMGenMessageHandler</code> processes any requests 
  * to the main PCGen program from the GMGen bus.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class GMGenMessageHandler implements PCGenMessageHandler
 {
@@ -73,9 +70,6 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	}
 	
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void handleMessage(PCGenMessage message)
 	{

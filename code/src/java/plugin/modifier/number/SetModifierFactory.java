@@ -19,17 +19,18 @@ package plugin.modifier.number;
 
 import pcgen.base.calculation.CalculationModifier;
 import pcgen.base.calculation.FormulaCalculation;
-import pcgen.base.calculation.Modifier;
 import pcgen.base.calculation.NEPCalculation;
+import pcgen.base.calculation.PCGenModifier;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.LegalScope;
+import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.inst.NEPFormula;
 import pcgen.base.util.FormatManager;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.rules.persistence.token.AbstractSetModifierFactory;
 
 /**
- * A SetModifierFactory is a ModifierFactory<Number> that returns a specific
+ * A SetModifierFactory is a {@code ModifierFactory<Number>} that returns a specific
  * value (independent of the input) when a Modifier produced by this
  * SetModifierFactory is processed.
  */
@@ -40,7 +41,7 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 	 * Identifies that the Modifier objects built by this SetModifierFactory act
 	 * upon java.lang.Number objects.
 	 * 
-	 * @see pcgen.base.modifier.Modifier#getVariableFormat()
+	 * @see pcgen.base.calculation.CalculationInfo#getVariableFormat()
 	 */
 	@Override
 	public Class<Number> getVariableFormat()
@@ -48,12 +49,9 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 		return Number.class;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
-	public Modifier<Number> getModifier(int userPriority, String instructions,
-		FormulaManager formulaManager, LegalScope varScope,
+	public PCGenModifier<Number> getModifier(int userPriority, String instructions,
+		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
 		try
@@ -63,11 +61,11 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 		catch (NumberFormatException e)
 		{
 			final NEPFormula<Number> f =
-					FormulaFactory.getValidFormula(instructions,
+					FormulaFactory.getValidFormula(instructions, managerFactory,
 						formulaManager, varScope, formatManager);
 			NEPCalculation<Number> calc =
-					new FormulaCalculation<Number>(f, this);
-			return new CalculationModifier<Number>(calc, userPriority);
+					new FormulaCalculation<>(f, this);
+			return new CalculationModifier<>(calc, userPriority);
 		}
 	}
 

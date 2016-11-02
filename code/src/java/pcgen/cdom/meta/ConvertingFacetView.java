@@ -19,6 +19,7 @@ package pcgen.cdom.meta;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemConvertingFacet;
@@ -37,7 +38,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	public Collection<? extends Object> getSet(CharID id)
 	{
 		Collection<S> sources = facet.getSourceObjects(id);
-		ArrayList<SourceDest> list = new ArrayList<SourceDest>(sources.size());
+		List<SourceDest> list = new ArrayList<SourceDest>(sources.size());
 		for (S src : sources)
 		{
 			D dest = facet.getResultFor(id, src);
@@ -49,7 +50,7 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	@Override
 	public Collection<Object> getSources(CharID id, Object obj)
 	{
-		return facet.getSourcesFor(id, ((SourceDest) obj).source);
+		return facet.getSourcesFor(id, ((SourceDest) obj).getSource());
 	}
 
 	@Override
@@ -78,12 +79,21 @@ public class ConvertingFacetView<S, D> implements FacetView<Object>
 	
 	private class SourceDest
 	{
-		S source;
-		D destination;
+		private final S source;
+		private final D destination;
 		
+		public S getSource()
+		{
+			return source;
+		}
+
+		public D getDestination()
+		{
+			return destination;
+		}
+
 		public SourceDest(S source, D destination)
 		{
-			super();
 			this.source = source;
 			this.destination = destination;
 		}

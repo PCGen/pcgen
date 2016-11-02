@@ -70,11 +70,8 @@ import pcgen.util.TestHelper;
  * The Class <code>DataLoadTest</code> checks each basic source for errors on load.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 @RunWith(Parameterized.class)
 public class DataLoadTest implements PCGenTaskListener
@@ -86,7 +83,7 @@ public class DataLoadTest implements PCGenTaskListener
 	 * These should be activated when the data team is ready. */
 	private static String[] excludedSources = new String[]{};
 	
-	private List<LogRecord> errors = new ArrayList<LogRecord>();
+	private List<LogRecord> errors = new ArrayList<>();
 
 	private SourceSelectionFacade sourceSelection;
 
@@ -117,7 +114,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 		List<SourceSelectionFacade> basicSources = getBasicSources();
 		assertFalse("No sources found", basicSources.isEmpty());
-		List<Object[]> params = new ArrayList<Object[]>();
+		List<Object[]> params = new ArrayList<>();
 		for (SourceSelectionFacade ssf : basicSources)
 		{
 			String testName = ssf.toString().replaceAll("[\\(\\)]", "_");
@@ -149,12 +146,12 @@ public class DataLoadTest implements PCGenTaskListener
 
 		SourceFileLoader loader =
 				new SourceFileLoader(sourceSelection, uiDelegate);
-		errors = new ArrayList<LogRecord>();
+		errors = new ArrayList<>();
 		loader.addPCGenTaskListener(this);
 		loader.execute();
 
-		List<String> errorList = new ArrayList<String>();
-		List<String> warningList = new ArrayList<String>();
+		List<String> errorList = new ArrayList<>();
+		List<String> warningList = new ArrayList<>();
 		for (LogRecord logRecord : errors)
 		{
 			if (logRecord.getLevel().intValue() > Logging.WARNING.intValue())
@@ -202,7 +199,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 	private static List<SourceSelectionFacade> getBasicSources()
 	{
-		List<SourceSelectionFacade> basicSources = new ArrayList<SourceSelectionFacade>();
+		List<SourceSelectionFacade> basicSources = new ArrayList<>();
 		for (Campaign campaign : Globals.getCampaignList())
 		{
 			if (campaign.showInMenu())
@@ -224,7 +221,7 @@ public class DataLoadTest implements PCGenTaskListener
 
 			if (!mode.getDefaultDataSetList().isEmpty())
 			{
-				List<CampaignFacade> qcamps = new ArrayList<CampaignFacade>();
+				List<CampaignFacade> qcamps = new ArrayList<>();
 				List<String> sources = mode.getDefaultDataSetList();
 				for (String string : sources)
 				{

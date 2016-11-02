@@ -21,10 +21,9 @@
 package pcgen.io;
 
 /**
- * <code>IOConstants</code>
+ * {@code IOConstants}
  *
  * @author   Thomas Behr
- * @version  $Revision$
  */
 @SuppressWarnings("nls")
 interface IOConstants
@@ -263,7 +262,7 @@ interface IOConstants
 	String TAG_HAIRSTYLE = "HAIRSTYLE";
 	/** HANDED */
 	String TAG_HANDED = "HANDED";
-	/** HEIGHT - Used by PCGVer2Creator & Parser */
+	/** HEIGHT - Used by PCGVer2Creator &amp; Parser */
 	String TAG_HEIGHT = "HEIGHT";
 	/** HITDICE */
 	String TAG_HITDICE = "HITDICE";

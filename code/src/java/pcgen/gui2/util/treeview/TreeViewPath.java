@@ -26,7 +26,7 @@ import org.apache.commons.lang.StringUtils;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class TreeViewPath<E>
 {
@@ -88,7 +88,6 @@ public class TreeViewPath<E>
      * TreePath. The first element (index 0) is the root.
      *
      * @return an array of Objects representing the TreePath
-     * @see #TreePath(Object[])
      */
     public Object[] getPath()
     {
@@ -113,7 +112,6 @@ public class TreeViewPath<E>
      * @return the Object at that index location
      * @throws IllegalArgumentException if the index is beyond the length
      *         of the path
-     * @see #TreePath(Object[])
      */
     public Object getPathComponent(int element)
     {
@@ -125,7 +123,6 @@ public class TreeViewPath<E>
      * DefaultTreeModel this will return an instance of TreeNode.
      *
      * @return the Object at the end of the path
-     * @see #TreePath(Object[])
      */
     @SuppressWarnings("unchecked")
     public E getLastPathComponent()
@@ -180,12 +177,12 @@ public class TreeViewPath<E>
 	 */
     public TreeViewPath<E> getParentPath()
     {
-        return new TreeViewPath<E>(path, length - 1);
+        return new TreeViewPath<>(path, length - 1);
     }
 
     public TreeViewPath<E> getParentPath(int lastElement)
     {
-        return new TreeViewPath<E>(path, lastElement + 1);
+        return new TreeViewPath<>(path, lastElement + 1);
     }
 
     public TreeViewPath<E> pathByAddingParent(String singlePath)
@@ -193,12 +190,9 @@ public class TreeViewPath<E>
         Object[] parentPath = new Object[length + 1];
         parentPath[0] = singlePath;
         System.arraycopy(path, 0, parentPath, 1, length);
-        return new TreeViewPath<E>(parentPath, length + 1);
+        return new TreeViewPath<>(parentPath, length + 1);
     }
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

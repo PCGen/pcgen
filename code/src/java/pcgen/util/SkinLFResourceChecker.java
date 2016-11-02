@@ -26,7 +26,6 @@ package pcgen.util;
  * Copyright:    Copyright (c) 2001
  * Company:
  * @author Jason Buchanan
- * @version $Revision$
  */
 public final class SkinLFResourceChecker
 {
@@ -61,7 +60,7 @@ public final class SkinLFResourceChecker
 	{
 		if (missingResourceCount != 0)
 		{
-			return resourceBuffer.toString() + "\n"
+			return resourceBuffer + "\n"
 				+ ResourceChecker.getItHereMsg + whereToGetIt + "\n"
 				+ ResourceChecker.missingLibMsg;//TODO Why does this have hardcoded file separators? JK070115
 		}

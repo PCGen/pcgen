@@ -19,8 +19,6 @@
  * Created 07-Aug-2008 21:45:43
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -44,7 +42,7 @@ public class PCCountSpellsInbookTermEvaluator
 	public Float resolve(PlayerCharacter pc)
 	{
 		return SettingsHandler.getPrintSpellsWithPC() ?
-			   (float) pc.countSpellsInBook(book) : 0f;
+			   (float) pc.countSpellsInBook(book) : 0.0f;
 	}
 
 	@Override

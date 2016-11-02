@@ -29,7 +29,7 @@ public class HitDieIntegrationTest extends
 {
 
 	static HitdieLst token = new HitdieLst();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClassLevel> getCDOMClass()

@@ -28,8 +28,7 @@ import java.io.PrintWriter;
  * Renamed from Exception to PcgenException.
  * TODO:What is the purpose of this exception?
  *
- * @author  David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
+ * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public class PcgenException extends Exception
 {

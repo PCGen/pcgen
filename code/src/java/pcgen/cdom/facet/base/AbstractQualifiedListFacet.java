@@ -106,7 +106,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		boolean fireNew = (set == null);
 		if (fireNew)
 		{
-			set = new WrappedMapSet<Object>(IdentityHashMap.class);
+			set = new WrappedMapSet<>(IdentityHashMap.class);
 			map.put(obj, set);
 		}
 		set.add(source);
@@ -362,7 +362,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		Set<Object> set = map.get(obj);
 		if (set == null)
 		{
-			set = new WrappedMapSet<Object>(IdentityHashMap.class);
+			set = new WrappedMapSet<>(IdentityHashMap.class);
 			map.put(obj, set);
 		}
 		return set;
@@ -435,7 +435,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	protected Map<T, Set<Object>> getComponentMap()
 	{
-		return new IdentityHashMap<T, Set<Object>>();
+		return new IdentityHashMap<>();
 	}
 
 	/**
@@ -543,7 +543,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			 * This list exists primarily to eliminate the possibility of a
 			 * concurrent modification exception on a recursive remove
 			 */
-			List<T> removedKeys = new ArrayList<T>();
+			List<T> removedKeys = new ArrayList<>();
 			for (Iterator<Map.Entry<T, Set<Object>>> it =
 					componentMap.entrySet().iterator(); it.hasNext();)
 			{
@@ -596,14 +596,12 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public List<? extends T> getSet(CharID id, Object owner)
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, Set<Object>>> it =
-					componentMap.entrySet().iterator(); it.hasNext();)
+			for (Entry<T, Set<Object>> me : componentMap.entrySet())
 			{
-				Entry<T, Set<Object>> me = it.next();
 				Set<Object> set = me.getValue();
 				if (set.contains(owner))
 				{
@@ -640,7 +638,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public Collection<T> getQualifiedSet(CharID id)
 	{
-		Set<T> set = new HashSet<T>();
+		Set<T> set = new HashSet<>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -696,7 +694,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public Collection<T> getQualifiedSet(CharID id, Object source)
 	{
-		Set<T> set = new WrappedMapSet<T>(IdentityHashMap.class);
+		Set<T> set = new WrappedMapSet<>(IdentityHashMap.class);
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
@@ -753,7 +751,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public <R> List<R> actOnQualifiedSet(CharID id, QualifiedActor<T, R> qa)
 	{
-		List<R> list = new ArrayList<R>();
+		List<R> list = new ArrayList<>();
 		Map<T, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{

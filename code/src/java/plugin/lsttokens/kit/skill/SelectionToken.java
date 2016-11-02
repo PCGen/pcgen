@@ -39,11 +39,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * SELECTION token for KitSkill
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SelectionToken extends AbstractTokenWithSeparator<KitSkill>
 		implements CDOMPrimaryToken<KitSkill>

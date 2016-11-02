@@ -29,11 +29,8 @@ import pcgen.util.Logging;
  * This class is a helper for the Combat Tracker.  This class helps display
  * all the statistics of a character.
  * @author Expires 2003
- * @version $Revision$
  *
  * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  */
 public class InfoCharacterDetails
 {
@@ -56,7 +53,7 @@ public class InfoCharacterDetails
 	}
 
 	/**
-	 * Sets the default <code>Combatant</code> object used by this class.
+	 * Sets the default {@code Combatant} object used by this class.
 	 * Made it final as it is called from constructor.
 	 * @param cbt
 	 */
@@ -107,7 +104,7 @@ public class InfoCharacterDetails
 	}
 
 	/**
-	 * Calls the <code>setStatText</code> and passes it the pane that is used
+	 * Calls the {@code setStatText} and passes it the pane that is used
 	 * for displaying.
 	 * Made it final as it is called from constructor.
 	 */

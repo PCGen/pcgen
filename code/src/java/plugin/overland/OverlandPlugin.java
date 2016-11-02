@@ -25,7 +25,6 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenuItem;
@@ -48,7 +47,6 @@ import plugin.overland.gui.OverPanel;
  * Updated on February 26, 2003
  * @author  Expires 2003
  * @author Vincent Lhote
- * @version 2.10
  */
 public class OverlandPlugin implements InteractivePlugin
 {
@@ -94,10 +92,7 @@ public class OverlandPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -171,14 +166,7 @@ public class OverlandPlugin implements InteractivePlugin
 	{
 		overToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		overToolsItem.setText(getLocalizedName());
-		overToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		overToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, overToolsItem));
 	}
 
@@ -199,9 +187,6 @@ public class OverlandPlugin implements InteractivePlugin
 		}
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
 	@Override
 	public File getDataDirectory()
 	{

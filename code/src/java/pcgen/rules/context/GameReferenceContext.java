@@ -43,18 +43,15 @@ import pcgen.cdom.reference.UnconstructedValidator;
  * long run, they delegate to another reference of the same general type, though 
  * they can be created before the delegate target is created)
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * <br>
  * 
- * @author Tom Parker <thpr@users.sourceforge.net> on 12 Jun 2008
- * @version $Revision:  $
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt; on 12 Jun 2008
  */
 public class GameReferenceContext extends AbstractReferenceContext
 {
-	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<Class<?>, ReferenceManufacturer<?>>();
+	private final Map<Class<?>, ReferenceManufacturer<?>> map = new HashMap<>();
 
-	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>>();
+	private final DoubleKeyMap<Class<?>, String, TransparentCategorizedReferenceManufacturer<? extends Loadable>> catmap = new DoubleKeyMap<>();
 
 	@Override
 	public <T extends Loadable> ReferenceManufacturer<T> getManufacturer(
@@ -79,14 +76,14 @@ public class GameReferenceContext extends AbstractReferenceContext
 	protected <T extends Loadable> ReferenceManufacturer<T> constructReferenceManufacturer(
 		Class<T> cl)
 	{
-		return new SimpleReferenceManufacturer<T>(new TransparentFactory<T>(cl));
+		return new SimpleReferenceManufacturer<>(new TransparentFactory<>(cl));
 	}
 
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<ReferenceManufacturer<?>>(
-				map.values());
+		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
+                map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{
 			returnList.addAll(catmap.values(cl));
@@ -103,7 +100,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 				.get(cl, cat);
 		if (mfg == null)
 		{
-			mfg = new TransparentCategorizedReferenceManufacturer<T>(new TransparentCategorizedFactory<T>(cl, cat), catClass, cat);
+			mfg = new TransparentCategorizedReferenceManufacturer<>(new TransparentCategorizedFactory<>(cl, cat), catClass, cat);
 			catmap.put(cl, cat, mfg);
 		}
 		return mfg;

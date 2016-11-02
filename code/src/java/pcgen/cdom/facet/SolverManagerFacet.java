@@ -44,23 +44,23 @@ public class SolverManagerFacet extends
 	}
 
 	public <T> void addModifier(CharID id, VarModifier<T> vm, VarScoped target,
-		Object source)
+		ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.legalScope, target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
-					id.getDatasetID(), scope, vm.varName);
-		get(id).addModifier(varID, vm.modifier, source);
+					id.getDatasetID(), scope, vm.getVarName());
+		get(id).addModifier(varID, vm.getModifier(), source);
 	}
 
 	public <T> void removeModifier(CharID id, VarModifier<T> vm,
-		VarScoped target, Object source)
+		VarScoped target, ScopeInstance source)
 	{
-		ScopeInstance scope = scopeFacet.get(id, vm.legalScope, target);
+		ScopeInstance scope = scopeFacet.get(id, vm.getLegalScope().getName(), target);
 		VariableID<T> varID =
 				(VariableID<T>) variableLibraryFacet.getVariableID(
-					id.getDatasetID(), scope, vm.varName);
-		get(id).removeModifier(varID, vm.modifier, source);
+					id.getDatasetID(), scope, vm.getVarName());
+		get(id).removeModifier(varID, vm.getModifier(), source);
 	}
 
 	public void setVariableLibraryFacet(

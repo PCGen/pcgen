@@ -50,6 +50,7 @@
 <!-->		<xsl:if test="string-length(translate(normalize-space(concat(description,bio)), ' ', '')) &gt; 0">	-->
 			<fo:page-sequence>
 				<xsl:attribute name="master-reference">Portrait</xsl:attribute>
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" break-before="page" span="all">
@@ -61,7 +62,7 @@
 						</xsl:if>
 					</fo:block>
 					<fo:block>
-						<fo:table table-layout="fixed">
+						<fo:table table-layout="fixed" width="100%">
 							<xsl:choose>
 								<xsl:when test="string-length(portrait) &gt; 0">
 									<fo:table-column>
@@ -89,7 +90,7 @@
 											<xsl:value-of select="race"/>
 										</fo:block>
 									</fo:table-cell>
-									<fo:table-cell number-rows-spanned="36"/>
+									<fo:table-cell number-rows-spanned="36"><fo:block/></fo:table-cell>
 									<xsl:if test="string-length(portrait/portrait) &gt; 0">
 										<fo:table-cell display-align="center" number-rows-spanned="36">
 											<xsl:call-template name="attrib">
@@ -239,6 +240,7 @@
 		<!-- BEGIN CHARACTER NOTES Pages -->
 		<xsl:if test="count(.//note) &gt; 0">
 			<fo:page-sequence master-reference="Portrait 2 Column">
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="page.footer"/>
 				<fo:flow flow-name="body" font-size="8pt">
 					<fo:block font-size="14pt" font-weight="bold" space-after.optimum="2mm" break-before="page" span="all">
@@ -269,11 +271,12 @@
 		<!-- BEGIN Armor table -->
 			<xsl:if test="count(campaign_history) &gt; 0">
 				<fo:page-sequence master-reference="Portrait">
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<xsl:call-template name="attrib">
 						<xsl:with-param name="attribute" select="'ac'"/>
 				</xsl:call-template>
 				<fo:flow flow-name="body" font-size="8pt">
-				<fo:table table-layout="fixed" space-before="2mm">
+				<fo:table table-layout="fixed" width="100%" space-before="2mm">
 			<xsl:call-template name="attrib">
 				<xsl:with-param name="attribute" select="'protection.border'"/>
 			</xsl:call-template>

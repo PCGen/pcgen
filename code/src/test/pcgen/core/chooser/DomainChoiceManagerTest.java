@@ -49,14 +49,6 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 {
 
 	/**
-	 * Constructs a new {@code DomainChoiceManagerTest}.
-	 */
-	public DomainChoiceManagerTest()
-	{
-		// Do Nothing
-	}
-
-	/**
 	 * Test the constructor
 	 */
 	public void test001()
@@ -80,8 +72,8 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 				pObj, aPC);
 		is(choiceManager, not(eq(null)), "Found the chooser");
 
-		List<Domain> aList = new ArrayList<Domain>();
-		List<Domain> sList = new ArrayList<Domain>();
+		List<Domain> aList = new ArrayList<>();
+		List<Domain> sList = new ArrayList<>();
 		choiceManager.getChoices(aPC, aList, sList);
 		assertEquals(5, aList.size());
 		assertTrue(aList.contains(foo));

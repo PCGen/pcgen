@@ -24,7 +24,7 @@ import pcgen.cdom.reference.ManufacturableFactory;
  * an object. A Category serves as a Category for a particular type of
  * CategorizedCDOMObject.
  * 
- * @see pcgen.cdom.base.CategorizedCDOMObject
+ * @see pcgen.cdom.base.Categorized
  * 
  * @param <T>
  *            The Class of object being identified by this Category

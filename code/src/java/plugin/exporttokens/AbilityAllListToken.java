@@ -40,13 +40,10 @@ import pcgen.io.exporttoken.AbilityListToken;
  * 
  * The format is ABILITYALLLIST.y.z where
  * y is the category (FEAT, FIGHTER etc, or ALL)
- * z is an option list of TYPE=<type> - type filter - may be negated
+ * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityAllListToken extends AbilityListToken
 {
@@ -67,7 +64,7 @@ public class AbilityAllListToken extends AbilityListToken
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
 	{
-		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<Ability, CNAbility>();
+		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
 		for (AbilityCategory aCat : allCats)

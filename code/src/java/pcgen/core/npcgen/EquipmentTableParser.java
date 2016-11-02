@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -46,17 +44,16 @@ import pcgen.util.Logging;
 /**
  * Parse a equipment table (random treasure) data file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.4
  */
 public class EquipmentTableParser
 {
 	private SAXParser theParser;
 	private GameMode theMode;
 	
-	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<EquipmentItem, String>();
-	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<EqmodItem, String>();
+	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
+	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
 	
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.
@@ -90,7 +87,7 @@ public class EquipmentTableParser
 	public List<EquipmentTable> parse( final File[] aFileList ) 
 		throws SAXException, IOException
 	{
-		final List<EquipmentTable> ret = new ArrayList<EquipmentTable>();
+		final List<EquipmentTable> ret = new ArrayList<>();
 		
 		for ( final File fileName : aFileList )
 		{
@@ -144,9 +141,8 @@ public class EquipmentTableParser
 	 * This is the parsing event handler class.  The methods in this class are
 	 * called by the SAX parser as it finds various elements in the XML file.
 	 * 
-	 * @author boomer70 <boomer70@yahoo.com>
+	 * @author boomer70 &lt;boomer70@yahoo.com&gt;
 	 *
-	 * @since 5.11.4
 	 */
 	class EquipmentTableHandler extends DefaultHandler
 	{

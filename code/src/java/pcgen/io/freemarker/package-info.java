@@ -32,7 +32,6 @@
  * class variables. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 package pcgen.io.freemarker;

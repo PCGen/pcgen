@@ -19,8 +19,6 @@
  * Created 30-Mar-2014 22:45:18
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -33,11 +31,8 @@ import pcgen.core.PlayerCharacter;
  * the character's unmodified challenge rating, as specified by the 
  * CR tag in the race definition. 
  * 
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-01-07 18:57:16 +0100 (Sa, 07 Jan 2012) $
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 15744 $
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class PCBaseCRTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {

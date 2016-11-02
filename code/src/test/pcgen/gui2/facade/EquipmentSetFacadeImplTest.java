@@ -27,11 +27,8 @@ import pcgen.util.TestHelper;
  * EquipmentSetFacadeImpl. 
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 {
@@ -140,7 +137,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es, dataset,
 					equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
@@ -152,7 +149,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Morningstar location", LOC_PRIMARY, esfi.getLocation(testNode));
 
 		// Test for removed slots
-		String removedSlots[] = new String[] {"Primary Hand", "Double Weapon", "Both Hands"};
+		String[] removedSlots = {"Primary Hand", "Double Weapon", "Both Hands"};
 		for (String slotName : removedSlots)
 		{
 			testNode = nodeMap.get(slotName);
@@ -160,7 +157,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		}
 
 		// Test for still present slots
-		String retainedSlots[] = new String[] {"Secondary Hand", "Ring"};
+		String[] retainedSlots = {"Secondary Hand", "Ring"};
 		for (String slotName : retainedSlots)
 		{
 			testNode = nodeMap.get(slotName);
@@ -230,7 +227,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, getCharacter(), es,
 					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
@@ -281,7 +278,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 				new EquipmentSetFacadeImpl(uiDelegate, pc, es,
 					dataset, equipmentList, todoManager, null);
 		ListFacade<EquipNode> nodes = esfi.getNodes();
-		Map<String, EquipNode> nodeMap = new HashMap<String, EquipNode>();
+		Map<String, EquipNode> nodeMap = new HashMap<>();
 		for (EquipNode equipNode : nodes)
 		{
 			nodeMap.put(equipNode.toString(), equipNode);
@@ -347,9 +344,9 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
 		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
 		
-		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);;
+		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);
 		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
-		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);;
+		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);
 		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
 		
 		assertTrue("Move up failed unexpectedly", esfi.moveEquipment(quarterstaffNode, -1));
@@ -372,11 +369,11 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		assertEquals("Incorrect parent", Constants.EQUIP_LOCATION_EQUIPPED, quarterstaffNode.getParent().toString());
 		assertEquals("Incorrect path", "0.1.02", quarterstaffNode.getIdPath());
 		
-		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);;
+		EquipNodeImpl bookNode = getEquipNodeByName(nodeList, BOOK);
 		assertEquals("Incorrect path", "0.1.01.01", bookNode.getIdPath());
-		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);;
+		EquipNodeImpl satchelNode = getEquipNodeByName(nodeList, SATCHEL);
 		assertEquals("Incorrect path", "0.1.01", satchelNode.getIdPath());
-		EquipNodeImpl bedrollNode = getEquipNodeByName(nodeList, BEDROLL);;
+		EquipNodeImpl bedrollNode = getEquipNodeByName(nodeList, BEDROLL);
 		assertEquals("Incorrect path", "0.1.03", bedrollNode.getIdPath());
 		
 		assertTrue("Move down failed unexpectedly",

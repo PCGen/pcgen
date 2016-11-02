@@ -28,12 +28,9 @@ import pcgen.facade.core.ChooserFacade;
  * This interface indicates that the class can handle making a decision 
  * on a choice request.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ChoiceHandler
 {

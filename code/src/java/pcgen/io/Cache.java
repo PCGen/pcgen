@@ -26,12 +26,11 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>Cache</code><br>
+ * {@code Cache}<br>
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *
  * @author Thomas Behr 08-00-02
- * @version $Revision$
  */
 final class Cache
 {
@@ -40,12 +39,12 @@ final class Cache
 	Cache()
 	{
 		//should define some default or make the default constructor private making users of the cache to define its initial size
-		map = new HashMap<String, List<String>>();
+		map = new HashMap<>();
 	}
 
 	Cache(int initialCapacity)
 	{
-		map = new HashMap<String, List<String>>(initialCapacity);
+		map = new HashMap<>(initialCapacity);
 	}
 
 	/**
@@ -80,7 +79,7 @@ final class Cache
 		}
 		else
 		{
-			final List<String> values = new ArrayList<String>();
+			final List<String> values = new ArrayList<>();
 			values.add(value);
 			map.put(key, values);
 		}

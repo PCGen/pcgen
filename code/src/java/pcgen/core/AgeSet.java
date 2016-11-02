@@ -46,7 +46,7 @@ public class AgeSet implements BonusContainer
 	{
 		if (bonuses == null)
 		{
-			bonuses = new ArrayList<BonusObj>(list);
+			bonuses = new ArrayList<>(list);
 		}
 	}
 
@@ -78,7 +78,7 @@ public class AgeSet implements BonusContainer
 	{
 		if (kits == null)
 		{
-			kits = new ArrayList<TransitionChoice<Kit>>(list);
+			kits = new ArrayList<>(list);
 		}
 	}
 
@@ -133,7 +133,7 @@ public class AgeSet implements BonusContainer
 		{
 			return Collections.emptyList();
 		}
-		List<BonusObj> aList = new ArrayList<BonusObj>();
+		List<BonusObj> aList = new ArrayList<>();
 
 		for (BonusObj bo : bonuses)
 		{

@@ -19,8 +19,6 @@
  * Created 10-Aug-2008 00:06:33
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -46,7 +44,7 @@ public class PCScoreTermEvaluator
 	{
 		if ("".equals(stat))
 		{
-			return 0f;
+			return 0.0f;
 		}
 		PCStat pcs = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				PCStat.class, stat);

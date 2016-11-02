@@ -1,5 +1,5 @@
 /*
- * ChainOfResponsibility.java
+ * MessageHandlerManager.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -31,12 +31,9 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  * The Class <code>MessageHandlerManager</code> records the list of message handlers
  * and ensures that they get advised of any messages in order. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class MessageHandlerManager
@@ -85,9 +82,6 @@ public class MessageHandlerManager
 	private final class PCGenMessagePostbox implements PCGenMessageHandler
 	{
 
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{

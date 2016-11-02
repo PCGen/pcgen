@@ -1,3 +1,23 @@
+/*
+ * AbstractQualifiedChooseToken.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
 package pcgen.rules.persistence.token;
 
 import java.util.List;
@@ -82,8 +102,8 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 			cpr.addErrorMessage("  Check that a key is not joined with AND (,)");
 			return cpr;
 		}
-		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<T>(coll);
-		BasicChooseInformation<T> tc = new BasicChooseInformation<T>(getTokenName(), pcs);
+		PrimitiveChoiceSet<T> pcs = new CollectionToChoiceSet<>(coll);
+		BasicChooseInformation<T> tc = new BasicChooseInformation<>(getTokenName(), pcs);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);

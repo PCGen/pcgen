@@ -176,7 +176,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	 * @param factTest The key=value test to be checked.
 	 * @throws PersistenceLayerException If the fact key is not defined in the data.
 	 */
-	private void checkFactKey(String factTest) throws PersistenceLayerException
+	private static void checkFactKey(String factTest) throws PersistenceLayerException
 	{
 		String[] parts = factTest.split("=");
 		try
@@ -191,7 +191,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 		}
 	}
 
-	private void setLocation(Prerequisite prereq, String location)
+	private static void setLocation(Prerequisite prereq, String location)
 		throws PersistenceLayerException
 	{
 		if (prereq.getPrerequisiteCount() == 0)
@@ -201,7 +201,7 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 
 		// Copy to a temporary list as we will be adjusting the main one.
 		List<Prerequisite> prereqList =
-				new ArrayList<Prerequisite>(prereq.getPrerequisites());
+				new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT

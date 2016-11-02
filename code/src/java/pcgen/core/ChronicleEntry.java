@@ -28,12 +28,9 @@ import pcgen.facade.core.ChronicleEntryFacade;
  * The Class <code>ChronicleEntry</code> contains a record of an 
  * event in the character's history. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 {
@@ -175,18 +172,12 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		this.chronicle = chronicle;
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ChronicleEntry clone() throws CloneNotSupportedException
 	{
 		return (ChronicleEntry) super.clone();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
@@ -207,9 +198,6 @@ public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 		result = prime * result + xpField;
 		return result;
 	}
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

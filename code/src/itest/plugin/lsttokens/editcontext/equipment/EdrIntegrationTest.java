@@ -29,7 +29,7 @@ public class EdrIntegrationTest extends
 {
 
 	static EdrToken token = new EdrToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

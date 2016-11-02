@@ -42,6 +42,7 @@ package pcgen.base.enumeration;
  * 
  * @author Tom Parker (thpr@users.sourceforge.net)
  */
+@FunctionalInterface
 public interface TypeSafeConstant
 {
 

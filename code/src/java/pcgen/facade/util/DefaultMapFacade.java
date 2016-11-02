@@ -27,7 +27,7 @@ import java.util.Set;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {
@@ -36,12 +36,12 @@ public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 
 	public DefaultMapFacade()
 	{
-		this.map = new HashMap<K, V>();
+		this.map = new HashMap<>();
 	}
 
 	public DefaultMapFacade(Map<? extends K, ? extends V> map)
 	{
-		this.map =  new HashMap<K, V>(map);
+		this.map = new HashMap<>(map);
 	}
 
 	@Override
@@ -92,9 +92,6 @@ public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 		fireKeysChanged(this);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String toString()
 	{

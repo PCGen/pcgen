@@ -151,7 +151,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		if (tokText.endsWith(Constants.PERCENT))
 		{
-			return new PatternMatchingReference<Skill>(Skill.class, context.getReferenceContext()
+			return new PatternMatchingReference<>(Skill.class, context.getReferenceContext()
 					.getCDOMAllReference(SKILL_CLASS), tokText);
 		}
 		else
@@ -166,7 +166,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 	{
 		Changes<CDOMReference<Skill>> changes = context.getObjectContext()
 				.getListChanges(obj, ListKey.CLASS_SKILL);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		Collection<CDOMReference<Skill>> removedItems = changes.getRemoved();
 		if (removedItems != null && !removedItems.isEmpty())
 		{
@@ -216,7 +216,7 @@ public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements
 		if (list != null)
 		{
 			ClassSkillList csl = obj.get(ObjectKey.CLASS_SKILLLIST);
-			CDOMDirectSingleRef<ClassSkillList> listref = new CDOMDirectSingleRef<ClassSkillList>(
+			CDOMDirectSingleRef<ClassSkillList> listref = new CDOMDirectSingleRef<>(
 					csl);
 			for (CDOMReference<Skill> ref : list)
 			{

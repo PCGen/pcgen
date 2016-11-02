@@ -200,8 +200,8 @@ public class LanguageTableModel extends AbstractTableModel
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
+		private static final String ADD_ID = "Add";
+		private static final String REMOVE_ID = "Remove";
 		private JPanel cellPanel = new JPanel();
 		private CardLayout cardLayout = new CardLayout();
 		private JLabel addLabel = new JLabel();
@@ -267,7 +267,7 @@ public class LanguageTableModel extends AbstractTableModel
 				LanguageChooserFacade chooser = choosers.getElementAt(
 						table.getEditingRow() - languages.getSize());
 				LanguageChooserDialog dialog = new LanguageChooserDialog(frame, chooser);
-				Utility.setDialogRelativeLocation(frame, dialog);
+				Utility.setComponentRelativeLocation(frame, dialog);
 				dialog.setVisible(true);
 			}
 			else
@@ -289,8 +289,8 @@ public class LanguageTableModel extends AbstractTableModel
 	private class Renderer extends JPanel implements TableCellRenderer
 	{
 
-		private final String ADD_ID = "Add";
-		private final String REMOVE_ID = "Remove";
+		private static final String ADD_ID = "Add";
+		private static final String REMOVE_ID = "Remove";
 		private CardLayout cardLayout = new CardLayout();
 		//private JPanel cellPanel = new JPanel();
 		private JLabel cellLabel = new JLabel();

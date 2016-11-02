@@ -34,24 +34,19 @@ import pcgen.util.enumeration.Tab;
  * TabLoader loads TAB lines from the miscinfo.lst file for a game mode.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TabLoader extends SimpleLoader<TabInfo>
 {
 
-	private List<String> deprecatedTabNames = Arrays.asList(new String[]{
-		"ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
-		"NATURALWEAPONS", "SOURCEINFO"});
+	private List<String> deprecatedTabNames = Arrays.asList("ABILITIES", "CAMPAIGNS", "RACE", "GEAR", "RESOURCES",
+			"NATURALWEAPONS", "SOURCEINFO");
 
 	public TabLoader()
 	{
 		super(TabInfo.class);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	protected String processFirstToken(LoadContext context, String token)
 	{

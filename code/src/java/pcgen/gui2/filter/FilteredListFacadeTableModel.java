@@ -34,7 +34,7 @@ import pcgen.gui2.util.table.SortableTableModel;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel implements SortableTableModel, ListListener<E>
 {
@@ -51,18 +51,16 @@ public abstract class FilteredListFacadeTableModel<E> extends AbstractTableModel
 	public FilteredListFacadeTableModel(CharacterFacade character)
 	{
 		this.character = character;
-		this.filteredList = new FilteredListFacade<CharacterFacade, E>();
+		this.filteredList = new FilteredListFacade<>();
 		filteredList.setContext(character);
-		this.sortedList = new SortedListFacade<E>(new Comparator<Object>()
-		{
+		this.sortedList = new SortedListFacade<>(new Comparator<Object>() {
 
-			@Override
-			public int compare(Object o1, Object o2)
-			{
-				return 0;
-			}
+            @Override
+            public int compare(Object o1, Object o2) {
+                return 0;
+            }
 
-		});
+        });
 		sortedList.addListListener(this);
 		sortedList.setDelegate(filteredList);
 	}

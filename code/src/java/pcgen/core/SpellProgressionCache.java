@@ -34,7 +34,7 @@ import pcgen.base.formula.Formula;
  * SpellProgressionInfo contains information about Spell Progression in support
  * of a PCClass.
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class SpellProgressionCache implements Cloneable {
 
@@ -525,9 +525,9 @@ public class SpellProgressionCache implements Cloneable {
 								+ iLevel);
 			}
 			if (progressionMap == null) {
-				progressionMap = new TreeMap<Integer, List<Formula>>();
+				progressionMap = new TreeMap<>();
 			}
-			return progressionMap.put(iLevel, new ArrayList<Formula>(aList));
+			return progressionMap.put(iLevel, new ArrayList<>(aList));
 		}
 
 		public int getMinLevelForSpellLevel(int spellLevel, boolean allowBonus) {
@@ -603,7 +603,7 @@ public class SpellProgressionCache implements Cloneable {
 			List<Formula> spellProgression = null;
 			boolean found = false;
 			if(progressionMap != null) {
-				Integer key = Integer.valueOf(classLevel);
+				Integer key = classLevel;
 				if (!progressionMap.containsKey(key)) {
 					//No spellcasting at level key, check previous levels
 					if (progressionMap.firstKey() < classLevel) {
@@ -615,7 +615,7 @@ public class SpellProgressionCache implements Cloneable {
 				}
 				if(found) {
 					List<Formula> list = progressionMap.get(key);
-					spellProgression = new ArrayList<Formula>(list);
+					spellProgression = new ArrayList<>(list);
 				}
 			}
 			return spellProgression;
@@ -670,8 +670,8 @@ public class SpellProgressionCache implements Cloneable {
 		public Progression clone() throws CloneNotSupportedException {
 			Progression p = (Progression) super.clone();
 			if (progressionMap != null) {
-				p.progressionMap = new TreeMap<Integer, List<Formula>>(
-						progressionMap);
+				p.progressionMap = new TreeMap<>(
+                        progressionMap);
 			}
 			return p;
 		}

@@ -25,15 +25,12 @@ package gmgen.pluginmgr.messages;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>FileMenuOpenMessage</code> encapsulates an advisory that the
+ * The Class {@code FileMenuOpenMessage} encapsulates an advisory that the
  * GMGen open file menu item has been selected.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class FileMenuOpenMessage extends PCGenMessage

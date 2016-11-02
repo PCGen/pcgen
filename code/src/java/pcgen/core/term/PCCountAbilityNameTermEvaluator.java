@@ -19,8 +19,6 @@
  * Created 06-Aug-2008 22:52:36
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -57,7 +55,7 @@ public class PCCountAbilityNameTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		Float count = 0f;
+		Float count = 0.0f;
 
 		List<CNAbility> abilityList = getAbilities(pc);
 

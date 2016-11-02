@@ -44,12 +44,9 @@ import pcgen.system.LanguageBundle;
  * button. When text is typed into the field the table contents will be 
  * filtered to only those matching the search text.
  *
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * <br>
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SearchFilterPanel extends JPanel
 		implements DisplayableFilter<Object, Object>, DocumentListener, ActionListener
@@ -127,9 +124,6 @@ public class SearchFilterPanel extends JPanel
 		this.filterHandler = handler;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void actionPerformed(ActionEvent e)
 	{

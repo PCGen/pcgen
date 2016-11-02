@@ -19,8 +19,6 @@
  * Refactored out of PObject July 22, 2005
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core.prereq;
 
@@ -54,7 +52,7 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * This is a utility class related to PreReq objects.
  */
@@ -90,7 +88,7 @@ public final class PrerequisiteUtilities
 
 		final StringBuilder pString = new StringBuilder(aList.size() * 20);
 
-		final List<Prerequisite> newList = new ArrayList<Prerequisite>();
+		final List<Prerequisite> newList = new ArrayList<>();
 		boolean first = true;
 
 		for (Prerequisite prereq : aList)
@@ -484,7 +482,7 @@ public final class PrerequisiteUtilities
 		final PlayerCharacter character,
 		String categoryName)
 	{
-		final Set<Ability> abilityList = new WrappedMapSet<Ability>(IdentityHashMap.class);
+		final Set<Ability> abilityList = new WrappedMapSet<>(IdentityHashMap.class);
 		if (character != null)
 		{
 			AbilityCategory cat = SettingsHandler.getGame().getAbilityCategory(categoryName);
@@ -540,7 +538,8 @@ public final class PrerequisiteUtilities
 		for (String spell : selectedList)
 		{
 			//TODO Case sensitivity?
-			final Spell sp = Globals.getSpellKeyed(spell);
+			final Spell sp = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, spell);
 
 			if (sp == null)
 			{
@@ -727,7 +726,7 @@ public final class PrerequisiteUtilities
 	 */
 	public static Collection<Prerequisite> getPreReqsOfKind(final Prerequisite prereq, String matchKind)
 	{
-		Set<Prerequisite> matchingPrereqs = new HashSet<Prerequisite>();
+		Set<Prerequisite> matchingPrereqs = new HashSet<>();
 		if (prereq == null)
 		{
 			return matchingPrereqs;

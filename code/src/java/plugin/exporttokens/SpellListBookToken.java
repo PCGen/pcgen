@@ -37,11 +37,8 @@ import java.util.List;
  * <code>SpellListBookToken</code> gives a comma delimited list of spells
  * known for the specified spellcaster class number and level (if any).
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListBookToken extends SpellListToken

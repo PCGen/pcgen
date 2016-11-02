@@ -18,8 +18,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -31,7 +29,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author jayme cox <jaymecox@users.sourceforge.net>
+ * @author jayme cox &lt;jaymecox@users.sourceforge.net&gt;
  *
  */
 public class PreWieldTester extends AbstractDisplayPrereqTest implements

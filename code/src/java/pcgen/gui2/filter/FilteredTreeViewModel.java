@@ -34,13 +34,13 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilteredTreeViewModel<C, E>
 		implements TreeViewModel<E>, ListListener<E>
 {
 
-	private DefaultListFacade<E> data = new DefaultListFacade<E>();
+	private DefaultListFacade<E> data = new DefaultListFacade<>();
 	private Filter<C, E> filter;
 	private TreeViewModel<E> model;
 	private C context;
@@ -109,7 +109,7 @@ public class FilteredTreeViewModel<C, E>
 	public void refilter()
 	{
 		ListFacade<E> base = model.getDataModel();
-		List<E> list = new ArrayList<E>(base.getSize());
+		List<E> list = new ArrayList<>(base.getSize());
 		for (E element : base)
 		{
 			if (filter == null || filter.accept(context, element))

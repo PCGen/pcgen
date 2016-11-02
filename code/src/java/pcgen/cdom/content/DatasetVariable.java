@@ -43,9 +43,6 @@ public class DatasetVariable extends UserContent
 	 */
 	private String scopeName;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDisplayName()
 	{

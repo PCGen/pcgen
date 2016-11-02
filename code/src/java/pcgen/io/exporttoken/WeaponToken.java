@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -565,7 +563,7 @@ public class WeaponToken extends Token
 					}
 					return "";
 				}
-				Set<String> qualities = new TreeSet<String>();
+				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
 					qualities.add(new StringBuilder().append(me.getKey())
@@ -3007,7 +3005,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the ranged attack string for this <code>pc</code>
+	 * Get the ranged attack string for this {@code pc}
 	 *
 	 * @param pc The character that this ranged attack string is for
 	 * @return   The ranged attack string affected only by BAB
@@ -3018,9 +3016,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the ranged attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the ranged attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3039,7 +3037,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the melee attack string for this <code>pc</code>
+	 * Get the melee attack string for this {@code pc}
 	 *
 	 * @param pc The character that this melee attack string is for
 	 * @return   The melee attack string affected only by BAB
@@ -3050,9 +3048,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the melee attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the melee attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3071,7 +3069,7 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the unarmed attack string for this <code>pc</code>
+	 * Get the unarmed attack string for this {@code pc}
 	 *
 	 * @param pc The character that this unarmed attack string is for
 	 * @return   The unarmed attack string affected only by BAB
@@ -3082,9 +3080,9 @@ public class WeaponToken extends Token
 	}
 
 	/**
-	 * Get the unarmed attack string for this <code>pc</code>.  Use
-	 * <code>bonus</code> to affect the size of attacks e.g.  +9/+4 with
-	 * bonus 2 becomes +11/+6.  Use <code>BABbonus</code> to affect the
+	 * Get the unarmed attack string for this {@code pc}.  Use
+	 * {@code bonus} to affect the size of attacks e.g.  +9/+4 with
+	 * bonus 2 becomes +11/+6.  Use {@code BABbonus} to affect the
 	 * size and number of attacks e.g.  +9/+4 with BABBonus 2 becomes
 	 * +11/+6/+1.
 	 *
@@ -3143,7 +3141,7 @@ public class WeaponToken extends Token
 	 */
 	public static List<String> getRangeList(Equipment eq, boolean addShortRange, final PlayerCharacter aPC)
 	{
-		final List<String> aList = new ArrayList<String>();
+		final List<String> aList = new ArrayList<>();
 		final int baseRange = EqToken.getRange(aPC, eq).intValue();
 		int aRange = baseRange;
 		int maxIncrements = 0;

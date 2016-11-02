@@ -35,11 +35,8 @@ import pcgen.util.Logging;
  * multiple times when offered multiple stat boosts at the same 
  * level.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BonusstatallowsstackToken implements GameModeLstToken
 {

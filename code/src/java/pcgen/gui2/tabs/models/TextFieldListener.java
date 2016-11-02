@@ -32,12 +32,9 @@ import javax.swing.text.JTextComponent;
  * though and does not update the text field if the underlying value 
  * changes.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class TextFieldListener implements DocumentListener
 {

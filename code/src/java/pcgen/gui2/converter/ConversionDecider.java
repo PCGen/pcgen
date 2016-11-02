@@ -29,11 +29,8 @@ import java.util.List;
  * the LSTConverter to ask the user for a decision on ambiguous syntax 
  * that needs to be converted. 
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ConversionDecider
 {

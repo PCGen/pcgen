@@ -50,11 +50,8 @@ import pcgen.system.LanguageBundle;
  * The Class <code>LanguagePanel</code> is responsible for 
  * managing the language and unit set preferences.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel
@@ -118,15 +115,13 @@ public class LanguagePanel extends PCGenPrefsPanel
 						new JRadioButton(in_langSystem), exclusiveGroup);
 
 		final SortedSet<JRadioButton> sorted =
-				new TreeSet<JRadioButton>(new Comparator<JRadioButton>()
-				{
-					@Override
-					public int compare(final JRadioButton o1,
-						final JRadioButton o2)
-					{
-						return o1.getText().compareToIgnoreCase(o2.getText());
-					}
-				});
+                new TreeSet<>(new Comparator<JRadioButton>() {
+                    @Override
+                    public int compare(final JRadioButton o1,
+                                       final JRadioButton o2) {
+                        return o1.getText().compareToIgnoreCase(o2.getText());
+                    }
+                });
 
 		sorted.add(langEng = new JRadioButton(in_langEnglish));
 		sorted.add(langFre = new JRadioButton(in_langFrench));
@@ -336,9 +331,6 @@ public class LanguagePanel extends PCGenPrefsPanel
 		return langCountry;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean needsRestart()
 	{

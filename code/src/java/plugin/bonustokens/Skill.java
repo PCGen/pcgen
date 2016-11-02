@@ -19,8 +19,6 @@
  * Created on December 13, 2002, 9:19 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.bonustokens;
@@ -106,9 +104,6 @@ public final class Skill extends BonusObj
 		return "SKILL";
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
 	@Override
 	protected boolean requiresRealCaseTarget()
 	{

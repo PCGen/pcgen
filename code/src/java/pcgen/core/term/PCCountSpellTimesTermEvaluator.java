@@ -19,8 +19,6 @@
  * Created 07-Aug-2008 23:22:14
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -65,11 +63,11 @@ public class PCCountSpellTimesTermEvaluator
 		if (!"".equals(bookName))
 		{
 			List<CharacterSpell> csList =
-					new ArrayList<CharacterSpell>();
+                    new ArrayList<>();
 
 			if (classNum == -1)
 			{
-				csList = new ArrayList<CharacterSpell>();
+				csList = new ArrayList<>();
 
 				for (PObject cl : pc.getDisplay().getClassSet())
 				{
@@ -111,7 +109,7 @@ public class PCCountSpellTimesTermEvaluator
 			}
 		}
 
-		return 0f;		
+		return 0.0f;
 	}
 
 	@Override

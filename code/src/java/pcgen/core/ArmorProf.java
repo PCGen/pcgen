@@ -26,8 +26,7 @@ import pcgen.cdom.base.Ungranted;
 /**
  * <code>ArmorProf</code>.
  *
- * @author Thomas Clegg <arknight@swbell.net>
- * @version $Revision$
+ * @author Thomas Clegg &lt;arknight@swbell.net&gt;
  * DO NOT DELETE (waiting for use)
  */
 public final class ArmorProf extends PObject implements Comparable<Object>,

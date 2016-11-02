@@ -34,11 +34,8 @@ import pcgen.io.exporttoken.SpellListToken;
  * can know for the specified spellcaster class and level. For Clerics 
  * with domains, this does not include domain spells.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListKnownToken extends SpellListToken
@@ -96,7 +93,7 @@ public class SpellListKnownToken extends SpellListToken
 		if (aObject instanceof PCClass)
 		{
 			PCClass aClass = (PCClass) aObject;
-			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, "null", pc);
+			knownNum = pc.getSpellSupport(aClass).getKnownForLevel(level, pc);
 		}
 
 		return knownNum;

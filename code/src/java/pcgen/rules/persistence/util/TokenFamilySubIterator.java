@@ -85,7 +85,7 @@ public class TokenFamilySubIterator<C> implements
 	 * we do this Iterator, otherwise this Iterator will provide tokens that are
 	 * designed to be unreachable (And thus will produce errors)
 	 */
-	private final Set<String> used = new HashSet<String>();
+	private final Set<String> used = new HashSet<>();
 
 	/**
 	 * Constructs a new TokenFamilySubIterator for the given Class and parent

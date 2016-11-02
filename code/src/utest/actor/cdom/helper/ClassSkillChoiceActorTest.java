@@ -17,18 +17,18 @@
  */
 package actor.cdom.helper;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Persistent;
 import pcgen.cdom.helper.ClassSkillChoiceActor;
 import pcgen.core.Skill;
+
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
+import org.junit.Test;
 
 public class ClassSkillChoiceActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>
 {
 
-	static ClassSkillChoiceActor pca = new ClassSkillChoiceActor(null, null);
+	private static final Persistent<Skill> pca = new ClassSkillChoiceActor(null, null);
 
 	@Test
 	public void testEmpty()

@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 11:44:20
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -91,7 +89,7 @@ public class PCEqTypeTermEvaluator
 			return convertToFloat(originalText, sTok);
 		}
 
-		return 0f;
+		return 0.0f;
 	}
 
 	@Override

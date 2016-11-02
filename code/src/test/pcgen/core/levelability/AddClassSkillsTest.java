@@ -120,7 +120,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(pc, ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
@@ -148,7 +148,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(3, choiceSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
@@ -201,7 +201,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
 		assertEquals(3, choiceSet.size());
-		Set<Object> limitedSet = new HashSet<Object>();
+		Set<Object> limitedSet = new HashSet<>();
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
 		for (Object sc : choiceSet)
 		{
@@ -213,7 +213,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		assertEquals(2, limitedSet.size());
 		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
-		ArrayList<String> choiceStrings = new ArrayList<String>();
+		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : limitedSet)
 		{
 			choiceStrings.add(o.toString());
@@ -231,7 +231,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 			while (tok.hasMoreTokens())
 			{
 				String line = tok.nextToken();
-				if (line.trim().length() > 0)
+				if (!line.trim().isEmpty())
 				{
 					System.out.println("Processing line:'" + line + "'.");
 					reconstClass =

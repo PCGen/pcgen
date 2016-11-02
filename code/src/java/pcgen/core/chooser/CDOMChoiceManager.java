@@ -1,3 +1,22 @@
+/*
+ * CDOMChoiceManager.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
 package pcgen.core.chooser;
 
 import java.util.ArrayList;
@@ -22,7 +41,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	private final ChooseDriver owner;
 	private final Integer numberOfChoices;
 	protected final int choicesPerUnitCost;
-	protected ChooseController<T> controller = new ChooseController<T>();
+	protected ChooseController<T> controller = new ChooseController<>();
 	protected final ChooseInformation<T> info;
 
 	private transient int preChooserChoices;
@@ -92,7 +111,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	{
 		List<? extends T> oldSelections = info.getChoiceActor().getCurrentlySelected(
 				owner, pc);
-		List<T> toAdd = new ArrayList<T>();
+		List<T> toAdd = new ArrayList<>();
 		for (T obj : selected)
 		{
 			if (oldSelections == null || !oldSelections.remove(obj))
@@ -155,8 +174,8 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 		}
 		
 		CDOMChooserFacadeImpl<T> chooserFacade =
-				new CDOMChooserFacadeImpl<T>(title, availableList,
-					selectedList, effectiveChoices);
+                new CDOMChooserFacadeImpl<>(title, availableList,
+                        selectedList, effectiveChoices);
 		chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
 		chooserFacade.setAllowsDups(dupsAllowed);
 		chooserFacade.setInfoFactory(new Gui2InfoFactory(aPc));

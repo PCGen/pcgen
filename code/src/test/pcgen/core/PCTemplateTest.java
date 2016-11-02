@@ -33,7 +33,6 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
-import pcgen.PCGenTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -50,16 +49,13 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>PCTemplateTest</code> tests the fucntion of the PCTemplate class.
  *
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
  */
 public class PCTemplateTest extends AbstractCharacterTestCase
 {
 	private PCClass testClass;
-	private GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+	private GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 	
 	/**
 	 * Constructs a new <code>PCTemplateTest</code>.

@@ -33,12 +33,9 @@ import pcgen.facade.util.ListFacade;
  *  where a dialog is presented to a user asking them to select from a fixed list of 
  *  options.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ChooserFacade
 {

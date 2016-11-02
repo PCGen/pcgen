@@ -19,8 +19,6 @@
  * Created on November 17, 2003, 12:00 PM
  *
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  */
 package pcgen.persistence.lst;
 
@@ -51,11 +49,9 @@ import pcgen.system.PCGenSettings;
  *
  * <p>
  * Current Ver: $Revision$ <br>
- * Last Editor: $Author$ <br>
- * Last Edited: $Date$
  *
  * @author AD9C15
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {
@@ -77,12 +73,12 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	/** The suffix used to indicate this is a forget operation */
 	public static final String FORGET_SUFFIX = ".FORGET"; //$NON-NLS-1$
 
-	private List<ModEntry> copyLineList = new ArrayList<ModEntry>();
-	private List<String> forgetLineList = new ArrayList<String>();
-	private List<List<ModEntry>> modEntryList = new ArrayList<List<ModEntry>>();
+	private List<ModEntry> copyLineList = new ArrayList<>();
+	private List<String> forgetLineList = new ArrayList<>();
+	private List<List<ModEntry>> modEntryList = new ArrayList<>();
 	private boolean processComplete = true;
 	/** A list of objects that will not be included. */
-	protected List<String> excludedObjects = new ArrayList<String>();
+	protected List<String> excludedObjects = new ArrayList<>();
 
 	/**
 	 * LstObjectFileLoader constructor.
@@ -101,7 +97,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		processComplete = true;
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles = new HashSet<CampaignSourceEntry>();
+		Set<CampaignSourceEntry> loadedFiles = new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
 		for (CampaignSourceEntry sourceEntry : fileList)
@@ -173,11 +169,8 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * @param pObj The object that has just completed loading.
 	 * 
 	 * @see pcgen.persistence.lst.LstObjectFileLoader#includeObject(SourceEntry, CDOMObject)
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#finishObject(CDOMObject)
-	 * @see pcgen.core.SettingsHandler#isAllowOverride()
 	 * 
 	 * @throws PersistenceLayerException 
-	 * @since 5.11
 	 */
 	public void completeObject(LoadContext context, SourceEntry source,
 		final T pObj) throws PersistenceLayerException
@@ -257,7 +250,6 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * 
 	 * @param cdo The object to add.
 	 * 
-	 * @since 5.11
 	 */
 	protected void addGlobalObject(final CDOMObject cdo)
 	{
@@ -430,12 +422,12 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 				{
 					// As CLASS:abc.MOD can be followed by level lines, we place the
 					// lines into a list for processing in a group afterwards
-					classModLines = new ArrayList<ModEntry>();
+					classModLines = new ArrayList<>();
 					classModLines.add(new ModEntry(sourceEntry, line, i + 1));
 				}
 				else
 				{
-					List<ModEntry> modLines = new ArrayList<ModEntry>(1);
+					List<ModEntry> modLines = new ArrayList<>(1);
 					modLines.add(new ModEntry(sourceEntry, line, i + 1));
 					modEntryList.add(modLines);
 				}

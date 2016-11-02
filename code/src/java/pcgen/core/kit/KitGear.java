@@ -49,8 +49,7 @@ import pcgen.core.character.EquipSet;
 /**
  * <code>KitGear</code>.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitGear extends BaseKit
 {
@@ -180,7 +179,7 @@ public final class KitGear extends BaseKit
 	{
 		actingQuantity = quantity;
 		actingCost = maxCost;
-		actingMods = mods == null ? null : new ArrayList<EqModRef>(mods);
+		actingMods = mods == null ? null : new ArrayList<>(mods);
 		actingLocation = theLocationStr;
 		if (size != null)
 		{
@@ -204,7 +203,7 @@ public final class KitGear extends BaseKit
 		}
 
 		List<Equipment> eqList =
-				new ArrayList<Equipment>(equip.getContainedObjects());
+                new ArrayList<>(equip.getContainedObjects());
 		if (actingCost != null)
 		{
 			final BigDecimal bdMaxCost =
@@ -223,7 +222,7 @@ public final class KitGear extends BaseKit
 		}
 		else
 		{
-			List<Equipment> selected = new ArrayList<Equipment>(1);
+			List<Equipment> selected = new ArrayList<>(1);
 			selected = Globals.getChoiceFromList("Choose equipment", eqList, selected, 1, aPC);
 			if (selected.size() == 1)
 			{
@@ -250,7 +249,7 @@ public final class KitGear extends BaseKit
 				|| (!theEquipment.isWeapon() && !theEquipment.isAmmunition()))
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 		}
 		else
@@ -258,7 +257,7 @@ public final class KitGear extends BaseKit
 			if (sizeToPC != null && sizeToPC)
 			{
 				tryResize =
-						Globals.canResizeHaveEffect(aPC, theEquipment, null);
+						Globals.canResizeHaveEffect(theEquipment, null);
 			}
 			else
 			{
@@ -532,7 +531,7 @@ public final class KitGear extends BaseKit
 	{
 		if (lookupList == null)
 		{
-			lookupList = new LinkedList<NamedFormula>();
+			lookupList = new LinkedList<>();
 		}
 		lookupList.add(new NamedFormula(tableEntry, f));
 	}
@@ -546,7 +545,7 @@ public final class KitGear extends BaseKit
 	{
 		if (mods == null)
 		{
-			mods = new LinkedList<EqModRef>();
+			mods = new LinkedList<>();
 		}
 		mods.add(modRef);
 	}

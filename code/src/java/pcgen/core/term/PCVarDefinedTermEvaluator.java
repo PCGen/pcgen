@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 13:40:31
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -42,7 +40,7 @@ public class PCVarDefinedTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		return pc.hasVariable(var) ? 1f : 0f;
+		return pc.hasVariable(var) ? 1.0f : 0.0f;
 	}
 
 	@Override

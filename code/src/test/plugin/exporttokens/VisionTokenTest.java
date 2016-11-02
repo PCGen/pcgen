@@ -45,11 +45,8 @@ import pcgen.rules.context.LoadContext;
 /**
  * <code>VisionTokenTest</code> tests the function of the VISION token.  
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {
@@ -75,7 +72,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	{
 		super.setUp();
 		
-		final GenericLoader<PCTemplate> loader = new GenericLoader<PCTemplate>(PCTemplate.class);
+		final GenericLoader<PCTemplate> loader = new GenericLoader<>(PCTemplate.class);
 		final LoadContext context = Globals.getContext();
 		CampaignSourceEntry source;
 		try

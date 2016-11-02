@@ -26,15 +26,13 @@ import java.util.Dictionary;
  * View of an Image, intended to support the HTML &lt;IMG&gt; tag.
  * Supports scaling via the HEIGHT and WIDTH attributes of the tag.
  * If the image is unable to be loaded any text specified via the
- * <code>ALT</code> attribute will be rendered.
+ * {@code ALT} attribute will be rendered.
  * <p>
  * While this class has been part of swing for a while now, it is public
  * as of 1.4.
  *
  * @author  Scott Violet
- * @version 1.50 12/03/01
  * @see javax.swing.text.IconView
- * @since 1.4
  */
 public class RelativeImageView extends View implements ImageObserver
 {
@@ -49,12 +47,12 @@ public class RelativeImageView extends View implements ImageObserver
 	private static Icon sMissingImageIcon;
 
 	/**
-	 * File name for <code>sPendingImageIcon</code>.
+	 * File name for {@code sPendingImageIcon}.
 	 */
 	private static final String PENDING_IMAGE_SRC = "icons/image-delayed.gif";
 
 	/**
-	 * File name for <code>sMissingImageIcon</code>.
+	 * File name for {@code sMissingImageIcon}.
 	 */
 	private static final String MISSING_IMAGE_SRC = "icons/image-failed.gif";
 
@@ -162,7 +160,7 @@ public class RelativeImageView extends View implements ImageObserver
 	/**
 	 * Returns the text to display if the image can't be loaded. This is
 	 * obtained from the Elements attribute set with the attribute name
-	 * <code>HTML.Attribute.ALT</code>.
+	 * {@code HTML.Attribute.ALT}.
 	 * @return alt text
 	 */
 	public String getAltText()
@@ -235,7 +233,7 @@ public class RelativeImageView extends View implements ImageObserver
 	}
 
 	/**
-	 * Sets how the image is loaded. If <code>newValue</code> is true,
+	 * Sets how the image is loaded. If {@code newValue} is true,
 	 * the image we be loaded when first asked for, otherwise it will
 	 * be loaded asynchronously. The default is to not load synchronously,
 	 * that is to load the image asynchronously.
@@ -345,7 +343,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 
 		View view = getAltView();
-		float retValue = 0f;
+		float retValue = 0.0f;
 
 		if (view != null)
 		{
@@ -368,8 +366,8 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Sets the size of the view.  This should cause
 	 * layout of the view if it has any layout duties.
 	 *
-	 * @param width the width >= 0
-	 * @param height the height >= 0
+	 * @param width the width &gt;= 0
+	 * @param height the height &gt;= 0
 	 */
     @Override
 	public void setSize(float width, float height)
@@ -382,16 +380,16 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if (view != null)
 			{
-				view.setSize(Math.max(0f, width - (DEFAULT_WIDTH + leftInset + rightInset)),
-				    Math.max(0f, height - (topInset + bottomInset)));
+				view.setSize(Math.max(0.0f, width - (DEFAULT_WIDTH + leftInset + rightInset)),
+				    Math.max(0.0f, height - (topInset + bottomInset)));
 			}
 		}
 	}
 
 	/**
 	 * For images the tooltip text comes from text specified with the
-	 * <code>ALT</code> attribute. This is overriden to return
-	 * <code>getAltText</code>.
+	 * {@code ALT} attribute. This is overriden to return
+	 * {@code getAltText}.
 	 * @param x
 	 * @param y
 	 * @param allocation
@@ -432,7 +430,7 @@ public class RelativeImageView extends View implements ImageObserver
 	// necessary and return. This is ok as we know when loading finishes
 	// it will pick up the new height/width, if necessary.
     @Override
-	public boolean imageUpdate(Image img, int flags, int x, int y, int aWidth, int aHeight)
+	public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height)
 	{
 		if ((image == null) || (image != img))
 		{
@@ -440,7 +438,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 
 		// Bail out if there was an error:
-		if ((flags & (ABORT | ERROR)) != 0)
+		if ((infoflags & (ABORT | ERROR)) != 0)
 		{
 			image = null;
 			repaint(0);
@@ -451,7 +449,7 @@ public class RelativeImageView extends View implements ImageObserver
 		// Resize image if necessary:
 		short changed = 0;
 
-		if ((flags & ImageObserver.HEIGHT) != 0)
+		if ((infoflags & ImageObserver.HEIGHT) != 0)
 		{
 			if (!getElement().getAttributes().isDefined(HTML.Attribute.HEIGHT))
 			{
@@ -459,7 +457,7 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 		}
 
-		if ((flags & ImageObserver.WIDTH) != 0)
+		if ((infoflags & ImageObserver.WIDTH) != 0)
 		{
 			if (!getElement().getAttributes().isDefined(HTML.Attribute.WIDTH))
 			{
@@ -471,12 +469,12 @@ public class RelativeImageView extends View implements ImageObserver
 		{
 			if ((changed & 1) == 1)
 			{
-				this.width = aWidth;
+				this.width = width;
 			}
 
 			if ((changed & 2) == 2)
 			{
-				this.height = aHeight;
+				this.height = height;
 			}
 
 			if ((state & LOADING_FLAG) == LOADING_FLAG)
@@ -512,12 +510,12 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 
 		// Repaint when done or when new pixels arrive:
-		if ((flags & (FRAMEBITS | ALLBITS)) != 0)
+		if ((infoflags & (FRAMEBITS | ALLBITS)) != 0)
 		{
 			repaint(0);
 		}
 
-		return ((flags & ALLBITS) == 0);
+		return ((infoflags & ALLBITS) == 0);
 	}
 
 	/**
@@ -556,21 +554,20 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Paints the View.
 	 *
 	 * @param g the rendering surface to use
-	 * @param a the allocated region to render into
-	 * @see View#paint
+	 * @param allocation the allocated region to render into
 	 */
     @Override
-	public void paint(Graphics g, Shape a)
+	public void paint(Graphics g, Shape allocation)
 	{
 		sync();
 
-		Rectangle rect = (a instanceof Rectangle) ? (Rectangle) a : a.getBounds();
+		Rectangle rect = (allocation instanceof Rectangle) ? (Rectangle) allocation : allocation.getBounds();
 
 		Image anImage = getImage();
 		Rectangle clip = g.getClipBounds();
 
 		fBounds.setBounds(rect);
-		paintHighlights(g, a);
+		paintHighlights(g, allocation);
 		paintBorder(g, rect);
 
 		if (clip != null)
@@ -581,7 +578,12 @@ public class RelativeImageView extends View implements ImageObserver
 
 		if (anImage != null)
 		{
-			if (!hasPixels(anImage))
+			if (hasPixels(anImage))
+			{
+				// Draw the image
+				g.drawImage(anImage, rect.x + leftInset, rect.y + topInset, width, height, imageObserver);
+			}
+			else
 			{
 				// No pixels yet, use the default
 				Icon icon = getLoadingImageIcon();
@@ -590,11 +592,6 @@ public class RelativeImageView extends View implements ImageObserver
 				{
 					icon.paintIcon(getContainer(), g, rect.x + leftInset, rect.y + topInset);
 				}
-			}
-			else
-			{
-				// Draw the image
-				g.drawImage(anImage, rect.x + leftInset, rect.y + topInset, width, height, imageObserver);
 			}
 		}
 		else
@@ -633,23 +630,23 @@ public class RelativeImageView extends View implements ImageObserver
 	 * @param x the X coordinate
 	 * @param y the Y coordinate
 	 * @param a the allocated region to render into
-	 * @param bias
+	 * @param biasReturn
 	 * @return the location within the model that best represents the
 	 *  given point of view
 	 */
     @Override
-	public int viewToModel(float x, float y, Shape a, Position.Bias[] bias)
+	public int viewToModel(float x, float y, Shape a, Position.Bias[] biasReturn)
 	{
 		Rectangle alloc = (Rectangle) a;
 
 		if (x < (alloc.x + alloc.width))
 		{
-			bias[0] = Position.Bias.Forward;
+			biasReturn[0] = Position.Bias.Forward;
 
 			return getStartOffset();
 		}
 
-		bias[0] = Position.Bias.Backward;
+		biasReturn[0] = Position.Bias.Backward;
 
 		return getEndOffset();
 	}
@@ -690,11 +687,11 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if ("top".equals(alignment))
 			{
-				vAlign = 0f;
+				vAlign = 0.0f;
 			}
 			else if ("middle".equals(alignment))
 			{
-				vAlign = .5f;
+				vAlign = 0.5f;
 			}
 		}
 
@@ -813,7 +810,7 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 		}
 
-		return 0f;
+		return 0.0f;
 	}
 
 	/** Determines if path is in the form of a URL
@@ -835,7 +832,7 @@ public class RelativeImageView extends View implements ImageObserver
 		return (anImage != null) && (anImage.getHeight(imageObserver) > 0) && (anImage.getWidth(imageObserver) > 0);
 	}
 
-	private void loadDefaultIconsIfNecessary()
+	private static void loadDefaultIconsIfNecessary()
 	{
 		try
 		{
@@ -856,8 +853,8 @@ public class RelativeImageView extends View implements ImageObserver
 	}
 
 	/**
-	 * Loads the image from the URL <code>getImageURL</code>. This should
-	 * only be invoked from <code>refreshImage</code>.
+	 * Loads the image from the URL {@code getImageURL}. This should
+	 * only be invoked from {@code refreshImage}.
 	 */
 	private void loadImage()
 	{
@@ -868,7 +865,7 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if (src != null)
 			{
-				Dictionary<?, ?> cache = (Dictionary) getDocument().getProperty(IMAGE_CACHE_PROPERTY);
+				Dictionary<?, ?> cache = (Dictionary) getDocument().getProperty(RelativeImageView.IMAGE_CACHE_PROPERTY);
 
 				if (cache != null)
 				{
@@ -891,7 +888,6 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 		else
 		{
-			/******** Code to load from relative path *************/
 			String src = (String) getElement().getAttributes().getAttribute(HTML.Attribute.SRC);
 			src = processSrcPath(src);
 			image = Toolkit.getDefaultToolkit().createImage(src);
@@ -900,16 +896,15 @@ public class RelativeImageView extends View implements ImageObserver
 			{
 				waitForImage();
 			}
-			catch (InterruptedException e)
+			catch (final InterruptedException e)
 			{
 				image = null;
 			}
 
-			/******************************************************/
 		}
 	}
 
-	private Icon makeIcon(final String gifFile) throws IOException
+	private static Icon makeIcon(final String gifFile) throws IOException
 	{
 		/* 
 		 * Copy resource into a byte array.  This is
@@ -928,29 +923,34 @@ public class RelativeImageView extends View implements ImageObserver
 			return null;
 		}
 
-		BufferedInputStream in = new BufferedInputStream(resource);
-		ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
-		byte[] buffer = new byte[1024];
-		int n;
+		byte[] buffer;
+		try (
+				ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
+				BufferedInputStream in = new BufferedInputStream(resource);
+		) {
 
-		while ((n = in.read(buffer)) > 0)
-		{
-			out.write(buffer, 0, n);
+			buffer = new byte[1024];
+			int n;
+
+			while ((n = in.read(buffer)) > 0)
+			{
+				out.write(buffer, 0, n);
+			}
+
+			in.close();
+			out.flush();
+
+			buffer = out.toByteArray();
+
+			if (buffer.length == 0)
+			{
+				System.err.println("warning: " + gifFile + " is zero-length");
+
+				return null;
+			}
+
+			return new ImageIcon(buffer);
 		}
-
-		in.close();
-		out.flush();
-
-		buffer = out.toByteArray();
-
-		if (buffer.length == 0)
-		{
-			System.err.println("warning: " + gifFile + " is zero-length");
-
-			return null;
-		}
-
-		return new ImageIcon(buffer);
 	}
 
 	private void paintBorder(Graphics g, Rectangle rect)
@@ -1012,7 +1012,7 @@ public class RelativeImageView extends View implements ImageObserver
 			if (pv != null)
 			{
 				File f = new File(pv);
-				val = (new File(f.getParent(), imageFile.getPath())).toString();
+				val = new File(f.getParent(), imageFile.getPath()).toString();
 				found = true;
 			}
 		}
@@ -1023,7 +1023,7 @@ public class RelativeImageView extends View implements ImageObserver
 
 			if (imagePath != null)
 			{
-				val = (new File(imagePath, imageFile.getPath())).toString();
+				val = new File(imagePath, imageFile.getPath()).toString();
 			}
 		}
 
@@ -1032,8 +1032,8 @@ public class RelativeImageView extends View implements ImageObserver
 
 	/**
 	 * Loads the image and updates the size accordingly. This should be
-	 * invoked instead of invoking <code>loadImage</code> or
-	 * <code>updateImageSize</code> directly.
+	 * invoked instead of invoking {@code loadImage} or
+	 * {@code updateImageSize} directly.
 	 */
 	private void refreshImage()
 	{
@@ -1069,7 +1069,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Assumes the view is still at its last-drawn location.
 	 * @param delay
 	 */
-	private void repaint(long delay)
+	private void repaint(final long delay)
 	{
 		if ((container != null) && (fBounds != null))
 		{
@@ -1078,7 +1078,7 @@ public class RelativeImageView extends View implements ImageObserver
 	}
 
 	/**
-	 * Invokes <code>preferenceChanged</code> on the event displatching
+	 * Invokes {@code preferenceChanged} on the event displatching
 	 * thread.
 	 */
 	private void safePreferenceChanged()
@@ -1089,14 +1089,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 		else
 		{
-			SwingUtilities.invokeLater(new Runnable()
-				{
-                @Override
-					public void run()
-					{
-						preferenceChanged(null, true, true);
-					}
-				});
+			SwingUtilities.invokeLater(() -> preferenceChanged(null, true, true));
 		}
 	}
 
@@ -1163,7 +1156,7 @@ public class RelativeImageView extends View implements ImageObserver
 
 	/**
 	 * Recreates and reloads the image.  This should
-	 * only be invoked from <code>refreshImage</code>.
+	 * only be invoked from {@code refreshImage}.
 	 */
 	private void updateImageSize()
 	{
@@ -1317,7 +1310,7 @@ public class RelativeImageView extends View implements ImageObserver
 		// necessary and return. This is ok as we know when loading finishes
 		// it will pick up the new height/width, if necessary.
         @Override
-		public boolean imageUpdate(Image img, int flags, int x, int y, int newWidth, int newHeight)
+		public boolean imageUpdate(Image img, int infoflags, int x, int y, int width, int height)
 		{
 			if ((image == null) || (image != img))
 			{
@@ -1325,7 +1318,7 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 
 			// Bail out if there was an error:
-			if ((flags & (ABORT | ERROR)) != 0)
+			if ((infoflags & (ABORT | ERROR)) != 0)
 			{
 				repaint(0);
 
@@ -1339,12 +1332,12 @@ public class RelativeImageView extends View implements ImageObserver
 
 						if ((state & WIDTH_FLAG) != WIDTH_FLAG)
 						{
-							width = DEFAULT_WIDTH;
+							RelativeImageView.this.width = DEFAULT_WIDTH;
 						}
 
 						if ((state & HEIGHT_FLAG) != HEIGHT_FLAG)
 						{
-							height = DEFAULT_HEIGHT;
+							RelativeImageView.this.height = DEFAULT_HEIGHT;
 						}
 
 						// No image, use a default border.
@@ -1368,12 +1361,12 @@ public class RelativeImageView extends View implements ImageObserver
 			// Resize image if necessary:
 			short changed = 0;
 
-			if (((flags & ImageObserver.HEIGHT) != 0) && !getElement().getAttributes().isDefined(HTML.Attribute.HEIGHT))
+			if (((infoflags & ImageObserver.HEIGHT) != 0) && !getElement().getAttributes().isDefined(HTML.Attribute.HEIGHT))
 			{
 				changed |= 1;
 			}
 
-			if (((flags & ImageObserver.WIDTH) != 0) && !getElement().getAttributes().isDefined(HTML.Attribute.WIDTH))
+			if (((infoflags & ImageObserver.WIDTH) != 0) && !getElement().getAttributes().isDefined(HTML.Attribute.WIDTH))
 			{
 				changed |= 2;
 			}
@@ -1387,12 +1380,12 @@ public class RelativeImageView extends View implements ImageObserver
 
 				if (((changed & 1) == 1) && ((state & WIDTH_FLAG) == 0))
 				{
-					width = newWidth;
+					RelativeImageView.this.width = width;
 				}
 
 				if (((changed & 2) == 2) && ((state & HEIGHT_FLAG) == 0))
 				{
-					height = newHeight;
+					RelativeImageView.this.height = height;
 				}
 
 				if ((state & LOADING_FLAG) == LOADING_FLAG)
@@ -1429,12 +1422,12 @@ public class RelativeImageView extends View implements ImageObserver
 			}
 
 			// Repaint when done or when new pixels arrive:
-			if ((flags & (FRAMEBITS | ALLBITS)) != 0)
+			if ((infoflags & (ImageObserver.FRAMEBITS | ImageObserver.ALLBITS)) != 0)
 			{
 				repaint(0);
 			}
 
-			return ((flags & ALLBITS) == 0);
+			return (infoflags & ImageObserver.ALLBITS) == 0;
 		}
 	}
 
@@ -1500,7 +1493,7 @@ public class RelativeImageView extends View implements ImageObserver
 		}
 
         @Override
-		public View breakView(int axis, int p0, float pos, float len)
+		public View breakView(int axis, int offset, float pos, float len)
 		{
 			// Don't allow a break
 			return this;

@@ -17,11 +17,6 @@
  */
 package actor.add;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.UserSelection;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.Nature;
@@ -34,8 +29,12 @@ import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.AddLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -43,17 +42,18 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 {
 
-	private static final AddLst ADD_TOKEN = new plugin.lsttokens.AddLst();
-	private static final AbilityToken ADD_ABILITY_TOKEN = new plugin.lsttokens.add.AbilityToken();
+	private static final LstToken ADD_TOKEN = new AddLst();
+	private static final LstToken ADD_ABILITY_TOKEN = new AbilityToken();
 
-	static AbilityToken pca = new AbilityToken();
+	private static final AbilityToken pca = new AbilityToken();
 
 	protected LoadContext context;
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
+		super.setUp();
 		SettingsHandler.getGame().clearLoadContext();
 		context = Globals.getContext();
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);

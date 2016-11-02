@@ -35,11 +35,9 @@ import pcgen.rules.persistence.token.ParseResult;
  * <code>EqBuilderEqTypeToken</code> parses the EQ Builder specific choose
  * string to allow the selection of equipent types.
  *
- * Last Editor: $Author$ Last Edited: $Date: 2008-05-06 22:19:45 -0400
  * (Tue, 06 May 2008) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EqBuilderEqTypeToken implements
 		CDOMSecondaryToken<EquipmentModifier>
@@ -91,7 +89,7 @@ public class EqBuilderEqTypeToken implements
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments may not end with | : " + value, context);
 		}
-		if (value.indexOf("||") != -1)
+		if (value.contains("||"))
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 					+ " arguments uses double separator || : " + value, context);
@@ -146,7 +144,7 @@ public class EqBuilderEqTypeToken implements
 		}
 		else
 		{
-			if (chooseString.indexOf(getTokenName() + '|') == -1)
+			if (!chooseString.contains(getTokenName() + '|'))
 			{
 				return null;
 			}

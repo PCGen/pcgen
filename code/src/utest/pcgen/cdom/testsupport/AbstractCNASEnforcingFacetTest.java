@@ -410,7 +410,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		{
 			// This is ok too
 		}
-		List<CNAbilitySelection> pct = new ArrayList<CNAbilitySelection>();
+		List<CNAbilitySelection> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		try

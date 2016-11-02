@@ -155,8 +155,7 @@ public class SpellSupportForPCClass
 		
 	}
 	
-	public int getKnownForLevel(int spellLevel, String bookName,
-			PlayerCharacter aPC)
+	public int getKnownForLevel(int spellLevel, PlayerCharacter aPC)
 	{
 		int total = 0;
 		int stat = 0;
@@ -408,7 +407,7 @@ public class SpellSupportForPCClass
 		//
 		if (castForLevelMap == null)
 		{
-			castForLevelMap = new HashMap<Integer, Integer>(100);
+			castForLevelMap = new HashMap<>(100);
 		}
 		for (int i = 0; i < 100; i++)
 		{
@@ -567,7 +566,7 @@ public class SpellSupportForPCClass
 			{
 				Collection<CharacterSpell> aList = aPC.getCharacterSpells(
 						source, ix);
-				Collection<Spell> bList = new ArrayList<Spell>();
+				Collection<Spell> bList = new ArrayList<>();
 
 				if (!aList.isEmpty())
 				{
@@ -738,11 +737,6 @@ public class SpellSupportForPCClass
 		}
 
 		return false;
-	}
-
-	public int getKnownForLevel(final int spellLevel, final PlayerCharacter aPC)
-	{
-		return getKnownForLevel(spellLevel, "null", aPC);
 	}
 
 }

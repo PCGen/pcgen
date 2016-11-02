@@ -129,7 +129,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		Set<VariableKey> keys = context.getObjectContext().getVariableKeys(obj);
-		TreeSet<String> set = new TreeSet<String>();
+		TreeSet<String> set = new TreeSet<>();
 		if (keys != null && !keys.isEmpty())
 		{
 			for (VariableKey key : keys)

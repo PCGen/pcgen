@@ -29,7 +29,7 @@ public class CtIntegrationTest extends
 {
 
 	static CtToken token = new CtToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

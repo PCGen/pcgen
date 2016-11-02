@@ -20,8 +20,6 @@
  * Created on September 2, 2002, 8:02 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.paper;
@@ -35,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>BottommarginToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class BottommarginToken extends AbstractNonEmptyToken<PaperInfo>
 		implements CDOMPrimaryToken<PaperInfo>

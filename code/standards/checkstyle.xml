@@ -5,7 +5,7 @@
     This configuration file was written by the eclipse-cs plugin configuration editor
 -->
 <!--
-    Checkstyle-Configuration: PCG
+    Checkstyle-Configuration: PCGen
     Description: none
 -->
 <module name="Checker">
@@ -57,6 +57,7 @@
     <module name="EmptyBlock"/>
     <module name="LeftCurly">
       <property name="option" value="nl"/>
+      <property name="tokens" value="INTERFACE_DEF,CLASS_DEF,ANNOTATION_DEF,ENUM_DEF,CTOR_DEF,METHOD_DEF,LITERAL_WHILE,LITERAL_TRY,LITERAL_CATCH,LITERAL_FINALLY,LITERAL_SYNCHRONIZED,LITERAL_SWITCH,LITERAL_DO,LITERAL_IF,LITERAL_ELSE,LITERAL_FOR"/>
     </module>
     <module name="NeedBraces"/>
     <module name="RightCurly">

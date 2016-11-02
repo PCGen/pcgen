@@ -51,11 +51,8 @@ import pcgen.system.LanguageBundle;
  * allowing game mode dependent settings to be copied from another 
  * gamemode.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel
@@ -68,7 +65,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 			new JButton(LanguageBundle.getString("in_copy"));
 
 	private List<PCGenPrefsPanel> affectedPanels =
-			new ArrayList<PCGenPrefsPanel>();
+            new ArrayList<>();
 
 	/**
 	 * Instantiates a new copy settings panel.

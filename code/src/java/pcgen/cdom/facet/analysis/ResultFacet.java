@@ -17,12 +17,10 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VariableID;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.facet.FormulaSetupFacet;
 import pcgen.cdom.facet.ScopeFacet;
 import pcgen.cdom.facet.VariableLibraryFacet;
 import pcgen.cdom.facet.VariableStoreFacet;
@@ -38,8 +36,6 @@ import pcgen.util.Logging;
 public class ResultFacet
 {
 
-	private FormulaSetupFacet formulaSetupFacet;
-
 	private ScopeFacet scopeFacet;
 
 	private VariableLibraryFacet variableLibraryFacet;
@@ -51,37 +47,30 @@ public class ResultFacet
 		ScopeInstance scope = scopeFacet.getGlobalScope(id);
 		VariableID<?> varID =
 				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-					varName);
+						varName);
 		return variableStoreFacet.getValue(id, varID);
 	}
 
 	public Object getLocalVariable(CharID id, CDOMObject cdo, String varName)
 	{
-		/*
-		 * TODO Given who this serves, this is an interesting situation. This
-		 * uses cdoScope to drive it "local", but scopeFacet will still walk up
-		 * the tree, but scopeFacet will barf loudly if it is a mitmatch... :(
-		 */
-		LegalScope cdoScope =
-				formulaSetupFacet.get(id.getDatasetID()).getLegalScopeLibrary()
-					.getScope(cdo.getLocalScopeName());
-		ScopeInstance scope = scopeFacet.get(id, cdoScope, cdo);
+		String localScopeName = cdo.getLocalScopeName();
+		if (localScopeName == null)
+		{
+			return getGlobalVariable(id, varName);
+		}
+
+		ScopeInstance scope = scopeFacet.get(id, localScopeName, cdo);
 		if (scope == null)
 		{
 			Logging.errorPrint("Improperly built "
-				+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
-				+ " had no VariableScope");
+					+ cdo.getClass().getSimpleName() + ": " + cdo.getKeyName()
+					+ " had no VariableScope");
 			return null;
 		}
 		VariableID<?> varID =
 				variableLibraryFacet.getVariableID(id.getDatasetID(), scope,
-					varName);
+						varName);
 		return variableStoreFacet.getValue(id, varID);
-	}
-
-	public void setFormulaSetupFacet(FormulaSetupFacet formulaSetupFacet)
-	{
-		this.formulaSetupFacet = formulaSetupFacet;
 	}
 
 	public void setScopeFacet(ScopeFacet scopeFacet)
@@ -90,7 +79,7 @@ public class ResultFacet
 	}
 
 	public void setVariableLibraryFacet(
-		VariableLibraryFacet variableLibraryFacet)
+			VariableLibraryFacet variableLibraryFacet)
 	{
 		this.variableLibraryFacet = variableLibraryFacet;
 	}
@@ -99,4 +88,5 @@ public class ResultFacet
 	{
 		this.variableStoreFacet = variableStoreFacet;
 	}
+
 }

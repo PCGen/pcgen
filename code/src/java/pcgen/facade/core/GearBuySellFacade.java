@@ -27,12 +27,9 @@ package pcgen.facade.core;
  * <code>GearBuySellFacade</code> defines the interface required for a buy / sell 
  * rate scheme that can be used by the user interface.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface GearBuySellFacade
 {

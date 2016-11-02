@@ -19,8 +19,6 @@
  * Created on February 22, 2002, 10:29 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -39,8 +37,7 @@ import pcgen.persistence.SystemLoader;
 /**
  * ???
  * @deprecated
- * @author David Rice <david-pcgen@jcuz.com>
- * @version $Revision$
+ * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public final class LstSystemLoader implements SystemLoader
 {
@@ -59,7 +56,7 @@ public final class LstSystemLoader implements SystemLoader
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
 		if (files == null)
 		{
-			files = new ArrayList<URI>();
+			files = new ArrayList<>();
 			chosenCampaignSourcefiles.put(game.getName(), files);
 		}
 		files.clear();
@@ -80,7 +77,7 @@ public final class LstSystemLoader implements SystemLoader
 		List<URI> files = chosenCampaignSourcefiles.get(game.getName());
 		if (files == null)
 		{
-			files = new ArrayList<URI>();
+			files = new ArrayList<>();
 			chosenCampaignSourcefiles.put(game.getName(), files);
 		}
 		return files;

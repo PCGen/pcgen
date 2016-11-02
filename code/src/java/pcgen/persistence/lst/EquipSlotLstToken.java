@@ -19,8 +19,6 @@
  * Created on September 2, 2002, 8:16 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.persistence.lst;
@@ -30,7 +28,7 @@ import pcgen.core.character.EquipSlot;
 /**
  * <code>EquipSlotLstToken</code>
  *
- * @author  Devon Jones <soulcatcher@evilsoft.org>
+ * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public interface EquipSlotLstToken extends LstToken
 {

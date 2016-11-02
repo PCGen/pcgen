@@ -50,16 +50,14 @@ import pcgen.util.Logging;
  * 
  * <p>
  * Variable substitution is performed by replacing a placeholder indicated by %#
- * with the #th variable in the variable list. For example, the string <br />
- * <code>&quot;This is %1 variable %3 %2&quot;</code> <br />
+ * with the #th variable in the variable list. For example, the string <br>
+ * <code>&quot;This is %1 variable %3 %2&quot;</code> <br>
  * would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;,
  * &quot;substitution&quot;.
  * 
- * Last Editor: $Author: $ Last Edited: $Date: $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		CDOMPrimaryToken<Ability>
@@ -114,7 +112,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		List<Aspect> aspects = fullMap.get(a.getKey());
 		if (aspects == null)
 		{
-			aspects = new ArrayList<Aspect>();
+			aspects = new ArrayList<>();
 		}
 		aspects.add(a);
 		context.getObjectContext().put(ability, MapKey.ASPECT, a.getKey(), aspects);
@@ -190,7 +188,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Set<AspectName> keys = changes.getAdded().keySet();
 		for (AspectName an : keys)
 		{

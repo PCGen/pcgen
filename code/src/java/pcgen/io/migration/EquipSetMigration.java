@@ -37,15 +37,12 @@ import pcgen.core.character.EquipSet;
 import pcgen.core.utils.CoreUtility;
 
 /**
- * The Class <code>EquipSetMigration</code> updates a character's equipment 
+ * The Class {@code EquipSetMigration} updates a character's equipment
  * sets to match newer requirements.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EquipSetMigration
 {
@@ -95,7 +92,7 @@ public class EquipSetMigration
 	private static List<EquipSet> getSortedChildren(
 		Collection<EquipSet> allEquipSets, String parentIdPath)
 	{
-		List<EquipSet> children = new ArrayList<EquipSet>();
+		List<EquipSet> children = new ArrayList<>();
 		for (EquipSet equipSet : allEquipSets)
 		{
 			if (equipSet.getParentIdPath().equals(parentIdPath))
@@ -141,9 +138,6 @@ public class EquipSetMigration
 			Comparator<EquipSet>
 	{
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public int compare(EquipSet arg0, EquipSet arg1)
 		{

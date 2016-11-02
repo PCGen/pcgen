@@ -30,12 +30,9 @@ import pcgen.facade.util.ListFacade;
  * The Class <code>DescriptionFacade</code> tracks descriptive entries about the character, 
  * interfacing between the user interface and the core.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface DescriptionFacade
 {

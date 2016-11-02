@@ -37,7 +37,7 @@ public class KeystatIntegrationTest extends AbstractIntegrationTestCase<Skill>
 {
 
 	static KeystatToken token = new KeystatToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

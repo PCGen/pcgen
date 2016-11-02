@@ -27,7 +27,6 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenuItem;
@@ -51,7 +50,6 @@ import plugin.network.gui.PreferencesNetworkingPanel;
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
- * @version 2.10
  */
 public class NetworkPlugin implements InteractivePlugin
 {
@@ -63,9 +61,6 @@ public class NetworkPlugin implements InteractivePlugin
 	private static final String IN_NAME = "in_plugin_network_name"; //$NON-NLS-1$
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_network_name"; //$NON-NLS-1$
-
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
 
 	private NetworkModel model;
 
@@ -95,10 +90,7 @@ public class NetworkPlugin implements InteractivePlugin
 			new PreferencesNetworkingPanel(model)));
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -211,21 +203,14 @@ public class NetworkPlugin implements InteractivePlugin
 	{
 		netToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		netToolsItem.setText(getLocalizedName());
-		netToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		netToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, netToolsItem));
 	}
 
 	/**
-	 *  Gets the name of the data directory for Plugin object
+	 * Gets the name of the data directory for Plugin object
 	 *
-	 *@return    The data directory name
+	 * @return    The data directory name
 	 */
 	public File getDataDirectory()
 	{

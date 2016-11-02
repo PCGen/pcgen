@@ -35,11 +35,8 @@ import java.io.Writer;
  * The Class <code>PreCampaignWriter</code> is responsible for unparsing 
  * a CAMPAIGN prerequisite allowing it to be written to a LST file etc. 
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

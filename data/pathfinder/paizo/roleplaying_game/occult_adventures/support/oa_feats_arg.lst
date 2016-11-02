@@ -1,0 +1,6 @@
+# CVS $Revision: $ $Author: $ -- Thu Nov 26 22:25:37 2015 -- reformated by PCGen PrettyLST v6.05.01
+SOURCELONG:Occult Adventures	SOURCESHORT:OA	SOURCEWEB:http://paizo.com/products/btpy9a0h
+
+# Feat .MODs
+# Ability Name				Clear Prereq.	Multiple Requirements																											Required Race
+CATEGORY=FEAT|Blistering Feint.MOD	PRE:.CLEAR		PREMULT:2,[PREABILITY:1,CATEGORY=FEAT,Improved Feint],[PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Combat Expertise],[PREABILITY:1,CATEGORY=Special Ability,Mesmerist ~ Consummate Liar]]	PRERACE:1,Ifrit,RACESUBTYPE=Ifrit

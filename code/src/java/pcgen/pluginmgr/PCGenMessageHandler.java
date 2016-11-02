@@ -28,13 +28,11 @@ import java.util.EventListener;
  * The template <code>PCGenMessageHandler</code> defines an object 
  * that can act on a PCGenMessage. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
+@FunctionalInterface
 public interface PCGenMessageHandler extends EventListener
 {
 	/**

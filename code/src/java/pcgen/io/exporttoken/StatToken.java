@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 
@@ -94,7 +92,7 @@ public class StatToken extends Token
 		{
 			return "";
 		}
-		List<PCStat> statList = new ArrayList<PCStat>(pc.getDisplay().getStatSet());
+		List<PCStat> statList = new ArrayList<>(pc.getDisplay().getStatSet());
 		PCStat stat = statList.get(indexOfStat);
 
 		String findType = "STAT";

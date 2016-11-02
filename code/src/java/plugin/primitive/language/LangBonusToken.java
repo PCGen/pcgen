@@ -28,6 +28,9 @@ import pcgen.core.PlayerCharacter;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * LangBonusToken is a Primitive that includes bonus languages available to a PC.
+ */
 public class LangBonusToken implements PrimitiveToken<Language>, PrimitiveFilter<Language>
 {
 

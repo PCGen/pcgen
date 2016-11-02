@@ -66,6 +66,7 @@ import org.apache.commons.io.filefilter.FileFilterUtils;
 import org.apache.commons.io.filefilter.IOFileFilter;
 import org.apache.commons.io.filefilter.SuffixFileFilter;
 import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.fop.apps.FOUserAgent;
 import org.apache.fop.render.awt.AWTRenderer;
 import org.apache.fop.render.awt.viewer.PreviewPanel;
 
@@ -82,16 +83,16 @@ import pcgen.util.fop.FopTask;
 /**
  * Dialog to allow the preview of character export.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class PrintPreviewDialog extends JDialog implements ActionListener
+public final class PrintPreviewDialog extends JDialog implements ActionListener
 {
 
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
 		JDialog dialog = new PrintPreviewDialog(frame);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 
@@ -160,12 +161,12 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		pageBox.addItem("0 of 0");
 		pageBox.setActionCommand(PAGE_COMMAND);
 		pageBox.addActionListener(this);
-		zoomBox.addItem(Double.valueOf(0.25));
-		zoomBox.addItem(Double.valueOf(0.50));
+		zoomBox.addItem(0.25);
+		zoomBox.addItem(0.50);
 
-		zoomBox.addItem(Double.valueOf(0.75));
-		zoomBox.addItem(Double.valueOf(1.00));
-		zoomBox.setSelectedItem(Double.valueOf(0.75));
+		zoomBox.addItem(0.75);
+		zoomBox.addItem(1.00);
+		zoomBox.setSelectedItem(0.75);
 		zoomBox.setRenderer(new DefaultListCellRenderer()
 		{
 
@@ -372,9 +373,9 @@ public class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			URI osPath = new File(ConfigurationSettings.getOutputSheetsDir()).toURI();
 			File xsltFile = new File(osPath.resolve(uri));
-
-			AWTRenderer renderer = new AWTRenderer();
-			renderer.setPreviewDialogDisplayed(false);
+			
+			FOUserAgent userAgent = FopTask.getFactory().newFOUserAgent();
+			AWTRenderer renderer = new AWTRenderer(userAgent, null, false, false);
 			PipedOutputStream out = new PipedOutputStream();
 			FopTask task = FopTask.newFopTask(new PipedInputStream(out), xsltFile, renderer);
 			Thread thread = new Thread(task, "fop-preview");

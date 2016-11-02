@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package pcgen.core.npcgen;
 
@@ -41,7 +39,7 @@ import pcgen.core.SystemCollections;
 /**
  * Parse a generator options file.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  */
 public class OptionsParser
@@ -76,7 +74,7 @@ public class OptionsParser
 	public List<GeneratorOption> parse( final File aFileName ) 
 		throws SAXException, IOException
 	{
-		final List<GeneratorOption> ret = new ArrayList<GeneratorOption>();
+		final List<GeneratorOption> ret = new ArrayList<>();
 		
 		try
 		{

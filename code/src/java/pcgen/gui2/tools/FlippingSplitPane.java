@@ -59,21 +59,20 @@ import pcgen.system.PropertyContext;
  * <code>SHIFT-BUTTON1</code>.
  * 
  * <p>(For the keyboard keys used by <code>JSplitPane</code> in the standard Look
- * and Feel (L&F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
+ * and Feel (L&amp;F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
  * key assignments</a>.)
  * 
  * <p><code>FlippingSplitPane</code> treats many of the methods of
  * <code>JSplitPane</code> recursively, calling the same method on the left and
  * right components (or top and bottom for <code>VERTICAL_ORIENTATION</code>) if
- * they are also <code>FlippingSplitPane<code>s.  You can defeat this behavior
+ * they are also <code>FlippingSplitPane</code>s.  You can defeat this behavior
  * by using <code>JSplitPane</code> components instead.
  * 
  * <p><code>FlippingSplitPane</code> also supports "locking": a locked pane renders
  * the divider unmovable, and the popup menu only has an "Unlocked" item.
  * Locking is also recursive for <code>FlippingSplitPane</code> components.
  *
- * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
- * @version $Revision: 1363 $
+ * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public class FlippingSplitPane extends JSplitPane
 {
@@ -193,7 +192,7 @@ public class FlippingSplitPane extends JSplitPane
 	public void setDividerLocation(int location)
 	{
 		PropertyContext context = baseContext.createChildContext(prefsKey);
-		context.setInt(DIVIDER_LOC_PREF_KEY, (Integer) location);
+		context.setInt(DIVIDER_LOC_PREF_KEY, location);
 		if (isLocked())
 		{
 			super.setDividerLocation(getLastDividerLocation());

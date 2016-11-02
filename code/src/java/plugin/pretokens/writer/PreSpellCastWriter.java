@@ -21,9 +21,7 @@
  *
  * Current Ver: $Revision$
  *
- * Last Editor: $Author$
  *
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.writer;
@@ -71,7 +69,7 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements
 
 		try
 		{
-			if (prereq.getOperator().equals(PrerequisiteOperator.LT))
+			if (prereq.getOperator() == PrerequisiteOperator.LT)
 			{
 				writer.write('!');
 			}
@@ -95,11 +93,11 @@ public class PreSpellCastWriter extends AbstractPrerequisiteWriter implements
 		{
 			return false;
 		}
-		if (po.equals(PrerequisiteOperator.GTEQ) && !"1".equals(prereq.getOperand()))
+		if (po == PrerequisiteOperator.GTEQ && !"1".equals(prereq.getOperand()))
 		{
 			return false;
 		}
-		if (!po.equals(prereq.getOperator()))
+		if (po != prereq.getOperator())
 		{
 			writer.write('!');
 		}

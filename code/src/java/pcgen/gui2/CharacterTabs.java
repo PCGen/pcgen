@@ -65,7 +65,7 @@ import pcgen.system.CharacterManager;
  *
  * @see pcgen.gui2.PCGenFrame
  * @see pcgen.gui2.tabs.InfoTabbedPane
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class CharacterTabs extends SharedTabPane
 		implements ChangeListener, ReferenceListener<CharacterFacade>, ListListener<CharacterFacade>
@@ -81,9 +81,9 @@ public final class CharacterTabs extends SharedTabPane
 	public CharacterTabs(PCGenFrame frame)
 	{
 		this.frame = frame;
-		this.characters = new ArrayList<CharacterFacade>();
+		this.characters = new ArrayList<>();
 		this.infoTabbedPane = new InfoTabbedPane();
-		this.listenerMap = new HashMap<CharacterFacade, TabLabel>();
+		this.listenerMap = new HashMap<>();
 		this.popupMenu = new JPopupMenu();
 		initComponents();
 	}

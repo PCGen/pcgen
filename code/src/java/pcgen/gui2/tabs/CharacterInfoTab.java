@@ -57,7 +57,7 @@ import pcgen.facade.core.CharacterFacade;
  * guaranteed to not be modified in anyway by the tab handler. The only changes
  * that would occur to any state would be in a call to <code>storeModels</code>.
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterInfoTab
 {
@@ -111,7 +111,7 @@ public interface CharacterInfoTab
 	public static class ModelMap
 	{
 
-		private final HashMap<Object, Object> classMap = new HashMap<Object, Object>();
+		private final HashMap<Object, Object> classMap = new HashMap<>();
 
 		public <T> T get(Class<T> key)
 		{

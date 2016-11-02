@@ -18,8 +18,6 @@
  * Created on July 22, 2005.
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -30,7 +28,7 @@ import java.util.StringTokenizer;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker <thpr@sourceforge.net>
+ * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  */
 public class Movement
 {

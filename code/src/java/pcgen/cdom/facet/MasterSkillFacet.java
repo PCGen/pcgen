@@ -18,14 +18,13 @@
 package pcgen.cdom.facet;
 
 import java.util.Collection;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.DataSetInitializedFacet;
 import pcgen.cdom.base.MasterListInterface;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractScopeFacet;
 import pcgen.cdom.list.ClassSkillList;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
@@ -35,7 +34,7 @@ import pcgen.rules.context.LoadContext;
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class MasterSkillFacet extends
 		AbstractScopeFacet<DataSetID, ClassSkillList, Skill> implements
@@ -50,7 +49,7 @@ public class MasterSkillFacet extends
 		DataSetID dsID = context.getDataSetID();
 		if (getCache(dsID) == null)
 		{
-			MasterListInterface masterLists = Globals.getMasterLists();
+			MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 			for (CDOMReference ref : masterLists.getActiveLists())
 			{
 				Collection objects = masterLists.getObjects(ref);

@@ -106,7 +106,7 @@ public class UnencumberedLoadFacet extends AbstractSourcedListFacet<CharID, Load
 	@Override
 	protected Map<Load, Set<Object>> getComponentMap()
 	{
-		return new TreeMap<Load, Set<Object>>();
+		return new TreeMap<>();
 	}
 
 	/**

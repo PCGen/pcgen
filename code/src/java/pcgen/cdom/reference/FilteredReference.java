@@ -31,7 +31,7 @@ import pcgen.cdom.primitive.PrimitiveUtilities;
 public class FilteredReference<T> extends CDOMGroupRef<T>
 {
 
-	private final Set<CDOMSingleRef<? super T>> filterSet = new HashSet<CDOMSingleRef<? super T>>();
+	private final Set<CDOMSingleRef<? super T>> filterSet = new HashSet<>();
 
 	private final ObjectContainer<T> baseSet;
 
@@ -119,7 +119,7 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		Set<T> choices = new HashSet<T>();
+		Set<T> choices = new HashSet<>();
 		choices.addAll(baseSet.getContainedObjects());
 		RETAIN: for (Iterator<T> it = choices.iterator(); it.hasNext();)
 		{
@@ -139,8 +139,8 @@ public class FilteredReference<T> extends CDOMGroupRef<T>
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		Set<PrimitiveCollection<? super T>> sortSet = new TreeSet<PrimitiveCollection<? super T>>(
-				PrimitiveUtilities.COLLECTION_SORTER);
+		Set<PrimitiveCollection<? super T>> sortSet = new TreeSet<>(
+                PrimitiveUtilities.COLLECTION_SORTER);
 		sortSet.addAll(filterSet);
 		return "ALL|!" + PrimitiveUtilities.joinLstFormat(sortSet, "|!", useAny);
 	}

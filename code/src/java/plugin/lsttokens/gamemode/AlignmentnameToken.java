@@ -19,8 +19,6 @@
  * Created on September 2, 2002, 8:43 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -33,7 +31,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * <code>AlignmentnameToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AlignmentnameToken implements GameModeLstToken
 {

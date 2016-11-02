@@ -18,8 +18,6 @@
  * Created on December 30, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;

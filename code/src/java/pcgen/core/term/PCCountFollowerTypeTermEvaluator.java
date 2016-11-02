@@ -19,8 +19,6 @@
  * Created 07-Aug-2008 00:18:31
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -44,7 +42,7 @@ public class PCCountFollowerTypeTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		Float countFollower = 0f;
+		Float countFollower = 0.0f;
 
 		for ( Follower follower : display.getFollowerList() )
 		{

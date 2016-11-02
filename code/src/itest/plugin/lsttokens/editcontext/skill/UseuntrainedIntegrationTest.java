@@ -33,7 +33,7 @@ public class UseuntrainedIntegrationTest extends
 {
 
 	static UseuntrainedToken token = new UseuntrainedToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

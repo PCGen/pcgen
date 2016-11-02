@@ -26,14 +26,12 @@ package pcgen.facade.util.event;
  * The interface <code>ChangeListener</code> should be implemented by classes interested in 
  * object changes.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
+@FunctionalInterface
 public interface ChangeListener
 {
 	/**

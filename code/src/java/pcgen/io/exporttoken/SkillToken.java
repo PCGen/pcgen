@@ -49,18 +49,15 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillToken</code> is the base class for the SKILL
+ * {@code SkillToken} is the base class for the SKILL
  * family of tokens. It also handles the processing of the SKILL
  * token itself, which outputs select information about a
  * choosen skill. The format for this tag is SKILL.id.property
  * where id cna be either an index or a skill name and the
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SkillToken extends Token
 {
@@ -132,7 +129,7 @@ public class SkillToken extends Token
 		try
 		{
 			final int i = Integer.parseInt(details.getSkillId());
-			final List<Skill> pcSkills = new ArrayList<Skill>(getSkillList(pc));
+			final List<Skill> pcSkills = new ArrayList<>(getSkillList(pc));
 
 			SkillFilter filter = details.getSkillFilter();
 			if (filter == null || filter == SkillFilter.Selected)
@@ -200,7 +197,7 @@ public class SkillToken extends Token
 		final StringTokenizer aTok = new StringTokenizer(tokenSource, ".");
 
 		SkillFilter filter = null;
-		List<String> properties = new ArrayList<String>();
+		List<String> properties = new ArrayList<>();
 
 		// Split out the parts of the source
 		String skillId = "";
@@ -493,7 +490,7 @@ public class SkillToken extends Token
 					break;
 
 				case SKILL_CLASSES:
-					List<String> classes = new ArrayList<String>();
+					List<String> classes = new ArrayList<>();
 					for (PCClass aClass : pc.getClassList())
 					{
 						if (pc.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS)
@@ -592,7 +589,7 @@ public class SkillToken extends Token
 
 	// ================== Inner class =======================
 	/**
-	 * <code>SkillDetails</code> holds the parsed details of a skill
+	 * {@code SkillDetails} holds the parsed details of a skill
 	 * token. Note that apart from updating the properties array contents,
 	 * instances of this class are immutable.
 	 *
@@ -600,11 +597,11 @@ public class SkillToken extends Token
 	public final static class SkillDetails
 	{
 		/** The id of the skill - normally an index or a skill name. */
-		final protected String skillId;
+		private final String skillId;
 		/** The list of properties for the token. */
-		final protected List<String> properties;
+		private final List<String> properties;
 		/** The skilll list filter */
-		final protected SkillFilter filter;
+		private final SkillFilter filter;
 
 		/**
 		 * Constructor for skill details. Creates an immutable instance

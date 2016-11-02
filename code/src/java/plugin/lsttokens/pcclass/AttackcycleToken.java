@@ -117,7 +117,7 @@ public class AttackcycleToken extends AbstractTokenWithSeparator<PCClass>
 		{
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		Integer grappleValue = null;
 		Integer meleeValue = null;
 		Map<AttackType, Integer> added = changes.getAdded();

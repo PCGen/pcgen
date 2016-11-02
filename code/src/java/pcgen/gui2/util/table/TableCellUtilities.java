@@ -44,7 +44,7 @@ import javax.swing.table.TableCellRenderer;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class TableCellUtilities
 {
@@ -82,7 +82,7 @@ public final class TableCellUtilities
 		@Override
 		public Object getCellEditorValue()
 		{
-			return Boolean.valueOf(button.isSelected());
+			return button.isSelected();
 		}
 
 		@Override

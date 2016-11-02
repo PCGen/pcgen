@@ -28,8 +28,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import org.apache.commons.lang.ArrayUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Campaign;
 import pcgen.core.GameMode;
@@ -39,27 +37,30 @@ import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CampaignInfoFactory;
-import pcgen.facade.util.DefaultReferenceFacade;
-import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
-import pcgen.facade.util.ReferenceFacade;
-import pcgen.facade.core.SourceSelectionFacade;
+import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.LoadableFacade.LoadingState;
+import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.util.DefaultListFacade;
+import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.ListFacades;
+import pcgen.facade.util.ReferenceFacade;
+import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.gui2.facade.Gui2CampaignInfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 
+import org.apache.commons.lang.ArrayUtils;
+
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeFactory
 {
 
-	private static PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");
+	private static final PropertyContext sourcesContext = PCGenSettings.getInstance().createChildContext("customSources");
 	private static DefaultListFacade<SourceSelectionFacade> quickSources = null;
 	private static DefaultListFacade<CampaignFacade> campaigns = null;
 	private static DefaultListFacade<GameModeFacade> gamemodes = null;
@@ -68,21 +69,21 @@ public class FacadeFactory
 	private static DefaultListFacade<SourceSelectionFacade> customSources;
 	private static Map<String, CampaignFacade> campaignMap;
 	private static Map<GameModeFacade, DefaultListFacade<CampaignFacade>> campaignListMap = null;
-	private static CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
+	private static final CampaignInfoFactory campInfoFactory = new Gui2CampaignInfoFactory();
 
 	static void initialize()
 	{
 		List<GameMode> modes = SystemCollections.getUnmodifiableGameModeList();
 		List<GameModeDisplay> modeDisplays = SystemCollections.getUnmodifiableGameModeDisplayList();
 		List<Campaign> camps = Globals.getCampaignList();
-		gamemodes = new DefaultListFacade<GameModeFacade>(modes);
-		gamemodedisplays = new DefaultListFacade<GameModeDisplayFacade>(modeDisplays);
-		campaigns = new DefaultListFacade<CampaignFacade>(camps);
-		quickSources = new DefaultListFacade<SourceSelectionFacade>();
-		displayedSources = new DefaultListFacade<SourceSelectionFacade>();
-		customSources = new DefaultListFacade<SourceSelectionFacade>();
-		campaignMap = new HashMap<String, CampaignFacade>();
-		campaignListMap = new HashMap<GameModeFacade, DefaultListFacade<CampaignFacade>>();
+		gamemodes = new DefaultListFacade<>(modes);
+		gamemodedisplays = new DefaultListFacade<>(modeDisplays);
+		campaigns = new DefaultListFacade<>(camps);
+		quickSources = new DefaultListFacade<>();
+		displayedSources = new DefaultListFacade<>();
+		customSources = new DefaultListFacade<>();
+		campaignMap = new HashMap<>();
+		campaignListMap = new HashMap<>();
 		initCampaigns();
 		initGameModes(modes);
 		initCustomSourceSelections();
@@ -119,7 +120,7 @@ public class FacadeFactory
 			{
 				if (!campaignListMap.containsKey(gameModeFacade))
 				{
-					campaignListMap.put(gameModeFacade, new DefaultListFacade<CampaignFacade>());
+					campaignListMap.put(gameModeFacade, new DefaultListFacade<>());
 				}
 				DefaultListFacade<CampaignFacade> campaignList = campaignListMap.get(gameModeFacade);
 				if (campaignList.containsElement(campaign))
@@ -138,7 +139,7 @@ public class FacadeFactory
 			{
 				GameModeFacade game = gameModeList.getElementAt(0);
 				ListFacade<CampaignFacade> list =
-						new DefaultListFacade<CampaignFacade>(Collections.singleton(campaign));
+                        new DefaultListFacade<>(Collections.singleton(campaign));
 				quickSources.addElement(new BasicSourceSelectionFacade(campaign.getName(), list, game));
 			}
 		}
@@ -155,7 +156,7 @@ public class FacadeFactory
 			}
 			if (title != null && !"".equals(title))
 			{
-				DefaultListFacade<CampaignFacade> qcamps = new DefaultListFacade<CampaignFacade>();
+				DefaultListFacade<CampaignFacade> qcamps = new DefaultListFacade<>();
 				List<String> sources = mode.getDefaultDataSetList();
 				for (String string : sources)
 				{
@@ -216,7 +217,7 @@ public class FacadeFactory
 				continue;
 			}
 			String[] selectionArray = context.getStringArray("campaigns");
-			List<CampaignFacade> sources = new ArrayList<CampaignFacade>();
+			List<CampaignFacade> sources = new ArrayList<>();
 			boolean error = false;
 			for (String campaign : selectionArray)
 			{
@@ -279,7 +280,7 @@ public class FacadeFactory
 
 	private static void setCustomSourceSelectionArray()
 	{
-		List<String> sources = new ArrayList<String>();
+		List<String> sources = new ArrayList<>();
 		for (SourceSelectionFacade csel : customSources)
 		{
 			sources.add(csel.toString());
@@ -290,7 +291,7 @@ public class FacadeFactory
 	public static void setDisplayedSources(SourceSelectionFacade[] sources)
 	{
 		displayedSources.setContents(Arrays.asList(sources));
-		ArrayList<String> hiddenElements = new ArrayList<String>();
+		ArrayList<String> hiddenElements = new ArrayList<>();
 		for (SourceSelectionFacade selection : quickSources)
 		{
 			if (!ArrayUtils.contains(sources, selection))
@@ -371,7 +372,7 @@ public class FacadeFactory
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
 		List<URI> oldList = pman.getChosenCampaignSourcefiles();
-		List<URI> uris = new ArrayList<URI>();
+		List<URI> uris = new ArrayList<>();
 		for (CampaignFacade campaignFacade : campaigns)
 		{
 			uris.add(((Campaign)campaignFacade).getSourceURI());
@@ -397,11 +398,11 @@ public class FacadeFactory
 		private final DefaultReferenceFacade<GameModeFacade> gameModeRef;
 		private final String name;
 
-		public BasicSourceSelectionFacade(String name, ListFacade<CampaignFacade> campaignModel, GameModeFacade gameMode)
+		private BasicSourceSelectionFacade(String name, ListFacade<CampaignFacade> campaignModel, GameModeFacade gameMode)
 		{
 			this.name = name;
 			this.campaignModel = campaignModel;
-			gameModeRef = new DefaultReferenceFacade<GameModeFacade>(gameMode);
+			gameModeRef = new DefaultReferenceFacade<>(gameMode);
 		}
 
         @Override
@@ -463,24 +464,24 @@ public class FacadeFactory
 
 	}
 
-	private static class CustomSourceSelectionFacade implements SourceSelectionFacade
+	private static final class CustomSourceSelectionFacade implements SourceSelectionFacade
 	{
 
-		private PropertyContext context;
-		private String name;
+		private final PropertyContext context;
+		private final String name;
 		private LoadingState loadingState = LoadingState.LOADED;
 		private String errorMessage = null;
 
-		public CustomSourceSelectionFacade(String name)
+		private CustomSourceSelectionFacade(String name)
 		{
 			this.name = name;
-			this.context = sourcesContext.createChildContext(name);
+			this.context = FacadeFactory.sourcesContext.createChildContext(name);
 		}
 
-		private DefaultListFacade<CampaignFacade> campaigns =
-				new DefaultListFacade<CampaignFacade>();
-		private DefaultReferenceFacade<GameModeFacade> gameModeRef =
-				new DefaultReferenceFacade<GameModeFacade>();
+		private final DefaultListFacade<CampaignFacade> campaigns =
+                new DefaultListFacade<>();
+		private final WriteableReferenceFacade<GameModeFacade> gameModeRef =
+                new DefaultReferenceFacade<>();
 
         @Override
 		public boolean isModifiable()
@@ -492,7 +493,7 @@ public class FacadeFactory
 		public void setCampaigns(List<CampaignFacade> campaign)
 		{
 			campaigns.setContents(campaign);
-			List<String> camps = new ArrayList<String>();
+			List<String> camps = new ArrayList<>();
 			for (CampaignFacade camp : campaign)
 			{
 				camps.add(camp.getName());
@@ -525,12 +526,12 @@ public class FacadeFactory
 			return errorMessage;
 		}
 
-		public void setLoadingState(LoadingState loadingState)
+		private void setLoadingState(LoadingState loadingState)
 		{
 			this.loadingState = loadingState;
 		}
 
-		public void setErrorMessage(String errorMessage)
+		private void setErrorMessage(String errorMessage)
 		{
 			this.errorMessage = errorMessage;
 		}

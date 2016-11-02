@@ -417,13 +417,13 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		 * Character.
 		 */
 		private Map<PCClass, Map<Integer, PCClassLevel>> map =
-				new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
+                new LinkedHashMap<>();
 		/**
 		 * Map that stores the numeric level values for the PCClasses in a
 		 * Player Character.
 		 */
 		private Map<PCClass, Integer> levelmap =
-				new HashMap<PCClass, Integer>();
+                new HashMap<>();
 
 		public ClassInfo()
 		{
@@ -435,8 +435,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : info.map
 				.entrySet())
 			{
-				map.put(me.getKey(), new HashMap<Integer, PCClassLevel>(me
-					.getValue()));
+				map.put(me.getKey(), new HashMap<>(me
+                        .getValue()));
 			}
 			levelmap.putAll(info.levelmap);
 		}
@@ -472,7 +472,7 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 		public void replace(PCClass oldClass, PCClass newClass)
 		{
 			Map<PCClass, Map<Integer, PCClassLevel>> oldMap = map;
-			map = new LinkedHashMap<PCClass, Map<Integer, PCClassLevel>>();
+			map = new LinkedHashMap<>();
 			for (Map.Entry<PCClass, Map<Integer, PCClassLevel>> me : oldMap
 				.entrySet())
 			{
@@ -494,8 +494,8 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			{
 				return false;
 			}
-			HashMap<Integer, PCClassLevel> levelMap =
-					new HashMap<Integer, PCClassLevel>();
+			Map<Integer, PCClassLevel> levelMap =
+                    new HashMap<>();
 			map.put(pcc, levelMap);
 			/*
 			 * DO NOT initialize levelMap here - see CODE-208
@@ -532,11 +532,11 @@ public class ClassFacet extends AbstractDataFacet<CharID, PCClass> implements
 			//map.get(pcc) doesn't seem to find the monster class
 			//Map<Integer, PCClassLevel> localMap = map.get(pcc);
 			Map<Integer, PCClassLevel> localMap = null;
-			for (PCClass k : map.keySet())
+			for (final Map.Entry<PCClass, Map<Integer, PCClassLevel>> pcClassMapEntry : map.entrySet())
 			{
-				if (pcc.equals(k))
+				if (pcc.equals(pcClassMapEntry.getKey()))
 				{
-					localMap = map.get(k);
+					localMap = pcClassMapEntry.getValue();
 					break;
 				}
 			}

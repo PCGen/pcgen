@@ -30,12 +30,10 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class <code>InventoryInfoTab</code> is a placeholder for the yet to be
  * implemented Inventory tab.
- * <br/>
- * Last Editor: $Author: cpmeister $ Last Edited: $Date: 2011-02-25 14:43:05
+ * <br>
  * -0800 (Fri, 25 Feb 2011) $
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision: 14613 $
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler
@@ -102,9 +100,6 @@ public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, T
 		return tabTitle;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{

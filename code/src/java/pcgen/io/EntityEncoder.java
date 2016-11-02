@@ -26,12 +26,11 @@ import java.util.NoSuchElementException;
 import java.util.StringTokenizer;
 
 /**
- * <code>EntityEncoder</code><br>
+ * {@code EntityEncoder}<br>
  * Encodes reserved characters and escape sequences as entities<br>
  * Decodes entities as reserved characters and escape sequences
  *
  * @author Thomas Behr
- * @version $Revision$
  */
 public final class EntityEncoder
 {
@@ -65,11 +64,11 @@ public final class EntityEncoder
 	 */
 	private EntityEncoder()
 	{
-		super();
 	}
 
 	/**
 	 * decode characters.
+	 * {@literal 
 	 * "\n" <- "&nl;"
 	 * "\r" <- "&cr;"
 	 * "\f" <- "&lf;"
@@ -78,7 +77,7 @@ public final class EntityEncoder
 	 * "[" <- "&lbracket;"
 	 * "]" <- "&rbracket;"
 	 * "&" <- "&amp;"
-	 *
+	 * }
 	 * <br>author: Thomas Behr 09-09-02
 	 *
 	 * @param s   the String to decode
@@ -132,6 +131,7 @@ public final class EntityEncoder
 
 	/**
 	 * encode characters.
+	 * {@literal 
 	 * "\n" -> "&nl;"
 	 * "\r" -> "&cr;"
 	 * "\f" -> "&lf;"
@@ -140,7 +140,7 @@ public final class EntityEncoder
 	 * "[" -> "&lbracket;"
 	 * "]" -> "&rbracket;"
 	 * "&" -> "&amp;"
-	 *
+	 * }
 	 * <br>author: Thomas Behr 09-09-02
 	 *
 	 * @param s   the String to encode
@@ -163,12 +163,13 @@ public final class EntityEncoder
 
 	/**
 	 * Encode the characters.
+	 * {@literal 
 	 * "\n" -> "&nl;"
 	 * "\r" -> "&cr;"
 	 * "\f" -> "&lf;"
 	 * "|" -> "&pipe;"
 	 * "&" -> "&amp;"
-	 *
+	 * }
 	 *Note that this must be a subset of the encode function as 
 	 *the same decode function is used to decode these values.
 	 *
@@ -193,7 +194,7 @@ public final class EntityEncoder
 
 final class EntityMap
 {
-	private final Map<String, String> map = new HashMap<String, String>();
+	private final Map<String, String> map = new HashMap<>();
 
 	/**
 	 * Get value

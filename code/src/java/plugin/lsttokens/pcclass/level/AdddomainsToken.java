@@ -141,7 +141,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClassLevel> im
 			return null;
 		}
 		PrerequisiteWriter prereqWriter = new PrerequisiteWriter();
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> domain : mtl.getKeySet())
 		{
 			for (AssociatedPrereqObject assoc : mtl.getListFor(domain))

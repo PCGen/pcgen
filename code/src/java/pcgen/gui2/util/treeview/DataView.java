@@ -24,7 +24,7 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public interface DataView<E>
 {
@@ -32,7 +32,6 @@ public interface DataView<E>
     /**
      * Note: If any of the returned data is editable, make sure that the returned
      * list is editable as well.
-     * @param obj
      * @return editable list
      */
 //    List<?> getData(E obj);

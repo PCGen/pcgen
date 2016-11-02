@@ -61,11 +61,8 @@ import pcgen.util.TestHelper;
  * The Class <code>DataTest</code> checks the data files for known issues.
  *
  * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 
 public class DataTest
@@ -103,14 +100,14 @@ public class DataTest
 		System.out.println("Got datapath of " + new File(dataPath).getAbsolutePath());
 		
 		Set<String> allowedNames =
-				new HashSet<String>(Arrays.asList(
-					"cotct_pg_abilities_pfrpg.lst",
-					"fortress_of_the_stone_giants_pfrpg.pcc",
-					"rise_of_the_runelords_players_guide_pfrpg.pcc"));
-		List<File> newLongPaths = new ArrayList<File>();
+				new HashSet<>(Arrays.asList(
+						"cotct_pg_abilities_pfrpg.lst",
+						"fortress_of_the_stone_giants_pfrpg.pcc",
+						"rise_of_the_runelords_players_guide_pfrpg.pcc"));
+		List<File> newLongPaths = new ArrayList<>();
 		
 		int dataPathLen = new File(dataPath).getAbsolutePath().length();
-		List<String> longPaths = new ArrayList<String>();
+		List<String> longPaths = new ArrayList<>();
 		
 		File dataFolder = new File(dataPath);
 		Collection<File> listFiles =
@@ -152,7 +149,7 @@ public class DataTest
 	public void produceVariableReport() throws Exception
 	{
 		Map<ReportFormat, String> reportNameMap =
-				new HashMap<VariableReport.ReportFormat, String>();
+				new HashMap<>();
 		reportNameMap.put(ReportFormat.HTML, "variable_report.html");
 		reportNameMap.put(ReportFormat.CSV, "variable_report.csv");
 		VariableReport vReport = new VariableReport();
@@ -176,7 +173,7 @@ public class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		int dataPathLen = dataFolder.getCanonicalPath().length();
 
-		List<Object[]> missingLstFiles = new ArrayList<Object[]>();
+		List<Object[]> missingLstFiles = new ArrayList<>();
 
 		for (Campaign campaign : Globals.getCampaignList())
 		{
@@ -219,7 +216,7 @@ public class DataTest
 		File dataFolder = new File(ConfigurationSettings.getPccFilesDir());
 		Collection<File> listFiles =
 				FileUtils.listFiles(dataFolder, new String[]{"lst"}, true);
-		List<String> fileNames = new ArrayList<String>(listFiles.size());
+		List<String> fileNames = new ArrayList<>(listFiles.size());
 		for (File file : listFiles)
 		{
 			fileNames.add(file.getCanonicalPath());
@@ -257,7 +254,7 @@ public class DataTest
 	private List<CampaignSourceEntry> getLstFilesForCampaign(Campaign campaign)
 	{
 		List<CampaignSourceEntry> cseList =
-				new ArrayList<CampaignSourceEntry>();
+				new ArrayList<>();
 		for (ListKey<CampaignSourceEntry> lk : CampaignLoader.OBJECT_FILE_LISTKEY)
 		{
 			cseList.addAll(campaign.getSafeListFor(lk));

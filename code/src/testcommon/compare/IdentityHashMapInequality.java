@@ -24,7 +24,9 @@ import java.util.Set;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.test.InequalityTester;
+import pcgen.base.util.AbstractMapToList;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 
 public class IdentityHashMapInequality implements
 		InequalityTest<IdentityHashMap>
@@ -34,7 +36,7 @@ public class IdentityHashMapInequality implements
 	public String testInequality(IdentityHashMap m1, IdentityHashMap m2,
 		InequalityTester t, String location)
 	{
-		List<String> reasons = new ArrayList<String>();
+		Collection<String> reasons = new ArrayList<>();
 		Set<?> k1 = m1.keySet();
 		Set<?> k2 = m2.keySet();
 		if (k1.size() != k2.size())
@@ -42,8 +44,8 @@ public class IdentityHashMapInequality implements
 			return "IMI=@" + location + ": Inequality in Map Key Size: "
 				+ m1.keySet() + " " + m2.keySet();
 		}
-		HashMapToList<Integer, Integer> matches =
-				new HashMapToList<Integer, Integer>();
+		AbstractMapToList<Integer, Integer> matches =
+				new HashMapToList<>();
 		if (!k1.equals(k2))
 		{
 			String result = processKeys(location, k1, k2, matches);
@@ -67,18 +69,18 @@ public class IdentityHashMapInequality implements
 		return reasons.isEmpty() ? null : StringUtil.join(reasons, "\n");
 	}
 
-	protected String processKeys(String location, Set<?> k1, Set<?> k2,
-		HashMapToList<Integer, Integer> matches)
+	private static String processKeys(String location, Iterable<?> k1, Iterable<?> k2,
+	                                  MapToList<Integer, Integer> matches)
 	{
 		/*
 		 * Walk through this establishing an "order"... Order needs to be kept
 		 * and then passed to values...
 		 */
 		int i = 0;
-		for (Object key1 : k1)
+		for (final Object key1 : k1)
 		{
 			int j = 0;
-			for (Object key2 : k2)
+			for (final Object key2 : k2)
 			{
 				if (key1.equals(key2))
 				{
@@ -95,17 +97,17 @@ public class IdentityHashMapInequality implements
 		return null;
 	}
 
-	protected String processValues(String location, Collection<?> v1,
-		Collection<?> v2, HashMapToList<Integer, Integer> potential)
+	private static String processValues(String location, Collection<?> v1,
+	                                    Collection<?> v2, AbstractMapToList<Integer, Integer> potential)
 	{
-		HashMapToList<Integer, Integer> matches =
-				new HashMapToList<Integer, Integer>();
-		ArrayList<Object> values1 = new ArrayList<Object>(v1);
-		ArrayList<Object> values2 = new ArrayList<Object>(v2);
-		for (Integer loc1 : potential.getKeySet())
+		MapToList<Integer, Integer> matches =
+				new HashMapToList<>();
+		List<Object> values1 = new ArrayList<>(v1);
+		List<Object> values2 = new ArrayList<>(v2);
+		for (final Integer loc1 : potential.getKeySet())
 		{
 			Object o1 = values1.get(loc1);
-			for (Integer loc2 : potential.getListFor(loc1))
+			for (final Integer loc2 : potential.getListFor(loc1))
 			{
 				Object o2 = values2.get(loc2);
 				if (o1.equals(o2))
@@ -119,8 +121,8 @@ public class IdentityHashMapInequality implements
 			return null;
 		}
 		//If not then we have keys that are .equals but not ==  and different targets :/
-		List<Integer> used = new ArrayList<Integer>();
-		for (Integer m1 : matches.getKeySet())
+		Collection<Integer> used = new ArrayList<>();
+		for (final Integer m1 : matches.getKeySet())
 		{
 			if (matches.sizeOfListFor(m1) == 1)
 			{

@@ -191,13 +191,13 @@ public class BonusCheckingFacet
 	public Collection<String> getExpandedBonusInfo(CharID id, String bonusName)
 	{
 		PlayerCharacter pc = trackingFacet.getPC(id);
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (BonusObj bonus : pc.getActiveBonusList())
 		{
 			if (bonus.getTypeOfBonus().equals(bonusName))
 			{
 				String bonusInfo = bonus.getBonusInfo();
-				if (bonusInfo.indexOf("%LIST") >= 0)
+				if (bonusInfo.contains("%LIST"))
 				{
 					// We have a %LIST that needs to be expanded
 					List<BonusPair> bpList = pc.getStringListFromBonus(bonus);

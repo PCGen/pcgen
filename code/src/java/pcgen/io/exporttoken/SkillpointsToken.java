@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -182,10 +180,10 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, pcc);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost = pc.getSkillCostForClass(aSkill, pcc);
-				usedPoints += (rank * skillCost.getCost());
+				usedPoints = (float) (usedPoints + (rank * skillCost.getCost()));
 			}
 		}
 
@@ -215,11 +213,11 @@ public class SkillpointsToken extends Token
 				Double rank = pc.getSkillRankForClass(aSkill, targetClass);
 				if (rank == null)
 				{
-					rank = Double.valueOf(0.0d);
+					rank = 0.0d;
 				}
 				SkillCost skillCost =
 						pc.getSkillCostForClass(aSkill, targetClass);
-				usedPoints += (rank * skillCost.getCost());
+				usedPoints = (float) (usedPoints + (rank * skillCost.getCost()));
 			}
 		}
 

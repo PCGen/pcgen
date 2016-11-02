@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -127,8 +125,7 @@ public class HPRollToken extends Token
 
 	/**
 	 * Get the HPROLL.STAT token
-	 * @param pc
-	 * @param level
+	 * @param display
 	 * @return the HPROLL.STAT token
 	 */
 	public static int getStatToken(CharacterDisplay display)

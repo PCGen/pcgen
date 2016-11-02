@@ -30,12 +30,9 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
  * by those shield proficiencies held by the character.
  * e.g. CHOOSE:SHIELDPROFICIENCY|PC 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 {
@@ -44,7 +41,7 @@ public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 	protected Collection<ShieldProf> getPossessed(PlayerCharacter pc)
 	{
 		// Not used as we have overridden allow below, so return an empty set
-		return new ArrayList<ShieldProf>();
+		return new ArrayList<>();
 	}
 
 	@Override

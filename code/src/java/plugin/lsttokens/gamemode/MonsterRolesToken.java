@@ -35,11 +35,8 @@ import pcgen.persistence.lst.GameModeLstToken;
  * <code>ResizableEquipTypeToken</code> parses the list of equipment
  * types designated as able to be automatically resized. 
  *
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2008-05-03 14:35:57 +0200 (Sa, 03 Mai 2008) $
  *
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision: 6171 $
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class MonsterRolesToken implements GameModeLstToken
 {
@@ -59,7 +56,7 @@ public class MonsterRolesToken implements GameModeLstToken
     @Override
 	public boolean parse(GameMode gameMode, String value, URI source)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		final StringTokenizer aTok = new StringTokenizer(value, Constants.PIPE, false);
 
 		while (aTok.hasMoreTokens())

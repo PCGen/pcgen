@@ -19,8 +19,6 @@
  * Created on March 22, 2002, 12:15 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io;
@@ -38,9 +36,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.StringTokenizer;
-
 import org.apache.commons.lang.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
@@ -59,7 +55,10 @@ import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Nature;
+import pcgen.cdom.enumeration.NotePCAttribute;
+import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.enumeration.PCStringKey;
 import pcgen.cdom.enumeration.Region;
 import pcgen.cdom.enumeration.SkillFilter;
@@ -130,7 +129,6 @@ import pcgen.core.spell.Spell;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.io.migration.AbilityMigration;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
@@ -149,7 +147,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
- * <code>PCGVer2Parser</code>
+ * {@code PCGVer2Parser}
  * Parses a line oriented format.
  * Each line should adhere to the following grammar:<br>
  *
@@ -162,7 +160,6 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  *
  *
  * @author Thomas Behr 22-03-02
- * @version $Revision$
  */
 final class PCGVer2Parser implements PCGParser, IOConstants
 {
@@ -183,11 +180,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 *
 	 * author: Thomas Behr 2002-11-13
 	 */
-	private final List<String> warnings = new ArrayList<String>();
+	private final List<String> warnings = new ArrayList<>();
 	private Cache cache;
 	private PlayerCharacter thePC;
-	private final Set<String> seenStats = new HashSet<String>();
-	private final Set<Language> cachedLanguages = new HashSet<Language>();
+	private final Set<String> seenStats = new HashSet<>();
+	private final Set<Language> cachedLanguages = new HashSet<>();
 
 	//
 	// MAJOR.MINOR.REVISION
@@ -291,7 +288,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			Logging.errorPrint("Character does not have campaign information.");
 			return FacadeFactory.createSourceSelection(mode,
-				new ArrayList<CampaignFacade>());
+                    new ArrayList<>());
 		}
 		/*
 		 * #System Information
@@ -386,7 +383,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			sourceStr = sourceStr.substring(6);
 
 			//oSource = aPC.getSpellNamed(sourceStr);
-			oSource = Globals.getSpellKeyed(sourceStr);
+			oSource = Globals.getContext().getReferenceContext()
+					.silentlyGetConstructedCDOMObject(Spell.class, sourceStr);
 		}
 		else if (sourceStr.startsWith(TAG_EQUIPMENT + '='))
 		{
@@ -516,8 +514,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC
-				.setAge(Integer.parseInt(line.substring(TAG_AGE.length() + 1)));
+			thePC.setPCAttribute(NumericPCAttribute.AGE, Integer.parseInt(line.substring(TAG_AGE.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -635,7 +632,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/**
 	 * Process the Use Higher Known Spell Slot line.
-	 * @param buffer The buffer to append to.
+	 * @param line The buffer to append to.
 	 */
 	private void parseUseHigherKnownSpellSlotsLine(String line)
 	{
@@ -644,7 +641,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	/**
 	 * Process the Use Higher Prepped Spell Slot line.
-	 * @param buffer The buffer to append to.
+	 * @param line The buffer to append to.
 	 */
 	private void parseUseHigherPreppedSpellSlotsLine(String line)
 	{
@@ -653,13 +650,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseBirthdayLine(String line)
 	{
-		thePC.setBirthday(EntityEncoder.decode(line.substring(TAG_BIRTHDAY
-			.length() + 1)));
+		thePC.setPCAttribute(PCAttribute.BIRTHDAY, EntityEncoder.decode(line.substring(TAG_BIRTHDAY
+						.length() + 1)));
 	}
 
 	private void parseBirthplaceLine(String line)
 	{
-		thePC.setBirthplace(EntityEncoder.decode(line.substring(TAG_BIRTHPLACE
+		thePC.setPCAttribute(PCAttribute.BIRTHPLACE, EntityEncoder.decode(line.substring(TAG_BIRTHPLACE
 			.length() + 1)));
 	}
 
@@ -876,7 +873,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 
 		final List<PCLevelInfo> pcLevelInfoList =
-				new ArrayList<PCLevelInfo>(thePC.getLevelInfo());
+                new ArrayList<>(thePC.getLevelInfo());
 		if (cache.containsKey(TAG_CLASSABILITIESLEVEL))
 		{
 			thePC.clearLevelInfo();
@@ -1457,7 +1454,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		throws PCGParseException
 	{
 
-		final List<Campaign> campaigns = new ArrayList<Campaign>();
+		final List<Campaign> campaigns = new ArrayList<>();
 		PCGTokenizer tokens;
 
 		for (final String line : lines)
@@ -1496,7 +1493,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCatchPhraseLine(final String line)
 	{
-		thePC.setCatchPhrase(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.CATCHPHRASE, EntityEncoder.decode(line
 			.substring(TAG_CATCHPHRASE.length() + 1)));
 	}
 
@@ -1514,7 +1511,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseCharacterDescLine(final String line)
 	{
-		thePC.setDescription(EntityEncoder.decode(line
+		thePC.setPCAttribute(NotePCAttribute.DESCRIPTION, EntityEncoder.decode(line
 			.substring(TAG_CHARACTERDESC.length() + 1)));
 	}
 
@@ -1537,13 +1534,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCharacterNameLine(final String line)
 	{
-		thePC.setName(EntityEncoder.decode(line.substring(TAG_CHARACTERNAME
+		thePC.setPCAttribute(PCAttribute.NAME, EntityEncoder.decode(line.substring(TAG_CHARACTERNAME
 			.length() + 1)));
 	}
 
 	private void parseCityLine(final String line)
 	{
-		thePC.setResidence(EntityEncoder.decode(line.substring(TAG_CITY
+		thePC.setPCAttribute(PCAttribute.RESIDENCE, EntityEncoder.decode(line.substring(TAG_CITY
 			.length() + 1)));
 	}
 
@@ -2386,7 +2383,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		//# EquipSet Temp Bonuses
 		//EQSETBONUS:0.2|TEMPBONUS:NAME=Haste|TBTARGET:PC|TEMPBONUS:SPELL=Shield of Faith|TBTARGET:PC
 		final Map<BonusObj, BonusManager.TempBonusInfo> aList =
-				new IdentityHashMap<BonusObj, BonusManager.TempBonusInfo>();
+                new IdentityHashMap<>();
 
 		for (final PCGElement element : tokens.getElements())
 		{
@@ -2599,8 +2596,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				return;
 			}
 		}
-		List<String> associations = new ArrayList<String>();
-		List<BonusObj> bonuses = new ArrayList<BonusObj>();
+		List<String> associations = new ArrayList<>();
+		List<BonusObj> bonuses = new ArrayList<>();
 		while (it.hasNext())
 		{
 			final PCGElement element = it.next();
@@ -3114,13 +3111,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseHairColorLine(final String line)
 	{
-		thePC.setHairColor(EntityEncoder.decode(line.substring(TAG_HAIRCOLOR
+		thePC.setPCAttribute(PCAttribute.HAIRCOLOR, EntityEncoder.decode(line.substring(TAG_HAIRCOLOR
 			.length() + 1)));
 	}
 
 	private void parseHairStyleLine(final String line)
 	{
-		thePC.setHairStyle(EntityEncoder.decode(line.substring(TAG_HAIRSTYLE
+		thePC.setPCAttribute(PCAttribute.HAIRSTYLE, EntityEncoder.decode(line.substring(TAG_HAIRSTYLE
 			.length() + 1)));
 	}
 
@@ -3165,7 +3162,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseInterestsLine(final String line)
 	{
-		thePC.setInterests(EntityEncoder.decode(line.substring(TAG_INTERESTS
+		thePC.setPCAttribute(PCAttribute.INTERESTS, EntityEncoder.decode(line.substring(TAG_INTERESTS
 			.length() + 1)));
 	}
 
@@ -3255,7 +3252,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseLocationLine(final String line)
 	{
-		thePC.setLocation(EntityEncoder.decode(line.substring(TAG_LOCATION
+		thePC.setPCAttribute(PCAttribute.LOCATION, EntityEncoder.decode(line.substring(TAG_LOCATION
 			.length() + 1)));
 	}
 
@@ -3592,25 +3589,25 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parsePersonalityTrait1Line(final String line)
 	{
-		thePC.setTrait1(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.PERSONALITY1, EntityEncoder.decode(line
 			.substring(TAG_PERSONALITYTRAIT1.length() + 1)));
 	}
 
 	private void parsePersonalityTrait2Line(final String line)
 	{
-		thePC.setTrait2(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.PERSONALITY2, EntityEncoder.decode(line
 			.substring(TAG_PERSONALITYTRAIT2.length() + 1)));
 	}
 
 	private void parsePhobiasLine(final String line)
 	{
-		thePC.setPhobias(EntityEncoder.decode(line.substring(TAG_PHOBIAS
+		thePC.setPCAttribute(PCAttribute.PHOBIAS, EntityEncoder.decode(line.substring(TAG_PHOBIAS
 			.length() + 1)));
 	}
 
 	private void parsePlayerNameLine(final String line)
 	{
-		thePC.setPlayersName(EntityEncoder.decode(line.substring(TAG_PLAYERNAME
+		thePC.setPCAttribute(PCAttribute.PLAYERSNAME, EntityEncoder.decode(line.substring(TAG_PLAYERNAME
 			.length() + 1)));
 	}
 
@@ -3761,7 +3758,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	//this method is obsolete, but left in for backward-compatibility, replaced by parseCityLine()
 	private void parseResidenceLine(final String line)
 	{
-		thePC.setResidence(EntityEncoder.decode(line.substring(TAG_RESIDENCE
+		thePC.setPCAttribute(PCAttribute.RESIDENCE, EntityEncoder.decode(line.substring(TAG_RESIDENCE
 			.length() + 1)));
 		thePC.setDirty(true); // trigger a save prompt so that the PCG will be updated
 	}
@@ -3917,7 +3914,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 				String key = EntityEncoder.decode(element.getText());
 				ChoiceManagerList<Object> controller =
 						ChooserUtilities.getConfiguredController(aSkill, thePC,
-							null, new ArrayList<String>());
+							null, new ArrayList<>());
 				if (controller != null)
 				{
 					String[] assoc = key.split(Constants.COMMA, -1);
@@ -3993,13 +3990,13 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseSkinColorLine(final String line)
 	{
-		thePC.setSkinColor(EntityEncoder.decode(line.substring(TAG_SKINCOLOR
+		thePC.setPCAttribute(PCAttribute.SKINCOLOR, EntityEncoder.decode(line.substring(TAG_SKINCOLOR
 			.length() + 1)));
 	}
 
 	private void parseSpeechPatternLine(final String line)
 	{
-		thePC.setSpeechTendency(EntityEncoder.decode(line
+		thePC.setPCAttribute(PCAttribute.SPEECHTENDENCY, EntityEncoder.decode(line
 			.substring(TAG_SPEECHPATTERN.length() + 1)));
 	}
 
@@ -4113,7 +4110,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		int spellLevel = 0;
 		int numPages = 0;
 		
-		final List<Ability> metaFeats = new ArrayList<Ability>();
+		final List<Ability> metaFeats = new ArrayList<>();
 
 		int ppCost = -1;
 
@@ -4129,7 +4126,8 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 					SettingsHandler.getGame().getName());
 
 				// either NULL (no spell) a Spell instance,
-				aSpell = Globals.getSpellMap().get(spellName);
+				aSpell = Globals.getContext().getReferenceContext()
+						.silentlyGetConstructedCDOMObject(Spell.class, spellName);
 
 				if (aSpell == null)
 				{
@@ -4590,7 +4588,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 
 	private void parseTabNameLine(final String line)
 	{
-		thePC.setTabName(EntityEncoder.decode(line.substring(TAG_TABNAME
+		thePC.setPCAttribute(PCAttribute.TABNAME, EntityEncoder.decode(line.substring(TAG_TABNAME
 			.length() + 1)));
 	}
 
@@ -4817,7 +4815,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * @param line The line containing version information
 	 * @throws PCGParseException if the line is not a valid version line
 	 */
-	protected void parseVersionLine(final String line) throws PCGParseException
+	void parseVersionLine(final String line) throws PCGParseException
 	{
 		int[] version = {0, 0, 0};
 
@@ -4991,8 +4989,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	{
 		try
 		{
-			thePC
-				.setWeight(Integer.parseInt(line.substring(TAG_WEIGHT.length() + 1)));
+			thePC.setPCAttribute(NumericPCAttribute.WEIGHT, Integer.parseInt(line.substring(TAG_WEIGHT.length() + 1)));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -5072,7 +5069,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 */
 	private void parseCharacterBioLine(final String line)
 	{
-		thePC.setBio(EntityEncoder.decode(line.substring(TAG_CHARACTERBIO
+		thePC.setPCAttribute(NotePCAttribute.BIO, EntityEncoder.decode(line.substring(TAG_CHARACTERBIO
 			.length() + 1)));
 	}
 
@@ -5627,7 +5624,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			}
 			else if (cType.equals(TAG_SPELL))
 			{
-				final Spell aSpell = Globals.getSpellKeyed(cKey);
+				final Spell aSpell = 
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
+								Spell.class, cKey);
 
 				if (aSpell != null)
 				{
@@ -5776,7 +5775,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (children == null)
 			{
-				this.children = new ArrayList<PCGElement>(0);
+				this.children = new ArrayList<>(0);
 			}
 
 			return children;
@@ -5796,7 +5795,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		{
 			if (children == null)
 			{
-				this.children = new ArrayList<PCGElement>(0);
+				this.children = new ArrayList<>(0);
 			}
 
 			children.add(child);
@@ -5854,7 +5853,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 			this.nestedStartDelimiterChar = nestedStartDelimiter.charAt(0);
 			this.nestedStopDelimiterChar = nestedStopDelimiter.charAt(0);
 
-			this.elements = new ArrayList<PCGElement>(0);
+			this.elements = new ArrayList<>(0);
 
 			tokenizeLine(line);
 		}
@@ -6035,7 +6034,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns the version of the application that wrote the file
 	 * @return An <code>int</code> array containing the 3 digit version
 	 */
-	protected int[] getPcgenVersion()
+	int[] getPcgenVersion()
 	{
 		return pcgenVersion;
 	}
@@ -6047,7 +6046,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * value less than 0 if the PCG version is less than the supplied version; 
 	 * and a value greater than 0 if the PCG version is greater than the supplied version.
 	 */
-	protected int compareVersionTo(int inVer[])
+	int compareVersionTo(int inVer[])
 	{
 		return CoreUtility.compareVersions(pcgenVersion, inVer);
 	}
@@ -6056,7 +6055,7 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 	 * Returns any extra version info after the regular version number.
 	 * @return String extra version information
 	 */
-	protected String getPcgenVersionSuffix()
+	String getPcgenVersionSuffix()
 	{
 		return pcgenVersionSuffix;
 	}
@@ -6147,14 +6146,14 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
-		Set<Language> foundLanguages = new HashSet<Language>();
+		Set<Language> foundLanguages = new HashSet<>();
 		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
 		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
-		HashMapToList<Language, Object> langSources = new HashMapToList<Language, Object>();
-		Map<Object, Integer> actorLimit = new IdentityHashMap<Object, Integer>();
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<PersistentTransitionChoice, CDOMObject>();
+		HashMapToList<Language, Object> langSources = new HashMapToList<>();
+		Map<Object, Integer> actorLimit = new IdentityHashMap<>();
+		Map<PersistentTransitionChoice, CDOMObject> ptcSources = new IdentityHashMap<>();
 
 		List<? extends CDOMObject> abilities = thePC.getCDOMObjectList();
 		for (CDOMObject a : abilities)
@@ -6244,11 +6243,11 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processRemoval(CNAbility langbonus,
-		HashMapToList<Language, Object> sources,
-		Map<Object, Integer> actorLimit,
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
-		Object actor)
+	private void processRemoval(CNAbility langbonus,
+	                            HashMapToList<Language, Object> sources,
+	                            Map<Object, Integer> actorLimit,
+	                            Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
+	                            Object actor)
 	{
 		Integer limit = actorLimit.get(actor);
 		//apply
@@ -6272,9 +6271,9 @@ final class PCGVer2Parser implements PCGParser, IOConstants
 		}
 	}
 
-	protected void processActor(CNAbility langbonus,
-		Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
-		Object actor)
+	private void processActor(CNAbility langbonus,
+	                          Map<PersistentTransitionChoice, CDOMObject> ptcSources, Language l,
+	                          Object actor)
 	{
 		if (actor instanceof CNAbility)
 		{

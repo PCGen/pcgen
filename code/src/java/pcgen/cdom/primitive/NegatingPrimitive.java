@@ -51,7 +51,7 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Collection<? extends R> result = all.getCollection(pc, c);
-		ArrayList<R> list = new ArrayList<R>(result);
+		ArrayList<R> list = new ArrayList<>(result);
 		list.removeAll(primitive.getCollection(pc, c));
 		return list;
 	}

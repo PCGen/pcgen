@@ -20,7 +20,6 @@ package pcgen.cdom.facet;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
-
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
@@ -32,7 +31,7 @@ import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.helper.AvailableSpell;
 import pcgen.cdom.list.ClassSpellList;
 import pcgen.cdom.list.DomainSpellList;
-import pcgen.core.Globals;
+import pcgen.core.SettingsHandler;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
@@ -42,7 +41,7 @@ import pcgen.rules.context.LoadContext;
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class MasterAvailableSpellFacet extends
 		AbstractListFacet<DataSetID, AvailableSpell> implements
@@ -58,9 +57,9 @@ public class MasterAvailableSpellFacet extends
 	public synchronized void initialize(LoadContext lc)
 	{
 		DataSetID dsID = lc.getDataSetID();
-		MasterListInterface masterLists = Globals.getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists =
-				new ArrayList<CDOMReference<CDOMList<Spell>>>();
+		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
+		List<CDOMReference<CDOMList<Spell>>> useLists =
+                new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			Collection<CDOMList<Spell>> lists = ref.getContainedObjects();
@@ -105,7 +104,7 @@ public class MasterAvailableSpellFacet extends
 	 */
 	public List<AvailableSpell> getAllSpellsInList(CDOMList<Spell> spellList, DataSetID dsID)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
 		for (AvailableSpell as : spells)
 		{
@@ -128,7 +127,7 @@ public class MasterAvailableSpellFacet extends
 	public List<AvailableSpell> getMatchingSpellsInList(
 		CDOMList<Spell> spellList, DataSetID dsID, Spell spell)
 	{
-		List<AvailableSpell> spellsInList = new ArrayList<AvailableSpell>();
+		List<AvailableSpell> spellsInList = new ArrayList<>();
 		Collection<AvailableSpell> spells = getSet(dsID);
 		for (AvailableSpell as : spells)
 		{

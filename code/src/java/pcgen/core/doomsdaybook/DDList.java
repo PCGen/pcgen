@@ -19,7 +19,7 @@
  */
  package pcgen.core.doomsdaybook;
 
-import gmgen.plugin.Dice;
+import gmgen.plugin.dice.Dice;
 
 import java.util.ArrayList;
 
@@ -29,7 +29,7 @@ import java.util.ArrayList;
  */
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {
-	ArrayList<DataValue> retList = new ArrayList<DataValue>();
+	ArrayList<DataValue> retList = new ArrayList<>();
 	String id;
 	String title;
 	VariableHashMap allVars;

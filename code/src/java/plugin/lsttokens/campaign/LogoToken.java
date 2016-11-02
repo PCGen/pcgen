@@ -40,11 +40,8 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * <code>LogoToken</code> parses the LOGO Token.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken
@@ -107,7 +104,7 @@ public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 			//empty indicates no token
 			return null;
 		}
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (CampaignSourceEntry cse : added)
 		{
 			set.add(cse.getLSTformat());

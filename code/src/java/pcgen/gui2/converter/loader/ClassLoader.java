@@ -43,8 +43,7 @@ import pcgen.util.Logging;
 /**
  * ClassLoader is a loader dedicated to converting class and class level data.
  * 
- * @author Tom Parker <thpr@users.sourceforge.net>
- * @version $Revision: $
+ * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class ClassLoader implements Loader
 {
@@ -63,7 +62,7 @@ public class ClassLoader implements Loader
 			String lineString, ConversionDecider decider)
 			throws PersistenceLayerException, InterruptedException
 	{
-		List<CDOMObject> list = new ArrayList<CDOMObject>();
+		List<CDOMObject> list = new ArrayList<>();
 		String[] tokens = lineString.split(FIELD_SEPARATOR);
 		if (tokens.length == 0)
 		{

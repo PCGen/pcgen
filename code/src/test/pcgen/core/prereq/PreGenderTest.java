@@ -33,11 +33,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * <code>PreGenderTest</code> tests that the PREGENDER tag is
  * working correctly.
  *
- * Last Editor: $Author: $
- * Last Edited: $Date$
  *
  * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
  */
 public class PreGenderTest extends AbstractCharacterTestCase
 {

@@ -19,7 +19,6 @@ package pcgen.cdom.facet;
 
 import java.util.Collection;
 
-import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
@@ -35,8 +34,6 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 {
 	public static final VarScoped GLOBAL_FACT = new Global();
 
-	private FormulaSetupFacet formulaSetupFacet;
-
 	/**
 	 * Returns the Global ScopeInstance for the PlayerCharacter represented by
 	 * the given CharID.
@@ -49,10 +46,7 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 */
 	public ScopeInstance getGlobalScope(CharID id)
 	{
-		LegalScope legalScope =
-				formulaSetupFacet.get(id.getDatasetID()).getLegalScopeLibrary()
-					.getScope("Global");
-		return get(id).getGlobalScope(legalScope);
+		return get(id).getGlobalInstance("Global");
 	}
 
 	/**
@@ -63,18 +57,35 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	 * @param id
 	 *            The CharID representing the PlayerCharacter within which the
 	 *            returned ScopeInstance exists
-	 * @param legalScope
-	 *            The LegalScope within which the returned ScopeInstance exists
+	 * @param legalScopeName
+	 *            The LegalScope name within which the returned ScopeInstance
+	 *            exists
 	 * @param scopedObject
 	 *            The VarScoped object for which the ScopeInstance object should
 	 *            be returned
 	 * @return The ScopeInstance for the CharID representing the PlayerCharacter
 	 *         and the given LegalScope and VarScoped objects
 	 */
-	public ScopeInstance get(CharID id, LegalScope legalScope,
+	public ScopeInstance get(CharID id, String legalScopeName,
 		VarScoped scopedObject)
 	{
-		return get(id).get(legalScope, scopedObject);
+		return get(id).get(legalScopeName, scopedObject);
+	}
+
+	public ScopeInstance get(CharID id, VarScoped vs)
+	{
+		String localName = vs.getLocalScopeName();
+		VarScoped active = vs;
+		while (localName == null)
+		{
+			active = active.getVariableParent();
+			if (active == null)
+			{
+				return getGlobalScope(id);
+			}
+			localName = active.getLocalScopeName();
+		}
+		return get(id, localName, vs);
 	}
 
 	/**
@@ -92,11 +103,6 @@ public class ScopeFacet extends AbstractItemFacet<CharID, ScopeInstanceFactory>
 	public Collection<VarScoped> getObjectsWithVariables(CharID id)
 	{
 		return get(id).getInstancedObjects();
-	}
-
-	public void setFormulaSetupFacet(FormulaSetupFacet formulaSetupFacet)
-	{
-		this.formulaSetupFacet = formulaSetupFacet;
 	}
 
 	private static class Global extends Dynamic

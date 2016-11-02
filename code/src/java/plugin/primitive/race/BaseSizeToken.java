@@ -32,6 +32,9 @@ import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.PrimitiveToken;
 
+/**
+ * BaseSizeToken is a Primitive that filters based on the base SizeAdjustment of a Race.
+ */
 public class BaseSizeToken implements PrimitiveToken<Race>,
 		PrimitiveFilter<Race>
 {

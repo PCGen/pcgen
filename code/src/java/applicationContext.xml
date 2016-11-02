@@ -392,6 +392,7 @@
 		<property name="dataSetInitializationFacet" ref="dataSetInitializationFacet"/>
 	</bean>
 	<bean id="modifierFacet" class="pcgen.cdom.facet.ModifierFacet">
+		<property name="scopeFacet" ref="scopeFacet"/>
 		<property name="consolidationFacet" ref="consolidationFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>
@@ -501,6 +502,7 @@
 		<property name="templateFacet" ref="templateFacet"/>
 	</bean>
 	<bean id="remoteModifierFacet" class="pcgen.cdom.facet.RemoteModifierFacet">
+		<property name="scopeFacet" ref="scopeFacet"/>
 		<property name="varScopedFacet" ref="varScopedFacet"/>
 		<property name="solverManagerFacet" ref="solverManagerFacet"/>
 	</bean>
@@ -515,14 +517,11 @@
 		<property name="variableStoreFacet" ref="variableStoreFacet"/>
 		<property name="variableLibraryFacet" ref="variableLibraryFacet"/>
 		<property name="scopeFacet" ref="scopeFacet"/>
-		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
 	</bean>
 	<!-- S -->
 	<bean id="saveableBonusFacet" class="pcgen.cdom.facet.SaveableBonusFacet" />
 	<bean id="savedAbilitiesFacet" class="pcgen.cdom.facet.SavedAbilitiesFacet" />
-	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet">
-		<property name="formulaSetupFacet" ref="formulaSetupFacet"/>
-	</bean>
+	<bean id="scopeFacet" class="pcgen.cdom.facet.ScopeFacet"/>
 	<bean id="secondaryWeaponFacet" class="pcgen.cdom.facet.SecondaryWeaponFacet"/>
 	<bean id="shieldProfFacet" class="pcgen.cdom.facet.ShieldProfFacet">
 		<property name="shieldProfProviderFacet" ref="shieldProfProviderFacet"/>
@@ -594,7 +593,7 @@
 	</bean>
 	<bean id="statCalcFacet" class="pcgen.cdom.facet.StatCalcFacet"/>
 	<bean id="statFacet" class="pcgen.cdom.facet.model.StatFacet" />
-	<bean id="StatBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
+	<bean id="statBonusFacet" class="pcgen.cdom.facet.StatBonusFacet">
 		<property name="bonusCheckingFacet" ref="bonusCheckingFacet"/>
 		<property name="prerequisiteFacet" ref="prerequisiteFacet"/>
 		<property name="statFacet" ref="statFacet"/>

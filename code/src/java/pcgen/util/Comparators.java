@@ -32,7 +32,7 @@ import pcgen.gui2.util.treetable.TreeTableNode;
 
 /**
  *
- * @author Connor Petty <mistercpp2000@gmail.com>
+ * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 @SuppressWarnings("unchecked")
 public final class Comparators
@@ -85,7 +85,7 @@ public final class Comparators
 		{
 			return ((InverseComparator<T>) comparator).getComparator();
 		}
-		return new InverseComparator<T>(comparator);
+		return new InverseComparator<>(comparator);
 
 	}
 
@@ -145,14 +145,12 @@ public final class Comparators
 	 * <code>String</code>s.  This is particularly useful for applications
 	 * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
 	 *
-	 * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
-	 * @version $Revision: 2112 $
+	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -169,14 +167,12 @@ public final class Comparators
 	 * for applications such as maintaining a sorted
 	 * <code>JComboBoxEx</code> and the like.
 	 *
-	 * @author <a href="mailto:binkley@alumni.rice.edu">B. K. Oxley (binkley)</a>
-	 * @version $Revision: 2112 $
+	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringIgnoreCaseComparator implements
 			Comparator<Object>, Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{
@@ -196,7 +192,6 @@ public final class Comparators
 			Serializable
 	{
 
-		/** {@inheritDoc} */
 		@Override
 		public int compare(Object o1, Object o2)
 		{

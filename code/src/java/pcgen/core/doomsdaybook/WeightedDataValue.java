@@ -23,7 +23,6 @@
  * <code>WeightedDataValue</code>.
  * 
  * @author  devon
- * @version	$Revision$
  */
 public class WeightedDataValue extends DataValue
 {

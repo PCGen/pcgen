@@ -77,12 +77,9 @@ import pcgen.system.LanguageBundle;
  * tab. It contains biography and physical description fields which may be 
  * updated by the user.
  *
- * <br/>
- * Last Editor: $Author: jdempsey $
- * Last Edited: $Date: 2011-12-29 10:08:51 +1100 (Thu, 29 Dec 2011) $
+ * <br>
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: 15691 $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class BiographyInfoPane extends JPanel implements CharacterInfoTab
@@ -193,10 +190,10 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 	{
 
 		private final ListFacade<BiographyField> customFields;
-		private List<BioItem> bioItems = new ArrayList<BioItem>();
+		private List<BioItem> bioItems = new ArrayList<>();
 		private Map<BiographyField, BioItem> customFieldMap =
-				new EnumMap<BiographyField, BiographyInfoPane.BioItem>(
-					BiographyField.class);
+                new EnumMap<>(
+                        BiographyField.class);
 		private final CharacterFacade character;
 		private BiographyInfoPane detailsPane;
 
@@ -269,9 +266,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			customFields.removeListListener(this);
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementAdded(ListEvent<BiographyField> e)
 		{
@@ -285,9 +279,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsScroll.repaint();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementRemoved(ListEvent<BiographyField> e)
 		{
@@ -298,9 +289,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementsChanged(ListEvent<BiographyField> e)
 		{
@@ -310,9 +298,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			detailsPane.invalidate();
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void elementModified(ListEvent<BiographyField> e)
 		{
@@ -722,11 +707,11 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			switch (numComponents)
 			{
 				case 3:
-					gbc.weightx = .3333;
+					gbc.weightx = 0.3333;
 					break;
 
 				case 2:
-					gbc.weightx = .5;
+					gbc.weightx = 0.5;
 					break;
 
 				default:
@@ -871,9 +856,6 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 			}
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void itemStateChanged(ItemEvent e)
 		{
@@ -904,7 +886,7 @@ public class BiographyInfoPane extends JPanel implements CharacterInfoTab
 		{
 			// Build list of choices
 			List<BiographyField> availFields =
-					new ArrayList<BiographyField>(Arrays.asList(BiographyField.values()));
+                    new ArrayList<>(Arrays.asList(BiographyField.values()));
 			availFields.removeAll(defaultBioFieds);
 			for (BiographyField field : character.getDescriptionFacade()
 				.getCustomBiographyFields())

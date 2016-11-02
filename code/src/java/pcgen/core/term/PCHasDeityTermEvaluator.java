@@ -19,8 +19,6 @@
  * Created 09-Aug-2008 11:49:49
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  *
  */
 
@@ -48,7 +46,7 @@ public class PCHasDeityTermEvaluator
 	{
 		Deity d = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				Deity.class, deity);
-		return display.hasDeity(d) ? 1f : 0f;
+		return display.hasDeity(d) ? 1.0f : 0.0f;
 	}
 
 	@Override

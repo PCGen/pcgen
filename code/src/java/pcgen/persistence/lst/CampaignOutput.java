@@ -41,8 +41,7 @@ import pcgen.util.Logging;
 /**
  * <code>CampaignOutput</code> writes out data sets to PCC files.
  *
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class CampaignOutput
 {
@@ -90,21 +89,13 @@ public final class CampaignOutput
 				}
 			}
 		}
-		catch (FileNotFoundException exc)
+		catch (FileNotFoundException | UnsupportedEncodingException exc)
 		{
 			Logging.errorPrint("Error while writing to " + outFile.toString(),
 				exc);
 
 			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		catch (UnsupportedEncodingException exc)
-		{
-			Logging.errorPrint("Error while writing to " + outFile.toString(),
-				exc);
-
-			//TODO: Is this ok? Shouldn't something be done if writing a campaign fails?
-		}
-		finally
+		} finally
 		{
 			try
 			{

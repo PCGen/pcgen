@@ -253,7 +253,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		{
 			return Collections.emptySet();
 		}
-		return Collections.unmodifiableSet(new ListSet<T>(componentMap.keySet()));
+		return Collections.unmodifiableSet(new ListSet<>(componentMap.keySet()));
 	}
 
 	/**
@@ -382,7 +382,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	protected Map<T, ST> getComponentMap()
 	{
-		return new IdentityHashMap<T, ST>();
+		return new IdentityHashMap<>();
 	}
 
 	/**
@@ -485,7 +485,7 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 			 * This list exists primarily to eliminate the possibility of a
 			 * concurrent modification exception on a recursive remove
 			 */
-			List<T> removedKeys = new ArrayList<T>();
+			List<T> removedKeys = new ArrayList<>();
 			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
 					.iterator(); it.hasNext();)
 			{
@@ -539,14 +539,12 @@ public abstract class AbstractSingleSourceListFacet<T, ST> extends
 	 */
 	public List<? extends T> getSet(CharID id, ST owner)
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		Map<T, ST> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<T, ST>> it = componentMap.entrySet()
-					.iterator(); it.hasNext();)
+			for (Entry<T, ST> me : componentMap.entrySet())
 			{
-				Entry<T, ST> me = it.next();
 				Object source = me.getValue();
 				if (source.equals(owner))
 				{

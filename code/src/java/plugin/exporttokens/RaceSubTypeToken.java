@@ -19,8 +19,6 @@
  * Created on November 2, 2005
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens;
@@ -77,7 +75,7 @@ public class RaceSubTypeToken extends AbstractExportToken
 	private static RaceSubType getRaceSubTypeToken(CharacterDisplay display, int index)
 	{
 		//CONSIDER Why is this necessary to protect the index?  Calling code should be more careful
-		List<RaceSubType> subTypes = new ArrayList<RaceSubType>(display.getRacialSubTypes());
+		List<RaceSubType> subTypes = new ArrayList<>(display.getRacialSubTypes());
 		if (index >= 0 && index < subTypes.size())
 		{
 			return subTypes.get(index);

@@ -27,15 +27,12 @@ import java.awt.Component;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>RequestAddTabToGMGenMessage</code> is a message 
+ * The Class {@code RequestAddTabToGMGenMessage} is a message
  * requesting that a tab be added to the GMGen user interface. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RequestAddTabToGMGenMessage extends PCGenMessage
@@ -49,7 +46,7 @@ public class RequestAddTabToGMGenMessage extends PCGenMessage
 	 * 
 	 * @param source The object requesting the tab be added.
 	 * @param name The name of the tab.
-	 * @param view The contents of the tab.
+	 * @param pane The contents of the tab.
 	 */
 	public RequestAddTabToGMGenMessage(Object source,
 		String name, Component pane)

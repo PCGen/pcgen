@@ -66,8 +66,7 @@ import pcgen.util.enumeration.View;
  * equipment without direct interaction with the core.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 {
@@ -95,8 +94,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		this.delegate = delegate;
 		
 		sizeRef =
-				new DefaultReferenceFacade<SizeAdjustmentFacade>(
-					equip.getSizeAdjustment());
+                new DefaultReferenceFacade<>(
+                        equip.getSizeAdjustment());
 
 		final String sBaseKey = equip.getBaseItemKeyName();
 		baseEquipment = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
@@ -108,23 +107,20 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 					.of(EquipmentHead.PRIMARY);
 
 		availListMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, DefaultListFacade<EquipModFacade>>();
+                new HashMap<>();
 		selectedListMap =
-				new HashMap<EquipmentBuilderFacade.EquipmentHead, DefaultListFacade<EquipModFacade>>();
+                new HashMap<>();
 		for (EquipmentHead head : equipHeads)
 		{
-			availListMap.put(head, new DefaultListFacade<EquipModFacade>());
+			availListMap.put(head, new DefaultListFacade<>());
 			DefaultListFacade<EquipModFacade> selectedList =
-					new DefaultListFacade<EquipModFacade>();
+                    new DefaultListFacade<>();
 			selectedList.setContents(equip.getEqModifierList(head.isPrimary()));
 			selectedListMap.put(head, selectedList);
 		}
 		refreshAvailList();
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
@@ -163,9 +159,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
@@ -195,9 +188,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setName(String name)
 	{
@@ -206,7 +196,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) name).trim();
+		String aString = name.trim();
 
 		if ((aString.indexOf('|') >= 0) || (aString.indexOf(':') >= 0)
 			|| (aString.indexOf(';') >= 0) || (aString.indexOf(',') >= 0))
@@ -231,9 +221,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setSProp(String sprop)
 	{
@@ -257,9 +244,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setCost(String newValue)
 	{
@@ -268,7 +252,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		try
 		{
@@ -294,9 +278,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setWeight(String newValue)
 	{
@@ -305,7 +286,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		try
 		{
@@ -333,9 +314,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean setDamage(String newValue)
 	{
@@ -344,33 +322,24 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 			return false;
 		}
 
-		String aString = ((String) newValue).trim();
+		String aString = newValue.trim();
 
 		equip.put(StringKey.DAMAGE_OVERRIDE, aString);
 		return true;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<EquipModFacade> getAvailList(EquipmentHead head)
 	{
 		return availListMap.get(head);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ListFacade<EquipModFacade> getSelectedList(EquipmentHead head)
 	{
 		return selectedListMap.get(head);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public EquipmentFacade getEquipment()
 	{
@@ -383,7 +352,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 
 		for (EquipmentHead head : equipHeads)
 		{
-			List<EquipModFacade> newEqMods = new ArrayList<EquipModFacade>();
+			List<EquipModFacade> newEqMods = new ArrayList<>();
 			for (EquipmentModifier aEqMod : Globals.getContext().getReferenceContext()
 				.getConstructedCDOMObjects(EquipmentModifier.class))
 			{
@@ -419,9 +388,6 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		}
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean canAddModifier(EquipModFacade eqModFacade, EquipmentHead head)
 	{
@@ -435,18 +401,12 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return equip.canAddModifier(character, eqMod, head.isPrimary());
 	}
 	
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isResizable()
 	{
-		return Globals.canResizeHaveEffect(character, equip, equip.typeList());		
+		return Globals.canResizeHaveEffect(equip, equip.typeList());
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void setSize(SizeAdjustmentFacade newSize)
 	{
@@ -460,18 +420,12 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		sizeRef.set(newSize);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public ReferenceFacade<SizeAdjustmentFacade> getSizeRef()
 	{
 		return sizeRef;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public EnumSet<EquipmentHead> getEquipmentHeads()
 	{
@@ -545,7 +499,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 				{
 					try
 					{
-						final String aString = ((String) selectedValue).trim();
+						final String aString = selectedValue.trim();
 						charges = Integer.parseInt(aString);
 
 						if (charges < min)
@@ -570,27 +524,18 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 		return charges;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBaseItemName()
 	{
 		return equip.getBaseItemName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean isWeapon()
 	{
 		return equip.isWeapon();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getDamage()
 	{

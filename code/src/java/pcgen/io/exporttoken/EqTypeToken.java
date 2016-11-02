@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.io.exporttoken;
@@ -71,7 +69,7 @@ public class EqTypeToken extends EqToken
 		}
 
 		//Get List
-		List<Equipment> eqList = new ArrayList<Equipment>();
+		List<Equipment> eqList = new ArrayList<>();
 		if ("Container".equals(token))
 		{
 			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))

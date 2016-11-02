@@ -27,8 +27,7 @@ import pcgen.facade.core.AlignmentFacade;
 /**
  * <code>PCAlignment</code>.
  * 
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class PCAlignment extends PObject implements AlignmentFacade,
 		NonInteractive, SortKeyRequired

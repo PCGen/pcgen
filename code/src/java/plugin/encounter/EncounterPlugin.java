@@ -19,22 +19,12 @@
  */
  package plugin.encounter;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.Dice;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.ItemEvent;
 import java.awt.event.ItemListener;
+import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
-import java.awt.event.MouseListener;
 import java.io.File;
 import java.io.FileNotFoundException;
 import java.util.ArrayList;
@@ -50,12 +40,22 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.ChallengeRating;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ObjectKey;
+import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.HandsFacet;
 import pcgen.cdom.inst.PCClassLevel;
@@ -78,6 +78,7 @@ import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -85,10 +86,10 @@ import plugin.encounter.gui.EncounterView;
  * involved in the functionality of the Encounter Generator.  This <code>class
  * </code> is a plugin for the <code>GMGenSystem</code>, is called by the
  * <code>PluginLoader</code> and will create a model and a view for this plugin.
- * @version 2.10
  */
-public class EncounterPlugin implements InteractivePlugin, ActionListener,
-		ItemListener, MouseListener
+public class EncounterPlugin extends MouseAdapter
+	implements InteractivePlugin, ActionListener,
+		ItemListener
 {
 	/** Directory where Data for this plug-in is expected to be. */
 	private static final String DIR_ENCOUNTER = "encounter_tables"; //$NON-NLS-1$
@@ -154,10 +155,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -407,7 +405,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				}
 
 				handleEquipment(aPC);
-				aPC.setPlayersName("Enemy");
+				aPC.setPCAttribute(PCAttribute.PLAYERSNAME, "Enemy");
 				theList.add(new PcgCombatant(aPC, "Enemy", messageHandler));
 			}
 
@@ -435,14 +433,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
-		encounterToolsItem.addActionListener(new ActionListener()
-		{
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		encounterToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 
@@ -510,30 +501,6 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 	}
 
-    @Override
-	public void mouseEntered(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mouseExited(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mousePressed(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
-    @Override
-	public void mouseReleased(MouseEvent e)
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
 	private void createView()
 	{
 		theEnvironments = new EnvironmentModel(getDataDirectory() + File.separator + DIR_ENCOUNTER);
@@ -582,7 +549,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		}
 
 		// Get any currently selected items in the Races list
-		ArrayList<Object> selected = new ArrayList<Object>();
+		ArrayList<Object> selected = new ArrayList<>();
 
 		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
@@ -629,7 +596,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		ArrayList<Integer> stillSelected = new ArrayList<Integer>();
+		ArrayList<Integer> stillSelected = new ArrayList<>();
 
 		for (Object obj : selected)
 		{
@@ -724,17 +691,17 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		catch (NumberFormatException e)
 		{
 			String[] dice = numMonsters.split("d");
-			num = Integer.valueOf(0);
+			num = 0;
 
 			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
 				num =
-						Integer.valueOf(num.intValue()
-							+ roll.nextInt(Integer.parseInt(dice[1])) + 1);
+						num.intValue()
+								+ roll.nextInt(Integer.parseInt(dice[1])) + 1;
 			}
 		}
 
-		Vector<Object> toReturn = new Vector<Object>();
+		Vector<Object> toReturn = new Vector<>();
 		toReturn.addElement(num);
 		toReturn.addElement(Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(Race.class, tableEntry));
 
@@ -773,7 +740,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 	private static List<String> getWeaponLocationChoices(int hands,
 		String multiHand)
 	{
-		ArrayList<String> result = new ArrayList<String>(hands + 2);
+		ArrayList<String> result = new ArrayList<>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -878,7 +845,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 		ReadXML xml;
 		VectorTable table41;
 		Random roll = new Random(System.currentTimeMillis());
-		List<Race> critters = new ArrayList<Race>();
+		List<Race> critters = new ArrayList<>();
 
 		if (!f.exists())
 		{
@@ -1001,7 +968,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 			hands = getHands(pc);
 		}
 
-		List<String> aList = new ArrayList<String>();
+		List<String> aList = new ArrayList<>();
 
 		if (eqI.isWeapon())
 		{
@@ -1148,7 +1115,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				eqI)))
 			{
 				// let them choose where to put the item
-				List<String> selectedList = new ArrayList<String>();
+				List<String> selectedList = new ArrayList<>();
 				selectedList =
 						Globals.getChoiceFromList("Select a location for "
 							+ eqI.getName(), aList, selectedList, 1, false,
@@ -1212,7 +1179,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap<String, String> slotMap = new HashMap<String, String>();
+		HashMap<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
@@ -1373,7 +1340,7 @@ public class EncounterPlugin implements InteractivePlugin, ActionListener,
 				int size = display.getLevelHitDie(pcClass, j + 1).getDie();
 				PCClassLevel classLevel = display.getActiveClassLevel(pcClass, j);
 				aPC.setHP(classLevel,
-					Integer.valueOf(new Dice(1, size, bonus).roll()));
+						new Dice(1, size, bonus).roll());
 			}
 		}
 

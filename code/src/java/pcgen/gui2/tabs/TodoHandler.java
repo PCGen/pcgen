@@ -27,12 +27,9 @@ package pcgen.gui2.tabs;
  * of which field should be used to action a todo. This may be by highlighting 
  * the field, or changing focus to the field.   
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public interface TodoHandler

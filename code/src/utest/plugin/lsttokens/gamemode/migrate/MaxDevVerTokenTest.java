@@ -34,7 +34,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MaxDevVerTokenTest checks the function of the MaxDevVerToken class.
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
  */
 public class MaxDevVerTokenTest
 {

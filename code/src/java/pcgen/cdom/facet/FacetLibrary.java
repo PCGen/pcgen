@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import java.lang.reflect.InvocationTargetException;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -36,7 +37,7 @@ public final class FacetLibrary
 		//Do not instantiate
 	}
 
-	private static Map<Class<?>, Object> facets = new HashMap<Class<?>, Object>();
+	private static Map<Class<?>, Object> facets = new HashMap<>();
 
 	public static <T extends Object> T getFacet(Class<T> cl)
 	{
@@ -51,16 +52,20 @@ public final class FacetLibrary
 				//System.err.println("Using Legacy Load for Facet: " + cl.getName());
 				try
 				{
-					facet = cl.newInstance();
+					facet = cl.getConstructor()
+							.newInstance();
 				}
-				catch (InstantiationException e)
+				catch (InstantiationException | IllegalAccessException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				catch (IllegalAccessException e)
+				catch (NoSuchMethodException e)
 				{
-					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				catch (InvocationTargetException e)
+				{
 					e.printStackTrace();
 				}
 			}

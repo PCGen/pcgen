@@ -119,10 +119,10 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 			return cpr;
 		}
 		PrimitiveChoiceSet<Ability> pcs =
-				new CollectionToChoiceSet<Ability>(coll);
+				new CollectionToChoiceSet<>(coll);
 		CategorizedChooseInformation<Ability> tc =
-				new CategorizedChooseInformation<Ability>(getTokenName(),
-					acRef, pcs, Ability.class);
+				new CategorizedChooseInformation<>(getTokenName(),
+						acRef, pcs, Ability.class);
 		tc.setTitle(title);
 		tc.setChoiceActor(this);
 		context.getObjectContext().put(obj, ObjectKey.CHOOSE_INFO, tc);
@@ -311,9 +311,6 @@ public class AbilityToken extends AbstractTokenWithSeparator<CDOMObject>
 		return choice.getKeyName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Ability decodeChoice(LoadContext context, String encoded,
 		Category<?> category)

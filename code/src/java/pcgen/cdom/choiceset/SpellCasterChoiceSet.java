@@ -17,7 +17,6 @@
  * 
  * Created on October 29, 2006.
  * 
- * Current Ver: $Revision: 1111 $ Last Editor: $Author: boomer70 $ Last Edited:
  * $Date: 2006-06-22 21:22:44 -0400 (Thu, 22 Jun 2006) $
  */
 package pcgen.cdom.choiceset;
@@ -153,7 +152,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 		super("SPELLCASTER", typePCS == null ? EMPTY_CHOICE_SET : typePCS);
 		types = typePCS;
 		primitives = primPCS;
-		spelltypes = new ArrayList<String>(spelltype);
+		spelltypes = new ArrayList<>(spelltype);
 		allClasses = allRef;
 	}
 
@@ -183,7 +182,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		if (primitives != null)
 		{
 			list.add(primitives.getLSTformat(useAny));
@@ -241,7 +240,7 @@ public class SpellCasterChoiceSet extends ChoiceSet<PCClass> implements
 	public Set<PCClass> getSet(PlayerCharacter pc)
 	{
 		FactKey<String> fk = FactKey.valueOf("SpellType");
-		Set<PCClass> returnSet = new HashSet<PCClass>();
+		Set<PCClass> returnSet = new HashSet<>();
 		if (types != null)
 		{
 			for (PCClass pcc : types.getSet(pc))

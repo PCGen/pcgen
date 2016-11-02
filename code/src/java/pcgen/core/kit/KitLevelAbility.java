@@ -36,14 +36,13 @@ import pcgen.core.PlayerCharacter;
 /**
  * <code>KitLevelAbility</code>.
  *
- * @author Aaron Divinsky <boomer70@yahoo.com>
- * @version $Revision$
+ * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public final class KitLevelAbility extends BaseKit
 {
 	private CDOMSingleRef<PCClass> theClassName;
 	private int theLevel;
-	private List<String> choiceList = new ArrayList<String>();
+	private List<String> choiceList = new ArrayList<>();
 	private PersistentTransitionChoice<?> add;
 
 	/**
@@ -138,7 +137,7 @@ public final class KitLevelAbility extends BaseKit
 	private <T> void process(PlayerCharacter pc, PCClass cl,
 		PersistentTransitionChoice<T> ch)
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		for (String s : choiceList)
 		{
 			list.add(ch.decodeChoice(Globals.getContext(), s));

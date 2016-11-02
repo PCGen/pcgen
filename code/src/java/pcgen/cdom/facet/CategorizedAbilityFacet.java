@@ -225,14 +225,14 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		if (catMap == null)
 		{
 			isNew = true;
-			catMap = new HashMap<Category<Ability>, Map<Nature, Set<Ability>>>();
+			catMap = new HashMap<>();
 			setCache(id, catMap);
 		}
 		Map<Nature, Set<Ability>> natureMap = catMap.get(cat);
 		if (natureMap == null)
 		{
 			isNew = true;
-			natureMap = new HashMap<Nature, Set<Ability>>();
+			natureMap = new HashMap<>();
 			catMap.put(cat, natureMap);
 		}
 		Set<Ability> abilitySet = natureMap.get(nat);
@@ -240,7 +240,7 @@ public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 		{
 			isNew = true;
 			// abilitySet = new HashSet<Ability>();
-			abilitySet = new WrappedMapSet<Ability>(IdentityHashMap.class);
+			abilitySet = new WrappedMapSet<>(IdentityHashMap.class);
 			natureMap.put(nat, abilitySet);
 		}
 		return isNew;

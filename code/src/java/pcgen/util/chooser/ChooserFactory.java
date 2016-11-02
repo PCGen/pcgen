@@ -29,12 +29,11 @@ import pcgen.facade.core.UIDelegate;
  * Currently only a SwingChooser has been implemented.
  *
  * @author    Jonas Karlsson
- * @version $Revision$
  */
 public final class ChooserFactory
 {
 	private static UIDelegate delegate;
-	private final static Stack<String> interfaceClassNameStack = new Stack<String>();
+	private final static Stack<String> interfaceClassNameStack = new Stack<>();
 
 	/**
 	 * Deliberately private so it can't be instantiated.
@@ -65,15 +64,7 @@ public final class ChooserFactory
 			ChoiceHandler ci = (ChoiceHandler) c.newInstance();
 			return ci;
 		}
-		catch (ClassNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (ClassNotFoundException | IllegalAccessException | InstantiationException e)
 		{
 			e.printStackTrace();
 		}

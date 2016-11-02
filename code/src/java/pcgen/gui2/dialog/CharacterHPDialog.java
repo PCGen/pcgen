@@ -60,9 +60,9 @@ import pcgen.gui2.util.table.IntegerEditor;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class CharacterHPDialog extends JDialog implements ActionListener
+public final class CharacterHPDialog extends JDialog implements ActionListener
 {
 
 	private final CharacterFacade character;
@@ -85,7 +85,7 @@ public class CharacterHPDialog extends JDialog implements ActionListener
 	{
 		Frame frame = JOptionPane.getFrameForComponent(parent);
 		CharacterHPDialog dialog = new CharacterHPDialog(frame, character);
-		Utility.setDialogRelativeLocation(frame, dialog);
+		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
 

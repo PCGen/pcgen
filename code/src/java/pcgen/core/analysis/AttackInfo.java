@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision: 18723 $
- * Last Editor: $Author: thpr $
- * Last Edited: $Date: 2012-12-19 16:06:23 -0500 (Wed, 19 Dec 2012) $
  *
  */
 package pcgen.core.analysis;
@@ -75,7 +73,7 @@ public class AttackInfo
 	/**
 	 * Get total ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return total ATTACK token
 	 */
 	public static int getTotalToken(PlayerCharacter pc, AttackType at)
@@ -148,7 +146,7 @@ public class AttackInfo
 	/**
 	 * Get the misc ATTACK token
 	 * @param pc
-	 * @param aType
+	 * @param at
 	 * @return misc ATTACK token
 	 */
 	public static int getMiscToken(PlayerCharacter pc, AttackType at)
@@ -190,8 +188,6 @@ public class AttackInfo
 
 	/**
 	 * get stat ATTACK token
-	 * @param pc
-	 * @param aType
 	 * @return stat ATTACK token
 	 */
 	public static int getStatToken(CharacterDisplay display, AttackType at)

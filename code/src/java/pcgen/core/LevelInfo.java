@@ -19,8 +19,6 @@
  * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package pcgen.core;
@@ -32,8 +30,7 @@ import java.math.BigDecimal;
 /**
  * <code>LevelInfo</code> describes the data associated with a level
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class LevelInfo
 {

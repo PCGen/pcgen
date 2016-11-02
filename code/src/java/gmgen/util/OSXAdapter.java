@@ -19,7 +19,7 @@ import com.apple.eawt.ApplicationEvent;
 /**
  * An adaptor class to deal with Apple Macintosh OSX issues 
  */
-public class OSXAdapter extends ApplicationAdapter
+public final class OSXAdapter extends ApplicationAdapter
 {
 	// pseudo-singleton model; no point in making multiple instances
 	// of the EAWT application or our adapter

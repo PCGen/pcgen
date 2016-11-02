@@ -101,11 +101,9 @@ import pcgen.util.enumeration.Tab;
  * character. Each set of distribution information is called an EquipSet.
  * Multiple EquipSets can be managed to reflect different configurations.
  *
- * <br/>
- * Last Editor: $Author: $ Last Edited: $Date: $
+ * <br>
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler
@@ -373,11 +371,11 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	@Override
 	public void storeModels(ModelMap models)
 	{
-		((LabelsUpdater) models.get(LabelsUpdater.class)).uninstall();
-		((EquipmentModel) models.get(EquipmentModel.class)).uninstall();
-		((EquipmentModels) models.get(EquipmentModels.class)).uninstall();
-		((EquipInfoHandler) models.get(EquipInfoHandler.class)).uninstall();
-		((OrderPopupMenuHandler) models.get(OrderPopupMenuHandler.class)).uninstall();
+		models.get(LabelsUpdater.class).uninstall();
+		models.get(EquipmentModel.class).uninstall();
+		models.get(EquipmentModels.class).uninstall();
+		models.get(EquipInfoHandler.class).uninstall();
+		models.get(OrderPopupMenuHandler.class).uninstall();
 	}
 
 	@Override
@@ -393,7 +391,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		{
 			table.setRowSelectionInterval(row, row);
 		}
-		List<Integer> targets = new ArrayList<Integer>();
+		List<Integer> targets = new ArrayList<>();
 		for (int selRow : table.getSelectedRows())
 		{
 			targets.add(selRow);
@@ -402,7 +400,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	}
 
 	/**
-	 * @param load (i.e. Encumbrance) value
 	 */
 	public void setLoadLabel(String text)
 	{
@@ -435,9 +432,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 		loadLabel.setForeground(color);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void adviseTodo(String fieldName)
 	{
@@ -835,11 +829,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -922,11 +912,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipmentArray = (EquipmentFacade[]) support.getTransferable().getTransferData(equipmentArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -940,11 +926,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			{
 				equipNodeArray = (EquipNode[]) support.getTransferable().getTransferData(equipNodeArrayFlavor);
 			}
-			catch (UnsupportedFlavorException ex)
-			{
-				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
-			}
-			catch (IOException ex)
+			catch (UnsupportedFlavorException | IOException ex)
 			{
 				Logger.getLogger(EquipInfoTab.class.getName()).log(Level.SEVERE, null, ex);
 			}
@@ -1062,9 +1044,6 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 			this.character = character;
 		}
 
-		/**
-		 * {@inheritDoc}
-		 */
 		@Override
 		public void showPopup(MouseEvent e)
 		{
@@ -1074,9 +1053,9 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 				return;
 			}
 
-			List<EquipNode> upTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> downTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
-			List<EquipNode> sortTargets = new ArrayList<EquipmentSetFacade.EquipNode>();
+			List<EquipNode> upTargets = new ArrayList<>();
+			List<EquipNode> downTargets = new ArrayList<>();
+			List<EquipNode> sortTargets = new ArrayList<>();
 			EquipNode[] relativeNodes = filterTargets(targets, upTargets, downTargets, sortTargets);
 
 			JPopupMenu popupMenu = new JPopupMenu();

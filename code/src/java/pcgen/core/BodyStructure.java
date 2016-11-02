@@ -37,12 +37,9 @@ import pcgen.facade.core.BodyStructureFacade;
  * The Class <code>BodyStructure</code> represents a part of a character's 
  * body that may hold equipment.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BodyStructure implements BodyStructureFacade
 {
@@ -68,7 +65,6 @@ public class BodyStructure implements BodyStructureFacade
 	 * 
 	 * @param name The name of the body structure.
 	 * @param holdsAnyType Can this item hold anything at all
-	 * @param forbiddenTypes The exceptions to the 'holds any type' rule.
 	 */
 	public BodyStructure(String name, boolean holdsAnyType)
 	{
@@ -87,12 +83,12 @@ public class BodyStructure implements BodyStructureFacade
 	public BodyStructure(String name, boolean holdsAnyType, Set<Type> forbiddenTypes)
 	{
 		this.name = name;
-		this.forbiddenTypes = new HashSet<Type>();
+		this.forbiddenTypes = new HashSet<>();
 		if (forbiddenTypes != null)
 		{
 			this.forbiddenTypes.addAll(forbiddenTypes);
 		}
-		slots = new ArrayList<EquipSlot>();
+		slots = new ArrayList<>();
 		this.holdsAnyType = holdsAnyType;
 	}
 

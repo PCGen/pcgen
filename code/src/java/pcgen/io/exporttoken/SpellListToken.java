@@ -26,14 +26,11 @@ package pcgen.io.exporttoken;
 import java.util.StringTokenizer;
 
 /**
- * <code>SpellListToken</code> is the base class for the SPELLLIST
+ * {@code SpellListToken} is the base class for the SPELLLIST
  * family of tokens.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class SpellListToken extends Token
 {
@@ -49,7 +46,7 @@ public abstract class SpellListToken extends Token
 
 	// ================== Inner class =======================
 	/**
-	 * <code>SpellListTokenParams</code> is ...
+	 * {@code SpellListTokenParams} is ...
 	 *
 	 */
 	protected final static class SpellListTokenParams
@@ -85,7 +82,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the bookNum.
 		 */
-		public final int getBookNum()
+		public int getBookNum()
 		{
 			return bookNum;
 		}
@@ -93,7 +90,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the classNum.
 		 */
-		public final int getClassNum()
+		public int getClassNum()
 		{
 			return classNum;
 		}
@@ -101,7 +98,7 @@ public abstract class SpellListToken extends Token
 		/**
 		 * @return Returns the level.
 		 */
-		public final int getLevel()
+		public int getLevel()
 		{
 			return level;
 		}

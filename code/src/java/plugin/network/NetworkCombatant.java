@@ -21,12 +21,6 @@
  */
 package plugin.network;
 
-import gmgen.plugin.Combatant;
-import gmgen.plugin.State;
-import gmgen.plugin.SystemAttribute;
-import gmgen.plugin.SystemHP;
-import gmgen.plugin.SystemInitiative;
-
 import java.io.BufferedOutputStream;
 import java.io.PrintStream;
 import java.net.Socket;
@@ -34,31 +28,35 @@ import java.util.List;
 import java.util.StringTokenizer;
 import java.util.Vector;
 
-import org.jdom.Element;
+import gmgen.plugin.Combatant;
+import gmgen.plugin.State;
+import gmgen.plugin.SystemAttribute;
+import gmgen.plugin.SystemHP;
+
+import org.jdom2.Element;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 /**
- *@author     devon
- *@since    March 20, 2003
- *@version $Revision$
+ * A combatant that can be interacted with over the network.
  */
+@SuppressWarnings("WeakerAccess")
 public class NetworkCombatant extends Combatant
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
-	protected String name = "";
-	protected String uid;
-	protected String player = "";
-	protected String htmlString = "";
-	protected float cr = 0;
-	protected int xp = 0;
-	protected Socket sock;
+	private static final Logger LOGGER = LoggerFactory.getLogger(NetworkCombatant.class);
+
+	private String name = "";
+	private final String uid;
+	private String player = "";
+	private String htmlString = "";
+	private float cr = 0;
+	private int xp = 0;
+	private final Socket sock;
 
 	/**
 	 *  Creates new Combatant
-	 * @param uid
-	 * @param sock
+	 * @param uid human readable identifier
+	 * @param sock socket to chat with user
 	 */
 	public NetworkCombatant(String uid, Socket sock)
 	{
@@ -82,12 +80,7 @@ public class NetworkCombatant extends Combatant
 		return cr;
 	}
 
-	public String getUid()
-	{
-		return uid;
-	}
-
-    @Override
+	@Override
 	public String getName()
 	{
 		return name;
@@ -95,7 +88,7 @@ public class NetworkCombatant extends Combatant
 
 	/**
 	 *  Sets the Combatant Type.
-	 * @param comType
+	 * @param comType valid COMTYPE tag
 	 *
 	 */
     @Override
@@ -140,18 +133,18 @@ public class NetworkCombatant extends Combatant
     @Override
 	public Vector<Object> getRowVector(List<String> columnOrder)
 	{
-		Vector<Object> rowVector = new Vector<Object>();
+		Vector<Object> rowVector = new Vector<>();
 
 		//Iterate through all the columns, and create the vector in that order
-		for (String columnName : columnOrder)
+		columnOrder.forEach(columnName ->
 		{
 			if (columnName.equals("Name"))
 			{ // Character's Name
-				rowVector.add(getName());
+				rowVector.add(name);
 			}
 			else if (columnName.equals("Player"))
 			{ // Player's Name
-				rowVector.add("Net: " + getPlayer());
+				rowVector.add("Net: " + player);
 			}
 			else if (columnName.equals("Status"))
 			{ // Status of Combatant
@@ -159,11 +152,11 @@ public class NetworkCombatant extends Combatant
 			}
 			else if (columnName.equals("+"))
 			{ // Initiative bonus
-				rowVector.add("" + init.getModifier());
+				rowVector.add(String.valueOf(init.getModifier()));
 			}
 			else if (columnName.equals("Init"))
 			{ // Initiative #
-				rowVector.add("" + init.getCurrentInitiative());
+				rowVector.add(String.valueOf(init.getCurrentInitiative()));
 			}
 			else if (columnName.equals("Dur"))
 			{ // Duration
@@ -173,12 +166,12 @@ public class NetworkCombatant extends Combatant
 				}
 				else
 				{
-					rowVector.add("" + getDuration());
+					rowVector.add(String.valueOf(getDuration()));
 				}
 			}
 			else if (columnName.equals("#"))
 			{ // Number (for tokens)
-				rowVector.add("" + number);
+				rowVector.add(String.valueOf(number));
 			}
 			else if (columnName.equals("HP"))
 			{ // Current Hit Points
@@ -187,7 +180,7 @@ public class NetworkCombatant extends Combatant
 
 				if (sub == 0)
 				{
-					rowVector.add("" + hp);
+					rowVector.add(String.valueOf(hp));
 				}
 				else if (sub > 0)
 				{
@@ -196,13 +189,13 @@ public class NetworkCombatant extends Combatant
 			}
 			else if (columnName.equals("HP Max"))
 			{ // Max Hit Points
-				rowVector.add("" + hitPoints.getMax());
+				rowVector.add(String.valueOf(hitPoints.getMax()));
 			}
 			else if (columnName.equals("Type"))
 			{ //PC, Enemy, Ally, Non-Com
 				rowVector.add(comType);
 			}
-		}
+		});
 
 		return rowVector;
 	}
@@ -400,19 +393,13 @@ public class NetworkCombatant extends Combatant
 		sendNetMessage("STATUS|" + status);
 	}
 
-    @Override
-	public SystemInitiative getInitiative()
-	{
-		return init;
-	}
-
-    @Override
+	@Override
 	public String getPlayer()
 	{
 		return player;
 	}
 
-	public void setPlayer(String player)
+	private void setPlayer(String player)
 	{
 		this.player = player;
 		sendNetMessage("PLAYER|" + player);
@@ -426,30 +413,32 @@ public class NetworkCombatant extends Combatant
 
 	private void sendNetMessage(String message)
 	{
+		NetworkCombatant.LOGGER.trace("sending network message to {}", uid);
 		try
 		{
-			PrintStream os =
-					new PrintStream(new BufferedOutputStream(sock
-						.getOutputStream()), true, "UTF-8");
-			os.print("Pcg: " + uid + ":" + message + "\r\n");
-			os.flush();
-			//os.close();
+			try (PrintStream os
+				     = new PrintStream(
+				     	new BufferedOutputStream(sock.getOutputStream()), true, "UTF-8"))
+			{
+				os.print("Pcg: " + uid + ":" + message + "\r\n");
+				os.flush();
+			}
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			// TODO Handle this?
 		}
 	}
 
-	public void recieveNetMessage(String message)
+	void recieveNetMessage(String message)
 	{
 		String type = "";
-		String value = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
 		if (st.hasMoreTokens())
 		{
 			type = st.nextToken();
 		}
+		String value = "";
 		if (st.hasMoreTokens())
 		{
 			value = st.nextToken();
@@ -457,7 +446,7 @@ public class NetworkCombatant extends Combatant
 
 		try
 		{
-			if (type != "" && value != "")
+			if ((type != "") && (value != ""))
 			{
 				if (type.equals("COMTYPE"))
 				{
@@ -517,21 +506,21 @@ public class NetworkCombatant extends Combatant
 				}
 			}
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			// TODO Handle this?
 		}
 	}
 
-	public static void recieveServerMessage(String message, Combatant cbt)
+	static void recieveServerMessage(String message, Combatant cbt)
 	{
 		String type = "";
-		String value = "";
 		StringTokenizer st = new StringTokenizer(message, "|");
 		if (st.hasMoreTokens())
 		{
 			type = st.nextToken();
 		}
+		String value = "";
 		if (st.hasMoreTokens())
 		{
 			value = st.nextToken();
@@ -539,7 +528,7 @@ public class NetworkCombatant extends Combatant
 
 		try
 		{
-			if (type != "" && value != "")
+			if ((type != "") && (value != ""))
 			{
 				if (type.equals("COMTYPE"))
 				{
@@ -595,18 +584,18 @@ public class NetworkCombatant extends Combatant
 				}
 			}
 		}
-		catch (Exception e)
+		catch (final Exception e)
 		{
 			// TODO Handle This?
 		}
 	}
 
-	public static String getCombatantUid(Combatant cbt, String user)
+	static String getCombatantUid(Combatant cbt, String user)
 	{
 		return cbt.getName() + "-" + cbt.getPlayer() + "-" + user;
 	}
 
-	public static void sendCombatant(Combatant cbt, NetworkClient client)
+	static void sendCombatant(Combatant cbt, NetworkClient client)
 	{
 		String uid = getCombatantUid(cbt, client.getUser());
 		client.sendPcgMessage(uid, "COMTYPE|" + cbt.getCombatantType());
@@ -630,5 +619,30 @@ public class NetworkCombatant extends Combatant
 	public String toHtmlString()
 	{
 		return htmlString;
+	}
+
+	@Override
+	public String toString()
+	{
+		return "NetworkCombatant{"
+			       + "name='"
+			       + name
+			       + '\''
+			       + ", uid='"
+			       + uid
+			       + '\''
+			       + ", player='"
+			       + player
+			       + '\''
+			       + ", htmlString='"
+			       + htmlString
+			       + '\''
+			       + ", cr="
+			       + cr
+			       + ", xp="
+			       + xp
+			       + ", sock="
+			       + sock
+			       + '}';
 	}
 }

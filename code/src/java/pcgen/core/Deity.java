@@ -19,8 +19,6 @@
  * Created on April 21, 2001, 2:15 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -43,8 +41,7 @@ import pcgen.facade.core.DeityFacade;
 /**
  * <code>Deity</code>.
  * 
- * @author Bryan McRoberts <merton_monk@users.sourceforge.net>
- * @version $Revision$
+ * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class Deity extends PObject implements DeityFacade
 {
@@ -57,13 +54,10 @@ public final class Deity extends PObject implements DeityFacade
 		DOMAINLIST = CDOMDirectSingleRef.getRef(wpl);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public List<String> getDomainNames()
 	{
-		List<String> domains = new ArrayList<String>();
+		List<String> domains = new ArrayList<>();
 		for (CDOMReference<Domain> ref : getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -88,7 +82,7 @@ public final class Deity extends PObject implements DeityFacade
     @Override
 	public Collection<String> getPantheons()
 	{
-		Set<String> charDeityPantheon = new TreeSet<String>();
+		Set<String> charDeityPantheon = new TreeSet<>();
 		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
 		for (Indirect<String> indirect : getSafeSetFor(fk))
 		{

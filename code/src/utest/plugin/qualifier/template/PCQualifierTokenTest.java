@@ -20,6 +20,7 @@ import java.net.URISyntaxException;
 
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
+import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import plugin.lsttokens.choose.TemplateToken;
@@ -31,10 +32,10 @@ public class PCQualifierTokenTest extends
 		AbstractPCQualifierTokenTestCase<PCTemplate>
 {
 
-	static TemplateToken subtoken = new TemplateToken();
+	private static final CDOMSecondaryToken subtoken = new TemplateToken();
 
-	private static final plugin.qualifier.template.PCToken PC_TOKEN =
-			new plugin.qualifier.template.PCToken();
+	private static final LstToken PC_TOKEN =
+			new PCToken();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -56,12 +57,6 @@ public class PCQualifierTokenTest extends
 	}
 
 	@Override
-	protected boolean allowsNotQualifier()
-	{
-		return true;
-	}
-
-	@Override
 	protected void addToPCSet(TransparentPlayerCharacter pc, PCTemplate item)
 	{
 		pc.templateSet.add(item);
@@ -70,6 +65,6 @@ public class PCQualifierTokenTest extends
 	@Override
 	protected Class<? extends QualifierToken<?>> getQualifierClass()
 	{
-		return plugin.qualifier.template.PCToken.class;
+		return PCToken.class;
 	}
 }

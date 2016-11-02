@@ -17,17 +17,17 @@
  */
 package selectionactor.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.PCClass;
+
+import org.junit.Test;
 import plugin.lsttokens.template.FavoredclassToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
 public class FavoredClassTokenTest extends AbstractSelectionActorTest<PCClass>
 {
 
-	static FavoredclassToken cra = new FavoredclassToken();
+	private static final ChooseSelectionActor<PCClass> cra = new FavoredclassToken();
 
 	@Test
 	public void testEmpty()

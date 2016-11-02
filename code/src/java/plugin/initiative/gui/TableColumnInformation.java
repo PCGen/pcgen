@@ -28,8 +28,6 @@ import java.util.List;
  * </p>
  *
  * <p>Current Ver: $Revision$</p>
- * <p>Last Editor: $Author$</p>
- * <p>Last Edited: $Date$</p>
  * 
  * @author LodgeR
  */
@@ -99,7 +97,7 @@ public class TableColumnInformation
 	 */
 	public TableColumnInformation(int initialCapacity)
 	{
-		columns = new ArrayList<ColStruct>(initialCapacity);
+		columns = new ArrayList<>(initialCapacity);
 	}
 
 	/**

@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -68,7 +66,7 @@ public class ClassAbbToken extends AbstractExportToken
 
 	/**
 	 * Get the token
-	 * @param pc
+	 * @param display
 	 * @param classNumber
 	 * @return token
 	 */

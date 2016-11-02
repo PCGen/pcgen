@@ -19,8 +19,6 @@
  * Created on March 3, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit.basekit;
@@ -97,7 +95,7 @@ public class LookupToken extends AbstractToken implements
 		{
 			return null;
 		}
-		List<String> list = new ArrayList<String>();
+		List<String> list = new ArrayList<>();
 		for (NamedFormula nf : lookups)
 		{
 			list.add(nf.getName() + "," + nf.getFormula().toString());

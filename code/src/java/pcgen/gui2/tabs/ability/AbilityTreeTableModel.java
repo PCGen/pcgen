@@ -55,12 +55,9 @@ import pcgen.util.Comparators;
  * selected abilities tree table. It lists the abilities held by the 
  * character in a tree structure by category.
  * 
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * <br>
  * 
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision: $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class AbilityTreeTableModel extends AbstractTreeTableModel implements SortableTreeTableModel
 {
@@ -148,8 +145,8 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 		public RootTreeTableNode(ListFacade<AbilityCategoryFacade> cats)
 		{
 			super(Collections.singletonList(new Object()));
-			this.cats = new SortedListFacade<AbilityCategoryFacade>(Comparators.toStringIgnoreCaseComparator(),
-					cats);
+			this.cats = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(),
+                    cats);
 			addChildren();
 			cats.addListListener(this);
 		}
@@ -200,8 +197,8 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 			this.category = category;
 			setUserObject(category);
 			setValues(Collections.singletonList(category));
-			this.abilities = new SortedListFacade<AbilityFacade>(Comparators.toStringIgnoreCaseComparator(),
-					character.getAbilities(category));
+			this.abilities = new SortedListFacade<>(Comparators.toStringIgnoreCaseComparator(),
+                    character.getAbilities(category));
 			addChildren();
 			abilities.addListListener(this);
 		}
@@ -218,7 +215,7 @@ public class AbilityTreeTableModel extends AbstractTreeTableModel implements Sor
 
 		private DefaultTreeTableNode buildAbilityNode(AbilityFacade ability)
 		{
-			List<Object> data = new ArrayList<Object>(2);
+			List<Object> data = new ArrayList<>(2);
 			data.add(ability);
 			data.add(character.getInfoFactory().getChoices(ability));
 			DefaultTreeTableNode node = new DefaultSortableTreeTableNode(data);

@@ -65,7 +65,7 @@ import pcgen.util.enumeration.Tab;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
@@ -85,7 +85,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	public SpellBooksTab()
 	{
 		super("SpellBooks");
-		this.availableTable = new FilteredTreeViewTable<CharacterFacade, SuperNode>();
+		this.availableTable = new FilteredTreeViewTable<>();
 		this.selectedTable = new JTreeViewTable<SuperNode>(){
 			
 			@Override
@@ -99,7 +99,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		this.spellRenderer = new QualifiedSpellTreeCellRenderer();
 		this.addButton = new JButton();
 		this.removeButton = new JButton();
-		this.qFilterButton = new FilterButton<CharacterFacade, SuperNode>("SpellBooksQualified");
+		this.qFilterButton = new FilterButton<>("SpellBooksQualified");
 		this.spellsPane = new InfoPane(LanguageBundle.getString("InfoSpells.spell.info"));
 		this.classPane = new InfoPane(LanguageBundle.getString("InfoSpells.class.info"));
 		this.defaultBookCombo = new JComboBox();
@@ -120,7 +120,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 
 		});
 		selectedTable.getRowSorter().toggleSortOrder(0);
-		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<CharacterFacade, SuperNode>();
+		FilterBar<CharacterFacade, SuperNode> filterBar = new FilterBar<>();
 		filterBar.addDisplayableFilter(new SearchFilterPanel());
 		qFilterButton.setText(LanguageBundle.getString("in_igQualFilter")); //$NON-NLS-1$
 		filterBar.addDisplayableFilter(qFilterButton);
@@ -221,11 +221,10 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 	 * Identify the current spell book, being the spell book that spells should
 	 * be added to. If no books exist then return an empty string.
 	 *
-	 * @param character The character we are checking for.
 	 * @return The name of the 'current' spell book, or empty string if none
 	 *         exist.
 	 */
-	String getCurrentSpellBookName(CharacterFacade character)
+	String getCurrentSpellBookName()
 	{
 		String spellList = "";
 		Object selectedObject = selectedTable.getSelectedObject();
@@ -299,7 +298,7 @@ public class SpellBooksTab extends FlippingSplitPane implements CharacterInfoTab
 		public void actionPerformed(ActionEvent e)
 		{
 			List<?> data = availableTable.getSelectedData();
-			String bookname = getCurrentSpellBookName(character);
+			String bookname = getCurrentSpellBookName();
 			for (Object object : data)
 			{
 				if (object instanceof SpellNode)

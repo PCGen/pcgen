@@ -28,12 +28,9 @@ import java.util.EventObject;
  * The Class <code>ChangeEvent</code> indicates the source object, or 
  * associated data, was modified in some way.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ChangeEvent extends EventObject
 {

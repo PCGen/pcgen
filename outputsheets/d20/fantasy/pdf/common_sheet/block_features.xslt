@@ -624,7 +624,23 @@
 		</xsl:if>
 	</xsl:template>
 
-
+	<!--
+====================================
+====================================
+	TEMPLATE - Drawbacks
+====================================
+====================================-->
+	<xsl:template match="drawbacks">
+		<xsl:if test="count(drawback) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'drawbacks'" />
+				<xsl:with-param name="title" select="'Drawbacks'" />
+				<xsl:with-param name="list" select="drawback"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 
 	<!--
 ====================================
@@ -688,7 +704,7 @@
 	<xsl:template match="racial_traits">
 	<xsl:for-each select="racial_traits">
 		<!-- BEGIN Use Per Day Ability table -->
-		<fo:table table-layout="fixed" space-before="2mm" keep-together="always" border-collapse="collapse" >
+		<fo:table table-layout="fixed" width="100%" space-before="2mm" keep-together="always" border-collapse="collapse" >
 			<xsl:call-template name="attrib"><xsl:with-param name="attribute" select="'checklist.border'"/></xsl:call-template>
 			<fo:table-column column-width="23mm"/>
 			<fo:table-column column-width="63mm"/>

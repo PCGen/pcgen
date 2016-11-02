@@ -27,7 +27,7 @@ import java.util.logging.LogRecord;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class LoggingRecorder extends FileHandler
 {
@@ -36,14 +36,13 @@ public class LoggingRecorder extends FileHandler
 
 	public LoggingRecorder() throws IOException
 	{
-		super();
 	}
 
 	@Override
 	public synchronized void publish(LogRecord record)
 	{
 		super.publish(record);
-		writer.write(getFormatter().format(record));
+		LoggingRecorder.writer.write(getFormatter().format(record));
 	}
 
 	public static String getLogs()

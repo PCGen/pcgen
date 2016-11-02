@@ -34,12 +34,9 @@ import pcgen.util.Logging;
  * game mode specific information output sheet to be specified that will be 
  * displayed on the summary tab when editing a character. 
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InfoSheetToken implements GameModeLstToken
 {

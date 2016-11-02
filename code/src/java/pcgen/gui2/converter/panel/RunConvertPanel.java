@@ -81,11 +81,8 @@ import pcgen.util.Logging;
  * The Class <code>RunConvertPanel</code> provides a display while 
  * the conversion is being run.
  * 
- * Last Editor: $Author$
- * Last Edited: $Date$
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {
@@ -133,7 +130,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		
 		final File rootDir = pc.get(ObjectKey.DIRECTORY);
 		final File outDir = pc.get(ObjectKey.WRITE_DIRECTORY);
-		totalCampaigns = new ArrayList<Campaign>(pc.getSafeListFor(ListKey.CAMPAIGN));
+		totalCampaigns = new ArrayList<>(pc.getSafeListFor(ListKey.CAMPAIGN));
 		for (Campaign campaign : pc.getSafeListFor(ListKey.CAMPAIGN))
 		{
 			// Add all sub-files to the main campaign, regardless of exclusions
@@ -527,11 +524,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}
@@ -557,11 +550,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		{
 			SwingUtilities.invokeAndWait(showDialog);
 		}
-		catch (InterruptedException e)
-		{
-			Logging.errorPrint("Failed to display user choice, due to: ", e);
-		}
-		catch (InvocationTargetException e)
+		catch (InterruptedException | InvocationTargetException e)
 		{
 			Logging.errorPrint("Failed to display user choice, due to: ", e);
 		}

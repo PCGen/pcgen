@@ -60,7 +60,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 		
 		// Copy to a temporary list as we will be adjusting the main one.
 		List<Prerequisite> prereqList =
-				new ArrayList<Prerequisite>(prereq.getPrerequisites());
+				new ArrayList<>(prereq.getPrerequisites());
 		for (Prerequisite p : prereqList)
 		{
 			if (p.getKind() == null) // PREMULT

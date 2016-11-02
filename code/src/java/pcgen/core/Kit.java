@@ -49,8 +49,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * <code>Kit</code>.
  *
- * @author   Greg Bingleman <byngl@hotmail.com>
- * @version  $Revision$
+ * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Kit extends PObject implements Comparable<Object>, KitFacade
 {
@@ -255,7 +254,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	 *
 	 * @return  Whether the kit is visible
 	 */
-	public final boolean isVisible(PlayerCharacter aPC, View v)
+	public boolean isVisible(PlayerCharacter aPC, View v)
 	{
 		Visibility kitVisible = getSafe(ObjectKey.VISIBILITY);
 		if (kitVisible == Visibility.QUALIFY)
@@ -303,7 +302,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		// We will create a copy of the PC since we may need to add classes and
 		// levels to the PC that the user may choose not to apply.
 		// NOTE: These methods need to be called in the correct order.
-		PlayerCharacter tempPC = subkit ? aPC : (PlayerCharacter) aPC.clone();
+		PlayerCharacter tempPC = subkit ? aPC : aPC.clone();
 		
 		for (KitStat kStat : getStats())
 		{
@@ -376,7 +375,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<BaseKit>();
+		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(getSafeListFor(ListKey.KIT_TASKS));
 		Collections.sort(sortedObjects, new ObjectTypeComparator());
 
@@ -424,8 +423,8 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			return;
 		}
 
-		final List<BaseKit> thingsToAdd = new ArrayList<BaseKit>();
-		final List<String> warnings = new ArrayList<String>();
+		final List<BaseKit> thingsToAdd = new ArrayList<>();
+		final List<String> warnings = new ArrayList<>();
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
 		if (Logging.isLoggable(Logging.WARNING))
 		{
@@ -453,10 +452,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		return addToMapFor(MapKey.KIT_TABLE, table.getTableName(), table);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public String getDisplayType()
 	{
 		List<Type> trueTypeList = getTrueTypeList(true);
@@ -464,10 +460,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 	}
 
     
-	/**
-	 * {@inheritDoc}
-	 */
-    @Override
+	@Override
 	public boolean isPermanent()
 	{
 		return getSafe(ObjectKey.APPLY_MODE) == KitApply.PERMANENT;

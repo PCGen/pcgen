@@ -22,6 +22,7 @@
  */
 package gmgen.gui;
 
+import java.util.Collections;
 import javax.swing.tree.DefaultMutableTreeNode;
 
 import java.util.ArrayList;
@@ -33,30 +34,30 @@ import java.util.List;
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {
-	private List<PreferencesPanel> panelList = new ArrayList<PreferencesPanel>();
+	private List<PreferencesPanel> panelList = new ArrayList<>();
 
 	public PreferencesRootTreeNode()
 	{
 		super("Hide me"); //$NON-NLS-1$
 	}
 
-	public List<PreferencesPanel> getPanelList()
+	List<PreferencesPanel> getPanelList()
 	{
-		return panelList;
+		return Collections.unmodifiableList(panelList);
 	}
 
-	public void addPanel(String plugin, PreferencesPanel panel)
+	public void addPanel(final String plugin, final PreferencesPanel panel)
 	{
 		DefaultMutableTreeNode pluginNode = getPluginNode(plugin);
 		pluginNode.add(new DefaultMutableTreeNode(panel));
 		panelList.add(panel);
 	}
 
-	private DefaultMutableTreeNode getPluginNode(String plugin)
+	private DefaultMutableTreeNode getPluginNode(final String plugin)
 	{
 		if(children != null)
 		{
-			for (Object obj : children)
+			for (final Object obj : children)
 			{
 				if (obj instanceof DefaultMutableTreeNode)
 				{

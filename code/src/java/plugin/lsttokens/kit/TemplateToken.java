@@ -19,8 +19,6 @@
  * Created on March 3, 2006
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 
 package plugin.lsttokens.kit;
@@ -100,7 +98,7 @@ public class TemplateToken extends AbstractTokenWithSeparator<KitTemplate>
 			else
 			{
 				name = tokText.substring(0, openLoc);
-				subList = new ArrayList<CDOMSingleRef<PCTemplate>>();
+				subList = new ArrayList<>();
 				String rest = tokText.substring(openLoc + 1);
 				StringTokenizer subTok = new StringTokenizer(rest, "[]");
 				while (subTok.hasMoreTokens())

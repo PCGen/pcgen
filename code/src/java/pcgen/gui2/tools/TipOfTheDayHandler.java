@@ -42,16 +42,13 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The singleton class <code>TipOfTheDayHandler</code> manages the list of tips. 
+ * The singleton class {@code TipOfTheDayHandler} manages the list of tips.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
- * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * <br>
+
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class TipOfTheDayHandler
+public final class TipOfTheDayHandler
 {
 	private static final UIPropertyContext propertyContext = UIPropertyContext.createContext("TipOfTheDay");
 
@@ -86,7 +83,7 @@ public class TipOfTheDayHandler
 
 	public synchronized void loadTips()
 	{
-		tipList = new ArrayList<String>(20);
+		tipList = new ArrayList<>(20);
 		String systemDir = ConfigurationSettings.getSystemsDir();
 		String tipsFileName = LanguageBundle.getString("in_tipsFileName"); //$NON-NLS-1$
 		String tipsFileNameDefault = "tips.txt"; //$NON-NLS-1$
@@ -111,13 +108,6 @@ public class TipOfTheDayHandler
 				Logging.log(Logging.INFO, "Loaded tips from " + path); //$NON-NLS-1$
 				loaded = true;
 				break;
-			}
-			catch (FileNotFoundException e)
-			{
-				if (Logging.isDebugMode())
-				{
-					Logging.debugPrint("Unable to load tips file " + path, e); //$NON-NLS-1$
-				}
 			}
 			catch (IOException e)
 			{
@@ -156,7 +146,7 @@ public class TipOfTheDayHandler
 		{
 			String line = aTok.nextToken();
 			// Skip comments and blank lines.
-			if (line.trim().length() > 0
+			if (!line.trim().isEmpty()
 				&& (line.charAt(0) != LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				tipList.add(line);
@@ -166,7 +156,7 @@ public class TipOfTheDayHandler
 
 	public synchronized boolean hasTips()
 	{
-		return (tipList != null) && (tipList.size() > 0);
+		return (tipList != null) && (!tipList.isEmpty());
 	}
 
 	public synchronized String getNextTip()

@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -42,8 +40,7 @@ import pcgen.system.LanguageBundle;
  * <code>PreArmorProfTester</code> does the testing of armor proficiency 
  * prerequisites. 
  *
- * @author Chris Ward <frugal@purplewombat.co.uk>
- * @version $Revision$
+ * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

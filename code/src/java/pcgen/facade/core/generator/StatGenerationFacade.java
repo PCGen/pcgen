@@ -24,7 +24,7 @@ import pcgen.facade.core.LoadableFacade;
 
 /**
  * This is the super class of all stat generators
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface StatGenerationFacade extends LoadableFacade
 {

@@ -20,8 +20,6 @@
  * Created on September 2, 2002, 8:02 AM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.load;
@@ -40,7 +38,7 @@ import pcgen.rules.persistence.token.PostDeferredToken;
 /**
  * <code>SizemultToken</code>
  * 
- * @author Devon Jones <soulcatcher@evilsoft.org>
+ * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class SizemultToken extends AbstractTokenWithSeparator<LoadInfo>
 		implements CDOMPrimaryToken<LoadInfo>, PostDeferredToken<LoadInfo>

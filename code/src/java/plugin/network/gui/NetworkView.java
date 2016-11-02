@@ -24,8 +24,6 @@ import javax.swing.JPanel;
 import pcgen.system.LanguageBundle;
 
 /**
- *
- * @author  ddjone3
  */
 // TODO remove the error panel from the toolbar, and put it in a message box at the bottom of the window.
 public class NetworkView extends JPanel
@@ -228,11 +226,6 @@ public class NetworkView extends JPanel
 	{
 		jLabel2.setText(LanguageBundle.getString("in_plugin_network_serverAddr")); //$NON-NLS-1$
 		clientPanel.setVisible(true);
-	}
-
-	public void hideConnectionPanel()
-	{
-		connectionPanel.setVisible(false);
 	}
 
 	public void showConnectionPanel()

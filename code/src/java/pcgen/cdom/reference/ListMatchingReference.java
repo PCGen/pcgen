@@ -44,12 +44,9 @@ import pcgen.cdom.enumeration.ListKey;
  * @param <V>
  *            The class of object stored by the List Key used by this
  *            ListMatchingReference.
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ListMatchingReference<T extends CDOMObject, V> extends
 		CDOMReference<T>
@@ -176,7 +173,7 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	@Override
 	public Collection<T> getContainedObjects()
 	{
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 		for (T obj : all.getContainedObjects())
 		{
 			List<V> actualList = obj.getListFor(key);

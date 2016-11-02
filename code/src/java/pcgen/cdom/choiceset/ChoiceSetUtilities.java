@@ -40,16 +40,7 @@ public final class ChoiceSetUtilities
 	 * A Comparator to consistently sort PrimitiveChoiceSet objects. This is
 	 * done using the ChoiceSetUtilities.compareChoiceSets method.
 	 */
-	public static final Comparator<PrimitiveChoiceSet<?>> WRITEABLE_SORTER = new Comparator<PrimitiveChoiceSet<?>>()
-	{
-
-		@Override
-		public int compare(PrimitiveChoiceSet<?> arg0,
-				PrimitiveChoiceSet<?> arg1)
-		{
-			return compareChoiceSets(arg0, arg1);
-		}
-	};
+	public static final Comparator<PrimitiveChoiceSet<?>> WRITEABLE_SORTER = ChoiceSetUtilities::compareChoiceSets;
 
 	/**
 	 * Compares two PrimitiveChoiceSet objects to establish which should "sort"

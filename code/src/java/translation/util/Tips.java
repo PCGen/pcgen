@@ -72,7 +72,7 @@ public class Tips
 	 */
 	public static void generatePOT(File rootDirectory, String potFilename, String filename)
 	{
-		Set<String> tips = new HashSet<String>();
+		Set<String> tips = new HashSet<>();
 		// search for each filename in the sub directory of rootDirectory
 		if (rootDirectory.isDirectory())
 		{
@@ -251,7 +251,7 @@ public class Tips
 	{
 		int statUntranslated = 0, statTranslated = 0;
 		// load stuff from the PO catalog file
-		Map<String, String> tipsTranslated = new HashMap<String, String>();
+		Map<String, String> tipsTranslated = new HashMap<>();
 		BufferedReader translationReader = null;
 		try
 		{
@@ -411,7 +411,7 @@ public class Tips
 	}
 
 	/**
-	 * @param tip
+	 * @param string
 	 * @return
 	 */
 	@SuppressWarnings("nls")

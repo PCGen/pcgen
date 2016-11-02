@@ -20,8 +20,6 @@
  * Created on November 28, 2003
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.pretokens.test;
@@ -32,14 +30,13 @@ import pcgen.core.Globals;
 import pcgen.core.display.CharacterDisplay;
 import pcgen.core.prereq.AbstractDisplayPrereqTest;
 import pcgen.core.prereq.Prerequisite;
-import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.Logging;
 
 /**
  * @author wardc
  *
  */
-public class PreDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDomainTester extends AbstractDisplayPrereqTest
 {
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;

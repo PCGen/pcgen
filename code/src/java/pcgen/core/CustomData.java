@@ -20,8 +20,6 @@
  *
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  */
 package pcgen.core;
 
@@ -49,8 +47,7 @@ import pcgen.util.Logging;
 /**
  * <code>CustomData</code>
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class CustomData
 {
@@ -511,7 +508,7 @@ public final class CustomData
 					}
 
 					final String key = race.getKeyName();
-					bw.write(Globals.getBioSet().getRacePCCText(region, key));
+					bw.write(SettingsHandler.getGame().getBioSet().getRacePCCText(region, key));
 					bw.newLine();
 				}
 			}
@@ -675,7 +672,8 @@ public final class CustomData
 		{
 			writeCustomHeader(bw);
 
-			for(Spell spell : Globals.getSpellMap().values())
+			for(Spell spell : Globals.getContext().getReferenceContext()
+					.getConstructedCDOMObjects(Spell.class))
 			{
 				if (spell.isType(Constants.TYPE_CUSTOM))
 				{

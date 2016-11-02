@@ -107,7 +107,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 					+ " must have a | separating "
 					+ "count from the list of possible values: " + value, context);
 		}
-		List<CDOMReference<Kit>> refs = new ArrayList<CDOMReference<Kit>>();
+		List<CDOMReference<Kit>> refs = new ArrayList<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -124,17 +124,17 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			refs.add(ref);
 		}
 
-		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<Kit>(refs);
+		ReferenceChoiceSet<Kit> rcs = new ReferenceChoiceSet<>(refs);
 		if (!rcs.getGroupingState().isValid())
 		{
 			return new ParseResult.Fail("Non-sensical "
 					+ getTokenName()
 					+ ": Contains ANY and a specific reference: " + value, context);
 		}
-		ChoiceSet<Kit> cs = new ChoiceSet<Kit>(getTokenName(),
-				new QualifiedDecorator<Kit>(rcs));
+		ChoiceSet<Kit> cs = new ChoiceSet<>(getTokenName(),
+				new QualifiedDecorator<>(rcs));
 		cs.setTitle("Kit Selection");
-		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<Kit>(cs, count);
+		TransitionChoice<Kit> tc = new ConcreteTransitionChoice<>(cs, count);
 		context.getObjectContext().addToList(obj, ListKey.KIT_CHOICE, tc);
 		tc.setRequired(false);
 		tc.setChoiceActor(this);
@@ -152,7 +152,7 @@ public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements
 			return null;
 		}
 		Collection<TransitionChoice<Kit>> added = changes.getAdded();
-		Set<String> set = new TreeSet<String>();
+		Set<String> set = new TreeSet<>();
 		for (TransitionChoice<Kit> tc : added)
 		{
 			StringBuilder sb = new StringBuilder();

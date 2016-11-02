@@ -45,7 +45,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 * given Category/Nature combination.
 	 */
 	public static final DoubleKeyMap<CDOMSingleRef<AbilityCategory>, Nature, CDOMReference<AbilityList>> MASTER_MAP =
-			new DoubleKeyMap<CDOMSingleRef<AbilityCategory>, Nature, CDOMReference<AbilityList>>();
+            new DoubleKeyMap<>();
 
 	/**
 	 * Returns the Ability Class object (Ability.class)
@@ -116,7 +116,7 @@ public class AbilityList extends CDOMListObject<Ability>
 	 */
 	public static Collection<CDOMReference<AbilityList>> getAbilityLists()
 	{
-		List<CDOMReference<AbilityList>> list = new ArrayList<CDOMReference<AbilityList>>();
+		List<CDOMReference<AbilityList>> list = new ArrayList<>();
 		for (CDOMSingleRef<AbilityCategory> cat : MASTER_MAP.getKeySet())
 		{
 			list.addAll(MASTER_MAP.values(cat));

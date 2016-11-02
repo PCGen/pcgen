@@ -20,8 +20,6 @@
  * Created 03 August 2008
  *
  * Current Ver: $Revision:$
- * Last Editor: $Author:$
- * Last Edited: $Date:$
  */
 
 package pcgen.core.term;
@@ -44,7 +42,7 @@ import pcgen.util.TermUtilities;
  * have an array of string keys that enumerate every string that the regular
  * expression can match (this is not as bad as it sounds since each can only
  * match at most eight strings).  The array of string is used to populate a
- * Map<String, Enum>
+ * {@code Map<String, Enum>}
  */
 
 public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
@@ -1867,14 +1865,14 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 	
 	};
 
-	static String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
-	static Pattern subtokenPat = Pattern.compile(subtokenString);
+	static final String subtokenString = "(FEATAUTOTYPE|FEATNAME|FEATTYPE|VFEATTYPE)";
+	static final Pattern subtokenPat = Pattern.compile(subtokenString);
 
-	static Pattern numPat = Pattern.compile("\\d+");
+	static final Pattern numPat = Pattern.compile("\\d+");
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderPCVar(
 			String pattern,

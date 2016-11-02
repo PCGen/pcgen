@@ -33,8 +33,7 @@ import javax.swing.JMenuItem;
  * are overiding the location of the tooltips for the menu items.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PCGMenuItem extends JMenuItem

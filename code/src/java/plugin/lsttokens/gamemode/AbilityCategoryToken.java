@@ -17,8 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * Current Ver: $Revision$
- * Last Editor: $Author: $
- * Last Edited: $Date$
  */
 package plugin.lsttokens.gamemode;
 
@@ -37,9 +35,8 @@ import pcgen.util.Logging;
  * <p>The class deligates the loading of the various subtokens to a separate
  * loader.
  * 
- * @author boomer70 <boomer70@yahoo.com>
+ * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
- * @since 5.11.1
  */
 public class AbilityCategoryToken implements GameModeLstToken
 {

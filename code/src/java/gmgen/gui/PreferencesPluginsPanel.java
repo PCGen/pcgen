@@ -24,6 +24,7 @@ package gmgen.gui;
 import java.awt.BorderLayout;
 import java.util.HashMap;
 
+import java.util.Map;
 import javax.swing.BoxLayout;
 import javax.swing.ButtonGroup;
 import javax.swing.JCheckBox;
@@ -41,8 +42,8 @@ import pcgen.system.LanguageBundle;
  *
  * @author  soulcatcher
  */
-public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
-	public static final HashMap<String, PluginRef> pluginMap = new HashMap<String, PluginRef>();
+class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
+	private static final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
@@ -55,18 +56,14 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
     @Override
 	public void applyPreferences() {
-		for ( String key : pluginMap.keySet() )
-		{
-			pluginMap.get(key).applyPreferences();
-		}
+	    pluginMap.keySet().forEach(key ->
+			    pluginMap.get(key).applyPreferences());
 	}
 
     @Override
 	public void initPreferences() {
-		for ( String key : pluginMap.keySet() )
-		{
-			pluginMap.get(key).initPreferences();
-		}
+	    PreferencesPluginsPanel.pluginMap.keySet().forEach(key ->
+			    PreferencesPluginsPanel.pluginMap.get(key).initPreferences());
 	}
 
 	@Override
@@ -82,32 +79,23 @@ public class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 
 		mainPanel.setLayout(new BoxLayout(mainPanel, BoxLayout.Y_AXIS));
 
-		for ( String key : pluginMap.keySet() )
-		{
-			mainPanel.add( pluginMap.get(key) );
-		}
+		PreferencesPluginsPanel.pluginMap.keySet().forEach(key ->
+				mainPanel.add(pluginMap.get(key)));
 
 		jScrollPane1.setViewportView(mainPanel);
 		add(jScrollPane1, BorderLayout.CENTER);
 		add(new JLabel(LanguageBundle.getString("in_Prefs_restartInfo")), BorderLayout.SOUTH);
 	}
 
-	public static void addPanel(String pluginName, String pluginTitle, String defaultSystem) {
-		if(!pluginMap.containsKey(pluginName)) {
-			PluginRef pluginRef = new PluginRef(pluginName, pluginTitle, defaultSystem);
-			pluginMap.put(pluginName, pluginRef);
-		}
-	}
-
-	private static class PluginRef extends JPanel {
-		private String pluginName;
-		private String pluginTitle;
-		private String defaultSystem;
+	private static final class PluginRef extends JPanel {
+		private final String pluginName;
+		private final String pluginTitle;
+		private final String defaultSystem;
 		private JCheckBox checkBox;
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;
 
-		public PluginRef(String pluginName, String pluginTitle, String defaultSystem) {
+		private PluginRef(String pluginName, String pluginTitle, String defaultSystem) {
 			this.pluginName = pluginName;
 			this.pluginTitle = pluginTitle;
 			this.defaultSystem = defaultSystem;

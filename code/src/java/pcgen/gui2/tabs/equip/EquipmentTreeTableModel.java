@@ -49,12 +49,9 @@ import pcgen.util.ListMap;
  * tree structure showing the equipment by its equipped location for a 
  * particular character and equipment set.
  * 
- * <br/>
- * Last Editor: $Author:  $
- * Last Edited: $Date:  $
+ * <br>
  *  
- * @author Connor Petty <cpmeister@users.sourceforge.net>
- * @version $Revision:  $
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
@@ -72,7 +69,7 @@ public class EquipmentTreeTableModel implements TreeTableModel, ListListener<Equ
 		this.character = character;
 		this.equipSet = equipSet;
 		pathMap = CollectionMaps.createListMap(HashMap.class, ArrayList.class);
-		bodySlotNodes = new ArrayList<EquipNode>();
+		bodySlotNodes = new ArrayList<>();
 		initPathMap();
 		equipSet.getNodes().addListListener(this);
 		equipSet.addEquipmentTreeListener(this);

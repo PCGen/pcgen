@@ -190,7 +190,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		}
 
 		Collection<? extends T> set = choices.getSet(pc);
-		Set<T> allowed = new LinkedHashSet<T>();
+		Set<T> allowed = new LinkedHashSet<>();
 		List<Object> assocList = pc.getAssocList(this, AssociationListKey.ADD);
 		for (T item : set)
 		{
@@ -223,9 +223,9 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 		else
 		{
 			CDOMChooserFacadeImpl<T> chooserFacade =
-					new CDOMChooserFacadeImpl<T>(
-							title, new ArrayList<T>(allowed), 
-							new ArrayList<T>(), numChoices);
+                    new CDOMChooserFacadeImpl<>(
+                            title, new ArrayList<>(allowed),
+                            new ArrayList<>(), numChoices);
 			chooserFacade.setAllowsDups(allowStack);
 			chooserFacade.setRequireCompleteSelection(required);
 			chooserFacade.setDefaultView(ChooserTreeViewType.NAME);
@@ -330,7 +330,7 @@ public class ConcreteTransitionChoice<T> implements TransitionChoice<T>
 	@Override
 	public void setStackLimit(int limit)
 	{
-		stackLimit = Integer.valueOf(limit);
+		stackLimit = limit;
 	}
 
 	/**

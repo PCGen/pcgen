@@ -26,12 +26,11 @@ package plugin.lsttokens.gamemode.abilitycategory;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import pcgen.PCGenTestCase;
+import junit.framework.TestCase;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
-import pcgen.core.Campaign;
 import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
@@ -42,13 +41,10 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * The Class <code>AbilityListTokenTest</code> verifies the processing of the 
  * AbilityListToken.
  * 
- * Last Editor: $Author: $
- * Last Edited: $Date:  $
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision:  $
  */
-public class AbilityListTokenTest extends PCGenTestCase
+public class AbilityListTokenTest extends TestCase
 {
 
 	private RuntimeLoadContext context;
@@ -62,7 +58,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
 	}
 
-	private Ability buildFeat(RuntimeLoadContext context, String abName)
+	private static Ability buildFeat(RuntimeLoadContext context, String abName)
 	{
 		Ability ab = context.getReferenceContext().constructCDOMObject(Ability.class, abName);
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, ab);
@@ -149,7 +145,7 @@ public class AbilityListTokenTest extends PCGenTestCase
 			.getAbilityRefs().size());
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, sf, false); //Because this tests LST format
-		context.getReferenceContext().validate(new LoadValidator(new ArrayList<Campaign>()));
+		context.getReferenceContext().validate(new LoadValidator(new ArrayList<>()));
 		assertTrue(context.getReferenceContext().resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean found = false;

@@ -19,8 +19,6 @@
  * Created on October 6, 2005, 8:58 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -34,7 +32,7 @@ import java.util.StringTokenizer;
 /**
  * <code>SkillRankTextToken</code>
  *
- * @author  Greg Bingleman <byngl@hotmail.com>
+ * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class SkillRankTextToken implements GameModeLstToken
 {

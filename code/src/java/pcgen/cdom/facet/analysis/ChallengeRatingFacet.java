@@ -101,7 +101,7 @@ public class ChallengeRatingFacet
 		// calculate and add in the MISC bonus to CR
 		cr += (int) bonusCheckingFacet.getBonus(id, "MISC", "CR");
 
-		return Integer.valueOf(cr);
+		return cr;
 	}
 
 	/**
@@ -274,7 +274,7 @@ public class ChallengeRatingFacet
 		}
 		cr += levelsKey;
 	
-		return Integer.valueOf(cr);
+		return cr;
 	}
 
 	private Integer getClassRaceCRMod(CharID id, PCClass cl)

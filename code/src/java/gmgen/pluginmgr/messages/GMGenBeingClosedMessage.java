@@ -25,15 +25,12 @@ package gmgen.pluginmgr.messages;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>GMGenBeingClosedMessage</code> encapsulates an advisory that
+ * The Class {@code GMGenBeingClosedMessage} encapsulates an advisory that
  * GMGen is being shut down.
  *
- * <br/>
- * Last Editor: $Author$
- * Last Edited: $Date$
+ * <br>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
- * @version $Revision$
+ * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class GMGenBeingClosedMessage extends PCGenMessage

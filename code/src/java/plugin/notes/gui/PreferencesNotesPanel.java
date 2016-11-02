@@ -27,7 +27,6 @@ import java.awt.BorderLayout;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JButton;
@@ -46,7 +45,6 @@ import pcgen.system.LanguageBundle;
  * Panel that tracks the misc preferences
  *
  * @author devon
- * @since April 7, 2003
  */
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {
@@ -135,15 +133,7 @@ public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 		logging = new JCheckBox();
 		browseButton = new JButton(LanguageBundle.getString("...")); //$NON-NLS-1$
 
-		browseButton.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent e)
-			{
-				browseButtonActionPerformed(e);
-			}
-		});
+		browseButton.addActionListener(this::browseButtonActionPerformed);
 
 		JPanel borderPanel = new JPanel();
 		borderPanel.setLayout(new GridBagLayout());

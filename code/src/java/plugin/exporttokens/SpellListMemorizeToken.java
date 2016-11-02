@@ -34,11 +34,8 @@ import pcgen.io.exporttoken.SpellListToken;
  * <code>SpellListMemorizeToken</code> outputs "true" if the specified spell class
  * needs to memorize spells, "false" otherwise.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
- * @version $Revision$
+ * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 
 public class SpellListMemorizeToken extends SpellListToken

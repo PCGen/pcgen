@@ -64,7 +64,7 @@ import pcgen.gui2.tools.Icons;
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
  * character.
- * @author Connor Petty <cpmeister@users.sourceforge.net>
+ * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 {
@@ -177,7 +177,7 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 		public ChronicleHandler(CharacterFacade character)
 		{
 			descFacade = character.getDescriptionFacade();
-			chronicles = new ArrayList<ChroniclePane>();
+			chronicles = new ArrayList<>();
 			for (ChronicleEntryFacade entry : descFacade.getChronicleEntries())
 			{
 				chronicles.add(new ChroniclePane(this, entry));
@@ -399,18 +399,18 @@ public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 			add(new JLabel(), gbc);
 			add(new JLabel("Party Name:"), gbc);
 			gbc2.gridwidth = 1;
-			gbc2.weightx = .35;
+			gbc2.weightx = 0.35;
 			add(partyField, gbc2);
 			add(new JLabel("Date:"), gbc);
-			gbc2.weightx = .15;
+			gbc2.weightx = 0.15;
 			add(dateField, gbc2);
 			add(new JLabel("XP Gained:"), gbc);
-			gbc2.weightx = .05;
+			gbc2.weightx = 0.05;
 			add(xpField, gbc2);
 			add(new JLabel("GM:"), gbc);
 
 			gbc2.gridwidth = GridBagConstraints.REMAINDER;
-			gbc2.weightx = .45;
+			gbc2.weightx = 0.45;
 			add(gmField, gbc2);
 
 			gbc.fill = GridBagConstraints.VERTICAL;

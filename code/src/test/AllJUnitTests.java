@@ -15,31 +15,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on May 2, 2001, 9:25 AM
  */
 import junit.framework.Test;
-import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import junit.textui.TestRunner;
 
 /**
  * TestSuite that is composed of the individual test classes.  Pick up
  * all the individual PCGen test suites into this one.
  *
  * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
- * @version $Revision$
- * @see <a href="http://www-106.ibm.com/developerworks/library/j-ant/?dwzone=java">Incremental development with Ant and JUnit</a>
  */
-public class AllJUnitTests extends TestCase
+public final class AllJUnitTests
 {
 
-	/**
-	 * Constructor
-	 * @param name
-	 */
-	public AllJUnitTests(String name)
+	private AllJUnitTests()
 	{
-		super(name);
 	}
 
 	/**
@@ -48,7 +39,7 @@ public class AllJUnitTests extends TestCase
 	 */
 	public static void main(String[] args)
 	{
-		junit.textui.TestRunner.run(AllJUnitTests.suite());
+		TestRunner.run(suite());
 	}
 
 	/**

@@ -1,3 +1,23 @@
+/*
+ * PCGFile.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
+
 package pcgen.io;
 
 import java.io.File;
@@ -16,11 +36,11 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>file</code> is a PCGen character file based on the
+	 * Checks if the given {@code file} is a PCGen character file based on the
 	 * file extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if the file exists and is a PCGen character file
+	 * @return {{@code true}} if the file exists and is a PCGen character file
 	 *
 	 * @see Constants#EXTENSION_CHARACTER_FILE
 	 */
@@ -37,11 +57,11 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>file</code> is a PCGen party file based on the file
+	 * Checks if the given {@code file} is a PCGen party file based on the file
 	 * extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if the file exists and is a PCGen party file
+	 * @return {{@code true}} if the file exists and is a PCGen party file
 	 *
 	 * @see Constants#EXTENSION_PARTY_FILE
 	 */
@@ -58,15 +78,15 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>file</code> is a PCGen campaign file based on the
+	 * Checks if the given {@code file} is a PCGen campaign file based on the
 	 * file extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if a PCGen campaign file
+	 * @return {{@code true}} if a PCGen campaign file
 	 *
 	 * @see Constants#EXTENSION_CAMPAIGN_FILE
 	 */
-	public static boolean isPCGenCampaignFile(final File file)
+	private static boolean isPCGenCampaignFile(final File file)
 	{
 		// A directory strangely named "fred.pcc" is not a campaign file.
 		if (!file.isFile())
@@ -79,11 +99,11 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>uri</code> is a PCGen campaign file based on the
+	 * Checks if the given {@code uri} is a PCGen campaign file based on the
 	 * file extension.
 	 *
 	 * @param uri the uri to test
-	 * @return {<code>true</code>} if a PCGen campaign file
+	 * @return {{@code true}} if a PCGen campaign file
 	 *
 	 * @see Constants#EXTENSION_CAMPAIGN_FILE
 	 */
@@ -100,11 +120,11 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>file</code> is a PCGen list file based on the file
+	 * Checks if the given {@code file} is a PCGen list file based on the file
 	 * extension.
 	 *
 	 * @param file the file to test
-	 * @return {<code>true</code>} if a PCGen list file
+	 * @return {{@code true}} if a PCGen list file
 	 *
 	 * @see Constants#EXTENSION_LIST_FILE
 	 */
@@ -121,12 +141,12 @@ public final class PCGFile
 	}
 
 	/**
-	 * Checks if the given <code>file</code> is a PCGen character or party file based
+	 * Checks if the given {@code file} is a PCGen character or party file based
 	 * on the file extension.
 	 *
 	 * @param file the file to test
 	 *
-	 * @return {<code>true</code>} if a PCGen character or party file
+	 * @return {{@code true}} if a PCGen character or party file
 	 *
 	 * @see Constants#EXTENSION_CHARACTER_FILE
 	 * @see Constants#EXTENSION_PARTY_FILE

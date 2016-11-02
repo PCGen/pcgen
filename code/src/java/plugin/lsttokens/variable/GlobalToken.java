@@ -114,19 +114,25 @@ public class GlobalToken extends AbstractNonEmptyToken<DatasetVariable>
 			//is a local variable
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
 		String format = dv.getFormat();
 		if (format == null)
 		{
 			//Not a valid object
 			return null;
 		}
+		String varName = dv.getKeyName();
+		if (!DatasetVariable.isLegalName(varName))
+		{
+			//internal variable
+			return null;
+		}
+		StringBuilder sb = new StringBuilder();
 		if (!format.equals("NUMBER"))
 		{
 			sb.append(format);
 			sb.append('=');
 		}
-		sb.append(dv.getKeyName());
+		sb.append(varName);
 		return new String[]{sb.toString()};
 	}
 

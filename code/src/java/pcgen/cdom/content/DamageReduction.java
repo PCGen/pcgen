@@ -19,8 +19,6 @@
  * Created on March 16, 2006
  *
  * Current Ver: $Revision: $
- * Last Editor: $Author: $
- * Last Edited: $Date: $
  */
 package pcgen.cdom.content;
 
@@ -29,6 +27,8 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashSet;
 import java.util.Iterator;
+import java.util.List;
+import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.base.formula.Formula;
@@ -107,7 +107,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	public Collection<String> getBypassList()
 	{
 		StringTokenizer tok = new StringTokenizer(theBypass, " ");
-		HashSet<String> ret = new HashSet<String>();
+		Set<String> ret = new HashSet<>();
 
 		while (tok.hasMoreTokens())
 		{
@@ -171,7 +171,7 @@ public class DamageReduction extends ConcretePrereqObject implements
 	@Override
 	public int hashCode()
 	{
-		ArrayList<String> list = new ArrayList<String>(getBypassList());
+		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
 		int hash = 0;
 		for (Iterator<String> i = list.iterator(); i.hasNext();)

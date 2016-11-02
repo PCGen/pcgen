@@ -1,3 +1,22 @@
+/*
+ * EquipmentItem.java
+ * Missing License Header, Copyright 2016 (C) Andrew Maitland <amaitland@users.sourceforge.net>
+ *
+ * This library is free software; you can redistribute it and/or
+ * modify it under the terms of the GNU Lesser General Public
+ * License as published by the Free Software Foundation; either
+ * version 2.1 of the License, or (at your option) any later version.
+ *
+ * This library is distributed in the hope that it will be useful,
+ * but WITHOUT ANY WARRANTY; without even the implied warranty of
+ * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
+ * Lesser General Public License for more details.
+ *
+ * You should have received a copy of the GNU Lesser General Public
+ * License along with this library; if not, write to the Free Software
+ * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
+ *
+ */
 package pcgen.core.npcgen;
 
 import java.util.ArrayList;
@@ -23,7 +42,7 @@ public class EquipmentItem
 	
 	public List<Equipment> getEquipment()
 	{
-		final List<Equipment> ret = new ArrayList<Equipment>();
+		final List<Equipment> ret = new ArrayList<>();
 		int numTimes = 1;
 		if ( theTimes != null )
 		{
@@ -103,7 +122,7 @@ public class EquipmentItem
 	{
 		if ( theEqMods == null )
 		{
-			theEqMods = new ArrayList<EqmodItem>();
+			theEqMods = new ArrayList<>();
 		}
 		theEqMods.add( aMod );
 	}
@@ -116,7 +135,7 @@ public class EquipmentItem
 	public void setVariableEquipment( final String anEquipString, final List<String> aList )
 	{
 		theVariableEquipment = anEquipString;
-		theChoices = new WeightedCollection<String>( aList );
+		theChoices = new WeightedCollection<>(aList);
 	}
 	
 	public void setTimes( final String aNumberTimes )

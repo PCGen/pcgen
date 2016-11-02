@@ -49,20 +49,19 @@ import pcgen.util.Logging;
 /**
  * <code>KitSkill</code>.
  *
- * @author Greg Bingleman <byngl@hotmail.com>
- * @version $Revision$
+ * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitSkill extends BaseKit
 {
 	private Boolean free = null;
 	private BigDecimal rank = null;
 	private List<CDOMReference<Skill>> skillList =
-			new ArrayList<CDOMReference<Skill>>();
+            new ArrayList<>();
 	private CDOMSingleRef<PCClass> className = null;
 	private Integer choiceCount;
 
 	private List<CDOMSingleRef<Language>> selection =
-			new ArrayList<CDOMSingleRef<Language>>();
+            new ArrayList<>();
 	private transient List<KitSkillAdd> skillsToAdd;
 
 	/**
@@ -140,7 +139,7 @@ public final class KitSkill extends BaseKit
 	public boolean testApply(Kit aKit, PlayerCharacter aPC,
 		List<String> warnings)
 	{
-		skillsToAdd = new ArrayList<KitSkillAdd>();
+		skillsToAdd = new ArrayList<>();
 		List<Skill> skillChoices = getSkillChoices(aPC);
 
 		if (skillChoices == null || skillChoices.size() == 0)
@@ -156,7 +155,7 @@ public final class KitSkill extends BaseKit
 				ranksLeftToAdd = BigDecimal.ONE;
 			}
 			double ranksLeft = ranksLeftToAdd.doubleValue();
-			List<PCClass> classList = new ArrayList<PCClass>();
+			List<PCClass> classList = new ArrayList<>();
 			if (className != null)
 			{
 				String classKey = className.get().getKeyName();
@@ -253,7 +252,7 @@ public final class KitSkill extends BaseKit
 		// Add any supplied languages
 		ChoiceManagerList<Language> controller = ChooserUtilities
 				.getConfiguredController(aSkill, pc, null,
-						new ArrayList<String>());
+                        new ArrayList<>());
 		for (Language lang : langList)
 		{
 			if (!controller.conditionallyApply(pc, lang))
@@ -301,7 +300,7 @@ public final class KitSkill extends BaseKit
 
 	private List<Skill> getSkillChoices(PlayerCharacter aPC)
 	{
-		final List<Skill> skillsOfType = new ArrayList<Skill>();
+		final List<Skill> skillsOfType = new ArrayList<>();
 
 		for (CDOMReference<Skill> ref : skillList)
 		{
@@ -317,7 +316,7 @@ public final class KitSkill extends BaseKit
 			return skillsOfType;
 		}
 
-		List<Skill> skillChoices = new ArrayList<Skill>();
+		List<Skill> skillChoices = new ArrayList<>();
 		skillChoices = Globals.getChoiceFromList("Select skill", skillsOfType, skillChoices,
 			getSafeCount(), aPC);
 
@@ -423,12 +422,12 @@ public final class KitSkill extends BaseKit
 			}
 
 		}
-		List<Language> langList = new ArrayList<Language>();
+		List<Language> langList = new ArrayList<>();
 		if (ChooseActivation.hasNewChooseToken(aSkill) && !selection.isEmpty())
 		{
 			ChoiceManagerList<Language> controller = ChooserUtilities
 					.getConfiguredController(aSkill, pc, null,
-							new ArrayList<String>());
+                            new ArrayList<>());
 			int limit = (int) ranksToAdd;
 			for (CDOMSingleRef<Language> ref : selection)
 			{

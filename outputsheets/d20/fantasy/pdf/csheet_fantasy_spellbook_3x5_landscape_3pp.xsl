@@ -21,6 +21,7 @@
 			</fo:layout-master-set>
 			
 			<fo:page-sequence master-reference="Landscape">
+				<xsl:attribute name="font-family"><xsl:value-of select="$PCGenFont"/></xsl:attribute>
 				<fo:flow flow-name="xsl-region-body">
 					<xsl:apply-templates select=".//spell" mode="spell.card.block">
 						<xsl:sort select="name"/>

@@ -19,8 +19,6 @@
  * Created on December 15, 2003, 12:21 PM
  *
  * Current Ver: $Revision$
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
  */
 package plugin.exporttokens.deprecated;
@@ -34,10 +32,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * Handle the FAVOREDLIST token which produces a list of a character's
  * favored classes.
  *
- * Last Editor: $Author$
- * Last Edited: $Date$
  *
- * @version $Revision$
  */
 public class FavoredListToken extends AbstractExportToken
 {
@@ -62,7 +57,7 @@ public class FavoredListToken extends AbstractExportToken
 
 	/**
 	 * Retrieve the list of favored classes for the PC.
-	 * @param pc The character to be queried.
+	 * @param display The character to be queried.
 	 * @return The text comma seperated list of favored classes.
 	 */
 	public static String getFavoredListToken(CharacterDisplay display)

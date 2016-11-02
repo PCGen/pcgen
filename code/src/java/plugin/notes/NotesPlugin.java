@@ -30,7 +30,6 @@ import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 import java.io.File;
 
 import javax.swing.JMenu;
@@ -63,8 +62,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  * plugin.
  *
  * @author Devon Jones
- * @since August 27, 2003
- * @version 2.10
  */
 public class NotesPlugin implements InteractivePlugin
 {
@@ -128,10 +125,7 @@ public class NotesPlugin implements InteractivePlugin
 		initMenus();
 	}
 
-	/**
-	 * @{inheritdoc}
-	 */
-    @Override
+	@Override
 	public void stop()
 	{
 		messageHandler = null;
@@ -287,15 +281,7 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
 		notesToolsItem.setText(getLocalizedName());
-		notesToolsItem.addActionListener(new ActionListener()
-		{
-
-            @Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				toolMenuItem(evt);
-			}
-		});
+		notesToolsItem.addActionListener(this::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
