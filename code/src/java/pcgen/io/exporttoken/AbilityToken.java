@@ -29,7 +29,6 @@ import java.util.Collections;
 import java.util.LinkedHashMap;
 import java.util.List;
 import java.util.Set;
-import java.util.SortedSet;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -109,10 +108,6 @@ public class AbilityToken extends Token
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
-	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -123,13 +118,12 @@ public class AbilityToken extends Token
 
 		// Get the Ability Category from the Gamemode given the key
 		final String categoryString = aTok.nextToken();
-		final AbilityCategory aCategory = "ANY".equals(categoryString) ? 
-				AbilityCategory.ANY :
-				SettingsHandler.getGame().getAbilityCategory(categoryString);
+		final AbilityCategory aCategory = "ANY".equals(categoryString)
+			? AbilityCategory.ANY
+			: SettingsHandler.getGame().getAbilityCategory(categoryString);
 
 		// Get the ABILITY token for the category
-		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString,
-			aCategory);
+		return getTokenForCategory(tokenSource, pc, eh, aTok, tokenString, aCategory);
 	}
 
 	/**
@@ -154,9 +148,11 @@ public class AbilityToken extends Token
 		final String tokenString, final AbilityCategory aCategory)
 	{
 		boolean cacheAbilityProcessingData =
-				(cachedPC != pc || !aCategory.equals(lastCategory)
-					|| cachedPcSerial != pc.getSerial() || !tokenString
-					.equals(lastToken));
+			((cachedPC != pc)
+				 || !aCategory.equals(lastCategory)
+				 || (cachedPcSerial
+					     != pc.getSerial())
+				 || !tokenString.equals(lastToken));
 
 		// As this method can effectively be called by an OS FOR token, there 
 		// is a performance saving in caching some of the one-off processing data 
@@ -235,17 +231,20 @@ public class AbilityToken extends Token
 			int extypeInd = typeStr.indexOf("EXCLUDETYPE=");
 
 			// If it's TYPE and it actually has a value attached then process it 
-			if (typeInd != -1 && extypeInd == -1 && typeStr.length() > 5)
+			if ((typeInd != -1) && (extypeInd == -1) && (typeStr.length() > 5))
 			{
 				// It's a type to be excluded from the filter list 
 				if (typeStr.startsWith("!"))
 				{
-					Logging.deprecationPrint("The use of !TYPE with ABILITY output tokens is deprecated. Please use EXCLUDETYPE.");
+					Logging.deprecationPrint(
+						"The use of !TYPE with ABILITY output tokens is deprecated."
+							+ "Please use EXCLUDETYPE.");
 					negate.add(typeStr.substring(typeInd + 5));
 				}
 				else
 				{
-					StringTokenizer incTok = new StringTokenizer(typeStr.substring(typeInd + 5), Constants.SEMICOLON);
+					StringTokenizer incTok = new StringTokenizer(
+						typeStr.substring(typeInd + 5), Constants.SEMICOLON);
 					while (incTok.hasMoreTokens())
 					{
 						types.add(incTok.nextToken());
@@ -254,50 +253,44 @@ public class AbilityToken extends Token
 			}
 
 			// If it's EXCLUDETYPE and it actually has a value attached then process it 
-			if (extypeInd != -1 && typeStr.length() > 12)
+			if ((extypeInd != -1) && (typeStr.length() > 12))
 			{
 				// exclude TYPEs from comma-separated list
-				StringTokenizer exTok = new StringTokenizer(typeStr.substring(extypeInd + 12), Constants.SEMICOLON);
+				StringTokenizer exTok = new StringTokenizer(
+					typeStr.substring(extypeInd + 12), Constants.SEMICOLON);
 				while (exTok.hasMoreTokens())
 				{
 					negate.add(exTok.nextToken());	
 				}
 			}
-			
+
 			int keyInd = typeStr.indexOf("KEY=");
 			// If it's KEY and it actually has a value attached then process it 
-			if (keyInd != -1 && typeStr.length() > 4)
+			if ((keyInd != -1) && (typeStr.length() > 4))
 			{
 				key = typeStr.substring(keyInd + 4);
 			}
-			
+
 			int aspectInd = typeStr.indexOf("ASPECT=");
 			// If it's ASPECT and it actually has a value attached then process it
-			if (aspectInd != -1 && typeStr.length() > 7)
+			if ((aspectInd != -1) && (typeStr.length() > 7))
 			{
 				aspect = typeStr.substring(aspectInd + 7);
 			}
-			
+
 		}
 
 		// Ability List
 		MapToList<Ability, CNAbility> aList = null;
 		// Build the list of abilities that we should display
-		if (key == null)
-		{
-			aList = AbilityToken.buildAbilityList(types, negate, abilityType,
-					view, aspect, abilityList);
-		}
-		else
-		{
-			aList = AbilityToken.buildAbilityList(key, view, abilityList);
-		}
+		MapToList<Ability, CNAbility> abilityCNAbilityMapToList =
+			(key == null)
+				? AbilityToken.buildAbilityList(types, negate, abilityType, view,
+				aspect, abilityList)
+				: AbilityToken.buildAbilityList(key, view, abilityList);
 
 		// Build the return string to give to the OutputSheet
-		String retString =
-				getRetString(tokenSource, pc, eh, abilityIndex, aList);
-
-		return retString;
+		return getRetString(tokenSource, pc, eh, abilityIndex, abilityCNAbilityMapToList);
 	}
 
 	/**
@@ -317,8 +310,7 @@ public class AbilityToken extends Token
 		List<String> negate, String abilityType, View view,
 		String aspect, MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<>();
-		aList.addAll(listOfAbilities.getKeySet());
+		List<Ability> aList = new ArrayList<>(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
@@ -369,8 +361,7 @@ public class AbilityToken extends Token
 	static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
 		MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<>();
-		aList.addAll(listOfAbilities.getKeySet());
+		List<Ability> aList = new ArrayList<>(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
@@ -420,7 +411,8 @@ public class AbilityToken extends Token
 	 * @return True if it matches one of the types else false
 	 */
 	static boolean abilityMatchesType(String abilityType,
-		Ability aAbility, List<String> types, List<String> negate)
+	                                  Ability aAbility, Collection<String> types,
+	                                  Iterable<String> negate)
 	{
 		boolean matchTypeDef = false;
 
@@ -467,7 +459,7 @@ public class AbilityToken extends Token
 	/**
 	 * Helper method, returns true if the ability meets the visibility requirements.
 	 * 
-	 * @param visibility The ability Type to test
+	 * @param v The ability Type to test
 	 * @param aAbility The ability
 	 * @return true if it meets the visibility requirements
 	 */
@@ -483,10 +475,11 @@ public class AbilityToken extends Token
 	 * @param aAbility The ability
 	 * @return True if it matches the aspect else false
 	 */
-	static boolean abilityMatchesAspect(String aspect, Ability aAbility)
+	private static boolean abilityMatchesAspect(String aspect, Ability aAbility)
 	{
-		return (aspect == null) ||
-			(aAbility.get(MapKey.ASPECT, AspectName.getConstant(aspect)) != null);
+		return (aspect == null)
+			       || (aAbility.get(
+			       	MapKey.ASPECT, AspectName.getConstant(aspect)) != null);
 	}
 
 	/**
@@ -500,7 +493,7 @@ public class AbilityToken extends Token
 	 *            The export handler.
 	 * @param abilityIndex
 	 *            The location of the ability in the list.
-	 * @param aList
+	 * @param aMapToList
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
@@ -511,7 +504,7 @@ public class AbilityToken extends Token
 		Ability aAbility;
 		List<Ability> aList = new ArrayList<>(aMapToList.getKeySet());
 		// If the ability index given is within a valid range
-		if (abilityIndex >= 0 && abilityIndex < aList.size())
+		if ((abilityIndex >= 0) && (abilityIndex < aList.size()))
 		{
 			aAbility = aList.get(abilityIndex);
 			List<CNAbility> abilities = aMapToList.getListFor(aAbility);
@@ -522,8 +515,9 @@ public class AbilityToken extends Token
 
 			// If it is the last item and there's a valid export handler and ??? TODO
 			// Then tell the ExportHandler that there is no more processing needed
-			if (abilityIndex == aList.size() - 1 && eh != null
-				&& eh.getExistsOnly())
+			if ((abilityIndex == (aList.size() - 1))
+				    && (eh != null)
+				    && eh.getExistsOnly())
 			{
 				eh.setNoMoreItems(true);
 			}
@@ -618,7 +612,7 @@ public class AbilityToken extends Token
 		}
 		// If the ability index is not in a valid range then tell the 
 		// ExportHandler that there are no more items to process
-		else if (eh != null && eh.getExistsOnly())
+		else if ((eh != null) && eh.getExistsOnly())
 		{
 			eh.setNoMoreItems(true);
 		}
@@ -635,7 +629,7 @@ public class AbilityToken extends Token
 	}
 
 	private String getAssociationString(PlayerCharacter pc,
-		List<CNAbility> abilities, String key)
+	                                    Iterable<CNAbility> abilities, String key)
 	{
 		int index = Integer.parseInt(key);
 		if (index < 0)
@@ -662,7 +656,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
+	 * @param abilities
 	 *            The ability
 	 * 
 	 * @return the aspect string
@@ -675,7 +669,7 @@ public class AbilityToken extends Token
 		}
 		Ability sampleAbilityObject = abilities.get(0).getAbility();
 		Set<AspectName> aspectKeys = sampleAbilityObject.getKeysFor(MapKey.ASPECT);
-		SortedSet<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
+		Iterable<AspectName> sortedKeys = new TreeSet<>(aspectKeys);
 		StringBuilder buff = new StringBuilder();
 		for (AspectName key : sortedKeys)
 		{
@@ -693,7 +687,7 @@ public class AbilityToken extends Token
 	 * 
 	 * @param pc
 	 *            The character being exported.
-	 * @param ability
+	 * @param abilities
 	 *            The ability being queried.
 	 * @param key
 	 *            The key (number or name) of the aspect to retrieve
@@ -707,7 +701,7 @@ public class AbilityToken extends Token
 		{
 			return "";
 		}
-		if (abilities.size() == 0)
+		if (abilities.isEmpty())
 		{
 			return "";
 		}
@@ -787,14 +781,6 @@ public class AbilityToken extends Token
 			}
 		}
 		return listOfAbilities;
-	}
-
-	/**
-	 * @return the visibility
-	 */
-	protected View getView()
-	{
-		return view;
 	}
 
 	/**
