@@ -37,7 +37,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>MonsterPanel</code> is responsible for 
+ * The Class {@code MonsterPanel} is responsible for
  * displaying monster related preferences and allowing the 
  * preferences to be edited by the user.
  * 
