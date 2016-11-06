@@ -24,7 +24,7 @@ package plugin.lsttokens.gamemode.migrate;
 
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.system.MigrationRule;

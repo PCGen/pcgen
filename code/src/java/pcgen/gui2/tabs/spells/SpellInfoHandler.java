@@ -23,7 +23,7 @@ package pcgen.gui2.tabs.spells;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.SpellSupportFacade.RootNode;

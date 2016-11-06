@@ -19,7 +19,7 @@ package plugin.lsttokens;
 
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.text.ParsingSeparator;

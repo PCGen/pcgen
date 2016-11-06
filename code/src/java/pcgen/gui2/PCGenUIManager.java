@@ -22,7 +22,7 @@ package pcgen.gui2;
 
 import gmgen.GMGenSystem;
 import javax.swing.SwingUtilities;
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.gui2.dialog.PreferencesDialog;
 import pcgen.gui2.facade.GMGenMessageHandler;
 import pcgen.gui2.plaf.MacGUIHandler;

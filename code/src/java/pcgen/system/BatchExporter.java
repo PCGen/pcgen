@@ -53,7 +53,7 @@ import pcgen.util.fop.FopTask;
 import org.apache.commons.io.FileUtils;
 import org.apache.commons.io.FilenameUtils;
 import org.apache.commons.io.output.TeeOutputStream;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code BatchExporter} manages character sheet output to a

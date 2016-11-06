@@ -42,6 +42,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import org.apache.commons.lang3.BooleanUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.Globals;
@@ -56,7 +58,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
-import org.apache.commons.lang.BooleanUtils;
+import org.apache.commons.lang3.BooleanUtils;
 
 /**
  * The Class {@code OutputPanel} is responsible for

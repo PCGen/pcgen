@@ -23,7 +23,7 @@ package pcgen.facade.util;
 import java.util.Arrays;
 import java.util.Comparator;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 import pcgen.facade.util.event.ListEvent;
 import pcgen.facade.util.event.ListListener;
