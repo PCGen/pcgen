@@ -1297,7 +1297,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 		List<BaseKit> sortedObjects = new ArrayList<>();
 		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
-		Collections.sort(sortedObjects, new ObjectTypeComparator());
+		sortedObjects.sort(new ObjectTypeComparator());
 
 		String lastObjectName = EMPTY_STRING;
 		for (BaseKit bk : sortedObjects)
@@ -1395,7 +1395,7 @@ public class Gui2InfoFactory implements InfoFactory
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
 			boolean first = true;
 			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
-			Collections.sort(bonusList, new BonusComparator());
+			bonusList.sort(new BonusComparator());
 			for (BonusObj bonusObj : bonusList)
 			{
 				if (!first)

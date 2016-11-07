@@ -1375,13 +1375,14 @@ public final class PCGVer2Creator implements IOConstants
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
-		Collections.sort(categories, new Comparator<AbilityCategory>() {
-			@Override
-			public int compare(AbilityCategory  a, AbilityCategory  b)
-			{
-				return  a.getKeyName().compareTo(b.getKeyName());
-			}
-		});
+		categories.sort(new Comparator<AbilityCategory>()
+        {
+            @Override
+            public int compare(AbilityCategory a, AbilityCategory b)
+            {
+                return a.getKeyName().compareTo(b.getKeyName());
+            }
+        });
 		
 		for (final AbilityCategory cat : categories)
 		{

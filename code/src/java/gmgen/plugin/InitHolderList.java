@@ -184,6 +184,6 @@ public class InitHolderList extends ArrayList<InitHolder> {
 
 	/** sorts the list based on initiative */
 	public void sort() {
-		Collections.sort(this, new InitHolderComperator());
+		this.sort(new InitHolderComperator());
 	}
 }

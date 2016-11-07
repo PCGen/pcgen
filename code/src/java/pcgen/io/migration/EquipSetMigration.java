@@ -101,7 +101,7 @@ public class EquipSetMigration
 			}
 		}
 
-		Collections.sort(children, comparator);
+		children.sort(comparator);
 		return children;
 	}
 

@@ -124,7 +124,7 @@ public class DataSet implements DataSetFacade
 	private void initLists()
 	{
 		List<Race> raceList = new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(Race.class));
-		Collections.sort(raceList, new RaceComparator());
+		raceList.sort(new RaceComparator());
 		for (Race race : raceList)
 		{
 			if (race.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))
@@ -134,7 +134,7 @@ public class DataSet implements DataSetFacade
 		}
 		
 		List<PCClass> classList = new ArrayList<>(context.getReferenceContext().getConstructedCDOMObjects(PCClass.class));
-		Collections.sort(classList, new PCClassComparator());
+		classList.sort(new PCClassComparator());
 		for (PCClass pcClass : classList)
 		{
 			if (pcClass.getSafe(ObjectKey.VISIBILITY).isVisibleTo(View.VISIBLE_DISPLAY))

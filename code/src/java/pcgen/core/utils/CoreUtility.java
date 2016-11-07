@@ -459,7 +459,7 @@ public final class CoreUtility
 		{
 			workingList.add(e.clone());
 		}
-		Collections.sort(workingList, equipmentComparator);
+		workingList.sort(equipmentComparator);
 		 
 
 		// no merging, just sorting (calling this is really stupid,
