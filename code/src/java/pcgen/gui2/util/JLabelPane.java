@@ -68,7 +68,7 @@ public final class JLabelPane extends JEditorPane
 	{
 		String labelText = newContents;
 
-		if ((newContents == null) || (newContents.length() == 0))
+		if ((newContents == null) || (newContents.isEmpty()))
 		{
 			labelText = Constants.WRAPPED_NONE_SELECTED;
 		}

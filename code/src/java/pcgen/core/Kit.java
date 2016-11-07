@@ -370,7 +370,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		String aString = getPreReqHTMLStrings(aPC);
 
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
@@ -428,7 +428,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
 		if (Logging.isLoggable(Logging.WARNING))
 		{
-			if (warnings.size() != 0)
+			if (!warnings.isEmpty())
 			{
 				Logging.log(Logging.WARNING,
 					"The following warnings were encountered when applying the kit "

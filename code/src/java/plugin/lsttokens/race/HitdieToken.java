@@ -74,7 +74,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				if (lockPre.startsWith("CLASS.TYPE="))
 				{
 					String substring = lock.substring(pipeLoc + 12);
-					if (substring.length() == 0)
+					if (substring.isEmpty())
 					{
 						return new ParseResult.Fail(
 							"Cannot have Empty Type Limitation in " + getTokenName()
@@ -91,7 +91,7 @@ public class HitdieToken extends AbstractNonEmptyToken<Race> implements
 				else if (lockPre.startsWith(Constants.LST_CLASS_EQUAL))
 				{
 					String substring = lock.substring(pipeLoc + 7);
-					if (substring.length() == 0)
+					if (substring.isEmpty())
 					{
 						return new ParseResult.Fail(
 							"Cannot have Empty Class Limitation in " + getTokenName()

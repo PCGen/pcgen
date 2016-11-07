@@ -92,7 +92,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 						+ value, context);
 			}
 			String statName = token.substring(0, equalLoc);
-			if (statName.length() == 0)
+			if (statName.isEmpty())
 			{
 				return new ParseResult.Fail("Illegal " + getTokenName()
 					+ " had no stat, is not Stat=X format: "
@@ -102,7 +102,7 @@ public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 					context.getReferenceContext().getCDOMReference(
 						PCStat.class, statName);
 			String formula = token.substring(equalLoc + 1);
-			if (formula.length() == 0)
+			if (formula.isEmpty())
 			{
 				return new ParseResult.Fail("Unable to find STAT value: " + value, context);
 			}

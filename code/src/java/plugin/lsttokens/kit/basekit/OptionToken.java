@@ -70,7 +70,7 @@ public class OptionToken extends AbstractNonEmptyToken<BaseKit> implements
 		while (pipeSep.hasNext())
 		{
 			String subTok = pipeSep.next();
-			if (subTok.length() == 0)
+			if (subTok.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " arguments has invalid pipe separator: " + value, context);

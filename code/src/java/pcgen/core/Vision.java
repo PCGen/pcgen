@@ -175,7 +175,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 			}
 			type = visionType.substring(0, openParenLoc).trim();
 			String dist = visionType.substring(openParenLoc + 1, endDistance);
-			if (dist.length() == 0)
+			if (dist.isEmpty())
 			{
 				throw new IllegalArgumentException("Invalid Vision: "
 					+ visionType + ". No Distance provided");
@@ -202,7 +202,7 @@ public class Vision extends CDOMObject implements Comparable<Vision>
 								+ distance.toString());
 			}
 		}
-		if (type.length() == 0)
+		if (type.isEmpty())
 		{
 			throw new IllegalArgumentException("Invalid Vision: " + visionType
 				+ ". No Vision Type provided");

@@ -67,7 +67,7 @@ public final class FormulaFactory
 	 */
 	public static Formula getFormulaFor(String formulaString)
 	{
-		if (formulaString == null || formulaString.length() == 0)
+		if (formulaString == null || formulaString.isEmpty())
 		{
 			throw new IllegalArgumentException("Formula cannot be empty");
 		}
@@ -101,7 +101,7 @@ public final class FormulaFactory
 	 */
 	public static Formula getJEPFormulaFor(String formulaString)
 	{
-		if (formulaString == null || formulaString.length() == 0)
+		if (formulaString == null || formulaString.isEmpty())
 		{
 			throw new IllegalArgumentException("Formula cannot be empty");
 		}
@@ -365,7 +365,7 @@ public final class FormulaFactory
 	private static <T> NEPFormula<T> getNEPFormulaFor(
 		FormatManager<T> fmtManager, String expression)
 	{
-		if (expression == null || expression.length() == 0)
+		if (expression == null || expression.isEmpty())
 		{
 			throw new IllegalArgumentException("Formula cannot be empty");
 		}

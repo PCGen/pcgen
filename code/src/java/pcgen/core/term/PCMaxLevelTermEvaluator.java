@@ -37,7 +37,7 @@ public class PCMaxLevelTermEvaluator extends BasePCTermEvaluator implements
 	@Override
 	public Float resolve(PlayerCharacter pc)
 	{
-		if (classKey.length() == 0)
+		if (classKey.isEmpty())
 		{
 			return 0.0f;
 		}

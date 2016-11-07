@@ -84,7 +84,7 @@ public final class WholeNumberField extends JTextField implements Serializable
 		try
 		{
 			String text = getText();
-			if (text == null || text.trim().length()==0)
+			if (text == null || text.trim().isEmpty())
 			{
 				text = "0";
 			}

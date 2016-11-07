@@ -486,7 +486,7 @@ public class BonusManager
 					continue;
 				}
 
-				if (!"NULL".equals(reason) && (reason.length() > 0))
+				if (!"NULL".equals(reason) && (!reason.isEmpty()))
 				{
 					if (buf.length() > 0)
 					{
@@ -1173,7 +1173,7 @@ public class BonusManager
 		}
 
 		String type = bo.getTypeString();
-		if (type.length() != 0)
+		if (!type.isEmpty())
 		{
 			if (!shortForm)
 			{
@@ -1316,7 +1316,7 @@ public class BonusManager
 							assoc);
 				}
 				//Need to protect against a selection not being made with a %LIST
-				if (thisValue.length() == 0)
+				if (thisValue.isEmpty())
 				{
 					thisValue = "0";
 				}

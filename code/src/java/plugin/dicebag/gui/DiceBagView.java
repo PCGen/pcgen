@@ -610,7 +610,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 		{
 			if ((rowIndex >= 0) && (rowIndex < (getRowCount() - 1)))
 			{
-				if ((aValue == null) || (aValue.toString().length() == 0))
+				if ((aValue == null) || (aValue.toString().isEmpty()))
 				{
 					m_bag.removeDie(rowIndex);
 					fireTableRowsDeleted(rowIndex, rowIndex);

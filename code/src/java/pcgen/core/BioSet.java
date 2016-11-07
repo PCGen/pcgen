@@ -500,7 +500,7 @@ public final class BioSet extends PObject implements NonInteractive
 			.getRace().getKeyName().trim());
 		final String rv;
 
-		if (line != null && line.length() > 0)
+		if (line != null && !line.isEmpty())
 		{
 			final StringTokenizer aTok = new StringTokenizer(line, "|");
 			final List<String> aList = new ArrayList<>();

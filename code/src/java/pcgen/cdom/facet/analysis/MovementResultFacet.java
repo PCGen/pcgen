@@ -309,8 +309,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 								movements[i] = moveRate;
 							}
 							if (multOp != null
-									&& (movementMultOp[i] == null || multOp
-											.length() > 0))
+									&& (movementMultOp[i] == null || !multOp.isEmpty()))
 							{
 								movementMult[i] = moveMult;
 								movementMultOp[i] = multOp;
@@ -628,7 +627,7 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 			{
 				String formula = SettingsHandler.getGame().getLoadInfo()
 						.getLoadMoveFormula(load.toString());
-				if (formula.length() != 0)
+				if (!formula.isEmpty())
 				{
 					formula = formula.replaceAll(Pattern.quote("$$MOVE$$"),
 							Double.toString(Math.floor(unencumberedMove)));

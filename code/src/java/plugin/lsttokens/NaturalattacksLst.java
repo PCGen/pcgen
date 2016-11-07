@@ -222,7 +222,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		}
 
 		String numAttacks = commaTok.nextToken();
-		boolean attacksFixed = numAttacks.length() > 0
+		boolean attacksFixed = !numAttacks.isEmpty()
 				&& numAttacks.charAt(0) == '*';
 		if (attacksFixed)
 		{

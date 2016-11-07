@@ -104,7 +104,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 				domainKey = tokString.substring(0, openBracketLoc);
 				String prereqString = tokString.substring(openBracketLoc + 1,
 						tokString.length() - 1);
-				if (prereqString.length() == 0)
+				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value, context);
@@ -203,7 +203,7 @@ public class AdddomainsToken extends AbstractTokenWithSeparator<PCClass>
 			{
 				StringBuilder sb = new StringBuilder(domain.getLSTformat(false));
 				List<Prerequisite> prereqs = assoc.getPrerequisiteList();
-				if (prereqs == null || prereqs.size() == 0)
+				if (prereqs == null || prereqs.isEmpty())
 				{
 					noPrereqSet.add(sb.toString());
 					continue;

@@ -410,7 +410,7 @@ public class Prerequisite implements Cloneable
 			buf.append(operand);
 		}
 
-		if (prerequisites != null && prerequisites.size() > 0 && !shortForm)
+		if (prerequisites != null && !prerequisites.isEmpty() && !shortForm)
 		{
 			buf.append(" ("); //$NON-NLS-1$
 			for ( Prerequisite subreq : prerequisites )
