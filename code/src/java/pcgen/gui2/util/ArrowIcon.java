@@ -34,7 +34,7 @@ import javax.swing.UIManager;
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public class ArrowIcon implements Icon, SwingConstants
+public class ArrowIcon implements Icon
 {
 
 	private Color shadow;
