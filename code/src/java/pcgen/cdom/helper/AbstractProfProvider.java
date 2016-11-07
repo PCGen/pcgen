@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.helper;
 
+import java.util.Collections;
 import java.util.List;
 import java.util.Set;
 import java.util.StringTokenizer;
@@ -139,10 +140,7 @@ public abstract class AbstractProfProvider<T extends CDOMObject> extends
 			return false;
 		}
 		Set<String> types = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-		for (String s : typeString.split("\\."))
-		{
-			types.add(s);
-		}
+		Collections.addAll(types, typeString.split("\\."));
 		REF: for (CDOMReference<Equipment> ref : byEquipType)
 		{
 			StringTokenizer tok = new StringTokenizer(ref.getLSTformat(false)

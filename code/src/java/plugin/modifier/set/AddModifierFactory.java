@@ -18,6 +18,7 @@
 package plugin.modifier.set;
 
 import java.lang.reflect.Array;
+import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -197,14 +198,8 @@ public class AddModifierFactory<T> implements ModifierFactory<T[]>
 			@SuppressWarnings("unchecked")
 			T[] input = (T[]) evalManager.get(EvaluationManager.INPUT);
 			Set<T> newSet = new HashSet<>();
-			for (T o : input)
-			{
-				newSet.add(o);
-			}
-			for (T o : getArray())
-			{
-				newSet.add(o);
-			}
+            Collections.addAll(newSet, input);
+            Collections.addAll(newSet, getArray());
 			Class<?> component =
 					fmtManager.getManagedClass().getComponentType();
 			@SuppressWarnings("unchecked")
