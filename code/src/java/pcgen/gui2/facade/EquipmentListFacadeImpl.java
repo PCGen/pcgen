@@ -38,7 +38,7 @@ public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		implements EquipmentListFacade
 {
 
-	private ArrayList<EquipmentFacade> equipmentList;
+	private List<EquipmentFacade> equipmentList;
 	private Map<EquipmentFacade, Integer> quantityMap;
 
 	public EquipmentListFacadeImpl()

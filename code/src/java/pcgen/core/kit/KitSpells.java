@@ -372,7 +372,7 @@ public final class KitSpells extends BaseKit
 	}
 
 	public void addSpell(KnownSpellIdentifier ksi,
-		ArrayList<CDOMSingleRef<Ability>> featList, int count)
+                         List<CDOMSingleRef<Ability>> featList, int count)
 	{
 		spells.put(ksi, featList, count);
 	}

@@ -222,7 +222,7 @@ public class DelegatingDataSet implements DataSetFacade
 		@Override
 		public void keysChanged(MapEvent<AbilityCategoryFacade, ListFacade<AbilityFacade>> e)
 		{
-			ArrayList<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<>(abilitiesMap.values());
+			Iterable<DelegatingListFacade<AbilityFacade>> deadLists = new ArrayList<>(abilitiesMap.values());
 			abilitiesMap.clear();
 			populateMap();
 			for (DelegatingListFacade<AbilityFacade> delegatingListFacade : deadLists)

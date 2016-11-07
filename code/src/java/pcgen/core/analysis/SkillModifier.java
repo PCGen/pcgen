@@ -22,6 +22,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -124,7 +125,7 @@ public final class SkillModifier
 			int statMod = 0;
 			if (Globals.getGameModeHasPointPool())
 			{
-				ArrayList<Type> typeList = new ArrayList<>();
+				List<Type> typeList = new ArrayList<>();
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
 				for (int i = 0; i < typeList.size(); ++i)
 				{

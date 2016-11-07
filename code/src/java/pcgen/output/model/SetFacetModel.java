@@ -19,6 +19,7 @@ package pcgen.output.model;
 
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 
 import pcgen.cdom.base.SetFacet;
 import pcgen.cdom.enumeration.CharID;
@@ -95,7 +96,7 @@ public class SetFacetModel<T> implements TemplateSequenceModel, Iterable<T>
 		{
 			return null;
 		}
-		ArrayList<T> list = new ArrayList<>(facet.getSet(id));
+		List<T> list = new ArrayList<>(facet.getSet(id));
 		if (index >= list.size())
 		{
 			return null;

@@ -262,7 +262,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	 */
 	public List<File> getFiles()
 	{
-		ArrayList<File> list = new ArrayList<>();
+		List<File> list = new ArrayList<>();
 		for (File child : dir.listFiles())
 		{
 			if (!child.isDirectory())

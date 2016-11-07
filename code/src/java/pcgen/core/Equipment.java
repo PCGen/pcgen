@@ -5054,7 +5054,7 @@ public final class Equipment extends PObject implements Serializable,
 			for (ChangeArmorType cat : eqMod.getSafeListFor(ListKey.ARMORTYPE))
 			{
 				List<String> tempTypeList = cat.applyProcessor(newTypeList);
-				LinkedHashSet<String> tempTypeSet =
+				Set<String> tempTypeSet =
                         new LinkedHashSet<>(tempTypeList);
 				boolean noMatch =
 						newTypeList.size() != tempTypeList.size()

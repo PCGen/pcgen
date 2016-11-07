@@ -86,7 +86,7 @@ public class DeityToken implements PrimitiveToken<Domain>
 	@Override
 	public <R> Collection<R> getCollection(PlayerCharacter pc, Converter<Domain, R> c)
 	{
-		HashSet<R> returnSet = new HashSet<>();
+		Collection<R> returnSet = new HashSet<>();
 		Deity deity = pc.getDisplay().getDeity();
 		if (deity == null)
 		{

@@ -33,6 +33,7 @@ import java.util.Collections;
 import java.util.Dictionary;
 import java.util.Enumeration;
 import java.util.HashMap;
+import java.util.Map;
 import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.ExecutorService;
@@ -270,7 +271,7 @@ public class HtmlSheetSupport
 	private static class ImageCache extends Dictionary<URL, Image>
 	{
 
-		private HashMap<URL, Image> cache = new HashMap<>();
+		private Map<URL, Image> cache = new HashMap<>();
 
 		@Override
 		public int size()

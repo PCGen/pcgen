@@ -24,6 +24,7 @@ import java.io.FilenameFilter;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pcgen.core.GameMode;
 import pcgen.system.ConfigurationSettings;
@@ -33,7 +34,7 @@ public final class TreasureGenerator
 {
 	private static TreasureGenerator theInstance = new TreasureGenerator();
 	
-	private static HashMap<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<>();
+	private static Map<GameMode, List<EquipmentTable>> theTreasureTables = new HashMap<>();
 	
 	private static File tablesDir = new File(new File(ConfigurationSettings.getSystemsDir())
 			+ File.separator + "npcgen"  //$NON-NLS-1$ 

@@ -30,6 +30,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Vector;
 
@@ -549,7 +550,7 @@ public class EncounterPlugin extends MouseAdapter
 		}
 
 		// Get any currently selected items in the Races list
-		ArrayList<Object> selected = new ArrayList<>();
+		List<Object> selected = new ArrayList<>();
 
 		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
@@ -596,7 +597,7 @@ public class EncounterPlugin extends MouseAdapter
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		ArrayList<Integer> stillSelected = new ArrayList<>();
+		List<Integer> stillSelected = new ArrayList<>();
 
 		for (Object obj : selected)
 		{
@@ -740,7 +741,7 @@ public class EncounterPlugin extends MouseAdapter
 	private static List<String> getWeaponLocationChoices(int hands,
 		String multiHand)
 	{
-		ArrayList<String> result = new ArrayList<>(hands + 2);
+		List<String> result = new ArrayList<>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -1179,7 +1180,7 @@ public class EncounterPlugin extends MouseAdapter
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap<String, String> slotMap = new HashMap<>();
+		Map<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{

@@ -20,6 +20,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.CDOMObject;
@@ -55,8 +56,8 @@ public class OutputNameFormatting
 	
 		final String preVarStr = varTokenizer.nextToken();
 	
-		final ArrayList<Float> varArray = new ArrayList<>();
-		final ArrayList<String> tokenList = new ArrayList<>();
+		final List<Float> varArray = new ArrayList<>();
+		final List<String> tokenList = new ArrayList<>();
 	
 		while (varTokenizer.hasMoreElements())
 		{

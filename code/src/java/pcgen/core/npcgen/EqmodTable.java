@@ -22,10 +22,11 @@ package pcgen.core.npcgen;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class EqmodTable extends Table
 {
-	private static HashMap<String, EqmodTable> theTables = null;
+	private static Map<String, EqmodTable> theTables = null;
 
 	public EqmodTable( final String anId )
 	{

@@ -22,13 +22,14 @@ package pcgen.core.npcgen;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pcgen.core.Equipment;
 import pcgen.util.Logging;
 
 public class EquipmentTable extends Table
 {
-	private static HashMap<String, EquipmentTable> theTables = null;
+	private static Map<String, EquipmentTable> theTables = null;
 
 	public EquipmentTable( final String anId )
 	{

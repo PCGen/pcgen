@@ -18,6 +18,7 @@
 package pcgen.rules.context;
 
 import java.util.Collection;
+import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.util.MapToList;
@@ -66,7 +67,7 @@ class ListChanges<T extends CDOMObject> implements
 	@Override
 	public Collection<CDOMReference<T>> getAdded()
 	{
-		TreeSet<CDOMReference<T>> set = new TreeSet<>(
+		Set<CDOMReference<T>> set = new TreeSet<>(
                 ReferenceUtilities.REFERENCE_SORTER);
 		Collection<CDOMReference<T>> listMods = positive.getListMods(list);
 		if (listMods != null)
@@ -99,7 +100,7 @@ class ListChanges<T extends CDOMObject> implements
 	@Override
 	public Collection<CDOMReference<T>> getRemoved()
 	{
-		TreeSet<CDOMReference<T>> set = new TreeSet<>(
+		Set<CDOMReference<T>> set = new TreeSet<>(
                 ReferenceUtilities.REFERENCE_SORTER);
 		if (negative == null)
 		{

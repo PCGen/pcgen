@@ -180,7 +180,7 @@ public class AbilityLst extends AbstractTokenWithSeparator<CDOMObject>
 		ListKey glk = ListKey.getKeyFor(ChooseSelectionActor.class, lkString);
 		ListKey<ChooseSelectionActor<?>> lk = glk;
 
-		ArrayList<PrereqObject> edgeList = new ArrayList<>();
+		List<PrereqObject> edgeList = new ArrayList<>();
 
 		CDOMReference<AbilityList> abilList =
 				AbilityList.getAbilityListReference(acRef, nature);

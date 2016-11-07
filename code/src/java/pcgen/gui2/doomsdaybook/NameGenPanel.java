@@ -215,7 +215,7 @@ public class NameGenPanel extends JPanel
 		this.meaning.setText(meaning);
 	}
 
-	private void setMeaningText(ArrayList<DataValue> data)
+	private void setMeaningText(Iterable<DataValue> data)
 	{
 		StringBuilder meaningBuffer = new StringBuilder();
 
@@ -240,7 +240,7 @@ public class NameGenPanel extends JPanel
 		LogUtilities.inst().logMessage(RandomNamePlugin.LOG_NAME, name);
 	}
 
-	private void setNameText(ArrayList<DataValue> data)
+	private void setNameText(Iterable<DataValue> data)
 	{
 		StringBuilder nameBuffer = new StringBuilder();
 
@@ -257,7 +257,7 @@ public class NameGenPanel extends JPanel
 		this.pronounciation.setText(pronounciation);
 	}
 
-	private void setPronounciationText(ArrayList<DataValue> data)
+	private void setPronounciationText(Iterable<DataValue> data)
 	{
 		StringBuilder proBuffer = new StringBuilder();
 
@@ -687,7 +687,7 @@ public class NameGenPanel extends JPanel
 	//	Load the gender drop dowd
 	private void loadGenderDD()
 	{
-		Vector<String> genders = getGenderCategoryNames();
+		List<String> genders = getGenderCategoryNames();
 		Vector<String> selectable = new Vector<>();
 		String gender = (String) cbSex.getSelectedItem();
 

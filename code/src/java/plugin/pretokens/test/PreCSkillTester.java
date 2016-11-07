@@ -23,6 +23,7 @@
 
 import java.util.HashMap;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -141,7 +142,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 	 * @param character
 	 */
 	private static void getImitators(
-			HashMap<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
+            Map<Skill, HashSet<Skill>> serveAsSkills, Set<Skill> imitators)
 	{
 		for(Skill aSkill: Globals.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class))
 		{

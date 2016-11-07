@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import pcgen.base.util.DoubleKeyMap;
@@ -82,7 +83,7 @@ public class GameReferenceContext extends AbstractReferenceContext
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
+		List<ReferenceManufacturer<?>> returnList = new ArrayList<>(
                 map.values());
 		for (Class<?> cl : catmap.getKeySet())
 		{

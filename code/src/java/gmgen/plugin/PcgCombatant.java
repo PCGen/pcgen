@@ -1033,7 +1033,7 @@ public class PcgCombatant extends Combatant
 				 <!-- ### END MEMORIZED ### -->
 				 <!-- End Prepared Spells -->
 			 */
-			ArrayList<PObject> classList =
+			List<PObject> classList =
                     new ArrayList<>(display.getClassSet());
 			classList.add(display.getRace());
 

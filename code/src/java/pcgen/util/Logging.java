@@ -29,6 +29,7 @@ import java.io.IOException;
 import java.io.PrintStream;
 import java.net.URI;
 import java.text.NumberFormat;
+import java.util.AbstractList;
 import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
@@ -84,7 +85,7 @@ public class Logging
 	static
 	{
 		// Set a default configuration file if none was specified.
-		Properties p = System.getProperties();
+		Map p = System.getProperties();
 		File propsFile =
 				new File(SystemUtils.USER_DIR + File.separator
 					+ "logging.properties");
@@ -680,7 +681,7 @@ public class Logging
 		Logger.getLogger("plugin").setLevel(level);
 	}
 
-	private static LinkedList<QueuedMessage> queuedMessages =
+	private static AbstractList<QueuedMessage> queuedMessages =
             new LinkedList<>();
 
 	public static void addParseMessage(Level lvl, String msg)

@@ -243,7 +243,7 @@ public final class AbilityUtilities
 		}
 		AbilityCategory category = (AbilityCategory) cna.getAbilityCategory();
 		// how many sub-choices to make
-		ArrayList<String> reservedList = new ArrayList<>();
+		List<String> reservedList = new ArrayList<>();
 
 		ChoiceManagerList<?> aMan =
 				ChooserUtilities.getConfiguredController(cna, pc, category,
@@ -259,7 +259,7 @@ public final class AbilityUtilities
 	private static <T> void processSelection(
 		PlayerCharacter pc, CNAbility cna, ChoiceManagerList<T> aMan, boolean toAdd)
 	{
-		ArrayList<T> availableList = new ArrayList<>();
+		List<T> availableList = new ArrayList<>();
 		ArrayList<T> selectedList = new ArrayList<>();
 		aMan.getChoices(pc, availableList, selectedList);
 
@@ -271,7 +271,7 @@ public final class AbilityUtilities
 
 		List<T> origSelections = new ArrayList<>(selectedList);
 		List<T> removedSelections = new ArrayList<>(selectedList);
-		ArrayList<String> reservedList = new ArrayList<>();
+		List<String> reservedList = new ArrayList<>();
 
 		List<T> newSelections;
 		if (toAdd)

@@ -29,6 +29,7 @@ package pcgen.persistence.lst.output.prereq;
 import java.io.StringWriter;
 import java.io.Writer;
 import java.util.Collection;
+import java.util.Set;
 import java.util.TreeSet;
 
 import pcgen.base.lang.StringUtil;
@@ -87,7 +88,7 @@ public class PrerequisiteWriter
 		String prereqString = null;
 		if (prereqs != null && !prereqs.isEmpty())
 		{
-			TreeSet<String> list = new TreeSet<>();
+			Set<String> list = new TreeSet<>();
 			for (Prerequisite p : prereqs)
 			{
 				StringWriter swriter = new StringWriter();

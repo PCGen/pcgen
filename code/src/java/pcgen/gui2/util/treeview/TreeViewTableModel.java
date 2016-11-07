@@ -296,7 +296,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		}
 
 		private TreeViewNode(int level, Object name,
-				Vector<TreeViewPath<? super E>> paths)
+				List<TreeViewPath<? super E>> paths)
 		{
 			super(name, paths);
 			this.level = level;
@@ -367,7 +367,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		{
 			if (!loadedChildren)
 			{
-				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
+				List<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
 				vector.remove(path);
 				return;
 			}
@@ -405,7 +405,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 //			Logging.errorPrint("adding: "+path);
 			if (!loadedChildren)
 			{
-				Vector<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
+				List<TreeViewPath<? super E>> vector = (Vector<TreeViewPath<? super E>>) childValue;
 				vector.add(path);
 				return;
 			}

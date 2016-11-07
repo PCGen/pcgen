@@ -53,7 +53,7 @@ public class VariableHashMap extends HashMap<String, String>
 	 * retained by the new VariableHashMap. 
 	 * @param dataElements 
 	 */
-	public VariableHashMap(HashMap<String, DataElement> dataElements)
+	public VariableHashMap(Map<String, DataElement> dataElements)
 	{
 		this.dataElements = dataElements;
 	}

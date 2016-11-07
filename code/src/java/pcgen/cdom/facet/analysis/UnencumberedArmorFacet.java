@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import java.util.Map;
 import java.util.Set;
+import java.util.SortedMap;
 import java.util.TreeMap;
 
 import pcgen.cdom.base.CDOMObject;
@@ -120,7 +121,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<CharID, Loa
 	 */
 	public Load getBestLoad(CharID id)
 	{
-		TreeMap<Load, Set<Object>> map = (TreeMap<Load, Set<Object>>) getCachedMap(id);
+		SortedMap<Load, Set<Object>> map = (TreeMap<Load, Set<Object>>) getCachedMap(id);
 		if (map == null || map.isEmpty())
 		{
 			return Load.LIGHT;

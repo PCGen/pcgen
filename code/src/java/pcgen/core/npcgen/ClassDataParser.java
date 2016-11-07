@@ -612,7 +612,7 @@ class ClassDataHandler extends DefaultHandler
 	public static List<Spell> getSpellsIn(final int level, List<? extends CDOMList<Spell>> spellLists)
 	{
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
-		ArrayList<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
+		List<CDOMReference<CDOMList<Spell>>> useLists = new ArrayList<>();
 		for (CDOMReference ref : masterLists.getActiveLists())
 		{
 			for (CDOMList<Spell> list : spellLists)

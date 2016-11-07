@@ -25,6 +25,7 @@ package plugin.exporttokens;
 
 import java.util.HashMap;
 import java.util.LinkedHashMap;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.core.PCClass;
@@ -90,7 +91,7 @@ public class HitDiceToken extends Token
 		CharacterDisplay display = pc.getDisplay();
 		for (PCClass pcClass : display.getClassSet())
 		{
-			HashMap<Integer, Integer> hdMap =
+			Map<Integer, Integer> hdMap =
 					new LinkedHashMap<>();
 
 			for (int i = 0; i < display.getLevel(pcClass); i++)
@@ -147,7 +148,7 @@ public class HitDiceToken extends Token
 		String del = "";
 		Integer total = 0;
 
-		HashMap<Integer, Integer> hdMap =
+		Map<Integer, Integer> hdMap =
 				new LinkedHashMap<>();
 
 		CharacterDisplay display = pc.getDisplay();

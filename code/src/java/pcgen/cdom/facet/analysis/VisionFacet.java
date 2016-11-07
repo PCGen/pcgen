@@ -189,7 +189,7 @@ public class VisionFacet extends
 				map.put(vType, aVal + (current == null ? 0 : current));
 			}
 		}
-		TreeSet<Vision> returnSet = new TreeSet<>();
+		Set<Vision> returnSet = new TreeSet<>();
 		for (Map.Entry<VisionType, Integer> me : map.entrySet())
 		{
 			returnSet.add(new Vision(me.getKey(), FormulaFactory
