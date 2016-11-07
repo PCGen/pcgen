@@ -1634,7 +1634,7 @@ BIO
 		</ability_object>
 		<ability_object>
 			<name>Dragon Senses</name>
-			<description>Dragons have have darkvision 120 ft. and blindsense 60 ft. They see four times as well as a human in dim light and twice as well in normal light.</description>
+			<description>Dragons have darkvision 120 ft. and blindsense 60 ft. They see four times as well as a human in dim light and twice as well in normal light.</description>
 			<type>RACEABILITY.SPECIALQUALITY.EXTRAORDINARY</type>
 			<associated></associated>
 			<count>0</count>
