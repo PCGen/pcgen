@@ -124,8 +124,8 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	@Override
 	public boolean addModToEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
-		if (modifier == null || !(modifier instanceof EquipmentModifier)
-			|| head == null)
+		if (!(modifier instanceof EquipmentModifier)
+                || head == null)
 		{
 			return false;
 		}
@@ -162,7 +162,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	@Override
 	public boolean removeModFromEquipment(EquipModFacade modifier, EquipmentHead head)
 	{
-		if (modifier == null || !(modifier instanceof EquipmentModifier))
+		if (!(modifier instanceof EquipmentModifier))
 		{
 			return false;
 		}
@@ -410,7 +410,7 @@ public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 	@Override
 	public void setSize(SizeAdjustmentFacade newSize)
 	{
-		if (newSize == null || !(newSize instanceof SizeAdjustment))
+		if (!(newSize instanceof SizeAdjustment))
 		{
 			return;
 		}

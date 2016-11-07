@@ -226,7 +226,7 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public ClassFacade getClassTaken(CharacterLevelFacade level)
 	{
-		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (!(level instanceof CharacterLevelFacadeImpl))
 		{
 			return null;
 		}
@@ -235,7 +235,7 @@ public class CharacterLevelsFacadeImpl extends
 
 	private PCClassLevel getClassLevel(CharacterLevelFacade level)
 	{
-		if (level == null || !(level instanceof CharacterLevelFacadeImpl))
+		if (!(level instanceof CharacterLevelFacadeImpl))
 		{
 			return null;
 		}
@@ -306,8 +306,7 @@ public class CharacterLevelsFacadeImpl extends
 
 	PCLevelInfo getLevelInfo(CharacterLevelFacade level)
 	{
-		if (level == null
-			|| !(level instanceof CharacterLevelFacadeImpl))
+		if (!(level instanceof CharacterLevelFacadeImpl))
 		{
 			return null;
 		}
@@ -342,8 +341,8 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public float getMaxRanks(CharacterLevelFacade level, SkillCost cost, boolean isClassForMaxRanks)
 	{
-		if (cost == null || level == null
-				|| !(level instanceof CharacterLevelFacadeImpl))
+		if (cost == null
+                || !(level instanceof CharacterLevelFacadeImpl))
 		{
 			return 0.0f;
 		}
@@ -389,7 +388,7 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public SkillCost getSkillCost(CharacterLevelFacade level, SkillFacade skill)
 	{
-		if (level != null && level instanceof CharacterLevelFacadeImpl && charDisplay != null)
+		if (level instanceof CharacterLevelFacadeImpl && charDisplay != null)
 		{
 			final String classKeyName = charDisplay.getLevelInfoClassKeyName(getLevelIndex(level));
 			PCClass aClass = theCharacter.getClassKeyed(classKeyName);
@@ -516,8 +515,8 @@ public class CharacterLevelsFacadeImpl extends
 	@Override
 	public boolean investSkillPoints(CharacterLevelFacade level, SkillFacade skill, int points)
 	{
-		if (points == 0 || level == null
-				|| !(level instanceof CharacterLevelFacadeImpl))
+		if (points == 0
+                || !(level instanceof CharacterLevelFacadeImpl))
 		{
 			Logging.errorPrint("Invalid request to investSkillPoints in "
 				+ skill + ". Points: " + points + " level: " + level);
