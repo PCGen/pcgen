@@ -10,30 +10,6 @@ CLASS:Magus		STARTSKILLPTS:2
 # Class Name	Spell Stat		Memorize		Automatically Known Spell Levels	Spellbook		Caster level
 CLASS:Magus		SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONUS:CASTERLEVEL|Magus|Caster_Level_BL_Stripped_Magus
 1	ABILITY:Class|AUTOMATIC|Magus
-###Block: Magus Spellbook
-1	ABILITY:Internal|AUTOMATIC|Magus Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Magus=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Magus=1]]
-###Block: Class features
-1	BONUS:VAR|MagusArmorProficiencyLVL|MagusLVL
-1	BONUS:VAR|MagusArcanePoolLVL|MagusLVL
-3	BONUS:VAR|MagusArcanaLVL|MagusLVL
-10	BONUS:VAR|MagusFighterTrainingLVL|MagusLVL
-###Block:
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Arcane Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat
-1	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips
-2	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spellstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike
-3	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Magus Arcana|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana
-4	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall
-5	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Bonus Feats
-7	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Knowledge Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool
-8	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat
-10	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Fighter Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining
-11	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall
-14	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat
-16	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Counterstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike
-19	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Access|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess
-20	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ True Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus
 ###Block: Spell progression
 1	CAST:3,1
 2	CAST:4,2
@@ -56,7 +32,6 @@ CLASS:Magus		SPELLSTAT:INT	MEMORIZE:YES	KNOWNSPELLS:LEVEL=0			SPELLBOOK:YES	BONU
 19	CAST:5,5,5,5,5,5,4
 20	CAST:5,5,5,5,5,5,5
 
-# COMMENT: Modify Monk to allow monk vows.  Move this to Core?
 
 # Class Name	Ability
 CLASS:Monk.MOD	ABILITY:Internal|AUTOMATIC|Allow Vows

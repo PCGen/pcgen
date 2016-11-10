@@ -1,7 +1,26 @@
 # CVS $Revision: $ $Author: $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name			Category of Ability	Define					Ability
-Magus					CATEGORY:Class
+Magus					CATEGORY:Class	BONUS:VAR|Magus_CFP_Level|MagusLVL	DEFINE:Magus_CFP_Level|0	
+
+CATEGORY=Class|Magus.MOD	ABILITY:Internal|AUTOMATIC|Magus Free Spellbook|PREMULT:1,[PREMULT:2,[PREPCLEVEL:MAX=0],[PRECLASS:1,Magus=1]],[PREMULT:2,[!PRECLASS:1,TYPE.Base=0],[PRECLASS:1,Magus=1]]
+
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Armor Proficiency|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency|PREVARGTEQ:Magus_CFP_Level,1
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Arcane Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcanePool|PREVARGTEQ:Magus_CFP_Level,1
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellCombat|PREVARGTEQ:Magus_CFP_Level,1
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Cantrips|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCantrips|PREVARGTEQ:Magus_CFP_Level,1
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spellstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike|PREVARGTEQ:Magus_CFP_Level,2
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Magus Arcana|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana|PREVARGTEQ:Magus_CFP_Level,3
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall|PREVARGTEQ:Magus_CFP_Level,4
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Bonus Feats|PREVARGTEQ:Magus_CFP_Level,5
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Knowledge Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool|PREVARGTEQ:Magus_CFP_Level,7
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat|PREVARGTEQ:Magus_CFP_Level,8
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Fighter Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining|PREVARGTEQ:Magus_CFP_Level,10
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellRecall|PREVARGTEQ:Magus_CFP_Level,11
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellCombat|PREVARGTEQ:Magus_CFP_Level,14
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Counterstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusCounterstrike|PREVARGTEQ:Magus_CFP_Level,16
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Greater Spell Access|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusGreaterSpellAccess|PREVARGTEQ:Magus_CFP_Level,19
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ True Magus|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusTrueMagus|PREVARGTEQ:Magus_CFP_Level,20
 
 CATEGORY=Class|Magus.MOD											ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusWeaponProficiency
 CATEGORY=Class|Magus.MOD											ABILITY:Internal|AUTOMATIC|TYPE=ArmorProfLight|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArmorProficiency,TYPE.MagusLightArmorProficiency|PREVARGTEQ:MagusArmorProficiencyLVL,1
