@@ -9,14 +9,14 @@ SOURCELONG:Sidewinder: Recoiled	SOURCESHORT:S:R	SOURCEWEB:http://www.doghouserul
 # Equipment Name				Required Weapon Proficiency					Type												Contains			Cost		Weight	Crit Mult	Crit Range	Damage	Range		Size		Source Page		Weapon prop. bonus
 Harpers Ferry Pistol			PROFICIENCY:WEAPON|Harpers Ferry Pistol			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:2	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
 US Percussion Navy Pistol		PROFICIENCY:WEAPON|US Percussion Navy Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:5	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:20	SIZE:M	SOURCEPAGE:p.136
-US Percussion Navy Pistol (Rifled)	PROFICIENCY:WEAPON|US Percussion Navy Pistol (Rifled)	TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:7	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p.136
+US Percussion Navy Pistol (Rifled)	PROFICIENCY:WEAPON|US Percussion Navy Pistol		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:7	WT:2.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d8	RANGE:30	SIZE:M	SOURCEPAGE:p.136
 Allen and Thurber Pepperbox		PROFICIENCY:WEAPON|Allen and Thurber Pepperbox		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:M	SOURCEPAGE:p.136
 Pocket Deringer				PROFICIENCY:WEAPON|Pocket Deringer				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:11	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.136
 
 #Breechloaders
 Sharps Pepperbox				PROFICIENCY:WEAPON|Sharps Pepperbox				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:10	WT:1.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
 Remington Double-Derringer		PROFICIENCY:WEAPON|Remington Double-Derringer		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:8	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.137
-
+US Percussion Navy Pistol
 #Single-Action Revolvers
 Colt Walker Dragoon			PROFICIENCY:WEAPON|Colt Walker Dragoon			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p.137
 Colt New Model Army			PROFICIENCY:WEAPON|Colt New Model Army			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.137
