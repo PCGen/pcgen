@@ -269,9 +269,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((cdo == null) || (cdo.getDisplayName() == null)
-			|| (cdo.getDisplayName().trim().length() == 0)
+			|| (cdo.getDisplayName().trim().isEmpty())
 			|| (cdo.getKeyName() == null)
-			|| (cdo.getKeyName().trim().length() == 0))
+			|| (cdo.getKeyName().trim().isEmpty()))
 		{
 			return false;
 		}

@@ -321,7 +321,7 @@ public class CampaignSourceEntry implements SourceEntry
 				{
 					currentTag += token;
 				}
-				else if (currentTag.length() > 0)
+				else if (!currentTag.isEmpty())
 				{
 					tagList.add(currentTag);
 					currentTag = "";
@@ -332,7 +332,7 @@ public class CampaignSourceEntry implements SourceEntry
 				currentTag += token;
 			}
 		}
-		if (currentTag.length() > 0)
+		if (!currentTag.isEmpty())
 		{
 			tagList.add(currentTag);
 		}
