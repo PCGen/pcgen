@@ -47,7 +47,7 @@ public interface CompanionSupportFacade
 	/**
 	 * Removes a companion from this character.
 	 * The companion to removed will be one retrieved from the
-	 * <code>getCompanions</code> list.
+	 * {@code getCompanions} list.
 	 * @param companion the companion to remove
 	 */
 	public void removeCompanion(CompanionFacade companion);

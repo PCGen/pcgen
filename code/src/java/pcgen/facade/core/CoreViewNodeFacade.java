@@ -25,7 +25,7 @@ package pcgen.facade.core;
 import java.util.List;
 
 /**
- * The interface <code>CoreViewNodeFacade</code> represents a node in the Core View 
+ * The interface {@code CoreViewNodeFacade} represents a node in the Core View
  * debugging tool. This exposes the objects within the core for inspection.
  *
  * <br>

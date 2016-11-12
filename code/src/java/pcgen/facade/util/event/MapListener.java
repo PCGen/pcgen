@@ -60,7 +60,7 @@ public interface MapListener<K, V> extends EventListener
 
 	/**
 	 * This is called when the value for a specific key has
-	 * changed in some way. This differs from <code>valueChanged</code>
+	 * changed in some way. This differs from {@code valueChanged}
 	 * in that the value was not replaced but should be refreshed.
 	 * For example if the value was a ReferenceFacade this
 	 * event could indicate that its reference has changed.
