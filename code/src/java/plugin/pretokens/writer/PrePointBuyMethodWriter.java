@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * <code>PrerequisitePointBuyMethodWriter</code>.
+ * {@code PrerequisitePointBuyMethodWriter}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

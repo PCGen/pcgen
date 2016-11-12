@@ -46,26 +46,26 @@ public class PreWeaponProfTester extends AbstractDisplayPrereqTest
 {
 
 	/**
-	 * <b>Tag Name</b>: <code>PREWEAPONPROF:x,y,y</code><br>
+	 * <b>Tag Name</b>: {@code PREWEAPONPROF:x,y,y}<br>
 	 * &nbsp; <b>Variables Used (x)</b>: <i>Number</i> (The number of proficiencies that must match the specified requirements). <br>
 	 * &nbsp; <b>Variables Used (y)</b>: <i>Text</i> (The name of a weapon proficiency). <br>
-	 * &nbsp; <b>Variables Used (y)</b>: <code>TYPE.</code><i>Text</i> (The name of a weaponprof type). <br>
-	 * &nbsp; <b>Variables Used (y)</b>: <code>DEITYWEAPON</code> (The favored weapon of the character's deity). <br>
+	 * &nbsp; <b>Variables Used (y)</b>: {@code TYPE.}<i>Text</i> (The name of a weaponprof type). <br>
+	 * &nbsp; <b>Variables Used (y)</b>: {@code DEITYWEAPON} (The favored weapon of the character's deity). <br>
 	 * <p>
 	 * <b>What it does:</b><br>
 	 * &nbsp; Sets weapon proficiency requirements.
 	 * <p>
 	 * <b>Examples</b>: <br>
-	 * &nbsp; <code>PREWEAPONPROF:2,Kama,Katana</code><br>
+	 * &nbsp; {@code PREWEAPONPROF:2,Kama,Katana}<br>
 	 * &nbsp; &nbsp; Character must have both "Kama" and "Katana".
 	 * <p>
-	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Exotic</code> <br>
+	 * &nbsp; {@code PREWEAPONPROF:1,TYPE.Exotic} <br>
 	 * &nbsp; &nbsp; Character must have proficiency with any one exotic weaponprof type.
 	 * <p>
-	 * &nbsp; <code>PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)</code> <br>
+	 * &nbsp; {@code PREWEAPONPROF:1,TYPE.Martial,Chain (Spiked)} <br>
 	 * &nbsp; &nbsp; Character must have proficiency with either the Chain (Spiked) or any martial weapon.
 	 * <p>
-	 * &nbsp; <code>PREWEAPONPROF:1,DEITYWEAPON</code> <br>
+	 * &nbsp; {@code PREWEAPONPROF:1,DEITYWEAPON} <br>
 	 * &nbsp; &nbsp; Weapon Prof in question must be one of the chosen deity's favored weapons.
 	 * 
 	 * @see pcgen.core.prereq.AbstractPrerequisiteTest#passes(pcgen.core.prereq.Prerequisite, pcgen.core.PlayerCharacter, CDOMObject)

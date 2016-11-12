@@ -42,7 +42,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>PreCampaignTester</code> is responsible for testing if the 
+ * The Class {@code PreCampaignTester} is responsible for testing if the
  * currently loaded sources satisfy the campaign prerequisite.
  * 
  * 

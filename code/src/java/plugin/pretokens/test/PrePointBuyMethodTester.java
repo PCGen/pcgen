@@ -32,7 +32,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>PrePointBuyMethod</code>.
+ * {@code PrePointBuyMethod}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
