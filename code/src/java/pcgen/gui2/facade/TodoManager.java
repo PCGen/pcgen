@@ -27,7 +27,7 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 
 /**
- * The Class <code>TodoManager</code> tracks an unordered list of user tasks. 
+ * The Class {@code TodoManager} tracks an unordered list of user tasks.
  * Each task is a TodoFacade instance which should have enough information to 
  * direct the user to the field where they can achieve the task.  
  *

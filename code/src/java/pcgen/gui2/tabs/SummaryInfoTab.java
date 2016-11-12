@@ -1468,7 +1468,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	}
 
 	/**
-	 * The Class <code>LabelHandler</code> manages the text displayed in a
+	 * The Class {@code LabelHandler} manages the text displayed in a
 	 * JLabel field for a character. The text will be updated each time a
 	 * reference is updated. The handler also knows how to react to install and
 	 * uninstall actions when the displayed character changes.
@@ -1550,7 +1550,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	}
 
 	/**
-	 * The Class <code>TodoListHandler</code> manages the text displayed in the
+	 * The Class {@code TodoListHandler} manages the text displayed in the
 	 * things to be done panel for the character. The text will be updated each
 	 * time the character's todo list changes. The handler also knows how to
 	 * react to install and uninstall actions when the displayed character

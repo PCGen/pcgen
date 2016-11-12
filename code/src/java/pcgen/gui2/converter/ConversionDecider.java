@@ -25,7 +25,7 @@ package pcgen.gui2.converter;
 import java.util.List;
 
 /**
- * The Interface <code>ConversionDecider</code> defines a callback for 
+ * The Interface {@code ConversionDecider} defines a callback for
  * the LSTConverter to ask the user for a decision on ambiguous syntax 
  * that needs to be converted. 
  * 

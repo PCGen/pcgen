@@ -280,7 +280,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	}
 
 	/**
-	 * The Class <code>ValueRenderer</code> displays a right aligned
+	 * The Class {@code ValueRenderer} displays a right aligned
 	 * read-only column containing a string value.
 	 */
 	private static class ValueRenderer extends JLabel implements TableCellRenderer

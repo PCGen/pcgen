@@ -44,7 +44,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.gui2.util.FontManipulation;
 
 /**
- * The Class <code>SummaryPanel</code> presents a summary of the user's 
+ * The Class {@code SummaryPanel} presents a summary of the user's
  * choices for confirmation before running a conversion process.
  * 
  * 

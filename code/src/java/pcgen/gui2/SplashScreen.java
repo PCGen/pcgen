@@ -92,7 +92,7 @@ public class SplashScreen extends JWindow implements PCGenTaskListener
 	 * It is not assumed that this method will be called on the Event Dispatch
 	 * thread so UI updates are added to the Event Dispatch queue so that they
 	 * are handled appropriately. To make sure that update requests do not
-	 * overwhelm the UI thread a <code>dirty</code> flag is used to make sure
+	 * overwhelm the UI thread a {@code dirty} flag is used to make sure
 	 * that the multiple UI update requests are not queued at the same time.
 	 *
 	 * @param event a PCGenTaskEvent

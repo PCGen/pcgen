@@ -52,9 +52,9 @@ import pcgen.facade.util.ListFacade;
 import pcgen.facade.util.MapFacade;
 
 /**
- * This class implements a <code>DataSetFacade</code> by delegating to another
+ * This class implements a {@code DataSetFacade} by delegating to another
  * DataSetFacade. This class is the DataSetFacade returned by the
- * <code>CharacterFacadeImpl</code> and is necessary to protect outside event
+ * {@code CharacterFacadeImpl} and is necessary to protect outside event
  * listeners from directly listening to the real DataSetFacade. By adding this
  * delegate layer, upon closing a character, the CFI can sever connections
  * between the DelegatingDataSet and the actual DataSetFacade thus preventing an

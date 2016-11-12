@@ -33,7 +33,7 @@ import java.text.ParseException;
 import java.util.Locale;
 
 /**
- * <code>WholeNumberField</code> .
+ * {@code WholeNumberField} .
  *
  * @author Mario Bonassin &lt;zebuleon@users.sourceforge.net&gt;
  */

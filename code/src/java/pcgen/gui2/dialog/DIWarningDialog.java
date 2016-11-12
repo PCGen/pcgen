@@ -42,7 +42,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>DIWarningDialog</code> is responsible for 
+ * The Class {@code DIWarningDialog} is responsible for
  * displaying warnings for the data installer. The list of 
  * files will be displayed in a scrollable area.
  * 
