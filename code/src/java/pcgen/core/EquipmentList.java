@@ -236,7 +236,7 @@ public final class EquipmentList {
 			// If we haven't found it yet,
 			// try stripping Thrown from name
 			if (baseName.indexOf("Thrown") >= 0) {
-				if (omitString.length() == 0) {
+				if (omitString.isEmpty()) {
 					omitString = "Thrown";
 
 					continue;
@@ -246,7 +246,7 @@ public final class EquipmentList {
 			// Still haven't found it?
 			// Try adding bonus to end of name
 			if ((bonusCount > 0) && (bonuses != null)) {
-				if (bonusString.length() == 0) {
+				if (bonusString.isEmpty()) {
 					omitString = "";
 					bonusString = " " + Delta.toString(bonuses[0]);
 
@@ -289,7 +289,7 @@ public final class EquipmentList {
 			//
 			if (bError) { return null; }
 
-			if (sizList.size() != 0) {
+			if (!sizList.isEmpty()) {
 				/*
 				 * CONSIDER This size can be further optimized by changing sizList
 				 */
@@ -337,7 +337,7 @@ public final class EquipmentList {
 		final List<String> excludedTypeList = CoreUtility.split(excludedTypes, '.');
 		final List<Equipment> typeList = new ArrayList<>(100);
 
-		if (desiredTypeList.size() != 0)
+		if (!desiredTypeList.isEmpty())
 		{
 			for (Equipment eq : Globals.getContext().getReferenceContext()
 					.getConstructedCDOMObjects(Equipment.class))
@@ -356,7 +356,7 @@ public final class EquipmentList {
 					}
 				}
 
-				if (addIt && (excludedTypeList.size() != 0)) {
+				if (addIt && (!excludedTypeList.isEmpty())) {
 					//
 					// Can't have any of the types on the excluded list
 					//
@@ -597,7 +597,7 @@ public final class EquipmentList {
 	private static void appendNameParts(final List<String> nameList, final String omitString, final StringBuilder newName) {
 		for ( String namePart : nameList )
 		{
-			if ((omitString.length() != 0) && namePart.equals(omitString)) {
+			if ((!omitString.isEmpty()) && namePart.equals(omitString)) {
 				continue;
 			}
 

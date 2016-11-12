@@ -41,7 +41,7 @@ public class PCBLTermEvaluator
 	@Override
 	public Float resolve(PlayerCharacter pc) {
 
-		if (source.length() == 0) {
+		if (source.isEmpty()) {
 			return 0.0f;
 		}
 

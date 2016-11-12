@@ -2645,7 +2645,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int masterTotal = -9999;
 		final PlayerCharacter nPC = getMasterPC();
 
-		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
+		if ((nPC != null) && (!masterFacet.getCopyMasterBAB(id).isEmpty()))
 		{
 			masterBAB = nPC.baseAttackBonus();
 
@@ -2920,7 +2920,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		//
 		// now we see if this PC is a Familiar/Mount
 		final PlayerCharacter nPC = getMasterPC();
-		if ((nPC != null) && (masterFacet.getCopyMasterCheck(id).length() > 0))
+		if ((nPC != null) && (!masterFacet.getCopyMasterCheck(id).isEmpty()))
 		{
 			int masterBonus = nPC.getBaseCheck(check);
 
@@ -3126,7 +3126,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm = equip.clone();
 
 				final String altType = eqm.getType(false);
-				if (altType.length() != 0)
+				if (!altType.isEmpty())
 				{
 					eqm.removeListFor(ListKey.TYPE);
 					for (String s : altType.split("\\."))
@@ -3139,7 +3139,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				eqm.addType(Type.HEAD2);
 				EquipmentHead head = eqm.getEquipmentHead(1);
 				String altDamage = eqm.getAltDamage(this);
-				if (altDamage.length() != 0)
+				if (!altDamage.isEmpty())
 				{
 					head.put(StringKey.DAMAGE, altDamage);
 				}
@@ -4294,7 +4294,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		PCClass aClass = null;
 		final Spell aSpell = acs.getSpell();
 
-		if ((bookName == null) || (bookName.length() == 0))
+		if ((bookName == null) || (bookName.isEmpty()))
 		{
 			return "Invalid spell list/book name.";
 		}
@@ -4543,7 +4543,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public boolean addSpellBook(final String aName)
 	{
-		if (aName != null && (aName.length() > 0) && !spellBookFacet.containsBookNamed(id, aName))
+		if (aName != null && (!aName.isEmpty()) && !spellBookFacet.containsBookNamed(id, aName))
 		{
 			return addSpellBook(new SpellBook(aName, SpellBook.TYPE_PREPARED_LIST));
 		}
@@ -4677,9 +4677,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					SpellSchool ss = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(SpellSchool.class,
 							school);
 
-					if ((school.length() == 0) || (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
-							|| (subschool.length() == 0) || aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, subschool)
-							|| (descriptor.length() == 0)
+					if ((school.isEmpty()) || (ss != null) && aSpell.containsInList(ListKey.SPELL_SCHOOL, ss)
+							|| (subschool.isEmpty()) || aSpell.containsInList(ListKey.SPELL_SUBSCHOOL, subschool)
+							|| (descriptor.isEmpty())
 							|| aSpell.containsInList(ListKey.SPELL_DESCRIPTOR, descriptor))
 					{
 						retList.add(aSpell);
@@ -4707,7 +4707,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// get Master's BAB
 		final PlayerCharacter nPC = getMasterPC();
 
-		if ((nPC != null) && (masterFacet.getCopyMasterBAB(id).length() > 0))
+		if ((nPC != null) && (!masterFacet.getCopyMasterBAB(id).isEmpty()))
 		{
 			int masterBAB = nPC.baseAttackBonus();
 			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
@@ -4949,7 +4949,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public String delSpell(SpellInfo si, final PCClass aClass, final String bookName)
 	{
-		if ((bookName == null) || (bookName.length() == 0))
+		if ((bookName == null) || (bookName.isEmpty()))
 		{
 			return "Invalid spell book name.";
 		}
@@ -5224,7 +5224,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 */
 	public boolean delSpellBook(final String aName)
 	{
-		if ((aName.length() > 0) && !aName.equals(Globals.getDefaultSpellBook())
+		if ((!aName.isEmpty()) && !aName.equals(Globals.getDefaultSpellBook())
 				&& spellBookFacet.containsBookNamed(id, aName))
 		{
 			processSpellBookRemoval(aName);
@@ -5320,12 +5320,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (Globals.checkRule(RuleConstants.EQUIPATTACK))
 		{
-			if (unequippedPrimary.size() != 0)
+			if (!unequippedPrimary.isEmpty())
 			{
 				primaryWeaponFacet.addAll(id, unequippedPrimary);
 			}
 
-			if (unequippedSecondary.size() != 0)
+			if (!unequippedSecondary.isEmpty())
 			{
 				secondaryWeaponFacet.addAll(id, unequippedSecondary);
 			}
@@ -5355,7 +5355,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int total = 0;
 
 		String aString = SettingsHandler.getGame().getHPFormula();
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			for (;;)
 			{
@@ -5396,7 +5396,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return total;
 		}
 
-		if (masterFacet.getCopyMasterHP(id).length() == 0)
+		if (masterFacet.getCopyMasterHP(id).isEmpty())
 		{
 			return total;
 		}
@@ -5767,7 +5767,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		String aSpellClass = aSpell.getVariableSource(this);
 
-		if (aSpellClass.length() == 0)
+		if (aSpellClass.isEmpty())
 		{
 			return aString;
 		}
@@ -6233,7 +6233,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			thisClassKey = getLevelInfoClassKeyName(idx);
 
-			if (thisClassKey.length() == 0)
+			if (thisClassKey.isEmpty())
 			{
 				break;
 			}
@@ -7727,11 +7727,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		// If locName is empty equip this item to its default location.
 		// If there is more than one option return with an error.
-		if (locName == null || locName.length() == 0)
+		if (locName == null || locName.isEmpty())
 		{
 			locName = getSingleLocation(eqI);
 
-			if (locName.length() == 0)
+			if (locName.isEmpty())
 			{
 				return null;
 			}
@@ -8446,7 +8446,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public String getDescription(List<? extends Object> objList)
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
@@ -8478,7 +8478,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		for (final Description desc : theDescriptions)
 		{
 			final String str = desc.getDescription(this, objList);
-			if (str.length() > 0)
+			if (!str.isEmpty())
 			{
 				if (needSpace)
 				{
@@ -8552,7 +8552,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// Add in the spells granted by objects
 		addBonusKnownSpellsToList(spellSource, csList);
 		final List<CharacterSpell> aList = new ArrayList<>();
-		if (csList.size() == 0)
+		if (csList.isEmpty())
 		{
 			return aList;
 		}
@@ -8675,19 +8675,19 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		if (sp.getKeyName().length() > 0)
+		if (!sp.getKeyName().isEmpty())
 		{
 			dc += (int) getTotalBonusTo("DC", "SPELL." + sp.getKeyName());
 		}
 
 		// DOMAIN.name
-		if (bonDomain.length() > 0)
+		if (!bonDomain.isEmpty())
 		{
 			dc += (int) getTotalBonusTo("DC", bonDomain);
 		}
 
 		// CLASS.name
-		if (bonClass.length() > 0)
+		if (!bonClass.isEmpty())
 		{
 			dc += (int) getTotalBonusTo("DC", bonClass);
 		}
@@ -8810,19 +8810,19 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		if (sp.getKeyName().length() > 0)
+		if (!sp.getKeyName().isEmpty())
 		{
 			concentration += (int) getTotalBonusTo("CONCENTRATION", "SPELL." + sp.getKeyName());
 		}
 
 		// DOMAIN.name
-		if (bonDomain.length() > 0)
+		if (!bonDomain.isEmpty())
 		{
 			concentration += (int) getTotalBonusTo("CONCENTRATION", bonDomain);
 		}
 
 		// CLASS.name
-		if (bonClass.length() > 0)
+		if (!bonClass.isEmpty())
 		{
 			concentration += (int) getTotalBonusTo("CONCENTRATION", bonClass);
 		}
