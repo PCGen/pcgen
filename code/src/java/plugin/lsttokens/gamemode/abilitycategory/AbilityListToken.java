@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * The Class <code>AbilityListToken</code> is responsible for parsing the
+ * The Class {@code AbilityListToken} is responsible for parsing the
  * ABILITYLIST token. This allows the specific named abilities to be included in
  * a 'child' ability category. The list may also specify ability subsets, e.g.
  * Weapon Focus(Sap) to be included.

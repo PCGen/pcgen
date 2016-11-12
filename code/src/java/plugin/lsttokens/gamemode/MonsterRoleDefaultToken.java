@@ -28,7 +28,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>ResizableEquipTypeToken</code> parses the list of equipment
+ * {@code ResizableEquipTypeToken} parses the list of equipment
  * types designated as able to be automatically resized. 
  *
  *

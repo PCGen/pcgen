@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>TabToken</code>
+ * {@code TabToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
