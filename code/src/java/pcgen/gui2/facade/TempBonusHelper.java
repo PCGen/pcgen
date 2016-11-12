@@ -245,7 +245,7 @@ public class TempBonusHelper
 			BonusObj aBonus = eb.bonus;
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
-			if (originObj.getSafe(StringKey.TEMPVALUE).length() > 0)
+			if (!originObj.getSafe(StringKey.TEMPVALUE).isEmpty())
 			{
 				BonusInfo bi =
 						TempBonusHelper.getBonusChoice(oldValue, originObj,
@@ -305,7 +305,7 @@ public class TempBonusHelper
 		{
 			String oldValue = aBonus.toString();
 			String newValue = oldValue;
-			if (originObj.getSafe(StringKey.TEMPVALUE).length() > 0)
+			if (!originObj.getSafe(StringKey.TEMPVALUE).isEmpty())
 			{
 				BonusInfo bi =
 						TempBonusHelper.getBonusChoice(oldValue, originObj,
@@ -397,7 +397,7 @@ public class TempBonusHelper
 
 		// If repeatValue is set, this is a multi BONUS and they all
 		// should get the same value as the first choice
-		if (repeatValue.length() > 0)
+		if (!repeatValue.isEmpty())
 		{
 			// need to parse the aChoice string
 			// and replace %CHOICE with choice
@@ -444,7 +444,7 @@ public class TempBonusHelper
 		selectedList =
 				Globals.getChoiceFromList(titleString, numberList,
 					selectedList, 1, false, true, pc);
-		if (selectedList.size() > 0)
+		if (!selectedList.isEmpty())
 		{
 			final String aI = String.valueOf(selectedList.get(0));
 

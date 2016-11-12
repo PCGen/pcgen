@@ -265,7 +265,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
     @Override
 	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
 	{
-		if (choice.length() > 0)
+		if (!choice.isEmpty())
 		{
 			T ch = info.decodeChoice(Globals.getContext(), choice);
 			if (ch == null)

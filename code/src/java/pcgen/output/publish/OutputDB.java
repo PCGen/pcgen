@@ -303,7 +303,7 @@ public final class OutputDB
 	public static void registerBooleanPreference(String pref,
 		boolean defaultValue)
 	{
-		if ((pref == null) || (pref.length() == 0))
+		if ((pref == null) || (pref.isEmpty()))
 		{
 			throw new IllegalArgumentException(
 				"Preference Name may not be null or empty: " + pref);

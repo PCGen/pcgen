@@ -53,7 +53,7 @@ public class EqModSpellInfo
 		int modValue = 0;
 		final String info = getSpellInfoString(listEntry, desiredInfo);
 
-		if (info.length() > 0)
+		if (!info.isEmpty())
 		{
 			try
 			{
@@ -78,7 +78,7 @@ public class EqModSpellInfo
 			String chargeInfo = EqModSpellInfo.getSpellInfoString(listEntry,
 					s_CHARGES);
 
-			if (chargeInfo.length() != 0)
+			if (!chargeInfo.isEmpty())
 			{
 				chargeInfo = s_CHARGES + '[' + chargeInfo + ']';
 
@@ -155,7 +155,7 @@ public class EqModSpellInfo
 		spellInfo.append("CASTER[").append(spellCastingClass.getKeyName())
 				.append("] ");
 
-		if (spellVariant.length() != 0)
+		if (!spellVariant.isEmpty())
 		{
 			spellInfo.append("VARIANT[").append(spellVariant).append("] ");
 		}

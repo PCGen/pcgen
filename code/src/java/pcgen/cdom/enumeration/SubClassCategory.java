@@ -86,7 +86,7 @@ public final class SubClassCategory extends AbstractCategory<SubClass>
 			/*
 			 * TODO FIXME Should .,| or other stuff be banned here? (probably)
 			 */
-			if (name.length() == 0)
+			if (name.isEmpty())
 			{
 				throw new IllegalArgumentException(
 						"Type Name cannot be zero length");

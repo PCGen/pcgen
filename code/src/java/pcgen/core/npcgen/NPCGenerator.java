@@ -375,7 +375,7 @@ public final class NPCGenerator
 		// Copy the list since we may modify it
 		final WeightedCollection<Deity> deities = new WeightedCollection<>(theConfiguration.getDeityWeights(aClass.getKeyName()));
 		boolean selected = false;
-		while ( deities.size() > 0 )
+		while (!deities.isEmpty())
 		{
 			final Deity deity = deities.getRandomValue();
 			if ( aPC.canSelectDeity(deity))
@@ -403,7 +403,7 @@ public final class NPCGenerator
 				iterator.remove();
 			}
 		}
-		if (domains.size() == 0)
+		if (domains.isEmpty())
 		{
 			return;
 		}
@@ -496,7 +496,7 @@ public final class NPCGenerator
 			}
 			final String aString = aPC.addSpell(cs, new ArrayList<>(), aClass.getKeyName(),
 					   aBookName, aLevel, aLevel);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				Logging.debugPrint("Add spell failed: " + aString); //$NON-NLS-1$
 			}
@@ -510,7 +510,7 @@ public final class NPCGenerator
 	private void selectSubClass( final PlayerCharacter aPC, final PCClass aClass )
 	{
 		WeightedCollection<String> subClasses = theConfiguration.getSubClassWeights( aClass.getKeyName() );
-		if (subClasses != null && subClasses.size() > 0)
+		if (subClasses != null && !subClasses.isEmpty())
 		{
 			SubClassApplication.setSubClassKey(aPC, aClass, subClasses
 					.getRandomValue());

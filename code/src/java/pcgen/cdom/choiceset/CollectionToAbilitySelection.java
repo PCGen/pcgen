@@ -141,7 +141,7 @@ public class CollectionToAbilitySelection implements
 				isPattern = true;
 				nameRoot = subName.substring(0, percIdx);
 			}
-			else if (subName.length() != 0)
+			else if (!subName.isEmpty())
 			{
 				nameRoot = subName;
 			}
@@ -152,7 +152,7 @@ public class CollectionToAbilitySelection implements
 
 		// Remove any that don't match
 
-		if (nameRoot != null && nameRoot.length() != 0)
+		if (nameRoot != null && !nameRoot.isEmpty())
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{

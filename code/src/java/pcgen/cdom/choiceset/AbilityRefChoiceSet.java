@@ -221,7 +221,7 @@ public class AbilityRefChoiceSet implements
 				isPattern = true;
 				nameRoot = subName.substring(0, percIdx);
 			}
-			else if (subName.length() != 0)
+			else if (!subName.isEmpty())
 			{
 				nameRoot = subName;
 			}
@@ -260,7 +260,7 @@ public class AbilityRefChoiceSet implements
 				availableList.retainAll(set);
 			}
 		}
-		else if (nameRoot != null && nameRoot.length() != 0)
+		else if (nameRoot != null && !nameRoot.isEmpty())
 		{
 			for (int n = availableList.size() - 1; n >= 0; --n)
 			{

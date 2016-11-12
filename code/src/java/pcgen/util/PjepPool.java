@@ -54,7 +54,7 @@ public final class PjepPool
 	{
 		//System.out.println("aquireJep()");
 		PJEP jep;
-		if (freeStack.size() > 0)
+		if (!freeStack.isEmpty())
 		{
 			jep = freeStack.pop();
 		}

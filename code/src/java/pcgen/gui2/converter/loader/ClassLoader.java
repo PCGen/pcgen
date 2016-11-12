@@ -104,7 +104,7 @@ public class ClassLoader implements Loader
 		{
 			String token = tokens[tok];
 			sb.append(FIELD_SEPARATOR);
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				continue;
 			}

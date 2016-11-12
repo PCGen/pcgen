@@ -338,7 +338,7 @@ public final class CustomData
 			bw.write("#");
 			bw.newLine();
 
-			if (pbStatCosts.size() > 0)
+			if (!pbStatCosts.isEmpty())
 			{
 				for ( Integer statValue : pbStatCosts.keySet() )
 				{
@@ -652,7 +652,7 @@ public final class CustomData
 	{
 		for ( Campaign c : Globals.getCampaignList() )
 		{
-			if (c.getSafe(StringKey.DESTINATION).length() > 0)
+			if (!c.getSafe(StringKey.DESTINATION).isEmpty())
 			{
 				CampaignOutput.output(Globals.getContext(), c);
 			}

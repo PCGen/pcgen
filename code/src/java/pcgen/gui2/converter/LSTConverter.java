@@ -358,7 +358,7 @@ public class LSTConverter extends Observable
 		for (int line = 0; line < fileLines.length; line++)
 		{
 			String lineString = fileLines[line];
-			if ((lineString.length() == 0)
+			if ((lineString.isEmpty())
 					|| (lineString.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR)
 					|| lineString.startsWith("SOURCE"))
 			{

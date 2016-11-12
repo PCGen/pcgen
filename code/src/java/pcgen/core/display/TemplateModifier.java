@@ -102,7 +102,7 @@ public class TemplateModifier
 				}
 			}
 		}
-		if (drMap.size() != 0)
+		if (!drMap.isEmpty())
 		{
 			mods.append("DR:").append(drFacet.getDRString(id, drMap));
 		}

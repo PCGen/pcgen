@@ -430,7 +430,7 @@ public final class PrerequisiteUtilities
 		{
 			final String fString = assoc.toUpperCase();
 
-			if (preWilcard.length() == 0 || fString.startsWith(preWilcard))
+			if (preWilcard.isEmpty() || fString.startsWith(preWilcard))
 			{
 				runningTotal++;
 				if (!countMults)

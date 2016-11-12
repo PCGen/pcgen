@@ -882,7 +882,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				{
 					EquipmentFacade eq = equipmentList.getElementAt(i);
 					List<String> types = eq.getTypesForDisplay();
-					if (types.size() > 0)
+					if (!types.isEmpty())
 					{
 						primaryTypes.add(types.get(0));
 					}
@@ -1101,7 +1101,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 				// Less then two types, fall through to treat it as a type tree.
 				case TYPE_NAME:
 					types = pobj.getTypesForDisplay();
-					if (types != null && types.size() > 0)
+					if (types != null && !types.isEmpty())
 					{
 						List<TreeViewPath<EquipmentFacade>> paths = new ArrayList<>(
                                 types.size());

@@ -82,7 +82,7 @@ public class QualifiedName
 			}
 		}
 		String choiceInfo = chooseInfo.composeDisplay(allSelections).toString();
-		if (choiceInfo.length() > 0)
+		if (!choiceInfo.isEmpty())
 		{
 			aStrBuf.append(" (");
 			aStrBuf.append(choiceInfo);

@@ -231,7 +231,7 @@ public enum SourceFormat
 			source = Constants.EMPTY_STRING;
 		}
 
-		if (publisher != null && publisher.trim().length() > 0)
+		if (publisher != null && !publisher.trim().isEmpty())
 		{
 			ret.append(publisher);
 			ret.append(" - "); //$NON-NLS-1$

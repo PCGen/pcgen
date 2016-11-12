@@ -689,7 +689,7 @@ public final class EquipmentChoice
 		}
 
 		if (
-			(this.getAvailableList().size() == 0) &&
+			(this.getAvailableList().isEmpty()) &&
 			(this.getMinValue() < this.getMaxValue()))
 		{
 			for (

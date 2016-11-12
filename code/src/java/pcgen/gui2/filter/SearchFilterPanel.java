@@ -87,7 +87,7 @@ public class SearchFilterPanel extends JPanel
 	private void refreshFilter()
 	{
 		String text = searchField.getText();
-		filterHandler.setSearchEnabled(text != null && text.length() > 0);
+		filterHandler.setSearchEnabled(text != null && !text.isEmpty());
 		filterHandler.refilter();
 		filterHandler.scrollToTop();
 	}

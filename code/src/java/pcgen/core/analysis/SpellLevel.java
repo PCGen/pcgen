@@ -93,7 +93,7 @@ public class SpellLevel
 			PlayerCharacter aPC)
 	{
 		HashMapToList<CDOMList<Spell>, Integer> wLevelInfo = aPC.getSpellLevelInfo(sp);
-		if ((wLevelInfo != null) && (wLevelInfo.size() != 0))
+		if ((wLevelInfo != null) && (!wLevelInfo.isEmpty()))
 		{
 			List<Integer> levelList = wLevelInfo.getListFor(list);
 			if (levelList != null)

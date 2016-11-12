@@ -31,7 +31,7 @@ public class BenefitFormatting
 
 	public static String getBenefits(PlayerCharacter aPC, List<? extends Object> objList)
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return "";
 		}
@@ -62,7 +62,7 @@ public class BenefitFormatting
 		for ( final Description desc : theBenefits )
 		{
 			final String str = desc.getDescription(aPC, objList);
-			if ( str.length() > 0 )
+			if (!str.isEmpty())
 			{
 				if ( needSpace )
 				{
