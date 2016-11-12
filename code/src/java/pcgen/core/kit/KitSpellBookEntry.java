@@ -55,7 +55,7 @@ public class KitSpellBookEntry
 	{
 		bookName = aBookName;
 		spell = sp;
-		if (modifiers != null && modifiers.size() > 0)
+		if (modifiers != null && !modifiers.isEmpty())
 		{
 			theModifierList = new ArrayList<>();
 			theModifierList.addAll(modifiers);

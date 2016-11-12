@@ -206,7 +206,7 @@ public final class KitAbilities extends BaseKit
 							available, new ArrayList<>(),
 							numberOfChoices, aPC);
 
-				if (selected.size() != 0)
+				if (!selected.isEmpty())
 				{
 					break;
 				}

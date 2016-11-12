@@ -87,7 +87,7 @@ public class KitTemplate extends BaseKit
 		HashMapToList<PCTemplate, PCTemplate> selectedMap =
 				buildSelectedTemplateMap(aPC, false);
 
-		if (selectedMap.size() > 0)
+		if (!selectedMap.isEmpty())
 		{
 			return true;
 		}

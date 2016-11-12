@@ -85,7 +85,7 @@ public class KitDeity extends BaseKit
 
 		buf.append(theDeityRef.getLSTformat(false));
 
-		if (theDomains != null && theDomains.size() > 0)
+		if (theDomains != null && !theDomains.isEmpty())
 		{
 			buf.append(" (");
 			if (choiceCount != null)
@@ -124,7 +124,7 @@ public class KitDeity extends BaseKit
 		}
 		aPC.setDeity(theDeity);
 
-		if (theDomains == null || theDomains.size() == 0)
+		if (theDomains == null || theDomains.isEmpty())
 		{
 			// nothing else to do.
 			return true;
@@ -177,7 +177,7 @@ public class KitDeity extends BaseKit
                                 new ArrayList<>(),
 							numberOfChoices, aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
