@@ -641,7 +641,7 @@ public final class PCGVer2Creator
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (Globals.getGameModeAlignmentText().length() != 0 && charDisplay.getPCAlignment() != null)
+		if (!Globals.getGameModeAlignmentText().isEmpty() && charDisplay.getPCAlignment() != null)
 		{
 			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');
 			buffer.append(charDisplay.getPCAlignment().getKeyName());
@@ -1275,7 +1275,7 @@ public final class PCGVer2Creator
 			final String customization = eq.formatSaveLine('$', '=').trim();
 			final int delimiterIndex = customization.indexOf('$');
 
-			if ((customization.length() > 0) && (delimiterIndex >= 0))
+			if ((!customization.isEmpty()) && (delimiterIndex >= 0))
 			{
 				buffer.append('|');
 				buffer.append(IOConstants.TAG_CUSTOMIZATION).append(':');
@@ -1308,7 +1308,7 @@ public final class PCGVer2Creator
 			buffer.append(IOConstants.TAG_ID).append(':');
 			buffer.append(eqSet.getIdPath());
 
-			if (eqSet.getValue().length() > 0)
+			if (!eqSet.getValue().isEmpty())
 			{
 				buffer.append('|');
 				buffer.append(IOConstants.TAG_VALUE).append(':');
@@ -1318,7 +1318,7 @@ public final class PCGVer2Creator
 				buffer.append(eqSet.getQty());
 			}
 
-			if (eqSet.getNote().length() > 0)
+			if (!eqSet.getNote().isEmpty())
 			{
 				buffer.append('|');
 				buffer.append(IOConstants.TAG_NOTE).append(':');
@@ -2365,7 +2365,7 @@ public final class PCGVer2Creator
 
 			final String chosenFeats = chosenFeats(template);
 
-			if (chosenFeats.length() != 0)
+			if (!chosenFeats.isEmpty())
 			{
 				buffer.append('|').append(chosenFeats);
 			}
