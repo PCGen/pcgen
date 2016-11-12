@@ -42,8 +42,8 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
     private int offset;
 
     /**
-     * This constructs an empty table model with an intial offset of <code>offset</code>.
-     * When adding columns to the model, the first <code>offset</code> number of colums added will
+     * This constructs an empty table model with an intial offset of {@code offset}.
+     * When adding columns to the model, the first {@code offset} number of colums added will
      * be made always visible.
      * @param offset this is the number of always visible columns when this model is populated.
      */
