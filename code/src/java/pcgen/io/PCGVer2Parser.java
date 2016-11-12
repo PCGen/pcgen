@@ -5769,7 +5769,7 @@ final class PCGVer2Parser implements PCGParser
 		 * Returns all the children of this element.
 		 * <p><b>Note</b>: This has a side effect of initializing the children
 		 * list for the element.
-		 * @return A <code>List</code> of children
+		 * @return A {@code List} of children
 		 */
 		public List<PCGElement> getChildren()
 		{
@@ -6032,7 +6032,7 @@ final class PCGVer2Parser implements PCGParser
 
 	/**
 	 * Returns the version of the application that wrote the file
-	 * @return An <code>int</code> array containing the 3 digit version
+	 * @return An {@code int} array containing the 3 digit version
 	 */
 	int[] getPcgenVersion()
 	{

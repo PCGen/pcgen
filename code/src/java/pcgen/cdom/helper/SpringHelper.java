@@ -31,7 +31,7 @@ import org.springframework.core.io.ClassPathResource;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
- * The Class <code>SpringHelper</code> is a simple helper for 
+ * The Class {@code SpringHelper} is a simple helper for
  * integrating the Spring framework into PCGen.
  *
  * <br>

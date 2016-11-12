@@ -23,7 +23,7 @@
 package pcgen.cdom.enumeration;
 
 /**
- * <code>Destination</code> is the full collection of possible 
+ * {@code Destination} is the full collection of possible
  * install destinations.
  */
 public enum Destination
