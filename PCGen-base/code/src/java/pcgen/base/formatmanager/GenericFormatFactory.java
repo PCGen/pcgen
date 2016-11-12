@@ -24,6 +24,8 @@ import pcgen.base.util.FormatManager;
 /**
  * An GenericFormatFactory builds a FormatManager supporting a class stored in
  * an ObjectDatabase.
+ * 
+ * <T> The format of object managed by this GenericFormatFactory
  */
 public class GenericFormatFactory<T> implements FormatManagerFactory
 {
