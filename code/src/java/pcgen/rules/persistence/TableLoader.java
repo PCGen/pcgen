@@ -152,7 +152,7 @@ public class TableLoader extends LstLineFileLoader
 		while (ps.hasNext())
 		{
 			String next = ps.next();
-			if ((next.length() > 0) && (unescape(next).length() > 0))
+			if ((!next.isEmpty()) && (!unescape(next).isEmpty()))
 			{
 				throw new PersistenceLayerException(
 					"Expected Rest of Line to be empty: " + line);
