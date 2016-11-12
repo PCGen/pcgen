@@ -142,7 +142,7 @@ public final class KitSkill extends BaseKit
 		skillsToAdd = new ArrayList<>();
 		List<Skill> skillChoices = getSkillChoices(aPC);
 
-		if (skillChoices == null || skillChoices.size() == 0)
+		if (skillChoices == null || skillChoices.isEmpty())
 		{
 			// They didn't make a choice so don't add any ranks.
 			return false;
@@ -243,7 +243,7 @@ public final class KitSkill extends BaseKit
 				SkillRankControl.modRanks(aRank, pcClass, true, pc, aSkill);
 		pc.setImporting(oldImporting);
 
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			Logging.errorPrint("SKILL: " + aString);
 			return false;
@@ -307,7 +307,7 @@ public final class KitSkill extends BaseKit
 			skillsOfType.addAll(ref.getContainedObjects());
 		}
 
-		if (skillsOfType.size() == 0)
+		if (skillsOfType.isEmpty())
 		{
 			return null;
 		}
@@ -397,7 +397,7 @@ public final class KitSkill extends BaseKit
 		String ret =
 				SkillRankControl
 					.modRanks(ranksToAdd, pcClass, false, pc, aSkill);
-		if (ret.length() > 0)
+		if (!ret.isEmpty())
 		{
 			if (isFree
 				&& ret.indexOf("You do not have enough skill points.") != -1)
