@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>PageUsageToken</code> deals with PAGEUSAGE token
+ * {@code PageUsageToken} deals with PAGEUSAGE token
  * 
  * (Tue, 14 Mar 2006) $
  * 

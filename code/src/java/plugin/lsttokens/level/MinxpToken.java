@@ -27,7 +27,7 @@ import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
 
 /**
- * <code>MinxpToken</code>
+ * {@code MinxpToken}
  *
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

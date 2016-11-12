@@ -31,7 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>TopmarginToken</code>
+ * {@code TopmarginToken}
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

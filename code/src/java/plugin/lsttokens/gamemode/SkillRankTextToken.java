@@ -30,7 +30,7 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 /**
- * <code>SkillRankTextToken</code>
+ * {@code SkillRankTextToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

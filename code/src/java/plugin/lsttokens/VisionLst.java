@@ -45,7 +45,7 @@ import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>VisionLst</code> handles the processing of the VISION tag in LST
+ * {@code VisionLst} handles the processing of the VISION tag in LST
  * code.
  *
  * (Sun, 15 Jun 2008) $

@@ -43,7 +43,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class handles the STAT tag for Kits.<br>
  * The tag format is:<br>
- * <code>STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18</code>
+ * {@code STAT:STR=15|DEX=14|WIS=10|CON=10|INT=10|CHA=18}
  */
 public class StatToken extends AbstractTokenWithSeparator<KitStat> implements
 		CDOMPrimaryToken<KitStat>, DeferredToken<Kit>

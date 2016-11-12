@@ -30,7 +30,7 @@ import java.net.URI;
 
 
 /**
- * <code>StartStatMaxToken</code>
+ * {@code StartStatMaxToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

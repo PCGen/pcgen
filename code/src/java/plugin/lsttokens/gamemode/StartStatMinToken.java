@@ -30,7 +30,7 @@ import java.net.URI;
 
 
 /**
- * <code>StartStatMinToken</code>
+ * {@code StartStatMinToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
