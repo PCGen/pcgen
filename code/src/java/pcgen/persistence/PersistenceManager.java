@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 import pcgen.persistence.lst.LstSystemLoader;
 
-/** <code>PersistenceManager</code> is a factory class that hides
+/** {@code PersistenceManager} is a factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls methods to
  * do the loading of system files.

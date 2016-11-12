@@ -25,7 +25,7 @@ package pcgen.persistence.lst;
 import pcgen.core.system.MigrationRule;
 
 /**
- * The Interface <code>MigrationLstToken</code> defines a token
+ * The Interface {@code MigrationLstToken} defines a token
  * as being callable by the MigrationLoader.
  *
  * <br>
