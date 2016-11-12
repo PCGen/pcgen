@@ -25,7 +25,7 @@ package pcgen.gui2.prefs;
 import javax.swing.JPanel;
 
 /**
- * The abstract class <code>PCGenPrefsPanel</code> defines the 
+ * The abstract class {@code PCGenPrefsPanel} defines the
  * interface for a panel in the Preferences dialog.
  * 
  * 

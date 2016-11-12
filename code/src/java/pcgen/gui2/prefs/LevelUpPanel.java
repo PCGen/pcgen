@@ -38,7 +38,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>LevelUpPanel</code> is responsible for 
+ * The Class {@code LevelUpPanel} is responsible for
  * displaying levelling up related preferences and allowing the 
  * preferences to be edited by the user.
  * 

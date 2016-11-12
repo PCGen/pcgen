@@ -37,7 +37,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>InputPanel</code> is responsible for 
+ * The Class {@code InputPanel} is responsible for
  * displaying input related preferences and allowing the 
  * preferences to be edited by the user.
  * 

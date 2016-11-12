@@ -48,7 +48,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>HouseRulesPanel</code> is responsible for 
+ * The Class {@code HouseRulesPanel} is responsible for
  * displaying the house rules preferences and allowing the 
  * preferences to be edited by the user.
  * 

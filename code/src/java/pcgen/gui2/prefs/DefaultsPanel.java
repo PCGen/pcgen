@@ -44,7 +44,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>DefaultsPanel</code> is responsible for 
+ * The Class {@code DefaultsPanel} is responsible for
  * setting various defaults for characters that can be changed
  * on a per character basis, such as experience table, character
  * type, and so on. 
@@ -176,15 +176,10 @@ public class DefaultsPanel extends PCGenPrefsPanel
 		File sheetDir = new File(previewDir, gameMode.getCharSheetDir());
 		if (sheetDir.exists() && sheetDir.isDirectory())
 		{
-			String[] files = sheetDir.list(new FilenameFilter()
-			{
-				@Override
-				public boolean accept(File path, String filename)
-				{
-					File file = new File(path, filename);
-					return file.isFile() && !file.isHidden();
-				}
-			});
+			String[] files = sheetDir.list((path, filename) -> {
+                File file = new File(path, filename);
+                return file.isFile() && !file.isHidden();
+            });
 			//String[] files = sheetDir.list();
 			previewSheetCombo.removeAllItems();
 			previewSheetCombo.setModel(new DefaultComboBoxModel(files));

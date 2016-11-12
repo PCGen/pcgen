@@ -42,8 +42,6 @@ import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang.StringUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
@@ -52,8 +50,10 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
- * The Class <code>LookAndFeelPanel</code> is responsible for 
+ * The Class {@code LookAndFeelPanel} is responsible for
  * displaying look and feel related preferences and allowing the 
  * preferences to be edited by the user.
  * 

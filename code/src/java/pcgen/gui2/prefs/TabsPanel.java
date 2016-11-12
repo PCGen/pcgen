@@ -40,7 +40,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>TabsPanel</code> is responsible for 
+ * The Class {@code TabsPanel} is responsible for
  * displaying tabs display related preferences and allowing the 
  * preferences to be edited by the user.
  * 
