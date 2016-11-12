@@ -79,7 +79,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 					+ "or LOCK.<stat>|value syntax requires an argument", context);
 		}
 		String var = firstItem;
-		if (var.length() == 0)
+		if (var.isEmpty())
 		{
 			return new ParseResult.Fail("Empty Variable Name found in "
 					+ getTokenName() + ": " + value, context);

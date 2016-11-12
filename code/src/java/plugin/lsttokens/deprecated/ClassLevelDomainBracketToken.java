@@ -100,7 +100,7 @@ public class ClassLevelDomainBracketToken extends AbstractTokenWithSeparator<PCC
 				domainKey = tok.substring(0, openBracketLoc);
 				String prereqString = tok.substring(openBracketLoc + 1, tok
 						.length() - 1);
-				if (prereqString.length() == 0)
+				if (prereqString.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " cannot have empty prerequisite : " + value, context);

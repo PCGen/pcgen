@@ -89,7 +89,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 							+ value, context);
 				}
 				String spellBook = field.substring(10);
-				if (spellBook.length() == 0)
+				if (spellBook.isEmpty())
 				{
 					return new ParseResult.Fail("Cannot set SPELLBOOK "
 							+ "to empty value in SPELLS: " + value, context);
@@ -104,7 +104,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 							+ value, context);
 				}
 				String className = field.substring(6);
-				if (className.length() == 0)
+				if (className.isEmpty())
 				{
 					return new ParseResult.Fail("Cannot set CLASS "
 							+ "to empty value in SPELLS: " + value, context);
@@ -138,7 +138,7 @@ public class SpellsToken extends AbstractNonEmptyToken<KitSpells> implements
 					}
 					field = field.substring(0, equalLoc);
 				}
-				if (field.length() == 0)
+				if (field.isEmpty())
 				{
 					return new ParseResult.Fail("Expected an Spell in SPELLS"
 							+ " but found: " + value, context);
