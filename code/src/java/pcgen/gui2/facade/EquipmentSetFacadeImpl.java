@@ -825,7 +825,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		}
 
 		// Sort child list
-		Collections.sort(childList, new EquipNameComparator());
+		childList.sort(new EquipNameComparator());
 
 		// Renumber paths
 		// need to start from a unique id if only sorting some nodes at a level
@@ -2058,7 +2058,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 				int numStillToRemove = -1*quantity;
 				List<EquipNodeImpl> affectedList = findEquipmentNodes(equipmentFacade);
-				Collections.sort(affectedList, new EquipLocImportantComparator()); // TODO: Custom sort order
+				affectedList.sort(new EquipLocImportantComparator()); // TODO: Custom sort order
 				for (EquipNodeImpl equipNode : affectedList)
 				{
 					EquipSet eSet = charDisplay.getEquipSetByIdPath(equipNode.getIdPath());

@@ -647,7 +647,7 @@ public final class ExportHandler
 	private String replaceVariables(String expr, Map<Object,Object> variables)
 	{
 		List<Object> keys = new ArrayList<>(variables.keySet());
-		Collections.sort(keys, new VariableComparator());
+		keys.sort(new VariableComparator());
 
 		for (final Object anObject : variables.keySet())
 		{

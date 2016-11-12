@@ -932,7 +932,7 @@ public final class Globals
 	 */
 	static List<? extends CDOMObject> sortPObjectList(final List<? extends CDOMObject> aList)
 	{
-		Collections.sort(aList, pObjectComp);
+		aList.sort(pObjectComp);
 
 		return aList;
 	}
@@ -946,7 +946,7 @@ public final class Globals
 	 */
 	public static <T extends CDOMObject> List<T> sortPObjectListByName(final List<T> aList)
 	{
-		Collections.sort(aList, pObjectNameComp);
+		aList.sort(pObjectNameComp);
 
 		return aList;
 	}
