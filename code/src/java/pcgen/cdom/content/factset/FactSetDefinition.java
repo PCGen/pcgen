@@ -114,7 +114,7 @@ public class FactSetDefinition<T extends CDOMObject, F> extends
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be null");
 		}
-		if (name.length() == 0)
+		if (name.isEmpty())
 		{
 			throw new IllegalArgumentException("Fact Set Name cannot be empty");
 		}

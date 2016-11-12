@@ -226,7 +226,7 @@ public class ChallengeRatingFacet
 			if (classRoleList != null) 
 			{
 				classRoleList.retainAll(raceRoleList);
-				if (classRoleList.size() > 0)
+				if (!classRoleList.isEmpty())
 				{
 					levelsKey += levels;
 				}
@@ -445,7 +445,7 @@ public class ChallengeRatingFacet
 	{
 		Map<Integer, Integer> xpAwardsMap = SettingsHandler.getGame().getXPAwards();
 
-		if (xpAwardsMap.size() > 0)
+		if (!xpAwardsMap.isEmpty())
 		{
 			Integer cr = getCR(id);
 			if (cr == null)
