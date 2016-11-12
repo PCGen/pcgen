@@ -37,7 +37,7 @@ import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.LanguageFacade;
 
 /**
- * <code>Language</code>.
+ * {@code Language}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

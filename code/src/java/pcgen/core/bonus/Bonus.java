@@ -39,7 +39,7 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.util.Logging;
 
 /**
- * <code>Bonus</code>
+ * {@code Bonus}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

@@ -45,7 +45,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>CustomData</code>
+ * {@code CustomData}
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

@@ -25,7 +25,7 @@ package pcgen.core;
 import pcgen.facade.core.ChronicleEntryFacade;
 
 /**
- * The Class <code>ChronicleEntry</code> contains a record of an 
+ * The Class {@code ChronicleEntry} contains a record of an
  * event in the character's history. 
  *
  * <br>

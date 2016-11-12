@@ -28,7 +28,7 @@ import pcgen.rules.context.LoadContext;
 
 
 /**
- * <code>MultiTagBonusObj</code>
+ * {@code MultiTagBonusObj}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  * @author  Jonas Karlsson &lt;jujutsunerd@sf.net&gt;

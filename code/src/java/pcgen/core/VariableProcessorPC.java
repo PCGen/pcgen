@@ -25,7 +25,7 @@ import pcgen.core.term.EvaluatorFactory;
 import pcgen.core.term.TermEvaluator;
 
 /**
- * <code>VariableProcessorPC</code> is a processor for variables
+ * {@code VariableProcessorPC} is a processor for variables
  * associated with a character. This class converts formulas or
  * variables into values and is used extensively both in
  * definitions of objects and for output to output sheets.

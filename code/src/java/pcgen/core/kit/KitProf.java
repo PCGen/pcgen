@@ -41,7 +41,7 @@ import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
 /**
- * <code>KitFeat</code>.
+ * {@code KitFeat}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

@@ -33,7 +33,7 @@ import pcgen.util.Logging;
 import pcgen.util.TermUtilities;
 
 /**
- * <code>EvaluatorFactoryPCVar</code> 
+ * {@code EvaluatorFactoryPCVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.

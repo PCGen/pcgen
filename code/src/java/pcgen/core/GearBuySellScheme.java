@@ -28,7 +28,7 @@ import java.text.NumberFormat;
 import pcgen.facade.core.GearBuySellFacade;
 
 /**
- * The Class <code>GearBuySellScheme</code> defines a named set of rates for 
+ * The Class {@code GearBuySellScheme} defines a named set of rates for
  * buying and selling gear.
  *
  * <br>

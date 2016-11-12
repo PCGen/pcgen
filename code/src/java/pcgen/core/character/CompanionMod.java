@@ -40,7 +40,7 @@ import pcgen.core.PObject;
 import pcgen.core.Race;
 
 /**
- * <code>CompanionMod</code>.
+ * {@code CompanionMod}.
  *
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  */

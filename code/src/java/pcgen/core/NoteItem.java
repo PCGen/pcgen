@@ -28,7 +28,7 @@ import pcgen.util.Logging;
 
 
 /**
- * <code>NoteItem</code>.
+ * {@code NoteItem}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

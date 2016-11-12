@@ -101,7 +101,7 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>Equipment</code>.
+ * {@code Equipment}.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt; created December
  *         27
