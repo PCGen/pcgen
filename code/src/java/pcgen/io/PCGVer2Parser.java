@@ -315,7 +315,7 @@ final class PCGVer2Parser implements PCGParser
 
 		for (int i = 0; i < lines.length; ++i)
 		{
-			if ((lines[i].trim().length() > 0) && !isComment(lines[i]))
+			if ((!lines[i].trim().isEmpty()) && !isComment(lines[i]))
 			{
 				cacheLine(lines[i].trim());
 			}
@@ -2025,7 +2025,7 @@ final class PCGVer2Parser implements PCGParser
 			if (IOConstants.TAG_SUBCLASS.equals(tag))
 			{
 				subClassKey = EntityEncoder.decode(element.getText());
-				if ((subClassKey.length() > 0)
+				if ((!subClassKey.isEmpty())
 					&& !subClassKey.equals(Constants.NONE))
 				{
 					SubClass sc = aPCClass.getSubClassKeyed(subClassKey);

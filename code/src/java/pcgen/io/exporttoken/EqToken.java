@@ -328,7 +328,7 @@ public class EqToken extends Token
 		{
 			final String aRange = eq.getWeaponInfo("RANGE", true);
 	
-			if (aRange.length() != 0)
+			if (!aRange.isEmpty())
 			{
 				range = Integer.valueOf(aRange);
 			}

@@ -152,7 +152,7 @@ public class BonusToken extends Token
 
 			signIt = 1;
 
-			if ((bucket.length() > 0) && (bucket.charAt(0) == '!'))
+			if ((!bucket.isEmpty()) && (bucket.charAt(0) == '!'))
 			{
 				signIt = -1;
 				bucket = bucket.substring(1);

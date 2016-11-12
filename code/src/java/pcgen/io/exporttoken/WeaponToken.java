@@ -2582,7 +2582,7 @@ public class WeaponToken extends Token
 			 * the secondary head
 			 */
 			eqbonus = eq.getBonusToDamage(pc, false);
-			if (eq.getAltDamage(pc).length() > 0)
+			if (!eq.getAltDamage(pc).isEmpty())
 			{
 				totalBonus = 0;
 				damString = eq.getAltDamage(pc);
