@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 
 
 /**
- * <code>CountCommand</code> deals with the count() JEP command. The first parameter will
+ * {@code CountCommand} deals with the count() JEP command. The first parameter will
  * be the type of object being counted and further parameters will specify the criteria.
  * 26 Oct 2007) $
  *
@@ -62,8 +62,8 @@ public class CountCommand extends AbstractCountCommand
 	}
 
 	/**
-	 * Runs count on the inStack. The parameter is popped off the <code>inStack</code>,
-	 * and the variable's value is pushed back to the top of <code>inStack</code>.
+	 * Runs count on the inStack. The parameter is popped off the {@code inStack},
+	 * and the variable's value is pushed back to the top of {@code inStack}.
 	 *
 	 * @param inStack The jep stack that the count command will process
 	 *

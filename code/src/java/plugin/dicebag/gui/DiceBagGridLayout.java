@@ -57,7 +57,7 @@ public class DiceBagGridLayout extends GridLayout
 	private int m_minSize = 0;
 
 	/**
-	 * <p>Default constructor.  Uses a default of <code>MANAGE_BY_ROWS</code>, a minimum
+	 * <p>Default constructor.  Uses a default of {@code MANAGE_BY_ROWS}, a minimum
 	 * size of 50, and a maximum size of 200.</p>
 	 *
 	 * @see java.awt.GridLayout#GridLayout()
@@ -75,7 +75,7 @@ public class DiceBagGridLayout extends GridLayout
 	 *
 	 * @param rows     Initial number of rows.
 	 * @param cols     Initial number of columns.
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
 	 *
@@ -97,7 +97,7 @@ public class DiceBagGridLayout extends GridLayout
 	 * @param cols     Initial number of columns.
 	 * @param hgap     Horizontal gap
 	 * @param vgap     Vertical gap
-	 * @param manageBy Either <code>MANAGE_BY_ROWS</code> or <code>MANAGE_BY_COLUMNS</code>.
+	 * @param manageBy Either {@code MANAGE_BY_ROWS} or <code>MANAGE_BY_COLUMNS</code>.
 	 * @param minSize  Minimum size, expressed in pixels.
 	 * @param maxSize  Maximum size, expressed in pixels.
 	 *
@@ -114,9 +114,9 @@ public class DiceBagGridLayout extends GridLayout
 
 	/**
 	 * <p>This method computes the correct number of rows or columns based
-	 * on the current size of the <code>parent</code> and the <code>m_manageBy</code>
-	 * value, using an algorithm similar to <code>getMinimumLayoutSize()</code>.  It then
-	 * sets the new number of rows or columns and calls the <code>super</code>'s implementation.</p>
+	 * on the current size of the {@code parent} and the <code>m_manageBy</code>
+	 * value, using an algorithm similar to {@code getMinimumLayoutSize()}.  It then
+	 * sets the new number of rows or columns and calls the {@code super}'s implementation.</p>
 	 *
 	 * @see java.awt.LayoutManager#layoutContainer(java.awt.Container)
 	 *

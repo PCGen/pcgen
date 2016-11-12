@@ -34,7 +34,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>SAVE</code>.  Derived from CHECKS
+ * {@code SAVE}.  Derived from CHECKS
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

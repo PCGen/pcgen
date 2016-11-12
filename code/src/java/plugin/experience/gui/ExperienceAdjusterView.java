@@ -43,9 +43,9 @@ import plugin.experience.ExperienceAdjusterModel;
 
 /**
  * The View for the Experience Adjuster.  This view is independant and will be
- * created by the <code>ExperienceAdjusterController</code>.  The view is
- * implemented as a <code>JPanel</code> so it can be added to the
- * <code>JTabbedPane</code> of the <code>GMGenSystemView</code>.<br>
+ * created by the {@code ExperienceAdjusterController}.  The view is
+ * implemented as a {@code JPanel} so it can be added to the
+ * {@code JTabbedPane} of the <code>GMGenSystemView</code>.<br>
  * Created on February 19, 2003<br>
  * Updated on March 6, 2003
  */
@@ -108,8 +108,8 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 	private ExperienceAdjusterModel model;
 
 	/**
-	 * Creates an instance of <code>ExperienceAdjusterView</code>
-	 * <code>ExperienceAdjusterController</code>.
+	 * Creates an instance of {@code ExperienceAdjusterView}
+	 * {@code ExperienceAdjusterController}.
 	 */
 	public ExperienceAdjusterView(ExperienceAdjusterModel model)
 	{
@@ -128,7 +128,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Character</b> button.
-	 * @return the <code>addExperienceToCharButton</code>.
+	 * @return the {@code addExperienceToCharButton}.
 	 */
 	public JButton getAddExperienceToCharButton()
 	{
@@ -137,7 +137,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Add Experience to Selected Party</b> button.
-	 * @return the <code>addExperienceToPartyButton</code>.
+	 * @return the {@code addExperienceToPartyButton}.
 	 */
 	public JButton getAddExperienceToPartyButton()
 	{
@@ -146,7 +146,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the <b>Adjust CR</b> button.
-	 * @return the <code>adjustCRButton</code>.
+	 * @return the {@code adjustCRButton}.
 	 */
 	public JButton getAdjustCRButton()
 	{
@@ -155,7 +155,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the list of characters from the GUI.
-	 * @return the <code>characterList</code>.
+	 * @return the {@code characterList}.
 	 */
 	public JList getCharacterList()
 	{
@@ -182,7 +182,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the field for experience to add.
-	 * @return the <code>experienceToAdd</code> field.
+	 * @return the {@code experienceToAdd} field.
 	 */
 	public JTextField getExperienceField()
 	{
@@ -257,7 +257,7 @@ public class ExperienceAdjusterView extends javax.swing.JPanel
 
 	/**
 	 * Gets the experience to add that the user has input.
-	 * @return the experience to add as an <code>int</code>.
+	 * @return the experience to add as an {@code int}.
 	 */
 	public int getExperienceToAdd()
 	{

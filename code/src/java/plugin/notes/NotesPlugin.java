@@ -54,11 +54,11 @@ import plugin.notes.gui.NotesView;
 import plugin.notes.gui.PreferencesNotesPanel;
 
 /**
- * The <code>NotesPlugin</code> controls the various classes that are involved
- * in the functionality of the Notes System. This <code>class
- * </code> is a
- * plugin for the <code>GMGenSystem</code>, is called by the
- * <code>PluginLoader</code> and will create a model and a view for this
+ * The {@code NotesPlugin} controls the various classes that are involved
+ * in the functionality of the Notes System. This {@code class
+ * } is a
+ * plugin for the {@code GMGenSystem}, is called by the
+ * {@code PluginLoader} and will create a model and a view for this
  * plugin.
  *
  * @author Devon Jones
@@ -111,7 +111,7 @@ public class NotesPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -159,7 +159,7 @@ public class NotesPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Gets the <code>JPanel</code> view for the notes plugin
+	 * Gets the {@code JPanel} view for the notes plugin
 	 *
 	 * @return the view.
 	 */

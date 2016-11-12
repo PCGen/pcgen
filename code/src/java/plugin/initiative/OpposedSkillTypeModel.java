@@ -27,7 +27,7 @@ import java.util.List;
 
 /**
  * <p>
- * Overrides <code>OpposedSkillBasicModel</code> to provide a column displaying
+ * Overrides {@code OpposedSkillBasicModel} to provide a column displaying
  * combatant type.
  * </p>
  * 

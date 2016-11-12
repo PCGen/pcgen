@@ -36,7 +36,7 @@ import plugin.initiative.XMLCombatant;
  * <p>
  * A dialog which adds a combatant to the initiative tracker.  It
  * allows the user to enter the basic information to construct a new
- * <code>XMLCombatant</code>; Selecting the "Save" action constructs
+ * {@code XMLCombatant}; Selecting the "Save" action constructs
  * the combatant(s) and saves them to the initiative model.
  * </p>
  *
@@ -593,7 +593,7 @@ public class AddCombatant extends AbstractDialog
 
 	/**
 	 * <p>Returns the integer value of the given field</p>
-	 * @param field A <code>JFormattedTextField</code> with an <code>Integer</code> value
+	 * @param field A {@code JFormattedTextField} with an <code>Integer</code> value
 	 * @param defaultValue
 	 * @return int
 	 */
@@ -609,7 +609,7 @@ public class AddCombatant extends AbstractDialog
 
 	/**
 	 * <p>Returns the float value of the given field</p>
-	 * @param field A <code>JFormattedTextField</code> with an <code>Float</code> value
+	 * @param field A {@code JFormattedTextField} with an <code>Float</code> value
 	 * @param defaultValue
 	 * @return float
 	 */
