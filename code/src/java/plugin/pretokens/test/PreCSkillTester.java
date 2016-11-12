@@ -151,7 +151,7 @@ BREAKOUT:		for(Skill fake: serveAsSkills.keySet())
 				servesAs.addAll(ref.getContainedObjects());
 			}
 			
-			if(servesAs.size() > 0)
+			if(!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
 				serveAsSkills.put(aSkill, (HashSet<Skill>) servesAs);

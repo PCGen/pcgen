@@ -63,7 +63,7 @@ public class PreSubClassTester extends AbstractDisplayPrereqTest implements Prer
 		for (PCClass aClass : display.getClassSet())
 		{
 			final String subClassName = display.getSubClassName(aClass);
-			if (subClassName != null && subClassName.length() != 0)
+			if (subClassName != null && !subClassName.isEmpty())
 			{
 				if (thisClass.equalsIgnoreCase(subClassName))
 				{

@@ -229,7 +229,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				servesAs.addAll(ref.getContainedObjects());
 			}
 			
-			if(servesAs.size() > 0)
+			if(!servesAs.isEmpty())
 			{
 				imitators.add(aSkill);
 				serveAsSkills.put(aSkill, servesAs);

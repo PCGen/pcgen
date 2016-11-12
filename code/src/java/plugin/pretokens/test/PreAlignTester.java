@@ -68,7 +68,7 @@ public class PreAlignTester extends AbstractDisplayPrereqTest implements Prerequ
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			runningTotal = 1;
 		}
