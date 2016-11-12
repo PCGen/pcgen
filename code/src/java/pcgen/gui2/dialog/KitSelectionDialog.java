@@ -40,7 +40,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>KitSelectionDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code KitSelectionDialog} provides a pop-up dialog that allows
  * the user to add kits to a character. Kits are prepared groups of equipment and 
  * other rules items.  
  *

@@ -57,11 +57,11 @@ public abstract class AbstractTreeTableModel extends DefaultTreeModel implements
 
     /**
      *  Returns a default name for the column using spreadsheet conventions:
-     *  A, B, C, ... Z, AA, AB, etc.  If <code>column</code> cannot be found,
+     *  A, B, C, ... Z, AA, AB, etc.  If {@code column} cannot be found,
      *  returns an empty string.
      *
      * @param column  the column being queried
-     * @return a string containing the default name of <code>column</code>
+     * @return a string containing the default name of {@code column}
      */
 	@Override
     public String getColumnName(int column)

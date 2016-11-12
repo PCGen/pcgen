@@ -66,7 +66,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>RaceInfoTab</code> is the component used in the Race tab.
+ * The Class {@code RaceInfoTab} is the component used in the Race tab.
  * <br>
  * -0800 (Wed, 16 Feb 2011) $
  *
@@ -322,7 +322,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	}
 
 	/**
-	 * The Class <code>NoRacialHdFilterHandler</code> provides the filter
+	 * The Class {@code NoRacialHdFilterHandler} provides the filter
 	 * backing the No Racial HD filter button.
 	 */
 	private class NoRacialHdFilterHandler implements Filter<Object, RaceFacade>
@@ -349,7 +349,7 @@ public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab
 	}
 
 	/**
-	 * The Class <code>QualifiedFilterHandler</code> provides the filter backing
+	 * The Class {@code QualifiedFilterHandler} provides the filter backing
 	 * the Qualified filter button.
 	 */
 	private class QualifiedFilterHandler implements Filter<Object, RaceFacade>

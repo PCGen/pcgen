@@ -55,10 +55,10 @@ public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 	/**
 	 * Adds a new column to this column model along with the default state of the column
 	 * when no preferences are found for it. These preferences are stored using each column's identifier
-	 * <code>TableColumn.getIdentifier</code> as the preference key that column. If no identifier is set
+	 * {@code TableColumn.getIdentifier} as the preference key that column. If no identifier is set
 	 * the columns header value is used instead.
 	 * <br> Note: For the case of always visible columns, i.e. the first 
-	 * <code>offset</code> number of columns added to the model, the default visibility parameter does nothing.
+	 * {@code offset} number of columns added to the model, the default visibility parameter does nothing.
 	 * @param column the column to add
 	 * @param defaultVisibility the visibility of this column in the absence of an existing preference
 	 * @param defaultWidth the width of the column in the absence of an existing preference

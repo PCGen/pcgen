@@ -31,7 +31,7 @@ import java.awt.event.MouseEvent;
 import javax.swing.JList;
 
 /**
- * The Class <code>JListEx</code> extends JList to provide double click events.
+ * The Class {@code JListEx} extends JList to provide double click events.
  *
  * <br>
  * 

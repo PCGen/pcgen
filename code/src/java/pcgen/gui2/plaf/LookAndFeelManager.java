@@ -42,7 +42,7 @@ import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
 
 /**
- * <code>UIFactory</code>.
+ * {@code UIFactory}.
  *
  * @author Thomas Behr
  */

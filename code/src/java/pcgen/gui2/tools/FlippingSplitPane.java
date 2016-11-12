@@ -42,35 +42,35 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
 /**
- * <code>FlippingSplitPane</code> is an improved version of
- * <code>JSplitPane</code> featuring a popup menu accesses by right-clicking on
+ * {@code FlippingSplitPane} is an improved version of
+ * {@code JSplitPane} featuring a popup menu accesses by right-clicking on
  * the divider.
  * 
- * <p>(<code>JSplitPane</code> is used to divide two (and only two)
- * <code>Component</code>s.  The two <code>Component</code>s are graphically
+ * <p>({@code JSplitPane} is used to divide two (and only two)
+ * {@code Component}s.  The two <code>Component</code>s are graphically
  * divided based on the look and feel implementation, and the two
- * <code>Component</code>s can then be interactively resized by the user.
- * Information on using <code>JSplitPane</code> is in <a
+ * {@code Component}s can then be interactively resized by the user.
+ * Information on using {@code JSplitPane} is in <a
  * href="http://java.sun.com/docs/books/tutorial/uiswing/components/splitpane.html">How
  * to Use Split Panes</a> in <em>The Java Tutorial</em>.)
  * 
- * <p>In addition to the standard keyboard keys used by <code>JSplitPane</code>,
- * <code>FlippingSplitPane</code> will flip the panes orientation on
- * <code>SHIFT-BUTTON1</code>.
+ * <p>In addition to the standard keyboard keys used by {@code JSplitPane},
+ * {@code FlippingSplitPane} will flip the panes orientation on
+ * {@code SHIFT-BUTTON1}.
  * 
- * <p>(For the keyboard keys used by <code>JSplitPane</code> in the standard Look
- * and Feel (L&amp;F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane"><code>JSplitPane</code>
+ * <p>(For the keyboard keys used by {@code JSplitPane} in the standard Look
+ * and Feel (L&amp;F) renditions, see the <a href="doc-files/Key-Index.html#JSplitPane">{@code JSplitPane}
  * key assignments</a>.)
  * 
- * <p><code>FlippingSplitPane</code> treats many of the methods of
- * <code>JSplitPane</code> recursively, calling the same method on the left and
- * right components (or top and bottom for <code>VERTICAL_ORIENTATION</code>) if
- * they are also <code>FlippingSplitPane</code>s.  You can defeat this behavior
- * by using <code>JSplitPane</code> components instead.
+ * <p>{@code FlippingSplitPane} treats many of the methods of
+ * {@code JSplitPane} recursively, calling the same method on the left and
+ * right components (or top and bottom for {@code VERTICAL_ORIENTATION}) if
+ * they are also {@code FlippingSplitPane}s.  You can defeat this behavior
+ * by using {@code JSplitPane} components instead.
  * 
- * <p><code>FlippingSplitPane</code> also supports "locking": a locked pane renders
+ * <p>{@code FlippingSplitPane} also supports "locking": a locked pane renders
  * the divider unmovable, and the popup menu only has an "Unlocked" item.
- * Locking is also recursive for <code>FlippingSplitPane</code> components.
+ * Locking is also recursive for {@code FlippingSplitPane} components.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
@@ -87,7 +87,7 @@ public class FlippingSplitPane extends JSplitPane
 	private final String prefsKey;
 
 	/**
-	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked
+	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked
 	 */
 	public FlippingSplitPane(String prefsKey)
 	{
@@ -96,7 +96,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
+	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int)}.
 	 */
 	public FlippingSplitPane(int newOrientation, String prefsKey)
@@ -108,7 +108,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
+	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean)}.
 	 */
 	public FlippingSplitPane(int newOrientation, boolean newContinuousLayout,
@@ -121,7 +121,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
+	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, Component,
 	 * Component)}.
 	 */
@@ -135,7 +135,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Creates a new <code>FlippingSplitPane</code>.  Panes begin as unlocked, and
+	 * Creates a new {@code FlippingSplitPane}.  Panes begin as unlocked, and
 	 * otherwise take the defaults of {@link JSplitPane#JSplitPane(int, boolean,
 	 * Component, Component)}.
 	 */
@@ -151,11 +151,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 	
 	/**
-	 * <code>setContinuousLayout</code> recursively calls {@link
-	 * JSplitPane#setContinuousLayout(boolean)} on <code>FlippingSplitPane</code>
+	 * {@code setContinuousLayout} recursively calls {@link
+	 * JSplitPane#setContinuousLayout(boolean)} on {@code FlippingSplitPane}
 	 * components.
 	 *
-	 * @param newContinuousLayout <code>boolean</code>, the setting
+	 * @param newContinuousLayout {@code boolean}, the setting
 	 */
 	@Override
 	public void setContinuousLayout(boolean newContinuousLayout)
@@ -183,10 +183,10 @@ public class FlippingSplitPane extends JSplitPane
 	}
 	
 	/**
-	 * <code>setDividerLocation</code> calls {@link JSplitPane#setDividerLocation(int)}
-	 * unless the <code>FlippingSplitPane</code> is locked.
+	 * {@code setDividerLocation} calls {@link JSplitPane#setDividerLocation(int)}
+	 * unless the {@code FlippingSplitPane} is locked.
 	 *
-	 * @param location <code>int</code>, the location
+	 * @param location {@code int}, the location
 	 */
 	@Override
 	public void setDividerLocation(int location)
@@ -216,11 +216,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>setOneTouchExpandable</code> recursively calls {@link
-	 * JSplitPane#setOneTouchExpandable(boolean)} on <code>FlippingSplitPane</code>
+	 * {@code setOneTouchExpandable} recursively calls {@link
+	 * JSplitPane#setOneTouchExpandable(boolean)} on {@code FlippingSplitPane}
 	 * components.
 	 *
-	 * @param newOneTouchExpandable <code>boolean</code>, the setting
+	 * @param newOneTouchExpandable {@code boolean}, the setting
 	 */
 	@Override
 	public void setOneTouchExpandable(boolean newOneTouchExpandable)
@@ -238,12 +238,12 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>setOrientation</code> recursively calls {@link
-	 * JSplitPane#setOrientation(int)} on <code>FlippingSplitPane</code>
+	 * {@code setOrientation} recursively calls {@link
+	 * JSplitPane#setOrientation(int)} on {@code FlippingSplitPane}
 	 * components, alternating the orietation so as to achieve a "criss-cross"
 	 * affect.
 	 *
-	 * @param newOrientation <code>int</code>, the orientation
+	 * @param newOrientation {@code int}, the orientation
 	 *
 	 * @throws IllegalArgumentException if orientation is not one of:
 	 * HORIZONTAL_SPLIT or VERTICAL_SPLIT.
@@ -264,8 +264,8 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>resetToPreferredSizes</code> recursively calls {@link
-	 * JSplitPane#resetToPreferredSizes} on <code>FlippingSplitPane</code>
+	 * {@code resetToPreferredSizes} recursively calls {@link
+	 * JSplitPane#resetToPreferredSizes} on {@code FlippingSplitPane}
 	 * components.
 	 */
 	@Override
@@ -277,10 +277,10 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Center <code>FlippingSplitPane</code> components; do nothing for other
+	 * Center {@code FlippingSplitPane} components; do nothing for other
 	 * components.
 	 *
-	 * @param c <code>Component</code>, the component.
+	 * @param c {@code Component}, the component.
 	 */
 	private static void maybeCenterDividerLocationsComponent(Component c)
 	{
@@ -291,8 +291,8 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>centerDividerLocations</code> sets the divider location in the middle
-	 * by recursively calling <code>setDividerLocation(0.5)</code>.
+	 * {@code centerDividerLocations} sets the divider location in the middle
+	 * by recursively calling {@code setDividerLocation(0.5)}.
 	 *
 	 * @see #setDividerLocation(double)
 	 */
@@ -304,10 +304,10 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Reset <code>FlippingSplitPane</code> components; do nothing for other
-	 * components (not even <code>JSplitPane</code> components).
+	 * Reset {@code FlippingSplitPane} components; do nothing for other
+	 * components (not even {@code JSplitPane} components).
 	 *
-	 * @param c <code>Component</code>, the component.
+	 * @param c {@code Component}, the component.
 	 */
 	private static void maybeResetToPreferredSizesComponent(Component c)
 	{
@@ -318,8 +318,8 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>fixedResetToPreferredSizes</code> fixes a bug whereby flipping a pane
-	 * from vertical to horizontal sets the divider location to <code>1</code>,
+	 * {@code fixedResetToPreferredSizes} fixes a bug whereby flipping a pane
+	 * from vertical to horizontal sets the divider location to {@code 1},
 	 * thereby hiding the left component.
 	 */
 	private void fixedResetToPreferredSizes()
@@ -329,13 +329,13 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>invertOrientation</code> is a convenience function to turn horizontal
+	 * {@code invertOrientation} is a convenience function to turn horizontal
 	 * into vertical orientations and the converse.
 	 *
-	 * @param orientation <code>int</code>, either <code>HORIZONTAL_ORIENTATION</code>
-	 * or <code>VERTICAL_ORIENTATION</code>
+	 * @param orientation {@code int}, either <code>HORIZONTAL_ORIENTATION</code>
+	 * or {@code VERTICAL_ORIENTATION}
 	 *
-	 * @return <code>int</code>, the inverse
+	 * @return {@code int}, the inverse
 	 */
 	private static int invertOrientation(int orientation)
 	{
@@ -345,10 +345,10 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Flip <code>FlippingSplitPane</code> components; do nothing for other
+	 * Flip {@code FlippingSplitPane} components; do nothing for other
 	 * components.
 	 *
-	 * @param c <code>Component</code>, the component.
+	 * @param c {@code Component}, the component.
 	 */
 	private static void maybeFlipComponent(Component c)
 	{
@@ -359,8 +359,8 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>flipOrientation</code> inverts the current orientation of the panes,
-	 * recursively flipping <code>FlippingSplitPane</code> components.
+	 * {@code flipOrientation} inverts the current orientation of the panes,
+	 * recursively flipping {@code FlippingSplitPane} components.
 	 */
 	private void flipOrientation()
 	{
@@ -380,11 +380,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Set continuous layout for <code>FlippingSplitPane</code> components; do
-	 * nothing for other components (not even <code>JSplitPane</code> components).
+	 * Set continuous layout for {@code FlippingSplitPane} components; do
+	 * nothing for other components (not even {@code JSplitPane} components).
 	 *
-	 * @param c <code>Component</code>, the component
-	 * @param newContinuousLayout <code>boolean</code>, the setting
+	 * @param c {@code Component}, the component
+	 * @param newContinuousLayout {@code boolean}, the setting
 	 */
 	private static void maybeSetContinuousLayoutComponent(Component c,
 			boolean newContinuousLayout)
@@ -396,11 +396,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Set one touch expandable for <code>FlippingSplitPane</code> components; do
-	 * nothing for other components (not even <code>JSplitPane</code> components).
+	 * Set one touch expandable for {@code FlippingSplitPane} components; do
+	 * nothing for other components (not even {@code JSplitPane} components).
 	 *
-	 * @param c <code>Component</code>, the component
-	 * @param newOneTouchExpandable <code>boolean</code>, the setting
+	 * @param c {@code Component}, the component
+	 * @param newOneTouchExpandable {@code boolean}, the setting
 	 */
 	private static void maybeSetOneTouchExpandableComponent(Component c,
 			boolean newOneTouchExpandable)
@@ -412,11 +412,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Set orientation for <code>FlippingSplitPane</code> components; do nothing
-	 * for other components (not even <code>JSplitPane</code> components).
+	 * Set orientation for {@code FlippingSplitPane} components; do nothing
+	 * for other components (not even {@code JSplitPane} components).
 	 *
-	 * @param c <code>Component</code>, the component
-	 * @param newOrientation <code>int</code>, the orientation
+	 * @param c {@code Component}, the component
+	 * @param newOrientation {@code int}, the orientation
 	 */
 	private static void maybeSetOrientationComponent(Component c,
 			int newOrientation)
@@ -428,9 +428,9 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Gets the <code>locked</code> property.
+	 * Gets the {@code locked} property.
 	 *
-	 * @return the value of the <code>locked</code> property
+	 * @return the value of the {@code locked} property
 	 *
 	 * @see #setLocked
 	 */
@@ -440,11 +440,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Set locked for <code>FlippingSplitPane</code> components; do nothing for
+	 * Set locked for {@code FlippingSplitPane} components; do nothing for
 	 * other components.
 	 *
-	 * @param c <code>Component</code>, the component
-	 * @param locked <code>boolean</code>, the setting
+	 * @param c {@code Component}, the component
+	 * @param locked {@code boolean}, the setting
 	 */
 	private static void maybeSetLockedComponent(Component c, boolean locked)
 	{
@@ -455,11 +455,11 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * Sets the value of the <code>locked</code> property, which must be
-	 * <code>true</code> for the child components to be locked against changes. The
-	 * default value of this property is <code>false</code>.
+	 * Sets the value of the {@code locked} property, which must be
+	 * {@code true} for the child components to be locked against changes. The
+	 * default value of this property is {@code false}.
 	 *
-	 * @param locked <code>int</code>, the setting
+	 * @param locked {@code int}, the setting
 	 *
 	 * @see #isLocked
 	 */
@@ -469,8 +469,8 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * <code>initComponent</code> installs the mouse listener for the popup menu,
-	 * and fixes some egregious defaults in <code>JSplitPane</code>.
+	 * {@code initComponent} installs the mouse listener for the popup menu,
+	 * and fixes some egregious defaults in {@code JSplitPane}.
 	 */
 	private void initComponent()
 	{
@@ -529,11 +529,11 @@ public class FlippingSplitPane extends JSplitPane
 		}
 
 		/**
-		 * Sets the value of the <code>locked</code> property, which must be
-		 * <code>true</code> for the child components to be locked against changes. The
-		 * default value of this property is <code>false</code>.
+		 * Sets the value of the {@code locked} property, which must be
+		 * {@code true} for the child components to be locked against changes. The
+		 * default value of this property is {@code false}.
 		 *
-		 * @param locked <code>int</code>, the setting
+		 * @param locked {@code int}, the setting
 		 *
 		 * @see #isLocked
 		 */

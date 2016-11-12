@@ -54,7 +54,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * <code>SpinningTabbedPane</code>.
+ * {@code SpinningTabbedPane}.
  *
  * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *

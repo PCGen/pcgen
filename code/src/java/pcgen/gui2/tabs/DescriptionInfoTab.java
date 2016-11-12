@@ -56,7 +56,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>DescriptionInfoTab</code> is a placeholder for the yet to be
+ * The Class {@code DescriptionInfoTab} is a placeholder for the yet to be
  * implemented description tab.
  *
  * <br>
@@ -430,7 +430,7 @@ public class DescriptionInfoTab extends FlippingSplitPane implements CharacterIn
 	}
 
 	/**
-	 * The Class <code>AddAction</code> acts on a user pressing the Add Note
+	 * The Class {@code AddAction} acts on a user pressing the Add Note
 	 * button.
 	 */
 	private class AddAction extends AbstractAction
