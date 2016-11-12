@@ -46,7 +46,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * &nbsp;&nbsp;This is a | (pipe) delimited list of templates that are granted
  * by the feat.<br>
  * <strong>Example:</strong><br>
- * &nbsp;&nbsp;<code>TEMPLATE:Celestial</code><br>
+ * &nbsp;&nbsp;{@code TEMPLATE:Celestial}<br>
  * &nbsp;&nbsp;&nbsp;&nbsp;Adds the "Celestial" template to the character.<br>
  * </p>
  */

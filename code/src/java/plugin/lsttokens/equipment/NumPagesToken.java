@@ -29,7 +29,7 @@ import pcgen.rules.persistence.token.AbstractIntToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * <code>NumPagesToken</code> deals with NUMPAGES token
+ * {@code NumPagesToken} deals with NUMPAGES token
  * 
  * (Tue, 14 Mar 2006) $
  * 

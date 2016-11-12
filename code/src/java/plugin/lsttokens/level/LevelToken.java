@@ -28,7 +28,7 @@ import pcgen.persistence.lst.LevelLstToken;
 import pcgen.util.Logging;
 
 /**
- * <code>LevelToken</code> parses the LEVEL tag for the game mode 
+ * {@code LevelToken} parses the LEVEL tag for the game mode
  * file level.lst. 
  *
  * 

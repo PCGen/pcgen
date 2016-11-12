@@ -34,7 +34,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * The Class <code>IconToken</code> processes the ICPON token. This 
+ * The Class {@code IconToken} processes the ICPON token. This
  * allows an icon to be specified for the item of equipment.
  *
  * <br>

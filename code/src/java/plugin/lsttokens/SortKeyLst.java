@@ -38,7 +38,7 @@ import pcgen.rules.persistence.token.PostValidationToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>SortKeyLst</code> implements the global SORTKEY tag, which 
+ * The Class {@code SortKeyLst} implements the global SORTKEY tag, which
  * allows items to be sorted in a custom manner.
  *
  * <br>

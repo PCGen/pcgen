@@ -33,7 +33,7 @@ import pcgen.persistence.lst.MigrationLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>NewKeyToken</code> parses the NEWKEY token in migration.lst 
+ * The Class {@code NewKeyToken} parses the NEWKEY token in migration.lst
  * game mode files. The NEWKEY token defines the key that should be used instead 
  * of an old key when loading an older character.  
  *

@@ -35,7 +35,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>BonusToken</code>
+ * {@code BonusToken}
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

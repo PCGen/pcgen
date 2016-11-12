@@ -61,10 +61,10 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>AbilityToken</code> parses ADD:ABILITY entries.
+ * {@code AbilityToken} parses ADD:ABILITY entries.
  *
  * <p>
- * <b>Tag Name</b>: <code>ADD:ABILITY</code>|w|x|y|z,z<br>
+ * <b>Tag Name</b>: {@code ADD:ABILITY}|w|x|y|z,z<br>
  * <b>Variables Used (w)</b>: Count (Optional Number, Variable or Formula -
  * Number of choices granted).<br>
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this

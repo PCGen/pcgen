@@ -39,7 +39,7 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
 
 /**
- * <code>ActypeToken</code>
+ * {@code ActypeToken}
  * 
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

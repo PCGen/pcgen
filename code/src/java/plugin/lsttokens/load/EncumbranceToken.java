@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * <code>EncumbranceToken</code>
+ * {@code EncumbranceToken}
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

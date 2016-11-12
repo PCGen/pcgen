@@ -27,7 +27,7 @@ import pcgen.rules.persistence.token.AbstractBasicCampaignToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * <code>AbilityCategoryToken</code> parses ABILITYCATEGORY in campaign (pcc)
+ * {@code AbilityCategoryToken} parses ABILITYCATEGORY in campaign (pcc)
  * files.
  *
  *

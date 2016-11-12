@@ -41,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * <code>UrlToken</code> is responsible for parsing the URL campaign token.
+ * {@code UrlToken} is responsible for parsing the URL campaign token.
  * 
  * -0500 (Sun, 27 Jan 2008) $
  * 

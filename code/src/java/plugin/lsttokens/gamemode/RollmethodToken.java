@@ -32,7 +32,7 @@ import pcgen.persistence.lst.SimpleLoader;
 import pcgen.util.Logging;
 
 /**
- * <code>RollmethodToken</code>
+ * {@code RollmethodToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
