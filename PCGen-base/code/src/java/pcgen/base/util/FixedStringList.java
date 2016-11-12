@@ -26,7 +26,7 @@ import java.util.RandomAccess;
 import pcgen.base.lang.StringUtil;
 
 /**
- * A FixedStringList is a fixed-length java.util.List<String>. The size of the
+ * A FixedStringList is a fixed-length @code{java.util.List<String>}. The size of the
  * FixedStringList is set at construction and cannot be modified. Entries which
  * are not set are null.
  * 
