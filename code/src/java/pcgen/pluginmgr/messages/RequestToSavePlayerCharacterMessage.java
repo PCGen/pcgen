@@ -26,7 +26,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>RequestToSavePlayerCharacterMessage</code> encapsulates a
+ * The Class {@code RequestToSavePlayerCharacterMessage} encapsulates a
  * request that PCGen save the specified character.
  *
  * <br>

@@ -25,7 +25,7 @@ package pcgen.pluginmgr.messages;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>RequestFileOpenedMessageForCurrentlyOpenedPCsMessage</code> 
+ * The Class {@code RequestFileOpenedMessageForCurrentlyOpenedPCsMessage}
  * encapsulates a request to have PCGen send out open messages sent for each 
  * already open PC.
  *
