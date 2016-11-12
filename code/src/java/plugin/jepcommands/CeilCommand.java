@@ -31,8 +31,8 @@ public class CeilCommand extends PCGenCommand
 
 	/**
 	 * Runs ceil on the inStack. The parameter is popped
-	 * off the <code>inStack</code>, and the ceiling of it's value is
-	 * pushed back to the top of <code>inStack</code>.
+	 * off the {@code inStack}, and the ceiling of it's value is
+	 * pushed back to the top of {@code inStack}.
 	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */

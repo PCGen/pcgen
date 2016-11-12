@@ -28,7 +28,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>GamemodekeyToken</code> parses the GAMEMODEKEY token.
+ * {@code GamemodekeyToken} parses the GAMEMODEKEY token.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

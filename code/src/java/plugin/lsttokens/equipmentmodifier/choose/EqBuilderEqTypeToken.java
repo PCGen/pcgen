@@ -32,7 +32,7 @@ import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>EqBuilderEqTypeToken</code> parses the EQ Builder specific choose
+ * {@code EqBuilderEqTypeToken} parses the EQ Builder specific choose
  * string to allow the selection of equipent types.
  *
  * (Tue, 06 May 2008) $

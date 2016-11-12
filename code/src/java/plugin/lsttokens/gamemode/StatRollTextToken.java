@@ -30,7 +30,7 @@ import java.net.URI;
 import java.util.StringTokenizer;
 
 /**
- * <code>StatRollTextToken</code>
+ * {@code StatRollTextToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

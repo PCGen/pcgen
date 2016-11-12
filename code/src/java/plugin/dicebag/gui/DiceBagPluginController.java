@@ -133,7 +133,7 @@ public class DiceBagPluginController
 	 * Displays a file-open dialog box and processes the selected values.
 	 * </p>
 	 *
-	 * @return <code>boolean</code> indicating success/failure of operation.
+	 * @return {@code boolean} indicating success/failure of operation.
 	 */
 	public boolean fileOpen()
 	{
@@ -181,7 +181,7 @@ public class DiceBagPluginController
 	/**
 	 * <p>
 	 * Saves the currently active bag (if it exists), using
-	 * <code>chooseSaveFile()</code>.
+	 * {@code chooseSaveFile()}.
 	 * </p>
 	 */
 	public void fileSave()

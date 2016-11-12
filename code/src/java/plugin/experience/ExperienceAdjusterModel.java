@@ -52,8 +52,8 @@ public class ExperienceAdjusterModel extends Observable
 	/**
 	 * Class constructor for ExperienceAdjusterView taking a
 	 * parent directory.  This will call the
-	 * function <code>initComponents</code> to initialise all the GUI
-	 * components on the <code>JPanel</code>.
+	 * function {@code initComponents} to initialise all the GUI
+	 * components on the {@code JPanel}.
 	 * @param parentDir the directory this is running out of
 	 */
 	ExperienceAdjusterModel(File parentDir)

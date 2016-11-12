@@ -42,7 +42,7 @@ import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>PortraitToken</code> supports the PORTRAIT 
+ * The Class {@code PortraitToken} supports the PORTRAIT
  * token and its and PORTRAIT.THUMB variant.
  *
  * <br>

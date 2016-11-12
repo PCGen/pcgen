@@ -70,9 +70,9 @@ import plugin.initiative.gui.PreferencesMassiveDamagePanel;
 import plugin.initiative.gui.PreferencesPerformancePanel;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience. This class is called by the <code>GMGenSystem
- * </code>
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience. This class is called by the {@code GMGenSystem
+ * }
  * and will have it's own model and view. <br>
  * Created on February 26, 2003 <br>
  * Updated on February 26, 2003
@@ -125,7 +125,7 @@ public class InitiativePlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -241,7 +241,7 @@ public class InitiativePlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Gets the internal view's <code>InitHolderList</code>
+	 * Gets the internal view's {@code InitHolderList}
 	 * </p>
 	 *
 	 * @param message
@@ -253,7 +253,7 @@ public class InitiativePlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Delegates to <code>handleAddButton()</code>
+	 * Delegates to {@code handleAddButton()}
 	 * </p>
 	 *
 	 * @param message
@@ -268,7 +268,7 @@ public class InitiativePlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Handles an <code>InitHolderListSendMessage</code> by addomg all new
+	 * Handles an {@code InitHolderListSendMessage} by addomg all new
 	 * combatants to the views list.
 	 * </p>
 	 *

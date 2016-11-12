@@ -34,7 +34,7 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>PreAbilityParser</code> tests whether a character passes ability
+ * {@code PreAbilityParser} tests whether a character passes ability
  * prereqs.
  *
  *

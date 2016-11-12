@@ -48,7 +48,7 @@ import pcgen.core.RollingMethods;
  * <p>The dialog presents a table which holds the details of the attacks.  Certain cells
  * are editable (notably fudge bonus, range value, hit/crit checkboxes, damage dice).</p>
  * <p>User can enter an armor class and roll attacks.  If a vector of combatants is passed the
- * dialog displays a <code>JComboBox</code> which displays attackable combatants.  Changing
+ * dialog displays a {@code JComboBox} which displays attackable combatants.  Changing
  * selections changes the AC value and re-calculates the attack rolls.</p>
  *
  */
@@ -66,10 +66,10 @@ public class AttackDialog extends JDialog
 	/** <p>This dialog's attack model; that is, the attack object this dialog will resolve.</p> */
 	private AttackModel m_attack = null;
 
-	/** <p>Instance of <code>AttackTableModel</code>.</p> */
+	/** <p>Instance of {@code AttackTableModel}.</p> */
 	private AttackTableModel m_tableModel = null;
 
-	/** <p><code>JComboBox</code> for Armor class types.</p> */
+	/** <p>{@code JComboBox} for Armor class types.</p> */
 	private JComboBox m_acTypeCombo;
 
 	/**
@@ -77,7 +77,7 @@ public class AttackDialog extends JDialog
 	 */
 	private JComboBox m_targets = null;
 
-	/** <p><code>JComboBox</code> for combatants.</p> */
+	/** <p>{@code JComboBox} for combatants.</p> */
 	private JComboBox m_targetsCombo;
 
 	/** <p>Text field for the armor class</p> */
@@ -86,13 +86,13 @@ public class AttackDialog extends JDialog
 	/** <p>Label to hold the total damage information.</p> */
 	private JLabel m_totalDamageLabel;
 
-	/** <p>The dialog's <code>JTable</code>; holds all attack information for display</p> */
+	/** <p>The dialog's {@code JTable}; holds all attack information for display</p> */
 	private JTable m_table = null;
 
 	/** <p>Vector of combatants that are valid targets.</p> */
 	private Vector m_combatants = null;
 
-	/** <p><code>boolean</code>; whether or not damage is subdual.</p> */
+	/** <p>{@code boolean}; whether or not damage is subdual.</p> */
 	private boolean m_subdual;
 
 	/** <p>Total damage for all successful attacks.</p> */
@@ -113,8 +113,8 @@ public class AttackDialog extends JDialog
 	/**
 	 * <p>Initializes the dialog with the specified model and the specified
 	 * list of valid targets.  This class ignores combatants that are not
-	 * instances of <code>PcgCombatant</code>.  A null or empty vector
-	 * will cause the dialgo to display as if <code>AttackDialog(AttackModel model)</code>
+	 * instances of {@code PcgCombatant}.  A null or empty vector
+	 * will cause the dialgo to display as if {@code AttackDialog(AttackModel model)}
 	 * had been called.</p>
 	 *
 	 * @param model Attack model for this dlg.
@@ -154,7 +154,7 @@ public class AttackDialog extends JDialog
 	}
 
 	/**
-	 * @return <code>true</code> if damage is subdual
+	 * @return {@code true} if damage is subdual
 	 */
 	public boolean isSubdual()
 	{
@@ -172,7 +172,7 @@ public class AttackDialog extends JDialog
 	}
 
 	/**
-	 * Handles actions from <code>m_acTypeCombo</code>; changes how armor
+	 * Handles actions from {@code m_acTypeCombo}; changes how armor
 	 * class is recalculated
 	 *
 	 * @param e Event which fired this handler

@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>AllowautoresizeToken</code>
+ * {@code AllowautoresizeToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

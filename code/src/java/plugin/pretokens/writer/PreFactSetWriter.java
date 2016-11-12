@@ -28,7 +28,7 @@ import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 /**
- * <code>PreFactWriter</code> outputs fact prereqs.
+ * {@code PreFactWriter} outputs fact prereqs.
  */
 public class PreFactSetWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

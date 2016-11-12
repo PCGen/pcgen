@@ -31,7 +31,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListCastToken</code> outputs the number of spells
+ * {@code SpellListCastToken} outputs the number of spells
  * that can cast for the specified class and level.
  *
  *
