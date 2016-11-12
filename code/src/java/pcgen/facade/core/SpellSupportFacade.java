@@ -46,8 +46,8 @@ public interface SpellSupportFacade
 	public ListFacade<? extends SuperNode> getBookSpellNodes();
 
 	/**
-	 * Adds the spell identified by the <code>SpellNode</code> to the list of known spells for
-	 * the character associated with this <code>SpellSupportFacade</code>. The nodes that are used
+	 * Adds the spell identified by the {@code SpellNode} to the list of known spells for
+	 * the character associated with this {@code SpellSupportFacade}. The nodes that are used
 	 * as a parameter will originate from the available spell nodes list and implementors should
 	 * not reuse this node in other lists. The node serves as an identifier for the spell not as a 
 	 * literal object to add to other lists. Thus, this method should make a copy or otherwise make
@@ -57,7 +57,7 @@ public interface SpellSupportFacade
 	public void addKnownSpell(SpellNode spell);
 
 	/**
-	 * Removes the spell identified by the <code>SpellNode</code> from the list of known spells/
+	 * Removes the spell identified by the {@code SpellNode} from the list of known spells/
 	 * all known spells.
 	 * @param spell the spell to remove
 	 */
