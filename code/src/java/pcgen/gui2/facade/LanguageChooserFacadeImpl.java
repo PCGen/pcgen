@@ -49,7 +49,7 @@ import pcgen.facade.util.DefaultListFacade;
 import pcgen.facade.util.ListFacade;
 
 /**
- * The Class <code>LanguageChooserFacadeImpl</code> is an implementation of the 
+ * The Class {@code LanguageChooserFacadeImpl} is an implementation of the
  * LanguageChooserFacade for the gui2 package. It is responsible for managing 
  * details of a possible selection of languages. 
  *

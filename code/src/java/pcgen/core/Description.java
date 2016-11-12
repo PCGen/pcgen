@@ -41,7 +41,7 @@ import pcgen.util.Logging;
  * 
  * <p>Variable substitution is performed by replacing a placeholder indicated
  * by %# with the #th variable in the variable list.  For example, the string
- * <br><code>&quot;This is %1 variable %3 %2&quot;</code>
+ * <br>{@code "This is %1 variable %3 %2"}
  * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.

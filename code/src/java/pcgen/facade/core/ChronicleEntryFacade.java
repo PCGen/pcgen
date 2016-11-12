@@ -23,7 +23,7 @@
 package pcgen.facade.core;
 
 /**
- * The Class <code>ChronicleEntryFacade</code> is ...
+ * The Class {@code ChronicleEntryFacade} is ...
  *
  * <br>
  * 

@@ -26,7 +26,7 @@ import java.util.StringTokenizer;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * <code>TextProperty</code>.
+ * {@code TextProperty}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

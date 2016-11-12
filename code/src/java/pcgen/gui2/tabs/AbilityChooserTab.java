@@ -84,7 +84,7 @@ import pcgen.system.LanguageBundle;
  * AbilityChooserTab is a subtab of the AbilitiesInfoTab and is used to display
  * the available and selected abilities for a particular ability category. Its
  * up to the AbilitiesInfoTab to manage this tab's state which more or less
- * follows the state management guidelines of a <code>CharacterInfoTab</code>.
+ * follows the state management guidelines of a {@code CharacterInfoTab}.
  *
  * @see pcgen.gui2.tabs.CharacterInfoTab
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
@@ -909,7 +909,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	}
 
 	/**
-	 * The Class <code>AbilityRenderer</code> displays the tree cells of the
+	 * The Class {@code AbilityRenderer} displays the tree cells of the
 	 * available and selected ability tables.
 	 */
 	private static class AbilityRenderer extends CharacterTreeCellRenderer

@@ -43,7 +43,7 @@ import pcgen.util.SignedInteger;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * {<code>EquipmentChoice</code>} holds the details of a choice or
+ * {{@code EquipmentChoice}} holds the details of a choice or
  * choices required for an Equipment. It is a java bean with a
  * couple of helper functions to support the users of the bean.
  * This supports either the user manually choosing which option

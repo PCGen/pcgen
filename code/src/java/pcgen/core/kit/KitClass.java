@@ -38,7 +38,7 @@ import pcgen.core.prereq.PrereqHandler;
 import pcgen.gui2.UIPropertyContext;
 
 /**
- * <code>KitClass</code> <strong>needs documentation</strong>.
+ * {@code KitClass} <strong>needs documentation</strong>.
  *
  * @author boomer70
  */

@@ -32,7 +32,7 @@ import java.awt.Dimension;
 import java.awt.Rectangle;
 
 /**
- * The Class <code>ScrollablePanel</code> provides a panel which can be 
+ * The Class {@code ScrollablePanel} provides a panel which can be
  * dynamically built up and displayed in a JScrollPane.  
  *
  * <br>

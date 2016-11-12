@@ -42,7 +42,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>RandomNameDialog</code> is a dialog in which the user can 
+ * The Class {@code RandomNameDialog} is a dialog in which the user can
  * generate a random name for their character.
  *
  * <br>

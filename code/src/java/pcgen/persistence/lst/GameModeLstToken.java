@@ -28,7 +28,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 
 /**
- * <code>GameModeLstToken</code>
+ * {@code GameModeLstToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

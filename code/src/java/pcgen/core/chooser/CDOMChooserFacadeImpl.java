@@ -45,7 +45,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>GeneraChooserFacadeBase</code> is a base from which a 
+ * The Class {@code GeneraChooserFacadeBase} is a base from which a
  * ChooserFacade may be simply implemented. The implementing class need only call 
  * the constructor and implement the commit to process the selections.
  * 

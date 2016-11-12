@@ -95,11 +95,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> one element is added from the model.
-	 * <code>index</code> is the index that has been added.
+	 * {@code index} is the index that has been added.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was added
 	 * @param index the index of the element that was added.
 	 * @see EventListenerList
@@ -122,11 +122,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> one element is removed from the model.
-	 * <code>index</code> is the index that has been removed.
+	 * {@code index} is the index that has been removed.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was removed
 	 * @param index the index of the element that was removed.
 	 * @see EventListenerList
@@ -149,10 +149,10 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> the contents of this list have greatly changed.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @see EventListenerList
 	 */
 	protected void fireElementsChanged(Object source)
@@ -173,11 +173,11 @@ public abstract class AbstractListFacade<E> implements ListFacade<E>
 	}
 
 	/**
-	 * <code>AbstractListFacade</code> subclasses must call this method
+	 * {@code AbstractListFacade} subclasses must call this method
 	 * <b>after</b> an element in the model has had its contents changed.
-	 * <code>index</code> is the index that has been modified.
+	 * {@code index} is the index that has been modified.
 	 *
-	 * @param source the <code>ListFacade</code> that changed, typically "this"
+	 * @param source the {@code ListFacade} that changed, typically "this"
 	 * @param element the element that was modified
 	 * @param index the index of the element that was modified.
 	 * @see EventListenerList

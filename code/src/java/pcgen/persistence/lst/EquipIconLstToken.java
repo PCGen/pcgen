@@ -27,7 +27,7 @@ import java.net.URI;
 import pcgen.core.GameMode;
 
 /**
- * The Interface <code>EquipIconLstToken</code> defines a token
+ * The Interface {@code EquipIconLstToken} defines a token
  * as being callable by the EquipIconLoader.
  *
  * <br>

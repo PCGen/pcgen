@@ -27,7 +27,7 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
 /**
- * <code>KitSkillAdd</code>.
+ * {@code KitSkillAdd}.
  *
  * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  */

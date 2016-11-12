@@ -28,7 +28,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>InventoryInfoTab</code> is a placeholder for the yet to be
+ * The Class {@code InventoryInfoTab} is a placeholder for the yet to be
  * implemented Inventory tab.
  * <br>
  * -0800 (Fri, 25 Feb 2011) $

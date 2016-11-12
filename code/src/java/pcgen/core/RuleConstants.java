@@ -25,7 +25,7 @@
 package pcgen.core;
 
 /**
- * <code>RuleConstants</code>
+ * {@code RuleConstants}
  * This interface holds all rules VAR names used in the code.
  *
  * (The reason for an interface rather than a class

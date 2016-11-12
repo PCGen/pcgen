@@ -37,7 +37,7 @@ import pcgen.cdom.enumeration.RaceType;
 import pcgen.facade.core.RaceFacade;
 
 /**
- * <code>Race</code>.
+ * {@code Race}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  * @author Michael Osterlie

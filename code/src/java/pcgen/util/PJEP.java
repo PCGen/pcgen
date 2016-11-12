@@ -38,7 +38,7 @@ import pcgen.persistence.lst.LstUtils;
 import pcgen.system.PluginLoader;
 
 /**
- * <code>PJEP</code>
+ * {@code PJEP}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  *
@@ -192,8 +192,8 @@ public final class PJEP extends JEP
 
 		/**
 		 * Runs classlevel on the inStack. The parameter is popped
-		 * off the <code>inStack</code>, and the variable's value is
-		 * pushed back to the top of <code>inStack</code>.
+		 * off the {@code inStack}, and the variable's value is
+		 * pushed back to the top of {@code inStack}.
 		 * 
 		 * @param inStack The stack to process
 		 * 

@@ -34,7 +34,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>DomainFacadeImpl</code> groups the prereqs for gaining access 
+ * The Class {@code DomainFacadeImpl} groups the prereqs for gaining access
  * to a domain with the domain. This allows these prereqs to be displayed and 
  * enforced by the UI.
  *

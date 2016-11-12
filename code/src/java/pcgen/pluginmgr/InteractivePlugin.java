@@ -25,7 +25,7 @@ package pcgen.pluginmgr;
 import java.io.File;
 
 /**
- * <code>InteractivePlugin</code> defines the interface that must be provided by 
+ * {@code InteractivePlugin} defines the interface that must be provided by
  * any user interactive plugin to PCGen. These plugins are most often defined by 
  * the GMGen module, thus allowing it to be extended.   
  *

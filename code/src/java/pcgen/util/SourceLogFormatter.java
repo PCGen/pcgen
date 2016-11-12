@@ -30,7 +30,7 @@ import java.util.logging.*;
 import java.util.regex.Pattern;
 
 /**
- * <code>SourceLogFormatter</code> is a log formater for the Java
+ * {@code SourceLogFormatter} is a log formater for the Java
  * Loggings API that ignores the call from the PCGen logging class.
  *
  *

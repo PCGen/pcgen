@@ -22,7 +22,7 @@
 package pcgen.util;
 
 /**
- * A helper for <code>java.lang.Integer</code> which understands a
+ * A helper for {@code java.lang.Integer} which understands a
  * leading plus sign for string conversion.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
@@ -36,7 +36,7 @@ public final class Delta
 
 	/**
 	 * Construct a @see java.lang.Integer and strip a leading plus
-	 * sign since <code>Integer</code> does not understand it.
+	 * sign since {@code Integer} does not understand it.
 	 * @param s
 	 * @return Integer
 	 */

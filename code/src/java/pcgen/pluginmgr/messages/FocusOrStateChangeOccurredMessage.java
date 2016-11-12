@@ -27,7 +27,7 @@ import javax.swing.JMenu;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>FocusOrStateChangeOccurredMessage</code> encapsulates a message
+ * The Class {@code FocusOrStateChangeOccurredMessage} encapsulates a message
  * that the user has switched from gmgen to pcgen or vice versa.
  *
  * <br>

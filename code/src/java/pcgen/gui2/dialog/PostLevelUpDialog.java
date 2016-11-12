@@ -62,7 +62,7 @@ import pcgen.gui2.util.table.TableCellUtilities.SpinnerRenderer;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>PostLevelUpDialog</code> provides a display of the results 
+ * The Class {@code PostLevelUpDialog} provides a display of the results
  * of levelling up a character. 
  *
  * <br>

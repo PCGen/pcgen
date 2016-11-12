@@ -30,12 +30,12 @@ import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
 
 /**
- * The <code>CompanionFacadeDelegate</code> is a <code>CompanionFacade</code>
+ * The {@code CompanionFacadeDelegate} is a <code>CompanionFacade</code>
  * implementation that delegates to another CompanionFacade.
  * All internal reference facades are themselves delegates to the underlying
  * CompanionFacade.
  * This class is used to help aid implementation of the
- * <code>CompanionSupportFacadeImpl</code>
+ * {@code CompanionSupportFacadeImpl}
  * @see pcgen.gui2.facade.CompanionSupportFacadeImpl
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */

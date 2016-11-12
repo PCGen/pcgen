@@ -353,7 +353,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	}
 	
 	/**
-	 * The Class <code>LoggingLevelMenu</code> provides a menu to control the 
+	 * The Class {@code LoggingLevelMenu} provides a menu to control the
 	 * level of logging output.
 	 */
 	private class LoggingLevelMenu extends AbstractRadioListMenu<LoggingLevelWrapper>
@@ -391,7 +391,7 @@ public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionLi
 	}
 	
 	/**
-	 * The Class <code>LoggingLevelWrapper</code> provides a display wrapper 
+	 * The Class {@code LoggingLevelWrapper} provides a display wrapper
 	 * around a Level. 
 	 */
 	private static class LoggingLevelWrapper

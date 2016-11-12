@@ -71,7 +71,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>TempBonusInfoTab</code> allows the user to select which
+ * The Class {@code TempBonusInfoTab} allows the user to select which
  * temporary bonus should be applied to their character.
  *
  * <br>

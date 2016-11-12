@@ -64,7 +64,7 @@ public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
      * Removes the mapping for a key from this map if it is present
      * (optional operation).   More formally, if this map contains a mapping
      * from key <tt>k</tt> to collection <tt>v</tt> such that
-     * <code>(key==null ?  k==null : key.equals(k))</code>, that mapping
+     * {@code (key==null ?  k==null : key.equals(k))}, that mapping
      * is removed.  (The map can contain at most one such mapping.)
      *
      * <p>Returns the collection to which this map previously associated the key,

@@ -24,7 +24,7 @@ import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 import javax.swing.LookAndFeel;
 
 /**
- * <code>SkinManager</code> ???
+ * {@code SkinManager} ???
  *
  * @author Jason Buchanan
  */

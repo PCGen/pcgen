@@ -32,7 +32,7 @@ import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 
 /**
- * <code>SpellBook</code> contains details of a prepared spell list or 
+ * {@code SpellBook} contains details of a prepared spell list or
  * a spell book. The term spell book was used as that is the term used
  * throughout the rest of the code.
  *

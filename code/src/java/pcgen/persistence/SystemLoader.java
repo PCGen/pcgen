@@ -28,7 +28,7 @@ import java.util.List;
 import pcgen.core.GameMode;
 
 /**
- * <code>SystemLoader</code> is an abstract factory class that hides
+ * {@code SystemLoader} is an abstract factory class that hides
  * the implementation details of the actual loader.  The initialize method
  * creates an instance of the underlying loader and calls abstract methods to
  * do the loading of system files.

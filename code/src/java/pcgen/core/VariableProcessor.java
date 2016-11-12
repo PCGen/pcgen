@@ -38,7 +38,7 @@ import pcgen.util.PJEP;
 import pcgen.util.PjepPool;
 
 /**
- * <code>VariableProcessor</code> is the base class for PCGen variable
+ * {@code VariableProcessor} is the base class for PCGen variable
  * processors. These are classes that convert a formula or variable
  * into a value and are used extensively both in defintions of objects
  * and for output to output sheets.
@@ -91,7 +91,7 @@ public abstract class VariableProcessor
 	}
 
 	/**
-	 * <code>CachableResult</code> encapsulates a result returned from JEP processing
+	 * {@code CachableResult} encapsulates a result returned from JEP processing
 	 * allowing us to retrieve both the result and its cachability.
 	 */
 	private static class CachableResult

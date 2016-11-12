@@ -26,7 +26,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>EQAltPlusTotalTermEvaluator</code> is responsible for producing 
+ * The Class {@code EQAltPlusTotalTermEvaluator} is responsible for producing
  * the value of the ALTPLUSTOTAL token for use in equipment and eqmod cost formulas. 
  * 
  * 

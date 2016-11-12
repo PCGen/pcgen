@@ -78,7 +78,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>RunConvertPanel</code> provides a display while 
+ * The Class {@code RunConvertPanel} provides a display while
  * the conversion is being run.
  * 
  * 

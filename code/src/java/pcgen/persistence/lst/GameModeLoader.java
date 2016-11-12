@@ -30,7 +30,7 @@ import pcgen.core.GameMode;
 import pcgen.util.Logging;
 
 /**
- * <code>GameModeLoader</code>.
+ * {@code GameModeLoader}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

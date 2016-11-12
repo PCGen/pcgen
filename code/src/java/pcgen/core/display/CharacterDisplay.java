@@ -1694,8 +1694,8 @@ public class CharacterDisplay
 	 * 
 	 * @param deity
 	 *            Deity to check for.
-	 * @return <code>true</code> if the character has the Deity,
-	 *         <code>false</code> otherwise.
+	 * @return {@code true} if the character has the Deity,
+	 *         {@code false} otherwise.
 	 */
 	public boolean hasDeity(final Deity deity)
 	{

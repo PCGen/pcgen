@@ -33,7 +33,7 @@ import pcgen.facade.util.ListFacade;
 import pcgen.gui2.util.FacadeListModel;
 
 /**
- * The Class <code>DeferredCharacterComboBoxModel</code> is a model for a combo 
+ * The Class {@code DeferredCharacterComboBoxModel} is a model for a combo
  * box that holds off setting the value until focus is lost. This gets around a bug 
  * with the keyboard navigation of JComboBox where each key press selects the 
  * highlighted entry. This model should be used where costly or permanent actions 

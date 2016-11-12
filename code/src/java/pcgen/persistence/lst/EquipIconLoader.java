@@ -32,7 +32,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>EquipIconLoader</code> loads the equipIcon.lst game mode file.
+ * The Class {@code EquipIconLoader} loads the equipIcon.lst game mode file.
  *
  * <br>
  * 

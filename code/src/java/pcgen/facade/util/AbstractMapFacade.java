@@ -66,11 +66,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> a new key-value pair is added to the model.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the new key
 	 * @param value the value associated with the new key
 	 * @see EventListenerList
@@ -93,11 +93,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> a key-value pair is removed from the model.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the removed key
 	 * @param value the value associated with the key
 	 * @see EventListenerList
@@ -120,11 +120,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> a key has been modified.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the removed key
 	 * @param value the value associated with the key
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
@@ -148,11 +148,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> a key is assigned a new value.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the removed key
 	 * @param oldValue the old value associated with the key
 	 * @param newValue the new value associated with the key
@@ -176,11 +176,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> a value has been modified.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @param key the removed key
 	 * @param value the value associated with the key
 	 * @param cause optional parameter used to indicate the underlying event that caused the modification
@@ -204,11 +204,11 @@ public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 	}
 
 	/**
-	 * <code>AbstractMapFacade</code> subclasses must call this method
+	 * {@code AbstractMapFacade} subclasses must call this method
 	 * <b>after</b> the contents of the map have greatly changed.
 	 *
 	 * @param source the
-	 * <code>MapFacade</code> that changed, typically "this"
+	 * {@code MapFacade} that changed, typically "this"
 	 * @see EventListenerList
 	 */
 	protected void fireKeysChanged(Object source)

@@ -40,7 +40,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>SpellChoiceDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code SpellChoiceDialog} provides a pop-up dialog that allows
  * the user to select a spell for inclusion in things like custom equipment 
  * items.  
  *

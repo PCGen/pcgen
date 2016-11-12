@@ -42,7 +42,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>SourceSelectionPanel</code> gathers the source 
+ * The Class {@code SourceSelectionPanel} gathers the source
  * folder for the conversion process from the user.
  * 
  * 

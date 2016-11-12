@@ -80,7 +80,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PropertyContext;
 
 /**
- * The Class <code>ChooserDialog</code> provides a general dialog to allow the 
+ * The Class {@code ChooserDialog} provides a general dialog to allow the
  * user to select from a number of predefined choices. A ChooserFacade instance 
  * must be supplied, this defines the choices available, the text to be displayed 
  * on screen and the actions to be taken when the user confirms their choices. The 

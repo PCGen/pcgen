@@ -26,7 +26,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.CharacterSpell;
 
 /**
- * The Class <code>PCCastTimesAtWillTermEvaluator</code> supplies the 
+ * The Class {@code PCCastTimesAtWillTermEvaluator} supplies the
  * times per day value of the ATWILL constant. 
  * 
  * 

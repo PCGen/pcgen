@@ -28,7 +28,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SizeAdjustmentFacade;
 
 /**
- * <code>SizeAdjustment</code>.
+ * {@code SizeAdjustment}.
  *
  * @author Greg Bingleman &lt;byngl@users.sourceforge.net&gt;
  */

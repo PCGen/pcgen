@@ -34,7 +34,7 @@ import pcgen.persistence.SystemLoader;
 import pcgen.util.Logging;
 
 /**
- * <code>LevelLoader</code> loads up the level system file
+ * {@code LevelLoader} loads up the level system file
  * by processing each line passed to it.
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

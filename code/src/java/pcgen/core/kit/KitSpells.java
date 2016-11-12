@@ -49,7 +49,7 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * <code>KitSpells</code>.
+ * {@code KitSpells}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
