@@ -51,7 +51,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Comparators;
 
 /**
- * The Class <code>AbilityTreeTableModel</code> is a model for the 
+ * The Class {@code AbilityTreeTableModel} is a model for the
  * selected abilities tree table. It lists the abilities held by the 
  * character in a tree structure by category.
  * 

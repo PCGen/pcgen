@@ -194,7 +194,7 @@ public class SkillPointTableModel extends AbstractTableModel
 	}
 
 	/**
-	 * The Class <code>BoldNumberRenderer</code> displays a right aligned
+	 * The Class {@code BoldNumberRenderer} displays a right aligned
 	 * read-only column containing a bolded number.
 	 */
 	private static class BoldNumberRenderer extends DefaultTableCellRenderer

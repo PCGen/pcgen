@@ -61,7 +61,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>CharacterSheetInfoTab</code> is a placeholder for the
+ * The Class {@code CharacterSheetInfoTab} is a placeholder for the
  * character sheet tab.
  *
  * <br>
