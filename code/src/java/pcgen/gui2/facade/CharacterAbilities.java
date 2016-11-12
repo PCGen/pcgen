@@ -67,7 +67,7 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>CharacterAbilities</code> manages the interaction between 
+ * The Class {@code CharacterAbilities} manages the interaction between
  * the core and the user interface for abilities. It listens for changes in 
  * abilities in the core and then updates the lists provided to the UI to
  * reflect the changes. The lists automatically notify any listeners in the 
@@ -740,7 +740,7 @@ public class CharacterAbilities
 	}
 
 	/**
-	 * The Class <code>GrantedAbilityChangeHandler</code> responds to changes to 
+	 * The Class {@code GrantedAbilityChangeHandler} responds to changes to
 	 * the character's list of granted abilities.
 	 */
 	private final class GrantedAbilityChangeHandler implements

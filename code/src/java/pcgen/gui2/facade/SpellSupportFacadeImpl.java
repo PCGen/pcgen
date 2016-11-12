@@ -99,7 +99,7 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>SpellSupportFacadeImpl</code> marshals the spell data for a 
+ * The Class {@code SpellSupportFacadeImpl} marshals the spell data for a
  * character for display in the user interface. It also responds to any actions 
  * by the UI layer on the character's spells.
  *

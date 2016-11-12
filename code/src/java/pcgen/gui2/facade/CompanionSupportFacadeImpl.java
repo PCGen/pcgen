@@ -59,7 +59,7 @@ import pcgen.util.enumeration.Tab;
 /**
  * This class implements the basic CompanionSupportFacade
  * for a given
- * <code>PlayerCharacter</code> and is
+ * {@code PlayerCharacter} and is
  * used to help implement companion support for the
  * CharacterFacade.
  * @see pcgen.gui2.facade.CharacterFacadeImpl
