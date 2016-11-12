@@ -113,7 +113,7 @@ public class Logging
 	}
 
 	/**
-	 * Set debugging state: <code>true</code> is on.
+	 * Set debugging state: {@code true} is on.
 	 *
 	 * @param argDebugMode boolean debugging state
 	 */
@@ -250,7 +250,7 @@ public class Logging
 	 * method will issue a beep if the application is running in Debug mode.
 	 * <p>
 	 * This method accepts a variable number of parameters and will replace
-	 * <code>{argno}</code> in the string with each passed paracter in turn.
+	 * {@code {argno}} in the string with each passed paracter in turn.
 	 * 
 	 * @param aKey
 	 *            A key for the localized string in the language bundle

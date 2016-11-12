@@ -25,16 +25,16 @@ import java.util.Comparator;
 import java.io.Serializable;
 
 /**
- * A <code>Comparator</code> to compare objects as
- * <code>Comparable</code>s.  This is particularly useful for
- * applications such as maintaining a sorted <code>JComboBoxEx</code>
+ * A {@code Comparator} to compare objects as
+ * {@code Comparable}s.  This is particularly useful for
+ * applications such as maintaining a sorted {@code JComboBoxEx}
  * and the like.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class ComparableComparator<T extends Comparable<T>> implements Comparator<T>, Serializable
 {
-	/** Constructs a <code>ComparableComparator</code>. */
+	/** Constructs a {@code ComparableComparator}. */
 	public ComparableComparator()
 	{
 		// TODO: Exception needs to be handled

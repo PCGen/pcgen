@@ -26,7 +26,7 @@ package pcgen.util;
 import java.util.logging.Level;
 
 /**
- * <code>PCGenLogLevel</code> defines PCGen's custom logging levels.
+ * {@code PCGenLogLevel} defines PCGen's custom logging levels.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

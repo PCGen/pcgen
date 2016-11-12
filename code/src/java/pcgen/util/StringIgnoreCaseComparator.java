@@ -25,16 +25,16 @@ import java.util.Comparator;
 import java.io.Serializable;
 
 /**
- * A <code>Comparator</code> to compare objects as
- * <code>String</code>s ignoring case.  This is particularly useful
+ * A {@code Comparator} to compare objects as
+ * {@code String}s ignoring case.  This is particularly useful
  * for applications such as maintaining a sorted
- * <code>JComboBoxEx</code> and the like.
+ * {@code JComboBoxEx} and the like.
  *
  * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {
-	/** Constructs a <code>StringIgnoreCaseComparator</code>. */
+	/** Constructs a {@code StringIgnoreCaseComparator}. */
 	public StringIgnoreCaseComparator()
 	{
 		// TODO: Exception needs to be handled
