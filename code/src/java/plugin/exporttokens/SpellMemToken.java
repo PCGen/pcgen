@@ -54,7 +54,7 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 /**
- * <code>SpellMemToken</code> displays information about the spells
+ * {@code SpellMemToken} displays information about the spells
  * in the character spellbooks..
  *
  *

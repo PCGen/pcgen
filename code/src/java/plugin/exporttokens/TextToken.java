@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
 /**
- * <code>TextToken</code> produces the output for the output token TEXT.
+ * {@code TextToken} produces the output for the output token TEXT.
  * 
  * Possible tag formats are:<pre>
  * TEXT.x.y

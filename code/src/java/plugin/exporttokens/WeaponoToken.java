@@ -34,7 +34,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.WeaponToken;
 
 /**
- * <code>WeaponoToken</code>.
+ * {@code WeaponoToken}.
  * 
  * @author	binkley
  */
