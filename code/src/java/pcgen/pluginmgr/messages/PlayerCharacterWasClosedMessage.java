@@ -26,7 +26,7 @@ import pcgen.core.PlayerCharacter;
 import pcgen.pluginmgr.PCGenMessage;
 
 /**
- * The Class <code>PlayerCharacterWasClosedMessage</code> encapsulates an 
+ * The Class {@code PlayerCharacterWasClosedMessage} encapsulates an
  * advisory message that a character was closed in the user interface of PCGen.
  *
  * <br>
