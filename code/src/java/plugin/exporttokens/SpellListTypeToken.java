@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListTypeToken</code> outputs the type (i.e. Arcane or 
+ * {@code SpellListTypeToken} outputs the type (i.e. Arcane or
  * Divine) of the specified spell class.
  *
  *

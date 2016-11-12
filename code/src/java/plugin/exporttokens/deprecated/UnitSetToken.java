@@ -29,7 +29,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>UnitSetToken</code>.
+ * {@code UnitSetToken}.
  *
  * Token formats are:
  * 

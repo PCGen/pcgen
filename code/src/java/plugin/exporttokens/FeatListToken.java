@@ -8,7 +8,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
 /**
- * <code>FeatListToken</code> deals with FEATLIST Token
+ * {@code FeatListToken} deals with FEATLIST Token
  *
  *
  * @author karianna

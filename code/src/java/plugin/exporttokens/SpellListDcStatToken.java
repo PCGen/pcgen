@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListDcStatToken</code> outputs the STAT used to 
+ * {@code SpellListDcStatToken} outputs the STAT used to
  * figure out DC of spell
  *
  *

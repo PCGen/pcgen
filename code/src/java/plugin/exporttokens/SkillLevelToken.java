@@ -31,7 +31,7 @@ import pcgen.io.exporttoken.SkillToken;
 import pcgen.util.Logging;
 
 /**
- * <code>SkillLevelToken</code>  outputs the number of skills
+ * {@code SkillLevelToken}  outputs the number of skills
  * the character obtained at the specified level. The format 
  * for this tag is SKILLLEVEL.x.TOTAL 
  *

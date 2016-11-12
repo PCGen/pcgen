@@ -31,7 +31,7 @@ import pcgen.io.exporttoken.WeaponToken;
 import java.util.StringTokenizer;
 
 /**
- * <code>WeaponpToken</code>.
+ * {@code WeaponpToken}.
  * 
  * @author	binkley
  */

@@ -34,7 +34,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>VisionToken</code> produces the output for the output token 
+ * {@code VisionToken} produces the output for the output token
  * VISION.
  *
  *

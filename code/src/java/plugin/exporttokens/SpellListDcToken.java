@@ -31,7 +31,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListDcToken</code> outputs the DC casting that level 
+ * {@code SpellListDcToken} outputs the DC casting that level
  * of spell for the indicated class.
  *
  *

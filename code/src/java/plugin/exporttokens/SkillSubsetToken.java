@@ -35,7 +35,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>SkillSubsetToken</code> outputs the value of the Skill at
+ * {@code SkillSubsetToken} outputs the value of the Skill at
  * position x in a subset of character's skill list. The format
  * for this tag is SKILLSUBSET.pos.subname.property
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
