@@ -79,7 +79,7 @@ public class PreSizeParser extends AbstractPrerequisiteParser implements
 
 			// Get the comparator type SIZEGTEQ, BSIZE, SIZENEQ etc.
 			String compType = kind.substring(4);
-			if (compType.length() == 0)
+			if (compType.isEmpty())
 			{
 				compType = "gteq";
 			}

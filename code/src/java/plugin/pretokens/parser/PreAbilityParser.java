@@ -170,7 +170,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 					|| preKey.toUpperCase().startsWith(CATEGORY_EQUALS))
 				{
 					String tempCat = preKey.substring((CATEGORY.length()));
-					if (categoryName.length() > 0)
+					if (!categoryName.isEmpty())
 					{
 						throw new PersistenceLayerException(LanguageBundle
 							.getFormattedString(
@@ -203,7 +203,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		 * into one prereq ... question is how (and keep the operator, etc.
 		 * correct)
 		 */
-		if (categoryName.length() > 0)
+		if (!categoryName.isEmpty())
 		{
 			for (Prerequisite p : prereq.getPrerequisites())
 			{
