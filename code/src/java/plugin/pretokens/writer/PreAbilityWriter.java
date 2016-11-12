@@ -36,7 +36,7 @@ import pcgen.persistence.lst.output.prereq.AbstractPrerequisiteWriter;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 
 /**
- * <code>PreAbilityWriter</code> outputs ability prereqs.
+ * {@code PreAbilityWriter} outputs ability prereqs.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

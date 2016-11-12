@@ -37,7 +37,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>PreArmorProfTester</code> does the testing of armor proficiency 
+ * {@code PreArmorProfTester} does the testing of armor proficiency
  * prerequisites. 
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
