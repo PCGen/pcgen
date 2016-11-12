@@ -254,7 +254,7 @@ public class DoubleKeyMap<K1, K2, V> implements Cloneable
 	 * 
 	 * @param key1
 	 *            The primary key for retrieving the map
-	 * @return Map<K2, V> The map stored for the given key
+	 * @return The map stored for the given key
 	 */
 	public Map<K2, V> getMapFor(K1 key1)
 	{
