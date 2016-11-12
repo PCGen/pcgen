@@ -27,7 +27,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCBaseHDTermEvaluator</code> is responsible for calculating
+ * The Class {@code PCBaseHDTermEvaluator} is responsible for calculating
  * the character's unmodified number of racial hit dice, as specified by the 
  * MONSTERCLASS tag in the race definition. 
  * 

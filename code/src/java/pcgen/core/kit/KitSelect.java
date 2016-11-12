@@ -29,7 +29,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitSelect</code>.
+ * {@code KitSelect}.
  *
  * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */

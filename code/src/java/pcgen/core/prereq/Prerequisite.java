@@ -28,7 +28,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>Prerequisite</code> is the storage format for all 
+ * The Class {@code Prerequisite} is the storage format for all
  * prerequisites. It is populated by a parser, written out by a writer
  * and tested by a Tester class. Each kind of prerequisite will have 
  * one of each of these three classes that is responsible for managing

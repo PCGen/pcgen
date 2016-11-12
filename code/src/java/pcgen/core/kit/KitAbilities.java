@@ -45,7 +45,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitAbiltiies</code>.
+ * {@code KitAbiltiies}.
  *
  * @author   Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */

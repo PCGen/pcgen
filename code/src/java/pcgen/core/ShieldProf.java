@@ -24,7 +24,7 @@ import pcgen.cdom.base.Ungranted;
 
 
 /**
- * <code>ShieldProf</code>.
+ * {@code ShieldProf}.
  *
  * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * DO NOT DELETE (waiting for use)

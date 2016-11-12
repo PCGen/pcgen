@@ -28,7 +28,7 @@ import java.util.Map;
 import pcgen.facade.core.XPTableFacade;
 
 /**
- * <code>XPTable</code>.
+ * {@code XPTable}.
  * 
  * @author Stefan Radermacher &lt;radermacher@netcologne.de&gt;
  */

@@ -29,7 +29,7 @@ import java.util.StringTokenizer;
 import org.apache.commons.lang.StringUtils;
 
 /**
- * <code>RollInfo</code>.
+ * {@code RollInfo}.
  *
  * Structure representing dice rolls
  *
@@ -54,7 +54,7 @@ public final class RollInfo
 	protected int times = 0;
 
 	/** Which specific rolls to keep after rolls have been sorted
-	 * in ascending order.  <code>null</code> means to keep all
+	 * in ascending order.  {@code null} means to keep all
 	 * rolls.  Example, [1,3] means to keep the first and third
 	 * lowest rolls, which would be {true, false true} for 3 dice.
 	 * keepTop and keepBottom are implemented as special kinds of
@@ -275,7 +275,7 @@ public final class RollInfo
 	}
 	
 	/**
-	 * Construct a <code>RollInfo</code> from a string.  The
+	 * Construct a {@code RollInfo} from a string.  The
 	 * rules:<ol>
 	 *
 	 * <li>Optional positive integer, <var>times</var>.</li>
@@ -303,8 +303,8 @@ public final class RollInfo
 	 *
 	 * </ol> Unlike previous versions of this method, it is
 	 * <strong>case-sensitive</strong> with respect to the
-	 * alphabetic characters, e.g., only <code>d</code>
-	 * (lower-case) is now valid, not also <code>D</code>
+	 * alphabetic characters, e.g., only {@code d}
+	 * (lower-case) is now valid, not also {@code D}
 	 * (upper-case).  This is to accommodate the expanded ways to
 	 * roll.
 	 *

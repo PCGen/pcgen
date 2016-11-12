@@ -34,7 +34,7 @@ import pcgen.core.character.EquipSlot;
 import pcgen.facade.core.BodyStructureFacade;
 
 /**
- * The Class <code>BodyStructure</code> represents a part of a character's 
+ * The Class {@code BodyStructure} represents a part of a character's
  * body that may hold equipment.
  *
  * <br>

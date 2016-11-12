@@ -21,7 +21,7 @@
 package pcgen.core.doomsdaybook;
 
 /**
- * <code>variableException</code> is an exception raised when a problem 
+ * {@code variableException} is an exception raised when a problem
  * occurs when processing a variable.
  *
  *
@@ -30,7 +30,7 @@ package pcgen.core.doomsdaybook;
 public class variableException extends Exception
 {
 	/**
-	 * Creates a new instance of <code>variableException</code> without detail message.
+	 * Creates a new instance of {@code variableException} without detail message.
 	 */
 	public variableException()
 	{
@@ -38,7 +38,7 @@ public class variableException extends Exception
 	}
 
 	/**
-	 * Constructs an instance of <code>variableException</code> with the specified detail message.
+	 * Constructs an instance of {@code variableException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public variableException(String msg)

@@ -33,7 +33,7 @@ import pcgen.cdom.base.Loadable;
 import pcgen.core.bonus.BonusObj;
 
 /**
- * <code>PointBuyMethod</code>.
+ * {@code PointBuyMethod}.
  * 
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

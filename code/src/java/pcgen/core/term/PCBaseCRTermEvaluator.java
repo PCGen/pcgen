@@ -27,7 +27,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCBaseCRTermEvaluator</code> is responsible for calculating
+ * The Class {@code PCBaseCRTermEvaluator} is responsible for calculating
  * the character's unmodified challenge rating, as specified by the 
  * CR tag in the race definition. 
  * 

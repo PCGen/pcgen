@@ -47,7 +47,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
 /**
- * <code>KitSkill</code>.
+ * {@code KitSkill}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
@@ -67,7 +67,7 @@ public final class KitSkill extends BaseKit
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill
 	 * pool.
-	 * @param argFree <code>true</code> to make the skill ranks free.
+	 * @param argFree {@code true} to make the skill ranks free.
 	 */
 	public void setFree(Boolean argFree)
 	{
@@ -76,7 +76,7 @@ public final class KitSkill extends BaseKit
 
 	/**
 	 * Returns if the skill will be purchased for free.
-	 * @return <code>true</code> if the skill will be free
+	 * @return {@code true} if the skill will be free
 	 */
 	public boolean isFree()
 	{
@@ -230,7 +230,7 @@ public final class KitSkill extends BaseKit
 	 * @param langList Languages to be selected for a language skill
 	 * @param pcClass skills apply to this class
 	 *
-	 * @return <code>true</code> for success
+	 * @return {@code true} for success
 	 * TODO What about throwing on failure?
 	 */
 	private boolean updatePCSkills(final PlayerCharacter pc,
