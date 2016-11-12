@@ -102,7 +102,7 @@ public class VisionToken extends AbstractExportToken
 			result.append(vision.getType());
 			String distStr = vision.getDistance().toString();
 			int dist = 0;
-			if ((distStr != null) && (distStr.trim().length() > 0))
+			if ((distStr != null) && (!distStr.trim().isEmpty()))
 			{
 				dist = Integer.parseInt(distStr);
 			}

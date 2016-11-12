@@ -200,7 +200,7 @@ public class TextToken extends Token
 			{
 				res.append(".");
 			}
-			if (sentence[i].trim().length() > 0)
+			if (!sentence[i].trim().isEmpty())
 			{
 				Matcher m = p.matcher(sentence[i]);
 				int pos = 0;
