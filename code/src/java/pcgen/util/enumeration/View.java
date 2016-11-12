@@ -20,7 +20,7 @@
 package pcgen.util.enumeration;
 
 /**
- * <code>View</code> is an enumeration of possible view types. It is 
+ * {@code View} is an enumeration of possible view types. It is
  * closely related to the Visibility enumeration.
  *
  *
