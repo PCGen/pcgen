@@ -60,7 +60,7 @@ CATEGORY=Internal|Default.MOD																																																			
 
 
 # Default
-CATEGORY=Internal|Default.MOD																																																																	DEFINE:Use_AC_Output|0	DEFINE:POOL_Expertise|0																																																																																																			ABILITY:Internal|AUTOMATIC|AC Tracker																																																																													BONUS:VAR|Use_AC_Output|1
+CATEGORY=Internal|Default.MOD		DEFINE:DisableDexForAC|0																																																															DEFINE:Use_AC_Output|0	DEFINE:POOL_Expertise|0																																																																																																			ABILITY:Internal|AUTOMATIC|AC Tracker																																																																													BONUS:VAR|Use_AC_Output|1
 
 AC Tracker														CATEGORY:Internal																																																																																																																																																														ABILITY:Armor Class Method|AUTOMATIC|AC Tracker ~ Default|!PREABILITY:1,CATEGORY=Special Ability,TYPE.AC_Tracker_SelectionMade
 
