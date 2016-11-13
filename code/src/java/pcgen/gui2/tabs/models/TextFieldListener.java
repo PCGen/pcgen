@@ -27,7 +27,7 @@ import javax.swing.event.DocumentListener;
 import javax.swing.text.JTextComponent;
 
 /**
- * The Class <code>TextFieldListener</code> is a convenience class for 
+ * The Class {@code TextFieldListener} is a convenience class for
  * processing a change in the value of a text field. It is only one way 
  * though and does not update the text field if the underlying value 
  * changes.

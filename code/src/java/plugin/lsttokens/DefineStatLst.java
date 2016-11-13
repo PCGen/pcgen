@@ -37,7 +37,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * The Class <code>DefineStatLst</code> parses the DEFINESTAT tag. Valid sub tags are:
+ * The Class {@code DefineStatLst} parses the DEFINESTAT tag. Valid sub tags are:
  * <p>
  * DEFINESTAT:LOCK|stat|value <br>
  * DEFINESTAT:UNLOCK|stat <br>

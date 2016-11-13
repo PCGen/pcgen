@@ -580,7 +580,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>DeleteCustomAction</code> defines an action to delete a
+	 * The Class {@code DeleteCustomAction} defines an action to delete a
 	 * custom equipment item.
 	 *
 	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
@@ -736,7 +736,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>AllowDebtAction</code> links the allow debt checkbox to a
+	 * The Class {@code AllowDebtAction} links the allow debt checkbox to a
 	 * character.
 	 */
 	private class AllowDebtAction extends AbstractAction
@@ -831,7 +831,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>CurrencyLabelHandler</code> manages the currently
+	 * The Class {@code CurrencyLabelHandler} manages the currently
 	 * displayed currency.
 	 */
 	private class CurrencyLabelHandler
@@ -1129,7 +1129,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	}
 
 	/**
-	 * The Class <code>EquipmentRenderer</code> displays the tree cells of the
+	 * The Class {@code EquipmentRenderer} displays the tree cells of the
 	 * available and purchased equipment tables.
 	 */
 	private class EquipmentRenderer extends CharacterTreeCellRenderer

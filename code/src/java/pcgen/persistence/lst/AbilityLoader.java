@@ -90,7 +90,7 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, String aKey)
 	{
-		if (aKey == null || aKey.length() == 0)
+		if (aKey == null || aKey.isEmpty())
 		{
 			return null;
 		}
@@ -140,9 +140,9 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((cdo == null) || (cdo.getDisplayName() == null)
-			|| (cdo.getDisplayName().trim().length() == 0)
+			|| (cdo.getDisplayName().trim().isEmpty())
 			|| (cdo.getKeyName() == null)
-			|| (cdo.getKeyName().trim().length() == 0))
+			|| (cdo.getKeyName().trim().isEmpty()))
 		{
 			return false;
 		}

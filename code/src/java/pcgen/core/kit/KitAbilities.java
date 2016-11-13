@@ -45,7 +45,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitAbiltiies</code>.
+ * {@code KitAbiltiies}.
  *
  * @author   Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
@@ -206,7 +206,7 @@ public final class KitAbilities extends BaseKit
 							available, new ArrayList<>(),
 							numberOfChoices, aPC);
 
-				if (selected.size() != 0)
+				if (!selected.isEmpty())
 				{
 					break;
 				}

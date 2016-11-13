@@ -34,7 +34,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * <code>SkillTypeToken</code> outputs the value of the Skill at
+ * {@code SkillTypeToken} outputs the value of the Skill at
  * position x in a subset of character's skill list.The subset is
  * those skills matching the supplied type. The format
  * for this tag is SKILLTYPE.pos.type.property

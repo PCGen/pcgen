@@ -31,7 +31,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * <code>InstallLoader</code> handles parsing the Install.lst file which 
+ * {@code InstallLoader} handles parsing the Install.lst file which
  * defines how a data set should be installed into an existing PCGen 
  * installation.
  *

@@ -41,7 +41,7 @@ import pcgen.gui2.util.WholeNumberField;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>HitPointsPanel</code> is responsible for 
+ * The Class {@code HitPointsPanel} is responsible for
  * displaying hit points related preferences and allowing the 
  * preferences to be edited by the user.
  * 

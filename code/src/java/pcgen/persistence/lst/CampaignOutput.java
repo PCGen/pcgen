@@ -39,7 +39,7 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 
 /**
- * <code>CampaignOutput</code> writes out data sets to PCC files.
+ * {@code CampaignOutput} writes out data sets to PCC files.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

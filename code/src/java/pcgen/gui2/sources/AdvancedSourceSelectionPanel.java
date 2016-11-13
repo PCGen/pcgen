@@ -301,7 +301,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 			}
 		}
 		List<CampaignFacade> wrap = new ArrayList<>(ListFacades.wrap(sources.getCampaigns()));
-		Collections.sort(wrap, Comparators.toStringIgnoreCaseCollator());
+		wrap.sort(Comparators.toStringIgnoreCaseCollator());
 		selectedCampaigns.setContents(wrap);
 	}
 	

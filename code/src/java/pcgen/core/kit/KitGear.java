@@ -47,7 +47,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.character.EquipSet;
 
 /**
- * <code>KitGear</code>.
+ * {@code KitGear}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

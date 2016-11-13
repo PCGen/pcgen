@@ -993,7 +993,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			@SuppressWarnings("unchecked")
 			public void referenceChanged(ReferenceEvent<String> e)
 			{
-				Collections.sort(children, Comparators.toStringIgnoreCaseCollator());
+				children.sort(Comparators.toStringIgnoreCaseCollator());
 				int[] indexes = new int[getChildCount()];
 				for (int i = 0; i < indexes.length; i++)
 				{
@@ -1037,7 +1037,7 @@ public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfo
 			{
 				types.clear();
 				types.addAll(maxMap.getKeys());
-				Collections.sort(types, Comparators.toStringIgnoreCaseCollator());
+				types.sort(Comparators.toStringIgnoreCaseCollator());
 				removeAllChildren();
 				for (String key : types)
 				{

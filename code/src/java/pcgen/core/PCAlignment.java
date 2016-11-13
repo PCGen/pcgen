@@ -25,7 +25,7 @@ import pcgen.cdom.base.SortKeyRequired;
 import pcgen.facade.core.AlignmentFacade;
 
 /**
- * <code>PCAlignment</code>.
+ * {@code PCAlignment}.
  * 
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

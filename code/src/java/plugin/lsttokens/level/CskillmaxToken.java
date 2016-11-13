@@ -27,7 +27,7 @@ import pcgen.core.LevelInfo;
 import pcgen.persistence.lst.LevelLstToken;
 
 /**
- * <code>CskillmaxToken</code>
+ * {@code CskillmaxToken}
  *
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

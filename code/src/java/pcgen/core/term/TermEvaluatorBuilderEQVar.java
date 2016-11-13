@@ -25,7 +25,7 @@
 package pcgen.core.term;
 
 /**
- * <code>EvaluatorFactoryEQVar</code> 
+ * {@code EvaluatorFactoryEQVar}
  *
  * This individual enumerations in this class are each responsible for making
  * and returning an object that implements the TermEvaluator interface.  Each

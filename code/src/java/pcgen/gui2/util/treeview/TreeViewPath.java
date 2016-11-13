@@ -146,7 +146,7 @@ public class TreeViewPath<E>
      * Tests two TreePaths for equality by checking each element of the
      * paths for equality. Two paths are considered equal if they are of
      * the same length, and contain
-     * the same elements (<code>.equals</code>).
+     * the same elements ({@code .equals}).
      *
      * @param obj the Object to compare
      */

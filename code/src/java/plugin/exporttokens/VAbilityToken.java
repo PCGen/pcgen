@@ -36,7 +36,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
- * <code>VAbilityToken</code> deals with the VABILITY output 
+ * {@code VAbilityToken} deals with the VABILITY output
  * token.
  *
  *

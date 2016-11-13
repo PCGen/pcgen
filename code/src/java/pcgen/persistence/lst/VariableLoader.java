@@ -138,13 +138,13 @@ public class VariableLoader extends Observable
 		for (int i = 0; i < fileLines.length; i++)
 		{
 			String line = fileLines[i];
-			if ((line.length() == 0)
+			if ((line.isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;
 			}
 
-			if (line.trim().length() == 0)
+			if (line.trim().isEmpty())
 			{
 				// Ignore the line
 			}

@@ -43,7 +43,7 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 
 /**
- * <code>Campaign</code> is a source or campaign defined in a *.pcc file.
+ * {@code Campaign} is a source or campaign defined in a *.pcc file.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

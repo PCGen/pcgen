@@ -31,8 +31,8 @@ public class FloorCommand extends PCGenCommand
 
 	/**
 	 * Runs floor on the inStack. The parameter is popped
-	 * off the <code>inStack</code>, and the floor of its value is
-	 * pushed back to the top of <code>inStack</code>.
+	 * off the {@code inStack}, and the floor of its value is
+	 * pushed back to the top of {@code inStack}.
 	 * @param inStack the jep stack
 	 * @throws ParseException
 	 */

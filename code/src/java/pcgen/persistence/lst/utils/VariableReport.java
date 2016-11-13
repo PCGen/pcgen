@@ -56,7 +56,7 @@ import freemarker.template.Template;
 import freemarker.template.TemplateException;
 
 /**
- * The Class <code>VariableReport</code> produces a report on variable 
+ * The Class {@code VariableReport} produces a report on variable
  * definitions within the PCGen LST data.
  *
  * <br>
@@ -334,7 +334,7 @@ public class VariableReport
 	}
 
 	/**
-	 * The Class <code>VarDefine</code> contains a single definition of 
+	 * The Class {@code VarDefine} contains a single definition of
 	 * a variable.
 	 */
 	public static class VarDefine implements Comparable<VarDefine>

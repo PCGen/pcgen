@@ -23,7 +23,7 @@
 package pcgen.util;
 
 /**
- * <code>JEPResourceChecker</code>
+ * {@code JEPResourceChecker}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

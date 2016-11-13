@@ -66,7 +66,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * Implements the ABILITY: global LST token.
  *
  * <p>
- * <b>Tag Name</b>: <code>ABILITY</code>:x|y|z|z<br>
+ * <b>Tag Name</b>: {@code ABILITY}:x|y|z|z<br>
  * <b>Variables Used (x)</b>: Ability Category (The Ability Category this ability will be added to).<br>
  * <b>Variables Used (y)</b>: Ability Nature (The nature of the added ability:
  * <tt>NORMAL</tt>, <tt>AUTOMATIC</tt>, or <tt>VIRTUAL</tt>)<br>
@@ -94,11 +94,11 @@ import pcgen.rules.persistence.token.ParseResult;
  * Global tag can be used anywhere.
  * <p>
  * <b>Examples:</b><br>
- * <code>ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic</code><br>
+ * {@code ABILITY:FEAT|AUTOMATIC|TYPE=Metamagic}<br>
  * Adds a Metamagic feat as an Auto feat.
  * <p>
  *
- * <code>ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist</code><br>
+ * {@code ABILITY:CLASSFEATURE|VIRTUAL|CATEGORY=FEAT:Stunning Fist}<br>
  * Adds the Stunning Fist feat as a virtual class feature.
  * <p>
  *

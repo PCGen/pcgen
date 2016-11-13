@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 18/11/2010 19:50:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -42,24 +38,22 @@ import javax.swing.JRadioButton;
 import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
-
-import org.apache.commons.lang.SystemUtils;
+import javax.swing.text.JTextComponent;
 
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
+import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
-import pcgen.system.ConfigurationSettings.SettingsFilesPath;
+
+import org.apache.commons.lang.SystemUtils;
 
 /**
- * The Class <code>LocationPanel</code> is responsible for 
+ * The Class {@code LocationPanel} is responsible for
  * displaying file location related preferences and allowing the 
  * preferences to be edited by the user.
- * 
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class LocationPanel extends PCGenPrefsPanel
@@ -110,303 +104,299 @@ public class LocationPanel extends PCGenPrefsPanel
 
 	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
 	private final TextFocusLostListener textFieldListener =
-		new TextFocusLostListener();
+			new TextFocusLostListener();
 
 	/**
 	 * Instantiates a new location panel.
 	 */
 	public LocationPanel()
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
-		JLabel label;
 		Border etched = null;
 		TitledBorder title1 =
 				BorderFactory.createTitledBorder(etched, in_location);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
-		c = new GridBagConstraints();
-		c.fill = GridBagConstraints.HORIZONTAL;
-		c.anchor = GridBagConstraints.WEST;
-		c.insets = new Insets(2, 2, 2, 2);
+		GridBagConstraints constraints = new GridBagConstraints();
+		constraints.fill = GridBagConstraints.HORIZONTAL;
+		constraints.anchor = GridBagConstraints.WEST;
+		constraints.insets = new Insets(2, 2, 2, 2);
 
-		Utility.buildConstraints(c, 0, 0, 1, 1, 0, 0);
-		label = new JLabel(in_browserPath + ": ");
-		gridbag.setConstraints(label, c);
+		Utility.buildConstraints(constraints, 0, 0, 1, 1, 0, 0);
+		JLabel label = new JLabel(in_browserPath + ": ");
+		gridbag.setConstraints(label, constraints);
 		this.add(label);
-		Utility.buildConstraints(c, 1, 0, 1, 1, 1, 0);
+		Utility.buildConstraints(constraints, 1, 0, 1, 1, 1, 0);
 		browserPath =
 				new JTextField(String.valueOf(PCGenSettings.getBrowserPath()));
 
 		// sage_sam 9 April 2003
 		browserPath.addFocusListener(textFieldListener);
-		gridbag.setConstraints(browserPath, c);
+		gridbag.setConstraints(browserPath, constraints);
 		this.add(browserPath);
-		Utility.buildConstraints(c, 2, 0, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 0, 1, 1, 0, 0);
 		browserPathButton = new JButton(in_choose);
-		gridbag.setConstraints(browserPathButton, c);
+		gridbag.setConstraints(browserPathButton, constraints);
 		this.add(browserPathButton);
 		browserPathButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 1, 1, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 1, 1, 1, 1, 0, 0);
 		clearBrowserPathButton = new JButton(in_clearBrowserPath);
-		gridbag.setConstraints(clearBrowserPathButton, c);
+		gridbag.setConstraints(clearBrowserPathButton, constraints);
 		this.add(clearBrowserPathButton);
 		clearBrowserPathButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 2, 1, 1, 0, 0);
-		label =
-				new JLabel(LanguageBundle
-					.getString("in_Prefs_pcgenCharacterDir")
-					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 2, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 0, 2, 1, 1, 0, 0);
+		JLabel in_prefs_pcgenCharacterDir = new JLabel(LanguageBundle
+				.getString("in_Prefs_pcgenCharacterDir")
+				+ ": ");
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 2, 1, 1, 0, 0);
 		pcgenCharacterDir =
 				new JTextField(String.valueOf(PCGenSettings.getPcgDir()));
 
 		// sage_sam 9 April 2003
 		pcgenCharacterDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenCharacterDir, c);
+		gridbag.setConstraints(pcgenCharacterDir, constraints);
 		this.add(pcgenCharacterDir);
-		Utility.buildConstraints(c, 2, 2, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 2, 1, 1, 0, 0);
 		pcgenCharacterDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenCharacterDirButton, c);
+		gridbag.setConstraints(pcgenCharacterDirButton, constraints);
 		this.add(pcgenCharacterDirButton);
 		pcgenCharacterDirButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 3, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 0, 3, 1, 1, 0, 0);
 
 		//TODO i18n
-		label = new JLabel("PCGen Portraits Directory" + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 3, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir = new JLabel("PCGen Portraits Directory" + ": ");
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 3, 1, 1, 0, 0);
 		pcgenPortraitsDir =
 				new JTextField(String.valueOf(PCGenSettings
 					.getPortraitsDir()));
 
 		// sage_sam 9 April 2003
 		pcgenPortraitsDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenPortraitsDir, c);
+		gridbag.setConstraints(pcgenPortraitsDir, constraints);
 		this.add(pcgenPortraitsDir);
-		Utility.buildConstraints(c, 2, 3, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 3, 1, 1, 0, 0);
 		pcgenPortraitsDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenPortraitsDirButton, c);
+		gridbag.setConstraints(pcgenPortraitsDirButton, constraints);
 		this.add(pcgenPortraitsDirButton);
 		pcgenPortraitsDirButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 4, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 4, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle.getString("in_Prefs_pcgenDataDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 4, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 4, 1, 1, 0, 0);
 		pcgenDataDir =
 				new JTextField(String.valueOf(ConfigurationSettings
 					.getPccFilesDir()));
 
 		// sage_sam 9 April 2003
 		pcgenDataDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenDataDir, c);
+		gridbag.setConstraints(pcgenDataDir, constraints);
 		this.add(pcgenDataDir);
-		Utility.buildConstraints(c, 2, 4, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 4, 1, 1, 0, 0);
 		pcgenDataDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenDataDirButton, c);
+		gridbag.setConstraints(pcgenDataDirButton, constraints);
 		this.add(pcgenDataDirButton);
 		pcgenDataDirButton.addActionListener(prefsButtonHandler);
 
 		//////////////////////
-		Utility.buildConstraints(c, 0, 5, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 5, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle.getString("in_Prefs_pcgenCustomDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 5, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 5, 1, 1, 0, 0);
 		pcgenCustomDir =
 				new JTextField(String.valueOf(PCGenSettings
 					.getCustomDir()));
 
 		// sage_sam 9 April 2003
 		pcgenCustomDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenCustomDir, c);
+		gridbag.setConstraints(pcgenCustomDir, constraints);
 		this.add(pcgenCustomDir);
-		Utility.buildConstraints(c, 2, 5, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 5, 1, 1, 0, 0);
 		pcgenCustomDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenCustomDirButton, c);
+		gridbag.setConstraints(pcgenCustomDirButton, constraints);
 		this.add(pcgenCustomDirButton);
 		pcgenCustomDirButton.addActionListener(prefsButtonHandler);
 
 		////////////////////
 
-		Utility.buildConstraints(c, 0, 6, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 6, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenVendorDataDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 6, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 6, 1, 1, 0, 0);
 		pcgenVendorDataDir =
 				new JTextField(String.valueOf(PCGenSettings
 					.getVendorDataDir()));
 
 		// sage_sam 9 April 2003
 		pcgenVendorDataDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenVendorDataDir, c);
+		gridbag.setConstraints(pcgenVendorDataDir, constraints);
 		this.add(pcgenVendorDataDir);
-		Utility.buildConstraints(c, 2, 6, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 6, 1, 1, 0, 0);
 		pcgenVendorDataDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenVendorDataDirButton, c);
+		gridbag.setConstraints(pcgenVendorDataDirButton, constraints);
 		this.add(pcgenVendorDataDirButton);
 		pcgenVendorDataDirButton.addActionListener(prefsButtonHandler);
 
 
-		Utility.buildConstraints(c, 0, 7, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 7, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenHomebrewDataDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 7, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 7, 1, 1, 0, 0);
 		pcgenHomebrewDataDir =
 				new JTextField(String.valueOf(PCGenSettings
 					.getHomebrewDataDir()));
 
 
 		pcgenHomebrewDataDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenHomebrewDataDir, c);
+		gridbag.setConstraints(pcgenHomebrewDataDir, constraints);
 		this.add(pcgenHomebrewDataDir);
-		Utility.buildConstraints(c, 2, 7, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 7, 1, 1, 0, 0);
 		pcgenHomebrewDataDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenHomebrewDataDirButton, c);
+		gridbag.setConstraints(pcgenHomebrewDataDirButton, constraints);
 		this.add(pcgenHomebrewDataDirButton);
 		pcgenHomebrewDataDirButton.addActionListener(prefsButtonHandler);
 
 		
-		Utility.buildConstraints(c, 0, 8, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 8, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle.getString("in_Prefs_pcgenDocsDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 8, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 8, 1, 1, 0, 0);
 		pcgenDocsDir =
 				new JTextField(String
 					.valueOf(ConfigurationSettings.getDocsDir()));
 
 		// sage_sam 9 April 2003
 		pcgenDocsDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenDocsDir, c);
+		gridbag.setConstraints(pcgenDocsDir, constraints);
 		this.add(pcgenDocsDir);
-		Utility.buildConstraints(c, 2, 8, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 8, 1, 1, 0, 0);
 		pcgenDocsDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenDocsDirButton, c);
+		gridbag.setConstraints(pcgenDocsDirButton, constraints);
 		this.add(pcgenDocsDirButton);
 		pcgenDocsDirButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 9, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 9, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle.getString("in_Prefs_pcgenSystemDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 9, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 9, 1, 1, 0, 0);
 		pcgenSystemDir =
 				new JTextField(String.valueOf(ConfigurationSettings
 					.getSystemsDir()));
 
 		// sage_sam 9 April 2003
 		pcgenSystemDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenSystemDir, c);
+		gridbag.setConstraints(pcgenSystemDir, constraints);
 		this.add(pcgenSystemDir);
-		Utility.buildConstraints(c, 2, 9, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 9, 1, 1, 0, 0);
 		pcgenSystemDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenSystemDirButton, c);
+		gridbag.setConstraints(pcgenSystemDirButton, constraints);
 		this.add(pcgenSystemDirButton);
 		pcgenSystemDirButton.addActionListener(prefsButtonHandler);
 
 		// Output Sheet directory
-		Utility.buildConstraints(c, 0, 10, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 10, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenOutputSheetDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 10, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 10, 1, 1, 0, 0);
 		pcgenOutputSheetDir =
 				new JTextField(String.valueOf(ConfigurationSettings
 					.getOutputSheetsDir()));
 		pcgenOutputSheetDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenOutputSheetDir, c);
+		gridbag.setConstraints(pcgenOutputSheetDir, constraints);
 		this.add(pcgenOutputSheetDir);
-		Utility.buildConstraints(c, 2, 10, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 10, 1, 1, 0, 0);
 		pcgenOutputSheetDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenOutputSheetDirButton, c);
+		gridbag.setConstraints(pcgenOutputSheetDirButton, constraints);
 		this.add(pcgenOutputSheetDirButton);
 		pcgenOutputSheetDirButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 11, 1, 1, 0, 0);
-		label = new JLabel(LanguageBundle.getString("in_Prefs_pcgenPreviewDir") + ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 11, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 0, 11, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir = new JLabel(LanguageBundle.getString("in_Prefs_pcgenPreviewDir") + ": ");
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 11, 1, 1, 0, 0);
 		pcgenPreviewDir = new JTextField(String.valueOf(ConfigurationSettings.getPreviewDir()));
 		pcgenPreviewDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenPreviewDir, c);
+		gridbag.setConstraints(pcgenPreviewDir, constraints);
 		this.add(pcgenPreviewDir);
-		Utility.buildConstraints(c, 2, 11, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 11, 1, 1, 0, 0);
 		pcgenPreviewDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenPreviewDirButton, c);
+		gridbag.setConstraints(pcgenPreviewDirButton, constraints);
 		this.add(pcgenPreviewDirButton);
 		pcgenPreviewDirButton.addActionListener(prefsButtonHandler);
 		
 		// Character File Backup directory
-		Utility.buildConstraints(c, 0, 12, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 12, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenCreateBackupCharacter")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 12, 1, 1, 0, 0);
-		gridbag.setConstraints(pcgenCreateBackupCharacter, c);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 12, 1, 1, 0, 0);
+		gridbag.setConstraints(pcgenCreateBackupCharacter, constraints);
 		this.add(pcgenCreateBackupCharacter);
 
-		Utility.buildConstraints(c, 0, 13, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 13, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle
 					.getString("in_Prefs_pcgenBackupCharacterDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
-		Utility.buildConstraints(c, 1, 13, 1, 1, 0, 0);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
+		Utility.buildConstraints(constraints, 1, 13, 1, 1, 0, 0);
 		pcgenBackupCharacterDir =
 				new JTextField(String.valueOf(PCGenSettings
 					.getBackupPcgDir()));
 		pcgenBackupCharacterDir.addFocusListener(textFieldListener);
-		gridbag.setConstraints(pcgenBackupCharacterDir, c);
+		gridbag.setConstraints(pcgenBackupCharacterDir, constraints);
 		this.add(pcgenBackupCharacterDir);
-		Utility.buildConstraints(c, 2, 13, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 13, 1, 1, 0, 0);
 		pcgenBackupCharacterDirButton = new JButton(in_choose);
-		gridbag.setConstraints(pcgenBackupCharacterDirButton, c);
+		gridbag.setConstraints(pcgenBackupCharacterDirButton, constraints);
 		this.add(pcgenBackupCharacterDirButton);
 		pcgenBackupCharacterDirButton.addActionListener(prefsButtonHandler);
 
 		// Where to store options.ini file
-		Utility.buildConstraints(c, 0, 14, 1, 1, 0, 0);
-		label =
+		Utility.buildConstraints(constraints, 0, 14, 1, 1, 0, 0);
+		in_prefs_pcgenCharacterDir =
 				new JLabel(LanguageBundle.getString("in_Prefs_pcgenFilesDir")
 					+ ": ");
-		gridbag.setConstraints(label, c);
-		this.add(label);
+		gridbag.setConstraints(in_prefs_pcgenCharacterDir, constraints);
+		this.add(in_prefs_pcgenCharacterDir);
 
 		pcgenFilesDirRadio = new JRadioButton("PCGen Dir");
 		usersFilesDirRadio = new JRadioButton("Home Dir");
@@ -444,11 +434,11 @@ public class LocationPanel extends PCGenPrefsPanel
 			selectFilesDirRadio.setSelected(true);
 		}
 
-		Utility.buildConstraints(c, 0, 15, 1, 1, 0, 0);
-		gridbag.setConstraints(pcgenFilesDirRadio, c);
+		Utility.buildConstraints(constraints, 0, 15, 1, 1, 0, 0);
+		gridbag.setConstraints(pcgenFilesDirRadio, constraints);
 		this.add(pcgenFilesDirRadio);
-		Utility.buildConstraints(c, 1, 15, 1, 1, 0, 0);
-		gridbag.setConstraints(usersFilesDirRadio, c);
+		Utility.buildConstraints(constraints, 1, 15, 1, 1, 0, 0);
+		gridbag.setConstraints(usersFilesDirRadio, constraints);
 		this.add(usersFilesDirRadio);
 
 		groupFilesDir = new ButtonGroup();
@@ -456,53 +446,38 @@ public class LocationPanel extends PCGenPrefsPanel
 		groupFilesDir.add(usersFilesDirRadio);
 		groupFilesDir.add(selectFilesDirRadio);
 
-		pcgenFilesDirRadio.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
-				pcgenFilesDirButton.setEnabled(false);
-			}
-		});
-		usersFilesDirRadio.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
-				pcgenFilesDirButton.setEnabled(false);
-			}
-		});
-		selectFilesDirRadio.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				pcgenFilesDir.setText("");
-				pcgenFilesDirButton.setEnabled(true);
-			}
-		});
+		pcgenFilesDirRadio.addActionListener(evt -> {
+            pcgenFilesDir.setText(SettingsFilesPath.pcgen.getSettingsDir());
+            pcgenFilesDirButton.setEnabled(false);
+        });
+		usersFilesDirRadio.addActionListener(evt -> {
+            pcgenFilesDir.setText(ConfigurationSettings.getUserSettingsDirFromFilePath());
+            pcgenFilesDirButton.setEnabled(false);
+        });
+		selectFilesDirRadio.addActionListener(evt -> {
+            pcgenFilesDir.setText("");
+            pcgenFilesDirButton.setEnabled(true);
+        });
 
-		Utility.buildConstraints(c, 0, 16, 1, 1, 0, 0);
-		gridbag.setConstraints(selectFilesDirRadio, c);
+		Utility.buildConstraints(constraints, 0, 16, 1, 1, 0, 0);
+		gridbag.setConstraints(selectFilesDirRadio, constraints);
 		this.add(selectFilesDirRadio);
-		Utility.buildConstraints(c, 1, 16, 1, 1, 0, 0);
-		gridbag.setConstraints(pcgenFilesDir, c);
+		Utility.buildConstraints(constraints, 1, 16, 1, 1, 0, 0);
+		gridbag.setConstraints(pcgenFilesDir, constraints);
 		this.add(pcgenFilesDir);
-		Utility.buildConstraints(c, 2, 16, 1, 1, 0, 0);
+		Utility.buildConstraints(constraints, 2, 16, 1, 1, 0, 0);
 		pcgenFilesDirButton = new JButton(in_choose);
 		pcgenFilesDirButton.setEnabled(selectFilesDirRadio.isSelected());
-		gridbag.setConstraints(pcgenFilesDirButton, c);
+		gridbag.setConstraints(pcgenFilesDirButton, constraints);
 		this.add(pcgenFilesDirButton);
 		pcgenFilesDirButton.addActionListener(prefsButtonHandler);
 
-		Utility.buildConstraints(c, 0, 20, 3, 1, 1, 1);
-		c.fill = GridBagConstraints.BOTH;
-		label = new JLabel(" ");
+		Utility.buildConstraints(constraints, 0, 20, 3, 1, 1, 1);
+		constraints.fill = GridBagConstraints.BOTH;
+		JLabel emptyLabel = new JLabel(" ");
 
-		gridbag.setConstraints(label, c);
-		this.add(label);
+		gridbag.setConstraints(emptyLabel, constraints);
+		this.add(emptyLabel);
 	}
 
 	/* (non-Javadoc)
@@ -746,17 +721,8 @@ public class LocationPanel extends PCGenPrefsPanel
 		private File askForPath(final File currentPath,
 			final String dialogTitle, final JTextField textField)
 		{
-			File returnFile = currentPath;
-			JFileChooser fc = null;
 
-			if (currentPath == null)
-			{
-				fc = new JFileChooser();
-			}
-			else
-			{
-				fc = new JFileChooser(currentPath);
-			}
+			JFileChooser fc = new JFileChooser(currentPath);
 
 			fc.setFileSelectionMode(JFileChooser.DIRECTORIES_ONLY);
 			fc.setDialogTitle(dialogTitle);
@@ -770,6 +736,7 @@ public class LocationPanel extends PCGenPrefsPanel
 
 			final int returnVal = fc.showOpenDialog(getParent());
 
+			File returnFile = currentPath;
 			if (returnVal == JFileChooser.APPROVE_OPTION)
 			{
 				returnFile = fc.getSelectedFile();
@@ -783,14 +750,11 @@ public class LocationPanel extends PCGenPrefsPanel
 
 	// This is the focus listener so that text field values may be manually entered.
 	// sage_sam April 2003 for FREQ 707022
-	private final class TextFocusLostListener implements FocusListener
+	private static class TextFocusLostListener implements FocusListener
 	{
-		private String initialValue = null;
+		private String initialValue;
 		private boolean dialogOpened = false;
 
-		/**
-		 * @see java.awt.event.FocusListener#focusGained(FocusEvent)
-		 */
 		@Override
 		public void focusGained(FocusEvent e)
 		{
@@ -802,13 +766,10 @@ public class LocationPanel extends PCGenPrefsPanel
 			if (source instanceof JTextField)
 			{
 				// get the field value
-				initialValue = ((JTextField) source).getText();
+				initialValue = ((JTextComponent) source).getText();
 			}
 		}
 
-		/**
-		 * @see java.awt.event.FocusListener#focusLost(FocusEvent)
-		 */
 		@Override
 		public void focusLost(FocusEvent e)
 		{
@@ -818,19 +779,19 @@ public class LocationPanel extends PCGenPrefsPanel
 			if (source instanceof JTextField)
 			{
 				// get the field value and validate it exists
-				final String fieldValue = ((JTextField) source).getText();
+				final String fieldValue = ((JTextComponent) source).getText();
 				final File fieldFile = new File(fieldValue);
 
 				if ((!fieldFile.exists())
 					&& (!fieldValue.equalsIgnoreCase("null"))
-					&& (fieldValue.trim().length() > 0) && (!dialogOpened))
+					&& (!fieldValue.trim().isEmpty()) && (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;
 					ShowMessageDelegate.showMessageDialog(
 						"File does not exist; preferences were not set.",
 						"Invalid Path", MessageType.ERROR);
-					((JTextField) source).setText(initialValue);
+					((JTextComponent) source).setText(initialValue);
 				}
 			}
 		}

@@ -39,7 +39,7 @@ import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.DeityFacade;
 
 /**
- * <code>Deity</code>.
+ * {@code Deity}.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

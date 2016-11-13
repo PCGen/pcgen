@@ -500,7 +500,7 @@ public class TreeViewTableModel<E> extends AbstractTreeTableModel
 			}
 			if (children != null)
 			{
-				Collections.sort(children, comparator);
+				children.sort(comparator);
 				for (Object obj : children)
 				{
 					TreeViewNode child = (TreeViewNode) obj;

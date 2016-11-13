@@ -34,7 +34,7 @@ import java.util.TreeMap;
 
 /**
  * <p>
- * Essentialy sets up a list of <code>PcgCombatant</code> items.
+ * Essentialy sets up a list of {@code PcgCombatant} items.
  * </p>
  *
  * <p>

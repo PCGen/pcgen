@@ -25,7 +25,7 @@ package pcgen.core.term;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>PCHPTermEvaluator</code> is responsible for
+ * The Class {@code PCHPTermEvaluator} is responsible for
  * providing the internal variable HP, which has the value of
  * the character's maximum total hit points. 
  * 

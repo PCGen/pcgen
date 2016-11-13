@@ -26,7 +26,7 @@ import pcgen.core.ShieldProf;
 import pcgen.rules.persistence.token.AbstractPCQualifierToken;
 
 /**
- * The Class <code>PCToken</code> provides limiting a chooser selection
+ * The Class {@code PCToken} provides limiting a chooser selection
  * by those shield proficiencies held by the character.
  * e.g. CHOOSE:SHIELDPROFICIENCY|PC 
  *

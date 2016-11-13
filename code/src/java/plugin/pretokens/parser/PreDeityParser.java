@@ -32,7 +32,7 @@ import pcgen.persistence.lst.prereq.AbstractPrerequisiteListParser;
 import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
 
 /**
- * <code>PreDeityParser</code> parses PREDEITY prerequisites. It handles both 
+ * {@code PreDeityParser} parses PREDEITY prerequisites. It handles both
  * new (PREDEITY:1,Odin) and old (PREDEITY:Odin) format syntax along with the
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  *

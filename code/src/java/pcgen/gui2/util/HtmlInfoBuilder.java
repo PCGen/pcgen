@@ -25,7 +25,7 @@ package pcgen.gui2.util;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>HtmlInfoBuilder</code> is a helper class for the various
+ * {@code HtmlInfoBuilder} is a helper class for the various
  * setInfoLabelText methods in the gui tabs.
  *
  *
@@ -156,7 +156,7 @@ public class HtmlInfoBuilder
 	
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The value that belongs to the key.
 	 * @return HtmlInfoBuilder
@@ -168,7 +168,7 @@ public class HtmlInfoBuilder
 	
 	/**
 	 * Used for internationalisation. Looks up the property through the 
-	 * <code>ProperyFactory</code> and uses that as the key.
+	 * {@code ProperyFactory} and uses that as the key.
 	 * @param propertyKey The name of a property in the LanguageProperties file.
 	 * @param value The values that should be added as parameters to the property.
 	 * @return HtmlInfoBuilder

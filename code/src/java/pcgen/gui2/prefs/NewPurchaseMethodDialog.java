@@ -190,26 +190,12 @@ class NewPurchaseMethodDialog extends JDialog
 		cancelButton.setMnemonic('C');
 		cancelButton.setText("Cancel");
 		buttonPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					cancelButtonActionPerformed();
-				}
-			});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 
 		okButton.setMnemonic('O');
 		okButton.setText("OK");
 		buttonPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-			{
-				@Override
-				public void actionPerformed(ActionEvent evt)
-				{
-					okButtonActionPerformed();
-				}
-			});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
 		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;

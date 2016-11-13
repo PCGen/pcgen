@@ -25,7 +25,7 @@ import pcgen.core.term.EvaluatorFactory;
 import pcgen.core.term.TermEvaluator;
 
 /**
- * <code>VariableProcessorEq</code> is a processor for variables
+ * {@code VariableProcessorEq} is a processor for variables
  * associated with a character's equipment. This class converts
  * formulas or variables into values and is used extensively
  * both in definitions of objects and for output to output sheets.

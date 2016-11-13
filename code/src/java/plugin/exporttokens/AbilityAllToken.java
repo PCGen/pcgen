@@ -38,7 +38,7 @@ import pcgen.io.exporttoken.AbilityToken;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>AbilityAllToken</code> deals with the ABILITYALL output 
+ * {@code AbilityAllToken} deals with the ABILITYALL output
  * token.
  *
  *

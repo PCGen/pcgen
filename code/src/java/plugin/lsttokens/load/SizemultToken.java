@@ -36,7 +36,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
 /**
- * <code>SizemultToken</code>
+ * {@code SizemultToken}
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

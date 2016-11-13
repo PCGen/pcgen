@@ -36,7 +36,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
- * <code>AbilityAutoToken</code> deals with the ABILITYAUTO output 
+ * {@code AbilityAutoToken} deals with the ABILITYAUTO output
  * token.
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

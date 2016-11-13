@@ -49,7 +49,7 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * <code>KitSpells</code>.
+ * {@code KitSpells}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
@@ -203,7 +203,7 @@ public final class KitSpells extends BaseKit
 						+ " spell(s) for " + workingBook, aSpellList,
                         new ArrayList<>(), numberOfChoices, aPC);
 
-				if (xs.size() != 0)
+				if (!xs.isEmpty())
 				{
 					break;
 				}
@@ -230,7 +230,7 @@ public final class KitSpells extends BaseKit
 			}
 		}
 
-		if (theSpells != null && theSpells.size() > 0)
+		if (theSpells != null && !theSpells.isEmpty())
 		{
 			return true;
 		}
@@ -337,7 +337,7 @@ public final class KitSpells extends BaseKit
 			final String aString =
 					pc.addSpell(cs, metamagicFeatList, pcClass.getKeyName(),
 						aSpell.getBookName(), adjustedLevel, spLevel);
-			if (aString.length() != 0)
+			if (!aString.isEmpty())
 			{
 				Logging.errorPrint("Add spell failed:" + aString);
 				return;

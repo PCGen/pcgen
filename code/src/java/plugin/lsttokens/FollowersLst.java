@@ -41,7 +41,7 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class implements support for the FOLLOWERS LST token.
  * <p>
- * <b>Tag Name</b>: <code>FOLLOWERS</code>:x|y<br>
+ * <b>Tag Name</b>: {@code FOLLOWERS}:x|y<br>
  * <b>Variables Used (x)</b>: Text (The type of companion the limit will apply
  * to).<br>
  * <b>Variables Used (y)</b>: Number, variable or formula (Number of this type
@@ -54,14 +54,14 @@ import pcgen.rules.persistence.token.ParseResult;
  * <li>Optional, if this tag is not present no limits are placed on the number
  * of companions the character can have.</li>
  * <li>If more than one tag is encountered the highest value is used.</li>
- * <li>The value can be adjusted with the <code>BONUS:FOLLOWERS</code> tag</li>
+ * <li>The value can be adjusted with the {@code BONUS:FOLLOWERS} tag</li>
  * </ul>
  * <b>Where it is used:</b><br>
  * Global tag, would most often be used in class and feat (ability) files,
  * should also be enabled for templates and Domains.
  * <p>
  * <b>Examples:</b><br>
- * <code>FOLLOWERS:Familiar|1</code><br>
+ * {@code FOLLOWERS:Familiar|1}<br>
  * A character is allowed only 1 companion of type Familiar
  *
  * @author divaa01

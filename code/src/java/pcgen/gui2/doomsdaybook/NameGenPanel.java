@@ -629,7 +629,7 @@ public class NameGenPanel extends JPanel
 			List<RuleSet> join = new ArrayList<>();
 			join.addAll(cats);
 			join.retainAll(sexes);
-			Collections.sort(join, new DataElementComperator());
+			join.sort(new DataElementComperator());
 
 			Vector<RuleSet> catalogs = new Vector<>();
 			int oldSelected = -1;

@@ -156,13 +156,13 @@ public enum Icons
 	}
 
 	/**
-	 * Fetch an <code>ImageIcon</code> relative to the calling
+	 * Fetch an {@code ImageIcon} relative to the calling
 	 * location.
 	 *
-	 * @param fileName <code>String</code>, the path to the
-	 * <code>IconImage</code> source
+	 * @param fileName {@code String}, the path to the
+	 * {@code IconImage} source
 	 *
-	 * @return <code>ImageIcon</code>, the icon or <code>null</code>
+	 * @return {@code ImageIcon}, the icon or <code>null</code>
 	 * on failure
 	 * @deprecated Should be private to force use of cache. Filename should be defined in this file as enum.
 	 */

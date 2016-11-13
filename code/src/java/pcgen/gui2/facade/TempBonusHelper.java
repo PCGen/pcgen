@@ -53,7 +53,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>TempBonusHelper</code> splits out processing for temporary 
+ * The Class {@code TempBonusHelper} splits out processing for temporary
  * bonuses from CnaracterFacadeImpl.
  *
  * <br>
@@ -487,7 +487,7 @@ public class TempBonusHelper
 	}
 
 	/**
-	 * The Class <code>CharacterInfoFacade</code> presents a character as an InfoFacade.
+	 * The Class {@code CharacterInfoFacade} presents a character as an InfoFacade.
 	 */
 	static class CharacterInfoFacade implements InfoFacade
 	{

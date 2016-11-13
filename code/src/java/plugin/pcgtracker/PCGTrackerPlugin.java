@@ -58,9 +58,9 @@ import pcgen.util.Logging;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem
+ * } and will have it's own model and view.<br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
@@ -100,7 +100,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)
@@ -326,12 +326,12 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 
 	/**
 	 * Checks whether a character can be saved, and if so, calls
-	 * it's <code>save</code> method.
+	 * it's {@code save} method.
 	 *
 	 * @param aPC The PlayerCharacter to save
-	 * @param saveas boolean if <code>true</code>, ask for file name
+	 * @param saveas boolean if {@code true}, ask for file name
 	 *
-	 * @return <code>true</code> if saved; <code>false</code> if save as cancelled
+	 * @return {@code true} if saved; <code>false</code> if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
 	public boolean savePC(PlayerCharacter aPC, boolean saveas)

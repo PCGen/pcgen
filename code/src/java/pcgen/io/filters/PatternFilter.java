@@ -102,7 +102,7 @@ public class PatternFilter implements OutputFilter
 					}
 
 					String aLineWOComment;
-					if (aLine.length() == 0 || aLine.charAt(0) == '#') {
+					if (aLine.isEmpty() || aLine.charAt(0) == '#') {
                                         continue;
                                     }
 					else if (aLine.indexOf("\t#") > 0) {

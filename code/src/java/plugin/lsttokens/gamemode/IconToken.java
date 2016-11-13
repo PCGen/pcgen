@@ -31,7 +31,7 @@ import pcgen.persistence.lst.EquipIconLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>IconToken</code> is responsible for matching icon 
+ * The Class {@code IconToken} is responsible for matching icon
  * paths to equipment types.
  *
  * <br>

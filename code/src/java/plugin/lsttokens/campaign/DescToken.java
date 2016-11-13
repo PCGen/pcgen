@@ -31,7 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>DescToken</code> parses the DESC token for campaigns.
+ * {@code DescToken} parses the DESC token for campaigns.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

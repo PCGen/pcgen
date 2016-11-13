@@ -85,14 +85,14 @@ public abstract class SwingWorker<T>
 	}
 
 	/** 
-	 * Compute the value to be returned by the <code>get</code> method.
+	 * Compute the value to be returned by the {@code get} method.
 	 * @return Object
 	 */
 	public abstract T construct();
 
 	/**
 	 * Called on the AWT event dispatching thread (not on the worker thread)
-	 * after the <code>construct</code> method has returned.
+	 * after the {@code construct} method has returned.
 	 */
 	public void finished()
 	{
@@ -115,12 +115,12 @@ public abstract class SwingWorker<T>
 
 	/**
 	 * Blocks until the worker thread is finished.
-	 * Then returns the value created by the <code>construct</code> method.
+	 * Then returns the value created by the {@code construct} method.
 	 * 
 	 * Returns null if either the constructing thread or the current
 	 * thread was interrupted before a value was produced
 	 * 
-	 * @return the value created by the <code>construct</code> method
+	 * @return the value created by the {@code construct} method
 	 */
 	public T get()
 	{
@@ -144,7 +144,7 @@ public abstract class SwingWorker<T>
 	}
 
 	/**
-	 * Start a thread that will call the <code>construct</code> method
+	 * Start a thread that will call the {@code construct} method
 	 * and then exit.
 	 */
 	public SwingWorker()

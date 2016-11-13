@@ -56,7 +56,7 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 
 	/**
 	 * <p>
-	 * "Wrapper" class that extends <code>InitWrapper</code> to provide
+	 * "Wrapper" class that extends {@code InitWrapper} to provide
 	 * skill check facilities.
 	 * </p>
 	 */

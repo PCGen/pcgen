@@ -25,7 +25,7 @@ package pcgen.pluginmgr;
 import java.util.EventObject;
 
 /**
- * The Class <code>PCGenMessage</code> describes an event in PCGen which
+ * The Class {@code PCGenMessage} describes an event in PCGen which
  * listeners can respond to. 
  *
  * <br>

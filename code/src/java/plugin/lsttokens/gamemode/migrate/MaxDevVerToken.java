@@ -30,7 +30,7 @@ import pcgen.persistence.lst.VersionAwareToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>MaxDevVerToken</code> parses the MAXDEVVER token in migration.lst 
+ * The Class {@code MaxDevVerToken} parses the MAXDEVVER token in migration.lst
  * game mode files. The MAXDEVVER token specifies the non-production PCGen version when 
  * the rules object was last coded in the old format.  
  * 

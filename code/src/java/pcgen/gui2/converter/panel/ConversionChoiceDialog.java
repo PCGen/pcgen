@@ -43,7 +43,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>ConversionChoiceDialog</code> is responsible for 
+ * The Class {@code ConversionChoiceDialog} is responsible for
  * displaying choices the user needs to make as part of the conversion 
  * of some data items. 
  * 

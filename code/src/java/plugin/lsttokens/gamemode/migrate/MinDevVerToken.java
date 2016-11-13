@@ -30,7 +30,7 @@ import pcgen.persistence.lst.VersionAwareToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>MinDevVerToken</code> parses the MINDEVVER token in migration.lst 
+ * The Class {@code MinDevVerToken} parses the MINDEVVER token in migration.lst
  * game mode files. The MINDEVVER token specifies the development PCGen version when 
  * the rules object was first coded in the old format.  
  * 

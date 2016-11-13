@@ -52,9 +52,9 @@ import plugin.dicebag.gui.DiceBagPluginController;
  *
  * <p>
  * The base plugin class for the DiceBag plugin. This class handles mediation
- * between the GUI components of in <code>dicebag.gui</code> and the plugin
+ * between the GUI components of in {@code dicebag.gui} and the plugin
  * framework. This class should <b>not </b> pass framework events directly on to
- * the <code>dicebag.gui</code> classes, nor should those classes call the
+ * the {@code dicebag.gui} classes, nor should those classes call the
  * framework directly.
  * </p>
  *
@@ -140,7 +140,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * <li>LoadMessage</li>
 	 * </ul>
 	 * <p>
-	 * Delegates all these messages to <code>theController</code>.
+	 * Delegates all these messages to {@code theController}.
 	 * </p>
 	 * @param message
 	 *
@@ -195,12 +195,12 @@ public class DiceBagPlugin implements InteractivePlugin
 	/**
 	 * <p>
 	 * Delegates this message to the controller by calling the controller's
-	 * <code>fileOpen()</code> method. We veto the message so it is not passed
+	 * {@code fileOpen()} method. We veto the message so it is not passed
 	 * on to other plugins.
 	 * </p>
 	 *
 	 * @param message
-	 *          <code>FileOpenMessage</code>
+	 *          {@code FileOpenMessage}
 	 */
 	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
@@ -275,7 +275,7 @@ public class DiceBagPlugin implements InteractivePlugin
 
 	/**
 	 * <p>
-	 * Calls the <code>windowClosed()</code> method of the controller.
+	 * Calls the {@code windowClosed()} method of the controller.
 	 * </p>
 	 *
 	 */

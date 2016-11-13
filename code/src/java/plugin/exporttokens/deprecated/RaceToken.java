@@ -131,7 +131,7 @@ public class RaceToken extends Token
 		Race race = pc.getDisplay().getRace();
 		String tempRaceName = OutputNameFormatting.getOutputName(race);
 
-		if (tempRaceName == null || tempRaceName.length() == 0)
+		if (tempRaceName == null || tempRaceName.isEmpty())
 		{
 			tempRaceName = race.getDisplayName();
 		}

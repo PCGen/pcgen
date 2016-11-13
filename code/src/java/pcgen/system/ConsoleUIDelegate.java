@@ -30,7 +30,7 @@ import pcgen.facade.core.UIDelegate;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>ConsoleUIDelegate</code> displays messages to the console 
+ * The Class {@code ConsoleUIDelegate} displays messages to the console
  * and returns default choices. It is used when PCGen is running in batch mode 
  * without any windows shown.
  *

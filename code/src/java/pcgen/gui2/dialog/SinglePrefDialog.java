@@ -33,7 +33,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>SinglePrefDialog</code> displays a single 
+ * The Class {@code SinglePrefDialog} displays a single
  * preference panel to the user.
  *
  * <br>

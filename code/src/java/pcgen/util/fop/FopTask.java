@@ -236,7 +236,7 @@ public final class FopTask implements Runnable
 	}
 
 	/**
-	 * The Class <code>FOPErrorListener</code> listens for notifications of issues when generating
+	 * The Class {@code FOPErrorListener} listens for notifications of issues when generating
 	 * PDF files and responds accordingly.
 	 */
 	private static class FOPErrorListener implements ErrorListener

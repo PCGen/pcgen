@@ -35,7 +35,7 @@ import pcgen.core.SettingsHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
 /**
- * <code>VAbilityListToken</code> handles the output of a comma separated 
+ * {@code VAbilityListToken} handles the output of a comma separated
  * list of virtual ability information.
  * 
  * The format is VABILITYALLLIST.y.z where

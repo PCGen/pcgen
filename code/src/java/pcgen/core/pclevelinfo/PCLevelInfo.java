@@ -36,7 +36,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.bonus.BonusUtilities;
 
 /**
- * <code>PCLevelInfo</code>.
+ * {@code PCLevelInfo}.
  *
  * Represents the data kept about a level that a PC has added.
  *

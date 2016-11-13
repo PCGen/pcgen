@@ -34,7 +34,7 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitLevelAbility</code>.
+ * {@code KitLevelAbility}.
  *
  * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */

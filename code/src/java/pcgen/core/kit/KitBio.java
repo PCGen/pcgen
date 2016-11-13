@@ -110,7 +110,7 @@ public class KitBio extends BaseKit
 	/**
 	 * Try and apply the selected gender to the character.  Any problems
 	 * encountered should be logged as a string in the
-	 * <code>warnings</code> list.
+	 * {@code warnings} list.
 	 *
 	 * @param aKit The owning kit for this item
 	 * @param aPC The character the kit is being applied to

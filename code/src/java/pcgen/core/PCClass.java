@@ -87,7 +87,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
 /**
- * <code>PCClass</code>.
+ * {@code PCClass}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

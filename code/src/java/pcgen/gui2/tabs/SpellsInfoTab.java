@@ -32,7 +32,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>SpellsInfoTab</code> is a placeholder for the yet
+ * The Class {@code SpellsInfoTab} is a placeholder for the yet
  * to be implemented Seplls tab.
  * <br>
  * 

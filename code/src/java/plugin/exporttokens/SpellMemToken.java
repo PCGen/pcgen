@@ -54,7 +54,7 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Delta;
 
 /**
- * <code>SpellMemToken</code> displays information about the spells
+ * {@code SpellMemToken} displays information about the spells
  * in the character spellbooks..
  *
  *
@@ -360,13 +360,13 @@ public class SpellMemToken extends Token
 						{
 							String aTemp = aSpell.getListAsString(ListKey.SPELL_SCHOOL);
 
-							if ((aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).length() > 0)
+							if ((!aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).isEmpty())
 								&& (!"NONE".equalsIgnoreCase(aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL).trim())))
 							{
 								aTemp += (" (" + aSpell.getListAsString(ListKey.SPELL_SUBSCHOOL) + ')');
 							}
 
-							if (aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).length() > 0)
+							if (!aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR).isEmpty())
 							{
 								aTemp += (" [" + aSpell.getListAsString(ListKey.SPELL_DESCRIPTOR) + ']');
 							}
@@ -421,7 +421,7 @@ public class SpellMemToken extends Token
 										aSpell.getKeyName(), aPC
 											.getDescription(aSpell), aPC);
 
-							if (altLabel.length() > 0)
+							if (!altLabel.isEmpty())
 							{
 								retValue.append(sString.replaceAll("\r?\n", altLabel));
 							}

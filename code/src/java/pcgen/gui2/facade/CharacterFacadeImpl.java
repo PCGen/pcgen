@@ -190,7 +190,7 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>CharacterFacadeImpl</code> is an implementation of 
+ * The Class {@code CharacterFacadeImpl} is an implementation of
  * the {@link CharacterFacade} interface for the new user interface. It is 
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
@@ -4548,7 +4548,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * The Class <code>LanguageListener</code> tracks adding and removal of 
+	 * The Class {@code LanguageListener} tracks adding and removal of
 	 * languages to the character.
 	 */
 	public class LanguageListener implements DataFacetChangeListener<CharID, Language>
@@ -4576,7 +4576,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * The Class <code>TemplateListener</code> tracks adding and removal of 
+	 * The Class {@code TemplateListener} tracks adding and removal of
 	 * templates to the character.
 	 */
 	public class TemplateListener implements DataFacetChangeListener<CharID, PCTemplate>
@@ -4604,7 +4604,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * The Class <code>XPListener</code> tracks changes to the character's experience value.
+	 * The Class {@code XPListener} tracks changes to the character's experience value.
 	 */
 	public class XPListener implements DataFacetChangeListener<CharID, Integer>
 	{
@@ -4627,7 +4627,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	}
 	
 	/**
-	 * The Class <code>AutoEquipListener</code> tracks changes to the character's automatically granted equipment.
+	 * The Class {@code AutoEquipListener} tracks changes to the character's automatically granted equipment.
 	 */
 	public class AutoEquipListener implements DataFacetChangeListener<CharID, QualifiedObject<CDOMReference<Equipment>>>
 	{

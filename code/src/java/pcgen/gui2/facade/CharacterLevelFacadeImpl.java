@@ -26,7 +26,7 @@ import pcgen.facade.core.CharacterLevelFacade;
 import pcgen.facade.core.ClassFacade;
 
 /**
- * The Class <code>CharacterLevelFacadeImpl</code> is an implementation of 
+ * The Class {@code CharacterLevelFacadeImpl} is an implementation of
  * the CharacterLevelFacade interface for the new user interface. It provides  
  * a container for information about a particular level of the character. 
  *

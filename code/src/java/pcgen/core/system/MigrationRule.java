@@ -26,7 +26,7 @@ import pcgen.core.utils.CoreUtility;
 
 
 /**
- * The Class <code>MigrationRule</code> defines a key change that needs to 
+ * The Class {@code MigrationRule} defines a key change that needs to
  * be made to a character when it is loaded. 
  *
  * <br>

@@ -36,7 +36,7 @@ import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
 
 /**
- * The Class <code>MasterSkillFacet</code> caches a copy of all class skill
+ * The Class {@code MasterSkillFacet} caches a copy of all class skill
  * lists. This allows faster checking of whether skills are class skills for a
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).

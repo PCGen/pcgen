@@ -31,7 +31,7 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.util.Logging;
 
 /**
- * <code>MinverToken</code> parses MINVER tokens in installable campaigns.
+ * {@code MinverToken} parses MINVER tokens in installable campaigns.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

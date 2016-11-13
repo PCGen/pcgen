@@ -26,7 +26,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>VisibleToken</code> handles the processing of the VISIBLE tag in the
+ * {@code VisibleToken} handles the processing of the VISIBLE tag in the
  * definition of an Equipment Modifier.
  *
  * (Sat, 24 May 2008) $

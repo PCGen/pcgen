@@ -26,7 +26,7 @@ import pcgen.cdom.base.Constants;
 import javax.swing.JEditorPane;
 
 /**
- *  <code>JLabelPane</code> extends <code>JEditorPane</code> for PCGen
+ *  {@code JLabelPane} extends <code>JEditorPane</code> for PCGen
  *  Label panes
  *
  * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
@@ -34,7 +34,7 @@ import javax.swing.JEditorPane;
 public final class JLabelPane extends JEditorPane
 {
 	/**
-	 * Create default HTML "label", an HTML <code>JEditorPane</code>
+	 * Create default HTML "label", an HTML {@code JEditorPane}
 	 */
 	public JLabelPane()
 	{
@@ -59,9 +59,9 @@ public final class JLabelPane extends JEditorPane
 
 	/**
 	 * Update the text in a non-editable HTML "label". If the label
-	 * is <code>null</code>, use a default, blank HTML string
+	 * is {@code null}, use a default, blank HTML string
 	 *
-	 * @param newContents String new contents of pane or <code>null</code>
+	 * @param newContents String new contents of pane or {@code null}
 	 */
 	@Override
 	public void setText(String newContents)

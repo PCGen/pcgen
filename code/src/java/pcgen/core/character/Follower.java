@@ -30,7 +30,7 @@ import pcgen.cdom.list.CompanionList;
 import pcgen.core.Race;
 
 /**
- * <code>Follower.java</code>
+ * {@code Follower.java}
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  **/
 public final class Follower implements Comparable<Object>, Cloneable

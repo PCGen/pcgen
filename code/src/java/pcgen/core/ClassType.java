@@ -27,7 +27,7 @@ import pcgen.base.lang.UnreachableError;
 
 
 /**
- * <code>Campaign</code>.
+ * {@code Campaign}.
  * A simple structure.
  *
  * @author Felipe Diniz &lt;fdiniz@users.sourceforge.net&gt;

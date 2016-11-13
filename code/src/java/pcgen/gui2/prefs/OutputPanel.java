@@ -42,8 +42,6 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
-import org.apache.commons.lang.BooleanUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.Globals;
@@ -58,8 +56,10 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
+import org.apache.commons.lang.BooleanUtils;
+
 /**
- * The Class <code>OutputPanel</code> is responsible for 
+ * The Class {@code OutputPanel} is responsible for
  * displaying character output related preferences and allowing the 
  * preferences to be edited by the user.
  * 
@@ -633,14 +633,11 @@ public class OutputPanel extends PCGenPrefsPanel
 
 	// This is the focus listener so that text field values may be manually entered.
 	// sage_sam April 2003 for FREQ 707022
-	private final class TextFocusLostListener implements FocusListener
+	private static final class TextFocusLostListener implements FocusListener
 	{
 		private String initialValue = null;
 		private boolean dialogOpened = false;
 
-		/**
-		 * @see java.awt.event.FocusListener#focusGained(FocusEvent)
-		 */
 		@Override
 		public void focusGained(FocusEvent e)
 		{
@@ -656,9 +653,6 @@ public class OutputPanel extends PCGenPrefsPanel
 			}
 		}
 
-		/**
-		 * @see java.awt.event.FocusListener#focusLost(FocusEvent)
-		 */
 		@Override
 		public void focusLost(FocusEvent e)
 		{

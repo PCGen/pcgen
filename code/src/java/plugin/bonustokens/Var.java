@@ -27,7 +27,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>Var</code> deals with bonuses to data defined variables.
+ * {@code Var} deals with bonuses to data defined variables.
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

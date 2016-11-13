@@ -29,7 +29,7 @@ import pcgen.core.bonus.util.SpellCastInfo;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>SpellKnownMult</code>
+ * {@code SpellKnownMult}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

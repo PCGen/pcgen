@@ -35,7 +35,7 @@ public class PcgenException extends Exception
 	private Throwable rootCause;
 
 	/**
-	 * Creates a new instance of <code>PcgenException</code> without detail message.
+	 * Creates a new instance of {@code PcgenException} without detail message.
 	 */
 	public PcgenException()
 	{
@@ -43,7 +43,7 @@ public class PcgenException extends Exception
 	}
 
 	/**
-	 * Constructs an instance of <code>PcgenException</code> with the specified detail message.
+	 * Constructs an instance of {@code PcgenException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public PcgenException(String msg)
@@ -52,7 +52,7 @@ public class PcgenException extends Exception
 	}
 
 	/**
-	 * Constructs an instance of <code>PcgenException</code> with the specified {@link Throwable rootCause}
+	 * Constructs an instance of {@code PcgenException} with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param argRootCause the root cause of the exception.
 	 * @param msg the detail message.

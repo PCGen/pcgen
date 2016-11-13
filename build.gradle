@@ -22,7 +22,7 @@ plugins {
     id 'maven'
     id 'pmd'
 
-    id "de.undercouch.download" version "3.1.1"
+    id "de.undercouch.download" version "3.1.2"
     id 'edu.sc.seis.launch4j' version '1.6.1'
     id 'com.github.ben-manes.versions' version '0.13.0'
 }
@@ -145,11 +145,11 @@ dependencies {
     compile group: 'rhino', name: 'js', version:'1.7R2'
     compile group: 'commons-logging', name: 'commons-logging', version:'1.2'
     compile group: 'commons-logging', name: 'commons-logging', version:'1.1.1'
-    compile group: 'org.springframework', name: 'spring-core', version:'4.3.2.RELEASE'
-    compile group: 'org.springframework', name: 'spring-beans', version:'4.3.2.RELEASE'
+    compile group: 'org.springframework', name: 'spring-core', version:'4.3.3.RELEASE'
+    compile group: 'org.springframework', name: 'spring-beans', version:'4.3.3.RELEASE'
     compile group: 'skinlf', name: 'skinlf', version: '1.2.3'
     compile group: 'org.apache.xmlgraphics', name: 'fop', version:'2.1'
-    compile group: 'org.apache.pdfbox', name: 'fontbox', version:'2.0.2'
+    compile group: 'org.apache.pdfbox', name: 'fontbox', version:'2.0.3'
     compile group: 'jep', name: 'jep', version:'2.4.1'
     compile group: 'org.freemarker', name: 'freemarker', version:'2.3.23'
     compile group: 'org.jdom', name: 'jdom2', version:'2.0.6'
@@ -187,7 +187,7 @@ dependencies {
     findbugs 'com.google.code.findbugs:findbugs:3.0.1'
     findbugs configurations.findbugsPlugins.dependencies
 
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.6.2'
+    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.8.0'
 }
 
 ant.importBuild 'build-gradle.xml'

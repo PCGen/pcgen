@@ -116,7 +116,7 @@ import pcgen.util.StringPClassUtil;
  *
  * @author Thomas Behr 19-03-02
  */
-public final class PCGVer2Creator implements IOConstants
+public final class PCGVer2Creator
 {
 	/*
 	 * DO NOT CHANGE line separator.
@@ -488,11 +488,11 @@ public final class PCGVer2Creator implements IOConstants
 			for (CampaignFacade campaign : campaigns)
 			{
 				buffer.append(del);
-				buffer.append(TAG_CAMPAIGN).append(':');
+				buffer.append(IOConstants.TAG_CAMPAIGN).append(':');
 				buffer.append(campaign.getKeyName());
 				del = "|"; //$NON-NLS-1$
 			}
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -501,7 +501,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendSuppressBioFieldLines(StringBuilder buffer)
 	{
-		buffer.append(TAG_SUPPRESS_BIO_FIELDS).append(':');
+		buffer.append(IOConstants.TAG_SUPPRESS_BIO_FIELDS).append(':');
 		String delim = Constants.EMPTY_STRING;
 		for (BiographyField field : BiographyField.values())
 		{
@@ -512,7 +512,7 @@ public final class PCGVer2Creator implements IOConstants
 				delim = "|"; //$NON-NLS-1$
 			}
 		}
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private GameMode getGameMode()
@@ -529,9 +529,9 @@ public final class PCGVer2Creator implements IOConstants
 
 	private void appendGameModeLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_GAMEMODE).append(':');
+		buffer.append(IOConstants.TAG_GAMEMODE).append(':');
 		buffer.append(getGameMode().getName());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -541,19 +541,19 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private static void appendPCGVersionLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PCGVERSION).append(':');
+		buffer.append(IOConstants.TAG_PCGVERSION).append(':');
 		buffer.append("2.0"); //$NON-NLS-1$
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendPurchasePointsLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PURCHASEPOINTS).append(':');
+		buffer.append(IOConstants.TAG_PURCHASEPOINTS).append(':');
 		if (getGameMode().isPurchaseStatMode())
 		{
 			buffer.append('Y');
 			buffer.append('|');
-			buffer.append(TAG_TYPE).append(':');
+			buffer.append(IOConstants.TAG_TYPE).append(':');
 			buffer
 				.append(getGameMode().getPurchaseModeMethodName());
 		}
@@ -561,16 +561,16 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			buffer.append('N');
 		}
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendRollMethodLine(StringBuilder buffer)
 	{
 		final GameMode game = getGameMode();
-		buffer.append(TAG_ROLLMETHOD).append(':');
+		buffer.append(IOConstants.TAG_ROLLMETHOD).append(':');
 		buffer.append(game.getRollMethod());
 		buffer.append('|');
-		buffer.append(TAG_EXPRESSION).append(':');
+		buffer.append(IOConstants.TAG_EXPRESSION).append(':');
 		switch (game.getRollMethod())
 		{
 			case Constants.CHARACTER_STAT_METHOD_ALL_THE_SAME:
@@ -589,7 +589,7 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append(0);
 				break;
 		}
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -599,16 +599,16 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private static void appendVersionLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_VERSION).append(':');
+		buffer.append(IOConstants.TAG_VERSION).append(':');
 		buffer.append(PCGenPropBundle.getVersionNumber());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendAgeLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_AGE).append(':');
+		buffer.append(IOConstants.TAG_AGE).append(':');
 		buffer.append(charDisplay.getAge());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -618,7 +618,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendAgeSetLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_AGESET);
+		buffer.append(IOConstants.TAG_AGESET);
 
 		for (int i = 0; i < 10; i++)
 		{
@@ -633,7 +633,7 @@ public final class PCGVer2Creator implements IOConstants
 				buffer.append('0');
 			}
 		}
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendAlignmentLine(StringBuilder buffer)
@@ -641,26 +641,26 @@ public final class PCGVer2Creator implements IOConstants
 		//
 		// Only save alignment if game mode supports it
 		//
-		if (Globals.getGameModeAlignmentText().length() != 0 && charDisplay.getPCAlignment() != null)
+		if (!Globals.getGameModeAlignmentText().isEmpty() && charDisplay.getPCAlignment() != null)
 		{
-			buffer.append(TAG_ALIGNMENT).append(':');
+			buffer.append(IOConstants.TAG_ALIGNMENT).append(':');
 			buffer.append(charDisplay.getPCAlignment().getKeyName());
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendBirthdayLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_BIRTHDAY).append(':');
+		buffer.append(IOConstants.TAG_BIRTHDAY).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHDAY)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendBirthplaceLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_BIRTHPLACE).append(':');
+		buffer.append(IOConstants.TAG_BIRTHPLACE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIRTHPLACE)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/**
@@ -670,46 +670,46 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		for (ChronicleEntry ce : charDisplay.getChronicleEntries())
 		{
-			buffer.append(TAG_CHRONICLE_ENTRY).append(':');
+			buffer.append(IOConstants.TAG_CHRONICLE_ENTRY).append(':');
 			buffer.append(ce.isOutputEntry()?"Y":"N:");
 			buffer.append('|');
-			buffer.append(TAG_CAMPAIGN).append(':');
+			buffer.append(IOConstants.TAG_CAMPAIGN).append(':');
 			buffer.append(EntityEncoder.encode(ce.getCampaign()));
 			buffer.append('|');
-			buffer.append(TAG_ADVENTURE).append(':');
+			buffer.append(IOConstants.TAG_ADVENTURE).append(':');
 			buffer.append(EntityEncoder.encode(ce.getAdventure()));
 			buffer.append('|');
-			buffer.append(TAG_PARTY).append(':');
+			buffer.append(IOConstants.TAG_PARTY).append(':');
 			buffer.append(EntityEncoder.encode(ce.getParty()));
 			buffer.append('|');
-			buffer.append(TAG_DATE).append(':');
+			buffer.append(IOConstants.TAG_DATE).append(':');
 			buffer.append(EntityEncoder.encode(ce.getDate()));
 			buffer.append('|');
-			buffer.append(TAG_EXPERIENCE).append(':');
+			buffer.append(IOConstants.TAG_EXPERIENCE).append(':');
 			buffer.append(ce.getXpField());
 			buffer.append('|');
-			buffer.append(TAG_GM).append(':');
+			buffer.append(IOConstants.TAG_GM).append(':');
 			buffer.append(EntityEncoder.encode(ce.getGmField()));
 			buffer.append('|');
-			buffer.append(TAG_CHRONICLE).append(':');
+			buffer.append(IOConstants.TAG_CHRONICLE).append(':');
 			buffer.append(EntityEncoder.encode(ce.getChronicle()));
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 			
 		}
 	}
 
 	private void appendCatchPhraseLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CATCHPHRASE).append(':');
+		buffer.append(IOConstants.TAG_CATCHPHRASE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.CATCHPHRASE)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterAssetLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERASSET).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERASSET).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.ASSETS)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -719,51 +719,51 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendCharacterBioLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERBIO).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERBIO).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.BIO)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterCompLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERCOMP).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERCOMP).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.COMPANIONS)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterDescLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERDESC).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERDESC).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.DESCRIPTION)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterMagicLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERMAGIC).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERMAGIC).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.MAGIC)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterDmNotesLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERDMNOTES).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERDMNOTES).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.GMNOTES)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendCharacterTypeLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERTYPE).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERTYPE).append(':');
 		buffer.append(charDisplay.getCharacterType());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendPreviewSheetLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PREVIEWSHEET).append(':');
+		buffer.append(IOConstants.TAG_PREVIEWSHEET).append(':');
 		buffer.append(charDisplay.getPreviewSheet());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -779,7 +779,7 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			int classLevel = charDisplay.getLevel(pcClass);
 
-			buffer.append(TAG_CLASS).append(':');
+			buffer.append(IOConstants.TAG_CLASS).append(':');
 			buffer.append(EntityEncoder.encode(pcClass.getKeyName()));
 
 			final String subClassKey = charDisplay.getSubClassName(pcClass);
@@ -787,15 +787,15 @@ public final class PCGVer2Creator implements IOConstants
 			if (subClassKey != null && !Constants.EMPTY_STRING.equals(subClassKey))
 			{
 				buffer.append('|');
-				buffer.append(TAG_SUBCLASS).append(':');
+				buffer.append(IOConstants.TAG_SUBCLASS).append(':');
 				buffer.append(EntityEncoder.encode(subClassKey));
 			}
 
 			buffer.append('|');
-			buffer.append(TAG_LEVEL).append(':');
+			buffer.append(IOConstants.TAG_LEVEL).append(':');
 			buffer.append(classLevel);
 			buffer.append('|');
-			buffer.append(TAG_SKILLPOOL).append(':');
+			buffer.append(IOConstants.TAG_SKILLPOOL).append(':');
 			Integer currentPool = thePC.getSkillPool(pcClass);
 			buffer.append(currentPool == null ? 0 : currentPool);
 
@@ -812,10 +812,10 @@ public final class PCGVer2Creator implements IOConstants
 			if (isCaster || isPsionic)
 			{
 				buffer.append('|');
-				buffer.append(TAG_SPELLBASE).append(':');
+				buffer.append(IOConstants.TAG_SPELLBASE).append(':');
 				buffer.append(EntityEncoder.encode(pcClass.getSpellBaseStat()));
 				buffer.append('|');
-				buffer.append(TAG_CANCASTPERDAY).append(':');
+				buffer.append(IOConstants.TAG_CANCASTPERDAY).append(':');
 				buffer.append(StringUtil.join(thePC.getSpellSupport(pcClass)
 					.getCastListForLevel(classLevel), ","));
 			}
@@ -832,30 +832,30 @@ public final class PCGVer2Creator implements IOConstants
 				if (!set.isEmpty())
 				{
 					buffer.append('|');
-					buffer.append(TAG_PROHIBITED).append(':');
+					buffer.append(IOConstants.TAG_PROHIBITED).append(':');
 					buffer.append(EntityEncoder.encode(StringUtil
 							.join(set, ",")));
 				}
 			}
 			appendAddTokenInfo(buffer, pcClass);
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 
 			String spec = thePC.getAssoc(pcClass, AssociationKey.SPECIALTY);
 			if (spec != null)
 			{
-				specials.put(pcClass.getKeyName() + TAG_SPECIALTY + '0', spec);
+				specials.put(pcClass.getKeyName() + IOConstants.TAG_SPECIALTY + '0', spec);
 			}
 
 			String key;
-			key = pcClass.getKeyName() + TAG_SAVE + '0';
+			key = pcClass.getKeyName() + IOConstants.TAG_SAVE + '0';
 
 			List<? extends SpecialAbility> salist = charDisplay.getUserSpecialAbilityList(pcClass);
 			if (salist != null)
 			{
 				for (SpecialAbility sa : salist)
 				{
-					specials.put(pcClass.getKeyName() + TAG_SA + 0, sa
+					specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa
 							.getKeyName());
 					break;
 				}
@@ -867,7 +867,7 @@ public final class PCGVer2Creator implements IOConstants
 			}
 			for (int i = 1; i <= charDisplay.getLevel(pcClass); i++)
 			{
-				key = pcClass.getKeyName() + TAG_SAVE + (i - 1);
+				key = pcClass.getKeyName() + IOConstants.TAG_SAVE + (i - 1);
 				PCClassLevel pcl = charDisplay.getActiveClassLevel(pcClass, i);
 				for (BonusObj save : thePC.getSaveableBonusList(pcl))
 				{
@@ -884,7 +884,7 @@ public final class PCGVer2Creator implements IOConstants
 			final String classKeyName = pcl.getClassKeyName();
 			int lvl = pcl.getClassLevel() - 1;
 			PCClass pcClass = thePC.getClassKeyed(classKeyName);
-			buffer.append(TAG_CLASSABILITIESLEVEL).append(':');
+			buffer.append(IOConstants.TAG_CLASSABILITIESLEVEL).append(':');
 
 			if (pcClass == null)
 			{
@@ -920,26 +920,26 @@ public final class PCGVer2Creator implements IOConstants
 				if (aKey != null)
 				{
 					buffer.append('|');
-					buffer.append(TAG_SUBSTITUTIONLEVEL).append(':');
+					buffer.append(IOConstants.TAG_SUBSTITUTIONLEVEL).append(':');
 					buffer.append(aKey);
 				}
 
 				buffer.append('|');
-				buffer.append(TAG_HITPOINTS).append(':');
+				buffer.append(IOConstants.TAG_HITPOINTS).append(':');
 				PCClassLevel classLevel = charDisplay.getActiveClassLevel(pcClass, lvl);
 				Integer hp = charDisplay.getHP(classLevel);
 				buffer.append(hp == null ? 0 : hp);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
-					+ TAG_SAVE + lvl), TAG_SAVES, TAG_SAVE, lvl);
+					+ IOConstants.TAG_SAVE + lvl), IOConstants.TAG_SAVES, IOConstants.TAG_SAVE, lvl);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
-					+ TAG_SPECIALTY + lvl), TAG_SPECIALTIES, TAG_SPECIALTY, lvl);
+					+ IOConstants.TAG_SPECIALTY + lvl), IOConstants.TAG_SPECIALTIES, IOConstants.TAG_SPECIALTY, lvl);
 				appendSpecials(buffer, specials.get(pcClass.getKeyName()
-					+ TAG_SA + lvl), TAG_SPECIALABILITIES, TAG_SA, lvl);
+					+ IOConstants.TAG_SA + lvl), IOConstants.TAG_SPECIALABILITIES, IOConstants.TAG_SA, lvl);
 
 				if (lvl == 0)
 				{
 					appendSpecials(buffer, specials.get(pcClass.getKeyName()
-						+ TAG_SA + (lvl - 1)), TAG_SPECIALABILITIES, TAG_SA, -1);
+						+ IOConstants.TAG_SA + (lvl - 1)), IOConstants.TAG_SPECIALABILITIES, IOConstants.TAG_SA, -1);
 				}
 
 				//
@@ -954,7 +954,7 @@ public final class PCGVer2Creator implements IOConstants
 			{
 				for (PCLevelInfoStat stat : statList)
 				{
-					buffer.append('|').append(TAG_PRESTAT).append(':').append(
+					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
 						stat.toString());
 				}
 			}
@@ -965,7 +965,7 @@ public final class PCGVer2Creator implements IOConstants
 			{
 				for (PCLevelInfoStat stat : statList)
 				{
-					buffer.append('|').append(TAG_PRESTAT).append(':').append(
+					buffer.append('|').append(IOConstants.TAG_PRESTAT).append(':').append(
 						stat.toString());
 				}
 			}
@@ -974,7 +974,7 @@ public final class PCGVer2Creator implements IOConstants
 
 			//if (sp != 0)
 			{
-				buffer.append('|').append(TAG_SKILLPOINTSGAINED).append(':')
+				buffer.append('|').append(IOConstants.TAG_SKILLPOINTSGAINED).append(':')
 					.append(sp);
 			}
 
@@ -982,11 +982,11 @@ public final class PCGVer2Creator implements IOConstants
 
 			//if (sp != 0)
 			{
-				buffer.append('|').append(TAG_SKILLPOINTSREMAINING).append(':')
+				buffer.append('|').append(IOConstants.TAG_SKILLPOINTSREMAINING).append(':')
 					.append(sp);
 			}
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -1014,7 +1014,7 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			final Deity aDeity = charDisplay.getDeity();
 
-			buffer.append(TAG_DEITY).append(':');
+			buffer.append(IOConstants.TAG_DEITY).append(':');
 			buffer.append(EntityEncoder.encode(aDeity.getKeyName()));
 
 			/*
@@ -1023,7 +1023,7 @@ public final class PCGVer2Creator implements IOConstants
 			 * author: Thomas Behr 09-09-02
 			 */
 			buffer.append('|');
-			buffer.append(TAG_DEITYDOMAINS).append(':');
+			buffer.append(IOConstants.TAG_DEITYDOMAINS).append(':');
 			buffer.append('[');
 
 			String del = Constants.EMPTY_STRING;
@@ -1034,7 +1034,7 @@ public final class PCGVer2Creator implements IOConstants
 				for (Domain d : ref.getContainedObjects())
 				{
 					buffer.append(del);
-					buffer.append(TAG_DOMAIN).append(':');
+					buffer.append(IOConstants.TAG_DOMAIN).append(':');
 					buffer.append(EntityEncoder.encode(d.getKeyName()));
 					del = "|"; //$NON-NLS-1$
 				}
@@ -1043,18 +1043,18 @@ public final class PCGVer2Creator implements IOConstants
 			buffer.append(']');
 
 			buffer.append('|');
-			buffer.append(TAG_ALIGNALLOW).append(':');
+			buffer.append(IOConstants.TAG_ALIGNALLOW).append(':');
 			//TODO Need to clean this up?
 			for (final Description desc : aDeity
 				.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
-				buffer.append(TAG_DESC).append(':');
+				buffer.append(IOConstants.TAG_DESC).append(':');
 				buffer.append(desc.getPCCText());
 			}
 
 			buffer.append('|');
-			buffer.append(TAG_DEITYFAVWEAP).append(':');
+			buffer.append(IOConstants.TAG_DEITYFAVWEAP).append(':');
 			buffer.append('[');
 
 			List<CDOMReference<WeaponProf>> dwp =
@@ -1065,7 +1065,7 @@ public final class PCGVer2Creator implements IOConstants
 				for (CDOMReference<WeaponProf> ref : dwp)
 				{
 					buffer.append(del);
-					buffer.append(TAG_WEAPON).append(':');
+					buffer.append(IOConstants.TAG_WEAPON).append(':');
 					buffer.append(EntityEncoder.encode(ref.getLSTformat(false)));
 					del = "|"; //$NON-NLS-1$
 				}
@@ -1074,14 +1074,14 @@ public final class PCGVer2Creator implements IOConstants
 			buffer.append(']');
 
 			buffer.append('|');
-			buffer.append(TAG_DEITYALIGN).append(':');
+			buffer.append(IOConstants.TAG_DEITYALIGN).append(':');
 			CDOMSingleRef<PCAlignment> al = aDeity.get(ObjectKey.ALIGNMENT);
 			if (al != null)
 			{
 				buffer.append(al.getLSTformat(false));
 			}
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -1112,13 +1112,13 @@ public final class PCGVer2Creator implements IOConstants
 			//  					  aSpell.getName());
 			//  				}
 			//  			}
-			buffer.append(TAG_DOMAIN).append(':');
+			buffer.append(IOConstants.TAG_DOMAIN).append(':');
 			buffer.append(EntityEncoder.encode(domain.getKeyName()));
 
 			for (String assoc : thePC.getAssociationList(domain))
 			{
 				buffer.append('|');
-				buffer.append(TAG_ASSOCIATEDDATA).append(':');
+				buffer.append(IOConstants.TAG_ASSOCIATEDDATA).append(':');
 				buffer.append(EntityEncoder.encode(assoc));
 			}
 
@@ -1126,7 +1126,7 @@ public final class PCGVer2Creator implements IOConstants
 				.getSafeListFor(ListKey.DESCRIPTION))
 			{
 				buffer.append('|');
-				buffer.append(TAG_DOMAINGRANTS).append(':');
+				buffer.append(IOConstants.TAG_DOMAINGRANTS).append(':');
 				buffer.append(desc.getPCCText());
 			}
 			buffer.append('|');
@@ -1145,7 +1145,7 @@ public final class PCGVer2Creator implements IOConstants
 			//			buffer.append(TAG_DOMAINSPELLS).append(':');
 			//			buffer.append(aDomain.getSpellList());
 			appendAddTokenInfo(buffer, domain);
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 
 			/*
 			 * not working yet anyways
@@ -1212,7 +1212,7 @@ public final class PCGVer2Creator implements IOConstants
 		{
 			if (eSet.useTempBonusList())
 			{
-				buffer.append(TAG_EQSETBONUS).append(':');
+				buffer.append(IOConstants.TAG_EQSETBONUS).append(':');
 				buffer.append(eSet.getIdPath());
 
 				List<String> trackList = new ArrayList<>();
@@ -1234,11 +1234,11 @@ public final class PCGVer2Creator implements IOConstants
 					trackList.add(aName);
 
 					buffer.append('|');
-					buffer.append(TAG_TEMPBONUSBONUS).append(':');
+					buffer.append(IOConstants.TAG_TEMPBONUSBONUS).append(':');
 					buffer.append(EntityEncoder.encode(aName));
 				}
 
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 	}
@@ -1249,48 +1249,48 @@ public final class PCGVer2Creator implements IOConstants
 		Collections.sort(eqsorted);
 		for (final Equipment eq : eqsorted)
 		{
-			buffer.append(TAG_EQUIPNAME).append(':');
+			buffer.append(IOConstants.TAG_EQUIPNAME).append(':');
 			buffer.append(EntityEncoder.encode(eq.getName()));
 			buffer.append('|');
-			buffer.append(TAG_OUTPUTORDER).append(':');
+			buffer.append(IOConstants.TAG_OUTPUTORDER).append(':');
 			buffer.append(eq.getOutputIndex());
 			buffer.append('|');
-			buffer.append(TAG_COST).append(':');
+			buffer.append(IOConstants.TAG_COST).append(':');
 			buffer.append(eq.getCost(thePC).toString());
 			buffer.append('|');
-			buffer.append(TAG_WT).append(':');
+			buffer.append(IOConstants.TAG_WT).append(':');
 			buffer.append(eq.getWeight(thePC).toString());
 			buffer.append('|');
-			buffer.append(TAG_QUANTITY).append(':');
+			buffer.append(IOConstants.TAG_QUANTITY).append(':');
 			buffer.append(eq.qty());
 			
 			final String note = eq.getNote();
 			if (note != null)
 			{
 				buffer.append('|');
-				buffer.append(TAG_NOTE).append(':');
+				buffer.append(IOConstants.TAG_NOTE).append(':');
 				buffer.append(eq.getNote());
 			}
 
 			final String customization = eq.formatSaveLine('$', '=').trim();
 			final int delimiterIndex = customization.indexOf('$');
 
-			if ((customization.length() > 0) && (delimiterIndex >= 0))
+			if ((!customization.isEmpty()) && (delimiterIndex >= 0))
 			{
 				buffer.append('|');
-				buffer.append(TAG_CUSTOMIZATION).append(':');
+				buffer.append(IOConstants.TAG_CUSTOMIZATION).append(':');
 				buffer.append('[');
-				buffer.append(TAG_BASEITEM).append(':');
+				buffer.append(IOConstants.TAG_BASEITEM).append(':');
 				buffer.append(EntityEncoder.encode(customization.substring(0,
 					delimiterIndex)));
 				buffer.append('|');
-				buffer.append(TAG_DATA).append(':');
+				buffer.append(IOConstants.TAG_DATA).append(':');
 				buffer.append(EntityEncoder.encode(customization
 					.substring(delimiterIndex + 1)));
 				buffer.append(']');
 			}
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -1302,51 +1302,51 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (EquipSet eqSet : eqSetList)
 		{
-			buffer.append(TAG_EQUIPSET).append(':');
+			buffer.append(IOConstants.TAG_EQUIPSET).append(':');
 			buffer.append(EntityEncoder.encode(eqSet.getName()));
 			buffer.append('|');
-			buffer.append(TAG_ID).append(':');
+			buffer.append(IOConstants.TAG_ID).append(':');
 			buffer.append(eqSet.getIdPath());
 
-			if (eqSet.getValue().length() > 0)
+			if (!eqSet.getValue().isEmpty())
 			{
 				buffer.append('|');
-				buffer.append(TAG_VALUE).append(':');
+				buffer.append(IOConstants.TAG_VALUE).append(':');
 				buffer.append(EntityEncoder.encode(eqSet.getValue()));
 				buffer.append('|');
-				buffer.append(TAG_QUANTITY).append(':');
+				buffer.append(IOConstants.TAG_QUANTITY).append(':');
 				buffer.append(eqSet.getQty());
 			}
 
-			if (eqSet.getNote().length() > 0)
+			if (!eqSet.getNote().isEmpty())
 			{
 				buffer.append('|');
-				buffer.append(TAG_NOTE).append(':');
+				buffer.append(IOConstants.TAG_NOTE).append(':');
 				buffer.append(eqSet.getNote());
 			}
 
 			if (eqSet.getUseTempMods())
 			{
 				buffer.append('|');
-				buffer.append(TAG_USETEMPMODS).append(':');
+				buffer.append(IOConstants.TAG_USETEMPMODS).append(':');
 				buffer.append(eqSet.getUseTempMods() ? 'Y' : 'N');
 			}
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 
 		// Then output EquipSet used for "working" equipmentList
 		final String calcEquipSet = thePC.getCalcEquipSetId();
-		buffer.append(TAG_CALCEQUIPSET).append(':');
+		buffer.append(IOConstants.TAG_CALCEQUIPSET).append(':');
 		buffer.append(calcEquipSet);
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendEyeColorLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_EYECOLOR).append(':');
+		buffer.append(IOConstants.TAG_EYECOLOR).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.EYECOLOR)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1357,9 +1357,9 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendFeatLines(StringBuilder buffer)
 	{
-		buffer.append(TAG_FEATPOOL).append(':');
+		buffer.append(IOConstants.TAG_FEATPOOL).append(':');
 		buffer.append(thePC.getRemainingFeatPoints(false));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1375,13 +1375,14 @@ public final class PCGVer2Creator implements IOConstants
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
-		Collections.sort(categories, new Comparator<AbilityCategory>() {
-			@Override
-			public int compare(AbilityCategory  a, AbilityCategory  b)
-			{
-				return  a.getKeyName().compareTo(b.getKeyName());
-			}
-		});
+		categories.sort(new Comparator<AbilityCategory>()
+        {
+            @Override
+            public int compare(AbilityCategory a, AbilityCategory b)
+            {
+                return a.getKeyName().compareTo(b.getKeyName());
+            }
+        });
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -1408,12 +1409,12 @@ public final class PCGVer2Creator implements IOConstants
 			if (!normalAbilitiesToSave.isEmpty() || hasVirt
 				|| thePC.getUserPoolBonus(cat) != 0.0)
 			{
-				buffer.append(TAG_USERPOOL).append(TAG_END);
+				buffer.append(IOConstants.TAG_USERPOOL).append(IOConstants.TAG_END);
 				buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
-					TAG_SEPARATOR);
-				buffer.append(TAG_POOLPOINTS).append(TAG_END);
+                        IOConstants.TAG_SEPARATOR);
+				buffer.append(IOConstants.TAG_POOLPOINTS).append(IOConstants.TAG_END);
 				buffer.append(thePC.getUserPoolBonus(cat));
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 	}
@@ -1423,21 +1424,21 @@ public final class PCGVer2Creator implements IOConstants
 		Category<Ability> cat = cna.getAbilityCategory();
 		Nature nature = cna.getNature();
 		Ability ability = cna.getAbility();
-		buffer.append(TAG_ABILITY).append(TAG_END);
+		buffer.append(IOConstants.TAG_ABILITY).append(IOConstants.TAG_END);
 		buffer.append(EntityEncoder.encode(cat.getKeyName())).append(
-			TAG_SEPARATOR);
-		buffer.append(TAG_TYPE).append(TAG_END);
+                IOConstants.TAG_SEPARATOR);
+		buffer.append(IOConstants.TAG_TYPE).append(IOConstants.TAG_END);
 		buffer.append(EntityEncoder.encode(nature.toString())).append(
-				TAG_SEPARATOR);
-		buffer.append(TAG_CATEGORY).append(TAG_END);
+                IOConstants.TAG_SEPARATOR);
+		buffer.append(IOConstants.TAG_CATEGORY).append(IOConstants.TAG_END);
 		buffer.append(EntityEncoder.encode(ability.getCategory()))
-			.append(TAG_SEPARATOR);
-		buffer.append(TAG_MAPKEY).append(TAG_END);
+			.append(IOConstants.TAG_SEPARATOR);
+		buffer.append(IOConstants.TAG_MAPKEY).append(IOConstants.TAG_END);
 		buffer.append(EntityEncoder.encode(ability.getKeyName()))
-			.append(TAG_SEPARATOR);
+			.append(IOConstants.TAG_SEPARATOR);
 		if (ability.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			buffer.append(TAG_APPLIEDTO).append(TAG_END);
+			buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);
 			List<String> assocList = thePC.getAssociationList(cna);
 			boolean first = true;
 			for (String assoc : assocList)
@@ -1449,15 +1450,15 @@ public final class PCGVer2Creator implements IOConstants
 				first = false;
 				buffer.append(EntityEncoder.encode(assoc));
 			}
-			buffer.append(TAG_SEPARATOR);
+			buffer.append(IOConstants.TAG_SEPARATOR);
 		}
-		buffer.append(TAG_TYPE).append(TAG_END);
+		buffer.append(IOConstants.TAG_TYPE).append(IOConstants.TAG_END);
 		buffer.append(EntityEncoder.encode(ability.getType()));
 
 		for (final BonusObj save : thePC.getSaveableBonusList(ability))
 		{
 			buffer.append('|');
-			buffer.append(TAG_SAVE).append(':');
+			buffer.append(IOConstants.TAG_SAVE).append(':');
 			buffer.append(EntityEncoder.encode("BONUS|" + save));
 		}
 
@@ -1465,11 +1466,11 @@ public final class PCGVer2Creator implements IOConstants
 			.getSafeListFor(ListKey.DESCRIPTION))
 		{
 			buffer.append(Constants.PIPE);
-			buffer.append(TAG_DESC).append(':');
+			buffer.append(IOConstants.TAG_DESC).append(':');
 			buffer.append(EntityEncoder.encode(desc.getPCCText()));
 		}
 
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1483,92 +1484,92 @@ public final class PCGVer2Creator implements IOConstants
 
 		if (aMaster != null)
 		{
-			buffer.append(TAG_MASTER).append(':');
+			buffer.append(IOConstants.TAG_MASTER).append(':');
 			buffer.append(EntityEncoder.encode(aMaster.getName()));
 			buffer.append('|');
-			buffer.append(TAG_TYPE).append(':');
+			buffer.append(IOConstants.TAG_TYPE).append(':');
 			buffer.append(EntityEncoder.encode(aMaster.getType().getKeyName()));
 			buffer.append('|');
-			buffer.append(TAG_HITDICE).append(':');
+			buffer.append(IOConstants.TAG_HITDICE).append(':');
 			buffer.append(aMaster.getUsedHD());
 			buffer.append('|');
-			buffer.append(TAG_FILE).append(':');
+			buffer.append(IOConstants.TAG_FILE).append(':');
 			buffer
 				.append(EntityEncoder.encode(FileHelper.findRelativePath(
 					new File(charDisplay.getFileName()),
 					new File(aMaster.getFileName()))));
 			buffer.append('|');
-			buffer.append(TAG_ADJUSTMENT).append(':');
+			buffer.append(IOConstants.TAG_ADJUSTMENT).append(':');
 			buffer.append(aMaster.getAdjustment());
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 
 		if (charDisplay.hasFollowers())
 		{
 			for (Follower follower : charDisplay.getFollowerList())
 			{
-				buffer.append(TAG_FOLLOWER).append(':');
+				buffer.append(IOConstants.TAG_FOLLOWER).append(':');
 				buffer.append(EntityEncoder.encode(follower.getName()));
 				buffer.append('|');
-				buffer.append(TAG_TYPE).append(':');
+				buffer.append(IOConstants.TAG_TYPE).append(':');
 				buffer.append(EntityEncoder.encode(follower.getType()
 					.getKeyName()));
 				buffer.append('|');
 				if (follower.getRace() != null)
 				{
-					buffer.append(TAG_RACE).append(':');
+					buffer.append(IOConstants.TAG_RACE).append(':');
 					buffer.append(EntityEncoder.encode(follower.getRace()
 						.getKeyName().toUpperCase()));
 					buffer.append('|');
 				}
-				buffer.append(TAG_HITDICE).append(':');
+				buffer.append(IOConstants.TAG_HITDICE).append(':');
 				buffer.append(follower.getUsedHD());
 				buffer.append('|');
-				buffer.append(TAG_FILE).append(':');
+				buffer.append(IOConstants.TAG_FILE).append(':');
 				if (StringUtils.isNotEmpty(follower.getFileName()))
 				{
 					buffer.append(EntityEncoder.encode(FileHelper
 						.findRelativePath(new File(charDisplay.getFileName()),
 							new File(follower.getFileName()))));
 				}
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 	}
 
 	private void appendGenderLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_GENDER).append(':');
+		buffer.append(IOConstants.TAG_GENDER).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getGenderObject().name()));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendHairColorLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_HAIRCOLOR).append(':');
+		buffer.append(IOConstants.TAG_HAIRCOLOR).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRCOLOR)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendHairStyleLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_HAIRSTYLE).append(':');
+		buffer.append(IOConstants.TAG_HAIRSTYLE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.HAIRSTYLE)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendHandedLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_HANDED).append(':');
+		buffer.append(IOConstants.TAG_HANDED).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getHandedObject().name()));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendInterestsLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_INTERESTS).append(':');
+		buffer.append(IOConstants.TAG_INTERESTS).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.INTERESTS)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1587,8 +1588,8 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		for (final Kit kit : charDisplay.getKitInfo())
 		{
-			buffer.append(TAG_KIT).append(':').append(kit.getKeyName())
-				.append(LINE_SEP);
+			buffer.append(IOConstants.TAG_KIT).append(':').append(kit.getKeyName())
+				.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -1605,19 +1606,19 @@ public final class PCGVer2Creator implements IOConstants
 		for (final Language lang : sortedlangs)
 		{
 			buffer.append(del);
-			buffer.append(TAG_LANGUAGE).append(':');
+			buffer.append(IOConstants.TAG_LANGUAGE).append(':');
 			buffer.append(EntityEncoder.encode(lang.getKeyName()));
 			del = "|"; //$NON-NLS-1$
 		}
 
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendLocationLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_LOCATION).append(':');
+		buffer.append(IOConstants.TAG_LOCATION).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.LOCATION)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/**
@@ -1629,7 +1630,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private static void appendNewline(StringBuilder buffer)
 	{
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1641,40 +1642,40 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		for (NoteItem ni : charDisplay.getNotesList())
 		{
-			buffer.append(TAG_NOTE).append(':');
+			buffer.append(IOConstants.TAG_NOTE).append(':');
 			buffer.append(EntityEncoder.encode(ni.getName()));
 			buffer.append('|');
-			buffer.append(TAG_ID).append(':');
+			buffer.append(IOConstants.TAG_ID).append(':');
 			buffer.append(ni.getId());
 			buffer.append('|');
-			buffer.append(TAG_PARENTID).append(':');
+			buffer.append(IOConstants.TAG_PARENTID).append(':');
 			buffer.append(ni.getParentId());
 			buffer.append('|');
-			buffer.append(TAG_VALUE).append(':');
+			buffer.append(IOConstants.TAG_VALUE).append(':');
 			buffer.append(EntityEncoder.encode(ni.getValue()));
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendPersonalityTrait1Line(StringBuilder buffer)
 	{
-		buffer.append(TAG_PERSONALITYTRAIT1).append(':');
+		buffer.append(IOConstants.TAG_PERSONALITYTRAIT1).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY1)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendPersonalityTrait2Line(StringBuilder buffer)
 	{
-		buffer.append(TAG_PERSONALITYTRAIT2).append(':');
+		buffer.append(IOConstants.TAG_PERSONALITYTRAIT2).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PERSONALITY2)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendPhobiasLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PHOBIAS).append(':');
+		buffer.append(IOConstants.TAG_PHOBIAS).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.PHOBIAS)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	//private void appendUnlimitedPoolCheckedLine(StringBuilder buffer)
@@ -1685,56 +1686,56 @@ public final class PCGVer2Creator implements IOConstants
 	//}
 	private void appendPoolPointsLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_POOLPOINTS).append(':');
+		buffer.append(IOConstants.TAG_POOLPOINTS).append(':');
 		buffer.append(thePC.getPoolAmount());
-		buffer.append(LINE_SEP);
-		buffer.append(TAG_POOLPOINTSAVAIL).append(':');
+		buffer.append(IOConstants.LINE_SEP);
+		buffer.append(IOConstants.TAG_POOLPOINTSAVAIL).append(':');
 		buffer.append(thePC.getPointBuyPoints());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private static void appendTabLabelLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_TABLABEL).append(':');
+		buffer.append(IOConstants.TAG_TABLABEL).append(':');
 		buffer.append(SettingsHandler.getNameDisplayStyle());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendAutoSortLines(StringBuilder buffer)
 	{
-		buffer.append(TAG_AUTOSORTGEAR).append(':');
+		buffer.append(IOConstants.TAG_AUTOSORTGEAR).append(':');
 		buffer.append(thePC.isAutoSortGear() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
-		buffer.append(TAG_SKILLSOUTPUTORDER).append(':');
+		buffer.append(IOConstants.LINE_SEP);
+		buffer.append(IOConstants.TAG_SKILLSOUTPUTORDER).append(':');
 		buffer.append(thePC.getSkillsOutputOrder().ordinal());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendSkillFilterLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_SKILLFILTER).append(':');
+		buffer.append(IOConstants.TAG_SKILLFILTER).append(':');
 		buffer.append(thePC.getSkillFilter().getValue());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendGearCostSizeLines(StringBuilder buffer)
 	{
-		buffer.append(TAG_IGNORECOST).append(':');
+		buffer.append(IOConstants.TAG_IGNORECOST).append(':');
 		buffer.append(thePC.isIgnoreCost() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
-		buffer.append(TAG_ALLOWDEBT).append(':');
+		buffer.append(IOConstants.LINE_SEP);
+		buffer.append(IOConstants.TAG_ALLOWDEBT).append(':');
 		buffer.append(thePC.isAllowDebt() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
-		buffer.append(TAG_AUTORESIZEGEAR).append(':');
+		buffer.append(IOConstants.LINE_SEP);
+		buffer.append(IOConstants.TAG_AUTORESIZEGEAR).append(':');
 		buffer.append(thePC.isAutoResize() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendAutoSpellsLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_AUTOSPELLS).append(':');
+		buffer.append(IOConstants.TAG_AUTOSPELLS).append(':');
 		buffer.append(thePC.getAutoSpells() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/**
@@ -1743,12 +1744,12 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendUseHigherSpellSlotsLines(StringBuilder buffer)
 	{
-		buffer.append(TAG_USEHIGHERKNOWN).append(':');
+		buffer.append(IOConstants.TAG_USEHIGHERKNOWN).append(':');
 		buffer.append(thePC.getUseHigherKnownSlots() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
-		buffer.append(TAG_USEHIGHERPREPPED).append(':');
+		buffer.append(IOConstants.LINE_SEP);
+		buffer.append(IOConstants.TAG_USEHIGHERPREPPED).append(':');
 		buffer.append(thePC.getUseHigherPreppedSlots() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1758,62 +1759,62 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendCharacterNameLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CHARACTERNAME).append(':');
+		buffer.append(IOConstants.TAG_CHARACTERNAME).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getName()));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendHeightLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_HEIGHT).append(':');
+		buffer.append(IOConstants.TAG_HEIGHT).append(':');
 		buffer.append(charDisplay.getHeight());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendLoadCompanionLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_LOADCOMPANIONS).append(':');
+		buffer.append(IOConstants.TAG_LOADCOMPANIONS).append(':');
 		buffer.append(thePC.getLoadCompanion() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendOutputSheetsLines(StringBuilder buffer)
 	{
 		if (SettingsHandler.getSaveOutputSheetWithPC())
 		{
-			buffer.append(TAG_HTMLOUTPUTSHEET).append(':');
+			buffer.append(IOConstants.TAG_HTMLOUTPUTSHEET).append(':');
 			buffer.append(EntityEncoder.encode(SettingsHandler
 				.getSelectedCharacterHTMLOutputSheet(null)));
-			buffer.append(LINE_SEP);
-			buffer.append(TAG_PDFOUTPUTSHEET).append(':');
+			buffer.append(IOConstants.LINE_SEP);
+			buffer.append(IOConstants.TAG_PDFOUTPUTSHEET).append(':');
 			buffer.append(EntityEncoder.encode(SettingsHandler
 				.getSelectedCharacterPDFOutputSheet(null)));
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendPlayerNameLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PLAYERNAME).append(':');
+		buffer.append(IOConstants.TAG_PLAYERNAME).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getPlayersName()));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendPortraitLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_PORTRAIT).append(':');
+		buffer.append(IOConstants.TAG_PORTRAIT).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getPortraitPath()));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 		
 		Rectangle rect = charDisplay.getPortraitThumbnailRect();
 		if (rect != null)
 		{
-			buffer.append(TAG_PORTRAIT_THUMBNAIL_RECT).append(':');
+			buffer.append(IOConstants.TAG_PORTRAIT_THUMBNAIL_RECT).append(':');
 			buffer.append(rect.x).append(',');
 			buffer.append(rect.y).append(',');
 			buffer.append(rect.width).append(',');
 			buffer.append(rect.height);
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -1822,14 +1823,14 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendRaceLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_RACE).append(':');
+		buffer.append(IOConstants.TAG_RACE).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getRace().getKeyName()));
 		List<String> assocList =
 				thePC.getAssociationList(charDisplay.getRace());
 		if (assocList != null && !assocList.isEmpty())
 		{
-			buffer.append(TAG_SEPARATOR);
-			buffer.append(TAG_APPLIEDTO).append(TAG_END);
+			buffer.append(IOConstants.TAG_SEPARATOR);
+			buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);
 			boolean first = true;
 			for (String assoc : assocList)
 			{
@@ -1842,7 +1843,7 @@ public final class PCGVer2Creator implements IOConstants
 			}
 		}
 		appendAddTokenInfo(buffer, charDisplay.getRace());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendFavoredClassLine(StringBuilder buffer)
@@ -1850,24 +1851,24 @@ public final class PCGVer2Creator implements IOConstants
 		PCClass sfc = thePC.getLegacyFavoredClass();
 		if (sfc != null)
 		{
-			buffer.append(TAG_FAVOREDCLASS).append(':');
+			buffer.append(IOConstants.TAG_FAVOREDCLASS).append(':');
 			buffer.append(EntityEncoder.encode(sfc.getKeyName()));
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendResidenceLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_CITY).append(':');
+		buffer.append(IOConstants.TAG_CITY).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.RESIDENCE)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendSkinColorLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_SKINCOLOR).append(':');
+		buffer.append(IOConstants.TAG_SKINCOLOR).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SKINCOLOR)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1885,25 +1886,25 @@ public final class PCGVer2Creator implements IOConstants
 		String source)
 	{
 		final StringTokenizer tokens = new StringTokenizer(source, "|="); //$NON-NLS-1$
-		buffer.append(TAG_SOURCE).append(':');
+		buffer.append(IOConstants.TAG_SOURCE).append(':');
 		buffer.append('[');
-		buffer.append(TAG_TYPE).append(':');
+		buffer.append(IOConstants.TAG_TYPE).append(':');
 		buffer.append(tokens.nextToken());
 		buffer.append('|');
-		buffer.append(TAG_NAME).append(':');
+		buffer.append(IOConstants.TAG_NAME).append(':');
 		buffer.append(tokens.nextToken());
 
 		if (tokens.hasMoreTokens())
 		{
 			buffer.append('|');
-			buffer.append(TAG_LEVEL).append(':');
+			buffer.append(IOConstants.TAG_LEVEL).append(':');
 			buffer.append(tokens.nextToken());
 		}
 
 		if (source.indexOf('=') >= 0)
 		{
 			buffer.append('|');
-			buffer.append(TAG_DEFINED).append(':');
+			buffer.append(IOConstants.TAG_DEFINED).append(':');
 			buffer.append('Y');
 		}
 
@@ -1919,9 +1920,9 @@ public final class PCGVer2Creator implements IOConstants
 	private static void appendSourceInTaggedFormat(StringBuilder buffer,
 			CDOMObject source)
 	{
-		buffer.append(TAG_SOURCE).append(':');
+		buffer.append(IOConstants.TAG_SOURCE).append(':');
 		buffer.append('[');
-		buffer.append(TAG_TYPE).append(':');
+		buffer.append(IOConstants.TAG_TYPE).append(':');
 
 		// I love reflection :-)
 		final Class<? extends CDOMObject> srcClass = source.getClass();
@@ -1931,7 +1932,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		buffer.append(srcName.toUpperCase());
 		buffer.append('|');
-		buffer.append(TAG_NAME).append(':');
+		buffer.append(IOConstants.TAG_NAME).append(':');
 		buffer.append(source.getKeyName());
 		buffer.append(']');
 	}
@@ -1972,9 +1973,9 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendExperienceLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_EXPERIENCE).append(':');
+		buffer.append(IOConstants.TAG_EXPERIENCE).append(':');
 		buffer.append(charDisplay.getXP());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -1984,9 +1985,9 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendExperienceTableLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_EXPERIENCETABLE).append(':');
+		buffer.append(IOConstants.TAG_EXPERIENCETABLE).append(':');
 		buffer.append(charDisplay.getXPTableName());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -2000,7 +2001,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		if (r != null)
 		{
-			buffer.append(TAG_REGION).append(':').append(r).append(LINE_SEP);
+			buffer.append(IOConstants.TAG_REGION).append(':').append(r).append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -2019,14 +2020,14 @@ public final class PCGVer2Creator implements IOConstants
 			if ((thePC.getRank(skill).doubleValue() > 0)
 				|| (outputIndex != null && outputIndex != 0))
 			{
-				buffer.append(TAG_SKILL).append(':');
+				buffer.append(IOConstants.TAG_SKILL).append(':');
 				buffer.append(EntityEncoder.encode(skill.getKeyName()));
 
 
 				buffer.append('|');
 				if (outputIndex != null && outputIndex != 0)
 				{
-					buffer.append(TAG_OUTPUTORDER).append(':');
+					buffer.append(IOConstants.TAG_OUTPUTORDER).append(':');
 					buffer.append(outputIndex == null ? 0 : outputIndex);
 					buffer.append('|');
 				}
@@ -2036,20 +2037,20 @@ public final class PCGVer2Creator implements IOConstants
 					if (pcc != null)
 					{
 						Double rank = thePC.getSkillRankForClass(skill, pcc);
-						buffer.append(TAG_CLASSBOUGHT).append(':');
+						buffer.append(IOConstants.TAG_CLASSBOUGHT).append(':');
 						buffer.append('[');
-						buffer.append(TAG_CLASS).append(':');
+						buffer.append(IOConstants.TAG_CLASS).append(':');
 						buffer.append(EntityEncoder.encode(pcc == null ? "None"
 							: pcc.getKeyName()));
 						buffer.append('|');
-						buffer.append(TAG_RANKS).append(':');
+						buffer.append(IOConstants.TAG_RANKS).append(':');
 						buffer.append(rank);
 						buffer.append('|');
-						buffer.append(TAG_COST).append(':');
+						buffer.append(IOConstants.TAG_COST).append(':');
 						buffer.append(Integer.toString(thePC
 							.getSkillCostForClass(skill, pcc).getCost()));
 						buffer.append('|');
-						buffer.append(TAG_CLASSSKILL).append(':');
+						buffer.append(IOConstants.TAG_CLASSSKILL).append(':');
 						buffer.append((thePC.isClassSkill(pcc, skill)) ? 'Y'
 							: 'N');
 						buffer.append(']');
@@ -2059,22 +2060,22 @@ public final class PCGVer2Creator implements IOConstants
 				for (String assoc : thePC.getAssociationList(skill))
 				{
 					buffer.append('|');
-					buffer.append(TAG_ASSOCIATEDDATA).append(':');
+					buffer.append(IOConstants.TAG_ASSOCIATEDDATA).append(':');
 					buffer.append(EntityEncoder.encode(assoc));
 				}
 
 				appendLevelAbilityInfo(buffer, skill);
 
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 	}
 
 	private void appendSpeechPatternLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_SPEECHPATTERN).append(':');
+		buffer.append(IOConstants.TAG_SPEECHPATTERN).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.SPEECHTENDENCY)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -2094,19 +2095,19 @@ public final class PCGVer2Creator implements IOConstants
 			if (!bookName.equals(Globals.getDefaultSpellBook())
 				&& !bookName.equals(Constants.INNATE_SPELL_BOOK_NAME))
 			{
-				buffer.append(TAG_SPELLBOOK).append(':');
+				buffer.append(IOConstants.TAG_SPELLBOOK).append(':');
 				buffer.append(book.getName());
 				buffer.append('|');
-				buffer.append(TAG_TYPE).append(':');
+				buffer.append(IOConstants.TAG_TYPE).append(':');
 				buffer.append(book.getType());
 				if (book.getName().equals(
 					thePC.getSpellBookNameToAutoAddKnown()))
 				{
 					buffer.append('|');
-					buffer.append(TAG_AUTOADDKNOWN).append(':');
+					buffer.append(IOConstants.TAG_AUTOADDKNOWN).append(':');
 					buffer.append('Y');
 				}
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 
 		}
@@ -2159,25 +2160,25 @@ public final class PCGVer2Creator implements IOConstants
 						continue;
 					}
 
-					buffer.append(TAG_SPELLNAME).append(':');
+					buffer.append(IOConstants.TAG_SPELLNAME).append(':');
 					buffer.append(EntityEncoder.encode(cSpell.getSpell()
 						.getKeyName()));
 					buffer.append('|');
-					buffer.append(TAG_TIMES).append(':');
+					buffer.append(IOConstants.TAG_TIMES).append(':');
 					buffer.append(spellInfo.getTimes());
 					buffer.append('|');
-					buffer.append(TAG_CLASS).append(':');
+					buffer.append(IOConstants.TAG_CLASS).append(':');
 					buffer.append(EntityEncoder.encode(pcClass.getKeyName()));
 					buffer.append('|');
-					buffer.append(TAG_SPELL_BOOK).append(':');
+					buffer.append(IOConstants.TAG_SPELL_BOOK).append(':');
 					buffer.append(EntityEncoder.encode(spellInfo.getBook()));
 					buffer.append('|');
-					buffer.append(TAG_SPELLLEVEL).append(':');
+					buffer.append(IOConstants.TAG_SPELLLEVEL).append(':');
 					buffer.append(spellInfo.getActualLevel());
 					if (spellInfo.getNumPages() > 0)
 					{
 						buffer.append('|');
-						buffer.append(TAG_SPELLNUMPAGES).append(':');
+						buffer.append(IOConstants.TAG_SPELLNUMPAGES).append(':');
 						buffer.append(spellInfo.getNumPages());
 					}
 
@@ -2186,14 +2187,14 @@ public final class PCGVer2Creator implements IOConstants
 					if ((metaFeats != null) && (!metaFeats.isEmpty()))
 					{
 						buffer.append('|');
-						buffer.append(TAG_FEATLIST).append(':');
+						buffer.append(IOConstants.TAG_FEATLIST).append(':');
 						buffer.append('[');
 						del = Constants.EMPTY_STRING;
 
 						for (Ability feat : metaFeats)
 						{
 							buffer.append(del);
-							buffer.append(TAG_FEAT).append(':');
+							buffer.append(IOConstants.TAG_FEAT).append(':');
 							buffer.append(EntityEncoder.encode(feat
 								.getKeyName()));
 							del = "|"; //$NON-NLS-1$
@@ -2206,7 +2207,7 @@ public final class PCGVer2Creator implements IOConstants
 					appendSourceInTaggedFormat(buffer,
 						StringPClassUtil.getStringFor(owner.getClass()) + "|"
 							+ owner.getKeyName());
-					buffer.append(LINE_SEP);
+					buffer.append(IOConstants.LINE_SEP);
 				}
 			}
 		}
@@ -2231,7 +2232,7 @@ public final class PCGVer2Creator implements IOConstants
 			{
 				List<? extends CDOMList<Spell>> assocList =
 						charDisplay.getSpellLists(pcClass);
-				buffer.append(TAG_SPELLLIST).append(':');
+				buffer.append(IOConstants.TAG_SPELLLIST).append(':');
 				buffer.append(pcClass.getKeyName());
 
 				for (CDOMList<Spell> spell : assocList)
@@ -2248,7 +2249,7 @@ public final class PCGVer2Creator implements IOConstants
 					buffer.append('.').append(spell.getLSTformat());
 				}
 
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 	}
@@ -2262,20 +2263,20 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		for (PCStat aStat : charDisplay.getStatSet())
 		{
-			buffer.append(TAG_STAT).append(':');
+			buffer.append(IOConstants.TAG_STAT).append(':');
 			buffer.append(aStat.getKeyName());
 			buffer.append('|');
-			buffer.append(TAG_SCORE).append(':');
+			buffer.append(IOConstants.TAG_SCORE).append(':');
 			buffer.append(charDisplay.getStat(aStat));
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendTabNameLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_TABNAME).append(':');
+		buffer.append(IOConstants.TAG_TABNAME).append(':');
 		buffer.append(EntityEncoder.encode(charDisplay.getSafeStringFor(PCStringKey.TABNAME)));
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendTempBonuses(StringBuilder buffer)
@@ -2317,7 +2318,7 @@ public final class PCGVer2Creator implements IOConstants
 			if (thePC.getTempBonusFilters().contains(bonusName))
 			{
 				buffer.append('|');
-				buffer.append(TAG_TEMPBONUSACTIVE).append(":N");
+				buffer.append(IOConstants.TAG_TEMPBONUSACTIVE).append(":N");
 			}
 			
 			/*
@@ -2336,12 +2337,12 @@ public final class PCGVer2Creator implements IOConstants
 				if (inString.equals(outString))
 				{
 					buffer.append('|');
-					buffer.append(TAG_TEMPBONUSBONUS).append(':');
+					buffer.append(IOConstants.TAG_TEMPBONUSBONUS).append(':');
 					buffer.append(EntityEncoder.encode(subBonus.getPCCText()));
 				}
 			}
 
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -2358,13 +2359,13 @@ public final class PCGVer2Creator implements IOConstants
 			// TEMPLATESAPPLIED:[NAME:<template_name>]
 			// TEMPLATESAPPLIED:[NAME:<template_name>|CHOSENFEAT:[KEY:<key>|VALUE:<value>]CHOSENFEAT:[KEY:<key>|VALUE:<value>]...CHOSENFEAT:[KEY:<key>|VALUE:<value>]]
 			//
-			buffer.append(TAG_TEMPLATESAPPLIED).append(':').append('[');
-			buffer.append(TAG_NAME).append(':').append(
+			buffer.append(IOConstants.TAG_TEMPLATESAPPLIED).append(':').append('[');
+			buffer.append(IOConstants.TAG_NAME).append(':').append(
 				EntityEncoder.encode(template.getKeyName()));
 
 			final String chosenFeats = chosenFeats(template);
 
-			if (chosenFeats.length() != 0)
+			if (!chosenFeats.isEmpty())
 			{
 				buffer.append('|').append(chosenFeats);
 			}
@@ -2378,9 +2379,9 @@ public final class PCGVer2Creator implements IOConstants
 			{
 				for (PCTemplate ownedTemplate : templatesAdded)
 				{
-					buffer.append('|').append(TAG_CHOSENTEMPLATE).append(':')
+					buffer.append('|').append(IOConstants.TAG_CHOSENTEMPLATE).append(':')
 						.append('[');
-					buffer.append(TAG_NAME).append(':').append(
+					buffer.append(IOConstants.TAG_NAME).append(':').append(
 						EntityEncoder.encode(ownedTemplate.getKeyName()));
 					buffer.append(']');
 				}
@@ -2388,8 +2389,8 @@ public final class PCGVer2Creator implements IOConstants
 			List<String> assocList = thePC.getAssociationList(template);
 			if (assocList != null && !assocList.isEmpty())
 			{
-				buffer.append(TAG_SEPARATOR);
-				buffer.append(TAG_APPLIEDTO).append(TAG_END);
+				buffer.append(IOConstants.TAG_SEPARATOR);
+				buffer.append(IOConstants.TAG_APPLIEDTO).append(IOConstants.TAG_END);
 				boolean first = true;
 				for (String assoc : assocList)
 				{
@@ -2404,15 +2405,15 @@ public final class PCGVer2Creator implements IOConstants
 
 			buffer.append(']');
 			appendAddTokenInfo(buffer, template);
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
 	private void appendUseTempModsLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_USETEMPMODS).append(':');
+		buffer.append(IOConstants.TAG_USETEMPMODS).append(':');
 		buffer.append(thePC.getUseTempMods() ? 'Y' : 'N');
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	/*
@@ -2449,7 +2450,7 @@ public final class PCGVer2Creator implements IOConstants
 
 			for (int k = 0; k < times; ++k)
 			{
-				buffer.append(TAG_WEAPONPROF).append(':');
+				buffer.append(IOConstants.TAG_WEAPONPROF).append(':');
 				buffer.append('[');
 
 				String del = Constants.EMPTY_STRING;
@@ -2458,13 +2459,13 @@ public final class PCGVer2Creator implements IOConstants
 				for (int i = k * step; i < stop; ++i)
 				{
 					buffer.append(del);
-					buffer.append(TAG_WEAPON).append(':');
+					buffer.append(IOConstants.TAG_WEAPON).append(':');
 					buffer.append(EntityEncoder.encode(weaponProficiencies[i]));
 					del = "|"; //$NON-NLS-1$
 				}
 
 				buffer.append(']');
-				buffer.append(LINE_SEP);
+				buffer.append(IOConstants.LINE_SEP);
 			}
 		}
 
@@ -2511,7 +2512,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		for (int k = 0; k < times; ++k)
 		{
-			buffer.append(TAG_WEAPONPROF).append(':');
+			buffer.append(IOConstants.TAG_WEAPONPROF).append(':');
 			buffer.append('[');
 
 			String del = Constants.EMPTY_STRING;
@@ -2520,7 +2521,7 @@ public final class PCGVer2Creator implements IOConstants
 			for (int i = k * step; i < stop; ++i)
 			{
 				buffer.append(del);
-				buffer.append(TAG_WEAPON).append(':');
+				buffer.append(IOConstants.TAG_WEAPON).append(':');
 				buffer.append(EntityEncoder.encode(profs.get(i).getLSTformat()));
 				del = "|"; //$NON-NLS-1$
 			}
@@ -2528,7 +2529,7 @@ public final class PCGVer2Creator implements IOConstants
 			buffer.append(']');
 			buffer.append('|');
 			appendSourceInTaggedFormat(buffer, source);
-			buffer.append(LINE_SEP);
+			buffer.append(IOConstants.LINE_SEP);
 		}
 	}
 
@@ -2539,16 +2540,16 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private void appendMoneyLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_MONEY).append(':');
+		buffer.append(IOConstants.TAG_MONEY).append(':');
 		buffer.append(thePC.getGold().toString());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private void appendWeightLine(StringBuilder buffer)
 	{
-		buffer.append(TAG_WEIGHT).append(':');
+		buffer.append(IOConstants.TAG_WEIGHT).append(':');
 		buffer.append(charDisplay.getWeight());
-		buffer.append(LINE_SEP);
+		buffer.append(IOConstants.LINE_SEP);
 	}
 
 	private String chosenFeats(PCTemplate pct)
@@ -2600,11 +2601,11 @@ public final class PCGVer2Creator implements IOConstants
 
 			String featKey = Compatibility.getKeyFor(pct);
 
-			aString.append(TAG_CHOSENFEAT).append(':');
+			aString.append(IOConstants.TAG_CHOSENFEAT).append(':');
 			aString.append('[');
-			aString.append(TAG_MAPKEY).append(':').append(
+			aString.append(IOConstants.TAG_MAPKEY).append(':').append(
 				EntityEncoder.encode(featKey)).append('|');
-			aString.append(TAG_MAPVALUE).append(':').append(
+			aString.append(IOConstants.TAG_MAPVALUE).append(':').append(
 				EntityEncoder.encode(s.getPersistentFormat()));
 			aString.append(']');
 		}
@@ -2623,7 +2624,7 @@ public final class PCGVer2Creator implements IOConstants
 	 */
 	private static String createComment(String s)
 	{
-		String work = s + LINE_SEP;
+		String work = s + IOConstants.LINE_SEP;
 		work = work.replace('\t', ' ');
 		work = work.replace('\f', ' ');
 
@@ -2649,7 +2650,7 @@ public final class PCGVer2Creator implements IOConstants
 
 		while (tokens.hasMoreTokens())
 		{
-			buffer.append("# ").append(tokens.nextToken()).append(LINE_SEP); //$NON-NLS-1$
+			buffer.append("# ").append(tokens.nextToken()).append(IOConstants.LINE_SEP); //$NON-NLS-1$
 		}
 
 		return buffer.toString();
@@ -2665,38 +2666,38 @@ public final class PCGVer2Creator implements IOConstants
 	{
 		final StringBuilder cb = new StringBuilder(100);
 
-		cb.append(TAG_TEMPBONUS).append(':');
+		cb.append(IOConstants.TAG_TEMPBONUS).append(':');
 		if (creator instanceof CDOMObject)
 		{
 			final CDOMObject oCreator = (CDOMObject) creator;
 
 			if (oCreator instanceof Ability)
 			{
-				cb.append(TAG_FEAT).append('=');
+				cb.append(IOConstants.TAG_FEAT).append('=');
 			}
 			else if (oCreator instanceof Spell)
 			{
-				cb.append(TAG_SPELL).append('=');
+				cb.append(IOConstants.TAG_SPELL).append('=');
 			}
 			else if (oCreator instanceof Equipment)
 			{
-				cb.append(TAG_EQUIPMENT).append('=');
+				cb.append(IOConstants.TAG_EQUIPMENT).append('=');
 			}
 			else if (oCreator instanceof PCClass)
 			{
-				cb.append(TAG_CLASS).append('=');
+				cb.append(IOConstants.TAG_CLASS).append('=');
 			}
 			else if (oCreator instanceof PCTemplate)
 			{
-				cb.append(TAG_TEMPLATE).append('=');
+				cb.append(IOConstants.TAG_TEMPLATE).append('=');
 			}
 			else if (oCreator instanceof Skill)
 			{
-				cb.append(TAG_SKILL).append('=');
+				cb.append(IOConstants.TAG_SKILL).append('=');
 			}
 			else
 			{
-				cb.append(TAG_ERROR).append('=');
+				cb.append(IOConstants.TAG_ERROR).append('=');
 			}
 
 			cb.append(EntityEncoder.encode(oCreator.getKeyName()));
@@ -2708,11 +2709,11 @@ public final class PCGVer2Creator implements IOConstants
 			return Constants.EMPTY_STRING;
 		}
 		cb.append('|');
-		cb.append(TAG_TEMPBONUSTARGET).append(':');
+		cb.append(IOConstants.TAG_TEMPBONUSTARGET).append(':');
 
 		if (target instanceof PlayerCharacter)
 		{
-			cb.append(TAG_PC);
+			cb.append(IOConstants.TAG_PC);
 		}
 		else if (target instanceof Equipment)
 		{
@@ -2756,13 +2757,13 @@ public final class PCGVer2Creator implements IOConstants
 		// |ADD:[PROMPT:SUBTOKEN|blah|CHOICE:choice1|CHOICE:choice2|CHOICE:choice3...]
 		//
 		SelectableSet<?> choices = tc.getChoices();
-		buffer.append('|').append(TAG_ADDTOKEN).append(':').append('[');
+		buffer.append('|').append(IOConstants.TAG_ADDTOKEN).append(':').append('[');
 		buffer.append(EntityEncoder.encode(choices.getName())).append(':');
 		buffer.append(EntityEncoder.encode(choices.getLSTformat()));
 
 		for (Object assoc : assocList)
 		{
-			buffer.append('|').append(TAG_CHOICE).append(':')
+			buffer.append('|').append(IOConstants.TAG_CHOICE).append(':')
 					.append(EntityEncoder.encode(tc.encodeChoice(tc
 									.castChoice(assoc))));
 		}

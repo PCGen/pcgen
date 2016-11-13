@@ -41,7 +41,7 @@ import pcgen.rules.context.AssociatedChanges;
 import pcgen.rules.context.LoadContext;
 
 /**
- * The Class <code>AbstractSpellListToken</code> ...
+ * The Class {@code AbstractSpellListToken} ...
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

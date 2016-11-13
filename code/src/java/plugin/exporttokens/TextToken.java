@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.Token;
 import pcgen.util.Logging;
 
 /**
- * <code>TextToken</code> produces the output for the output token TEXT.
+ * {@code TextToken} produces the output for the output token TEXT.
  * 
  * Possible tag formats are:<pre>
  * TEXT.x.y
@@ -200,7 +200,7 @@ public class TextToken extends Token
 			{
 				res.append(".");
 			}
-			if (sentence[i].trim().length() > 0)
+			if (!sentence[i].trim().isEmpty())
 			{
 				Matcher m = p.matcher(sentence[i]);
 				int pos = 0;

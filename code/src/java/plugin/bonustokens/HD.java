@@ -26,7 +26,7 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>HD</code>
+ * {@code HD}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

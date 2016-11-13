@@ -34,7 +34,7 @@ import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.system.LanguageBundle;
 
 /**
- * <code>PreAbilityParser</code> tests whether a character passes ability
+ * {@code PreAbilityParser} tests whether a character passes ability
  * prereqs.
  *
  *
@@ -100,7 +100,7 @@ public class PreAbilityTester extends AbstractPrerequisiteTest implements Prereq
 
 		if (aString.startsWith("TYPE=")) //$NON-NLS-1$
 		{
-			if (prereq.getCategoryName().length() > 0)
+			if (!prereq.getCategoryName().isEmpty())
 			{
 				// {0} {1} {2}(s) of type {3}
 				return LanguageBundle.getFormattedString("PreAbility.type.toHtml", //$NON-NLS-1$

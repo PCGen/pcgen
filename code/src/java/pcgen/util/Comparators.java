@@ -141,9 +141,9 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare objects as
-	 * <code>String</code>s.  This is particularly useful for applications
-	 * such as maintaining a sorted <code>JComboBoxEx</code> and the like.
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s.  This is particularly useful for applications
+	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
@@ -162,10 +162,10 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare objects as
-	 * <code>String</code>s ignoring case.  This is particularly useful
+	 * A {@code Comparator} to compare objects as
+	 * {@code String}s ignoring case.  This is particularly useful
 	 * for applications such as maintaining a sorted
-	 * <code>JComboBoxEx</code> and the like.
+	 * {@code JComboBoxEx} and the like.
 	 *
 	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
@@ -186,7 +186,7 @@ public final class Comparators
 	}
 
 	/**
-	 * A <code>Comparator</code> to compare tree table nodes. This respects SORTKEY for the contained object. 
+	 * A {@code Comparator} to compare tree table nodes. This respects SORTKEY for the contained object.
 	 */
 	private static final class TreeTableNodeComparator implements Comparator<Object>,
 			Serializable
