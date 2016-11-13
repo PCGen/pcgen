@@ -16,7 +16,7 @@ Pocket Deringer				PROFICIENCY:WEAPON|Pocket Deringer				TYPE:Weapon.Ranged.Stan
 #Breechloaders
 Sharps Pepperbox				PROFICIENCY:WEAPON|Sharps Pepperbox				TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:10	WT:1.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d4	RANGE:10	SIZE:T	SOURCEPAGE:p.137
 Remington Double-Derringer		PROFICIENCY:WEAPON|Remington Double-Derringer		TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:8	WT:0.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:10	SIZE:T	SOURCEPAGE:p.137
-US Percussion Navy Pistol
+
 #Single-Action Revolvers
 Colt Walker Dragoon			PROFICIENCY:WEAPON|Colt Walker Dragoon			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:20	WT:4.5	CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:40	SIZE:M	SOURCEPAGE:p.137
 Colt New Model Army			PROFICIENCY:WEAPON|Colt New Model Army			TYPE:Weapon.Ranged.Standard.Firearm.Pistol.Ballistic.Personal						COST:18	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:2d6	RANGE:30	SIZE:M	SOURCEPAGE:p.137
