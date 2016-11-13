@@ -13,6 +13,36 @@
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
 
+ABILITY:Special Ability|Skirmisher ~ Aiding Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Aiding Attack		
+ABILITY:Special Ability|Skirmisher ~ Bolster Companion		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Bolster Companion		
+ABILITY:Special Ability|Skirmisher ~ Catfall				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Catfall			
+ABILITY:Special Ability|Skirmisher ~ Chameleon Step			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Chameleon Step		
+ABILITY:Special Ability|Skirmisher ~ Cunning Pantomime		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Cunning Pantomime		
+ABILITY:Special Ability|Skirmisher ~ Defensive Bow Stance		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Defensive Bow Stance	
+ABILITY:Special Ability|Skirmisher ~ Deft Stand				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Deft Stand			
+ABILITY:Special Ability|Skirmisher ~ Distracting Attack		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Distracting Attack		
+ABILITY:Special Ability|Skirmisher ~ Hateful Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Hateful Attack		
+ABILITY:Special Ability|Skirmisher ~ Heel					MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Heel				
+ABILITY:Special Ability|Skirmisher ~ Hobbling Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Hobbling Attack		
+ABILITY:Special Ability|Skirmisher ~ Quick Climb			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Climb			
+ABILITY:Special Ability|Skirmisher ~ Quick Healing			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Healing		
+ABILITY:Special Ability|Skirmisher ~ Quick Swim				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Quick Swim			
+ABILITY:Special Ability|Skirmisher ~ Ranger's Counsel			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Ranger's Counsel		
+ABILITY:Special Ability|Skirmisher ~ Rattling Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Rattling Strike		
+ABILITY:Special Ability|Skirmisher ~ Second Chance Strike		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Second Chance Strike	
+ABILITY:Special Ability|Skirmisher ~ Sic 'Em				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Sic 'Em			
+ABILITY:Special Ability|Skirmisher ~ Skill Sage				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Skill Sage			
+ABILITY:Special Ability|Skirmisher ~ Stag's Leap			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Stag's Leap			
+ABILITY:Special Ability|Skirmisher ~ Surprise Shift			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Surprise Shift		
+ABILITY:Special Ability|Skirmisher ~ Tangling Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Tangling Attack		
+ABILITY:Special Ability|Skirmisher ~ Trick Shot				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Trick Shot			
+ABILITY:Special Ability|Skirmisher ~ Uncanny Senses			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Uncanny Senses		
+ABILITY:Special Ability|Skirmisher ~ Upending Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Upending Strike		
+ABILITY:Special Ability|Skirmisher ~ Vengeance Strike			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Vengeance Strike		
+
+
+
+
 
 
 
