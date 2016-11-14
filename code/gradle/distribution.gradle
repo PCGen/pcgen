@@ -73,12 +73,6 @@ ext {
             include 'characters/*.pcg'
         }
     }
-
-    jreDistro = copySpec {
-        from('jre/jre_64') {
-            into 'jre'
-        }
-    }
 }
 
 
@@ -92,7 +86,6 @@ task fullZip(type: Zip, dependsOn: ['downloadJRE', 'createExe', 'converterJar',
         with libsDistsImage
         with autobuildSpec
         with charactersImage
-        with jreDistro
     }
 }
 fullZip.mustRunAfter createExe
@@ -130,7 +123,8 @@ task libsZip(type: Zip, dependsOn: 'copyToLibs') {
     }
 }
 
-task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', 'fullZip', 'createExe']) {
+task buildDist(dependsOn: ['dataZip', 'docsZip', 'programZip', 'libsZip', \
+'fullZip', 'createExe', 'buildNsis']) {
     description = "Build the five zip files (docs, data, program, libs and full) which comprise the autobuild distribution."
 }
 
