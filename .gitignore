@@ -43,7 +43,4 @@ pcgen-batch-convert.jar
 data/customsources/*
 !data/customsources/readme-customsources.txt
 /.nb-gradle/
-/installers/win-installer/project.nsh
-/installers/win-installer/includes/data.nsh
-/installers/win-installer/includes/constants.nsh
 /jre/
