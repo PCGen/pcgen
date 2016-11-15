@@ -114,7 +114,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Calls clear on every {@code Vector} in <code>rows</code>.
+	 * Calls clear on every {@code Vector} in {@code rows}.
 	 */
     @Override
 	public void clear()
@@ -138,7 +138,7 @@ public class VectorTable extends AbstractList
 
 	/**
 	 * Checks to see if the paramater can be found in either {@code rows}
-	 * or an {@code element} of <code>rows</code>.
+	 * or an {@code element} of {@code rows}.
 	 * @param o the {@code Object} that needs to be found in the table.
 	 * @return <b>true</b> if the object is found.  Otherwise <b>false</b>.
 	 */
@@ -174,8 +174,8 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Looks up {@code Object} X  in <code>header</code>, and the
-	 * {@code Object} <code>Y</code> in <code>rows</code> 0, and
+	 * Looks up {@code Object} X  in {@code header}, and the
+	 * {@code Object} {@code Y} in <code>rows</code> 0, and
 	 * {@code returns} the resulting cell.
 	 * @param X the header to look for.
 	 * @param Y the item in the {@code row} to look for.
@@ -264,7 +264,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the {@code hashCode} value for the <code>Vector</code>.
+	 * Gets the {@code hashCode} value for the {@code Vector}.
 	 * @return the hash code.
 	 */
 	@Override
@@ -276,7 +276,7 @@ public class VectorTable extends AbstractList
 	/**
 	 * Takes an {@code Object} out of the table if it exists in the table.
 	 * @param o the {@code Object} that needs to be removed.
-	 * @return <b>{@code true}</b> if the <code>Object</code> is removed
+	 * @return <b>{@code true}</b> if the {@code Object} is removed
 	 *         successfully.
 	 */
     @Override
@@ -318,7 +318,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the {@code row} <code>Vector</code>.
+	 * Gets the number of items in the {@code row} {@code Vector}.
 	 * @return the number of items in the {@code row}.
 	 */
     @Override
@@ -328,7 +328,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Gets the number of items in the {@code row} <code>Vector</code>.
+	 * Gets the number of items in the {@code row} {@code Vector}.
 	 * It is the same as the {@code size()} method in this class.
 	 * @return the number of items in the {@code row}.
 	 */
@@ -338,10 +338,10 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Stores the {@code row} <code>Vector</code> as an <code>array</code>
+	 * Stores the {@code row} {@code Vector} as an <code>array</code>
 	 * of {@code Objects}.
 	 * @return an {@code array} that consists of the items from the
-	 *          {@code row} <code>Vector</code>.
+	 *          {@code row} {@code Vector}.
 	 */
     @Override
 	public Object[] toArray()
