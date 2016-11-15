@@ -248,7 +248,7 @@ task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     outputs.dir("$projectDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
-    from "${buildDir}/libs"
+    from "$buildDir/libs"
     into "$projectDir/libs"
     exclude "pcgen-*.jar"
 }
