@@ -37,7 +37,7 @@ import pcgen.io.exporttoken.SpellListToken;
 import pcgen.util.Delta;
 
 /**
- * <code>SpellListClassToken</code> outputs either the name of the
+ * {@code SpellListClassToken} outputs either the name of the
  * spellcaster classname, or the effective casting level, including
  * bonus levels from other classes. The level is output if the token
  * ends in .LEVEL

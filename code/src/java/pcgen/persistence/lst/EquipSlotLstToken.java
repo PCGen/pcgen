@@ -26,7 +26,7 @@ package pcgen.persistence.lst;
 import pcgen.core.character.EquipSlot;
 
 /**
- * <code>EquipSlotLstToken</code>
+ * {@code EquipSlotLstToken}
  *
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

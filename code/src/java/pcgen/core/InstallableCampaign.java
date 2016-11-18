@@ -24,7 +24,7 @@
 package pcgen.core;
 
 /**
- * <code>InstallableCampaign</code> is a campaign (or data set) that can be
+ * {@code InstallableCampaign} is a campaign (or data set) that can be
  * installed into the PCGen instance.
  * 
  * (Tue, 23 Dec 2008) $

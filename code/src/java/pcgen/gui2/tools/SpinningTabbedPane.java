@@ -30,6 +30,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
+import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -53,7 +54,7 @@ import org.jetbrains.annotations.NotNull;
 import org.jetbrains.annotations.Nullable;
 
 /**
- * <code>SpinningTabbedPane</code>.
+ * {@code SpinningTabbedPane}.
  *
  * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *
@@ -314,16 +315,7 @@ public class SpinningTabbedPane extends JTabbedPane
             }
         }
 
-        int[] list2 = new int[n];
-
-        for (int i = 0; i < n; ++i)
-        {
-            list2[i] = list1[i];
-        }
-
-        //TODO:gorm - test this as a replacement, should be more efficient
-        //System.arraycopy(list1, 1, list2, 1, n - 1);
-        return list2;
+        return Arrays.copyOf(list1, n);
     }
 
     private String getPlainTitleAt(int index)

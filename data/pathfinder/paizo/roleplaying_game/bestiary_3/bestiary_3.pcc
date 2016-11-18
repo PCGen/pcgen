@@ -99,6 +99,7 @@ WEAPONPROF:../ultimate_combat/uc_profs_weapon.lst|(INCLUDE:Cannon|Katana|Pistol)
 EQUIPMOD:../ultimate_combat/uc_equipmods.lst|(INCLUDE:REACH)|!PRECAMPAIGN:1,INCLUDES=Ultimate Combat
 
 # For Ahriman Support
+ABILITYCATEGORY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilitycategories.lst|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
 ABILITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_abilities.lst|(INCLUDE:CATEGORY=Special Ability,Domain Power ~ Feed on Fear)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
 DEITY:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_deities.lst|(INCLUDE:Ahriman)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods
 DOMAIN:@/pathfinder/paizo/campaign_setting/inner_sea_gods/isg_domains.lst|(INCLUDE:Fear Subdomain)|!PRECAMPAIGN:1,INCLUDES=Inner Sea Gods

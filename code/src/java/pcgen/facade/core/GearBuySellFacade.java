@@ -24,7 +24,7 @@ package pcgen.facade.core;
 
 
 /**
- * <code>GearBuySellFacade</code> defines the interface required for a buy / sell 
+ * {@code GearBuySellFacade} defines the interface required for a buy / sell
  * rate scheme that can be used by the user interface.
  *
  * <br>

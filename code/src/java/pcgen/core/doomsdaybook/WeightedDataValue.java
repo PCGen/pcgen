@@ -20,7 +20,7 @@
  package pcgen.core.doomsdaybook;
 
 /**
- * <code>WeightedDataValue</code>.
+ * {@code WeightedDataValue}.
  * 
  * @author  devon
  */

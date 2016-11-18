@@ -44,9 +44,9 @@ import plugin.network.gui.NetworkView;
 import plugin.network.gui.PreferencesNetworkingPanel;
 
 /**
- * The <code>ExperienceAdjusterController</code> handles the functionality of
- * the Adjusting of experience.  This class is called by the <code>GMGenSystem
- * </code> and will have it's own model and view.<br>
+ * The {@code ExperienceAdjusterController} handles the functionality of
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem
+ * } and will have it's own model and view.<br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
@@ -77,7 +77,7 @@ public class NetworkPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * Starts the plugin, registering itself with the <code>TabAddMessage</code>.
+	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
 	 */
     @Override
 	public void start(PCGenMessageHandler mh)

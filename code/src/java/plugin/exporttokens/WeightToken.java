@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>WeightToken</code>.
+ * {@code WeightToken}.
  * 
  * Formats:	WEIGHT
  * 			WEIGHT.NOUNIT

@@ -46,7 +46,7 @@ public class SkillChoice
 	/**
 	 * Creates a new SkillChoice.
 	 * 
-	 * <p>If the key passed in starts with &quot;<code>TYPE.</code>&quot;, the
+	 * <p>If the key passed in starts with &quot;{@code TYPE.}&quot;, the
 	 * group of skills of that type will be stored as this chice.
 	 * 
 	 * @param aKey A Skill key or TYPE.&lt;skill type&gt;

@@ -2105,7 +2105,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 	}
 
 	/**
-	 * The Class <code>FilenameListener</code> is used to update the frame title each time the 
+	 * The Class {@code FilenameListener} is used to update the frame title each time the
 	 * current character's file name is changed.
 	 */
 	private class FilenameListener implements ReferenceListener<File>

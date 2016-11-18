@@ -41,7 +41,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>EquipCustomizerDialog</code> provides a pop-up dialog that allows 
+ * The Class {@code EquipCustomizerDialog} provides a pop-up dialog that allows
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
  *

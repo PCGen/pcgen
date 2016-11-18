@@ -78,7 +78,7 @@ import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>EquipCustomPanel</code> displays an available/selected table 
+ * The Class {@code EquipCustomPanel} displays an available/selected table
  * pair to allow the creation of a custom piece of equipment.. 
  *
  * <br>

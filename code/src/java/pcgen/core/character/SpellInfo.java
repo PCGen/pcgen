@@ -30,7 +30,7 @@ import pcgen.core.Ability;
 import pcgen.core.Globals;
 
 /**
- * <code>SpellInfo</code>
+ * {@code SpellInfo}
  * this is a helper-class for CharacterSpell
  * meant to contain the book, whether or not this spell
  * is in the specialtySlot for characters which have them,

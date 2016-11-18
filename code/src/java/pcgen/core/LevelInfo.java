@@ -28,7 +28,7 @@ import pcgen.util.Logging;
 import java.math.BigDecimal;
 
 /**
- * <code>LevelInfo</code> describes the data associated with a level
+ * {@code LevelInfo} describes the data associated with a level
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

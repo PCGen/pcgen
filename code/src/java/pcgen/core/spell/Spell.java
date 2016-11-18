@@ -36,7 +36,7 @@ import pcgen.facade.core.InfoFacade;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
- * <code>Spell</code> represents a magic spell from the games rules.
+ * {@code Spell} represents a magic spell from the games rules.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

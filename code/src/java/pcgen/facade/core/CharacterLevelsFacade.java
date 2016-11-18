@@ -191,7 +191,7 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	}
 
 	/**
-	 * The Class <code>SkillBreakdown</code> holds the modifier, rank and total
+	 * The Class {@code SkillBreakdown} holds the modifier, rank and total
 	 * for a skill.
 	 */
 	public static class SkillBreakdown

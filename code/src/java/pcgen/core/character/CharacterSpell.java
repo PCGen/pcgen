@@ -37,7 +37,7 @@ import pcgen.core.analysis.SpellCountCalc;
 import pcgen.core.spell.Spell;
 
 /**
- * <code>PCClass</code>.
+ * {@code PCClass}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

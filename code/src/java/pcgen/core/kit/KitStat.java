@@ -101,7 +101,7 @@ public class KitStat extends BaseKit
 	{
 		final Collection<PCClass> classes = aPC.getClassSet();
 		aPC.calcActiveBonuses();
-		if (classes != null && classes.size() != 0)
+		if (classes != null && !classes.isEmpty())
 		{
 			for (PCClass pcClass : classes)
 			{

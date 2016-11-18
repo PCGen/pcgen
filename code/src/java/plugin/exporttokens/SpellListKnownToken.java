@@ -30,7 +30,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListKnownToken</code> outputs the number of spells you 
+ * {@code SpellListKnownToken} outputs the number of spells you
  * can know for the specified spellcaster class and level. For Clerics 
  * with domains, this does not include domain spells.
  *

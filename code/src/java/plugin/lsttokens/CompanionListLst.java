@@ -58,18 +58,18 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * This class implments the parsing for the COMPANIONLIST token.
  * <p>
- * <b>Tag Name</b>: <code>COMPANIONLIST</code>:x|y,y|z
+ * <b>Tag Name</b>: {@code COMPANIONLIST}:x|y,y|z
  * <p>
  * <b>Variables Used (x)</b>: <i>Text</i> (The type of companion list to add
  * to).<br>
  * <b>Variables Used (y)</b>: <i>Text</i> (A race of companion to allow to the
  * character).<br>
- * <b>Variables Used (y)</b>: <code>RACETYPE</code>=<i>Text</i> (all races
- * with the specified <code>RACETYPE</code> are available as this type of
+ * <b>Variables Used (y)</b>: {@code RACETYPE}=<i>Text</i> (all races
+ * with the specified {@code RACETYPE} are available as this type of
  * companion). <br>
- * <b>Variables Used (y)</b>: <code>ANY</code> (Any race can be a companion
+ * <b>Variables Used (y)</b>: {@code ANY} (Any race can be a companion
  * of this type).<br>
- * <b>Variables Used (z)</b>: <code>FOLLOWERADJUSTMENT</code>=<i>Number</i>
+ * <b>Variables Used (z)</b>: {@code FOLLOWERADJUSTMENT}=<i>Number</i>
  * (Adjustment to the follower level variable).
  * <p>
  * <b>What it does:</b>
@@ -84,19 +84,19 @@ import pcgen.rules.persistence.token.ParseResult;
  * </ul>
  * <p>
  * <b>Examples:</b><br>
- * <code>COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
- * Snake (Tiny/Viper),Toad,Weasel</code><br>
+ * {@code COMPANIONLIST:Familiar|Bat,Cat,Hawk,Lizard,Owl,Rat,Raven,
+ * Snake (Tiny/Viper),Toad,Weasel}<br>
  * Would build the list of standard familiars available to a Sorcerer or Wizard.
  * <p>
- * <code>COMPANIONLIST:Pet|RACETYPE=Animal</code><br>
+ * {@code COMPANIONLIST:Pet|RACETYPE=Animal}<br>
  * Would build a list of all animals to available as a Pet.
  * <p>
- * <code>COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
- * PREALIGN:CE</code><br>
+ * {@code COMPANIONLIST:Familiar|Quasit|PREFEAT:1,Special Familiar|
+ * PREALIGN:CE}<br>
  * A Quasit can be chosen as a Familiar but only if the master is evil and has
  * the Special Familiar feat.
  * <p>
- * <code>COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3</code>
+ * {@code COMPANIONLIST:Animal Companion|Ape|FOLLOWERADJUSTMENT:-3}
  * <br>
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.

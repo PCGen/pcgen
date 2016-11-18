@@ -98,7 +98,7 @@ public abstract class LstLineFileLoader extends Observable
 			String line = fileLines.nextToken().trim();
 
 			// check for comments and blank lines
-			if ((line.length() == 0)
+			if ((line.isEmpty())
 				|| (line.charAt(0) == LstFileLoader.LINE_COMMENT_CHAR))
 			{
 				continue;

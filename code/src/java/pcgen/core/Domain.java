@@ -36,7 +36,7 @@ import pcgen.facade.core.InfoFacade;
 
 
 /**
- * <code>Domain</code>.
+ * {@code Domain}.
  *
  * @author   Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

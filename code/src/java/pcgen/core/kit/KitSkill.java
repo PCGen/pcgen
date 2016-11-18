@@ -47,7 +47,7 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.util.Logging;
 
 /**
- * <code>KitSkill</code>.
+ * {@code KitSkill}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
@@ -67,7 +67,7 @@ public final class KitSkill extends BaseKit
 	/**
 	 * Used to make purchasing ranks of this skill not come out of the skill
 	 * pool.
-	 * @param argFree <code>true</code> to make the skill ranks free.
+	 * @param argFree {@code true} to make the skill ranks free.
 	 */
 	public void setFree(Boolean argFree)
 	{
@@ -76,7 +76,7 @@ public final class KitSkill extends BaseKit
 
 	/**
 	 * Returns if the skill will be purchased for free.
-	 * @return <code>true</code> if the skill will be free
+	 * @return {@code true} if the skill will be free
 	 */
 	public boolean isFree()
 	{
@@ -142,7 +142,7 @@ public final class KitSkill extends BaseKit
 		skillsToAdd = new ArrayList<>();
 		List<Skill> skillChoices = getSkillChoices(aPC);
 
-		if (skillChoices == null || skillChoices.size() == 0)
+		if (skillChoices == null || skillChoices.isEmpty())
 		{
 			// They didn't make a choice so don't add any ranks.
 			return false;
@@ -230,7 +230,7 @@ public final class KitSkill extends BaseKit
 	 * @param langList Languages to be selected for a language skill
 	 * @param pcClass skills apply to this class
 	 *
-	 * @return <code>true</code> for success
+	 * @return {@code true} for success
 	 * TODO What about throwing on failure?
 	 */
 	private boolean updatePCSkills(final PlayerCharacter pc,
@@ -243,7 +243,7 @@ public final class KitSkill extends BaseKit
 				SkillRankControl.modRanks(aRank, pcClass, true, pc, aSkill);
 		pc.setImporting(oldImporting);
 
-		if (aString.length() > 0)
+		if (!aString.isEmpty())
 		{
 			Logging.errorPrint("SKILL: " + aString);
 			return false;
@@ -307,7 +307,7 @@ public final class KitSkill extends BaseKit
 			skillsOfType.addAll(ref.getContainedObjects());
 		}
 
-		if (skillsOfType.size() == 0)
+		if (skillsOfType.isEmpty())
 		{
 			return null;
 		}
@@ -397,7 +397,7 @@ public final class KitSkill extends BaseKit
 		String ret =
 				SkillRankControl
 					.modRanks(ranksToAdd, pcClass, false, pc, aSkill);
-		if (ret.length() > 0)
+		if (!ret.isEmpty())
 		{
 			if (isFree
 				&& ret.indexOf("You do not have enough skill points.") != -1)

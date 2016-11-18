@@ -647,7 +647,7 @@ public final class ExportHandler
 	private String replaceVariables(String expr, Map<Object,Object> variables)
 	{
 		List<Object> keys = new ArrayList<>(variables.keySet());
-		Collections.sort(keys, new VariableComparator());
+		keys.sort(new VariableComparator());
 
 		for (final Object anObject : variables.keySet())
 		{
@@ -1299,19 +1299,19 @@ public final class ExportHandler
 					}
 
 					// Set the next mode based on the mathematical sign
-					if ((str.length() > 0) && (str.charAt(i) == '+'))
+					if ((!str.isEmpty()) && (str.charAt(i) == '+'))
 					{
 						nextMode = ADDITION_MODE;
 					}
-					else if ((str.length() > 0) && (str.charAt(i) == '-'))
+					else if ((!str.isEmpty()) && (str.charAt(i) == '-'))
 					{
 						nextMode = SUBTRACTION_MODE;
 					}
-					else if ((str.length() > 0) && (str.charAt(i) == '*'))
+					else if ((!str.isEmpty()) && (str.charAt(i) == '*'))
 					{
 						nextMode = MULTIPLICATION_MODE;
 					}
-					else if ((str.length() > 0) && (str.charAt(i) == '/'))
+					else if ((!str.isEmpty()) && (str.charAt(i) == '/'))
 					{
 						nextMode = DIVISION_MODE;
 					}
@@ -1357,7 +1357,7 @@ public final class ExportHandler
 
 				try
 				{
-					if (valString.length() > 0)
+					if (!valString.isEmpty())
 					{
 						if (attackRoutine)
 						{
@@ -1569,7 +1569,7 @@ public final class ExportHandler
 	private void outputNonToken(String nonToken, java.io.Writer output)
 	{
 		// Do nothing if something shouldn't be output.
-		if (canWrite && nonToken.length() != 0)
+		if (canWrite && !nonToken.isEmpty())
 		{
 			String finalToken = null;
 			// If we have manual white space then remove an tab characters
@@ -1659,8 +1659,8 @@ public final class ExportHandler
 		final String eTest = forVars.get(5);
 		boolean exists = false;
 
-		if (((eTest.length() > 0) && (eTest.charAt(0) == '1'))
-			|| ((eTest.length() > 0) && (eTest.charAt(0) == '2')))
+		if (((!eTest.isEmpty()) && (eTest.charAt(0) == '1'))
+			|| ((!eTest.isEmpty()) && (eTest.charAt(0) == '2')))
 		{
 			exists = true;
 		}
@@ -1877,7 +1877,7 @@ public final class ExportHandler
 		int lastIndex = aLine.lastIndexOf('|');
 
 		// If there are no pipes and it's a non empty string, just output the fixed text
-		if (lastIndex < 0 && aLine.length() > 0)
+		if (lastIndex < 0 && !aLine.isEmpty())
 		{
 			outputNonToken(aLine, output);
 		}
@@ -2093,11 +2093,11 @@ public final class ExportHandler
 	{
 		// If we 'cannot write' and the string is non-empty, non-filter token then 
 		// there is nothing to replace so return 0
-		if (!canWrite && (aString.length() > 0) && (aString.charAt(0) != '%'))
+		if (!canWrite && (!aString.isEmpty()) && (aString.charAt(0) != '%'))
 		{
 			return true;
 		}
-		if (aString.length() == 0)
+		if (aString.isEmpty())
 		{
 			return true;
 		}
@@ -2112,7 +2112,7 @@ public final class ExportHandler
 	 */
 	private boolean isFilterToken(String aString)
 	{
-		if ((aString.length() > 0) && (aString.charAt(0) == '%')
+		if ((!aString.isEmpty()) && (aString.charAt(0) == '%')
 			&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
 			&& (aString.lastIndexOf('>') == -1))
 		{
@@ -2416,7 +2416,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (catchPhrase.trim().length() == 0)
+			else if (catchPhrase.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2431,7 +2431,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (location.trim().length() == 0)
+			else if (location.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2446,7 +2446,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (residence.trim().length() == 0)
+			else if (residence.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2461,7 +2461,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (phobias.trim().length() == 0)
+			else if (phobias.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2476,7 +2476,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (interests.trim().length() == 0)
+			else if (interests.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2491,7 +2491,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (speechTendency.trim().length() == 0)
+			else if (speechTendency.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2506,7 +2506,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (trait1.trim().length() == 0)
+			else if (trait1.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2521,7 +2521,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (trait2.trim().length() == 0)
+			else if (trait2.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2535,7 +2535,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if ((aPC.getSafeStringFor(PCStringKey.ASSETS)).trim().length() == 0)
+			else if ((aPC.getSafeStringFor(PCStringKey.ASSETS)).trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2550,7 +2550,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (aPC.getSafeStringFor(PCStringKey.COMPANIONS).trim().length() == 0)
+			else if (aPC.getSafeStringFor(PCStringKey.COMPANIONS).trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2564,7 +2564,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (aPC.getSafeStringFor(PCStringKey.MAGIC).trim().length() == 0)
+			else if (aPC.getSafeStringFor(PCStringKey.MAGIC).trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2579,7 +2579,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (description.trim().length() == 0)
+			else if (description.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -2594,7 +2594,7 @@ public final class ExportHandler
 			{
 				canWrite = false;
 			}
-			else if (bio.trim().length() == 0)
+			else if (bio.trim().isEmpty())
 			{
 				canWrite = false;
 			}
@@ -3316,7 +3316,7 @@ public final class ExportHandler
 			FileAccess.write(output, tokenizedString[i]);
 		}
 
-		if (remainder.length() > 0)
+		if (!remainder.isEmpty())
 		{
 			Logging.errorPrint("OIF: extra characters on line: " + remainder);
 			FileAccess.write(output, remainder);
@@ -3845,7 +3845,7 @@ public final class ExportHandler
 		 */
 		public boolean hasMoreTokens()
 		{
-			return (_forThisString.length() > 0);
+			return (!_forThisString.isEmpty());
 		}
 
 		/**

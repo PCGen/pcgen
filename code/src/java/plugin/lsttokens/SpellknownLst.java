@@ -49,7 +49,7 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>SpellknownLst</code> is responsible for parsing and
+ * The Class {@code SpellknownLst} is responsible for parsing and
  * unparsing the SPELLKNOWN tag. This class is heavily based on the
  * SpelllevelLst class. <p>
  * Syntax is:

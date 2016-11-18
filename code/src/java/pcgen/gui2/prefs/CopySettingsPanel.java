@@ -47,7 +47,7 @@ import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>CopySettingsPanel</code> is responsible for 
+ * The Class {@code CopySettingsPanel} is responsible for
  * allowing game mode dependent settings to be copied from another 
  * gamemode.
  * 

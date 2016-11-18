@@ -61,7 +61,7 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
 /**
- * The Class <code>CharacterLevelsFacadeImpl</code> is an implementation of 
+ * The Class {@code CharacterLevelsFacadeImpl} is an implementation of
  * the CharacterLevelsFacade interface for the new user interface. It allows 
  * the user interface to work with the class levels of a character.
  *

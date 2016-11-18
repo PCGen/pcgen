@@ -86,6 +86,7 @@ $pub{'reality_deviant'} = 'Reality Deviant Publications';
 $pub{'rite'} = 'Rite Publishing';
 $pub{'rite_publishing'} = 'Rite Publishing';
 $pub{'rpg_objects'} = 'RPG Objects';
+$pub{'sagaborn'} = 'Sagaborn';
 $pub{'secular_games'} = 'Secular Games';
 $pub{'silven_publishing'} = 'Silven Publishing';
 $pub{'silverthorne_games'} = 'Silverthorne Games';

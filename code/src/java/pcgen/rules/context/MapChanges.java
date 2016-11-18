@@ -26,7 +26,7 @@ import java.util.Map;
 
 
 /**
- * The Class <code>MapChanges</code> is responsible for tracking changes to 
+ * The Class {@code MapChanges} is responsible for tracking changes to
  * a map so that the changes can be committed or rolled back at a later 
  * stage. Items can be added to the map, removed from the map or the map 
  * can be cleared.

@@ -48,7 +48,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>SourcesPanel</code> is responsible for 
+ * The Class {@code SourcesPanel} is responsible for
  * displaying source related preferences and allowing the 
  * preferences to be edited by the user.
  * 
@@ -145,19 +145,14 @@ public class SourcesPanel extends PCGenPrefsPanel
 		loadURL.setText(LanguageBundle.getString("in_Prefs_loadURLs")); //$NON-NLS-1$
 		gridbag.setConstraints(loadURL, c);
 		this.add(loadURL);
-		loadURL.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				if (((JCheckBox) evt.getSource()).isSelected())
-				{
-					ShowMessageDelegate.showMessageDialog(LanguageBundle
-						.getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
-						MessageType.WARNING);
-				}
-			}
-		});
+		loadURL.addActionListener(evt -> {
+            if (((JCheckBox) evt.getSource()).isSelected())
+            {
+                ShowMessageDelegate.showMessageDialog(LanguageBundle
+                    .getString("in_Prefs_urlBlocked"), Constants.APPLICATION_NAME, //$NON-NLS-1$
+                    MessageType.WARNING);
+            }
+        });
 
 		Utility.buildConstraints(c, 0, 10, GridBagConstraints.REMAINDER, 1, 0, 0);
 		allowOverride.setText(LanguageBundle.getString("in_Prefs_allowOverride")); //$NON-NLS-1$

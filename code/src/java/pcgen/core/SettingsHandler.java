@@ -285,7 +285,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path to the backup directory for character files.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setBackupPcgPath(final File path)
 	{
@@ -295,7 +295,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the path to the backup directory for character files.
 	 *
-	 * @return    the <code>backupPcgPath</code> property
+	 * @return    the {@code backupPcgPath} property
 	 */
 	public static File getBackupPcgPath()
 	{
@@ -305,7 +305,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the external browser path to use.
 	 *
-	 * @param  path  the <code>String</code> representing the path
+	 * @param  path  the {@code String} representing the path
 	 **/
 	public static void setBrowserPath(final String path)
 	{
@@ -315,7 +315,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the external browser path to use.
 	 *
-	 * @return    the <code>browserPath</code> property
+	 * @return    the {@code browserPath} property
 	 */
 	public static String getBrowserPath()
 	{
@@ -335,7 +335,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the flag to determine whether PCGen should backup pcg files before saving
 	 *
-	 * @param  argCreatePcgBackup  the <code>flag</code>
+	 * @param  argCreatePcgBackup  the {@code flag}
 	 */
 	public static void setCreatePcgBackup(final boolean argCreatePcgBackup)
 	{
@@ -345,7 +345,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the flag to determine whether PCGen should backup pcg files before saving
 	 *
-	 * @return    the <code>createPcgBackup</code> property
+	 * @return    the {@code createPcgBackup} property
 	 */
 	public static boolean getCreatePcgBackup()
 	{
@@ -443,15 +443,15 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Puts all properties into the <code>Properties</code> object,
-	 * (<code>options</code>). This is called by
-	 * <code>writeOptionsProperties</code>, which then saves the
-	 * <code>options</code> into a file.
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
@@ -477,19 +477,19 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Set most of this objects static properties from the loaded <code>options</code>.
+	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
-	 * @return the default <code>Dimension</code> to set the screen size to
+	 * @return the default {@code Dimension} to set the screen size to
 	 */
 	public static boolean getGMGenOption(final String optionName, final boolean defaultValue)
 	{
@@ -1300,7 +1300,7 @@ public final class SettingsHandler
 	/**
 	 * Ensures that the path specified exists.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void ensurePathExists(final File path)
 	{
@@ -1313,7 +1313,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path that was last used in a character or output file chooser.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setLastUsedPcgPath(final File path)
 	{
@@ -1363,7 +1363,7 @@ public final class SettingsHandler
 	/**
 	 * Sets the path to the portrait files.
 	 *
-	 * @param  path  the <code>File</code> representing the path
+	 * @param  path  the {@code File} representing the path
 	 */
 	public static void setPortraitsPath(final File path)
 	{
@@ -1539,7 +1539,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current HTML output sheet for a single character.
 	 *
-	 * @return    the <code>selectedCharacterHTMLOutputSheet</code> property
+	 * @return    the {@code selectedCharacterHTMLOutputSheet} property
 	 * @param aPC
 	 **/
 	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacter aPC)
@@ -1574,7 +1574,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current PDF output sheet for a single character.
 	 *
-	 * @return    the <code>selectedCharacterPDFOutputSheet</code> property
+	 * @return    the {@code selectedCharacterPDFOutputSheet} property
 	 * @param aPC
 	 */
 	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacter aPC)
@@ -1603,7 +1603,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current EquipSet template.
 	 *
-	 * @return    the <code>selectedEqSetTemplate</code> property
+	 * @return    the {@code selectedEqSetTemplate} property
 	 **/
 	public static String getSelectedEqSetTemplate()
 	{
@@ -1635,7 +1635,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current party HTML template.
 	 *
-	 * @return    the <code>selectedPartyHTMLOutputSheet</code> property
+	 * @return    the {@code selectedPartyHTMLOutputSheet} property
 	 **/
 	public static String getSelectedPartyHTMLOutputSheet()
 	{
@@ -1655,7 +1655,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current party PDF template.
 	 *
-	 * @return    the <code>selectedPartyPDFOutputSheet</code> property
+	 * @return    the {@code selectedPartyPDFOutputSheet} property
 	 **/
 	public static String getSelectedPartyPDFOutputSheet()
 	{
@@ -1675,7 +1675,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the current spell output sheet
 	 *
-	 * @return    the <code>selectedSpellSheet</code> property
+	 * @return    the {@code selectedSpellSheet} property
 	 **/
 	public static String getSelectedSpellSheet()
 	{
@@ -1802,7 +1802,7 @@ public final class SettingsHandler
 	/**
 	 * Returns the path to the temporary output location (for previews).
 	 *
-	 * @return    the <code>tempPath</code> property
+	 * @return    the {@code tempPath} property
 	 */
 	public static File getTempPath()
 	{
@@ -2262,15 +2262,15 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Puts all properties into the <code>Properties</code> object,
-	 * (<code>options</code>). This is called by
-	 * <code>writeOptionsProperties</code>, which then saves the
-	 * <code>options</code> into a file.
+	 * Puts all properties into the {@code Properties} object,
+	 * ({@code options}). This is called by
+	 * {@code writeOptionsProperties}, which then saves the
+	 * {@code options} into a file.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param optionValue
@@ -2286,19 +2286,19 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Set most of this objects static properties from the loaded <code>options</code>.
+	 * Set most of this objects static properties from the loaded {@code options}.
 	 * Called by readOptionsProperties. Most of the static properties are
 	 * set as a side effect, with the main screen size being returned.
 	 * <p>
 	 * I am guessing that named object properties are faster to access
-	 * than using the <code>getProperty</code> method, and that this is
-	 * why settings are stored as static properties of <code>Global</code>,
-	 * but converted into a <code>Properties</code> object for
+	 * than using the {@code getProperty} method, and that this is
+	 * why settings are stored as static properties of {@code Global},
+	 * but converted into a {@code Properties} object for
 	 * storage and retrieval.
 	 * @param optionName
 	 * @param defaultValue
 	 *
-	 * @return the default <code>Dimension</code> to set the screen size to
+	 * @return the default {@code Dimension} to set the screen size to
 	 */
 	public static boolean getPCGenOption(final String optionName, final boolean defaultValue)
 	{
@@ -2630,7 +2630,7 @@ public final class SettingsHandler
 
 	/**
 	 * <p>Returns the window state.  This corresponds to the values returned/accepted
-	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
+	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @return Returns the windowState.
 	 */
@@ -2641,7 +2641,7 @@ public final class SettingsHandler
 
 	/**
 	 * <p>Sets the window state.  This corresponds to the values returned/accepted
-	 * by <code>Frame.getExtendedState</code> and <code>Frame.setExtendedState</code>.</p>
+	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
 	 *
 	 * @param argWindowState The argWindowState to set.
 	 */
@@ -2651,7 +2651,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Shows the program memory use in the status bar if <code>true</code>.
+	 * Shows the program memory use in the status bar if {@code true}.
 	 *
 	 * @return show memory setting for the status bar
 	 */
@@ -2661,7 +2661,7 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Shows character portrait preview in the file chooser if <code>true</code>.
+	 * Shows character portrait preview in the file chooser if {@code true}.
 	 *
 	 * @return show portrait preview
 	 */
@@ -2673,7 +2673,7 @@ public final class SettingsHandler
 	/**
 	 * Toggles displaying the character portrait preview in the file chooser
 	 *
-	 * @param showImagePreview <code>true</code> to show portrait preview
+	 * @param showImagePreview {@code true} to show portrait preview
 	 */
 	public static void setShowImagePreview(final boolean showImagePreview)
 	{

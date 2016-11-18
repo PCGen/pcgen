@@ -26,7 +26,7 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * The Class <code>EQHeadPlusTotalTermEvaluator</code> is responsible for producing 
+ * The Class {@code EQHeadPlusTotalTermEvaluator} is responsible for producing
  * the value of the HEADPLUSTOTAL token for use in equipment and eqmod cost formulas.
  * This is the total plus modifier for the current head.  
  * 

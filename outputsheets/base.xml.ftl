@@ -1120,7 +1120,7 @@
 		<#if (pcboolean('ABILITYALL.Special Ability.0.TYPE=RageDescription.HASASPECT.RageDescription')) >
 		<description>${pcstring('ABILITYALL.Special Ability.0.TYPE=RageDescription.ASPECT.RageDescription')}</description>
 		<#else>
-		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL+3')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
+		<description>The Barbarian gains +${pcstring('VAR.RageStrBonus.INTVAL')} to Strength, +${pcstring('VAR.RageConBonus.INTVAL')} to Constitution, and a +${pcstring('VAR.RageMorale.INTVAL')} morale bonus on Will saves, but suffers a -${pcstring('VAR.RageACPenalty.INTVAL')} penalty to AC for ${pcvar('VAR.RageConBonus.INTVAL')} rounds. At the end of the rage, the barbarian is fatigued (-2 to Strength, -2 to Dexterity, can't charge or run) for the duration of that encounter. The barbarian can only rage once per encounter. Entering a rage takes no time itself, but the barbarian can only do it during his action.</description>
 		</#if>
 	</rage>
 	<!-- this stuff needs a bit of work to display correct info for both 3e and 3.5e properly. - Tir Gwaith -->

@@ -136,7 +136,7 @@ public abstract class AbstractToken
 			return new ParseResult.Fail(getTokenName()
 				+ " may not have null argument");
 		}
-		if (value.length() == 0)
+		if (value.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " may not have empty argument");

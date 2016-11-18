@@ -32,7 +32,7 @@ import java.io.IOException;
 import java.io.Writer;
 
 /**
- * The Class <code>PreCampaignWriter</code> is responsible for unparsing 
+ * The Class {@code PreCampaignWriter} is responsible for unparsing
  * a CAMPAIGN prerequisite allowing it to be written to a LST file etc. 
  * 
  * 

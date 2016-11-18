@@ -74,7 +74,7 @@ public final class ChoiceSetLoadUtilities
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
 					Logging.addParseMessage(Logging.LST_ERROR,
 							"Choice argument was null or empty: " + primitive);
@@ -157,7 +157,7 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> PrimitiveCollection<T> getPrimitive(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
-		if (joinedOr.length() == 0 || hasIllegalSeparator('|', joinedOr))
+		if (joinedOr.isEmpty() || hasIllegalSeparator('|', joinedOr))
 		{
 			return null;
 		}
@@ -168,7 +168,7 @@ public final class ChoiceSetLoadUtilities
 		for (; pipe.hasNext();)
 		{
 			String joinedAnd = pipe.next();
-			if (joinedAnd.length() == 0 || hasIllegalSeparator(',', joinedAnd))
+			if (joinedAnd.isEmpty() || hasIllegalSeparator(',', joinedAnd))
 			{
 				return null;
 			}
@@ -179,7 +179,7 @@ public final class ChoiceSetLoadUtilities
 			for (; comma.hasNext();)
 			{
 				String primitive = comma.next();
-				if (primitive == null || primitive.length() == 0)
+				if (primitive == null || primitive.isEmpty())
 				{
 					Logging.addParseMessage(Logging.LST_ERROR,
 							"Choice argument was null or empty: " + primitive);
@@ -241,7 +241,7 @@ public final class ChoiceSetLoadUtilities
 			{
 				pi.tokKey = key.substring(0, equalLoc);
 				pi.tokValue = key.substring(equalLoc + 1);
-				if (pi.tokValue.length() == 0)
+				if (pi.tokValue.isEmpty())
 				{
 					Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE + key
 							+ " has equals but no target value");
@@ -395,7 +395,7 @@ public final class ChoiceSetLoadUtilities
 	public static <T extends CDOMObject> QualifierToken<T> getQualifier(
 			LoadContext loadContext, SelectionCreator<T> sc, String key)
 	{
-		if (key == null || key.length() == 0)
+		if (key == null || key.isEmpty())
 		{
 			Logging.errorPrint(FOUND_ERR_IN_PRIM_CHOICE
 					+ "item was null or empty");

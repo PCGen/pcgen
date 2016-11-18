@@ -205,12 +205,12 @@ public class JTreeTable extends JTableEx
 	}
 
 	/**
-	 * Forwards the <code>scrollRectToVisible()</code> message to the
-	 * <code>JComponent</code>'s parent. Components that can service
-	 * the request, such as <code>JViewport</code>,
+	 * Forwards the {@code scrollRectToVisible()} message to the
+	 * {@code JComponent}'s parent. Components that can service
+	 * the request, such as {@code JViewport},
 	 * override this method and perform the scrolling.
 	 *
-	 * @param aRect the visible <code>Rectangle</code>
+	 * @param aRect the visible {@code Rectangle}
 	 * @see javax.swing.JViewport
 	 */
 	@Override
@@ -268,9 +268,9 @@ public class JTreeTable extends JTableEx
 	 * Makes sure all the path components in path are expanded (except
 	 * for the last path component) and scrolls so that the
 	 * node identified by the path is displayed. Only works when this
-	 * <code>JTree</code> is contained in a <code>JScrollPane</code>.
+	 * {@code JTree} is contained in a <code>JScrollPane</code>.
 	 *
-	 * @param path  the <code>TreePath</code> identifying the node to
+	 * @param path  the {@code TreePath} identifying the node to
 	 *         bring into view
 	 */
 	private void scrollPathToVisible(TreePath path)

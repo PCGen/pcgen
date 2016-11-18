@@ -27,7 +27,7 @@ import javax.swing.DefaultListModel;
 public class PCGTrackerModel extends DefaultListModel
 {
 	/**
-	 * Creates an instance of a <code>PCGTrackerModel</code>.  This class holds
+	 * Creates an instance of a {@code PCGTrackerModel}.  This class holds
 	 * all the characters that are loaded.
 	 */
 	public PCGTrackerModel()

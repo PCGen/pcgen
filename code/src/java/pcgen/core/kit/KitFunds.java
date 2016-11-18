@@ -29,7 +29,7 @@ import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 
 /**
- * <code>KitFunds</code>.
+ * {@code KitFunds}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

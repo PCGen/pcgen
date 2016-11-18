@@ -440,7 +440,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	}
 
 	/**
-	 * <p>If the <code>cbt</code> is an <code>XMLCombatant</code>, sets
+	 * <p>If the {@code cbt} is an <code>XMLCombatant</code>, sets
 	 * the combatants save values based on the totals for the dialog box.</p>
 	 * @param total
 	 */

@@ -29,7 +29,7 @@ import java.util.List;
 import pcgen.facade.util.ListFacade;
 
 /**
- *  <code>ChooserFacade</code> defines the interface for backing general choosers, 
+ *  {@code ChooserFacade} defines the interface for backing general choosers,
  *  where a dialog is presented to a user asking them to select from a fixed list of 
  *  options.
  *
@@ -41,7 +41,7 @@ public interface ChooserFacade
 {
 
 	/**
-	 * <code>ChooserTreeViewType</code> defines the types of tree views that can 
+	 * {@code ChooserTreeViewType} defines the types of tree views that can
 	 * be displayed in a chooser dialog.
 	 */
 	public enum ChooserTreeViewType

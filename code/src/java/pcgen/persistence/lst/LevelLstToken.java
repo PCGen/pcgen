@@ -26,7 +26,7 @@ package pcgen.persistence.lst;
 import pcgen.core.LevelInfo;
 
 /**
- * <code>LevelLstToken</code>
+ * {@code LevelLstToken}
  *
  * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

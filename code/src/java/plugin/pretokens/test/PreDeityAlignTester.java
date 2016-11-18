@@ -37,7 +37,7 @@ public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements Pr
 		//
 		int runningTotal = 0;
 
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			runningTotal = 1;
 		}

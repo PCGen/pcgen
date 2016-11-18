@@ -132,7 +132,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * CDOMObject of the appropriate type will be created prior to applying the
 	 * line contents.  Because of this behavior, it is necessary for this
 	 * method to return the new object.  Implementations of this method also
-	 * MUST call <code>completeObject</code> with the original target prior to 
+	 * MUST call {@code completeObject} with the original target prior to
 	 * returning the new value.
 	 * @param context TODO
 	 * @param target CDOMObject to apply the line to, barring the start of a
@@ -154,11 +154,11 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	 * system.
 	 * 
 	 * <p>This method will check that the loaded object should be included via
-	 * a call to <code>includeObject</code> and if not add it to the list of
+	 * a call to {@code includeObject} and if not add it to the list of
 	 * excluded objects.
 	 * 
 	 * <p>Once the object has been verified the method will call
-	 * <code>finishObject</code> to give each object a chance to complete 
+	 * {@code finishObject} to give each object a chance to complete
 	 * processing.
 	 * 
 	 * <p>The object is then added to the system if it doesn't already exist.
@@ -269,9 +269,9 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 	{
 		// Null check; never add nulls or objects without a name/key name
 		if ((cdo == null) || (cdo.getDisplayName() == null)
-			|| (cdo.getDisplayName().trim().length() == 0)
+			|| (cdo.getDisplayName().trim().isEmpty())
 			|| (cdo.getKeyName() == null)
-			|| (cdo.getKeyName().trim().length() == 0))
+			|| (cdo.getKeyName().trim().isEmpty()))
 		{
 			return false;
 		}

@@ -47,7 +47,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>TempBonusFacadeImpl</code> a proxy for a TempBonus used for 
+ * The Class {@code TempBonusFacadeImpl} a proxy for a TempBonus used for
  * displaying the temporary bonus on the UI. 
  *
  * <br>

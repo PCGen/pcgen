@@ -31,7 +31,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.SpellListToken;
 
 /**
- * <code>SpellListMemorizeToken</code> outputs "true" if the specified spell class
+ * {@code SpellListMemorizeToken} outputs "true" if the specified spell class
  * needs to memorize spells, "false" otherwise.
  *
  *

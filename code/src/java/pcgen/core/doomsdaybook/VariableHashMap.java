@@ -28,7 +28,7 @@ import java.util.List;
 import java.util.Map;
 
 /**
- * <code>VariableHashMap</code> is a collection of variables (key/value 
+ * {@code VariableHashMap} is a collection of variables (key/value
  * pairs) and DataElements optimised for quick lookup and updating. Note
  * there are three structures here, the principle map of variables, a
  * secondary map of DataElement objects and a list of Operation objects.

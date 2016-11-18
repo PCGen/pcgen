@@ -97,7 +97,7 @@ public class BonusListToken extends Token
 
 		int typeLen = bonusString.length() + substring.length() + 2;
 
-		if ((substring.length() > 0) && (bonusString.length() > 0))
+		if ((!substring.isEmpty()) && (!bonusString.isEmpty()))
 		{
 			// Commented out this += since it's useless code (see TODO below) thpr 10/21/06
 			//int total = (int) pc.getTotalBonusTo(bonusString, substring);

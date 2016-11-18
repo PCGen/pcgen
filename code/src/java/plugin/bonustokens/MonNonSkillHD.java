@@ -26,7 +26,7 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>MonNonSkillHD</code> defines the MonNonSkillHD tag which
+ * {@code MonNonSkillHD} defines the MonNonSkillHD tag which
  * allows the LST code to specify how many of a monster's hit dice
  * do not gain skills.
  *

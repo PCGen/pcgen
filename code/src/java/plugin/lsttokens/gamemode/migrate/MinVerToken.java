@@ -30,7 +30,7 @@ import pcgen.persistence.lst.VersionAwareToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>MinVerToken</code> parses the MINVER token in migration.lst 
+ * The Class {@code MinVerToken} parses the MINVER token in migration.lst
  * game mode files. The MINVER token specifies the production PCGen version when 
  * the rules object was first coded in the old format.  
  * 

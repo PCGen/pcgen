@@ -23,7 +23,7 @@
 package pcgen.core;
 
 /**
- * <code>SubClass</code>.
+ * {@code SubClass}.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

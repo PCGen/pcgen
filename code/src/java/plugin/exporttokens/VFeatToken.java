@@ -16,7 +16,7 @@ import pcgen.io.exporttoken.AbilityToken;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>VFeatToken</code> deals with VFEAT output token.
+ * {@code VFeatToken} deals with VFEAT output token.
  *
  *
  * @author karianna

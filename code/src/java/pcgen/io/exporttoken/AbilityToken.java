@@ -442,7 +442,7 @@ public class AbilityToken extends Token
 		boolean isnttype = true;
 
 		// If the types contains at least one of the types we've asked for
-		if (types.size() > 0)
+		if (!types.isEmpty())
 		{
 			for (String typeStr : types)
 			{
@@ -515,7 +515,7 @@ public class AbilityToken extends Token
 		{
 			aAbility = aList.get(abilityIndex);
 			List<CNAbility> abilities = aMapToList.getListFor(aAbility);
-			if (abilities.size() == 0)
+			if (abilities.isEmpty())
 			{
 				return "";
 			}
@@ -669,7 +669,7 @@ public class AbilityToken extends Token
 	 */
 	private String getAspectString(PlayerCharacter pc, List<CNAbility> abilities)
 	{
-		if (abilities.size() == 0)
+		if (abilities.isEmpty())
 		{
 			return "";
 		}
@@ -707,7 +707,7 @@ public class AbilityToken extends Token
 		{
 			return "";
 		}
-		if (abilities.size() == 0)
+		if (abilities.isEmpty())
 		{
 			return "";
 		}

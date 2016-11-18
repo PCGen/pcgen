@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.BiographyField;
 import pcgen.facade.util.ListFacade;
 
 /**
- * The Class <code>DescriptionFacade</code> tracks descriptive entries about the character, 
+ * The Class {@code DescriptionFacade} tracks descriptive entries about the character,
  * interfacing between the user interface and the core.
  *
  * <br>

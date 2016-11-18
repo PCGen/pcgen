@@ -190,7 +190,7 @@ public class ClassToken extends Token {
 		// to include all of the variables
 		for (SpecialAbility sa : saList) {
 			String str = sa.getDisplayName();
-			if (str == null || str.length() == 0)
+			if (str == null || str.isEmpty())
 			{
 				continue;
 			}

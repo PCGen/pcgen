@@ -28,7 +28,7 @@ import pcgen.exception.PcgenException;
 
 public class TermEvaulatorException extends PcgenException{
 	/**
-	 * Creates a new instance of <code>TermEvaulatorException</code> without detail message.
+	 * Creates a new instance of {@code TermEvaulatorException} without detail message.
 	 */
 	public TermEvaulatorException()
 	{
@@ -36,7 +36,7 @@ public class TermEvaulatorException extends PcgenException{
 	}
 
 	/**
-	 * Constructs an instance of <code>TermEvaulatorException</code> with the specified detail message.
+	 * Constructs an instance of {@code TermEvaulatorException} with the specified detail message.
 	 * @param msg the detail message.
 	 */
 	public TermEvaulatorException(String msg)
@@ -45,7 +45,7 @@ public class TermEvaulatorException extends PcgenException{
 	}
 
 	/**
-	 * Constructs an instance of <code>TermEvaulatorException</code>
+	 * Constructs an instance of {@code TermEvaulatorException}
 	 *  with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
 	 * @param rootCause the root cause of the exception.

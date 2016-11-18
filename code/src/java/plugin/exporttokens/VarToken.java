@@ -30,7 +30,7 @@ import pcgen.util.Logging;
 import java.util.StringTokenizer;
 
 /**
- * <code>VarToken</code> produces the output for the output token VAR.
+ * {@code VarToken} produces the output for the output token VAR.
  * Possible tag formats are:<pre>
  * VAR.x
  * VAR.x.INTVAL|.MINVAL|.NOSIGN

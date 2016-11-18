@@ -32,7 +32,7 @@ import pcgen.persistence.lst.InstallLstToken;
 import pcgen.util.Logging;
 
 /**
- * <code>DestToken</code> parses DEST tokens in installable campaigns.
+ * {@code DestToken} parses DEST tokens in installable campaigns.
  *
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;

@@ -41,7 +41,7 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 import pcgen.rules.context.LoadContext;
 
 /**
- * <code>BonusObj</code>
+ * {@code BonusObj}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  **/

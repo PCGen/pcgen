@@ -39,7 +39,7 @@ import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
 /**
- * <code>PCTemplate</code>.
+ * {@code PCTemplate}.
  * 
  * @author Mark Hulsman &lt;hulsmanm@purdue.edu&gt;
  */

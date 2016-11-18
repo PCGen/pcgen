@@ -45,7 +45,7 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>DisplayOptionsPanel</code> is responsible for 
+ * The Class {@code DisplayOptionsPanel} is responsible for
  * displaying experience related preferences and allowing the 
  * preferences to be edited by the user.
  * 

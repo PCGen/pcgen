@@ -37,7 +37,7 @@ import pcgen.core.spell.Spell;
 import pcgen.util.SortKeyAware;
 
 /**
- * The Class <code>SpellFacadeImplem</code> is a proxy for a spell used for 
+ * The Class {@code SpellFacadeImplem} is a proxy for a spell used for
  * displaying the spell on the UI. 
  *
  * <br>

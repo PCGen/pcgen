@@ -31,7 +31,7 @@ import pcgen.cdom.base.Loadable;
 
 
 /**
- * <code>UnitSet</code>.
+ * {@code UnitSet}.
  *
  * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

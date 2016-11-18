@@ -136,7 +136,7 @@ public class AttackModel extends PObjectModel
 	 * bonus) at index 0.  If the toHit field is not set, returns an array with a single element
 	 * with the bonuse of 0.</p>
 	 *
-	 * @return <code>int[]</code> containing the integer bonuses for a full attack action
+	 * @return {@code int[]} containing the integer bonuses for a full attack action
 	 */
 	public int[] getBonusList()
 	{
@@ -556,9 +556,9 @@ public class AttackModel extends PObjectModel
 	 * <p>
 	 * Sets the two hit value. This method drives much of the functionality of
 	 * the attack model. The string should be in the form <br>
-	 * <code>
+	 * {@code
 	 *    Bonus/Bonus/Bonus...;off hand bonus/off hand bonus...
-	 * </code>
+	 * }
 	 * <br>
 	 * The method splits the string into primary and off-hand bonus values, and
 	 * splits the separate strings into individual bonuses. The length of the

@@ -39,9 +39,9 @@ public class FakeWindowsLookAndFeel extends WindowsLookAndFeel
 {
 	/**
 	 * Support Windows95 L&amp;F on non-Windows platforms.  Simple
-	 * return <code>true</code>.
+	 * return {@code true}.
 	 *
-	 * @return boolean <code>true</code> always
+	 * @return boolean {@code true} always
 	 */
 	@Override
 	public boolean isSupportedLookAndFeel()

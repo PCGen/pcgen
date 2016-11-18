@@ -25,7 +25,7 @@ package pcgen.pluginmgr;
 import java.util.EventListener;
 
 /**
- * The template <code>PCGenMessageHandler</code> defines an object 
+ * The template {@code PCGenMessageHandler} defines an object
  * that can act on a PCGenMessage. 
  *
  * <br>

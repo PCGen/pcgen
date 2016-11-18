@@ -31,7 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * <code>WidthToken</code>
+ * {@code WidthToken}
  * 
  * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */

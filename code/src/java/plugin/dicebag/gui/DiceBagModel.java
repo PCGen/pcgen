@@ -241,7 +241,7 @@ class DiceBagModel extends Observable
 
 	/**
 	 * <p>Saves the dicebag to the specified file as a UTF-8 xml file, with the format
-	 * specified above in <code>loadFromFile()</code></p>
+	 * specified above in {@code loadFromFile()}</p>
 	 *
 	 * @param file File to save to.
 	 */

@@ -118,7 +118,7 @@ public class DiceBagPluginView implements Observer
 	}
 
 	/**
-	 * <p>Handles closing events -- calls the model <code>closeDiceBag()</code>
+	 * <p>Handles closing events -- calls the model {@code closeDiceBag()}
 	 * code.</p>
 	 *
 	 * @param e The event that fired this handler.
@@ -224,15 +224,15 @@ public class DiceBagPluginView implements Observer
 	}
 
 	/**
-	 * <p>Displays an option dialog with the specified <code>option</code>
+	 * <p>Displays an option dialog with the specified {@code option}
 	 * value and either saves the dice bag or not based on the response.
 	 * If the cancel option is chosen or the user aborts the save dialog,
-	 * <code>JOptionPane.CANCEL_OPTION</code> is returned instead
+	 * {@code JOptionPane.CANCEL_OPTION} is returned instead
 	 * of yes or no.  If the bag has not been changed since creation or
-	 * loading, <code>JOptionPane.NO_OPTION</code> is returned.</p>
+	 * loading, {@code JOptionPane.NO_OPTION} is returned.</p>
 	 *
 	 * @param bag The bag that needs saving.
-	 * @param option One of the JOptionPane constants (like <code>YES_NO_OPTION</code>
+	 * @param option One of the JOptionPane constants (like {@code YES_NO_OPTION}
 	 * for display in the option pane.
 	 * @return The selection option
 	 */

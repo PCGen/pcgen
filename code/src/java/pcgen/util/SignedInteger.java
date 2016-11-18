@@ -23,7 +23,7 @@
 package pcgen.util;
 
 /**
- * The Class <code>SignedInteger</code> provides a number which always carries a 
+ * The Class {@code SignedInteger} provides a number which always carries a
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
  *

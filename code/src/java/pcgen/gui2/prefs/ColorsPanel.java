@@ -43,7 +43,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>ColorsPanel</code> is responsible for 
+ * The Class {@code ColorsPanel} is responsible for
  * displaying color related preferences and allowing the 
  * preferences to be edited by the user.
  * 

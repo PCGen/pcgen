@@ -37,7 +37,7 @@ import pcgen.core.SizeAdjustment;
 import pcgen.util.Logging;
 
 /**
- * <code>LoadInfo</code> describes the data associated with a loads and
+ * {@code LoadInfo} describes the data associated with a loads and
  * encumbrance
  * 
  * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;

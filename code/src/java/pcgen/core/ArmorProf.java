@@ -24,7 +24,7 @@ import pcgen.cdom.base.Ungranted;
 
 
 /**
- * <code>ArmorProf</code>.
+ * {@code ArmorProf}.
  *
  * @author Thomas Clegg &lt;arknight@swbell.net&gt;
  * DO NOT DELETE (waiting for use)

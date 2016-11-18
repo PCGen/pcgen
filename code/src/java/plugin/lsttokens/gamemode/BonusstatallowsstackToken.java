@@ -29,7 +29,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 import pcgen.util.Logging;
 
 /**
- * The Class <code>BonusstatallowsstackToken</code> deals
+ * The Class {@code BonusstatallowsstackToken} deals
  * with the BONUSSTATALLOWSSTACK tag. This tag is a boolean 
  * tag that specifies if the user may select the same stat
  * multiple times when offered multiple stat boosts at the same 

@@ -74,10 +74,10 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/** Label for name of dice bag */
 	private JLabel m_nameFieldLabel;
 
-	/** JPanel for <code>BoxLayout.CENTER</code> of content pane */
+	/** JPanel for {@code BoxLayout.CENTER} of content pane */
 	private JPanel m_center;
 
-	/** Jpanel for top (<code>BorderLayout.NORTH</code>) region */
+	/** Jpanel for top ({@code BorderLayout.NORTH}) region */
 	private JPanel m_top;
 
 	/** JPanel for bottom of m_top. */
@@ -125,7 +125,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Handles the press of the editing button; calls
-	 * <code>setupEditMode()</code>.</p>
+	 * {@code setupEditMode()}.</p>
 	 *
 	 * @param e Event that fired handler.
 	 */
@@ -201,7 +201,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 	/**
 	 * <p>Initializes the view and all components, and starts the bag in
-	 * editing mode.  It sets the size (<code>pack()</code>) of the
+	 * editing mode.  It sets the size ({@code pack()}) of the
 	 * internal frame, but does <b>not</b> show the frame.</p>
 	 *
 	 *
@@ -542,7 +542,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 *
 	 * <p>Table model for displaying/editing the dice bag information.
-	 * Basically this overrides enough of <code>AbstracTableModel</code>
+	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
 	 *
 	 * @author Ross M. Lodge

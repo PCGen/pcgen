@@ -25,7 +25,7 @@ package pcgen.facade.core;
 import java.util.List;
 
 /**
- * The Class <code>CampaignInfoFactory</code> is ...
+ * The Class {@code CampaignInfoFactory} is ...
  *
  * <br>
  * 

@@ -29,7 +29,7 @@ import pcgen.core.GameMode;
 import pcgen.persistence.lst.GameModeLstToken;
 
 /**
- * <code>AcnameToken</code>
+ * {@code AcnameToken}
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

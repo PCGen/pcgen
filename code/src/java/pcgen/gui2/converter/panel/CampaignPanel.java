@@ -51,7 +51,7 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.PCGenSettings;
 
 /**
- * The Class <code>CampaignPanel</code> displays a panel allowing 
+ * The Class {@code CampaignPanel} displays a panel allowing
  * the user to select the campaigns to be converted.
  * 
  * 

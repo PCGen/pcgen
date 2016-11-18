@@ -34,7 +34,7 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
 /**
- * <code>VisionToken</code> produces the output for the output token 
+ * {@code VisionToken} produces the output for the output token
  * VISION.
  *
  *
@@ -102,7 +102,7 @@ public class VisionToken extends AbstractExportToken
 			result.append(vision.getType());
 			String distStr = vision.getDistance().toString();
 			int dist = 0;
-			if ((distStr != null) && (distStr.trim().length() > 0))
+			if ((distStr != null) && (!distStr.trim().isEmpty()))
 			{
 				dist = Integer.parseInt(distStr);
 			}

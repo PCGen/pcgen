@@ -26,7 +26,7 @@ package plugin.bonustokens;
 import pcgen.core.bonus.MultiTagBonusObj;
 
 /**
- * <code>Vision</code> deals with bonuses to a character's vision.
+ * {@code Vision} deals with bonuses to a character's vision.
  *
  * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

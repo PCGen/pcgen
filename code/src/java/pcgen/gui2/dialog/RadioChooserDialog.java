@@ -50,7 +50,7 @@ import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 
 /**
- * The Class <code>RadioChooserDialog</code> provides a dialog with a variable 
+ * The Class {@code RadioChooserDialog} provides a dialog with a variable
  * number of radio buttons to allow the user to make a single choice from a 
  * list. A ChooserFacade instance must be supplied, this defines the choices 
  * available, the text to be displayed on screen and the actions to be taken 

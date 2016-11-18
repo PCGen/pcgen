@@ -73,7 +73,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 				if (preKey.toUpperCase().startsWith("SKILL="))
 				{
 					String skillName = preKey.substring(6);
-					if (skill.length() > 0)
+					if (!skill.isEmpty())
 					{
 						throw new PersistenceLayerException("PRESKILLSIT must only have one skill");
 					}
@@ -100,7 +100,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 		 * into one prereq ... question is how (and keep the operator, etc.
 		 * correct)
 		 */
-		if (skill.length() > 0)
+		if (!skill.isEmpty())
 		{
 			for (Prerequisite p : prereq.getPrerequisites())
 			{

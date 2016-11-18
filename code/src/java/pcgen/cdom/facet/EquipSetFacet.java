@@ -205,8 +205,8 @@ public class EquipSetFacet extends AbstractListFacet<CharID, EquipSet>
 	}
 
 	/**
-	 * Search the equipment sets rooted at <code>set</code>, and return the number
-	 * of items of <code>set</code> in the set.
+	 * Search the equipment sets rooted at {@code set}, and return the number
+	 * of items of {@code set} in the set.
 	 * @param id The ID of the PC
 	 * @param set The root of an Equipment Set
 	 * @param eq The equipment to search for.

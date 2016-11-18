@@ -46,7 +46,7 @@ import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage
 import pcgen.system.CharacterManager;
 
 /**
- * The Class <code>GMGenMessageHandler</code> processes any requests 
+ * The Class {@code GMGenMessageHandler} processes any requests
  * to the main PCGen program from the GMGen bus.
  *
  * <br>

@@ -36,7 +36,7 @@ import pcgen.cdom.reference.TransparentFactory;
 import pcgen.cdom.reference.UnconstructedValidator;
 
 /**
- * The Class <code>GameReferenceContext</code> is a ReferenceContext which is 
+ * The Class {@code GameReferenceContext} is a ReferenceContext which is
  * capable of delegating its transparent references to references built later 
  * in the process.  Transparent references are a new concept, they are basically 
  * references that allow later resolution to other references (meaning in the 

@@ -27,7 +27,7 @@ import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.facade.core.StatFacade;
 
 /**
- * <code>PCStat</code>.
+ * {@code PCStat}.
  *
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

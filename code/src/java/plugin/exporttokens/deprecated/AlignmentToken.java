@@ -70,7 +70,7 @@ public class AlignmentToken extends AbstractExportToken
 
 	private String getAlignmentDisplay(CharacterDisplay display)
 	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			return "";
 		}
@@ -85,7 +85,7 @@ public class AlignmentToken extends AbstractExportToken
 	 */
 	public static String getShortToken(CharacterDisplay display)
 	{
-		if (Globals.getGameModeAlignmentText().length() == 0)
+		if (Globals.getGameModeAlignmentText().isEmpty())
 		{
 			return "";
 		}

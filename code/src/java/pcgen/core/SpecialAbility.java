@@ -22,7 +22,7 @@ package pcgen.core;
 
 
 /**
- * <code>SpecialAbility</code>.
+ * {@code SpecialAbility}.
  * 
  * @author Devon Jones
  */
