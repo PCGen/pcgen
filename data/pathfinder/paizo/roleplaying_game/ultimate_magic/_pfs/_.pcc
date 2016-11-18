@@ -83,11 +83,11 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Ultimate Magic" Copyright
 # Other: No content from Chapter 2 is legal for play except new familiars; Words of Power are also forbidden.
 
 # Data files
-ABILITY:pfs_um_abilities.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_um_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-EQUIPMENT:pfs_um_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-ABILITY:pfs_um_feats.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
-SPELL:pfs_um_spells.lst|PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+ABILITY:pfs_um_abilities.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:pfs_um_abilities_class.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+EQUIPMENT:pfs_um_equip_general.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:pfs_um_feats.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+SPELL:pfs_um_spells.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
 
 LSTEXCLUDE:@/pathfinder/paizo/roleplaying_game/ultimate_magic/um_abilities_wordsofpower.lst
 LSTEXCLUDE:@/pathfinder/paizo/roleplaying_game/ultimate_magic/um_abilitycategories_wordsofpower.lst
