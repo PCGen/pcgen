@@ -18,7 +18,7 @@ SOURCEWEB:http://paizo.com/products/btpy8yw6?Pathfinder-Player-Companion-Pathfin
 SOURCEDATE:2013-07
 ISOGL:YES
 
-COVER:pathfinder_society_primer.jpeg
+#COVER:pathfinder_society_primer.jpeg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
