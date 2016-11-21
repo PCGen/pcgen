@@ -31,7 +31,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
-import java.util.StringJoiner;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
@@ -1345,21 +1344,25 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_itmInfoLabelTextTarget", targetName); //$NON-NLS-1$
 
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
-			StringJoiner bonusValues = new StringJoiner(", ");
 
-			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
-			bonusList.sort(new BonusComparator());
-			for (BonusObj bonusObj : bonusList)
-			{
-				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
-				bonusValues.add(adj + ' ' + bonusObj.getDescription());  //$NON-NLS-1$
-			}
-			if (bonusValues.length() > 0)
+
+			String bonusValues = bonusMap.keySet().stream()
+					 .sorted()
+					 .map(bonusObj ->
+							 Gui2InfoFactory
+									 .ADJ_FMT
+									 .format(bonusObj.resolve(pc, ""))
+									 + ' '
+									 + bonusObj.getDescription()
+					 ).collect(Collectors.joining(", "));
+
+			if (!bonusValues.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nElement(
 					"in_itmInfoLabelTextEffect", //$NON-NLS-1$
-					bonusValues.toString());
+						bonusValues
+				);
 			}
 		}
 

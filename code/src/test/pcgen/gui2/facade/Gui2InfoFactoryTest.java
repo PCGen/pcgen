@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 23/09/2012 12:00:00 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -31,12 +27,15 @@ import pcgen.core.Description;
 import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
+import pcgen.facade.core.InfoFactory;
+import pcgen.facade.core.TempBonusFacade;
+import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
 import plugin.lsttokens.choose.StringToken;
 
 /**
- * The Class <code>Gui2InfoFactoryTest</code> verifies the operation of the 
+ * The Class {@code Gui2InfoFactoryTest} verifies the operation of the
  * Gui2InfoFactory class.
  *
  * <br/>
@@ -54,13 +53,13 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	public void testGetChoices()
 	{
 		PlayerCharacter pc = getCharacter();
-		Gui2InfoFactory ca = new Gui2InfoFactory(pc);
+		InfoFactory ca = new Gui2InfoFactory(pc);
 
 		Ability choiceAbility =
 				TestHelper.makeAbility("Skill Focus", AbilityCategory.FEAT,
 					"General");
 		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
-		StringToken st = new plugin.lsttokens.choose.StringToken();
+		CDOMToken st = new plugin.lsttokens.choose.StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
@@ -81,7 +80,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 	public void testGetHTMLInfoTempBonus()
 	{
 		PlayerCharacter pc = getCharacter();
-		Gui2InfoFactory infoFactory = new Gui2InfoFactory(pc);
+		InfoFactory infoFactory = new Gui2InfoFactory(pc);
 
 		Ability tbAbility =
 				TestHelper.makeAbility("Combat expertise",
@@ -92,7 +91,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		Globals.getContext().commit();
 		addAbility(AbilityCategory.FEAT, tbAbility);
 
-		TempBonusFacadeImpl tbf = new TempBonusFacadeImpl(tbAbility);
+		TempBonusFacade tbf = new TempBonusFacadeImpl(tbAbility);
 
 		assertEquals("Unexpected temp bonus result",
 			"<html><b><font size=+1>Combat expertise</font></b> (Ability)<br>"
