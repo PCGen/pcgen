@@ -103,7 +103,7 @@ public class SkillRankControl
 			aPC.removeSkillRankValue(sk, aClass);
 			String aResp = modRanks(-rank, aClass, false, aPC, sk);
 
-			if (aResp.length() != 0)
+			if (!aResp.isEmpty())
 			{
 				// error or debug? XXX
 				Logging.debugPrint(aResp);

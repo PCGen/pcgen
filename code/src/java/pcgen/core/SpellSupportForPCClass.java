@@ -609,7 +609,7 @@ public class SpellSupportForPCClass
 							PCClass target = source;
 							String subClassKey = aPC.getSubClassName(source);
 							if (subClassKey != null
-									&& (subClassKey.length() > 0)
+									&& (!subClassKey.isEmpty())
 									&& !subClassKey.equals(Constants.NONE))
 							{
 								target = source.getSubClassKeyed(subClassKey);
@@ -693,7 +693,7 @@ public class SpellSupportForPCClass
 			{
 				PCClass target = source;
 				String subClassKey = aPC.getSubClassName(source);
-				if (subClassKey != null && (subClassKey.length() > 0)
+				if (subClassKey != null && (!subClassKey.isEmpty())
 						&& !subClassKey.equals(Constants.NONE))
 				{
 					target = source.getSubClassKeyed(subClassKey);

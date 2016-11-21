@@ -579,7 +579,7 @@ public final class EquipSet implements Comparable<EquipSet>, Cloneable
 	{
 		final String aNote = getNote();
 
-		if ((aNote != null) && (aNote.length() > 0))
+		if ((aNote != null) && (!aNote.isEmpty()))
 		{
 			getItem().setNote(aNote);
 		}

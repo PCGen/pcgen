@@ -45,7 +45,7 @@ public class EquipmentChoiceDriver
 	{
 		String choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return true;
 		}
@@ -143,7 +143,7 @@ public class EquipmentChoiceDriver
 					
 					List<SignedInteger> chosenList =  chooserFacade.getFinalSelected();
 
-					if (chosenList.size() == 0)
+					if (chosenList.isEmpty())
 					{
 						continue;
 					}
@@ -182,7 +182,7 @@ public class EquipmentChoiceDriver
 		final EquipmentChoice equipChoice  = new EquipmentChoice(bAdd, pool);
 		String                choiceString = eqMod.getSafe(StringKey.CHOICE_STRING);
 
-		if (choiceString.length() == 0)
+		if (choiceString.isEmpty())
 		{
 			return equipChoice;
 		}

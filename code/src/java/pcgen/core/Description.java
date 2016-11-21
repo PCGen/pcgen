@@ -73,7 +73,7 @@ public class Description extends ConcretePrereqObject
 		while ( (percentInd = aString.indexOf('%', currentInd)) != -1 )
 		{
 			final String preText = aString.substring(currentInd, percentInd);
-			if ( preText.length() > 0 )
+			if (!preText.isEmpty())
 			{
 				theComponents.add(preText);
 			}
@@ -172,7 +172,7 @@ public class Description extends ConcretePrereqObject
 	 */
 	public String getDescription( final PlayerCharacter aPC, List<? extends Object> objList )
 	{
-		if (objList.size() == 0)
+		if (objList.isEmpty())
 		{
 			return Constants.EMPTY_STRING;
 		}
