@@ -606,7 +606,7 @@ public class CharacterLevelsFacadeImpl extends
 			characterFacadeImpl.postLevellingUpdates();
 		}
 
-		if (errMessage.length() > 0)
+		if (!errMessage.isEmpty())
 		{
 			delegate.showInfoMessage(Constants.APPLICATION_NAME, errMessage);
 

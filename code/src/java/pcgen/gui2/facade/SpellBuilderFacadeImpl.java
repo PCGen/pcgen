@@ -418,7 +418,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		// Spell levels
 		List<Integer> spellLevelValues = new ArrayList<>();
-		if ((levelList != null) && (levelList.size() > 0))
+		if ((levelList != null) && (!levelList.isEmpty()))
 		{
 			for (int i = minSpellLevel; i < levelList.size(); ++i)
 			{
@@ -461,7 +461,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 		final HashMapToList<CDOMList<Spell>, Integer> levelInfo =
 				character.getSpellLevelInfo(aSpell);
 
-		if ((levelInfo == null) || (levelInfo.size() == 0))
+		if ((levelInfo == null) || (levelInfo.isEmpty()))
 		{
 			//			Logging.errorPrint("Spell: "
 			//				+ aSpell.getKeyName()
@@ -550,7 +550,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 	private boolean isSpellOfSubType(Spell aSpell)
 	{
-		if (subTypeList.size() == 0)
+		if (subTypeList.isEmpty())
 		{
 			return true;
 		}

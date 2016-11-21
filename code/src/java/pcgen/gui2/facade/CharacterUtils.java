@@ -55,7 +55,7 @@ public class CharacterUtils
 			boolean hasClothes = false;
 			SizeAdjustment pcSizeAdj = aPC.getDisplay().getSizeAdjustment();
 
-			if (clothes.size() != 0)
+			if (!clothes.isEmpty())
 			{
 				for (Equipment eq : clothes)
 				{
@@ -93,7 +93,7 @@ public class CharacterUtils
 					LanguageBundle.getString("in_sumSelectAFreeSetOfClothing"), //$NON-NLS-1$ 
 					clothes, selectedClothes, 1, aPC);
 
-				if (selectedClothes.size() != 0)
+				if (!selectedClothes.isEmpty())
 				{
 					Equipment eq = selectedClothes.get(0);
 

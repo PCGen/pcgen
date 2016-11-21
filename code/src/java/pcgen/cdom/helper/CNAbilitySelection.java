@@ -171,7 +171,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 	{
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(cna.getAbilityKey());
-		if (selection != null && selection.length() > 0)
+		if (selection != null && !selection.isEmpty())
 		{
 			sb.append('(');
 			sb.append(selection);
@@ -185,7 +185,7 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 	{
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(cna.getAbility().getDisplayName());
-		if (selection != null && selection.length() > 0)
+		if (selection != null && !selection.isEmpty())
 		{
 			sb.append('(');
 			sb.append(selection);

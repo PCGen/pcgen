@@ -42,7 +42,7 @@ public final class Delta
 	 */
 	public static Integer decode(String s)
 	{
-		if ((s.length() != 0) && (s.charAt(0) == '+'))
+		if ((!s.isEmpty()) && (s.charAt(0) == '+'))
 		{
 			s = s.substring(1);
 		}

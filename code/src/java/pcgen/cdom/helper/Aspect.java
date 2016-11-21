@@ -130,7 +130,7 @@ public class Aspect extends ConcretePrereqObject
 		while ((percentInd = aString.indexOf('%', currentInd)) != -1)
 		{
 			final String preText = aString.substring(currentInd, percentInd);
-			if (preText.length() > 0)
+			if (!preText.isEmpty())
 			{
 				theComponents.add(preText);
 			}
@@ -245,7 +245,7 @@ public class Aspect extends ConcretePrereqObject
 	{
 		final StringBuilder buf = new StringBuilder(50);
 		
-		if ((abilities == null) || (abilities.size() == 0))
+		if ((abilities == null) || (abilities.isEmpty()))
 		{
 			return "";
 		}
@@ -391,7 +391,7 @@ public class Aspect extends ConcretePrereqObject
 	public static String printAspect(PlayerCharacter pc, AspectName key,
 		List<CNAbility> abilities, boolean printName)
 	{
-		if (abilities.size() == 0)
+		if (abilities.isEmpty())
 		{
 			return "";
 		}

@@ -133,7 +133,7 @@ public enum EqModNameOpt
 				final String info = EqModSpellInfo.getSpellInfoString(
 						listEntry, "VARIANT");
 
-				if (info.length() != 0)
+				if (!info.isEmpty())
 				{
 					sb.append(" (").append(info).append(')');
 				}

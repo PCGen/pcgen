@@ -669,7 +669,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 				if ((!fieldFile.exists())
 					&& (!fieldValue.equalsIgnoreCase("null"))
-					&& (fieldValue.trim().length() > 0) && (!dialogOpened))
+					&& (!fieldValue.trim().isEmpty()) && (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;
