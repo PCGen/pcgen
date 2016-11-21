@@ -141,7 +141,7 @@ public class ProhibitspellToken extends AbstractTokenWithSeparator<PCClass>
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);
-		if (args.length() == 0)
+		if (args.isEmpty())
 		{
 			Logging.errorPrint(getTokenName() + " " + type
 					+ " has no arguments");

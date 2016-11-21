@@ -74,7 +74,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 		while (sep.hasNext())
 		{
 			String thing = sep.next();
-			if (thing.length() == 0)
+			if (thing.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " arguments has invalid pipe separator: " + value, context);
@@ -82,7 +82,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 			KitGear optionInfo = new KitGear();
 			for (String s : thing.split("[\\[\\]]"))
 			{
-				if (s.length() == 0)
+				if (s.isEmpty())
 				{
 					continue;
 				}

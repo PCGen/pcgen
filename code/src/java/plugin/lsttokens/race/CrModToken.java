@@ -62,13 +62,13 @@ public class CrModToken extends AbstractNonEmptyToken<Race> implements
 					+ "format is: ClassTypes|CRMod was: " + value, context);
 		}
 		String keys = value.substring(0, pipeLoc);
-		if (keys.length() == 0)
+		if (keys.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty class type, "
 					+ "format is: ClassTypes|CRMod was: " + value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty CR mod, "
 					+ "format is: ClassTypes|CRMod was: " + value, context);

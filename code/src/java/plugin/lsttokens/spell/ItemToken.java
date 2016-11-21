@@ -70,7 +70,7 @@ public class ItemToken extends AbstractTokenWithSeparator<Spell> implements
 				}
 				String substring = tokString.substring(1,
 						tokString.length() - 1);
-				if (substring.length() == 0)
+				if (substring.isEmpty())
 				{
 					return new ParseResult.Fail("Invalid " + getTokenName()
 							+ ": cannot be empty item in brackets []", context);

@@ -191,7 +191,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		 * methods have side effects (that is good), but that means this method
 		 * does nothing. - thpr 10/26/06
 		 */
-		if (model.size() > 0)
+		if (!model.isEmpty())
 		{
 			GMGenSystemView.getTabPane().setSelectedComponent(theView);
 		}

@@ -59,13 +59,13 @@ public class QualityToken extends AbstractNonEmptyToken<Equipment> implements
 					+ "format is: QualityType|Quality value was: " + value, context);
 		}
 		String key = value.substring(0, pipeLoc);
-		if (key.length() == 0)
+		if (key.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty type, "
 					+ "format is: QualityType|Quality value was: " + value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName() + " expecting non-empty value, "
 					+ "format is: QualityType|Quality value was: " + value, context);

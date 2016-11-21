@@ -250,7 +250,7 @@ public class DiceBagPluginView implements Observer
 			if (returnValue == JOptionPane.YES_OPTION)
 			{
 				if ((bag.getFilePath() != null)
-					&& (bag.getFilePath().length() > 0))
+					&& (!bag.getFilePath().isEmpty()))
 				{
 					m_model.saveDiceBag(bag);
 				}

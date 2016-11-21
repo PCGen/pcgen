@@ -384,7 +384,7 @@ public class AttackDialog extends JDialog
 		JPanel top = new JPanel();
 		top.setLayout(new BoxLayout(top, BoxLayout.X_AXIS));
 
-		if ((m_combatants != null) && (m_combatants.size() > 0))
+		if ((m_combatants != null) && (!m_combatants.isEmpty()))
 		{
 			m_targets = new JComboBox(m_combatants);
 			m_table.setDefaultEditor(PcgCombatant.class, new DefaultCellEditor(
