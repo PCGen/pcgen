@@ -26,7 +26,7 @@ import pcgen.util.Logging;
 
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code RollInfo}.

@@ -34,7 +34,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.doomsdaybook.NameGenPanel;

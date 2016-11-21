@@ -23,7 +23,7 @@ import java.util.List;
 
 import pcgen.facade.util.AbstractListFacade;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 class RecentFileList extends AbstractListFacade<File>
 {

@@ -35,8 +35,8 @@ import java.util.Collections;
 import java.util.List;
 import java.util.logging.LogRecord;
 
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.junit.AfterClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;

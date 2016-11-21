@@ -22,7 +22,7 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.system.MigrationRule;
 import pcgen.persistence.lst.MigrationLstToken;

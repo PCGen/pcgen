@@ -28,7 +28,7 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 import pcgen.gui2.converter.panel.CampaignPanel;
 import pcgen.gui2.converter.panel.ConvertSubPanel;

@@ -25,7 +25,7 @@ package pcgen.core;
 
 import java.net.URI;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.base.Loadable;
 import pcgen.system.LanguageBundle;

@@ -22,7 +22,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
