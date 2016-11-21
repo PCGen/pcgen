@@ -85,7 +85,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				+ " on an Ungranted object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
-		if ((sourceLine == null) || (sourceLine.isEmpty()))
+		if ((sourceLine == null) || sourceLine.isEmpty())
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
 					+ " cannot be empty", context);

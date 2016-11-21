@@ -155,7 +155,7 @@ public class ModifyfeatchoiceToken extends AbstractTokenWithSeparator<Ability>
 		//
 		// If nothing to choose, or nothing selected, then leave
 		//
-		if ((available.isEmpty()) || (currentSelections == 0))
+		if (available.isEmpty() || (currentSelections == 0))
 		{
 			return;
 		}
