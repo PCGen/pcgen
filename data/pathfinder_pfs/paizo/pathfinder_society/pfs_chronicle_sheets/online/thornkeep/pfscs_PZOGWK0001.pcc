@@ -26,6 +26,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Society Organized Play Chroni
 ABILITY:pfscs_PZOGWK0001_abilities.lst
 ABILITYCATEGORY:pfscs_PZOGWK0001_abilitycategories.lst
 EQUIPMENT:pfscs_PZOGWK0001_equip.lst
+EQUIPMOD:pfscs_PZOGWK0001_equipmods.lst
 
 #
 # DONE
