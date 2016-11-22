@@ -1,0 +1,20 @@
+# CVS $Revision: 21789 $ $Author: mjmeans $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
+SOURCELONG:Pathfinder Society Chronicle Sheets	SOURCESHORT:PFSCS	SOURCEWEB:http://www.paizo.com	SOURCEDATE:2014-08
+
+# Equipment Name														Output Name				Type							Cost		Weight	Required Ability										Modifier									Requires Modification?	Source, Long Desc.						Source, Short Desc.	Source Page		Bonus Ability Pool				Combat bonus			Save bonus					Bonus to skill						Clear Special Property	Special Property
+
+# PFS #5-11
+lion's shield.COPY=Glorymane
+Glorymane.MOD																										COST:12370			PREABILITY:1,CATEGORY=PFS Chronicle,Chronicle ~ S05-11					EQMOD:BRONZE												SOURCELONG:PFS Chronicle #05-11																																			SPROP:Glorymane is a bronze lion's shield specially enchanted by an entity known as the Guardian. The shield has an arrogant streak, despite its inability to express itself through anything but empathetic signals, and it jealously urges its wielder to cast aside any other intelligent items. Glorymane has 5 ranks in Sense Motive and signals its wielder if it detects a lie.
+
+# PFS #5-16
+Dust of Disjunction																		TYPE:Magic.Wondrous.PFS				COST:2500	WT:0																														SOURCELONG:PFS #5-16 SAnctum of the Sages																																																																																																																																																																																	DESC:This fine powder looks like crushed diamonds. A single handful of this substance can be thrown in a 15-foot code, at which point it attempts to absorb and neutralize any magic it comes in contact with. The magical properties of each unattended magic item in the area are suppressed for 1d4 rounds as if targeted by dispel magic (caster level 10th). Each creature in the area is affected as if by a targeted dispel magic spell, though the user cannot specify a spell effect to dispel; if a target as no spells affecting it, the dust instead attempts to suppress the abilities of one magic item carried by the target, selected at random following the rules for items surviving a saving throw (Pathfinder RPG Core Rulebook 217). The dust does not affect other ongoing magical effects. Dust of disjunction has a curious effect on golums, which also demonstrate anti-magical properties. A golem exposed to this dust must succeed a DC 17 FOrtitude save or be staggered for 1 minute. At the end of its turn, a staggered golem may attempt a new saving throw to end the staggered effect.
+#Aura moderate abjuration; CL 10th
+#Slot none; Price 2,500 gp; Weight -
+#CONSTRUCTION
+#Requirements Craft Wondrous Item, dispel magic, shatter
+
+
+#
+# DONE
+#
