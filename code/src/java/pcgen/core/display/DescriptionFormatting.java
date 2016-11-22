@@ -28,7 +28,7 @@ public class DescriptionFormatting
 
 	public static String piWrapDesc(PObject cdo, String desc, boolean useHeader)
 	{
-		if (cdo.getSafe(ObjectKey.DESC_PI) && desc.length() > 0)
+		if (cdo.getSafe(ObjectKey.DESC_PI) && !desc.isEmpty())
 		{
 			final StringBuilder sb = new StringBuilder(desc.length() + 30);
 

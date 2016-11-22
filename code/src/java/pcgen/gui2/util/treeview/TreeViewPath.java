@@ -22,7 +22,7 @@ package pcgen.gui2.util.treeview;
 
 import java.util.Arrays;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *

@@ -24,7 +24,7 @@ import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import javax.swing.JToggleButton;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.system.PropertyContext;
 

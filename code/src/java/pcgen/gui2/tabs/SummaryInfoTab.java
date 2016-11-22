@@ -64,7 +64,7 @@ import javax.swing.border.TitledBorder;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.CharacterFacade;
@@ -1164,7 +1164,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			RandomNameDialog dialog = new RandomNameDialog(frame, gender);
 			dialog.setVisible(true);
 			String chosenName = dialog.getChosenName();
-			if (chosenName != null && chosenName.length() > 0 && !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$
+			if (chosenName != null && !chosenName.isEmpty() && !chosenName.equals(LanguageBundle.getString("in_rndNmDefault"))) //$NON-NLS-1$
 			{
 				character.setName(chosenName);
 			}

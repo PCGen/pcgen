@@ -22,7 +22,7 @@ public class ContainsToken implements EquipSlotLstToken
     @Override
 	public boolean parse(EquipSlot eqSlot, String value, String gameMode)
 	{
-		if (value == null || value.length()==0)
+		if (value == null || value.isEmpty())
 		{
 			Logging.log(Logging.LST_ERROR, "Invalid empty " + getTokenName() + " value."); 
 			return false;

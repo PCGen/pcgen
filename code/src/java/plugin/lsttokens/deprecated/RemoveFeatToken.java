@@ -164,7 +164,7 @@ public class RemoveFeatToken extends AbstractNonEmptyToken<CDOMObject> implement
 				|| token.startsWith(Constants.LST_CLASS_EQUAL))
 			{
 				String className = token.substring(6);
-				if (className.length() == 0)
+				if (className.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " must have Class name after " + token, context);

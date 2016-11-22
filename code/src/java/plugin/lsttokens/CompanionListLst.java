@@ -171,7 +171,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (tokString.startsWith("RACETYPE="))
 			{
 				String raceType = tokString.substring(9);
-				if (raceType.length() == 0)
+				if (raceType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceType was not specified.", context);
@@ -184,7 +184,7 @@ public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>
 			else if (tokString.startsWith("RACESUBTYPE="))
 			{
 				String raceSubType = tokString.substring(12);
-				if (raceSubType.length() == 0)
+				if (raceSubType.isEmpty())
 				{
 					return new ParseResult.Fail(getTokenName()
 							+ " Error: RaceSubType was not specified.", context);

@@ -608,7 +608,7 @@ public class EncounterPlugin extends MouseAdapter
 
 		//	convert the ArrayList to an integer array - needed
 		//	to select multiple indices
-		if (stillSelected.size() > 0)
+		if (!stillSelected.isEmpty())
 		{
 			int[] ints = new int[stillSelected.size()];
 			for (int i = 0; i < ints.length; i++)
@@ -758,7 +758,7 @@ public class EncounterPlugin extends MouseAdapter
 				}
 			}
 
-			if (multiHand.length() > 0)
+			if (!multiHand.isEmpty())
 			{
 				result.add(multiHand);
 			}
@@ -1023,7 +1023,7 @@ public class EncounterPlugin extends MouseAdapter
 		{
 			String locName = getSingleLocation(pc, eqI);
 
-			if (locName.length() != 0)
+			if (!locName.isEmpty())
 			{
 				aList.add(locName);
 			}
@@ -1105,13 +1105,13 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		String location = locName;
 
-		if ("".equals(location) || (location.length() == 0))
+		if ("".equals(location) || (location.isEmpty()))
 		{
 			// get the possible locations for this item
 			List<String> aList = locationChoices(pc, eqI);
 			location = getSingleLocation(pc, eqI);
 
-			if (!((location.length() != 0) && canAddEquip(pc, eSet, location,
+			if (!((!location.isEmpty()) && canAddEquip(pc, eSet, location,
 				eqI)))
 			{
 				// let them choose where to put the item
@@ -1120,14 +1120,14 @@ public class EncounterPlugin extends MouseAdapter
 						Globals.getChoiceFromList("Select a location for "
 							+ eqI.getName(), aList, selectedList, 1, false,
 							true, pc);
-				if (selectedList.size() > 0)
+				if (!selectedList.isEmpty())
 				{
 					location = selectedList.get(0);
 				}
 			}
 		}
 
-		if ("".equals(location) || (location.length() == 0))
+		if ("".equals(location) || (location.isEmpty()))
 		{
 			return null;
 		}

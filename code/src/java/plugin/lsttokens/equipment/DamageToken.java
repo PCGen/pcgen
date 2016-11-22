@@ -17,7 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.inst.EquipmentHead;

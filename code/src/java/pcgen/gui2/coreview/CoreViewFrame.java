@@ -33,7 +33,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.meta.CorePerspective;
 import pcgen.facade.core.AbilityFacade;

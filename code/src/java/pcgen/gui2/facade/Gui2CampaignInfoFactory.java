@@ -26,7 +26,7 @@ import java.net.URI;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CampaignURL;
@@ -149,7 +149,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 			infoText.appendLineBreak();
 		}
 		
-		if (aCamp.getType().length() > 0)
+		if (!aCamp.getType().isEmpty())
 		{
 			infoText.appendI18nElement("in_infType", aCamp.getType()); //$NON-NLS-1$
 			infoText.appendSpacer();
@@ -157,7 +157,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 		infoText.appendI18nElement("in_infRank", String.valueOf(aCamp //$NON-NLS-1$
 			.getSafe(IntegerKey.CAMPAIGN_RANK)));
-		if (StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", ").length() > 0)
+		if (!StringUtil.join(aCamp.getSafeListFor(ListKey.GAME_MODE), ", ").isEmpty())
 		{
 			infoText.appendSpacer();
 			infoText.appendI18nElement("in_infGame", //$NON-NLS-1$
@@ -183,7 +183,7 @@ public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 
 		String preString = PrerequisiteUtilities.preReqHTMLStringsForList(null,
 				null, aCamp.getPrerequisiteList(), false);
-		if (preString.length() > 0)
+		if (!preString.isEmpty())
 		{
 			infoText.appendI18nFormattedElement("in_InfoRequirements", preString); //$NON-NLS-1$
 		}

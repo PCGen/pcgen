@@ -44,8 +44,8 @@ import java.util.TreeSet;
 
 import org.apache.commons.io.DirectoryWalker;
 import org.apache.commons.io.IOUtils;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.time.DateFormatUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.time.DateFormatUtils;
 import org.junit.Ignore;
 import org.junit.Test;
 

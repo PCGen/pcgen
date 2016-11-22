@@ -48,7 +48,7 @@ import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * The Class {@code LocationPanel} is responsible for

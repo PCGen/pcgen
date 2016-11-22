@@ -416,7 +416,7 @@ public final class CoreUtility
 		final List<String> temp = new ArrayList<>();
 		final String sepStr = Pattern.quote(String.valueOf(separator));
 
-		if (aString.trim().length() == 0)
+		if (aString.trim().isEmpty())
 		{
 			return temp;
 		}

@@ -68,7 +68,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 import org.lobobrowser.html.HtmlRendererContext;
 import org.lobobrowser.html.gui.HtmlPanel;
 import org.lobobrowser.html.test.SimpleHtmlRendererContext;
@@ -1510,12 +1510,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			sourceName = currentSourceSelection.get().toString();
 		}
 
-		if (characterFileName != null && characterFileName.length() > 0)
+		if (characterFileName != null && !characterFileName.isEmpty())
 		{
 			title.append(characterFileName);
 			title.append(" - ");
 		}
-		if (sourceName != null && sourceName.length() > 0)
+		if (sourceName != null && !sourceName.isEmpty())
 		{
 			title.append(sourceName);
 			title.append(" - ");
@@ -1849,7 +1849,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				if (loader.hasLicensedCampaign())
 				{
 					String licenses = loader.getLicenses();
-					if (licenses.trim().length() > 0)
+					if (!licenses.trim().isEmpty())
 					{
 						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), licenses); //$NON-NLS-1$
 					}

@@ -43,7 +43,7 @@ public class TargetareaToken implements CDOMPrimaryToken<Spell>
 	@Override
 	public ParseResult parseToken(LoadContext context, Spell spell, String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " arguments may not be empty", context);

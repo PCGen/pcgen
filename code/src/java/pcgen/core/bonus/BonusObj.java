@@ -83,7 +83,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	{
 		final StringBuilder sb = new StringBuilder(50);
 
-		if (bonusInfo.size() > 0)
+		if (!bonusInfo.isEmpty())
 		{
 			for (int i = 0; i < bonusInfo.size(); ++i)
 			{
@@ -281,7 +281,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean hasTypeString()
 	{
-		return bonusType.length() > 0;
+		return !bonusType.isEmpty();
 	}
 
 	/**
@@ -290,7 +290,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	 */
 	public boolean hasVariable()
 	{
-		return varPart.length() > 0;
+		return !varPart.isEmpty();
 	}
 
 	/**
@@ -307,12 +307,12 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 			final StringBuilder sb = new StringBuilder(50);
 	
 			sb.append(getTypeOfBonus());
-			if (varPart != null && varPart.length() > 0)
+			if (varPart != null && !varPart.isEmpty())
 			{
 				sb.append(varPart);
 			}
 	
-			if (bonusInfo.size() > 0)
+			if (!bonusInfo.isEmpty())
 			{
 				for (int i = 0; i < bonusInfo.size(); ++i)
 				{
@@ -327,7 +327,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 	
 			sb.append('|').append(bonusFormula.toString());
 
-			if (bonusType.length() != 0)
+			if (!bonusType.isEmpty())
 			{
 				sb.append("|TYPE=").append(bonusType);
 			}
@@ -384,7 +384,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 
 	protected boolean addType(final String typeString)
 	{
-		if (bonusType.length() == 0)
+		if (bonusType.isEmpty())
 		{
 			bonusType = typeString.toUpperCase();
 
@@ -505,7 +505,7 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 					catch (NumberFormatException e)
 					{
 						// It's a Variable!
-						if (testString.length() > 0)
+						if (!testString.isEmpty())
 						{
 							if (testString.startsWith("MOVE[")) {
 								testString =

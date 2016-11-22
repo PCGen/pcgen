@@ -317,7 +317,7 @@ class ClassDataHandler extends DefaultHandler
 							final List<Skill> skillsOfType = Globals.getPObjectsOfType(Globals
 									.getContext().getReferenceContext().getConstructedCDOMObjects(Skill.class),
 									key.substring(5));
-							if ( skillsOfType.size() == 0 )
+							if (skillsOfType.isEmpty())
 							{
 								Logging.debugPrint("NPCGenerator: No skills of type found (" + key + ")"); //$NON-NLS-1$ //$NON-NLS-2$
 							}

@@ -58,7 +58,7 @@ public class BonusCalc
 		final Collection<BonusObj> aBonusList,
 		final PlayerCharacter aPC)
 	{
-		if ((aBonusList == null) || (aBonusList.size() == 0))
+		if ((aBonusList == null) || (aBonusList.isEmpty()))
 		{
 			return 0;
 		}

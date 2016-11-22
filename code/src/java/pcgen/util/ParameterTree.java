@@ -103,7 +103,7 @@ public class ParameterTree
             final String pre = source.substring(0, pM.start());
             final int    end = getIndexOfClosingParen(source, pM.start());
 
-            if (0 == pre.length()) {
+            if (pre.isEmpty()) {
 
                 final String inside = source.substring(pM.end(), end - 1);
                 t = makeTree(inside, false);

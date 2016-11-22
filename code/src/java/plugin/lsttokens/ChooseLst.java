@@ -114,7 +114,7 @@ public class ChooseLst extends AbstractNonEmptyToken<CDOMObject> implements
 		if (key.startsWith("NUMCHOICES="))
 		{
 			String maxCount = key.substring(11);
-			if (maxCount == null || maxCount.length() == 0)
+			if (maxCount == null || maxCount.isEmpty())
 			{
 				return new ParseResult.Fail(
 					"NUMCHOICES in CHOOSE must be a formula: " + value, context);

@@ -27,7 +27,7 @@ import plugin.notes.NotesPlugin;
 import javax.swing.*;
 import javax.swing.border.LineBorder;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 import java.awt.Container;
 import java.awt.Desktop;

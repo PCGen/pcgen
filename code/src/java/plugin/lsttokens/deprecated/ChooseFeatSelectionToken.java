@@ -84,7 +84,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 				{
 					title = title.substring(1, title.length() - 1);
 				}
-				if (title == null || title.length() == 0)
+				if (title == null || title.isEmpty())
 				{
 					return new ParseResult.Fail(
 						getParentToken() + Constants.COLON + getTokenName()
@@ -268,7 +268,7 @@ public class ChooseFeatSelectionToken extends AbstractTokenWithSeparator<CDOMObj
 		StringBuilder sb = new StringBuilder(50);
 		sb.append(ability.getKeyName());
 		String selection = choice.getSelection();
-		if (selection != null && selection.length() > 0)
+		if (selection != null && !selection.isEmpty())
 		{
 			sb.append(" (");
 			sb.append(selection);

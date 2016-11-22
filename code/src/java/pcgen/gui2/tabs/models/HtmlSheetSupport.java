@@ -46,7 +46,7 @@ import javax.swing.SwingUtilities;
 import javax.swing.text.EditorKit;
 import javax.swing.text.html.HTMLDocument;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.facade.core.CharacterFacade;

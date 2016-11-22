@@ -39,7 +39,7 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileFilter;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.Utility;

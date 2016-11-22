@@ -110,7 +110,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 			}
 
 			String newType = tokText.substring(equalLoc + 1);
-			if (newType.length() == 0)
+			if (newType.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("Improper " + getTokenName()
@@ -137,7 +137,7 @@ public class ChangeprofLst extends AbstractTokenWithSeparator<CDOMObject>
 					context.getReferenceContext().getCDOMTypeReference(WEAPONPROF_CLASS, val);
 
 			String profs = tokText.substring(0, equalLoc);
-			if (profs.length() == 0)
+			if (profs.isEmpty())
 			{
 				ComplexParseResult cpr = new ComplexParseResult();
 				cpr.addErrorMessage("Improper " + getTokenName()

@@ -22,7 +22,7 @@ package pcgen.gui2;
 
 import javax.swing.filechooser.FileFilter;
 import java.io.File;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *  This class filters out non-pcg files.

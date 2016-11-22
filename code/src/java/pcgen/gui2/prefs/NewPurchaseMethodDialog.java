@@ -210,7 +210,7 @@ class NewPurchaseMethodDialog extends JDialog
 
 	private void okButtonActionPerformed()
 	{
-		if (getEnteredName().length() == 0)
+		if (getEnteredName().isEmpty())
 		{
 			ShowMessageDelegate.showMessageDialog(
 				"Please enter a name for this method.",

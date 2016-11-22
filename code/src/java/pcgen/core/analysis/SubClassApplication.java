@@ -97,7 +97,7 @@ public class SubClassApplication
 		{
 			selectedSubClasses = availableList;
 		}
-		else if (availableList.size() == 0)
+		else if (availableList.isEmpty())
 		{
 			if (Logging.isLoggable(Logging.WARNING))
 			{
@@ -113,14 +113,14 @@ public class SubClassApplication
 	
 		if (!cl.getSafe(ObjectKey.ALLOWBASECLASS))
 		{
-			while (selectedSubClasses.size() == 0)
+			while (selectedSubClasses.isEmpty())
 			{
 				ChooserFactory.getDelegate().showGeneralChooser(chooserFacade);
 				selectedSubClasses = chooserFacade.getFinalSelected();
 			}
 		}
 	
-		if (selectedSubClasses.size() == 0)
+		if (selectedSubClasses.isEmpty())
 		{
 			return;
 		}

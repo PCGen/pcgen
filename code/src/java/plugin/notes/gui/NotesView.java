@@ -1462,7 +1462,7 @@ public class NotesView extends JPanel
 		filePane.removeAll();
 		filesBar.removeAll();
 
-		if (files.size() > 0)
+		if (!files.isEmpty())
 		{
 			filePane.add(fileLeft);
 			filePane.add(fileRight);

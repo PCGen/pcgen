@@ -22,7 +22,7 @@ package pcgen.core.chooser;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.ChooseDriver;
@@ -265,7 +265,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
     @Override
 	public void restoreChoice(PlayerCharacter pc, ChooseDriver target, String choice)
 	{
-		if (choice.length() > 0)
+		if (!choice.isEmpty())
 		{
 			T ch = info.decodeChoice(Globals.getContext(), choice);
 			if (ch == null)

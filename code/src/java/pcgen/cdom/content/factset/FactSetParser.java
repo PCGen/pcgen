@@ -144,7 +144,7 @@ public class FactSetParser<T extends CDOMObject, F> extends
 			return null;
 		}
 		Collection<Indirect<F>> added = changes.getAdded();
-		if (added != null && added.size() > 0)
+		if (added != null && !added.isEmpty())
 		{
 			StringBuilder sb = new StringBuilder();
 			boolean needsPipe = false;

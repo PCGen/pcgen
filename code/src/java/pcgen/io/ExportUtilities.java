@@ -24,7 +24,7 @@ package pcgen.io;
 
 import java.io.File;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * ExportUtilities is a collection of useful tools for exporting characters.

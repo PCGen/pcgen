@@ -1463,7 +1463,7 @@ public class CharacterDisplay
 		if (pcClass != null)
 		{
 			String subClassKey = getSubClassName(pcClass);
-			if (subClassKey != null && (subClassKey.length() > 0)
+			if (subClassKey != null && (!subClassKey.isEmpty())
 					&& !subClassKey.equals(Constants.NONE))
 			{
 				SubClass sc = pcClass.getSubClassKeyed(subClassKey);

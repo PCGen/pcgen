@@ -53,7 +53,7 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;

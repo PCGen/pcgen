@@ -42,7 +42,7 @@ import java.util.Map;
 import java.util.Properties;
 import java.util.StringTokenizer;
 import javax.swing.SwingConstants;
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
@@ -1546,7 +1546,7 @@ public final class SettingsHandler
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
-			if (aPC.getSelectedCharacterHTMLOutputSheet().length() > 0)
+			if (!aPC.getSelectedCharacterHTMLOutputSheet().isEmpty())
 			{
 				return aPC.getSelectedCharacterHTMLOutputSheet();
 			}
@@ -1581,7 +1581,7 @@ public final class SettingsHandler
 	{
 		if (getSaveOutputSheetWithPC() && (aPC != null))
 		{
-			if (aPC.getSelectedCharacterPDFOutputSheet().length() > 0)
+			if (!aPC.getSelectedCharacterPDFOutputSheet().isEmpty())
 			{
 				return aPC.getSelectedCharacterPDFOutputSheet();
 			}
@@ -1612,7 +1612,7 @@ public final class SettingsHandler
 
 	public static String getSelectedEqSetTemplateName()
 	{
-		if (selectedEqSetTemplate.length() > 0)
+		if (!selectedEqSetTemplate.isEmpty())
 		{
 			final int i = selectedEqSetTemplate.lastIndexOf("\\"); //$NON-NLS-1$
 
@@ -1684,7 +1684,7 @@ public final class SettingsHandler
 
 	public static String getSelectedSpellSheetName()
 	{
-		if (selectedSpellSheet.length() > 0)
+		if (!selectedSpellSheet.isEmpty())
 		{
 			final int i = selectedSpellSheet.lastIndexOf("\\"); //$NON-NLS-1$
 
@@ -2334,7 +2334,7 @@ public final class SettingsHandler
 			final String aKey = i.next();
 			final String aVal = ruleCheckMap.get(aKey);
 
-			if (value.length() == 0)
+			if (value.isEmpty())
 			{
 				value = aKey + "|" + aVal; //$NON-NLS-1$
 			}

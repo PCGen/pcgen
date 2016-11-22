@@ -35,7 +35,7 @@ import pcgen.system.PCGenSettings;
 import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;

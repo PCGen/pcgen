@@ -60,7 +60,7 @@ public class StringToken implements CDOMSecondaryToken<CDOMObject>,
 	public ParseResult parseToken(LoadContext context, CDOMObject obj,
 		String value)
 	{
-		if (value == null || value.length() == 0)
+		if (value == null || value.isEmpty())
 		{
 			return new ParseResult.Fail("CHOOSE:" + getTokenName()
 				+ " must have arguments", context);

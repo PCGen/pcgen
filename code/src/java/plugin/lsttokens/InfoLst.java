@@ -68,7 +68,7 @@ public class InfoLst extends AbstractNonEmptyToken<CDOMObject> implements
 		String key = value.substring(0, pipeLoc);
 		//key length 0 caught by charAt(0) test above
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 				+ " expecting non-empty value, "
