@@ -20,6 +20,7 @@ Season 5:
 	The following chronicles are missing: 5-05, 5-06, 5-07, 5-10, 5-13, 5-14, 5-19, 5-21, 5-22, 5-23, 5-24, 5-25, 5-99, 5-SP, 5-S2.
 	"Fate of the Fiend Boon" is not implented.
 Season 6:
+	The following chronicles are missing: 6-97, 6-98, 6-99.
 	"Sky Key Core" is not implented.
 	"Blakros Blacklist" is not implemented.
 	"A Friend Indeed" prestige effect is not implemented.

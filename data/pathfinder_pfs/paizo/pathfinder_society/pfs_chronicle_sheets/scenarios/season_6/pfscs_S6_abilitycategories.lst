@@ -26,6 +26,9 @@ ABILITYCATEGORY:Chronicle_S06-20						VISIBLE:QUALIFY	EDITABLE:YES								CATEGO
 ABILITYCATEGORY:Chronicle_S06-21						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-21											DISPLAYNAME:PFS Scenario #6-21: Tapestry's Toil										DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S06-22						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-22											DISPLAYNAME:PFS Scenario #6-22: Out of Anarchy										DISPLAYLOCATION:Chronicles
 ABILITYCATEGORY:Chronicle_S06-23						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-23											DISPLAYNAME:PFS Scenario #6-23: The Darkest Abduction									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S06-97						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-97											DISPLAYNAME:PFS Scenario #6-97: Siege of Serpents									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S06-98						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-98											DISPLAYNAME:PFS Scenario #6-98: Serpents Rise									DISPLAYLOCATION:Chronicles
+ABILITYCATEGORY:Chronicle_S06-99						VISIBLE:QUALIFY	EDITABLE:YES								CATEGORY:Special Ability	TYPE:Chronicle_S06-99											DISPLAYNAME:PFS Scenario #6-99: True Dragons of Absalom									DISPLAYLOCATION:Chronicles
 
 #
 # DONE
