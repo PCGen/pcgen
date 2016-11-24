@@ -17,7 +17,7 @@ Season 4:
 	The following chronicles are missing: 4-15, 4-EX, 4-S2.
 	Scenario 4-15 was a later re-release of S03-EX. I cannot confirm that the boons in these two chronicles are identical.
 Season 5:
-	The following chronicles are missing: 5-SP, 5-S2.
+	The following chronicles are missing: 55-S2.
 	"Dralneen's Deception" is not implented.
 	"Riftwarden Magic" other character effect is not implemented.
 	"Champion of Ghalcor's Legacy" Prestige Point effect is not implemented.
