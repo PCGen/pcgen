@@ -89,7 +89,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 				+ " on an Ungranted object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
-		if ((value == null) || (value.isEmpty()))
+		if ((value == null) || value.isEmpty())
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
 					+ " cannot be empty", context);
