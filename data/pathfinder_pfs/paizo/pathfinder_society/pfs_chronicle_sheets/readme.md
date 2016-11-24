@@ -29,6 +29,7 @@ Season 6:
 	"Jewel Seeker" prestige effect is not implemented.
 	"The Court Grows (Baron Bomande Rudyahm or Count Falroun Matsanda)" is not implemented.
 	"The Court Grows (Countess Sasandra Livgrace)" is not implemented.
+	"The Graidmere Toll" prestige/fame effect is not implemented.
 Season 7:
 	Only 7-01 and 7-02 are implemented. All other scenarios from this season are missing.
 Season 8:
