@@ -13,6 +13,8 @@
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
 
+ABILITY:Special Ability|Wayang ~ Dissolutions Child			MAXVER:6.07.01	NEWKEY:Wayang ~ Dissolution's Child
+
 ABILITY:Special Ability|Skirmisher ~ Aiding Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Aiding Attack		
 ABILITY:Special Ability|Skirmisher ~ Bolster Companion		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Bolster Companion		
 ABILITY:Special Ability|Skirmisher ~ Catfall				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Catfall			
