@@ -103,4 +103,4 @@ CATEGORY=Archetype|Witch Archetype ~ Mountain Witch.MOD			TYPE:PFSLegal
 CATEGORY=Archetype|Wizard Archetype ~ Spell Sage.MOD				TYPE:PFSLegal
 CATEGORY=Archetype|Wizard Archetype ~ Spirit Whisperer.MOD			TYPE:PFSLegal
 
-CATEGORY=Special Ability|Order of the Beast.MOD					TYPE:PFSNotLegal	VISIBLE:NO
+CATEGORY=Special Ability|Cavalier Order ~ Order of the Beast.MOD					TYPE:PFSNotLegal	VISIBLE:NO
