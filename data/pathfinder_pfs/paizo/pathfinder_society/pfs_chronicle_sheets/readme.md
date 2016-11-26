@@ -20,8 +20,17 @@ Season 5:
 	The following chronicles are missing: 5-05, 5-06, 5-07, 5-10, 5-13, 5-14, 5-19, 5-21, 5-22, 5-23, 5-24, 5-25, 5-99, 5-SP, 5-S2.
 	"Fate of the Fiend Boon" is not implented.
 Season 6:
-	The following chronicles are missing: 6-02, 6-03, 6-04, 6-08, 6-14, 6-15, 6-17, 6-23.
+	The following chronicles are missing: 6-97, 6-98, 6-99.
 	"Sky Key Core" is not implented.
+	"Blakros Blacklist" is not implemented.
+	"A Friend Indeed" prestige effect is not implemented.
+	"Reading the Threads" is not implemented.
+	"Outstanding Bounty" prestige effect is not implemented.
+	"Blaispear Hero" fame effect is not implemented.
+	"Jewel Seeker" prestige effect is not implemented.
+	"The Court Grows (Baron Bomande Rudyahm or Count Falroun Matsanda)" is not implemented.
+	"The Court Grows (Countess Sasandra Livgrace)" is not implemented.
+	"The Graidmere Toll" prestige/fame effect is not implemented.
 Season 7:
 	Only 7-01 and 7-02 are implemented. All other scenarios from this season are missing.
 Season 8:
