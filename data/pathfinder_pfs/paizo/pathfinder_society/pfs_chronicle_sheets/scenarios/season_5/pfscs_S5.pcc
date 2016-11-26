@@ -26,6 +26,7 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder Society Organized Play Chroni
 ABILITY:pfscs_S5_abilities.lst
 ABILITYCATEGORY:pfscs_S5_abilitycategories.lst
 EQUIPMENT:pfscs_S5_equip.lst
+EQUIPMOD:pfscs_S5_equipmods.lst
 
 # needed for Glorymane
 EQUIPMOD:@/pathfinder/paizo/roleplaying_game/ultimate_equipment/ue_equipmods.lst|(INCLUDE:BRONZE)|!PRECAMPAIGN:1,INCLUDES=Ultimate Equipment
