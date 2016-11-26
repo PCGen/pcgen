@@ -22,8 +22,18 @@ Season 4:
 	Scenario 4-15 was a later re-release of S03-EX. I cannot confirm that the boons in these two chronicles are identical.
 
 Season 5:
-	The following chronicles are missing: 5-05, 5-06, 5-07, 5-10, 5-13, 5-14, 5-19, 5-21, 5-22, 5-23, 5-24, 5-25, 5-99, 5-SP, 5-S2.
-	"Fate of the Fiend Boon" is not implented.
+	The following chronicles are missing: 5-SP, 5-S2.
+	"Dralneen's Deception" is not implented.
+	"Riftwarden Magic" other character effect is not implemented.
+	"Champion of Ghalcor's Legacy" Prestige Point effect is not implemented.
+	"Mendevian Commendation" should limit the bonus to +3 but it does not.
+	"Smine's Best" Prestige Point cost is not implemented.
+	"Dralneen's Deception" is not implemented.
+	"Kelishite Patron" is not implemented.
+	"Light of Redemption" Fame and Prestige effect is not imeplented.
+	"New Recruits" is not implemented.
+	"Old Loyalties" prestige effect is not implemented.
+	"Defender of Nerosyan" prestige effect is not implemented.
 
 Season 6:
 	The following chronicles are missing: 6-02, 6-03, 6-04, 6-08, 6-14, 6-15, 6-17, 6-23.
