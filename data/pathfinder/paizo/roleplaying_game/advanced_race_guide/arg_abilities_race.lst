@@ -464,7 +464,7 @@ CATEGORY=Internal|Race Traits ~ Wayang.MOD					ABILITY:Wayang Racial Trait|AUTOM
 
 ###Block: Alternate Wayang Abilities
 # Ability Name		Unique Key					Category of Ability		Type										Multiple Requirements																					Description																																																													Cost		Source Page
-Dissolution's Child	KEY:Wayang ~ Dissolutions Child	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangShadowMagic.SpecialQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]	DESC:Once per day, you may change your appearance to look as if you were little more than a 4-foot-tall area of shadow. Your physical form still exists and you are not incorporeal-only your appearance changes. This works like invisibility, except it only lasts 1 round per level (maximum 5 rounds). This is a supernatural ability. This racial trait replaces shadow magic.	COST:0	SOURCEPAGE:p.210
+Dissolution's Child	KEY:Wayang ~ Dissolution's Child	CATEGORY:Special Ability	TYPE:WayangRacialTrait.WayangShadowMagic.SpecialQuality	PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Wayang ~ Dissolution's Child],[!PREABILITY:1,CATEGORY=Special Ability,TYPE.WayangShadowMagic]	DESC:Once per day, you may change your appearance to look as if you were little more than a 4-foot-tall area of shadow. Your physical form still exists and you are not incorporeal-only your appearance changes. This works like invisibility, except it only lasts 1 round per level (maximum 5 rounds). This is a supernatural ability. This racial trait replaces shadow magic.	COST:0	SOURCEPAGE:p.210
 
 
 #Race Traits ~ Gathlain
