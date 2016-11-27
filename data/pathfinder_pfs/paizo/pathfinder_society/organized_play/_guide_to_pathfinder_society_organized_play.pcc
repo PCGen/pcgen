@@ -46,10 +46,14 @@ ABILITY:gtpsop_abilities.lst
 KIT:gtpsop_kits.lst
 TEMPLATE:gtpsop_templates.lst
 
+# include the Wayfinder if ISWG is not included
+EQUIPMENT:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_equip_magic_items.lst|(INCLUDE:Wayfinder)|!PRECAMPAIGN:1,Inner Sea World Guide
+
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
 OPTION:gameMode.Pathfinder_PFS.rollMethod=0
 OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
+
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
@@ -59,6 +63,7 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # All languages except Druidic are available by putting a skill rank in Linguistics (see below).
 # Tian characters receive the languages Tien and Common for free.
 
+# This is included in the multi-set Pathfinder Society Core Assumption
 # PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 
 ########################
