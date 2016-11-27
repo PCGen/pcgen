@@ -76,10 +76,6 @@ OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 # Additional Resources
 # Last Updated Friday, January 9, 2015
 
-############################
-# PFS Additional Resources #
-############################
-
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_class_guide/_pfs/_.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/_pfs/_.pcc
 PCC:@/pathfinder/paizo/roleplaying_game/advanced_race_guide/_pfs/_.pcc
