@@ -50,6 +50,7 @@ DESC:The Pathfinder Roleplaying Game puts you in the role of a brave adventurer 
 PCC:@/pathfinder/paizo/roleplaying_game/core_rulebook/core_rulebook.pcc
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/organized_play/_guide_to_pathfinder_society_organized_play.pcc
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle_sheets.pcc
+PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_character_traits_web_enhancement/_character_traits_web_enhancement.pcc
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules

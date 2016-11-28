@@ -4,7 +4,7 @@ SOURCELONG:Character Traits Web Enhancement	SOURCESHORT:CTWE	SOURCEWEB:http://pa
 
 # Feat Name		Type			Category		Description						Bonus Variable			Source Page
 # Ability Name	Category of Ability	Type			Description						Modify VAR			Source Page
-Additional Traits	CATEGORY:FEAT		TYPE:General	DESC:You have more traits than normal	BONUS:VAR|Pool_Traits|2	SOURCEPAGE:p.6
+#Additional Traits	CATEGORY:FEAT		TYPE:General	DESC:You have more traits than normal	BONUS:VAR|Pool_Traits|2	SOURCEPAGE:p.6
 
 #
 # End
