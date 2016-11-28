@@ -1,4 +1,4 @@
-Pathfinder Society / Guide to Organized Play v5.0
+Pathfinder Society / Guide to Organized Play v6.0
 
 This source also applies pathfinder society specific rule set modifictions necessary for any supported pathfinder society approved additional resources.
 
