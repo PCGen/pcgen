@@ -57,6 +57,8 @@ ABILITY:pos_abilities_class.lst
 ABILITY:pos_abilities_feat.lst
 ABILITYCATEGORY:pos_abilitycategories.lst
 CLASS:pos_classes.lst
+EQUIPMENT:pos_equip.lst
+EQUIPMOD:pos_equipmods.lst
 SPELL:pos_spells.lst
 
 INFOTEXT:Supports 6.06.00
