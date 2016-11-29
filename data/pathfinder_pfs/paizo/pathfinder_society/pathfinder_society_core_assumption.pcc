@@ -54,9 +54,8 @@ PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle
 PCC:@/pathfinder_pfs/paizo/roleplaying_game/pfs_character_traits_web_enhancement/_character_traits_web_enhancement.pcc
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
+OPTION:gameMode.Pathfinder_PFS.rollMethod=2
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
-OPTION:gameMode.Pathfinder_PFS.rollMethod=0
-OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 FORWARDREF:RACE|Orc
 

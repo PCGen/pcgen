@@ -52,9 +52,8 @@ PCC:@/pathfinder_pfs/paizo/pathfinder_society/roleplaying_guild_guide/_roleplayi
 PCC:@/pathfinder_pfs/paizo/pathfinder_society/pfs_chronicle_sheets/pfs_chronicle_sheets.pcc
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
+OPTION:gameMode.Pathfinder_PFS.rollMethod=2
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
-OPTION:gameMode.Pathfinder_PFS.rollMethod=0
-OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
 
 ########################
 # Blocked Resources    #

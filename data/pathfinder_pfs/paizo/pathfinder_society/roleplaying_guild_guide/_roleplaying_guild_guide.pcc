@@ -49,10 +49,8 @@ TEMPLATE:rgg_templates.lst
 EQUIPMENT:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_equip_magic_items.lst|(INCLUDE:Wayfinder)|!PRECAMPAIGN:1,Inner Sea World Guide
 
 OPTION:gameMode.Pathfinder_PFS.purchaseMethodName=High Fantasy
+OPTION:gameMode.Pathfinder_PFS.rollMethod=2
 OPTION:gameMode.Pathfinder_PFS.xpTableName=PFS Rules
-OPTION:gameMode.Pathfinder_PFS.rollMethod=0
-OPTION:gameMode.Pathfinder_PFS.allStatsValue=10
-
 
 # TODO: p.8 All characters gain Common as a free language.
 # You gain free languages granted by your race, ethnicity (for humans), and class (e.g., Druidic for druids).
