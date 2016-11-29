@@ -9,7 +9,8 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder|Golarion
 PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/

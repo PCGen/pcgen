@@ -8,7 +8,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Adventure
 SETTING:Pathfinder|Golarion
-PRECAMPAIGN:1,INCLUDES=Guide To Pathfinder Society Organized Play,PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:1,PFS ~ Curse of the Crimson Throne Player's Guide (Conversion)
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
