@@ -4,7 +4,7 @@ SOURCELONG:Roleplaying Guild Guide v8	SOURCESHORT:RGG8	SOURCEWEB:http://paizo.co
 # Pathfinder RPG Entry by: Stefan Radermacher
 
 # Template Name	Visible	Apply Kit
-PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold PFS
+PFS Starting Gold	VISIBLE:NO	KIT:1|Starting Gold ~ PFS
 
 ### Starting Gold
 #Starting Gold ~ CRB.MOD				!PRECHARACTERTYPE:1,PC
