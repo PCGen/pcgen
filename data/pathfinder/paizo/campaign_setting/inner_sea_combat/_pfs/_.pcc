@@ -7,7 +7,9 @@ STATUS:ALPHA
 GENRE:Fantasy
 BOOKTYPE:Campaign Setting
 SETTING:Pathfinder Campaign Setting
-PRECAMPAIGN:3,INCLUDES=Guide To Pathfinder Society Organized Play,INCLUDES=Advanced Player's Guide,INCLUDES=Inner Sea World Guide
+PRECAMPAIGN:1,Pathfinder Society Core Assumption
+PRECAMPAIGN:2,INCLUDES=Advanced Player's Guide,INCLUDES=Inner Sea World Guide
+
 PUBNAMELONG:Paizo Publishing
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

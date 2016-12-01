@@ -1,5 +1,5 @@
 # CVS $Revision: 21684 $ $Author: spraynpray $ -- Fri Oct 19 20:16:09 2012 -- reformated by prettylst.pl v1.39 (build 15052)
-CAMPAIGN:Guide To Pathfinder Society Organized Play
+CAMPAIGN:Roleplaying Guild Guide v8
 GAMEMODE:Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Society
 RANK:9
@@ -13,26 +13,26 @@ PRECAMPAIGN:1,BOOKTYPE=Core Rules
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/
-SOURCELONG:Guide To Pathfinder Society Organized Play
-SOURCESHORT:GTPSOP
+SOURCELONG:Roleplaying Guild Guide
+SOURCESHORT:RGG8
 SOURCEWEB:http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play
-SOURCEDATE:2014-08
+SOURCEDATE:2015-08
 ISOGL:YES
 
 DESC:WARNING: ONLY LOAD THIS IF YOU ARE PLAYING BY PATHFINDER SOCIETY RULES.
 
-COVER:guide_to_pathfinder_society_organized_play.jpg
+COVER:roleplaying_guild_guide.jpg
 LOGO:@/publisher_logos/Paizo_Publishing.png
 URL:WEBSITE|http://www.paizo.com/|Visit Paizo Publishing!
 URL:WEBSITE|http://www.paizo.com/communityuse|Paizo's Community Use Policy.
 URL:Paizo Publishing|http://paizo.com/products/btpy84k4?Guide-to-Pathfinder-Society-Organized-Play|Download this publication from Paizo Publishing!
-DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 6.0 of the Pathfinder Society Guide to Organized Play released 14th August 2014.
-DESC:http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source
+DESC:This contains the traits for the various factions within the Pathfinder Society.  It is based on version 8.0 of the Roleplaying Guild Guide released 4th August 2016.
+DESC:http://paizo.com/pathfinderSociety/about/additionalResources contains a book-by-book analysis of campaign-legal feat, races, languages, items, etc. choices beyond the Core Rulebook. Check there before taking any feat from a non-Core Rulebook source.
 
 INFOTEXT:This dataset uses trademarks and/or copyrights owned by Paizo Inc., which are used under Paizo's Community Use Policy. We are expressly prohibited from charging you to use or access this content. This dataset is not published, endorsed, or specifically approved by Paizo Publishing. For more information about Paizo's Community Use Policy, please visit paizo.com/communityuse. For more information about Paizo Publishing and Paizo products, please visit paizo.com.
 COPYRIGHT:Open Game License v 1.0a © 2000, Wizards of the Coast, Inc.
 COPYRIGHT:System Reference Document © 2000, Wizards of the Coast, Inc; Authors: Jonathan Tweet, Monte Cook, Skip Williams, based on material by E. Gary Gygax and Dave Arneson.
-COPYRIGHT:Guide to Pathfinder Society Organized Play, Version 6.0 © 2014, Paizo Inc.; Authors: Mike Brock, Erik Mona, and Mark Moreland.
+COPYRIGHT:Roleplaying Guild Guide, Version 8.0 © 2016, Paizo Inc.; Authors: Mike Brock, John Compton, Erik Mona, Mark Moreland and Tonya Woldridge.
 
 COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Play" Copyright 2011, 2013, PCGen Data team (Including, but not limited to Jeff Baril, Andrew Wilson, Vincent Lhote).
 
@@ -40,11 +40,10 @@ COPYRIGHT:PCGen dataset conversion for "Guide to Pathfinder Society Organized Pl
 #EXTRAFILE:OGL.txt
 
 # Data files
-
-ABILITYCATEGORY:gtpsop_abilitycategories.lst
-ABILITY:gtpsop_abilities.lst
-KIT:gtpsop_kits.lst
-TEMPLATE:gtpsop_templates.lst
+ABILITYCATEGORY:rgg_abilitycategories.lst
+ABILITY:rgg_abilities.lst
+KIT:rgg_kits.lst
+TEMPLATE:rgg_templates.lst
 
 # include the Wayfinder if ISWG is not included
 EQUIPMENT:@/pathfinder/paizo/campaign_setting/inner_sea_world_guide/iswg_equip_magic_items.lst|(INCLUDE:Wayfinder)|!PRECAMPAIGN:1,Inner Sea World Guide

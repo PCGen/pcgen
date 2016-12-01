@@ -6,7 +6,6 @@
 # Rules for migrating characters from old data to new.
 #
 
-
 SOURCE:Princes of Darkness - Book of the Damned, Volume 1	MAXVER:6.6.00	NEWKEY:Princes of Darkness - Book of the Damned - Volume 1	
 SOURCE:Qadira, Gateway to the East					MAXVER:6.6.00	NEWKEY:Qadira - Gateway to the East					
 SOURCE:Cheliax, Empire of Devils					MAXVER:6.6.00	NEWKEY:Cheliax - Empire of Devils					
@@ -55,6 +54,9 @@ SOURCE:Qadira, Gateway to the East (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Qadira - Gat
 SOURCE:Sargava the Lost Colony (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Sargava the Lost Colony
 SOURCE:Core Rulebook (PFS)	MAXVER:6.6.00	NEWKEY:PFS ~ Core Rulebook
 
+
+ABILITY:Special Ability|Boon ~ Triumph of the Lantern Lodge	MAXVER:6.06.01	NEWKEY:PFS Scenario 4-21 ~ Triumph of the Lantern Lodge
+ABILITY:Special Ability|Boon ~ Pawn of the Grandmaster	MAXVER:6.06.01	NEWKEY:PFS Scenario 4-24 ~ Pawn of the Grandmaster
 
 ABILITY:Special Ability|Inquisitor Domain ~ Anger Inquisition				MAXVER:6.6.00	NEWKEY:Inquisition ~ Anger			
 ABILITY:Special Ability|Inquisitor Domain ~ Conversion Inquisition			MAXVER:6.6.00	NEWKEY:Inquisition ~ Conversion		
