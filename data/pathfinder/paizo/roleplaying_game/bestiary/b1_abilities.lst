@@ -7,4 +7,4 @@ Rabies		CATEGORY:Afflictions	TYPE:Disease.Affliction	DESC:Disease, injury; Fort 
 
 
 ###Block:
-CATEGORY=Internal|Internal.MOD	DEFINE:QualifyAsHumanoid|0
+CATEGORY=Internal|Default.MOD	DEFINE:QualifyAsHumanoid|0
