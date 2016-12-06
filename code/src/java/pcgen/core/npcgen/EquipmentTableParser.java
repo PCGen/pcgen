@@ -26,6 +26,7 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.xml.parsers.ParserConfigurationException;
 import javax.xml.parsers.SAXParser;
@@ -52,8 +53,8 @@ public class EquipmentTableParser
 	private SAXParser theParser;
 	private GameMode theMode;
 	
-	private HashMap<EquipmentItem, String> theLinkTable = new HashMap<>();
-	private HashMap<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
+	private Map<EquipmentItem, String> theLinkTable = new HashMap<>();
+	private Map<EqmodItem, String> theEqmodLinkTable = new HashMap<>();
 	
 	/**
 	 * Creates a new <tt>EquipmentTableParser</tt> for the specified game mode.

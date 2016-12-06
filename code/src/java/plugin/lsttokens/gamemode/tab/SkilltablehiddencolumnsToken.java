@@ -18,6 +18,7 @@
 package plugin.lsttokens.gamemode.tab;
 
 import java.util.Collection;
+import java.util.Set;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
 
@@ -77,7 +78,7 @@ public class SkilltablehiddencolumnsToken extends
 			return null;
 		}
 		Collection<Integer> columns = ti.getHiddenColumns();
-		TreeSet<Integer> set = new TreeSet<>();
+		Set<Integer> set = new TreeSet<>();
 		set.addAll(columns);
 		return new String[] { StringUtil.join(set, Constants.COMMA) };
 	}

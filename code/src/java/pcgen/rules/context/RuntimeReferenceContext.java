@@ -20,6 +20,7 @@ package pcgen.rules.context;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 import pcgen.cdom.base.CDOMObject;
@@ -70,7 +71,7 @@ public class RuntimeReferenceContext extends AbstractReferenceContext
 	@Override
 	public Collection<ReferenceManufacturer<?>> getAllManufacturers()
 	{
-		ArrayList<ReferenceManufacturer<?>> returnList = new ArrayList<>(
+		List<ReferenceManufacturer<?>> returnList = new ArrayList<>(
                 map.values());
 		returnList.addAll(mfgmap.values());
 		return returnList;

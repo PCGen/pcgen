@@ -26,6 +26,7 @@
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
 
 import pcgen.cdom.base.CDOMObject;
@@ -217,8 +218,8 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 	}
 
 	private void getImitators(
-		HashMap<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
-		CharacterDisplay display)
+            Map<Skill, Set<Skill>> serveAsSkills, Set<Skill> imitators,
+            CharacterDisplay display)
 	{
 		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)

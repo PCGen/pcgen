@@ -60,7 +60,7 @@ public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
     public DefaultDynamicTableColumnModel(TableColumnModel model, int offset)
     {
         this(offset);
-        ArrayList<TableColumn> allColumns = Collections.list(model.getColumns());
+        List<TableColumn> allColumns = Collections.list(model.getColumns());
         if (offset < allColumns.size())
         {
             tableColumns.addAll(allColumns.subList(0, offset));

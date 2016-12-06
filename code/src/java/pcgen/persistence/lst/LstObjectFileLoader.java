@@ -351,7 +351,7 @@ public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observab
 			context.setSourceURI(uri);
 		}
 		T target = null;
-		ArrayList<ModEntry> classModLines = null;
+		List<ModEntry> classModLines = null;
 
 		boolean allowMultiLine =
 				PCGenSettings.OPTIONS_CONTEXT.initBoolean(

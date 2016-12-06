@@ -354,7 +354,7 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 			label = LanguageBundle.getString("InfoSpells.add.with.metamagic");
 		}
 		
-		final ArrayList<Ability> selectedList = new ArrayList<>();
+		final List<Ability> selectedList = new ArrayList<>();
 		GeneralChooserFacadeBase chooserFacade =
 				new GeneralChooserFacadeBase(label, availableList,
                         new ArrayList<>(), 99, infoFactory)

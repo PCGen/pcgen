@@ -291,7 +291,7 @@ public class FacadeFactory
 	public static void setDisplayedSources(SourceSelectionFacade[] sources)
 	{
 		displayedSources.setContents(Arrays.asList(sources));
-		ArrayList<String> hiddenElements = new ArrayList<>();
+		List<String> hiddenElements = new ArrayList<>();
 		for (SourceSelectionFacade selection : quickSources)
 		{
 			if (!ArrayUtils.contains(sources, selection))

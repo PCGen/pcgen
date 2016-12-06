@@ -493,7 +493,7 @@ public class CharacterDisplay
 	{
 		List<PCTemplate> tl = new ArrayList<>();
 
-		TreeSet<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
+		Set<PCTemplate> treeSet = new TreeSet<>(CDOMObjectUtilities.CDOM_SORTER);
 		for (PCTemplate template : templateFacet.getSet(id))
 		{
 			if (template.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
@@ -763,7 +763,7 @@ public class CharacterDisplay
 	public List<Skill> getPartialSkillList(View v)
 	{
 		// Now select the required set of skills, based on their visibility.
-		ArrayList<Skill> aList = new ArrayList<>();
+		List<Skill> aList = new ArrayList<>();
 		for (Skill po : skillFacet.getSet(id))
 		{
 			if (po.getSafe(ObjectKey.VISIBILITY).isVisibleTo(v))
@@ -1415,7 +1415,7 @@ public class CharacterDisplay
 
 	private String getDisplayClassName()
 	{
-		ArrayList<PCClass> classList = getClassList();
+		List<PCClass> classList = getClassList();
 		return (classFacet.isEmpty(id) ? "Nobody" : getDisplayClassName(classList.get(classList.size() - 1)));
 	}
 

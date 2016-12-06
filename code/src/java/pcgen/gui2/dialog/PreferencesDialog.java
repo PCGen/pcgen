@@ -33,6 +33,7 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -450,7 +451,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
+	private final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;

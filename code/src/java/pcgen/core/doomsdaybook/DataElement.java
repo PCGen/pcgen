@@ -20,6 +20,7 @@
  package pcgen.core.doomsdaybook;
 
 import java.util.ArrayList;
+import java.util.Collection;
 
 /**
  *
@@ -32,7 +33,7 @@ public interface DataElement
 	 * @return ArrayList
 	 * @throws Exception
 	 */
-	public ArrayList<DataValue> getData() throws Exception;
+	public Collection<DataValue> getData() throws Exception;
 
 	/**
 	 * Get data
@@ -53,7 +54,7 @@ public interface DataElement
 	 * @return last data
 	 * @throws Exception
 	 */
-	public ArrayList<DataValue> getLastData() throws Exception;
+	public Collection<DataValue> getLastData() throws Exception;
 
 	/**
 	 * Get title

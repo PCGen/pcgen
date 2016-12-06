@@ -90,7 +90,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	int currentFileCount = 0;
 
 	private JProgressBar progressBar;
-	private ArrayList<Campaign> totalCampaigns;
+	private List<Campaign> totalCampaigns;
 	private final EditorLoadContext context;
 	private JTextArea messageArea;
 	private JScrollPane messageAreaContainer;

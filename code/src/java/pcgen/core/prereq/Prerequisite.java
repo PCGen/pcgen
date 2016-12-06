@@ -500,7 +500,7 @@ public class Prerequisite implements Cloneable
 			{
 				return false;
 			}
-			ArrayList<Prerequisite> removed =
+			List<Prerequisite> removed =
                     new ArrayList<>(prerequisites);
 			removed.removeAll(otherPRL);
 			if (!removed.isEmpty())

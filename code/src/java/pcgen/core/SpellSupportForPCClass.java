@@ -24,6 +24,7 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
@@ -44,7 +45,7 @@ public class SpellSupportForPCClass
 	 * ALLCLASSLEVELS castForLevelMap is part of PCClassLevel - or nothing at
 	 * all since this seems to be a form of cache? - DELETEVARIABLE
 	 */
-	private HashMap<Integer, Integer> castForLevelMap = null;
+	private Map<Integer, Integer> castForLevelMap = null;
 
 	private SpellProgressionCache spellCache = null;
 

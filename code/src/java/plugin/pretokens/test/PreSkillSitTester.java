@@ -120,7 +120,7 @@ public class PreSkillSitTester extends AbstractPrerequisiteTest implements
 	private Map<Skill, Set<Skill>> getImitators(
 		 CharacterDisplay display)
 	{
-		HashMap<Skill, Set<Skill>> serveAsSkills =
+		Map<Skill, Set<Skill>> serveAsSkills =
 				new HashMap<>();
 		Set<Skill> skillSet = new HashSet<>(display.getSkillSet());
 		for (Skill aSkill : skillSet)

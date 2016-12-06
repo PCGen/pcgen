@@ -108,7 +108,7 @@ public final class Bonus
 
 		listToSort = tempList;
 
-		final ArrayList<BonusObj> tempList2 = new ArrayList<>();
+		final List<BonusObj> tempList2 = new ArrayList<>();
 
 		// go through and move all the static bonuses to the front
 		final int aSize = listToSort.size();

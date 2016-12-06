@@ -19,6 +19,7 @@ package pcgen.cdom.primitive;
 
 import java.util.ArrayList;
 import java.util.Collection;
+import java.util.List;
 
 import pcgen.cdom.base.Converter;
 import pcgen.cdom.base.PrimitiveCollection;
@@ -51,7 +52,7 @@ public class NegatingPrimitive<T> implements PrimitiveCollection<T>
 	public <R> Collection<? extends R> getCollection(PlayerCharacter pc, Converter<T, R> c)
 	{
 		Collection<? extends R> result = all.getCollection(pc, c);
-		ArrayList<R> list = new ArrayList<>(result);
+		List<R> list = new ArrayList<>(result);
 		list.removeAll(primitive.getCollection(pc, c));
 		return list;
 	}

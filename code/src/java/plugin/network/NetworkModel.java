@@ -30,6 +30,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.DefaultListModel;
 import javax.swing.JList;
@@ -78,9 +79,9 @@ public class NetworkModel
 	private NetworkServer server;
 	private NetworkClient client;
 	private InitHolderList combat;
-	private HashMap<String, Combatant> sentCombatants =
+	private Map<String, Combatant> sentCombatants =
 			new HashMap<>();
-	private HashMap<String, NetworkCombatant> recievedCombatants =
+	private Map<String, NetworkCombatant> recievedCombatants =
 			new HashMap<>();
 
 	public NetworkModel()

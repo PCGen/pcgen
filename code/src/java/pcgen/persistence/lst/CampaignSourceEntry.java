@@ -374,7 +374,7 @@ public class CampaignSourceEntry implements SourceEntry
 			{
 				final PrerequisiteWriter prereqWriter =
 						new PrerequisiteWriter();
-				ArrayList<Prerequisite> displayList = new ArrayList<>();
+				List<Prerequisite> displayList = new ArrayList<>();
 				displayList.add(prereq);
 				String lstString =
 						prereqWriter.getPrerequisiteString(displayList,

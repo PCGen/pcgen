@@ -92,7 +92,7 @@ public class DeityWeaponToken implements PrimitiveToken<WeaponProf>
 		{
 			return Collections.emptySet();
 		}
-		HashSet<R> set = new HashSet<>();
+		Collection<R> set = new HashSet<>();
 		List<CDOMReference<WeaponProf>> dwp = deity
 				.getSafeListFor(ListKey.DEITYWEAPON);
 		for (CDOMReference<WeaponProf> ref : dwp)

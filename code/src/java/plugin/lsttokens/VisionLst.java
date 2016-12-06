@@ -90,7 +90,7 @@ public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 							+ ": " + value, context);
 		}
 
-		ArrayList<AssociatedPrereqObject> edgeList = new ArrayList<>();
+		List<AssociatedPrereqObject> edgeList = new ArrayList<>();
 
 		boolean foundClear = false;
 

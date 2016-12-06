@@ -74,7 +74,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Deity> implements
 		StringTokenizer commaTok = new StringTokenizer(pipeTok.nextToken(),
 				Constants.COMMA);
 		CDOMReference<DomainList> dl = Deity.DOMAINLIST;
-		ArrayList<AssociatedPrereqObject> proList = new ArrayList<>();
+		List<AssociatedPrereqObject> proList = new ArrayList<>();
 
 		boolean first = true;
 		boolean foundAll = false;

@@ -30,7 +30,7 @@ public final class PluginFunctionLibrary implements PluginLoader
 
 	private static PluginFunctionLibrary instance = null;
 
-	private static ArrayList<Function> list = new ArrayList<>();
+	private static List<Function> list = new ArrayList<>();
 
 	private PluginFunctionLibrary()
 	{

@@ -92,7 +92,7 @@ public class PreRaceTypeTester extends AbstractDisplayPrereqTest
     @Deprecated
 	public static List<String> getCritterTypes(CharacterDisplay display)
 	{
-		ArrayList<String> critterTypes = new ArrayList<>();
+		List<String> critterTypes = new ArrayList<>();
 	
 		// Not too sure about this if, but that's what the previous code
 		// implied...

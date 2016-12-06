@@ -101,7 +101,7 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * @return The HashMap of SkillRank Bonus values for the Player Character
 	 *         represented by the given CharID
 	 */
-	private HashMap<Skill, Double> getConstructingInfo(CharID id)
+	private Map<Skill, Double> getConstructingInfo(CharID id)
 	{
 		HashMap<Skill, Double> map = getInfo(id);
 		if (map == null)

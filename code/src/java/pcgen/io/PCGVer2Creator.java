@@ -1369,7 +1369,7 @@ public final class PCGVer2Creator
 	 */
 	private void appendAbilityLines(StringBuilder buffer)
 	{
-		ArrayList<AbilityCategory> categories = new ArrayList<>(
+		List<AbilityCategory> categories = new ArrayList<>(
                 getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
 
@@ -1601,7 +1601,7 @@ public final class PCGVer2Creator
 	private void appendLanguageLine(StringBuilder buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-		TreeSet<Language> sortedlangs = new TreeSet(charDisplay.getLanguageSet());
+		Iterable<Language> sortedlangs = new TreeSet(charDisplay.getLanguageSet());
 		
 		for (final Language lang : sortedlangs)
 		{
@@ -2282,7 +2282,7 @@ public final class PCGVer2Creator
 	private void appendTempBonuses(StringBuilder buffer)
 	{
 		final List<String> trackList = new ArrayList<>();
-		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<>(
+		Set<Map.Entry<BonusObj, TempBonusInfo>> sortedbonus = new TreeSet<>(
                 new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
                     @Override
                     public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo> a, Map.Entry<BonusObj, BonusManager.TempBonusInfo> b) {
