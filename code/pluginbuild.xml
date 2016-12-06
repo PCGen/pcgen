@@ -27,14 +27,6 @@ jar-all-plugins - Generate the plugin jar files
 	</target>
 
 	<target name="jar-gmgen-plugins" depends="makeplugindirs" description="Build (Link) GMGen plugin jar files">
-		<jar jarfile="${plugins.dir}/Network.jar" manifest="${src.java.dir}/plugin/network/manifest.mf">
-			<fileset dir="${build.classes.dir}">
-				<patternset>
-					<include name="plugin/network/*.class" />
-					<include name="plugin/network/gui/*.class" />
-				</patternset>
-			</fileset>
-		</jar>
 		<jar jarfile="${plugins.dir}/Encounter.jar" manifest="${src.java.dir}/plugin/encounter/manifest.mf">
 			<fileset dir="${build.classes.dir}">
 				<patternset>

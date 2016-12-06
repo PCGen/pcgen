@@ -211,7 +211,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		Object displayPath[];
 		if (path.length > 0 && StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
 		{
-			displayPath = Arrays.copyOf(path, path.length);
+			displayPath = Arrays.copyOf(path, path.length - 1);
 		}
 		else
 		{
