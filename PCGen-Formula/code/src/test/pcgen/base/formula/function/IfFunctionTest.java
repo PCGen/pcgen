@@ -24,13 +24,8 @@ import java.util.Set;
 import org.junit.Test;
 
 import pcgen.base.formatmanager.FormatUtilities;
-import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
-import pcgen.base.formula.operator.number.NumberEquals;
-import pcgen.base.formula.operator.number.NumberGreaterThan;
-import pcgen.base.formula.operator.number.NumberLessThan;
-import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
 import pcgen.base.testsupport.AbstractFormulaTestCase;
@@ -38,17 +33,6 @@ import pcgen.base.testsupport.TestUtilities;
 
 public class IfFunctionTest extends AbstractFormulaTestCase
 {
-	@Override
-	protected void setUp() throws Exception
-	{
-		super.setUp();
-		getFunctionLibrary().addFunction(new IfFunction());
-		OperatorLibrary operatorLibrary = getOperatorLibrary();
-		operatorLibrary.addAction(new NumberEquals());
-		operatorLibrary.addAction(new NumberLessThan());
-		operatorLibrary.addAction(new NumberGreaterThan());
-		operatorLibrary.addAction(new NumberMinus());
-	}
 
 	@Test
 	public void testInvalidTooFewArg()

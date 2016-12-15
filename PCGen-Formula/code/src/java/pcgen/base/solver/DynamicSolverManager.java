@@ -1,5 +1,5 @@
 /*
- * Copyright 2014 (C) Tom Parker <thpr@users.sourceforge.net>
+ * Copyright 2016 (C) Tom Parker <thpr@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or modify it under the terms
  * of the GNU Lesser General Public License as published by the Free Software Foundation;
@@ -23,38 +23,42 @@ import java.util.Set;
 import java.util.Stack;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.DynamicDependency;
+import pcgen.base.formula.base.DynamicManager;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
 import pcgen.base.graph.inst.DirectionalSetMapGraph;
 import pcgen.base.util.FormatManager;
 
 /**
- * An AggressiveSolverManager manages a series of Solver objects in order to manage
+ * An DynamicSolverManager manages a series of Solver objects in order to manage
  * dependencies between those Solver objects and ensure that any Solver which needs to be
  * processed to update a value is processed "aggressively" (as soon as a dependency has
- * calculated a new value).
+ * calculated a new value). It can also handle dynamic dependencies (see
+ * DynamicDependency.java)
  * 
- * One of the primary characteristic of the AggressiveSolverManager is also that callers
- * will consider items as represented by a given "VariableID", whereas the
- * AggressiveSolverManager will build and manage the associated Solver for that
- * VariableID.
+ * One of the primary characteristic of the DynamicSolverManager is also that callers will
+ * consider items as represented by a given "VariableID", whereas the DynamicSolverManager
+ * will build and manage the associated Solver for that VariableID.
  */
-public class AggressiveSolverManager implements SolverManager
+public class DynamicSolverManager implements SolverManager
 {
 
 	/**
-	 * The FormulaManager used by the Solver members of this AggressiveSolverManager.
+	 * The FormulaManager used by the Solver members of this DynamicSolverManager.
 	 */
 	private final FormulaManager formulaManager;
 
 	/**
 	 * The ManagerFactory to be used to generate visitor managers in this
-	 * AggressiveSolverManager.
+	 * DynamicSolverManager.
 	 */
 	private final ManagerFactory managerFactory;
 
@@ -73,9 +77,18 @@ public class AggressiveSolverManager implements SolverManager
 	/**
 	 * A mathematical graph used to store dependencies between VariableIDs. Since there is
 	 * a 1:1 relationship with the Solver used for a VariableID, this implicitly stores
-	 * the dependencies between the Solvers that are part of this AggressiveSolverManager.
+	 * the dependencies between the Solvers that are part of this DynamicSolverManager.
 	 */
 	private final DirectionalSetMapGraph<VariableID<?>, DefaultDirectionalGraphEdge<VariableID<?>>> dependencies =
+			new DirectionalSetMapGraph<>();
+
+	/**
+	 * A mathematical graph used to store dynamic dependencies. This links from a
+	 * VariableID to a DynamicEdge. The DynamicEdge contains the information indicating
+	 * the "dynamic" DefaultDirectionalGraphEdge that was injected into the dependency
+	 * graph (graph).
+	 */
+	private final DirectionalSetMapGraph<Object, DynamicEdge> dynamic =
 			new DirectionalSetMapGraph<>();
 
 	/**
@@ -85,28 +98,27 @@ public class AggressiveSolverManager implements SolverManager
 	private final SolverFactory solverFactory;
 
 	/**
-	 * Constructs a new AggressiveSolverManager which will use the given FormulaMananger
-	 * and store results in the given VariableStore.
+	 * Constructs a new DynamicSolverManager which will use the given FormulaMananger and
+	 * store results in the given VariableStore.
 	 * 
-	 * It is assumed that the WriteableVariableStore provided to this
-	 * AggressiveSolverManager will not be shared as a Writeable object to any other
-	 * Object. (So for purposes of ownership, the ownership of that WriteableVariableStore
-	 * transfers to this AggressiveSolverManager. It can be shared to other locations as a
-	 * (readable) VariableStore, as necessary.)
+	 * It is assumed that the WriteableVariableStore provided to this DynamicSolverManager
+	 * will not be shared as a Writeable object to any other Object. (So for purposes of
+	 * ownership, the ownership of that WriteableVariableStore transfers to this
+	 * DynamicSolverManager. It can be shared to other locations as a (readable)
+	 * VariableStore, as necessary.)
 	 * 
 	 * @param manager
-	 *            The FormulaManager to be used by any Solver in this
-	 *            AggressiveSolverManager
+	 *            The FormulaManager to be used by any Solver in this DynamicSolverManager
 	 * @param managerFactory
 	 *            The ManagerFactory to be used to generate visitor managers in this
-	 *            AggressiveSolverManager
+	 *            DynamicSolverManager
 	 * @param solverFactory
 	 *            The SolverFactory used to store Defaults and build Solver objects
 	 * @param resultStore
 	 *            The WriteableVariableStore used to store results of the calculations of
-	 *            the Solver objects within this AggressiveSolverManager.
+	 *            the Solver objects within this DynamicSolverManager.
 	 */
-	public AggressiveSolverManager(FormulaManager manager, ManagerFactory managerFactory,
+	public DynamicSolverManager(FormulaManager manager, ManagerFactory managerFactory,
 		SolverFactory solverFactory, WriteableVariableStore resultStore)
 	{
 		this.formulaManager = Objects.requireNonNull(manager);
@@ -121,7 +133,7 @@ public class AggressiveSolverManager implements SolverManager
 	 * ability to have a local variable (e.g. Equipment variable).
 	 */
 	/**
-	 * Defines a new Variable that requires solving in this AggressiveSolverManager. The
+	 * Defines a new Variable that requires solving in this DynamicSolverManager. The
 	 * Variable, identified by the given VariableID, will be of the format of the given
 	 * Class.
 	 * 
@@ -199,6 +211,7 @@ public class AggressiveSolverManager implements SolverManager
 		 */
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		for (VariableID<?> depID : fdm.getVariables())
 		{
@@ -211,6 +224,33 @@ public class AggressiveSolverManager implements SolverManager
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
 					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
 			dependencies.addEdge(edge);
+		}
+		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
+		for (DynamicDependency dep : dd.getDependencies())
+		{
+			VariableID<?> controlVar = dep.getControlVar();
+			if (!VarScoped.class
+				.isAssignableFrom(controlVar.getFormatManager().getManagedClass()))
+			{
+				throw new IllegalArgumentException(
+					"Request to add Dynamic Dependency to Solver based on " + controlVar
+						+ " but that variable cannot be VarScoped");
+			}
+			VarScoped vs = (VarScoped) resultStore.get(controlVar);
+			if (vs == null)
+			{
+				throw new IllegalArgumentException(
+					"Cannot initialize Dynamic Edge of format "
+						+ controlVar.getFormatManager()
+						+ " because no default was provided for that format");
+			}
+			VariableID<?> variableID =
+					dep.generateSourceVarID(formulaManager.getScopeInstanceFactory(), vs);
+			DefaultDirectionalGraphEdge<VariableID<? extends Object>> edge =
+					new DefaultDirectionalGraphEdge<>(variableID, varID);
+			DynamicEdge de = new DynamicEdge(dep.getControlVar(), edge, dep);
+			dynamic.addEdge(de);
+			dependencies.addEdge(de.getTargetEdge());
 		}
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
@@ -286,6 +326,7 @@ public class AggressiveSolverManager implements SolverManager
 		}
 		DependencyManager fdm = managerFactory.generateDependencyManager(formulaManager,
 			source, varID.getFormatManager().getManagedClass());
+		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
 		processDependencies(varID, fdm);
 		//Cast above effectively enforced here
@@ -307,6 +348,19 @@ public class AggressiveSolverManager implements SolverManager
 	 */
 	private <T> void processDependencies(VariableID<T> varID, DependencyManager dm)
 	{
+		DynamicManager dd = dm.get(DependencyManager.DYNAMIC);
+		for (DynamicDependency dep : dd.getDependencies())
+		{
+			VariableID<?> controlVar = dep.getControlVar();
+			for (DynamicEdge edge : dynamic.getAdjacentEdges(controlVar))
+			{
+				if (edge.isDependency(dep))
+				{
+					dependencies.removeEdge(edge.getTargetEdge());
+					dynamic.removeEdge(edge);
+				}
+			}
+		}
 		List<VariableID<?>> deps = dm.getVariables();
 		if (deps == null)
 		{
@@ -361,12 +415,40 @@ public class AggressiveSolverManager implements SolverManager
 				 * doing them in order of a topological sort - it is completely random...
 				 * so things may be processed twice :/
 				 */
+				resolveDynamic(varID);
 				solveChildren(varID);
 			}
 		}
 		finally
 		{
 			varStack.pop();
+		}
+	}
+
+	private void resolveDynamic(VariableID<?> varID)
+	{
+		if (!dynamic.containsNode(varID))
+		{
+			return;
+		}
+		VarScoped vs = (VarScoped) resultStore.get(varID);
+		ScopeInstanceFactory siFactory = formulaManager.getScopeInstanceFactory();
+		for (DynamicEdge edge : dynamic.getAdjacentEdges(varID))
+		{
+			DefaultDirectionalGraphEdge<VariableID<?>> target = edge.getTargetEdge();
+			DynamicEdge newEdge =
+					edge.createReplacement(siFactory, vs, target.getNodeAt(1));
+			DefaultDirectionalGraphEdge<VariableID<?>> newTarget =
+					newEdge.getTargetEdge();
+			dynamic.removeEdge(edge);
+			if (!dynamic.hasAdjacentEdge(varID))
+			{
+				dynamic.removeNode(varID);
+			}
+			dynamic.removeNode(target);
+			dependencies.removeEdge(target);
+			dynamic.addEdge(newEdge);
+			solveFromNode(newTarget.getNodeAt(1));
 		}
 	}
 

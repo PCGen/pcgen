@@ -18,6 +18,7 @@
 package pcgen.base.formula.base;
 
 import pcgen.base.util.TypedKey;
+import pcgen.base.formula.inst.ScopeInstanceFactory;
 
 /**
  * A FormulaManager exists as compound object to simplify those things that
@@ -99,4 +100,12 @@ public interface FormulaManager
 	 * @return The value in the FormulaManager for the given TypedKey
 	 */
 	public <T> T get(TypedKey<T> key);
+
+	/**
+	 * Returns the ScopeInstanceFactory used to return ScopeInstance objects.
+	 * 
+	 * @return The ScopeInstanceFactory used to return ScopeInstance objects
+	 */
+	public ScopeInstanceFactory getScopeInstanceFactory();
+
 }

@@ -93,7 +93,7 @@ public class SolverFactory implements DefaultStore
 		catch (NullPointerException e)
 		{
 			throw new IllegalArgumentException("Default Modifier for Format: "
-				+ varFormat + " cannot rely on terms/functions");
+				+ varFormat + " cannot be null or rely on terms/functions");
 		}
 		Modifier<?> existing = defaultModifierMap.get(varFormat);
 		if (existing == null)

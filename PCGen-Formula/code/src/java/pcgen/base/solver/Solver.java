@@ -196,7 +196,7 @@ public class Solver<T>
 				EvaluationManager thisManager =
 						evalManager.getWith(EvaluationManager.INPUT, result);
 				thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
-					modInfo.getSource());
+					modInfo.getInstance());
 				result = modInfo.getModifier().process(thisManager);
 			}
 		}
@@ -229,11 +229,11 @@ public class Solver<T>
 					EvaluationManager thisManager =
 							evalManager.getWith(EvaluationManager.INPUT, stepResult);
 					thisManager = thisManager.getWith(EvaluationManager.INSTANCE,
-						modInfo.getSource());
+						modInfo.getInstance());
 					stepResult = modInfo.getModifier().process(thisManager);
 					@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 					ProcessStep<T> step = new ProcessStep<T>(modInfo.getModifier(),
-						modInfo.getSource(), stepResult);
+						modInfo.getInstance(), stepResult);
 					steps.add(step);
 				}
 			}
@@ -273,12 +273,12 @@ public class Solver<T>
 	private static final class ModInfo<IT>
 	{
 		private final Modifier<IT> modifier;
-		private final ScopeInstance source;
+		private final ScopeInstance inst;
 
 		private ModInfo(Modifier<IT> modifier, ScopeInstance source)
 		{
-			this.modifier = modifier;
-			this.source = source;
+			this.modifier = Objects.requireNonNull(modifier);
+			this.inst = Objects.requireNonNull(source);
 		}
 
 		public Modifier<IT> getModifier()
@@ -286,15 +286,15 @@ public class Solver<T>
 			return modifier;
 		}
 
-		public ScopeInstance getSource()
+		public ScopeInstance getInstance()
 		{
-			return source;
+			return inst;
 		}
 
 		@Override
 		public int hashCode()
 		{
-			return modifier.hashCode() ^ source.hashCode();
+			return modifier.hashCode() ^ inst.hashCode();
 		}
 
 		@Override
@@ -303,8 +303,7 @@ public class Solver<T>
 			if (obj instanceof ModInfo)
 			{
 				ModInfo<?> other = (ModInfo<?>) obj;
-				return modifier.equals(other.modifier)
-					&& source.equals(other.source);
+				return modifier.equals(other.modifier) && inst.equals(other.inst);
 			}
 			return false;
 		}

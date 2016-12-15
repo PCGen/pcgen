@@ -22,13 +22,6 @@ import org.junit.Test;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.OperatorLibrary;
-import pcgen.base.formula.function.AbsFunction;
-import pcgen.base.formula.function.FloorFunction;
-import pcgen.base.formula.operator.number.NumberAdd;
-import pcgen.base.formula.operator.number.NumberDivide;
-import pcgen.base.formula.operator.number.NumberMinus;
-import pcgen.base.formula.operator.number.NumberSubtract;
 import pcgen.base.formula.parse.SimpleNode;
 import pcgen.base.formula.visitor.DependencyVisitor;
 import pcgen.base.formula.visitor.ReconstructionVisitor;
@@ -50,13 +43,6 @@ public class GenericFunctionTest extends AbstractFormulaTestCase
 		SimpleNode node = TestUtilities.doParse(formula);
 		FunctionLibrary ftnLibrary = getFunctionLibrary();
 		ftnLibrary.addFunction(new GenericFunction("d20Mod", node));
-		ftnLibrary.addFunction(new FloorFunction());
-		ftnLibrary.addFunction(new AbsFunction());
-		OperatorLibrary operatorLibrary = getOperatorLibrary();
-		operatorLibrary.addAction(new NumberDivide());
-		operatorLibrary.addAction(new NumberAdd());
-		operatorLibrary.addAction(new NumberSubtract());
-		operatorLibrary.addAction(new NumberMinus());
 		resetManager();
 	}
 

@@ -22,12 +22,6 @@ import org.junit.Test;
 import pcgen.base.formula.analysis.ArgumentDependencyManager;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.FunctionLibrary;
-import pcgen.base.formula.base.OperatorLibrary;
-import pcgen.base.formula.function.AbsFunction;
-import pcgen.base.formula.operator.number.NumberEquals;
-import pcgen.base.formula.operator.number.NumberGreaterThan;
-import pcgen.base.formula.operator.number.NumberLessThan;
-import pcgen.base.formula.operator.number.NumberMinus;
 import pcgen.base.formula.parse.ASTNum;
 import pcgen.base.formula.parse.Node;
 import pcgen.base.formula.parse.SimpleNode;
@@ -56,12 +50,6 @@ public class ArgFunctionTest extends AbstractFormulaTestCase
 		Node[] array = {four, five, node};
 		FunctionLibrary functionLibrary = getFunctionLibrary();
 		functionLibrary.addFunction(new ArgFunction(array));
-		functionLibrary.addFunction(new AbsFunction());
-		OperatorLibrary operatorLibrary = getOperatorLibrary();
-		operatorLibrary.addAction(new NumberEquals());
-		operatorLibrary.addAction(new NumberLessThan());
-		operatorLibrary.addAction(new NumberGreaterThan());
-		operatorLibrary.addAction(new NumberMinus());
 		resetManager();
 		varCapture = new DependencyVisitor();
 	}

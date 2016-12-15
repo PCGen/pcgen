@@ -31,6 +31,7 @@ import pcgen.base.formula.base.LegalScopeLibrary;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.OperatorLibrary;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -62,6 +63,7 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	{
 		super.setUp();
 		setup = new SplitFormulaSetup();
+		setup.loadBuiltIns();
 		setup.getLegalScopeLibrary()
 			.registerScope(new SimpleLegalScope(null, "Global"));
 		localSetup = new IndividualSetup(setup, "Global", new SimpleVariableStore());
@@ -208,6 +210,11 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		return em.getWith(EvaluationManager.INSTANCE, getGlobalScopeInst());
 	}
 
+	public EvaluationManager generateManager(Object input)
+	{
+		return generateManager().getWith(EvaluationManager.INPUT, input);
+	}
+
 	protected void isNotValid(String formula, SimpleNode node,
 		FormatManager<?> formatManager, Class<?> assertedFormat)
 	{
@@ -298,5 +305,10 @@ public abstract class AbstractFormulaTestCase extends TestCase
 	protected ManagerFactory getManagerFactory()
 	{
 		return managerFactory;
+	}
+
+	protected ScopeInstance getScopeInstance(String scopeName, VarScoped vs)
+	{
+		return localSetup.getInstanceFactory().get(scopeName, vs);
 	}
 }
