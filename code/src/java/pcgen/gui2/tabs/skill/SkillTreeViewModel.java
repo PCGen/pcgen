@@ -49,8 +49,6 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
