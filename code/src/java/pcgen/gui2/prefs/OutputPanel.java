@@ -58,8 +58,6 @@ import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 
-import org.apache.commons.lang3.BooleanUtils;
-
 /**
  * The Class {@code OutputPanel} is responsible for
  * displaying character output related preferences and allowing the 

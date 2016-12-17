@@ -26,7 +26,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.util.Collection;
-import java.util.Comparator;
 import java.util.SortedSet;
 import java.util.TreeSet;
 

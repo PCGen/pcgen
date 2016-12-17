@@ -52,8 +52,6 @@ import pcgen.gui2.tools.Utility;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 
-import org.apache.commons.lang3.StringUtils;
-
 /**
  * The Class {@code LookAndFeelPanel} is responsible for
  * displaying look and feel related preferences and allowing the 
