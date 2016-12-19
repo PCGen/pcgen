@@ -26,7 +26,6 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.io.File;
-import java.io.FilenameFilter;
 import java.util.List;
 
 import javax.swing.BorderFactory;

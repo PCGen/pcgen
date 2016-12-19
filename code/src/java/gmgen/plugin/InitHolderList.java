@@ -24,7 +24,6 @@ package gmgen.plugin;
 
 import gmgen.plugin.dice.Dice;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.List;
 import java.util.Vector;
 

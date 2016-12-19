@@ -20,7 +20,6 @@
  */
 package pcgen.gui2.util.table;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Vector;
