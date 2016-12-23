@@ -18,7 +18,7 @@ Season 4:
 	Scenario 4-15 was a later re-release of S03-EX. I cannot confirm that the boons in these two chronicles are identical.
 Season 5:
 	The following chronicles are missing: 5-05, 5-06, 5-07, 5-10, 5-13, 5-14, 5-19, 5-21, 5-22, 5-23, 5-24, 5-25, 5-99, 5-SP, 5-S2.
-	"Fate of the Fiend Boon" is not implented.
+	"Dralneen’s Deception" is not implented.
 Season 6:
 	The following chronicles are missing: 6-97, 6-98, 6-99.
 	"Sky Key Core" is not implented.

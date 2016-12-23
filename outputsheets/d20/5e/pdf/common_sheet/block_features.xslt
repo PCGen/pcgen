@@ -742,23 +742,6 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
-	<!--
-====================================
-====================================
-	TEMPLATE - PFS CHRONICLES
-====================================
-====================================-->
-	<xsl:template match="pfs_chronicles">
-		<xsl:if test="count(pfs_chronicle) &gt; 0">
-			<xsl:call-template name="bold.list">
-				<xsl:with-param name="attribute" select="'pfs_chronicles'" />
-				<xsl:with-param name="title" select="'PFS Chronicles'" />
-				<xsl:with-param name="list" select="pfs_chronicle"/>
-				<xsl:with-param name="name.tag" select="'name'"/>
-				<xsl:with-param name="desc.tag" select="'description'"/>
-			</xsl:call-template>
-		</xsl:if>
-	</xsl:template>
 <!--
 ====================================
 ====================================
