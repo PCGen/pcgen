@@ -1,6 +1,7 @@
+Nightblade		CATEGORY:Special Ability	TYPE:FavoredClass	VISIBLE:DISPLAY	STACK:NO	MULT:NO	BONUS:ABILITYPOOL|Favored Class Bonus|NightbladeLVL
 
 
-Nightblade	CATEGORY:Class
+Nightblade	CATEGORY:Class	DEFINE:NightbladeProgressionLVL|0	BONUS:VAR|NightbladeProgressionLVL|NightbladeLVL
 
 CATEGORY=Class|Nightblade.MOD	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Weapon and Armor Proficiency|PREVARGTEQ:NightbladeProgressionLVL,1	
 CATEGORY=Class|Nightblade.MOD	ABILITY:Nightblade Class Feature|AUTOMATIC|Nightblade ~ Spells|PREVARGTEQ:NightbladeProgressionLVL,1					
