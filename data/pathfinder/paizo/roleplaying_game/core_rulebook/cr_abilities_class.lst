@@ -47,9 +47,15 @@ CATEGORY=Internal|Default.MOD	DEFINE:BypassClassAlignment_Arcane_Trickster|0				
 CATEGORY=Internal|Default.MOD	DEFINE:BypassClassAlignment_Assassin|0																																				BONUS:VAR|BypassClassAlignment_Assassin|BypassClassAlignment_All_Class|TYPE=Bypass
 
 ###Block: Damage Resistance
-CATEGORY=Internal|Default.MOD	DEFINE:ClassFeatureDR_ALL|0		DR:ClassFeatureDR_ALL/-
-CATEGORY=Internal|Default.MOD	DEFINE:ClassFeatureDR_Silver|0	DR:ClassFeatureDR_Silver/-
+CATEGORY=Internal|Default.MOD	DEFINE:ClassFeatureDR_ALL|0		
+CATEGORY=Internal|Default.MOD	DEFINE:ClassFeatureDR_Silver|0
 
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Damage Reduction ~ All|PREVARGTEQ:ClassFeatureDR_ALL,1
+CATEGORY=Internal|Default.MOD	ABILITY:Internal|AUTOMATIC|Damage Reduction ~ Silver|PREVARGTEQ:ClassFeatureDR_Silver,1
+
+###Block: Damage Resistance Abilities
+Damage Reduction ~ All		CATEGORY:Internal	DR:ClassFeatureDR_ALL/-
+Damage Reduction ~ Silver	CATEGORY:Internal	DR:ClassFeatureDR_Silver/-
 
 
 ###Block: Favored Classes
