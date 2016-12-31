@@ -589,14 +589,14 @@ Claw 1 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:
 Claw 1 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Claw 1 (Gargantuan)
 Claw 1 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Claw 1 (Colossal)
 # x2
-Claw 2 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|1|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1
-Claw 2 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|2|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d2
-Claw 2 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|3|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d3
-Claw 2 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|4|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d4
-Claw 2 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d6
-Claw 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H									BONUS:VAR|PrimaryAttackDamageDice|1|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,1d8
-Claw 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G									BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|6|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d6
-Claw 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C									BONUS:VAR|PrimaryAttackDamageDice|2|TYPE=Base	BONUS:VAR|PrimaryAttackDamageSize|8|TYPE=Base	NATURALATTACKS:Claw,Weapon.Natural.NaturalPrimary.Weapon Group Natural.Melee.Finesseable.Bludgeoning.Slashing,*2,2d8
+Claw 2 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Claw 2 (Diminutive)
+Claw 2 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Claw 2 (Tiny)
+Claw 2 (Small)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:S		TEMPLATE:Claw 2 (Small)
+Claw 2 (Medium)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:M		TEMPLATE:Claw 2 (Medium)
+Claw 2 (Large)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:L		TEMPLATE:Claw 2 (Large)
+Claw 2 (Huge)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:H		TEMPLATE:Claw 2 (Huge)
+Claw 2 (Gargantuan)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:G		TEMPLATE:Claw 2 (Gargantuan)
+Claw 2 (Colossal)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:C		TEMPLATE:Claw 2 (Colossal)
 # x3
 Claw 3 (Diminutive)		CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:D		TEMPLATE:Claw 3 (Diminutive)
 Claw 3 (Tiny)			CATEGORY:Internal		TYPE:NaturalAttack	PREBASESIZEEQ:T		TEMPLATE:Claw 3 (Tiny)
