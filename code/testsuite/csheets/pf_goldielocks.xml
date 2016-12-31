@@ -83,13 +83,13 @@ BIO
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
 		<gender>
-			<long>Male</long>
-			<short>Male</short>
+			<long>Female</long>
+			<short>Female</short>
 		</gender>
 		<handed>Right</handed>
 		<height>
-			<total>0&#39; 0&quot;</total>
-			<feet>0</feet>
+			<total>75&#39; 0&quot;</total>
+			<feet>75</feet>
 			<inches>0</inches>
 		</height>
 		<hitdice>(30d12)+270</hitdice>
@@ -145,8 +145,8 @@ BIO
 		</vision>
 		<wealth>0</wealth>
 		<weight>
-			<weight_unit>0 lbs.</weight_unit>
-			<weight_nounit>0</weight_nounit>
+			<weight_unit>10000 lbs.</weight_unit>
+			<weight_nounit>10000</weight_nounit>
 		</weight>
 		<poolpoints>
 			<cost>0</cost>
@@ -998,41 +998,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Wings</short>
-					<long>*Wings (Natural/Secondary)</long>
-				</name>
-				<category>Natural-Natural,Melee</category>
-				<critical>
-					<range>20</range>
-					<multiplier>2</multiplier>
-				</critical>
-				<to_hit>
-					<hit>+36/+36</hit>
-					<magic_hit>+0</magic_hit>
-					<total_hit>+36/+36</total_hit>
-				</to_hit>
-				<feat></feat>
-				<hand>Off-hand</hand>
-				<num_attacks>5</num_attacks>
-				<reach>20</reach>
-				<size>M</size>
-				<special_properties></special_properties>
-				<template></template>
-				<type>B</type>
-				<weight>0</weight>
-				<sequence>2</sequence>
-			</common>
-			<simple>
-				<to_hit>+36/+36</to_hit>
-				<damage>2d8+8</damage>
-				<range>0 ft.</range>
-			</simple>
-		</weapon>
-		<weapon>
-			<common>
-				<name>
 					<short>*Tail Slap</short>
-					<long>*Tail Slap (Natural/Secondary)</long>
+					<long>*Tail Slap (Natural/Primary)</long>
 				</name>
 				<category>Natural-Natural,Melee</category>
 				<critical>
@@ -1045,8 +1012,41 @@ BIO
 					<total_hit>+36</total_hit>
 				</to_hit>
 				<feat></feat>
-				<hand>Off-hand</hand>
+				<hand>Primary</hand>
 				<num_attacks>4</num_attacks>
+				<reach>20</reach>
+				<size>M</size>
+				<special_properties></special_properties>
+				<template></template>
+				<type>B</type>
+				<weight>0</weight>
+				<sequence>2</sequence>
+			</common>
+			<simple>
+				<to_hit>+36</to_hit>
+				<damage>4d6+24</damage>
+				<range>0 ft.</range>
+			</simple>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
+					<short>*Wing</short>
+					<long>*Wing (Natural/Primary)</long>
+				</name>
+				<category>Natural-Natural,Melee</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+36/+36</hit>
+					<magic_hit>+0</magic_hit>
+					<total_hit>+36/+36</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Primary</hand>
+				<num_attacks>5</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1056,8 +1056,8 @@ BIO
 				<sequence>3</sequence>
 			</common>
 			<simple>
-				<to_hit>+36</to_hit>
-				<damage>4d6+24</damage>
+				<to_hit>+36/+36</to_hit>
+				<damage>2d8+8</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -1121,7 +1121,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+			<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1147,38 +1147,12 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Wings (Natural/Secondary)</longname>
-			<id></id>
-			<name>Wings</name>
-			<carried>1.0</carried>
-			<charges></charges>
-			<charges_used></charges_used>
-			<contents></contents>
-			<contents_num>0</contents_num>
-			<content_weight>0</content_weight>
-			<cost>0</cost>
-			<equipped>Y</equipped>
-			<location>Equipped</location>
-			<maxcharges>0</maxcharges>
-			<note></note>
-			<quantity>1</quantity>
-			<checkbox>1</checkbox>
-			<size>
-				<long>Medium</long>
-				<short>M</short>
-			</size>
-			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
-			<weight>0</weight>
-			<bonuslist></bonuslist>
-		</item>
-		<item>
-			<longname>Tail Slap (Natural/Secondary)</longname>
+			<longname>Tail Slap (Natural/Primary)</longname>
 			<id></id>
 			<name>Tail Slap</name>
 			<carried>1.0</carried>
@@ -1199,7 +1173,33 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<weight>0</weight>
+			<bonuslist></bonuslist>
+		</item>
+		<item>
+			<longname>Wing (Natural/Primary)</longname>
+			<id></id>
+			<name>Wing</name>
+			<carried>1.0</carried>
+			<charges></charges>
+			<charges_used></charges_used>
+			<contents></contents>
+			<contents_num>0</contents_num>
+			<content_weight>0</content_weight>
+			<cost>0</cost>
+			<equipped>Y</equipped>
+			<location>Equipped</location>
+			<maxcharges>0</maxcharges>
+			<note></note>
+			<quantity>1</quantity>
+			<checkbox>1</checkbox>
+			<size>
+				<long>Medium</long>
+				<short>M</short>
+			</size>
+			<special_properties></special_properties>
+			<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1229,7 +1229,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1250,28 +1250,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
-					<weight>0</weight>
-					<bonuslist></bonuslist>
-				</item>
-		<item>
-					<name>Wings</name>
-					<carried>1.0</carried>
-					<charges></charges>
-					<charges_used></charges_used>
-					<contents></contents>
-					<cost>0</cost>
-					<equipped>Y</equipped>
-					<location>Equipped</location>
-					<maxcharges>0</maxcharges>
-					<note></note>
-					<quantity>1</quantity>
-					<size>
-						<long>Medium</long>
-						<short>M</short>
-					</size>
-					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1292,7 +1271,28 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<weight>0</weight>
+					<bonuslist></bonuslist>
+				</item>
+		<item>
+					<name>Wing</name>
+					<carried>1.0</carried>
+					<charges></charges>
+					<charges_used></charges_used>
+					<contents></contents>
+					<cost>0</cost>
+					<equipped>Y</equipped>
+					<location>Equipped</location>
+					<maxcharges>0</maxcharges>
+					<note></note>
+					<quantity>1</quantity>
+					<size>
+						<long>Medium</long>
+						<short>M</short>
+					</size>
+					<special_properties></special_properties>
+					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -2139,7 +2139,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Bite, Claws, Tail Slap, Wings</weapon_proficiencies>
+	<weapon_proficiencies>Bite, Claws, Tail Slap, Wing</weapon_proficiencies>
 	<languages>Draconic</languages>
 
 	<templates>
