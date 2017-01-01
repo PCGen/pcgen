@@ -150,7 +150,7 @@ Manacles (Masterwork/Large)							TYPE:Goods.General.Masterwork														COS
 Manacles (Masterwork/Huge)							TYPE:Goods.General.Masterwork														COST:5000	WT:32		SOURCEPAGE:p.156
 Mirror (Small/Steel)								TYPE:Goods.General															COST:10	WT:0.5	SOURCEPAGE:p.158
 Mug or Tankard (Clay)								TYPE:Goods.Container.General				CONTAINS:1|Liquid								COST:0.02	WT:1		SOURCEPAGE:p.158
-Oil (1 Pint Flask)								TYPE:Goods.General.Liquid.Flask.Consumable											COST:0.1	WT:1		SOURCEPAGE:p.157
+Oil (1 Pint Flask)				PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.General.Liquid.Flask.Consumable.Weapon.Ranged.Thrown.Fire.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:0.1	WT:1	SOURCEPAGE:p.157	SPROP:Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite
 Paper (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.4			SOURCEPAGE:p.158
 Parchment (Sheet)									TYPE:Goods.General.Writing.Documents												COST:0.2			SOURCEPAGE:p.158
 Pick (Miner's)									TYPE:Goods.General															COST:3	WT:10		SOURCEPAGE:p.157
@@ -181,17 +181,17 @@ Waterskin (Filled)								TYPE:Goods.General.Resizable														COST:1	WT:4	
 Whetstone										TYPE:Goods.General															COST:0.02	WT:1		SOURCEPAGE:p.158
 
 ###Block: Special Substances and Items
-# Equipment Name			Type								Cost		Weight	Source Page		Quality and value															Special Property
-Acid (Flask)			TYPE:Goods.Alchemical.Flask.Consumable		COST:10	WT:1		SOURCEPAGE:p.160
-Alchemist's Fire (Flask)	TYPE:Goods.Alchemical.Flask.Consumable		COST:20	WT:1		SOURCEPAGE:p.160
-Antitoxin (Vial)			TYPE:Goods.Alchemical.Vial.Consumable		COST:50			SOURCEPAGE:p.160																		SPROP:+5 alchemical bonus to Fortitude saves against poison for 1 hour
-Everburning Torch			TYPE:Goods.Magic.LightSource				COST:110	WT:1		SOURCEPAGE:p.160	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
-Holy Water (Flask)		TYPE:Goods.Flask.Consumable				COST:25	WT:1		SOURCEPAGE:p.160
-Smokestick				TYPE:Goods.Alchemical.Consumable			COST:20	WT:0.5	SOURCEPAGE:p.160
-Sunrod				TYPE:Goods.Alchemical.Consumable.LightSource	COST:2	WT:1		SOURCEPAGE:p.160	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr.
-Tanglefoot Bag			TYPE:Goods.Alchemical.Consumable			COST:50	WT:4		SOURCEPAGE:p.160
-Thunderstone			TYPE:Goods.Alchemical.Consumable			COST:30	WT:1		SOURCEPAGE:p.160
-Tindertwig				TYPE:Goods.Alchemical.Consumable			COST:1			SOURCEPAGE:p.160
+# Equipment Name		Proficiency				Type																		Cost		Weight	Source Page		Quality and value															Special Property
+Acid (Flask)			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Flask.Consumable.Weapon.Ranged.Thrown.Acid.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:10		WT:1	SOURCEPAGE:p.160																		SPROP:Thrown splash weapon see p.202
+Alchemist's Fire (Flask)	PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Flask.Consumable.Weapon.Ranged.Thrown.Fire.Splash	CRITMULT:x2	CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:20		WT:1	SOURCEPAGE:p.160																		SPROP:Thrown splash weapon see p.202
+Antitoxin (Vial)							TYPE:Goods.Alchemical.Vial.Consumable														COST:50			SOURCEPAGE:p.160																		SPROP:+5 alchemical bonus to Fortitude saves against poison for 1 hour
+Everburning Torch							TYPE:Goods.Magic.LightSource															COST:110	WT:1	SOURCEPAGE:p.160	QUALITY:Bright Illumination|20 ft.	QUALITY:Shadowy Illumination|40 ft.	QUALITY:Duration|Permanent
+Holy Water (Flask)		PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Flask.Consumable.Weapon.Ranged.Thrown.Splash	CRITMULT:x2			CRITRANGE:1	DAMAGE:1d6	RANGE:10	SIZE:M	COST:25		WT:1	SOURCEPAGE:p.160																		SPROP:thown splash weapon see p.202
+Smokestick								TYPE:Goods.Alchemical.Consumable														COST:20		WT:0.5	SOURCEPAGE:p.160																		SPROP:creates 10ft cube of smoke as per fog cloud
+Sunrod									TYPE:Goods.Alchemical.Consumable.LightSource													COST:2		WT:1	SOURCEPAGE:p.160	QUALITY:Bright Illumination|30 ft.	QUALITY:Shadowy Illumination|60 ft.	QUALITY:Duration|6 hr.
+Tanglefoot Bag			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Splash								RANGE:10	SIZE:M	COST:50		WT:4	SOURCEPAGE:p.160																		SPROP:Ranged Touch attack entangles up to large creatures DC15 reflex
+Thunderstone			PROFICIENCY:WEAPON|Splash Weapon	TYPE:Goods.Alchemical.Consumable.Weapon.Ranged.Thrown.Sonic.Splash							RANGE:20	SIZE:M	COST:30		WT:1	SOURCEPAGE:p.160																		SPROP:Ranged attack on target square (AC5), 10ft radius effect, DC15 fortitude save or be deafened
+Tindertwig								TYPE:Goods.Alchemical.Consumable														COST:1			SOURCEPAGE:p.160																		SPROP:lights a torch with a standard action
 
 ###Block: Tools and Skill Kits
 # Equipment Name				Type									Contains		Number of Pages	Page Usage				Cost		Weight	Modifier					Source Page		Bonus to skill													Special Property
@@ -236,30 +236,30 @@ Musical Instrument (Harp)		TYPE:Goods.Tools.Instrument.String.Resizable									
 Musical Instrument (Lute)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Musical Instrument (Mandolin)		TYPE:Goods.Tools.Instrument.String.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (String Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Musical Instrument (Flute)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Musical Instrument (Pan Pipes)	TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3									SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Musical Instrument (Recorder)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Musical Instrument (Trumpet)		TYPE:Goods.Tools.Instrument.Wind.Resizable													COST:5	WT:3								SOURCEPAGE:p.161	BONUS:SKILL|Perform (Wind Instruments)|2|TYPE=Circumstance|PRETYPE:1,Masterwork
-Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1								SOURCEPAGE:p.161																SPROP:+2 to appraise items valued by weight
+Scale (Merchant's)			TYPE:Goods.Tools																		COST:2	WT:1						SOURCEPAGE:p.161																SPROP:+2 to appraise items valued by weight
 Spell Component Pouch			TYPE:Goods.Tools.Container					CONTAINS:UNLIM									COST:5	WT:2								SOURCEPAGE:p.161
-Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3								SOURCEPAGE:p.161
-Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools															COST:30	WT:1								SOURCEPAGE:p.161	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
+Spellbook (Wizard's/Blank)		TYPE:Goods.Tools.Spellbook								NUMPAGES:100	PAGEUSAGE:max(SPELLLEVEL,1)	COST:15	WT:3									SOURCEPAGE:p.161
+Thieves' Tools				TYPE:Goods.Tools.Thief.ThiefTools															COST:30	WT:1							SOURCEPAGE:p.161	BONUS:SKILL|Disable Device|2|TYPE=Circumstance|PRETYPE:1,Masterwork
 Unholy Symbol (Wooden)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:1									SOURCEPAGE:p.161
 Unholy Symbol (Silver)			TYPE:Goods.Tools.SpellComponent.DivineFocus													COST:25	WT:1								SOURCEPAGE:p.161
 
 ###Block: Clothing
-# Equipment Name		Unique Key				SORTKEY					Output Name				Type							Cost		Weight	Source Page		Special Property
-Outfit (Artisan's)	KEY:Outfit (Artisan's)		SORTKEY:Outfit (Artisan's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:4		SOURCEPAGE:p.161
-Vestments (Cleric's)	KEY:Vestments (Cleric's)	SORTKEY:Vestments (Cleric's)		OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.161
-Outfit (Cold-Weather)	KEY:Outfit (Cold-Weather)	SORTKEY:Outfit (Cold-Weather)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8	WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
-Outfit (Courtier's)	KEY:Outfit (Courtier's)		SORTKEY:Outfit (Courtier's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:30	WT:6		SOURCEPAGE:p.161
-Outfit (Entertainer's)	KEY:Outfit (Entertainer's)	SORTKEY:Outfit (Entertainer's)	OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3	WT:4		SOURCEPAGE:p.161
-Outfit (Explorer's)	KEY:Outfit (Explorer's)		SORTKEY:Outfit (Explorer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10	WT:8		SOURCEPAGE:p.161
-Outfit (Monk's)		KEY:Outfit (Monk's)		SORTKEY:Outfit (Monk's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:2		SOURCEPAGE:p.162
-Outfit (Noble's)		KEY:Outfit (Noble's)		SORTKEY:Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:75	WT:10		SOURCEPAGE:p.162
+# Equipment Name		Unique Key				SORTKEY					Output Name				Type		Cost		Weight		Source Page		Special Property
+Outfit (Artisan's)	KEY:Outfit (Artisan's)		SORTKEY:Outfit (Artisan's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1		WT:4		SOURCEPAGE:p.161
+Vestments (Cleric's)	KEY:Vestments (Cleric's)	SORTKEY:Vestments (Cleric's)		OUTPUTNAME:[NAME] Vestments	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:6		SOURCEPAGE:p.161
+Outfit (Cold-Weather)	KEY:Outfit (Cold-Weather)	SORTKEY:Outfit (Cold-Weather)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:8		WT:7		SOURCEPAGE:p.161	SPROP: +5 circumstance bonus on Fortitude saves vs cold weather
+Outfit (Courtier's)	KEY:Outfit (Courtier's)		SORTKEY:Outfit (Courtier's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:30		WT:6		SOURCEPAGE:p.161
+Outfit (Entertainer's)	KEY:Outfit (Entertainer's)	SORTKEY:Outfit (Entertainer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:3		WT:4		SOURCEPAGE:p.161
+Outfit (Explorer's)	KEY:Outfit (Explorer's)		SORTKEY:Outfit (Explorer's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:10		WT:8		SOURCEPAGE:p.161
+Outfit (Monk's)		KEY:Outfit (Monk's)		SORTKEY:Outfit (Monk's)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:2		SOURCEPAGE:p.162
+Outfit (Noble's)	KEY:Outfit (Noble's)		SORTKEY:Outfit (Noble's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:75		WT:10		SOURCEPAGE:p.162
 Outfit (Peasant's)	KEY:Outfit (Peasant's)		SORTKEY:Outfit (Peasant's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:0.1	WT:2		SOURCEPAGE:p.162
-Outfit (Royal)		KEY:Outfit (Royal)		SORTKEY:Outfit (Royal)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable			COST:200	WT:15		SOURCEPAGE:p.162
-Outfit (Scholar's)	KEY:Outfit (Scholar's)		SORTKEY:Outfit (Scholar's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5	WT:6		SOURCEPAGE:p.162
-Outfit (Traveler's)	KEY:Outfit (Traveler's)		SORTKEY:Outfit (Traveler's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1	WT:5		SOURCEPAGE:p.162
+Outfit (Royal)		KEY:Outfit (Royal)		SORTKEY:Outfit (Royal)			OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable		COST:200	WT:15		SOURCEPAGE:p.162
+Outfit (Scholar's)	KEY:Outfit (Scholar's)		SORTKEY:Outfit (Scholar's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:5		WT:6		SOURCEPAGE:p.162
+Outfit (Traveler's)	KEY:Outfit (Traveler's)		SORTKEY:Outfit (Traveler's)		OUTPUTNAME:[NAME] Outfit	TYPE:Goods.Clothing.Resizable.Starting	COST:1		WT:5		SOURCEPAGE:p.162
 
 ###Block:Food, Drink, and Lodging
 # Equipment Name		Type							Cost		Weight	Source Page
