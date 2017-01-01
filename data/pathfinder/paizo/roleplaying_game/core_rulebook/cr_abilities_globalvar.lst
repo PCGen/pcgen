@@ -342,6 +342,8 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ClassSkills|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape6|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape8|0
 
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_DruidDomain|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AnimalCompanion|0
 
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
@@ -357,6 +359,9 @@ CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Drui
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
+
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_DruidDomain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_DruidDomain=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_AnimalCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AnimalCompanion=True
 
 # Old Style
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
