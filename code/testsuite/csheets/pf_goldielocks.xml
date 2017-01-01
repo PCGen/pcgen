@@ -1007,9 +1007,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+36/+36</hit>
+					<hit>+39/+39</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+36/+36</total_hit>
+					<total_hit>+39/+39</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Off-hand</hand>
@@ -1023,7 +1023,7 @@ BIO
 				<sequence>2</sequence>
 			</common>
 			<simple>
-				<to_hit>+36/+36</to_hit>
+				<to_hit>+39/+39</to_hit>
 				<damage>2d8+8</damage>
 				<range>0 ft.</range>
 			</simple>
@@ -1040,9 +1040,9 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+36</hit>
+					<hit>+39</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+36</total_hit>
+					<total_hit>+39</total_hit>
 				</to_hit>
 				<feat></feat>
 				<hand>Off-hand</hand>
@@ -1056,7 +1056,7 @@ BIO
 				<sequence>3</sequence>
 			</common>
 			<simple>
-				<to_hit>+36</to_hit>
+				<to_hit>+39</to_hit>
 				<damage>4d6+24</damage>
 				<range>0 ft.</range>
 			</simple>
@@ -1121,7 +1121,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+			<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1147,7 +1147,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+			<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1173,7 +1173,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1199,7 +1199,7 @@ BIO
 				<short>M</short>
 			</size>
 			<special_properties></special_properties>
-			<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+			<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 			<weight>0</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -1229,7 +1229,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
+					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1250,7 +1250,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
+					<type>WEAPON.NATURAL.NATURALPRIMARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.PIERCING.SLASHING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1271,7 +1271,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
@@ -1292,7 +1292,7 @@ BIO
 						<short>M</short>
 					</size>
 					<special_properties></special_properties>
-					<type>WEAPON.NATURAL.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
+					<type>WEAPON.NATURAL.NATURALSECONDARY.WEAPON GROUP NATURAL.MELEE.FINESSEABLE.BLUDGEONING</type>
 					<weight>0</weight>
 					<bonuslist></bonuslist>
 				</item>
