@@ -226,7 +226,7 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
     with optionalData
 }
 
-
+// The perl executable is flagged as an error - not using currently.
 // Generate the publisher/data list for the Windows installer script
 task genDataList << {
     new ByteArrayOutputStream().withStream { os ->
@@ -239,6 +239,7 @@ task genDataList << {
         println os.toString()
     }
 }
+
 
 // Create the version specific config files for NSIS
 task genProjectNsis << {
@@ -330,7 +331,9 @@ task checksum(dependsOn: assembleArtifacts) << {
     }
 }
 
-task prepareRelease (dependsOn: ['clean', 'build', 'genDataList']) {
+
+// genDataList removed as it causes release errors	, 'genDataList'
+task prepareRelease (dependsOn: ['clean', 'build']) {
     description="Prepare PCGen for release. This will update and commit the version, do a clean build including the unit tests and generate the data list for the installer."
 }
 

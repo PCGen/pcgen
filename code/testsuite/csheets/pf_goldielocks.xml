@@ -83,13 +83,13 @@ BIO
 		<favoredlist></favoredlist>
 		<followerlist></followerlist>
 		<gender>
-			<long>Male</long>
-			<short>Male</short>
+			<long>Female</long>
+			<short>Female</short>
 		</gender>
 		<handed>Right</handed>
 		<height>
-			<total>0&#39; 0&quot;</total>
-			<feet>0</feet>
+			<total>75&#39; 0&quot;</total>
+			<feet>75</feet>
 			<inches>0</inches>
 		</height>
 		<hitdice>(30d12)+270</hitdice>
@@ -145,8 +145,8 @@ BIO
 		</vision>
 		<wealth>0</wealth>
 		<weight>
-			<weight_unit>0 lbs.</weight_unit>
-			<weight_nounit>0</weight_nounit>
+			<weight_unit>10000 lbs.</weight_unit>
+			<weight_nounit>10000</weight_nounit>
 		</weight>
 		<poolpoints>
 			<cost>0</cost>
@@ -998,8 +998,8 @@ BIO
 		<weapon>
 			<common>
 				<name>
-					<short>*Wings</short>
-					<long>*Wings (Natural/Secondary)</long>
+					<short>*Tail Slap</short>
+					<long>*Tail Slap (Natural/Primary)</long>
 				</name>
 				<category>Natural-Natural,Melee</category>
 				<critical>
@@ -1007,13 +1007,13 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+39/+39</hit>
+					<hit>+36</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+39/+39</total_hit>
+					<total_hit>+36</total_hit>
 				</to_hit>
 				<feat></feat>
-				<hand>Off-hand</hand>
-				<num_attacks>5</num_attacks>
+				<hand>Primary</hand>
+				<num_attacks>4</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1023,16 +1023,16 @@ BIO
 				<sequence>2</sequence>
 			</common>
 			<simple>
-				<to_hit>+39/+39</to_hit>
-				<damage>2d8+8</damage>
+				<to_hit>+36</to_hit>
+				<damage>4d6+24</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
 		<weapon>
 			<common>
 				<name>
-					<short>*Tail Slap</short>
-					<long>*Tail Slap (Natural/Secondary)</long>
+					<short>*Wing</short>
+					<long>*Wing (Natural/Primary)</long>
 				</name>
 				<category>Natural-Natural,Melee</category>
 				<critical>
@@ -1040,13 +1040,13 @@ BIO
 					<multiplier>2</multiplier>
 				</critical>
 				<to_hit>
-					<hit>+39</hit>
+					<hit>+36/+36</hit>
 					<magic_hit>+0</magic_hit>
-					<total_hit>+39</total_hit>
+					<total_hit>+36/+36</total_hit>
 				</to_hit>
 				<feat></feat>
-				<hand>Off-hand</hand>
-				<num_attacks>4</num_attacks>
+				<hand>Primary</hand>
+				<num_attacks>5</num_attacks>
 				<reach>20</reach>
 				<size>M</size>
 				<special_properties></special_properties>
@@ -1056,8 +1056,8 @@ BIO
 				<sequence>3</sequence>
 			</common>
 			<simple>
-				<to_hit>+39</to_hit>
-				<damage>4d6+24</damage>
+				<to_hit>+36/+36</to_hit>
+				<damage>2d8+8</damage>
 				<range>0 ft.</range>
 			</simple>
 		</weapon>
@@ -1152,9 +1152,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Wings (Natural/Secondary)</longname>
+			<longname>Tail Slap (Natural/Primary)</longname>
 			<id></id>
-			<name>Wings</name>
+			<name>Tail Slap</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1178,9 +1178,9 @@ BIO
 			<bonuslist></bonuslist>
 		</item>
 		<item>
-			<longname>Tail Slap (Natural/Secondary)</longname>
+			<longname>Wing (Natural/Primary)</longname>
 			<id></id>
-			<name>Tail Slap</name>
+			<name>Wing</name>
 			<carried>1.0</carried>
 			<charges></charges>
 			<charges_used></charges_used>
@@ -1255,7 +1255,7 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Wings</name>
+					<name>Tail Slap</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
@@ -1276,7 +1276,7 @@ BIO
 					<bonuslist></bonuslist>
 				</item>
 		<item>
-					<name>Tail Slap</name>
+					<name>Wing</name>
 					<carried>1.0</carried>
 					<charges></charges>
 					<charges_used></charges_used>
@@ -2139,7 +2139,7 @@ BIO
 	  ====================================
 	  ====================================-->
 	<!-- Domains -->
-	<weapon_proficiencies>Bite, Claws, Tail Slap, Wings</weapon_proficiencies>
+	<weapon_proficiencies>Bite, Claws, Tail Slap, Wing</weapon_proficiencies>
 	<languages>Draconic</languages>
 
 	<templates>
