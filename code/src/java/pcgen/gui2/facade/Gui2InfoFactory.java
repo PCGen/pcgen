@@ -2444,7 +2444,7 @@ public class Gui2InfoFactory implements InfoFactory
 			{
 				Visibility visibility = def.getVisibility();
 				if (visibility != null &&
-						def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 				{
 					FactSetKey<?> fk = def.getFactSetKey();
 					String s = getSetString(cdo, fk);
