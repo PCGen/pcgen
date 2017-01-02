@@ -181,6 +181,11 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 		return dd.equals(dep);
 	}
 
+	/**
+	 * Returns the variable name of the source variable of this DynamicEdge.
+	 * 
+	 * @return The varible name of the source variable of this DynamicEdge
+	 */
 	public String getSourceName()
 	{
 		return ((VariableID<?>) getNodeAt(0)).getName();

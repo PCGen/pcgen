@@ -31,7 +31,7 @@ import pcgen.base.formula.inst.ScopeInstanceFactory;
  * you have to resolve one variable to know the absolute location of the variable to draw
  * upon).
  */
-public class DynamicDependency
+public class DynamicDependency implements VariableStrategy
 {
 
 	/**
@@ -126,7 +126,8 @@ public class DynamicDependency
 	 * 
 	 * @param varName The source variable name to be added to this DynamicDependency
 	 */
-	public void addVariable(String varName)
+	@Override
+	public void addVariable(DependencyManager mgr, String varName)
 	{
 		sourceVarNames.add(varName);
 	}

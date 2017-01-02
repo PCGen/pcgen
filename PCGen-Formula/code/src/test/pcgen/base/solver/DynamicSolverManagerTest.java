@@ -18,6 +18,7 @@ package pcgen.base.solver;
 import org.junit.Test;
 
 import pcgen.base.formula.base.DependencyManager;
+import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -25,6 +26,7 @@ import pcgen.base.formula.base.Function;
 import pcgen.base.formula.base.LegalScope;
 import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
+import pcgen.base.formula.base.TrainingStrategy;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
 import pcgen.base.formula.base.WriteableVariableStore;
@@ -47,7 +49,9 @@ import pcgen.base.util.TypedKey;
 
 public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 {
-	private ManagerFactory managerFactory = new ManagerFactory(){};
+	private ManagerFactory managerFactory = new ManagerFactory()
+	{
+	};
 	private DynamicSolverManager manager;
 	private LimbManager limbManager;
 	public static final TypedKey<ScopeInstanceFactory> SIFACTORY = new TypedKey<>();
@@ -204,9 +208,9 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		getManager().addModifier(active, useFingers, source);
 
 		assertEquals(10, store.get(result));
-		
+
 		getManager().removeModifier(result, dynamicMod, source);
-		
+
 		assertEquals(0, store.get(result));
 	}
 
@@ -346,8 +350,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		}
 
 		@Override
-		public Object evaluate(EvaluateVisitor visitor, Node[] args,
-			EvaluationManager em)
+		public Object evaluate(EvaluateVisitor visitor, Node[] args, EvaluationManager em)
 		{
 			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
 			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
@@ -364,10 +367,13 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 		{
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
-			DependencyManager trainer = dm.getDynamicTrainer();
+			TrainingStrategy ts = new TrainingStrategy();
+			DependencyManager trainer = dm.getWith(DependencyManager.VARSTRATEGY, ts);
 			visitor.visitVariable(varName, trainer);
-			DependencyManager dynamic = trainer.getDynamic("LIMB");
+			DynamicDependency dd = new DynamicDependency(ts.getControlVar(), "LIMB");
+			DependencyManager dynamic = dm.getWith(DependencyManager.VARSTRATEGY, dd);
 			visitor.visitVariable(name, dynamic);
+			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
 		}
 	}
 }
