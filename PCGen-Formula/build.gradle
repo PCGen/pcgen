@@ -8,7 +8,7 @@
  * Full build: gradle all 
  */
 plugins {
-    id "ca.coglinc.javacc" version "2.3.1"
+    id "ca.coglinc.javacc" version "2.4.0"
     id 'java'
     id 'eclipse'
     id 'jacoco'
@@ -46,11 +46,6 @@ dependencies {
 }
 
 sourceSets {
-    jjtree {
-        java {
-            srcDirs 'code/src/jjtree'
-        }
-    }
     main {
         java {
             srcDirs 'code/src/java'
@@ -94,14 +89,16 @@ uploadArchives {
 }
 
 compileJjtree {
-    inputDirectory = file('code/src/java')
+    inputDirectory = file('code/src/jjtree')
     //We consciously choose to put the output in the main repo tree so that SimpleNode only exists once...
-    outputDirectory = file('code/src/java/')
+    outputDirectory = file('code/src/javacc/')
+    include '**/*.java'
 }
 
 compileJavacc {
-    inputDirectory = file('code/src/java/')
+    inputDirectory = file('code/src/javacc/')
     outputDirectory = file('code/src/java/')
+    //include '**/*.java'
 }
 
 // Calculate the version number - runs in the parse phase

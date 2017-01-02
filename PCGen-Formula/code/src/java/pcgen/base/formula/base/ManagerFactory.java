@@ -39,7 +39,7 @@ public interface ManagerFactory
 	public default DependencyManager generateDependencyManager(
 		FormulaManager formulaManager, ScopeInstance scopeInst, Class<?> assertedFormat)
 	{
-		DependencyManager fdm = new DependencyManager();
+		DependencyManager fdm = new DependencyManagerInst();
 		fdm = fdm.getWith(DependencyManager.FMANAGER, formulaManager);
 		fdm = fdm.getWith(DependencyManager.INSTANCE, scopeInst);
 		return fdm.getWith(DependencyManager.ASSERTED, assertedFormat);

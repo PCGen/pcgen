@@ -18,7 +18,6 @@ package pcgen.base.solver;
 import org.junit.Test;
 
 import pcgen.base.formula.base.DependencyManager;
-import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.EvaluationManager;
 import pcgen.base.formula.base.FormulaManager;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -348,30 +347,27 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 		@Override
 		public Object evaluate(EvaluateVisitor visitor, Node[] args,
-			EvaluationManager manager)
+			EvaluationManager em)
 		{
-			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, manager);
-			FormulaManager fManager = manager.get(EvaluationManager.FMANAGER);
+			VarScoped vs = (VarScoped) args[0].jjtAccept(visitor, em);
+			FormulaManager fManager = em.get(EvaluationManager.FMANAGER);
 			ScopeInstanceFactory siFactory = fManager.getScopeInstanceFactory();
 			ScopeInstance scopeInst = siFactory.get("LIMB", vs);
 			//Rest of Equation
 			return args[1].jjtAccept(visitor,
-				manager.getWith(EvaluationManager.INSTANCE, scopeInst));
+				em.getWith(EvaluationManager.INSTANCE, scopeInst));
 		}
 
 		@Override
-		public void getDependencies(DependencyVisitor visitor, DependencyManager manager,
+		public void getDependencies(DependencyVisitor visitor, DependencyManager dm,
 			Node[] args)
 		{
-			FormulaManager fManager = manager.get(DependencyManager.FMANAGER);
 			String varName = ((SimpleNode) args[0]).getText();
 			String name = ((SimpleNode) args[1]).getText();
-			VariableID<?> varID = visitor.getVariableID(varName, manager);
-			DynamicDependency dd =
-					new DynamicDependency(fManager.getFactory(), varID, "LIMB", name);
-			manager.get(DependencyManager.DYNAMIC).addDependency(dd);
+			DependencyManager trainer = dm.getDynamicTrainer();
+			visitor.visitVariable(varName, trainer);
+			DependencyManager dynamic = trainer.getDynamic("LIMB");
+			visitor.visitVariable(name, dynamic);
 		}
-
 	}
-
 }
