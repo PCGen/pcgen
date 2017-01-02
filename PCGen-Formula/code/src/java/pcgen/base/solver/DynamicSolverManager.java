@@ -410,6 +410,7 @@ public class DynamicSolverManager implements SolverManager
 			}
 			dynamic.removeNode(target);
 			dependencies.removeEdge(target);
+			dependencies.addEdge(newTarget);
 			dynamic.addEdge(newEdge);
 			solveFromNode(newTarget.getNodeAt(1));
 		}
