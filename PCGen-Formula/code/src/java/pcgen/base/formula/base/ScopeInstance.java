@@ -65,6 +65,11 @@ public interface ScopeInstance extends Identified
 	 */
 	public ScopeInstance getParentScope();
 
+	/**
+	 * Returns the owning object for this ScopeInstance.
+	 * 
+	 * @return The owning object for this ScopeInstance
+	 */
 	public VarScoped getOwningObject();
 
 }

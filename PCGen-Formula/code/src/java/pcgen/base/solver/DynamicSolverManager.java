@@ -49,6 +49,7 @@ import pcgen.base.util.FormatManager;
  * consider items as represented by a given "VariableID", whereas the DynamicSolverManager
  * will build and manage the associated Solver for that VariableID.
  */
+@SuppressWarnings("PMD.TooManyMethods")
 public class DynamicSolverManager implements SolverManager
 {
 
@@ -214,18 +215,18 @@ public class DynamicSolverManager implements SolverManager
 			source, varID.getFormatManager().getManagedClass());
 		fdm = fdm.getWith(DependencyManager.DYNAMIC, new DynamicManager());
 		modifier.getDependencies(fdm);
-		for (VariableID<?> depID : fdm.getVariables())
-		{
-			ensureSolverExists(depID);
-			/*
-			 * Better to use depID here rather than Solver: (1) No order of operations
-			 * risk (2) Process can still write to cache knowing ID
-			 */
-			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
-			DefaultDirectionalGraphEdge<VariableID<?>> edge =
-					new DefaultDirectionalGraphEdge<>(depID, varID);
-			dependencies.addEdge(edge);
-		}
+		addDirectDependencies(varID, fdm);
+		addDynamicDependencies(varID, fdm);
+		//Cast above effectively enforced here
+		solver.addModifier(modifier, source);
+		/*
+		 * Solve this solver and anything that requires it (recursively)
+		 */
+		solveFromNode(varID);
+	}
+
+	private <T> void addDynamicDependencies(VariableID<T> varID, DependencyManager fdm)
+	{
 		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
 		for (DynamicDependency dep : dd.getDependencies())
 		{
@@ -246,16 +247,27 @@ public class DynamicSolverManager implements SolverManager
 				DefaultDirectionalGraphEdge<VariableID<?>> edge =
 						new DefaultDirectionalGraphEdge<>(input, varID);
 				dependencies.addEdge(edge);
+				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 				DynamicEdge de = new DynamicEdge(controlVar, edge, dep);
 				dynamic.addEdge(de);
 			}
 		}
-		//Cast above effectively enforced here
-		solver.addModifier(modifier, source);
-		/*
-		 * Solve this solver and anything that requires it (recursively)
-		 */
-		solveFromNode(varID);
+	}
+
+	private <T> void addDirectDependencies(VariableID<T> varID, DependencyManager fdm)
+	{
+		for (VariableID<?> depID : fdm.getVariables())
+		{
+			ensureSolverExists(depID);
+			/*
+			 * Better to use depID here rather than Solver: (1) No order of operations
+			 * risk (2) Process can still write to cache knowing ID
+			 */
+			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
+			DefaultDirectionalGraphEdge<VariableID<?>> edge =
+					new DefaultDirectionalGraphEdge<>(depID, varID);
+			dependencies.addEdge(edge);
+		}
 	}
 
 	private void ensureSolverExists(VariableID<?> varID)
@@ -537,6 +549,10 @@ public class DynamicSolverManager implements SolverManager
 	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
 	 * Format.
 	 * 
+	 * @param varFormat
+	 *            The variable format for which the default value should be returned
+	 * @param <T>
+	 *            The format for which the default value should be returned
 	 * @return The Default Value for the given Variable Format.
 	 */
 	public <T> T getDefaultValue(Class<T> varFormat)

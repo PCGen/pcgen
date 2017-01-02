@@ -55,7 +55,7 @@ public class DynamicDependency implements VariableStrategy
 	 * Constructs a new DynamicDependency with the given VariableLibrary, Control
 	 * Variable, and source scope name and variable name.
 	 * 
-	 * @param controlID
+	 * @param controlVar
 	 *            The VariableID that contains the variable that controls which local
 	 *            variable scope is used to resolve the source variable name
 	 * @param sourceScopeName

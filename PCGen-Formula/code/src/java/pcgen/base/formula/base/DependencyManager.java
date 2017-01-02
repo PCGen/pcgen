@@ -60,9 +60,17 @@ public class DependencyManager
 
 	private static final VariableStrategy BASE_STRATEGY = new StaticStrategy();
 
+	/**
+	 * A TypedKey used for storing the (static) Variables contained in this DependencyManager.
+	 */
 	public static final TypedKey<ArrayList<VariableID<?>>> VARIABLES =
 			new TypedKey<ArrayList<VariableID<?>>>();
 
+	/**
+	 * A TypedKey used for determining how encountered variables are processed. This can
+	 * be a VariableStrategy that simply provides static behavior, or one that is aware of
+	 * dynamic variables.
+	 */
 	public static final TypedKey<VariableStrategy> VARSTRATEGY =
 			new TypedKey<VariableStrategy>();
 
@@ -130,13 +138,13 @@ public class DependencyManager
 	 * Adds a Variable (identified by the VariableID) to the list of dependencies for a
 	 * Formula.
 	 * 
-	 * @param varID
-	 *            The VariableID to be added as a dependency of the Formula this
+	 * @param varName
+	 *            The name of the variable to be added as a dependency of the Formula this
 	 *            VariableDependencyManager represents
 	 */
-	public void addVariable(String s)
+	public void addVariable(String varName)
 	{
-		get(VARSTRATEGY).addVariable(this, s);
+		get(VARSTRATEGY).addVariable(this, varName);
 	}
 
 	/**

@@ -79,9 +79,12 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * containing the same target and the new source (based on the given VarScoped
 	 * object).
 	 * 
-	 * @param siFactory
-	 *            The ScopeInstanceFactory to be used to resolve the VariableID of the
+	 * @param varLibrary
+	 *            The VariableLibrary to be used to resolve the VariableID of the
 	 *            (dynamic) source
+	 * @param siFactory
+	 *            The ScopeInstanceFactory to be used to resolve the scope instance used
+	 *            to determine the VariableID of the (dynamic) source
 	 * @param vs
 	 *            The (new) VarScoped object that is the source of the dynamic variable
 	 * @param targetVar

@@ -456,6 +456,10 @@ public class AggressiveSolverManager implements SolverManager
 	 * Returns the Default Value (in the underlying SolverFactory) for the given Variable
 	 * Format.
 	 * 
+	 * @param varFormat
+	 *            The variable format for which the default value should be returned
+	 * @param <T>
+	 *            The format for which the default value should be returned
 	 * @return The Default Value for the given Variable Format.
 	 */
 	public <T> T getDefaultValue(Class<T> varFormat)
