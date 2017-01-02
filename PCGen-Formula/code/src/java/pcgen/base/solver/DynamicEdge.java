@@ -47,6 +47,11 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	private final DynamicDependency dd;
 
 	/**
+	 * The dynamic variable name
+	 */
+	private final String varName;
+
+	/**
 	 * Constructs a new DynamicEdge with the given Control Variable, target edge, and
 	 * underlying DynamicDependency.
 	 * 
@@ -64,6 +69,7 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 		DefaultDirectionalGraphEdge<VariableID<?>> targetEdge, DynamicDependency dd)
 	{
 		super(source, targetEdge);
+		varName = targetEdge.getNodeAt(0).getName();
 		this.dd = Objects.requireNonNull(dd);
 	}
 
@@ -185,12 +191,12 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	}
 
 	/**
-	 * Returns the variable name of the source variable of this DynamicEdge.
+	 * Returns the variable name of the source variable of the target edge of this DynamicEdge.
 	 * 
-	 * @return The varible name of the source variable of this DynamicEdge
+	 * @return The variable name of the source variable of the target edge of this DynamicEdge
 	 */
 	public String getSourceName()
 	{
-		return ((VariableID<?>) getNodeAt(0)).getName();
+		return varName;
 	}
 }

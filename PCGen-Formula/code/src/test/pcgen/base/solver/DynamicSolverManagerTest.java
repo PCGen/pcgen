@@ -376,4 +376,62 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 			dm.get(DependencyManager.DYNAMIC).addDependency(dd);
 		}
 	}
+
+	public void testAnother()
+	{
+		ScopeInstance source = getGlobalScopeInst();
+		LegalScope globalScope = getGlobalScope();
+
+		SimpleLegalScope limbScope = new SimpleLegalScope(globalScope, "LIMB");
+		getScopeLibrary().registerScope(limbScope);
+
+		getVarLibrary().assertLegalVariableID("LocalVar", limbScope, numberManager);
+		getVarLibrary().assertLegalVariableID("ResultVar", globalScope, numberManager);
+		getVarLibrary().assertLegalVariableID("EquipVar", globalScope, limbManager);
+
+		WriteableVariableStore store = getVariableStore();
+
+		VariableID<Limb> activeID = (VariableID<Limb>) getVarLibrary()
+			.getVariableID(getGlobalScopeInst(), "EquipVar");
+		VariableID<Number> resultID = (VariableID<Number>) getVarLibrary()
+			.getVariableID(getGlobalScopeInst(), "ResultVar");
+
+		Limb equip = limbManager.convert("EquipKey");
+		ScopeInstance equipInst = getScopeInstance("LIMB", equip);
+		Limb equipalt  = limbManager.convert("EquipAlt");
+		ScopeInstance altInst = getScopeInstance("LIMB", equipalt);
+
+		VariableID<Number> equipID =
+				(VariableID<Number>) getVarLibrary().getVariableID(equipInst, "LocalVar");
+		VariableID<Number> altID =
+				(VariableID<Number>) getVarLibrary().getVariableID(altInst, "LocalVar");
+
+		AbstractModifier<Number> two = AbstractModifier.setNumber(2, 5);
+		AbstractModifier<Number> three = AbstractModifier.setNumber(3, 10);
+		AbstractModifier<Number> four = AbstractModifier.setNumber(4, 15);
+		AbstractModifier<Limb> useEquip = AbstractModifier.setObject(equip, 3);
+		AbstractModifier<Limb> useAlt = AbstractModifier.setObject(equipalt, 5);
+
+		manager.addModifier(equipID, two, equipInst);
+		manager.addModifier(altID, three, altInst);
+		assertEquals(2, store.get(equipID));
+		assertEquals(3, store.get(altID));
+		//assertEquals(0, store.get(resultID));
+
+		manager.addModifier(activeID, useEquip, source);
+
+		getFunctionLibrary().addFunction(new Dynamic());
+		ComplexNEPFormula<Number> dynamicformula =
+				new ComplexNEPFormula<Number>("dynamic(equipVar, localVar)");
+		Modifier<Number> dynamicMod = AbstractModifier.add(dynamicformula, 100);
+
+		manager.addModifier(resultID, dynamicMod, source);
+		assertEquals(2, store.get(resultID));
+
+		manager.addModifier(activeID, useAlt, source);
+		assertEquals(3, store.get(resultID));
+
+		manager.addModifier(altID, four, altInst);
+		assertEquals(4, store.get(resultID));
+	}
 }
