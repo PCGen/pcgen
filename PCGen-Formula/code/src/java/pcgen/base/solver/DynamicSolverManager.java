@@ -31,6 +31,7 @@ import pcgen.base.formula.base.ManagerFactory;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.base.WriteableVariableStore;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -222,20 +223,13 @@ public class DynamicSolverManager implements SolverManager
 			 */
 			@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
 			DefaultDirectionalGraphEdge<VariableID<?>> edge =
-					new DefaultDirectionalGraphEdge<VariableID<?>>(depID, varID);
+					new DefaultDirectionalGraphEdge<>(depID, varID);
 			dependencies.addEdge(edge);
 		}
 		DynamicManager dd = fdm.get(DependencyManager.DYNAMIC);
 		for (DynamicDependency dep : dd.getDependencies())
 		{
 			VariableID<?> controlVar = dep.getControlVar();
-			if (!VarScoped.class
-				.isAssignableFrom(controlVar.getFormatManager().getManagedClass()))
-			{
-				throw new IllegalArgumentException(
-					"Request to add Dynamic Dependency to Solver based on " + controlVar
-						+ " but that variable cannot be VarScoped");
-			}
 			VarScoped vs = (VarScoped) resultStore.get(controlVar);
 			if (vs == null)
 			{
@@ -244,13 +238,17 @@ public class DynamicSolverManager implements SolverManager
 						+ controlVar.getFormatManager()
 						+ " because no default was provided for that format");
 			}
-			VariableID<?> variableID =
-					dep.generateSourceVarID(formulaManager.getScopeInstanceFactory(), vs);
-			DefaultDirectionalGraphEdge<VariableID<? extends Object>> edge =
-					new DefaultDirectionalGraphEdge<>(variableID, varID);
-			DynamicEdge de = new DynamicEdge(dep.getControlVar(), edge, dep);
-			dynamic.addEdge(de);
-			dependencies.addEdge(de.getTargetEdge());
+			List<VariableID<?>> inputs = dep.generateSources(formulaManager.getFactory(),
+				formulaManager.getScopeInstanceFactory(), vs);
+			for (VariableID<?> input : inputs)
+			{
+				@SuppressWarnings("PMD.AvoidInstantiatingObjectsInLoops")
+				DefaultDirectionalGraphEdge<VariableID<?>> edge =
+						new DefaultDirectionalGraphEdge<>(input, varID);
+				dependencies.addEdge(edge);
+				DynamicEdge de = new DynamicEdge(controlVar, edge, dep);
+				dynamic.addEdge(de);
+			}
 		}
 		//Cast above effectively enforced here
 		solver.addModifier(modifier, source);
@@ -433,11 +431,12 @@ public class DynamicSolverManager implements SolverManager
 		}
 		VarScoped vs = (VarScoped) resultStore.get(varID);
 		ScopeInstanceFactory siFactory = formulaManager.getScopeInstanceFactory();
+		VariableLibrary varLibrary = formulaManager.getFactory();
 		for (DynamicEdge edge : dynamic.getAdjacentEdges(varID))
 		{
 			DefaultDirectionalGraphEdge<VariableID<?>> target = edge.getTargetEdge();
-			DynamicEdge newEdge =
-					edge.createReplacement(siFactory, vs, target.getNodeAt(1));
+			DynamicEdge newEdge = edge.createReplacement(varLibrary, siFactory, vs,
+				target.getNodeAt(1));
 			DefaultDirectionalGraphEdge<VariableID<?>> newTarget =
 					newEdge.getTargetEdge();
 			dynamic.removeEdge(edge);

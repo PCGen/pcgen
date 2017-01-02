@@ -22,6 +22,7 @@ import java.util.Objects;
 import pcgen.base.formula.base.DynamicDependency;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
+import pcgen.base.formula.base.VariableLibrary;
 import pcgen.base.formula.inst.ScopeInstanceFactory;
 import pcgen.base.graph.base.DirectionalEdge;
 import pcgen.base.graph.inst.DefaultDirectionalGraphEdge;
@@ -49,7 +50,7 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * Constructs a new DynamicEdge with the given Control Variable, target edge, and
 	 * underlying DynamicDependency.
 	 * 
-	 * @param controlVar
+	 * @param source
 	 *            VariableID that contains the variable that controls the contents of the
 	 *            targetEdge
 	 * @param targetEdge
@@ -59,10 +60,10 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 *            The underlying DynamicDependency that has the information about the
 	 *            original dependency
 	 */
-	public DynamicEdge(VariableID<?> controlVar,
+	public DynamicEdge(VariableID<?> source,
 		DefaultDirectionalGraphEdge<VariableID<?>> targetEdge, DynamicDependency dd)
 	{
-		super(controlVar, targetEdge);
+		super(source, targetEdge);
 		this.dd = Objects.requireNonNull(dd);
 	}
 
@@ -89,12 +90,13 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	 * @return a replacement DynamicEdge for this DynamicEdge, with the target edge
 	 *         containing the same target and the new source
 	 */
-	public DynamicEdge createReplacement(ScopeInstanceFactory siFactory, VarScoped vs,
-		VariableID<?> targetVar)
+	public DynamicEdge createReplacement(VariableLibrary varLibrary,
+		ScopeInstanceFactory siFactory, VarScoped vs, VariableID<?> targetVar)
 	{
-		VariableID<?> variableID = dd.generateSourceVarID(siFactory, vs);
-		DefaultDirectionalGraphEdge<VariableID<? extends Object>> edge =
-				new DefaultDirectionalGraphEdge<>(variableID, targetVar);
+		VariableID<?> input =
+				dd.generateSource(varLibrary, siFactory, vs, getSourceName());
+		DefaultDirectionalGraphEdge<VariableID<?>> edge =
+				new DefaultDirectionalGraphEdge<>(input, targetVar);
 		return new DynamicEdge((VariableID<?>) getNodeAt(0), edge, dd);
 	}
 
@@ -177,5 +179,15 @@ public class DynamicEdge extends DefaultGraphEdge<Object>
 	public boolean isDependency(DynamicDependency dep)
 	{
 		return dd.equals(dep);
+	}
+
+	/**
+	 * Returns the variable name of the source variable of this DynamicEdge.
+	 * 
+	 * @return The varible name of the source variable of this DynamicEdge
+	 */
+	public String getSourceName()
+	{
+		return ((VariableID<?>) getNodeAt(0)).getName();
 	}
 }
