@@ -1841,6 +1841,37 @@ ${pcstring('ABILITYALL.Special Ability.VISIBLE.${specialQuality}.TYPE=SpecialQua
  </tr>
 <!-- STOP Feat Table -->
 
+<!-- START PFS Boon Table -->
+ <tr>
+  <td>
+<#if (pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")') > 0)>
+   <table width="100%" cellspacing="0" cellpadding="2" summary="Feat Table">
+    <tr>
+     <th bgcolor="black" align="center" colspan="2"><font color="white" style="font-size: small"><b>PFS Boons</b></font></th>
+    </tr>
+<@loop from=0 to=pcvar('count("ABILITIES","CATEGORY=Special Ability","TYPE=PFSBoon","VISIBILITY=DEFAULT[or]VISIBILITY=OUTPUT_ONLY")-1') ; PFSBoon , PFSBoon_has_next>
+<#if (PFSBoon % 2 = 0)><tr bgcolor="#DDDDDD"><#else><tr bgcolor="white"></#if>
+     <td valign="top" class="font8"><b>
+<#assign typeOfAbility = pcstring("ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.TYPE")?lower_case />
+<#if (pcstring("ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.HASASPECT.Name") = "Y")>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.ASPECT.Name')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+<#else>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon')}
+<@typeOfAbilitySuffix typeOfAbility=typeOfAbility />
+</#if>
+:</b>
+${pcstring('ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.DESC')}
+<i>&#8212; [${pcstring('ABILITYALL.Special Ability.VISIBLE.${PFSBoon}.TYPE=PFSBoon.SOURCE')}]</i>
+    </td>
+    </tr>
+</@loop>
+   </table>
+</#if>
+  </td>
+ </tr>
+<!-- STOP PFS Boon Table -->
+
 <!-- START PFS Chronicle Table -->
  <tr>
   <td>

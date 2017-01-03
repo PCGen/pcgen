@@ -1,9 +1,9 @@
 # CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name			Category of Ability	Type						Ability																																	Stat bonus
-Race Traits ~ Skinwalker	CATEGORY:Internal								ABILITY:Skinwalker Heritage|AUTOMATIC|Skinwalker|!PREABILITY:1,CATEGORY=Internal,TYPE.Skinwalker_Heritage
+Race Traits ~ Skinwalker	CATEGORY:Internal								BONUS:ABILITYPOOL|Skinwalker Heritage|1
 
-Skinwalker				CATEGORY:Internal		TYPE:Skinwalker Subrace.Default	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Animal-Minded	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Change Shape	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Spell-Like Ability	BONUS:STAT|WIS|2	BONUS:STAT|INT|-2
+Skinwalker				CATEGORY:Internal		TYPE:Skinwalker Subrace.Default	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Animal-Minded	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Change Shape	ABILITY:Skinwalker Trait|AUTOMATIC|Skinwalker ~ Spell-Like Ability	BONUS:STAT|WIS|2|TYPE=Racial	BONUS:STAT|INT|-2|TYPE=Racial
 ###Block: Skinwalker Defaults
 # Ability Name		Unique Key					Category of Ability		Type										Description																																																																																																																																																																																																																										Source Page
 Animal-Minded		KEY:Skinwalker ~ Animal-Minded	CATEGORY:Special Ability	TYPE:Skinwalker Racial Trait.SpecialQuality			DESC:(2 RP): Skinwalkers have a +2 racial bonus on Handle Animal and wild empathy checks.																																																																																																																																																																																																													SOURCEPAGE:p.7

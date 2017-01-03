@@ -2680,6 +2680,15 @@
 	<@abilityBlock category="PFS Chronicle" nature="ALL" hidden=false typeName="PFSChronicle" nodeName="pfs_chronicle" />
 	</pfs_chronicles>
 	<!--
+	  ====================================
+	  ====================================
+			PFS Boons
+	  ====================================
+	  ====================================-->
+	<pfs_boons>
+	<@abilityBlock category="Special Ability" nature="ALL" hidden=false typeName="PFSBoon" nodeName="pfs_boon" />
+	</pfs_boons>
+	<!--
 	====================================
 	  ====================================
 			Temporary Bonus
