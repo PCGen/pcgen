@@ -22,17 +22,17 @@ import java.util.List;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.solver.AggressiveSolverManager;
 import pcgen.base.solver.ProcessStep;
+import pcgen.base.solver.SolverManager;
 import pcgen.cdom.content.VarModifier;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 
 /**
- * This stores the AggressiveSolverManager for each PlayerCharacter.
+ * This stores the SolverManager for each PlayerCharacter.
  */
 public class SolverManagerFacet extends
-		AbstractItemFacet<CharID, AggressiveSolverManager>
+		AbstractItemFacet<CharID, SolverManager>
 {
 	private VariableLibraryFacet variableLibraryFacet;
 

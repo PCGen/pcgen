@@ -3573,7 +3573,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			dataSet.addEquipment(newEquip);
 		}
-		//TODO if this is returning null, then the AggressiveSolverManager needs to destroy the unused channels :/
+		//TODO if this is returning null, then the SolverManager needs to destroy the unused channels :/
 		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
 

@@ -4,8 +4,13 @@ SOURCELONG:Psionics Unleashed	SOURCESHORT:PsU	SOURCEWEB:http://dreamscarredpress
 # SRD Original Entry: Arknight
 
 # Skill Name		Key Stat	Untrained?		Classes	Type					Visible		Req. Rule (in options)		Prohibited Var. Value									Source Page		Bonus to skill																		Bonus to skill rank
-Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO			TYPE:Wisdom																								SOURCEPAGE:p.37	BONUS:SKILL|Autohypnosis|3|TYPE=ClassSkill|PRECSKILL:1,Autohypnosis|PRESKILL:1,Autohypnosis=1
-Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO			TYPE:Intelligence.Knowledge																					SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Psionics)|PRESKILL:1,Knowledge (Psionics)=1
+Autohypnosis		KEYSTAT:WIS	USEUNTRAINED:NO			TYPE:Wisdom.Base																								SOURCEPAGE:p.37	BONUS:SKILL|Autohypnosis|3|TYPE=ClassSkill|PRECSKILL:1,Autohypnosis|PRESKILL:1,Autohypnosis=1
+Knowledge (Psionics)	KEYSTAT:INT	USEUNTRAINED:NO			TYPE:Intelligence.Knowledge.Base																					SOURCEPAGE:p.38	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=ClassSkill|PRECSKILL:1,Knowledge (Psionics)|PRESKILL:1,Knowledge (Psionics)=1
+
+###Block: Skill Focus Support
+Autohypnosis.MOD			BONUS:SKILL|Autohypnosis|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Autohypnosis)	BONUS:SKILL|Autohypnosis|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Autohypnosis)|PRESKILL:1,Autohypnosis=10
+Knowledge (Psionics).MOD	BONUS:SKILL|Knowledge (Psionics)|3|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Psionics))	BONUS:SKILL|Knowledge (Psionics)|6|TYPE=SkillFocus|PREABILITY:1,CATEGORY=FEAT,Skill Focus (Knowledge (Psionics))|PRESKILL:1,Knowledge (Psionics)=10
+
 
 #Conditional Skills
 Acrobatics (On ship)	KEYSTAT:DEX	USEUNTRAINED:YES	CLASSES:ALL	TYPE:SkillUse			VISIBLE:EXPORT	PRERULE:1,DISPLAYSKILLUSE	PREVARNEQ:var("SKILL.Acrobatics (On ship).MISC"),SKILL.Acrobatics.MISC
