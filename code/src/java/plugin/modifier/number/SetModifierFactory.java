@@ -54,6 +54,11 @@ public class SetModifierFactory extends AbstractSetModifierFactory<Number>
 		ManagerFactory managerFactory, FormulaManager formulaManager, LegalScope varScope,
 		FormatManager<Number> formatManager)
 	{
+		if (!formatManager.getManagedClass().equals(getVariableFormat()))
+		{
+			throw new IllegalArgumentException(
+				"FormatManager must manage " + getVariableFormat().getName());
+		}
 		try
 		{
 			return getFixedModifier(userPriority, formatManager, instructions);
