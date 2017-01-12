@@ -17,8 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
- *
- * Created on Februrary 4th, 2002.
+
  */
 package pcgen.gui2.tools;
 
@@ -59,8 +58,6 @@ import org.jetbrains.annotations.Contract;
 
 /**
  * Convenience methods from various sources.
- *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class Utility
 {
@@ -166,16 +163,7 @@ public final class Utility
 	 */
 	public static void centerComponent(Component dialog)
 	{
-		// since the Toolkit.getScreenSize() method is broken in the Linux implementation
-		// of Java 5  (it returns double the screen size under xinerama), this method is
-		// encapsulated to accomodate this with a hack.
-		// TODO: remove the hack, once Java fixed this.
-		// final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-		final Rectangle screenSize =
-				GraphicsEnvironment.getLocalGraphicsEnvironment()
-						.getDefaultScreenDevice().getDefaultConfiguration()
-						.getBounds();
-
+		final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		final Dimension dialogSize = dialog.getSize();
 
 		if (dialogSize.height > screenSize.height)
@@ -189,8 +177,8 @@ public final class Utility
 		}
 		dialog.setSize(dialogSize);
 
-		dialog.setLocation(screenSize.x + ((screenSize.width - dialogSize.width) / 2),
-		                   screenSize.y + ((screenSize.height - dialogSize.height) / 2));
+		dialog.setLocation(screenSize.width + ((screenSize.width - dialogSize.width) / 2),
+		                   screenSize.height + ((screenSize.height - dialogSize.height) / 2));
 	}
 
 	/**
@@ -276,12 +264,7 @@ public final class Utility
 	 */
 	public static void centerComponent(Component frame, boolean isPopup)
 	{
-		// since the Toolkit.getScreenSize() method is broken in the Linux implementation
-		// of Java 5  (it returns double the screen size under xinerama), this method is
-		// encapsulated to accomodate this with a hack.
-		// TODO: remove the hack, once Java fixed this.
-		// final Dimension screenSize = getScreenSize(Toolkit.getDefaultToolkit());
-		final Rectangle screenSize = GraphicsEnvironment.getLocalGraphicsEnvironment().getDefaultScreenDevice().getDefaultConfiguration().getBounds();
+		final Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 
 		if (isPopup)
 		{
@@ -300,8 +283,8 @@ public final class Utility
 			frameSize.width = screenSize.width;
 		}
 
-		frame.setLocation(screenSize.x + ((screenSize.width - frameSize.width) / 2),
-		                  screenSize.y + ((screenSize.height - frameSize.height) / 2));
+		frame.setLocation(screenSize.width + ((screenSize.width - frameSize.width) / 2),
+		                  screenSize.height + ((screenSize.height - frameSize.height) / 2));
 	}
 
 	/**
@@ -314,7 +297,7 @@ public final class Utility
 		final JFileChooser fc = new JFileChooser();
 		fc.setDialogTitle("Find and select your preferred html browser.");
 
-		if (SystemUtils.IS_OS_MAC || SystemUtils.IS_OS_MAC_OSX)
+		if (SystemUtils.IS_OS_MAC)
 		{
 			// On MacOS X, do not traverse file bundles
 			fc.putClientProperty("JFileChooser.appBundleIsTraversable",
@@ -322,10 +305,6 @@ public final class Utility
 		}
 
 		if (PCGenSettings.getBrowserPath() == null)
-		{
-			//No action, as we have no idea what a good default would be...
-		}
-		else
 		{
 			fc.setCurrentDirectory(new File(PCGenSettings.getBrowserPath()));
 		}
@@ -505,7 +484,6 @@ public final class Utility
 			String shortedString = "..." + str.substring(str.length() - i);
 
 			int width = fm.stringWidth(shortedString);
-			//System.out.println("testing '"+foo+"' = "+width);
 			if (width < maxWidth)
 			{
 				return shortedString;

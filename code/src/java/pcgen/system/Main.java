@@ -87,6 +87,7 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
+
 	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 
