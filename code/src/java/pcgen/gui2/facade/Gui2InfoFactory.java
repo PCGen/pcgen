@@ -15,16 +15,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 07/02/2011 7:13:32 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
 import java.io.File;
 import java.math.BigDecimal;
 import java.text.DecimalFormat;
+import java.text.Format;
 import java.text.NumberFormat;
 import java.util.ArrayList;
 import java.util.Collection;
@@ -38,10 +35,12 @@ import java.util.TreeMap;
 import java.util.TreeSet;
 
 import org.apache.commons.lang3.StringUtils;
+import java.util.stream.Collectors;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.Indirect;
+import pcgen.base.util.Reference;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseInformation;
@@ -86,7 +85,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
 import pcgen.core.Skill;
-import pcgen.core.SpecialProperty;
 import pcgen.core.SubClass;
 import pcgen.core.WeaponProf;
 import pcgen.core.analysis.BonusCalc;
@@ -130,8 +128,10 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
- * The Class <code>Gui2InfoFactory</code> provides character related information 
+ * The Class {@code Gui2InfoFactory} provides character related information
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
@@ -143,8 +143,8 @@ public class Gui2InfoFactory implements InfoFactory
 {
 	/** A default return value for an invalid request. */
 	private static final String EMPTY_STRING = ""; //$NON-NLS-1$
-	private static NumberFormat ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
-	private static NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
+	private static final Format ADJ_FMT = new DecimalFormat("+0;-0"); //$NON-NLS-1$
+	private static final NumberFormat COST_FMT = new DecimalFormat("#,##0.##"); //$NON-NLS-1$
 
 	/** Constant for 2 spaces in HTML */
 	private static final String TWO_SPACES = " &nbsp;"; //$NON-NLS-1$
@@ -163,7 +163,7 @@ public class Gui2InfoFactory implements InfoFactory
 	public Gui2InfoFactory(PlayerCharacter pc)
 	{
 		this.pc = pc;
-		this.charDisplay = pc ==  null ? null : pc.getDisplay();
+		this.charDisplay = (pc == null) ? null : pc.getDisplay();
 	}
 
 	/* (non-Javadoc)
@@ -308,16 +308,16 @@ public class Gui2InfoFactory implements InfoFactory
 			parentClass = (PCClass) parentClassFacade;
 		}
 
-		final HtmlInfoBuilder b =
+		final HtmlInfoBuilder infoBuilder =
 				new HtmlInfoBuilder(OutputNameFormatting
 					.piString(aClass, false));
-		b.appendLineBreak();
+		infoBuilder.appendLineBreak();
 
 		// Subclass cost - at the top to make choices easier
 		if (isSubClass && aClass.getSafe(IntegerKey.COST) != 0)
 		{
-			b.appendI18nElement("in_clInfoCost", String.valueOf(aClass.getSafe(IntegerKey.COST))); //$NON-NLS-1$
-			b.appendLineBreak();
+			infoBuilder.appendI18nElement("in_clInfoCost", String.valueOf(aClass.getSafe(IntegerKey.COST))); //$NON-NLS-1$
+			infoBuilder.appendLineBreak();
 		}
 		
 		// Type
@@ -326,7 +326,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			aString = parentClass.getType();
 		}
-		b.appendI18nElement("in_clInfoType", aString); //$NON-NLS-1$
+		infoBuilder.appendI18nElement("in_clInfoType", aString); //$NON-NLS-1$
 
 		// Hit Die
 		HitDie hitDie = aClass.getSafe(ObjectKey.LEVEL_HITDIE);
@@ -336,11 +336,11 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		if (!HitDie.ZERO.equals(hitDie))
 		{
-			b.appendSpacer();
-			b.appendI18nElement("in_clInfoHD", "d" + hitDie.getDie()); //$NON-NLS-1$  //$NON-NLS-2$
+			infoBuilder.appendSpacer();
+			infoBuilder.appendI18nElement("in_clInfoHD", "d" + hitDie.getDie()); //$NON-NLS-1$  //$NON-NLS-2$
 		}
 
-		appendFacts(b, aClass);
+		appendFacts(infoBuilder, aClass);
 
 		if (SettingsHandler.getGame().getTabShown(Tab.SPELLS))
 		{
@@ -352,8 +352,8 @@ public class Gui2InfoFactory implements InfoFactory
 				aString = parentClass.getSpellType();
 			}
 
-			b.appendSpacer();
-			b.appendI18nElement("in_clInfoSpellType", aString); //$NON-NLS-1$
+			infoBuilder.appendSpacer();
+			infoBuilder.appendI18nElement("in_clInfoSpellType", aString); //$NON-NLS-1$
 
 			aString = aClass.getSpellBaseStat();
 
@@ -370,8 +370,8 @@ public class Gui2InfoFactory implements InfoFactory
 				aString = parentClass.getSpellBaseStat();
 			}
 
-			b.appendSpacer();
-			b.appendI18nElement("in_clInfoBaseStat", aString); //$NON-NLS-1$
+			infoBuilder.appendSpacer();
+			infoBuilder.appendI18nElement("in_clInfoBaseStat", aString); //$NON-NLS-1$
 		}
 
 		// Prereqs
@@ -386,25 +386,25 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		if (!aString.isEmpty())
 		{
-			b.appendLineBreak();
-			b.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
+			infoBuilder.appendLineBreak();
+			infoBuilder.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 		//Description
 		String desc = pc.getDescription(aClass);
 		if (!desc.isEmpty())
 		{
-			b.appendLineBreak();
-			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
+			infoBuilder.appendLineBreak();
+			infoBuilder.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 					DescriptionFormatting.piWrapDesc(aClass, desc, false));
 		}
 		// Sub class extra info
 		if (isSubClass)
 		{
 			int specialtySpells = aClass.getSafe(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY);
-			b.appendLineBreak();
-			b.appendI18nElement("in_clSpecialtySpells", Delta.toString(specialtySpells)); //$NON-NLS-1$
-			b.appendSpacer();
-			b.appendI18nElement("in_clSpecialty", ((SubClass) aClass).getChoice()); //$NON-NLS-1$
+			infoBuilder.appendLineBreak();
+			infoBuilder.appendI18nElement("in_clSpecialtySpells", Delta.toString(specialtySpells)); //$NON-NLS-1$
+			infoBuilder.appendSpacer();
+			infoBuilder.appendI18nElement("in_clSpecialty", ((SubClass) aClass).getChoice()); //$NON-NLS-1$
 		}
 		
 		// Source
@@ -415,11 +415,11 @@ public class Gui2InfoFactory implements InfoFactory
 		}
 		if (!aString.isEmpty())
 		{
-			b.appendLineBreak();
-			b.appendI18nElement("in_source", aString); //$NON-NLS-1$
+			infoBuilder.appendLineBreak();
+			infoBuilder.appendI18nElement("in_source", aString); //$NON-NLS-1$
 		}
 
-		return b.toString();
+		return infoBuilder.toString();
 	}
 
 	/* (non-Javadoc)
@@ -741,7 +741,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(EquipmentFacade equipFacade)
 	{
-		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -1072,9 +1072,8 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(EquipModFacade equipModFacade, EquipmentFacade equipFacade)
 	{
-		if (equipModFacade == null
-			|| !(equipModFacade instanceof EquipmentModifier)
-			|| equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipModFacade instanceof EquipmentModifier)
+				|| equipFacade == null || !(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -1120,23 +1119,19 @@ public class Gui2InfoFactory implements InfoFactory
 			b.appendI18nFormattedElement("in_InfoDescription", //$NON-NLS-1$
 					DescriptionFormatting.piWrapDesc(equipMod, desc, false));
 		}
-		
-		// Special properties
-		StringBuilder sb = new StringBuilder(100);
-		boolean first = true;
-		for (SpecialProperty sp : equipMod.getSafeListFor(ListKey.SPECIAL_PROPERTIES))
-		{
-			if (!first)
-			{
-				sb.append(", ");
-			}
-			first = false;
-			sb.append(sp.getDisplayName());
-		}
-		if (sb.length() > 0)
+
+
+		String specialProperties = StringUtils.join(
+				equipMod.getSafeListFor(ListKey.SPECIAL_PROPERTIES).stream()
+				.map(CDOMObject::getDisplayName)
+				.toArray(),
+				", "
+		);
+
+		if (!specialProperties.isEmpty())
 		{
 			b.appendLineBreak();
-			b.appendI18nElement("in_igInfoLabelTextSprop", sb.toString());
+			b.appendI18nElement("in_igInfoLabelTextSprop", specialProperties);
 		}
 		
 		final String cString =
@@ -1158,50 +1153,8 @@ public class Gui2InfoFactory implements InfoFactory
 
 		return b.toString();
 	}
-	
 
-	/**
-	 * @param equipMod
-	 * @return Object
-	 */
-	protected String getCostValue(EquipmentModifier equipMod)
-	{
-		int iPlus = equipMod.getSafe(IntegerKey.PLUS);
-		StringBuilder eCost = new StringBuilder(20);
 
-		if (iPlus != 0)
-		{
-			eCost.append("Plus:").append(iPlus);
-		}
-
-		Formula baseCost = equipMod.getSafe(FormulaKey.BASECOST);
-
-		if (!"0".equals(baseCost.toString()))
-		{
-			if (eCost.length() != 0)
-			{
-				eCost.append(", ");
-			}
-
-			eCost.append("Precost:").append(baseCost);
-		}
-
-		Formula cost = equipMod.getSafe(FormulaKey.BASECOST);
-
-		if (!"0".equals(cost.toString()))
-		{
-			if (eCost.length() != 0)
-			{
-				eCost.append(", ");
-			}
-
-			eCost.append("Cost:").append(cost);
-		}
-
-		String sRet = eCost.toString();
-		return sRet;
-	}
-	
 	/* (non-Javadoc)
 	 * @see pcgen.core.facade.InfoFactory#getHTMLInfo(pcgen.core.facade.TemplateFacade)
 	 */
@@ -1295,8 +1248,7 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendI18nElement("in_requirements", aString); //$NON-NLS-1$
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<>();
-		sortedObjects.addAll(kit.getSafeListFor(ListKey.KIT_TASKS));
+		List<BaseKit> sortedObjects = new ArrayList<>(kit.getSafeListFor(ListKey.KIT_TASKS));
 		sortedObjects.sort(new ObjectTypeComparator());
 
 		String lastObjectName = EMPTY_STRING;
@@ -1391,33 +1343,32 @@ public class Gui2InfoFactory implements InfoFactory
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_itmInfoLabelTextTarget", targetName); //$NON-NLS-1$
 
-			StringBuilder bonusValues = new StringBuilder(100);
 			Map<BonusObj, TempBonusInfo> bonusMap = pc.getTempBonusMap(originObj.getKeyName(), targetName);
-			boolean first = true;
-			List<BonusObj> bonusList = new ArrayList<>(bonusMap.keySet());
-			bonusList.sort(new BonusComparator());
-			for (BonusObj bonusObj : bonusList)
-			{
-				if (!first)
-				{
-					bonusValues.append(", "); //$NON-NLS-1$
-				}
-				first = false;
-				String adj = ADJ_FMT.format(bonusObj.resolve(pc, "")); //$NON-NLS-1$
-				bonusValues.append(adj + " " + bonusObj.getDescription());  //$NON-NLS-1$
-			}
-			if (bonusValues.length() > 0)
+
+
+			String bonusValues = bonusMap.keySet().stream()
+					 .sorted()
+					 .map(bonusObj ->
+							 Gui2InfoFactory
+									 .ADJ_FMT
+									 .format(bonusObj.resolve(pc, ""))
+									 + ' '
+									 + bonusObj.getDescription()
+					 ).collect(Collectors.joining(", "));
+
+			if (!bonusValues.isEmpty())
 			{
 				infoText.appendLineBreak();
 				infoText.appendI18nElement(
 					"in_itmInfoLabelTextEffect", //$NON-NLS-1$
-					bonusValues.toString());
+						bonusValues
+				);
 			}
 		}
 
 		if (originObj instanceof Spell)
 		{
-			Spell aSpell = (Spell) originObj; 
+			Spell aSpell = (Spell) originObj;
 			infoText.appendLineBreak();
 			infoText.appendI18nElement("in_spellDuration", //$NON-NLS-1$
 				aSpell.getListAsString(ListKey.DURATION));
@@ -1735,7 +1686,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getHTMLInfo(SpellFacade spell)
 	{
-		if (spell == null || !(spell instanceof SpellFacadeImplem))
+		if (!(spell instanceof SpellFacadeImplem))
 		{
 			return EMPTY_STRING;
 		}
@@ -1869,7 +1820,7 @@ public class Gui2InfoFactory implements InfoFactory
 
 	/**
 	 * Produce the HTML info label for a prepared spell list.
-	 * @param book The spell list being output.
+	 * @param spelllist The spell list being output.
 	 * @return The HTML info for the list.
 	 */
 	private String produceSpellListInfo(SpellBook spelllist)
@@ -1936,8 +1887,7 @@ public class Gui2InfoFactory implements InfoFactory
 				for (int i = 0; i <= highestSpellLevel; ++i)
 				{
 					b.append("<td><font size=-1><center>"); //$NON-NLS-1$
-					b.append(String.valueOf(spellCountMap.get(i) == null ? 0
-						: spellCountMap.get(i)));
+					b.append(String.valueOf(spellCountMap.getOrDefault(i, 0)));
 					b.append("</center></font></td>"); //$NON-NLS-1$
 				}
 				b.append("</tr></table>"); //$NON-NLS-1$
@@ -1990,7 +1940,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(AbilityFacade ability)
 	{
-		if (ability == null || !(ability instanceof Ability))
+		if (!(ability instanceof Ability))
 		{
 			return EMPTY_STRING;
 		}
@@ -2011,7 +1961,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(RaceFacade raceFacade)
 	{
-		if (raceFacade == null || !(raceFacade instanceof Race))
+		if (!(raceFacade instanceof Race))
 		{
 			return EMPTY_STRING;
 		}
@@ -2030,7 +1980,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(TemplateFacade templateFacade)
 	{
-		if(templateFacade == null || !(templateFacade instanceof PCTemplate)){
+		if(!(templateFacade instanceof PCTemplate)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2048,7 +1998,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(ClassFacade classFacade)
 	{
-		if(classFacade == null || !(classFacade instanceof PCClass)){
+		if(!(classFacade instanceof PCClass)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2066,7 +2016,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(SkillFacade skillFacade)
 	{
-		if (skillFacade == null || !(skillFacade instanceof Skill))
+		if (!(skillFacade instanceof Skill))
 		{
 			return EMPTY_STRING;
 		}
@@ -2085,7 +2035,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(EquipmentFacade equipFacade)
 	{
-		if (equipFacade == null || !(equipFacade instanceof Equipment))
+		if (!(equipFacade instanceof Equipment))
 		{
 			return EMPTY_STRING;
 		}
@@ -2104,7 +2054,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(KitFacade kitFacade)
 	{
-		if (kitFacade == null || !(kitFacade instanceof Kit))
+		if (!(kitFacade instanceof Kit))
 		{
 			return EMPTY_STRING;
 		}
@@ -2123,7 +2073,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(DeityFacade deityFacade)
 	{
-		if(deityFacade == null || !(deityFacade instanceof Deity)){
+		if(!(deityFacade instanceof Deity)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2141,7 +2091,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(DomainFacade domainFacade)
 	{
-		if(domainFacade == null || !(domainFacade instanceof DomainFacadeImpl)){
+		if(!(domainFacade instanceof DomainFacadeImpl)){
 			return EMPTY_STRING;
 		}
 		try
@@ -2163,7 +2113,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(SpellFacade spellFacade)
 	{
-		if (spellFacade == null || !(spellFacade instanceof SpellFacadeImplem))
+		if (!(spellFacade instanceof SpellFacadeImplem))
 		{
 			return EMPTY_STRING;
 		}
@@ -2187,7 +2137,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDescription(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return EMPTY_STRING;
 		}
@@ -2251,12 +2201,12 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getDomains(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<>();
+		Collection<String> set = new TreeSet<>();
 		for (CDOMReference<Domain> ref : deity.getSafeListMods(Deity.DOMAINLIST))
 		{
 			for (Domain d : ref.getContainedObjects())
@@ -2264,35 +2214,30 @@ public class Gui2InfoFactory implements InfoFactory
 				set.add(OutputNameFormatting.piString(d, false));
 			}
 		}
-		final StringBuilder piString = new StringBuilder(100);
 		//piString.append("<html>"); //$NON-NLS-1$
-		piString.append(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
 		//piString.append("</html>"); //$NON-NLS-1$
-		return piString.toString();
-		
+		return String.valueOf(StringUtil.joinToStringBuilder(set, ", ")); //$NON-NLS-1$
+
 	}
 	
 	@Override
 	public String getPantheons(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
 		Deity deity = (Deity) deityFacade;
-		Set<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-		if (deity != null)
-		{
-			FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
-			for (Indirect<String> indirect : deity.getSafeSetFor(fk))
-			{
-				set.add(indirect.get());
-			}
-		}
-		final StringBuilder piString = new StringBuilder(100);
-		piString.append(StringUtil.joinToStringBuilder(set, ",")); //$NON-NLS-1$
-		return piString.toString();
-	
+		Collection<String> set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
+		FactSetKey<String> fk = FactSetKey.valueOf("Pantheon");
+		set.addAll(
+				deity.getSafeSetFor(fk).stream()
+				.map(Reference::get)
+				.collect(Collectors.toSet())
+		);
+
+		return StringUtil.joinToStringBuilder(set, ",").toString(); //$NON-NLS-1$
+
 	}
 
 	/**
@@ -2303,7 +2248,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getFavoredWeapons(DeityFacade deityFacade)
 	{
-		if (deityFacade == null || !(deityFacade instanceof Deity))
+		if (!(deityFacade instanceof Deity))
 		{
 			return EMPTY_STRING;
 		}
@@ -2316,7 +2261,7 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getChoices(AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability))
+		if (!(abilityFacade instanceof Ability))
 		{
 			return EMPTY_STRING;
 		}
@@ -2334,7 +2279,8 @@ public class Gui2InfoFactory implements InfoFactory
 	}
 
 	private <T> void processAbilities(final StringBuilder result,
-		Collection<CNAbility> targetAbilities, ChooseInformation<T> chooseInfo)
+									  Iterable<CNAbility> targetAbilities,
+									  ChooseInformation<T> chooseInfo)
 	{
 		if (chooseInfo == null)
 		{
@@ -2344,7 +2290,7 @@ public class Gui2InfoFactory implements InfoFactory
 		List<T> choices = new ArrayList<>();
 		for (CNAbility ab : targetAbilities)
 		{
-			List<? extends T> sel =
+			Collection<? extends T> sel =
 					(List<? extends T>) pc.getDetailedAssociations(ab);
 			if (sel != null)
 			{
@@ -2362,14 +2308,14 @@ public class Gui2InfoFactory implements InfoFactory
 	@Override
 	public String getTempBonusTarget(TempBonusFacade tempBonusFacade)
 	{
-		if (tempBonusFacade == null || !(tempBonusFacade instanceof TempBonusFacadeImpl))
+		if (!(tempBonusFacade instanceof TempBonusFacadeImpl))
 		{
 			return EMPTY_STRING;
 		}
 		
 		TempBonusFacadeImpl tempBonus = (TempBonusFacadeImpl) tempBonusFacade;
 
-		Set<String> targetSet = new HashSet<>();
+		Collection<String> targetSet = new HashSet<>();
 		if (TempBonusHelper.hasCharacterTempBonus(tempBonus.getOriginObj()))
 		{
 			targetSet.add(LanguageBundle
@@ -2464,18 +2410,10 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			return null;
 		}
-		StringBuilder sb = new StringBuilder();
-		boolean first = true;
-		for (Indirect<T> indirect : set)
-		{
-			if (!first)
-			{
-				sb.append(Constants.COMMA);
-			}
-			sb.append(indirect.get());
-			first = false;
-		}
-		return sb.toString();
+
+		return StringUtils.join(
+				set.stream().map(Reference::get).toArray(),
+				Constants.COMMA);
 	}
 
 }
