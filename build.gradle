@@ -233,7 +233,6 @@ task copyToLibs(type: Copy) {
 }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
 
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
@@ -244,7 +243,6 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
 }
 
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
-    outputs.files.setFrom(file("$buildDir/libs/pcgen-${version}.jar"))
     outputs.dir("$projectDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
 
