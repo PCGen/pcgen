@@ -561,9 +561,11 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			while (newNodes.hasMoreElements()) {
+			while (newNodes.hasMoreElements())
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
-				if (node.isTreeDirty()) {
+				if (node.isTreeDirty())
+				{
 					return true;
 				}
 			}
@@ -678,7 +680,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			while (newNodes.hasMoreElements()) {
+			while (newNodes.hasMoreElements())
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.checkCache();
 			}
@@ -741,7 +744,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				Enumeration<MutableTreeNode> newNodes = children();
 
-				while (newNodes.hasMoreElements()) {
+				while (newNodes.hasMoreElements())
+				{
 					NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 					node.checkSave();
 				}
@@ -1001,15 +1005,19 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			List<File> childDirs = Arrays.asList(dir.listFiles());
 			List<File> removeDirs = new ArrayList<>();
 
-			while (childNodes.hasMoreElements()) {
+			while (childNodes.hasMoreElements())
+			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				File nodeDir = node.getDir();
 
-				if (nodeDir.exists()) {
-					for (int i = 0; i < childDirs.size(); i++) {
+				if (nodeDir.exists())
+				{
+					for (int i = 0; i < childDirs.size(); i++)
+					{
 						File childDir = childDirs.get(i);
 
-						if (nodeDir.getName().equals(childDir.getName())) {
+						if (nodeDir.getName().equals(childDir.getName()))
+						{
 							removeDirs.add(childDir);
 
 							continue;
@@ -1034,7 +1042,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			while (newNodes.hasMoreElements()) {
+			while (newNodes.hasMoreElements())
+			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.refresh();
 			}
@@ -1081,7 +1090,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> childNodes = children();
 
-			while (childNodes.hasMoreElements()) {
+			while (childNodes.hasMoreElements())
+			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				node.rehome(path);
 			}
@@ -1189,7 +1199,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			boolean tryrename =
 					dir.renameTo(new File(path + File.separator + newName));
 
-			if (tryrename) {
+			if (tryrename)
+			{
 				dir = new File(path + File.separator + newName);
 				rehomeChildren(dir.getAbsolutePath());
 			} else {
@@ -1268,7 +1279,8 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		Enumeration<MutableTreeNode> newNodes = children();
 
-		while (newNodes.hasMoreElements()) {
+		while (newNodes.hasMoreElements())
+		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.save();
 			node.saveChildren();
@@ -1309,11 +1321,13 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		Enumeration<MutableTreeNode> newNodes = children();
 
-		while (newNodes.hasMoreElements()) {
+		while (newNodes.hasMoreElements())
+		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.trimEmpty();
 
-			if (node.isEmpty()) {
+			if (node.isEmpty())
+			{
 				node.delete();
 			}
 		}
