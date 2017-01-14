@@ -22,20 +22,16 @@
  */
 package gmgen.plugin;
 
-import gmgen.plugin.dice.Dice;
 import java.util.List;
 import java.util.Vector;
+
+import gmgen.plugin.dice.Dice;
 
 /**
  *@author     devon
  */
 public abstract class Combatant implements InitHolder
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
-
 	/**  The object that contains all initiative information */
 	public SystemInitiative init;
 	protected String comType = "Enemy";
@@ -171,7 +167,7 @@ public abstract class Combatant implements InitHolder
 					rowVector.add(getPlayer());
 					break;
 				case "Status":  // Status of XMLCombatant
-					rowVector.add(getStatus());
+					rowVector.add(status);
 					break;
 				case "+":  // Initiative bonus
 					rowVector.add(init.getModifier());
@@ -187,7 +183,7 @@ public abstract class Combatant implements InitHolder
 					}
 					else
 					{
-						rowVector.add(getDuration());
+						rowVector.add(duration);
 					}
 					break;
 				case "#":  // Number (for tokens)
@@ -256,7 +252,7 @@ public abstract class Combatant implements InitHolder
 	/**  Causes the XMLCombatant to bleed for 1 point of damage */
 	public void bleed()
 	{
-		setStatus(hitPoints.bleed());
+		this.status = hitPoints.bleed();
 	}
 
 	/**
@@ -266,7 +262,7 @@ public abstract class Combatant implements InitHolder
 	 */
 	public void damage(int damage)
 	{
-		setStatus(hitPoints.damage(damage));
+		this.status = hitPoints.damage(damage);
 	}
 
 	/**
@@ -282,7 +278,7 @@ public abstract class Combatant implements InitHolder
 
 			if (duration == 0)
 			{
-				setStatus(hitPoints.endDurationedStatus());
+				this.status = hitPoints.endDurationedStatus();
 			}
 		}
 
@@ -302,13 +298,13 @@ public abstract class Combatant implements InitHolder
 	 */
 	public void heal(int heal)
 	{
-		setStatus(hitPoints.heal(heal));
+		this.status = hitPoints.heal(heal);
 	}
 
 	/**  Kills the XMLCombatant */
 	public void kill()
 	{
-		setStatus(hitPoints.kill());
+		this.status = hitPoints.kill();
 	}
 
 	/**
@@ -318,28 +314,21 @@ public abstract class Combatant implements InitHolder
 	 */
 	public void nonLethalDamage(boolean type)
 	{
-		setStatus(hitPoints.nonLethalDamage(type));
+		this.status = hitPoints.nonLethalDamage(type);
 
-		if (type)
-		{
-			setDuration(new Dice(4, 1).roll() + 1);
-		}
-		else
-		{
-			setDuration(1);
-		}
+		this.duration = type ? (new Dice(4, 1).roll() + 1) : 1;
 	}
 
 	/**  Raises a dead XMLCombatant */
 	public void raise()
 	{
-		setStatus(hitPoints.raise());
+		this.status = hitPoints.raise();
 	}
 
 	/**  Stabilizes the XMLCombatant */
 	public void stabilize()
 	{
-		setStatus(hitPoints.stabilize());
+		this.status = hitPoints.stabilize();
 	}
 
 	/**
@@ -349,7 +338,7 @@ public abstract class Combatant implements InitHolder
 	 */
 	public void subdualDamage(int damage)
 	{
-		setStatus(hitPoints.subdualDamage(damage));
+		this.status = hitPoints.subdualDamage(damage);
 	}
 
 	/**
