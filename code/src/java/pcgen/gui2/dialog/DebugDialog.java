@@ -24,6 +24,7 @@ import java.awt.BorderLayout;
 import java.awt.Container;
 import java.awt.Desktop;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.MouseEvent;
@@ -36,6 +37,7 @@ import java.lang.management.MemoryUsage;
 import java.net.URI;
 import java.net.URISyntaxException;
 import java.text.DecimalFormat;
+import java.text.Format;
 import java.text.MessageFormat;
 import java.util.logging.Handler;
 import java.util.logging.Level;
@@ -71,7 +73,7 @@ public class DebugDialog extends JDialog
 	private final LogPanel logPanel;
 	private final MemoryPanel memoryPanel;
 
-	public DebugDialog(PCGenFrame frame)
+	public DebugDialog(Frame frame)
 	{
 		super(frame);
 		setTitle("Log & Memory Use");
@@ -105,7 +107,7 @@ public class DebugDialog extends JDialog
 		private final JTextArea logText;
 		private final JButton clearButton;
 
-		public LogPanel()
+		LogPanel()
 		{
 			logText = new JTextArea();
 			clearButton = new JButton("Clear Log");
@@ -227,10 +229,9 @@ public class DebugDialog extends JDialog
 		private File convertURItoFileIfPossible(String filePart)
 		{
 			File file = null;
-			URI fileURI;
 			try
 			{
-				fileURI = extractFileURIFromLinePart(filePart);
+				URI fileURI = extractFileURIFromLinePart(filePart);
 				file = new File(fileURI);
 				if (!file.exists())
 				{
@@ -270,14 +271,13 @@ public class DebugDialog extends JDialog
 		private int determineCaretPosition(MouseEvent e)
 		{
 			logText.setCaretPosition(logText.viewToModel(e.getPoint()));
-			int caretPos = logText.getCaretPosition();
-			return caretPos;
+			return logText.getCaretPosition();
 		}
 
 		private class LogHandler extends Handler implements Runnable
 		{
 
-			public LogHandler()
+			LogHandler()
 			{
 				setLevel(Logging.DEBUG);
 			}
@@ -341,7 +341,7 @@ public class DebugDialog extends JDialog
 		private final JButton gcButton;
 		private final JTable memoryTable;
 
-		public MemoryPanel()
+		MemoryPanel()
 		{
 			timer = new Timer(1000, this);
 			gcButton = new JButton("Run Garbage Collection");
@@ -372,7 +372,7 @@ public class DebugDialog extends JDialog
 				new DefaultTableCellRenderer()
 				{
 
-					DecimalFormat format = new DecimalFormat("###,###,###");
+					Format format = new DecimalFormat("###,###,###");
 
 					@Override
 					protected void setValue(Object value)

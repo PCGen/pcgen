@@ -23,11 +23,14 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -60,7 +63,7 @@ public class RandomNameDialog extends JDialog
 	 * @param frame The parent frame. The dialog will be centred on this frame
 	 * @param gender The current gender of the character.
 	 */
-	public RandomNameDialog(JFrame frame, String gender)
+	public RandomNameDialog(Frame frame, String gender)
 	{
 		super(frame, LanguageBundle.getString("in_rndNameTitle"), true); //$NON-NLS-1$
 		nameGenPanel = new NameGenPanel(new File(getDataDir()));
@@ -84,33 +87,19 @@ public class RandomNameDialog extends JDialog
 		getContentPane().add(nameGenPanel, BorderLayout.CENTER);
 
 		// Build the control panel (OK/Cancel buttons)
-		JPanel controlPanel = new JPanel();
+		Container controlPanel = new JPanel();
 		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
+		AbstractButton okButton = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
 		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		controlPanel.add(okButton);
-		okButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				okButtonActionPerformed();
-			}
-		});
+		okButton.addActionListener(evt -> okButtonActionPerformed());
 
-		JButton cancelButton =
+		AbstractButton cancelButton =
 				new JButton(LanguageBundle.getString("in_cancel")); //$NON-NLS-1$
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel")); //$NON-NLS-1$
 		controlPanel.add(cancelButton);
-		cancelButton.addActionListener(new ActionListener()
-		{
-			@Override
-			public void actionPerformed(ActionEvent evt)
-			{
-				cancelButtonActionPerformed();
-			}
-		});
+		cancelButton.addActionListener(evt -> cancelButtonActionPerformed());
 		getContentPane().add(controlPanel, BorderLayout.SOUTH);
 	}
 

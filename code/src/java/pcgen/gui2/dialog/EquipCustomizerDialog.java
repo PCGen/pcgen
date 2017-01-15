@@ -24,6 +24,7 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -66,7 +67,7 @@ public class EquipCustomizerDialog extends JDialog
 	 * @param frame The parent frame we are displaying over.
 	 * @param character The character being displayed.
 	 */
-	public EquipCustomizerDialog(JFrame frame, CharacterFacade character, EquipmentBuilderFacade builder)
+	public EquipCustomizerDialog(Frame frame, CharacterFacade character, EquipmentBuilderFacade builder)
 	{
 		super(frame, true);
 		setTitle(LanguageBundle.getString("in_itemCustomizer")); //$NON-NLS-1$

@@ -17,6 +17,8 @@
  */
 package pcgen.gui2.dialog;
 
+import java.awt.Frame;
+
 import javax.swing.JFrame;
 
 import pcgen.system.LanguageBundle;
@@ -39,7 +41,7 @@ public abstract class AbstractPreferencesDialog extends AbstractDialog
 	 * @param applicationName application name for the preference 
 	 * @param modal
 	 */
-	protected AbstractPreferencesDialog(JFrame parent, String applicationName, boolean modal)
+	protected AbstractPreferencesDialog(Frame parent, String applicationName, boolean modal)
 	{
 		super(parent, LanguageBundle.getFormattedString(AbstractPreferencesDialog.LB_TITLE, applicationName), modal);
 	}

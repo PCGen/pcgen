@@ -34,6 +34,7 @@ import java.awt.event.ActionListener;
 import javax.swing.BorderFactory;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JOptionPane;
@@ -92,7 +93,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		Container pane = getContentPane();
 		pane.setLayout(new BorderLayout());
-		JLabel titleLabel = new JLabel(chooser.getName());
+		JComponent titleLabel = new JLabel(chooser.getName());
 		FontManipulation.title(titleLabel);
 		titleLabel.setBorder(BorderFactory.createEmptyBorder(5, 10, 5, 10));
 		pane.add(titleLabel, BorderLayout.NORTH);
@@ -101,7 +102,7 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 
 		pane.add(buttonPanel, BorderLayout.CENTER);
 
-		JPanel bottomPane = new JPanel(new FlowLayout());
+		Container bottomPane = new JPanel(new FlowLayout());
 		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
 		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		button.setActionCommand("OK");
@@ -160,9 +161,8 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		{
 			for (int i = 0; i < numRows; ++i)
 			{
-				int cr = i;
-				c.anchor = GridBagConstraints.WEST;
-				Utility.buildConstraints(c, 0, cr, 2, 1, 1, 0);
+                c.anchor = GridBagConstraints.WEST;
+				Utility.buildConstraints(c, 0, i, 2, 1, 1, 0);
 				gridbag.setConstraints(avaRadioButton[i], c);
 				buttonPanel.add(avaRadioButton[i]);
 			}
@@ -181,16 +181,15 @@ public class RadioChooserDialog extends JDialog implements ActionListener
 		int numRows = numButtons - numButtons / 2;
 		for (int i = 0; i < numRows; ++i)
 		{
-			int cr = i;
-			c.anchor = GridBagConstraints.WEST;
-			Utility.buildConstraints(c, 0, cr, 2, 1, 1, 0);
+            c.anchor = GridBagConstraints.WEST;
+			Utility.buildConstraints(c, 0, i, 2, 1, 1, 0);
 			gridbag.setConstraints(avaRadioButton[i], c);
 			buttonPanel.add(avaRadioButton[i]);
 
 			if (i + numRows < numButtons)
 			{
 				c.anchor = GridBagConstraints.EAST;
-				Utility.buildConstraints(c, 3, cr, 2, 1, 1, 0);
+				Utility.buildConstraints(c, 3, i, 2, 1, 1, 0);
 				gridbag.setConstraints(avaRadioButton[i + numRows], c);
 				buttonPanel.add(avaRadioButton[i + numRows]);
 			}

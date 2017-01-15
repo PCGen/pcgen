@@ -24,6 +24,7 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -63,7 +64,7 @@ public class SpellChoiceDialog extends JDialog
 	 * Create a new instance of SpellChoiceDialog
 	 * @param frame The parent frame we are displaying over.
 	 */
-	public SpellChoiceDialog(JFrame frame, SpellBuilderFacade builder)
+	public SpellChoiceDialog(Frame frame, SpellBuilderFacade builder)
 	{
 		super(frame, true);
 		setTitle(LanguageBundle.getString("in_csdChooseSpell")); //$NON-NLS-1$

@@ -25,7 +25,9 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
+import java.awt.Component;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -39,6 +41,7 @@ import java.util.Collection;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JButton;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -50,6 +53,7 @@ import javax.swing.WindowConstants;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EmptyBorder;
 import javax.swing.border.TitledBorder;
+import javax.swing.text.JTextComponent;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -71,7 +75,7 @@ import pcgen.util.Logging;
 public class AboutDialog extends JDialog
 {
 
-	public AboutDialog(PCGenFrame frame)
+	public AboutDialog(Frame frame)
 	{
 		super(frame, LanguageBundle.getString("in_abt_title"), true); //$NON-NLS-1$
 		getContentPane().setLayout(new BorderLayout());
@@ -112,7 +116,7 @@ final class MainAbout extends JPanel
 	 */
 	private void initComponents()
 	{
-		JTabbedPane mainPane = new JTabbedPane();
+		JComponent mainPane = new JTabbedPane();
 		mainPane.add(LanguageBundle.getString("in_abt_credits"), buildCreditsPanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_libraries"), buildIncludesPanel()); //$NON-NLS-1$
 		mainPane.add(LanguageBundle.getString("in_abt_license"), buildLicensePanel()); //$NON-NLS-1$
@@ -131,7 +135,7 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The credits panel.
 	 */
-	private JPanel buildCreditsPanel()
+	private Component buildCreditsPanel()
 	{
 
 		JLabel versionLabel = new JLabel();
@@ -141,10 +145,10 @@ final class MainAbout extends JPanel
 		JLabel helperLabel = new JLabel();
 		JLabel wwwLink = new JLabel();
 		JLabel emailLabel = new JLabel();
-		JTextField version = new JTextField();
-		JTextField releaseDate = new JTextField();
-		JTextField javaVersion = new JTextField();
-		JTextField projectLead = new JTextField();
+		JTextComponent version = new JTextField();
+		JTextComponent releaseDate = new JTextField();
+		JTextComponent javaVersion = new JTextField();
+		JTextComponent projectLead = new JTextField();
 		wwwSite = new JButton();
 		mailingList = new JButton();
 		JTabbedPane monkeyTabPane = new JTabbedPane();
@@ -236,45 +240,33 @@ final class MainAbout extends JPanel
 
 		// Web site button
 		wwwSite.setText(PCGenPropBundle.getWWWHome());
-		wwwSite.addActionListener(new ActionListener()
+		wwwSite.addActionListener(e ->
 		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				try
-				{
-					Utility.viewInBrowser(wwwSite.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
-			}
-
-		});
+            try
+            {
+                Utility.viewInBrowser(wwwSite.getText());
+            }
+            catch (IOException ioe)
+            {
+                Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
+            }
+        });
 		gridBagConstraints1 = buildConstraints(1, 4, GridBagConstraints.WEST);
 		aCreditsPanel.add(wwwSite, gridBagConstraints1);
 
 		// Mailing list button
 		mailingList.setText(PCGenPropBundle.getMailingList());
-		mailingList.addActionListener(new ActionListener()
+		mailingList.addActionListener(e ->
 		{
-
-			@Override
-			public void actionPerformed(ActionEvent e)
-			{
-				try
-				{
-					Utility.viewInBrowser(mailingList.getText());
-				}
-				catch (IOException ioe)
-				{
-					Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
-				}
-			}
-
-		});
+            try
+            {
+                Utility.viewInBrowser(mailingList.getText());
+            }
+            catch (IOException ioe)
+            {
+                Logging.errorPrint(LanguageBundle.getString("in_abt_browser_err"), ioe); //$NON-NLS-1$
+            }
+        });
 		gridBagConstraints1 = buildConstraints(1, 5, GridBagConstraints.WEST);
 		aCreditsPanel.add(mailingList, gridBagConstraints1);
 
@@ -304,7 +296,7 @@ final class MainAbout extends JPanel
 	 * @param monkeys The names of the monkeys
 	 * @return A JScrollPane to display the monkeys.
 	 */
-	private JScrollPane buildMonkeyList(String monkeys)
+	private Component buildMonkeyList(String monkeys)
 	{
 		JTextArea textArea = new JTextArea();
 		JScrollPane scroller = new JScrollPane();
@@ -346,7 +338,7 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The includes panel.
 	 */
-	private JPanel buildIncludesPanel()
+	private Component buildIncludesPanel()
 	{
 		JPanel iPanel = new JPanel();
 
@@ -374,18 +366,18 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The awards panel.
 	 */
-	private JPanel buildAwardsPanel()
+	private Component buildAwardsPanel()
 	{
 		JScrollPane sp = new JScrollPane();
 		JPanel panel = new JPanel();
 
-		JPanel aPanel = new JPanel();
+		JComponent aPanel = new JPanel();
 		aPanel.setLayout(new GridBoxLayout(2, 2));
 		aPanel.setBackground(Color.WHITE);
 		Icon goldIcon = Icons.createImageIcon("gold200x200-2005.gif");
 		if (goldIcon != null)
 		{
-			JLabel e2005 = new JLabel(goldIcon);
+			Component e2005 = new JLabel(goldIcon);
 			aPanel.add(e2005);
 
 			JTextArea title = new JTextArea();
@@ -399,7 +391,7 @@ final class MainAbout extends JPanel
 		Icon bronzeIcon = Icons.createImageIcon("bronze200x200-2003.gif");
 		if (bronzeIcon != null)
 		{
-			JLabel e2003 = new JLabel(bronzeIcon);
+			Component e2003 = new JLabel(bronzeIcon);
 			aPanel.add(e2003);
 
 			JTextArea title = new JTextArea();
@@ -415,14 +407,14 @@ final class MainAbout extends JPanel
 		return panel;
 	}
 
-	private JPanel buildSponsorsPanel()
+	private Component buildSponsorsPanel()
 	{
 		TitledBorder title =
 				BorderFactory.createTitledBorder(null,
 					LanguageBundle.getString("in_abt_sponsorsTitle")); //$NON-NLS-1$
 		title.setTitleJustification(TitledBorder.CENTER);
 		JLabelPane sponsorLabel = new JLabelPane();
-		JScrollPane sp = new JScrollPane(sponsorLabel);
+		JComponent sp = new JScrollPane(sponsorLabel);
 		sp.setBorder(title);
 		JPanel panel = new JPanel(new BorderLayout());
 		sponsorLabel.setBackground(panel.getBackground());
@@ -452,12 +444,12 @@ final class MainAbout extends JPanel
 	 *
 	 * @return The license panel.
 	 */
-	private JPanel buildLicensePanel()
+	private Component buildLicensePanel()
 	{
 		JPanel lPanel = new JPanel();
 
 		JScrollPane license = new JScrollPane();
-		JTextArea LGPLArea = new JTextArea();
+		JTextComponent LGPLArea = new JTextArea();
 
 		lPanel.setLayout(new BorderLayout());
 

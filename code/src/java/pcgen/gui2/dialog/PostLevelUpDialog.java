@@ -26,6 +26,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -34,6 +35,7 @@ import java.util.HashMap;
 import java.util.Iterator;
 import java.util.Map;
 
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -108,7 +110,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		}
 
 		Frame frame = JOptionPane.getFrameForComponent(parent);
-		PostLevelUpDialog dialog =
+		Window dialog =
 				new PostLevelUpDialog(frame, character, oldLevel);
 		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
@@ -151,12 +153,12 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
 
-		JScrollPane scrollPane = new JScrollPane(table);
+		Component scrollPane = new JScrollPane(table);
 		pane.add(scrollPane, BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
 		box.add(Box.createHorizontalGlue());
-		JButton button = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
+		AbstractButton button = new JButton(LanguageBundle.getString("in_close")); //$NON-NLS-1$
 		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_close")); //$NON-NLS-1$
 		button.setActionCommand("Close"); //$NON-NLS-1$
 		button.addActionListener(this);
@@ -197,7 +199,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 		private final Object[][] data;
 		private Map<ClassFacade, MutableInt> classLevelMap;
 
-		public LevelTableModel()
+		LevelTableModel()
 		{
 			columns = new Object[]
 					{

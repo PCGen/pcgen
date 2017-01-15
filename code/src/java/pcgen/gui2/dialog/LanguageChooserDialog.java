@@ -35,6 +35,7 @@ import java.util.Arrays;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -116,7 +117,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		pane.setLayout(new BorderLayout());
 
 		JSplitPane split = new JSplitPane();
-		JPanel leftPane = new JPanel(new BorderLayout());
+		Container leftPane = new JPanel(new BorderLayout());
 		//leftPane.add(new JLabel("Available Languages"), BorderLayout.NORTH);
 		availTable.setAutoCreateRowSorter(true);
 		availTable.setTreeViewModel(treeViewModel);
@@ -124,8 +125,8 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		availTable.addActionListener(this);
 		leftPane.add(new JScrollPane(availTable), BorderLayout.CENTER);
 
-		JPanel buttonPane1 = new JPanel(new FlowLayout());
-		JButton addButton = new JButton(LanguageBundle.getString("in_sumLangAddLanguage")); //$NON-NLS-1$
+		Container buttonPane1 = new JPanel(new FlowLayout());
+		AbstractButton addButton = new JButton(LanguageBundle.getString("in_sumLangAddLanguage")); //$NON-NLS-1$
 		addButton.setActionCommand("ADD");
 		addButton.addActionListener(this);
 		buttonPane1.add(addButton);
@@ -134,8 +135,8 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		split.setLeftComponent(leftPane);
 
-		JPanel rightPane = new JPanel(new BorderLayout());
-		JPanel labelPane = new JPanel(new GridBagLayout());
+		Container rightPane = new JPanel(new BorderLayout());
+		Container labelPane = new JPanel(new GridBagLayout());
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -151,9 +152,9 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 		list.addActionListener(this);
 		rightPane.add(new JScrollPane(list), BorderLayout.CENTER);
 
-		JPanel buttonPane2 = new JPanel(new FlowLayout());
+		Container buttonPane2 = new JPanel(new FlowLayout());
 		buttonPane2.add(new JLabel(Icons.Back16.getImageIcon()));
-		JButton removeButton = new JButton(LanguageBundle.getString("in_sumLangRemoveLanguage")); //$NON-NLS-1$
+		AbstractButton removeButton = new JButton(LanguageBundle.getString("in_sumLangRemoveLanguage")); //$NON-NLS-1$
 		removeButton.setActionCommand("REMOVE");
 		removeButton.addActionListener(this);
 		buttonPane2.add(removeButton);
@@ -161,7 +162,7 @@ public class LanguageChooserDialog extends JDialog implements ActionListener, Re
 
 		split.setRightComponent(rightPane);
 		pane.add(split, BorderLayout.CENTER);
-		JPanel bottomPane = new JPanel(new FlowLayout());
+		Container bottomPane = new JPanel(new FlowLayout());
 		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
 		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		button.setActionCommand("OK");

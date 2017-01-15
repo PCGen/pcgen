@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.dialog;
 
+import java.awt.Component;
 import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -31,6 +32,7 @@ import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
@@ -99,7 +101,7 @@ public class DIWarningDialog extends JDialog implements
 	{
 		setLayout(new GridBagLayout());
 
-		JLabel introLabel =
+		Component introLabel =
 				new JLabel(introText);
 		GridBagConstraints gbc = new GridBagConstraints();
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1,
@@ -113,18 +115,18 @@ public class DIWarningDialog extends JDialog implements
 		messageArea.setEditable(false);
 		messageArea.setTabSize(8);
 		messageArea.setText(fileText);
-		JScrollPane messageAreaContainer = new JScrollPane(messageArea);
+		Component messageAreaContainer = new JScrollPane(messageArea);
 		Utility.buildRelativeConstraints(gbc, GridBagConstraints.REMAINDER, 1, 1.0, 1.0);
 		gbc.fill = GridBagConstraints.BOTH;
 		gbc.insets = new Insets(5, 10, 5, 10);
 		add(messageAreaContainer, gbc);
 
-		JLabel dummy = new JLabel(" ");
+		Component dummy = new JLabel(" ");
 		Utility.buildRelativeConstraints(gbc, 1, 1, 1.0, 0.0,
 			GridBagConstraints.HORIZONTAL, GridBagConstraints.WEST);
 		add(dummy, gbc);
 
-		JButton yesButton = new JButton(LanguageBundle.getString("in_yes"));
+		AbstractButton yesButton = new JButton(LanguageBundle.getString("in_yes"));
 		yesButton.setActionCommand(ACTION_YES);
 		yesButton.addActionListener(this);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,
@@ -132,7 +134,7 @@ public class DIWarningDialog extends JDialog implements
 		gbc.insets = new Insets(5, 5, 10, 5);
 		add(yesButton, gbc);
 
-		JButton noButton = new JButton(LanguageBundle.getString("in_no"));
+		AbstractButton noButton = new JButton(LanguageBundle.getString("in_no"));
 		noButton.setActionCommand(ACTION_NO);
 		noButton.addActionListener(this);
 		Utility.buildRelativeConstraints(gbc, 1, 1, 0.0, 0.0,

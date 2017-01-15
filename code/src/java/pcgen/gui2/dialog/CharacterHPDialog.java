@@ -25,11 +25,13 @@ import java.awt.Component;
 import java.awt.Container;
 import java.awt.Frame;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.AbstractCellEditor;
 import javax.swing.Box;
 import javax.swing.JButton;
@@ -84,7 +86,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	public static void showHPDialog(Component parent, CharacterFacade character)
 	{
 		Frame frame = JOptionPane.getFrameForComponent(parent);
-		CharacterHPDialog dialog = new CharacterHPDialog(frame, character);
+		Window dialog = new CharacterHPDialog(frame, character);
 		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
@@ -121,23 +123,15 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 		JTableHeader header = table.getTableHeader();
 		header.setReorderingAllowed(false);
 
-		JScrollPane scrollPane = new JScrollPane(table);
+		Component scrollPane = new JScrollPane(table);
 		pane.add(scrollPane, BorderLayout.CENTER);
 
 		Box box = Box.createHorizontalBox();
 		box.add(new JLabel("Total Hp:"));
 		box.add(Box.createHorizontalStrut(3));
 
-		final ReferenceListener<Integer> hpListener = new ReferenceListener<Integer>()
-		{
-
-			@Override
-			public void referenceChanged(ReferenceEvent<Integer> e)
-			{
-				totalHp.setText(e.getNewReference().toString());
-			}
-
-		};
+		final ReferenceListener<Integer> hpListener =
+				e -> totalHp.setText(e.getNewReference().toString());
 		ReferenceFacade<Integer> hpRef = character.getTotalHPRef();
 		totalHp.setText(hpRef.get().toString());
 		hpRef.addReferenceListener(hpListener);
@@ -192,7 +186,7 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class HPTableModel extends AbstractTableModel implements HitPointListener
 	{
 
-		public HPTableModel()
+		HPTableModel()
 		{
 			levels.addHitPointListener(this);
 		}
@@ -300,12 +294,12 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 
 	}
 
-	private class Renderer implements TableCellRenderer
+	private static class Renderer implements TableCellRenderer
 	{
 
-		private JButton button = new JButton();
+		private AbstractButton button = new JButton();
 
-		public Renderer()
+		Renderer()
 		{
 			button.setMargin(new Insets(0, 0, 0, 0));
 			button.setText("Reroll");
@@ -322,10 +316,10 @@ public final class CharacterHPDialog extends JDialog implements ActionListener
 	private class Editor extends AbstractCellEditor implements TableCellEditor, ActionListener
 	{
 
-		private JButton button = new JButton();
+		private AbstractButton button = new JButton();
 		private int editingRow;
 
-		public Editor()
+		Editor()
 		{
 			button.setMargin(new Insets(0, 0, 0, 0));
 			button.setText("Reroll");

@@ -24,6 +24,7 @@ import java.awt.BorderLayout;
 import java.awt.Component;
 import java.awt.Container;
 import java.awt.Desktop;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
@@ -41,6 +42,7 @@ import javax.swing.DefaultListCellRenderer;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
 import javax.swing.JComboBox;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
@@ -61,6 +63,7 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.facade.core.CharacterFacade;
+import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.PartyFacade;
 import pcgen.gui2.PCGenFrame;
 import pcgen.gui2.UIPropertyContext;
@@ -100,7 +103,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 
 	public static void showExportDialog(PCGenFrame parent)
 	{
-		ExportDialog dialog = new ExportDialog(parent);
+		Window dialog = new ExportDialog(parent);
 		Utility.setComponentRelativeLocation(parent, dialog);
 		dialog.setVisible(true);
 	}
@@ -155,7 +158,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			@Override
 			public Component getListCellRendererComponent(JList list, Object value, int index, boolean isSelected, boolean cellHasFocus)
 			{
-				CharacterFacade character = (CharacterFacade) value;
+				CharacterStubFacade character = (CharacterFacade) value;
 				return super.getListCellRendererComponent(list, character.getNameRef().get(), index, isSelected, cellHasFocus);
 			}
 
@@ -217,7 +220,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		topPanel.add(exportBox);
 		contentPane.add(topPanel, BorderLayout.NORTH);
 
-		JScrollPane scrollPane = new JScrollPane(fileList);
+		JComponent scrollPane = new JScrollPane(fileList);
 		scrollPane.setBorder(BorderFactory.createCompoundBorder(BorderFactory.createTitledBorder("Templates"),
 																scrollPane.getBorder()));
 		contentPane.add(scrollPane, BorderLayout.CENTER);
@@ -489,7 +492,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		if (outputSheetDirectory == null)
 		{
 			osDir = new File(ConfigurationSettings.getOutputSheetsDir());
-			outputSheetDirectory = "";
 		}
 		else
 		{
@@ -501,7 +503,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 	}
 
 	private boolean printToFile(File outFile)
-			throws IOException
 	{
 		File template = getSelectedTemplate();
 
@@ -579,7 +580,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 		private final File saveFile;
 		private final String name;
 
-		public PDFExporter(File saveFile, String extension, String name)
+		PDFExporter(File saveFile, String extension, String name)
 		{
 			this.saveFile = saveFile;
 			this.name = name;
@@ -661,7 +662,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 			{
 				Logging.errorPrint("OUTPUTSHEET|DIRECTORY not defined for game mode " + SettingsHandler.getGame());
 				dir = new File(ConfigurationSettings.getOutputSheetsDir());
-				outputSheetDirectory = "";
 			}
 			else
 			{
@@ -670,7 +670,6 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				{
 					Logging.errorPrint("Unable to find game mode outputsheets at " + dir.getCanonicalPath() + ". Trying base.");
 					dir = new File(ConfigurationSettings.getOutputSheetsDir());
-					outputSheetDirectory = "";
 				}
 			}
 			if (!dir.isDirectory())
