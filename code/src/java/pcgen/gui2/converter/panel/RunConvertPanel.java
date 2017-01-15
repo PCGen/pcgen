@@ -329,7 +329,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 	/**
 	 * Keeps track if there has been set an error message.
 	 *
-	 * @param errorState <code>true</code> if there was an error message
+	 * @param errorState {@code true} if there was an error message
 	 */
 	public void setErrorState(boolean errorState)
 	{

@@ -46,7 +46,7 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>Kit</code>.
+ * {@code Kit}.
  *
  * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */

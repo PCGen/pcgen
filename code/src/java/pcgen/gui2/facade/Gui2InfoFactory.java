@@ -131,7 +131,7 @@ import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
 
 /**
- * The Class <code>Gui2InfoFactory</code> provides character related information 
+ * The Class {@code Gui2InfoFactory} provides character related information
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *

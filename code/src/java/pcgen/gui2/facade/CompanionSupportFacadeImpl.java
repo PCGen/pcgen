@@ -507,7 +507,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	}
 
 	/**
-	 * The Class <code>DelegateFileListener</code> tracks the file name of a companion and 
+	 * The Class {@code DelegateFileListener} tracks the file name of a companion and
 	 * keeps the associated Follower record up to date.
 	 */
 	private class DelegateFileListener implements ReferenceListener<File> 
@@ -527,7 +527,7 @@ public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListL
 	}
 
 	/**
-	 * The Class <code>DelegateNameListener</code> tracks the name of a companion and 
+	 * The Class {@code DelegateNameListener} tracks the name of a companion and
 	 * keeps the associated Follower record up to date.
 	 */
 	private class DelegateNameListener implements ReferenceListener<String> 
