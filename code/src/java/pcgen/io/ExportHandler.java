@@ -516,7 +516,7 @@ public final class ExportHandler
 
 					// Either deal with an EQTYPE or a straight EQ token
 					EqToken token = null;
-					if (aString.indexOf("EQTYPE") > -1)
+					if (aString.contains("EQTYPE"))
 					{
 						token = new EqTypeToken();
 					}
@@ -885,7 +885,7 @@ public final class ExportHandler
 			{
 				return leftString.equals(rightString.substring(1));
 			}
-			return 0 <= leftString.toUpperCase().indexOf(rightString.toUpperCase());
+			return leftString.toUpperCase().contains(rightString.toUpperCase());
 		}
 	}
 
@@ -1718,13 +1718,13 @@ public final class ExportHandler
 		boolean inFormula = false;
 		for (String string : splitStr)
 		{
-			if (string.indexOf("(") >= 0
+			if (string.contains("(")
 				&& (string.indexOf(")") < string.indexOf("(")))
 			{
 				inFormula = true;
 				buf.append(string);
 			}
-			else if (inFormula && string.indexOf(")") >= 0)
+			else if (inFormula && string.contains(")"))
 			{
 				inFormula = false;
 				buf.append(",");
@@ -2159,10 +2159,10 @@ public final class ExportHandler
 	private boolean containsMathematicalToken(String testString)
 	{
 		if ((testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
-			|| (testString.indexOf(".INTVAL") >= 0)
-			|| (testString.indexOf(".SIGN") >= 0)
-			|| (testString.indexOf(".NOZERO") >= 0)
-			|| (testString.indexOf(".TRUNC") >= 0)
+			|| (testString.contains(".INTVAL"))
+			|| (testString.contains(".SIGN"))
+			|| (testString.contains(".NOZERO"))
+			|| (testString.contains(".TRUNC"))
 			|| (testString.indexOf('*') >= 0) || (testString.indexOf('/') >= 0))
 		{
 			return true;

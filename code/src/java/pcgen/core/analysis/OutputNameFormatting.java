@@ -186,7 +186,7 @@ public class OutputNameFormatting
 		{
 			outputName = displayName.substring(0, displayName.indexOf('(')).trim();
 		}
-		if (outputName.indexOf("[NAME]") >= 0)
+		if (outputName.contains("[NAME]"))
 		{
 			outputName = outputName.replaceAll("\\[NAME\\]",
 					getPreFormatedOutputName(displayName));
