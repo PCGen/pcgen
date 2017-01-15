@@ -262,7 +262,6 @@ task cleanRoot(type: Delete) {
     delete "$projectDir/pcgen.exe"
     delete "$projectDir/libs"
     delete "$projectDir/autobuild.properties"
-    delete "$projectDir/svn.properties"
 }
 
 build {

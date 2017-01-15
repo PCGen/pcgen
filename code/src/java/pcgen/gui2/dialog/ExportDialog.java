@@ -679,8 +679,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				return Collections.emptyList();
 			}
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
-			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
-			return FileUtils.listFiles(dir, fileFilter, dirFilter);
+			return FileUtils.listFiles(dir, fileFilter, TrueFileFilter.INSTANCE);
 		}
 
 		@Override
