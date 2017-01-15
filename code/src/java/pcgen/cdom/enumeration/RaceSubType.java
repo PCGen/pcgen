@@ -96,13 +96,8 @@ public final class RaceSubType implements TypeSafeConstant
 	public static RaceSubType getConstant(String name)
 	{
 		initializeTypeMap();
-		RaceSubType type = typeMap.get(name);
-		if (type == null)
-		{
-			type = new RaceSubType(name);
-			typeMap.put(name, type);
-		}
-		return type;
+        RaceSubType type = typeMap.computeIfAbsent(name, k -> new RaceSubType(name));
+        return type;
 	}
 
 	/**

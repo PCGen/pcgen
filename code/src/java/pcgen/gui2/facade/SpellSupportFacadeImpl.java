@@ -518,14 +518,9 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		if (pc.delSpellBook(spellList))
 		{
 			pc.setDirty(true);
-			for (Iterator<SpellNode> iterator = preparedSpellLists.iterator(); iterator.hasNext();)
-			{
-				SpellNode listNode = iterator.next();
-				if (spellList.equals(listNode.getRootNode().getName()))
-				{
-					iterator.remove();
-				}
-			}
+            preparedSpellLists.removeIf(listNode -> spellList.equals(listNode
+                    .getRootNode()
+                                                                             .getName()));
 
 			for (Iterator<SpellNode> iterator = preparedSpellNodes.iterator(); iterator.hasNext();)
 			{

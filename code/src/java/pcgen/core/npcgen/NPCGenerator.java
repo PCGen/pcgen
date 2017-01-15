@@ -395,14 +395,8 @@ public final class NPCGenerator
 	private void selectDomains( final PlayerCharacter aPC, final PCClass aClass )
 	{
 		final WeightedCollection<Domain> domains = theConfiguration.getDomainWeights(aPC.getDeity().getKeyName(), aClass.getKeyName());
-		for (Iterator<Domain> iterator = domains.iterator(); iterator.hasNext();)
-		{
-			Domain domain = iterator.next();
-			if (!domain.qualifies(aPC, domain))
-			{
-				iterator.remove();
-			}
-		}
+
+        domains.removeIf(domain -> !domain.qualifies(aPC, domain));
 		if (domains.isEmpty())
 		{
 			return;

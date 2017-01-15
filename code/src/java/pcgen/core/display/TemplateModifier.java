@@ -92,13 +92,8 @@ public class TemplateModifier
 			{
 				for (DamageReduction dr : tList)
 				{
-					Set<Object> set = drMap.get(dr);
-					if (set == null)
-					{
-						set = new HashSet<>();
-						drMap.put(dr, set);
-					}
-					set.add(pct);
+                    Set<Object> set = drMap.computeIfAbsent(dr, k -> new HashSet<>());
+                    set.add(pct);
 				}
 			}
 		}

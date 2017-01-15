@@ -1195,14 +1195,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return null;
 			}
-			Iterator<?> it = data.iterator();
-			while (it.hasNext())
-			{
-				if (!(it.next() instanceof EquipmentFacade))
-				{
-					it.remove();
-				}
-			}
+            data.removeIf(o -> !(o instanceof EquipmentFacade));
 			if (data.isEmpty())
 			{
 				return null;
@@ -1268,14 +1261,7 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 			{
 				return null;
 			}
-			Iterator<?> it = data.iterator();
-			while (it.hasNext())
-			{
-				if (!(it.next() instanceof EquipmentFacade))
-				{
-					it.remove();
-				}
-			}
+            data.removeIf(o -> !(o instanceof EquipmentFacade));
 			if (data.isEmpty())
 			{
 				return null;
