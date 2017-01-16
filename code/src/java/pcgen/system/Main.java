@@ -229,7 +229,7 @@ public final class Main
 		initPrintPreviewFonts();
 
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		//TODO: allow commandline override of spash property
+		//TODO: allow commandline override of splash property
 		SplashScreen splash = null;
 		if (showSplash)
 		{
