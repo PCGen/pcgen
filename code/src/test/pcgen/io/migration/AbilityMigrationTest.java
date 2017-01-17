@@ -22,12 +22,16 @@
  */
 package pcgen.io.migration;
 
-import junit.framework.TestCase;
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
 import pcgen.core.system.MigrationRule.ObjectType;
 import pcgen.io.migration.AbilityMigration.CategorisedKey;
+
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
 
 /**
  * AbilityMigrationTest checks the function of AbilityMigration.
@@ -35,15 +39,14 @@ import pcgen.io.migration.AbilityMigration.CategorisedKey;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilityMigrationTest extends TestCase
+public class AbilityMigrationTest
 {
 	
 	private String gameMode;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		gameMode = SettingsHandler.getGame().getName();
 		MigrationRule abilityRule = new MigrationRule(ObjectType.ABILITY, "OldCat", "OldKey1");
 		abilityRule.setMaxVer("6.0.1");
@@ -66,47 +69,49 @@ public class AbilityMigrationTest extends TestCase
 		SystemCollections.addToMigrationRulesList(abilityRuleDiffGame, "modern");
 	}
 
-	@Override
+	@After
 	public void tearDown() throws Exception
 	{
 		SystemCollections.clearMigrationRuleMap();
-		super.tearDown();
 	}
 
 	/**
 	 * Test that rules for max version only are applied correctly.  
 	 */
+	@Test
 	public void testMaxVer()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,2}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("OldKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("OldKey1", catKey.getKey());
 	}
 
 	/**
 	 * Test that rules for category changes are applied correctly.  
 	 */
+	@Test
 	public void testCatChange()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5,17,5}, gameMode);
-		assertEquals("EarlyNewCat", catKey.getCategory());
-		assertEquals("EarlyNewKey", catKey.getKey());
+		Assert.assertEquals("EarlyNewCat", catKey.getCategory());
+		Assert.assertEquals("EarlyNewKey", catKey.getKey());
 	}
 
 	/**
 	 * Test that matches are case insensitive.  
 	 */
+	@Test
 	public void testCaseInsensitive()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCAT", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCAT", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKEY1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 	}
 
 }

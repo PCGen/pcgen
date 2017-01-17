@@ -23,6 +23,8 @@ import java.util.Set;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -38,7 +40,7 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
-public class ClassFacetTest extends TestCase
+public class ClassFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -85,10 +87,9 @@ public class ClassFacetTest extends TestCase
 
 	}
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -98,45 +99,45 @@ public class ClassFacetTest extends TestCase
 
 	private void assertEventCount(int a, int r, int l)
 	{
-		assertEquals(a, classListener.addEventCount);
-		assertEquals(r, classListener.removeEventCount);
-		assertEquals(l, classListener.levelEventCount);
+		Assert.assertEquals(a, classListener.addEventCount);
+		Assert.assertEquals(r, classListener.removeEventCount);
+		Assert.assertEquals(l, classListener.levelEventCount);
 	}
 
 	@Test
 	public void testPCClassUnsetZeroCount()
 	{
-		assertEquals(0, facet.getCount(id));
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertEquals(0, facet.getCount(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
 	public void testPCClassUnsetZeroLevel()
 	{
-		assertEquals(0, facet.getLevel(id, new PCClass()));
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertEquals(0, facet.getLevel(id, new PCClass()));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
 	public void testPCClassNullZeroLevel()
 	{
-		assertEquals(0, facet.getLevel(id, null));
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertEquals(0, facet.getLevel(id, null));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
 	public void testPCClassUnsetEmpty()
 	{
-		assertTrue(facet.isEmpty(id));
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertTrue(facet.isEmpty(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
 	public void testPCClassUnsetEmptySet()
 	{
-		assertNotNull(facet.getSet(id));
-		assertTrue(facet.getSet(id).isEmpty());
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertTrue(facet.getSet(id).isEmpty());
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -145,7 +146,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.addClass(id, null);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -155,7 +156,7 @@ public class ClassFacetTest extends TestCase
 		testPCClassUnsetEmpty();
 		testPCClassUnsetEmptySet();
 		assertEventCount(0, 0, 0);
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -163,27 +164,27 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 0);
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// No cross-pollution
-		assertEquals(0, facet.getCount(altid));
-		assertTrue(facet.isEmpty(altid));
-		assertNotNull(facet.getSet(altid));
-		assertTrue(facet.getSet(altid).isEmpty());
-		assertEquals(0, facet.getLevel(altid, t1));
+		Assert.assertEquals(0, facet.getCount(altid));
+		Assert.assertTrue(facet.isEmpty(altid));
+		Assert.assertNotNull(facet.getSet(altid));
+		Assert.assertTrue(facet.getSet(altid).isEmpty());
+		Assert.assertEquals(0, facet.getLevel(altid, t1));
 	}
 
 	@Test
@@ -191,38 +192,38 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Add same, still only once in set (and only one event)
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Now set the level
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Add same, still only once in set (only one add data event, doesn't
 		// desroy level)
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 	}
 
@@ -231,44 +232,44 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Now set the level
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		ClassLevelChangeEvent event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
-		assertEquals(t1, event.getPCClass());
-		assertEquals(0, event.getOldLevel());
-		assertEquals(2, event.getNewLevel());
+		Assert.assertEquals(id, event.getCharID());
+		Assert.assertEquals(t1, event.getPCClass());
+		Assert.assertEquals(0, event.getOldLevel());
+		Assert.assertEquals(2, event.getNewLevel());
 		//Set another level
 		facet.setLevel(id, t1, 3);
-		assertEquals(3, facet.getLevel(id, t1));
+		Assert.assertEquals(3, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 2);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
-		assertEquals(t1, event.getPCClass());
-		assertEquals(2, event.getOldLevel());
-		assertEquals(3, event.getNewLevel());
+		Assert.assertEquals(id, event.getCharID());
+		Assert.assertEquals(t1, event.getPCClass());
+		Assert.assertEquals(2, event.getOldLevel());
+		Assert.assertEquals(3, event.getNewLevel());
 		//Set another level
 		facet.setLevel(id, t1, 1);
-		assertEquals(1, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 3);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
-		assertEquals(t1, event.getPCClass());
-		assertEquals(3, event.getOldLevel());
-		assertEquals(1, event.getNewLevel());
+		Assert.assertEquals(id, event.getCharID());
+		Assert.assertEquals(t1, event.getPCClass());
+		Assert.assertEquals(3, event.getOldLevel());
+		Assert.assertEquals(1, event.getNewLevel());
 	}
 
 	@Test
@@ -277,40 +278,40 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setofone = facet.getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		assertEventCount(1, 0, 0);
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		PCClass t2 = new PCClass();
 		t2.setName("OtherClass");
 		facet.addClass(id, t2);
-		assertEquals(2, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(2, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setoftwo = facet.getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0, 1);
 		facet.setLevel(id, t2, 3);
-		assertEquals(2, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(2, facet.getSet(id).size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
-		assertEquals(3, facet.getLevel(id, t2));
+		Assert.assertEquals(2, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(2, facet.getSet(id).size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
+		Assert.assertEquals(3, facet.getLevel(id, t2));
 		assertEventCount(2, 0, 2);
 	}
 
@@ -318,11 +319,11 @@ public class ClassFacetTest extends TestCase
 	public void testPCClassContains()
 	{
 		PCClass t1 = new PCClass();
-		assertFalse(facet.contains(id, t1));
+		Assert.assertFalse(facet.contains(id, t1));
 		facet.addClass(id, t1);
-		assertTrue(facet.contains(id, t1));
+		Assert.assertTrue(facet.contains(id, t1));
 		facet.removeClass(id, t1);
-		assertFalse(facet.contains(id, t1));
+		Assert.assertFalse(facet.contains(id, t1));
 	}
 
 	@Test
@@ -331,7 +332,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.removeClass(id, null);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -341,7 +342,7 @@ public class ClassFacetTest extends TestCase
 		testPCClassUnsetEmpty();
 		testPCClassUnsetEmptySet();
 		assertEventCount(0, 0, 0);
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -349,28 +350,28 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Now set level
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Remove
 		facet.removeClass(id, t1);
-		assertEquals(0, facet.getCount(id));
-		assertTrue(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertTrue(facet.getSet(id).isEmpty());
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(0, facet.getCount(id));
+		Assert.assertTrue(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertTrue(facet.getSet(id).isEmpty());
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		// Add one remove event, and one level change event (2->0)
 		assertEventCount(1, 1, 2);
 	}
@@ -381,31 +382,31 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Set Level
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Useless Remove
 		PCClass other = new PCClass();
 		other.setName("OtherClass");
 		facet.removeClass(id, other);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 	}
 
@@ -414,43 +415,43 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		assertEventCount(1, 0, 0);
 		// Now set level
 		facet.setLevel(id, t1, 2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Add same, still only once in set
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		// Only requires one Remove (internally a Set, not List)
 		facet.removeClass(id, t1);
 		testPCClassUnsetZeroCount();
 		testPCClassUnsetEmpty();
 		testPCClassUnsetEmptySet();
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 1, 2);
 		// Second has no effect
 		facet.removeClass(id, t1);
 		testPCClassUnsetZeroCount();
 		testPCClassUnsetEmpty();
 		testPCClassUnsetEmptySet();
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 1, 2);
 	}
 
@@ -464,36 +465,36 @@ public class ClassFacetTest extends TestCase
 		facet.addClass(id, t1);
 		facet.addClass(id, t2);
 		facet.removeClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setofone = facet.getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 		assertEventCount(2, 1, 0);
 		facet.removeClass(id, t2);
 		assertEventCount(2, 2, 0);
-		assertEquals(0, facet.getCount(id));
-		assertTrue(facet.isEmpty(id));
+		Assert.assertEquals(0, facet.getCount(id));
+		Assert.assertTrue(facet.isEmpty(id));
 		Set<PCClass> emptyset = facet.getSet(id);
-		assertNotNull(emptyset);
-		assertEquals(0, emptyset.size());
+		Assert.assertNotNull(emptyset);
+		Assert.assertEquals(0, emptyset.size());
 	}
 
 	@Test
 	public void testPCClassRemoveAllSymmetry()
 	{
 		PCClass t1 = new PCClass();
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 		facet.addClass(id, t1);
 		facet.removeClass(id, t1);
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
 	public void testPCClassRemoveAll()
 	{
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
 		PCClass t2 = new PCClass();
@@ -506,10 +507,10 @@ public class ClassFacetTest extends TestCase
 		ClassInfo ci = facet.removeAllClasses(id);
 		Set<PCClass> setoftwo = ci.getClassSet();
 		assertEventCount(2, 2, 4);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		testPCClassUnsetZeroCount();
 		testPCClassUnsetEmpty();
 		testPCClassUnsetEmptySet();
@@ -526,11 +527,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.add(t2);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -540,11 +541,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.remove(t1);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -557,11 +558,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.addAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -571,11 +572,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.removeAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -585,11 +586,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.retainAll(new ArrayList<PCClass>());
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -600,11 +601,11 @@ public class ClassFacetTest extends TestCase
 		{
 			set.clear();
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, facet.getCount(id));
-			assertFalse(facet.isEmpty(id));
-			assertNotNull(facet.getSet(id));
-			assertEquals(1, facet.getSet(id).size());
-			assertEquals(t1, facet.getSet(id).iterator().next());
+			Assert.assertEquals(1, facet.getCount(id));
+			Assert.assertFalse(facet.isEmpty(id));
+			Assert.assertNotNull(facet.getSet(id));
+			Assert.assertEquals(1, facet.getSet(id).size());
+			Assert.assertEquals(t1, facet.getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -617,17 +618,17 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 0);
 		try
 		{
 			facet.setLevel(id, t1, -2);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -640,17 +641,17 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass t1 = new PCClass();
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 0);
 		try
 		{
 			facet.setLevel(id, null, 2);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -664,19 +665,19 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		t1.setName("MyClass");
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
-		assertNotNull(facet.getSet(id));
-		assertEquals(1, facet.getSet(id).size());
-		assertEquals(t1, facet.getSet(id).iterator().next());
-		assertEquals(0, facet.getLevel(id, t1));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
+		Assert.assertNotNull(facet.getSet(id));
+		Assert.assertEquals(1, facet.getSet(id).size());
+		Assert.assertEquals(t1, facet.getSet(id).iterator().next());
+		Assert.assertEquals(0, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 0);
 		try
 		{
 			PCClass other = new PCClass();
 			other.setName("OtherClass");
 			facet.setLevel(id, other, 2);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -692,8 +693,8 @@ public class ClassFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
-			assertFalse(facet.setClassLevel(id, null, pcl));
-			fail();
+			Assert.assertFalse(facet.setClassLevel(id, null, pcl));
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -701,7 +702,7 @@ public class ClassFacetTest extends TestCase
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -713,8 +714,8 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		try
 		{
-			assertFalse(facet.setClassLevel(id, t1, null));
-			fail();
+			Assert.assertFalse(facet.setClassLevel(id, t1, null));
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -722,7 +723,7 @@ public class ClassFacetTest extends TestCase
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -733,13 +734,13 @@ public class ClassFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
-			assertFalse(facet.setClassLevel(id, t1, pcl));
+			Assert.assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -754,7 +755,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.setClassLevel(id, t1, pcl);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -766,7 +767,7 @@ public class ClassFacetTest extends TestCase
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -782,7 +783,7 @@ public class ClassFacetTest extends TestCase
 		pcl.put(IntegerKey.LEVEL, 4);
 		try
 		{
-			assertFalse(facet.setClassLevel(id, t1, pcl));
+			Assert.assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -790,7 +791,7 @@ public class ClassFacetTest extends TestCase
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -804,18 +805,18 @@ public class ClassFacetTest extends TestCase
 		PCClassLevel old = facet.getClassLevel(id, t1, 3);
 		try
 		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
+			Assert.assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
-			assertEquals(t1, event.getPCClass());
-			assertEquals(old, event.getOldLevel());
-			assertEquals(pcl, event.getNewLevel());
+			Assert.assertEquals(id, event.getCharID());
+			Assert.assertEquals(t1, event.getPCClass());
+			Assert.assertEquals(old, event.getOldLevel());
+			Assert.assertEquals(pcl, event.getNewLevel());
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
-		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
+		Assert.assertEquals(pcl, facet.getClassLevel(id, t1, 3));
 	}
 
 	@Test
@@ -830,11 +831,11 @@ public class ClassFacetTest extends TestCase
 		pcl.put(IntegerKey.LEVEL, 3);
 		try
 		{
-			assertFalse(facet.setClassLevel(id, t1, pcl));
+			Assert.assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -843,7 +844,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.getClassLevel(id, t1, 3);
-			fail("This should not work: PC does not have this class");
+			Assert.fail("This should not work: PC does not have this class");
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -859,41 +860,41 @@ public class ClassFacetTest extends TestCase
 		PCClassLevel pcl = new PCClassLevel();
 		pcl.put(IntegerKey.LEVEL, 3);
 		PCClassLevel old = facet.getClassLevel(id, t1, 3);
-		assertEquals(0, classListener.addEventObjectCount);
+		Assert.assertEquals(0, classListener.addEventObjectCount);
 		try
 		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
+			Assert.assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
-			assertEquals(t1, event.getPCClass());
-			assertEquals(old, event.getOldLevel());
-			assertEquals(pcl, event.getNewLevel());
+			Assert.assertEquals(id, event.getCharID());
+			Assert.assertEquals(t1, event.getPCClass());
+			Assert.assertEquals(old, event.getOldLevel());
+			Assert.assertEquals(pcl, event.getNewLevel());
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
-		assertEquals(1, classListener.addEventObjectCount);
+		Assert.assertEquals(1, classListener.addEventObjectCount);
 		//Now useless but still returns true
 		try
 		{
-			assertTrue(facet.setClassLevel(id, t1, pcl));
+			Assert.assertTrue(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (CloneNotSupportedException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 		//Guarantee no new event
-		assertEquals(1, classListener.addEventObjectCount);
-		assertEquals(pcl, facet.getClassLevel(id, t1, 3));
+		Assert.assertEquals(1, classListener.addEventObjectCount);
+		Assert.assertEquals(pcl, facet.getClassLevel(id, t1, 3));
 	}
 
 	@Test
 	public void testGetClassLevelUnset()
 	{
 		PCClass cl = new PCClass();
-		assertNull(facet.getClassLevel(id, cl, 1));
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.getClassLevel(id, cl, 1));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -904,7 +905,7 @@ public class ClassFacetTest extends TestCase
 		facet.addClass(id, new PCClass());
 		try
 		{
-			assertNull(facet.getClassLevel(id, cl, 1));
+			Assert.assertNull(facet.getClassLevel(id, cl, 1));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -920,7 +921,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.getClassLevel(id, null, 1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -936,7 +937,7 @@ public class ClassFacetTest extends TestCase
 		try
 		{
 			facet.getClassLevel(id, cl, -3);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -950,7 +951,7 @@ public class ClassFacetTest extends TestCase
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
 		PCClassLevel pcl = facet.getClassLevel(id, cl, 1);
-		assertEquals(Integer.valueOf(1), pcl.get(IntegerKey.LEVEL));
+		Assert.assertEquals(Integer.valueOf(1), pcl.get(IntegerKey.LEVEL));
 	}
 
 	@Test
@@ -961,8 +962,8 @@ public class ClassFacetTest extends TestCase
 		ocl.put(IntegerKey.HIT_DIE, 4);
 		facet.addClass(id, cl);
 		PCClassLevel pcl = facet.getClassLevel(id, cl, 2);
-		assertEquals(Integer.valueOf(2), pcl.get(IntegerKey.LEVEL));
-		assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
+		Assert.assertEquals(Integer.valueOf(2), pcl.get(IntegerKey.LEVEL));
+		Assert.assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
 	}
 
 	@Test
@@ -975,16 +976,16 @@ public class ClassFacetTest extends TestCase
 		facet.setLevel(id, cl, 3);
 		facet.copyContents(id, altid);
 		PCClassLevel pcl = facet.getClassLevel(altid, cl, 2);
-		assertEquals(Integer.valueOf(2), pcl.get(IntegerKey.LEVEL));
-		assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
-		assertEquals(3, facet.getLevel(altid, cl));
+		Assert.assertEquals(Integer.valueOf(2), pcl.get(IntegerKey.LEVEL));
+		Assert.assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
+		Assert.assertEquals(3, facet.getLevel(altid, cl));
 	}
 	@Test
 
 	public void testEmptyCopyContents()
 	{
 		facet.copyContents(id, altid);
-		assertNull(facet.removeAllClasses(altid));
+		Assert.assertNull(facet.removeAllClasses(altid));
 	}
 
 	@Test
@@ -993,7 +994,7 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		PCClass t2 = new PCClass();
 		facet.replaceClass(id, t1, t2);
-		assertNull(facet.removeAllClasses(id));
+		Assert.assertNull(facet.removeAllClasses(id));
 	}
 
 	@Test
@@ -1002,24 +1003,24 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		t1.setName("Base");
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setofone = facet.getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		assertEventCount(1, 0, 0);
 		facet.setLevel(id, t1, 2);
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		PCClass t2 = new PCClass();
 		t2.setName("Other");
 		facet.replaceClass(id, t1, t2);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		setofone = facet.getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t2, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t2, setofone.iterator().next());
 		//TODO This test needs some help, as 
 //		assertEquals(0, facet.getLevel(id, t1));
 //		assertEquals(2, facet.getLevel(id, t2));
@@ -1033,28 +1034,28 @@ public class ClassFacetTest extends TestCase
 		PCClass t1 = new PCClass();
 		t1.setName("Base");
 		facet.addClass(id, t1);
-		assertEquals(1, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(1, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setofone = facet.getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		assertEventCount(1, 0, 0);
 		facet.setLevel(id, t1, 2);
-		assertEquals(2, facet.getLevel(id, t1));
+		Assert.assertEquals(2, facet.getLevel(id, t1));
 		PCClass t2 = new PCClass();
 		t2.setName("Innocent");
 		facet.addClass(id, t2);
 		PCClass t3 = new PCClass();
 		t3.setName("Other");
 		facet.replaceClass(id, t1, t3);
-		assertEquals(2, facet.getCount(id));
-		assertFalse(facet.isEmpty(id));
+		Assert.assertEquals(2, facet.getCount(id));
+		Assert.assertFalse(facet.isEmpty(id));
 		Set<PCClass> setoftwo = facet.getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t2));
-		assertTrue(setoftwo.contains(t3));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t2));
+		Assert.assertTrue(setoftwo.contains(t3));
 		//TODO This test needs some help, as 
 //		assertEquals(0, facet.getLevel(id, t1));
 //		assertEquals(2, facet.getLevel(id, t2));

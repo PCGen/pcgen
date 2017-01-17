@@ -26,7 +26,6 @@ package plugin.lsttokens.gamemode.abilitycategory;
 import java.util.ArrayList;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -36,6 +35,10 @@ import pcgen.rules.context.LoadValidator;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
 
 /**
  * The Class <code>AbilityListTokenTest</code> verifies the processing of the 
@@ -44,15 +47,14 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class AbilityListTokenTest extends TestCase
+public class AbilityListTokenTest
 {
 
 	private RuntimeLoadContext context;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		context = new RuntimeLoadContext(new RuntimeReferenceContext(),
 				new ConsolidatedListCommitStrategy());
 		context.getReferenceContext().importObject(AbilityCategory.FEAT);
@@ -74,27 +76,32 @@ public class AbilityListTokenTest extends TestCase
 		{
 			found |= ref.getLSTformat(false).equals(key);
 		}
-		assertEquals(key + " in the list (" + expected + ") incorrect",
-				expected, found);
+		Assert.assertEquals(key + " in the list (" + expected + ") incorrect",
+				expected, found
+		);
 	}
 	
 	/**
 	 * Test a single entry is parsed correctly
 	 */
+	@Test
 	public void testSingleEntry()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
-			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
-			0, aCat.getAbilityRefs().size());
+		Assert.assertFalse(
+				"Test category should start with an empty list of keys",
+				aCat.hasDirectReferences()
+		);
+		Assert.assertEquals("Test category should start with an empty list of keys",
+				0, aCat.getAbilityRefs().size()
+		);
 
 		AbilityListToken token = new AbilityListToken();
 		Ability track = buildFeat(context, "Track");
 		token.parseToken(context, aCat, "Track");
-		assertEquals("Test category should now have 1 key", 1, aCat
+		Assert.assertEquals("Test category should now have 1 key", 1, aCat
 				.getAbilityRefs().size());
 		assertContains(aCat, track, true);
 	}
@@ -102,23 +109,27 @@ public class AbilityListTokenTest extends TestCase
 	/**
 	 * Test that multiple entries are parsed correctly.
 	 */
+	@Test
 	public void testMultipleEntries()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
-			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
-			0, aCat.getAbilityRefs().size());
+		Assert.assertFalse(
+				"Test category should start with an empty list of keys",
+				aCat.hasDirectReferences()
+		);
+		Assert.assertEquals("Test category should start with an empty list of keys",
+				0, aCat.getAbilityRefs().size()
+		);
 
 		AbilityListToken token = new AbilityListToken();
 		Ability track = buildFeat(context, "Track");
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability pa = buildFeat(context, "Power Attack");
 		token.parseToken(context, aCat, "Track|Point Blank Shot");
-		assertEquals("Test category should now have 2 keys", 2, aCat
-			.getAbilityRefs().size());
+		Assert.assertEquals("Test category should now have 2 keys", 2, aCat
+				.getAbilityRefs().size());
 		assertContains(aCat, track, true);
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, pa, false);
@@ -127,38 +138,43 @@ public class AbilityListTokenTest extends TestCase
 	/**
 	 * Test that entries with associated choices are parsed correctly
 	 */
+	@Test
 	public void testEntriesWithAssoc()
 	{
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
-			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
-			0, aCat.getAbilityRefs().size());
+		Assert.assertFalse(
+				"Test category should start with an empty list of keys",
+				aCat.hasDirectReferences()
+		);
+		Assert.assertEquals("Test category should start with an empty list of keys",
+				0, aCat.getAbilityRefs().size()
+		);
 
 		AbilityListToken token = new AbilityListToken();
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability sf = buildFeat(context, "Skill Focus");
-		token.parseToken(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus (Bluff)");
-		assertEquals("Test category should now have 3 keys", 3, aCat
-			.getAbilityRefs().size());
+		token.parseToken(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus" +
+				" (Bluff)");
+		Assert.assertEquals("Test category should now have 3 keys", 3, aCat
+				.getAbilityRefs().size());
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, sf, false); //Because this tests LST format
 		context.getReferenceContext().validate(new LoadValidator(new ArrayList<>()));
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean found = false;
 		for (CDOMSingleRef<Ability> ref : refs)
 		{
 			found |= ref.contains(pbs);
 		}
-		assertTrue("Expected Point Blank Shot Ability", found);
+		Assert.assertTrue("Expected Point Blank Shot Ability", found);
 		found = false;
 		for (CDOMSingleRef<Ability> ref : refs)
 		{
 			found |= ref.contains(sf);
 		}
-		assertTrue("Expected Skill Focus Ability", found);
+		Assert.assertTrue("Expected Skill Focus Ability", found);
 	}
 }

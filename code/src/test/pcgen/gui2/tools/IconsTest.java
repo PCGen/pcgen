@@ -20,18 +20,20 @@
  */
 package pcgen.gui2.tools;
 
-import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.notNullValue;
 
 /**
  *
  * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
-public class IconsTest extends TestCase
+public class IconsTest
 {
 
 	@BeforeClass
@@ -45,17 +47,13 @@ public class IconsTest extends TestCase
 	}
 
 	@Before
-    @Override
 	public void setUp() throws Exception
 	{
-		super.setUp();
 	}
 
 	@After
-    @Override
 	public void tearDown() throws Exception
 	{
-		super.tearDown();
 	}
 
 	/**
@@ -64,10 +62,9 @@ public class IconsTest extends TestCase
 	@Test
 	public void testIconsExist()
 	{
-		System.out.println("getImageIcon");
 		for (Icons icon : Icons.values())
 		{
-			assertNotNull(icon.getImageIcon());
+			Assert.assertThat(icon.getImageIcon(), notNullValue());
 		}
 	}
 

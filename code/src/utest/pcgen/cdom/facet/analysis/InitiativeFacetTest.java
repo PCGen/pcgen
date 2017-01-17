@@ -21,18 +21,17 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.analysis.InitiativeFacet;
 
-public class InitiativeFacetTest extends TestCase
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class InitiativeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -46,10 +45,9 @@ public class InitiativeFacetTest extends TestCase
 	private InitiativeFacet facet;
 	private Map<CharID, Double> bonusInfo;
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -61,20 +59,20 @@ public class InitiativeFacetTest extends TestCase
 	@Test
 	public void testReachUnset()
 	{
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 	}
 
 	@Test
 	public void testGetWithBonus()
 	{
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 		bonusInfo.put(altid, 4.0);
 		// No pollution
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 		bonusInfo.put(id, 6.0);
-		assertEquals(8, facet.getInitiative(id));
+		Assert.assertEquals(8, facet.getInitiative(id));
 		bonusInfo.clear();
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 	}
 
 	public InitiativeFacet getMockFacet() throws SecurityException,

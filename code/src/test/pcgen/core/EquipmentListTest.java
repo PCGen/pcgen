@@ -25,13 +25,15 @@ package pcgen.core;
 
 import java.util.List;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
+
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import org.junit.Assert;
+import org.junit.Before;
 
 /**
  * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
@@ -40,7 +42,7 @@ import pcgen.util.TestHelper;
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
-public class EquipmentListTest extends TestCase
+public class EquipmentListTest
 {
 
 	private Equipment eq = null;
@@ -56,35 +58,11 @@ public class EquipmentListTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new <code>EquipmentListTest</code>.
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentListTest()
-	{
-		// Constructor
-	}
-
-	/**
-	 * Constructs a new <code>EquipmentListTest</code> with the given
-	 * <var>name</var>.
-	 *
-	 * @param name the test case name
-	 *
-	 * @see PCGenTestCase#PCGenTestCase()
-	 */
-	public EquipmentListTest(final String name)
-	{
-		super(name);
-	}
-
-	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 
 		if (firstTime)
 		{
@@ -107,14 +85,15 @@ public class EquipmentListTest extends TestCase
 	/**
 	 * test the getEquipmentOfType method
 	 */
+	@org.junit.Test
 	public void testGetEquipmentOfType()
 	{
 		Globals.getContext().getReferenceContext().importObject(eq);
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
-		assertEquals("Should get a single result", 1, results.size());
-		assertEquals("Should find the DUmmy equipment object.", eq, results
-			.get(0));
+		Assert.assertEquals("Should get a single result", 1, results.size());
+		Assert.assertEquals("Should find the DUmmy equipment object.", eq, results
+				.get(0));
 	}
 }

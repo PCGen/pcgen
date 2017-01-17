@@ -24,6 +24,9 @@ package pcgen.rules.context;
 
 import java.util.Collection;
 import junit.framework.TestCase;
+import org.junit.Assert;
+import org.junit.Test;
+
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMReference;
@@ -45,18 +48,27 @@ import pcgen.util.TestHelper;
  * 
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class LoadContextTest extends TestCase
+public class LoadContextTest
 {
 
 	/**
 	 * Test method for {@link pcgen.rules.context.LoadContext#cloneInMasterLists(pcgen.cdom.base.CDOMObject, java.lang.String)}.
 	 */
+	@Test
 	public final void testCloneInMasterListsSimple()
 	{
 		Spell testSpell = TestHelper.makeSpell("LoadContextTest");
 		Spell newSpell = Globals.getContext().performCopy(testSpell, "New Spell");
-		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
-		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
+		Assert.assertEquals(
+				"Old spell name incorrect",
+				"LoadContextTest",
+				testSpell.getDisplayName()
+		);
+		Assert.assertEquals(
+				"New spell name incorrect",
+				"New Spell",
+				newSpell.getDisplayName()
+		);
 	}
 
 	/**
@@ -64,6 +76,7 @@ public class LoadContextTest extends TestCase
 	 * Verify that associations from other objects to the object being cloned 
 	 * are copied over. 
 	 */
+	@Test
 	public final void testCloneInMasterListsAssoc()
 	{
 		final LoadContext context = Globals.getContext();
@@ -79,29 +92,41 @@ public class LoadContextTest extends TestCase
 					ref, testSpell);
 		edge.setAssociation(AssociationKey.SPELL_LEVEL, 1);
 		context.getReferenceContext().buildDerivedObjects();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.commit();
 		
 		Spell newSpell = context.performCopy(testSpell, "New Spell");
 		context.commit();
-		assertEquals("Old spell name incorrect", "LoadContextTest", testSpell.getDisplayName());
-		assertEquals("New spell name incorrect", "New Spell", newSpell.getDisplayName());
+		Assert.assertEquals(
+				"Old spell name incorrect",
+				"LoadContextTest",
+				testSpell.getDisplayName()
+		);
+		Assert.assertEquals(
+				"New spell name incorrect",
+				"New Spell",
+				newSpell.getDisplayName()
+		);
 		
 		// Check associations
 		MasterListInterface masterLists = SettingsHandler.getGame().getMasterLists();
 		Collection<AssociatedPrereqObject> assoc =
 				masterLists.getAssociations(ref, testSpell);
-		assertEquals("Incorrect size of assoc list for orig spell", 1, assoc.size());
+		Assert.assertEquals(
+				"Incorrect size of assoc list for orig spell",
+				1,
+				assoc.size()
+		);
 		AssociatedPrereqObject apo = assoc.iterator().next();
-		assertEquals("Incorrect level", 1, apo.getAssociation(
-			AssociationKey.SPELL_LEVEL).intValue());
+		Assert.assertEquals("Incorrect level", 1, apo.getAssociation(
+				AssociationKey.SPELL_LEVEL).intValue());
 
 		assoc = masterLists.getAssociations(ref, newSpell);
-		assertEquals("Incorrect size of assoc list for new spell", 1, assoc
-			.size());
+		Assert.assertEquals("Incorrect size of assoc list for new spell", 1, assoc
+				.size());
 		apo = assoc.iterator().next();
-		assertEquals("Incorrect level", 1, apo.getAssociation(
-			AssociationKey.SPELL_LEVEL).intValue());
+		Assert.assertEquals("Incorrect level", 1, apo.getAssociation(
+				AssociationKey.SPELL_LEVEL).intValue());
 	}
 
 }

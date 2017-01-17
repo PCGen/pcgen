@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.content.ContentDefinition;
 import pcgen.cdom.content.fact.FactDefinition;
 import pcgen.core.Campaign;
@@ -35,9 +29,14 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class ExplanationTokenTest extends TestCase
+public class ExplanationTokenTest
 {
 
 	static ExplanationToken token = new ExplanationToken();
@@ -57,7 +56,6 @@ public class ExplanationTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -84,40 +82,40 @@ public class ExplanationTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assert.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assert.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
 	public void testValidStringYes() throws PersistenceLayerException
 	{
-		assertNull(cd.getExplanation());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
-		assertNotNull(cd.getExplanation());
-		assertEquals("YES", cd.getExplanation());
+		Assert.assertNull(cd.getExplanation());
+		Assert.assertTrue(token.parseToken(context, cd, "YES").passed());
+		Assert.assertNotNull(cd.getExplanation());
+		Assert.assertEquals("YES", cd.getExplanation());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("YES", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertNull(cd.getExplanation());
+		Assert.assertNull(cd.getExplanation());
 		String str = "Wow! Some String?!?";
-		assertTrue(token.parseToken(context, cd, str).passed());
-		assertNotNull(cd.getExplanation());
-		assertEquals(str, cd.getExplanation());
+		Assert.assertTrue(token.parseToken(context, cd, str).passed());
+		Assert.assertNotNull(cd.getExplanation());
+		Assert.assertEquals(str, cd.getExplanation());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals(str, unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals(str, unparsed[0]);
 	}
 
 }

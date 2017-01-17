@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -29,17 +25,20 @@ import pcgen.cdom.enumeration.VariableKey;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.core.PCTemplate;
 
-public class VariableFacetTest extends TestCase
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class VariableFacetTest
 {
 
 	private VariableFacet facet = new VariableFacet();
 	private CharID id;
 	private CharID altid;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -55,7 +54,7 @@ public class VariableFacetTest extends TestCase
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
 		VariableKey vk = VariableKey.getConstant("Var1");
-		assertFalse(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(id, vk));
 	}
 
 	@Test
@@ -69,9 +68,9 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 	}
 
 	@Test
@@ -87,16 +86,16 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t2, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 	}
 
 	@Test
@@ -112,10 +111,10 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk1));
-		assertTrue(getFacet().contains(id, vk2));
-		assertFalse(getFacet().contains(altid, vk1));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
+		Assert.assertTrue(getFacet().contains(id, vk1));
+		Assert.assertTrue(getFacet().contains(id, vk2));
+		Assert.assertFalse(getFacet().contains(altid, vk1));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
 	}
 
 	@Test
@@ -131,18 +130,18 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk1));
-		assertTrue(getFacet().contains(id, vk2));
-		assertFalse(getFacet().contains(altid, vk1));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
+		Assert.assertTrue(getFacet().contains(id, vk1));
+		Assert.assertTrue(getFacet().contains(id, vk2));
+		Assert.assertFalse(getFacet().contains(altid, vk1));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertFalse(getFacet().contains(id, vk1));
-		assertFalse(getFacet().contains(id, vk2));
-		assertFalse(getFacet().contains(altid, vk1));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
+		Assert.assertFalse(getFacet().contains(id, vk1));
+		Assert.assertFalse(getFacet().contains(id, vk2));
+		Assert.assertFalse(getFacet().contains(altid, vk1));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var3")));
 	}
 
 	@Test
@@ -155,7 +154,7 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertFalse(getFacet().contains(id, vk1));
+		Assert.assertFalse(getFacet().contains(id, vk1));
 	}
 
 	@Test
@@ -171,26 +170,26 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t2, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertTrue(getFacet().contains(id, vk));
+		Assert.assertTrue(getFacet().contains(id, vk));
 		dfce =
                 new DataFacetChangeEvent<>(id, t2, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertFalse(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(id, vk));
 	}
 
 	@Test
@@ -206,26 +205,26 @@ public class VariableFacetTest extends TestCase
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t2, source,
                         DataFacetChangeEvent.DATA_ADDED);
 		getFacet().dataAdded(dfce);
-		assertTrue(getFacet().contains(id, vk));
-		assertFalse(getFacet().contains(altid, vk));
-		assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
+		Assert.assertTrue(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(altid, vk));
+		Assert.assertFalse(getFacet().contains(id, VariableKey.getConstant("Var2")));
 		dfce =
                 new DataFacetChangeEvent<>(id, t2, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertTrue(getFacet().contains(id, vk));
+		Assert.assertTrue(getFacet().contains(id, vk));
 		dfce =
                 new DataFacetChangeEvent<>(id, t1, source,
                         DataFacetChangeEvent.DATA_REMOVED);
 		getFacet().dataRemoved(dfce);
-		assertFalse(getFacet().contains(id, vk));
+		Assert.assertFalse(getFacet().contains(id, vk));
 	}
 
 	private VariableFacet getFacet()

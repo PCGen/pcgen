@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.content.factset.FactSetDefinition;
 import pcgen.core.Campaign;
 import pcgen.core.Domain;
@@ -36,9 +30,14 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class FactSetDefTokenTest extends TestCase
+public class FactSetDefTokenTest
 {
 
 	static FactSetDefToken token = new FactSetDefToken();
@@ -58,7 +57,6 @@ public class FactSetDefTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -85,75 +83,76 @@ public class FactSetDefTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, null).passed());
+		Assert.assertFalse(token.parseToken(context, fd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "").passed());
 	}
 
 	@Test
 	public void testInvalidInputNoPipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "SKILL").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "SKILL").passed());
 	}
 
 	@Test
 	public void testInvalidInputTrailingPipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "SKILL|").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "SKILL|").passed());
 	}
 
 	@Test
 	public void testInvalidInputLeadingPipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "|Possibility").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "|Possibility").passed());
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "SKILL||Possibility").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "SKILL||Possibility").passed());
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe2() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, fd, "SKILL|Possibility|Exception").passed());
+		Assert.assertFalse(token.parseToken(context, fd, "SKILL|Possibility|Exception")
+								.passed());
 	}
 
 	@Test
 	public void testValidStringString() throws PersistenceLayerException
 	{
-		assertNull(fd.getFactSetName());
-		assertNull(fd.getUsableLocation());
-		assertTrue(token.parseToken(context, fd, "SKILL|Possibility").passed());
-		assertNotNull(fd.getFactSetName());
-		assertNotNull(fd.getUsableLocation());
-		assertEquals("Possibility", fd.getFactSetName());
-		assertEquals(Skill.class, fd.getUsableLocation());
+		Assert.assertNull(fd.getFactSetName());
+		Assert.assertNull(fd.getUsableLocation());
+		Assert.assertTrue(token.parseToken(context, fd, "SKILL|Possibility").passed());
+		Assert.assertNotNull(fd.getFactSetName());
+		Assert.assertNotNull(fd.getUsableLocation());
+		Assert.assertEquals("Possibility", fd.getFactSetName());
+		Assert.assertEquals(Skill.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("SKILL|Possibility", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("SKILL|Possibility", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertNull(fd.getFactSetName());
-		assertNull(fd.getUsableLocation());
-		assertTrue(token.parseToken(context, fd, "DOMAIN|Caster").passed());
-		assertNotNull(fd.getFactSetName());
-		assertNotNull(fd.getUsableLocation());
-		assertEquals("Caster", fd.getFactSetName());
-		assertEquals(Domain.class, fd.getUsableLocation());
+		Assert.assertNull(fd.getFactSetName());
+		Assert.assertNull(fd.getUsableLocation());
+		Assert.assertTrue(token.parseToken(context, fd, "DOMAIN|Caster").passed());
+		Assert.assertNotNull(fd.getFactSetName());
+		Assert.assertNotNull(fd.getUsableLocation());
+		Assert.assertEquals("Caster", fd.getFactSetName());
+		Assert.assertEquals(Domain.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("DOMAIN|Caster", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("DOMAIN|Caster", unparsed[0]);
 	}
 
 }
