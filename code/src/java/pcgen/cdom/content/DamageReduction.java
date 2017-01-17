@@ -174,10 +174,10 @@ public class DamageReduction extends ConcretePrereqObject implements
 		List<String> list = new ArrayList<>(getBypassList());
 		Collections.sort(list);
 		int hash = 0;
-		for (Iterator<String> i = list.iterator(); i.hasNext();)
-		{
-			hash += i.next().hashCode();
-		}
+        for (String aList : list)
+        {
+            hash += aList.hashCode();
+        }
 		return theReduction.hashCode() + hash;
 	}
 

@@ -189,28 +189,28 @@ public class ExperienceAdjusterModel extends Observable
 			party.removeAllElements();
 			enemies.removeAllElements();
 
-			for (int i = 0; i < combat.size(); i++)
-			{
-				InitHolder iH = combat.get(i);
+            for (Object aCombat : combat)
+            {
+                InitHolder iH = aCombat;
 
-				if (iH instanceof Combatant)
-				{
-					Combatant cbt = (Combatant) iH;
+                if (iH instanceof Combatant)
+                {
+                    Combatant cbt = (Combatant) iH;
 
-					if (cbt.getCombatantType().equals("PC"))
-					{
-						party.addElement(new ExperienceListItem(cbt));
-					}
-					else if (cbt.getCombatantType().equals("Enemy"))
-					{
-						if (cbt.getStatus() == State.Dead
-							|| cbt.getStatus() == State.Defeated)
-						{
-							enemies.addElement(new ExperienceListItem(cbt));
-						}
-					}
-				}
-			}
+                    if (cbt.getCombatantType().equals("PC"))
+                    {
+                        party.addElement(new ExperienceListItem(cbt));
+                    }
+                    else if (cbt.getCombatantType().equals("Enemy"))
+                    {
+                        if (cbt.getStatus() == State.Dead
+                                || cbt.getStatus() == State.Defeated)
+                        {
+                            enemies.addElement(new ExperienceListItem(cbt));
+                        }
+                    }
+                }
+            }
 		}
 	}
 

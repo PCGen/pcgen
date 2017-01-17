@@ -56,28 +56,30 @@ public final class RoomBoardFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
-			{
-				try
-				{
-					Document methodSet = builder.build(dataFiles[i]);
-					DocType dt = methodSet.getDocType();
+            for (File dataFile : dataFiles)
+            {
+                try
+                {
+                    Document methodSet = builder.build(dataFile);
+                    DocType dt = methodSet.getDocType();
 
-					if (dt.getElementName().equals("RNBPRICE")) //$NON-NLS-1$
-					{
-						//Do work here
-						loadRBData(methodSet, inns, foods, animals);
-					}
+                    if (dt.getElementName().equals("RNBPRICE")) //$NON-NLS-1$
+                    {
+                        //Do work here
+                        loadRBData(methodSet, inns, foods, animals);
+                    }
 
-					methodSet = null;
-					dt = null;
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrintLocalised("XML Error with file {0}", dataFiles[i].getName());
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
+                    methodSet = null;
+                    dt = null;
+                } catch (Exception e)
+                {
+                    Logging.errorPrintLocalised(
+                            "XML Error with file {0}",
+                            dataFile.getName()
+                    );
+                    Logging.errorPrint(e.getMessage(), e);
+                }
+            }
 		}
 		else
 		{

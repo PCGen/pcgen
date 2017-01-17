@@ -104,15 +104,14 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	 */
 	protected void buildCombatantList(List combatantList)
 	{
-		for (Iterator i = combatantList.iterator(); i.hasNext();)
-		{
-			Object o = i.next();
-			if (o != null && o instanceof PcgCombatant)
-			{
-				PcgCombatant cbt = (PcgCombatant) o;
-				addCombatant(cbt);
-			}
-		}
+        for (Object o : combatantList)
+        {
+            if (o != null && o instanceof PcgCombatant)
+            {
+                PcgCombatant cbt = (PcgCombatant) o;
+                addCombatant(cbt);
+            }
+        }
 	}
 
 	/*

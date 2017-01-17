@@ -78,35 +78,43 @@ public class Tips
 		{
 			FilenameFilter filter = new SpecificFilenameFilter(filename);
 			File[] subfiles = rootDirectory.listFiles();
-			for (int i = 0; i < subfiles.length; i++)
-			{
-				if (subfiles[i].isDirectory())
-				{
-					File[] tipsFiles = subfiles[i].listFiles(filter);
-					for (int j = 0; j < tipsFiles.length; j++)
-					{
-						log("Found {0}", tipsFiles[j]);
-						// for each non comment line of the file, put its content in a Set<String>
-						try
-						{
-							BufferedReader reader = new BufferedReader(new FileReader(tipsFiles[j]));
-							addTips(tips, reader);
-							reader.close();
-						}
-						catch (FileNotFoundException e)
-						{
-							logError("Warning: file found then not found {0}, ignoring this file", tipsFiles[j]);
-							e.printStackTrace();
-						}
-						catch (IOException e)
-						{
-							logError("Warning: IO error reading {0}, ignoring this file", tipsFiles[j]);
-							e.printStackTrace();
-						}
+            for (File subfile : subfiles)
+            {
+                if (subfile.isDirectory())
+                {
+                    File[] tipsFiles = subfile.listFiles(filter);
+                    for (File tipsFile : tipsFiles)
+                    {
+                        log("Found {0}", tipsFile);
+                        // for each non comment line of the file, put its content in a
+                        // Set<String>
+                        try
+                        {
+                            BufferedReader
+                                    reader =
+                                    new BufferedReader(new FileReader(tipsFile));
+                            addTips(tips, reader);
+                            reader.close();
+                        } catch (FileNotFoundException e)
+                        {
+                            logError(
+                                    "Warning: file found then not found {0}, ignoring " +
+                                            "this file",
+                                    tipsFile
+                            );
+                            e.printStackTrace();
+                        } catch (IOException e)
+                        {
+                            logError(
+                                    "Warning: IO error reading {0}, ignoring this file",
+                                    tipsFile
+                            );
+                            e.printStackTrace();
+                        }
 
-					}
-				}
-			}
+                    }
+                }
+            }
 
 		}
 
@@ -317,80 +325,90 @@ public class Tips
 		{
 			FilenameFilter filter = new SpecificFilenameFilter(originalName);
 			File[] subfiles = rootDirectory.listFiles();
-			for (int i = 0; i < subfiles.length; i++)
-			{
-				if (subfiles[i].isDirectory())
-				{
-					File[] tipsFiles = subfiles[i].listFiles(filter);
-					for (int j = 0; j < tipsFiles.length; j++)
-					{
-						File newFile = new File(subfiles[i], translationName);
-						log("Found {0}, creating {1}", tipsFiles[j], newFile);
-						BufferedWriter bw = null;
-						BufferedReader reader = null;
-						try
-						{
-							reader = new BufferedReader(new FileReader(tipsFiles[j]));
-							bw = new BufferedWriter(new FileWriter(newFile));
-							String readLine = reader.readLine();
-							while (readLine != null)
-							{
-								if (isTip(readLine))
-								{
-									String translatedLine = tipsTranslated.get(readLine);
-									if (translatedLine == null)
-									{
-										log("null translated line in {1}, original {0}", readLine, translation);
-										translatedLine = readLine;
-									}
-									else if (translatedLine.isEmpty() && MARK_UNTRANSLATED)
-									{
-										translatedLine = "<em>Not yet translated</em><br>" + readLine;
-									}
-									bw.write(translatedLine);
-								}
-								else bw.write(readLine);
-								bw.write("\n");
-								readLine = reader.readLine();
-							}
-						}
-						catch (FileNotFoundException e)
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						catch (IOException e)
-						{
-							// TODO Auto-generated catch block
-							e.printStackTrace();
-						}
-						finally
-						{
-							try
-							{
-								if (reader != null)
-									reader.close();
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-							try
-							{
-								if (bw != null)
-									bw.close();
-							}
-							catch (IOException e)
-							{
-								// TODO Auto-generated catch block
-								e.printStackTrace();
-							}
-						}
+            for (File subfile : subfiles)
+            {
+                if (subfile.isDirectory())
+                {
+                    File[] tipsFiles = subfile.listFiles(filter);
+                    for (File tipsFile : tipsFiles)
+                    {
+                        File newFile = new File(subfile, translationName);
+                        log("Found {0}, creating {1}", tipsFile, newFile);
+                        BufferedWriter bw = null;
+                        BufferedReader reader = null;
+                        try
+                        {
+                            reader = new BufferedReader(new FileReader(tipsFile));
+                            bw = new BufferedWriter(new FileWriter(newFile));
+                            String readLine = reader.readLine();
+                            while (readLine != null)
+                            {
+                                if (isTip(readLine))
+                                {
+                                    String translatedLine = tipsTranslated.get(readLine);
+                                    if (translatedLine == null)
+                                    {
+                                        log(
+                                                "null translated line in {1}, original " +
+                                                        "{0}",
+                                                readLine,
+                                                translation
+                                        );
+                                        translatedLine = readLine;
+                                    }
+                                    else if (translatedLine.isEmpty() &&
+                                            MARK_UNTRANSLATED)
+                                    {
+                                        translatedLine =
+                                                "<em>Not yet translated</em><br>" +
+                                                        readLine;
+                                    }
+                                    bw.write(translatedLine);
+                                }
+                                else
+                                {
+                                    bw.write(readLine);
+                                }
+                                bw.write("\n");
+                                readLine = reader.readLine();
+                            }
+                        } catch (FileNotFoundException e)
+                        {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } catch (IOException e)
+                        {
+                            // TODO Auto-generated catch block
+                            e.printStackTrace();
+                        } finally
+                        {
+                            try
+                            {
+                                if (reader != null)
+                                {
+                                    reader.close();
+                                }
+                            } catch (IOException e)
+                            {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                            try
+                            {
+                                if (bw != null)
+                                {
+                                    bw.close();
+                                }
+                            } catch (IOException e)
+                            {
+                                // TODO Auto-generated catch block
+                                e.printStackTrace();
+                            }
+                        }
 
-					}
-				}
-			}
+                    }
+                }
+            }
 
 		}
 		log("Done");

@@ -73,22 +73,22 @@ public class PreSkillTotalParser extends AbstractPrerequisiteParser implements
 		int total = 0;
 
 		String[] tokens = formula.split(",");
-		for (int i = 0; i < tokens.length; i++)
-		{
-			String token = tokens[i];
-			if (token.indexOf("=") > -1)
-			{
-				String[] subTokens = token.split("=");
-				token = subTokens[0];
-				total = Integer.parseInt(subTokens[1]);
-			}
+        for (String token1 : tokens)
+        {
+            String token = token1;
+            if (token.indexOf("=") > -1)
+            {
+                String[] subTokens = token.split("=");
+                token = subTokens[0];
+                total = Integer.parseInt(subTokens[1]);
+            }
 
-			Prerequisite subreq = new Prerequisite();
-			subreq.setKind("skill");
-			subreq.setKey(token);
-			subreq.setTotalValues(true);
-			prereq.addPrerequisite(subreq);
-		}
+            Prerequisite subreq = new Prerequisite();
+            subreq.setKind("skill");
+            subreq.setKey(token);
+            subreq.setTotalValues(true);
+            prereq.addPrerequisite(subreq);
+        }
 
 		if (invertResult)
 		{

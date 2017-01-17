@@ -212,21 +212,24 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			File[] pcFiles = chooser.getSelectedFiles();
 
-			for (int i = 0; i < pcFiles.length; i++)
-			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
-				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, pcFiles[i],
-						false));
+            for (File pcFile : pcFiles)
+            {
+                if (PCGFile.isPCGenCharacterOrPartyFile(pcFile))
+                {
+                    messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(
+                            this,
+                            pcFile,
+                            false
+                    ));
 
-					//loadPCG(pcFiles[i]);
-				}
-				else if (pcFiles[i].toString().endsWith(".init")
-					|| pcFiles[i].toString().endsWith(".gmi"))
-				{
-					loadINIT(pcFiles[i]);
-				}
-			}
+                    //loadPCG(pcFiles[i]);
+                }
+                else if (pcFile.toString().endsWith(".init")
+                        || pcFile.toString().endsWith(".gmi"))
+                {
+                    loadINIT(pcFile);
+                }
+            }
 			/* loop through selected files */
 
 			theView.refreshTable();
@@ -281,11 +284,11 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			InitHolderList cl = message.getInitHolderList();
 
-			for (int i = 0; i < cl.size(); i++)
-			{
-				InitHolder iH = cl.get(i);
-				theView.addInitHolder(iH);
-			}
+            for (Object aCl : cl)
+            {
+                InitHolder iH = aCl;
+                theView.addInitHolder(iH);
+            }
 
 			theView.refreshTable();
 		}

@@ -329,9 +329,9 @@ public final class RollInfo
 	{
 		Logging.setDebugMode(true);
 
-		for (int i = 0; i < args.length; ++i)
+		for (String arg : args)
 		{
-			final RollInfo ri = new RollInfo(args[i]);
+			final RollInfo ri = new RollInfo(arg);
 			Logging.debugPrint(ri + ": " + RollInfo.roll());
 		}
 	}

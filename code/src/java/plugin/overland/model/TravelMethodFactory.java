@@ -92,25 +92,24 @@ public class TravelMethodFactory
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
 
-			for (int i = 0; i < dataFiles.length; i++)
-			{
-				try
-				{
-					Document methodSet = builder.build(dataFiles[i]);
-					DocType dt = methodSet.getDocType();
+            for (File dataFile : dataFiles)
+            {
+                try
+                {
+                    Document methodSet = builder.build(dataFile);
+                    DocType dt = methodSet.getDocType();
 
-					if (dt.getElementName().equals(XML_ELEMENT_TRAVEL))
-					{
-						//Do work here
-						TravelMethod tm = TravelMethodFactory.create(methodSet);
-						tms.add(tm);
-					}
-				}
-				catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-				}
-			}
+                    if (dt.getElementName().equals(XML_ELEMENT_TRAVEL))
+                    {
+                        //Do work here
+                        TravelMethod tm = TravelMethodFactory.create(methodSet);
+                        tms.add(tm);
+                    }
+                } catch (Exception e)
+                {
+                    Logging.errorPrint(e.getMessage(), e);
+                }
+            }
 		}
 		else
 		{

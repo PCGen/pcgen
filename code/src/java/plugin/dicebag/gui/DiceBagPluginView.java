@@ -84,19 +84,19 @@ public class DiceBagPluginView implements Observer
 		Component[] frames = theDesktop.getComponents();
 		StringBuilder files = new StringBuilder();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				DiceBagModel bag = ((DiceBagView) frames[i]).getBag();
-				askSaveBag(bag, JOptionPane.YES_NO_OPTION);
+        for (Component frame : frames)
+        {
+            if (frame instanceof DiceBagView)
+            {
+                DiceBagModel bag = ((DiceBagView) frame).getBag();
+                askSaveBag(bag, JOptionPane.YES_NO_OPTION);
 
-				if (!bag.isChanged() && !bag.isBagEmpty())
-				{
-					files.append(bag.getFilePath() + "|");
-				}
-			}
-		}
+                if (!bag.isChanged() && !bag.isBagEmpty())
+                {
+                    files.append(bag.getFilePath() + "|");
+                }
+            }
+        }
 
 		SettingsHandler.setGMGenOption(DiceBagPlugin.LOG_NAME + "closeFiles",
 			files.toString());
@@ -214,13 +214,13 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				((DiceBagView) frames[i]).hide();
-			}
-		}
+        for (Component frame : frames)
+        {
+            if (frame instanceof DiceBagView)
+            {
+                ((DiceBagView) frame).hide();
+            }
+        }
 	}
 
 	/**
@@ -313,16 +313,16 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
-		{
-			if (frames[i] instanceof DiceBagView)
-			{
-				if (((DiceBagView) frames[i]).getBag() == model)
-				{
-					((DiceBagView) frames[i]).hide();
-				}
-			}
-		}
+        for (Component frame : frames)
+        {
+            if (frame instanceof DiceBagView)
+            {
+                if (((DiceBagView) frame).getBag() == model)
+                {
+                    ((DiceBagView) frame).hide();
+                }
+            }
+        }
 	}
 
 	/**

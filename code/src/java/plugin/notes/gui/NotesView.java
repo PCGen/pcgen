@@ -1000,13 +1000,13 @@ public class NotesView extends JPanel
 						{
 							char[] temp =
 									editor.getText(so, eo - so).toCharArray();
-							for (int i = 0; i < temp.length; i++)
-							{
-								if (!Character.isWhitespace(temp[i]))
-								{
-									content = true;
-								}
-							}
+                            for (char aTemp : temp)
+                            {
+                                if (!Character.isWhitespace(aTemp))
+                                {
+                                    content = true;
+                                }
+                            }
 						}
 
 						if (!content)
@@ -1060,13 +1060,13 @@ public class NotesView extends JPanel
 				char[] temp = editor.getText(so, eo - so).toCharArray();
 				boolean content = false;
 
-				for (int i = 0; i < temp.length; i++)
-				{
-					if (!Character.isWhitespace(temp[i]))
-					{
-						content = true;
-					}
-				}
+                for (char aTemp : temp)
+                {
+                    if (!Character.isWhitespace(aTemp))
+                    {
+                        content = true;
+                    }
+                }
 
 				if (content)
 				{
@@ -1923,13 +1923,13 @@ public class NotesView extends JPanel
 		 */
 		public boolean isImageFile(File image)
 		{
-			for (int i = 0; i < extsIMG.length; i++)
-			{
-				if (image.getName().endsWith(extsIMG[i]))
-				{
-					return true;
-				}
-			}
+            for (String anExtsIMG : extsIMG)
+            {
+                if (image.getName().endsWith(anExtsIMG))
+                {
+                    return true;
+                }
+            }
 
 			return false;
 		}
@@ -1982,26 +1982,24 @@ public class NotesView extends JPanel
 							.getTransferData(DataFlavor.javaFileListFlavor));
 				File dir = getCurrentDir();
 
-				for (int i = 0; i < fileList.size(); i++)
-				{
-					File newFile = fileList.get(i);
+                for (File newFile : fileList)
+                {
+                    if (newFile.exists())
+                    {
+                        File destFile =
+                                new File(dir.getAbsolutePath() + File.separator
+                                        + newFile.getName());
 
-					if (newFile.exists())
-					{
-						File destFile =
-								new File(dir.getAbsolutePath() + File.separator
-									+ newFile.getName());
+                        if (!isImageFile(destFile) || !destFile.exists())
+                        {
+                            MiscUtilities.copy(newFile, destFile);
+                        }
 
-						if (!isImageFile(destFile) || !destFile.exists())
-						{
-							MiscUtilities.copy(newFile, destFile);
-						}
-
-						editor.setCaretPosition(editor.viewToModel(dtde
-							.getLocation()));
-						handleImageDropInsertion(destFile);
-					}
-				}
+                        editor.setCaretPosition(editor.viewToModel(dtde
+                                .getLocation()));
+                        handleImageDropInsertion(destFile);
+                    }
+                }
 			}
 			catch (Exception e)
 			{

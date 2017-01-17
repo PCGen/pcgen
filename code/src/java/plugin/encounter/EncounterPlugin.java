@@ -310,10 +310,10 @@ public class EncounterPlugin extends MouseAdapter
 		{
 			Object[] values = theView.getLibraryCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
-			{
-				theModel.addElement(values[i]);
-			}
+            for (Object value : values)
+            {
+                theModel.addElement(value);
+            }
 
 			updateUI();
 		}
@@ -361,10 +361,10 @@ public class EncounterPlugin extends MouseAdapter
 			Object[] values =
 					theView.getEncounterCreatures().getSelectedValues();
 
-			for (int i = 0; i < values.length; i++)
-			{
-				theModel.removeElement(values[i]);
-			}
+            for (Object value : values)
+            {
+                theModel.removeElement(value);
+            }
 
 			updateUI();
 		}

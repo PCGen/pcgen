@@ -112,18 +112,17 @@ public final class Bonus
 
 		// go through and move all the static bonuses to the front
 		final int aSize = listToSort.size();
-		for (int i = 0; i < aSize; i++)
-		{
-			final BonusObj bonus = listToSort.get(i);
-			if (bonus.isValueStatic())
-			{
-				tempList2.add(0, bonus);
-			}
-			else
-			{
-				tempList2.add(bonus);
-			}
-		}
+        for (final BonusObj bonus : listToSort)
+        {
+            if (bonus.isValueStatic())
+            {
+                tempList2.add(0, bonus);
+            }
+            else
+            {
+                tempList2.add(bonus);
+            }
+        }
 		return tempList2;
 	}
 
