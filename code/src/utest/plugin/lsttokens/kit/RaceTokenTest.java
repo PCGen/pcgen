@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Race;
@@ -54,7 +55,7 @@ public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -65,7 +66,7 @@ public class RaceTokenTest extends AbstractKitTokenTestCase<KitRace>
 		secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(Race.class, "English");
 		secondaryContext.getReferenceContext().constructCDOMObject(Race.class, "English");
-		assertTrue(parse("Fireball,English"));
+		Assert.assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
 

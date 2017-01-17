@@ -46,6 +46,7 @@ import pcgen.util.TestHelper;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PObjectLoaderTest extends PCGenTestCase
@@ -83,9 +84,9 @@ public class PObjectLoaderTest extends PCGenTestCase
 
 		Globals.getContext().unconditionallyProcess(feat, "DEFINE", "Foo|0");
 
-		assertEquals(1, feat.getVariableKeys().size());
-		assertEquals("Foo", feat.getVariableKeys().iterator().next().toString());
-		assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
+		Assert.assertEquals(1, feat.getVariableKeys().size());
+		Assert.assertEquals("Foo", feat.getVariableKeys().iterator().next().toString());
+		Assert.assertEquals("0", feat.get(VariableKey.getConstant("Foo")).toString());
 	}
 
 	public void testBadDefine() throws Exception
@@ -99,7 +100,7 @@ public class PObjectLoaderTest extends PCGenTestCase
 		}
 		catch (PersistenceLayerException ple)
 		{
-			fail("parseTag throws exception instead of passing back false");
+			Assert.fail("parseTag throws exception instead of passing back false");
 		}
 	}
 
@@ -116,12 +117,12 @@ public class PObjectLoaderTest extends PCGenTestCase
 		is(context.processToken(feat, "DEFINESTAT", "UNLOCK|INT"), eq(true),
 			"Parse fails for unlock");
 		context.commit();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		Logging.clearParseMessages();
 
 		List<CDOMSingleRef<PCStat>> statList = feat.getListFor(ListKey.UNLOCKED_STATS);
-		assertEquals(1, statList.size());
-		assertEquals("INT", statList.get(0).get().getKeyName());
+		Assert.assertEquals(1, statList.size());
+		Assert.assertEquals("INT", statList.get(0).get().getKeyName());
 	}
 
 	public void testBadUnlockDefine() throws Exception
@@ -141,11 +142,11 @@ public class PObjectLoaderTest extends PCGenTestCase
 		context.unconditionallyProcess(object, "PREVARLT", "GreaterRage,1");
 		context.unconditionallyProcess(object, "PREFEAT", "1,Dodge");
 		List<Prerequisite> list = object.getPrerequisiteList();
-		assertEquals(2, list.size());
+		Assert.assertEquals(2, list.size());
 
 		context.unconditionallyProcess(object, "PRE", Constants.LST_DOT_CLEAR);
 		list = object.getPrerequisiteList();
-		assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
-		assertTrue("Prereqlist should be empty after the clear", list.isEmpty());
+		Assert.assertNotNull("Prereq list should never be null as it is used in foreach loops directly.", list);
+		Assert.assertTrue("Prereqlist should be empty after the clear", list.isEmpty());
 	}
 }

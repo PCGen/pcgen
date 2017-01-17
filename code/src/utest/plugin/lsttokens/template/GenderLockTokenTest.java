@@ -19,6 +19,7 @@ package plugin.lsttokens.template;
 
 import java.util.Locale;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.LocaleDependentTestCase;
@@ -66,9 +67,9 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("Male"));
-		assertTrue(parseSecondary("Male"));
-		assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertTrue(parse("Male"));
+		Assert.assertTrue(parseSecondary("Male"));
+		Assert.assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
 		internalTestInvalidInputString(Gender.Male);
 		assertNoSideEffects();
 	}
@@ -76,30 +77,30 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void internalTestInvalidInputString(Object val)
 		throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.GENDER_LOCK));
 		// Note case sensitivity
-		assertFalse(parse("MALE"));
+		Assert.assertFalse(parse("MALE"));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Male"));
-		assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertTrue(parse("Female"));
-		assertEquals(Gender.Female, primaryProf.get(ObjectKey.GENDER_LOCK));
-		assertTrue(parse("Neuter"));
-		assertEquals(Gender.Neuter, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertTrue(parse("Male"));
+		Assert.assertEquals(Gender.Male, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertTrue(parse("Female"));
+		Assert.assertEquals(Gender.Female, primaryProf.get(ObjectKey.GENDER_LOCK));
+		Assert.assertTrue(parse("Neuter"));
+		Assert.assertEquals(Gender.Neuter, primaryProf.get(ObjectKey.GENDER_LOCK));
 	}
 
 	@Test
@@ -167,7 +168,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.GENDER_LOCK, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -191,7 +192,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

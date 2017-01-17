@@ -19,6 +19,7 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -146,7 +147,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	@Test
 	public void testInvalidInputNoBrackets() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOLS|Sorry No [Brackets]"));
+		Assert.assertFalse(parse("SCHOOLS|Sorry No [Brackets]"));
 		assertNoSideEffects();
 	}
 

@@ -26,6 +26,8 @@ import pcgen.cdom.facet.base.AbstractListFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.ChronicleEntry;
 
+import org.junit.Assert;
+
 public class ChronicleEntryFacetTest extends
 		AbstractListFacetTest<ChronicleEntry>
 {
@@ -53,19 +55,19 @@ public class ChronicleEntryFacetTest extends
 	{
 		ChronicleEntry t1 = getObject();
 		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, now there twice (LIST not SET)
 		getFacet().add(id, t1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(2, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(2, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(2, 0);
 	}
 
@@ -77,12 +79,12 @@ public class ChronicleEntryFacetTest extends
 		pct.add(t1);
 		pct.add(t1);
 		getFacet().addAll(id, pct);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<ChronicleEntry> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(2, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(2, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 		assertEventCount(2, 0);
 	}
 
@@ -91,27 +93,27 @@ public class ChronicleEntryFacetTest extends
 	{
 		ChronicleEntry t1 = getObject();
 		getFacet().add(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, now twice in list
 		getFacet().add(id, t1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(2, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(2, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(2, 0);
 		// Only requires one Remove (internally a Set, not List)
 		getFacet().remove(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(2, 1);
 		// Second has no effect
 		getFacet().remove(id, t1);

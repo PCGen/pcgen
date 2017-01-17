@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -104,25 +105,25 @@ public class NoRankQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|NORANK[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|NORANK[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(4, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(4, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(primaryProf));
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(primaryProf));
 	}
 
 	@Test
@@ -130,22 +131,22 @@ public class NoRankQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|NORANK[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|NORANK[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s3));
 	}
 
 	private void initializeObjects()

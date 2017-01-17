@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -44,15 +45,15 @@ public class RaceMonsterClassTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, classFacet.getCount(id));
+		Assert.assertEquals(0, classFacet.getCount(id));
 		raceFacet.directSet(id, source, getAssoc());
-		assertEquals(1, classFacet.getCount(id));
-		assertNotNull(pc.getClassKeyed("Granted"));
+		Assert.assertEquals(1, classFacet.getCount(id));
+		Assert.assertNotNull(pc.getClassKeyed("Granted"));
 		raceFacet.remove(id);
-		assertEquals(0, classFacet.getCount(id));
+		Assert.assertEquals(0, classFacet.getCount(id));
 	}
 
 	@Override

@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -57,7 +58,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -129,7 +130,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<CDOMSingleRef<PCClass>> getObjectKey()
@@ -156,7 +157,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

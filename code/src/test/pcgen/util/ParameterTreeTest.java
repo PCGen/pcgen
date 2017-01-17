@@ -28,6 +28,7 @@ import java.util.regex.Matcher;
 
 import pcgen.PCGenTestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 import org.nfunk.jep.ParseException;
 
@@ -71,7 +72,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t1 = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 		
 		is(t1.getContents(), strEq(s), "New ParamterTree has correct contents");
@@ -89,7 +90,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t1 = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 		
 		is(t1.getContents(), strEq("TYPE=Foo"), "New ParamterTree has correct contents");
@@ -107,7 +108,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t1 = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 		
 		is(t1.getContents(), strEq("TYPE=Foo"), "New ParamterTree has correct contents");
@@ -125,7 +126,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t1 = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 		
 		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
@@ -151,7 +152,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t1 = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 		
 		is(t1.getContents(), strEq("[or]"),                      "New ParamterTree has correct contents");
@@ -176,7 +177,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 
 		final ParameterTree tl  = t.getLeftTree();
@@ -219,7 +220,7 @@ public class ParameterTreeTest extends PCGenTestCase
 			t = ParameterTree.makeTree(s);
 		} catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		}
 
 		final ParameterTree tl  = t.getLeftTree();
@@ -272,7 +273,7 @@ public class ParameterTreeTest extends PCGenTestCase
 		}
 		catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		} 
 
 
@@ -339,7 +340,7 @@ public class ParameterTreeTest extends PCGenTestCase
 		}
 		catch (ParseException e) {
 			e.printStackTrace();
-			fail("Threw a parse exception");
+			Assert.fail("Threw a parse exception");
 		} 
 
 

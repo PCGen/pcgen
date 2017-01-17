@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.EqModFormatCat;
@@ -64,9 +65,9 @@ public class FormatcatTokenTest extends
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("FRONT"));
-		assertTrue(parseSecondary("FRONT"));
-		assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertTrue(parse("FRONT"));
+		Assert.assertTrue(parseSecondary("FRONT"));
+		Assert.assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
 		internalTestInvalidInputString(EqModFormatCat.FRONT);
 		assertNoSideEffects();
 	}
@@ -74,30 +75,30 @@ public class FormatcatTokenTest extends
 	public void internalTestInvalidInputString(Object val)
 			throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.FORMAT));
 		// Note case sensitivity
-		assertFalse(parse("Middle"));
+		Assert.assertFalse(parse("Middle"));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("FRONT"));
-		assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
-		assertTrue(parse("MIDDLE"));
-		assertEquals(EqModFormatCat.MIDDLE, primaryProf.get(ObjectKey.FORMAT));
-		assertTrue(parse("PARENS"));
-		assertEquals(EqModFormatCat.PARENS, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertTrue(parse("FRONT"));
+		Assert.assertEquals(EqModFormatCat.FRONT, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertTrue(parse("MIDDLE"));
+		Assert.assertEquals(EqModFormatCat.MIDDLE, primaryProf.get(ObjectKey.FORMAT));
+		Assert.assertTrue(parse("PARENS"));
+		Assert.assertEquals(EqModFormatCat.PARENS, primaryProf.get(ObjectKey.FORMAT));
 	}
 
 	@Test
@@ -140,7 +141,7 @@ public class FormatcatTokenTest extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<EqModFormatCat> getObjectKey()
@@ -164,7 +165,7 @@ public class FormatcatTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

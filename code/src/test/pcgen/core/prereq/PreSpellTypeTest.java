@@ -36,6 +36,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PreSpellTypeTest extends AbstractCharacterTestCase
@@ -123,13 +125,13 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testTwoType() throws Exception
@@ -138,13 +140,13 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESPELLTYPE:2,Arcane=2,Divine=2");
-		assertFalse(PrereqHandler.passes(prereq, character, null));
+		Assert.assertFalse(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testTwoClassType() throws Exception
@@ -154,19 +156,19 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PRESPELLTYPE:3,Arcane=2,Divine=2");
 
-		assertFalse(PrereqHandler.passes(prereq, character, null));
+		Assert.assertFalse(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testNotSimpleType() throws Exception
@@ -179,13 +181,13 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testNotTwoType() throws Exception
@@ -194,13 +196,13 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("!PRESPELLTYPE:2,Arcane=2,Divine=2");
-		assertTrue(PrereqHandler.passes(prereq, character, null));
+		Assert.assertTrue(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testNotTwoClassType() throws Exception
@@ -210,18 +212,18 @@ public class PreSpellTypeTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("!PRESPELLTYPE:3,Arcane=2,Divine=2");
 
-		assertTrue(PrereqHandler.passes(prereq, character, null));
+		Assert.assertTrue(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 }

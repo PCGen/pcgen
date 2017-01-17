@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.gear;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Equipment;
@@ -54,7 +55,7 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -65,7 +66,7 @@ public class GearTokenTest extends AbstractKitTokenTestCase<KitGear>
 		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "English");
 		secondaryContext.getReferenceContext().constructCDOMObject(Equipment.class, "English");
-		assertTrue(parse("Fireball,English"));
+		Assert.assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
 

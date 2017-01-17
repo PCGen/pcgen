@@ -17,9 +17,9 @@
  */
 package plugin.function;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.FormulaSemantics;
@@ -91,7 +91,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		Object result = semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid() && (result instanceof Number))
 		{
-			TestCase.fail(
+			Assert.fail(
 				"Expected Invalid Formula: " + formula + " but was valid");
 		}
 	}
@@ -112,7 +112,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
-			TestCase.fail("Expected Valid Formula: " + formula
+			Assert.fail("Expected Valid Formula: " + formula
 				+ " but was told: " + semantics.getReport());
 		}
 		isStatic(formula, node, false);
@@ -127,7 +127,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2, context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		Assert.assertTrue(rv.toString().equals(formula));
 	}
 
 	@Test
@@ -148,7 +148,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		semanticsVisitor.visit(node, semantics);
 		if (!semantics.isValid())
 		{
-			TestCase.fail("Expected Valid Formula: " + formula
+			Assert.fail("Expected Valid Formula: " + formula
 				+ " but was told: " + semantics.getReport());
 		}
 		isStatic(formula, node, false);
@@ -172,7 +172,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2, context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		Assert.assertTrue(rv.toString().equals(formula));
 		getVariableStore().put(varIDq, "EquipAlt");
 		evaluatesTo(formula, node, 3, context);
 	}

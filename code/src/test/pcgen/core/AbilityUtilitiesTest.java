@@ -33,6 +33,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * @author andrew
  *
@@ -97,14 +99,14 @@ public class AbilityUtilitiesTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 
 		Collection<Ability> allAbilities = context.getReferenceContext().getManufacturer(Ability.class, parent).getAllObjects();
-		assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
-		assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
-		assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
+		Assert.assertTrue("Parent missing ability 'fencing'", allAbilities.contains(fencing));
+		Assert.assertTrue("Parent missing ability 'reading'", allAbilities.contains(reading));
+		Assert.assertEquals("Incorrect number of abilities found for parent", 2, allAbilities.size());
 		
 		allAbilities = context.getReferenceContext().getManufacturer(Ability.class, typeChild).getAllObjects();
-		assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
-		assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
-		assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());
+		Assert.assertTrue("TypeChild missing ability fencing", allAbilities.contains(fencing));
+		Assert.assertFalse("TypeChild shouldn't have ability 'reading'", allAbilities.contains(reading));
+		Assert.assertEquals("Incorrect number of abilities found for TypeChild", 1, allAbilities.size());
 		
 	}
 }

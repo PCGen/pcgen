@@ -19,6 +19,7 @@ package plugin.qualifier.weaponprof;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -107,16 +108,16 @@ public class EquipmentQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|EQUIPMENT[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|EQUIPMENT[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(wp1));
-		assertTrue(set.contains(wp2));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(wp1));
+		Assert.assertTrue(set.contains(wp2));
 	}
 
 	@Test
@@ -124,15 +125,15 @@ public class EquipmentQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|EQUIPMENT[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|EQUIPMENT[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertEquals(wp2, set.iterator().next());
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertEquals(wp2, set.iterator().next());
 	}
 
 	private void initializeObjects()

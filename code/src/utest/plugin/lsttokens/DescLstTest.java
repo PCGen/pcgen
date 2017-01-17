@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,56 +79,56 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA Number %||VarF"));
+		Assert.assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEndingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA Number|"));
+		Assert.assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidStartingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Var"));
+		Assert.assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidVarAfterPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
+		Assert.assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("PRECLASS:1,Fighter"));
+		Assert.assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
+		Assert.assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testGoodParentheses() throws PersistenceLayerException {
-		assertTrue(parse("(first)"));
+		Assert.assertTrue(parse("(first)"));
 	}
 	
 	@Test
 	public void testBadParentheses() throws PersistenceLayerException {
-		assertFalse("Missing end paren should have been flagged.", parse("(first"));
-		assertFalse("Missing start paren should have been flagged.", parse("first)"));
-		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		Assert.assertFalse("Missing end paren should have been flagged.", parse("(first"));
+		Assert.assertFalse("Missing start paren should have been flagged.", parse("first)"));
+		Assert.assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
+		Assert.assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 		assertNoSideEffects();
 	}
 

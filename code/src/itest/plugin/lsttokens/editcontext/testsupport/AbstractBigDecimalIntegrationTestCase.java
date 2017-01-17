@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -35,7 +36,7 @@ public abstract class AbstractBigDecimalIntegrationTestCase<T extends CDOMObject
 	@Test
 	public void testArchitectire() throws PersistenceLayerException
 	{
-		assertTrue(isPositiveAllowed() || isNegativeAllowed());
+		Assert.assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test

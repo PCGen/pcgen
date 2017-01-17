@@ -32,6 +32,8 @@ import java.util.Date;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -170,26 +172,26 @@ public final class InstallLoaderTest extends TestCase
 	{
 		InstallableCampaign camp = loadInstallData(INSTALL_DATA);
 
-		assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
+		Assert.assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
 			.getDisplayName());
-		assertEquals("Checking copyright 1", COPYRIGHT_1, camp.getSafeListFor(ListKey.SECTION_15)
-			.get(0));
-		assertEquals("Checking copyright 2", COPYRIGHT_2, camp.getSafeListFor(ListKey.SECTION_15)
-			.get(1));
-		assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSafeListFor(ListKey.SECTION_15)
-			.get(2));
-		assertEquals("Checking info text", INFOTEXT, camp.getSafeListFor(ListKey.INFO_TEXT)
-			.get(0));
-		assertEquals("Checking pub name short", PUBNAMESHORT, camp.getSafe(StringKey.PUB_NAME_SHORT));
-		assertEquals("Checking pub name long", PUBNAMELONG, camp.getSafe(StringKey.PUB_NAME_LONG));
-		assertEquals("Checking pub name web", SOURCEWEB, camp.getSafe(StringKey.PUB_NAME_WEB));
-		assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
+		Assert.assertEquals("Checking copyright 1", COPYRIGHT_1, camp.getSafeListFor(ListKey.SECTION_15)
+                                                                     .get(0));
+		Assert.assertEquals("Checking copyright 2", COPYRIGHT_2, camp.getSafeListFor(ListKey.SECTION_15)
+                                                                     .get(1));
+		Assert.assertEquals("Checking copyright 3", COPYRIGHT_3, camp.getSafeListFor(ListKey.SECTION_15)
+                                                                     .get(2));
+		Assert.assertEquals("Checking info text", INFOTEXT, camp.getSafeListFor(ListKey.INFO_TEXT)
+                                                                .get(0));
+		Assert.assertEquals("Checking pub name short", PUBNAMESHORT, camp.getSafe(StringKey.PUB_NAME_SHORT));
+		Assert.assertEquals("Checking pub name long", PUBNAMELONG, camp.getSafe(StringKey.PUB_NAME_LONG));
+		Assert.assertEquals("Checking pub name web", SOURCEWEB, camp.getSafe(StringKey.PUB_NAME_WEB));
+		Assert.assertEquals("Checking campaign name", CAMPAIGN_NAME, camp
 			.getDisplayName());
-		assertEquals("Checking source name short", SOURCESHORT, camp
+		Assert.assertEquals("Checking source name short", SOURCESHORT, camp
 				.get(StringKey.SOURCE_SHORT));
-		assertEquals("Checking source name long", SOURCELONG, camp
+		Assert.assertEquals("Checking source name long", SOURCELONG, camp
 				.get(StringKey.SOURCE_LONG));
-		assertEquals("Checking source name web", SOURCEWEB, camp
+		Assert.assertEquals("Checking source name web", SOURCEWEB, camp
 				.get(StringKey.SOURCE_WEB));
 
 		Date theDate = null;
@@ -203,12 +205,12 @@ public final class InstallLoaderTest extends TestCase
 			df = DateFormat.getDateInstance();
 			theDate = df.parse(SOURCEDATE);
 		}
-		assertEquals("Checking source date", theDate, camp
+		Assert.assertEquals("Checking source date", theDate, camp
 				.get(ObjectKey.SOURCE_DATE));
 
-		assertEquals("Checking min ver", MINVER, camp.getSafe(StringKey.MINVER));
-		assertEquals("Checking min dev ver", MINVER, camp.getSafe(StringKey.MINVER));
-		assertEquals("Checking destination", DEST, camp.get(ObjectKey.DESTINATION).toString());
+		Assert.assertEquals("Checking min ver", MINVER, camp.getSafe(StringKey.MINVER));
+		Assert.assertEquals("Checking min dev ver", MINVER, camp.getSafe(StringKey.MINVER));
+		Assert.assertEquals("Checking destination", DEST, camp.get(ObjectKey.DESTINATION).toString());
 	}
 
 }

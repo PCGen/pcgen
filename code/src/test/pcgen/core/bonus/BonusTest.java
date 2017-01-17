@@ -43,6 +43,8 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.BonusActivation;
 import pcgen.core.character.EquipSet;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.bonustokens.Var;
 
 /**
@@ -99,15 +101,15 @@ public class BonusTest extends AbstractCharacterTestCase
 		final PlayerCharacter pc = getCharacter();
 		BonusActivation.activateBonuses(rideSkill, pc);
 		double iBonus = saddleBonus.resolve(pc, "").doubleValue();
-		assertEquals("Bonus value", -5.0, iBonus, 0.05);
-		assertTrue("No saddle, should have a penalty", pc.isApplied(saddleBonus));
+		Assert.assertEquals("Bonus value", -5.0, iBonus, 0.05);
+		Assert.assertTrue("No saddle, should have a penalty", pc.isApplied(saddleBonus));
 
 		pc.addEquipment(saddle);
 		final EquipSet eqSet = new EquipSet("Test", "Test", "", saddle);
 		pc.addEquipSet(eqSet);
 		pc.calcActiveBonuses();
 		BonusActivation.activateBonuses(rideSkill, pc);
-		assertFalse("Saddle, should not have a penalty", pc
+		Assert.assertFalse("Saddle, should not have a penalty", pc
 				.isApplied(saddleBonus));
 	}
 
@@ -147,19 +149,19 @@ public class BonusTest extends AbstractCharacterTestCase
 			equip.addToListFor(ListKey.BONUS, aBonus);
 		}
 
-		assertEquals("Variable value", 0.0, pc
+		Assert.assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
 		addAbility(AbilityCategory.FEAT, dummyFeat);
-		assertEquals("Variable value", 0.0, pc
+		Assert.assertEquals("Variable value", 0.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -0.0, pc.getVariableValue(
+		Assert.assertEquals("Variable value", -0.0, pc.getVariableValue(
 			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add a bonus to it
 		addAbility(AbilityCategory.FEAT, dummyFeat2);
-		assertEquals("Variable value", 7.0, pc
+		Assert.assertEquals("Variable value", 7.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -7.0, pc.getVariableValue(
+		Assert.assertEquals("Variable value", -7.0, pc.getVariableValue(
 			"-1*NegLevels", "").doubleValue(), 0.05);
 
 		// Add the equipment that gives a bonus to NegLevels
@@ -171,9 +173,9 @@ public class BonusTest extends AbstractCharacterTestCase
 		pc.calcActiveBonuses();
 		BonusActivation.activateBonuses(dummyFeat, pc);
 
-		assertEquals("Variable value", 9.0, pc
+		Assert.assertEquals("Variable value", 9.0, pc
 			.getVariableValue("NegLevels", "").doubleValue(), 0.05);
-		assertEquals("Variable value", -9.0, pc.getVariableValue(
+		Assert.assertEquals("Variable value", -9.0, pc.getVariableValue(
 			"-1*NegLevels", "").doubleValue(), 0.05);
 	}
 
@@ -184,32 +186,32 @@ public class BonusTest extends AbstractCharacterTestCase
 	{
 		BonusObj maxDexStr = new Var();
 		maxDexStr.setValue("VAR|NegLevels|max(STR,DEX)-STR");
-		assertTrue("Should have flagged a dependancy on DEX", maxDexStr
+		Assert.assertTrue("Should have flagged a dependancy on DEX", maxDexStr
 			.getDependsOn("DEX"));
-		assertTrue("Should have flagged a dependancy on STR", maxDexStr
+		Assert.assertTrue("Should have flagged a dependancy on STR", maxDexStr
 			.getDependsOn("STR"));
 
 		BonusObj monkMove = new Var();
 		monkMove.setValue("VAR|MonkMove|floor(var(\"monkLvl\")/3)*10");
-		assertTrue("Should have flagged a dependancy on monkLvl", monkMove
+		Assert.assertTrue("Should have flagged a dependancy on monkLvl", monkMove
 			.getDependsOn("MONKLVL"));
 
 		BonusObj condSkill = new plugin.bonustokens.Skill();
 		condSkill.setValue("SKILL.CONCENTRATION.MISC");
-		assertFalse("Should not have flagged a dependancy on stat", condSkill
+		Assert.assertFalse("Should not have flagged a dependancy on stat", condSkill
 			.getDependsOn("STAT"));
-		assertTrue("Should have flagged a dependancy on concentration", condSkill
+		Assert.assertTrue("Should have flagged a dependancy on concentration", condSkill
 			.getDependsOn("CONCENTRATION"));
-		assertTrue("Should have flagged a name dependancy on stat", condSkill
+		Assert.assertTrue("Should have flagged a name dependancy on stat", condSkill
 			.getDependsOnBonusName("STAT"));
 
 		condSkill = new plugin.bonustokens.Skill();
 		condSkill.setValue("skillinfo(\"TOTALRANK\", \"SEARCH\")");
-		assertFalse("Should not have flagged a dependancy on stat", condSkill
+		Assert.assertFalse("Should not have flagged a dependancy on stat", condSkill
 			.getDependsOn("STAT"));
-		assertTrue("Should have flagged a dependancy on search", condSkill
+		Assert.assertTrue("Should have flagged a dependancy on search", condSkill
 			.getDependsOn("SEARCH"));
-		assertTrue("Should have flagged a name dependancy on stat", condSkill
+		Assert.assertTrue("Should have flagged a name dependancy on stat", condSkill
 			.getDependsOnBonusName("STAT"));
 	}
 
@@ -238,10 +240,10 @@ public class BonusTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
-		assertEquals(1, bonusPairs.size());
+		Assert.assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
-		assertEquals(14, bp.resolve(character).intValue());
+		Assert.assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
+		Assert.assertEquals(14, bp.resolve(character).intValue());
 	}
 
 	public void testBonuswithLISTValueTwoAssoc()
@@ -268,15 +270,15 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
-		assertEquals(2, bonusPairs.size());
+		Assert.assertEquals(2, bonusPairs.size());
 		int totalBonus = 0;
 		BonusPair bp = bonusPairs.get(0);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
+		Assert.assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
 		totalBonus += bp.resolve(character).intValue();
 		bp = bonusPairs.get(1);
-		assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
+		Assert.assertEquals("VISION.DARKVISION:MAGICAL BOON", bp.fullyQualifiedBonusType);
 		totalBonus += bp.resolve(character).intValue();
-		assertEquals(27, totalBonus);
+		Assert.assertEquals(27, totalBonus);
 	}
 
 	public void testBonuswithLISTValueTwoAssocInfoList()
@@ -302,16 +304,16 @@ public class BonusTest extends AbstractCharacterTestCase
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
-		assertEquals(2, bonusPairs.size());
+		Assert.assertEquals(2, bonusPairs.size());
 		for (BonusPair bp : bonusPairs)
 		{
 			if (bp.fullyQualifiedBonusType.equals("STAT.INT"))
 			{
-				assertEquals(5, bp.resolve(character).intValue());
+				Assert.assertEquals(5, bp.resolve(character).intValue());
 			}
 			else
 			{
-				assertEquals(4, bp.resolve(character).intValue());
+				Assert.assertEquals(4, bp.resolve(character).intValue());
 			}
 		}
 	}
@@ -340,8 +342,8 @@ public class BonusTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 		bonus = testBonus.getSafeListFor(ListKey.BONUS).get(0);
 		List<BonusPair> bonusPairs = character.getStringListFromBonus(bonus);
-		assertEquals(1, bonusPairs.size());
+		Assert.assertEquals(1, bonusPairs.size());
 		BonusPair bp = bonusPairs.get(0);
-		assertEquals("SPELLKNOWN.CLASS.Wizard;LEVEL.1", bp.fullyQualifiedBonusType);
+		Assert.assertEquals("SPELLKNOWN.CLASS.Wizard;LEVEL.1", bp.fullyQualifiedBonusType);
 	}
 }

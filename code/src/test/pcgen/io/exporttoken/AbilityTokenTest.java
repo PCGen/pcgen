@@ -27,6 +27,8 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.AspectName;
 import pcgen.cdom.enumeration.ListKey;
@@ -132,7 +134,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
+		Assert.assertEquals(
 			"Age In Years: 2000, Colour: Green, Shape: Icosahedron, Sides: 20, Size: L",
 			tok.getToken("ABILITY.FEAT.0.ASPECT", character, eh));
 	}
@@ -146,7 +148,7 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("5", tok.getToken("ABILITY.FEAT.0.ASPECTCOUNT", character,
+		Assert.assertEquals("5", tok.getToken("ABILITY.FEAT.0.ASPECTCOUNT", character,
 			eh));
 	}
 
@@ -159,16 +161,16 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
+		Assert.assertEquals(
 			"Shape: Icosahedron",
 			tok.getToken("ABILITY.FEAT.0.ASPECT.2", character, eh));
-		assertEquals(
+		Assert.assertEquals(
 			"20",
 			tok.getToken("ABILITY.FEAT.0.ASPECT.Sides", character, eh));
-		assertEquals(
+		Assert.assertEquals(
 			"Green",
 			tok.getToken("ABILITY.FEAT.0.ASPECT.Colour", character, eh));
-		assertEquals(
+		Assert.assertEquals(
 			"2000",
 			tok.getToken("ABILITY.FEAT.0.ASPECT.Age In Years", character, eh));
 		
@@ -183,14 +185,14 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("", tok
+		Assert.assertEquals("", tok
 			.getToken("ABILITY.FEAT.0.ASPECT.-5", character, eh));
-		assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.5", character, eh));
-		assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.500", character,
+		Assert.assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.5", character, eh));
+		Assert.assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.500", character,
 			eh));
-		assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.Attack Type",
+		Assert.assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.Attack Type",
 			character, eh));
-		assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.Target",
+		Assert.assertEquals("", tok.getToken("ABILITY.FEAT.0.ASPECT.Target",
 			character, eh));
 	}
 
@@ -203,15 +205,15 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.3", character,
+		Assert.assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.3", character,
 			eh));
-		assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.5", character,
+		Assert.assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.5", character,
 			eh));
-		assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.Attack Type",
+		Assert.assertEquals("N", tok.getToken("ABILITY.FEAT.0.HASASPECT.Attack Type",
 			character, eh));
-		assertEquals("Y", tok.getToken("ABILITY.FEAT.0.HASASPECT.Colour",
+		Assert.assertEquals("Y", tok.getToken("ABILITY.FEAT.0.HASASPECT.Colour",
 			character, eh));
-		assertEquals("Y", tok.getToken("ABILITY.FEAT.0.HASASPECT.Age In Years",
+		Assert.assertEquals("Y", tok.getToken("ABILITY.FEAT.0.HASASPECT.Age In Years",
 			character, eh));
 	}
 
@@ -224,10 +226,10 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
+		Assert.assertEquals(
 			"Perform (Dance)",
 			tok.getToken("ABILITY.FEAT.0.NAME", character, eh));
-		assertEquals(
+		Assert.assertEquals(
 			"Skill Focus",
 			tok.getToken("ABILITY.FEAT.1.NAME", character, eh));
 	}
@@ -241,11 +243,11 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals(
+		Assert.assertEquals(
 			"KEY_Perform (Dance)",
 			tok.getToken("ABILITY.FEAT.0.KEY", character, eh));
 
-		assertEquals(
+		Assert.assertEquals(
 			"KEY_Skill Focus",
 			tok.getToken("ABILITY.FEAT.1.KEY", character, eh));
 	}
@@ -259,13 +261,13 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("",
+		Assert.assertEquals("",
 			tok.getToken("ABILITY.FEAT.0.ASSOCIATED", character, eh));
-		assertEquals("Bluff,Listen",
+		Assert.assertEquals("Bluff,Listen",
 			tok.getToken("ABILITY.FEAT.1.ASSOCIATED", character, eh));
-		assertEquals("Bluff",
+		Assert.assertEquals("Bluff",
 			tok.getToken("ABILITY.FEAT.1.ASSOCIATED.0", character, eh));
-		assertEquals("Listen",
+		Assert.assertEquals("Listen",
 			tok.getToken("ABILITY.FEAT.1.ASSOCIATED.1", character, eh));
 	}
 
@@ -278,9 +280,9 @@ public class AbilityTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("0",
+		Assert.assertEquals("0",
 			tok.getToken("ABILITY.FEAT.0.ASSOCIATEDCOUNT", character, eh));
-		assertEquals("2",
+		Assert.assertEquals("2",
 			tok.getToken("ABILITY.FEAT.1.ASSOCIATEDCOUNT", character, eh));
 	}
 }

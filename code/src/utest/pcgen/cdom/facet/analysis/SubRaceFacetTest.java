@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -56,14 +57,14 @@ public class SubRaceFacetTest extends TestCase
 	@Test
 	public void testSubRaceUnsetNull()
 	{
-		assertNull(facet.getSubRace(id));
+		Assert.assertNull(facet.getSubRace(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
-		assertNull(facet.getSubRace(id));
+		Assert.assertNull(facet.getSubRace(id));
 	}
 
 	@Test
@@ -74,7 +75,7 @@ public class SubRaceFacetTest extends TestCase
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
 		tfacet.add(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -84,9 +85,9 @@ public class SubRaceFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		tfacet.add(id, pct, this);
-		assertEquals("TestTemplate", facet.getSubRace(id));
+		Assert.assertEquals("TestTemplate", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -96,9 +97,9 @@ public class SubRaceFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);
 		tfacet.add(id, pct, this);
-		assertNull(facet.getSubRace(id));
+		Assert.assertNull(facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -107,9 +108,9 @@ public class SubRaceFacetTest extends TestCase
 		PCTemplate pct = new PCTemplate();
 		pct.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRace"));
 		tfacet.add(id, pct, this);
-		assertEquals("TestSubRace", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRace", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -120,9 +121,9 @@ public class SubRaceFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		tfacet.add(id, pct, this);
-		assertEquals("TestSubRace", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRace", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -133,9 +134,9 @@ public class SubRaceFacetTest extends TestCase
 		pct.setName("TestTemplate");
 		pct.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);
 		tfacet.add(id, pct, this);
-		assertEquals("TestSubRace", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRace", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -149,11 +150,11 @@ public class SubRaceFacetTest extends TestCase
 		pct2.setName("PCT2");
 		pct2.put(ObjectKey.SUBRACE, SubRace.getConstant("TestSubRaceToo"));
 		tfacet.add(id, pct2, this);
-		assertEquals("TestSubRaceToo", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRaceToo", facet.getSubRace(id));
 		tfacet.remove(id, pct2, this);
-		assertEquals("TestSubRace", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRace", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 	@Test
@@ -166,15 +167,15 @@ public class SubRaceFacetTest extends TestCase
 		pct2.setName("TestTemplateToo");
 		pct2.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
 		tfacet.add(id, pct2, this);
-		assertEquals("TestTemplateToo", facet.getSubRace(id));
+		Assert.assertEquals("TestTemplateToo", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertEquals("TestTemplateToo", facet.getSubRace(id));
+		Assert.assertEquals("TestTemplateToo", facet.getSubRace(id));
 		tfacet.add(id, pct, this);
-		assertEquals("TestSubRace", facet.getSubRace(id));
+		Assert.assertEquals("TestSubRace", facet.getSubRace(id));
 		tfacet.remove(id, pct, this);
-		assertEquals("TestTemplateToo", facet.getSubRace(id));
+		Assert.assertEquals("TestTemplateToo", facet.getSubRace(id));
 		tfacet.remove(id, pct2, this);
-		assertNull(facet.getSubRace(altid));
+		Assert.assertNull(facet.getSubRace(altid));
 	}
 
 }

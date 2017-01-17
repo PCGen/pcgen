@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -82,77 +83,77 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListNameOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar"));
+		Assert.assertFalse(parse("Familiar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListNameBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|"));
+		Assert.assertFalse(parse("Familiar|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyListName() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Lion"));
+		Assert.assertFalse(parse("|Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeRaceBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|"));
+		Assert.assertFalse(parse("Familiar|Lion|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeRaceTypeEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|RACETYPE="));
+		Assert.assertFalse(parse("Familiar|RACETYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidRaceCommaStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|,Lion"));
+		Assert.assertFalse(parse("Familiar|,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidRaceCommaEnding() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion,"));
+		Assert.assertFalse(parse("Familiar|Lion,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidRaceDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion,,Tiger"));
+		Assert.assertFalse(parse("Familiar|Lion,,Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidRacePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|Tiger"));
+		Assert.assertFalse(parse("Familiar|Lion|Tiger"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellEmbeddedPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
+		Assert.assertFalse(parse("Familiar|Lion|PRERACE:1,Human|Tiger"));
 		assertNoSideEffects();
 	}
 
@@ -160,7 +161,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidNonSensicalAnyLast()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Tiger,Any"));
+		Assert.assertFalse(parse("Familiar|Tiger,Any"));
 		assertNoSideEffects();
 	}
 
@@ -168,14 +169,14 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidNonSensicalAnyFirst()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Any,Lion"));
+		Assert.assertFalse(parse("Familiar|Any,Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmbeddedFA() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
+		Assert.assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-4|Lion"));
 		assertNoSideEffects();
 	}
 
@@ -198,7 +199,7 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidMultipleFOLLOWERADJUSTMENT()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
+		Assert.assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-2|FOLLOWERADJUSTMENT:-3"));
 		assertNoSideEffects();
 	}
 
@@ -206,35 +207,35 @@ public class CompanionListLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidOnlyFOLLOWERADJUSTMENTBar()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
+		Assert.assertFalse(parse("Familiar|FOLLOWERADJUSTMENT:-3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyTimes() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar||Lion"));
+		Assert.assertFalse(parse("Familiar||Lion"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadFA() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
+		Assert.assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidFANaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
+		Assert.assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-T"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidFADecimal() throws PersistenceLayerException
 	{
-		assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
+		Assert.assertFalse(parse("Familiar|Lion|FOLLOWERADJUSTMENT:-4.5"));
 		assertNoSideEffects();
 	}
 

@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.util.Date;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -42,17 +43,17 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException {
-		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertEquals(null, primaryProf.get(getKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException {
-		assertTrue(parse("2011-09"));
-		assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
-		assertTrue(parse("January 24, 2010"));
-		assertEquals("January 24, 2010", token.unparse(primaryContext, primaryProf)[0]);
+		Assert.assertTrue(parse("2011-09"));
+		Assert.assertEquals("September 1, 2011", token.unparse(primaryContext, primaryProf)[0]);
+		Assert.assertTrue(parse("January 24, 2010"));
+		Assert.assertEquals("January 24, 2010", token.unparse(primaryContext, primaryProf)[0]);
 	}
 
 //	@Test
@@ -78,7 +79,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 	@Test
 	public void testUnparseNull() throws PersistenceLayerException {
 		primaryProf.put(getKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 //	/*

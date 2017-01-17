@@ -19,6 +19,7 @@ package plugin.lsttokens.ability;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,49 +79,49 @@ public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA Number %||VarF"));
+		Assert.assertFalse(parse("SA Number %||VarF"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEndingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA Number|"));
+		Assert.assertFalse(parse("SA Number|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidStartingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Var"));
+		Assert.assertFalse(parse("|Var"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA Number One|PREFOO:1,Fighter=1"));
+		Assert.assertFalse(parse("SA Number One|PREFOO:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidVarAfterPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
+		Assert.assertFalse(parse("SA % plus %|Var|PRECLASS:1,Fighter|Var2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
+		Assert.assertFalse(parse("The caster gains attack, damage bonus, +(min(6,(CASTERLEVEL/3))."));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("PRECLASS:1,Fighter"));
+		Assert.assertFalse(parse("PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 

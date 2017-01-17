@@ -39,6 +39,7 @@ import pcgen.util.TestHelper;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
 
 /**
  * Equipment Modifer Test 
@@ -116,9 +117,9 @@ public class EquipmentModifierTest extends TestCase
 		
 		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
-			assertEquals("((+13)MIN(STR))", bonusObj.getValue());
+			Assert.assertEquals("((+13)MIN(STR))", bonusObj.getValue());
 		}
-		assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
+		Assert.assertEquals("((%CHOICE)MIN(STR))", aBonus.getValue());
 	}
 
 	/**
@@ -139,15 +140,15 @@ public class EquipmentModifierTest extends TestCase
 
 		for (BonusObj bonusObj : eqMod.getBonusList(e))
 		{
-			assertEquals("-2", bonusObj.getValue());
+			Assert.assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+13", prereq.getKey());
-			assertEquals("STR", prereq.getOperand());
+			Assert.assertEquals("+13", prereq.getKey());
+			Assert.assertEquals("STR", prereq.getOperand());
 		}
-		assertEquals("-2", aBonus.getValue());
+		Assert.assertEquals("-2", aBonus.getValue());
 		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
-		assertEquals("%CHOICE", prereq.getKey());
+		Assert.assertEquals("%CHOICE", prereq.getKey());
 	}
 
 	/**
@@ -173,14 +174,14 @@ public class EquipmentModifierTest extends TestCase
 		for (int j = list.size() - 1; j > 0; j--)
 		{
 			final BonusObj bonusObj = list.get(j);
-			assertEquals("-2", bonusObj.getValue());
+			Assert.assertEquals("-2", bonusObj.getValue());
 
 			final Prerequisite prereq = bonusObj.getPrerequisiteList().get(0);
-			assertEquals("+" + (j+1), prereq.getKey());
-			assertEquals("STR", prereq.getOperand());
+			Assert.assertEquals("+" + (j+1), prereq.getKey());
+			Assert.assertEquals("STR", prereq.getOperand());
 		}
-		assertEquals("-2", aBonus.getValue());
+		Assert.assertEquals("-2", aBonus.getValue());
 		final Prerequisite prereq = aBonus.getPrerequisiteList().get(0);
-		assertEquals("%CHOICE", prereq.getKey());
+		Assert.assertEquals("%CHOICE", prereq.getKey());
 	}
 }

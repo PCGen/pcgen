@@ -31,6 +31,8 @@ import pcgen.core.GameMode;
 import pcgen.core.Globals;
 import pcgen.core.RuleCheck;
 import pcgen.core.SettingsHandler;
+
+import org.junit.Assert;
 import plugin.pretokens.parser.PreRuleParser;
 
 /**
@@ -100,18 +102,18 @@ public class PreRuleTest extends AbstractCharacterTestCase
 	 */
 	public void ruleDisabled() throws Exception
 	{
-		assertFalse("Our rule should start as false", Globals
+		Assert.assertFalse("Our rule should start as false", Globals
 			.checkRule("PRERULE"));
 
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("PreRule should fail when rule is disabled.", passes);
+		Assert.assertFalse("PreRule should fail when rule is disabled.", passes);
 
 		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("!PreRule should pass when rule is disabled.", passes);
+		Assert.assertTrue("!PreRule should pass when rule is disabled.", passes);
 	}
 
 	/**
@@ -125,17 +127,17 @@ public class PreRuleTest extends AbstractCharacterTestCase
 				.silentlyGetConstructedCDOMObject(RuleCheck.class, "PRERULE");
 		preRule.setDefault(true);
 		
-		assertTrue("Our rule should now be true", Globals
+		Assert.assertTrue("Our rule should now be true", Globals
 			.checkRule("PRERULE"));
 
 		PreRuleParser parser = new PreRuleParser();
 		Prerequisite prereq = parser.parse("RULE", "1,PRERULE", false, false);
 
 		boolean passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertTrue("PreRule should pass when rule is enabled.", passes);
+		Assert.assertTrue("PreRule should pass when rule is enabled.", passes);
 
 		prereq = parser.parse("RULE", "1,PRERULE", true, false);
 		passes = PrereqHandler.passes(prereq, getCharacter(), null);
-		assertFalse("!PreRule should fail when rule is enabled.", passes);
+		Assert.assertFalse("!PreRule should fail when rule is enabled.", passes);
 	}
 }

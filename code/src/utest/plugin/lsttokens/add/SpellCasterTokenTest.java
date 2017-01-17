@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.add;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.ChoiceActor;
@@ -118,7 +119,7 @@ public class SpellCasterTokenTest extends
 	{
 		if (isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + getAllString()
+			Assert.assertFalse(parse(getSubTokenName() + '|' + getAllString()
 				+ getJoinCharacter() + "Arcane"));
 			assertNoSideEffects();
 		}
@@ -129,7 +130,7 @@ public class SpellCasterTokenTest extends
 	{
 		if (isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "Arcane"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "Arcane"
 				+ getJoinCharacter() + getAllString()));
 			assertNoSideEffects();
 		}

@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -83,7 +84,7 @@ public class FunctionTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, function, null).passed());
+		Assert.assertFalse(token.parseToken(context, function, null).passed());
 	}
 
 	@Test
@@ -91,7 +92,7 @@ public class FunctionTokenTest extends TestCase
 	{
 		try
 		{
-			assertFalse(token.parseToken(context, function, "").passed());
+			Assert.assertFalse(token.parseToken(context, function, "").passed());
 		}
 		catch (IllegalArgumentException e)
 		{

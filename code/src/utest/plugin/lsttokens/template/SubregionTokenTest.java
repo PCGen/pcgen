@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -93,18 +94,18 @@ public class SubregionTokenTest extends
 	public void testReplacementYes() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		assertTrue(parse("YES"));
+		Assert.assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
-		assertTrue(parse("TestWP1"));
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		Assert.assertTrue(parse("TestWP1"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
-		assertTrue(parse("YES"));
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "TestWP1", unparsed[0]);
+		Assert.assertTrue(parse("YES"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "YES", unparsed[0]);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "YES", unparsed[0]);
 	}
 
 	@Test
@@ -137,18 +138,18 @@ public class SubregionTokenTest extends
 	@Test
 	public void testUnparseIllegal() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		Assert.assertEquals(primaryContext.getWriteMessageCount(), 0);
 		SubRegion o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, true);
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "YES");
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
+		Assert.assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
 	@Test
 	public void testUnparseLegalWithFalse() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		Assert.assertEquals(primaryContext.getWriteMessageCount(), 0);
 		SubRegion o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBREGION, false);

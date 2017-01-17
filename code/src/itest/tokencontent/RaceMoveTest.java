@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.facet.FacetLibrary;
@@ -47,12 +48,12 @@ public class RaceMoveTest extends AbstractTokenModelTest
 	{
 		Race source = create(Race.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	public void processToken(Race source)
@@ -61,7 +62,7 @@ public class RaceMoveTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

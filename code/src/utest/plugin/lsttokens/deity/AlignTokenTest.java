@@ -19,6 +19,7 @@ package plugin.lsttokens.deity;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -82,7 +83,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -91,7 +92,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	{
 		if(parse("1+3"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -102,7 +103,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	@Test
 	public void testInvalidInteger() throws PersistenceLayerException
 	{
-		assertFalse(parse("4"));
+		Assert.assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
@@ -111,7 +112,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	{
 		if (parse("String"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -153,7 +154,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.ALIGNMENT, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -173,7 +174,7 @@ public class AlignTokenTest extends AbstractCDOMTokenTestCase<Deity>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.facade;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -102,16 +103,16 @@ public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 		companion.setName("Companion1");
 		CharacterFacadeImpl compFacade = new CharacterFacadeImpl(companion, uiDelegate, dataSetFacade);
 
-		assertNull("No companion type should be set yet.", compFacade.getCompanionType());
-		assertTrue("Master should have no companions", master.getFollowerList().isEmpty());
+		Assert.assertNull("No companion type should be set yet.", compFacade.getCompanionType());
+		Assert.assertTrue("Master should have no companions", master.getFollowerList().isEmpty());
 		
 		masterCsfi.addCompanion(compFacade, "Familiar");
 		Follower follower = master.getFollowerList().iterator().next();
-		assertEquals("Companion should be the first follower", companion.getName(), follower.getName());
-		assertEquals("Master should have one companion", 1, master.getFollowerList().size());
+		Assert.assertEquals("Companion should be the first follower", companion.getName(), follower.getName());
+		Assert.assertEquals("Master should have one companion", 1, master.getFollowerList().size());
 		
-		assertNotNull("Companion should have a master now", companion.getDisplay().getMaster());
-		assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
+		Assert.assertNotNull("Companion should have a master now", companion.getDisplay().getMaster());
+		Assert.assertEquals("Companion's master", master.getName(), companion.getDisplay().getMaster().getName());
 	}
 
 	@Override

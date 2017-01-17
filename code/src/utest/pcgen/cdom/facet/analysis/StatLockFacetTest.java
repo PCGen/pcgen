@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.analysis;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -111,13 +112,13 @@ public class StatLockFacetTest extends
 		PCStat stat3 = new PCStat();
 		stat3.setName("Stat" + n++);
 		StatLock t3 = new StatLock(CDOMDirectSingleRef.getRef(stat3), FormulaFactory.getFormulaFor(2));
-		assertNull(facet.getLockedStat(id, stat));
+		Assert.assertNull(facet.getLockedStat(id, stat));
 		getFacet().add(id, t1, source1);
-		assertEquals(1, facet.getLockedStat(id, stat));
-		assertNull(facet.getLockedStat(id, stat1));
+		Assert.assertEquals(1, facet.getLockedStat(id, stat));
+		Assert.assertNull(facet.getLockedStat(id, stat1));
 		getFacet().add(id, t2, source1);
-		assertEquals(4, facet.getLockedStat(id, stat1));
+		Assert.assertEquals(4, facet.getLockedStat(id, stat1));
 		getFacet().add(id, t3, source1);
-		assertEquals(2, facet.getLockedStat(id, stat3));
+		Assert.assertEquals(2, facet.getLockedStat(id, stat3));
 	}
 }

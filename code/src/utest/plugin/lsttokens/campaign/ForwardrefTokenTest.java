@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.campaign;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Ability;
@@ -57,77 +58,77 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL"));
+		Assert.assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|"));
+		Assert.assertFalse(parse("SPELL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Fireball"));
+		Assert.assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadType() throws PersistenceLayerException
 	{
-		assertFalse(parse("CAMPAIGN|Fireball"));
+		Assert.assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadLeadingComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|,Fireball"));
+		Assert.assertFalse(parse("SPELL|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadTrailingComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|Fireball,"));
+		Assert.assertFalse(parse("SPELL|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|Fireball,,LightningBolt"));
+		Assert.assertFalse(parse("SPELL|Fireball,,LightningBolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("ABILITY|Abil"));
+		Assert.assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL=Arcane|Fireball"));
+		Assert.assertFalse(parse("SPELL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
+		Assert.assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -135,14 +136,14 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	public void testInvalidSpellbookAndSpellBarOnly()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|Fireball|"));
+		Assert.assertFalse(parse("SPELL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellBarStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL||Fireball"));
+		Assert.assertFalse(parse("SPELL||Fireball"));
 		assertNoSideEffects();
 	}
 

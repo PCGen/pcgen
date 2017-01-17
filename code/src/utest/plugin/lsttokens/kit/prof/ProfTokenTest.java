@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.prof;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.WeaponProf;
@@ -59,7 +60,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -84,19 +85,19 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 

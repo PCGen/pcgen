@@ -22,6 +22,7 @@
  */
 package pcgen.core.display;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -132,19 +133,19 @@ public class SkillCostDisplayTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		setPCStat(pc, cha, 10);
 
-		assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(
+		Assert.assertEquals("Initial state", "", SkillCostDisplay.getModifierExplanation(
 			bluff, pc, false));
 
 		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, skillFocus, "KEY_Bluff");
 		pc.calcActiveBonuses();
-		assertEquals("Bonus after skill focus", "+3[Skill Focus]",
+		Assert.assertEquals("Bonus after skill focus", "+3[Skill Focus]",
 			SkillCostDisplay.getModifierExplanation(bluff, pc, false));
 
 		addAbility(AbilityCategory.FEAT, persuasive);
 		String modifierExplanation = SkillCostDisplay
 			.getModifierExplanation(bluff, pc, false);
 		// Have to account for random order of the bonuses. 
-		assertTrue("Bonus after persuasive",
+		Assert.assertTrue("Bonus after persuasive",
 			modifierExplanation.equals("+2[Persuasive] +3[Skill Focus]") ||
 			modifierExplanation.equals("+3[Skill Focus] +2[Persuasive]"));
 	}

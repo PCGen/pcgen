@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -49,7 +50,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	@Test
 	public void testInvalidEmptyInput() throws PersistenceLayerException
 	{
-		assertFalse(getToken().parseToken(primaryContext, primaryProf, "").passed());
+		Assert.assertFalse(getToken().parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test
@@ -98,7 +99,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		getUnparseTarget().put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*

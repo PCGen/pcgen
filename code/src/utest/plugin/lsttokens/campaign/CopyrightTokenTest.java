@@ -19,6 +19,7 @@ package plugin.lsttokens.campaign;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -72,10 +73,10 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Rheinhessen"));
+			Assert.assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Rheinhessen"));
+			Assert.assertEquals(1, coll.size());
+			Assert.assertTrue(coll.contains("Rheinhessen"));
 			assertCleanConstruction();
 		}
 	}
@@ -87,10 +88,10 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
+			Assert.assertTrue(parse("Niederösterreich"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
+			Assert.assertEquals(1, coll.size());
+			Assert.assertTrue(coll.contains("Niederösterreich"));
 			assertCleanConstruction();
 		}
 	}
@@ -102,10 +103,10 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Finger Lakes"));
+			Assert.assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Finger Lakes"));
+			Assert.assertEquals(1, coll.size());
+			Assert.assertTrue(coll.contains("Finger Lakes"));
 			assertCleanConstruction();
 		}
 	}
@@ -117,10 +118,10 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Languedoc-Roussillon"));
+			Assert.assertTrue(parse("Languedoc-Roussillon"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Languedoc-Roussillon"));
+			Assert.assertEquals(1, coll.size());
+			Assert.assertTrue(coll.contains("Languedoc-Roussillon"));
 			assertCleanConstruction();
 		}
 	}
@@ -132,10 +133,10 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Yarra Valley"));
+			Assert.assertTrue(parse("Yarra Valley"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(1, coll.size());
-			assertTrue(coll.contains("Yarra Valley"));
+			Assert.assertEquals(1, coll.size());
+			Assert.assertTrue(coll.contains("Yarra Valley"));
 			assertCleanConstruction();
 		}
 	}
@@ -147,12 +148,12 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
-			assertTrue(parse("Finger Lakes"));
+			Assert.assertTrue(parse("Niederösterreich"));
+			Assert.assertTrue(parse("Finger Lakes"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(2, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
-			assertTrue(coll.contains("Finger Lakes"));
+			Assert.assertEquals(2, coll.size());
+			Assert.assertTrue(coll.contains("Niederösterreich"));
+			Assert.assertTrue(coll.contains("Finger Lakes"));
 			assertCleanConstruction();
 		}
 	}
@@ -164,16 +165,16 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		if (listKey != null)
 		{
 			List<?> coll;
-			assertTrue(parse("Niederösterreich"));
-			assertTrue(parse("Finger Lakes"));
-			assertTrue(parse("Languedoc-Roussillon"));
-			assertTrue(parse("Rheinhessen"));
+			Assert.assertTrue(parse("Niederösterreich"));
+			Assert.assertTrue(parse("Finger Lakes"));
+			Assert.assertTrue(parse("Languedoc-Roussillon"));
+			Assert.assertTrue(parse("Rheinhessen"));
 			coll = primaryProf.getListFor(listKey);
-			assertEquals(4, coll.size());
-			assertTrue(coll.contains("Niederösterreich"));
-			assertTrue(coll.contains("Finger Lakes"));
-			assertTrue(coll.contains("Languedoc-Roussillon"));
-			assertTrue(coll.contains("Rheinhessen"));
+			Assert.assertEquals(4, coll.size());
+			Assert.assertTrue(coll.contains("Niederösterreich"));
+			Assert.assertTrue(coll.contains("Finger Lakes"));
+			Assert.assertTrue(coll.contains("Languedoc-Roussillon"));
+			Assert.assertTrue(coll.contains("Rheinhessen"));
 			assertCleanConstruction();
 		}
 	}
@@ -181,16 +182,16 @@ public class CopyrightTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testInvalidListEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 

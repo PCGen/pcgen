@@ -18,9 +18,8 @@ package pcgen.base.geom;
 
 import pcgen.base.math.OrderedPair;
 
+import org.junit.Assert;
 import org.junit.Test;
-import static junit.framework.TestCase.assertEquals;
-import static junit.framework.TestCase.fail;
 
 public class OrderedPairTest
 {
@@ -30,7 +29,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf(null);
-			fail("null value should fail");
+			Assert.fail("null value should fail");
 		}
 		catch (NullPointerException | IllegalArgumentException e)
 		{
@@ -44,7 +43,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("SomeString");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -58,7 +57,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("1,3,4");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -72,7 +71,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("1,");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -86,7 +85,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf(",4");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -101,7 +100,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("x,4");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -110,7 +109,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("3-0,4");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -125,7 +124,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("5,x");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -134,7 +133,7 @@ public class OrderedPairTest
 		try
 		{
 			OrderedPair.valueOf("5,5..6");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -146,9 +145,9 @@ public class OrderedPairTest
 	public void testValueOf()
 	{
 		OrderedPair gp = OrderedPair.valueOf("4,6");
-		assertEquals(4, gp.getPreciseX());
-		assertEquals(6, gp.getPreciseY());
-		assertEquals("4,6", gp.toString());
+		Assert.assertEquals(4, gp.getPreciseX());
+		Assert.assertEquals(6, gp.getPreciseY());
+		Assert.assertEquals("4,6", gp.toString());
 	}
 
 }

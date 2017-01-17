@@ -35,6 +35,7 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -181,7 +182,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 		additionalSetUp();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(ref.resolveReferences(null));
+		Assert.assertTrue(ref.resolveReferences(null));
 		context.loadCampaignFacets();
 
 		character = new PlayerCharacter();
@@ -287,7 +288,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getCDOMCategory() == null)
 		{
-			fail("Attempt to apply an Ability " + a.getKeyName()
+			Assert.fail("Attempt to apply an Ability " + a.getKeyName()
 				+ " that never received a Category");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
@@ -301,7 +302,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			fail("addAbility takes Mult:NO Abilities");
+			Assert.fail("addAbility takes Mult:NO Abilities");
 		}
 		applyAbility(character, cat, a, null);
 	}
@@ -310,7 +311,7 @@ public abstract class AbstractCharacterTestCase extends PCGenTestCase
 	{
 		if (a.getSafe(ObjectKey.MULTIPLE_ALLOWED))
 		{
-			fail("addAbility takes Mult:NO Abilities");
+			Assert.fail("addAbility takes Mult:NO Abilities");
 		}
 		CNAbility cna = CNAbilityFactory.getCNAbility(cat, Nature.NORMAL, a);
 		character.removeAbility(new CNAbilitySelection(cna, null),

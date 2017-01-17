@@ -21,6 +21,7 @@ import java.util.Collection;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -69,8 +70,8 @@ public class RacialSubTypesFacetTest extends TestCase
 	@Test
 	public void testRaceSubTypesUnsetEmpty()
 	{
-		assertNotNull(facet.getRacialSubTypes(id));
-		assertTrue(facet.getRacialSubTypes(id).isEmpty());
+		Assert.assertNotNull(facet.getRacialSubTypes(id));
+		Assert.assertTrue(facet.getRacialSubTypes(id).isEmpty());
 	}
 
 	@Test
@@ -82,8 +83,8 @@ public class RacialSubTypesFacetTest extends TestCase
 
 	private void assertSubTypesEmpty()
 	{
-		assertNotNull(facet.getRacialSubTypes(id));
-		assertTrue(facet.getRacialSubTypes(id).isEmpty());
+		Assert.assertNotNull(facet.getRacialSubTypes(id));
+		Assert.assertTrue(facet.getRacialSubTypes(id).isEmpty());
 	}
 
 	@Test
@@ -92,8 +93,8 @@ public class RacialSubTypesFacetTest extends TestCase
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertNotNull(facet.getRacialSubTypes(altid));
-		assertTrue(facet.getRacialSubTypes(altid).isEmpty());
+		Assert.assertNotNull(facet.getRacialSubTypes(altid));
+		Assert.assertTrue(facet.getRacialSubTypes(altid).isEmpty());
 	}
 
 	@Test
@@ -205,74 +206,74 @@ public class RacialSubTypesFacetTest extends TestCase
 	@Test
 	public void testContains()
 	{
-		assertFalse(facet.contains(id, TEST_RACE_TYPE));
-		assertFalse(facet.contains(id, RACE_TYPE_TOO));
-		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertFalse(facet.contains(id, RACE_TYPE_TOO));
-		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertTrue(facet.contains(id, RACE_TYPE_TOO));
-		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertFalse(facet.contains(id, LAST_RACE_TYPE));
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertTrue(facet.contains(id, RACE_TYPE_TOO));
-		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertTrue(facet.contains(id, LAST_RACE_TYPE));
 		tfacet.remove(id, t, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertFalse(facet.contains(id, RACE_TYPE_TOO));
-		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertTrue(facet.contains(id, LAST_RACE_TYPE));
 		tfacet.add(id, t, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertTrue(facet.contains(id, RACE_TYPE_TOO));
-		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertTrue(facet.contains(id, LAST_RACE_TYPE));
 		tfacet.remove(id, t, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertFalse(facet.contains(id, RACE_TYPE_TOO));
-		assertTrue(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertTrue(facet.contains(id, LAST_RACE_TYPE));
 		tfacet.remove(id, t2, this);
-		assertTrue(facet.contains(id, TEST_RACE_TYPE));
-		assertFalse(facet.contains(id, RACE_TYPE_TOO));
-		assertFalse(facet.contains(id, LAST_RACE_TYPE));
+		Assert.assertTrue(facet.contains(id, TEST_RACE_TYPE));
+		Assert.assertFalse(facet.contains(id, RACE_TYPE_TOO));
+		Assert.assertFalse(facet.contains(id, LAST_RACE_TYPE));
 	}
 
 	@Test
 	public void testCount()
 	{
-		assertEquals(0, facet.getCount(id));
+		Assert.assertEquals(0, facet.getCount(id));
 		Race r = new Race();
 		r.addToListFor(ListKey.RACESUBTYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertEquals(1, facet.getCount(id));
+		Assert.assertEquals(1, facet.getCount(id));
 		assertList(facet.getRacialSubTypes(id), TEST_RACE_TYPE);
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.addToListFor(ListKey.RACESUBTYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
-		assertEquals(2, facet.getCount(id));
+		Assert.assertEquals(2, facet.getCount(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.addToListFor(ListKey.RACESUBTYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
-		assertEquals(3, facet.getCount(id));
+		Assert.assertEquals(3, facet.getCount(id));
 		tfacet.remove(id, t, this);
-		assertEquals(2, facet.getCount(id));
+		Assert.assertEquals(2, facet.getCount(id));
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getCount(id));
+		Assert.assertEquals(3, facet.getCount(id));
 		tfacet.remove(id, t, this);
-		assertEquals(2, facet.getCount(id));
+		Assert.assertEquals(2, facet.getCount(id));
 		tfacet.remove(id, t2, this);
-		assertEquals(1, facet.getCount(id));
+		Assert.assertEquals(1, facet.getCount(id));
 		/*
 		 * TODO Note this doesn't test duplicates. We need to check appropriate
 		 * behavior of RaceSubType (set vs. list)
@@ -281,9 +282,9 @@ public class RacialSubTypesFacetTest extends TestCase
 
 	private <T> void assertList(Collection<T> c, T... array)
 	{
-		assertNotNull(c);
-		assertNotNull(array);
-		assertEquals(array.length, c.size());
+		Assert.assertNotNull(c);
+		Assert.assertNotNull(array);
+		Assert.assertEquals(array.length, c.size());
 		/*
 		 * WARNING This method doesn't check for A,B,B,B tested against A,A,B,B
 		 * 
@@ -291,7 +292,7 @@ public class RacialSubTypesFacetTest extends TestCase
 		 */
 		for (T obj : array)
 		{
-			assertTrue(c.contains(obj));
+			Assert.assertTrue(c.contains(obj));
 		}
 	}
 

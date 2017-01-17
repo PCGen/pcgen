@@ -33,6 +33,7 @@ import java.util.Set;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
@@ -86,7 +87,7 @@ public class PluginBuildTest extends TestCase
 		String sourceSuffix = "Lst";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
 		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		Assert.assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
@@ -442,7 +443,7 @@ public class PluginBuildTest extends TestCase
 		String jarPrefix = "PreToken-";
 		File sourceFolder = new File("code/src/java/plugin/pretokens/parser");
 		File jarFolder = new File("plugins/preplugins");
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		Assert.assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
@@ -588,7 +589,7 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, File sourceFolder,
 		File jarFolder, String classSuffix)
 	{
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		Assert.assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		checkPluginJars(jarPrefix, jarFolder, classSuffix, sources);
 	}
@@ -606,7 +607,7 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, 
 		File jarFolder, String classSuffix, String[] sources)
 	{
-		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
+		Assert.assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
 		Set<String> jarSet = new HashSet<>();
 		String[] jars = jarFolder.list();
 		for (int i = 0; i < jars.length; i++)
@@ -635,7 +636,7 @@ public class PluginBuildTest extends TestCase
 
 				testString = jarPrefix + testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i]
+				Assert.assertTrue("Jar for " + sources[i]
 					+ " should be present in jars list as " + testString,
 					jarSet.contains(testString));
 			}
@@ -659,7 +660,7 @@ public class PluginBuildTest extends TestCase
 	{
 		for (File folder : jarFolder)
 		{
-			assertTrue("Jar folder " + folder.getAbsolutePath() + " should be a directory", folder.isDirectory());
+			Assert.assertTrue("Jar folder " + folder.getAbsolutePath() + " should be a directory", folder.isDirectory());
 		}
 		Set<String> jarSet = new HashSet<>();
 		for (File folder : jarFolder)
@@ -694,7 +695,7 @@ public class PluginBuildTest extends TestCase
 
 				testString = testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
+				Assert.assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
 			}
 		}
 	}

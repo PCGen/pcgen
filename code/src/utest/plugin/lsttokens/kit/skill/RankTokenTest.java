@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.skill;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.kit.KitSkill;
@@ -65,7 +66,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("FormulaProhibited"));
+		Assert.assertFalse(parse("FormulaProhibited"));
 	}
 
 //	@Test
@@ -77,7 +78,7 @@ public class RankTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-1"));
+		Assert.assertFalse(parse("-1"));
 	}
 
 }

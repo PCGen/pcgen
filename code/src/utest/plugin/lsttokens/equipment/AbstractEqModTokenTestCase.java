@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Equipment;
@@ -111,7 +112,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	@Test
 	public void testInvalidEmptyAssociation() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|"));
+		Assert.assertFalse(parse("EQMOD2|"));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +120,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testInvalidTrailingAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|Assoc|"));
+		Assert.assertFalse(parse("EQMOD2|Assoc|"));
 		assertNoSideEffects();
 	}
 
@@ -127,7 +128,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testInvalidEmptyModAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("|Assoc|Assoc2"));
+		Assert.assertFalse(parse("|Assoc|Assoc2"));
 		assertNoSideEffects();
 	}
 
@@ -135,7 +136,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testInvalidEmptySecondModAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1.|Assoc|Assoc2"));
+		Assert.assertFalse(parse("MOD1.|Assoc|Assoc2"));
 		assertNoSideEffects();
 	}
 
@@ -143,7 +144,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testInvalidEmptySecondModAfterAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
+		Assert.assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
 		assertNoSideEffects();
 	}
 
@@ -176,7 +177,7 @@ public abstract class AbstractEqModTokenTestCase extends
 	public void testInvalidDoubleBarAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|Assoc||Assoc2"));
+		Assert.assertFalse(parse("EQMOD2|Assoc||Assoc2"));
 		assertNoSideEffects();
 	}
 

@@ -22,6 +22,7 @@
  */
 package plugin.lsttokens.ability;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Ability;
@@ -69,48 +70,48 @@ public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	@Test
 	public void testInvalidNoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("NoPipe"));
+		Assert.assertFalse(parse("NoPipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidTwoPipe() throws PersistenceLayerException
 	{
-		assertTrue(parse("One|Two|Three"));
+		Assert.assertTrue(parse("One|Two|Three"));
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Two||Pipe"));
+		Assert.assertFalse(parse("Two||Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|"));
+		Assert.assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyKey() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Value"));
+		Assert.assertFalse(parse("|Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("Key|"));
+		Assert.assertFalse(parse("Key|"));
 		assertNoSideEffects();
 	}
 

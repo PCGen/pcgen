@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -122,7 +123,7 @@ public class ItypeTokenTest extends
 	@Test
 	public void testInvalidInputDouble() throws PersistenceLayerException
 	{
-		assertFalse(parse("Double"));
+		Assert.assertFalse(parse("Double"));
 		assertNoSideEffects();
 	}
 }

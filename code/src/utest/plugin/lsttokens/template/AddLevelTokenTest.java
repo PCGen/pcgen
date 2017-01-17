@@ -20,6 +20,7 @@ package plugin.lsttokens.template;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
@@ -61,28 +62,28 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidInputNoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter:3"));
+		Assert.assertFalse(parse("Fighter:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoClass() throws PersistenceLayerException
 	{
-		assertFalse(parse("|3"));
+		Assert.assertFalse(parse("|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoLevelCount() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter|"));
+		Assert.assertFalse(parse("Fighter|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoPipes() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter|3|3"));
+		Assert.assertFalse(parse("Fighter|3|3"));
 		assertNoSideEffects();
 	}
 
@@ -90,7 +91,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputNegativeLevelCount()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter|-5"));
+		Assert.assertFalse(parse("Fighter|-5"));
 		assertNoSideEffects();
 	}
 
@@ -98,14 +99,14 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputZeroLevelCount()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter|0"));
+		Assert.assertFalse(parse("Fighter|0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNotAClass() throws PersistenceLayerException
 	{
-		assertTrue(parse("NotAClass|3"));
+		Assert.assertTrue(parse("NotAClass|3"));
 		assertConstructionError();
 	}
 
@@ -159,7 +160,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.ADD_LEVEL);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -203,7 +204,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -225,11 +226,11 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		primaryProf.addToListFor(ListKey.ADD_LEVEL, new LevelCommandFactory(cl,
 				FormulaFactory.getFormulaFor("Formula")));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(2, unparsed.length);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(2, unparsed.length);
 		List<String> upList = Arrays.asList(unparsed);
-		assertTrue(upList.contains("Fighter|2"));
-		assertTrue(upList.contains("Cleric|Formula"));
+		Assert.assertTrue(upList.contains("Fighter|2"));
+		Assert.assertTrue(upList.contains("Cleric|Formula"));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -241,7 +242,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

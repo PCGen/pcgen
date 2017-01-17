@@ -19,6 +19,7 @@ package plugin.lsttokens.kit;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -74,13 +75,13 @@ public class StatTokenTest extends AbstractKitTokenTestCase<KitStat>
 	public void testInvalidInputEmptyValue()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("STR="));
+		Assert.assertFalse(parse("STR="));
 	}
 
 	@Test
 	public void testInvalidInputEmptyStat() throws PersistenceLayerException
 	{
-		assertFalse(parse("=2"));
+		Assert.assertFalse(parse("=2"));
 	}
 
 

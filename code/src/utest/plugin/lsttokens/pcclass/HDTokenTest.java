@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.content.HitDie;
@@ -71,10 +72,10 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputSet() throws PersistenceLayerException
 	{
 		Integer con = 3;
-		assertTrue(parse(con.toString()));
-		assertTrue(parseSecondary(con.toString()));
-		assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE)
-			.getDie());
+		Assert.assertTrue(parse(con.toString()));
+		Assert.assertTrue(parseSecondary(con.toString()));
+		Assert.assertEquals(con.intValue(), primaryProf.get(ObjectKey.LEVEL_HITDIE)
+                                                       .getDie());
 		testInvalidInputs(new HitDie(con));
 		assertNoSideEffects();
 	}
@@ -83,50 +84,50 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("TestWP"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("ANY"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("FIVE"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("4.5"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("1/2"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("1+3"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("TestWP"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("ANY"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("FIVE"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("4.5"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("1/2"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("1+3"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
 		// Require Integer greater than or equal to zero
-		assertFalse(parse("-1"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertFalse(parse("0"));
-		assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("-1"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertFalse(parse("0"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.LEVEL_HITDIE));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("5"));
-		assertEquals(new HitDie(5), primaryProf.get(ObjectKey.LEVEL_HITDIE));
-		assertTrue(parse("1"));
-		assertEquals(new HitDie(1), primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertTrue(parse("5"));
+		Assert.assertEquals(new HitDie(5), primaryProf.get(ObjectKey.LEVEL_HITDIE));
+		Assert.assertTrue(parse("1"));
+		Assert.assertEquals(new HitDie(1), primaryProf.get(ObjectKey.LEVEL_HITDIE));
 	}
 
 	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("5"));
-		assertTrue(parse("1"));
+		Assert.assertTrue(parse("5"));
+		Assert.assertTrue(parse("1"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "1", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "1", unparsed[0]);
 	}
 
 	@Test
@@ -163,7 +164,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.LEVEL_HITDIE, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -182,7 +183,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

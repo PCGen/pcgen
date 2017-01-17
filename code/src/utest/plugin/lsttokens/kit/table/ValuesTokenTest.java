@@ -19,6 +19,7 @@ package plugin.lsttokens.kit.table;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.EquipmentModifier;
@@ -96,37 +97,37 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	@Test
 	public void testInvalidEmptyRange() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:EQMOD2|"));
+		Assert.assertFalse(parse("EQMOD:EQMOD2|"));
 	}
 
 	@Test
 	public void testInvalidRangeTwo() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:MOD1|3,"));
+		Assert.assertFalse(parse("EQMOD:MOD1|3,"));
 	}
 
 	@Test
 	public void testInvalidRangeOne() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:MOD1|,3"));
+		Assert.assertFalse(parse("EQMOD:MOD1|,3"));
 	}
 
 	@Test
 	public void testInvalidEqModDot() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:MOD1.|5,7"));
+		Assert.assertFalse(parse("EQMOD:MOD1.|5,7"));
 	}
 
 	@Test
 	public void testInvalidEqModOdd() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:MOD1|5,7|EQMOD:MOD2"));
+		Assert.assertFalse(parse("EQMOD:MOD1|5,7|EQMOD:MOD2"));
 	}
 
 	@Test
 	public void testInvalidDotEqMod() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:.MOD1|5,7"));
+		Assert.assertFalse(parse("EQMOD:.MOD1|5,7"));
 	}
 
 	// @Test
@@ -153,7 +154,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	@Test
 	public void testInvalidDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD:EQMOD2|5,,8"));
+		Assert.assertFalse(parse("EQMOD:EQMOD2|5,,8"));
 	}
 
 	public void testRoundRobinOnlyAssociation()
@@ -209,12 +210,12 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
+		Assert.assertFalse(parse("String"));
 	}
 
 	@Test
 	public void testInvalidInputStringColon() throws PersistenceLayerException
 	{
-		assertFalse(parse("String:Strung"));
+		Assert.assertFalse(parse("String:Strung"));
 	}
 }

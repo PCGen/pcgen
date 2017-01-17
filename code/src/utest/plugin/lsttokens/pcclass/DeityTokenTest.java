@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -112,7 +113,7 @@ public class DeityTokenTest extends AbstractListTokenTestCase<PCClass, Deity>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.DEITY);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -131,7 +132,7 @@ public class DeityTokenTest extends AbstractListTokenTestCase<PCClass, Deity>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -160,7 +161,7 @@ public class DeityTokenTest extends AbstractListTokenTestCase<PCClass, Deity>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

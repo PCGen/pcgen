@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.startpack;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.KitApply;
@@ -63,37 +64,37 @@ public class ApplyTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("INSTANT"));
-		assertTrue(parseSecondary("INSTANT"));
-		assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertTrue(parse("INSTANT"));
+		Assert.assertTrue(parseSecondary("INSTANT"));
+		Assert.assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));
 		internalTestInvalidInputString(KitApply.INSTANT);
 	}
 
 	public void internalTestInvalidInputString(Object val)
 			throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.APPLY_MODE));
 		// Note case sensitivity
-		assertFalse(parse("Permanent"));
+		Assert.assertFalse(parse("Permanent"));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("INSTANT"));
-		assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));
-		assertTrue(parse("PERMANENT"));
-		assertEquals(KitApply.PERMANENT, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertTrue(parse("INSTANT"));
+		Assert.assertEquals(KitApply.INSTANT, primaryProf.get(ObjectKey.APPLY_MODE));
+		Assert.assertTrue(parse("PERMANENT"));
+		Assert.assertEquals(KitApply.PERMANENT, primaryProf.get(ObjectKey.APPLY_MODE));
 	}
 
 	@Test

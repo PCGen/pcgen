@@ -31,6 +31,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.SourceFileLoader;
 import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.TypeLst;
@@ -95,7 +97,7 @@ public abstract class AbstractCharacterUsingTestCase extends TestCase {
 		context.getReferenceContext().buildDeferredObjects();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();

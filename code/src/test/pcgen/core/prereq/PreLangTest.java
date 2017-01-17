@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -74,37 +76,37 @@ public class PreLangTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELANG:1,KEY_Elven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character should have elven", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PRELANG:1,KEY_Elven,KEY_Dwarven");
 
-		assertTrue("Character should have elven", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character should have elven", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PRELANG:2,KEY_Elven,KEY_Dwarven");
 
-		assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have Dwarven", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.addFreeLanguage(dwarven, dwarven);
 
-		assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
+		Assert.assertTrue("Character has Elven and Dwarven", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRELANG:3,ANY");
 
-		assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have 3 langs", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.addFreeLanguage(halfling, halfling);
 
-		assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
+		Assert.assertTrue("Character has Elven, Dwarven, and Halfling", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PRELANG:3,Elven");
 
-		assertFalse("PRE test should look at keys", PrereqHandler.passes(
+		Assert.assertFalse("PRE test should look at keys", PrereqHandler.passes(
 			prereq, character, null));
 	}
 

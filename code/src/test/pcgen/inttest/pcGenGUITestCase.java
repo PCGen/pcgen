@@ -11,6 +11,7 @@ import java.util.Locale;
 
 import org.custommonkey.xmlunit.XMLTestCase;
 import org.custommonkey.xmlunit.XMLUnit;
+import org.junit.Assert;
 
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
@@ -137,7 +138,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			String characterFile = "code/testsuite/PCGfiles/" + character
 				+ Constants.EXTENSION_CHARACTER_FILE;
 
-			assertTrue("Export of " + character + " failed.",
+			Assert.assertTrue("Export of " + character + " failed.",
 				Main.loadCharacterAndExport(characterFile, getSheetName(),
 					outputFile, TEST_CONFIG_FILE));
 
@@ -190,7 +191,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 			}
 		} catch (IOException e) {
 			br.close();
-			fail();
+			Assert.fail();
 		}
 		return output.toString();
 	}

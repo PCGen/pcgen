@@ -26,6 +26,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -64,12 +66,12 @@ public class PreFactTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hum");
 
-		assertFalse("Character should not be a matching race", PrereqHandler.passes(
+		Assert.assertFalse("Character should not be a matching race", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PREFACT:1,RACE,ABB=Hgln");
 
-		assertTrue("Character should be a matching race", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character should be a matching race", PrereqHandler.passes(prereq,
 			character, null));
 	}
 }

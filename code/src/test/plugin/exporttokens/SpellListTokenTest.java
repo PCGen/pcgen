@@ -42,6 +42,8 @@ import pcgen.core.bonus.Bonus;
 import pcgen.core.bonus.BonusObj;
 import pcgen.persistence.lst.SimpleLoader;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -161,9 +163,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 			return;
 		}
 		//TODO: Get these tests to work
-		assertEquals("SpellListBookToken(1lv TA)", "", token.getToken(
+		Assert.assertEquals("SpellListBookToken(1lv TA)", "", token.getToken(
 			"SPELLLISTBOOK.0.1", character, null));
-		assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token
+		Assert.assertEquals("SpellListBookToken(1lv TD)", "TestDivine", token
 			.getToken("SPELLLISTBOOK.1.1", character, null));
 	}
 
@@ -180,7 +182,7 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, arcaneClass, true);
 
 		SpellListCastToken token = new SpellListCastToken();
-		assertEquals("testSpellListCastToken(1lv TA)", "2", token.getToken(
+		Assert.assertEquals("testSpellListCastToken(1lv TA)", "2", token.getToken(
 			"SPELLLISTCAST.0.1", character, null));
 	}
 
@@ -196,9 +198,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListClassToken token = new SpellListClassToken();
-		assertEquals("testSpellListClassToken(1lv TA)", "TestArcane", token
+		Assert.assertEquals("testSpellListClassToken(1lv TA)", "TestArcane", token
 			.getToken("SPELLLISTCLASS.0", character, null));
-		assertEquals("testSpellListClassToken(1lv TD)", "TestDivine", token
+		Assert.assertEquals("testSpellListClassToken(1lv TD)", "TestDivine", token
 			.getToken("SPELLLISTCLASS.1", character, null));
 	}
 
@@ -214,9 +216,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListDcStatToken token = new SpellListDcStatToken();
-		assertEquals("testSpellListDcStatToken(1lv TA)", "CHA", token.getToken(
+		Assert.assertEquals("testSpellListDcStatToken(1lv TA)", "CHA", token.getToken(
 			"SPELLLISTDCSTAT.0.1", character, null));
-		assertEquals("testSpellListDcStatToken(1lv TD)", "WIS", token.getToken(
+		Assert.assertEquals("testSpellListDcStatToken(1lv TD)", "WIS", token.getToken(
 			"SPELLLISTDCSTAT.1.1", character, null));
 	}
 
@@ -234,9 +236,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.calcActiveBonuses();
 
 		SpellListDcToken token = new SpellListDcToken();
-		assertEquals("SpellListDcToken(1lv TA)", "12", token.getToken(
+		Assert.assertEquals("SpellListDcToken(1lv TA)", "12", token.getToken(
 			"SPELLLISTDC.0.0", character, null));
-		assertEquals("SpellListDcToken(1lv TA)", "15", token.getToken(
+		Assert.assertEquals("SpellListDcToken(1lv TA)", "15", token.getToken(
 			"SPELLLISTDC.0.3", character, null));
 	}
 
@@ -262,9 +264,9 @@ public class SpellListTokenTest extends AbstractCharacterTestCase
 		character.incrementClassLevel(1, divineClass, true);
 
 		SpellListTypeToken token = new SpellListTypeToken();
-		assertEquals("testSpellListTypeToken(1lv TA)", "Arcane", token
+		Assert.assertEquals("testSpellListTypeToken(1lv TA)", "Arcane", token
 			.getToken("SPELLLISTTYPE.0.1", character, null));
-		assertEquals("testSpellListTypeToken(1lv TD)", "Divine", token
+		Assert.assertEquals("testSpellListTypeToken(1lv TD)", "Divine", token
 			.getToken("SPELLLISTTYPE.1.1", character, null));
 	}
 }

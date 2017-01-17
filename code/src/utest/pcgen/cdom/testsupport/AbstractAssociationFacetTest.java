@@ -24,6 +24,7 @@ import java.util.Set;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -50,13 +51,13 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 	@Test
 	public void testObjUnsetZeroCount()
 	{
-		assertEquals(0, getFacet().getCount(id));
+		Assert.assertEquals(0, getFacet().getCount(id));
 	}
 
 	@Test
 	public void testObjUnsetEmpty()
 	{
-		assertTrue(getFacet().isEmpty(id));
+		Assert.assertTrue(getFacet().isEmpty(id));
 	}
 
 	@Test
@@ -69,8 +70,8 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 	@Test
 	public void testObjUnsetEmptySet()
 	{
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertTrue(getFacet().getSet(id).isEmpty());
 	}
 
 	@Test
@@ -80,7 +81,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		try
 		{
 			getFacet().set(null, getTypeObj(), source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -98,7 +99,7 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		try
 		{
 			getFacet().set(id, null, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -116,16 +117,16 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		try
 		{
 			getFacet().set(id, t1, null);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
 			// OK
 		}
-		assertEquals(0, getFacet().getCount(id));
-		assertTrue(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(id));
+		Assert.assertTrue(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertTrue(getFacet().getSet(id).isEmpty());
 	}
 
 	@Test
@@ -134,17 +135,17 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// No cross-pollution
-		assertEquals(0, getFacet().getCount(altid));
-		assertTrue(getFacet().isEmpty(altid));
-		assertNotNull(getFacet().getSet(altid));
-		assertTrue(getFacet().getSet(altid).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(altid));
+		Assert.assertTrue(getFacet().isEmpty(altid));
+		Assert.assertNotNull(getFacet().getSet(altid));
+		Assert.assertTrue(getFacet().getSet(altid).isEmpty());
 	}
 
 	@Test
@@ -153,19 +154,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Add same, still only once in set (and only one event)
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 	}
 
 	@Test
@@ -175,19 +176,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		ST source1 = developSource(t1);
 		ST source2 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Add same, still only once in set (and only one event)
 		getFacet().set(id, t1, source2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 	}
 
 	@Test
@@ -196,21 +197,21 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<CT> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		CT t2 = getTypeObj();
 		getFacet().set(id, t2, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<CT> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 	}
 
 	@Test
@@ -218,11 +219,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 	{
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
-		assertFalse(getFacet().contains(id, t1));
+		Assert.assertFalse(getFacet().contains(id, t1));
 		getFacet().set(id, t1, source1);
-		assertTrue(getFacet().contains(id, t1));
+		Assert.assertTrue(getFacet().contains(id, t1));
 		getFacet().remove(id, t1);
-		assertFalse(getFacet().contains(id, t1));
+		Assert.assertFalse(getFacet().contains(id, t1));
 	}
 
 	@Test
@@ -241,18 +242,18 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Remove
 		getFacet().remove(id, t1);
-		assertEquals(0, getFacet().getCount(id));
-		assertTrue(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(id));
+		Assert.assertTrue(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertTrue(getFacet().getSet(id).isEmpty());
 	}
 
 	@Test
@@ -261,19 +262,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Useless Remove
 		getFacet().remove(id, getTypeObj());
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 	}
 
 	@Test
@@ -282,19 +283,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Add same, still only once in set (but twice on that source)
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Only one Remove required to clear (source Set not source List)
 		getFacet().remove(id, t1);
@@ -318,12 +319,12 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		getFacet().set(id, t1, source1);
 		getFacet().set(id, t2, source1);
 		getFacet().remove(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<CT> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 	}
 
 	@Test
@@ -343,20 +344,20 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		ST source2 = developSource(t1);
 		CT t2 = getTypeObj();
 		ST source3 = developSource(t2);
-		assertNotNull(getFacet().removeAll(id));
-		assertTrue(getFacet().removeAll(id).isEmpty());
+		Assert.assertNotNull(getFacet().removeAll(id));
+		Assert.assertTrue(getFacet().removeAll(id).isEmpty());
 		getFacet().set(id, t1, source1);
 		getFacet().set(id, t1, source2);
 		getFacet().set(id, t2, source3);
 		Map<CT, ST> map = getFacet().removeAll(id);
-		assertNotNull(map);
-		assertEquals(2, map.size());
-		assertTrue(map.containsKey(t1));
-		assertTrue(map.containsKey(t2));
-		assertNotNull(map.get(t1));
-		assertNotNull(map.get(t2));
-		assertEquals(source2, map.get(t1));
-		assertEquals(source3, map.get(t2));
+		Assert.assertNotNull(map);
+		Assert.assertEquals(2, map.size());
+		Assert.assertTrue(map.containsKey(t1));
+		Assert.assertTrue(map.containsKey(t2));
+		Assert.assertNotNull(map.get(t1));
+		Assert.assertNotNull(map.get(t2));
+		Assert.assertEquals(source2, map.get(t1));
+		Assert.assertEquals(source3, map.get(t2));
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
@@ -375,11 +376,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.add(t2);
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -390,11 +391,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.remove(t1);
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -408,11 +409,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.addAll(pct);
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -423,11 +424,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.removeAll(pct);
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -438,11 +439,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.retainAll(new ArrayList<CT>());
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -454,11 +455,11 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 			set.clear();
 			// If we can modify, then make sure it's independent of the
 			// getFacet()
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -483,48 +484,48 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t2 = getTypeObj();
 		getFacet().set(id, t1, source1);
 		getFacet().set(id, t2, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertEquals(0, getFacet().getCount(altid));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertEquals(0, getFacet().getCount(altid));
 		getFacet().copyContents(id, altid);
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(2, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		Set<CT> setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		// Prove independence (remove from id)
 		getFacet().remove(id, t1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<CT> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(2, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		// Prove Independence (remove from altid)
 
 		getFacet().remove(altid, t2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 
-		assertEquals(1, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(1, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		setofone = getFacet().getSet(altid);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 	}
 
 	@Test
@@ -533,19 +534,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		CT t1 = getTypeObj();
 		ST source1 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Add same, still only once in set (but twice on that source)
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Only one Remove required to clear (source Set not source List)
 		getFacet().remove(id, t1);
@@ -567,19 +568,19 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		ST source1 = developSource(t1);
 		ST source2 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Add same, still only once in set (but twice on that source)
 		getFacet().set(id, t1, source2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		
 		// Only one Remove required to clear (source Set not source List)
 		getFacet().remove(id, t1);
@@ -598,28 +599,28 @@ public abstract class AbstractAssociationFacetTest<CT, ST> extends
 	public void testObjGetSource()
 	{
 		CT t1 = getTypeObj();
-		assertNull(getFacet().get(id, t1));
+		Assert.assertNull(getFacet().get(id, t1));
 		ST source1 = developSource(t1);
 		ST source2 = developSource(t1);
 		getFacet().set(id, t1, source1);
-		assertEquals(source1, getFacet().get(id, t1));
+		Assert.assertEquals(source1, getFacet().get(id, t1));
 		
 		// Add same, still only once in set (but twice on that source)
 		getFacet().set(id, t1, source2);
-		assertEquals(source2, getFacet().get(id, t1));
+		Assert.assertEquals(source2, getFacet().get(id, t1));
 		
 		// Only one Remove required to clear (source Set not source List)
 		getFacet().remove(id, t1);
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
-		assertNull(getFacet().get(id, t1));
+		Assert.assertNull(getFacet().get(id, t1));
 		// Second remove useless
 		getFacet().remove(id, t1);
 		testObjUnsetZeroCount();
 		testObjUnsetEmpty();
 		testObjUnsetEmptySet();
-		assertNull(getFacet().get(id, t1));
+		Assert.assertNull(getFacet().get(id, t1));
 	}
 
 	protected abstract CT getTypeObj();

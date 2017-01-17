@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -69,28 +70,28 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputUnlockArg() throws PersistenceLayerException
 	{
-		assertFalse(parse("UNLOCK.STR|3"));
+		Assert.assertFalse(parse("UNLOCK.STR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoResult() throws PersistenceLayerException
 	{
-		assertFalse(parse("Medium"));
+		Assert.assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("Medium|"));
+		Assert.assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
@@ -98,21 +99,21 @@ public class DefineLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputEmptyVariable()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("|Medium"));
+		Assert.assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Light||Medium"));
+		Assert.assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Light|Medium|Heavy"));
+		Assert.assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
 	}
 

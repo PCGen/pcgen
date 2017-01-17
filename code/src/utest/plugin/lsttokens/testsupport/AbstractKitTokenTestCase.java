@@ -23,6 +23,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -131,22 +132,22 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(parse(s));
+			Assert.assertTrue(parse(s));
 		}
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
+		Assert.assertNotNull(str);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", str[i],
 					unparsed[i]);
 		}
 
@@ -162,19 +163,19 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		// And that it comes back out the same again
 		String[] sUnparsed = getToken()
 				.unparse(secondaryContext, secondaryProf);
-		assertEquals(unparsed.length, sUnparsed.length);
+		Assert.assertEquals(unparsed.length, sUnparsed.length);
 
 		for (int i = 0; i < unparsed.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
 		assertCleanConstruction();
-		assertTrue(secondaryContext.getReferenceContext().validate(null));
-		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
-		assertEquals(expectedPrimaryMessageCount, primaryContext
+		Assert.assertTrue(secondaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertEquals(expectedPrimaryMessageCount, primaryContext
 				.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	public boolean parse(String str)
@@ -224,25 +225,25 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		}
 		catch (Exception e)
 		{
-			fail("Token should not throw an exception with null input");
+			Assert.fail("Token should not throw an exception with null input");
 		}
 	}
 	
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 	}
 
 	protected void assertConstructionError()
 	{
-		assertFalse(primaryContext.getReferenceContext().validate(null)
+		Assert.assertFalse(primaryContext.getReferenceContext().validate(null)
 				&& primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.getReferenceContext().validate(null));
-		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 }

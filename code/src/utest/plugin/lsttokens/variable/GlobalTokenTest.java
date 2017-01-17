@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.variable;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.lang.ObjectUtil;
@@ -66,61 +67,61 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 		DatasetVariable dv = new DatasetVariable();
 		dv.setName("FirstName");
 		ParseResult pr = token.parseToken(primaryContext, dv, "VarName");
-		assertFalse(pr.passed());
+		Assert.assertFalse(pr.passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadName() throws PersistenceLayerException
 	{
-		assertFalse(parse("Bad-Name"));
+		Assert.assertFalse(parse("Bad-Name"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidBasic() throws PersistenceLayerException
 	{
-		assertTrue(parse("IsANumberVar"));
+		Assert.assertTrue(parse("IsANumberVar"));
 	}
 
 	@Test
 	public void testValidFormatted() throws PersistenceLayerException
 	{
-		assertTrue(parse("NUMBER=IsANumberVar"));
+		Assert.assertTrue(parse("NUMBER=IsANumberVar"));
 	}
 
 	@Test
 	public void testInvalidDoubleEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("STRING==Pipe"));
+		Assert.assertFalse(parse("STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("="));
+		Assert.assertFalse(parse("="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("=Value"));
+		Assert.assertFalse(parse("=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyVarName() throws PersistenceLayerException
 	{
-		assertFalse(parse("NUMBER="));
+		Assert.assertFalse(parse("NUMBER="));
 		assertNoSideEffects();
 	}
 
@@ -129,22 +130,22 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	{
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr = token.parseToken(primaryContext, dv, "MyVar");
-		assertTrue(pr.passed());
-		assertFalse(parse("STRING=MyVar"));
+		Assert.assertTrue(pr.passed());
+		Assert.assertFalse(parse("STRING=MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("BADFORMAT=Illegal"));
+		Assert.assertFalse(parse("BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidName() throws PersistenceLayerException
 	{
-		assertFalse(parse("NUMBER=Illegal Name!"));
+		Assert.assertFalse(parse("NUMBER=Illegal Name!"));
 		assertNoSideEffects();
 	}
 
@@ -175,17 +176,17 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Override
 	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
 	{
-		assertTrue(
+		Assert.assertTrue(
 			"Display Name not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getDisplayName(),
 				dv2.getDisplayName()));
-		assertTrue("Format not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Format not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
-		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getScopeName(), dv2.getScopeName()));
-		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Source URI not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getSourceURI(), dv2.getSourceURI()));
-		assertTrue(
+		Assert.assertTrue(
 			"Explanation not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getExplanation(),
 				dv2.getExplanation()));
@@ -207,9 +208,9 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Override
 	public void testOverwrite() throws PersistenceLayerException
 	{
-		assertTrue(parse(getLegalValue()));
+		Assert.assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
-		assertFalse(parse(getAlternateLegalValue()));
+		Assert.assertFalse(parse(getAlternateLegalValue()));
 	}
 
 }

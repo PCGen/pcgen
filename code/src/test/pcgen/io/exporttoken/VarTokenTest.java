@@ -30,6 +30,8 @@ import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.VariableKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
+
+import org.junit.Assert;
 import plugin.exporttokens.VarToken;
 
 /**
@@ -76,21 +78,21 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testPositiveFractOutput()
 	{
-		assertEquals("VAR.Pos", "100.35", new VarToken().getToken("VAR.Pos",
+		Assert.assertEquals("VAR.Pos", "100.35", new VarToken().getToken("VAR.Pos",
 			getCharacter(), null));
-		assertEquals("VAR.Pos.INTVAL", "100", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.INTVAL", "100", new VarToken().getToken(
 			"VAR.Pos.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Pos.NOSIGN", "100.35", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.NOSIGN", "100.35", new VarToken().getToken(
 			"VAR.Pos.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.Pos.NOSIGN.INTVAL", "100", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.NOSIGN.INTVAL", "100", new VarToken().getToken(
 			"VAR.Pos.NOSIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Pos.INTVAL.NOSIGN", "100", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.INTVAL.NOSIGN", "100", new VarToken().getToken(
 			"VAR.Pos.INTVAL.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.Pos.SIGN", "+100.35", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.SIGN", "+100.35", new VarToken().getToken(
 			"VAR.Pos.SIGN", getCharacter(), null));
-		assertEquals("VAR.Pos.SIGN.INTVAL", "+100", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.SIGN.INTVAL", "+100", new VarToken().getToken(
 			"VAR.Pos.SIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Pos.INTVAL.SIGN", "+100", new VarToken().getToken(
+		Assert.assertEquals("VAR.Pos.INTVAL.SIGN", "+100", new VarToken().getToken(
 			"VAR.Pos.INTVAL.SIGN", getCharacter(), null));
 	}
 
@@ -99,21 +101,21 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testNegativeFractOutput()
 	{
-		assertEquals("VAR.Neg", "-555.55", new VarToken().getToken("VAR.Neg",
+		Assert.assertEquals("VAR.Neg", "-555.55", new VarToken().getToken("VAR.Neg",
 			getCharacter(), null));
-		assertEquals("VAR.Neg.INTVAL", "-555", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.INTVAL", "-555", new VarToken().getToken(
 			"VAR.Neg.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Neg.NOSIGN", "-555.55", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.NOSIGN", "-555.55", new VarToken().getToken(
 			"VAR.Neg.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.Neg.NOSIGN.INTVAL", "-555", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.NOSIGN.INTVAL", "-555", new VarToken().getToken(
 			"VAR.Neg.NOSIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Neg.INTVAL.NOSIGN", "-555", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.INTVAL.NOSIGN", "-555", new VarToken().getToken(
 			"VAR.Neg.INTVAL.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.Neg.SIGN", "-555.55", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.SIGN", "-555.55", new VarToken().getToken(
 			"VAR.Neg.SIGN", getCharacter(), null));
-		assertEquals("VAR.Neg.SIGN.INTVAL", "-555", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.SIGN.INTVAL", "-555", new VarToken().getToken(
 			"VAR.Neg.SIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.Neg.INTVAL.SIGN", "-555", new VarToken().getToken(
+		Assert.assertEquals("VAR.Neg.INTVAL.SIGN", "-555", new VarToken().getToken(
 			"VAR.Neg.INTVAL.SIGN", getCharacter(), null));
 	}
 
@@ -122,21 +124,21 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testPositiveIntOutput()
 	{
-		assertEquals("VAR.PosInt", "105.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt", "105.0", new VarToken().getToken(
 			"VAR.PosInt", getCharacter(), null));
-		assertEquals("VAR.PosInt.INTVAL", "105", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt.INTVAL", "105", new VarToken().getToken(
 			"VAR.PosInt.INTVAL", getCharacter(), null));
-		assertEquals("VAR.PosInt.NOSIGN", "105.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt.NOSIGN", "105.0", new VarToken().getToken(
 			"VAR.PosInt.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.PosInt.NOSIGN.INTVAL", "105", new VarToken()
+		Assert.assertEquals("VAR.PosInt.NOSIGN.INTVAL", "105", new VarToken()
 			.getToken("VAR.PosInt.NOSIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.PosInt.INTVAL.NOSIGN", "105", new VarToken()
+		Assert.assertEquals("VAR.PosInt.INTVAL.NOSIGN", "105", new VarToken()
 			.getToken("VAR.PosInt.INTVAL.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.PosInt.SIGN", "+105.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt.SIGN", "+105.0", new VarToken().getToken(
 			"VAR.PosInt.SIGN", getCharacter(), null));
-		assertEquals("VAR.PosInt.SIGN.INTVAL", "+105", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt.SIGN.INTVAL", "+105", new VarToken().getToken(
 			"VAR.PosInt.SIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.PosInt.INTVAL.SIGN", "+105", new VarToken().getToken(
+		Assert.assertEquals("VAR.PosInt.INTVAL.SIGN", "+105", new VarToken().getToken(
 			"VAR.PosInt.INTVAL.SIGN", getCharacter(), null));
 	}
 
@@ -145,21 +147,21 @@ public class VarTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testNegativeIntOutput()
 	{
-		assertEquals("VAR.NegInt", "-560.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt", "-560.0", new VarToken().getToken(
 			"VAR.NegInt", getCharacter(), null));
-		assertEquals("VAR.NegInt.INTVAL", "-560", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt.INTVAL", "-560", new VarToken().getToken(
 			"VAR.NegInt.INTVAL", getCharacter(), null));
-		assertEquals("VAR.NegInt.NOSIGN", "-560.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt.NOSIGN", "-560.0", new VarToken().getToken(
 			"VAR.NegInt.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.NegInt.NOSIGN.INTVAL", "-560", new VarToken()
+		Assert.assertEquals("VAR.NegInt.NOSIGN.INTVAL", "-560", new VarToken()
 			.getToken("VAR.NegInt.NOSIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.NegInt.INTVAL.NOSIGN", "-560", new VarToken()
+		Assert.assertEquals("VAR.NegInt.INTVAL.NOSIGN", "-560", new VarToken()
 			.getToken("VAR.NegInt.INTVAL.NOSIGN", getCharacter(), null));
-		assertEquals("VAR.NegInt.SIGN", "-560.0", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt.SIGN", "-560.0", new VarToken().getToken(
 			"VAR.NegInt.SIGN", getCharacter(), null));
-		assertEquals("VAR.NegInt.SIGN.INTVAL", "-560", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt.SIGN.INTVAL", "-560", new VarToken().getToken(
 			"VAR.NegInt.SIGN.INTVAL", getCharacter(), null));
-		assertEquals("VAR.NegInt.INTVAL.SIGN", "-560", new VarToken().getToken(
+		Assert.assertEquals("VAR.NegInt.INTVAL.SIGN", "-560", new VarToken().getToken(
 			"VAR.NegInt.INTVAL.SIGN", getCharacter(), null));
 	}
 

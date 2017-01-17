@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.race;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
@@ -110,7 +111,7 @@ public class FavoredClassTokenTest extends
 	@Test
 	public void testInvalidInputList() throws PersistenceLayerException
 	{
-		assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "%LIST"));
+		Assert.assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "%LIST"));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +120,7 @@ public class FavoredClassTokenTest extends
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1."));
+		Assert.assertFalse(parse("TestWP1."));
 		assertNoSideEffects();
 	}
 
@@ -127,7 +128,7 @@ public class FavoredClassTokenTest extends
 	public void testInvalidInputSubClassNoClass()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(".TestWP1"));
+		Assert.assertFalse(parse(".TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -136,7 +137,7 @@ public class FavoredClassTokenTest extends
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1..Two"));
+		Assert.assertFalse(parse("TestWP1..Two"));
 		assertNoSideEffects();
 	}
 
@@ -144,7 +145,7 @@ public class FavoredClassTokenTest extends
 	public void testCategorizationFail() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1.Two"));
+		Assert.assertTrue(parse("TestWP1.Two"));
 		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
@@ -156,7 +157,7 @@ public class FavoredClassTokenTest extends
 	public void testCategorizationPass() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1.Two"));
+		Assert.assertTrue(parse("TestWP1.Two"));
 		SubClass obj = primaryContext.getReferenceContext().constructCDOMObject(SubClass.class,
 				"Two");
 		SubClassCategory cat = SubClassCategory.getConstant("TestWP2");
@@ -192,7 +193,7 @@ public class FavoredClassTokenTest extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "TestWP1"));
+			Assert.assertFalse(parse(Constants.HIGHEST_LEVEL_CLASS + getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
 	}
@@ -203,7 +204,7 @@ public class FavoredClassTokenTest extends
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.HIGHEST_LEVEL_CLASS));
+			Assert.assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.HIGHEST_LEVEL_CLASS));
 			assertNoSideEffects();
 		}
 	}
@@ -278,14 +279,14 @@ public class FavoredClassTokenTest extends
 	public void testUnparseHighestUnset() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, false);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testUnparseHighestNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.ANY_FAVORED_CLASS, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -298,7 +299,7 @@ public class FavoredClassTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -310,7 +311,7 @@ public class FavoredClassTokenTest extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.FAVORED_CLASS);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -330,7 +331,7 @@ public class FavoredClassTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -392,7 +393,7 @@ public class FavoredClassTokenTest extends
 	public void testUnparseNullCA() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.NEW_CHOOSE_ACTOR);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -410,7 +411,7 @@ public class FavoredClassTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

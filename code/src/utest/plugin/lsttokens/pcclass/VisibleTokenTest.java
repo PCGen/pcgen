@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -56,10 +57,10 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertTrue(primaryContext.getWriteMessageCount() == 0);
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertFalse(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertFalse(primaryContext.getWriteMessageCount() == 0);
 	}
 
 	@Test
@@ -72,9 +73,9 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("NO"));
-		assertTrue(parseSecondary("NO"));
-		assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("NO"));
+		Assert.assertTrue(parseSecondary("NO"));
+		Assert.assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
 		internalTestInvalidInputString(Visibility.HIDDEN);
 		assertNoSideEffects();
 	}
@@ -82,19 +83,19 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void internalTestInvalidInputString(Object val)
 			throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		// Note case sensitivity
-		assertFalse(parse("Yes"));
+		Assert.assertFalse(parse("Yes"));
 	}
 
 	@Test
@@ -106,10 +107,10 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		// assertTrue(parse("EXPORT"));
 		// assertEquals(Visibility.EXPORT,
 		// primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("YES"));
-		assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("NO"));
-		assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
 	}
 
 	//
@@ -159,7 +160,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<Visibility> getObjectKey()
@@ -190,7 +191,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

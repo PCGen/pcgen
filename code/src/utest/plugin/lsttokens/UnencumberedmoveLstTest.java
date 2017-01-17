@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -55,91 +56,91 @@ public class UnencumberedmoveLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputPipeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("|"));
+		Assert.assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputRandomString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
+		Assert.assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEndPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyLoad|"));
+		Assert.assertFalse(parse("HeavyLoad|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputStartPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|HeavyLoad"));
+		Assert.assertFalse(parse("|HeavyLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyLoad||HeavyArmor"));
+		Assert.assertFalse(parse("HeavyLoad||HeavyArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleLoad() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyLoad|MediumLoad"));
+		Assert.assertFalse(parse("HeavyLoad|MediumLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleLoad2() throws PersistenceLayerException
 	{
-		assertFalse(parse("MediumLoad|HeavyLoad"));
+		Assert.assertFalse(parse("MediumLoad|HeavyLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleLoad3() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyLoad|Overload"));
+		Assert.assertFalse(parse("HeavyLoad|Overload"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleLoad4() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyLoad|LightLoad"));
+		Assert.assertFalse(parse("HeavyLoad|LightLoad"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleArmor() throws PersistenceLayerException
 	{
-		assertFalse(parse("MediumArmor|HeavyArmor"));
+		Assert.assertFalse(parse("MediumArmor|HeavyArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleArmor2() throws PersistenceLayerException
 	{
-		assertFalse(parse("HeavyArmor|MediumArmor"));
+		Assert.assertFalse(parse("HeavyArmor|MediumArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleArmor3() throws PersistenceLayerException
 	{
-		assertFalse(parse("MediumArmor|LightArmor"));
+		Assert.assertFalse(parse("MediumArmor|LightArmor"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDoubleArmor() throws PersistenceLayerException
 	{
-		assertTrue(parse("LightArmor"));
+		Assert.assertTrue(parse("LightArmor"));
 	}
 
 	@Test

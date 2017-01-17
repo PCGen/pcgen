@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -62,7 +63,7 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -75,27 +76,27 @@ public class GlobalCcSkillTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		PCClass wizard = create(PCClass.class, "Wizard");
 		new ExclusiveToken().parseToken(context, granted, "Yes");
 		finishLoad();
 		pc.incrementClassLevel(1, wizard);
-		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
-		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));
+		Assert.assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
+		Assert.assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(granted, wizard));
 		templateInputFacet.directAdd(id, source, granted);
 		pc.calcActiveBonuses();
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
-		assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
+		Assert.assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 		templateInputFacet.remove(id, source);
 		pc.calcActiveBonuses();
-		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
+		Assert.assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CROSS_CLASS, granted));
 	}
 
 	@Override

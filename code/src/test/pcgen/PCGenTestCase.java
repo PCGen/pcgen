@@ -19,6 +19,7 @@ import pcgen.util.testchecker.CompareGreaterThan;
 import pcgen.util.testchecker.CompareNull;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * Test case base for PCGen.  This addresses a common bug with JUnit whereby
@@ -137,7 +138,7 @@ public abstract class PCGenTestCase extends TestCase
 			final StringBuilder message = new StringBuilder("\nExpected: ");
 			matches.scribe(message);
 			message.append("\nbut got: ").append(something).append('\n');
-			fail(message.toString());
+			Assert.fail(message.toString());
 		}
 	}
 
@@ -153,7 +154,7 @@ public abstract class PCGenTestCase extends TestCase
 			message.append("\nbut got: ").append(something);
 			message.append(" \nIn test ").append(testCase);
 
-			fail(message.toString());
+			Assert.fail(message.toString());
 		}
 	}
 

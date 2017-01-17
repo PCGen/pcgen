@@ -17,6 +17,7 @@
  */
 package tokenmodel.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -35,13 +36,13 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 	{
 		T granted = createGrantedObject();
 		processToken(lg);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		alignmentFacet.set(id, lg);
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		alignmentFacet.set(id, ng);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//BioSet not *supposed* to do things like this
@@ -52,14 +53,14 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		Campaign source = create(Campaign.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		expandedCampaignFacet.add(id, source, this);
-		assertTrue(containsExpected(granted));
-		assertEquals((expandedCampaignFacet == getTargetFacet()) ? 2 : 1,
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals((expandedCampaignFacet == getTargetFacet()) ? 2 : 1,
 			getCount());
 		expandedCampaignFacet.remove(id, source, this);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -72,11 +73,11 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		 * We never get a chance to test zero since the Checks are added at
 		 * Player Character Construction :)
 		 */
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		checkFacet.remove(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -85,13 +86,13 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		CompanionMod source = create(CompanionMod.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		companionModFacet.add(id, source);
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		companionModFacet.remove(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -100,13 +101,13 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		activeEqModFacet.add(id, source, this);
-		assertTrue(containsExpected(granted));
-		assertEquals((activeEqModFacet == getTargetFacet()) ? 2 : 1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals((activeEqModFacet == getTargetFacet()) ? 2 : 1, getCount());
 		activeEqModFacet.remove(id, source, this);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//Language not *supposed* to do things like this
@@ -126,11 +127,11 @@ public abstract class AbstractGrantedListTokenTest<T extends CDOMObject>
 		 * We never get a chance to test zero since the Stats are added at
 		 * Player Character Construction :)
 		 */
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		statFacet.remove(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//WeaponProf not *supposed* to do things like this

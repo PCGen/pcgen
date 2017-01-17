@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.skill;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Language;
@@ -54,7 +55,7 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -79,7 +80,7 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	private char getJoinCharacter()
@@ -90,13 +91,13 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 

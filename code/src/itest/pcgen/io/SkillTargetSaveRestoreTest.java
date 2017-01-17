@@ -22,6 +22,8 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.io.testsupport.AbstractGlobalTargetedSaveRestoreTest;
+
+import org.junit.Assert;
 import plugin.lsttokens.pcclass.HdToken;
 
 public class SkillTargetSaveRestoreTest extends
@@ -71,9 +73,9 @@ public class SkillTargetSaveRestoreTest extends
 					"MyClass");
 		Skill sk = (Skill) o;
 		SkillRankControl.modRanks(-1.0, cl, true, reloadedPC, sk);
-		assertTrue(reloadedPC.getRank(sk).equals(0.0f));
+		Assert.assertTrue(reloadedPC.getRank(sk).equals(0.0f));
 		SkillRankControl.getSkillRankBonusTo(reloadedPC, sk);
-		assertFalse(reloadedPC.hasSkill(sk));
+		Assert.assertFalse(reloadedPC.hasSkill(sk));
 	}
 
 	@Override

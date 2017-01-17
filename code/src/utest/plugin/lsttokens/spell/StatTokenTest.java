@@ -19,6 +19,7 @@ package plugin.lsttokens.spell;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -80,7 +81,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	{
 		if (parse("NAN"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -93,7 +94,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	{
 		if (parse("STR,INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -106,7 +107,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	{
 		if (parse("STR|INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -119,7 +120,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	{
 		if (parse("STR.INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -149,7 +150,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
@@ -173,7 +174,7 @@ public class StatTokenTest extends AbstractCDOMTokenTestCase<Spell>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

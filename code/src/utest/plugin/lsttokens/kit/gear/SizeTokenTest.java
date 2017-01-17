@@ -19,6 +19,7 @@ package plugin.lsttokens.kit.gear;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -73,8 +74,8 @@ public class SizeTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testInvalidNotASize()
 	{
-		assertTrue(token.parseToken(primaryContext, primaryProf, "W").passed());
-		assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(token.parseToken(primaryContext, primaryProf, "W").passed());
+		Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	@Test

@@ -20,6 +20,7 @@ package plugin.lsttokens.equipmentmodifier;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -60,42 +61,42 @@ public class ArmortypeTokenTest extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoResult() throws PersistenceLayerException
 	{
-		assertFalse(parse("Medium"));
+		Assert.assertFalse(parse("Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyResult() throws PersistenceLayerException
 	{
-		assertFalse(parse("Medium|"));
+		Assert.assertFalse(parse("Medium|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptySource() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Medium"));
+		Assert.assertFalse(parse("|Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Light||Medium"));
+		Assert.assertFalse(parse("Light||Medium"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Light|Medium|Heavy"));
+		Assert.assertFalse(parse("Light|Medium|Heavy"));
 		assertNoSideEffects();
 	}
 
@@ -133,7 +134,7 @@ public class ArmortypeTokenTest extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.ARMORTYPE);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -152,7 +153,7 @@ public class ArmortypeTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -168,11 +169,11 @@ public class ArmortypeTokenTest extends
 		primaryProf.addToListFor(ListKey.ARMORTYPE, new ChangeArmorType(
 				"Heavy", "Medium"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(2, unparsed.length);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(2, unparsed.length);
 		List<String> upList = Arrays.asList(unparsed);
-		assertTrue(upList.contains("Medium|Light"));
-		assertTrue(upList.contains("Heavy|Medium"));
+		Assert.assertTrue(upList.contains("Medium|Light"));
+		Assert.assertTrue(upList.contains("Heavy|Medium"));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -184,7 +185,7 @@ public class ArmortypeTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

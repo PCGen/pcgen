@@ -19,6 +19,7 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.format.OrderedPairManager;
@@ -78,53 +79,53 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 			throws PersistenceLayerException
 	{
 		// no invalid item should set or reset the value
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("TestWP"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("String"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("TYPE=TestType"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("TYPE.TestType"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("ALL"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("ANY"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("FIVE"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("1/2"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("1+3"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("-1"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("-2, 4"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("6, -3"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("x, 4"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("6, y"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("+, 4"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("6, +"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse(" , 4"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("6,  "));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("1,"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse(",1"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("1,2,3"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse("1,2,"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
-		assertFalse(parse(",2,3"));
-		assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("TestWP"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("String"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("ANY"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("FIVE"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("1/2"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("1+3"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("-1"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("-2, 4"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("6, -3"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("x, 4"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("6, y"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("+, 4"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("6, +"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse(" , 4"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("6,  "));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("1,"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse(",1"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("1,2,3"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse("1,2,"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
+		Assert.assertFalse(parse(",2,3"));
+		Assert.assertNull(primaryProf.getListFor(ListKey.MODIFY));
 	}
 
 	@Test

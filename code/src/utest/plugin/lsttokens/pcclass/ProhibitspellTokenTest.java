@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -81,56 +82,56 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT"));
+		Assert.assertFalse(parse("ALIGNMENT"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT."));
+		Assert.assertFalse(parse("ALIGNMENT."));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoType() throws PersistenceLayerException
 	{
-		assertFalse(parse(".Good"));
+		Assert.assertFalse(parse(".Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLeadingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|ALIGNMENT.Good"));
+		Assert.assertFalse(parse("|ALIGNMENT.Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTrailingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Good|"));
+		Assert.assertFalse(parse("ALIGNMENT.Good|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoubleDot() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT..Good"));
+		Assert.assertFalse(parse("ALIGNMENT..Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTrailingDot() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Lawful."));
+		Assert.assertFalse(parse("ALIGNMENT.Lawful."));
 		assertNoSideEffects();
 	}
 
@@ -138,7 +139,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputTrailingDotContinued()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Lawful.|PRECLASS:1,Fighter"));
+		Assert.assertFalse(parse("ALIGNMENT.Lawful.|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
@@ -146,14 +147,14 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoubleDotSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Lawful..Good"));
+		Assert.assertFalse(parse("ALIGNMENT.Lawful..Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDotComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL.,Fireball"));
+		Assert.assertFalse(parse("SPELL.,Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -161,7 +162,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputTrailingComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL.Fireball,"));
+		Assert.assertFalse(parse("SPELL.Fireball,"));
 		assertNoSideEffects();
 	}
 
@@ -169,7 +170,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputTrailingCommaContinued()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL.Fireball,|PRECLASS:1,Fighter"));
+		Assert.assertFalse(parse("SPELL.Fireball,|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
@@ -177,42 +178,42 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoubleCommaSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL.Fireball,,Lightning Bolt"));
+		Assert.assertFalse(parse("SPELL.Fireball,,Lightning Bolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Good||PRECLASS:1,Fighte"));
+		Assert.assertFalse(parse("ALIGNMENT.Good||PRECLASS:1,Fighte"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNeutral() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT.Neutral"));
+		Assert.assertFalse(parse("ALIGNMENT.Neutral"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNotAType() throws PersistenceLayerException
 	{
-		assertFalse(parse("NOTATYPE.Good"));
+		Assert.assertFalse(parse("NOTATYPE.Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoLimits() throws PersistenceLayerException
 	{
-		assertFalse(parse("DESCRIPTOR.Fear|DESCRIPTOR.Fire"));
+		Assert.assertFalse(parse("DESCRIPTOR.Fear|DESCRIPTOR.Fire"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 				"PRECLASS:1,Fighter=1").passed());
 		assertNoSideEffects();
 	}
@@ -264,7 +265,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmbeddedPre() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 				"SPELL.Fireball,Lightning Bolt|PRECLASS:1,Fighter=1|TestWP2").passed());
 		assertNoSideEffects();
 	}
@@ -273,7 +274,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipePre()
 			throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 				"SPELL.Fireball||PRECLASS:1,Fighter=1").passed());
 		assertNoSideEffects();
 	}
@@ -281,7 +282,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputPostPrePipe() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 				"TestWP1|PRECLASS:1,Fighter=1|").passed());
 		assertNoSideEffects();
 	}
@@ -333,7 +334,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ListKey<SpellProhibitor> getListKey()
@@ -380,7 +381,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -397,7 +398,7 @@ public class ProhibitspellTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

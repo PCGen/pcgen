@@ -19,6 +19,7 @@ package plugin.lsttokens.sizeadjustment;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -67,33 +68,33 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Niederösterreich"));
-		assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB_KR));
-		assertTrue(parse("Finger Lakes"));
-		assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB_KR));
-		assertTrue(parse("Rheinhessen"));
-		assertEquals("Rheinhessen", primaryProf.get(StringKey.ABB_KR));
-		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals("Languedoc-Roussillon", primaryProf.get(StringKey.ABB_KR));
-		assertTrue(parse("Yarra Valley"));
-		assertEquals("Yarra Valley", primaryProf.get(StringKey.ABB_KR));
+		Assert.assertTrue(parse("Niederösterreich"));
+		Assert.assertEquals("Niederösterreich", primaryProf.get(StringKey.ABB_KR));
+		Assert.assertTrue(parse("Finger Lakes"));
+		Assert.assertEquals("Finger Lakes", primaryProf.get(StringKey.ABB_KR));
+		Assert.assertTrue(parse("Rheinhessen"));
+		Assert.assertEquals("Rheinhessen", primaryProf.get(StringKey.ABB_KR));
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertEquals("Languedoc-Roussillon", primaryProf.get(StringKey.ABB_KR));
+		Assert.assertTrue(parse("Yarra Valley"));
+		Assert.assertEquals("Yarra Valley", primaryProf.get(StringKey.ABB_KR));
 	}
 
 	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		assertTrue(parse("Start"));
-		assertTrue(parse("Mod"));
+		Assert.assertTrue(parse("Start"));
+		Assert.assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "Mod", unparsed[0]);
 	}
 
 	@Test
@@ -154,7 +155,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*

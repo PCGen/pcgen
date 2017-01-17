@@ -32,6 +32,8 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.CDOMReference;
@@ -139,26 +141,26 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(2, listMods.size());
+		Assert.assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
 		CDOMReference<Ability> ref2 = iterator.next();
 		Collection<Ability> contained1 = ref1.getContainedObjects();
 		Collection<Ability> contained2 = ref2.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertEquals(1, contained2.size());
-		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
-		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertEquals(1, contained2.size());
+		Assert.assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+		Assert.assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -201,28 +203,28 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "Feat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(2, listMods.size());
+		Assert.assertEquals(2, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
 		CDOMReference<Ability> ref2 = iterator.next();
 		Collection<Ability> contained1 = ref1.getContainedObjects();
 		Collection<Ability> contained2 = ref2.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertEquals(1, contained2.size());
-		assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
-		assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertEquals(1, contained2.size());
+		Assert.assertTrue(contained1.contains(ab1) || contained2.contains(ab1));
+		Assert.assertTrue(contained1.contains(ab2) || contained2.contains(ab2));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
 		// Need to do this to populate the ability list
 		//pc.getAutomaticAbilityList(AbilityCategory.FEAT);
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab2));
 	}
 
@@ -268,46 +270,46 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(1, listMods.size());
+		Assert.assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
 		Collection<Ability> contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab2));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertTrue(contained1.contains(ab2));
 
 		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
-		assertEquals(1, lvlTemplates.size());
+		Assert.assertEquals(1, lvlTemplates.size());
 		PCTemplate lvl2 = lvlTemplates.get(0);
-		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
+		Assert.assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 		
 		listMods = lvl2.getListMods(autoList);
-		assertEquals(1, listMods.size());
+		Assert.assertEquals(1, listMods.size());
 		iterator = listMods.iterator();
 		ref1 = iterator.next();
 		contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab1));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
+		Assert.assertFalse("Character should not have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, cat,
+		Assert.assertFalse("Character should not have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
 		
 	}
@@ -351,46 +353,46 @@ public class PCTemplateTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "Feat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> listMods = template.getListMods(autoList);
-		assertEquals(1, listMods.size());
+		Assert.assertEquals(1, listMods.size());
 		Iterator<CDOMReference<Ability>> iterator = listMods.iterator();
 		CDOMReference<Ability> ref1 = iterator.next();
 		Collection<Ability> contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab2));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertTrue(contained1.contains(ab2));
 
 		List<PCTemplate> lvlTemplates = template.getSafeListFor(ListKey.LEVEL_TEMPLATES);
-		assertEquals(1, lvlTemplates.size());
+		Assert.assertEquals(1, lvlTemplates.size());
 		PCTemplate lvl2 = lvlTemplates.get(0);
-		assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
+		Assert.assertEquals(2, lvl2.get(IntegerKey.LEVEL).intValue());
 		
 		listMods = lvl2.getListMods(autoList);
-		assertEquals(1, listMods.size());
+		Assert.assertEquals(1, listMods.size());
 		iterator = listMods.iterator();
 		ref1 = iterator.next();
 		contained1 = ref1.getContainedObjects();
-		assertEquals(1, contained1.size());
-		assertTrue(contained1.contains(ab1));
+		Assert.assertEquals(1, contained1.size());
+		Assert.assertTrue(contained1.contains(ab1));
 
 		// Add the template to the character
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(template);
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertTrue("Character should have ability2.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab2));
 		
 		// Level the character up, testing for when the level tag kicks in
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertFalse("Character should not have ability1.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab1));
 
 		pc.incrementClassLevel(1, testClass);
 		pc.calcActiveBonuses();
-		assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, AbilityCategory.FEAT,
 			Nature.AUTOMATIC, ab1));
 		
 	}

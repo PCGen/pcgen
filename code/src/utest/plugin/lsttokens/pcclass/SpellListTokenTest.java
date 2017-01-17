@@ -20,6 +20,7 @@ package plugin.lsttokens.pcclass;
 import java.util.Arrays;
 import java.util.Collections;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMListObject;
@@ -69,21 +70,21 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
+		Assert.assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
 	{
-		assertFalse(parse("1"));
+		Assert.assertFalse(parse("1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoObject() throws PersistenceLayerException
 	{
-		assertFalse(parse("1|"));
+		Assert.assertFalse(parse("1|"));
 		assertNoSideEffects();
 	}
 
@@ -91,7 +92,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1||TestWP1"));
+		Assert.assertFalse(parse("1||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -99,7 +100,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputNaN() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("NaN|TestWP1"));
+		Assert.assertFalse(parse("NaN|TestWP1"));
 	}
 
 	@Test
@@ -107,7 +108,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		try
 		{
-			assertFalse(parse("1|TYPE=Test"));
+			Assert.assertFalse(parse("1|TYPE=Test"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -118,7 +119,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputUnbuilt() throws PersistenceLayerException
 	{
-		assertTrue(parse("1|String"));
+		Assert.assertTrue(parse("1|String"));
 		assertConstructionError();
 	}
 
@@ -126,7 +127,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputUnbuiltDomain()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse("1|DOMAIN.String"));
+		Assert.assertTrue(parse("1|DOMAIN.String"));
 		assertConstructionError();
 	}
 
@@ -135,7 +136,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -144,21 +145,21 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertTrue(parse("1|TestWP1.TestWP2"));
+		Assert.assertTrue(parse("1|TestWP1.TestWP2"));
 		assertConstructionError();
 	}
 
 	@Test
 	public void testValidInputAll() throws PersistenceLayerException
 	{
-		assertTrue(parse("1|ALL"));
+		Assert.assertTrue(parse("1|ALL"));
 	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1|"));
+		Assert.assertFalse(parse("1|TestWP1|"));
 		assertNoSideEffects();
 	}
 
@@ -166,7 +167,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1||TestWP1"));
+		Assert.assertFalse(parse("1||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -174,7 +175,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidZeroCount() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("0|TestWP1"));
+		Assert.assertFalse(parse("0|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -191,7 +192,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidDomainDotOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("0|DOMAIN."));
+		Assert.assertFalse(parse("0|DOMAIN."));
 		assertNoSideEffects();
 	}
 
@@ -225,7 +226,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("-1|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("-1|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -234,7 +235,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("1|TestWP2||TestWP1"));
+		Assert.assertFalse(parse("1|TestWP2||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -243,7 +244,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("1|TestWP1|TestWP2"));
+		Assert.assertTrue(parse("1|TestWP1|TestWP2"));
 		assertConstructionError();
 	}
 
@@ -251,7 +252,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputAnyItem() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|ALL|TestWP1"));
+		Assert.assertFalse(parse("1|ALL|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -259,7 +260,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputItemAny() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1|ALL"));
+		Assert.assertFalse(parse("1|TestWP1|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -273,9 +274,9 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		construct(secondaryContext, "TestWP2");
 		construct(primaryContext, "TestWP3");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse("1|TestWP1|TestWP2"));
-		assertTrue(parseSecondary("1|TestWP1|TestWP2"));
-		assertFalse(parse("1|TestWP3|ALL"));
+		Assert.assertTrue(parse("1|TestWP1|TestWP2"));
+		Assert.assertTrue(parseSecondary("1|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("1|TestWP3|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -348,7 +349,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 			CDOMReference<ClassSpellList>... refs)
 	{
 		ReferenceChoiceSet<ClassSpellList> rcs = buildRCS(refs);
-		assertTrue(rcs.getGroupingState().isValid());
+		Assert.assertTrue(rcs.getGroupingState().isValid());
 		return buildTC(rcs);
 	}
 
@@ -375,7 +376,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.CHOOSE_LANGAUTO, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -444,7 +445,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -461,7 +462,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

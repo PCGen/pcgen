@@ -29,6 +29,8 @@ import java.net.URISyntaxException;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
@@ -88,28 +90,28 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield");
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
-		assertTrue("Character has the Heavy Wooden Shield proficiency.", 
+		Assert.assertTrue("Character has the Heavy Wooden Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Light Wooden Shield");
 		
-		assertFalse("Character does not have the Light Wooden Shield proficiency", 
+		Assert.assertFalse("Character does not have the Light Wooden Shield proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Steel Shield");
 		
-		assertTrue("Character has the Heavy Steel Shield proficiency.", 
+		Assert.assertTrue("Character has the Heavy Steel Shield proficiency.",
 				PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -128,28 +130,28 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield,Full Plate");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
-		assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency", 
+		Assert.assertTrue("Character has one of Heavy Wooden Shield or Full Plate proficiency",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREPROFWITHSHIELD:2,Heavy Wooden Shield,Full Plate");
 
-		assertTrue("Character has both Heavy Wooden Shield and Full Plate proficiency", 
+		Assert.assertTrue("Character has both Heavy Wooden Shield and Full Plate proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:3,Heavy Wooden Shield,Full Plate,Light Wooden Shield");
 
-		assertFalse("Character has both Heavy Wooden Shield and Full Plate proficiency but not Light Wooden Shield", 
+		Assert.assertFalse("Character has both Heavy Wooden Shield and Full Plate proficiency but not Light Wooden Shield",
 				PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -169,7 +171,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREPROFWITHSHIELD:1,TYPE.Medium");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
 		final Ability martialProf = 
@@ -179,7 +181,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
-		assertTrue("Character has Medium Shield Proficiency", 
+		Assert.assertTrue("Character has Medium Shield Proficiency",
 				PrereqHandler.passes(prereq, character, null));
 	}
 	
@@ -197,28 +199,28 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("!PREPROFWITHSHIELD:1,Heavy Steel Shield");
 
-		assertTrue("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Wooden Shield");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Heavy Steel Shield");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
-		assertFalse("Character has the Heavy Steel Shield proficiency.", 
+		Assert.assertFalse("Character has the Heavy Steel Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("!PREPROFWITHSHIELD:1,Light Wooden Shield");
 		
-		assertTrue("Character does not have the Light Wooden Shield proficiency", 
+		Assert.assertTrue("Character does not have the Light Wooden Shield proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("!PREPROFWITHSHIELD:1,Heavy Wooden Shield");
 		
-		assertFalse("Character has the Heavy Wooden Shield proficiency.", 
+		Assert.assertFalse("Character has the Heavy Wooden Shield proficiency.",
 				PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -238,7 +240,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Steel Shield");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
 		final Ability martialProf = 
@@ -247,19 +249,19 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
-		assertTrue("Character has the Heavy Steel Shield proficiency.", 
+		Assert.assertTrue("Character has the Heavy Steel Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Heavy Wooden Shield");
-		assertTrue("Character has the Heavy Wooden Shield proficiency.",
+		Assert.assertTrue("Character has the Heavy Wooden Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:1,Light Wooden Shield");
-		assertFalse("Character does not have the Light Wooden Shield proficiency.",
+		Assert.assertFalse("Character does not have the Light Wooden Shield proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREPROFWITHSHIELD:1,TYPE.Heavy");
-		assertTrue("Character has heavy shield prof.",
+		Assert.assertTrue("Character has heavy shield prof.",
 					PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -294,7 +296,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
 		addAbility(AbilityCategory.FEAT, bar);
 		
-		assertEquals("Character should have 50 bonus hp added.",
+		Assert.assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
 					character.hitPoints()
 					);
@@ -302,7 +304,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		final Ability martialProf = 
 			TestHelper.makeAbility("Shield Proficiency (Single)", "FEAT", "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO", "SHIELDPROF|Full Plate");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 		
@@ -312,7 +314,7 @@ public class PreShieldProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
 		addAbility(AbilityCategory.FEAT, foo);
 		
-		assertEquals("Character has the Full Plate proficiency so the bonus should be added",
+		Assert.assertEquals("Character has the Full Plate proficiency so the bonus should be added",
 					baseHp+50+50,
 					character.hitPoints()
 					);

@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.DamageReduction;
@@ -71,7 +73,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:1,+1=10");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
@@ -79,7 +81,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus1_10 = new DamageReduction(FormulaFactory.getFormulaFor(10), "+1");
@@ -88,7 +90,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 10/+1", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has DR 10/+1", PrereqHandler.passes(prereq,
 			character, null));
 	}
 
@@ -106,7 +108,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:1,+1=10,+2=5");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
@@ -114,7 +116,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus2_5 = new DamageReduction(FormulaFactory.getFormulaFor(5), "+2");
@@ -123,7 +125,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 5/+2", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has DR 5/+2", PrereqHandler.passes(prereq,
 			character, null));
 	}
 
@@ -137,13 +139,13 @@ public class PreDRTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREDR:2,+1=10,+2=5");
 
-		assertFalse("Character has no DR", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has no DR", PrereqHandler.passes(prereq,
 			character, null));
 
 		race.addToListFor(ListKey.DAMAGE_REDUCTION, drPlus1);
 		character.setRace(race);
 
-		assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character DR not 10", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus2_5 = new DamageReduction(FormulaFactory.getFormulaFor(5), "+2");
@@ -152,7 +154,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertFalse("Character has DR 5/+2", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has DR 5/+2", PrereqHandler.passes(prereq,
 			character, null));
 
 		DamageReduction drPlus1_10 = new DamageReduction(FormulaFactory.getFormulaFor(10), "+1");
@@ -161,7 +163,7 @@ public class PreDRTest extends AbstractCharacterTestCase
 		character.setRace(null);
 		character.setRace(race);
 
-		assertTrue("Character has DR 10/+1 and 5/+2", PrereqHandler.passes(
+		Assert.assertTrue("Character has DR 10/+1 and 5/+2", PrereqHandler.passes(
 			prereq, character, null));
 	}
 

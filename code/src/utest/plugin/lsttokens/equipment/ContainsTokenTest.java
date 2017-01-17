@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Equipment;
@@ -54,14 +55,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNaN() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "X4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "X4").passed());
 		assertNoSideEffects();
 	}
 
@@ -69,7 +70,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputReducingFirstNaN()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60").passed());
 		assertNoSideEffects();
 	}
 
@@ -77,7 +78,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputReducingSecondNaN()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4").passed());
 		assertNoSideEffects();
 	}
 
@@ -85,14 +86,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputSplatReducing()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoPercent() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30").passed());
 		assertNoSideEffects();
 	}
 
@@ -100,7 +101,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputTrailingSplat()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "4*").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "4*").passed());
 		assertNoSideEffects();
 	}
 
@@ -108,14 +109,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputEmbeddedSplat()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5*4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5*4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNaNTyped() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "X4|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "X4|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -123,7 +124,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputReducingFirstNaNTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "X4%60|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -131,7 +132,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputReducingSecondNaNTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "50%X4|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -139,7 +140,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputSplatReducingTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*50%40|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -147,7 +148,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputTwoPercentTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "50%40%30|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -155,7 +156,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputTrailingSplatTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "4*|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "4*|Any=25").passed());
 		assertNoSideEffects();
 	}
 
@@ -163,13 +164,13 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidInputEmbeddedSplatTyped()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5*4|Any=25").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5*4|Any=25").passed());
 		assertNoSideEffects();
 	}
 
 	public void testInvalidNoCapacity() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "|Cookies").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "|Cookies").passed());
 		assertNoSideEffects();
 	}
 
@@ -177,7 +178,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityNoTypeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=").passed());
 		assertNoSideEffects();
 	}
 
@@ -185,7 +186,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityZeroQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=0").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
@@ -193,7 +194,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityNegativeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=-10").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=-10").passed());
 		assertNoSideEffects();
 	}
 
@@ -201,14 +202,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityTypeQuantityNaN()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4X").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4X").passed());
 		assertNoSideEffects();
 	}
 
 	public void testInvalidCapacityUselessPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|").passed());
 		assertNoSideEffects();
 	}
 
@@ -216,14 +217,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityTypeLeadingDoublePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5||Any=4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5||Any=4").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testNegativeWeightCapacity() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "-5|Any=4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "-5|Any=4").passed());
 		assertNoSideEffects();
 	}
 
@@ -231,7 +232,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityTypeTrailingPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
@@ -239,7 +240,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityTypeDoubleEquals()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4=3").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
@@ -247,7 +248,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidCapacityTypeMiddlePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=4||Crackers=3").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "5|Cookies=4||Crackers=3").passed());
 		assertNoSideEffects();
 	}
 
@@ -255,7 +256,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessNoTypeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=").passed());
 		assertNoSideEffects();
 	}
 
@@ -263,7 +264,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessZeroQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=0").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
@@ -271,7 +272,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessNegativeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=-10").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=-10").passed());
 		assertNoSideEffects();
 	}
 
@@ -279,14 +280,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessTypeQuantityNaN()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4X").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4X").passed());
 		assertNoSideEffects();
 	}
 
 	public void testInvalidWeightlessUselessPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|").passed());
 		assertNoSideEffects();
 	}
 
@@ -294,7 +295,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessTypeLeadingDoublePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5||Any=4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5||Any=4").passed());
 		assertNoSideEffects();
 	}
 
@@ -302,7 +303,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessTypeTrailingPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
@@ -310,7 +311,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessTypeDoubleEquals()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4=3").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
@@ -318,7 +319,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidWeightlessTypeMiddlePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=4||Crackers=3").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "*5|Cookies=4||Crackers=3").passed());
 		assertNoSideEffects();
 	}
 
@@ -326,7 +327,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedNoTypeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=").passed());
 		assertNoSideEffects();
 	}
 
@@ -334,14 +335,14 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedTypeQuantityNaN()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4X").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4X").passed());
 		assertNoSideEffects();
 	}
 
 	public void testInvalidReducedUselessPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|").passed());
 		assertNoSideEffects();
 	}
 
@@ -349,7 +350,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedTypeLeadingDoublePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30||Any=4").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30||Any=4").passed());
 		assertNoSideEffects();
 	}
 
@@ -357,7 +358,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedTypeTrailingPipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4|").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4|").passed());
 		assertNoSideEffects();
 	}
 
@@ -365,7 +366,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedZeroQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Cookies=0").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Cookies=0").passed());
 		assertNoSideEffects();
 	}
 
@@ -373,7 +374,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedNegativeQuantity()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 			"40%30|Cookies=-10").passed());
 		assertNoSideEffects();
 	}
@@ -382,7 +383,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedTypeDoubleEquals()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4=3").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "40%30|Any=4=3").passed());
 		assertNoSideEffects();
 	}
 
@@ -390,7 +391,7 @@ public class ContainsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testInvalidReducedTypeMiddlePipe()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 			"40%30|Cookies=4||Crackers=3").passed());
 		assertNoSideEffects();
 	}

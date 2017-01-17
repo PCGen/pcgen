@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -77,19 +79,19 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECHECK:1,Fortitude=0");
 
-		assertTrue("Character's Fort save should be 0", PrereqHandler.passes(
+		Assert.assertTrue("Character's Fort save should be 0", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRECHECK:1,Will=2");
 
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+		Assert.assertTrue("Character's Will save should be 2", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=2");
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+		Assert.assertTrue("Character's Will save should be 2", PrereqHandler.passes(
 			prereq, character, null));
 		prereq = factory.parse("PRECHECK:2,Fortitude=1,Will=2");
-		assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
 			character, null));
 	}
 
@@ -110,19 +112,19 @@ public class PreCheckTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECHECK:1,Fortitude=1");
 
-		assertTrue("Character's Fort save should be 1", PrereqHandler.passes(
+		Assert.assertTrue("Character's Fort save should be 1", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRECHECK:1,Will=2");
 
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+		Assert.assertTrue("Character's Will save should be 2", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRECHECK:1,Fortitude=1,Will=3");
-		assertTrue("Character's Will save should be 2", PrereqHandler.passes(
+		Assert.assertTrue("Character's Will save should be 2", PrereqHandler.passes(
 			prereq, character, null));
 		prereq = factory.parse("PRECHECK:2,Fortitude=2,Will=2");
-		assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character's Fort save not 1", PrereqHandler.passes(prereq,
 			character, null));
 	}
 

@@ -23,6 +23,7 @@ import java.util.Map;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
@@ -61,20 +62,20 @@ public class InitiativeFacetTest extends TestCase
 	@Test
 	public void testReachUnset()
 	{
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 	}
 
 	@Test
 	public void testGetWithBonus()
 	{
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 		bonusInfo.put(altid, 4.0);
 		// No pollution
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 		bonusInfo.put(id, 6.0);
-		assertEquals(8, facet.getInitiative(id));
+		Assert.assertEquals(8, facet.getInitiative(id));
 		bonusInfo.clear();
-		assertEquals(2, facet.getInitiative(id));
+		Assert.assertEquals(2, facet.getInitiative(id));
 	}
 
 	public InitiativeFacet getMockFacet() throws SecurityException,

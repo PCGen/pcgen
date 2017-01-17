@@ -28,6 +28,7 @@ import pcgen.cdom.content.CampaignURL;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
 import org.junit.Before;
 import plugin.lsttokens.campaign.UrlToken;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -58,45 +59,45 @@ public class CampaignTest extends TestCase
 		final String eCommerceURL = "http://www.barcommercesite.com/product_info.php?products_id=12345&affiliate_id=54321";
 		final String eCommerceDesc = "Support PCGen by buying this source now!";
 
-		assertEquals("No URLs in the campaign to start", true, testCamp
+		Assert.assertEquals("No URLs in the campaign to start", true, testCamp
 				.getSafeListFor(ListKey.CAMPAIGN_URL).isEmpty());
 
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(testCamp, "URL",
 				"WEBSITE|http://pcgen.sf.net|PCGen Main Site");
-		assertEquals("New URL in the campaign", 1, testCamp.getSafeListFor(
+		Assert.assertEquals("New URL in the campaign", 1, testCamp.getSafeListFor(
 				ListKey.CAMPAIGN_URL).size());
 		CampaignURL theURL = testCamp.getSafeListFor(ListKey.CAMPAIGN_URL).get(
 				0);
-		assertEquals("Checking kind", CampaignURL.URLKind.WEBSITE, theURL
+		Assert.assertEquals("Checking kind", CampaignURL.URLKind.WEBSITE, theURL
 				.getUrlKind());
-		assertEquals("Checking name", "", theURL.getUrlName());
-		assertEquals("Checking URL", "http://pcgen.sf.net", theURL.getUri()
-				.toString());
-		assertEquals("Checking description", "PCGen Main Site", theURL
+		Assert.assertEquals("Checking name", "", theURL.getUrlName());
+		Assert.assertEquals("Checking URL", "http://pcgen.sf.net", theURL.getUri()
+                                                                         .toString());
+		Assert.assertEquals("Checking description", "PCGen Main Site", theURL
 				.getUrlDesc());
 
 		context.unconditionallyProcess(testCamp, "URL", "SURVEY|http://pcgen.sf.net/survey|PCGen Survey");
-		assertEquals("Second new URL in the campaign", 2, testCamp
+		Assert.assertEquals("Second new URL in the campaign", 2, testCamp
 				.getSafeListFor(ListKey.CAMPAIGN_URL).size());
 		theURL = testCamp.getSafeListFor(ListKey.CAMPAIGN_URL).get(1);
-		assertEquals("Checking kind", CampaignURL.URLKind.SURVEY, theURL
+		Assert.assertEquals("Checking kind", CampaignURL.URLKind.SURVEY, theURL
 				.getUrlKind());
-		assertEquals("Checking name", "", theURL.getUrlName());
-		assertEquals("Checking URL", "http://pcgen.sf.net/survey", theURL
+		Assert.assertEquals("Checking name", "", theURL.getUrlName());
+		Assert.assertEquals("Checking URL", "http://pcgen.sf.net/survey", theURL
 				.getUri().toString());
-		assertEquals("Checking description", "PCGen Survey", theURL
+		Assert.assertEquals("Checking description", "PCGen Survey", theURL
 				.getUrlDesc());
 
 		context.unconditionallyProcess(testCamp, "URL", eCommerceName + "|" + eCommerceURL + "|"
 				+ eCommerceDesc);
-		assertEquals("Third new URL in the campaign", 3, testCamp
+		Assert.assertEquals("Third new URL in the campaign", 3, testCamp
 				.getSafeListFor(ListKey.CAMPAIGN_URL).size());
 		theURL = testCamp.getSafeListFor(ListKey.CAMPAIGN_URL).get(2);
-		assertEquals("Checking kind", CampaignURL.URLKind.PURCHASE, theURL
+		Assert.assertEquals("Checking kind", CampaignURL.URLKind.PURCHASE, theURL
 				.getUrlKind());
-		assertEquals("Checking name", eCommerceName, theURL.getUrlName());
-		assertEquals("Checking URL", eCommerceURL, theURL.getUri().toString());
-		assertEquals("Checking description", eCommerceDesc, theURL.getUrlDesc());
+		Assert.assertEquals("Checking name", eCommerceName, theURL.getUrlName());
+		Assert.assertEquals("Checking URL", eCommerceURL, theURL.getUri().toString());
+		Assert.assertEquals("Checking description", eCommerceDesc, theURL.getUrlDesc());
 	}
 }

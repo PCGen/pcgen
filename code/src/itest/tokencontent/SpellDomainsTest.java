@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.util.HashMapToList;
@@ -69,7 +70,7 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 		classFacet.addClass(id, dragon);
@@ -77,9 +78,9 @@ public class SpellDomainsTest extends AbstractTokenModelTest
 		domainInputFacet.add(id, domain, new ClassSource(dragon, 0));
 		pc.setDirty(true);
 		HashMapToList<CDOMList<Spell>, Integer> map = availableSpellFacet.getSpellLevelInfo(id, sp);
-		assertTrue(map.containsListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)));
-		assertEquals(1, map.getListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)).size());
-		assertEquals(1, map.getListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)).get(0).intValue());
+		Assert.assertTrue(map.containsListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)));
+		Assert.assertEquals(1, map.getListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)).size());
+		Assert.assertEquals(1, map.getListFor(domain.get(ObjectKey.DOMAIN_SPELLLIST)).get(0).intValue());
 	}
 
 	@Override

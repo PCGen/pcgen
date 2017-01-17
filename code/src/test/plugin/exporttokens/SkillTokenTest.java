@@ -25,6 +25,8 @@ package plugin.exporttokens;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -192,35 +194,35 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillToken();
 
 		// First test each sub token
-		assertEquals("SkillToken", "Balance", token.getToken("SKILL.0",
+		Assert.assertEquals("SkillToken", "Balance", token.getToken("SKILL.0",
 			character, null));
-		assertEquals("SkillToken", "DEX", token.getToken("SKILL.0.ABILITY",
+		Assert.assertEquals("SkillToken", "DEX", token.getToken("SKILL.0.ABILITY",
 			character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILL.0.TOTAL",
+		Assert.assertEquals("SkillToken", "9", token.getToken("SKILL.0.TOTAL",
 				character, null));
-		assertEquals("SkillToken", "3", token.getToken("SKILL.0.ABMOD",
+		Assert.assertEquals("SkillToken", "3", token.getToken("SKILL.0.ABMOD",
 			character, null));
-		assertEquals("SkillToken", "4.0", token.getToken("SKILL.0.RANK",
+		Assert.assertEquals("SkillToken", "4.0", token.getToken("SKILL.0.RANK",
 			character, null));
-		assertEquals("SkillToken", "2", token.getToken("SKILL.0.MISC",
+		Assert.assertEquals("SkillToken", "2", token.getToken("SKILL.0.MISC",
 			character, null));
-		assertEquals("SkillToken", "N", token.getToken("SKILL.0.EXCLUSIVE",
+		Assert.assertEquals("SkillToken", "N", token.getToken("SKILL.0.EXCLUSIVE",
 			character, null));
-		assertEquals("SkillToken", "Y", token.getToken("SKILL.0.UNTRAINED",
+		Assert.assertEquals("SkillToken", "Y", token.getToken("SKILL.0.UNTRAINED",
 			character, null));
-		assertEquals("SkillToken", "9", token.getToken(
+		Assert.assertEquals("SkillToken", "9", token.getToken(
 			"SKILL.0.EXCLUSIVE_TOTAL", character, null));
-		assertEquals("SkillToken", "9", token.getToken("SKILL.0.TRAINED_TOTAL",
+		Assert.assertEquals("SkillToken", "9", token.getToken("SKILL.0.TRAINED_TOTAL",
 			character, null));
-		assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
+		Assert.assertEquals("SkillToken", "+2[TUMBLE|Balance] +3[STAT]", token.getToken(
 			"SKILL.0.EXPLAIN", character, null));
 
 		// Test the indexed retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILL.3",
+		Assert.assertEquals("SkillToken", "Tumble", token.getToken("SKILL.3",
 			character, null));
 
 		// Test the named retrieval
-		assertEquals("SkillToken", "Tumble", token.getToken("SKILL.TUMBLE",
+		Assert.assertEquals("SkillToken", "Tumble", token.getToken("SKILL.TUMBLE",
 			character, null));
 	}
 
@@ -234,7 +236,7 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillLevelToken();
 
 		// First test each sub token
-		assertEquals("SKILLLEVEL.1.TOTAL", "6", token.getToken(
+		Assert.assertEquals("SKILLLEVEL.1.TOTAL", "6", token.getToken(
 			"SKILLLEVEL.1.TOTAL", character, null));
 	}
 
@@ -248,9 +250,9 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillSubsetToken();
 
 		// First test each sub token
-		assertEquals("SkillSubsetToken", "KNOWLEDGE (RELIGION)", token
+		Assert.assertEquals("SkillSubsetToken", "KNOWLEDGE (RELIGION)", token
 			.getToken("SKILLSUBSET.1.KNOWLEDGE.NAME", character, null));
-		assertEquals("SkillSubsetToken", "8.0", token.getToken(
+		Assert.assertEquals("SkillSubsetToken", "8.0", token.getToken(
 			"SKILLSUBSET.0.KNOWLEDGE.RANK", character, null));
 	}
 
@@ -264,9 +266,9 @@ public class SkillTokenTest extends AbstractCharacterTestCase
 		SkillToken token = new SkillTypeToken();
 
 		// First test each sub token
-		assertEquals("SkillTypeToken", "Balance", token.getToken(
+		Assert.assertEquals("SkillTypeToken", "Balance", token.getToken(
 			"SKILLTYPE.0.DEX.NAME", character, null));
-		assertEquals("SkillTypeToken", "10", token.getToken(
+		Assert.assertEquals("SkillTypeToken", "10", token.getToken(
 			"SKILLTYPE.1.DEX.TOTAL", character, null));
 	}
 }

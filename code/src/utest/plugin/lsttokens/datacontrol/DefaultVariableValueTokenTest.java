@@ -19,6 +19,7 @@ package plugin.lsttokens.datacontrol;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.lang.ObjectUtil;
@@ -60,48 +61,48 @@ public class DefaultVariableValueTokenTest extends
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, null)
-			.passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, null)
+                                .passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "").passed());
 	}
 
 	@Test
 	public void testInvalidInputNotAType() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "BADTYPE|45")
-			.passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "BADTYPE|45")
+                                .passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "|3")
-			.passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "|3")
+                                .passed());
 	}
 
 	@Test
 	public void testInvalidTypeValue() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|3r")
-			.passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|3r")
+                                .passed());
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(token
+		Assert.assertFalse(token
 			.parseToken(primaryContext, primaryProf, "STRING||Def").passed());
 	}
 
 	@Test
 	public void testInvalidInputTooManyArgs() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf,
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf,
 			"STRING|Def|Abc").passed());
 	}
 
@@ -109,19 +110,19 @@ public class DefaultVariableValueTokenTest extends
 	public void testInvalidDefaultEmptyNumber()
 		throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|")
-			.passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "NUMBER|")
+                                .passed());
 	}
 
 	@Test
 	public void testValidDefultEmptyString() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(primaryContext, primaryProf, "STRING|")
-			.passed());
+		Assert.assertTrue(token.parseToken(primaryContext, primaryProf, "STRING|")
+                               .passed());
 		String[] unparsed = token.unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("STRING|", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("STRING|", unparsed[0]);
 	}
 
 	@Test
@@ -132,12 +133,12 @@ public class DefaultVariableValueTokenTest extends
 					.parseToken(primaryContext, primaryProf, "ORDEREDPAIR|0,3");
 		if (!pr.passed())
 		{
-			fail(pr.toString());
+			Assert.fail(pr.toString());
 		}
 		String[] unparsed = token.unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("ORDEREDPAIR|0,3", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("ORDEREDPAIR|0,3", unparsed[0]);
 	}
 
 	@Override
@@ -156,7 +157,7 @@ public class DefaultVariableValueTokenTest extends
 						cdo2.getLSTformat());
 		if (!same)
 		{
-			fail("Mismatched");
+			Assert.fail("Mismatched");
 		}
 	}
 

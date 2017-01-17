@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMList;
@@ -111,7 +112,7 @@ public class AddDomainsTokenTest extends
 	public void testInvalidEmptyPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[]"));
+		Assert.assertFalse(parse("TestWP1[]"));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +120,7 @@ public class AddDomainsTokenTest extends
 	public void testInvalidEmptyPre2() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1["));
+		Assert.assertFalse(parse("TestWP1["));
 		assertNoSideEffects();
 	}
 
@@ -127,7 +128,7 @@ public class AddDomainsTokenTest extends
 	public void testInvalidEmptyPre3() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1]"));
+		Assert.assertFalse(parse("TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -135,7 +136,7 @@ public class AddDomainsTokenTest extends
 	public void testInvalidMismatchedBracket() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PRERACE:Dwarf"));
+		Assert.assertFalse(parse("TestWP1[PRERACE:Dwarf"));
 		assertNoSideEffects();
 	}
 
@@ -144,7 +145,7 @@ public class AddDomainsTokenTest extends
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
+		Assert.assertFalse(parse("TestWP1[PRERACE:Dwarf]Hi"));
 		assertNoSideEffects();
 	}
 
@@ -187,7 +188,7 @@ public class AddDomainsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertFalse(parse("TestWP1[PREFOO:1,Human]"));
+		Assert.assertFalse(parse("TestWP1[PREFOO:1,Human]"));
 		assertNoSideEffects();
 	}
 

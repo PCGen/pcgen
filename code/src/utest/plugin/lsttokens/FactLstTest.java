@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.format.StringManager;
@@ -80,7 +81,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
 	{
-		assertFalse(parse("Possibility"));
+		Assert.assertFalse(parse("Possibility"));
 		assertNoSideEffects();
 	}
 
@@ -88,14 +89,14 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNotAFact() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("NaN|TestWP1"));
+		Assert.assertFalse(parse("NaN|TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoTarget() throws PersistenceLayerException
 	{
-		assertFalse(parse("Possibility|"));
+		Assert.assertFalse(parse("Possibility|"));
 		assertNoSideEffects();
 	}
 
@@ -103,7 +104,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidNoFact() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("|TestWP1"));
+		Assert.assertFalse(parse("|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -111,7 +112,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("Possibility||TestWP1"));
+		Assert.assertFalse(parse("Possibility||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -120,7 +121,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -128,7 +129,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("Possibility|TestWP1|"));
+		Assert.assertFalse(parse("Possibility|TestWP1|"));
 		assertNoSideEffects();
 	}
 
@@ -137,7 +138,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("Possibility|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("Possibility|TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -145,7 +146,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidDoubleJoin() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("Possibility||TestWP1"));
+		Assert.assertFalse(parse("Possibility||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -153,7 +154,7 @@ public class FactLstTest extends AbstractGlobalTokenTestCase
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("Possibility|TestWP1"));
+		Assert.assertTrue(parse("Possibility|TestWP1"));
 		assertCleanConstruction();
 	}
 

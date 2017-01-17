@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMReference;
@@ -147,7 +148,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public void testInvalidInputAutoRankNoRank()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK="));
 		assertNoSideEffects();
 	}
 
@@ -155,7 +156,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public void testInvalidInputAutoRankNegativeRank()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=-3"));
 		assertNoSideEffects();
 	}
 
@@ -163,7 +164,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public void testInvalidInputAutoRankZeroRank()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "NONEXCLUSIVE,AUTORANK=0"));
 		assertNoSideEffects();
 	}
 
@@ -171,7 +172,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public void testInvalidInputAutoRankDuplicated()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "NONEXCLUSIVE,AUTORANK=3,AUTORANK=2"));
 		assertNoSideEffects();
 	}
@@ -179,7 +180,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	@Test
 	public void testInvalidInputOnlyAutoRank() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "AUTORANK=3"));
 		assertNoSideEffects();
 	}
 

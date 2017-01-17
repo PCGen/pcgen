@@ -26,6 +26,8 @@ import junit.framework.Test;
 import junit.framework.TestSuite;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.display.CharacterDisplay;
+
+import org.junit.Assert;
 import plugin.exporttokens.deprecated.SpaceToken;
 
 /**
@@ -70,7 +72,7 @@ public class SpaceTokenTest extends AbstractCharacterTestCase
 	public void testSpaceToken()
 	{
 		SpaceToken token = new SpaceToken();
-		assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));
+		Assert.assertEquals(" ", token.getToken("SPACE", (CharacterDisplay) null, null));
 	}
 
 }

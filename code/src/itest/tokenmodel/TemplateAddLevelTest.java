@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.PCClass;
@@ -41,15 +42,15 @@ public class TemplateAddLevelTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, classFacet.getCount(id));
+		Assert.assertEquals(0, classFacet.getCount(id));
 		templateInputFacet.directAdd(id, source, getAssoc());
-		assertEquals(1, classFacet.getCount(id));
-		assertNotNull(pc.getClassKeyed("Granted"));
+		Assert.assertEquals(1, classFacet.getCount(id));
+		Assert.assertNotNull(pc.getClassKeyed("Granted"));
 		templateInputFacet.remove(id, source);
-		assertEquals(0, classFacet.getCount(id));
+		Assert.assertEquals(0, classFacet.getCount(id));
 	}
 
 	@Override

@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -40,14 +41,14 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testHeightUnsetZero()
 	{
-		assertEquals(0, facet.getHeight(id));
+		Assert.assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
 	public void testHeightSetZeroValid()
 	{
 		facet.setHeight(id, 0);
-		assertEquals(0, facet.getHeight(id));
+		Assert.assertEquals(0, facet.getHeight(id));
 	}
 
 	@Test
@@ -63,9 +64,9 @@ public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 	public void testRemoveHeight()
 	{
 		facet.setHeight(id, 25);
-		assertEquals(25, facet.getHeight(id));
+		Assert.assertEquals(25, facet.getHeight(id));
 		facet.removeHeight(id);
-		assertEquals(0, facet.getHeight(id));
+		Assert.assertEquals(0, facet.getHeight(id));
 	}
 
 	@Override

@@ -25,6 +25,8 @@ package plugin.jepcommands;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Ability;
@@ -465,7 +467,7 @@ public class CountCommandTest extends AbstractCharacterTestCase
 		is(character.getVariableValue(s,""), eq(2.0, 0.1), s + " two choices");
 
 		finalize(ab, "nibble", character, category);
-		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
+		Assert.assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(3.0, 0.1), s + " three choices");

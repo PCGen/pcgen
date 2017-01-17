@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -57,7 +58,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputNoNumber() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestType"));
+		Assert.assertFalse(parse("TestType"));
 		assertNoSideEffects();
 	}
 
@@ -65,21 +66,21 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputMissingNumber()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("|TestType"));
+		Assert.assertFalse(parse("|TestType"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyNumber() throws PersistenceLayerException
 	{
-		assertFalse(parse("2"));
+		Assert.assertFalse(parse("2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMissingItem() throws PersistenceLayerException
 	{
-		assertFalse(parse("2|"));
+		Assert.assertFalse(parse("2|"));
 		assertNoSideEffects();
 	}
 
@@ -88,7 +89,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("2||TestWP1|TestWP2"));
+		Assert.assertFalse(parse("2||TestWP1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -118,7 +119,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1|"));
+		Assert.assertFalse(parse("1|TestWP1|"));
 		assertNoSideEffects();
 	}
 
@@ -126,7 +127,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1||TestWP1"));
+		Assert.assertFalse(parse("1||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -134,7 +135,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidNaNCount() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("Count|TestWP1"));
+		Assert.assertFalse(parse("Count|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -142,7 +143,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidZeroCount() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("0|TestWP1"));
+		Assert.assertFalse(parse("0|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -150,7 +151,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidNegativeCount() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("-4|TestWP1"));
+		Assert.assertFalse(parse("-4|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -159,7 +160,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("1|TestWP2||TestWP1"));
+		Assert.assertFalse(parse("1|TestWP2||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -168,7 +169,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("1|TestWP1|TestWP2"));
+		Assert.assertTrue(parse("1|TestWP1|TestWP2"));
 		assertConstructionError();
 	}
 
@@ -229,9 +230,9 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "TestWP2");
 		construct(primaryContext, "TestWP3");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse("1|TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary("1|TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(parse("1|TestWP3" + getJoinCharacter() + "ALL"));
+		Assert.assertTrue(parse("1|TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parseSecondary("1|TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertFalse(parse("1|TestWP3" + getJoinCharacter() + "ALL"));
 		assertNoSideEffects();
 	}
 
@@ -244,7 +245,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputAllItem() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|ALL" + getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse("1|ALL" + getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -252,7 +253,7 @@ public class KitLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputItemAll() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("1|TestWP1" + getJoinCharacter() + "ALL"));
+		Assert.assertFalse(parse("1|TestWP1" + getJoinCharacter() + "ALL"));
 		assertNoSideEffects();
 	}
 

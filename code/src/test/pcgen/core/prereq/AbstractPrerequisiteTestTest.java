@@ -34,6 +34,8 @@ import junit.textui.TestRunner;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
+
+import org.junit.Assert;
 import plugin.pretokens.test.PreWieldTester;
 
 /**
@@ -74,11 +76,11 @@ public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase
 		{
 			final PreWieldTester test = new PreWieldTester();
 			test.passes(prereq, getCharacter(), null);
-			fail("Should have thrown a PrerequisiteException here.");
+			Assert.fail("Should have thrown a PrerequisiteException here.");
 		}
 		catch (PrerequisiteException pe)
 		{
-			assertEquals(PreWieldTester.class.getName()
+			Assert.assertEquals(PreWieldTester.class.getName()
 				+ " does not support prerequisites for Characters.", pe
 				.getMessage());
 		}

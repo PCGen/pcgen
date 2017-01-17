@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -106,26 +107,26 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertNull(getToken().unparse(primaryContext, primaryProf2));
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf2));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(parse(s, 2));
+			Assert.assertTrue(parse(s, 2));
 		}
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
 
-		assertEquals(str.length, unparsed.length);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", str[i],
 					unparsed[i]);
 		}
 
@@ -140,18 +141,18 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 				.toString(), testCampaign.getURI());
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf, secondaryProf);
+		Assert.assertEquals(primaryProf, secondaryProf);
 
 		// And that it comes back out the same again
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
-		assertNull(getToken().unparse(secondaryContext, secondaryProf3));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf1));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf3));
 		validateUnparsed(secondaryContext, secondaryProf2, unparsed);
 		assertCleanConstruction();
-		assertTrue(secondaryContext.getReferenceContext().validate(null));
-		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		Assert.assertTrue(secondaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	private void validateUnparsed(LoadContext sc, PCClassLevel sp,
@@ -159,11 +160,11 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	{
 		String[] sUnparsed = getToken().unparse(sc,
 				sp);
-		assertEquals(unparsed.length, sUnparsed.length);
+		Assert.assertEquals(unparsed.length, sUnparsed.length);
 
 		for (int i = 0; i < unparsed.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
 	}
@@ -172,13 +173,13 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 
 	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
-		assertTrue(cdo1.isCDOMEqual(cdo2));
+		Assert.assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
 
 	public void assertNoSideEffects()
 	{
 		isCDOMEqual(primaryProf, secondaryProf);
-		assertFalse(primaryContext.getListContext().hasMasterLists());
+		Assert.assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
 	public boolean parse(String str, int level)
@@ -235,14 +236,14 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 
 	protected void expectSingle(String[] unparsed, String expected)
 	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", expected, unparsed[0]);
 	}
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.getReferenceContext().validate(null));
-		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 }

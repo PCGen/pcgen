@@ -19,6 +19,7 @@ package plugin.lsttokens.kit;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -77,7 +78,7 @@ public class AlignTokenTest extends AbstractKitTokenTestCase<KitAlignment>
 	{
 		if (parse("NoAlign"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 	}
 

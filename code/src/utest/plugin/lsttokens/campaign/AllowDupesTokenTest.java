@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.campaign;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Campaign;
@@ -54,14 +55,14 @@ public class AllowDupesTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL"));
+		Assert.assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 

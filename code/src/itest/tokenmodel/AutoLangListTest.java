@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -48,21 +49,21 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		Language granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "Granted");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertTrue(containsExpected(granted));
-		assertEquals(1,
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1,
 			getCount());
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -71,13 +72,13 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		Race source = create(Race.class, "Source");
 		Language granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		raceFacet.remove(id);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -86,13 +87,13 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		PCTemplate source = create(PCTemplate.class, "Source");
 		Language granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		templateInputFacet.directAdd(id, source, getAssoc());
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		templateInputFacet.remove(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	protected boolean cleanedSideEffects()
@@ -111,13 +112,13 @@ public class AutoLangListTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

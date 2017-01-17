@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass.level;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.Formula;
@@ -33,30 +34,30 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertNull(getToken().unparse(primaryContext, primaryProf2));
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf2));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(parse(s, 2));
+			Assert.assertTrue(parse(s, 2));
 		}
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
 
-		assertEquals(str.length, unparsed.length);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", str[i],
 					unparsed[i]);
 		}
 
 		// And fails for subsequent levels
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 
 		// Do round Robin
 		StringBuilder unparsedBuilt = new StringBuilder();
@@ -69,49 +70,49 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 				.toString(), testCampaign.getURI());
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf, secondaryProf);
+		Assert.assertEquals(primaryProf, secondaryProf);
 
 		// And that it comes back out the same again
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf1));
 		String[] sUnparsed = getToken().unparse(secondaryContext,
 				secondaryProf2);
-		assertEquals(unparsed.length, sUnparsed.length);
+		Assert.assertEquals(unparsed.length, sUnparsed.length);
 
 		for (int i = 0; i < unparsed.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	@Test
 	public void testInvalidListEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("", 2));
+		Assert.assertFalse(parse("", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,", 2));
+		Assert.assertFalse(parse("1,", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse(",1", 2));
+		Assert.assertFalse(parse(",1", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,,2", 2));
+		Assert.assertFalse(parse("1,,2", 2));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +120,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 	public void testInvalidListNegativeNumber()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("1,-2", 2));
+		Assert.assertFalse(parse("1,-2", 2));
 		assertNoSideEffects();
 	}
 
@@ -180,7 +181,7 @@ public abstract class AbstractSpellCastingTokenTestCase extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf1);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

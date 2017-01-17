@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -62,17 +63,17 @@ public class PCClassLevelCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		classFacet.addClass(id, dragon);
 		classFacet.setLevel(id, dragon, 1);
-		assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 		pc.setDirty(true);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		classFacet.setLevel(id, dragon, 0);
-		assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 	}
 
 	@Override

@@ -30,6 +30,8 @@ import java.text.DecimalFormat;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Campaign;
@@ -104,7 +106,7 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(PCTemplate.class,
 					"Astral");
 
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		
 		metricUS = new UnitSet();
 		metricUS.setName("Metric");
@@ -134,17 +136,17 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	public void testList() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("no vision", "", new VisionToken().getToken(
+		Assert.assertEquals("no vision", "", new VisionToken().getToken(
 			"VISION", pc, null));
 
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
-		assertEquals("One vision method", "Darkvision (60')", new VisionToken().getToken(
+		Assert.assertEquals("One vision method", "Darkvision (60')", new VisionToken().getToken(
 			"VISION", pc, null));
 
 		pc.addTemplate(lowlightT);
 		pc.setDirty(true);
-		assertEquals("Two vision", "Darkvision (60'), Low-light", new VisionToken().getToken(
+		Assert.assertEquals("Two vision", "Darkvision (60'), Low-light", new VisionToken().getToken(
 			"VISION", pc, null));
 	}
 
@@ -155,28 +157,28 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 	public void testPositional() throws Exception
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("no vision", "", new VisionToken().getToken(
+		Assert.assertEquals("no vision", "", new VisionToken().getToken(
 			"VISION.0", pc, null));
 
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
-		assertEquals("Darkvision", "Darkvision (60')", new VisionToken().getToken(
+		Assert.assertEquals("Darkvision", "Darkvision (60')", new VisionToken().getToken(
 			"VISION.0", pc, null));
-		assertEquals("vision over the maximum", "", new VisionToken().getToken(
+		Assert.assertEquals("vision over the maximum", "", new VisionToken().getToken(
 			"VISION.1", pc, null));
-		assertEquals("vision over the maximum", "", new VisionToken().getToken(
+		Assert.assertEquals("vision over the maximum", "", new VisionToken().getToken(
 			"VISION.100", pc, null));
-		assertEquals("vision under the minimum", "", new VisionToken().getToken(
+		Assert.assertEquals("vision under the minimum", "", new VisionToken().getToken(
 			"VISION.-1", pc, null));
 
 		pc.addTemplate(lowlightT);
 		pc.addTemplate(astralT);
 		pc.setDirty(true);
-		assertEquals("Vision 1", "Darkvision (60')", new VisionToken().getToken(
+		Assert.assertEquals("Vision 1", "Darkvision (60')", new VisionToken().getToken(
 			"VISION.1", pc, null));
-		assertEquals("Vision 2", "Low-light", new VisionToken().getToken(
+		Assert.assertEquals("Vision 2", "Low-light", new VisionToken().getToken(
 			"VISION.2", pc, null));
-		assertEquals("Vision 0", "Astral (130')", new VisionToken().getToken(
+		Assert.assertEquals("Vision 0", "Astral (130')", new VisionToken().getToken(
 			"VISION.0", pc, null));
 	}
 
@@ -190,14 +192,14 @@ public class VisionTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.addTemplate(darkvisionT);
 		pc.setDirty(true);
-		assertTrue(SettingsHandler.getGame().selectUnitSet(metricUS.getDisplayName()));
+		Assert.assertTrue(SettingsHandler.getGame().selectUnitSet(metricUS.getDisplayName()));
 
-		assertEquals("Metric range of one vision method", "Darkvision (18 m)", new VisionToken().getToken(
+		Assert.assertEquals("Metric range of one vision method", "Darkvision (18 m)", new VisionToken().getToken(
 			"VISION", pc, null));
 
 		pc.addTemplate(lowlightT);
 		pc.setDirty(true);
-		assertEquals("Two vision metric", "Darkvision (18 m), Low-light", new VisionToken().getToken(
+		Assert.assertEquals("Two vision metric", "Darkvision (18 m), Low-light", new VisionToken().getToken(
 			"VISION", pc, null));
 	}
 	

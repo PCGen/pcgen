@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.levelability;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.PCClass;
@@ -54,13 +55,13 @@ public class LevelAbilityTokenTest extends AbstractKitTokenTestCase<KitLevelAbil
 	@Test
 	public void testInvalidInputEmptyPCClass() throws PersistenceLayerException
 	{
-		assertFalse(parse("=2"));
+		Assert.assertFalse(parse("=2"));
 	}
 
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fireball="));
+		Assert.assertFalse(parse("Fireball="));
 	}
 
 	@Test

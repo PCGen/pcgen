@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -82,7 +83,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		try
 		{
-			assertFalse(parse(""));
+			Assert.assertFalse(parse(""));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -94,7 +95,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("PRERACE:1,Human"));
+		Assert.assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
@@ -105,10 +106,10 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		MonskillToken monskill = new MonskillToken();
 		TokenRegistration.register(new PreLevelMaxParser());
 		TokenRegistration.register(monskill);
-		assertTrue(monskill.parseToken(primaryContext, primaryProf, "1").passed());
+		Assert.assertTrue(monskill.parseToken(primaryContext, primaryProf, "1").passed());
 		primaryContext.commit();
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertNotNull(primaryContext.unparse(primaryProf));
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertNotNull(primaryContext.unparse(primaryProf));
 	}
 
 	@Test
@@ -183,7 +184,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		BonusObj bonus = getBonus(1);
 		PreParserFactory prereqParser = PreParserFactory.getInstance();
 		Prerequisite prereq = prereqParser.parse("PRERACE:1,Dwarf");
-		assertNotNull(prereq);
+		Assert.assertNotNull(prereq);
 		bonus.addPrerequisite(prereq);
 		primaryProf.addToListFor(ListKey.BONUS, bonus);
 		String[] sap = getToken().unparse(primaryContext, primaryProf);
@@ -212,7 +213,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try
 		{
-			assertNull(getToken().unparse(primaryContext, primaryProf));
+			Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 		}
 		catch (NullPointerException e)
 		{
@@ -229,7 +230,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	private BonusObj getBonus(int bonusValue)
 	{
 		BonusObj bon = Bonus.newBonus(primaryContext, "MONNONSKILLHD|NUMBER|" + bonusValue);
-		assertNotNull(bon);
+		Assert.assertNotNull(bon);
 		bon.setTokenSource(token.getTokenName());
 		return bon;
 	}

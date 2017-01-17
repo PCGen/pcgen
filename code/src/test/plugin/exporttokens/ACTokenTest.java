@@ -27,6 +27,8 @@ import java.util.Collections;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.content.ACControl;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -172,13 +174,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testBase() throws Exception
 	{
-		assertEquals("Total AC no armor", "12", new ACToken().getToken(
+		Assert.assertEquals("Total AC no armor", "12", new ACToken().getToken(
 			"AC.Total", getCharacter(), null));
 
-		assertEquals("Armor AC no armor", "0", new ACToken().getToken(
+		Assert.assertEquals("Armor AC no armor", "0", new ACToken().getToken(
 			"AC.Armor", getCharacter(), null));
 
-		assertEquals("Ability AC no armor", "2", new ACToken().getToken(
+		Assert.assertEquals("Ability AC no armor", "2", new ACToken().getToken(
 			"AC.Ability", getCharacter(), null));
 	}
 
@@ -196,13 +198,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();
 
-		assertEquals("Ability AC normal armor", "2", new ACToken().getToken(
+		Assert.assertEquals("Ability AC normal armor", "2", new ACToken().getToken(
 			"AC.Ability", getCharacter(), null));
 
-		assertEquals("Armor AC with normal armor", "4", new ACToken().getToken(
+		Assert.assertEquals("Armor AC with normal armor", "4", new ACToken().getToken(
 			"AC.Armor", getCharacter(), null));
 
-		assertEquals("Total AC with normal armor", "16", new ACToken()
+		Assert.assertEquals("Total AC with normal armor", "16", new ACToken()
 			.getToken("AC.Total", getCharacter(), null));
 	}
 
@@ -221,13 +223,13 @@ public class ACTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 		character.calcActiveBonuses();
 
-		assertEquals("Ability AC magic armor", "2", new ACToken().getToken(
+		Assert.assertEquals("Ability AC magic armor", "2", new ACToken().getToken(
 			"AC.Ability", getCharacter(), null));
 
-		assertEquals("Armor AC with magic armor", "5", new ACToken().getToken(
+		Assert.assertEquals("Armor AC with magic armor", "5", new ACToken().getToken(
 			"AC.Armor", getCharacter(), null));
 
-		assertEquals("Total AC with magic armor", "17", new ACToken().getToken(
+		Assert.assertEquals("Total AC with magic armor", "17", new ACToken().getToken(
 			"AC.Total", getCharacter(), null));
 	}
 

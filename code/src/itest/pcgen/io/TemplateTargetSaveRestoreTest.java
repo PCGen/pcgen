@@ -17,6 +17,7 @@
  */
 package pcgen.io;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.PCClass;
@@ -66,12 +67,12 @@ public class TemplateTargetSaveRestoreTest extends
 		finishLoad();
 		pc.addTemplate(monster);
 		runRoundRobin(getPreEqualityCleanup());
-		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
-		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		Assert.assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
+		Assert.assertTrue(reloadedPC.getDisplay().getFavoredClasses()
+                                    .contains(monclass));
 		reloadedPC.removeTemplate(monster);
 		reloadedPC.setDirty(true);
-		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		Assert.assertFalse(reloadedPC.getDisplay().getFavoredClasses()
+                                     .contains(monclass));
 	}
 }

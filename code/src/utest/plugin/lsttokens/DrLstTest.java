@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,56 +80,56 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReductionOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("10"));
+		Assert.assertFalse(parse("10"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReductionSlashOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("10/"));
+		Assert.assertFalse(parse("10/"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReductionTwoSlash() throws PersistenceLayerException
 	{
-		assertFalse(parse("10//"));
+		Assert.assertFalse(parse("10//"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReductionTrailingSlash() throws PersistenceLayerException
 	{
-		assertFalse(parse("10/+1/"));
+		Assert.assertFalse(parse("10/+1/"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("10/+1|PREFOO:1,Weird"));
+		Assert.assertFalse(parse("10/+1|PREFOO:1,Weird"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReductionTwoProductiveSlash() throws PersistenceLayerException
 	{
-		assertFalse(parse("10/+1/5"));
+		Assert.assertFalse(parse("10/+1/5"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyReduction() throws PersistenceLayerException
 	{
-		assertFalse(parse("/+1"));
+		Assert.assertFalse(parse("/+1"));
 		assertNoSideEffects();
 	}
 
@@ -136,7 +137,7 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidBaseOnly()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("10/+1|"));
+		Assert.assertFalse(parse("10/+1|"));
 		assertNoSideEffects();
 	}
 
@@ -146,7 +147,7 @@ public class DrLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("PRERACE:1,Human"));
+			Assert.assertFalse(parse("PRERACE:1,Human"));
 		}
 		catch (IllegalArgumentException iae)
 		{

@@ -26,6 +26,8 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -64,17 +66,17 @@ public class PreFactSetTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Roman");
 
-		assertFalse("Character's deity should not match requirement", PrereqHandler.passes(
+		Assert.assertFalse("Character's deity should not match requirement", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=War");
 
-		assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PREFACTSET:1,DEITY,PANTHEON=Greek");
 
-		assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character's deity should match pantheon", PrereqHandler.passes(prereq,
 			character, null));
 	}
 }

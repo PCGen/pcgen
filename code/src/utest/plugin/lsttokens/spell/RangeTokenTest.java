@@ -19,6 +19,7 @@ package plugin.lsttokens.spell;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -99,23 +100,23 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
-		assertTrue(parse("(first)"));
+		Assert.assertTrue(parse("(first)"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("(first)")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("(first)")));
 		assertCleanConstruction();
 	}
 
 	public void testBadParentheses() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
-		assertFalse("Missing end paren should have been flagged.",
+		Assert.assertFalse("Missing end paren should have been flagged.",
 				parse("(first"));
-		assertFalse("Missing start paren should have been flagged.",
+		Assert.assertFalse("Missing start paren should have been flagged.",
 				parse("first)"));
-		assertFalse("Missing start paren should have been flagged.",
+		Assert.assertFalse("Missing start paren should have been flagged.",
 				parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.",
+		Assert.assertFalse("Out of order parens should have been flagged.",
 				parse(")(fir(st)"));
 	}
 

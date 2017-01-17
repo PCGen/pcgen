@@ -17,6 +17,7 @@
  */
 package pcgen.io;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.SkillCost;
@@ -80,17 +81,17 @@ public class DomainTargetSaveRestoreTest extends
 		finishLoad();
 		applyObject(target);
 		PCClass myclass = pc.getClassKeyed("MyClass");
-		assertEquals(SkillCost.CLASS,
+		Assert.assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		runRoundRobin(getPreEqualityCleanup());
-		assertEquals(SkillCost.CLASS,
+		Assert.assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		myclass = reloadedPC.getClassKeyed("MyClass");
-		assertEquals(SkillCost.CLASS,
+		Assert.assertEquals(SkillCost.CLASS,
 			reloadedPC.getSkillCostForClass(granted, myclass));
 		remove(o);
 		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
+		Assert.assertEquals(SkillCost.EXCLUSIVE,
 			reloadedPC.getSkillCostForClass(granted, myclass));
 	}
 
@@ -107,17 +108,17 @@ public class DomainTargetSaveRestoreTest extends
 		finishLoad();
 		applyObject(target);
 		PCClass myclass = pc.getClassKeyed("MyClass");
-		assertEquals(SkillCost.CROSS_CLASS,
+		Assert.assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		runRoundRobin(getPreEqualityCleanup());
-		assertEquals(SkillCost.CROSS_CLASS,
+		Assert.assertEquals(SkillCost.CROSS_CLASS,
 			pc.getSkillCostForClass(granted, myclass));
 		myclass = reloadedPC.getClassKeyed("MyClass");
-		assertEquals(SkillCost.CROSS_CLASS,
+		Assert.assertEquals(SkillCost.CROSS_CLASS,
 			reloadedPC.getSkillCostForClass(granted, myclass));
 		remove(o);
 		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
+		Assert.assertEquals(SkillCost.EXCLUSIVE,
 			reloadedPC.getSkillCostForClass(granted, myclass));
 	}
 }

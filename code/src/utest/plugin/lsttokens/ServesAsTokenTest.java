@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,63 +69,63 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidObject() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
+		Assert.assertFalse(token.parseToken(primaryContext, new EquipmentModifier(),
 				"Fireball").passed());
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL"));
+		Assert.assertFalse(parse("SKILL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|"));
+		Assert.assertFalse(parse("SKILL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Fireball"));
+		Assert.assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadType() throws PersistenceLayerException
 	{
-		assertFalse(parse("CAMPAIGN|Fireball"));
+		Assert.assertFalse(parse("CAMPAIGN|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidCatTypeNoEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("ABILITY|Abil"));
+		Assert.assertFalse(parse("ABILITY|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNonCatTypeEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL=Arcane|Fireball"));
+		Assert.assertFalse(parse("SKILL=Arcane|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
+		Assert.assertFalse(parse("ABILITY=FEAT=Mutation|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -133,7 +134,7 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("ABILITY=Crazy|Fireball"));
+			Assert.assertFalse(parse("ABILITY=Crazy|Fireball"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -146,21 +147,21 @@ public class ServesAsTokenTest extends AbstractGlobalTokenTestCase
 	public void testInvalidSpellbookAndSpellBarOnly()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL|Fireball|"));
+		Assert.assertFalse(parse("SKILL|Fireball|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellBarStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("SKILL||Fireball"));
+		Assert.assertFalse(parse("SKILL||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidWrongType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL|Fireball"));
+		Assert.assertFalse(parse("SPELL|Fireball"));
 		assertNoSideEffects();
 	}
 

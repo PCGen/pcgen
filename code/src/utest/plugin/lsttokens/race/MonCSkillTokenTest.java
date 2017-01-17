@@ -19,6 +19,7 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.AssociatedPrereqObject;
@@ -124,20 +125,20 @@ public class MonCSkillTokenTest extends
 	@Test
 	public void testValidInputClearList() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR.LIST"));
+		Assert.assertTrue(parse(".CLEAR.LIST"));
 	}
 
 	@Test
 	public void testInvalidInputAllList() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
+		Assert.assertFalse(parse("ALL" + getJoinCharacter() + "LIST"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputAllPattern() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
+		Assert.assertFalse(parse("ALL" + getJoinCharacter() + "Pattern%"));
 		assertNoSideEffects();
 	}
 

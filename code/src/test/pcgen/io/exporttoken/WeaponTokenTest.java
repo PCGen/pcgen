@@ -28,6 +28,8 @@ import java.util.Locale;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.EnUsLocaleDependentTestCase;
 import pcgen.LocaleDependentTestCase;
@@ -401,7 +403,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(wpnBonusAbility, "BONUS",
 				"WEAPONPROF=DoubleWpn|TOHIT|2");
 
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 	}
 
 	/*
@@ -428,106 +430,106 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		WeaponToken token = new WeaponToken();
 
 		// First test each sub token
-		assertEquals("Name", "*DoubleWpn", token.getToken("WEAPON.0.NAME",
+		Assert.assertEquals("Name", "*DoubleWpn", token.getToken("WEAPON.0.NAME",
 			character, null));
-		assertEquals("Name-H1", "*DoubleWpn (Head 1 only)", token.getToken(
+		Assert.assertEquals("Name-H1", "*DoubleWpn (Head 1 only)", token.getToken(
 			"WEAPON.1.NAME", character, null));
-		assertEquals("Name-H2", "*DoubleWpn (Head 2 only)", token.getToken(
+		Assert.assertEquals("Name-H2", "*DoubleWpn (Head 2 only)", token.getToken(
 			"WEAPON.2.NAME", character, null));
 
 		LocaleDependentTestCase.before(Locale.US);
-		assertEquals("Hand", "Two-Weapons", token.getToken("WEAPON.0.HAND",
+		Assert.assertEquals("Hand", "Two-Weapons", token.getToken("WEAPON.0.HAND",
 			character, null));
-		assertEquals("Hand-H1", "Two-Weapons", token.getToken("WEAPON.1.HAND",
+		Assert.assertEquals("Hand-H1", "Two-Weapons", token.getToken("WEAPON.1.HAND",
 			character, null));
-		assertEquals("Hand-H2", "Two-Weapons", token.getToken("WEAPON.2.HAND",
+		Assert.assertEquals("Hand-H2", "Two-Weapons", token.getToken("WEAPON.2.HAND",
 			character, null));
 		EnUsLocaleDependentTestCase.after();
 
 		//	1H-P
-		assertEquals("1H-P - BASEHIT", "+14/+9/+4/-1", token.getToken(
+		Assert.assertEquals("1H-P - BASEHIT", "+14/+9/+4/-1", token.getToken(
 			"WEAPON.0.BASEHIT", character, null));
-		assertEquals("1H-P - BASEHIT-H1", null, token.getToken(
+		Assert.assertEquals("1H-P - BASEHIT-H1", null, token.getToken(
 			"WEAPON.1.BASEHIT", character, null));
-		assertEquals("1H-P - BASEHIT-H2", null, token.getToken(
+		Assert.assertEquals("1H-P - BASEHIT-H2", null, token.getToken(
 			"WEAPON.2.BASEHIT", character, null));
 
 		//	1H-O
-		assertEquals("1H-O - OHHIT", "+10/+5/+0/-5", token.getToken(
+		Assert.assertEquals("1H-O - OHHIT", "+10/+5/+0/-5", token.getToken(
 			"WEAPON.0.OHHIT", character, null));
-		assertEquals("1H-O - OHHIT-H1", null, token.getToken("WEAPON.1.OHHIT",
+		Assert.assertEquals("1H-O - OHHIT-H1", null, token.getToken("WEAPON.1.OHHIT",
 			character, null));
-		assertEquals("1H-O - OHHIT-H2", null, token.getToken("WEAPON.2.OHHIT",
+		Assert.assertEquals("1H-O - OHHIT-H2", null, token.getToken("WEAPON.2.OHHIT",
 			character, null));
 
 		//	2H
-		assertEquals("2H - THHIT", "+14/+9/+4/-1", token.getToken(
+		Assert.assertEquals("2H - THHIT", "+14/+9/+4/-1", token.getToken(
 			"WEAPON.0.THHIT", character, null));
-		assertEquals("2H - THHIT-H1", "+14/+9/+4/-1", token.getToken(
+		Assert.assertEquals("2H - THHIT-H1", "+14/+9/+4/-1", token.getToken(
 			"WEAPON.1.THHIT", character, null));
-		assertEquals("2H - THHIT-H2", "+14/+9/+4/-1", token.getToken(
+		Assert.assertEquals("2H - THHIT-H2", "+14/+9/+4/-1", token.getToken(
 			"WEAPON.2.THHIT", character, null));
 
 		//	2W-P-(OH)
-		assertEquals("2W-P-(OH) - TWPHITH", "+8/+3/-2/-7", token.getToken(
+		Assert.assertEquals("2W-P-(OH) - TWPHITH", "+8/+3/-2/-7", token.getToken(
 			"WEAPON.0.TWPHITH", character, null));
-		assertEquals("2W-P-(OH) - TWPHITH-H1", null, token.getToken(
+		Assert.assertEquals("2W-P-(OH) - TWPHITH-H1", null, token.getToken(
 			"WEAPON.1.TWPHITH", character, null));
-		assertEquals("2W-P-(OH) - TWPHITH-H2", null, token.getToken(
+		Assert.assertEquals("2W-P-(OH) - TWPHITH-H2", null, token.getToken(
 			"WEAPON.2.TWPHITH", character, null));
 
 		//	2W-P-(OL)
-		assertEquals("2W-P-(OL) - TWPHITL", "+10/+5/+0/-5", token.getToken(
+		Assert.assertEquals("2W-P-(OL) - TWPHITL", "+10/+5/+0/-5", token.getToken(
 			"WEAPON.0.TWPHITL", character, null));
-		assertEquals("2W-P-(OL) - TWPHITL-H1", "+10/+5/+0/-5", token.getToken(
+		Assert.assertEquals("2W-P-(OL) - TWPHITL-H1", "+10/+5/+0/-5", token.getToken(
 			"WEAPON.1.TWPHITL", character, null));
-		assertEquals("2W-P-(OL) - TWPHITL-H2", "+10/+5/+0/-5", token.getToken(
+		Assert.assertEquals("2W-P-(OL) - TWPHITL-H2", "+10/+5/+0/-5", token.getToken(
 			"WEAPON.2.TWPHITL", character, null));
 
 		//	2W-OH
-		assertEquals("2W-OH - TWOHIT", "+6/+1/-4/-9;+6", token.getToken(
+		Assert.assertEquals("2W-OH - TWOHIT", "+6/+1/-4/-9;+6", token.getToken(
 			"WEAPON.0.TWOHIT", character, null));
-		assertEquals("2W-OH - TWOHIT-H1", "+6", token.getToken(
+		Assert.assertEquals("2W-OH - TWOHIT-H1", "+6", token.getToken(
 			"WEAPON.1.TWOHIT", character, null));
-		assertEquals("2W-OH - TWOHIT-H2", "+6", token.getToken(
+		Assert.assertEquals("2W-OH - TWOHIT-H2", "+6", token.getToken(
 			"WEAPON.2.TWOHIT", character, null));
 
 		//	1H-P / 2W-P-(OH) / 2W-P-(OL)
-		assertEquals("1H-P - BASICDAMAGE", "1d10+2", token.getToken(
+		Assert.assertEquals("1H-P - BASICDAMAGE", "1d10+2", token.getToken(
 			"WEAPON.0.BASICDAMAGE", character, null));
-		assertEquals("1H-P - BASICDAMAGE-H1", "1d10+2", token.getToken(
+		Assert.assertEquals("1H-P - BASICDAMAGE-H1", "1d10+2", token.getToken(
 			"WEAPON.1.BASICDAMAGE", character, null));
-		assertEquals("1H-P - BASICDAMAGE-H2", "1d6+2", token.getToken(
+		Assert.assertEquals("1H-P - BASICDAMAGE-H2", "1d6+2", token.getToken(
 			"WEAPON.2.BASICDAMAGE", character, null));
 
 		//	1H-O / 2W-OH
-		assertEquals("1H-O - OHDAMAGE", "1d10+1", token.getToken(
+		Assert.assertEquals("1H-O - OHDAMAGE", "1d10+1", token.getToken(
 			"WEAPON.0.OHDAMAGE", character, null));
-		assertEquals("1H-O - OHDAMAGE-H1", "1d10+1", token.getToken(
+		Assert.assertEquals("1H-O - OHDAMAGE-H1", "1d10+1", token.getToken(
 			"WEAPON.1.OHDAMAGE", character, null));
-		assertEquals("1H-O - OHDAMAGE-H2", "1d6+1", token.getToken(
+		Assert.assertEquals("1H-O - OHDAMAGE-H2", "1d6+1", token.getToken(
 			"WEAPON.2.OHDAMAGE", character, null));
 
 		//	2H
-		assertEquals("2H - THDAMAGE", "1d10+3", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE", "1d10+3", token.getToken(
 			"WEAPON.0.THDAMAGE", character, null));
-		assertEquals("2H - THDAMAGE-H1", "1d10+3", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE-H1", "1d10+3", token.getToken(
 			"WEAPON.1.THDAMAGE", character, null));
-		assertEquals("2H - THDAMAGE-H2", "1d6+3", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE-H2", "1d6+3", token.getToken(
 			"WEAPON.2.THDAMAGE", character, null));
 
 		//	Double
-		assertEquals("2H - TOTALHIT", "+6/+1/-4/-9;+6", token.getToken(
+		Assert.assertEquals("2H - TOTALHIT", "+6/+1/-4/-9;+6", token.getToken(
 			"WEAPON.0.TOTALHIT", character, null));
-		assertEquals("2H - TOTALHIT.0", "+6", token.getToken(
+		Assert.assertEquals("2H - TOTALHIT.0", "+6", token.getToken(
 			"WEAPON.0.TOTALHIT.0", character, null));
-		assertEquals("2H - TOTALHIT.1", "+1", token.getToken(
+		Assert.assertEquals("2H - TOTALHIT.1", "+1", token.getToken(
 			"WEAPON.0.TOTALHIT.1", character, null));
-		assertEquals("1H-P - TOTALHIT.0", "+14", token.getToken(
+		Assert.assertEquals("1H-P - TOTALHIT.0", "+14", token.getToken(
 			"WEAPON.1.TOTALHIT.0", character, null));
-		assertEquals("1H-P - TOTALHIT.1", "+9", token.getToken(
+		Assert.assertEquals("1H-P - TOTALHIT.1", "+9", token.getToken(
 			"WEAPON.1.TOTALHIT.1", character, null));
-		assertEquals("2H - THDAMAGE", "1d10+3", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE", "1d10+3", token.getToken(
 			"WEAPON.0.THDAMAGE", character, null));
 
 	}
@@ -544,13 +546,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		// Test magical enhancements to the double weapon H1:+1, H2:+2
 		dblWpn.addEqModifiers("MWORKW.PLUS1W", true);
 		dblWpn.addEqModifiers("MWORKW.PLUS2W", false);
-		assertEquals("2H - THHIT-H1 [+1]", "+15/+10/+5/+0", token.getToken(
+		Assert.assertEquals("2H - THHIT-H1 [+1]", "+15/+10/+5/+0", token.getToken(
 			"WEAPON.1.THHIT", character, null));
-		assertEquals("2H - THHIT-H2 [+2]", "+16/+11/+6/+1", token.getToken(
+		Assert.assertEquals("2H - THHIT-H2 [+2]", "+16/+11/+6/+1", token.getToken(
 			"WEAPON.2.THHIT", character, null));
-		assertEquals("2H - THDAMAGE-H1 [+1]", "1d10+4", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE-H1 [+1]", "1d10+4", token.getToken(
 			"WEAPON.1.THDAMAGE", character, null));
-		assertEquals("2H - THDAMAGE-H2 [+2]", "1d6+5", token.getToken(
+		Assert.assertEquals("2H - THDAMAGE-H2 [+2]", "1d6+5", token.getToken(
 			"WEAPON.2.THDAMAGE", character, null));
 	}
 
@@ -565,7 +567,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testBastardSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("2-handed prof should be martial",
+		Assert.assertEquals("2-handed prof should be martial",
 			"KEY_Sword (Bastard)", bastardSword.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
@@ -576,11 +578,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
+		Assert.assertEquals("Name", "Sword, Bastard", token.getToken("WEAPON.3.NAME",
 			character, null));
-		assertEquals("Not possible to weild the bastard sword one handed.",
+		Assert.assertEquals("Not possible to weild the bastard sword one handed.",
 			null, token.getToken("WEAPON.3.BASEHIT", character, null));
-		assertEquals("No penalty to weild the bastard sword two handed.",
+		Assert.assertEquals("No penalty to weild the bastard sword two handed.",
 			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
 	}
 
@@ -592,7 +594,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testLargeLongSword()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
+		Assert.assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
@@ -603,11 +605,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Large sword - name", "Longsword (Large)", token.getToken(
+		Assert.assertEquals("Large sword - name", "Longsword (Large)", token.getToken(
 			"WEAPON.3.NAME", character, null));
-		assertEquals("Large sword - Two handed should be fine",
+		Assert.assertEquals("Large sword - Two handed should be fine",
 			"+18/+13/+8/+3", token.getToken("WEAPON.3.THHIT", character, null));
-		assertEquals("Large sword - can't be wielded one handed", null, token
+		Assert.assertEquals("Large sword - can't be wielded one handed", null, token
 			.getToken("WEAPON.3.BASEHIT", character, null));
 	}
 
@@ -620,10 +622,10 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		LoadContext context = Globals.getContext();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
+		Assert.assertEquals("Prof should be longsword", "KEY_LONGSWORD", largeSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
-		assertTrue("Character should be proficient with longsword", character
+		Assert.assertTrue("Character should be proficient with longsword", character
 			.isProficientWith(largeSword));
 
 		PCTemplate longswordTemplate = new PCTemplate();
@@ -645,13 +647,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Test weapon profs effects on large weapons
 		WeaponToken token = new WeaponToken();
-		assertEquals(
+		Assert.assertEquals(
 			"Large sword - can be wielded one handed with template weapon size bonus",
 			"+18/+13/+8/+3", token
 				.getToken("WEAPON.3.BASEHIT", character, null));
 		character.removeTemplate(longswordTemplate);
 		character.calcActiveBonuses();
-		assertEquals("Large sword - can't be wielded one handed", null, token
+		Assert.assertEquals("Large sword - can't be wielded one handed", null, token
 			.getToken("WEAPON.3.BASEHIT", character, null));
 
 		PCTemplate martialTemplate = new PCTemplate();
@@ -663,7 +665,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			martialTemplate.addToListFor(ListKey.BONUS, aBonus);
 		}
 		character.addTemplate(martialTemplate);
-		assertEquals(
+		Assert.assertEquals(
 			"Large sword - can be wielded one handed with template weapon type size bonus",
 			"+18/+13/+8/+3", token
 				.getToken("WEAPON.3.BASEHIT", character, null));
@@ -676,7 +678,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testNaturalWeapon()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be SillyBite", "SillyBite", bite
+		Assert.assertEquals("Prof should be SillyBite", "SillyBite", bite
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 
 		EquipSet es =
@@ -686,13 +688,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Now test the output to ensure it is correct
 		WeaponToken token = new WeaponToken();
-		assertEquals("Silly Bite - Basic To Hit",
+		Assert.assertEquals("Silly Bite - Basic To Hit",
 			"+18/+18/+18/+18/+18/+18/+18/+18", token.getToken(
 				"WEAPON.3.BASEHIT", character, null));
-		assertEquals("Silly Bite - Total To Hit",
+		Assert.assertEquals("Silly Bite - Total To Hit",
 			"+18/+18/+18/+18/+18/+18/+18/+18", token.getToken(
 				"WEAPON.3.TOTALHIT", character, null));
-		assertEquals("Silly Bite - Total To Hit first attack", "+18", token
+		Assert.assertEquals("Silly Bite - Total To Hit first attack", "+18", token
 			.getToken("WEAPON.3.TOTALHIT.0", character, null));
 	}
 
@@ -703,7 +705,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	public void testWpnFinesse()
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
+		Assert.assertEquals("Prof should be longsword", "KEY_LONGSWORD", fineSword
 				.get(ObjectKey.WEAPON_PROF).get().getKeyName());
 		LoadContext context = Globals.getContext();
 
@@ -716,7 +718,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 
 		// Test weapon profs effects on large weapons
 		WeaponToken token = new WeaponToken();
-		assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
+		Assert.assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 
 		// Now apply weapon finess and check dex is used rather than str
@@ -729,7 +731,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 					.newBonus(context, "COMBAT|TOHIT.Finesseable|((max(STR,DEX)-STR)+SHIELDACCHECK)|TYPE=NotRanged");
 		wpnFinesse.addToListFor(ListKey.BONUS, wfBonus);
 		addAbility(AbilityCategory.FEAT, wpnFinesse);
-		assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
+		Assert.assertEquals("Fine sword", "+19/+14/+9/+4", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 
 		// Add a temp penalty to dex and check that it is applied
@@ -745,7 +747,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		BonusObj penalty = spell2.getRawBonusList(character).get(0);
 		character.addTempBonus(penalty, spell2, character);
 		character.calcActiveBonuses();
-		assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
+		Assert.assertEquals("Fine sword", "+18/+13/+8/+3", token.getToken(
 			"WEAPON.3.BASEHIT", character, null));
 	}
 
@@ -761,7 +763,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 
 		WeaponToken token = new WeaponToken();
-		assertEquals(
+		Assert.assertEquals(
 			"Reach for a non-reach weapon on a character with normal reach",
 			"5", token.getToken("WEAPON.3.REACH", character, null));
 
@@ -771,13 +773,13 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 
 		// note: longspear ends up inserted before the large sword above, hence we use weapon.3
-		assertEquals(
+		Assert.assertEquals(
 			"Reach for a reach weapon (10') on a character with normal reach",
 			"10", token.getToken("WEAPON.3.REACH", character, null));
 
 		// set reach multiplier on the large sword to 2 and retest
 		largeSword.put(IntegerKey.REACH_MULT, 2);
-		assertEquals(
+		Assert.assertEquals(
 			"Reach for a reach multiple weapon on a character with normal reach",
 			"10", token.getToken("WEAPON.4.REACH", character, null));
 		
@@ -790,7 +792,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 			lsReachTemplate.addToListFor(ListKey.BONUS, aBonus);
 		}
 		character.addTemplate(lsReachTemplate);
-		assertEquals(
+		Assert.assertEquals(
 			"Reach for a reach weapon (10') on a character with bonus for the proficiency",
 			"15", token.getToken("WEAPON.3.REACH", character, null));
 		
@@ -815,15 +817,15 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 
 		WeaponToken token = new WeaponToken();
-		assertEquals("non-ammo weapon", largeSword.getName(),
+		Assert.assertEquals("non-ammo weapon", largeSword.getName(),
 			token.getToken("WEAPON.4.NAME", character, null));
-		assertEquals("Ammo weapon", longbow.getName(),
+		Assert.assertEquals("Ammo weapon", longbow.getName(),
 			token.getToken("WEAPON.3.NAME", character, null));
 
-		assertEquals("Ammo count for a non-ammo weapon", "0",
+		Assert.assertEquals("Ammo count for a non-ammo weapon", "0",
 			token.getToken("WEAPON.4.AMMUNITION", character, null));
 		String result = token.getToken("WEAPON.3.AMMUNITION", character, null);
-		assertEquals("Ammo count for an empty ammo weapon", "0", result);
+		Assert.assertEquals("Ammo count for an empty ammo weapon", "0", result);
 		
 		character.addEquipment(arrow);
 		es =
@@ -832,7 +834,7 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.addEquipSet(es);
 		character.setCalcEquipmentList();
 		result = token.getToken("WEAPON.3.AMMUNITION", character, null);
-		assertEquals(
+		Assert.assertEquals(
 			"Ammo count for longbow with one arrow",
 			"1", result);
 		
@@ -852,11 +854,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.setCalcEquipmentList();
 
 		WeaponToken token = new WeaponToken();
-		assertEquals("weapon name", longSpear.getName(),
+		Assert.assertEquals("weapon name", longSpear.getName(),
 			token.getToken("WEAPON.3.NAME", character, null));
-		assertEquals("weapon name", "+14/+9/+4/-1",
+		Assert.assertEquals("weapon name", "+14/+9/+4/-1",
 			token.getToken("WEAPON.3.THHIT", character, null));
-		assertEquals("weapon name", "+14/+9/+4/-1",
+		Assert.assertEquals("weapon name", "+14/+9/+4/-1",
 			token.getToken("WEAPON.3.TOTALHIT", character, null));
 	}	
 	
@@ -884,11 +886,11 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 		character.preparePCForOutput();
 
 		WeaponToken token = new WeaponToken();
-		assertEquals("weapon name", longSpear.getName(),
+		Assert.assertEquals("weapon name", longSpear.getName(),
 			token.getToken("WEAPON.3.NAME", character, null));
-		assertEquals("weapon name", "+14/+9/+4/-1",
+		Assert.assertEquals("weapon name", "+14/+9/+4/-1",
 			token.getToken("WEAPON.3.THHIT", character, null));
-		assertEquals("weapon name", "+14/+9/+4/-1",
+		Assert.assertEquals("weapon name", "+14/+9/+4/-1",
 			token.getToken("WEAPON.3.TOTALHIT", character, null));
 		LocaleDependentTestCase.after();
 		
@@ -901,18 +903,18 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		WeaponToken token = new WeaponToken();
-		assertEquals("weapon name", dblWpn.getName(),
+		Assert.assertEquals("weapon name", dblWpn.getName(),
 			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
-		assertEquals("feat tohit bonus, before adding", "+0",
+		Assert.assertEquals("feat tohit bonus, before adding", "+0",
 			token.getToken("WEAPON.0.FEATHIT", character, null));
-		assertEquals("feat damage bonus, before adding", "+0",
+		Assert.assertEquals("feat damage bonus, before adding", "+0",
 			token.getToken("WEAPON.0.FEATDAMAGE", character, null));
 		
 		addAbility(AbilityCategory.FEAT, wpnBonusAbility);
 		character.calcActiveBonuses();
-		assertEquals("feat tohit bonus, after adding", "+2",
+		Assert.assertEquals("feat tohit bonus, after adding", "+2",
 			token.getToken("WEAPON.0.FEATHIT", character, null));
-		assertEquals("feat damage bonus, after adding", "+1",
+		Assert.assertEquals("feat damage bonus, after adding", "+1",
 			token.getToken("WEAPON.0.FEATDAMAGE", character, null));
 	}
 	
@@ -923,18 +925,18 @@ public class WeaponTokenTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter character = getCharacter();
 		WeaponToken token = new WeaponToken();
-		assertEquals("weapon name", dblWpn.getName(),
+		Assert.assertEquals("weapon name", dblWpn.getName(),
 			token.getToken("WEAPON.0.NAME.NOSTAR", character, null));
-		assertEquals("feat tohit bonus, before adding", "+0",
+		Assert.assertEquals("feat tohit bonus, before adding", "+0",
 			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
-		assertEquals("feat damage bonus, before adding", "+0",
+		Assert.assertEquals("feat damage bonus, before adding", "+0",
 			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
 		
 		character.addTemplate(wpnBonusPct);
 		character.calcActiveBonuses();
-		assertEquals("feat tohit bonus, after adding", "+4",
+		Assert.assertEquals("feat tohit bonus, after adding", "+4",
 			token.getToken("WEAPON.0.TEMPLATEHIT", character, null));
-		assertEquals("feat damage bonus, after adding", "+3",
+		Assert.assertEquals("feat damage bonus, after adding", "+3",
 			token.getToken("WEAPON.0.TEMPLATEDAMAGE", character, null));
 	}
 }

@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.facade;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -104,7 +105,7 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		
 		FacetLibrary.getFacet(MasterAvailableSpellFacet.class).initialize(context);
 	}
@@ -114,11 +115,11 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 	{
 		SpellBuilderFacadeImpl spellBuilder = createSpellBuilder();
 		ListFacade<InfoFacade> classes = spellBuilder.getClasses();
-		assertNotNull("Class list should be defined", classes);
-		assertTrue("Class list should have wizard", classes.containsElement(wizardCls));
-		assertTrue("Class list should have divine class", classes.containsElement(divineCls));
-		assertFalse("Class list should not have fighter", classes.containsElement(fighterCls));
-		assertEquals("Class list length", 2, classes.getSize());
+		Assert.assertNotNull("Class list should be defined", classes);
+		Assert.assertTrue("Class list should have wizard", classes.containsElement(wizardCls));
+		Assert.assertTrue("Class list should have divine class", classes.containsElement(divineCls));
+		Assert.assertFalse("Class list should not have fighter", classes.containsElement(fighterCls));
+		Assert.assertEquals("Class list length", 2, classes.getSize());
 		
 		
 	}
@@ -133,23 +134,23 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		spellBuilder.setClass(wizardCls);
 		spellBuilder.setSpellLevel(1);
 		ListFacade<InfoFacade> spells = spellBuilder.getSpells();
-		assertNotNull("Spell list should be defined", spells);
-		assertTrue("Spell list should have MM", spells.containsElement(magicMissile));
-		assertEquals("Spell list length", 1, spells.getSize());
+		Assert.assertNotNull("Spell list should be defined", spells);
+		Assert.assertTrue("Spell list should have MM", spells.containsElement(magicMissile));
+		Assert.assertEquals("Spell list length", 1, spells.getSize());
 
 		spellBuilder.setSpellLevel(2);
 		spells = spellBuilder.getSpells();
-		assertNotNull("Spell list should be defined", spells);
-		assertTrue("Spell list should have Web", spells.containsElement(web));
-		assertFalse("Spell list should not have MM", spells.containsElement(magicMissile));
-		assertEquals("Spell list length", 1, spells.getSize());
+		Assert.assertNotNull("Spell list should be defined", spells);
+		Assert.assertTrue("Spell list should have Web", spells.containsElement(web));
+		Assert.assertFalse("Spell list should not have MM", spells.containsElement(magicMissile));
+		Assert.assertEquals("Spell list length", 1, spells.getSize());
 
 		spellBuilder.setClass(divineCls);
 		spellBuilder.setSpellLevel(1);
 		spells = spellBuilder.getSpells();
-		assertNotNull("Spell list should be defined", spells);
-		assertTrue("Spell list should have CLW", spells.containsElement(clw));
-		assertEquals("Spell list length", 1, spells.getSize());
+		Assert.assertNotNull("Spell list should be defined", spells);
+		Assert.assertTrue("Spell list should have CLW", spells.containsElement(clw));
+		Assert.assertEquals("Spell list length", 1, spells.getSize());
 		
 	}
 
@@ -158,10 +159,10 @@ public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		CharacterFacadeImpl charFacade =
 				new CharacterFacadeImpl(pc, uiDelegate, dataset);
-		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
+		Assert.assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
 		
 		SpellBuilderFacadeImpl spellBuilder = new SpellBuilderFacadeImpl("", pc, null);
-		assertNotNull("Unable to create SpellBuilderFacadeImpl", spellBuilder);
+		Assert.assertNotNull("Unable to create SpellBuilderFacadeImpl", spellBuilder);
 		return spellBuilder;
 	}
 }

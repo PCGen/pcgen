@@ -29,6 +29,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Kit;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import plugin.pretokens.test.PreKitTester;
 
 /**
@@ -71,7 +73,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit to be present", passes);
+		Assert.assertTrue("Expected kit to be present", passes);
 	}
 
 	/**
@@ -89,7 +91,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
+		Assert.assertTrue("Expected kit not to be present", passes);
 	}
 
 	/**
@@ -111,7 +113,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected kit not to be present", passes);
+		Assert.assertTrue("Expected kit not to be present", passes);
 	}
 
 	/**
@@ -133,7 +135,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Expected kit to be present", passes);
+		Assert.assertFalse("Expected kit to be present", passes);
 	}
 
 	/**
@@ -155,7 +157,7 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Expected wildcard to match", passes);
+		Assert.assertTrue("Expected wildcard to match", passes);
 	}
 
 	/**
@@ -173,14 +175,14 @@ public class PreKitTest extends AbstractCharacterTestCase
 		prereq.setOperand("One");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testKindHandled()
 	{
 		final PreKitTester preKit = new PreKitTester();
 
-		assertEquals("KIT", preKit.kindHandled());
+		Assert.assertEquals("KIT", preKit.kindHandled());
 	}
 
 }

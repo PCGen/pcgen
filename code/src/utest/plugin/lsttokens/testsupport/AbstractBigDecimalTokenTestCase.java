@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.math.BigDecimal;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -59,9 +60,9 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		{
 			con = new BigDecimal(-3);
 		}
-		assertTrue(parse(con.toString()));
-		assertTrue(parseSecondary(con.toString()));
-		assertEquals(con, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse(con.toString()));
+		Assert.assertTrue(parseSecondary(con.toString()));
+		Assert.assertEquals(con, primaryProf.get(getObjectKey()));
 		testInvalidInputs(con);
 		assertNoSideEffects();
 	}
@@ -71,40 +72,40 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("TestWP"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("ANY"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("FIVE"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("1/2"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("1+3"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("TestWP"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("ANY"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("FIVE"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("1/2"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("1+3"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
 		// Require Integer greater than or equal to zero
 		if (!isNegativeAllowed())
 		{
-			assertFalse(parse("-1"));
-			assertEquals(val, primaryProf.get(getObjectKey()));
+			Assert.assertFalse(parse("-1"));
+			Assert.assertEquals(val, primaryProf.get(getObjectKey()));
 		}
 		if (!isPositiveAllowed())
 		{
-			assertFalse(parse("1"));
-			assertEquals(val, primaryProf.get(getObjectKey()));
+			Assert.assertFalse(parse("1"));
+			Assert.assertEquals(val, primaryProf.get(getObjectKey()));
 		}
 		if (!isZeroAllowed())
 		{
-			assertFalse(parse("0"));
-			assertEquals(val, primaryProf.get(getObjectKey()));
+			Assert.assertFalse(parse("0"));
+			Assert.assertEquals(val, primaryProf.get(getObjectKey()));
 		}
 	}
 
@@ -113,22 +114,22 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	{
 		if (isPositiveAllowed())
 		{
-			assertTrue(parse("4.5"));
-			assertEquals(new BigDecimal(4.5), primaryProf.get(getObjectKey()));
-			assertTrue(parse("5"));
-			assertEquals(new BigDecimal(5), primaryProf.get(getObjectKey()));
-			assertTrue(parse("1"));
-			assertEquals(new BigDecimal(1), primaryProf.get(getObjectKey()));
+			Assert.assertTrue(parse("4.5"));
+			Assert.assertEquals(new BigDecimal(4.5), primaryProf.get(getObjectKey()));
+			Assert.assertTrue(parse("5"));
+			Assert.assertEquals(new BigDecimal(5), primaryProf.get(getObjectKey()));
+			Assert.assertTrue(parse("1"));
+			Assert.assertEquals(new BigDecimal(1), primaryProf.get(getObjectKey()));
 		}
 		if (isZeroAllowed())
 		{
-			assertTrue(parse("0"));
-			assertEquals(new BigDecimal(0), primaryProf.get(getObjectKey()));
+			Assert.assertTrue(parse("0"));
+			Assert.assertEquals(new BigDecimal(0), primaryProf.get(getObjectKey()));
 		}
 		if (isNegativeAllowed())
 		{
-			assertTrue(parse("-2"));
-			assertEquals(new BigDecimal(-2), primaryProf.get(getObjectKey()));
+			Assert.assertTrue(parse("-2"));
+			Assert.assertEquals(new BigDecimal(-2), primaryProf.get(getObjectKey()));
 		}
 	}
 
@@ -197,7 +198,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assertTrue (isPositiveAllowed() || isNegativeAllowed());
+		Assert.assertTrue (isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test
@@ -255,7 +256,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -267,7 +268,7 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -281,18 +282,18 @@ public abstract class AbstractBigDecimalTokenTestCase<T extends CDOMObject>
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("3.14"));
+		Assert.assertTrue(parse("3.14"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "3.14", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "3.14", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 

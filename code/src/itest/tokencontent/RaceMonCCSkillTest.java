@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -74,21 +75,21 @@ public class RaceMonCCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		new ExclusiveToken().parseToken(context, sk, "Yes");
 		finishLoad();
-		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		raceFacet.directSet(id, source, getAssoc());
 		ClassSkillList dragonCSL =
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
-		assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.EXCLUSIVE, pc.getSkillCostForClass(sk, dragon));
 		pc.incrementClassLevel(1, dragon);
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
-		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
 		raceFacet.remove(id);
-		assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
+		Assert.assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CROSS_CLASS, sk));
 	}
 
 	@Override

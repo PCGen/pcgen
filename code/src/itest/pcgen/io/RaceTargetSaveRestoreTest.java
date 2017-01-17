@@ -17,6 +17,7 @@
  */
 package pcgen.io;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.SkillCost;
@@ -99,13 +100,13 @@ public class RaceTargetSaveRestoreTest extends
 			
 		};
 		runRoundRobin(fullcleanup);
-		assertEquals(SkillCost.CLASS,
+		Assert.assertEquals(SkillCost.CLASS,
 			pc.getSkillCostForClass(monskill, monclass));
-		assertEquals(SkillCost.CLASS,
+		Assert.assertEquals(SkillCost.CLASS,
 			reloadedPC.getSkillCostForClass(monskill, monclass));
 		reloadedPC.setRace(other);
 		reloadedPC.setDirty(true);
-		assertEquals(SkillCost.EXCLUSIVE,
+		Assert.assertEquals(SkillCost.EXCLUSIVE,
 			reloadedPC.getSkillCostForClass(monskill, monclass));
 	}
 
@@ -122,12 +123,12 @@ public class RaceTargetSaveRestoreTest extends
 		finishLoad();
 		pc.setRace(monster);
 		runRoundRobin(getPreEqualityCleanup());
-		assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
-		assertTrue(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		Assert.assertTrue(pc.getDisplay().getFavoredClasses().contains(monclass));
+		Assert.assertTrue(reloadedPC.getDisplay().getFavoredClasses()
+                                    .contains(monclass));
 		reloadedPC.setRace(other);
 		reloadedPC.setDirty(true);
-		assertFalse(reloadedPC.getDisplay().getFavoredClasses()
-			.contains(monclass));
+		Assert.assertFalse(reloadedPC.getDisplay().getFavoredClasses()
+                                     .contains(monclass));
 	}
 }

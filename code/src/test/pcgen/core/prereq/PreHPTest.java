@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -82,19 +84,19 @@ public class PreHPTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHP:4");
 
-		assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character should have 4 hp", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PREHP:5");
 
-		assertFalse("Character should have less than 5 hp", PrereqHandler
+		Assert.assertFalse("Character should have less than 5 hp", PrereqHandler
 			.passes(prereq, character, null));
 
 		final BonusObj hpBonus = Bonus.newBonus(context, "HP|CURRENTMAX|1");
 		myClass.addToListFor(ListKey.BONUS, hpBonus);
 		character.calcActiveBonuses();
 
-		assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character should have 5 hp", PrereqHandler.passes(prereq,
 			character, null));
 	}
 

@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.facet.FacetLibrary;
@@ -62,15 +63,15 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -81,21 +82,21 @@ public class RaceFavClassTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		raceInputFacet.set(id, source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		raceInputFacet.remove(id);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Override

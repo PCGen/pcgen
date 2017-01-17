@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.core.PlayerCharacter;
 import pcgen.persistence.lst.prereq.PreParserFactory;
@@ -66,12 +68,12 @@ public class PreCharactertypeTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,PC");
 
-		assertTrue("Character has character type 'PC'", PrereqHandler.passes(
+		Assert.assertTrue("Character has character type 'PC'", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PRECHARACTERTYPE:1,NPC");
 
-		assertFalse("Character doesn't have character type 'NPC'", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have character type 'NPC'", PrereqHandler.passes(
 			prereq, character, null));
 
 	}

@@ -39,6 +39,7 @@ import pcgen.util.TestHelper;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
 
 /**
  * @author wardc
@@ -93,7 +94,7 @@ public class PreReqHandlerTest extends TestCase
 		LocaleDependentTestCase.before(Locale.US);
 		final String htmlString = PrereqHandler.toHtmlString(list);
 		System.out.println(htmlString);
-		assertEquals(
+		Assert.assertEquals(
 			"at least 15 ranks in Spellcraft and at least 1 Arcane spell of level 8 and at least 2 FEAT(s) of type Metamagic and at least 2 FEAT(s) of type ItemCreation and at least 20 of ( at least 1 ranks in TYPE.Knowledge )",
 			htmlString);
 		EnUsLocaleDependentTestCase.after();

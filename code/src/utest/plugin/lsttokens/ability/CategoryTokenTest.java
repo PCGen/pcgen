@@ -19,6 +19,7 @@ package plugin.lsttokens.ability;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Ability;
@@ -66,7 +67,7 @@ public class CategoryTokenTest extends AbstractCDOMTokenTestCase<Ability>
 	@Test
 	public void testInvalidCategory() throws PersistenceLayerException
 	{
-		assertFalse(parse("Foo"));
+		Assert.assertFalse(parse("Foo"));
 		assertNoSideEffects();
 	}
 

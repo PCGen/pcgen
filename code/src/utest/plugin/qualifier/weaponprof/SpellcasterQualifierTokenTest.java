@@ -19,6 +19,7 @@ package plugin.qualifier.weaponprof;
 import java.net.URISyntaxException;
 import java.util.Collection;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -108,25 +109,25 @@ public class SpellcasterQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|SPELLCASTER[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.weaponProfSet.add(wp1);
 		pc.weaponProfSet.add(wp2);
 		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.spellcastinglevel = 4;
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
+		Assert.assertFalse(set.isEmpty());
 		//Note the INTENTIOANL effect here is to ADD ALL regardless of what the PC has
-		assertEquals(3, set.size());
-		assertTrue(set.contains(wp1));
-		assertTrue(set.contains(wp2));
-		assertTrue(set.contains(wp3));
+		Assert.assertEquals(3, set.size());
+		Assert.assertTrue(set.contains(wp1));
+		Assert.assertTrue(set.contains(wp2));
+		Assert.assertTrue(set.contains(wp3));
 	}
 
 	@Test
@@ -134,23 +135,23 @@ public class SpellcasterQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();		
-		assertTrue(parse(getSubTokenName() + "|SPELLCASTER[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|SPELLCASTER[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.spellcastinglevel = 3;
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.weaponProfSet.add(wp1);
 		pc.weaponProfSet.add(wp2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
+		Assert.assertFalse(set.isEmpty());
 		//Note again the intentional effect of adding everything regardless of whether the PC has it
-		assertEquals(2, set.size());
-		assertTrue(set.contains(wp2));
-		assertTrue(set.contains(wp3));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(wp2));
+		Assert.assertTrue(set.contains(wp3));
 	}
 
 	private void initializeObjects()

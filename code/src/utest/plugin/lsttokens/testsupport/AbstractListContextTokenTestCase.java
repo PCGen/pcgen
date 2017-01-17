@@ -28,6 +28,7 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.persistence.PersistenceLayerException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
@@ -40,7 +41,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeAllFromList(getListReference());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -91,7 +92,7 @@ public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC 
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

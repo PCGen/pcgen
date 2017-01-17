@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.startpack;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -57,10 +58,10 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertTrue(primaryContext.getWriteMessageCount() == 0);
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.OUTPUT_ONLY);
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertFalse(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertFalse(primaryContext.getWriteMessageCount() == 0);
 	}
 
 	@Test
@@ -72,39 +73,39 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Kit>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("QUALIFY"));
-		assertTrue(parseSecondary("QUALIFY"));
-		assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("QUALIFY"));
+		Assert.assertTrue(parseSecondary("QUALIFY"));
+		Assert.assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));
 		internalTestInvalidInputString(Visibility.QUALIFY);
 	}
 
 	public void internalTestInvalidInputString(Object val)
 			throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		// Note case sensitivity
-		assertFalse(parse("Display"));
+		Assert.assertFalse(parse("Display"));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("QUALIFY"));
-		assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("YES"));
-		assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("NO"));
-		assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("QUALIFY"));
+		Assert.assertEquals(Visibility.QUALIFY, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
 	}
 
 	@Test

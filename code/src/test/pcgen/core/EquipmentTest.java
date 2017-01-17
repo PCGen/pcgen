@@ -31,6 +31,8 @@ import java.net.URISyntaxException;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.base.Constants;
@@ -377,17 +379,17 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
 		String customProperties = "NAME=Falchion +1 (Small)$SIZE=S$EQMOD=PLUS1W";
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
-		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
-		assertEquals("Equip size", "S", aEquip.getSize());
-		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
-		assertEquals("Output", "Falchion +1 (Small)$EQMOD=PLUS1W", aEquip.formatSaveLine('$', '=').trim());
+		Assert.assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		Assert.assertEquals("Equip size", "S", aEquip.getSize());
+		Assert.assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		Assert.assertEquals("Output", "Falchion +1 (Small)$EQMOD=PLUS1W", aEquip.formatSaveLine('$', '=').trim());
 	}
 	
 	/**
@@ -398,7 +400,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
 		aEquip.setBase();
@@ -406,10 +408,10 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		PlayerCharacter thePC = getCharacter();
 		aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
 		aEquip.setToCustomSize(thePC);
-		assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
-		assertEquals("Equip size", "S", aEquip.getSize());
-		assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
-		assertEquals("Output", "OrigKey$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
+		Assert.assertEquals("Equip name", "Falchion +1 (Small)", aEquip.getDisplayName());
+		Assert.assertEquals("Equip size", "S", aEquip.getSize());
+		Assert.assertEquals("Equip eqmod", "PLUS1W", aEquip.getEqModifierList(true).get(0).getKeyName());
+		Assert.assertEquals("Output", "OrigKey$"+customProperties, aEquip.formatSaveLine('$', '=').trim());
 		
 	}
 	
@@ -420,13 +422,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		Assert.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy +1", aEquip
+		Assert.assertEquals("Name after modifier added", "Dummy +1", aEquip
 			.getItemNameFromModifiers());
 		
 	}
@@ -438,13 +440,13 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		Assert.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
+		Assert.assertEquals("Name after modifier added", "Masterwork Dummy", aEquip
 			.getItemNameFromModifiers());
 		
 	}
@@ -466,7 +468,7 @@ public class EquipmentTest extends AbstractCharacterTestCase
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HIDDENMOD");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 		loader
 		.parseLine(
 			Globals.getContext(),
@@ -476,8 +478,8 @@ public class EquipmentTest extends AbstractCharacterTestCase
 	EquipmentModifier eqMod2 =
 			Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 				EquipmentModifier.class, "HIDDENMOD2");
-	assertNotNull("Eqmod should be present", eqMod);
-	assertNotNull("Eqmod should be present", eqMod);
+	Assert.assertNotNull("Eqmod should be present", eqMod);
+	Assert.assertNotNull("Eqmod should be present", eqMod);
 	loader
 	.parseLine(
 		Globals.getContext(),
@@ -487,19 +489,19 @@ public class EquipmentTest extends AbstractCharacterTestCase
 EquipmentModifier eqMod3 =
 		Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "HIDDENMOD3");
-assertNotNull("Eqmod should be present", eqMod);
+Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Name before modifier added", "Dummy", aEquip
+		Assert.assertEquals("Name before modifier added", "Dummy", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		Assert.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod2, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		Assert.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 		aEquip.addEqModifier(eqMod3, true, getCharacter());
-		assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
+		Assert.assertEquals("Name after modifier added", "Dummy (Foo)", aEquip
 			.getItemNameFromModifiers());
 
 	}
@@ -511,22 +513,22 @@ assertNotNull("Eqmod should be present", eqMod);
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "MWORKW");
-		assertNotNull("Eqmod MWORKW should be present", eqMod);
+		Assert.assertNotNull("Eqmod MWORKW should be present", eqMod);
 
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+		Assert.assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
 		Equipment aEquip = eq.clone();
-		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		Assert.assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
 		
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals(
+		Assert.assertEquals(
 			"Invalid cost when adding an eqmod with a bonus to ITEMCOST", 300,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
+		Assert.assertEquals("Invalid cost when adding an eqmod with a plus", 2300,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 	}
 	
@@ -548,7 +550,7 @@ assertNotNull("Eqmod should be present", eqMod);
 		EquipmentModifier eqMod =
 				Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 					EquipmentModifier.class, "HEADPT");
-		assertNotNull("Eqmod HEADPT should be present", eqMod);
+		Assert.assertNotNull("Eqmod HEADPT should be present", eqMod);
 
 		loader
 			.parseLine(
@@ -563,25 +565,25 @@ assertNotNull("Eqmod should be present", eqMod);
 	
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
+		Assert.assertNotNull("Eqmod PLUS1W should be present", eqModPlus);
 
 		Equipment aEquip = eqDouble.clone();
-		assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
+		Assert.assertEquals("Default cost of item", BigDecimal.ZERO, aEquip.getCost(getCharacter()));
 		
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with no plus", 0,
+		Assert.assertEquals("Invalid cost when adding an eqmod with no plus", 0,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, true, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod with a plus", 2025,
+		Assert.assertEquals("Invalid cost when adding an eqmod with a plus", 2025,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 
 		aEquip.addEqModifier(eqMod2, false, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod to alt head with no plus", 2025,
+		Assert.assertEquals("Invalid cost when adding an eqmod to alt head with no plus", 2025,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 		aEquip.addEqModifier(eqModPlus, false, getCharacter());
-		assertEquals("Invalid cost when adding an eqmod to alt head with a plus", 4053,
+		Assert.assertEquals("Invalid cost when adding an eqmod to alt head with a plus", 4053,
 			aEquip.getCost(getCharacter()).floatValue(), 0.01);
 		
 	}
@@ -593,19 +595,19 @@ assertNotNull("Eqmod should be present", eqMod);
 	public void testNameItemFromModifiers()
 	{
 		String name = eq.nameItemFromModifiers(null);
-		assertEquals("Dummy", name);
+		Assert.assertEquals("Dummy", name);
 		name = eq.nameItemFromModifiers(getCharacter());
-		assertEquals("Dummy", name);
+		Assert.assertEquals("Dummy", name);
 		
 		name = eqDouble.nameItemFromModifiers(getCharacter());
-		assertEquals("Double", name);
+		Assert.assertEquals("Double", name);
 		Equipment item = eqDouble.clone();
 		EquipmentModifier eqModPlus = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
 		item.addEqModifier(eqModPlus, true, getCharacter());
 		item.put(ObjectKey.BASE_ITEM, CDOMDirectSingleRef.getRef(eqDouble));
 		name = item.nameItemFromModifiers(getCharacter());
-		assertEquals("Double +1_-", name);
+		Assert.assertEquals("Double +1_-", name);
 	}
 	
 	/**
@@ -615,16 +617,16 @@ assertNotNull("Eqmod should be present", eqMod);
 	{
 		EquipmentModifier eqMod = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 			EquipmentModifier.class, "PLUS1W");
-		assertNotNull("Eqmod should be present", eqMod);
+		Assert.assertNotNull("Eqmod should be present", eqMod);
 
 		Equipment aEquip = eq.clone();
-		assertFalse("Does not have eqmod yet", aEquip.isPreType("EQMOD=PLUS1W"));
+		Assert.assertFalse("Does not have eqmod yet", aEquip.isPreType("EQMOD=PLUS1W"));
 		aEquip.addEqModifier(eqMod, true, getCharacter());
-		assertTrue("Should have eqmod now", aEquip.isPreType("EQMOD=PLUS1W"));
-		assertFalse("Should not have eqmod with choice", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		Assert.assertTrue("Should have eqmod now", aEquip.isPreType("EQMOD=PLUS1W"));
+		Assert.assertFalse("Should not have eqmod with choice", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
 		aEquip.addAssociation(eqMod, "ChoicE");
-		assertTrue("Should have eqmod with choice now", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
-		assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
+		Assert.assertTrue("Should have eqmod with choice now", aEquip.isPreType("EQMOD=PLUS1W(Choice)"));
+		Assert.assertFalse("Should not have choice Bad", aEquip.isPreType("EQMOD=PLUS1W(Bad)"));
 		
 	}
 }

@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
@@ -40,78 +41,78 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testValidInputSimple() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Rheinhessen"));
+		Assert.assertTrue(parse("Rheinhessen"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
 	public void testValidInputNonEnglish() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Niederösterreich"));
+		Assert.assertTrue(parse("Niederösterreich"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
 	public void testValidInputSpace() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Finger Lakes"));
+		Assert.assertTrue(parse("Finger Lakes"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputHyphen() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 	}
 
 	@Test
 	public void testValidInputY() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Yarra Valley"));
+		Assert.assertTrue(parse("Yarra Valley"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Yarra Valley")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Yarra Valley")));
 	}
 
 	@Test
 	public void testValidInputList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(2, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputMultList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
-		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+		Assert.assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
 				+ "Rheinhessen"));
 		coll = primaryProf.getListFor(getListKey());
-		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(4, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	// FIXME Someday, when PCGen doesn't write out crappy stuff into custom
@@ -127,7 +128,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -135,7 +136,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
 		assertNoSideEffects();
 	}
 
@@ -143,7 +144,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -152,7 +153,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 		assertNoSideEffects();
 	}
@@ -210,26 +211,26 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			Assert.assertNull("Expected item to be null", unparsed);
 		}
 		if (isClearDotLegal())
 		{
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		Assert.assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			Assert.assertNull("Expected item to be null", unparsed);
 		}
 	}
 
@@ -237,16 +238,16 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testReplacementInputsTwo() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		Assert.assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+			Assert.assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		}
 	}
 
@@ -255,7 +256,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		if (isClearLegal())
 		{
-			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
+			Assert.assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
 			assertNoSideEffects();
 		}
 	}
@@ -266,7 +267,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		if (isClearDotLegal() && requiresPreconstruction())
 		{
 			// DoNotConstruct TestWP1
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			assertConstructionError();
 		}
 	}
@@ -279,10 +280,10 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		if (isClearDotLegal())
 		{
-			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
+			Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+			Assert.assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
+			Assert.assertFalse(parse("TestWP3" + getJoinCharacter() + ".CLEAR.TestWP2"
 					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -292,9 +293,9 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testInputInvalidAddsBasicNoSideEffect()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP4"));
 		assertNoSideEffects();
 	}
@@ -305,10 +306,10 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	{
 		if (isClearLegal() && isAllLegal())
 		{
-			assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
+			Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+			Assert.assertTrue(parseSecondary("TestWP1" + getJoinCharacter()
 					+ "TestWP2"));
-			assertFalse(parse(Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP3"
+			Assert.assertFalse(parse(Constants.LST_DOT_CLEAR + getJoinCharacter() + "TestWP3"
 					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -354,7 +355,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -373,7 +374,7 @@ public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

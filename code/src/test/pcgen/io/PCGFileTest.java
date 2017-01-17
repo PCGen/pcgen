@@ -2,6 +2,8 @@ package pcgen.io;
 
 import java.io.File;
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.cdom.base.Constants;
 
 /**
@@ -37,20 +39,20 @@ public class PCGFileTest extends TestCase
 	public void testIsPCGenCharacterFile() throws Exception
 	{
 		//file must exist for it to be true
-		assertFalse("Extension without filename", PCGFile.isPCGenCharacterFile(new File(
+		Assert.assertFalse("Extension without filename", PCGFile.isPCGenCharacterFile(new File(
 				Constants.EXTENSION_CHARACTER_FILE)));
 		File temp = File.createTempFile("PCT", Constants.EXTENSION_CHARACTER_FILE);
-		assertTrue("File existence", PCGFile.isPCGenCharacterFile(temp));
+		Assert.assertTrue("File existence", PCGFile.isPCGenCharacterFile(temp));
 		temp.delete();
 	}
 
 	public void testIsPCGenPartyFile() throws Exception
 	{
 		//file must exist for it to be true
-		assertFalse("Extension without filename", PCGFile.isPCGenPartyFile(new File(
+		Assert.assertFalse("Extension without filename", PCGFile.isPCGenPartyFile(new File(
 				Constants.EXTENSION_PARTY_FILE)));
 		File temp = File.createTempFile("PCT", Constants.EXTENSION_PARTY_FILE);
-		assertTrue("File existence", PCGFile.isPCGenPartyFile(temp));
+		Assert.assertTrue("File existence", PCGFile.isPCGenPartyFile(temp));
 		temp.delete();
 	}
 

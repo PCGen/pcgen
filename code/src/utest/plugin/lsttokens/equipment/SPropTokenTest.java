@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
@@ -54,20 +55,20 @@ public class SPropTokenTest extends
 	@Test
 	public void testInvalidDoubleClear() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR|.CLEAR|Second"));
+		Assert.assertFalse(parse(".CLEAR|.CLEAR|Second"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearAsVariable() throws PersistenceLayerException
 	{
-		assertFalse(parse("Second|.CLEAR"));
+		Assert.assertFalse(parse("Second|.CLEAR"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(Constants.LST_DOT_CLEAR));
+		Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 }

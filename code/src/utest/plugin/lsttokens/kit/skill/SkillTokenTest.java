@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.skill;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -56,7 +57,7 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -71,19 +72,19 @@ public class SkillTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("TYPE="));
+		Assert.assertFalse(parse("TYPE="));
 	}
 
 	@Test
 	public void testInvalidInputTrailingType() throws PersistenceLayerException
 	{
-		assertFalse(parse("TYPE=One."));
+		Assert.assertFalse(parse("TYPE=One."));
 	}
 
 	@Test
 	public void testInvalidInputDoubleType() throws PersistenceLayerException
 	{
-		assertFalse(parse("TYPE=One..Two"));
+		Assert.assertFalse(parse("TYPE=One..Two"));
 	}
 
 	@Test

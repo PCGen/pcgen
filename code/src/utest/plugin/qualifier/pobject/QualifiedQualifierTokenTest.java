@@ -30,6 +30,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
@@ -109,19 +110,19 @@ public class QualifiedQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|QUALIFIED[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|QUALIFIED[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.qualifiedSet.add(s1);
 		pc.qualifiedSet.add(s2);
 		set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	@Test
@@ -129,19 +130,19 @@ public class QualifiedQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|QUALIFIED[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|QUALIFIED[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.qualifiedSet.add(s1);
 		pc.qualifiedSet.add(s2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s2));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	private void initializeObjects()

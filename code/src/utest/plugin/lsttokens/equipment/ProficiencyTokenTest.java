@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipment;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
@@ -59,21 +60,21 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertFalse(parse(""));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("String"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
@@ -82,10 +83,10 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1,TestWP2"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("TestWP1,TestWP2"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
@@ -94,10 +95,10 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1|TestWP2"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("TestWP1|TestWP2"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
@@ -106,27 +107,27 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1.TestWP2"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("TestWP1.TestWP2"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyWeapon() throws PersistenceLayerException
 	{
-		assertFalse(parse("WEAPON|"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("WEAPON|"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputWeaponString() throws PersistenceLayerException
 	{
-		assertTrue(parse("WEAPON|String"));
+		Assert.assertTrue(parse("WEAPON|String"));
 		assertConstructionError();
 	}
 
@@ -151,9 +152,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -171,9 +172,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -191,9 +192,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -231,36 +232,36 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("WEAPON|TestWP1"));
-		assertTrue(parse("WEAPON|TestWP2"));
+		Assert.assertTrue(parse("WEAPON|TestWP1"));
+		Assert.assertTrue(parse("WEAPON|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "WEAPON|TestWP2", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "WEAPON|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 
 	@Test
 	public void testInvalidInputEmptyArmor() throws PersistenceLayerException
 	{
-		assertFalse(parse("ARMOR|"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("ARMOR|"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputArmorString() throws PersistenceLayerException
 	{
-		assertTrue(parse("ARMOR|String"));
+		Assert.assertTrue(parse("ARMOR|String"));
 		assertConstructionError();
 	}
 
@@ -285,9 +286,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -305,9 +306,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -325,9 +326,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -365,36 +366,36 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("ARMOR|TestWP1"));
-		assertTrue(parse("ARMOR|TestWP2"));
+		Assert.assertTrue(parse("ARMOR|TestWP1"));
+		Assert.assertTrue(parse("ARMOR|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "ARMOR|TestWP2", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "ARMOR|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 
 	@Test
 	public void testInvalidInputEmptyShield() throws PersistenceLayerException
 	{
-		assertFalse(parse("SHIELD|"));
-		assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-		assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-		assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+		Assert.assertFalse(parse("SHIELD|"));
+		Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+		Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputShieldString() throws PersistenceLayerException
 	{
-		assertTrue(parse("SHIELD|String"));
+		Assert.assertTrue(parse("SHIELD|String"));
 		assertConstructionError();
 	}
 
@@ -419,9 +420,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -439,9 +440,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -459,9 +460,9 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 		else
 		{
-			assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
-			assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
-			assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.WEAPON_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.SHIELD_PROF));
+			Assert.assertNull(primaryProf.get(ObjectKey.ARMOR_PROF));
 			assertNoSideEffects();
 		}
 	}
@@ -499,19 +500,19 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("SHIELD|TestWP1"));
-		assertTrue(parse("SHIELD|TestWP2"));
+		Assert.assertTrue(parse("SHIELD|TestWP1"));
+		Assert.assertTrue(parse("SHIELD|TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "SHIELD|TestWP2", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "SHIELD|TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 

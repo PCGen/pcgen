@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ListKey;
@@ -79,37 +81,37 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREBASESIZEEQ:Medium");
 
-		assertTrue("Character's base size should be equal to Medium",
+		Assert.assertTrue("Character's base size should be equal to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELTEQ:Medium");
 
-		assertTrue("Character's base size should be <= to Medium",
+		Assert.assertTrue("Character's base size should be <= to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGTEQ:Medium");
 
-		assertTrue("Character's base size should be >= to Medium",
+		Assert.assertTrue("Character's base size should be >= to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:Small");
 
-		assertTrue("Character's base size should be > to Small", PrereqHandler
+		Assert.assertTrue("Character's base size should be > to Small", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:Large");
 
-		assertTrue("Character's base size should be < to Large", PrereqHandler
+		Assert.assertTrue("Character's base size should be < to Large", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:Medium");
 
-		assertFalse("Character's base size should not be < to Medium",
+		Assert.assertFalse("Character's base size should not be < to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:Medium");
 
-		assertFalse("Character's base size should not be > to Medium",
+		Assert.assertFalse("Character's base size should not be > to Medium",
 			PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -128,37 +130,37 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREBASESIZEEQ:L");
 
-		assertTrue("Character's base size should be equal to Large",
+		Assert.assertTrue("Character's base size should be equal to Large",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELTEQ:L");
 
-		assertTrue("Character's base size should be <= to L", PrereqHandler
+		Assert.assertTrue("Character's base size should be <= to L", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGTEQ:L");
 
-		assertTrue("Character's base size should be >= to L", PrereqHandler
+		Assert.assertTrue("Character's base size should be >= to L", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:Small");
 
-		assertTrue("Character's base size should be > to Small", PrereqHandler
+		Assert.assertTrue("Character's base size should be > to Small", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:Huge");
 
-		assertTrue("Character's base size should be < to Large", PrereqHandler
+		Assert.assertTrue("Character's base size should be < to Large", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:L");
 
-		assertFalse("Character's base size should not be < to L", PrereqHandler
+		Assert.assertFalse("Character's base size should not be < to L", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:L");
 
-		assertFalse("Character's base size should not be > to Medium",
+		Assert.assertFalse("Character's base size should not be > to Medium",
 			PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -182,37 +184,37 @@ public class PreBaseSizeTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREBASESIZEEQ:Medium");
 
-		assertTrue("Character's base size should be equal to Medium",
+		Assert.assertTrue("Character's base size should be equal to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELTEQ:Medium");
 
-		assertTrue("Character's base size should be <= to Medium",
+		Assert.assertTrue("Character's base size should be <= to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGTEQ:Medium");
 
-		assertTrue("Character's base size should be >= to Medium",
+		Assert.assertTrue("Character's base size should be >= to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:Small");
 
-		assertTrue("Character's base size should be > to Small", PrereqHandler
+		Assert.assertTrue("Character's base size should be > to Small", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:Large");
 
-		assertTrue("Character's base size should be < to Large", PrereqHandler
+		Assert.assertTrue("Character's base size should be < to Large", PrereqHandler
 			.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZELT:Medium");
 
-		assertFalse("Character's base size should not be < to Medium",
+		Assert.assertFalse("Character's base size should not be < to Medium",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREBASESIZEGT:Medium");
 
-		assertFalse("Character's base size should not be > to Medium",
+		Assert.assertFalse("Character's base size should not be > to Medium",
 			PrereqHandler.passes(prereq, character, null));
 	}
 

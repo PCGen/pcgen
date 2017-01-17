@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.MapKey;
@@ -56,63 +57,63 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoCycle() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB"));
+		Assert.assertFalse(parse("BAB"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyCycle() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|"));
+		Assert.assertFalse(parse("BAB|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("|4"));
+		Assert.assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOpenStart() throws PersistenceLayerException
 	{
-		assertFalse(parse("|BAB|3"));
+		Assert.assertFalse(parse("|BAB|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOpenEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|4|"));
+		Assert.assertFalse(parse("BAB|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|x"));
+		Assert.assertFalse(parse("BAB|x"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|-2"));
+		Assert.assertFalse(parse("BAB|-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|0"));
+		Assert.assertFalse(parse("BAB|0"));
 		assertNoSideEffects();
 	}
 
@@ -120,7 +121,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipeTypeOne()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB||5"));
+		Assert.assertFalse(parse("BAB||5"));
 		assertNoSideEffects();
 	}
 
@@ -128,7 +129,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipeTypeTwo()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|5||UAB|5"));
+		Assert.assertFalse(parse("BAB|5||UAB|5"));
 		assertNoSideEffects();
 	}
 
@@ -136,21 +137,21 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoublePipeTypeThree()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|5|UAB||4"));
+		Assert.assertFalse(parse("BAB|5|UAB||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputGAB() throws PersistenceLayerException
 	{
-		assertFalse(parse("GAB|5"));
+		Assert.assertFalse(parse("GAB|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputGABSecond() throws PersistenceLayerException
 	{
-		assertFalse(parse("BAB|4|GAB|5"));
+		Assert.assertFalse(parse("BAB|4|GAB|5"));
 		assertNoSideEffects();
 	}
 
@@ -200,7 +201,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.addToMapFor(MapKey.ATTACK_CYCLE, AttackType.MELEE, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -248,7 +249,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -265,7 +266,7 @@ public class AttackCycleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

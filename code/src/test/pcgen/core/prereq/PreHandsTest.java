@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PlayerCharacter;
@@ -69,17 +71,17 @@ public class PreHandsTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREHANDSLT:2");
 
-		assertFalse("Character has more than 1 hand", PrereqHandler.passes(
+		Assert.assertFalse("Character has more than 1 hand", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("PREHANDSEQ:2");
 
-		assertTrue("Character has 2 hands", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has 2 hands", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PREHANDSGT:2");
 
-		assertFalse("Character does not have more than 2 hands", PrereqHandler
+		Assert.assertFalse("Character does not have more than 2 hands", PrereqHandler
 			.passes(prereq, character, null));
 	}
 }

@@ -19,6 +19,7 @@ package plugin.lsttokens.template;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -77,10 +78,10 @@ public class RaceSubtypeTokenTest extends
 	public void testValidRemoveInputSimple() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Rheinhessen"));
+		Assert.assertTrue(parse(".REMOVE.Rheinhessen"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
@@ -88,65 +89,65 @@ public class RaceSubtypeTokenTest extends
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Niederösterreich"));
+		Assert.assertTrue(parse(".REMOVE.Niederösterreich"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
 	public void testValidRemoveInputSpace() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Finger Lakes"));
+		Assert.assertTrue(parse(".REMOVE.Finger Lakes"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidRemoveInputHyphen() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Languedoc-Roussillon"));
+		Assert.assertTrue(parse(".REMOVE.Languedoc-Roussillon"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 	}
 
 	@Test
 	public void testValidRemoveInputList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
 				+ ".REMOVE.Finger Lakes"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(2, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputMultRemoveList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse(".REMOVE.Niederösterreich" + getJoinCharacter()
 				+ ".REMOVE.Finger Lakes"));
-		assertTrue(parse(".REMOVE.Languedoc-Roussillon" + getJoinCharacter()
+		Assert.assertTrue(parse(".REMOVE.Languedoc-Roussillon" + getJoinCharacter()
 				+ ".REMOVE.Rheinhessen"));
 		coll = primaryProf.getListFor(ListKey.REMOVED_RACESUBTYPE);
-		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(4, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
 	public void testInvalidRemoveEmpty() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
-		assertFalse(parse(".REMOVE."));
+		Assert.assertFalse(parse(".REMOVE."));
 		assertNoSideEffects();
 	}
 
@@ -154,7 +155,7 @@ public class RaceSubtypeTokenTest extends
 	public void testInvalidRemoveListEnd() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
-		assertFalse(parse("TestWP1" + getJoinCharacter() + ".REMOVE."));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter() + ".REMOVE."));
 		assertNoSideEffects();
 	}
 
@@ -162,7 +163,7 @@ public class RaceSubtypeTokenTest extends
 	public void testInvalidRemoveListStart() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
-		assertFalse(parse(".REMOVE." + getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(".REMOVE." + getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -172,7 +173,7 @@ public class RaceSubtypeTokenTest extends
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(PCTemplate.class, "TestWP2");
-		assertFalse(parse(".REMOVE.TestWP2" + getJoinCharacter()
+		Assert.assertFalse(parse(".REMOVE.TestWP2" + getJoinCharacter()
 				+ getJoinCharacter() + ".REMOVE.TestWP1"));
 		assertNoSideEffects();
 	}
@@ -278,7 +279,7 @@ public class RaceSubtypeTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

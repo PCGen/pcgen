@@ -23,6 +23,7 @@ import java.util.Map;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -67,16 +68,16 @@ public class ReachFacetTest extends TestCase
 	@Test
 	public void testReachUnsetZero()
 	{
-		assertEquals(0, facet.getReach(id));
+		Assert.assertEquals(0, facet.getReach(id));
 	}
 
 	@Test
 	public void testWithNothingInRaceDefaultsTo5()
 	{
 		rfacet.set(id, new Race());
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 		rfacet.remove(id);
-		assertEquals(0, facet.getReach(id));
+		Assert.assertEquals(0, facet.getReach(id));
 	}
 
 	@Test
@@ -85,7 +86,7 @@ public class ReachFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
 		rfacet.set(id, r);
-		assertEquals(0, facet.getReach(altid));
+		Assert.assertEquals(0, facet.getReach(altid));
 	}
 
 	@Test
@@ -94,7 +95,7 @@ public class ReachFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -104,9 +105,9 @@ public class ReachFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 3);
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getReach(id));
+		Assert.assertEquals(3, facet.getReach(id));
 		tfacet.remove(id, t, this);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -116,9 +117,9 @@ public class ReachFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 7);
 		tfacet.add(id, t, this);
-		assertEquals(7, facet.getReach(id));
+		Assert.assertEquals(7, facet.getReach(id));
 		tfacet.remove(id, t, this);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -130,9 +131,9 @@ public class ReachFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 3);
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getReach(id));
+		Assert.assertEquals(3, facet.getReach(id));
 		tfacet.remove(id, t, this);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -144,9 +145,9 @@ public class ReachFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.REACH, 8);
 		tfacet.add(id, t, this);
-		assertEquals(8, facet.getReach(id));
+		Assert.assertEquals(8, facet.getReach(id));
 		tfacet.remove(id, t, this);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -163,11 +164,11 @@ public class ReachFacetTest extends TestCase
 		t2.setName("Other");
 		t2.put(IntegerKey.REACH, 7);
 		tfacet.add(id, t2, this);
-		assertEquals(7, facet.getReach(id));
+		Assert.assertEquals(7, facet.getReach(id));
 		tfacet.remove(id, t2, this);
-		assertEquals(8, facet.getReach(id));
+		Assert.assertEquals(8, facet.getReach(id));
 		tfacet.remove(id, t, this);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 	}
 
 	@Test
@@ -176,26 +177,26 @@ public class ReachFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.REACH, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 		bonusInfo.put(altid, 4.0);
 		//No pollution
-		assertEquals(5, facet.getReach(id));
+		Assert.assertEquals(5, facet.getReach(id));
 		bonusInfo.put(id, 6.0);
-		assertEquals(11, facet.getReach(id));
+		Assert.assertEquals(11, facet.getReach(id));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.put(IntegerKey.REACH, 8);
 		tfacet.add(id, t, this);
-		assertEquals(14, facet.getReach(id));
+		Assert.assertEquals(14, facet.getReach(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.put(IntegerKey.REACH, 7);
 		tfacet.add(id, t2, this);
-		assertEquals(13, facet.getReach(id));
+		Assert.assertEquals(13, facet.getReach(id));
 		tfacet.remove(id, t2, this);
-		assertEquals(14, facet.getReach(id));
+		Assert.assertEquals(14, facet.getReach(id));
 		bonusInfo.clear();
-		assertEquals(8, facet.getReach(id));
+		Assert.assertEquals(8, facet.getReach(id));
 	}
 
 	public ReachFacet getMockFacet() throws SecurityException,

@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.util.Arrays;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -51,42 +52,42 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidPipeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("|"));
+		Assert.assertFalse(parse("|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEndsPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Yarra Valley|"));
+		Assert.assertFalse(parse("Yarra Valley|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidStartsPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Yarra Valley"));
+		Assert.assertFalse(parse("|Yarra Valley"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Yarra Valley||Rheinhessen"));
+		Assert.assertFalse(parse("Yarra Valley||Rheinhessen"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("!PRELEVEL:MIN=3"));
+		Assert.assertFalse(parse("!PRELEVEL:MIN=3"));
 		assertNoSideEffects();
 	}
 
@@ -101,14 +102,14 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testInvalidBadPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("Yarra Valley|Rheinhessen|PREFOO:3"));
+		Assert.assertFalse(parse("Yarra Valley|Rheinhessen|PREFOO:3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNotBadPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("Yarra Valley|Rheinhessen|!PREFOO:3"));
+		Assert.assertFalse(parse("Yarra Valley|Rheinhessen|!PREFOO:3"));
 		assertNoSideEffects();
 	}
 
@@ -196,7 +197,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -219,7 +220,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -234,11 +235,11 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		primaryProf.addToListFor(getListKey(),
 				getConstant(getAlternateLegalValue()));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(2, unparsed.length);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(2, unparsed.length);
 		List<String> upList = Arrays.asList(unparsed);
-		assertTrue(upList.contains(getLegalValue()));
-		assertTrue(upList.contains(getAlternateLegalValue()));
+		Assert.assertTrue(upList.contains(getLegalValue()));
+		Assert.assertTrue(upList.contains(getAlternateLegalValue()));
 	}
 
 	private ListKey<SpecialProperty> getListKey()
@@ -259,7 +260,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

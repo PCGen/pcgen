@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.basekit;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.kit.BaseKit;
@@ -54,19 +55,19 @@ public class LookupTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	@Test
 	public void testInvalidInputTrailing() throws PersistenceLayerException
 	{
-		assertFalse(parse("Formula,"));
+		Assert.assertFalse(parse("Formula,"));
 	}
 
 	@Test
 	public void testInvalidInputStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse(",45"));
+		Assert.assertFalse(parse(",45"));
 	}
 
 	@Test
 	public void testInvalidInputDouble() throws PersistenceLayerException
 	{
-		assertFalse(parse("Start,,45"));
+		Assert.assertFalse(parse("Start,,45"));
 	}
 
 	@Test

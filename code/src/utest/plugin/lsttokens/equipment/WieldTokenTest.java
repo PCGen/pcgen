@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -74,7 +75,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		try
 		{
 			boolean parse = parse("INVALID");
-			assertFalse(parse);
+			Assert.assertFalse(parse);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -85,7 +86,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	@Test
 	public void testBadInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -129,7 +130,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<WieldCategory> getObjectKey()
@@ -156,7 +157,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

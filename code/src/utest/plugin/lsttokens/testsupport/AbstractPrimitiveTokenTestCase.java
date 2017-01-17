@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -89,42 +90,42 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + prim + "=]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + prim + "=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testPrimitivePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + "|]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + "|]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testPrimitiveComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + ",]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good + ",]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testPipePrimitive() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[|" + good + "]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[|" + good + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testCommaPrimitive() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[," + good + "]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[," + good + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testPrimitiveDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP2||"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP2||"
 				+ good + "]]"));
 		assertNoSideEffects();
 	}
@@ -132,7 +133,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo,,"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo,,"
 				+ good + "]"));
 		assertNoSideEffects();
 	}
@@ -140,7 +141,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveAll1() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[ALL|" + good
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[ALL|" + good
 				+ "]"));
 		assertNoSideEffects();
 	}
@@ -148,7 +149,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveAll2() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "|ALL]"));
 		assertNoSideEffects();
 	}
@@ -156,7 +157,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testTypePrimitiveBadSyntax() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
 				+ good));
 		assertNoSideEffects();
 	}
@@ -164,7 +165,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveTypeBadSyntax() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "]TYPE=Foo"));
 		assertNoSideEffects();
 	}
@@ -173,7 +174,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	public void testPrimitiveTypePipeBadSyntax()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "]TYPE=Foo|TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -182,7 +183,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	public void testPrimitiveTypeCommaBadSyntax()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TYPE=Foo]"
 				+ good + ",TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -190,7 +191,7 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testPrimitiveUsedAsQualifier() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + good + "[" + good + "]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + good + "[" + good + "]"));
 		assertNoSideEffects();
 	}
 
@@ -220,10 +221,10 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|'
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1|TestWP2]"));
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|'
 				+ "QUALIFIED[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP3||"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP3||"
 				+ good + "]"));
 		assertNoSideEffects();
 	}
@@ -236,10 +237,10 @@ public abstract class AbstractPrimitiveTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|'
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "QUALIFIED[TestWP1|TestWP2]"));
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|'
 				+ "QUALIFIED[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "QUALIFIED[" + good
 				+ "|ALL]"));
 		assertNoSideEffects();
 	}

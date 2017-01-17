@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.Constants;
@@ -85,7 +86,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -97,7 +98,7 @@ public class KnownspellsTokenTest extends
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
-			assertFalse(parse("TestWP1,TestWP2"));
+			Assert.assertFalse(parse("TestWP1,TestWP2"));
 		}
 		assertNoSideEffects();
 	}
@@ -105,7 +106,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testInvalidInputTwoType() throws PersistenceLayerException
 	{
-		assertFalse(parse("TYPE=TestWP1,TYPE=TestWP2"));
+		Assert.assertFalse(parse("TYPE=TestWP1,TYPE=TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -113,49 +114,49 @@ public class KnownspellsTokenTest extends
 	public void testInvalidInputSpellAndType() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1,TYPE=TestWP2"));
+		Assert.assertFalse(parse("TestWP1,TYPE=TestWP2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLevelEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL="));
+		Assert.assertFalse(parse("LEVEL="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLevelNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL=One"));
+		Assert.assertFalse(parse("LEVEL=One"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLevelDouble() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL=1.0"));
+		Assert.assertFalse(parse("LEVEL=1.0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputStart() throws PersistenceLayerException
 	{
-		assertFalse(parse(",LEVEL=2"));
+		Assert.assertFalse(parse(",LEVEL=2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL=2,"));
+		Assert.assertFalse(parse("LEVEL=2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL=-2"));
+		Assert.assertFalse(parse("LEVEL=-2"));
 		assertNoSideEffects();
 	}
 
@@ -164,7 +165,7 @@ public class KnownspellsTokenTest extends
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse("TYPE=Foo,,LEVEL=2"));
+			Assert.assertFalse(parse("TYPE=Foo,,LEVEL=2"));
 			assertNoSideEffects();
 		}
 	}
@@ -172,7 +173,7 @@ public class KnownspellsTokenTest extends
 	@Test
 	public void testInvalidInputTwoLevel() throws PersistenceLayerException
 	{
-		assertFalse(parse("LEVEL=1,LEVEL=2"));
+		Assert.assertFalse(parse("LEVEL=1,LEVEL=2"));
 		assertNoSideEffects();
 	}
 
@@ -357,7 +358,7 @@ public class KnownspellsTokenTest extends
 		primaryProf.addToListFor(ListKey.KNOWN_SPELLS, null);
 		try
 		{
-			assertNull(getToken().unparse(primaryContext, primaryProf));
+			Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 		}
 		catch (NullPointerException e)
 		{

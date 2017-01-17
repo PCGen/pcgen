@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.IntegerKey;
@@ -55,56 +56,56 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("4"));
+		Assert.assertFalse(parse("4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|5|6"));
+		Assert.assertFalse(parse("4|5|6"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMinNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|4"));
+		Assert.assertFalse(parse("String|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMaxNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("3|Str"));
+		Assert.assertFalse(parse("3|Str"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMinNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-4|5"));
+		Assert.assertFalse(parse("-4|5"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMaxNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("6|-7"));
+		Assert.assertFalse(parse("6|-7"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMaxLTMin() throws PersistenceLayerException
 	{
-		assertFalse(parse("7|3"));
+		Assert.assertFalse(parse("7|3"));
 		assertNoSideEffects();
 	}
 
@@ -143,7 +144,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, null);
 		primaryProf.put(IntegerKey.MAX_CHARGES, 1);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -151,7 +152,7 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	{
 		primaryProf.put(IntegerKey.MIN_CHARGES, 1);
 		primaryProf.put(IntegerKey.MAX_CHARGES, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -181,19 +182,19 @@ public class ChargesTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	@Test
 	public void testUnparseMaxLTMin() throws PersistenceLayerException
 	{
-		assertNull(setAndUnparse(10, 5));
+		Assert.assertNull(setAndUnparse(10, 5));
 	}
 
 	@Test
 	public void testUnparseNegativeMin() throws PersistenceLayerException
 	{
-		assertNull(setAndUnparse(-5, 10));
+		Assert.assertNull(setAndUnparse(-5, 10));
 	}
 
 	@Test
 	public void testUnparseNegativeMax() throws PersistenceLayerException
 	{
-		assertNull(setAndUnparse(5, -10));
+		Assert.assertNull(setAndUnparse(5, -10));
 	}
 
 	protected String[] setAndUnparse(int min, int max)

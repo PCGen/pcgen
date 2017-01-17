@@ -19,6 +19,7 @@ package plugin.lsttokens.bonus;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,21 +69,21 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputOnlyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown"));
+		Assert.assertFalse(parse("SpellKnown"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyTypeBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown|"));
+		Assert.assertFalse(parse("SpellKnown|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1"));
+		Assert.assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1"));
 		assertNoSideEffects();
 	}
 
@@ -91,7 +92,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1|"));
+			Assert.assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1|"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -103,14 +104,14 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNoTarget() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown||2"));
+		Assert.assertFalse(parse("SpellKnown||2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleFirstPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellKnown||CLASS.Wizard;LEVEL.1|1"));
+		Assert.assertFalse(parse("SpellKnown||CLASS.Wizard;LEVEL.1|1"));
 		assertNoSideEffects();
 	}
 
@@ -119,7 +120,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1||1"));
+			Assert.assertFalse(parse("SpellKnown|CLASS.Wizard;LEVEL.1||1"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -131,9 +132,9 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse(getLegalValue()));
+		Assert.assertTrue(parse(getLegalValue()));
 		assertCleanConstruction();
-		assertTrue(parse(getAlternateLegalValue()));
+		Assert.assertTrue(parse(getAlternateLegalValue()));
 		assertCleanConstruction();
 	}
 

@@ -32,6 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -106,26 +107,26 @@ public class ExclusiveQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s4));
-		assertTrue(set.contains(s5));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s4));
+		Assert.assertTrue(set.contains(s5));
 		pc.skillSet.put(s1, 2);
 		pc.skillSet.put(s2, 0);
 		set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s4));
-		assertTrue(set.contains(s5));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s4));
+		Assert.assertTrue(set.contains(s5));
 		pc.skillCostMap.put(s4, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 	}
 
 	@Test
@@ -133,18 +134,18 @@ public class ExclusiveQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|EXCLUSIVE[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s4));
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s4));
 		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 	}
 
 	@Test
@@ -152,22 +153,22 @@ public class ExclusiveQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|!EXCLUSIVE[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|!EXCLUSIVE[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
 		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertEquals(3, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(s4));
+		Assert.assertEquals(3, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(s4));
 	}
 
 	private void initializeObjects()

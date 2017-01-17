@@ -32,6 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -107,7 +108,7 @@ public class RanksQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|RANKS=3[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|RANKS=3[ALL]"));
 		BuildUtilities
 			.createFact(primaryContext, "ClassType", getTargetClass());
 		FactDefinition<?, ?> fd =
@@ -120,16 +121,16 @@ public class RanksQualifierTokenTest extends
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillSet.put(s1, 2);
 		pc.skillSet.put(s2, 1);
 		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillSet.put(s2, 4);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s2));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	@Test
@@ -137,7 +138,7 @@ public class RanksQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|RANKS=2[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|RANKS=2[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
@@ -145,8 +146,8 @@ public class RanksQualifierTokenTest extends
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s2));
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	@Test
@@ -154,7 +155,7 @@ public class RanksQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|!RANKS=2[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|!RANKS=2[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
@@ -162,8 +163,8 @@ public class RanksQualifierTokenTest extends
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s3));
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s3));
 	}
 
 	@Test
@@ -171,7 +172,7 @@ public class RanksQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|RANKS=MAXRANK[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|RANKS=MAXRANK[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
@@ -180,11 +181,11 @@ public class RanksQualifierTokenTest extends
 		pc.skillSet.put(s1, 1);
 		pc.skillSet.put(s2, 2);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillSet.put(s2, 4);
 		set = info.getSet(pc);
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s2));
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	private void initializeObjects()
