@@ -22,7 +22,8 @@ Evangelist Aligned Class									CATEGORY:Special Ability	TYPE:Evangelist Aligne
 
 # Selections
 Barbarian	CATEGORY:Aligned Class	TYPE:Aligned Class	PREABILITY:1,CATEGORY=Class,Barbarian	BONUS:VAR|Barbarian_CFP_Level,BarbarianLVL|EvangelistLVL-1
-Magus		CATEGORY:Aligned Class	TYPE:Aligned Class	PREABILITY:1,CATEGORY=Class,Magus		BONUS:VAR|Magus_CFP_Level,MagusLVL|EvangelistLVL-1	
+Cleric	CATEGORY:Aligned Class	TYPE:Aligned Class	PREABILITY:1,CATEGORY=Class,Cleric		BONUS:VAR|Cleric_CFP_Level,ClericLVL|EvangelistLVL-1			BONUS:PCLEVEL|Cleric|EvangelistLVL-1
+Magus		CATEGORY:Aligned Class	TYPE:Aligned Class	PREABILITY:1,CATEGORY=Class,Magus		BONUS:VAR|Magus_CFP_Level,MagusLVL|EvangelistLVL-1			BONUS:PCLEVEL|Magus|EvangelistLVL-1
 
 
 #DEFINE:IsSacred|0	DEFINE:IsProfane|0
