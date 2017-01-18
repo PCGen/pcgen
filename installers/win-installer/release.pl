@@ -316,7 +316,7 @@ else {
                 files_to_skip_ref   => [
                     # files - skip jars installed using other options and testing only jars
                     qr{ [/]
-                        (?:  kunststoff | skinlf | fop | jdom
+                        (?:  skinlf | fop | jdom
                         	| javacc | junit | xmlunit | objenesis | clover | easymock | emma | hamcrest  )
                         [^/]* \z
                     }xmsi,
@@ -337,7 +337,7 @@ else {
                 files_to_keep_ref   => [
                     # files
                     qr{ [/]
-                        (?: kunststoff | skinlf  )
+                        (?: skinlf  )
                         [^/]* \z
                     }xmsi,
                 ],

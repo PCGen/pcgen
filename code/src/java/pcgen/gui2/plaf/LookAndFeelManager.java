@@ -58,45 +58,29 @@ public final class LookAndFeelManager
 
 	static
 	{
-		try
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
 		{
-			// Add the Kunststoff L&F before asking the UIManager.
-			Class.forName("com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-			UIManager.installLookAndFeel("Kunststoff", "com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-		}
-		catch (ClassNotFoundException ex)
-		{
-			//not much we can do can do about this
-		}
-		Comparator<LookAndFeelInfo> lafcomp = new Comparator<LookAndFeelInfo>()
-		{
-
-			@Override
-			public int compare(LookAndFeelInfo o1, LookAndFeelInfo o2)
-			{
-				//System laf goes first
-				if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return 1;
-				}
-				//Cross Platfrom laf goes second
-				if (o1.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return 1;
-				}
-				//the rest don't matter
-				return 0;
-			}
-
-		};
+            //System laf goes first
+            if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return 1;
+            }
+            //Cross Platfrom laf goes second
+            if (o1.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return 1;
+            }
+            //the rest don't matter
+            return 0;
+        };
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
 		Arrays.sort(lafInfo, lafcomp);
