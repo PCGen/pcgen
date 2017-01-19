@@ -76,7 +76,6 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 	private JComboBoxEx abilityPurchaseModeCombo;
 	private JComboBoxEx abilityRolledModeCombo = null;
 	private JComboBoxEx abilityScoreCombo;
-	private JButton purchaseModeButton;
 	private PurchaseModeFrame pmsFrame = null;
 
 	private ActionListener rolledModeListener;
@@ -231,9 +230,8 @@ public class CharacterStatsPanel extends PCGenPrefsPanel
 		gridbag.setConstraints(label, c);
 		this.add(label);
 		Utility.buildConstraints(c, 1, row++, 3, 1, 0, 0);
-		purchaseModeButton =
-				new JButton(LanguageBundle
-					.getString("in_Prefs_purchaseModeConfig"));
+		JButton purchaseModeButton = new JButton(LanguageBundle
+				.getString("in_Prefs_purchaseModeConfig"));
 		gridbag.setConstraints(purchaseModeButton, c);
 		this.add(purchaseModeButton);
 		purchaseModeButton.addActionListener(new PurchaseModeButtonListener());
