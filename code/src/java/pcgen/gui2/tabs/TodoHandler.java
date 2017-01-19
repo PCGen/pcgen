@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 30/01/2012 10:18:20 PM
- *
- * $Id$
  */
 package pcgen.gui2.tabs;
 
@@ -32,6 +28,8 @@ package pcgen.gui2.tabs;
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
+@FunctionalInterface
+@SuppressWarnings("TodoComment")
 public interface TodoHandler
 {
 
