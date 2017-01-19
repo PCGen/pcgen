@@ -14,10 +14,10 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package pcgen.gui2.doomsdaybook;
+
+import java.io.File;
 
 /**
  *
@@ -25,11 +25,6 @@
  */
 public class XMLFilter implements java.io.FilenameFilter
 {
-	/** Creates a new instance of XMLFilter */
-	public XMLFilter()
-	{
-		// Empty Constructor
-	}
 
 	/**
 	 * Returns true if file matches *.xml
@@ -39,7 +34,7 @@ public class XMLFilter implements java.io.FilenameFilter
 	 * @return true if filter matches *.xml
 	 */
 	@Override
-	public boolean accept(java.io.File file, String str)
+	public boolean accept(File file, String str)
 	{
 		return str.matches(".*\\.xml$");
 	}
