@@ -1,5 +1,4 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<!-- $Id$ -->
 
 <!-- Removed Domains and prohibited schools, as they do not exist in Modern gameMode - Frank Kliewe
 	2006/02/28 implemented FREQ [ 1411525 ] [MSRD] display offhand penalties for ranged weap - Frank Kliewe

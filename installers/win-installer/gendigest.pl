@@ -8,7 +8,6 @@
 #
 # args: DEST_FOLDER - Optionally override the default release folder name.
 #
-# $Id$
 
 
 use strict;

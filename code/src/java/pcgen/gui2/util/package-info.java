@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
  * 
- * $Id$
  */
 /**
  * This package contains utility swing components which are used to implement

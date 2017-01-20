@@ -18,7 +18,6 @@
  *
  *
  *
- * $Id$
  */
 package pcgen.core;
 

@@ -18,7 +18,6 @@
  * USA
  *
  *
- * $Id$
  */
 package pcgen.core;
 
