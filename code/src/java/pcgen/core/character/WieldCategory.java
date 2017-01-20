@@ -19,7 +19,6 @@
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * Created on November 21, 2003, 11:26 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.character;

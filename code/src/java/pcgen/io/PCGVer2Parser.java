@@ -18,7 +18,6 @@
  *
  * Created on March 22, 2002, 12:15 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io;

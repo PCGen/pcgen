@@ -38,7 +38,6 @@ import java.util.TreeMap;
  * </p>
  *
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>

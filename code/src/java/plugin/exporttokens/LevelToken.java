@@ -18,7 +18,6 @@
  *
  * Created on January 13, 2004, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.exporttokens;

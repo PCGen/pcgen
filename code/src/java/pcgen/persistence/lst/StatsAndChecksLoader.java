@@ -18,7 +18,6 @@
  *
  * Created on October 13, 2003, 11:50 AM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 

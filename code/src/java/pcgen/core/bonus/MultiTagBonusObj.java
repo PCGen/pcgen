@@ -18,7 +18,6 @@
  *
  * Created on Mar 29, 2003, 00:00
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.bonus;

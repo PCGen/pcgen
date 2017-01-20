@@ -18,7 +18,6 @@
  *
  * Created on January 23, 2006
  *
- * Current Ver: $Revision: 1777 $
  *
  */
 package pcgen.persistence.lst.prereq;

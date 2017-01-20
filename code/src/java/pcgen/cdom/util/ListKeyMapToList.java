@@ -17,7 +17,6 @@
  *
  * Created on June 18, 2005.
  *
- * Current Ver: $Revision$
  */
 package pcgen.cdom.util;
 

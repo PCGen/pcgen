@@ -18,7 +18,6 @@
  *
  * Created on Jun 10, 2005
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.party;
 

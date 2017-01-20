@@ -18,7 +18,6 @@
  *
  * Created on 8 September, 2013
  *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.startpack;

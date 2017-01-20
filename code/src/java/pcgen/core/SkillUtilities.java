@@ -19,7 +19,6 @@
  * Created on Aug 25, 2005
  *  Refactored from PlayerCharacter, created on April 21, 2001, 2:15 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;

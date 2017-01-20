@@ -18,7 +18,6 @@
  * 
  * Created on May 7, 2010, 1:01:02 PM
  *
- * Current Ver: $Revision: 11596 $ <br>
  *
  */
 package pcgen.gui2.dialog;
