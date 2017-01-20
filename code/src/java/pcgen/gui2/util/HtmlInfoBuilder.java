@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 4-feb-07
  *
  * $Id: HtmlInfoBuilder.java 14600 2011-02-24 23:41:00Z jdempsey $
  */

@@ -18,7 +18,6 @@
  *
  *  PreferencesMassiveDamagePanel.java
  *
- *  Created on July 10, 2003, 5:03 PM
  */
 package plugin.initiative.gui;
 

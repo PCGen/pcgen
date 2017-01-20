@@ -18,7 +18,6 @@
  *
  *  InitHolderVector.java
  *
- *  Created on January 16, 2002, 1:08 PM
  */
 package gmgen.plugin;
 

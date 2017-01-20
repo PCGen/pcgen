@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 23, 2003, 10:03 PM
  *
  * $Id: Hyperactive.java 1817 2006-12-27 23:54:53Z jdempsey $
  */

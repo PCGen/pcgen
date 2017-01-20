@@ -18,7 +18,6 @@
  *
  *  InitFileFilter.java
  *
- *  Created on August 29, 2002, 6:21 PM
  */
 package plugin.initiative;
 
@@ -74,7 +73,6 @@ import plugin.initiative.gui.PreferencesPerformancePanel;
  * the Adjusting of experience. This class is called by the {@code GMGenSystem
  * }
  * and will have it's own model and view. <br>
- * Created on February 26, 2003 <br>
  * Updated on February 26, 2003
  *
  * @author Expires 2003

@@ -18,7 +18,6 @@
  *
  * OpposedCheckDialog.java
  *
- * Created on May 4, 2004, 1:32:24 PM
  */
 
 package plugin.initiative.gui;
