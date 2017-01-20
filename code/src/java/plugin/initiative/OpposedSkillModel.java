@@ -42,7 +42,6 @@ import pcgen.core.RollingMethods;
  * </p>
  *
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>

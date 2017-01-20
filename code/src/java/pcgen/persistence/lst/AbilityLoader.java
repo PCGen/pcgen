@@ -19,7 +19,6 @@
  * Created on February 22, 2002, 10:29 PM
  * this code was moved and changed from FeatLoader.java
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;

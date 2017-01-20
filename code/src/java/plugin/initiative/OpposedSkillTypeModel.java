@@ -32,7 +32,6 @@ import java.util.List;
  * </p>
  * 
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>

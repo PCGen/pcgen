@@ -18,7 +18,6 @@
  *
  * Created on August 21, 2004
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.pretokens.test;

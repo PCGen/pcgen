@@ -18,7 +18,6 @@
  *
  * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -41,7 +40,6 @@ import pcgen.rules.context.LoadContext;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author sage_sam
  */

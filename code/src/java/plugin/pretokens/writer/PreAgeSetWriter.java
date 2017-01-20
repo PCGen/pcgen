@@ -17,7 +17,6 @@
  *
  * Created on 30-Dec-2006
  *
- * Current Ver: $Revision$
  *
  *
  *

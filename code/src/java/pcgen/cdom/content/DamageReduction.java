@@ -18,7 +18,6 @@
  *
  * Created on March 16, 2006
  *
- * Current Ver: $Revision: $
  */
 package pcgen.cdom.content;
 

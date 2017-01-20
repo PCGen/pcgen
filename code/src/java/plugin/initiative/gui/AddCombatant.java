@@ -40,7 +40,6 @@ import plugin.initiative.XMLCombatant;
  * the combatant(s) and saves them to the initiative model.
  * </p>
  *
- * <p>Current Ver: $Revision$</p>
  *
  * @author     devon
  */

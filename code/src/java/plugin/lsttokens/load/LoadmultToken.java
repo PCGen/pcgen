@@ -19,7 +19,6 @@
  *
  * Created on September 2, 2002, 8:02 AM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.load;

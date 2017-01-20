@@ -19,7 +19,6 @@
  * @author Pat Ludwig <havoc@boldo.com>
  * Created on May 20th, 2002
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.utils;
 

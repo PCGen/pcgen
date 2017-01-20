@@ -19,7 +19,6 @@
  *
  * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.system;
