@@ -18,7 +18,6 @@
  *
  * Created on 11/02/2012 7:08:41 PM
  *
- * $Id$
  */
 package pcgen.facade.core;
 

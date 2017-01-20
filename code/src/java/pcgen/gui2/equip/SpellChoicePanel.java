@@ -18,7 +18,6 @@
  *
  * Created on 09/10/2013
  *
- * $Id$
  */
 package pcgen.gui2.equip;
 

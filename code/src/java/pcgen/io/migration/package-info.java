@@ -17,7 +17,6 @@
  *
  * Created on 18/01/2014
  *
- * $Id$
  */
 /**
  * This package is the home for character migration classes. These are classes 

@@ -18,7 +18,6 @@
  *
  * Created on 23/10/2013
  *
- * $Id$
  */
 package pcgen.inttest;
 

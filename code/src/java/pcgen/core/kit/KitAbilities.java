@@ -18,7 +18,6 @@
  *
  * Created on 10 September 2005
  *
- * $Id$
  */
 package pcgen.core.kit;
 

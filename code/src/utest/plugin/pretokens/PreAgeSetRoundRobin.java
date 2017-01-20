@@ -18,7 +18,6 @@
  *
  * Created on 1/04/2008
  *
- * $Id$
  */
 package plugin.pretokens;
 

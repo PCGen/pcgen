@@ -18,7 +18,6 @@
  *
  * Created on 10/07/2009 6:41:36 PM
  *
- * $Id$
  */
 package pcgen.core.term;
 

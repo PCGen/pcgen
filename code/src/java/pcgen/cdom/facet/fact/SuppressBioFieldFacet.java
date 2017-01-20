@@ -18,7 +18,6 @@
  *
  * Created on 02/01/2012 3:15:12 PM
  *
- * $Id$
  */
 package pcgen.cdom.facet.fact;
 

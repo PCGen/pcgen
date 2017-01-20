@@ -18,7 +18,6 @@
  *
  * Created on 10/10/2011 2:28:48 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs.models;
 

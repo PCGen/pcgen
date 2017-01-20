@@ -18,7 +18,6 @@
  *
  * Created on 15/02/2014 2:45:53 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr;
 

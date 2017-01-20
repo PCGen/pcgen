@@ -18,7 +18,6 @@
  * 
  * Created on May 24, 2014, 1:33:58 PM
  * 
- * $Id$
  */
 /**
  * This is the base package for all of PCGen's user interface logic.

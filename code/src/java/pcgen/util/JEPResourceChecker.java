@@ -18,7 +18,6 @@
  *
  * Created on January 30, 2003, 10:34 AM
  *
- * @(#) $Id$
  */
 package pcgen.util;
 

@@ -20,7 +20,6 @@
  *
  * Current Ver: $Revision$
  *
- * $Id$
  */
 package pcgen.core;
 

@@ -18,7 +18,6 @@
  *
  * Created on 08/06/2012 7:42:35 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs;
 

@@ -18,7 +18,6 @@
  *
  * Created on Feb 18, 2002, 5:20:42 PM
  *
- * $Id$
  */
 package pcgen.core.utils;
 

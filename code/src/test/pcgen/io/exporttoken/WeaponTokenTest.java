@@ -18,7 +18,6 @@
  *
  * Created on Dec 11, 2004
  *
- * $Id$
  *
  */
 package pcgen.io.exporttoken;

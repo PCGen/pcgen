@@ -1,5 +1,4 @@
 #
-# $Id$
 #
 SIZENAME:F		ABB:F	DISPLAYNAME:Fine
 SIZENAME:F		BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5

@@ -18,7 +18,6 @@
  *
  * Created on 22/09/2013
  *
- * $Id$
  */
 /**
  * The pcgen.gui2.equip package contains the classes used to populate the equipment 

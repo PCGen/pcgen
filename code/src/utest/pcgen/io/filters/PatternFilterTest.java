@@ -18,7 +18,6 @@
  *
  * Created on 23/11/2013
  *
- * $Id$
  */
 package pcgen.io.filters;
 

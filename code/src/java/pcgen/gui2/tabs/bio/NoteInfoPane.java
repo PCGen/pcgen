@@ -18,7 +18,6 @@
  *
  * Created on 04/03/2012 4:24:46 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs.bio;
 

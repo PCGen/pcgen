@@ -18,7 +18,6 @@
  *
  * Created on Nov 16, 2007
  *
- * $Id$
  *
  */
 package plugin;

@@ -18,7 +18,6 @@
  *
  * Created on 17/11/2013
  *
- * $Id$
  */
 package pcgen.gui2.converter.loader;
 

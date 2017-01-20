@@ -18,7 +18,6 @@
  *
  * Created on 16/02/2014 10:02:56 pm
  *
- * $Id$
  */
 package gmgen.pluginmgr.messages;
 

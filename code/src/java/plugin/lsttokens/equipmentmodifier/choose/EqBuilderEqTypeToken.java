@@ -18,7 +18,6 @@
  *
  * Created on 12/01/2008
  *
- * $Id$
  */
 package plugin.lsttokens.equipmentmodifier.choose;
 

@@ -18,7 +18,6 @@
  *
  * Created on 18/02/2012 4:49:06 PM
  *
- * $Id$
  */
 package plugin.exporttokens;
 

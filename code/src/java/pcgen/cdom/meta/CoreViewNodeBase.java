@@ -18,7 +18,6 @@
  *
  * Created on 13/01/2013 12:05:46 PM
  *
- * $Id$
  */
 package pcgen.cdom.meta;
 

@@ -18,7 +18,6 @@
  *
  * Created on 23/10/2013
  *
- * $Id$
  */
 /**
  * This is a collection of custom directives and functions that can be called 

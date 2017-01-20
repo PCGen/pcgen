@@ -18,7 +18,6 @@
  *
  * Created on 28/10/2010 10:28:24 PM
  *
- * $Id$
  */
 package pcgen.core.analysis;
 

@@ -18,7 +18,6 @@
  * 
  * Created on May 24, 2014, 3:31:44 PM
  * 
- * $Id$
  */
 /**
  * This package contains utility classes which are used to implement PCGen's UI.

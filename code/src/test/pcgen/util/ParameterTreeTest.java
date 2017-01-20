@@ -18,7 +18,6 @@
  *
  * Created on 10 March 2007
  *
- * $Id$
  *
  */
 

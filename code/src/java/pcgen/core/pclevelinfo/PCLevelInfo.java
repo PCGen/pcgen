@@ -18,7 +18,6 @@
  *
  * Created on November 29, 2002, 10:38 PM
  *
- * $Id$
  */
 package pcgen.core.pclevelinfo;
 

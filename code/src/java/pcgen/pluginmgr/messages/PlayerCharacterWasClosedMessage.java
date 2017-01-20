@@ -18,7 +18,6 @@
  *
  * Created on 17/02/2014 7:41:11 am
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 

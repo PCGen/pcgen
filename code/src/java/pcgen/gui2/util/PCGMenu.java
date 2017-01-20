@@ -18,7 +18,6 @@
  *
  * Created on 21/01/2014
  *
- * $Id$
  */package pcgen.gui2.util;
 
 import java.awt.Dimension;

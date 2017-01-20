@@ -18,7 +18,6 @@
  *
  * Created on 07/06/2013
  *
- * $Id$
  */
 package pcgen.inttest.game_pathfinder;
 

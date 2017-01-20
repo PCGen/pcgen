@@ -18,7 +18,6 @@
  *
  * Created on 25/03/2012 11:07:05 AM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
