@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -40,7 +39,6 @@ import pcgen.rules.context.LoadContext;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author sage_sam
  */

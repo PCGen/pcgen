@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -31,7 +30,6 @@ import java.net.URI;
  * This class is a LstFileLoader used to load character traits.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author ad9c15
  */

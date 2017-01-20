@@ -18,7 +18,6 @@
  *
  * @author Pat Ludwig <havoc@boldo.com>
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.utils;
 

@@ -17,7 +17,6 @@
  * USA
  *
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.party;
 

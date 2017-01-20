@@ -18,7 +18,6 @@
  *
  * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.character;
 

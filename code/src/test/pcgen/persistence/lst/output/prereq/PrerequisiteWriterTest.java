@@ -19,7 +19,6 @@
  *
  * @author	Greg Bingleman <byngl@hotmail.com>
  *
- * Current Ver: $Revision$
  *
  *
  *

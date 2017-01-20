@@ -18,7 +18,6 @@
  *
  * this code was moved and changed from FeatLoader.java
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;

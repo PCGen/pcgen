@@ -18,7 +18,6 @@
  *
  *
  *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 

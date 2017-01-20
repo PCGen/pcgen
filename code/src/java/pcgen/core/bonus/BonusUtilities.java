@@ -18,7 +18,6 @@
  *
  * Refactored out of PObject July 22, 2005
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.bonus;
 

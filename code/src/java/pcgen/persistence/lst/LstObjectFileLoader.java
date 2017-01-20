@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -47,7 +46,6 @@ import pcgen.system.PCGenSettings;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author AD9C15
  * @author boomer70 &lt;boomer70@yahoo.com&gt;

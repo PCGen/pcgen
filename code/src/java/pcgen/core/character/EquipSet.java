@@ -17,7 +17,6 @@
  *
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.character;
