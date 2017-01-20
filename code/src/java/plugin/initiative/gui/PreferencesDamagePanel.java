@@ -18,7 +18,6 @@
  *
  * PreferencesDamagePanel.java
  *
- * Created on July 11, 2003, 4:34 PM
  */
 package plugin.initiative.gui;
 

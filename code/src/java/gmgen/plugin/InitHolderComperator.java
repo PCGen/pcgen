@@ -18,7 +18,6 @@
  *
  *  InitHolderComperator.java
  *
- *  Created on January 16, 2002, 1:13 PM
  */
 package gmgen.plugin;
 

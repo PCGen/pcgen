@@ -18,7 +18,6 @@
  *
  *  InitHolder.java
  *
- *  Created on January 16, 2002, 1:01 PM
  */
 package gmgen.plugin;
 

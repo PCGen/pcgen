@@ -17,7 +17,6 @@
  *
  *  DefeatedCombatant.java
  *
- *  Created on January 24, 2002, 11:15 AM
  */
 package plugin.experience;
 

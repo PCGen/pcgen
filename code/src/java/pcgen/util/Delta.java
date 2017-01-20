@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Created on April 28, 2001, 8:34 AM
  */
 package pcgen.util;
 

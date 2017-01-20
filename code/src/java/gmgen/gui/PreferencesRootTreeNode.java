@@ -18,7 +18,6 @@
  *
  * AboutBox.java
  *
- * Created on September 18, 2002, 5:38 PM
  */
 package gmgen.gui;
 

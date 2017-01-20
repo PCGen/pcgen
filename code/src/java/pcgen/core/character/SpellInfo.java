@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
  * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
- * Created on July 10, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
  */
