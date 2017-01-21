@@ -299,10 +299,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>AC</b></font>
             <font style="font-size:5pt" color="white"><br />Armour Class</font></td>
           <td align="center" class="border9"><b>${pcstring('AC.Total')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Touch')}</b></td>
-          <td align="center" class="font7"><b>:</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Flatfooted')}</b></td>
           <td align="center" class="font7"><b>=</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Base')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
@@ -323,10 +319,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
         <tr>
           <td align="center" width="50"></td>
           <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOTAL</b></font></td>
-          <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>TOUCH</b></font></td>
-          <td align="center"></td>
-          <td align="center" width="25" valign="top"><font style="font-size: 6pt"><b>FLAT</b></font></td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">BASE</td>
           <td align="center"></td>
