@@ -1714,17 +1714,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.WARNING_MESSAGE);
 	}
 
-	@Override
-	public boolean showWarningPrompt(String title, String message)
-	{
-		JComponent msgComp = getComponentForMessage(message);
-		int ret =
-				JOptionPane.showConfirmDialog(this, msgComp, title,
-					JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-		return ret == JOptionPane.OK_OPTION;
-	}
-
-	@Override
+    @Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
 		Object ret =
