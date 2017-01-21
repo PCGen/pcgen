@@ -63,54 +63,36 @@ public class ColumnFormatManager<T> implements FormatManager<TableColumn>
 		underlying = Objects.requireNonNull(formatManager);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public TableColumn convert(String inputStr)
 	{
 		return database.get(TableColumn.class, inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Indirect<TableColumn> convertIndirect(String inputStr)
 	{
 		return database.getIndirect(TableColumn.class, inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String unconvert(TableColumn table)
 	{
 		return table.getName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<TableColumn> getManagedClass()
 	{
 		return TableColumn.class;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentifierType()
 	{
 		return "COLUMN";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getComponentManager()
 	{
