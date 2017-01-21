@@ -53,7 +53,6 @@ import javax.swing.text.html.StyleSheet;
  * While this class has been part of swing for a while now, it is public
  * as of 1.4.
  *
- * @author  Scott Violet
  * @see javax.swing.text.IconView
  */
 public class RelativeImageView extends View implements ImageObserver

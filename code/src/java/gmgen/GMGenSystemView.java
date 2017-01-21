@@ -33,7 +33,6 @@ import java.awt.Component;
  *  Created on February 20, 2003.<br>
  *  Updated on February 26, 2003.
  *
- *@author     Expires 2003
  */
 public class GMGenSystemView extends JPanel implements ChangeListener
 {
