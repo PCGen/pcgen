@@ -95,7 +95,6 @@ public class ClassLevelChangeFacet implements ClassLevelChangeListener
 	 * @param lce
 	 *            The ClassLevelObjectChangeEvent containing the information
 	 *            about the level change
-	 * @see pcgen.cdom.facet.model.ClassFacet.ClassLevelChangeListener#levelObjectChanged(pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent)
 	 */
 	@Override
 	public void levelObjectChanged(ClassLevelObjectChangeEvent lce)

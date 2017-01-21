@@ -330,8 +330,7 @@ public class FactSetKeyMapToList
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this FactSetKeyMapToList
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -344,8 +343,7 @@ public class FactSetKeyMapToList
 	 * 
 	 * Note that equality as defined by this method is both a class of
 	 * FactSetKeyMapToList and equality of contents of the FactSetKeyMapToList.
-	 * 
-	 * @see java.lang.Object#equals(Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

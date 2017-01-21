@@ -32,8 +32,7 @@ public class StatScope implements LegalScope
 
 	/**
 	 * The String representation of the objects covered by this Scope
-	 * 
-	 * @see pcgen.base.formula.base.LegalScope#getName()
+	 *
 	 */
 	@Override
 	public String getName()
@@ -41,9 +40,6 @@ public class StatScope implements LegalScope
 		return "STAT";
 	}
 
-	/**
-	 * @see pcgen.base.formula.base.LegalScope#getParentScope()
-	 */
 	@Override
 	public LegalScope getParentScope()
 	{

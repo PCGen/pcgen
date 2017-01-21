@@ -101,11 +101,6 @@ class OptionHandler extends DefaultHandler
 		theList = aList;
 	}
 	
-	/**
-	 * @throws SAXException 
-	 * @throws IOException 
-	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
-	 */
 	@Override
 	public void startElement(	final String uri, final String localName,
 								final String aName, final Attributes anAttrs) 

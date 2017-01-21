@@ -54,9 +54,6 @@ public class AbilityAllListToken extends AbilityListToken
 		return "ABILITYALLLIST"; //$NON-NLS-1$
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityListToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)

@@ -92,8 +92,7 @@ public class FollowerLimit
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this FollowerLimit
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -104,8 +103,7 @@ public class FollowerLimit
 	/**
 	 * Returns true if the given object is a FollowerLimit with identical
 	 * underlying CompanionList reference and limit Formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object o)

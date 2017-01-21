@@ -55,9 +55,6 @@ public class Revision implements Comparable<Revision>
 		tertiarySequence = patch;
 	}
 
-	/**
-	 * @see java.lang.Comparable#compareTo(java.lang.Object)
-	 */
 	@Override
 	public int compareTo(Revision r)
 	{
@@ -88,9 +85,6 @@ public class Revision implements Comparable<Revision>
 		return 0;
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{
@@ -98,9 +92,6 @@ public class Revision implements Comparable<Revision>
 			+ tertiarySequence;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{
@@ -108,9 +99,6 @@ public class Revision implements Comparable<Revision>
 			&& compareTo((Revision) obj) == 0;
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{

@@ -175,7 +175,6 @@ public class PatternMatchingReference<T extends Loadable> extends
 	 * 
 	 * @return A representation of this PatternMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)

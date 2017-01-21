@@ -39,9 +39,6 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 	private PCClass divineClass = null;
 	private PCClass psionicClass = null;
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{
@@ -85,9 +82,6 @@ public class PObjectUtilitiesTest extends AbstractCharacterTestCase
 		super.setUp();
 	}
 
-	/**
-	 * @see pcgen.AbstractCharacterTestCase#tearDown()
-	 */
 	@Override
 	protected void tearDown() throws Exception
 	{

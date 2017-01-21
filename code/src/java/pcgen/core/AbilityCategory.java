@@ -470,10 +470,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 	// -------------------------------------------
 	// KeyedObject Support
 	// -------------------------------------------
-	/**
-	 * @see pcgen.cdom.base.Category#getDisplayName()
-	 */
-    @Override
+	@Override
 	public String getDisplayName()
 	{
 		if (displayName.startsWith("in_"))
@@ -491,19 +488,13 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return displayName;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Category#getKeyName()
-	 */
-    @Override
+	@Override
 	public String getKeyName()
 	{
 		return keyName;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Loadable#setName(java.lang.String)
-	 */
-    @Override
+	@Override
 	public void setName(final String aName)
 	{
 		if ("".equals(keyName))
@@ -515,8 +506,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	/**
 	 * Returns the display name for this category.
-	 * 
-	 * @see java.lang.Object#toString()
+	 *
 	 */
 	@Override
 	public String toString()
@@ -526,8 +516,7 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 
 	/**
 	 * Generates a hash code using the key, category and types.
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -538,9 +527,6 @@ public class AbilityCategory implements Category<Ability>, Loadable,
 		return result;
 	}
 
-	/**
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object obj)
 	{

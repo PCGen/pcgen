@@ -114,8 +114,7 @@ public class EqModRef
 	/**
 	 * Returns true if the given object is a EqModRef with identical underlying
 	 * EquipmentModifier reference and choices.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -140,8 +139,7 @@ public class EqModRef
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this EqModRef
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

@@ -32,9 +32,6 @@ public class ClassGeneratorOption extends GeneratorOption
 {
 	private WeightedCollection<PCClass> theChoices = null;
 	
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#addChoice(int, java.lang.String)
-	 */
 	@Override
 	public void addChoice(final int aWeight, final String aValue)
 	{
@@ -76,9 +73,6 @@ public class ClassGeneratorOption extends GeneratorOption
 		}
 	}
 
-	/**
-	 * @see pcgen.core.npcgen.GeneratorOption#getList()
-	 */
 	@Override
 	public WeightedCollection<PCClass> getList()
 	{

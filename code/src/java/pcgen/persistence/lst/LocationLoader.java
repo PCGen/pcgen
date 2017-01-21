@@ -51,9 +51,6 @@ public class LocationLoader extends LstLineFileLoader
 		super.loadLstFile(context, source);
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(LoadContext, String, URI)
-	 */
 	@Override
 	public void parseLine(LoadContext context, String lstLine, URI sourceURI)
 	{

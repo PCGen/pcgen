@@ -43,7 +43,6 @@ public final class Spell extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual spell attribute that may be bonused.
 	 * @param tagNumber the index of the spell attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The type of SizeMOD.
 	 */
 	@Override

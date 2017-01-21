@@ -64,9 +64,6 @@ public class AbilityAllToken extends AbilityToken
 		return super.getToken(tokenSource, pc, eh);
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.AbilityToken#getAbilityList(pcgen.core.PlayerCharacter, pcgen.core.AbilityCategory)
-	 */
 	@Override
 	protected MapToList<Ability, CNAbility> getAbilityList(PlayerCharacter pc,
 		final AbilityCategory aCategory)
