@@ -187,17 +187,17 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 
 	private class LevelTableModel extends AbstractTableModel implements HitPointListener
 	{
-		public static final int COL_LEVEL = 0;
-		public static final int COL_CLASS = 1;
-		public static final int COL_GAINED_HP = 2;
-		public static final int COL_ROLLED_HP = 3;
-		public static final int COL_SKILL_POINTS = 4;
+		static final int COL_LEVEL = 0;
+		static final int COL_CLASS = 1;
+		static final int COL_GAINED_HP = 2;
+		static final int COL_ROLLED_HP = 3;
+		static final int COL_SKILL_POINTS = 4;
 		
 		private final Object[] columns;
 		private final Object[][] data;
-		private Map<ClassFacade, MutableInt> classLevelMap;
+		private final Map<ClassFacade, MutableInt> classLevelMap;
 
-		public LevelTableModel()
+		LevelTableModel()
 		{
 			columns = new Object[]
 					{
@@ -209,11 +209,11 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 					};
 			
 			data = new Object[numLevels + 1][5];
-			classLevelMap = new HashMap<>();
+			classLevelMap = new HashMap<ClassFacade, MutableInt>();
 			int gainedTotal = 0;
 			int rolledTotal = 0;
 			int pointTotal = 0;
-			for (int i = oldLevel; i < numLevels+oldLevel; i++)
+			for (int i = oldLevel; i < (numLevels + oldLevel); i++)
 			{
 				CharacterLevelFacade level = levels.getElementAt(i);
 				Object[] dataRow = data[i - oldLevel];
