@@ -26,7 +26,6 @@ package pcgen.cdom.enumeration;
  * {@code BiographyField} lists the possible biographical fields which may
  * be edited or suppressed from export.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("nls")
 public enum BiographyField

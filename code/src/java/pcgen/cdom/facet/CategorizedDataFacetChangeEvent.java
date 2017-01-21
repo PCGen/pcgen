@@ -35,7 +35,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * <br>
  * (Mon, 14 Jan 2013) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class CategorizedDataFacetChangeEvent<IDT extends PCGenIdentifier, T>

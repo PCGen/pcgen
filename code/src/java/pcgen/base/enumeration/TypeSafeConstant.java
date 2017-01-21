@@ -40,7 +40,6 @@ package pcgen.base.enumeration;
  * TypeSafeConstants that expect this behavior. In that case, such behavioral
  * limitations should be documented in the TypeSafeConstant-using class.
  * 
- * @author Tom Parker (thpr@users.sourceforge.net)
  */
 @FunctionalInterface
 public interface TypeSafeConstant

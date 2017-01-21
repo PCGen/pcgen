@@ -29,7 +29,6 @@ import java.text.DecimalFormat;
  * (The reason for an interface rather than a class
  * is that an interface uses a little less memory.)
  *
- * @author     Jonas Karlsson
  */
 public interface Constants
 {

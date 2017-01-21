@@ -31,7 +31,6 @@ import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
 /**
- * @author devon
  */
 public class InitHolderList extends ArrayList<InitHolder> {
 
