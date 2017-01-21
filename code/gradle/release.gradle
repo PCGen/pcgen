@@ -355,6 +355,9 @@ task updateVersionToNext << {
 
 // Tag the current PCGen trunk
 task tagRelease << {
-    //def tagName = "release-${project.version}"
-    //tagRepository("Trunk/pcgen", tagName, "Tag release ${project.version}")
+    def tagName = "${project.version}"
+    exec {
+        commandLine 'git', 'tag', tagName
+    }
+    println "Tag " + tagName + " created. Don't forget to push."
 }
