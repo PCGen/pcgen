@@ -74,9 +74,6 @@ public class CollectionModel implements TemplateSequenceModel
 		this.list = new ArrayList<Object>(c);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateSequenceModel#get(int)
-	 */
 	@Override
 	public TemplateModel get(int index) throws TemplateModelException
 	{
@@ -87,9 +84,6 @@ public class CollectionModel implements TemplateSequenceModel
 		return WRAPPER_FACET.wrap(id, list.get(index));
 	}
 
-	/**
-	 * @see freemarker.template.TemplateSequenceModel#size()
-	 */
 	@Override
 	public int size() throws TemplateModelException
 	{

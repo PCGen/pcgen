@@ -130,8 +130,7 @@ public final class EquipmentHead extends CDOMObject
 
 	/**
 	 * Returns true if the EquipmentHead is of the given Type; false otherwise.
-	 * 
-	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
+	 *
 	 */
 	@Override
 	public boolean isType(String type)

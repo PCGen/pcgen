@@ -44,9 +44,6 @@ import pcgen.util.Logging;
 public class AbilityLoader extends LstObjectFileLoader<Ability>
 {
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#parseLine(LoadContext, CDOMObject, String, SourceEntry)
-	 */
 	@Override
 	public Ability parseLine(LoadContext context, Ability ability,
 		String lstLine, SourceEntry source) throws PersistenceLayerException
@@ -84,9 +81,6 @@ public class AbilityLoader extends LstObjectFileLoader<Ability>
 		return null;
 	}
 
-	/**
-	 * @see pcgen.persistence.lst.LstObjectFileLoader#getObjectKeyed(LoadContext, java.lang.String)
-	 */
 	@Override
 	protected Ability getObjectKeyed(LoadContext context, String aKey)
 	{

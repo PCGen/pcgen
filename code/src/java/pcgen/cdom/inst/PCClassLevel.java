@@ -55,8 +55,7 @@ public final class PCClassLevel extends CDOMObject implements Cloneable
 
 	/**
 	 * Returns true if the PCClassLevel is of the given Type; false otherwise.
-	 * 
-	 * @see pcgen.cdom.base.CDOMObject#isType(java.lang.String)
+	 *
 	 */
 	@Override
 	public boolean isType(String type)

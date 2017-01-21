@@ -143,8 +143,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this CompoundAndPrimitive
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -156,8 +155,7 @@ public class CompoundAndPrimitive<T> implements PrimitiveCollection<T>
 	 * Returns true if this CompoundAndPrimitive is equal to the given Object.
 	 * Equality is defined as being another CompoundAndPrimitive object with
 	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

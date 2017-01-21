@@ -96,8 +96,7 @@ public class HitDieFormula implements Processor<HitDie>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this HitDieFormula
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -109,8 +108,7 @@ public class HitDieFormula implements Processor<HitDie>
 	 * Returns true if this HitDieFormula is equal to the given Object. Equality
 	 * is defined as being another HitDieFormula object with equal underlying
 	 * formula.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

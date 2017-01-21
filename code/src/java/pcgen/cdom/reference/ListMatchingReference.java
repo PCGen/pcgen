@@ -201,7 +201,6 @@ public class ListMatchingReference<T extends CDOMObject, V> extends
 	 * 
 	 * @return A representation of this ListMatchingReference, suitable for
 	 *         storing in an LST file.
-	 * @see pcgen.cdom.base.CDOMReference#getLSTformat(boolean)
 	 */
 	@Override
 	public String getLSTformat(boolean useAny)

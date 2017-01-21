@@ -11,7 +11,7 @@ public class PCGFileTest extends TestCase
 {
 
 	/**
-	 * Constructs a new {@link PCGFileTest}.
+	 * Constructs a new .
 	 *
 	 * @see PCGenTestCase#PCGenTestCase()
 	 */
@@ -21,7 +21,7 @@ public class PCGFileTest extends TestCase
 	}
 
 	/**
-	 * Constructs a new {@link PCGFileTest} with the given <var>name</var>.
+	 * Constructs a new  with the given <var>name</var>.
 	 *
 	 * @see PCGenTestCase#PCGenTestCase(String)
 	 */

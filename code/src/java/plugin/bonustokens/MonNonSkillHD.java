@@ -49,7 +49,6 @@ public final class MonNonSkillHD extends MultiTagBonusObj
 	/**
 	 * Get by index, an monster non-skill hit die attribute that may be bonused.
 	 * @param tagNumber the index of the monster non-skill hit die attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The monster non-skill hit die attribute.
 	 */
 	@Override

@@ -124,8 +124,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 	 * Returns true if this ModifyChoiceDecorator is equal to the given Object.
 	 * Equality is defined as being another ModifyChoiceDecorator object with
 	 * equal underlying PrimitiveChoiceSet.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -137,8 +136,7 @@ public class ModifyChoiceDecorator implements PrimitiveChoiceSet<CNAbility>
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * ModifyChoiceDecorator
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

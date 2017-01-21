@@ -66,8 +66,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * CollectionToChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -79,8 +78,7 @@ public class CollectionToChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * Returns true if this CollectionToChoiceSet is equal to the given Object.
 	 * Equality is defined as being another CollectionToChoiceSet object with
 	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

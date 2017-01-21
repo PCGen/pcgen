@@ -185,13 +185,6 @@ class ClassDataHandler extends DefaultHandler
 		theList = aList;
 	}
 	
-	/**
-	 * @throws SAXException
-	 * @throws IllegalArgumentException if the file being processed is not the
-	 * same GameMode as requested.
-	 *  
-	 * @see org.xml.sax.helpers.DefaultHandler#startElement(java.lang.String, java.lang.String, java.lang.String, org.xml.sax.Attributes)
-	 */
 	@Override
 	public void startElement(	final String uri, final String localName,
 								final String aName, final Attributes anAttrs) 
@@ -475,9 +468,6 @@ class ClassDataHandler extends DefaultHandler
 		}
 	}
 	
-	/**
-	 * @see org.xml.sax.helpers.DefaultHandler#endElement(java.lang.String, java.lang.String, java.lang.String)
-	 */
 	@Override
 	public void endElement(final String uri, final String localName, final String qName)
     {

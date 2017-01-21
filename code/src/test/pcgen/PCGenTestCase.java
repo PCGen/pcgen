@@ -83,7 +83,7 @@ public abstract class PCGenTestCase extends TestCase
 	}
 	
 	/**
-	 * Fixes {@link TestCase#runBare()} to not swallow a throwable from {@link
+	 * Fixes  to not swallow a throwable from {@link
 	 * #runTest()} if {@link #tearDown()} also throws.
 	 *
 	 * @throws Throwable

@@ -225,9 +225,6 @@ public class CNAbilitySelection extends ConcretePrereqObject implements
 		return false;
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

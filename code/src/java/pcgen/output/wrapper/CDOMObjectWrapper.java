@@ -62,10 +62,6 @@ public final class CDOMObjectWrapper implements PCGenObjectWrapper
 		return WRAPPER_FACET.set(id, cl, name, oa);
 	}
 
-	/**
-	 * @see pcgen.output.base.PCGenObjectWrapper#wrap(pcgen.cdom.enumeration.CharID,
-	 *      java.lang.Object)
-	 */
 	@Override
 	public TemplateHashModel wrap(CharID id, Object o)
 		throws TemplateModelException

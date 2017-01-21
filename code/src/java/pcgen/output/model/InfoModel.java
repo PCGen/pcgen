@@ -71,8 +71,7 @@ public class InfoModel implements TemplateHashModel
 
 	/**
 	 * Acts as a hash for producing the contents of this model.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
+	 *
 	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
@@ -118,9 +117,6 @@ public class InfoModel implements TemplateHashModel
 		return replacedvars;
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

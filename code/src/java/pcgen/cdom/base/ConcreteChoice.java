@@ -142,8 +142,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 	/**
 	 * Returns true if the given Object is a TransitionChoice and has identical
 	 * underlying choices and choiceCount
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -158,8 +157,7 @@ public class ConcreteChoice<T> implements PersistentChoice<T>
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this TransitionChoice.
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

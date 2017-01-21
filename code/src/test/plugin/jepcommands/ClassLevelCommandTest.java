@@ -64,10 +64,6 @@ public class ClassLevelCommandTest extends AbstractCharacterTestCase
 		return new TestSuite(ClassLevelCommandTest.class);
 	}
 
-	/**
-	 * @throws Exception
-	 * @see pcgen.AbstractCharacterTestCase#setUp()
-	 */
 	@Override
 	protected void setUp() throws Exception
 	{

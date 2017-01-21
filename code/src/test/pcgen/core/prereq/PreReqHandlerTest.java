@@ -63,8 +63,7 @@ public class PreReqHandlerTest extends TestCase
 
 	/**
 	 * Sets up the test case by loading the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
+	 *
 	 */
 	@Override
 	public void setUp() throws Exception

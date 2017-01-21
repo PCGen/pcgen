@@ -87,8 +87,7 @@ public class AbilityFromClassChoiceSet implements
 	 * Object. Equality is defined as being another AbilityFromClassChoiceSet
 	 * object with equal Class represented by the reference provided during
 	 * construction of the AbilityFromClassChoiceSets
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
@@ -104,8 +103,7 @@ public class AbilityFromClassChoiceSet implements
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * AbilityFromClassChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()

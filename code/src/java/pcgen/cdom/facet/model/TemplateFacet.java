@@ -47,8 +47,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, PCTemplate> dfce)
@@ -66,8 +65,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, PCTemplate> dfce)
@@ -80,8 +78,7 @@ public class TemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 	 * when they are applied to a PC.
 	 * 
 	 * (non-Javadoc)
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
+	 *
 	 */
 	@Override
 	protected Map<PCTemplate, Set<Object>> getComponentMap()

@@ -68,8 +68,7 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 	 * Acts as a hash for producing the contents of this model.
 	 * 
 	 * Four items are supported: category, nature, ability and selection.
-	 * 
-	 * @see freemarker.template.TemplateHashModel#get(java.lang.String)
+	 *
 	 */
 	@Override
 	public TemplateModel get(String key) throws TemplateModelException
@@ -99,9 +98,6 @@ public class CNAbilitySelectionModel implements TemplateHashModel
 		return WRAPPER_FACET.wrap(id, towrap);
 	}
 
-	/**
-	 * @see freemarker.template.TemplateHashModel#isEmpty()
-	 */
 	@Override
 	public boolean isEmpty() throws TemplateModelException
 	{

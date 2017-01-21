@@ -42,9 +42,6 @@ public class SpeechTendancyToken extends AbstractExportToken
 	}
 
 	//TODO: Move this to a token that has all of teh descriptive stuff about a cahracter
-	/**
-	 * @see pcgen.io.exporttoken.AbstractExportToken#getToken(java.lang.String, pcgen.core.display.CharacterDisplay, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,
 		ExportHandler eh)

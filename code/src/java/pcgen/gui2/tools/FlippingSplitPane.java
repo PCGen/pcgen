@@ -149,8 +149,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 	
 	/**
-	 * {@code setContinuousLayout} recursively calls {@link
-	 * JSplitPane#setContinuousLayout(boolean)} on {@code FlippingSplitPane}
+	 * {@code setContinuousLayout} recursively calls  on {@code FlippingSplitPane}
 	 * components.
 	 *
 	 * @param newContinuousLayout {@code boolean}, the setting
@@ -181,7 +180,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 	
 	/**
-	 * {@code setDividerLocation} calls {@link JSplitPane#setDividerLocation(int)}
+	 * {@code setDividerLocation} calls
 	 * unless the {@code FlippingSplitPane} is locked.
 	 *
 	 * @param location {@code int}, the location
@@ -214,8 +213,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * {@code setOneTouchExpandable} recursively calls {@link
-	 * JSplitPane#setOneTouchExpandable(boolean)} on {@code FlippingSplitPane}
+	 * {@code setOneTouchExpandable} recursively calls  on {@code FlippingSplitPane}
 	 * components.
 	 *
 	 * @param newOneTouchExpandable {@code boolean}, the setting
@@ -236,8 +234,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * {@code setOrientation} recursively calls {@link
-	 * JSplitPane#setOrientation(int)} on {@code FlippingSplitPane}
+	 * {@code setOrientation} recursively calls  on {@code FlippingSplitPane}
 	 * components, alternating the orietation so as to achieve a "criss-cross"
 	 * affect.
 	 *
@@ -262,8 +259,7 @@ public class FlippingSplitPane extends JSplitPane
 	}
 
 	/**
-	 * {@code resetToPreferredSizes} recursively calls {@link
-	 * JSplitPane#resetToPreferredSizes} on {@code FlippingSplitPane}
+	 * {@code resetToPreferredSizes} recursively calls  on {@code FlippingSplitPane}
 	 * components.
 	 */
 	@Override

@@ -74,8 +74,7 @@ public class EquipmentModifierTest extends TestCase
 
 	/**
 	 * Starts the system plugins.
-	 * 
-	 * @see junit.framework.TestCase#setUp()
+	 *
 	 */
 	@Override
 	public void setUp() throws Exception

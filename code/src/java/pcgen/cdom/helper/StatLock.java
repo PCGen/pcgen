@@ -94,8 +94,7 @@ public class StatLock
 
 	/**
 	 * Consistent-with-equals implementation of hashCode
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -106,8 +105,7 @@ public class StatLock
 	/**
 	 * Returns true if the given Object is a StatLock object with equal PCStat
 	 * and lock value (Formula)
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

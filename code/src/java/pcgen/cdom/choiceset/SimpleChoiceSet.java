@@ -240,8 +240,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this SimpleChoiceSet
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -253,8 +252,7 @@ public class SimpleChoiceSet<T> implements PrimitiveChoiceSet<T>
 	 * Returns true if this SimpleChoiceSet is equal to the given Object.
 	 * Equality is defined as being another SimpleChoiceSet object with equal
 	 * underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
