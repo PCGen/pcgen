@@ -42,7 +42,7 @@ public class VariableContext
 	private MasterModifierFactory modFactory = null;
 	private IndividualSetup dummySetup = null;
 
-	public VariableContext()
+	VariableContext()
 	{
 		formulaSetup.loadBuiltIns();
 		PluginFunctionLibrary pfl = PluginFunctionLibrary.getInstance();

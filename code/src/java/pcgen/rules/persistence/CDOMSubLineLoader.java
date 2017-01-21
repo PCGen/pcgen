@@ -17,7 +17,6 @@
  */
 package pcgen.rules.persistence;
 
-import java.util.Collection;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Loadable;
@@ -30,7 +29,6 @@ public class CDOMSubLineLoader<T extends Loadable>
 
 	private final Class<T> targetClass;
 	private final String targetPrefix;
-	private final String targetPrefixColon;
 
 	// private final int prefixLength;
 
@@ -38,8 +36,6 @@ public class CDOMSubLineLoader<T extends Loadable>
 	{
 		targetPrefix = prefix;
 		targetClass = cl;
-		targetPrefixColon = prefix + ":";
-		// prefixLength = targetPrefixColon.length();
 	}
 
 	public boolean parseLine(LoadContext context, T obj, String val)
@@ -71,9 +67,9 @@ public class CDOMSubLineLoader<T extends Loadable>
 				continue;
 			}
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
+			String value = (colonLoc == (token.length() - 1)) ? null : token
 					.substring(colonLoc + 1);
-			if (key == null || value == null)
+			if ((key == null) || (value == null))
 			{
 				Logging.errorPrint("Invalid token - key or value missing: "
 					+ token + " in line " + val, context);
@@ -112,31 +108,9 @@ public class CDOMSubLineLoader<T extends Loadable>
 		return targetPrefix;
 	}
 
-	public Class<T> getLoadedClass()
+	Class<T> getLoadedClass()
 	{
 		return targetClass;
 	}
 
-	public void unloadObject(LoadContext lc, T object, StringBuilder sb)
-	{
-		Collection<String> unparse = lc.unparse(object);
-		StringBuilder temp = new StringBuilder();
-		if (unparse != null)
-		{
-			for (String s : unparse)
-			{
-				if (s.startsWith(targetPrefixColon))
-				{
-					sb.append(s);
-				}
-				else
-				{
-					temp.append('\t');
-					temp.append(s);
-				}
-			}
-			sb.append(temp);
-			sb.append('\n');
-		}
-	}
 }

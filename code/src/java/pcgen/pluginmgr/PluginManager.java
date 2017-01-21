@@ -15,8 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Nov 5, 2011, 2:55:43 PM
  */
 package pcgen.pluginmgr;
 
@@ -25,17 +23,21 @@ import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.TreeMap;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.system.PCGenSettings;
+import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
+
+import org.jetbrains.annotations.Nullable;
 
 /**
  *
  * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
-public final class PluginManager implements pcgen.system.PluginLoader
+public final class PluginManager implements PluginLoader
 {
 
 	private static PluginManager instance;
@@ -50,7 +52,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 		msgHandlerMgr = new MessageHandlerManager();
 	}
 
-	public synchronized static PluginManager getInstance()
+	public static synchronized PluginManager getInstance()
 	{
 		if (instance == null)
 		{
@@ -62,7 +64,7 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	/**
 	 * A Comparator to sort interactive plugins by their priority.
 	 */
-	public static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<InteractivePlugin>()
+	private static final Comparator<InteractivePlugin> PLUGIN_PRIORITY_SORTER = new Comparator<InteractivePlugin>()
 	{
 		@Override
 		public int compare(InteractivePlugin arg0, InteractivePlugin arg1)
@@ -80,17 +82,19 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	public void startAllPlugins()
 	{
 		PCGenMessageHandler dispatcher = msgHandlerMgr.getPostbox();
-		for(InteractivePlugin plugin : pluginMap.keySet())
+		for(final Entry<InteractivePlugin, Boolean> interactivePluginBooleanEntry : pluginMap
+				.entrySet())
 		{
-			if(pluginMap.get(plugin))
+			if(interactivePluginBooleanEntry.getValue())
 			{
-				plugin.start(dispatcher);
-				msgHandlerMgr.addMember(plugin);
+				((InteractivePlugin) interactivePluginBooleanEntry.getKey()).start(dispatcher);
+				msgHandlerMgr.addMember((InteractivePlugin)
+						interactivePluginBooleanEntry.getKey());
 			}
 		}
 	}
 
-	private String getLogName(Class<?> clazz, InteractivePlugin pl)
+	private static @Nullable String getLogName(Class<?> clazz, InteractivePlugin pl)
 	{
 		String logName = null;
 		try
@@ -125,7 +129,8 @@ public final class PluginManager implements pcgen.system.PluginLoader
 	}
 
     @Override
-	public void loadPlugin(Class<?> clazz) throws Exception
+	public void loadPlugin(Class<?> clazz)
+			throws InstantiationException, IllegalAccessException
 	{
     	InteractivePlugin pl = (InteractivePlugin) clazz.newInstance();
 

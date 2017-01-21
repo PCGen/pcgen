@@ -103,12 +103,12 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * 
 	 * @return the number of matching campaigns
 	 */
-	private int countCampaignByBookType(String bookType,
-		boolean includeSubCampaigns)
+	private static int countCampaignByBookType(String bookType,
+                                               boolean includeSubCampaigns)
 	{
 		Set<Campaign> matchingCampaigns = new HashSet<>();
 		PersistenceManager pMan = PersistenceManager.getInstance();
-		List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
+		List<URI> selCampaigns = PersistenceManager.getChosenCampaignSourcefiles();
 		for (URI element : selCampaigns)
 		{
 			final Campaign aCampaign = Globals.getCampaignByURI(element, false);
@@ -145,15 +145,15 @@ public class PreCampaignTester extends AbstractDisplayPrereqTest implements Prer
 	 * @param includeSubCampaigns Should we count included sub campaigns that match
 	 * @return The number of matching campaigns
 	 */
-	private int countCampaignByName(final String key, CDOMObject source,
-		boolean includeSubCampaigns)
+	private static int countCampaignByName(final String key, CDOMObject source,
+                                           boolean includeSubCampaigns)
 	{
 		int total = 0;
 		Campaign campaignToFind = Globals.getCampaignKeyedSilently(key);
 		if (campaignToFind != null)
 		{
 			PersistenceManager pMan = PersistenceManager.getInstance();
-			List<URI> selCampaigns = pMan.getChosenCampaignSourcefiles();
+			List<URI> selCampaigns = PersistenceManager.getChosenCampaignSourcefiles();
 			for (URI element : selCampaigns)
 			{
 				final Campaign aCampaign = Globals.getCampaignByURI(element, true);

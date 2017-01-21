@@ -110,14 +110,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 	{
 		int tabLoc = line.indexOf(SystemLoader.TAB_DELIM);
 		String lineIdentifier;
-		if (tabLoc == -1)
-		{
-			lineIdentifier = line;
-		}
-		else
-		{
-			lineIdentifier = line.substring(0, tabLoc);
-		}
+		lineIdentifier = (tabLoc == -1) ? line : line.substring(0, tabLoc);
 
 		int colonLoc = lineIdentifier.indexOf(':');
 		if (colonLoc == -1)
@@ -126,7 +119,7 @@ public class CDOMControlLoader extends LstLineFileLoader
 			return false;
 		}
 		String name = lineIdentifier.substring(colonLoc + 1);
-		if ((name == null) || name.isEmpty())
+		if (name.isEmpty())
 		{
 			Logging.errorPrint("First token on line had no content: " + line, context);
 			return false;

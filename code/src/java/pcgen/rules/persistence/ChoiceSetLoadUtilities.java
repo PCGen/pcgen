@@ -41,6 +41,8 @@ import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 import pcgen.util.Logging;
 
+import org.jetbrains.annotations.Nullable;
+
 public final class ChoiceSetLoadUtilities
 {
 	
@@ -52,7 +54,7 @@ public final class ChoiceSetLoadUtilities
 		//Don't instantiate utility class
 	}
 
-	public static <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
+	public static @Nullable <T extends CDOMObject> PrimitiveCollection<T> getChoiceSet(
 			LoadContext context, SelectionCreator<T> sc, String joinedOr)
 	{
 		List<PrimitiveCollection<T>> orList = new ArrayList<>();
@@ -60,7 +62,7 @@ public final class ChoiceSetLoadUtilities
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
 
-		for (; pipe.hasNext();)
+		while (pipe.hasNext())
 		{
 			String joinedAnd = pipe.next();
 			if (hasIllegalSeparator(',', joinedAnd))
@@ -71,25 +73,31 @@ public final class ChoiceSetLoadUtilities
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
-			for (; comma.hasNext();)
+			while (comma.hasNext())
 			{
 				String primitive = comma.next();
 				if (primitive == null || primitive.isEmpty())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was null or empty: " + primitive);
+					Logging.addParseMessage(
+							Logging.LST_ERROR,
+							"Choice argument was null or empty: " + primitive
+					);
 					return null;
 				}
 				QualifierToken<T> qual = getQualifier(context, sc,
-						primitive);
+						primitive
+				);
 				if (qual == null)
 				{
 					PrimitiveCollection<T> pcf = getSimplePrimitive(context,
-							sc, primitive);
+							sc, primitive
+					);
 					if (pcf == null)
 					{
-						Logging.addParseMessage(Logging.LST_ERROR,
-								"Choice argument was not valid: " + primitive);
+						Logging.addParseMessage(
+								Logging.LST_ERROR,
+								"Choice argument was not valid: " + primitive
+						);
 						return null;
 					}
 					else
@@ -217,7 +225,7 @@ public final class ChoiceSetLoadUtilities
 		}
 	}
 
-	public static PrimitiveInfo getPrimitiveInfo(String key)
+	private static PrimitiveInfo getPrimitiveInfo(String key)
 	{
 		int openBracketLoc = key.indexOf('[');
 		int closeBracketLoc = key.indexOf(']');
@@ -316,7 +324,7 @@ public final class ChoiceSetLoadUtilities
 		return new ObjectContainerPrimitive<>(p);
 	}
 	
-	public static <T> PrimitiveCollection<T> getTokenPrimitive(
+	private static <T> PrimitiveCollection<T> getTokenPrimitive(
 			LoadContext context, Class<T> cl, PrimitiveInfo pi)
 	{
 		PrimitiveToken<T> prim = TokenLibrary.getPrimitive(cl, pi.tokKey);
@@ -328,7 +336,7 @@ public final class ChoiceSetLoadUtilities
 		return prim;
 	}
 
-	public static <T extends Loadable> PrimitiveCollection<T> getTraditionalPrimitive(
+	private static <T extends Loadable> PrimitiveCollection<T> getTraditionalPrimitive(
 			SelectionCreator<T> sc, PrimitiveInfo pi)
 	{
 		String tokKey = pi.tokKey;
@@ -387,12 +395,12 @@ public final class ChoiceSetLoadUtilities
 	public static class PrimitiveInfo
 	{
 		public String key;
-		public String tokKey;
-		public String tokValue;
+		String tokKey;
+		String tokValue;
 		public String tokRestriction;
 	}
 
-	public static <T extends CDOMObject> QualifierToken<T> getQualifier(
+	private static <T extends CDOMObject> QualifierToken<T> getQualifier(
 			LoadContext loadContext, SelectionCreator<T> sc, String key)
 	{
 		if (key == null || key.isEmpty())
