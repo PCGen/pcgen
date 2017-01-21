@@ -318,10 +318,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.NaturalArmor')}</b></td>
           <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Dodge')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
-          <td align="center" class="border9"><b>${pcstring('AC.Deflection')}</b></td>
-          <td align="center" class="font7"><b>+</b></td>
           <td align="center" class="border9"><b>${pcstring('AC.Misc')}</b></td>
           </tr>
         <tr>
@@ -343,10 +339,6 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
           <td align="center" width="25" class="font6">SIZE<br />BONUS</td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">NATURAL<br />ARMOR</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">DODGE<br />BONUS</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">DEFLECTION<br />BONUS</td>
           <td align="center"></td>
           <td align="center" width="25" class="font6">MISC<br />BONUS</td>
           </tr>
