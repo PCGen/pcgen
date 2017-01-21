@@ -44,7 +44,6 @@ import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
-import pcgen.gui2.plaf.LookAndFeelManager;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
 import pcgen.persistence.CampaignFileLoader;
@@ -267,7 +266,6 @@ public final class Main
 			Locale.setDefault(new Locale(language, country));
 		}
 		LanguageBundle.init();
-		LookAndFeelManager.initLookAndFeel();
 		Utility.setApplicationTitle(Constants.APPLICATION_NAME);
 	}
 
