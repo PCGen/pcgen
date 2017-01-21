@@ -26,7 +26,6 @@ package pcgen.core.doomsdaybook;
  * multiplying the variable's current value.
  *
  *
- * @author Devon D Jones
  */
 public class Operation implements Comparable
 {

@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.ObjectKey;
 /**
  * {@code SubClass}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class SubClass extends PCClass implements Categorized<SubClass>
 {

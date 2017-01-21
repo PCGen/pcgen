@@ -20,7 +20,6 @@
  package plugin.overland.gui;
 
 /**
- * @author  devon
  */
 public class XMLFilter implements java.io.FilenameFilter
 {

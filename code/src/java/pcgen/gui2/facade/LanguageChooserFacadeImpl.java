@@ -55,7 +55,6 @@ import pcgen.facade.util.ListFacade;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 {

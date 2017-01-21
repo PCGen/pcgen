@@ -49,7 +49,6 @@ import pcgen.util.enumeration.Tab;
  * manage the states of all the AbilityChooserTab.
  *
  * @see AbilityChooserTab
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler

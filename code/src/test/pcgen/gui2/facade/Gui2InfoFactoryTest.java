@@ -41,7 +41,6 @@ import plugin.lsttokens.choose.StringToken;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {

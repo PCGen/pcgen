@@ -26,7 +26,6 @@ import java.util.ArrayList;
 /**
  * This class deals with RuleSets for Random name generation
  *  
- * @author Devon Jones
  */
 public class RuleSet extends ArrayList<String> implements DataElement
 {

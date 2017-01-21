@@ -40,7 +40,6 @@ import pcgen.util.TestHelper;
  * StatList class. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class StatListTest extends AbstractCharacterTestCase
 {

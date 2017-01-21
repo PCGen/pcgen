@@ -48,7 +48,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Kit}.
  *
- * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Kit extends PObject implements Comparable<Object>, KitFacade
 {

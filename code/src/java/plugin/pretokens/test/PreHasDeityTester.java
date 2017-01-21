@@ -34,7 +34,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
  *
  */
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements

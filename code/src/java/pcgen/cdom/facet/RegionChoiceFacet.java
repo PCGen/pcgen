@@ -34,7 +34,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * RegionChoiceFacet is a Facet that triggers when an object has a REGION token
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RegionChoiceFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

@@ -40,7 +40,6 @@ import static org.junit.Assert.*;
  * class is functioning correctly. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MapKeyMapTest
 {

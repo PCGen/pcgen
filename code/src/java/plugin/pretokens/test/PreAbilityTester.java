@@ -38,7 +38,6 @@ import pcgen.system.LanguageBundle;
  * prereqs.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
 {

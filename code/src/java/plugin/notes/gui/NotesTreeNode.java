@@ -48,7 +48,6 @@ import java.util.*;
 /**
  * This defines the preferences tree
  *
- * @author devon
  */
 public class NotesTreeNode implements MutableTreeNode, DocumentListener
 {

@@ -37,7 +37,6 @@ import pcgen.core.Skill;
  * SkillRankFacet stores the number of Skill Ranks for a specific Skill for a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillRankFacet extends AbstractStorageFacet<CharID>
 {

@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitSelect}.
  *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public final class KitSelect extends BaseKit
 {

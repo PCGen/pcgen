@@ -15,7 +15,6 @@ import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreSkillTotalParser;
 
 /**
- * @author Valued Customer
  */
 @SuppressWarnings("nls")
 public class PreSkillTotParserTest extends EnUsLocaleDependentTestCase

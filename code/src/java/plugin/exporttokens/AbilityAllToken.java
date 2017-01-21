@@ -42,7 +42,6 @@ import pcgen.util.enumeration.View;
  * token.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityAllToken extends AbilityToken
 {

@@ -28,7 +28,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * This class handles the PREVIEWDIR game mode token.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class PreviewDirToken implements GameModeLstToken

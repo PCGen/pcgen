@@ -24,7 +24,6 @@ package pcgen.core;
 /**
  * {@code SpecialAbility}.
  * 
- * @author Devon Jones
  */
 public final class SpecialAbility extends TextProperty
 {

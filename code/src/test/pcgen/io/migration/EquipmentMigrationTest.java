@@ -32,7 +32,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * EquipmentMigrationTest checks the function of EquipmentMigration. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class EquipmentMigrationTest extends TestCase
 {

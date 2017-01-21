@@ -32,7 +32,6 @@ import pcgen.core.PlayerCharacter;
  * CR tag in the race definition. 
  * 
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class PCBaseCRTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {

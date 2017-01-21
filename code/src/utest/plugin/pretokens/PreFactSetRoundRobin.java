@@ -34,7 +34,6 @@ import plugin.pretokens.writer.PreFactSetWriter;
  * The Class <code>PreFactRoundRobin</code> tests the parsing and unparsing of 
  * PREFACTs. 
 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreFactSetRoundRobin extends AbstractPreRoundRobin
 {

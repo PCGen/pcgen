@@ -37,7 +37,6 @@ import pcgen.util.TestHelper;
  * <code>EquipmentListTest</code> checks the functionality of the EquipmentList class.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class EquipmentListTest extends TestCase

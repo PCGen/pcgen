@@ -47,7 +47,6 @@ import pcgen.persistence.lst.FeatLoader;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PCHasVarFunctionTest extends AbstractJunit4CharacterTestCase

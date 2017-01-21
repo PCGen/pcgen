@@ -33,7 +33,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * the value of the DEFAULTDATASET tag and processing it against the game mode..
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DefaultdatasetToken implements GameModeLstToken
 {

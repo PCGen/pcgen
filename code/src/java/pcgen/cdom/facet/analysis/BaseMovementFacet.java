@@ -33,7 +33,6 @@ import pcgen.core.Movement;
  * contained in a Player Character and *which can grant a character the ability
  * to move*
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BaseMovementFacet extends AbstractSourcedListFacet<CharID, Movement>
 		implements DataFacetChangeListener<CharID, CDOMObject>

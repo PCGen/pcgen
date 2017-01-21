@@ -22,7 +22,6 @@
 /** 
  * Class that holds a single travel method and its speed.  Note: This is a wrapper for the Pair class
  *
- * @author  Juliean Galak
  */
 public class RBCost extends Pair<String, Float>
 {

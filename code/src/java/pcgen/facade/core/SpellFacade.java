@@ -22,7 +22,6 @@ package pcgen.facade.core;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface SpellFacade extends InfoFacade
 {

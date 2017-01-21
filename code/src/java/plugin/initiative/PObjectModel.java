@@ -23,7 +23,6 @@ package plugin.initiative;
  * provides utility methods for the AttackModel, SkillModel, etc. classes.
  * </p>
  *
- * @author Ross M. Lodge
  */
 public abstract class PObjectModel
 {

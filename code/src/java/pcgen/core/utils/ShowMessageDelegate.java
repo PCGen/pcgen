@@ -27,7 +27,6 @@ import java.util.Observable;
 /**
  * This is a facade for gui objects in the core code.
  *
- * @author     Jonas Karlsson
  */
 public final class ShowMessageDelegate extends Observable
 {

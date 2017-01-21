@@ -33,7 +33,6 @@ import org.apache.commons.lang3.StringUtils;
  *
  * Structure representing dice rolls
  *
- * @author binkley 
  */
 public final class RollInfo
 {

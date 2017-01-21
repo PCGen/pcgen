@@ -52,7 +52,6 @@ import static org.junit.Assert.*;
  * CharacterLevelsFacadeImplTest checks that CharacterLevelsFacadeImpl is working ok.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class CharacterLevelsFacadeImplTest extends AbstractJunit4CharacterTestCase
 {

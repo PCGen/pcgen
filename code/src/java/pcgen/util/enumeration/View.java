@@ -24,7 +24,6 @@ package pcgen.util.enumeration;
  * closely related to the Visibility enumeration.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public enum View
 {

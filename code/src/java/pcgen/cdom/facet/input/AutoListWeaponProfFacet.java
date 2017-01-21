@@ -26,7 +26,6 @@ import pcgen.core.WeaponProf;
  * AutoListWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * granted to a Player Character via AUTO:WEAPONPROF
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoListWeaponProfFacet extends
 		AbstractSourcedListFacet<CharID, WeaponProf>

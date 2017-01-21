@@ -25,7 +25,6 @@ package pcgen.util;
  * A helper for {@code java.lang.Integer} which understands a
  * leading plus sign for string conversion.
  *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @see java.lang.Integer
  */
 public final class Delta

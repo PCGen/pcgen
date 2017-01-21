@@ -36,7 +36,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * RemoveFacet is a Facet that triggers when an object has a REMOVE token
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RemoveFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

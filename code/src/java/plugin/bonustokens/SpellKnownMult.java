@@ -31,7 +31,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code SpellKnownMult}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class SpellKnownMult extends BonusObj
 {

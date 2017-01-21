@@ -102,7 +102,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * Adds the Stunning Fist feat as a virtual class feature.
  * <p>
  *
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  *
  */

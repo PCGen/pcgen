@@ -67,7 +67,6 @@ import pcgen.util.enumeration.Visibility;
  * This class implements the NPC generator.  It is a singleton object and 
  * therefore should not be created locally.
  * 
- * @author boomer70
  *
  */
 public final class NPCGenerator

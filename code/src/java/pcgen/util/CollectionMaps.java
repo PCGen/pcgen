@@ -29,7 +29,6 @@ import java.util.logging.Logger;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public final class CollectionMaps
 {

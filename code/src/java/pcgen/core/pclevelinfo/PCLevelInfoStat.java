@@ -29,7 +29,6 @@ import pcgen.core.PCStat;
 /**
  * ???
  *
- * @author byngl
  */
 public final class PCLevelInfoStat implements Serializable
 {

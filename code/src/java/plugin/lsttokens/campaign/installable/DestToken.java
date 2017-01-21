@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * {@code DestToken} parses DEST tokens in installable campaigns.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DestToken implements InstallLstToken
 {

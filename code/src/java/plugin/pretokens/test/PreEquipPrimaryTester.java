@@ -33,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
  *
  */
 public class PreEquipPrimaryTester extends PreEquippedTester implements PrerequisiteTest

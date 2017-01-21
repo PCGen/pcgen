@@ -34,7 +34,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * @author  Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  **/
 public final class EquipSlotLoader extends LstLineFileLoader
 {

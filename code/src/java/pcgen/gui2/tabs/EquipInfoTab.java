@@ -103,7 +103,6 @@ import pcgen.util.enumeration.Tab;
  *
  * <br>
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler

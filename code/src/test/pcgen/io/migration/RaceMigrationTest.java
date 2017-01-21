@@ -32,7 +32,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * RaceMigrationTest checks the function of RaceMigration. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class RaceMigrationTest extends TestCase
 {

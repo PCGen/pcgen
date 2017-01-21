@@ -32,7 +32,6 @@ import static org.junit.Assert.*;
  * PatternFilterTest checks the functioning of the PatternFilter class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PatternFilterTest
 {

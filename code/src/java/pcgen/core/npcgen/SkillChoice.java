@@ -35,7 +35,6 @@ import pcgen.core.Skill;
  * have a certain weight the assumption is that that weight applies to picking
  * a single Profession skill and not to each Profession skill individually.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class SkillChoice

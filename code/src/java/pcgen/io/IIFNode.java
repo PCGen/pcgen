@@ -27,7 +27,6 @@ import java.util.List;
 /**
  * {@code IIFNode}.
  *
- * @author Mark Hulsman &lt;mark_hulsman@users.sourceforge.net&gt;
  */
 class IIFNode
 {

@@ -39,7 +39,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>CountCommandTest</code> tests the functioning of the jep count plugin
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {

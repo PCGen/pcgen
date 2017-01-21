@@ -28,7 +28,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * {@code HD}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class HD extends MultiTagBonusObj
 {

@@ -30,7 +30,6 @@ import pcgen.core.PlayerCharacter;
  * the value of the PLUS token for use in equipment and eqmod cost formulas. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EQPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {

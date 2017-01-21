@@ -58,7 +58,6 @@ import pcgen.system.LanguageBundle;
  * via a call to UIDelgate.showGeneralChooser.
  *
  * <br>
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RadioChooserDialog extends JDialog implements ActionListener

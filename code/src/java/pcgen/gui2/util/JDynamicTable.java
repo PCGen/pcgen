@@ -40,7 +40,6 @@ import pcgen.gui2.util.table.DynamicTableColumnModel;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class JDynamicTable extends JTableEx
 {

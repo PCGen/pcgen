@@ -25,7 +25,6 @@ import pcgen.core.spell.Spell;
 /**
  * SpellListFacet maintains a list of spell lists for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellListFacet extends AbstractSourcedListFacet<CharID, CDOMList<Spell>>
 {

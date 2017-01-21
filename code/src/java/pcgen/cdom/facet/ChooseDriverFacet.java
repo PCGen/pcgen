@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * ChooseDriverFacet is a Facet that drives the application of a CHOOSE on a
  * CDOMObject.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChooseDriverFacet
 {

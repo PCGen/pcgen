@@ -34,7 +34,6 @@ import javax.swing.text.JTextComponent;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class TextFieldListener implements DocumentListener
 {

@@ -36,7 +36,6 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  * <code>IfCommandTest</code> tests the functioning of the jep if plugin
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class IfCommandTest extends PCGenTestCase
 {

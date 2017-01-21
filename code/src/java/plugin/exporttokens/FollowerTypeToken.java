@@ -40,7 +40,6 @@ import pcgen.util.Logging;
  * 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerTypeToken extends Token
 {

@@ -39,7 +39,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SkillCostTableModel extends AbstractTableModel implements ListSelectionListener
 {

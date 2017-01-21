@@ -45,7 +45,6 @@ import pcgen.util.TestHelper;
  * SkillModifier class is operating correctly.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {

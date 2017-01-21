@@ -33,7 +33,6 @@ import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author frugal@purplewombat.co.uk
  *
  */
 public class PreMult  extends AbstractPrerequisiteTest implements PrerequisiteTest {

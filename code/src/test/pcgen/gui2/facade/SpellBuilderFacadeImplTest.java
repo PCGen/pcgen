@@ -45,7 +45,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * SpellBuilderFacadeImplTest
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SpellBuilderFacadeImplTest extends AbstractCharacterTestCase
 {

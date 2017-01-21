@@ -37,7 +37,6 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {

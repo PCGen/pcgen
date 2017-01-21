@@ -33,7 +33,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code TopmarginToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class TopmarginToken extends AbstractNonEmptyToken<PaperInfo> implements
 		CDOMPrimaryToken<PaperInfo>

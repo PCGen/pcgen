@@ -24,7 +24,6 @@ import pcgen.facade.util.event.ListListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface ListFacade<E> extends Iterable<E>
 {

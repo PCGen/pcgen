@@ -41,7 +41,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * countdistinct plugin
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class CountDistinctCommandTest extends AbstractCharacterTestCase
 {

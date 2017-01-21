@@ -32,7 +32,6 @@ import plugin.exporttokens.deprecated.SpaceToken;
  * <code>SpaceTokenTest</code> - Unit test for the SPACE output token
  *
  *
- * @author Martijn Verburg <karianna@users.sourceforge.net>
  */
 public class SpaceTokenTest extends AbstractCharacterTestCase
 {

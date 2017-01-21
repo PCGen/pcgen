@@ -65,7 +65,6 @@ import pcgen.system.CharacterManager;
  *
  * @see pcgen.gui2.PCGenFrame
  * @see pcgen.gui2.tabs.InfoTabbedPane
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class CharacterTabs extends SharedTabPane
 		implements ChangeListener, ReferenceListener<CharacterFacade>, ListListener<CharacterFacade>

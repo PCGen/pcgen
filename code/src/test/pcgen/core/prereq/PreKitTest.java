@@ -35,7 +35,6 @@ import plugin.pretokens.test.PreKitTester;
  * PreKitTest verifies the behaviour of PREKIT processing.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreKitTest extends AbstractCharacterTestCase
 {

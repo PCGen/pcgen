@@ -30,7 +30,6 @@ import javax.swing.event.ChangeListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SharedTabPane extends JTabbedPane
 {

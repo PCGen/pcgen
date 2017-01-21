@@ -82,7 +82,6 @@ import pcgen.util.Logging;
  * the conversion is being run.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {

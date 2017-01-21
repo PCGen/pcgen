@@ -48,7 +48,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * Verify the correct functioning of the SPELLMEM token.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class SpellMemTokenTest extends AbstractCharacterTestCase

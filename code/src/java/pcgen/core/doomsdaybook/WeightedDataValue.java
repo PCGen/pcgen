@@ -22,7 +22,6 @@
 /**
  * {@code WeightedDataValue}.
  * 
- * @author  devon
  */
 public class WeightedDataValue extends DataValue
 {

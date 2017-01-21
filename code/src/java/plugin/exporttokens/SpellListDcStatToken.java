@@ -34,7 +34,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * figure out DC of spell
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListDcStatToken extends SpellListToken

@@ -30,7 +30,6 @@ import pcgen.core.character.CharacterSpell;
  * times per day value of the ATWILL constant. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCCastTimesAtWillTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator

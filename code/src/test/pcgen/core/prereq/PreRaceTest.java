@@ -41,7 +41,6 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 
 /**
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

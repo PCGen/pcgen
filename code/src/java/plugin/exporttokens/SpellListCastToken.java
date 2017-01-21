@@ -35,7 +35,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * that can cast for the specified class and level.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 ///SPELLLISTCAST0.0 KNOWN0.0 BOOK0.0 TYPE0
 public class SpellListCastToken extends SpellListToken

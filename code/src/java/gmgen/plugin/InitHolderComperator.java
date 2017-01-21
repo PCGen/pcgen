@@ -26,7 +26,6 @@ import java.util.Comparator;
 
 /**
  * Compares InitHolder objects
- *@author     devon
  */
 public class InitHolderComperator implements Comparator<InitHolder>
 {

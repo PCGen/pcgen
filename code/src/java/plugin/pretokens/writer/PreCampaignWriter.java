@@ -36,7 +36,6 @@ import java.io.Writer;
  * a CAMPAIGN prerequisite allowing it to be written to a LST file etc. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

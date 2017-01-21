@@ -103,9 +103,7 @@ import pcgen.util.enumeration.Visibility;
 /**
  * {@code Equipment}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt; created December
  *         27
- * @author 2001
  */
 public final class Equipment extends PObject implements Serializable,
 		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped

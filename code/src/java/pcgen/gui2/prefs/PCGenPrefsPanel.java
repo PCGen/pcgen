@@ -29,7 +29,6 @@ import javax.swing.JPanel;
  * interface for a panel in the Preferences dialog.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public abstract class PCGenPrefsPanel extends JPanel

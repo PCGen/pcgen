@@ -44,7 +44,6 @@ import pcgen.util.PjepPool;
  * and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public abstract class VariableProcessor
 {

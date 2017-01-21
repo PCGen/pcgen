@@ -30,8 +30,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code MultiTagBonusObj}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @author  Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class MultiTagBonusObj extends BonusObj
 {

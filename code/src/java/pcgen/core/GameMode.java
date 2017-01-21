@@ -70,7 +70,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameMode implements Comparable<Object>, GameModeFacade
 {

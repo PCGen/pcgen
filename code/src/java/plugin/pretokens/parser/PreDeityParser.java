@@ -37,7 +37,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  * hasdeity syntax (PREDEITY:Y or PREDEITY:No). 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreDeityParser extends AbstractPrerequisiteListParser implements
 		PrerequisiteParserInterface

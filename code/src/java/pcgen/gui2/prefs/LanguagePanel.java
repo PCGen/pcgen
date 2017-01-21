@@ -50,7 +50,6 @@ import pcgen.system.LanguageBundle;
  * managing the language and unit set preferences.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class LanguagePanel extends PCGenPrefsPanel

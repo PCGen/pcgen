@@ -37,7 +37,6 @@ import pcgen.util.Logging;
  * {@code LevelLoader} loads up the level system file
  * by processing each line passed to it.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  **/
 public final class LevelLoader
 {

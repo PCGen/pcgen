@@ -50,7 +50,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * function of the spellknownlst class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 {

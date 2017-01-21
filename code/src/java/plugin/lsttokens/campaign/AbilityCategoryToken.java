@@ -31,7 +31,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
  * files.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityCategoryToken extends AbstractBasicCampaignToken implements
 		CDOMPrimaryToken<Campaign>

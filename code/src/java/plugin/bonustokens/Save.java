@@ -36,7 +36,6 @@ import pcgen.util.Logging;
 /**
  * {@code SAVE}.  Derived from CHECKS
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Save extends BonusObj
 {

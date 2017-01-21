@@ -25,7 +25,6 @@ import pcgen.facade.util.MapFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CompanionSupportFacade
 {

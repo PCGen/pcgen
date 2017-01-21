@@ -31,7 +31,6 @@ import pcgen.facade.util.ListFacade;
  * used for selection of spells. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface SpellBuilderFacade
 {

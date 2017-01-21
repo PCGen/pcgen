@@ -32,7 +32,6 @@ import pcgen.core.character.WieldCategory;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  */
 public abstract class PreEquippedTester extends AbstractPrerequisiteTest {
 

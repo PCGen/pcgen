@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * handle export tokens to produce a result.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CharacterExportAction
 {

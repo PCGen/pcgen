@@ -37,7 +37,6 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * the Ability AspectToken is working properly 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {

@@ -32,7 +32,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
  *
  *
  * @author	James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 
 public final class MonNonSkillHD extends MultiTagBonusObj

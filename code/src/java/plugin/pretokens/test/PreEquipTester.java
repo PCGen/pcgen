@@ -39,7 +39,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  */
 public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest

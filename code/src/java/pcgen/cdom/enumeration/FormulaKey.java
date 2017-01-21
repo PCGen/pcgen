@@ -30,7 +30,6 @@ import pcgen.core.SizeAdjustment;
 import pcgen.core.analysis.SizeUtilities;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to act as an index to a
  * specific Formula item within a CDOMObject.

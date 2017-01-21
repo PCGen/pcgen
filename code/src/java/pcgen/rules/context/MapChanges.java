@@ -32,7 +32,6 @@ import java.util.Map;
  * can be cleared.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapChanges<K, V>
 {

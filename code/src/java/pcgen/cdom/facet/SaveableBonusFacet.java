@@ -26,7 +26,6 @@ import pcgen.core.bonus.BonusObj;
  * granted as side effects of other behavior, not those that are directly
  * granted as BONUS: tokens within the LST files)
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class SaveableBonusFacet extends AbstractSourcedListFacet<CharID, BonusObj>
 {

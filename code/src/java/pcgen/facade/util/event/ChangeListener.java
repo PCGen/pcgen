@@ -28,7 +28,6 @@ package pcgen.facade.util.event;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @FunctionalInterface

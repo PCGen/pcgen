@@ -37,7 +37,6 @@ import plugin.exporttokens.VarToken;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class VarTokenTest extends AbstractCharacterTestCase
 {

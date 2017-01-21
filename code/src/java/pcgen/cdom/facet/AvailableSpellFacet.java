@@ -34,7 +34,6 @@ import pcgen.util.Logging;
  * AvailableSpellFacet is a Facet that tracks the Available Spells (and target
  * objects) that are contained in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AvailableSpellFacet extends
 		AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>

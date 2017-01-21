@@ -43,7 +43,6 @@ import pcgen.rules.context.LoadContext;
  * <p>
  * Current Ver: $Revision$ <br>
  *
- * @author sage_sam
  */
 public abstract class LstLineFileLoader extends Observable
 {

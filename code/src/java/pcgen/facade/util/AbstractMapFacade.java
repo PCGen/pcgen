@@ -28,7 +28,6 @@ import pcgen.facade.util.event.MapListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class AbstractMapFacade<K, V> implements MapFacade<K, V>
 {

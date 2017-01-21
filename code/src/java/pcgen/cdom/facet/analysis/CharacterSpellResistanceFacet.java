@@ -35,7 +35,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * CharacterSpellResistanceFacet is a Facet that tracks the SpellResistance
  * objects that have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CharacterSpellResistanceFacet extends
 		AbstractSourcedListFacet<CharID, Formula> implements

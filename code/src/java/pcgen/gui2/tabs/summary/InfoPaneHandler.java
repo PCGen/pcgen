@@ -40,7 +40,6 @@ import pcgen.system.LanguageBundle;
  * the game mode miscinfo.lst file using the INFOSHEET tag.
  * <br>
  *    
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class InfoPaneHandler implements ReferenceListener<Object>,
 		ListListener<CharacterLevelFacade>

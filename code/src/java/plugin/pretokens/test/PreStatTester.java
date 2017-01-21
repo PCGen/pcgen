@@ -35,7 +35,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  */
 public class PreStatTester extends AbstractDisplayPrereqTest implements

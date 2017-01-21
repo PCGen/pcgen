@@ -24,7 +24,6 @@ import java.util.EventListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface GenericListDataListener<E> extends EventListener
 {

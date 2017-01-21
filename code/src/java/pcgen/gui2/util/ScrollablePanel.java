@@ -37,7 +37,6 @@ import java.awt.Rectangle;
  *
  * <br>
  * 
- * @author Devon Jones
  */
 public class ScrollablePanel extends JPanel implements Scrollable
 {

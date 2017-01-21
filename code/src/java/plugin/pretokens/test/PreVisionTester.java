@@ -33,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.util.enumeration.VisionType;
 
 /**
- * @author wardc
  *
  * Checks a characters vision..
  */

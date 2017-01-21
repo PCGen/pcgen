@@ -34,7 +34,6 @@ import org.jetbrains.annotations.Contract;
 /**
  * {@code Utilities}.
  *
- * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *
  * @see SwingConstants
  */

@@ -39,7 +39,6 @@ import pcgen.core.spell.Spell;
 /**
  * {@code PCClass}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class CharacterSpell implements Comparable<CharacterSpell>
 {

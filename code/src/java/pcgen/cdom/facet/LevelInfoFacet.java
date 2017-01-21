@@ -30,7 +30,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  * Character. These store information about a specific Level (such as stat
  * increases)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LevelInfoFacet extends AbstractListFacet<CharID, PCLevelInfo>
 {

@@ -33,7 +33,6 @@ import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreVisionParser;
 
 /**
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

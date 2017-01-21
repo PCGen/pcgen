@@ -30,7 +30,6 @@ import java.util.Map;
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *
- * @author Thomas Behr 08-00-02
  */
 final class Cache
 {

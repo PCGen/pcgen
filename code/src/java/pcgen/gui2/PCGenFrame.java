@@ -128,7 +128,6 @@ import org.lobobrowser.html.test.SimpleUserAgentContext;
  * global UI functions such as message dialogs. 
  *
  * <br>
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenFrame extends JFrame implements UIDelegate
 {

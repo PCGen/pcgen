@@ -34,7 +34,6 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
 /**
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 class NewPurchaseMethodDialog extends JDialog
 {

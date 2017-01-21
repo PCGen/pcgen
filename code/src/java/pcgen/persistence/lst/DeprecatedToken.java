@@ -30,7 +30,6 @@ package pcgen.persistence.lst;
 import pcgen.cdom.base.CDOMObject;
 
 /**
- * @author djones4
  */
 
 public interface DeprecatedToken

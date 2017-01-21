@@ -42,7 +42,6 @@ import java.util.Vector;
 import pcgen.core.RollingMethods;
 
 /**
- * @author Ross M. Lodge
  *
  * <p>This class resolves an attack as described by AttackModel.</p>
  * <p>The dialog presents a table which holds the details of the attacks.  Certain cells
@@ -437,7 +436,6 @@ public class AttackDialog extends JDialog
 	}
 
 	/**
-	 * @author Ross M. Lodge
 	 *
 	 * <p>A table model for the dialog.  Defines columns, column data types, editable values, etc.</p>
 	 * <p>Provides methods for rolling attacks and re-calculating data values.</p>

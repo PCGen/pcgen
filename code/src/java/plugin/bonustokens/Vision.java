@@ -28,7 +28,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * {@code Vision} deals with bonuses to a character's vision.
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Vision extends MultiTagBonusObj
 {

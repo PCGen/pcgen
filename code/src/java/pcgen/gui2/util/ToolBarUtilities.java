@@ -27,7 +27,6 @@ import javax.swing.SwingConstants;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class ToolBarUtilities
 {

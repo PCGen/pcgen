@@ -49,7 +49,6 @@ import pcgen.util.enumeration.View;
  * z is an option list of {@literal TYPE=<type>} - type filter - may be negated
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityListToken extends Token
 {

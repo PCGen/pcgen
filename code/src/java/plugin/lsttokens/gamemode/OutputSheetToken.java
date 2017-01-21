@@ -39,7 +39,6 @@ import pcgen.util.Logging;
  *
  * <br>
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class OutputSheetToken implements GameModeLstToken
 {

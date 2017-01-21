@@ -55,7 +55,6 @@ import pcgen.system.PCGenSettings;
  * the user to select the campaigns to be converted.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignPanel extends ConvertSubPanel
 {

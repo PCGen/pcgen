@@ -29,7 +29,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author jayme cox &lt;jaymecox@users.sourceforge.net&gt;
  *
  */
 public class PreWieldTester extends AbstractDisplayPrereqTest implements

@@ -36,7 +36,6 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  * that IsgamemodeCommand is working correctly. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class IsgamemodeCommandTest extends PCGenTestCase
 {

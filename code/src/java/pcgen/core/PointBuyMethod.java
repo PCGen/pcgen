@@ -35,7 +35,6 @@ import pcgen.core.bonus.BonusObj;
 /**
  * {@code PointBuyMethod}.
  * 
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class PointBuyMethod implements BonusContainer, Loadable
 {

@@ -24,7 +24,6 @@ import javax.swing.MutableComboBoxModel;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface ComboSelectionDialog
 {

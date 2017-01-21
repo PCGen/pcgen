@@ -26,7 +26,6 @@ import pcgen.core.SpellSupportForPCClass;
  * SpellSupportFacet stores the SpellSupportForPCClass objects that are
  * associated to the PCClass objects that are part of a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellSupportFacet extends
 		AbstractAssociationFacet<CharID, PCClass, SpellSupportForPCClass>

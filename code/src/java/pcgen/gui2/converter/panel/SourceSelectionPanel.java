@@ -46,7 +46,6 @@ import pcgen.system.PCGenSettings;
  * folder for the conversion process from the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SourceSelectionPanel extends ConvertSubPanel
 {

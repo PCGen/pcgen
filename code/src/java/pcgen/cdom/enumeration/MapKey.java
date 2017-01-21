@@ -45,7 +45,6 @@ import pcgen.util.enumeration.AttackType;
  * the type of object stored by the ListKey. (This assists with Generics)
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class MapKey<K, V>
 {

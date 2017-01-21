@@ -31,7 +31,6 @@ import pcgen.system.LanguageBundle;
 import java.util.List;
 
 /**
- *@author     devon
  */
 public class DefeatedCombatant extends Combatant
 {

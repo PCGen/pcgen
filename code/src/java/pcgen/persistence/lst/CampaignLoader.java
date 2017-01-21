@@ -40,7 +40,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
 
 /**
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public class CampaignLoader extends LstLineFileLoader
 {

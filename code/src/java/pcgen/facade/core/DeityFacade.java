@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor
  */
 public interface DeityFacade extends InfoFacade
 {

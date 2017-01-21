@@ -29,7 +29,6 @@ import pcgen.facade.core.GameModeDisplayFacade;
 /**
  * Handles game modes.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameModeDisplay implements Comparable<Object>, GameModeDisplayFacade
 {

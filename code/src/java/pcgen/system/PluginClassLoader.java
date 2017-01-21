@@ -48,7 +48,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class PluginClassLoader extends PCGenTask
 {

@@ -35,7 +35,6 @@ import pcgen.core.spell.Spell;
  * SpellsFacet is a Facet that tracks the SpellLikeAbility objects that have
  * been granted to a Player Character through SPELLS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellsFacet extends AbstractQualifiedListFacet<SpellLikeAbility>
 		implements DataFacetChangeListener<CharID, CDOMObject>

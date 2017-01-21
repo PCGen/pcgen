@@ -34,7 +34,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * NewCategoryTokenTest verifies that NewCategoryToken is operating correctly.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class NewCategoryTokenTest
 {

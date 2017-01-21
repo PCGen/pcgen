@@ -39,7 +39,6 @@ import pcgen.util.Logging;
 
 /**
  * 
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public class AbilityLoader extends LstObjectFileLoader<Ability>
 {

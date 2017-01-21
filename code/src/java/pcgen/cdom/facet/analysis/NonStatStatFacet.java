@@ -35,7 +35,6 @@ import pcgen.core.PCStat;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class NonStatStatFacet extends AbstractSourcedListFacet<CharID, PCStat> implements
 		DataFacetChangeListener<CharID, CDOMObject>

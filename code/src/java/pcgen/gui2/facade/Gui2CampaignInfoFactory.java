@@ -53,7 +53,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {

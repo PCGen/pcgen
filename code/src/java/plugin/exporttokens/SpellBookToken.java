@@ -34,7 +34,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * {@code SpellBookToken} gives the requested details of a spellbook.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellBookToken extends AbstractExportToken
 {

@@ -71,7 +71,6 @@ import pcgen.util.TestHelper;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @RunWith(Parameterized.class)
 public class DataLoadTest implements PCGenTaskListener

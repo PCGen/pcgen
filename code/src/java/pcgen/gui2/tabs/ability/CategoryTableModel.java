@@ -34,7 +34,6 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * The model for the bottom left table showing the ability categories and 
  * their pool points.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CategoryTableModel extends
 		FilteredListFacadeTableModel<AbilityCategoryFacade> implements

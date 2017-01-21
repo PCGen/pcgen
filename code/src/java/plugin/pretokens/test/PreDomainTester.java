@@ -33,7 +33,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.util.Logging;
 
 /**
- * @author wardc
  *
  */
 public class PreDomainTester extends AbstractDisplayPrereqTest

@@ -77,7 +77,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * that PlayerCharacter is working correctly.
  * 
  * 
- * @author Chris Ward <frugal@purplewombat.co.uk>
  */
 @SuppressWarnings("nls")
 public class PlayerCharacterTest extends AbstractCharacterTestCase

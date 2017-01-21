@@ -30,7 +30,6 @@ import java.util.Map;
 
 /**
  *
- * @author Connor Petty
  */
 public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
     /**

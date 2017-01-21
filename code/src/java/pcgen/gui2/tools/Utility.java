@@ -60,7 +60,6 @@ import org.jetbrains.annotations.Contract;
 /**
  * Convenience methods from various sources.
  *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class Utility
 {

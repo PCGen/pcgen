@@ -36,7 +36,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * types designated as able to be automatically resized. 
  *
  *
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class MonsterRolesToken implements GameModeLstToken
 {

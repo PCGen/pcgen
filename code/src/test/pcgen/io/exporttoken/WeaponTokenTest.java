@@ -70,7 +70,6 @@ import pcgen.util.TestHelper;
  * WEAPON token is working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class WeaponTokenTest extends AbstractCharacterTestCase

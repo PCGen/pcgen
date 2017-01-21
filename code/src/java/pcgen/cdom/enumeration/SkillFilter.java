@@ -27,7 +27,6 @@ import pcgen.system.LanguageBundle;
 /**
  * SkillsExport defines which skills are to be displayed on an output sheet.
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public enum SkillFilter
 {

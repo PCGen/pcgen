@@ -49,7 +49,6 @@ import pcgen.util.Delta;
 /**
  * Definition and games rules for an equipment modifier.
  *
- * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class EquipmentModifier extends PObject implements Comparable<Object>, EquipModFacade
 {

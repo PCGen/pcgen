@@ -44,7 +44,6 @@ import pcgen.util.TestHelper;
  * This class tests the handling of ASPECT fields in PCGen
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class AspectTest extends AbstractCharacterTestCase

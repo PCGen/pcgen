@@ -61,7 +61,6 @@ import pcgen.util.TestHelper;
  * and then specify the character to be run in the testLegacyAndFtlGen method.
  * <p>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @Ignore
 @SuppressWarnings("nls")

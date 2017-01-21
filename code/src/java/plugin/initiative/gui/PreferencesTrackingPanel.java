@@ -29,7 +29,6 @@ import plugin.initiative.InitiativePlugin;
 /**
  *  Dialog for editing preferences.
  *
- *@author     devon
  */
 public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 {

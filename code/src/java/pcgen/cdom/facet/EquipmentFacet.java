@@ -31,7 +31,6 @@ import pcgen.output.publish.OutputDB;
  * or owned. Therefore, items granted or allowed by the Equipment in this facet
  * are not part of the Player Character (the equipment must be equipped first).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>,

@@ -44,7 +44,6 @@ import java.util.TreeSet;
  * {@code get(4)} will return Item 2.
  * <p>
  * 
- * @author boomer70 and Tom Parker (thpr@users.sourceforge.net)
  * @param <E>
  *            The Class stored in the WeightedCollection
  * @see java.util.Collection
@@ -486,7 +485,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * This class is a simple wrapper to associate an object from a
 	 * <tt>WeightedList</tt> and its weight.
 	 * 
-	 * @author boomer70
 	 * 
 	 * @param <T>
 	 */

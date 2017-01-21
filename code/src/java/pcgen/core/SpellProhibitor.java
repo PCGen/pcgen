@@ -32,7 +32,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
 /**
- * @author stefan
  * 
  * TODO To change the template for this generated type comment go to Window -
  * Preferences - Java - Code Style - Code Templates

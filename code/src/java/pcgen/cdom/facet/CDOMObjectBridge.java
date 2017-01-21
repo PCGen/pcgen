@@ -33,7 +33,6 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
  * Note that listening to CDOMObjectConsolidationFacet is the preferred method
  * of listening to addition of (all) CDOMObjects, where possible.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public final class CDOMObjectBridge extends AbstractSourcedListFacet<CharID, CDOMObject>
 {

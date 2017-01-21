@@ -36,7 +36,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerListToken extends AbstractExportToken
 {

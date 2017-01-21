@@ -29,7 +29,6 @@ import java.util.List;
  *
  * <p>Current Ver: $Revision$</p>
  * 
- * @author LodgeR
  */
 public class TableColumnInformation
 {

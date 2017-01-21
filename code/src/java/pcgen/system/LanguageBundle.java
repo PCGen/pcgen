@@ -31,7 +31,6 @@ import pcgen.util.Logging;
  * It provides a set of features to translate il8n keys into text in the 
  * language chosen in preferences.
  *
- * @author Thomas Behr 03-01-02
  */
 public final class LanguageBundle
 {

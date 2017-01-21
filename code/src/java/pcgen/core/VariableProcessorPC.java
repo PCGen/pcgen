@@ -31,7 +31,6 @@ import pcgen.core.term.TermEvaluator;
  * definitions of objects and for output to output sheets.
  *
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class VariableProcessorPC extends VariableProcessor
 {

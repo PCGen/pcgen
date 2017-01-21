@@ -57,8 +57,6 @@ import plugin.overland.model.TravelSpeedEvent;
 
 /**
  *
- * @author  Juliean Galak
- * @author Vincent Lhote
  */
 public class OverPanel extends javax.swing.JPanel
 {

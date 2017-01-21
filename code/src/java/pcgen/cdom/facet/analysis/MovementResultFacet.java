@@ -51,7 +51,6 @@ import pcgen.util.enumeration.Load;
  * this is storing the resulting values post aggregation of those Movement
  * objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>

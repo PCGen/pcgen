@@ -32,7 +32,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * <code>PreFactSetTest</code> tests that the PREFACTSET tag is
  * working correctly.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreFactSetTest extends AbstractCharacterTestCase
 {

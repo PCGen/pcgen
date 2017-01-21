@@ -30,7 +30,6 @@ import java.util.NoSuchElementException;
 import java.util.Vector;
 
 /**
- * @author Jerril
  *
  */
 public class EnvironmentModel extends DefaultComboBoxModel

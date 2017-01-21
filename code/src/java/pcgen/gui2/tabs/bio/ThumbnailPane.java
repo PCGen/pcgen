@@ -33,7 +33,6 @@ import pcgen.cdom.base.Constants;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class ThumbnailPane extends JComponent
 {

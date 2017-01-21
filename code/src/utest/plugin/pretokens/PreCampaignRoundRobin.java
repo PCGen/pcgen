@@ -33,7 +33,6 @@ import plugin.pretokens.writer.PreCampaignWriter;
  * that PRECAMPAIGN tags can be read and written. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {

@@ -30,7 +30,6 @@ import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  */
 public final class PrerequisiteTestFactory implements PluginLoader{

@@ -15,7 +15,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import java.net.URI;
 
 /**
- * @author djones4
  *
  */
 public class SourcelinkLst extends AbstractStringToken<CDOMObject> implements

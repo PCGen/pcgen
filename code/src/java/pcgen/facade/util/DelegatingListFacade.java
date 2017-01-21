@@ -25,7 +25,6 @@ import pcgen.facade.util.event.ListListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DelegatingListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {

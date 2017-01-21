@@ -46,7 +46,6 @@ import pcgen.rules.context.LoadContext;
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 {

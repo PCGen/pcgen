@@ -96,7 +96,6 @@ import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
 /**
- *@author     Devon Jones
  */
 public class Initiative extends javax.swing.JPanel
 {

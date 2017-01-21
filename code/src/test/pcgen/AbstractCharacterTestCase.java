@@ -41,7 +41,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
  *
- * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
 public abstract class AbstractCharacterTestCase extends PCGenTestCase

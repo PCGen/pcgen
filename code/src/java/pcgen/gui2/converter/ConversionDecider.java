@@ -30,7 +30,6 @@ import java.util.List;
  * that needs to be converted. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ConversionDecider
 {

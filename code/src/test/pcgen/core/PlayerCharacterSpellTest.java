@@ -46,7 +46,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PlayerCharacterSpellTest extends AbstractCharacterTestCase

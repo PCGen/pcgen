@@ -35,7 +35,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * of spell for the indicated class.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListDcToken extends SpellListToken

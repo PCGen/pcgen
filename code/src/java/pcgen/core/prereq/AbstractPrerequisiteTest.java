@@ -36,7 +36,6 @@ import pcgen.system.LanguageBundle;
  * implement a method it falls through to this and is dealt with in some kind of
  * sensible fashion.
  *
- * @author  wardc
  */
 public abstract class AbstractPrerequisiteTest implements PrerequisiteTest
 {

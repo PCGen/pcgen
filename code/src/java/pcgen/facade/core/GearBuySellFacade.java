@@ -29,7 +29,6 @@ package pcgen.facade.core;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface GearBuySellFacade
 {

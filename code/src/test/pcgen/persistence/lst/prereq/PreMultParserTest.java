@@ -39,7 +39,6 @@ import pcgen.util.TestHelper;
 
 /*** Test
 	 * [PREARMORPROF:1,TYPE.Medium],[PREFEAT:1,Armor Proficiency (Medium)]
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

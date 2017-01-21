@@ -15,7 +15,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityListToken;
 
 /**
- * @author karianna
  * Class deals with FEATAUTOLIST Token
  */
 public class FeatAutoListToken extends AbilityListToken

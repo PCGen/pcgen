@@ -41,7 +41,6 @@ import pcgen.core.spell.Spell;
 /**
  * Stores information about how to randomly generate selections for a class.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class ClassData

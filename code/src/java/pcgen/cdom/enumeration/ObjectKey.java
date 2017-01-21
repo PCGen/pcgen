@@ -78,7 +78,6 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  *
  * This is a Typesafe enumeration of legal Object Characteristics of an object.
  * It is designed to act as an index to a specific Objects within a

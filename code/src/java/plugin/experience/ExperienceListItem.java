@@ -27,7 +27,6 @@ import gmgen.plugin.Combatant;
  * } and will have it's own model and view.<br>
  * Created on February 26, 2003<br>
  * Updated on February 26, 2003
- * @author  Expires 2003
  */
 public class ExperienceListItem
 {

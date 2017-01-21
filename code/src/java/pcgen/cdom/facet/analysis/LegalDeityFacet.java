@@ -31,7 +31,6 @@ import pcgen.core.PCClass;
  * LegalDeityFacet tracks the Deity objects which the Player Character may
  * select.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LegalDeityFacet
 {

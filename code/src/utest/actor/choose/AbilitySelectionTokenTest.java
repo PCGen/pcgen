@@ -44,7 +44,6 @@ import static org.junit.Assert.*;
  * Unit test of the class AbilitySelectionToken.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilitySelectionTokenTest
 {

@@ -29,7 +29,6 @@ import org.apache.commons.lang3.StringUtils;
 /**
  * ExportUtilities is a collection of useful tools for exporting characters.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class ExportUtilities
 {

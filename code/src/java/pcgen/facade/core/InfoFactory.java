@@ -22,14 +22,12 @@ package pcgen.facade.core;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 /**
  * InfoFactory defines the interface to be used by the UI for extracting
  * information about objects for display to the user.
  *
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface InfoFactory
 {

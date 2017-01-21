@@ -32,7 +32,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
  *
  */
 public class PreGenderTester extends AbstractDisplayPrereqTest implements

@@ -27,7 +27,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- * @author frugal@purplewombat.co.uk
  *
  * Interface to the Prerequisite parser. Each Prerequisite
  * is parsed by a separate class, each class implements this

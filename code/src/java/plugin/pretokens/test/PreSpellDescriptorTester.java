@@ -34,7 +34,6 @@ import pcgen.system.LanguageBundle;
 import java.util.List;
 
 /**
- * @author blithwyn
  *
  */
 public class PreSpellDescriptorTester extends AbstractPrerequisiteTest

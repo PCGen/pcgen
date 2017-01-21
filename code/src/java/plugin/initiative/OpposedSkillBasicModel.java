@@ -45,7 +45,6 @@ import java.util.TreeMap;
  * <p>
  * </p>
  *
- * @author LodgeR
  */
 public class OpposedSkillBasicModel extends AbstractTableModel
 {

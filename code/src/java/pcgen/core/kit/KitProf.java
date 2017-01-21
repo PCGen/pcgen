@@ -43,7 +43,6 @@ import pcgen.core.WeaponProf;
 /**
  * {@code KitFeat}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitProf extends BaseKit
 {

@@ -79,7 +79,6 @@ import pcgen.util.enumeration.Tab;
  * where each item is located. As a result it also manages what items are 
  * deemed active.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>

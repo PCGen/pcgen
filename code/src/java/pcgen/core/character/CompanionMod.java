@@ -18,7 +18,6 @@
  *
  *************************************************************************
  *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * @Created on July 10th, 2002, 3:55 PM
  *
  * Current Ver: $Revision$
@@ -42,7 +41,6 @@ import pcgen.core.Race;
 /**
  * {@code CompanionMod}.
  *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  */
 public final class CompanionMod extends PObject implements
 		Categorized<CompanionMod>

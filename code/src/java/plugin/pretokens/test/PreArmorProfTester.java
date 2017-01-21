@@ -40,7 +40,6 @@ import pcgen.system.LanguageBundle;
  * {@code PreArmorProfTester} does the testing of armor proficiency
  * prerequisites. 
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

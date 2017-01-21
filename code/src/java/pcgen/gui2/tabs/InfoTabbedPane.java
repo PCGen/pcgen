@@ -63,7 +63,6 @@ import pcgen.util.enumeration.Tab;
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class InfoTabbedPane extends JTabbedPane

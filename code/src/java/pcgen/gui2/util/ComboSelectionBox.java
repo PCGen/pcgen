@@ -34,7 +34,6 @@ import javax.swing.SwingUtilities;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class ComboSelectionBox extends JPanel implements ItemSelectable
 {

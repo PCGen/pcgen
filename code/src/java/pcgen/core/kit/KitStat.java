@@ -42,7 +42,6 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
 /**
  * KitStat
  *
- * @author boomer70
  */
 public class KitStat extends BaseKit
 {

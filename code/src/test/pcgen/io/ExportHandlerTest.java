@@ -65,7 +65,6 @@ import pcgen.util.TestHelper;
  * SKILL token and its subtokens are working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 @SuppressWarnings("nls")

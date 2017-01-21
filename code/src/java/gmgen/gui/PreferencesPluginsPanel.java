@@ -40,7 +40,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author  soulcatcher
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	private static final Map<String, PluginRef> pluginMap = new HashMap<>();

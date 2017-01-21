@@ -24,7 +24,6 @@ import pcgen.facade.util.ReferenceFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CompanionStubFacade
 {

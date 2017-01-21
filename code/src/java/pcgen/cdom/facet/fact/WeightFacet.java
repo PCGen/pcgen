@@ -25,7 +25,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * this weight is the actual character weight, not the character plus the
  * character's equipment.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class WeightFacet extends AbstractItemFacet<CharID, Integer>
 {

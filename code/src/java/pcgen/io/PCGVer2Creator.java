@@ -114,7 +114,6 @@ import pcgen.util.StringPClassUtil;
  * <i>nestedtag</i> := TAGNAME ':' '[' taglist ']'
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
- * @author Thomas Behr 19-03-02
  */
 public final class PCGVer2Creator
 {

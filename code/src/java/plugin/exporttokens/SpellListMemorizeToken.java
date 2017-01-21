@@ -35,7 +35,6 @@ import pcgen.io.exporttoken.SpellListToken;
  * needs to memorize spells, "false" otherwise.
  *
  *
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 
 public class SpellListMemorizeToken extends SpellListToken

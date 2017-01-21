@@ -36,7 +36,6 @@ import pcgen.rules.context.LoadContext;
  * 
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class LockedStat extends BonusObj
 {

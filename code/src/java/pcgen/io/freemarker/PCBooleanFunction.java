@@ -32,7 +32,6 @@ import freemarker.template.TemplateModelException;
  * Freemarker template. It evaluates an export token for the current character and 
  * returns the value as a boolean. e.g. ${pcboolean("WEAPON.0.ISTYPE.Double")} 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCBooleanFunction implements TemplateMethodModelEx, CharacterExportAction
 {

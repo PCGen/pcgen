@@ -41,7 +41,6 @@ import pcgen.core.SubClass;
  * ClassSkillListFacet stores the ClassSkillListFacet choices for a
  * PCClass of a Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassSkillListFacet extends
 		AbstractScopeFacet<CharID, PCClass, ClassSkillList> implements

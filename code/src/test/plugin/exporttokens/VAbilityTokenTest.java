@@ -56,7 +56,6 @@ import pcgen.util.enumeration.Visibility;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
 {

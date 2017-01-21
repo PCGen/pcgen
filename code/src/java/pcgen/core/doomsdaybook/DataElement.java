@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 /**
  *
- * @author  devon
  */
 public interface DataElement
 {

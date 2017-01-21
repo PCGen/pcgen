@@ -26,7 +26,6 @@ import pcgen.facade.util.event.MapListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface MapFacade<K, V>
 {

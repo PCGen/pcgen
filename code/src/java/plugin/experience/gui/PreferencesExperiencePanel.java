@@ -31,7 +31,6 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author soulcatcher
  */
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {

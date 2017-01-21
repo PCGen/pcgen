@@ -57,7 +57,6 @@ import pcgen.util.enumeration.View;
  * property is optional. eg SKILL.2.RANK or SKILL.BALANCE
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SkillToken extends Token
 {

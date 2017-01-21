@@ -25,7 +25,6 @@ import pcgen.system.PropertyContext;
 /**
  * This class acts as delegate for UI functions that may
  * be called within the facade layer.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface UIDelegate
 {

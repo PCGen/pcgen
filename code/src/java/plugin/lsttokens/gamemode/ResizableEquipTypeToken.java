@@ -36,7 +36,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * types designated as able to be automatically resized. 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ResizableEquipTypeToken implements GameModeLstToken
 {

@@ -27,7 +27,6 @@ import pcgen.core.PlayerCharacter;
  * calculated relative to CharacterDisplay/CharID... and is thus different than
  * today's (5.x) core.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VariableCheckingFacet
 {

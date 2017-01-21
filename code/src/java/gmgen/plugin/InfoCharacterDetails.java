@@ -28,7 +28,6 @@ import pcgen.util.Logging;
 /**
  * This class is a helper for the Combat Tracker.  This class helps display
  * all the statistics of a character.
- * @author Expires 2003
  *
  * <p>Current Ver: $Revision$</p>
  */

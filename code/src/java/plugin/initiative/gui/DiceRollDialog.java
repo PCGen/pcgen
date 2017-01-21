@@ -39,7 +39,6 @@ import plugin.initiative.DiceRollModel;
  * This dialog class manages a skill roll.
  * </p>
  *
- * @author Ross M. Lodge
  */
 class DiceRollDialog extends JDialog
 {

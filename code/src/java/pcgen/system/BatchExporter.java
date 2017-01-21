@@ -68,7 +68,6 @@ import org.apache.commons.lang3.StringUtils;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BatchExporter
 {

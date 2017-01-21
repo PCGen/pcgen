@@ -26,7 +26,6 @@ import pcgen.cdom.base.Constants;
  * {@code ParseException}<br>
  *
  *
- * @author ???
  */
 final class PCGParseException extends Exception
 {

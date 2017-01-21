@@ -56,7 +56,6 @@ import pcgen.facade.util.MapFacade;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MockDataSetFacade implements DataSetFacade
 {

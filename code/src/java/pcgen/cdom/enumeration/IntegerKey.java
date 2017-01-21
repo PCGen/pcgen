@@ -29,7 +29,6 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Integer Characteristics of an object.
  * It is designed to act as an index to a specific integers within a CDOMObject.

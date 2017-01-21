@@ -38,7 +38,6 @@ import java.util.List;
  * known for the specified spellcaster class number and level (if any).
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListBookToken extends SpellListToken

@@ -46,7 +46,6 @@ import pcgen.util.Logging;
  * of some data items. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ConversionInputDialog extends JDialog implements

@@ -41,7 +41,6 @@ import pcgen.system.LanguageBundle;
  * A dialog to allow character variables and expressions to be evaluated 
  * interactively by the user.
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class CalculatorDialog extends JDialog
 {

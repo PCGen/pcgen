@@ -43,7 +43,6 @@ import pcgen.io.exporttoken.AbilityListToken;
  * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityAutoListToken extends AbilityListToken
 {

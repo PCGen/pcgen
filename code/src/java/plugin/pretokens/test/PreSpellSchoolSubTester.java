@@ -35,7 +35,6 @@ import pcgen.system.LanguageBundle;
 import java.util.List;
 
 /**
- * @author wardc
  *
  */
 public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements

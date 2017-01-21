@@ -34,7 +34,6 @@ import java.net.URI;
  * <p>
  * Current Ver: $Revision$ <br>
  *
- * @author ad9c15
  */
 public class TraitLoader extends LstLineFileLoader
 {

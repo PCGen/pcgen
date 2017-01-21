@@ -29,7 +29,6 @@ import pcgen.core.character.Follower;
 /**
  * MasterFacet is a Facet that tracks the Master of a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MasterFacet extends AbstractItemFacet<CharID, Follower>
 {

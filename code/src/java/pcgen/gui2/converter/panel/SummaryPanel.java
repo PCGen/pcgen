@@ -48,7 +48,6 @@ import pcgen.gui2.util.FontManipulation;
  * choices for confirmation before running a conversion process.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SummaryPanel extends ConvertSubPanel
 {

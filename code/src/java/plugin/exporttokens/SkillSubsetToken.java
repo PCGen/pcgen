@@ -41,7 +41,6 @@ import pcgen.util.enumeration.View;
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLSUBSET

@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
  * This is the total plus modifier for the current head.  
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EQHeadPlusTotalTermEvaluator extends BaseEQTermEvaluator implements TermEvaluator
 {

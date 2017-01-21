@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentFacade extends InfoFacade
 {

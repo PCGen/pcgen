@@ -29,7 +29,6 @@ package pcgen.util;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @FunctionalInterface
 public interface SortKeyAware

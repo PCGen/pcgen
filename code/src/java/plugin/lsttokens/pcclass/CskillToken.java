@@ -41,7 +41,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.rules.persistence.token.PostDeferredToken;
 
 /**
- * @author djones4
  * 
  */
 public class CskillToken extends AbstractTokenWithSeparator<PCClass> implements

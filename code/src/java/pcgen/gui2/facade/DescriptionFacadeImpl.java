@@ -51,7 +51,6 @@ import pcgen.system.LanguageBundle;
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 class DescriptionFacadeImpl implements DescriptionFacade
 {

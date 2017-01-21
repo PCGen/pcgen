@@ -27,7 +27,6 @@
 package pcgen.core.prereq;
 
 /**
- * @author wardc
  *
  */
 public class PrerequisiteException extends Exception {

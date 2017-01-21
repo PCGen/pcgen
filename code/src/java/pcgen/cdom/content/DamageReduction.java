@@ -42,7 +42,6 @@ import pcgen.cdom.base.QualifyingObject;
  * over clarity is preferred in the output so that is what the methods attempt
  * to provide.
  * 
- * @author boomer70
  * 
  */
 public class DamageReduction extends ConcretePrereqObject implements

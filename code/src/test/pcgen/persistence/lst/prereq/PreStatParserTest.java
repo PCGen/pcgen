@@ -35,7 +35,6 @@ import pcgen.util.TestHelper;
 import plugin.pretokens.parser.PreStatParser;
 
 /**
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

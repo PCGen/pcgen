@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * A SubtractingFormula represents a 'deferred calculation' of sorts, designed
  * to be stored and capable of subtracting a predetermined value from a given

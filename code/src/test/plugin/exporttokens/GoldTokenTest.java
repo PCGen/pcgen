@@ -37,7 +37,6 @@ import plugin.exporttokens.deprecated.GoldToken;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class GoldTokenTest extends AbstractCharacterTestCase

@@ -34,7 +34,6 @@ import java.util.regex.Pattern;
  * Loggings API that ignores the call from the PCGen logging class.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class SourceLogFormatter extends Formatter
 {

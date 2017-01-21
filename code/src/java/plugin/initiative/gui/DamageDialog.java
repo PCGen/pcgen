@@ -24,7 +24,6 @@ package plugin.initiative.gui;
 
 /**
  *
- * @author  soulcatcher
  */
 public class DamageDialog extends javax.swing.JDialog
 {

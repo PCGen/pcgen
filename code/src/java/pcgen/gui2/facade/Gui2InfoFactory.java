@@ -138,7 +138,6 @@ import pcgen.util.enumeration.Visibility;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class Gui2InfoFactory implements InfoFactory
 {

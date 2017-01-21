@@ -28,7 +28,6 @@ import java.util.ListIterator;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DefaultListFacade<E> extends AbstractListFacade<E>
 {

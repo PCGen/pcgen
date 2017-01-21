@@ -32,7 +32,6 @@ import pcgen.output.publish.OutputDB;
  * HasAnyFavoredClassFacet is a Facet that tracks if the Player Character has
  * "ANY" ("HIGHESTCLASS") as a Favored Class.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HasAnyFavoredClassFacet extends AbstractSourcedListFacet<CharID, Boolean>
 		implements DataFacetChangeListener<CharID, CDOMObject>, ItemFacet<CharID, Boolean>

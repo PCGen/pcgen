@@ -76,7 +76,6 @@ import pcgen.util.enumeration.View;
  * <br>
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterAbilities
 {

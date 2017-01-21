@@ -33,7 +33,6 @@ import pcgen.facade.util.ReferenceFacade;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class CompanionStub implements CompanionStubFacade

@@ -40,7 +40,6 @@ import pcgen.core.chooser.ChooserUtilities;
  * Deals with applying a bonus language via a Kit
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class KitLangBonus extends BaseKit
 {

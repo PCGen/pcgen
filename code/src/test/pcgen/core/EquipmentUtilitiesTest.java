@@ -33,7 +33,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
 /**
- * @author nuance
  *
  */
 public class EquipmentUtilitiesTest extends PCGenTestCase

@@ -29,7 +29,6 @@ import pcgen.system.LanguageBundle;
  * setInfoLabelText methods in the gui tabs.
  *
  *
- * @author Koen Van Daele &lt;vandaelek@users.sourceforge.net&gt;
  */
 public class HtmlInfoBuilder 
 {

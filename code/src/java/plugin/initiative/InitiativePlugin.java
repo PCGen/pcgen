@@ -77,7 +77,6 @@ import plugin.initiative.gui.PreferencesPerformancePanel;
  * Created on February 26, 2003 <br>
  * Updated on February 26, 2003
  *
- * @author Expires 2003
  */
 public class InitiativePlugin implements InteractivePlugin
 {

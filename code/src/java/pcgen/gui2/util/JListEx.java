@@ -35,7 +35,6 @@ import javax.swing.JList;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class JListEx extends JList

@@ -51,7 +51,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		DataView<SkillFacade>, SkillBonusListener, ListSelectionListener

@@ -32,7 +32,6 @@ import pcgen.util.Logging;
 /**
  * {@code GameModeLoader}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class GameModeLoader
 {

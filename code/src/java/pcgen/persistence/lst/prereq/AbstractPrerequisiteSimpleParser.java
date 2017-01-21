@@ -31,7 +31,6 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- * @author wardc
  *
  */
 public abstract class AbstractPrerequisiteSimpleParser extends

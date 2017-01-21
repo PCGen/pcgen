@@ -33,7 +33,6 @@ import pcgen.core.GameMode;
  * creates an instance of the underlying loader and calls abstract methods to
  * do the loading of system files.
  *
- * @author  David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public interface SystemLoader
 {

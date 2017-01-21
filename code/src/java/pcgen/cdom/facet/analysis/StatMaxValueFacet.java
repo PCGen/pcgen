@@ -39,7 +39,6 @@ import pcgen.core.PCStat;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
 		DataFacetChangeListener<CharID, CDOMObject>

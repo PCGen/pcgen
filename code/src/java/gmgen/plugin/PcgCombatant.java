@@ -61,7 +61,6 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
 /**
- *@author     devon
  */
 public class PcgCombatant extends Combatant
 {

@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * NewCategoryToken
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class NewCategoryToken implements MigrationLstToken
 {

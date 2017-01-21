@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  * <p>The class deligates the loading of the various subtokens to a separate
  * loader.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class AbilityCategoryToken implements GameModeLstToken

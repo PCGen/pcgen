@@ -70,7 +70,6 @@ import pcgen.util.Logging;
  * choices to match the choices already made.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 {

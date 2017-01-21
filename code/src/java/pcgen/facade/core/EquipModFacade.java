@@ -28,7 +28,6 @@ package pcgen.facade.core;
  * interact with Equipment Modifier objects.  
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface EquipModFacade extends InfoFacade
 {

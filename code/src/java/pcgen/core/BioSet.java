@@ -46,7 +46,6 @@ import pcgen.util.Logging;
 /**
  * {@code BioSet}.
  *
- * @author Bryan McRoberts
  */
 public final class BioSet extends PObject implements NonInteractive
 {

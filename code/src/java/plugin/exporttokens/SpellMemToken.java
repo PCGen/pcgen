@@ -58,7 +58,6 @@ import pcgen.util.Delta;
  * in the character spellbooks..
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SPELLMEM.x.x.x.x.LABEL classNum.bookNum.level.spellnumber

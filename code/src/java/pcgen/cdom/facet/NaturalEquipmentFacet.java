@@ -27,7 +27,6 @@ import pcgen.core.Equipment;
  * NaturalEquipmentFacet is a Facet that tracks the Equipment that is
  * TYPE=Natural that has been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>

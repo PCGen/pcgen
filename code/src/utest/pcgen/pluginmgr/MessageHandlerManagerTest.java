@@ -35,7 +35,6 @@ import org.junit.Test;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class MessageHandlerManagerTest

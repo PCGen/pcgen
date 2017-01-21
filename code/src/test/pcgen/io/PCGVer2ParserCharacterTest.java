@@ -38,7 +38,6 @@ import pcgen.rules.context.LoadContext;
  * PCGVer2ParserCharacterTest runs tests on PCGVer2Parser which require a 
  * character to be supplied. 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 {

@@ -36,7 +36,6 @@ import junit.textui.TestRunner;
  * <code>InfoLabelTextBuilderTest</code> tests the HtmlInfoBuilder.
  *
  *
- * @author Koen Van Daele <vandaelek@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class HtmlInfoBuilderTest extends TestCase

@@ -39,7 +39,6 @@ import java.util.List;
  * <p>
  * </p>
  * 
- * @author LodgeR
  */
 public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 {

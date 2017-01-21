@@ -24,7 +24,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultDataViewColumn implements DataViewColumn
 {

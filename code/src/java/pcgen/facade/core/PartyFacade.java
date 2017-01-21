@@ -30,7 +30,6 @@ import pcgen.io.ExportHandler;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface PartyFacade extends ListFacade<CharacterFacade>
 {

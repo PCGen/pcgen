@@ -31,7 +31,6 @@ import pcgen.util.Comparators;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SortableTableRowSorter extends RowSorter<SortableTableModel>
 {

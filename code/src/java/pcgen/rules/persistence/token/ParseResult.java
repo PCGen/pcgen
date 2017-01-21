@@ -24,7 +24,6 @@ import pcgen.util.Logging;
 
 /**
  * Interface to provide feedback on parsing operations.
- * @author Mark
  */
 public interface ParseResult
 {

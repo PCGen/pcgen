@@ -28,7 +28,6 @@ import pcgen.core.LevelInfo;
  * LevelTableFacet stores the Experience Point table used to identify how many
  * experience points are required at a certain character level.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LevelTableFacet
 {

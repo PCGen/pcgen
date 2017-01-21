@@ -22,7 +22,6 @@ package pcgen.gui2.filter;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface FilterHandler
 {

@@ -50,7 +50,6 @@ import pcgen.util.TestHelper;
  * working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreShieldProfTest extends AbstractCharacterTestCase
 {
