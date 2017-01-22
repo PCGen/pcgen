@@ -18,7 +18,6 @@
  *
  * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -48,7 +47,6 @@ import pcgen.system.PCGenSettings;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author AD9C15
  * @author boomer70 &lt;boomer70@yahoo.com&gt;

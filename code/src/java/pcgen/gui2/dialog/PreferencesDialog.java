@@ -19,7 +19,6 @@
  *
  * Created on July 8th, 2002.
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.gui2.dialog;

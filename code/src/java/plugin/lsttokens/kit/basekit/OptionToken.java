@@ -18,7 +18,6 @@
  *
  * Created on March 3, 2006
  *
- * Current Ver: $Revision$
  */
 
 package plugin.lsttokens.kit.basekit;

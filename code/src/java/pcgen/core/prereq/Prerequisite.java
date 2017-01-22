@@ -14,7 +14,6 @@
  *
  * Created on September 16, 2002, 3:30 PM
  *
- * Current Ver: $Revision$ 
  *
  */
 package pcgen.core.prereq;

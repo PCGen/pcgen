@@ -19,7 +19,6 @@
  *
  * Created on 12-Jan-2004
  *
- * Current Ver: $Revision$
  *
  *
  *

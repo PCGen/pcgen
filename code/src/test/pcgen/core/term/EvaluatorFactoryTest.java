@@ -34,7 +34,6 @@ import pcgen.util.TestHelper;
  *
  * Created 10/04/2008
  *
- * Current Ver: $Revision:$
  */
 
 public class EvaluatorFactoryTest extends PCGenTestCase

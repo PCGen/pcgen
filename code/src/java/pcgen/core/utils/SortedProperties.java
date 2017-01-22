@@ -17,7 +17,6 @@
  *
  * Created on November 07, 2003, 2:15 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.utils;

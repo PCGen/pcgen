@@ -19,7 +19,6 @@
  * @author Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  * Created on July 10, 2002, 11:26 PM
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.character;
 

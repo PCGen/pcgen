@@ -30,7 +30,6 @@ import pcgen.util.Logging;
  * all the statistics of a character.
  * @author Expires 2003
  *
- * <p>Current Ver: $Revision$</p>
  */
 public class InfoCharacterDetails
 {

@@ -18,7 +18,6 @@
  *
  * Created on September 21, 2005, 10:49 PM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.bonustokens;

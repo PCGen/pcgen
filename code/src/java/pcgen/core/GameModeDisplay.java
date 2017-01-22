@@ -18,7 +18,6 @@
  *
  * Created on September 22, 2002, 4:30 PM
  *
- * Current Ver: $Revision: 17100 $
  *
  */
 package pcgen.core;

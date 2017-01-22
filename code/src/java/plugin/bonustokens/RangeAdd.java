@@ -18,7 +18,6 @@
  *
  * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 1777 $
  *
  */
 package plugin.bonustokens;

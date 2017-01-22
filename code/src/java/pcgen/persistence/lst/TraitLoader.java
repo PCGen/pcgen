@@ -18,7 +18,6 @@
  *
  * Created on October 08, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -32,7 +31,6 @@ import java.net.URI;
  * This class is a LstFileLoader used to load character traits.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
  * @author ad9c15
  */
