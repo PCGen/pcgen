@@ -736,6 +736,9 @@ Devastating Touch	KEY:Horror ~ Devastating Touch	CATEGORY:Special Ability	TYPE:S
 
 ###Block: Psicrystal Abilities
 # Ability Name		Unique Key						Category of Ability		Type						Description																																Source Page		Aspects
+Construct Traits		KEY:Psicrystal ~ Traits				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:A psicrystal cannot heal damage, but it can be repaired. Psicrystals do not have the usual construct traits of darkvision and low-light vision.									SOURCEPAGE:p.448
+Hardness			KEY:Psicrystal ~ Hardness			CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:A psicrystal has hardness 8.																												SOURCEPAGE:p.448
+Skills			KEY:Psicrystal ~ Skills				CATEGORY:Special Ability	TYPE:SpecialQuality			DESC:A psicrystal has the same skill ranks as its owner, except that it has a minimum of 4 ranks each in Perception and Stealth.												SOURCEPAGE:p.111	BONUS:SKILL|Perception|max(4-skillinfo("RANK","Perception"),0)	BONUS:SKILL|Stealth|max(4-skillinfo("RANK","Stealth"),0)	BONUS:VAR|BaseClassSkillPts|-MAX(1,2+INT)
 Self Propulsion		KEY:Psicrystal ~ Self Propulsion		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:The psicrystal can grow spidery legs that give it a move of 30', 20' climb.																				SOURCEPAGE:p.49
 Telepathic Link		KEY:Psicrystal ~ Telepathic Link		CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:Owner and psicrystal can communicate telepathically up to 1 mile away.																					SOURCEPAGE:p.49
 Share Powers		KEY:Psicrystal ~ Share Powers			CATEGORY:Special Ability	TYPE:SpecialQuality.Supernatural	DESC:The owner can have any power that he manifests on himself affect the psicrystal, if the psicrystal is within 5 feet.   The owner can manifest a power with Target:You on the Psicrystal instead.	SOURCEPAGE:p.49
