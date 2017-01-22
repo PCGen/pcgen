@@ -18,7 +18,6 @@
  *
  *  CastSpell.java
  *
- *  Created on January 16, 2002, 3:08 PM
  */
 package plugin.initiative.gui;
 

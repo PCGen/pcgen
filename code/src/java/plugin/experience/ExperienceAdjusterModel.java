@@ -34,7 +34,6 @@ import plugin.experience.gui.PreferencesExperiencePanel;
 /**
  * This {@code class} holds all the necessary data in order to have
  * functionality for the experience adjuster.<br>
- * Created on February 19, 2003<br>
  * Updated on February 26, 2003
  */
 public class ExperienceAdjusterModel extends Observable

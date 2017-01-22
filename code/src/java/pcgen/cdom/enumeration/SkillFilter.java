@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19/10/2013
  *
  * $Id: SkillsOutputOrder.java 21773 2013-10-19 08:36:38Z jdempsey $
  */

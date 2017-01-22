@@ -18,7 +18,6 @@
  *
  * AttackDialog.java
  *
- * Created on Oct 8, 2003
  */
 package plugin.initiative.gui;
 

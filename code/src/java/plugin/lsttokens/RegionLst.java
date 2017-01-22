@@ -1,5 +1,4 @@
 /*
- * Created on Sep 2, 2005
  *
  */
 package plugin.lsttokens;

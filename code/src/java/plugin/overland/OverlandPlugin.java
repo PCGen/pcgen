@@ -43,7 +43,6 @@ import plugin.overland.gui.OverPanel;
 /**
  * The {@code Overland Plugin} provides a number
  * of useful utilities that help with overland travel <br>
- * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
  * @author Vincent Lhote

@@ -18,7 +18,6 @@
  *
  *  Initiative.java
  *
- *  Created on September 18, 2002, 4:36 PM
  */
 package plugin.initiative.gui;
 

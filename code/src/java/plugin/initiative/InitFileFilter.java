@@ -18,7 +18,6 @@
  *
  *  InitFileFilter.java
  *
- *  Created on August 29, 2002, 6:21 PM
  */
 package plugin.initiative;
 

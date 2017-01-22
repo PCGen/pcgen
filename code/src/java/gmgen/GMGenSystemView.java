@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on May 24, 2003
  */
 package gmgen;
 
@@ -30,7 +29,6 @@ import java.awt.Component;
  *  This class is the main {@code JPanel} for the whole application. It is
  *  a {@code JTabbedPane} so that it can hold many tabs for each section of
  *  functionality.<br>
- *  Created on February 20, 2003.<br>
  *  Updated on February 26, 2003.
  *
  *@author     Expires 2003

@@ -19,7 +19,6 @@
  *************************************************************************
  *
  * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
- * @Created on July 10th, 2002, 3:55 PM
  *
  * Current Ver: $Revision$
  *

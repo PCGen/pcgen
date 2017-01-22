@@ -17,7 +17,6 @@
  *
  *  PreferencesNotesPanel.java
  *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.notes.gui;
 

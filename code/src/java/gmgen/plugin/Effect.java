@@ -18,7 +18,6 @@
  *
  *  Spell.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
