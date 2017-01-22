@@ -130,8 +130,6 @@ task copyMasterSheets(type: Copy) {
 
 compileJava {
     it.dependsOn 'copyMasterSheets'
-    options.fork = true
-    options.incremental = true
 }
 
 
@@ -326,6 +324,10 @@ task wrapper(type: Wrapper) {
 }
 
 allprojects {
+    tasks.withType(JavaCompile) {
+        options.fork = true
+        options.incremental = true
+    }
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
     }
