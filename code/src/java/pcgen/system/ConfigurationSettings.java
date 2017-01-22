@@ -54,7 +54,6 @@ public final class ConfigurationSettings extends PropertyContext
 		//Initialize defaults
 		setProperty(USER_LANGUAGE, SystemUtils.USER_LANGUAGE);
 		setProperty(USER_COUNTRY, SystemUtils.USER_COUNTRY);
-		setProperty(THEME_PACK_DIR, "@lib/lnf/themes".replace('/', File.separatorChar));
 		setProperty(SYSTEMS_DIR, "@system");
 		setProperty(OUTPUT_SHEETS_DIR, "@outputsheets");
 		setProperty(PLUGINS_DIR, "@plugins");

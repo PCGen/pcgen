@@ -74,7 +74,6 @@ import pcgen.gui2.prefs.InputPanel;
 import pcgen.gui2.prefs.LanguagePanel;
 import pcgen.gui2.prefs.LevelUpPanel;
 import pcgen.gui2.prefs.LocationPanel;
-import pcgen.gui2.prefs.LookAndFeelPanel;
 import pcgen.gui2.prefs.MonsterPanel;
 import pcgen.gui2.prefs.OutputPanel;
 import pcgen.gui2.prefs.PCGenPrefsPanel;
@@ -286,8 +285,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		addPanelToTree(appearanceNode, displayOptionsPanel);
 		levelUpPanel = new LevelUpPanel();
 		addPanelToTree(appearanceNode, levelUpPanel);
-		lookAndFeelPanel = new LookAndFeelPanel(this);
-		addPanelToTree(appearanceNode, lookAndFeelPanel);
 //		tabsPanel = new TabsPanel();
 //		addPanelToTree(appearanceNode, tabsPanel);
 		rootNode.add(appearanceNode);
