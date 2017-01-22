@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package plugin.pcgtracker;
 
@@ -61,7 +60,6 @@ import plugin.pcgtracker.gui.PCGTrackerView;
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem
  * } and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
  * Updated on February 26, 2003
  * @author  Expires 2003
  */

@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
@@ -30,7 +29,6 @@ import pcgen.util.Logging;
  * all the statistics of a character.
  * @author Expires 2003
  *
- * <p>Current Ver: $Revision$</p>
  */
 public class InfoCharacterDetails
 {

@@ -18,7 +18,6 @@
  *
  *  State.java
  *
- *  Created on July, 1st 2013
  */
 package gmgen.plugin;
 

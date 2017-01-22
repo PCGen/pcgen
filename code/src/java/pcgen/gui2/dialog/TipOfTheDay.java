@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 17, 2001, 12:43 PM
  *
  * $Id: TipOfTheDay.java 1256 2006-08-05 14:08:16Z karianna $
  */

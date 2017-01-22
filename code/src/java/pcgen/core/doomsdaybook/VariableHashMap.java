@@ -18,7 +18,6 @@
  *
  * VariableHashMap.java
  *
- * Created on November 1, 2002, 1:15 PM
  */
 package pcgen.core.doomsdaybook;
 

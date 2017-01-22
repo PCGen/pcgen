@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/02/2014 9:56:05 pm
  *
- * $Id$
  */
 /**
  * The set of messages which are specific to GMGen.

@@ -18,7 +18,6 @@
  *
  * Created/Reinstated on 2015-11-24
  *
- * $Id$
  */
 package pcgen.inttest.game_3e;
 

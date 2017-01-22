@@ -17,7 +17,6 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on 11/08/2013
  * 
  * $Id: AbstractCountCommand.java 22768 2014-01-04 10:35:48Z zaister $
  */

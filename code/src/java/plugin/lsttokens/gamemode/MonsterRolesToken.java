@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 3/05/2008
  *
  * $Id: ResizableEquipTypeToken.java 6171 2008-05-03 12:35:57Z jdempsey $
  */

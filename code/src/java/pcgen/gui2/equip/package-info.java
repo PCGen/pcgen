@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22/09/2013
  *
- * $Id$
  */
 /**
  * The pcgen.gui2.equip package contains the classes used to populate the equipment 

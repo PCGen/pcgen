@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 25/03/2012 11:07:05 AM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 

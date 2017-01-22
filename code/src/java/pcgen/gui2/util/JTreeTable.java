@@ -11,7 +11,6 @@
  * it only in accordance with the terms of the license agreement
  * you entered into with Sun.
  *
- * Current Ver: $Revision: 5184 $
  *
  **/
 package pcgen.gui2.util;
