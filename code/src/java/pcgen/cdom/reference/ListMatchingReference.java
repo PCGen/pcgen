@@ -18,7 +18,6 @@
  *
  * Created on 23/05/2011 7:44:55 PM
  *
- * $Id$
  */
 package pcgen.cdom.reference;
 

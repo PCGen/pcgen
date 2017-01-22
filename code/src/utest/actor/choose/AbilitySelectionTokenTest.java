@@ -18,7 +18,6 @@
  *
  * Created on 06/06/2013
  *
- * $Id$
  */
 package actor.choose;
 

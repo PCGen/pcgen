@@ -18,7 +18,6 @@
  *
  * Created on 28/06/2010 3:33:01 PM
  *
- * $Id$
  */
 package pcgen.rules.context;
 

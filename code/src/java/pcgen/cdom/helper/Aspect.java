@@ -18,7 +18,6 @@
  *
  * Created on 16/08/2008 16:36:13
  *
- * $Id$
  */
 package pcgen.cdom.helper;
 

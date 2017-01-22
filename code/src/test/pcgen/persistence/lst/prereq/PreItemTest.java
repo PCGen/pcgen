@@ -18,7 +18,6 @@
  *
  * Created on Sep 4, 2004
  *
- * $Id$
  *
  */
 package pcgen.persistence.lst.prereq;

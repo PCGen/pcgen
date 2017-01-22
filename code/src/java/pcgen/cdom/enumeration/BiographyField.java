@@ -18,7 +18,6 @@
  *
  * Created on 02/01/2012 11:16:59 AM
  *
- * $Id$
  */
 package pcgen.cdom.enumeration;
 

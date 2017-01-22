@@ -18,7 +18,6 @@
  *
  * Created on September 23, 2002, 1:39 PM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 

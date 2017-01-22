@@ -18,7 +18,6 @@
  *
  * Created on 26/08/2013
  *
- * $Id$
  */
 package pcgen.core.chooser;
 

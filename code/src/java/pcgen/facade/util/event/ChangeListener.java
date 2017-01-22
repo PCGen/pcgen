@@ -18,7 +18,6 @@
  *
  * Created on 16/01/2012 8:48:48 AM
  *
- * $Id$
  */
 package pcgen.facade.util.event;
 

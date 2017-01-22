@@ -18,7 +18,6 @@
  *
  * Created on 21/09/2012 9:15:45 AM
  *
- * $Id$
  */
 package pcgen.gui2.tools;
 

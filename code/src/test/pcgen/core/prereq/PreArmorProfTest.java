@@ -18,7 +18,6 @@
  *
  * Created on 22/03/2008
  *
- * $Id$
  */
 package pcgen.core.prereq;
 

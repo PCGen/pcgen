@@ -18,7 +18,6 @@
  *
  * Created on 01/06/2013
  *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 

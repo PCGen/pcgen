@@ -18,7 +18,6 @@
  *
  * Created on 18/05/2013 4:19:10 PM
  *
- * $Id$
  */
 package pcgen.util.chooser;
 

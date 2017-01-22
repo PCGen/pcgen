@@ -18,7 +18,6 @@
  *
  * Created on 11/08/2013
  *
- * $Id$
  */
 package pcgen.util;
 

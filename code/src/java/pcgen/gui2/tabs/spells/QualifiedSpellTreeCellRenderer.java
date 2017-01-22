@@ -18,7 +18,6 @@
  *
  * Created on 05/06/2012 9:40:42 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs.spells;
 

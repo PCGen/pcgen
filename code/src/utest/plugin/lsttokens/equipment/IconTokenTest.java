@@ -18,7 +18,6 @@
  *
  * Created on 14/02/2011 9:06:00 PM
  *
- * $Id$
  */
 package plugin.lsttokens.equipment;
 

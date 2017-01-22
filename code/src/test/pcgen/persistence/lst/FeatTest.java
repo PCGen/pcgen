@@ -1,5 +1,4 @@
 /*
- * @(#) $Id$
  * GNU LESSER GENERAL PUBLIC LICENSE
  */
 package pcgen.persistence.lst;

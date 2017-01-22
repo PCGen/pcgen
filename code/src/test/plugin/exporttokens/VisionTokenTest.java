@@ -18,7 +18,6 @@
  *
  * Created on 8 March, 2009
  *
- * $Id$
  *
  */
 package plugin.exporttokens;

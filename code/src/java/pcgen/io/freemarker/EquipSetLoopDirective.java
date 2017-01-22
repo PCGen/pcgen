@@ -18,7 +18,6 @@
  *
  * Created on 27/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 

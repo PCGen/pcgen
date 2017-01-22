@@ -18,7 +18,6 @@
  *
  * Created on 3/05/2008
  *
- * $Id$
  */
 package plugin.lsttokens.gamemode;
 

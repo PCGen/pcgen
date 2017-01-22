@@ -18,7 +18,6 @@
  *
  * Created on 18/01/2009 11:31:57 AM
  *
- * $Id$
  */
 
 package pcgen.gui2.converter.panel;

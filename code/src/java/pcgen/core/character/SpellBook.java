@@ -18,7 +18,6 @@
  *
  * Created on Jan 6, 2006
  *
- * $Id$
  *
  */
 package pcgen.core.character;

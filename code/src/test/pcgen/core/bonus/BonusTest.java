@@ -18,7 +18,6 @@
  *
  * Created on Sep 5, 2004
  *
- * $Id$
  *
  */
 package pcgen.core.bonus;

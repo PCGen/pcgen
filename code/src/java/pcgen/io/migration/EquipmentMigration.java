@@ -18,7 +18,6 @@
  *
  * Created on 02/06/2013
  *
- * $Id$
  */
 package pcgen.io.migration;
 

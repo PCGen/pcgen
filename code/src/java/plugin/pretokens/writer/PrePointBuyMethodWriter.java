@@ -18,7 +18,6 @@
  *
  * Created on September 16, 2005
  *
- * $Id$
  */
 package plugin.pretokens.writer;
 

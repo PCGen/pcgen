@@ -18,7 +18,6 @@
  * 
  * Created on May 24, 2014, 3:19:21 PM
  * 
- * $Id$
  */
 /**
  * This package contains utility swing components which are used to implement

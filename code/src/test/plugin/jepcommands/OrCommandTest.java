@@ -18,7 +18,6 @@
  *
  * Created on Oct 26, 2007
  *
- * $Id$
  *
  */
 package plugin.jepcommands;

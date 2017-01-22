@@ -18,7 +18,6 @@
  *
  * Created on Oct 16, 2004
  *
- * $Id$
  *
  */
 package plugin.bonustokens;

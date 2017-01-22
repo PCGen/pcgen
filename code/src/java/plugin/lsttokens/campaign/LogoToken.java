@@ -18,7 +18,6 @@
  *
  * Created on 30/01/2008
  *
- * $Id$
  */
 package plugin.lsttokens.campaign;
 

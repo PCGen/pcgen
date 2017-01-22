@@ -18,7 +18,6 @@
  *
  * Created on 01/03/2012 8:01:51 AM
  *
- * $Id$
  */
 package pcgen.gui2.dialog;
 

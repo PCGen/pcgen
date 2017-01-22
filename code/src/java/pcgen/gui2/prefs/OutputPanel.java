@@ -18,7 +18,6 @@
  *
  * Created on 20/11/2010 19:50:00
  *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
