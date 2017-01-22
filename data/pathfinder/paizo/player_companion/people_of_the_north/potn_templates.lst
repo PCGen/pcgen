@@ -9,7 +9,7 @@ SOURCELONG:People of the North	SOURCESHORT:POTN	SOURCEWEB:http://paizo.com/produ
 
 # Template Name				Product Identity?	Visible	Source Page		Auto Language		Bonus Languages		Region					Subrace
 Human Ethnicity (Erutaki)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.12	AUTO:LANG|Erutaki												SUBRACE:Erutaki
-Human Ethnicity (Jadwiga)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	AUTO:LANG|Varisian											SUBRACE:Varisian
+Human Ethnicity (Jadwiga)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.13	AUTO:LANG|Hallit											SUBRACE:Jadwiga
 Human Ethnicity (Kellid)		NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.6	AUTO:LANG|Hallit												SUBRACE:Kellid
 Human Ethnicity (Ulfen)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.10	AUTO:LANG|Skald												SUBRACE:Ulfen
 Human Ethnicity (Varki)			NAMEISPI:YES	VISIBLE:NO	SOURCEPAGE:p.15															SUBRACE:Varki
