@@ -20,28 +20,70 @@
  */
 package plugin.notes.gui;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ExtendedHTMLDocument;
-import gmgen.gui.ExtendedHTMLEditorKit;
-import gmgen.gui.FlippingSplitPane;
-import gmgen.gui.ImageFileChooser;
-import gmgen.io.SimpleFileFilter;
-import gmgen.util.LogReceiver;
-import gmgen.util.LogUtilities;
-import gmgen.util.MiscUtilities;
-import pcgen.cdom.base.Constants;
-import pcgen.core.SettingsHandler;
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
-import plugin.notes.NotesPlugin;
+import java.awt.Color;
+import java.awt.Component;
+import java.awt.Cursor;
+import java.awt.Point;
+import java.awt.datatransfer.DataFlavor;
+import java.awt.datatransfer.Transferable;
+import java.awt.dnd.DropTarget;
+import java.awt.dnd.DropTargetAdapter;
+import java.awt.dnd.DropTargetDragEvent;
+import java.awt.dnd.DropTargetDropEvent;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyEvent;
+import java.io.BufferedInputStream;
+import java.io.File;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.text.DateFormat;
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Enumeration;
+import java.util.List;
+import java.util.Vector;
+import java.util.zip.ZipEntry;
+import java.util.zip.ZipInputStream;
+import java.util.zip.ZipOutputStream;
 
-import javax.swing.*;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+import javax.swing.BoxLayout;
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JButton;
+import javax.swing.JColorChooser;
+import javax.swing.JComboBox;
+import javax.swing.JFileChooser;
+import javax.swing.JMenu;
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextPane;
+import javax.swing.JToolBar;
+import javax.swing.JTree;
+import javax.swing.JViewport;
+import javax.swing.ProgressMonitor;
 import javax.swing.border.BevelBorder;
 import javax.swing.border.EtchedBorder;
-import javax.swing.event.*;
+import javax.swing.event.CaretEvent;
+import javax.swing.event.TreeModelEvent;
+import javax.swing.event.TreeModelListener;
+import javax.swing.event.TreeSelectionEvent;
+import javax.swing.event.TreeSelectionListener;
+import javax.swing.event.UndoableEditEvent;
 import javax.swing.filechooser.FileFilter;
-import javax.swing.text.*;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.Element;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.StyledEditorKit;
 import javax.swing.text.html.HTML;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
@@ -52,24 +94,24 @@ import javax.swing.undo.CannotRedoException;
 import javax.swing.undo.CannotUndoException;
 import javax.swing.undo.UndoManager;
 
-import java.awt.Color;
-import java.awt.Component;
-import java.awt.Cursor;
-import java.awt.Point;
-import java.awt.datatransfer.DataFlavor;
-import java.awt.datatransfer.Transferable;
-import java.awt.dnd.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.KeyEvent;
-import java.io.*;
-import java.text.DateFormat;
-import java.util.*;
-import java.util.zip.ZipEntry;
-import java.util.zip.ZipInputStream;
-import java.util.zip.ZipOutputStream;
-
+import pcgen.cdom.base.Constants;
+import pcgen.core.SettingsHandler;
 import pcgen.gui2.tools.CommonMenuText;
 import pcgen.gui2.tools.Icons;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ExtendedHTMLDocument;
+import gmgen.gui.ExtendedHTMLEditorKit;
+import gmgen.gui.FlippingSplitPane;
+import gmgen.gui.ImageFileChooser;
+import gmgen.io.SimpleFileFilter;
+import gmgen.util.LogReceiver;
+import gmgen.util.LogUtilities;
+import gmgen.util.MiscUtilities;
+import plugin.notes.NotesPlugin;
 
 /**
  *  This class is the main view for the Notes Plugin. Mostof the work is done
@@ -217,12 +259,8 @@ public class NotesView extends JPanel
 		File defaultFile = new File(sFile);
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
-
-		for (FileFilter filter : plugin.getFileTypes())
-		{
-			chooser.addChoosableFileFilter(filter);
-			chooser.setFileFilter(filter);
-		}
+		chooser.addChoosableFileFilter(NotesPlugin.getFileType());
+		chooser.setFileFilter(NotesPlugin.getFileType());
 		chooser.setMultiSelectionEnabled(true);
 		Component component = GMGenSystem.inst;
 		Cursor originalCursor = component.getCursor();
