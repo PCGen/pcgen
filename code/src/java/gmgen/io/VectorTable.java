@@ -175,7 +175,7 @@ public class VectorTable extends AbstractList
 
 	/**
 	 * Looks up {@code Object} X  in {@code header}, and the
-	 * {@code Object} {@code Y} in <code>rows</code> 0, and
+	 * {@code Object} {@code Y} in {@code rows} 0, and
 	 * {@code returns} the resulting cell.
 	 * @param X the header to look for.
 	 * @param Y the item in the {@code row} to look for.
@@ -338,7 +338,7 @@ public class VectorTable extends AbstractList
 	}
 
 	/**
-	 * Stores the {@code row} {@code Vector} as an <code>array</code>
+	 * Stores the {@code row} {@code Vector} as an {@code array}
 	 * of {@code Objects}.
 	 * @return an {@code array} that consists of the items from the
 	 *          {@code row} {@code Vector}.

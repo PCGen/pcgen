@@ -41,7 +41,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SkillFacade;
 
 /**
- * <code>Skill</code>.
+ * {@code Skill}.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
