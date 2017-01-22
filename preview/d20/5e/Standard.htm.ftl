@@ -359,15 +359,15 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- STOP Initiative Table -->
   </td>
   <td width="20%" valign="top" >
-<!-- START Base Attack Table -->
-   <table summary="Base Attack Table">
+<!-- START Proficiency Bonus Table -->
+   <table summary="Proficiency Bonus Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
-     <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('ATTACK.MELEE')}<br /></b></font></td>
+     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>PROFICIENCY</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
+     <td align="center" width="94" class="border"><font style="font-size: small"><b>+${pcstring('VAR.Proficiency_Bonus.INTVAL')}<br /></b></font></td>
      <td align="center" width="50%"><br /></td>
     </tr>
    </table>
-<!-- STOP Base Attack Table -->
+<!-- STOP Proficiency Bonus Table -->
   </td>
   <td width="60%" valign="top">
 <!-- START Misc Stat Table -->
