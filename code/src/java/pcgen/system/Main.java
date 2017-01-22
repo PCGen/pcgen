@@ -65,10 +65,6 @@ import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
 import net.sourceforge.argparse4j.inf.Namespace;
 import org.apache.commons.lang3.StringUtils;
 import org.apache.commons.lang3.SystemUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
 
 /**
  * Main entry point for pcgen.
@@ -87,7 +83,6 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
-	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 
 	private Main()
@@ -141,10 +136,9 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Marker versionMarker = MarkerFactory.getMarker("VERSION");
-		LOGGER.info(versionMarker, "Starting PCGen v {} {}",
-				PCGenPropBundle.getVersionNumber(),
-				PCGenPropBundle.getAutobuildString());
+		Logging.log(Level.INFO,
+				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+						+ PCGenPropBundle.getAutobuildString());
 
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
@@ -229,7 +223,7 @@ public final class Main
 		initPrintPreviewFonts();
 
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		//TODO: allow commandline override of spash property
+		//TODO: allow commandline override of splash property
 		SplashScreen splash = null;
 		if (showSplash)
 		{
