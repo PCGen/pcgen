@@ -23,11 +23,11 @@
 package gmgen.gui; // hm.binkley.gui;
 
 
-import javax.swing.ImageIcon;
-import javax.swing.SwingConstants;
-import javax.swing.SwingUtilities;
 import java.awt.event.InputEvent;
 import java.awt.event.MouseEvent;
+
+import javax.swing.ImageIcon;
+import javax.swing.SwingConstants;
 
 /**
  * {@code Utilities}.
@@ -54,19 +54,6 @@ final class Utilities
 		static ImageIcon getImageIcon(final String location)
 	{
 		return getImageIcon(location, null);
-	}
-
-	/**
-	 * Work around bug in W32; it returns false even on right-mouse
-	 * clicks.
-	 *
-	 * @param e {@code MouseEvent}, the event
-	 *
-	 * @return {@code boolean}, the condition
-	 */
-	static boolean isRightMouseButton(final MouseEvent e)
-	{
-		return e.isPopupTrigger() || SwingUtilities.isRightMouseButton(e);
 	}
 
 	/**
