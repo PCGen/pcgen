@@ -129,6 +129,7 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
 
 /**
  * The Class <code>Gui2InfoFactory</code> provides character related information 
@@ -2417,7 +2418,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				Visibility visibility = def.getVisibility();
+				if (visibility != null && 
+						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 				{
 					FactKey<?> fk = def.getFactKey();
 					Indirect<?> fact = cdo.get(fk);
@@ -2439,7 +2442,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				Visibility visibility = def.getVisibility();
+				if (visibility != null &&
+						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 				{
 					FactSetKey<?> fk = def.getFactSetKey();
 					String s = getSetString(cdo, fk);
