@@ -88,16 +88,6 @@ public class MockUIDelegate implements UIDelegate
 		return false;
 	}
 
-	/* (non-Javadoc)
-	 * @see pcgen.core.facade.UIDelegate#showWarningPrompt(java.lang.String, java.lang.String)
-	 */
-    @Override
-	public boolean showWarningPrompt(String title, String message)
-	{
-		// No action
-		return false;
-	}
-
     @Override
 	public void showWarningMessage(String title, String message)
 	{
