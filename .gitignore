@@ -47,3 +47,4 @@ data/customsources/*
 /installers/win-installer/includes/constants.nsh
 /installers/win-installer/project.nsh
 /.checkstyle
+/installers/win-installer/project.nsh
