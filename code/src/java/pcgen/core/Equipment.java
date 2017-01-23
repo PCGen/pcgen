@@ -604,10 +604,10 @@ public final class Equipment extends PObject implements Serializable,
 		final String aType, final String aName, final boolean bPrimary)
 	{
 
-		final List<BonusObj> aList = new ArrayList<>();
-
-		aList.addAll(BonusUtilities.getBonusFromList(getBonusList(pc), aType,
-			aName));
+		final List<BonusObj> aList = new ArrayList<>(
+				BonusUtilities.getBonusFromList(getBonusList(pc),
+				aType,
+				aName));
 
 		for (EquipmentModifier eqMod : getEqModifierList(bPrimary))
 		{

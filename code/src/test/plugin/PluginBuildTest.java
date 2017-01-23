@@ -88,8 +88,7 @@ public class PluginBuildTest extends TestCase
 		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
 		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<>();
-		srcList.addAll(Arrays.asList(sources));
+		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
 		srcList.remove("PreDefaultMonsterTester.java");
 		srcList.remove("PreDefaultMonsterWriter.java");
 		sources = srcList.toArray(sources);
@@ -444,8 +443,7 @@ public class PluginBuildTest extends TestCase
 		File jarFolder = new File("plugins/preplugins");
 		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
-		List<String> srcList = new ArrayList<>();
-		srcList.addAll(Arrays.asList(sources));
+		List<String> srcList = new ArrayList<>(Arrays.asList(sources));
 		srcList.remove("PreSkillTotalParser.java");
 		sources = srcList.toArray(sources);
 		checkPluginJars(jarPrefix, jarFolder, "Parser", sources);

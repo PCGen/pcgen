@@ -320,8 +320,7 @@ public class BonusManager
 		//
 		// We do a first pass of just the "static" bonuses
 		// as they require less computation and no recursion
-		List<BonusObj> bonusListCopy = new ArrayList<>();
-		bonusListCopy.addAll(getActiveBonusList());
+		List<BonusObj> bonusListCopy = new ArrayList<>(getActiveBonusList());
 		for (BonusObj bonus : bonusListCopy)
 		{
 			if (!bonus.isValueStatic())
@@ -371,8 +370,7 @@ public class BonusManager
 
 		//
 		// Now we do all the BonusObj's that require calculations
-		bonusListCopy = new ArrayList<>();
-		bonusListCopy.addAll(getActiveBonusList());
+		bonusListCopy = new ArrayList<>(getActiveBonusList());
 		for (BonusObj bonus : getActiveBonusList())
 		{
 			if (processedBonuses.contains(bonus))

@@ -146,6 +146,8 @@ import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.ProhibitedSpellType;
 
+import org.apache.commons.lang.StringUtils;
+
 /**
  * {@code PCGVer2Parser}
  * Parses a line oriented format.
@@ -6146,9 +6148,8 @@ final class PCGVer2Parser implements PCGParser
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
-		Set<Language> foundLanguages = new HashSet<>();
 		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
-		foundLanguages.addAll(thePC.getLanguageSet());
+		Set<Language> foundLanguages = new HashSet<>(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
 		HashMapToList<Language, Object> langSources = new HashMapToList<>();

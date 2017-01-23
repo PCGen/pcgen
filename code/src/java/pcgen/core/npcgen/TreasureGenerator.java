@@ -75,8 +75,7 @@ public final class TreasureGenerator
 					}
 				});
 		
-				tables = new ArrayList<>();
-				tables.addAll(parser.parse(fileNames));
+				tables = new ArrayList<>(parser.parse(fileNames));
 				theTreasureTables.put( aMode, tables );
 				return tables;
 			}

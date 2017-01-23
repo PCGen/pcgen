@@ -374,8 +374,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
 
-		List<BaseKit> sortedObjects = new ArrayList<>();
-		sortedObjects.addAll(getSafeListFor(ListKey.KIT_TASKS));
+		List<BaseKit> sortedObjects = new ArrayList<>(getSafeListFor(ListKey.KIT_TASKS));
 		sortedObjects.sort(new ObjectTypeComparator());
 
 		String lastObjectName = "";

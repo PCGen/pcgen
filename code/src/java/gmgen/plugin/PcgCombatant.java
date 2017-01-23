@@ -1049,9 +1049,8 @@ public class PcgCombatant extends Combatant
 
 		protected void statBlockLineSpellBook(PlayerCharacter aPC, StringBuilder statBuf, Collection<PObject> classList, String spellBookName)
 		{
-			Set<PObject> classes = new HashSet<>();
-			classes.addAll(classList);
-			
+			Set<PObject> classes = new HashSet<>(classList);
+
 			for ( PObject pObj : classes )
 			{
 				if (pObj != null)
