@@ -41,6 +41,7 @@ import java.util.Vector;
 import java.util.prefs.Preferences;
 
 import javax.swing.BoxLayout;
+import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
@@ -51,15 +52,6 @@ import javax.swing.JPanel;
 import javax.swing.JSeparator;
 import javax.swing.JTextField;
 
-import org.jdom2.DataConversionException;
-import org.jdom2.DocType;
-import org.jdom2.Document;
-import org.jdom2.Element;
-import org.jdom2.input.SAXBuilder;
-import org.xml.sax.EntityResolver;
-import org.xml.sax.InputSource;
-
-import gmgen.util.LogUtilities;
 import pcgen.core.doomsdaybook.CRRule;
 import pcgen.core.doomsdaybook.DataElement;
 import pcgen.core.doomsdaybook.DataElementComperator;
@@ -74,6 +66,15 @@ import pcgen.gui2.tools.Icons;
 import pcgen.gui2.util.FontManipulation;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import gmgen.util.LogUtilities;
+import org.jdom2.DataConversionException;
+import org.jdom2.DocType;
+import org.jdom2.Document;
+import org.jdom2.Element;
+import org.jdom2.input.SAXBuilder;
+import org.xml.sax.EntityResolver;
+import org.xml.sax.InputSource;
 import plugin.doomsdaybook.RandomNamePlugin;
 
 /**
@@ -83,7 +84,7 @@ import plugin.doomsdaybook.RandomNamePlugin;
  */
 public class NameGenPanel extends JPanel
 {
-	public Preferences namePrefs =
+	private Preferences namePrefs =
 			Preferences.userNodeForPackage(NameGenPanel.class);
 	private Map<String, List<RuleSet>> categories =
             new HashMap<>();
@@ -147,11 +148,6 @@ public class NameGenPanel extends JPanel
 		loadData(dataPath);
 	}
 
-	public void setExitPrefs()
-	{
-		// TODO:  Method doesn't do anything?
-	}
-
 	/**
 	 * Generate a Rule
 	 * @return new Rule
@@ -160,7 +156,7 @@ public class NameGenPanel extends JPanel
 	{
 		try
 		{
-			Rule rule = null;
+			Rule rule;
 
 			if (chkStructure.isSelected())
 			{
@@ -191,7 +187,7 @@ public class NameGenPanel extends JPanel
 	 *  Initialization of the bulk of preferences.  sets the defaults
 	 *  if this is the first time you have used this version
 	 */
-	public void initPrefs()
+	private void initPrefs()
 	{
 		boolean prefsSet = namePrefs.getBoolean("arePrefsSet", false);
 
@@ -215,7 +211,7 @@ public class NameGenPanel extends JPanel
 		this.meaning.setText(meaning);
 	}
 
-	private void setMeaningText(ArrayList<DataValue> data)
+	private void setMeaningText(Iterable<DataValue> data)
 	{
 		StringBuilder meaningBuffer = new StringBuilder();
 
@@ -240,7 +236,7 @@ public class NameGenPanel extends JPanel
 		LogUtilities.inst().logMessage(RandomNamePlugin.LOG_NAME, name);
 	}
 
-	private void setNameText(ArrayList<DataValue> data)
+	private void setNameText(Iterable<DataValue> data)
 	{
 		StringBuilder nameBuffer = new StringBuilder();
 
@@ -257,7 +253,7 @@ public class NameGenPanel extends JPanel
 		this.pronounciation.setText(pronounciation);
 	}
 
-	private void setPronounciationText(ArrayList<DataValue> data)
+	private void setPronounciationText(Iterable<DataValue> data)
 	{
 		StringBuilder proBuffer = new StringBuilder();
 
@@ -276,7 +272,7 @@ public class NameGenPanel extends JPanel
 		setPronounciationText(proBuffer.toString());
 	}
 
-	void NameButtonActionPerformed(ActionEvent evt)
+	private void NameButtonActionPerformed(ActionEvent evt)
 	{
 		try
 		{
@@ -313,7 +309,7 @@ public class NameGenPanel extends JPanel
 		}
 	}
 
-	void cbCatalogActionPerformed(ActionEvent evt)
+	private void cbCatalogActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCatalogActionPerformed
 		loadStructureDD();
 		this.clearButtons();
@@ -321,14 +317,14 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbCatalogActionPerformed
 
-	void cbStructureActionPerformed(ActionEvent evt)
+	private void cbStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbStructureActionPerformed
 		this.clearButtons();
 	}
 
 	//GEN-LAST:event_cbStructureActionPerformed
 
-	void cbCategoryActionPerformed(ActionEvent evt)
+	private void cbCategoryActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbCategoryActionPerformed
 		this.loadGenderDD();
 		loadCatalogDD();
@@ -338,7 +334,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbCategoryActionPerformed
 
-	void cbSexActionPerformed(ActionEvent evt)
+	private void cbSexActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_cbSexActionPerformed
 		loadCatalogDD();
 		loadStructureDD();
@@ -347,7 +343,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-LAST:event_cbSexActionPerformed
 
-	void chkStructureActionPerformed(ActionEvent evt)
+	private void chkStructureActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_chkStructureActionPerformed
 		loadStructureDD();
 	}
@@ -386,7 +382,7 @@ public class NameGenPanel extends JPanel
 		buttonPanel.repaint();
 	}
 
-	void generateButtonActionPerformed(ActionEvent evt)
+	private void generateButtonActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_generateButtonActionPerformed
 
 		try
@@ -601,7 +597,7 @@ public class NameGenPanel extends JPanel
 
 	//GEN-END:initComponents
 
-	void jButton1ActionPerformed(ActionEvent evt)
+	private void jButton1ActionPerformed(ActionEvent evt)
 	{ //GEN-FIRST:event_jButton1ActionPerformed
 		Clipboard cb = getToolkit().getSystemClipboard();
 		StringSelection ss = new StringSelection(name.getText());
@@ -626,8 +622,7 @@ public class NameGenPanel extends JPanel
 
 			List<RuleSet> cats = categories.get(catKey);
 			List<RuleSet> sexes = categories.get("Sex: " + sexKey);
-			List<RuleSet> join = new ArrayList<>();
-			join.addAll(cats);
+			List<RuleSet> join = new ArrayList<>(cats);
 			join.retainAll(sexes);
 			join.sort(new DataElementComperator());
 
@@ -635,10 +630,8 @@ public class NameGenPanel extends JPanel
 			int oldSelected = -1;
 			int n = 0;
 
-			for (int i = 0; i < join.size(); i++)
+			for (final RuleSet rs : join)
 			{
-				RuleSet rs = join.get(i);
-
 				if (rs.getUsage().equals("final"))
 				{
 					catalogs.add(rs);
@@ -652,7 +645,7 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			DefaultComboBoxModel catalogModel =
+			ComboBoxModel catalogModel =
 					new DefaultComboBoxModel(catalogs);
 			cbCatalog.setModel(catalogModel);
 			if(oldSelected>=0)
@@ -667,7 +660,7 @@ public class NameGenPanel extends JPanel
 	//	Get a list of all the gender categories in the category map
 	private Vector<String> getGenderCategoryNames()
 	{
-		Vector<String> genders = new java.util.Vector<>();
+		Vector<String> genders = new Vector<>();
 		Set<String> keySet = categories.keySet();
 
 		//	Loop through the keys in the categories
@@ -687,7 +680,7 @@ public class NameGenPanel extends JPanel
 	//	Load the gender drop dowd
 	private void loadGenderDD()
 	{
-		Vector<String> genders = getGenderCategoryNames();
+		List<String> genders = getGenderCategoryNames();
 		Vector<String> selectable = new Vector<>();
 		String gender = (String) cbSex.getSelectedItem();
 
@@ -700,20 +693,18 @@ public class NameGenPanel extends JPanel
 		//	we need to determine if the selected category is supported by the 
 		//	available genders
 		//	loop through the available genders
-		for (int i = 0; i < genders.size(); ++i)
+		for (String genderString : genders)
 		{
-			String genderString = genders.get(i);
-
 			//	Get the list of rules for the current gender
 			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
 			//	now loop through all the rules from the selected category
-			for (int j = 0; j < categoryRules.size(); ++j)
+			for (RuleSet categoryRule : categoryRules)
 			{
 				//	if the category rule is in the list of gender rules
 				//	add the current gender to the selectable gender list
 				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRules.get(j)))
+				if (genderRules.contains(categoryRule))
 				{
 					selectable.add(genderString);
 					break;
@@ -759,11 +750,11 @@ public class NameGenPanel extends JPanel
 			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
-			for (int i = 0; i < dataFiles.length; i++)
+			for (File dataFile : dataFiles)
 			{
 				try
 				{
-					URL url = dataFiles[i].toURI().toURL();
+					URL url = dataFile.toURI().toURL();
 					Document nameSet = builder.build(url);
 					DocType dt = nameSet.getDocType();
 
@@ -771,15 +762,11 @@ public class NameGenPanel extends JPanel
 					{
 						loadFromDocument(nameSet);
 					}
-
-					nameSet = null;
-					dt = null;
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 					JOptionPane.showMessageDialog(this, "XML Error with file "
-						+ dataFiles[i].getName());
+							+ dataFile.getName());
 				}
 			}
 
@@ -795,7 +782,7 @@ public class NameGenPanel extends JPanel
 	//	Get a list of category names from the categories map
 	private Vector<String> getCategoryNames()
 	{
-		Vector<String> cats = new java.util.Vector<>();
+		Vector<String> cats = new Vector<>();
 		Set<String> keySet = categories.keySet();
 
 		for (final String key : keySet)
@@ -834,9 +821,6 @@ public class NameGenPanel extends JPanel
 		java.util.List<?> lists = generator.getChildren("LIST");
 		ListIterator<?> listIterator = lists.listIterator();
 
-		//TODO This is a "dead local store" - is this intended to do something? thpr 10/21/06
-		RuleSet rs = new RuleSet(allVars);
-
 		while (listIterator.hasNext())
 		{
 			Element list = (Element) listIterator.next();
@@ -846,7 +830,7 @@ public class NameGenPanel extends JPanel
 		for (final Object ruleset : rulesets)
 		{
 			Element ruleSet = (Element) ruleset;
-			rs = loadRuleSet(ruleSet);
+			RuleSet rs = loadRuleSet(ruleSet);
 			allVars.addDataElement(rs);
 		}
 	}
@@ -1025,7 +1009,7 @@ public class NameGenPanel extends JPanel
 	 * for use with a SAX parser. It forces the generator.dtd to be read from a 
 	 * known location.
 	 */
-	public class GeneratorDtdResolver implements EntityResolver
+	public static class GeneratorDtdResolver implements EntityResolver
 	{
 
 		private final File parent;
@@ -1035,7 +1019,7 @@ public class NameGenPanel extends JPanel
 		 * generator.dtd from a specific directory.
 		 * @param parent The parent directory holding generator.dtd
 		 */
-		public GeneratorDtdResolver(File parent)
+		GeneratorDtdResolver(File parent)
 		{
 			this.parent = parent;
 

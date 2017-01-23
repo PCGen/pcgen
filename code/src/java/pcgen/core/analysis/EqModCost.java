@@ -132,7 +132,7 @@ public class EqModCost
 		String costFormula = eqMod.getSafe(FormulaKey.COST).toString();
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLLEVEL") >= 0)
+		while (costFormula.contains("%SPELLLEVEL"))
 		{
 			final int idx = costFormula.indexOf("%SPELLLEVEL");
 
@@ -169,7 +169,7 @@ public class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%CASTERLEVEL") >= 0)
+		while (costFormula.contains("%CASTERLEVEL"))
 		{
 			final int idx = costFormula.indexOf("%CASTERLEVEL");
 
@@ -247,7 +247,7 @@ public class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%" + s_CHARGES) >= 0)
+		while (costFormula.contains("%" + s_CHARGES))
 		{
 			final int idx = costFormula.indexOf("%" + s_CHARGES);
 
@@ -269,7 +269,7 @@ public class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLCOST") >= 0)
+		while (costFormula.contains("%SPELLCOST"))
 		{
 			final int idx = costFormula.indexOf("%SPELLCOST");
 
@@ -298,7 +298,7 @@ public class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%CHOICE") >= 0)
+		while (costFormula.contains("%CHOICE"))
 		{
 			final int idx = costFormula.indexOf("%CHOICE");
 
@@ -331,7 +331,7 @@ public class EqModCost
 	{
 		String modChoice = "";
 
-		while (costFormula.indexOf("%SPELLXPCOST") >= 0)
+		while (costFormula.contains("%SPELLXPCOST"))
 		{
 			final int idx = costFormula.indexOf("%SPELLXPCOST");
 

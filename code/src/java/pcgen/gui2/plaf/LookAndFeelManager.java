@@ -35,6 +35,7 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 import org.apache.commons.lang3.SystemUtils;
 
 import pcgen.system.ConfigurationSettings;
@@ -49,7 +50,7 @@ import pcgen.util.SkinLFResourceChecker;
 public final class LookAndFeelManager
 {
 
-	public static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
+	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] lafHandlers;
@@ -58,45 +59,29 @@ public final class LookAndFeelManager
 
 	static
 	{
-		try
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
 		{
-			// Add the Kunststoff L&F before asking the UIManager.
-			Class.forName("com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-			UIManager.installLookAndFeel("Kunststoff", "com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-		}
-		catch (ClassNotFoundException ex)
-		{
-			//not much we can do can do about this
-		}
-		Comparator<LookAndFeelInfo> lafcomp = new Comparator<LookAndFeelInfo>()
-		{
-
-			@Override
-			public int compare(LookAndFeelInfo o1, LookAndFeelInfo o2)
-			{
-				//System laf goes first
-				if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return 1;
-				}
-				//Cross Platfrom laf goes second
-				if (o1.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return 1;
-				}
-				//the rest don't matter
-				return 0;
-			}
-
-		};
+            //System laf goes first
+            if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return 1;
+            }
+            //Cross Platfrom laf goes second
+            if (o1.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return 1;
+            }
+            //the rest don't matter
+            return 0;
+        };
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
 		Arrays.sort(lafInfo, lafcomp);
@@ -246,7 +231,7 @@ public final class LookAndFeelManager
 		try
 		{
 			//path += File.separator + selectedTheme;
-			LookAndFeel laf = SkinManager.createSkinLAF(selectedTheme);
+			LookAndFeel laf = createSkinLAF(selectedTheme);
 			UIManager.setLookAndFeel(laf);
 
 			ConfigurationSettings.setSystemProperty("lookAndFeel", "Skinned");
@@ -262,7 +247,7 @@ public final class LookAndFeelManager
 				{
 					//fall back to old theme
 					//path += File.separator + currentTheme;
-					LookAndFeel laf = SkinManager.createSkinLAF(currentTheme);
+					LookAndFeel laf = createSkinLAF(currentTheme);
 					UIManager.setLookAndFeel(laf);
 				}
 				catch (Exception ex1)
@@ -323,12 +308,24 @@ public final class LookAndFeelManager
 		}
 	}
 
+	/**
+	 * Apply a skin to PCGen GUI
+	 *
+	 * @param themePath a string describing the path to a theme file
+	 * @return a LookAndFeel instance
+	 */
+	private static LookAndFeel createSkinLAF(String themePath) throws Exception
+	{
+		SkinLookAndFeel.setSkin(SkinLookAndFeel.loadThemePack(themePath));
+		return new SkinLookAndFeel();
+	}
+
 	public static class LookAndFeelHandler extends AbstractAction
 	{
 
 		private String className;
 
-		public LookAndFeelHandler(String name, String className, String tooltip)
+		LookAndFeelHandler(String name, String className, String tooltip)
 		{
 			super(name);
 			this.className = className;

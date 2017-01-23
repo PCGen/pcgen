@@ -366,7 +366,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 					}
 
 					if (!("".equals(reqSpellType))
-						&& (reqSpellType.indexOf(aClass.getSpellType()) < 0))
+						&& (!reqSpellType.contains(aClass.getSpellType())))
 					{
 						continue;
 					}
@@ -486,7 +486,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 				if (aClass != null)
 				{
 					if (!("".equals(spellType))
-						&& (spellType.indexOf(aClass.getSpellType()) < 0))
+						&& (!spellType.contains(aClass.getSpellType())))
 					{
 						continue;
 					}
@@ -511,7 +511,7 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 			else if (spellList instanceof DomainSpellList)
 			{
 				if (!("".equals(spellType))
-					&& (spellType.indexOf("Divine") < 0))
+					&& (!spellType.contains("Divine")))
 				{
 					continue;
 				}

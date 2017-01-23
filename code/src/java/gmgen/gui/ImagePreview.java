@@ -20,6 +20,8 @@ import pcgen.io.PCGFile;
 import pcgen.io.PCGIOHandler;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * A panel for previewing graphics in a file chooser.  This includes previewing
  * a character portrait referenced in a PCG file.
@@ -105,7 +107,7 @@ public final class ImagePreview
 
 			final String portraitPath = aPC.getDisplay().getPortraitPath();
 
-			image = ImagePreview.isNullOrEmpty(portraitPath)
+			image = StringUtils.isEmpty(portraitPath)
 					? null
 					:  ImageIO.read(new File(portraitPath));
 		}
@@ -153,11 +155,6 @@ public final class ImagePreview
 			g.drawString(aPC == null ? ImagePreview.in_notAnImage : ImagePreview.in_noCharacterPortrait,
 					textX, textY);
 		}
-	}
-
-	private static boolean isNullOrEmpty(final String s)
-	{
-		return s == null || s.isEmpty();
 	}
 
 	private static int getFontHeightHint(final Graphics g) {

@@ -50,7 +50,6 @@ import javax.swing.JTabbedPane;
 import javax.swing.JTree;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.SwingConstants;
-import javax.swing.UIManager;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 import javax.swing.event.TreeSelectionEvent;
@@ -328,24 +327,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsModel = new DefaultTreeModel(rootNode);
 		settingsTree = new JTree(settingsModel);
 
-		/*
-		 * <!--
-		 *    bug:     TreeView not displaying correctly with Kunststoff LaF
-		 *    fix:     need to set a (wide enough) border
-		 *    author:     Thomas Behr
-		 *    date:     02/10/02
-		 * -->
-		 */
-		if (UIManager.getLookAndFeel().getName()
-			.equals("Kunststoff"))
-		{
-			settingsTree
-				.setBorder(BorderFactory.createEmptyBorder(0, 10, 0, 0));
-		}
-		else
-		{
-			settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
-		}
+		settingsTree.setBorder(BorderFactory.createEmptyBorder(0, 3, 0, 0));
 
 		settingsTree.setRootVisible(false);
 		settingsTree.setShowsRootHandles(true);

@@ -57,42 +57,43 @@ public final class SkillDisplay
 	public static List<Skill> getSkillListInOutputOrder(final PlayerCharacter pc,
 		final List<Skill> skills)
 	{
-		Collections.sort(skills, new Comparator<Skill>()
-		{
-			/**
-			 * Comparator will be specific to Skill objects
-			 */
-			@Override
-			public int compare(final Skill skill1, final Skill skill2)
-			{
-				Integer obj1Index = pc.getSkillOrder(skill1);
-				Integer obj2Index = pc.getSkillOrder(skill2);
-	
-				// Force unset items (index of 0) to appear at the end
-				if (obj1Index == null || obj1Index == 0)
-				{
-					obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
-				}
-	
-				if (obj2Index == null || obj2Index == 0)
-				{
-					obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
-				}
-	
-				if (obj1Index > obj2Index)
-				{
-					return 1;
-				}
-				else if (obj1Index < obj2Index)
-				{
-					return -1;
-				}
-				else
-				{
-					return skill1.getOutputName().compareToIgnoreCase(skill2.getOutputName());
-				}
-			}
-		});
+		skills.sort(new Comparator<Skill>()
+        {
+            /**
+             * Comparator will be specific to Skill objects
+             */
+            @Override
+            public int compare(final Skill skill1, final Skill skill2)
+            {
+                Integer obj1Index = pc.getSkillOrder(skill1);
+                Integer obj2Index = pc.getSkillOrder(skill2);
+
+                // Force unset items (index of 0) to appear at the end
+                if (obj1Index == null || obj1Index == 0)
+                {
+                    obj1Index = Constants.ARBITRARY_END_SKILL_INDEX;
+                }
+
+                if (obj2Index == null || obj2Index == 0)
+                {
+                    obj2Index = Constants.ARBITRARY_END_SKILL_INDEX;
+                }
+
+                if (obj1Index > obj2Index)
+                {
+                    return 1;
+                }
+                else if (obj1Index < obj2Index)
+                {
+                    return -1;
+                }
+                else
+                {
+                    return skill1.getOutputName()
+                                 .compareToIgnoreCase(skill2.getOutputName());
+                }
+            }
+        });
 	
 		// Remove the hidden skills from the list
 		for (Iterator<Skill> i = skills.iterator(); i.hasNext();)
@@ -161,7 +162,7 @@ public final class SkillDisplay
 			return;
 		}
 		List<Skill> skillList = new ArrayList<>(pc.getSkillSet());
-		Collections.sort(skillList, comparator);
+		skillList.sort(comparator);
 
 		int nextOutputIndex = 1;
 		for (final Skill aSkill : skillList)

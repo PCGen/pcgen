@@ -40,7 +40,6 @@ ext {
     baseLibs = copySpec {
         from("${buildDir}/libs") {
             exclude 'pcgen-*.jar'
-            exclude 'kunststoff*.jar'
             exclude 'skinlf*.jar'
             exclude 'fop*.jar'
             exclude 'xerces*.jar'
@@ -60,7 +59,6 @@ ext {
 
     skinLibs = copySpec {
         from("${buildDir}/libs") {
-            include 'kunststoff*.jar'
             include 'skinlf*.jar'
         }
         into ('/plugin/skin/libs')

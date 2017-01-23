@@ -235,7 +235,7 @@ public final class EquipmentList {
 
 			// If we haven't found it yet,
 			// try stripping Thrown from name
-			if (baseName.indexOf("Thrown") >= 0) {
+			if (baseName.contains("Thrown")) {
 				if (omitString.isEmpty()) {
 					omitString = "Thrown";
 

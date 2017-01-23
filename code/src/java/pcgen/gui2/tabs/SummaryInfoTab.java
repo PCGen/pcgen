@@ -34,7 +34,7 @@ import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.text.NumberFormat;
 import java.util.Arrays;
-import java.util.SortedSet;
+import java.util.Collection;
 import java.util.TreeSet;
 
 import javax.swing.AbstractAction;
@@ -165,7 +165,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	private final JButton random;
 	private JScrollPane langScroll;
 
-	public SummaryInfoTab()
+	SummaryInfoTab()
 	{
 		this.tabTitle = new TabTitle(Tab.SUMMARY);
 		this.basicsPanel = new JPanel();
@@ -257,7 +257,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		add(rightPanel, gbc);
 	}
 
-	private void setPanelTitle(JComponent panel, String title)
+	private static void setPanelTitle(JComponent panel, String title)
 	{
 		panel.setBorder(BorderFactory.createTitledBorder(null,
 				title,
@@ -526,8 +526,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 	private static JLabel createLabel(String text)
 	{
-		JLabel label = new JLabel(LanguageBundle.getString(text));
-		return label;
+		return new JLabel(LanguageBundle.getString(text));
 	}
 
 	private void resetBasicsPanel()
@@ -637,22 +636,18 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		Border highlightBorder = BorderFactory.createLineBorder(Color.GREEN, 3);
 		comp.setBorder(highlightBorder);
 
-		SwingUtilities.invokeLater(new Runnable()
+		SwingUtilities.invokeLater(() ->
 		{
-			@Override
-			public void run()
-			{
-				try
-				{
-					Thread.sleep(500);
-				}
-				catch (InterruptedException e)
-				{
-					// Ignored as we'll exit shortly anyway.
-				}
-				comp.setBorder(oldBorder);
-			}
-		});
+            try
+            {
+                Thread.sleep(500);
+            }
+            catch (InterruptedException e)
+            {
+                // Ignored as we'll exit shortly anyway.
+            }
+            comp.setBorder(oldBorder);
+        });
 	}
 
 	@Override
@@ -758,7 +753,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final FormattedFieldHandler expHandler;
 		private final FormattedFieldHandler nextLevelHandler;
 
-		public LabelAndFieldHandler(final CharacterFacade character)
+		LabelAndFieldHandler(final CharacterFacade character)
 		{
 
 			statTotalLabelHandler = new LabelHandler(statTotalLabel, character.getStatTotalLabelTextRef());
@@ -801,14 +796,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			/**
+			/*
 			 * Handler for the Age field. This listens for and processes both
 			 * changes to the value from the character and modifications to the
 			 * field made by the user.
 			 */
 			ageHandler = new FormattedFieldHandler(ageField, character.getAgeRef())
 			{
-
 				@Override
 				protected void valueChanged(int value)
 				{
@@ -817,14 +811,13 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			/**
+			/*
 			 * Handler for the Current Experience field. This listens for and
 			 * processes both changes to the value from the character and
 			 * modifications to the field made by the user.
 			 */
 			expHandler = new FormattedFieldHandler(expField, character.getXPRef())
 			{
-
 				@Override
 				protected void valueChanged(int value)
 				{
@@ -833,7 +826,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 			};
 
-			/**
+			/*
 			 * Handler for the Next Level field. This is a read-only field so
 			 * the handler only listens for changes to the value from the
 			 * character.
@@ -892,7 +885,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private final CharacterComboBoxModel<String> xpTableModel;
 		private final CharacterComboBoxModel<String> characterTypeModel;
 
-		public ComboBoxModelHandler(final CharacterFacade character)
+		ComboBoxModelHandler(final CharacterFacade character)
 		{
 			DataSetFacade dataset = character.getDataSet();
 
@@ -1020,7 +1013,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private final CharacterFacade character;
 
-		public ComboBoxRendererHandler(CharacterFacade character)
+		ComboBoxRendererHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -1112,7 +1105,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private CharacterFacade character;
 		private ReferenceFacade<Integer> ref;
 
-		public HPHandler(CharacterFacade character)
+		HPHandler(CharacterFacade character)
 		{
 			this.character = character;
 			this.ref = character.getTotalHPRef();
@@ -1151,7 +1144,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private CharacterFacade character;
 		private JFrame frame;
 
-		public RandomNameAction(CharacterFacade character, JFrame frame)
+		RandomNameAction(CharacterFacade character, JFrame frame)
 		{
 			this.character = character;
 			this.frame = frame;
@@ -1183,7 +1176,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private CharacterFacade character;
 
-		public GenerateRollsAction(CharacterFacade character)
+		GenerateRollsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(NAME, LanguageBundle.getString("in_sumGenerate_Rolls")); //$NON-NLS-1$
@@ -1281,7 +1274,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private JFrame parent;
 		private CharacterFacade character;
 
-		public RollMethodAction(CharacterFacade character, JFrame parent)
+		RollMethodAction(CharacterFacade character, JFrame parent)
 		{
 			putValue(NAME, LanguageBundle.getString("in_sumRoll_Method")); //$NON-NLS-1$
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumRoll_Method_Tip")); //$NON-NLS-1$
@@ -1327,7 +1320,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		private CharacterFacade character;
 		private JFrame frame;
 
-		public CreateMonsterAction(CharacterFacade character, JFrame frame)
+		CreateMonsterAction(CharacterFacade character, JFrame frame)
 		{
 			putValue(NAME, LanguageBundle.getString("in_sumCreateMonster")); //$NON-NLS-1$
 			putValue(SHORT_DESCRIPTION, LanguageBundle.getString("in_sumCreateMonster_Tip")); //$NON-NLS-1$
@@ -1351,7 +1344,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private CharacterFacade character;
 
-		public AddLevelsAction(CharacterFacade character)
+		AddLevelsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
@@ -1394,7 +1387,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private CharacterFacade character;
 
-		public RemoveLevelsAction(CharacterFacade character)
+		RemoveLevelsAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
@@ -1418,7 +1411,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private CharacterFacade character;
 
-		public ExpAddAction(CharacterFacade character)
+		ExpAddAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, new SignIcon(Sign.Plus));
@@ -1447,7 +1440,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 
 		private CharacterFacade character;
 
-		public ExpSubtractAction(CharacterFacade character)
+		ExpSubtractAction(CharacterFacade character)
 		{
 			this.character = character;
 			putValue(SMALL_ICON, new SignIcon(Sign.Minus));
@@ -1496,7 +1489,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 * @param label The label to be managed
 		 * @param ref   the ReferenceFacade that this handler should listen to.
 		 */
-		public LabelHandler(JLabel label, ReferenceFacade<String> ref)
+		LabelHandler(JLabel label, ReferenceFacade<String> ref)
 		{
 			this.label = label;
 			setReference(ref);
@@ -1505,7 +1498,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		/**
 		 * @param ref The new reference to be watched
 		 */
-		public void setReference(ReferenceFacade<String> ref)
+		private void setReference(ReferenceFacade<String> ref)
 		{
 			if (reference != null)
 			{
@@ -1556,6 +1549,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 	 * react to install and uninstall actions when the displayed character
 	 * changes.
 	 */
+	@SuppressWarnings("TodoComment")
 	private class TodoListHandler
 			implements ListListener<TodoFacade>, HyperlinkListener
 	{
@@ -1568,7 +1562,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		 *
 		 * @param character The character being managed.
 		 */
-		public TodoListHandler(CharacterFacade character)
+		TodoListHandler(CharacterFacade character)
 		{
 			this.character = character;
 		}
@@ -1637,11 +1631,8 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			StringBuilder todoText = new StringBuilder("<html><body>"); //$NON-NLS-1$
 
 			int i = 1;
-			SortedSet<TodoFacade> sortedTodos = new TreeSet<>();
-			for (TodoFacade item : character.getTodoList())
-			{
-				sortedTodos.add(item);
-			}
+			Collection<TodoFacade> sortedTodos = new TreeSet<>();
+			character.getTodoList().iterator().forEachRemaining(sortedTodos::add);
 
 			for (TodoFacade item : sortedTodos)
 			{

@@ -57,14 +57,6 @@ public interface UIDelegate
 	boolean showWarningConfirm(String title, String message);
 
 	/**
-	 * Displays an ok/cancel dialog
-	 * @param title the title for the dialog box
-	 * @param message the message to display
-	 * @return true if user clicked Ok, false otherwise
-	 */
-	boolean showWarningPrompt(String title, String message);
-
-	/**
 	 * Displays an ok dialog with a message and warning icon.
 	 * @param title the title for the dialog box
 	 * @param message the message to display
