@@ -25,7 +25,7 @@ import java.net.URI;
 import java.util.Map;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.SystemCollections;

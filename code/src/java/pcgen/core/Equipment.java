@@ -43,7 +43,7 @@ import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
@@ -218,7 +218,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getAppliedName()
 	{
-		if (appliedBonusName.length() > 0)
+		if (!appliedBonusName.isEmpty())
 		{
 			final StringBuilder aString = new StringBuilder(100);
 			aString.append(" [").append(appliedBonusName).append("]");
@@ -1084,7 +1084,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String eqBonus = aBonus.toString();
 
-			if ((eqBonus.length() > 0) && !eqBonus.startsWith("EQM"))
+			if ((!eqBonus.isEmpty()) && !eqBonus.startsWith("EQM"))
 			{
 				if (s.length() != 0)
 				{
@@ -1114,7 +1114,7 @@ public final class Equipment extends PObject implements Serializable,
 		// }
 		// }
 		// }
-		if (t.length() != 0)
+		if (!t.isEmpty())
 		{
 			if (s.length() != 0)
 			{
@@ -1267,7 +1267,7 @@ public final class Equipment extends PObject implements Serializable,
 				buildEqModDesc(commonListByFC.get(fcm), modListByFC.get(fcm),
 					altModListByFC.get(fcm));
 
-		if (eqmodDesc1.length() > 0)
+		if (!eqmodDesc1.isEmpty())
 		{
 			itemName.append(' ').append(eqmodDesc1);
 		}
@@ -1406,12 +1406,12 @@ public final class Equipment extends PObject implements Serializable,
 		}
 		else
 		{
-			if (commonDesc.length() != 0)
+			if (!commonDesc.isEmpty())
 			{
 				desc.append(commonDesc).append(';');
 			}
 
-			if (modDesc.length() != 0)
+			if (!modDesc.isEmpty())
 			{
 				desc.append(modDesc);
 			}
@@ -1422,7 +1422,7 @@ public final class Equipment extends PObject implements Serializable,
 
 			desc.append(';');
 
-			if (altModDesc.length() != 0)
+			if (!altModDesc.isEmpty())
 			{
 				desc.append(altModDesc);
 			}
@@ -1547,7 +1547,7 @@ public final class Equipment extends PObject implements Serializable,
 		final StringBuilder buffer = new StringBuilder(100);
 	
 		buffer.append(getDisplayName());
-		if (modifiedName.length() > 0)
+		if (!modifiedName.isEmpty())
 		{
 			buffer.append(" (").append(modifiedName).append(")");
 		}
@@ -1779,7 +1779,7 @@ public final class Equipment extends PObject implements Serializable,
 				tString = falsePart;
 			}
 
-			if (tString.length() == 0)
+			if (tString.isEmpty())
 			{
 				return true;
 			}
@@ -1879,7 +1879,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (range == 0)
 		{
 			String cr = getWeaponInfo("CRITRANGE", bPrimary);
-			if (cr.length() != 0)
+			if (!cr.isEmpty())
 			{
 				try
 				{
@@ -2086,7 +2086,7 @@ public final class Equipment extends PObject implements Serializable,
 			}
 		}
 
-		if (common.length() != 0)
+		if (!common.isEmpty())
 		{
 			if (!first)
 			{
@@ -2097,7 +2097,7 @@ public final class Equipment extends PObject implements Serializable,
 			sp.append(common);
 		}
 
-		if (saList1.length() != 0)
+		if (!saList1.isEmpty())
 		{
 			if (!first)
 			{
@@ -2113,7 +2113,7 @@ public final class Equipment extends PObject implements Serializable,
 			sp.append(saList1);
 		}
 
-		if (isDouble() && (saList2.length() != 0))
+		if (isDouble() && (!saList2.isEmpty()))
 		{
 			if (!first)
 			{
@@ -2427,7 +2427,7 @@ public final class Equipment extends PObject implements Serializable,
 
 			// only make a copy if we need to
 			// add qualifiers to modifier
-			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+			if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 			{
 				eqMod = eqMod.clone();
 			}
@@ -2436,7 +2436,7 @@ public final class Equipment extends PObject implements Serializable,
 		}
 
 		// Add the associated choices
-		if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+		if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 		{
 			while (aTok.hasMoreTokens())
 			{
@@ -2594,7 +2594,7 @@ public final class Equipment extends PObject implements Serializable,
 			//
 			// only make a copy if we need to add qualifiers to modifier
 			//
-			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+			if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 			{
 				aMod = eqMod.clone();
 
@@ -2628,7 +2628,7 @@ public final class Equipment extends PObject implements Serializable,
 		if (!bImporting)
 		{
 			boolean allRemoved = false;
-			if (selectedChoice != null && selectedChoice.length() > 0)
+			if (selectedChoice != null && !selectedChoice.isEmpty())
 			{
 				if (!eqMod.getSafe(StringKey.CHOICE_STRING).startsWith(
 					"EQBUILDER."))
@@ -3106,21 +3106,21 @@ public final class Equipment extends PObject implements Serializable,
 
 		String string1 = getEqModifierString(true); // key1.key2|assoc1|assoc2.key3.key4
 
-		if (string1.length() > 0)
+		if (!string1.isEmpty())
 		{
 			sbuf.append(sep).append("EQMOD").append(endPart).append(string1);
 		}
 
 		String string2 = getEqModifierString(false); // key1.key2|assoc1|assoc2.key3.key4
 
-		if (string2.length() > 0)
+		if (!string2.isEmpty())
 		{
 			sbuf.append(sep).append("ALTEQMOD").append(endPart).append(string2);
 		}
 
 		String string3 = getRawSpecialProperties();
 
-		if ((string3.length() > 0)
+		if ((!string3.isEmpty())
 			&& !string3.equals(base.getRawSpecialProperties()))
 		{
 			sbuf.append(sep).append("SPROP").append(endPart).append(string3);
@@ -3371,7 +3371,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String moveString()
 	{
-		if (moveString.length() > 0)
+		if (!moveString.isEmpty())
 		{
 			final Load eqLoad;
 
@@ -3713,12 +3713,12 @@ public final class Equipment extends PObject implements Serializable,
 			put(ObjectKey.WEIGHT, eq.getWeightAdjustedForSize(pc, newSize));
 			adjustACForSize(pc, eq, newSize);
 			String dam = eq.getDamageAdjustedForSize(newSize, true);
-			if (dam != null && dam.length() > 0)
+			if (dam != null && !dam.isEmpty())
 			{
 				getEquipmentHead(1).put(StringKey.DAMAGE, dam);
 			}
 			String adam = eq.getDamageAdjustedForSize(newSize, false);
-			if (adam != null && adam.length() > 0)
+			if (adam != null && !adam.isEmpty())
 			{
 				getEquipmentHead(2).put(StringKey.DAMAGE, adam);
 			}
@@ -3847,7 +3847,7 @@ public final class Equipment extends PObject implements Serializable,
 				buffer.append(getDisplayName());
 			}
 
-			if (modifiedName.length() > 0)
+			if (!modifiedName.isEmpty())
 			{
 				buffer.append(" (").append(modifiedName).append(")");
 			}
@@ -4303,7 +4303,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String modDesc =
 					eqMod.getSafe(ObjectKey.NAME_OPT).returnName(this, eqMod);
-			if (sMod.length() > 0 && modDesc.length() > 0)
+			if (sMod.length() > 0 && !modDesc.isEmpty())
 			{
 				sMod.append('/');
 			}
@@ -4678,7 +4678,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 
 			// only make a copy if we need to add qualifiers to modifier
-			if (eqMod.getSafe(StringKey.CHOICE_STRING).length() != 0)
+			if (!eqMod.getSafe(StringKey.CHOICE_STRING).isEmpty())
 			{
 				EquipmentModifier newEqMod = eqMod.clone();
 				other.assocSupt.convertAssociations(eqMod, newEqMod);

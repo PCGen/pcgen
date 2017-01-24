@@ -29,7 +29,7 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.math.Fraction;
+import org.apache.commons.lang3.math.Fraction;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.content.CNAbility;

@@ -28,6 +28,8 @@ import javax.swing.ListSelectionModel;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.enumeration.SkillCost;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterLevelFacade;
@@ -46,8 +48,6 @@ import pcgen.gui2.util.treeview.TreeView;
 import pcgen.gui2.util.treeview.TreeViewModel;
 import pcgen.gui2.util.treeview.TreeViewPath;
 import pcgen.system.LanguageBundle;
-
-import org.apache.commons.lang.StringUtils;
 
 /**
  *
@@ -209,7 +209,7 @@ public class SkillTreeViewModel implements TreeViewModel<SkillFacade>,
 		Object displayPath[];
 		if (path.length > 0 && StringUtils.isEmpty(String.valueOf(path[path.length - 1])))
 		{
-			displayPath = Arrays.copyOf(path, path.length);
+			displayPath = Arrays.copyOf(path, path.length - 1);
 		}
 		else
 		{

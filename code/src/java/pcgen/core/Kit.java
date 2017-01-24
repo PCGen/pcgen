@@ -23,7 +23,6 @@ package pcgen.core;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -47,7 +46,7 @@ import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
 /**
- * <code>Kit</code>.
+ * {@code Kit}.
  *
  * @author   Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
@@ -370,7 +369,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 
 		String aString = getPreReqHTMLStrings(aPC);
 
-		if (aString.length() != 0)
+		if (!aString.isEmpty())
 		{
 			info.append("  <b>Requirements</b>: ").append(aString);
 		}
@@ -428,7 +427,7 @@ public final class Kit extends PObject implements Comparable<Object>, KitFacade
 		aKit.testApplyKit(aPC, thingsToAdd, warnings);
 		if (Logging.isLoggable(Logging.WARNING))
 		{
-			if (warnings.size() != 0)
+			if (!warnings.isEmpty())
 			{
 				Logging.log(Logging.WARNING,
 					"The following warnings were encountered when applying the kit "

@@ -37,7 +37,7 @@ import javax.swing.JPanel;
 import javax.swing.SizeRequirements;
 import javax.swing.UIManager;
 import javax.swing.border.Border;
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  * This class represents the highest level DisplayableFilter in the filter hierarchy. A FilterBar

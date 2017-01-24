@@ -142,7 +142,7 @@ public class AttackModel extends PObjectModel
 	{
 		int[] returnValue = null;
 
-		if ((toHit != null) && (toHit.size() > 0))
+		if ((toHit != null) && (!toHit.isEmpty()))
 		{
 			returnValue = new int[toHit.size()];
 
@@ -167,7 +167,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setCritMultiple(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -235,7 +235,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = critMultiple.get(lookupAt);
 		}
-		else if ((critMultiple != null) && (critMultiple.size() > 0))
+		else if ((critMultiple != null) && (!critMultiple.isEmpty()))
 		{
 			returnValue = critMultiple.get(0);
 		}
@@ -255,7 +255,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setCritRange(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -323,7 +323,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = critRange.get(lookupAt);
 		}
-		else if ((critRange != null) && (critRange.size() > 0))
+		else if ((critRange != null) && (!critRange.isEmpty()))
 		{
 			returnValue = critRange.get(0);
 		}
@@ -362,7 +362,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setDamage(String string)
 	{
-		if ((string != null) && (string.length() > 0))
+		if ((string != null) && (!string.isEmpty()))
 		{
 			StringTokenizer tok = new StringTokenizer(string, "/");
 
@@ -456,7 +456,7 @@ public class AttackModel extends PObjectModel
 		{
 			returnValue = damage.get(lookupAt);
 		}
-		else if ((damage != null) && (damage.size() > 0))
+		else if ((damage != null) && (!damage.isEmpty()))
 		{
 			returnValue = damage.get(0);
 		}
@@ -488,7 +488,7 @@ public class AttackModel extends PObjectModel
 	 */
 	public void setRange(String string)
 	{
-		if ((string == null) || (string.length() > 0))
+		if ((string == null) || (!string.isEmpty()))
 		{
 			range = string;
 		}
@@ -614,7 +614,7 @@ public class AttackModel extends PObjectModel
 	{
 		StringBuilder sb = new StringBuilder();
 
-		if ((toHit != null) && (toHit.size() > 0))
+		if ((toHit != null) && (!toHit.isEmpty()))
 		{
 			for (int i = 0; i < toHit.size(); i++)
 			{

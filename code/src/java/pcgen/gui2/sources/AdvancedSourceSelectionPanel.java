@@ -46,7 +46,7 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.GameModeDisplayFacade;
@@ -691,7 +691,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	}
 
 	/**
-	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
+	 * The Class {@code CampaignRenderer} displays the tree cells of the
 	 * source table.  
 	 */
 	private class CampaignRenderer extends TreeColumnCellRenderer

@@ -31,7 +31,7 @@ import java.util.SortedMap;
 import java.util.StringTokenizer;
 import java.util.TreeMap;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.AssociatedPrereqObject;

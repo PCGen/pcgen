@@ -342,6 +342,8 @@ CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_ClassSkills|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape6|0
 CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_WildShape8|0
 
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_DruidDomain|0
+CATEGORY=Class|Druid.MOD	DEFINE:Druid_CF_AnimalCompanion|0
 
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_SpontaneousCasting=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_NatureSense|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_NatureSense=True
@@ -357,6 +359,9 @@ CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Drui
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_ClassSkills|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_ClassSkills=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape6|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_WildShape8|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_WildShape=True
+
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_DruidDomain|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_DruidDomain=True
+CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_AnimalCompanion|1|TYPE=Boolean|PREFACT:1,ABILITIES,Druid_CF_AnimalCompanion=True
 
 # Old Style
 CATEGORY=Class|Druid.MOD																																										BONUS:VAR|Druid_CF_SpontaneousCasting|1|TYPE=Boolean|PREABILITY:1,CATEGORY=Archetype,TYPE.DruidSpontaneousCasting
@@ -862,6 +867,17 @@ CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent14|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent16|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent18|0
 CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_RogueTalent20|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack1|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack3|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack5|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack7|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack9|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack11|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack13|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack15|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack17|0
+CATEGORY=Class|Rogue.MOD	DEFINE:Rogue_CF_SneakAttack19|0
+
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense1=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense2|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense2=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_TrapSense3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_TrapSense3=True
@@ -879,6 +895,18 @@ CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent14|1|TYPE=Boolean|
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent16|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent16=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent18|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent18=True
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_RogueTalent20|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_RogueTalent20=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack1|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack1=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack3|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack3=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack5|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack5=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack7|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack7=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack9|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack9=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack11|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack11=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack13|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack13=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack15|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack15=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack17|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack17=True
+CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_SneakAttack19|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_SneakAttack19=True
+
+
 
 
 CATEGORY=Class|Rogue.MOD								BONUS:VAR|Rogue_CF_UncannyDodge|1|TYPE=Boolean|PREFACT:1,ABILITIES,Rogue_CF_UncannyDodge=True

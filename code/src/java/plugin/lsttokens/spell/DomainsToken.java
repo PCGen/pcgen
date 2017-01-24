@@ -100,7 +100,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 			domainKey = value.substring(0, openBracketLoc);
 			String prereqString = value.substring(openBracketLoc + 1, value
 					.length() - 1);
-			if (prereqString.length() == 0)
+			if (prereqString.isEmpty())
 			{
 				return new ParseResult.Fail(getTokenName()
 						+ " cannot have empty prerequisite : " + value, context);
@@ -255,7 +255,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						{
 							List<Prerequisite> prereqs = assoc
 									.getPrerequisiteList();
-							if (prereqs != null && prereqs.size() != 0)
+							if (prereqs != null && !prereqs.isEmpty())
 							{
 								context.addWriteMessage("Incoming Remove "
 										+ "Edge to " + spell.getKeyName()
@@ -299,7 +299,7 @@ public class DomainsToken extends AbstractTokenWithSeparator<Spell> implements
 						List<Prerequisite> prereqs = assoc
 								.getPrerequisiteList();
 						Prerequisite prereq;
-						if (prereqs == null || prereqs.size() == 0)
+						if (prereqs == null || prereqs.isEmpty())
 						{
 							prereq = null;
 						}

@@ -39,7 +39,7 @@ import javax.swing.JSeparator;
 import javax.swing.JTextField;
 import javax.swing.WindowConstants;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.ConfigurationSettings.SettingsFilesPath;
 

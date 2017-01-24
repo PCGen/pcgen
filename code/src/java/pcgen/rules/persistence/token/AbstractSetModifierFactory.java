@@ -78,6 +78,11 @@ public abstract class AbstractSetModifierFactory<T> implements
 		ManagerFactory managerFactory, FormulaManager ignored, LegalScope varScope,
 		FormatManager<T> formatManager)
 	{
+		if (!formatManager.getManagedClass().equals(getVariableFormat()))
+		{
+			throw new IllegalArgumentException(
+				"FormatManager must manage " + getVariableFormat().getName());
+		}
 		//TODO if this is Skill, fixed doesn't work :/
 		return getFixedModifier(userPriority, formatManager, instructions);
 	}
@@ -86,6 +91,11 @@ public abstract class AbstractSetModifierFactory<T> implements
 	public PCGenModifier<T> getFixedModifier(int userPriority,
 		FormatManager<T> fmtManager, String instructions)
 	{
+		if (!fmtManager.getManagedClass().equals(getVariableFormat()))
+		{
+			throw new IllegalArgumentException(
+				"FormatManager must manage " + getVariableFormat().getName());
+		}
 		T n = fmtManager.convert(instructions);
 		NEPCalculation<T> calc = new ProcessCalculation<>(n, this, fmtManager);
 		return new CalculationModifier<>(calc, userPriority);

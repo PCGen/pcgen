@@ -83,7 +83,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ "AspectName|Aspect value|Variable|... was: " + value, context);
 		}
 		String key = value.substring(0, pipeLoc);
-		if (key.length() == 0)
+		if (key.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty type, "
@@ -91,7 +91,7 @@ public class AspectToken extends AbstractNonEmptyToken<Ability> implements
 					+ value, context);
 		}
 		String val = value.substring(pipeLoc + 1);
-		if (val.length() == 0)
+		if (val.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " expecting non-empty value, "

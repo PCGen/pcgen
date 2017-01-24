@@ -45,3 +45,4 @@ data/customsources/*
 /.nb-gradle/
 /jre/
 /installers/win-installer/project.nsh
+/.checkstyle

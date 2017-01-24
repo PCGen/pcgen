@@ -44,7 +44,7 @@ import pcgen.base.util.HashMapToList;
 import pcgen.base.util.MapToList;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  *

@@ -1,12 +1,12 @@
 CAMPAIGN:Pathfinder Society Primer
-GAMEMODE:Pathfinder
+GAMEMODE:Pathfinder|Pathfinder_PFS
 TYPE:Paizo Publishing.Pathfinder Player Companion
 RANK:3
 STATUS:BETA
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder Player Companion
-PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:3,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com/

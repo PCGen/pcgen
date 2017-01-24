@@ -20,9 +20,11 @@
  */
 package pcgen.system;
 
+import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
+import java.awt.Window;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -44,6 +46,7 @@ import pcgen.gui2.SplashScreen;
 import pcgen.gui2.UIPropertyContext;
 import pcgen.gui2.converter.TokenConverter;
 import pcgen.gui2.dialog.OptionsPathDialog;
+import pcgen.gui2.dialog.RandomNameDialog;
 import pcgen.gui2.plaf.LookAndFeelManager;
 import pcgen.gui2.tools.Utility;
 import pcgen.io.ExportHandler;
@@ -63,12 +66,8 @@ import net.sourceforge.argparse4j.impl.Arguments;
 import net.sourceforge.argparse4j.inf.ArgumentParser;
 import net.sourceforge.argparse4j.inf.MutuallyExclusiveGroup;
 import net.sourceforge.argparse4j.inf.Namespace;
-import org.apache.commons.lang.StringUtils;
-import org.apache.commons.lang.SystemUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
-import org.slf4j.Marker;
-import org.slf4j.MarkerFactory;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * Main entry point for pcgen.
@@ -77,8 +76,11 @@ public final class Main
 {
 
 	private static PropertyContextFactory configFactory;
+
+	// TODO: move startup modes into an extensible class based system
 	private static boolean startGMGen;
 	private static boolean startNPCGen;
+	private static boolean startNameGen;
 	private static boolean ignoreJavaVer;
 	private static String settingsDir;
 	private static String campaignMode;
@@ -87,7 +89,6 @@ public final class Main
 	private static String partyFile;
 	private static String characterFile;
 	private static String outputFile;
-	private static final Logger LOGGER = LoggerFactory.getLogger(Main.class);
 
 
 	private Main()
@@ -141,10 +142,9 @@ public final class Main
 	 */
 	public static void main(String[] args)
 	{
-		Marker versionMarker = MarkerFactory.getMarker("VERSION");
-		LOGGER.info(versionMarker, "Starting PCGen v {} {}",
-				PCGenPropBundle.getVersionNumber(),
-				PCGenPropBundle.getAutobuildString());
+		Logging.log(Level.INFO,
+				"Starting PCGen v" + PCGenPropBundle.getVersionNumber() //$NON-NLS-1$
+						+ PCGenPropBundle.getAutobuildString());
 
 		Thread.setDefaultUncaughtExceptionHandler(new PCGenUncaughtExceptionHandler());
 		logSystemProps();
@@ -152,6 +152,14 @@ public final class Main
 		configFactory.registerAndLoadPropertyContext(ConfigurationSettings.getInstance());
 
 		parseCommands(args);
+
+		if (startNameGen)
+		{
+			Component dialog = new RandomNameDialog(null, null);
+			dialog.setVisible(true);
+			System.exit(0);
+		}
+
 
 		if (exportSheet == null)
 		{
@@ -198,7 +206,7 @@ public final class Main
 	 *
 	 * @param argv the command line arguments to be parsed
 	 */
-	private static void parseCommands(String[] argv)
+	private static Namespace parseCommands(String[] argv)
 	{
 		Namespace args = getParser().parseArgsOrFail(argv);
 
@@ -218,6 +226,9 @@ public final class Main
 		partyFile = args.get("p");
 		characterFile = args.get("c");
 		outputFile = args.get("o");
+		startNameGen = args.get("name_generator");
+
+		return args;
 	}
 
 	private static void startupWithGUI()
@@ -229,7 +240,7 @@ public final class Main
 		initPrintPreviewFonts();
 
 		boolean showSplash = Boolean.parseBoolean(ConfigurationSettings.initSystemProperty("showSplash", "true"));
-		//TODO: allow commandline override of spash property
+		//TODO: allow commandline override of splash property
 		SplashScreen splash = null;
 		if (showSplash)
 		{
@@ -515,6 +526,11 @@ public final class Main
 				.help("NPC generation mode")
 				.type(Boolean.class)
 				.action(Arguments.storeTrue());
+
+		startupMode.addArgument("--name-generator")
+				   .help("run the name generator")
+				   .type(Boolean.class)
+				   .action(Arguments.storeTrue());
 
 		startupMode.addArgument("-D", "--tab").nargs(1);
 

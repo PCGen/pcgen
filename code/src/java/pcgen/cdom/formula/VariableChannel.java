@@ -22,7 +22,7 @@ import java.util.Objects;
 import javax.swing.event.EventListenerList;
 
 import pcgen.base.formula.base.VariableID;
-import pcgen.base.solver.AggressiveSolverManager;
+import pcgen.base.solver.SolverManager;
 import pcgen.facade.util.WriteableReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
@@ -39,9 +39,9 @@ public final class VariableChannel<T> implements VariableListener<T>,
 {
 
 	/**
-	 * The underlying AggressiveSolverManager that solves the given VariableID
+	 * The underlying SolverManager that solves the given VariableID
 	 */
-	private final AggressiveSolverManager manager;
+	private final SolverManager manager;
 
 	/**
 	 * The VariableID indicating to which Variable this VariableChannel is
@@ -51,7 +51,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 
 	/**
 	 * The MonitorableVariableStore that the results of the calculations by the
-	 * AggressiveSolverManager are placed in.
+	 * SolverManager are placed in.
 	 */
 	private final MonitorableVariableStore varStore;
 
@@ -62,21 +62,21 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	private final EventListenerList listenerList = new EventListenerList();
 
 	/**
-	 * Constructs a new VariableChannel with the given AggressiveSolverManager,
+	 * Constructs a new VariableChannel with the given SolverManager,
 	 * MonitorableVariableStore, and VariableID indicating the contents of the
 	 * Channel.
 	 * 
 	 * @param manager
-	 *            The underlying AggressiveSolverManager that solves the given
+	 *            The underlying SolverManager that solves the given
 	 *            VariableID
 	 * @param varStore
 	 *            The MonitorableVariableStore that the results of the
-	 *            calculations by the AggressiveSolverManager are placed in
+	 *            calculations by the SolverManager are placed in
 	 * @param varID
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
 	 */
-	private VariableChannel(AggressiveSolverManager manager,
+	private VariableChannel(SolverManager manager,
 		MonitorableVariableStore varStore, VariableID<T> varID)
 	{
 		this.manager = Objects.requireNonNull(manager);
@@ -163,11 +163,11 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	 * VariableChannel from the WriteableVariableStore.
 	 * 
 	 * @param manager
-	 *            The underlying AggressiveSolverManager that solves the given
+	 *            The underlying SolverManager that solves the given
 	 *            VariableID
 	 * @param varStore
 	 *            The MonitorableVariableStore that the results of the
-	 *            calculations by the AggressiveSolverManager are placed in
+	 *            calculations by the SolverManager are placed in
 	 * @param varID
 	 *            The VariableID indicating to which Variable this
 	 *            VariableChannel is providing an interface
@@ -175,7 +175,7 @@ public final class VariableChannel<T> implements VariableListener<T>,
 	 *         MonitorableVariableStore for the given VariableID
 	 */
 	public static <T> VariableChannel<T> construct(
-		AggressiveSolverManager manager, MonitorableVariableStore varStore,
+		SolverManager manager, MonitorableVariableStore varStore,
 		VariableID<T> varID)
 	{
 		VariableChannel<T> ref =

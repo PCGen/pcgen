@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 22/04/2011 11:52:44 AM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -35,9 +31,10 @@ import pcgen.facade.util.ListFacade;
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
+@SuppressWarnings("TodoComment")
 public class TodoManager
 {
-	DefaultListFacade<TodoFacade> todoList;
+	private DefaultListFacade<TodoFacade> todoList;
 
 	TodoManager()
 	{
@@ -94,7 +91,7 @@ public class TodoManager
 			{
 				if (messageKey.equals(item.getMessageKey()))
 				{
-					if (fieldName == null || fieldName.equals(item.getFieldName()))
+					if ((fieldName == null) || fieldName.equals(item.getFieldName()))
 					{
 						return item;
 					}

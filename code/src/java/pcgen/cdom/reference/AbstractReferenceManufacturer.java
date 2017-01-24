@@ -200,7 +200,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 	{
 		for (String type : types)
 		{
-			if (type == null || type.length() == 0)
+			if (type == null || type.isEmpty())
 			{
 				throw new IllegalArgumentException(
 						"Attempt to acquire empty Type "
@@ -656,7 +656,7 @@ public abstract class AbstractReferenceManufacturer<T extends Loadable>
 			throw new IllegalArgumentException(
 					"Cannot request a reference to null identifier");
 		}
-		if (key.length() == 0)
+		if (key.isEmpty())
 		{
 			throw new IllegalArgumentException(
 					"Cannot request a reference to an empty identifier");

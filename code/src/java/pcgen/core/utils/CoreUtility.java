@@ -28,7 +28,6 @@ import java.net.URL;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.regex.Pattern;
@@ -416,7 +415,7 @@ public final class CoreUtility
 		final List<String> temp = new ArrayList<>();
 		final String sepStr = Pattern.quote(String.valueOf(separator));
 
-		if (aString.trim().length() == 0)
+		if (aString.trim().isEmpty())
 		{
 			return temp;
 		}

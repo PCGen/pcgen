@@ -85,7 +85,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 				+ " on an Ungranted object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
-		if ((sourceLine == null) || (sourceLine.length() == 0))
+		if ((sourceLine == null) || sourceLine.isEmpty())
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
 					+ " cannot be empty", context);
@@ -100,7 +100,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 		sep.addGroupingPair('(', ')');
 
 		String spellBook = sep.next();
-		if (spellBook.length() == 0)
+		if (spellBook.isEmpty())
 		{
 			return new ParseResult.Fail("SpellBook in " + getTokenName()
 					+ " cannot be empty", context);
@@ -128,7 +128,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 									+ ": invalid: " + sourceLine, context);
 				}
 				times = token.substring(6);
-				if (times.length() == 0)
+				if (times.isEmpty())
 				{
 					return new ParseResult.Fail(
 							"Error in Times in " + getTokenName()
@@ -151,7 +151,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 									+ ": invalid: " + sourceLine, context);
 				}
 				timeunit = token.substring(9);
-				if (timeunit.length() == 0)
+				if (timeunit.isEmpty())
 				{
 					return new ParseResult.Fail(
 							"Error in TimeUnit in " + getTokenName()
@@ -175,7 +175,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 									+ sourceLine, context);
 				}
 				casterLevel = token.substring(12);
-				if (casterLevel.length() == 0)
+				if (casterLevel.isEmpty())
 				{
 					return new ParseResult.Fail(
 							"Error in Caster Level in " + getTokenName()
@@ -199,7 +199,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			times = "1";
 		}
 
-		if (token.length() == 0)
+		if (token.isEmpty())
 		{
 			return new ParseResult.Fail("Spell arguments may not be empty in "
 					+ getTokenName() + ": " + sourceLine, context);
@@ -232,7 +232,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 						LinkedHashMap.class, HashMap.class);
 		while (true)
 		{
-			if (token.length() == 0)
+			if (token.isEmpty())
 			{
 				return new ParseResult.Fail("Spell arguments may not end with comma or pipe in "
 						+ getTokenName() + ": " + sourceLine, context);

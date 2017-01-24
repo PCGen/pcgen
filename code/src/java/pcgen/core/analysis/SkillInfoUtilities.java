@@ -97,7 +97,7 @@ public class SkillInfoUtilities
 							BonusUtilities.getBonusFromList(stat
 								.getSafeListFor(ListKey.BONUS), "SKILL",
 								"TYPE." + aType);
-					if (bonusList.size() > 0)
+					if (!bonusList.isEmpty())
 					{
 						for (int iCount = bonusList.size() - 1; iCount >= 0; --iCount)
 						{

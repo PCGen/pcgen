@@ -486,7 +486,7 @@ public class BonusManager
 					continue;
 				}
 
-				if (!"NULL".equals(reason) && (reason.length() > 0))
+				if (!"NULL".equals(reason) && (!reason.isEmpty()))
 				{
 					if (buf.length() > 0)
 					{
@@ -666,7 +666,7 @@ public class BonusManager
 					&& !fullyQualifiedBonusType.startsWith("ITEMCAPACITY")
 					&& !fullyQualifiedBonusType.startsWith("LOADMULT")
 					&& !fullyQualifiedBonusType.startsWith("FEAT")
-					&& (fullyQualifiedBonusType.indexOf("DAMAGEMULT") < 0))
+					&& (!fullyQualifiedBonusType.contains("DAMAGEMULT")))
 			{
 				bonus = ((int) bonus); // TODO: never used
 			}
@@ -1173,7 +1173,7 @@ public class BonusManager
 		}
 
 		String type = bo.getTypeString();
-		if (type.length() != 0)
+		if (!type.isEmpty())
 		{
 			if (!shortForm)
 			{
@@ -1267,7 +1267,7 @@ public class BonusManager
 		for (String assoc : associatedList)
 		{
 			String replacedName;
-			if (bonusName.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+			if (bonusName.contains(VALUE_TOKEN_REPLACEMENT))
 			{
 				replacedName = bonusName.replaceAll(VALUE_TOKEN_PATTERN, assoc);
 			}
@@ -1278,12 +1278,12 @@ public class BonusManager
 			List<String> replacedInfoList = new ArrayList<>(4);
 			for (String bonusInfo : bonusInfoArray)
 			{
-				if (bonusInfo.indexOf(VALUE_TOKEN_REPLACEMENT) >= 0)
+				if (bonusInfo.contains(VALUE_TOKEN_REPLACEMENT))
 				{
 					replacedInfoList.add(bonusInfo.replaceAll(
 						VALUE_TOKEN_PATTERN, assoc));
 				}
-				else if (bonusInfo.indexOf(VAR_TOKEN_REPLACEMENT) >= 0)
+				else if (bonusInfo.contains(VAR_TOKEN_REPLACEMENT))
 				{
 					replacedInfoList.add(bonusName
 							.replaceAll(VAR_TOKEN_PATTERN, assoc));
@@ -1316,7 +1316,7 @@ public class BonusManager
 							assoc);
 				}
 				//Need to protect against a selection not being made with a %LIST
-				if (thisValue.length() == 0)
+				if (thisValue.isEmpty())
 				{
 					thisValue = "0";
 				}

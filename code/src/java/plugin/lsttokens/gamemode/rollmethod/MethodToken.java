@@ -65,7 +65,7 @@ public class MethodToken extends AbstractNonEmptyToken<RollMethod> implements
 	public boolean process(LoadContext context, RollMethod rm)
 	{
 		String method = rm.getMethodRoll();
-		if ((method == null) || (method.length() == 0))
+		if ((method == null) || method.isEmpty())
 		{
 			Logging.errorPrint("Roll Method " + rm.getDisplayName()
 					+ " did not have a Method in " + rm.getSourceURI());

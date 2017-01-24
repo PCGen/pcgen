@@ -59,7 +59,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 		sep.addGroupingPair('(', ')');
 
 		String classString = sep.next();
-		if (classString.length() == 0)
+		if (classString.isEmpty())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Empty Class found in " + getTokenName());
@@ -76,7 +76,7 @@ public class AddLevelToken extends AbstractNonEmptyToken<PCTemplate> implements
 			return cpr;
 		}
 		String numLevels = sep.next();
-		if (numLevels.length() == 0)
+		if (numLevels.isEmpty())
 		{
 			ComplexParseResult cpr = new ComplexParseResult();
 			cpr.addErrorMessage("Empty Level Count found in " + getTokenName());

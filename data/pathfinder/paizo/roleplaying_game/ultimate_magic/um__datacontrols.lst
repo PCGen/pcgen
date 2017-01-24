@@ -13,6 +13,11 @@ FACTDEF:ABILITY|Magus_Archetype_FighterTraining		DATAFORMAT:BOOLEAN	REQUIRED:NO	
 FACTDEF:ABILITY|Magus_Archetype_WeaponProficiency	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_ArmorProficiency	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
 
+
+
+
+
+
 FACTDEF:ABILITY|Magus_Archetype_KnowledgePool		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_ImprovedSpellRecall	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_ImprovedSpellCombat	DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
@@ -27,6 +32,9 @@ FACTDEF:ABILITY|Magus_Archetype_Arcana9			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTA
 FACTDEF:ABILITY|Magus_Archetype_Arcana12			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Remove Oracle OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_Arcana18			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Remove Oracle OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_BonusFeat5		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Remove Oracle OraclesCurse
+FACTDEF:ABILITY|Magus_Archetype_MediumArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
+FACTDEF:ABILITY|Magus_Archetype_HeavyArmor		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
+FACTDEF:ABILITY|Magus_Archetype_Spells			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - OraclesCurse
 FACTDEF:ABILITY|Magus_Archetype_ClassSkills		DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:OraclesCurse	EXPLANATION:Determines whether the archetype affects - ClassSkills
 
 

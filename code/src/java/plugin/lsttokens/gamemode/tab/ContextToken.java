@@ -42,7 +42,7 @@ public class ContextToken implements CDOMPrimaryToken<TabInfo>
 	@Override
 	public ParseResult parseToken(LoadContext context, TabInfo ti, String value)
 	{
-		if ((value == null) || (value.length() == 0))
+		if ((value == null) || value.isEmpty())
 		{
 			// This is OK
 			return ParseResult.SUCCESS;

@@ -40,8 +40,8 @@ import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
 import javax.swing.undo.UndoManager;
-import org.apache.commons.lang.ObjectUtils;
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -3573,7 +3573,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		{
 			dataSet.addEquipment(newEquip);
 		}
-		//TODO if this is returning null, then the AggressiveSolverManager needs to destroy the unused channels :/
+		//TODO if this is returning null, then the SolverManager needs to destroy the unused channels :/
 		return result == CustomEquipResult.PURCHASE ? newEquip : null;
 	}
 

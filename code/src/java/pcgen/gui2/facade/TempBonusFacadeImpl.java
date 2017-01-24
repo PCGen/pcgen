@@ -25,7 +25,7 @@ package pcgen.gui2.facade;
 import java.text.Collator;
 import java.util.List;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMObject;

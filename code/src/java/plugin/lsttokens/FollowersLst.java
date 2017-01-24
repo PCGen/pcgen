@@ -89,7 +89,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 				+ " on an Ungranted object type: "
 				+ obj.getClass().getSimpleName(), context);
 		}
-		if ((value == null) || (value.length() == 0))
+		if ((value == null) || value.isEmpty())
 		{
 			return new ParseResult.Fail("Argument in " + getTokenName()
 					+ " cannot be empty", context);
@@ -99,7 +99,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		sep.addGroupingPair('(', ')');
 
 		String followerType = sep.next();
-		if (followerType.length() == 0)
+		if (followerType.isEmpty())
 		{
 			return new ParseResult.Fail("Follower Type in " + getTokenName()
 					+ " cannot be empty", context);
@@ -116,7 +116,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 					+ " has too many PIPE characters: "
 					+ "Must be of the form <follower type>|<formula", context);
 		}
-		if (followerNumber.length() == 0)
+		if (followerNumber.isEmpty())
 		{
 			return new ParseResult.Fail("Follower Count in " + getTokenName()
 					+ " cannot be empty", context);

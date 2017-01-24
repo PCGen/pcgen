@@ -36,9 +36,18 @@
 	<xsl:variable name="vAttribs_tree">
 		<myAttribs:myAttribs>
 			<xsl:copy-of select="$vAttribs/*"/>
-		</myAttribs:myAttribs>
+      <pfs_chronicles.title><subattrib centre="" inverse=""/></pfs_chronicles.title>
+      <pfs_chronicles.border><subattrib border="" normal=""/></pfs_chronicles.border>
+      <pfs_chronicles.lightline><subattrib light=""/></pfs_chronicles.lightline>
+      <pfs_chronicles.darkline><subattrib medium=""/></pfs_chronicles.darkline>
+      <pfs_boons.title><subattrib centre="" inverse=""/></pfs_boons.title>
+      <pfs_boons.border><subattrib border="" normal=""/></pfs_boons.border>
+      <pfs_boons.lightline><subattrib light=""/></pfs_boons.lightline>
+      <pfs_boons.darkline><subattrib medium=""/></pfs_boons.darkline>
+    </myAttribs:myAttribs>
 	</xsl:variable>
 	<xsl:variable name="vAttribs_all" select="xalan:nodeset($vAttribs_tree)"/>
+
 	<xsl:variable name="pageHeight">
 		<xsl:choose>
 			<xsl:when test="contains(/character/export/paperinfo/height, 'in')">
@@ -429,9 +438,10 @@
 						<!-- End 4th Edition Style -->
 						<xsl:apply-templates select="salient_divine_abilities"/>
 						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="pfs_chronicles"/>	
+						<xsl:apply-templates select="pfs_chronicles"/>
+            <xsl:apply-templates select="pfs_boons"/>
 
-						<xsl:apply-templates select="domains"/>
+            <xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
 <!-->						<xsl:apply-templates select="proficiency_specials"/>-->
 						<xsl:apply-templates select="templates"/>

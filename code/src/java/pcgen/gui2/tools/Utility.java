@@ -54,7 +54,7 @@ import javax.swing.SwingUtilities;
 
 import pcgen.system.PCGenSettings;
 
-import org.apache.commons.lang.SystemUtils;
+import org.apache.commons.lang3.SystemUtils;
 import org.jetbrains.annotations.Contract;
 
 /**

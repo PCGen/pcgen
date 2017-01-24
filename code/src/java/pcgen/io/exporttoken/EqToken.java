@@ -179,7 +179,7 @@ public class EqToken extends Token
 			//Merge
 			String token = aTok.nextToken();
 			int merge = Constants.MERGE_ALL;
-			if (token.indexOf("MERGE") >= 0)
+			if (token.contains("MERGE"))
 			{
 				merge = returnMergeType(token);
 				token = aTok.nextToken();

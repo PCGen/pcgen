@@ -20,7 +20,6 @@
  */
 package pcgen.gui2.util.table;
 
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.Map;
 import java.util.Vector;
@@ -38,7 +37,7 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     private Map<Integer, Comparator<?>> comparatorMap = null;
 
     /**
-     *  Constructs a default <code>DefaultSortableTableModel</code> 
+     *  Constructs a default {@code DefaultSortableTableModel}
      *  which is a table of zero columns and zero rows.
      */
     public DefaultSortableTableModel()
@@ -47,9 +46,9 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     }
 
     /**
-     *  Constructs a <code>DefaultSortableTableModel</code> with
-     *  <code>rowCount</code> and <code>columnCount</code> of
-     *  <code>null</code> object values.
+     *  Constructs a {@code DefaultSortableTableModel} with
+     *  {@code rowCount} and <code>columnCount</code> of
+     *  {@code null} object values.
      *
      * @param rowCount           the number of rows the table holds
      * @param columnCount        the number of columns the table holds
@@ -62,15 +61,15 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     }
 
     /**
-     *  Constructs a <code>DefaultSortableTableModel</code> with as many columns
-     *  as there are elements in <code>columnNames</code>
-     *  and <code>rowCount</code> of <code>null</code>
+     *  Constructs a {@code DefaultSortableTableModel} with as many columns
+     *  as there are elements in {@code columnNames}
+     *  and {@code rowCount} of <code>null</code>
      *  object values.  Each column's name will be taken from
-     *  the <code>columnNames</code> vector.
+     *  the {@code columnNames} vector.
      *
-     * @param columnNames       <code>vector</code> containing the names
+     * @param columnNames       {@code vector} containing the names
      *				of the new columns; if this is 
-     *                          <code>null</code> then the model has no columns
+     *                          {@code null} then the model has no columns
      * @param rowCount           the number of rows the table holds
      * @see #setDataVector
      * @see #setValueAt
@@ -81,15 +80,15 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     }
 
     /**
-     *  Constructs a <code>DefaultSortableTableModel</code> with as many
-     *  columns as there are elements in <code>columnNames</code>
-     *  and <code>rowCount</code> of <code>null</code>
+     *  Constructs a {@code DefaultSortableTableModel} with as many
+     *  columns as there are elements in {@code columnNames}
+     *  and {@code rowCount} of <code>null</code>
      *  object values.  Each column's name will be taken from
-     *  the <code>columnNames</code> array.
+     *  the {@code columnNames} array.
      *
-     * @param columnNames       <code>array</code> containing the names
+     * @param columnNames       {@code array} containing the names
      *				of the new columns; if this is
-     *                          <code>null</code> then the model has no columns
+     *                          {@code null} then the model has no columns
      * @param rowCount           the number of rows the table holds
      * @see #setDataVector
      * @see #setValueAt
@@ -100,14 +99,14 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     }
 
     /**
-     *  Constructs a <code>DefaultSortableTableModel</code> and initializes the table
-     *  by passing <code>data</code> and <code>columnNames</code>
-     *  to the <code>setDataVector</code> method.
+     *  Constructs a {@code DefaultSortableTableModel} and initializes the table
+     *  by passing {@code data} and <code>columnNames</code>
+     *  to the {@code setDataVector} method.
      *
-     * @param data              the data of the table, a <code>Vector</code>
-     *                          of <code>Vector</code>s of <code>Object</code>
+     * @param data              the data of the table, a {@code Vector}
+     *                          of {@code Vector}s of <code>Object</code>
      *                          values
-     * @param columnNames       <code>vector</code> containing the names
+     * @param columnNames       {@code vector} containing the names
      *				of the new columns
      * @see #getDataVector
      * @see #setDataVector
@@ -118,10 +117,10 @@ public class DefaultSortableTableModel extends DefaultTableModel implements Sort
     }
 
     /**
-     *  Constructs a <code>DefaultSortableTableModel</code> and initializes the table
-     *  by passing <code>data</code> and <code>columnNames</code>
-     *  to the <code>setDataVector</code>
-     *  method. The first index in the <code>Object[][]</code> array is
+     *  Constructs a {@code DefaultSortableTableModel} and initializes the table
+     *  by passing {@code data} and <code>columnNames</code>
+     *  to the {@code setDataVector}
+     *  method. The first index in the {@code Object[][]} array is
      *  the row index and the second is the column index.
      *
      * @param data              the data of the table

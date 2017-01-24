@@ -423,25 +423,25 @@ public abstract class VariableProcessor
 
 				if (i < aString.length())
 				{
-					if (aString.length() > 0 && aString.charAt(i) == '+')
+					if (!aString.isEmpty() && aString.charAt(i) == '+')
 					{
 						nextMode = MATH_OP.PLUS;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '-')
+					else if (!aString.isEmpty() && aString.charAt(i) == '-')
 					{
 						nextMode = MATH_OP.MINUS;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '*')
+					else if (!aString.isEmpty() && aString.charAt(i) == '*')
 					{
 						nextMode = MATH_OP.MULTIPLY;
 					}
-					else if (aString.length() > 0 && aString.charAt(i) == '/')
+					else if (!aString.isEmpty() && aString.charAt(i) == '/')
 					{
 						nextMode = MATH_OP.DIVIDE;
 					}
 				}
 
-				if (valString.length() > 0)
+				if (!valString.isEmpty())
 				{
 					float valFloat = 0.0f;
 					try

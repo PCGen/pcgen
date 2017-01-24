@@ -37,7 +37,7 @@ import java.util.Set;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.lang.StringUtil;
@@ -129,9 +129,10 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+import pcgen.util.enumeration.Visibility;
 
 /**
- * The Class <code>Gui2InfoFactory</code> provides character related information 
+ * The Class {@code Gui2InfoFactory} provides character related information
  * on various facade objects. The information is displayed to the user via the 
  * new user interface. 
  *
@@ -2417,7 +2418,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				Visibility visibility = def.getVisibility();
+				if (visibility != null && 
+						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 				{
 					FactKey<?> fk = def.getFactKey();
 					Indirect<?> fact = cdo.get(fk);
@@ -2439,7 +2442,9 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			if (def.getUsableLocation().isAssignableFrom(cl))
 			{
-				if (def.getVisibility().isVisibleTo(View.VISIBLE_DISPLAY))
+				Visibility visibility = def.getVisibility();
+				if (visibility != null &&
+						visibility.isVisibleTo(View.VISIBLE_DISPLAY))
 				{
 					FactSetKey<?> fk = def.getFactSetKey();
 					String s = getSetString(cdo, fk);

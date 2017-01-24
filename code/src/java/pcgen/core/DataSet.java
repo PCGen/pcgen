@@ -481,7 +481,7 @@ public class DataSet implements DataSetFacade
 
 
 	/**
-	 * The Class <code>RaceComparator</code> sorts races so that PC races come 
+	 * The Class {@code RaceComparator} sorts races so that PC races come
 	 * at the top of the list, just after <None Selected>.
 	 */
 	class RaceComparator implements Comparator<Race>
@@ -553,7 +553,7 @@ public class DataSet implements DataSetFacade
 	}
 	
 	/**
-	 * The Class <code>PCClassComparator</code> sorts classes so that base  
+	 * The Class {@code PCClassComparator} sorts classes so that base
 	 * classes come at the top of the list.
 	 */
 	class PCClassComparator implements Comparator<PCClass>

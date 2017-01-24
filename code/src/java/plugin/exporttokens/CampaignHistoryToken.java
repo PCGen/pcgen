@@ -26,7 +26,7 @@ import java.text.NumberFormat;
 import java.util.Collection;
 import java.util.StringTokenizer;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.core.ChronicleEntry;
 import pcgen.core.PlayerCharacter;

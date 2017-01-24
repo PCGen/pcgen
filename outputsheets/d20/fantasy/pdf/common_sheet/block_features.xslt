@@ -695,6 +695,23 @@
 			</xsl:call-template>
 		</xsl:if>
 	</xsl:template>
+	<!--
+====================================
+====================================
+	TEMPLATE - PFS BOONS
+====================================
+====================================-->
+	<xsl:template match="pfs_boons">
+		<xsl:if test="count(pfs_boon) &gt; 0">
+			<xsl:call-template name="bold.list">
+				<xsl:with-param name="attribute" select="'pfs_boons'" />
+				<xsl:with-param name="title" select="'PFS Boons'" />
+				<xsl:with-param name="list" select="pfs_boon"/>
+				<xsl:with-param name="name.tag" select="'name'"/>
+				<xsl:with-param name="desc.tag" select="'description'"/>
+			</xsl:call-template>
+		</xsl:if>
+	</xsl:template>
 <!--
 ====================================
 ====================================

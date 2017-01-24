@@ -263,7 +263,7 @@ public final class AbilityUtilities
 		ArrayList<T> selectedList = new ArrayList<>();
 		aMan.getChoices(pc, availableList, selectedList);
 
-		if (availableList.size() == 0 && selectedList.size() == 0)
+		if (availableList.isEmpty() && selectedList.isEmpty())
 		{
 			//TODO Log error? (ignored choice?)
 			return;

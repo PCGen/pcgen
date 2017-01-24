@@ -58,7 +58,7 @@ public class BonusCalc
 		final Collection<BonusObj> aBonusList,
 		final PlayerCharacter aPC)
 	{
-		if ((aBonusList == null) || (aBonusList.size() == 0))
+		if ((aBonusList == null) || (aBonusList.isEmpty()))
 		{
 			return 0;
 		}
@@ -229,16 +229,16 @@ public class BonusCalc
 	
 		if (!aList.equals("LIST")
 			&& !aList.equals("ALL")
-			&& (aList.toUpperCase().indexOf(aName.toUpperCase()) < 0))
+			&& (!aList.toUpperCase().contains(aName.toUpperCase())))
 		{
 			return 0;
 		}
 	
 		if (aList.equals("ALL")
-			&& ((aName.indexOf("STAT=") >= 0)
-				|| (aName.indexOf("TYPE=") >= 0)
-				|| (aName.indexOf("LIST") >= 0)
-				|| (aName.indexOf("VAR") >= 0)))
+			&& ((aName.contains("STAT="))
+				|| (aName.contains("TYPE="))
+				|| (aName.contains("LIST"))
+				|| (aName.contains("VAR"))))
 		{
 			return 0;
 		}

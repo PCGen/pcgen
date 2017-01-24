@@ -74,7 +74,7 @@ public class LevelAbilityToken extends AbstractNonEmptyToken<KitLevelAbility>
 					+ value, context);
 		}
 		String className = value.substring(0, equalLoc);
-		if (className.length() == 0)
+		if (className.isEmpty())
 		{
 			return new ParseResult.Fail(getTokenName()
 					+ " requires a class name before =: " + value, context);

@@ -67,34 +67,29 @@ import javax.swing.SwingConstants;
 import javax.swing.SwingUtilities;
 import javax.swing.WindowConstants;
 import javax.swing.filechooser.FileFilter;
-
-import org.apache.commons.lang.StringUtils;
-import org.lobobrowser.html.HtmlRendererContext;
-import org.lobobrowser.html.gui.HtmlPanel;
-import org.lobobrowser.html.test.SimpleHtmlRendererContext;
-import org.lobobrowser.html.test.SimpleUserAgentContext;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.content.Sponsor;
 import pcgen.core.Globals;
+import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.CampaignFacade;
 import pcgen.facade.core.CharacterFacade;
 import pcgen.facade.core.CharacterStubFacade;
 import pcgen.facade.core.ChooserFacade;
 import pcgen.facade.core.CompanionFacade;
 import pcgen.facade.core.DataSetFacade;
-import pcgen.facade.util.DefaultReferenceFacade;
 import pcgen.facade.core.EquipmentBuilderFacade;
 import pcgen.facade.core.GameModeFacade;
 import pcgen.facade.core.PartyFacade;
-import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.core.SourceSelectionFacade;
 import pcgen.facade.core.SpellBuilderFacade;
 import pcgen.facade.core.UIDelegate;
+import pcgen.facade.util.DefaultReferenceFacade;
+import pcgen.facade.util.ListFacade;
+import pcgen.facade.util.ReferenceFacade;
 import pcgen.facade.util.event.ReferenceEvent;
 import pcgen.facade.util.event.ReferenceListener;
-import pcgen.facade.util.ListFacade;
-import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.gui2.dialog.AboutDialog;
 import pcgen.gui2.dialog.ChooserDialog;
 import pcgen.gui2.dialog.EquipCustomizerDialog;
@@ -121,6 +116,12 @@ import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 import pcgen.util.chooser.ChoiceHandler;
 import pcgen.util.chooser.ChooserFactory;
+
+import org.apache.commons.lang3.StringUtils;
+import org.lobobrowser.html.HtmlRendererContext;
+import org.lobobrowser.html.gui.HtmlPanel;
+import org.lobobrowser.html.test.SimpleHtmlRendererContext;
+import org.lobobrowser.html.test.SimpleUserAgentContext;
 
 /**
  * The main window for PCGen. In addition this class is responsible for providing 
@@ -886,7 +887,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		chooser.setSelectedFile(file);
 		chooser.resetChoosableFileFilters();
-		FileFilter filter = new PcpFileFilter();
+		FileFilter filter = new FileNameExtensionFilter("Pcp files only", "pcp");
 		chooser.addChoosableFileFilter(filter);
 		chooser.setFileFilter(filter);
 		int ret = chooser.showSaveDialog(this);
@@ -976,7 +977,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		chooser.setSelectedFile(file);
 
 		chooser.resetChoosableFileFilters();
-		FileFilter filter = new PcgFileFilter();
+		FileFilter filter = new FileNameExtensionFilter("Pcg files only", "pcg");
 		chooser.addChoosableFileFilter(filter);
 		chooser.setFileFilter(filter);
 		int ret = chooser.showSaveDialog(this);
@@ -1081,7 +1082,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		chooser.setSelectedFile(new File("")); //$NON-NLS-1$
 
 		chooser.resetChoosableFileFilters();
-		FileFilter filter = new PcgFileFilter();
+		FileFilter filter = new FileNameExtensionFilter("Pcg files only", "pcg");
 		chooser.addChoosableFileFilter(filter);
 		chooser.setFileFilter(filter);
 
@@ -1099,7 +1100,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		PCGenSettings context = PCGenSettings.getInstance();
 		chooser.setCurrentDirectory(new File(context.getProperty(PCGenSettings.PCP_SAVE_PATH)));
 		chooser.resetChoosableFileFilters();
-		chooser.setFileFilter(new PcpFileFilter());
+		chooser.setFileFilter(new FileNameExtensionFilter("Pcp files only", "pcp"));
 
 		int returnVal = chooser.showOpenDialog(this);
 
@@ -1510,12 +1511,12 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 			sourceName = currentSourceSelection.get().toString();
 		}
 
-		if (characterFileName != null && characterFileName.length() > 0)
+		if (characterFileName != null && !characterFileName.isEmpty())
 		{
 			title.append(characterFileName);
 			title.append(" - ");
 		}
-		if (sourceName != null && sourceName.length() > 0)
+		if (sourceName != null && !sourceName.isEmpty())
 		{
 			title.append(sourceName);
 			title.append(" - ");
@@ -1713,17 +1714,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 		JOptionPane.showMessageDialog(this, msgComp, title, JOptionPane.WARNING_MESSAGE);
 	}
 
-	@Override
-	public boolean showWarningPrompt(String title, String message)
-	{
-		JComponent msgComp = getComponentForMessage(message);
-		int ret =
-				JOptionPane.showConfirmDialog(this, msgComp, title,
-					JOptionPane.OK_CANCEL_OPTION, JOptionPane.WARNING_MESSAGE);
-		return ret == JOptionPane.OK_OPTION;
-	}
-
-	@Override
+    @Override
 	public String showInputDialog(String title, String message, String initialValue)
 	{
 		Object ret =
@@ -1849,7 +1840,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 				if (loader.hasLicensedCampaign())
 				{
 					String licenses = loader.getLicenses();
-					if (licenses.trim().length() > 0)
+					if (!licenses.trim().isEmpty())
 					{
 						showLicenseDialog(LanguageBundle.getString("in_specialLicenses"), licenses); //$NON-NLS-1$
 					}

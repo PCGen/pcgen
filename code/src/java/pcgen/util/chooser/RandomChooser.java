@@ -182,7 +182,7 @@ public final class RandomChooser implements ChooserInterface, ChoiceHandler
     @Override
 	public void setVisible(boolean b)
 	{
-		while (getEffectivePool() > 0 && theAvailableList.size() > 0)
+		while (getEffectivePool() > 0 && !theAvailableList.isEmpty())
 		{
 			selectAvailable();
 		}

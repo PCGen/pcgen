@@ -1132,6 +1132,61 @@ BIO
 		<weapon>
 			<common>
 				<name>
+					<short>Oil (1 Pint Flask)</short>
+					<long>Oil (1 Pint Flask)</long>
+				</name>
+				<category>Non-Standard-Ranged</category>
+				<critical>
+					<range>20</range>
+					<multiplier>2</multiplier>
+				</critical>
+				<to_hit>
+					<hit>+14/+9</hit>
+					<magic_hit>-2</magic_hit>
+					<total_hit>+14/+9</total_hit>
+				</to_hit>
+				<feat></feat>
+				<hand>Not Carried</hand>
+				<num_attacks>2</num_attacks>
+				<reach>5</reach>
+				<size>M</size>
+				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<template></template>
+				<type>F</type>
+				<weight>1</weight>
+				<sequence>3</sequence>
+			</common>
+			<ranges>
+				<range>
+					<distance>10 ft.</distance>
+					<to_hit>+14/+9</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>20 ft.</distance>
+					<to_hit>+12/+7</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>30 ft.</distance>
+					<to_hit>+10/+5</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>40 ft.</distance>
+					<to_hit>+8/+3</to_hit>
+					<damage>1d6</damage>
+				</range>
+				<range>
+					<distance>50 ft.</distance>
+					<to_hit>+6/+1</to_hit>
+					<damage>1d6</damage>
+				</range>
+			</ranges>
+		</weapon>
+		<weapon>
+			<common>
+				<name>
 					<short>Sling (Small)</short>
 					<long>Sling (Small)</long>
 				</name>
@@ -1154,7 +1209,7 @@ BIO
 				<template></template>
 				<type>B</type>
 				<weight>0</weight>
-				<sequence>3</sequence>
+				<sequence>4</sequence>
 			</common>
 			<ranges>
 				<range>
@@ -1209,7 +1264,7 @@ BIO
 				<template></template>
 				<type>B</type>
 				<weight>1</weight>
-				<sequence>4</sequence>
+				<sequence>5</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1269,7 +1324,7 @@ BIO
 				<template></template>
 				<type>PS</type>
 				<weight>0</weight>
-				<sequence>5</sequence>
+				<sequence>6</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1356,7 +1411,7 @@ BIO
 				<template></template>
 				<type>BP</type>
 				<weight>3</weight>
-				<sequence>7</sequence>
+				<sequence>8</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -1416,7 +1471,7 @@ BIO
 				<template></template>
 				<type>P</type>
 				<weight>1</weight>
-				<sequence>8</sequence>
+				<sequence>9</sequence>
 			</common>
 			<melee>
 				<w1_h1_p>
@@ -2051,8 +2106,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -2077,8 +2132,8 @@ BIO
 				<long>Medium</long>
 				<short>M</short>
 			</size>
-			<special_properties></special_properties>
-			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+			<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+			<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 			<weight>1</weight>
 			<bonuslist></bonuslist>
 		</item>
@@ -3077,8 +3132,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>
@@ -3098,8 +3153,8 @@ BIO
 					<long>Medium</long>
 					<short>M</short>
 				</size>
-				<special_properties></special_properties>
-				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE</type>
+				<special_properties>Thrown splash weapon see p.202, full-round action to prepare, 50% chance to ignite</special_properties>
+				<type>GOODS.GENERAL.LIQUID.FLASK.CONSUMABLE.WEAPON.RANGED.THROWN.FIRE.SPLASH</type>
 				<weight>1</weight>
 				<bonuslist></bonuslist>
 			</item>

@@ -79,7 +79,7 @@ public class DescriptionActor implements OutputActor<PObject>
 		for (final Description desc : theBenefits)
 		{
 			final String str = desc.getDescription(aPC, Collections.singletonList(d));
-			if (str.length() > 0)
+			if (!str.isEmpty())
 			{
 				if (needSpace)
 				{

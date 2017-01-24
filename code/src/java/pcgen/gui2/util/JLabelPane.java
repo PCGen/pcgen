@@ -26,7 +26,7 @@ import pcgen.cdom.base.Constants;
 import javax.swing.JEditorPane;
 
 /**
- *  {@code JLabelPane} extends <code>JEditorPane</code> for PCGen
+ *  {@code JLabelPane} extends {@code JEditorPane} for PCGen
  *  Label panes
  *
  * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
@@ -68,7 +68,7 @@ public final class JLabelPane extends JEditorPane
 	{
 		String labelText = newContents;
 
-		if ((newContents == null) || (newContents.length() == 0))
+		if ((newContents == null) || (newContents.isEmpty()))
 		{
 			labelText = Constants.WRAPPED_NONE_SELECTED;
 		}

@@ -36,7 +36,7 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.commons.lang.StringUtils;
+import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
@@ -1780,7 +1780,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void setPurchaseMethodName(final String argMethodName)
 	{
-		if (argMethodName.length() != 0)
+		if (!argMethodName.isEmpty())
 		{
 			setRollMethod(Constants.CHARACTER_STAT_METHOD_PURCHASE);
 		}
@@ -1942,9 +1942,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	public boolean isPurchaseStatMode()
 	{
 		// Can't have purchase mode if no costs specified
-		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.size() == 0)
+		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.isEmpty())
 			|| (getRollMethod() != Constants.CHARACTER_STAT_METHOD_PURCHASE)
-			|| (purchaseMethodName.length() == 0))
+			|| (purchaseMethodName.isEmpty()))
 		{
 			return false;
 		}
@@ -2087,7 +2087,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public boolean isPurchaseStatModeAllowed()
 	{
-		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.size() == 0))
+		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.isEmpty()))
 		{
 			return false;
 		}
@@ -2340,7 +2340,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		// Empty aKey indicates return null because
 		// PreAbilityTester.buildAbilityList uses that as a global
 		// (all Category) getch
-		if (aKey == null || (ac == null && aKey.length() > 0))
+		if (aKey == null || (ac == null && !aKey.isEmpty()))
 		{
 			Logging.errorPrint("Attempt to fetch AbilityCategory: " + aKey
 				+ "... but it does not exist");
@@ -2483,7 +2483,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 			}
 
 		}
-		if (list.size() == 0)
+		if (list.isEmpty())
 		{
 			return;
 		}

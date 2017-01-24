@@ -51,7 +51,7 @@ import pcgen.gui2.facade.Gui2CampaignInfoFactory;
 import pcgen.persistence.PersistenceManager;
 import pcgen.util.Logging;
 
-import org.apache.commons.lang.ArrayUtils;
+import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *

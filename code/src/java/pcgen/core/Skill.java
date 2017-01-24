@@ -23,7 +23,6 @@
 package pcgen.core;
 
 import java.util.ArrayList;
-import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 
@@ -42,7 +41,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.SkillFacade;
 
 /**
- * <code>Skill</code>.
+ * {@code Skill}.
  * 
  * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */

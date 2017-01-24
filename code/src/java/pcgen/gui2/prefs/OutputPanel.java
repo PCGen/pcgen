@@ -42,6 +42,8 @@ import javax.swing.JTextField;
 import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
+import org.apache.commons.lang3.BooleanUtils;
+
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SkillFilter;
 import pcgen.core.Globals;
@@ -55,8 +57,6 @@ import pcgen.gui2.util.JComboBoxEx;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
-
-import org.apache.commons.lang.BooleanUtils;
 
 /**
  * The Class {@code OutputPanel} is responsible for
@@ -667,7 +667,7 @@ public class OutputPanel extends PCGenPrefsPanel
 
 				if ((!fieldFile.exists())
 					&& (!fieldValue.equalsIgnoreCase("null"))
-					&& (fieldValue.trim().length() > 0) && (!dialogOpened))
+					&& (!fieldValue.trim().isEmpty()) && (!dialogOpened))
 				{
 					// display error dialog and restore previous value
 					dialogOpened = true;

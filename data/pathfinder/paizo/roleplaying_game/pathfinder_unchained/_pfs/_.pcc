@@ -10,6 +10,7 @@ BOOKTYPE:Supplement
 SETTING:Pathfinder
 #PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
 PRECAMPAIGN:1,BOOKTYPE=Core Rules
+
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com

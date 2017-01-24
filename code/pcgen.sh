@@ -1,14 +1,10 @@
 #!/bin/sh
-cd `dirname $0`
-
-# java.awt.Desktop.browse should be available and setting BROWSER is not needed anymore
-if [ "x$BROWSER" = x ]
+set -e
+if command git rev-parse >/dev/null 2>&1
 then
-    case "$WINDOWMANAGER" in
-        *kde ) BROWSER=kde-open ;;
-        *gdm ) BROWSER=gnome-open ;;
-        * ) BROWSER=netscape ;;
-    esac
+  cd "$(git rev-parse --show-toplevel)"
+else
+  cd "$(dirname $0)"
 fi
 
 available_memory="unknown"
@@ -31,7 +27,7 @@ elif [ -x /usr/bin/vm_stat ]; then
 
 	echo "Available memory: $available_memory kB"
 else
-	echo "Could not detect available memory. Will stick to default of $available_memory kB"
+	echo "Could not detect available memory. Will stick to defaults"
 fi
 
 # Test if the value is numeric before performing arithmetic on it
@@ -52,8 +48,6 @@ fi
 
 # To load all sources takes more than the default 64MB.
 javaargs="-Xms${default_min_memory}m -Xmx${default_max_memory}m"
-pcgenargs=""
-whosearg=java
 
 while [ "x$1" != x ]
 do
@@ -62,24 +56,18 @@ do
 usage: $0 [java-options] [-- pcgen-options]
     For java options, try 'java -h' and 'java -X -h'.
     Useful java property defines:
-        -DBROWSER=/path/to/browser
         -Dpcgen.filter=/path/to/filter.ini
         -Dpcgen.options=/path/to/options.ini
-    This script recognizes the BROWSER environment variable.
 EOM
         exit 0
         ;;
-    -- ) whosearg=pcgen
+    -- ) shift
+	 break
         ;;
-    * ) if [ "$whosearg" = java ]
-        then
-            javaargs="$javaargs $1"
-        else
-            pcgenargs="$pcgenargs $1"
-        fi
+    * ) javaargs="$javaargs $1"
+	shift
         ;;
     esac
-    shift
 done
 
 # PCGen related properties:
@@ -91,8 +79,7 @@ done
 # files from the "user.dir" directory.
 #
 # Additional properties:
-#     -DBROWSER="$BROWSER"
 #     -Dpcgen.filter=/path/to/filter.ini
 #     -Dpcgen.options=/path/to/options.ini
 
-exec java -DBROWSER="$BROWSER" $javaargs -jar ./pcgen.jar $pcgenargs
+exec java $javaargs -jar ./pcgen.jar -- "$@"

@@ -88,6 +88,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 		for (EquipSet equipSet : eqSetList)
 		{
 			pc.setCalcEquipSetId(equipSet.getIdPath());
+			pc.setCalcEquipmentList(equipSet.getUseTempMods());
 
 			// Executes the nested body (same as <#nested> in FTL). In this
 			// case we don't provide a special writer as the parameter:
@@ -97,6 +98,7 @@ public class EquipSetLoopDirective implements TemplateDirectiveModel
 		if (currSet != null)
 		{
 			pc.setCalcEquipSetId(currSet.getIdPath());
+			pc.setCalcEquipmentList(currSet.getUseTempMods());
 		}
 	}
 

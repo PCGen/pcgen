@@ -13,6 +13,8 @@
 # RACE:Old Race	MAXVER:6.6.01	MAXDEVVER:6.6.01	NEWKEY:New Race
 
 
+ABILITY:Special Ability|Wayang ~ Dissolutions Child			MAXVER:6.07.01	NEWKEY:Wayang ~ Dissolution's Child
+
 ABILITY:Special Ability|Skirmisher ~ Aiding Attack			MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Aiding Attack		
 ABILITY:Special Ability|Skirmisher ~ Bolster Companion		MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Bolster Companion		
 ABILITY:Special Ability|Skirmisher ~ Catfall				MAXVER:6.07.01	NEWKEY:Hunter's Tricks ~ Catfall			
@@ -42,7 +44,8 @@ ABILITY:Special Ability|Skirmisher ~ Vengeance Strike			MAXVER:6.07.01	NEWKEY:Hu
 
 
 
-
+ABILITY:Special Ability|Boon ~ Triumph of the Lantern Lodge	MAXVER:6.06.01	NEWKEY:PFS Scenario 4-21 ~ Triumph of the Lantern Lodge
+ABILITY:Special Ability|Boon ~ Pawn of the Grandmaster		MAXVER:6.06.01	NEWKEY:PFS Scenario 4-24 ~ Pawn of the Grandmaster
 
 
 

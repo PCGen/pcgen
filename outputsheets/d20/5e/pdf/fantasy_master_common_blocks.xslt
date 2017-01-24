@@ -391,7 +391,6 @@
 						<xsl:apply-templates select="intelligent_items"/>
 						<xsl:apply-templates select="talents"/>	
 						<xsl:apply-templates select="feats"/>
-						<xsl:apply-templates select="pfs_chronicles"/>	
 
 						<xsl:apply-templates select="domains"/>
 						<xsl:apply-templates select="weapon_proficiencies"/>
