@@ -48,8 +48,6 @@ import pcgen.system.PCGenSettings;
  * {@code PObject}<br>
  * This is the base class for several objects in the PCGen database.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- * @author Joe.Frazier
  *
  */
 public class PObject extends CDOMObject implements Cloneable, Serializable, Comparable<Object>,

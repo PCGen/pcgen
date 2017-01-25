@@ -31,7 +31,6 @@ import freemarker.template.TemplateModelException;
  * Freemarker template. It evaluates a variable for the current character and 
  * returns the value as a number. e.g. ${pcvar("CL=Fighter")} 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCVarFunction implements TemplateMethodModelEx
 {

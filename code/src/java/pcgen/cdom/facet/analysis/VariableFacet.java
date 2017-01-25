@@ -38,7 +38,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * VariableFacet is a Facet that tracks the Variables that are contained in a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VariableFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>

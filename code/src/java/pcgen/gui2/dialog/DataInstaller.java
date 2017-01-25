@@ -81,7 +81,6 @@ import pcgen.util.Logging;
  * a data set including the selection of the set and the install options.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DataInstaller extends JFrame
 {

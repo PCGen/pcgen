@@ -30,7 +30,6 @@ import static org.junit.Assert.*;
  * MigrationRuleTest checks the functions of the MigrationRule class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MigrationRuleTest
 {

@@ -47,7 +47,6 @@ import pcgen.core.SettingsHandler;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  * 
- * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  */
 public class Logging
 {

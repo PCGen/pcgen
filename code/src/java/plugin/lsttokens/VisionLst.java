@@ -50,7 +50,6 @@ import pcgen.rules.persistence.token.ParseResult;
  *
  * (Sun, 15 Jun 2008) $
  *
- * @author Devon Jones
  */
 public class VisionLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>

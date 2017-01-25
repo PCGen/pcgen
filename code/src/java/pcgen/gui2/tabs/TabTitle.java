@@ -31,7 +31,6 @@ import pcgen.util.enumeration.Tab;
  * A container for information relating to how a character tab should be
  * displayed.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TabTitle
 {

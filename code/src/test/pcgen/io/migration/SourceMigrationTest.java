@@ -32,7 +32,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * SourceMigrationTest checks the function of SourceMigration.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SourceMigrationTest extends TestCase
 {

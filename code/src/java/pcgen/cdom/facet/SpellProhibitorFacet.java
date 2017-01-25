@@ -30,7 +30,6 @@ import pcgen.core.SpellProhibitor;
  * SpellProhibitorFacet is a Facet to track SpellProhibitor costs for each
  * PCClass in a Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpellProhibitorFacet extends
 		AbstractScopeFacet<CharID, PCClass, SpellProhibitor> implements

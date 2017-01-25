@@ -28,7 +28,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * This is a utility class related to BonusObj objects.
  */

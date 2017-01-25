@@ -29,7 +29,6 @@ package pcgen.util;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {

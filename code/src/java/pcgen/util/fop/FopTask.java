@@ -58,7 +58,6 @@ import pcgen.util.Logging;
  * which you can point to a file, or a Renderer. The Renderer is used by print preview and for
  * direct printing.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class FopTask implements Runnable
 {

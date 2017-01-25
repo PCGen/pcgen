@@ -26,7 +26,6 @@ import pcgen.cdom.base.Ungranted;
 /**
  * {@code WeaponProf}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class WeaponProf extends PObject implements Comparable<Object>,
 		Ungranted

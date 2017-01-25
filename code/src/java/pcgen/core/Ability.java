@@ -38,7 +38,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 /**
  * Definition and games rules for an Ability.
  *
- * @author   ???
  */
 @SuppressWarnings("serial")
 public final class Ability extends PObject implements Categorized<Ability>,

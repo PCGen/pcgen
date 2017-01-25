@@ -40,7 +40,6 @@ import javax.swing.table.TableColumn;
  * round corners which look ill suited in the square corner. We use a
  * JTableHeader so that the button looks like an additional table column.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class JTableMenuButton extends JTableHeader
 {

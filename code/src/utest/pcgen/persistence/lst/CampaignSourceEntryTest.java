@@ -35,7 +35,6 @@ import org.junit.Test;
  * CampaignSourceEntry class. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class CampaignSourceEntryTest
 {

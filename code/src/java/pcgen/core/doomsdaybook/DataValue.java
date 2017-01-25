@@ -20,7 +20,6 @@
  package pcgen.core.doomsdaybook;
 
 /**
- * @author  devon
  */
 public class DataValue
 {

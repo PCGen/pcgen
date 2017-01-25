@@ -47,7 +47,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitAbiltiies}.
  *
- * @author   Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
 public final class KitAbilities extends BaseKit
 {

@@ -58,7 +58,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * Test the PObject class.
- * @author jdempsey
  */
 @SuppressWarnings("nls")
 public class PObjectTest extends AbstractCharacterTestCase

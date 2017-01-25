@@ -27,7 +27,6 @@ package pcgen.gui2.util;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface DisplayAwareTab
 {

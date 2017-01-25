@@ -45,7 +45,6 @@ import pcgen.util.Logging;
  * 
  * -0500 (Sun, 27 Jan 2008) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class UrlToken implements CDOMPrimaryToken<Campaign>
 {

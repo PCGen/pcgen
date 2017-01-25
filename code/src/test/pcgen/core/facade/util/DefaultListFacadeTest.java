@@ -40,7 +40,6 @@ import pcgen.facade.util.event.ListListener;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class DefaultListFacadeTest

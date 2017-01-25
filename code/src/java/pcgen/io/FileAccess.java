@@ -34,7 +34,6 @@ import pcgen.io.filters.PatternFilter;
 /**
  * {@code FileAccess}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class FileAccess
 {

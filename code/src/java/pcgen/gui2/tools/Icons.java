@@ -28,7 +28,6 @@ import javax.swing.ImageIcon;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public enum Icons
 {

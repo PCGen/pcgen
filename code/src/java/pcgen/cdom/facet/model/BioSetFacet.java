@@ -25,7 +25,6 @@ import pcgen.core.BioSet;
  * BioSetFacet is a Facet that tracks the BioSet active in a Game Mode and thus
  * active for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BioSetFacet extends AbstractItemFacet<CharID, BioSet>
 {

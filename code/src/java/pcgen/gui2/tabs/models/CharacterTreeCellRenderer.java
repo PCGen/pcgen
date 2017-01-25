@@ -26,7 +26,6 @@ import pcgen.gui2.util.TreeColumnCellRenderer;
 
 /**
  *
- * @author Connor
  */
 public abstract class CharacterTreeCellRenderer extends TreeColumnCellRenderer
 {

@@ -27,7 +27,6 @@ import javax.swing.Icon;
 
 /**
  *
- * @author Connor
  */
 public class SignIcon implements Icon
 {

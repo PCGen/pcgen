@@ -25,7 +25,6 @@ package pcgen.core.doomsdaybook;
  * occurs when processing a variable.
  *
  *
- * @author Devon D Jones
  */
 public class variableException extends Exception
 {

@@ -37,7 +37,6 @@ import pcgen.core.utils.ShowMessageDelegate;
  * throughout the rest of the code.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellBook implements Cloneable

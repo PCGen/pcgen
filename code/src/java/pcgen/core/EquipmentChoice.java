@@ -51,7 +51,6 @@ import pcgen.util.enumeration.Visibility;
  * combination of choices.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public final class EquipmentChoice

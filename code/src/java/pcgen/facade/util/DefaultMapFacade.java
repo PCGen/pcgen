@@ -27,7 +27,6 @@ import java.util.Set;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {

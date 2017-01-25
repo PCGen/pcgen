@@ -70,7 +70,6 @@ import pcgen.util.enumeration.View;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DataSet implements DataSetFacade
 {

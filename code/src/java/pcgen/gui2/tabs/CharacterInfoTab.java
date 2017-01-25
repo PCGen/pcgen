@@ -57,7 +57,6 @@ import pcgen.facade.core.CharacterFacade;
  * guaranteed to not be modified in anyway by the tab handler. The only changes
  * that would occur to any state would be in a call to {@code storeModels}.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface CharacterInfoTab
 {

@@ -33,7 +33,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * class is working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PObjectUtilitiesTest extends AbstractCharacterTestCase

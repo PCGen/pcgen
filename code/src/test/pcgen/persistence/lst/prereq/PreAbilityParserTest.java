@@ -41,7 +41,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  * PREABILITY parser.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreAbilityParserTest extends EnUsLocaleDependentTestCase

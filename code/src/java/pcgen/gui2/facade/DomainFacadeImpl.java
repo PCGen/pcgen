@@ -40,7 +40,6 @@ import pcgen.util.SortKeyAware;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DomainFacadeImpl extends QualifiedObject<Domain> implements
 		DomainFacade, SortKeyAware

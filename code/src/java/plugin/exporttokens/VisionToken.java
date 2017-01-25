@@ -38,7 +38,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * VISION.
  *
  *
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class VisionToken extends AbstractExportToken
 {

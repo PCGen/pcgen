@@ -42,7 +42,6 @@ import pcgen.util.Logging;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  */
 public class PreSpellTester extends AbstractPrerequisiteTest implements

@@ -43,7 +43,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code BonusObj}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  **/
 public abstract class BonusObj extends ConcretePrereqObject implements Serializable, Cloneable, QualifyingObject
 {

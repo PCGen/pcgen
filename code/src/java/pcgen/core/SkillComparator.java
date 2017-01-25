@@ -30,7 +30,6 @@ import pcgen.core.analysis.SkillRankControl;
 /**
  * {@code SkillComparator} is a comparator interface for sorting skills.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class SkillComparator implements Comparator<Skill>
 {

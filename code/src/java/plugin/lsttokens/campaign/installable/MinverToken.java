@@ -34,7 +34,6 @@ import pcgen.util.Logging;
  * {@code MinverToken} parses MINVER tokens in installable campaigns.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MinverToken implements InstallLstToken
 {

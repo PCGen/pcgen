@@ -23,7 +23,6 @@ package pcgen.io;
 /**
  * {@code IOConstants}
  *
- * @author   Thomas Behr
  */
 @SuppressWarnings("nls")
 interface IOConstants

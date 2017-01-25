@@ -31,7 +31,6 @@ import java.io.File;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface InteractivePlugin extends PCGenMessageHandler
 {

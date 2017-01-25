@@ -31,7 +31,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * {@code AcnameToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AcnameToken implements GameModeLstToken
 {

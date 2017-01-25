@@ -30,7 +30,6 @@ import pcgen.inttest.PcgenFtlTestCase;
  * Tests loading and exporting a pathfinder paladin.
  * See the PCG file for details
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgPaladinTest extends PcgenFtlTestCase

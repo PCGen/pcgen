@@ -46,7 +46,6 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel

@@ -28,7 +28,6 @@ import java.util.Vector;
 import org.jdom2.Element;
 
 /**
- *@author     devon
  */
 public interface InitHolder
 {

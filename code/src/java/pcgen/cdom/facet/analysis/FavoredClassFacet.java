@@ -38,7 +38,6 @@ import pcgen.output.publish.OutputDB;
  * FavoredClassFacet is a Facet that tracks the Favored Classes that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FavoredClassFacet extends
 		AbstractSourcedListFacet<CharID, PCClass> implements

@@ -26,7 +26,6 @@ import pcgen.gui2.util.SortableModel;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public interface SortableTableModel extends TableModel, SortableModel
 {

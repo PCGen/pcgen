@@ -39,7 +39,6 @@ import pcgen.core.Equipment;
  * CHOOSE). This facet consolidates those two sources into the complete list of
  * ArmorProf ProfProviders for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ArmorProfProviderFacet extends
 		AbstractQualifiedListFacet<ProfProvider<ArmorProf>> implements

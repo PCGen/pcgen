@@ -51,7 +51,6 @@ import pcgen.util.Logging;
  * &quot;substitution&quot;.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * 
  */
 public class Aspect extends ConcretePrereqObject

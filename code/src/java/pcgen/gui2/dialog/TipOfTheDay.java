@@ -57,7 +57,6 @@ import pcgen.system.LanguageBundle;
 /**
  *
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class TipOfTheDay extends JDialog implements ActionListener
 {

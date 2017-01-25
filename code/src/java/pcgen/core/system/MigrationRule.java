@@ -31,7 +31,6 @@ import pcgen.core.utils.CoreUtility;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationRule
 {

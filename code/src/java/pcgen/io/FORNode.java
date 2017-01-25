@@ -26,7 +26,6 @@ import java.util.List;
 /**
  * {@code FORNode}.
  *
- * @author Mark Hulsman &lt;mark_hulsman@users.sourceforge.net&gt;
  */
 final class FORNode
 {

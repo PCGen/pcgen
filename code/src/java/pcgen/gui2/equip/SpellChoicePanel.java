@@ -50,7 +50,6 @@ import pcgen.system.LanguageBundle;
 /**
  * SpellChoicePanel provides the user interface for the user to select a spell.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellChoicePanel extends JPanel

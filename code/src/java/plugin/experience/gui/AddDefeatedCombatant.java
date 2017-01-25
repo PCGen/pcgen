@@ -38,7 +38,6 @@ import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
 /**
- *@author     devon
  */
 public class AddDefeatedCombatant extends AbstractDialog
 {

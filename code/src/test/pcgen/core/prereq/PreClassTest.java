@@ -47,7 +47,6 @@ import plugin.pretokens.test.PreClassTester;
 /**
  * Test class for PRECLASS token
  * 
- * @author frugal@purplewombat.co.uk
  */
 public class PreClassTest extends AbstractCharacterTestCase
 {

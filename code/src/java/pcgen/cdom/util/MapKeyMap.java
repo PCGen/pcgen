@@ -46,7 +46,6 @@ import pcgen.cdom.enumeration.MapKey;
  * **NOTE** This class is NOT thread safe.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapKeyMap
 {

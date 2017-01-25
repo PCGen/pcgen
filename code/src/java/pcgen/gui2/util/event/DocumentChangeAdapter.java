@@ -25,7 +25,6 @@ import javax.swing.event.DocumentListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class DocumentChangeAdapter implements DocumentListener
 {

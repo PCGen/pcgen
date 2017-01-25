@@ -36,7 +36,6 @@ import plugin.initiative.InitiativePlugin;
 /**
  * Panel that tracks the miscellaneous preferences.
  *
- * @author devon
  */
 public class PreferencesInitiativePanel extends gmgen.gui.PreferencesPanel
 {

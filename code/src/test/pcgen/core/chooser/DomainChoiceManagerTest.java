@@ -42,7 +42,6 @@ import pcgen.rules.context.LoadContext;
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
  * 
- * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
 public class DomainChoiceManagerTest extends AbstractCharacterTestCase

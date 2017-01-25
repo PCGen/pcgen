@@ -34,7 +34,6 @@ import plugin.pretokens.writer.PreAgeSetWriter;
  * read and written.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreAgeSetRoundRobin extends AbstractBasicRoundRobin
 {

@@ -37,7 +37,6 @@ import pcgen.core.PlayerCharacter;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PortraitTokenTest extends AbstractCharacterTestCase

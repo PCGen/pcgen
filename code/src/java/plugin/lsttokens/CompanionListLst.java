@@ -101,7 +101,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
  *
- * @author divaa01
  *
  */
 public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>

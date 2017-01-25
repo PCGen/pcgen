@@ -42,7 +42,6 @@ import pcgen.rules.context.LoadContext;
  * thus the calculations of armor class.  
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AttackTokenTest extends AbstractCharacterTestCase
 {

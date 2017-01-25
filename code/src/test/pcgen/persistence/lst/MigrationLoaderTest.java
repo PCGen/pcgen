@@ -44,7 +44,6 @@ import pcgen.util.TestHelper;
  * MigrationLoaderTest checks the function of the MigrationLoader class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MigrationLoaderTest
 {

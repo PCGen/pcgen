@@ -27,7 +27,6 @@ import java.util.Vector;
  * {@code VectorTable} holds 2 dimensional tables.  It is used by GMGen
  * to hold the XML tables that are being loaded<p>
  * Created on February 26, 2003
- * @author  Expires 2003
  */
 public class VectorTable extends AbstractList
 {

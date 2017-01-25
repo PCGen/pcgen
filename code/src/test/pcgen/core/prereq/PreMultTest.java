@@ -49,7 +49,6 @@ import plugin.pretokens.parser.PreSkillParser;
  * is working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PreMultTest extends AbstractCharacterTestCase

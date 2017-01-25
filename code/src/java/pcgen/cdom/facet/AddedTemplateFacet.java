@@ -38,7 +38,6 @@ import pcgen.core.PlayerCharacter;
  * AddedTemplateFacet is a Facet that tracks the Templates that have been added
  * to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AddedTemplateFacet extends AbstractSourcedListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, CDOMObject>

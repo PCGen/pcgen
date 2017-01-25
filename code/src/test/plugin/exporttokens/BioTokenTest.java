@@ -39,7 +39,6 @@ import pcgen.io.FileAccess;
  * <code>BioTokenTest</code> is ...
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class BioTokenTest extends AbstractCharacterTestCase
 {

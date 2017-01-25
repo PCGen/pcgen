@@ -29,7 +29,6 @@ import pcgen.persistence.lst.LevelLstToken;
 /**
  * {@code MinxpToken}
  *
- * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class MinxpToken implements LevelLstToken
 {

@@ -54,7 +54,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is a valid source.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractItemConvertingFacet<S, D> extends
 		AbstractDataFacet<CharID, D>
@@ -558,7 +557,6 @@ public abstract class AbstractItemConvertingFacet<S, D> extends
 	 * converted object as well as the list of sources for the given destination
 	 * object.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	private class Target
 	{

@@ -33,7 +33,6 @@ import pcgen.core.PCStat;
  * UnlockedStatFacet is a Facet that tracks the Unlocked Stats that have been
  * applied to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnlockedStatFacet extends AbstractSourcedListFacet<CharID, PCStat>
 		implements DataFacetChangeListener<CharID, CDOMObject>

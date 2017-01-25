@@ -47,7 +47,6 @@ import pcgen.system.LanguageBundle;
  * files will be displayed in a scrollable area.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DIWarningDialog extends JDialog implements

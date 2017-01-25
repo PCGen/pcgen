@@ -38,11 +38,9 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
 
 /**
- * @author wardc
  *
  */
 /**
- * @author frugal@purplewombat.co.uk
  *
  */
 public class PreSubClassTest extends AbstractCharacterTestCase

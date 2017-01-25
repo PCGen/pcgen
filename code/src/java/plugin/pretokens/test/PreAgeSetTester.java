@@ -31,7 +31,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author perchrh
  *
  */
 public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest

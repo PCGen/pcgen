@@ -49,7 +49,6 @@ import pcgen.system.LanguageBundle;
  * type, and so on. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DefaultsPanel extends PCGenPrefsPanel

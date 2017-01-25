@@ -30,7 +30,6 @@ import java.util.List;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CoreViewNodeFacade
 {

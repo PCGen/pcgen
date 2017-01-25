@@ -37,7 +37,6 @@ import pcgen.persistence.SystemLoader;
 /**
  * ???
  * @deprecated
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public final class LstSystemLoader implements SystemLoader
 {

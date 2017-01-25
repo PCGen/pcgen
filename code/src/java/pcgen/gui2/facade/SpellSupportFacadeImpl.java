@@ -105,7 +105,6 @@ import pcgen.util.enumeration.View;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
@@ -1435,7 +1434,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
 	 * 
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class SpellNodeImpl implements SpellNode
 	{
@@ -1644,7 +1642,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display an empty spell list. It is only used to ensure the spell list name 
 	 * is displayed.
 	 * 
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class DummySpellNodeImpl implements SpellNode
 	{

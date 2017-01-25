@@ -65,7 +65,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class LanguageChooserDialog extends JDialog implements ActionListener, ReferenceListener<Integer>
 {

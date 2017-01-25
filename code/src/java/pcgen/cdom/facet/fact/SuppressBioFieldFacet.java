@@ -36,7 +36,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * 
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SuppressBioFieldFacet extends AbstractStorageFacet<CharID>

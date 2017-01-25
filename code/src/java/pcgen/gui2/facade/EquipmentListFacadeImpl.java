@@ -32,7 +32,6 @@ import pcgen.facade.util.AbstractListFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentListFacadeImpl extends AbstractListFacade<EquipmentFacade>
 		implements EquipmentListFacade

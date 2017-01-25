@@ -27,7 +27,6 @@ import pcgen.base.util.WeightedCollection;
 /**
  * This class represents a particular level generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class LevelGeneratorOption extends GeneratorOption
 {

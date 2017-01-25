@@ -42,7 +42,6 @@ import freemarker.template.TemplateModelException;
  * ${pcstring('PLAYERNAME')}
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCStringDirective implements
 		TemplateDirectiveModel, TemplateMethodModelEx, CharacterExportAction

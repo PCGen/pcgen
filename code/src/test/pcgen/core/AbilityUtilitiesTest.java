@@ -34,7 +34,6 @@ import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
 /**
- * @author andrew
  *
  */
 public class AbilityUtilitiesTest extends AbstractCharacterTestCase

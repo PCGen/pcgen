@@ -32,7 +32,6 @@ import pcgen.core.GameMode;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface EquipIconLstToken extends LstToken
 {

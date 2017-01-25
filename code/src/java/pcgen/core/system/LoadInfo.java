@@ -40,7 +40,6 @@ import pcgen.util.Logging;
  * {@code LoadInfo} describes the data associated with a loads and
  * encumbrance
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class LoadInfo implements Loadable
 {

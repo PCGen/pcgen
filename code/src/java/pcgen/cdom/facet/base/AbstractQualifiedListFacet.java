@@ -71,7 +71,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * null is a valid source but a valid item to be added to the list of objects
  * stored by AbstractQualifiedListFacet.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		extends AbstractDataFacet<CharID, T>

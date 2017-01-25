@@ -33,7 +33,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MigrationUtils provides common helper functions for migration classes.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class MigrationUtils
 {

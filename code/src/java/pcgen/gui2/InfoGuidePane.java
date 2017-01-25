@@ -52,7 +52,6 @@ import pcgen.system.LanguageBundle;
  * <br>
  * Note: this class extends UIResource so that the component can be added
  * as a child of a JTabbedPane without it becoming a tab
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class InfoGuidePane extends JComponent implements UIResource
 {

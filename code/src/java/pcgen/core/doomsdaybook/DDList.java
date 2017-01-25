@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 /**
  *
- * @author  devon
  */
 public class DDList extends ArrayList<WeightedDataValue> implements DataElement
 {

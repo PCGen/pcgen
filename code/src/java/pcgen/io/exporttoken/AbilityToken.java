@@ -72,7 +72,6 @@ import pcgen.util.enumeration.View;
  * TYPE=&lt;type&gt; - type filter</li>
  * </ul>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityToken extends Token
 {

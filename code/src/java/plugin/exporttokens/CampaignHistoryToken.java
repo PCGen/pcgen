@@ -50,7 +50,6 @@ import pcgen.util.Logging;
  * CAMPAIGNHISTORY.v.x.TEXT
  * </pre>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignHistoryToken extends Token
 {

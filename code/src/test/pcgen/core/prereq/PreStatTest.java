@@ -34,7 +34,6 @@ import pcgen.core.PlayerCharacter;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreStatTest extends AbstractCharacterTestCase
 {

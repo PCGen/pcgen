@@ -33,7 +33,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code RightmarginToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class RightmarginToken extends AbstractNonEmptyToken<PaperInfo>
 		implements CDOMPrimaryToken<PaperInfo>

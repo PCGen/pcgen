@@ -29,7 +29,6 @@ import pcgen.facade.core.StatFacade;
 /**
  * {@code PCStat}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class PCStat extends PObject implements StatFacade,
 		NonInteractive, SortKeyRequired, VarScoped

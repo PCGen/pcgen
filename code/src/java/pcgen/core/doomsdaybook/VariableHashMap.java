@@ -34,7 +34,6 @@ import java.util.Map;
  * secondary map of DataElement objects and a list of Operation objects.
  *
  *
- * @author devon
  */
 public class VariableHashMap extends HashMap<String, String>
 {

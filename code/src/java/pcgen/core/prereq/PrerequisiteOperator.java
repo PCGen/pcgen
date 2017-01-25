@@ -30,7 +30,6 @@ import pcgen.core.utils.CoreUtility;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  * 
  */
 public enum PrerequisiteOperator

@@ -24,7 +24,6 @@ import java.util.List;
 
 /** Class that holds a set of travel methods and speeds
  *
- * @author  Juliean Galak
  */
 public class PairList<T extends Pair<?, ?>>
 {

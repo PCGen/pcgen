@@ -94,7 +94,6 @@ import plugin.initiative.OpposedSkillTypeModel;
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
  *
- * @author LodgeR
  */
 class OpposedCheckDialog extends JDialog
 {

@@ -27,7 +27,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface SourceSelectionFacade extends LoadableFacade
 {

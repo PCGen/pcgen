@@ -37,7 +37,6 @@ import pcgen.output.model.CollectionModel;
  * 
  * Note that the actual name of the interpolation is stored externally to this
  * Actor (in CDOMObjectWrapperInfo to be precise)
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class TypeActor implements OutputActor<CDOMObject>
 {

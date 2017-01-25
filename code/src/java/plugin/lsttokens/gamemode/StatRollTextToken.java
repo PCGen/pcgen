@@ -32,7 +32,6 @@ import java.util.StringTokenizer;
 /**
  * {@code StatRollTextToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class StatRollTextToken implements GameModeLstToken
 {

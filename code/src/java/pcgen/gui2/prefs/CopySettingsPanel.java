@@ -52,7 +52,6 @@ import pcgen.system.LanguageBundle;
  * gamemode.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel

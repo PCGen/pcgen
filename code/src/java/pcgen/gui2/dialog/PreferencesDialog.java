@@ -87,7 +87,6 @@ import pcgen.system.PCGenSettings;
 /**
  *  PCGen preferences dialog
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
@@ -428,7 +427,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 /**
  *
- * @author  soulcatcher
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {

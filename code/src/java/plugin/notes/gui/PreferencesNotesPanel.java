@@ -44,7 +44,6 @@ import pcgen.system.LanguageBundle;
 /**
  * Panel that tracks the misc preferences
  *
- * @author devon
  */
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {

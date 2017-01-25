@@ -14,7 +14,6 @@ import pcgen.rules.persistence.token.AbstractStringToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * @author djones4
  *
  */
 public class SourcewebLst extends AbstractStringToken<CDOMObject> implements

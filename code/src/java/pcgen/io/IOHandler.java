@@ -40,7 +40,6 @@ import pcgen.util.Logging;
  * An IO handler is responsible for reading and/or writing 
  * PlayerCharacters in a specific format from/to a stream
  *
- * @author Thomas Behr 11-03-02
  */
 public abstract class IOHandler
 {

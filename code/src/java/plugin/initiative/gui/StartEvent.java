@@ -34,7 +34,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
 /**
- *@author     devon
  */
 public class StartEvent extends javax.swing.JDialog
 {

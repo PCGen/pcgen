@@ -46,7 +46,6 @@ import pcgen.util.Logging;
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class Description extends ConcretePrereqObject

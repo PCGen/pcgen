@@ -67,7 +67,6 @@ import pcgen.util.enumeration.Tab;
  * <br>
  * -0800 (Tue, 22 Feb 2011) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterSheetInfoTab extends FlippingSplitPane implements CharacterInfoTab, DisplayAwareTab
 {

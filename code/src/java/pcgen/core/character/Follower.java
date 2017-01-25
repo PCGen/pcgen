@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  * Created on July 10, 2002, 11:26 PM
  *
  * Current Ver: $Revision$
@@ -31,7 +30,6 @@ import pcgen.core.Race;
 
 /**
  * {@code Follower.java}
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  **/
 public final class Follower implements Comparable<Object>, Cloneable
 {

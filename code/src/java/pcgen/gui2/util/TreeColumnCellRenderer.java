@@ -35,7 +35,6 @@ import javax.swing.tree.DefaultTreeCellRenderer;
  * cell. Then in this class we assign this tree cell's background color to the one that was set for
  * the tree.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 {

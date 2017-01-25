@@ -70,7 +70,6 @@ import pcgen.util.enumeration.Tab;
  * <br>
  * -0800 (Wed, 16 Feb 2011) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class RaceInfoTab extends FlippingSplitPane implements CharacterInfoTab

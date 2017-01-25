@@ -36,7 +36,6 @@ import pcgen.util.Logging;
  * for this tag is SKILLLEVEL.x.TOTAL 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLLEVEL

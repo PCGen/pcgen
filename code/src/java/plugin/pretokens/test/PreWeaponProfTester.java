@@ -39,7 +39,6 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author wardc
  *
  */
 public class PreWeaponProfTester extends AbstractDisplayPrereqTest

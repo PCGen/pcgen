@@ -37,7 +37,6 @@ import pcgen.persistence.PersistenceLayerException;
 import plugin.pretokens.parser.PreDamageReductionParser;
 
 /**
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

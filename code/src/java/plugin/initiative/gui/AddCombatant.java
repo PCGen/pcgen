@@ -42,7 +42,6 @@ import plugin.initiative.XMLCombatant;
  *
  * <p>Current Ver: $Revision$</p>
  *
- * @author     devon
  */
 public class AddCombatant extends AbstractDialog
 {

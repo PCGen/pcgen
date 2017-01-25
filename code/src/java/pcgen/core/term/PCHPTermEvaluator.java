@@ -30,7 +30,6 @@ import pcgen.core.PlayerCharacter;
  * the character's maximum total hit points. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCHPTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

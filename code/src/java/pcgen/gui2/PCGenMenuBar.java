@@ -54,7 +54,6 @@ import pcgen.util.Logging;
 
 /**
  * The menu bar that is displayed in PCGen's main window.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenMenuBar extends JMenuBar implements CharacterSelectionListener
 {

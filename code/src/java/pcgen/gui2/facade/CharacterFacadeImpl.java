@@ -201,7 +201,6 @@ import pcgen.util.enumeration.View;
  * </ul>
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,
 		HitPointListener 

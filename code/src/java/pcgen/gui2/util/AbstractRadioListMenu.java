@@ -33,7 +33,6 @@ import pcgen.facade.util.event.ListEvent;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> implements ItemListener
 {

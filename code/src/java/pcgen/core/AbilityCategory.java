@@ -67,7 +67,6 @@ import pcgen.util.enumeration.Visibility;
  * the AbilityCategory was &quot;FEAT&quot; and set the ability type to
  * &quot;Fighter&quot;. 
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class AbilityCategory implements Category<Ability>, Loadable,

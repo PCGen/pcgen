@@ -159,7 +159,6 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
  *
- * @author Thomas Behr 22-03-02
  */
 final class PCGVer2Parser implements PCGParser
 {

@@ -85,7 +85,6 @@ import org.apache.commons.lang3.SystemUtils;
 /**
  * The dialog provides the list of output sheets for a character or party to
  * be exported to.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class ExportDialog extends JDialog implements ActionListener, ListSelectionListener

@@ -37,7 +37,6 @@ import plugin.exporttokens.TextToken;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {

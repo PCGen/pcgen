@@ -30,7 +30,6 @@ import pcgen.system.PropertyContext;
  * This is a type of DynamicTableColumnModel which links each of the added columns
  * to a PropertyContext to allow for a persistence of column properties across
  * program executions.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 {

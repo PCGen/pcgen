@@ -45,7 +45,6 @@ import pcgen.core.spell.Spell;
 import pcgen.system.ConfigurationSettings;
 
 /**
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class Configuration

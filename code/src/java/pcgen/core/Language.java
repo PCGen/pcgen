@@ -39,7 +39,6 @@ import pcgen.facade.core.LanguageFacade;
 /**
  * {@code Language}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class Language extends PObject implements Comparable<Object>,
 		LanguageFacade, Ungranted

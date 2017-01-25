@@ -87,7 +87,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * This component allows the user to manage a character's skills.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler

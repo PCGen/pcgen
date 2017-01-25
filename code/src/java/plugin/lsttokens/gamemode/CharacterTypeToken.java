@@ -35,7 +35,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * {@code ResizableEquipTypeToken} parses the list of equipment
  * types designated as able to be automatically resized. 
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CharacterTypeToken implements GameModeLstToken
 {

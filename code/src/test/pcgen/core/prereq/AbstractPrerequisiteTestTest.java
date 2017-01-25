@@ -37,7 +37,6 @@ import pcgen.LocaleDependentTestCase;
 import plugin.pretokens.test.PreWieldTester;
 
 /**
- * @author wardc
  *
  */
 public class AbstractPrerequisiteTestTest extends AbstractCharacterTestCase

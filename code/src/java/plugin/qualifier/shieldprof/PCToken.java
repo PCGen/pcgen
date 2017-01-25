@@ -32,7 +32,6 @@ import pcgen.rules.persistence.token.AbstractPCQualifierToken;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCToken extends AbstractPCQualifierToken<ShieldProf>
 {

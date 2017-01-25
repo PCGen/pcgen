@@ -39,7 +39,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * Common code for the kits.
  * 
- * @author Jonas Karlson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 {

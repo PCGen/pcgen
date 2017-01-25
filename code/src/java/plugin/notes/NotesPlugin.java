@@ -60,7 +60,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  * {@code PluginLoader} and will create a model and a view for this
  * plugin.
  *
- * @author Devon Jones
  */
 public class NotesPlugin implements InteractivePlugin
 {

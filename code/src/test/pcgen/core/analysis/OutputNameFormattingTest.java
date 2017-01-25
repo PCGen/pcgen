@@ -31,7 +31,6 @@ import junit.framework.TestCase;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class OutputNameFormattingTest extends TestCase
 {

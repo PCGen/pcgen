@@ -31,7 +31,6 @@ import pcgen.core.SettingsHandler;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 final class LegacySettings extends PropertyContext
 {

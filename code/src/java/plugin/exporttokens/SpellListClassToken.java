@@ -43,7 +43,6 @@ import pcgen.util.Delta;
  * ends in .LEVEL
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListClassToken extends SpellListToken

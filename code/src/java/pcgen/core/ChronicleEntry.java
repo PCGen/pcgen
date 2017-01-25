@@ -30,7 +30,6 @@ import pcgen.facade.core.ChronicleEntryFacade;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 {

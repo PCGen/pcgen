@@ -24,7 +24,6 @@ import pcgen.system.LanguageBundle;
 /**
  * Factorized Preferences Dialog.
  *
- * @author Vincent Lhote
  */
 public abstract class AbstractPreferencesDialog extends AbstractDialog
 {

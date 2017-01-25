@@ -38,7 +38,6 @@ import java.util.Stack;
  * So, given or(x,y,z), x or y or z is returned
  * </p>
  *
- * @author Andrew Wilson
  *
  */
 public class OrCommand extends PCGenCommand

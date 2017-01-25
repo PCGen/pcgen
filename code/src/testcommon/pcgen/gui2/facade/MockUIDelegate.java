@@ -35,7 +35,6 @@ import pcgen.util.Logging;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MockUIDelegate implements UIDelegate
 {

@@ -34,7 +34,6 @@ import pcgen.core.Skill;
  * TotalSkillRankFacet stores the total skill rank for Skills (includes user
  * taken ranks and BONUS:SKILLRANK)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 		SkillRankChangeListener,
@@ -187,7 +186,6 @@ public class TotalSkillRankFacet extends AbstractStorageFacet<CharID> implements
 	 * structure for adding and removing listeners to a class that can provide
 	 * updates for changes to Association Bonus values on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class AssociationChangeSupport
 	{

@@ -30,7 +30,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.enumeration.Load;
 
 /**
- * @author djones4
  */
 public class UnencumberedmoveLst extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMPrimaryToken<CDOMObject>

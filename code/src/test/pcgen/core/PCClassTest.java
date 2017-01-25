@@ -71,7 +71,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
- * @author wardc
  */
 @SuppressWarnings("nls")
 public class PCClassTest extends AbstractCharacterTestCase

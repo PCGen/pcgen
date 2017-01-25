@@ -37,7 +37,6 @@ import pcgen.cdom.reference.ReferenceUtilities;
  * Race with a "FOLLOWERADJUSTMENT" that modifies the owner's effective level
  * when selecting a follower of this type. Prereqs can also be specified
  * 
- * @author boomer70
  */
 public class FollowerOption extends ConcretePrereqObject implements
 		Comparable<FollowerOption>, QualifyingObject

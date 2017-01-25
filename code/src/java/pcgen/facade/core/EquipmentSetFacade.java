@@ -36,7 +36,6 @@ import pcgen.facade.util.ListFacade;
  *
  * <br>
  *  
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentSetFacade
 {

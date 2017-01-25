@@ -33,7 +33,6 @@ import plugin.pretokens.parser.PreItemParser;
  * <code>PreItemTest</code> is ...
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreItemTest extends EnUsLocaleDependentTestCase

@@ -56,7 +56,6 @@ import org.jetbrains.annotations.Nullable;
 /**
  * {@code SpinningTabbedPane}.
  *
- * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *
  * @see JTabbedPane
  */

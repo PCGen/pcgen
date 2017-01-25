@@ -32,7 +32,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteTest;
 
 /**
- * @author wardc
  *
  */
 public class PreBirthPlaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest

@@ -34,7 +34,6 @@ import pcgen.util.Logging;
 /**
  * {@code RollmethodToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class RollmethodToken implements GameModeLstToken
 {

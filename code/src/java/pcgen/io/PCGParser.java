@@ -26,7 +26,6 @@ import pcgen.facade.core.SourceSelectionFacade;
 
 /**
  * {@code PCGParser}<br>
- * @author Thomas Behr 07-09-02
  */
 interface PCGParser
 {

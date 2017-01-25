@@ -29,7 +29,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code Var} deals with bonuses to data defined variables.
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Var extends BonusObj
 {

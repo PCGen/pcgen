@@ -37,7 +37,6 @@ import plugin.pretokens.parser.PreRuleParser;
  * <code>PreRuleTest</code> checks the function of the rule 
  * prereq tester.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase

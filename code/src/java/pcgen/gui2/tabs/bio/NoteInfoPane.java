@@ -50,7 +50,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class NoteInfoPane extends JPanel implements CharacterInfoTab

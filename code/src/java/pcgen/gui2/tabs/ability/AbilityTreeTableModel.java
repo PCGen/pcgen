@@ -57,7 +57,6 @@ import pcgen.util.Comparators;
  * 
  * <br>
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class AbilityTreeTableModel extends AbstractTreeTableModel implements SortableTreeTableModel
 {

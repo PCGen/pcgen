@@ -44,7 +44,6 @@ import org.junit.Test;
  * so is not itself checked.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class FacetDefinitionTest
 {

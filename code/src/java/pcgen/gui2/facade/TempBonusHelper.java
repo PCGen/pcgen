@@ -58,7 +58,6 @@ import pcgen.util.Logging;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TempBonusHelper
 {

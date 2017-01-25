@@ -32,7 +32,6 @@ import pcgen.gui2.util.treetable.TreeTableNode;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 @SuppressWarnings("unchecked")
 public final class Comparators
@@ -145,7 +144,6 @@ public final class Comparators
 	 * {@code String}s.  This is particularly useful for applications
 	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
 	 *
-	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
@@ -167,7 +165,6 @@ public final class Comparators
 	 * for applications such as maintaining a sorted
 	 * {@code JComboBoxEx} and the like.
 	 *
-	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringIgnoreCaseComparator implements
 			Comparator<Object>, Serializable

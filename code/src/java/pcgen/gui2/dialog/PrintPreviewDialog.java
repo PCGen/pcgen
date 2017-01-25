@@ -83,7 +83,6 @@ import pcgen.util.fop.FopTask;
 /**
  * Dialog to allow the preview of character export.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class PrintPreviewDialog extends JDialog implements ActionListener

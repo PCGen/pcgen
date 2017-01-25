@@ -63,7 +63,6 @@ import pcgen.util.enumeration.Tab;
  * used to help implement companion support for the
  * CharacterFacade.
  * @see pcgen.gui2.facade.CharacterFacadeImpl
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CompanionSupportFacadeImpl implements CompanionSupportFacade, ListListener<CharacterFacade>
 {

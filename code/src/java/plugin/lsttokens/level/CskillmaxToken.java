@@ -29,7 +29,6 @@ import pcgen.persistence.lst.LevelLstToken;
 /**
  * {@code CskillmaxToken}
  *
- * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class CskillmaxToken implements LevelLstToken
 {

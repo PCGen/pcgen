@@ -28,7 +28,6 @@ import pcgen.core.GameMode;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DummySystemLoader implements SystemLoader
 {

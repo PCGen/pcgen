@@ -64,7 +64,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code FOLLOWERS:Familiar|1}<br>
  * A character is allowed only 1 companion of type Familiar
  *
- * @author divaa01
  *
  */
 public class FollowersLst implements CDOMPrimaryToken<CDOMObject>

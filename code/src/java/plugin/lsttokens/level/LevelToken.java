@@ -33,7 +33,6 @@ import pcgen.util.Logging;
  *
  * 
  * 
- * @author  Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class LevelToken implements LevelLstToken
 {

@@ -36,7 +36,6 @@ import pcgen.util.Logging;
  * installation.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InstallLoader extends LstLineFileLoader
 {

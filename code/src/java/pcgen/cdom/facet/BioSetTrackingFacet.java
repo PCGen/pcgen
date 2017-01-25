@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
  * the BioSet are changed and forces changes upon the PlayerCharacter (age,
  * height, weight)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BioSetTrackingFacet extends AbstractItemFacet<CharID, BioSet>
 		implements DataFacetChangeListener<CharID, CDOMObject>

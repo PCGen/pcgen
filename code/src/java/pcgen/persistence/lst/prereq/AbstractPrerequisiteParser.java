@@ -29,7 +29,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * @author wardc
  *
  */
 public abstract class AbstractPrerequisiteParser implements PrerequisiteParserInterface

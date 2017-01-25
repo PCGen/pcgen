@@ -31,7 +31,6 @@ import pcgen.core.QualifiedObject;
  * HasDeityWeaponProfFacet is a Facet that tracks if the Deity Weapon Profs are
  * contained in the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HasDeityWeaponProfFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<Boolean>> implements

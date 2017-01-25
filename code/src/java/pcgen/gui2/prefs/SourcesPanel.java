@@ -51,7 +51,6 @@ import pcgen.util.Logging;
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SourcesPanel extends PCGenPrefsPanel

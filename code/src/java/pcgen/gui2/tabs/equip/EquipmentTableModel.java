@@ -36,7 +36,6 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * 
  * <br>
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentTableModel extends FilteredListFacadeTableModel<EquipmentFacade> implements EquipmentListListener
 {

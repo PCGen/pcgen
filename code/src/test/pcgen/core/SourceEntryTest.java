@@ -34,7 +34,6 @@ import pcgen.cdom.enumeration.StringKey;
  * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SourceEntryTest extends TestCase
 {

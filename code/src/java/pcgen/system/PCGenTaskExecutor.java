@@ -25,7 +25,6 @@ import org.apache.commons.lang3.math.Fraction;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class PCGenTaskExecutor extends PCGenTask implements PCGenTaskListener
 {

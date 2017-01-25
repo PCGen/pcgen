@@ -51,7 +51,6 @@ import pcgen.util.Logging;
 /**
  * {@code KitSpells}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitSpells extends BaseKit
 {

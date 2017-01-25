@@ -42,7 +42,6 @@ import pcgen.util.SortKeyAware;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 {

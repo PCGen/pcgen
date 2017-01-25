@@ -32,7 +32,6 @@ import pcgen.core.ShieldProf;
  * granted to a Player Character by AUTO:SHIELDPROF|%LIST and converts them to
  * ProfProvider objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoListShieldProfFacet extends
 		AbstractItemConvertingFacet<ShieldProf, ProfProvider<ShieldProf>>

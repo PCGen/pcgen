@@ -41,7 +41,6 @@ import pcgen.util.Logging;
  * Deal with FOLLOWER Token
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerToken extends Token
 {

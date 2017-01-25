@@ -33,7 +33,6 @@ import pcgen.output.publish.OutputDB;
  * EquippedEquipmentFacet is a Facet that tracks the Equipment that is Equipped
  * by a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquippedEquipmentFacet extends
 		AbstractDataFacet<CharID, Equipment> implements

@@ -31,7 +31,6 @@ import pcgen.gui2.util.event.DynamicTableColumnModelListener;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class DefaultDynamicTableColumnModel extends DefaultTableColumnModel
         implements DynamicTableColumnModel

@@ -47,7 +47,6 @@ import pcgen.util.Logging;
 /**
  * {@code CustomData}
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class CustomData
 {

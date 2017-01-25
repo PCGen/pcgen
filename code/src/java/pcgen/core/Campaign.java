@@ -45,7 +45,6 @@ import pcgen.rules.context.RuntimeLoadContext;
 /**
  * {@code Campaign} is a source or campaign defined in a *.pcc file.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public class Campaign extends PObject implements CampaignFacade, NonInteractive
 {

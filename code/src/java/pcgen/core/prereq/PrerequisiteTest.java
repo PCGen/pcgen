@@ -28,7 +28,6 @@ import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 
 /**
- * @author wardc
  *
  */
 public interface PrerequisiteTest {

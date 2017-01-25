@@ -36,7 +36,6 @@ import pcgen.util.Logging;
  * level.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class BonusstatallowsstackToken implements GameModeLstToken
 {

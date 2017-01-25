@@ -40,7 +40,6 @@ import plugin.initiative.SpellModel;
  * Dialog which casts a spell, creating a durationed event in the
  * initiative tracker.
  * </p>
- * @author     devon
  */
 @SuppressWarnings("serial")
 public class CastSpell extends StartEvent

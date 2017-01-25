@@ -49,7 +49,6 @@ import pcgen.util.TestHelper;
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SpellLevelTest extends AbstractCharacterTestCase
 {

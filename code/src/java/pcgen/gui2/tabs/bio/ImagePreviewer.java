@@ -34,7 +34,6 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class ImagePreviewer extends JComponent
 {

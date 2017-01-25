@@ -55,7 +55,6 @@ import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeFactory
 {

@@ -80,7 +80,6 @@ import plugin.doomsdaybook.RandomNamePlugin;
 /**
  * Main panel of the random name generator.
  * 
- * @author  devon
  */
 public class NameGenPanel extends JPanel
 {

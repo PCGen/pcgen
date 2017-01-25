@@ -63,7 +63,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Parse a generator class data file.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class ClassDataParser
@@ -121,7 +120,6 @@ public class ClassDataParser
  * This is the parsing event handler class.  The methods in this class are
  * called by the SAX parser as it finds various elements in the XML file.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  *
  */
 class ClassDataHandler extends DefaultHandler

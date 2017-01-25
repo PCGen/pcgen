@@ -38,7 +38,6 @@ import plugin.initiative.InitiativePlugin;
 /**
  * Preference panel for damage related settings.
  * 
- * @author soulcatcher
  */
 public class PreferencesDamagePanel extends PreferencesPanel
 {

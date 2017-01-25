@@ -26,7 +26,6 @@ import pcgen.cdom.base.Ungranted;
 /**
  * {@code ShieldProf}.
  *
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * DO NOT DELETE (waiting for use)
  */
 public final class ShieldProf extends PObject implements Comparable<Object>,

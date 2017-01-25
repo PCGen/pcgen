@@ -37,7 +37,6 @@ import pcgen.core.character.EquipSet;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class CharacterFacadeImplTest extends AbstractCharacterTestCase

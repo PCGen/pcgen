@@ -34,7 +34,6 @@ import pcgen.base.formula.Formula;
  * SpellProgressionInfo contains information about Spell Progression in support
  * of a PCClass.
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class SpellProgressionCache implements Cloneable {
 

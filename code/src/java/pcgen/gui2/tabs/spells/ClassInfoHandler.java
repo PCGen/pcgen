@@ -32,7 +32,6 @@ import pcgen.gui2.util.JTreeViewTable;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class ClassInfoHandler implements ListSelectionListener
 {

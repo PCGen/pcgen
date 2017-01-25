@@ -37,7 +37,6 @@ import org.nfunk.jep.function.PostfixMathCommandI;
  * <code>OrCommandTest</code> tests the functioning of the jep or plugin
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class OrCommandTest extends PCGenTestCase
 {

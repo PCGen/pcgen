@@ -41,7 +41,6 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 /**
- * @author wardc
  */
 @SuppressWarnings("nls")
 public class PreReqHandlerTest extends TestCase

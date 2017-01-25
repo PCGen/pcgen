@@ -30,7 +30,6 @@ import pcgen.facade.util.event.ListListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class AbstractListFacade<E> implements ListFacade<E>
 {

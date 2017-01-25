@@ -38,7 +38,6 @@ import pcgen.util.Logging;
  * be the type of object being counted and further parameters will specify the criteria.
  * 26 Oct 2007) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CountCommand extends AbstractCountCommand
 {

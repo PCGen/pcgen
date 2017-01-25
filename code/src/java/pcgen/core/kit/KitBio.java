@@ -36,7 +36,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * Code to represent a bio setting choices for a Kit.
  *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public class KitBio extends BaseKit
 {

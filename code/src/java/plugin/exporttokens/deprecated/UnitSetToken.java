@@ -38,7 +38,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * UNITSET.DISTANCEUNIT
  * UNITSET.WEIGHTUNIT
  *
- * @author jdempsey
  */
 public class UnitSetToken extends AbstractExportToken
 {

@@ -40,7 +40,6 @@ import pcgen.system.PluginLoader;
 /**
  * {@code PJEP}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
  *

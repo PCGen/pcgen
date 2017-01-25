@@ -33,7 +33,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
 /**
  * MaxVerTokenTest checks the function of the MaxVerToken class.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MaxVerTokenTest
 {

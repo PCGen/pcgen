@@ -35,7 +35,6 @@ import pcgen.system.PluginLoader;
 import pcgen.util.Logging;
 
 /**
- * @author wardc
  *
  */
 public final class PreParserFactory implements PluginLoader

@@ -37,7 +37,6 @@ import pcgen.util.Logging;
  * The Class {@code InfoPaneLinkAction} acts on the user clicking on hyperlinks
  * in an info pane such as the source info pane.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InfoPaneLinkAction
 		implements HyperlinkListener

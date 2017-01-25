@@ -44,7 +44,6 @@ import pcgen.rules.context.LoadContext;
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase

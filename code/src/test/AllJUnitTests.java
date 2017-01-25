@@ -24,7 +24,6 @@ import junit.textui.TestRunner;
  * TestSuite that is composed of the individual test classes.  Pick up
  * all the individual PCGen test suites into this one.
  *
- * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  */
 public final class AllJUnitTests
 {

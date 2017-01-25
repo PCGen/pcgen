@@ -33,7 +33,6 @@ import pcgen.io.migration.AbilityMigration.CategorisedKey;
  * AbilityMigrationTest checks the function of AbilityMigration.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityMigrationTest extends TestCase
 {

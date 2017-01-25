@@ -49,7 +49,6 @@ import pcgen.core.RollingMethods;
  * <p>
  * </p>
  *
- * @author LodgeR
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {

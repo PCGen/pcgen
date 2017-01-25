@@ -30,7 +30,6 @@ import java.util.List;
 
 /** This defines the preferences tree
  *
- * @author  devon
  */
 public class PreferencesRootTreeNode extends DefaultMutableTreeNode
 {

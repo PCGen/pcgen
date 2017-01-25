@@ -43,7 +43,6 @@ import org.junit.Test;
  * of the PRECAMPAIGN tag.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreCampaignTest extends AbstractCharacterTestCase
 {

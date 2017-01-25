@@ -25,7 +25,6 @@ import javax.swing.event.ListDataListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class ListDataAdapter implements ListDataListener
 {

@@ -31,7 +31,6 @@ import pcgen.facade.util.event.ReferenceListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class FormattedFieldHandler implements PropertyChangeListener, ReferenceListener<Integer>
 {

@@ -38,7 +38,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
 /**
- * @author arknight
  *
  */
 public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest

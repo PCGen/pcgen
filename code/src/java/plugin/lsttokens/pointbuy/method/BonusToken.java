@@ -37,7 +37,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code BonusToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		CDOMPrimaryToken<PointBuyMethod>

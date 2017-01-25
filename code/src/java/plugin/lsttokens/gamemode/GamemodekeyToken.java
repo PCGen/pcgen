@@ -31,7 +31,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * {@code GamemodekeyToken} parses the GAMEMODEKEY token.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class GamemodekeyToken implements GameModeLstToken
 {

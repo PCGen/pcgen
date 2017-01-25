@@ -30,7 +30,6 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 
 /**
- * @author wardc
  *
  */
 public abstract class AbstractPrerequisiteIntegerParser extends

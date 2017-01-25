@@ -44,7 +44,6 @@ import pcgen.gui2.tools.Icons;
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
  *
- *@author     soulcatcher
  */
 public class JIcon extends JPanel
 {

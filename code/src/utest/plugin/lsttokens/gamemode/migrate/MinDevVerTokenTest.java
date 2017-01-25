@@ -34,7 +34,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MinDevVerTokenTest checks the function of the MinDevVerToken class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MinDevVerTokenTest
 {

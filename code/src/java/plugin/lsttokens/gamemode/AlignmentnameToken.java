@@ -31,7 +31,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * {@code AlignmentnameToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AlignmentnameToken implements GameModeLstToken
 {

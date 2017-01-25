@@ -41,7 +41,6 @@ import pcgen.util.Logging;
 /**
  * {@code ActypeToken}
  * 
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class ActypeToken implements GameModeLstToken
 {

@@ -35,7 +35,6 @@ import org.nfunk.jep.ParseException;
  * <code>ParameterTreeTest</code> is ...
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class ParameterTreeTest extends PCGenTestCase 
 {

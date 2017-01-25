@@ -48,7 +48,6 @@ import pcgen.rules.context.LoadContext;
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {

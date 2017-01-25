@@ -34,7 +34,6 @@ import pcgen.core.PCTemplate;
  * Character. The Region and SubRegion can be set explicitly or inferred from
  * the PCTemplate objects possessed by the PlayerCharacter.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RegionFacet extends AbstractDataFacet<CharID, String> implements
 		DataFacetChangeListener<CharID, PCTemplate>

@@ -66,8 +66,6 @@ import pcgen.util.Logging;
  * particular column in the JTable.
  *
  *
- * @author Philip Milne
- * @author Scott Violet
  **/
 public class JTreeTable extends JTableEx
 {
@@ -295,8 +293,6 @@ public class JTreeTable extends JTableEx
 	 * the AbstractTableModel.
 	 *
 	 *
-	 * @author Philip Milne
-	 * @author Scott Violet
 	 */
 	private static class TreeTableModelAdapter extends AbstractTableModel
 			implements SortableTableModel, TreeModelListener,

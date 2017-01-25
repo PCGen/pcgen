@@ -37,7 +37,6 @@ import java.util.StringTokenizer;
  * </pre>
  *
  *
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class VarToken extends Token
 {

@@ -32,7 +32,6 @@ import pcgen.core.ArmorProf;
  * granted to a Player Character by AUTO:ARMORPROF|%LIST and converts them to
  * ProfProvider objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoListArmorProfFacet extends
 		AbstractItemConvertingFacet<ArmorProf, ProfProvider<ArmorProf>>

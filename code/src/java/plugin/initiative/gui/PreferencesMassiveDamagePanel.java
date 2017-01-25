@@ -42,7 +42,6 @@ import plugin.initiative.InitiativePlugin;
 
 /**
  *
- * @author soulcatcher
  */
 public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
 {

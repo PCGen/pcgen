@@ -26,7 +26,6 @@ package gmgen.util;
  * It is used by the LogUtilities class to allow log messages to be sent to any
  * number of logging destinations.
  *
- * @author Tod Milam
  */
 public interface LogReceiver
 {

@@ -23,7 +23,6 @@ import java.util.ArrayList;
 
 /**
  *
- * @author  devon
  */
 public class HyphenRule implements DataElement
 {

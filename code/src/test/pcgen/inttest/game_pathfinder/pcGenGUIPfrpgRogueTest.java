@@ -30,7 +30,6 @@ import junit.framework.TestSuite;
  * Tests loading and exporting a pathfinder rogue.
  * See the PCG file for details
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class pcGenGUIPfrpgRogueTest extends PcgenFtlTestCase

@@ -24,7 +24,6 @@ import java.awt.Component;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface DisplayableFilter<C, E> extends Filter<C, E>
 {

@@ -25,7 +25,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public abstract class AbstractListMap<K, V, L extends List<V>>
 	extends AbstractCollectionMap<K, V, L> implements ListMap<K, V, L>

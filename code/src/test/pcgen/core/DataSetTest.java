@@ -40,7 +40,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class DataSetTest extends TestCase

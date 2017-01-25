@@ -31,7 +31,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitFunds}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitFunds extends BaseKit
 {

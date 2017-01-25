@@ -36,7 +36,6 @@ import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
 
 /**
- * @author wardc
  *
  */
 @SuppressWarnings("nls")

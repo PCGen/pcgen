@@ -52,7 +52,6 @@ import pcgen.core.spell.Spell;
 import pcgen.util.Logging;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * This is a utility class related to PreReq objects.
  */

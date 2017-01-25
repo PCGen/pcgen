@@ -30,7 +30,6 @@ import pcgen.core.bonus.BonusObj;
 /**
  * AppliedBonusFacet tracks the active BonusObj objects on a Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AppliedBonusFacet extends AbstractListFacet<CharID, BonusObj>
 		implements DataFacetChangeListener<CharID, CDOMObject>

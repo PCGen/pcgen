@@ -35,7 +35,6 @@ import pcgen.core.PlayerCharacter;
  * KitChoiceFacet is a Facet that triggers when an object has a KIT token in
  * order to drive the selection and application of the Kit(s).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class KitChoiceFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

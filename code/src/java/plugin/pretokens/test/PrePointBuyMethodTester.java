@@ -34,7 +34,6 @@ import pcgen.system.LanguageBundle;
 /**
  * {@code PrePointBuyMethod}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class PrePointBuyMethodTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

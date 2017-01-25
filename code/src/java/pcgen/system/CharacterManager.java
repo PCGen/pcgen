@@ -63,7 +63,6 @@ import org.apache.commons.lang3.StringUtils;
  *
  * <br>
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class CharacterManager
 {

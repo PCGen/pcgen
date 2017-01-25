@@ -22,7 +22,6 @@
 /** Class that holds a pair of values
  * Note: THE ITEMS PASSED TO THIS CLASS ARE NOT DUPLICATED
  *    IT OPERATES ON ORIGINAL INSTANCES!  BE CAREFUL!
- * @author  Juliean Galak
  */
 public abstract class Pair<K, V>
 {

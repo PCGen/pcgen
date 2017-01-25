@@ -24,7 +24,6 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty
  */
 public interface TreeViewModel<E>
 {

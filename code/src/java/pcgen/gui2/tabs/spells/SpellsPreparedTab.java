@@ -64,7 +64,6 @@ import pcgen.util.enumeration.Tab;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellsPreparedTab extends FlippingSplitPane implements CharacterInfoTab

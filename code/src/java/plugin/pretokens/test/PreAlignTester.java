@@ -40,7 +40,6 @@ import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
 /**
- * @author wardc
  *
  */
 public class PreAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest

@@ -33,7 +33,6 @@ import pcgen.util.enumeration.Tab;
  * <br>
  * -0800 (Fri, 25 Feb 2011) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler

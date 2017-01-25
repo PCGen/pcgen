@@ -34,7 +34,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with equipment 
  * keys that have now been changed in the data.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class EquipmentMigration
 {

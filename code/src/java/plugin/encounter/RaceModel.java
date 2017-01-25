@@ -25,7 +25,6 @@ import pcgen.core.Race;
 import javax.swing.DefaultListModel;
 
 /**
- * @author Jerril
  */
 public class RaceModel extends DefaultListModel
 {

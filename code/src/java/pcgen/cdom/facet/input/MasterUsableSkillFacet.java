@@ -26,7 +26,6 @@ import pcgen.core.Skill;
 import pcgen.rules.context.LoadContext;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MasterUsableSkillFacet extends
 		AbstractSourcedListFacet<DataSetID, Skill> implements

@@ -48,7 +48,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * <code>SpellListTokenTest</code> is ...
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class SpellListTokenTest extends AbstractCharacterTestCase

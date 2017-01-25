@@ -24,7 +24,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * AllowDebtFacet is a Facet to track whether a character should be allowed to
  * go into debt.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AllowDebtFacet extends AbstractItemFacet<CharID, Boolean>
 {

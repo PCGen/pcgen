@@ -32,7 +32,6 @@ import pcgen.pluginmgr.PCGenMessage;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class FocusOrStateChangeOccurredMessage extends PCGenMessage

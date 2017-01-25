@@ -35,7 +35,6 @@ import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreCheckParser;
 
 /**
- * @author wardc
  */
 @SuppressWarnings("nls")
 public class PreCheckParserTest extends EnUsLocaleDependentTestCase

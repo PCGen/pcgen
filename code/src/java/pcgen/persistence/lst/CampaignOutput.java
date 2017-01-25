@@ -41,7 +41,6 @@ import pcgen.util.Logging;
 /**
  * {@code CampaignOutput} writes out data sets to PCC files.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class CampaignOutput
 {

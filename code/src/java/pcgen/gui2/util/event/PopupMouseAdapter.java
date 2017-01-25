@@ -25,7 +25,6 @@ import java.awt.event.MouseEvent;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class PopupMouseAdapter extends MouseAdapter
 {

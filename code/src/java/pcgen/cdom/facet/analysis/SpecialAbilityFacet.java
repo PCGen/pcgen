@@ -36,7 +36,6 @@ import pcgen.core.SpecialAbility;
 /**
  * SpecialAbilityFacet tracks the SpecialAbility objects on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SpecialAbilityFacet extends
 		AbstractQualifiedListFacet<SpecialAbility> implements

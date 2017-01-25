@@ -47,7 +47,6 @@ import pcgen.util.enumeration.VisionType;
  * VisionFacet is a Facet that tracks the Vision objects that are contained in a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class VisionFacet extends
 		AbstractSourcedListFacet<CharID, QualifiedObject<Vision>> implements

@@ -28,7 +28,6 @@ import pcgen.core.PlayerCharacter;
  * PlayerCharacter while a transition is made to a system where the results of
  * object addition is handled entirely within facets.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ObjectAdditionFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

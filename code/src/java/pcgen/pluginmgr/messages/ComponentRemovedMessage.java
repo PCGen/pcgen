@@ -31,7 +31,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class ComponentRemovedMessage extends PCGenMessage
 {

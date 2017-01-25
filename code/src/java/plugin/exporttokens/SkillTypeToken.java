@@ -41,7 +41,6 @@ import java.util.List;
  * eg SKILLTYPE.2.KNOWLEDGE.RANK
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLTYPE

@@ -41,7 +41,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  * PreAbilityTester. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreAbilityTest extends AbstractCharacterTestCase
 {

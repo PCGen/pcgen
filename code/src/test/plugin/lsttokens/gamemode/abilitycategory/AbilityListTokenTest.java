@@ -42,7 +42,6 @@ import pcgen.rules.context.RuntimeReferenceContext;
  * AbilityListToken.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityListTokenTest extends TestCase
 {

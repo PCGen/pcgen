@@ -40,7 +40,6 @@ import junit.framework.TestCase;
  * a normal test.  
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PluginBuildTest extends TestCase
 {

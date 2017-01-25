@@ -36,7 +36,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitLevelAbility}.
  *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public final class KitLevelAbility extends BaseKit
 {

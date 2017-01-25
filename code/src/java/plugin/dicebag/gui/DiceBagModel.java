@@ -38,7 +38,6 @@ import pcgen.core.RollingMethods;
  * <p>The base data class of the DiceBag plugin.  This class maintains a single "Dice Bag," which
  * consists of an ordered list of dice expressions.</p>
  *
- * @author Ross Lodge
  */
 class DiceBagModel extends Observable
 {

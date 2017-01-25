@@ -32,7 +32,6 @@ import java.util.StringTokenizer;
 /**
  * {@code SkillRankTextToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class SkillRankTextToken implements GameModeLstToken
 {

@@ -29,7 +29,6 @@ import pcgen.output.publish.OutputDB;
  * GoldFacet is a Facet to track Gold in a simple, single monetary unit game
  * system.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GoldFacet extends AbstractItemFacet<CharID, BigDecimal> implements
 		ItemFacet<CharID, BigDecimal>

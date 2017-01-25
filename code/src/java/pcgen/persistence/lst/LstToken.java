@@ -27,7 +27,6 @@
 package pcgen.persistence.lst;
 
 /**
- * @author djones4
  */
 public interface LstToken
 {

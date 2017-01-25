@@ -12,7 +12,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * PrereqHandler class.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PrereqHandlerTest extends AbstractCharacterTestCase

@@ -39,7 +39,6 @@ import org.apache.commons.lang3.StringUtils;
  * This class is used to manage the properties of the PCGen application
  * itself, such as its version, release date, etc.
  *
- * @author sage_sam
  */
 public final class PCGenPropBundle
 {

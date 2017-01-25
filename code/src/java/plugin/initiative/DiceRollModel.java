@@ -24,7 +24,6 @@ package plugin.initiative;
  * or short description and the dice expression.
  * </p>
  * 
- * @author Ross M. Lodge
  *  
  */
 public class DiceRollModel extends PObjectModel

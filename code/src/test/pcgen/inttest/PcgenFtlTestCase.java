@@ -28,7 +28,6 @@ package pcgen.inttest;
  * output with the expected result.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public abstract class PcgenFtlTestCase extends pcGenGUITestCase
 {

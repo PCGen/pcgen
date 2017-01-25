@@ -50,7 +50,6 @@ import pcgen.system.PCGenSettings;
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DisplayOptionsPanel extends PCGenPrefsPanel

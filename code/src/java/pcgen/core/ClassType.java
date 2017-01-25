@@ -30,7 +30,6 @@ import pcgen.base.lang.UnreachableError;
  * {@code Campaign}.
  * A simple structure.
  *
- * @author Felipe Diniz &lt;fdiniz@users.sourceforge.net&gt;
  */
 public final class ClassType implements Cloneable
 {

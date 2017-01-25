@@ -49,7 +49,6 @@ import pcgen.util.TestHelper;
  * thus the calculations of armor class.  
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class ACTokenTest extends AbstractCharacterTestCase
 {

@@ -28,7 +28,6 @@ import pcgen.core.EquipmentModifier;
  * ActiveEqModFacet is a Facet that tracks the EqMods that are on Equipment
  * equipped by the PlayerCharacter.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ActiveEqModFacet extends
 		AbstractSourcedListFacet<CharID, EquipmentModifier> implements

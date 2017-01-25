@@ -24,7 +24,6 @@ import pcgen.cdom.helper.AvailableSpell;
  * ConditionallyKnownSpellFacet is a Facet that tracks the Known Spells (and
  * target objects) that are contained in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionallyKnownSpellFacet extends
 		AbstractQualifiedListFacet<AvailableSpell>

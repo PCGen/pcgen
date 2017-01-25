@@ -45,8 +45,6 @@ import pcgen.system.LanguageBundle;
 /**
  * View part (in MVC model) of the encounter plugin, a JPanel.
  * 
- * @author Soulcatcher
- * @author Vincent Lhote
  */
 public class EncounterView extends JPanel
 {

@@ -28,7 +28,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * This class handles the PREVIEWSHEET game mode token.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class PreviewSheetToken implements GameModeLstToken

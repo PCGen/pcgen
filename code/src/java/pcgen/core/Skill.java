@@ -43,7 +43,6 @@ import pcgen.facade.core.SkillFacade;
 /**
  * {@code Skill}.
  * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 		VarScoped
@@ -107,7 +106,6 @@ public final class Skill extends PObject implements SkillFacade, ChooseDriver,
 	 * A comparator for sorting bonuses which puts the bonuses in the order
 	 * bonuses to this skill, bonuses without prereqs, bonuses with prereqs.  
 	 *
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public final class SkillBonusComparator implements Comparator<BonusObj>
 	{

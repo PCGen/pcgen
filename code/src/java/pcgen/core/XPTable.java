@@ -30,7 +30,6 @@ import pcgen.facade.core.XPTableFacade;
 /**
  * {@code XPTable}.
  * 
- * @author Stefan Radermacher &lt;radermacher@netcologne.de&gt;
  */
 @SuppressWarnings("serial")
 public final class XPTable extends PObject implements XPTableFacade

@@ -37,7 +37,6 @@ import plugin.lsttokens.testsupport.TokenRegistration;
  * 
  * (Tue, 11 Nov 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class CampaignTest extends TestCase
 {

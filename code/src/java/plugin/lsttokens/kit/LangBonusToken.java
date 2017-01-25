@@ -39,7 +39,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * The Class {@code LangBonusToken} handles the LANGBONUS kit tag.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 		implements CDOMPrimaryToken<KitLangBonus>

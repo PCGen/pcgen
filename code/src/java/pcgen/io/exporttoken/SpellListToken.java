@@ -30,7 +30,6 @@ import java.util.StringTokenizer;
  * family of tokens.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class SpellListToken extends Token
 {

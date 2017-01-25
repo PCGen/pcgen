@@ -38,7 +38,6 @@ import pcgen.util.Logging;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignFileLoader extends PCGenTask
 {

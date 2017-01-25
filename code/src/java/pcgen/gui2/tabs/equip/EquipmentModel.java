@@ -58,7 +58,6 @@ import pcgen.gui2.util.JTreeTable;
  * The parent model for the selected panel. Maps the various equipment sets for
  * a character.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentModel implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>,
 		TableModelListener

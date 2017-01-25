@@ -27,7 +27,6 @@ import java.util.logging.LogRecord;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class LoggingRecorder extends FileHandler
 {

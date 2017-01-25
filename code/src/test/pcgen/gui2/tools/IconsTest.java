@@ -29,7 +29,6 @@ import org.junit.Test;
 
 /**
  *
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class IconsTest extends TestCase
 {

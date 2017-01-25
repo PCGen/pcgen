@@ -36,7 +36,6 @@ import pcgen.base.lang.StringUtil;
  * primary and off-hand by a slash, and the same with crit multiples
  * and ranges.</p>
  *
- * @author Ross M. Lodge
  */
 public class AttackModel extends PObjectModel
 {

@@ -62,7 +62,6 @@ import pcgen.util.TestHelper;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class DataTest

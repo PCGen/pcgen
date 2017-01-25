@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 /**
  *
- * @author  devon
  */
 public class Rule extends ArrayList<String> implements DataElement
 {

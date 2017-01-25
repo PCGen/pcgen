@@ -36,7 +36,6 @@ import pcgen.util.enumeration.Tab;
  * to be implemented Seplls tab.
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellsInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler

@@ -29,7 +29,6 @@ import pcgen.facade.core.EquipmentFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentSelection implements Transferable
 {

@@ -29,7 +29,6 @@ import javax.swing.Icon;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class MultiLineTextIcon implements Icon
 {

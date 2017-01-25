@@ -33,7 +33,6 @@ import pcgen.facade.util.ListFacade;
  * piece of custom equipment.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface EquipmentBuilderFacade
 {

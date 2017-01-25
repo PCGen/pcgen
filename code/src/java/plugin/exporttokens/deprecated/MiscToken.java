@@ -8,7 +8,6 @@ import pcgen.io.exporttoken.Token;
 
 
 /**
- * @author karianna
  * Class deals with MISC Token
  */
 public class MiscToken extends Token

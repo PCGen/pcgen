@@ -66,7 +66,6 @@ import pcgen.util.enumeration.View;
  * equipment without direct interaction with the core.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EquipmentBuilderFacadeImpl implements EquipmentBuilderFacade
 {

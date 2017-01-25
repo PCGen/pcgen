@@ -112,7 +112,6 @@ import pcgen.util.enumeration.Tab;
  * This component displays a basic summary of a character such as name,
  * alignment, race, class, and stat information.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHandler

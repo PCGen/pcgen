@@ -57,7 +57,6 @@ import pcgen.system.LanguageBundle;
  * the character stats preferences.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CharacterStatsPanel extends PCGenPrefsPanel
