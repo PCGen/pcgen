@@ -15,26 +15,22 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 16/11/2010 08:15:00
- *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
 import java.awt.Color;
+import java.awt.Container;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
 import javax.swing.JColorChooser;
 import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.border.Border;
 import javax.swing.border.TitledBorder;
 
 import pcgen.core.Globals;
@@ -82,25 +78,22 @@ public class ColorsPanel extends PCGenPrefsPanel
 	private JButton sourceStatusBeta;
 	private JButton sourceStatusTest;
 
-	private PrefsButtonListener prefsButtonHandler = new PrefsButtonListener();
+	private final ActionListener prefsButtonHandler = new PrefsButtonListener();
 
 	/**
 	 * Instantiates a new colors panel.
 	 */
 	public ColorsPanel()
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
-		Border etched = null;
 		TitledBorder title1 =
-				BorderFactory.createTitledBorder(etched, in_color);
+				BorderFactory.createTitledBorder(null, in_color);
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		this.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		this.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.WEST;
 		c.insets = new Insets(2, 2, 2, 2);
@@ -142,8 +135,8 @@ public class ColorsPanel extends PCGenPrefsPanel
 	}
 
 	private int addColorsOption(int col, final GridBagConstraints c,
-		final GridBagLayout gridbag, final JPanel colorsPanel,
-		final JButton button)
+		final GridBagLayout gridbag, final Container colorsPanel,
+		final AbstractButton button)
 	{
 		Utility.buildConstraints(c, 0, col++, 1, 1, 0, 0);
 		gridbag.setConstraints(button, c);
@@ -201,7 +194,7 @@ public class ColorsPanel extends PCGenPrefsPanel
 		@Override
 		public void actionPerformed(ActionEvent actionEvent)
 		{
-			JButton source = (JButton) actionEvent.getSource();
+			AbstractButton source = (AbstractButton) actionEvent.getSource();
 
 			if (source == null)
 			{

@@ -401,7 +401,7 @@ public class TempBonusHelper
 		{
 			// need to parse the aChoice string
 			// and replace %CHOICE with choice
-			if (value.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+			if (value.contains("%CHOICE")) //$NON-NLS-1$
 			{
 				value = value.replaceAll(
 						Pattern.quote("%CHOICE"), //$NON-NLS-1$ 
@@ -450,7 +450,7 @@ public class TempBonusHelper
 
 			// need to parse the bonus.getValue()
 			// string and replace %CHOICE
-			if (oldValue.indexOf("%CHOICE") >= 0) //$NON-NLS-1$
+			if (oldValue.contains("%CHOICE")) //$NON-NLS-1$
 			{
 				value = oldValue.replaceAll(Pattern.quote("%CHOICE"), //$NON-NLS-1$
 					aI);

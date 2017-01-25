@@ -56,9 +56,6 @@ public class ColumnFormatFactory implements FormatManagerFactory
 		this.database = objDatabase;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> build(String subFormatName,
 		FormatManagerLibrary library)
@@ -82,9 +79,6 @@ public class ColumnFormatFactory implements FormatManagerFactory
 			library.getFormatManager(subFormatName));
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getBuilderBaseFormat()
 	{

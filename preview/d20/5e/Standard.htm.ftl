@@ -359,46 +359,25 @@ ${pcstring('MOVE.${movement}.NAME')}&nbsp;${pcstring('MOVE.${movement}.RATE')}
 <!-- STOP Initiative Table -->
   </td>
   <td width="20%" valign="top" >
-<!-- START Base Attack Table -->
-   <table summary="Base Attack Table">
+<!-- START Proficiency Bonus Table -->
+   <table summary="Proficiency Bonus Table">
     <tr>
-     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>BASE ATTACK</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
-     <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('ATTACK.MELEE')}<br /></b></font></td>
+     <td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>PROFICIENCY</b></font><font style="font-size:5pt" color="white"><br />Bonus</font></td>
+     <td align="center" width="94" class="border"><font style="font-size: small"><b>+${pcstring('VAR.Proficiency_Bonus.INTVAL')}<br /></b></font></td>
      <td align="center" width="50%"><br /></td>
     </tr>
    </table>
-<!-- STOP Base Attack Table -->
+<!-- STOP Proficiency Bonus Table -->
   </td>
   <td width="60%" valign="top">
 <!-- START Misc Stat Table -->
       <table summary="Misc Stat Table">
         <tr>
-          <td align="center" class="border9"><br /></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SPELLFAILURE')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('ACCHECK')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('MAXDEX')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>${pcstring('SR')}</b></td>
-          <td align="center"></td>
-          <td align="center" class="border9"><b>&nbsp;</b></td>
-          </tr>
-        <tr>
-          <td align="center" width="25" class="font6">MISS<br />CHANCE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARCANE<br />FAILURE</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">ARMOR<br />CHECK</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">MAX<br />DEX</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">SPELL<br />RESIST.</td>
-          <td align="center"></td>
-          <td align="center" width="25" class="font6">TEMP</td>
-          </tr>
-        </table>
+					<td align="center" bgcolor="black"><font style="font-size:9pt" color="white"><b>HIT&nbsp;DIE</b></font></font></td>
+		      <td align="center" width="94" class="border"><font style="font-size: small"><b>${pcstring('TEXT.REPLACEFIRST{^.*;,}.HITDICE.MEDIUM')}<br /></b></font></td>
+		      <td align="center" width="50%"><br /></td>
+        </tr>
+      </table>
 <!-- STOP Misc Stat Table -->
   </td>
   </tr>

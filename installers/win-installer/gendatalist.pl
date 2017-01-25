@@ -153,7 +153,7 @@ NAME:	foreach $filename (@nondots)
 		@subdirlist =  readdir(DIR);
 		closedir DIR;
 
-		# Skip any pub directories that are empty (., .., .svn only contents)		
+		# Skip any pub directories that are empty (., ..)
 		if (scalar(grep( !/^\..*$/, @subdirlist)) == 0)
 		{
 			next NAME;

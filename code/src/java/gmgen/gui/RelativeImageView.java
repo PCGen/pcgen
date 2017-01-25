@@ -6,21 +6,43 @@
  */
 package gmgen.gui;
 
+import java.awt.Color;
+import java.awt.Container;
+import java.awt.Graphics;
+import java.awt.Image;
+import java.awt.Rectangle;
+import java.awt.Shape;
+import java.awt.Toolkit;
+import java.awt.image.ImageObserver;
+import java.io.BufferedInputStream;
+import java.io.ByteArrayOutputStream;
+import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Dictionary;
+
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import javax.swing.SwingUtilities;
 import javax.swing.event.DocumentEvent;
-import javax.swing.text.*;
+import javax.swing.text.AbstractDocument;
+import javax.swing.text.AttributeSet;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.swing.text.Highlighter;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.LayeredHighlighter;
+import javax.swing.text.Position;
+import javax.swing.text.Segment;
+import javax.swing.text.StyledDocument;
+import javax.swing.text.View;
+import javax.swing.text.ViewFactory;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.InlineView;
 import javax.swing.text.html.StyleSheet;
-import java.awt.*;
-import java.awt.image.ImageObserver;
-import java.io.*;
-import java.net.MalformedURLException;
-import java.net.URL;
-import java.util.Dictionary;
 
 /**
  * View of an Image, intended to support the HTML &lt;IMG&gt; tag.
@@ -233,28 +255,6 @@ public class RelativeImageView extends View implements ImageObserver
 	}
 
 	/**
-	 * Sets how the image is loaded. If {@code newValue} is true,
-	 * the image we be loaded when first asked for, otherwise it will
-	 * be loaded asynchronously. The default is to not load synchronously,
-	 * that is to load the image asynchronously.
-	 * @param newValue
-	 */
-	public void setLoadsSynchronously(boolean newValue)
-	{
-		synchronized (this)
-		{
-			if (newValue)
-			{
-				state |= SYNC_LOAD_FLAG;
-			}
-			else
-			{
-				state = (state | SYNC_LOAD_FLAG) ^ SYNC_LOAD_FLAG;
-			}
-		}
-	}
-
-	/**
 	 * Returns true if the image should be loaded when first asked for.
 	 * @return true or false
 	 */
@@ -313,15 +313,11 @@ public class RelativeImageView extends View implements ImageObserver
 		// If the attributes specified a width/height, always use it!
 		if ((axis == View.X_AXIS) && ((state & WIDTH_FLAG) == WIDTH_FLAG))
 		{
-			getPreferredSpanFromAltView(axis);
-
 			return width + leftInset + rightInset;
 		}
 
 		if ((axis == View.Y_AXIS) && ((state & HEIGHT_FLAG) == HEIGHT_FLAG))
 		{
-			getPreferredSpanFromAltView(axis);
-
 			return height + topInset + bottomInset;
 		}
 
@@ -790,27 +786,6 @@ public class RelativeImageView extends View implements ImageObserver
 	private boolean isLink()
 	{
 		return ((state & LINK_FLAG) == LINK_FLAG);
-	}
-
-	/**
-	 * Returns the preferred span of the View used to display the alt text,
-	 * or 0 if the view does not exist.
-	 * @param axis
-	 * @return float
-	 */
-	private float getPreferredSpanFromAltView(int axis)
-	{
-		if (getImage() == null)
-		{
-			View view = getAltView();
-
-			if (view != null)
-			{
-				return view.getPreferredSpan(axis);
-			}
-		}
-
-		return 0.0f;
 	}
 
 	/** Determines if path is in the form of a URL

@@ -691,7 +691,7 @@ class AdvancedSourceSelectionPanel extends JPanel
 	}
 
 	/**
-	 * The Class <code>CampaignRenderer</code> displays the tree cells of the
+	 * The Class {@code CampaignRenderer} displays the tree cells of the
 	 * source table.  
 	 */
 	private class CampaignRenderer extends TreeColumnCellRenderer

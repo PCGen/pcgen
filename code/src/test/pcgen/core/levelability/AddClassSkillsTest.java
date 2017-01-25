@@ -46,14 +46,16 @@ import pcgen.core.Globals;
 import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
-import pcgen.core.Race;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.util.TestHelper;
 
-import org.junit.Assert;
+import org.junit.After;
+import org.junit.Before;
+import org.junit.Test;
+
 
 /**
  * Tests for Level Ability Class Skills
@@ -63,13 +65,12 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 {
 
 	PCClass pcClass;
-	Race emptyRace = new Race();
 	boolean firstTime = true;
 
 	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
-	@Override
+	@Before
 	protected void setUp() throws Exception
 	{
 		super.setUp();
@@ -98,6 +99,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	 * @see pcgen.AbstractCharacterTestCase#tearDown()
 	 */
 	@Override
+	@After
 	protected void tearDown() throws Exception
 	{
 		pcClass = null;
@@ -107,6 +109,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testBasicChoicesList()
 	{
 		PCClass po = new PCClass();
@@ -135,6 +138,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithParens()
 	{
 		PCClass po = new PCClass();
@@ -163,6 +167,7 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 	/**
 	 * Test method for 'pcgen.core.levelability.LevelAbilityClassSkills.getChoicesList(String, PlayerCharacter)'
 	 */
+	@Test
 	public void testGetChoicesListWithClassSkill()
 	{
 		CampaignSourceEntry source;
@@ -224,8 +229,8 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		Assert.assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
 
-	private PCClass parsePCClassText(String classPCCText,
-			CampaignSourceEntry source) throws PersistenceLayerException
+	private static PCClass parsePCClassText(String classPCCText,
+											CampaignSourceEntry source) throws PersistenceLayerException
 		{
 			PCClassLoader pcClassLoader = new PCClassLoader();
 			PCClass reconstClass = null;

@@ -37,16 +37,17 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import junit.framework.TestCase;
+import org.junit.Test;
+
 public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 {
-
-	private SimpleFormatManagerLibrary formatLibrary;
 
 	@Override
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		formatLibrary = new SimpleFormatManagerLibrary();
+		SimpleFormatManagerLibrary formatLibrary = new SimpleFormatManagerLibrary();
 		FormatUtilities.loadDefaultFormats(formatLibrary);
 		getFunctionLibrary().addFunction(new DropIntoContext());
 		getOperatorLibrary().addAction(new NumberMinus());
@@ -58,9 +59,9 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		String formula = "dropIntoContext(\"EQUIPMENT\")";
 		SimpleNode node = TestUtilities.doParse(formula);
 		isNotValid(formula, node, numberManager, null);
-		formula = "dropIntoContext(\"EQUIPMENT\", \"Foo\", 4, 5)";
-		node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		String s = "dropIntoContext(\"EQUIPMENT\", \"Foo\", 4, 5)";
+		SimpleNode simpleNode = TestUtilities.doParse(s);
+		isNotValid(s, simpleNode, numberManager, null);
 	}
 
 	@Test
