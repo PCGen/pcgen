@@ -20,6 +20,8 @@
  package pcgen.gui2.doomsdaybook;
 
 import java.awt.BorderLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.FlowLayout;
 import java.awt.Insets;
 import java.awt.datatransfer.Clipboard;
@@ -40,6 +42,7 @@ import java.util.Set;
 import java.util.Vector;
 import java.util.prefs.Preferences;
 
+import javax.swing.AbstractButton;
 import javax.swing.BoxLayout;
 import javax.swing.ComboBoxModel;
 import javax.swing.DefaultComboBoxModel;
@@ -168,7 +171,7 @@ public class NameGenPanel extends JPanel
 				rule = (Rule) cbStructure.getSelectedItem();
 			}
 
-			ArrayList<DataValue> aName = rule.getData();
+			Iterable<DataValue> aName = rule.getData();
 			setNameText(aName);
 			setMeaningText(aName);
 			setPronounciationText(aName);
@@ -206,11 +209,6 @@ public class NameGenPanel extends JPanel
 		namePrefs.putDouble("SubVersion", 0);
 	}
 
-	private void setMeaningText(String meaning)
-	{
-		this.meaning.setText(meaning);
-	}
-
 	private void setMeaningText(Iterable<DataValue> data)
 	{
 		StringBuilder meaningBuffer = new StringBuilder();
@@ -227,7 +225,7 @@ public class NameGenPanel extends JPanel
 			meaningBuffer.append(aMeaning);
 		}
 
-		setMeaningText(meaningBuffer.toString());
+		meaning.setText(meaningBuffer.toString());
 	}
 
 	private void setNameText(String name)
@@ -248,11 +246,6 @@ public class NameGenPanel extends JPanel
 		setNameText(nameBuffer.toString());
 	}
 
-	private void setPronounciationText(String pronounciation)
-	{
-		this.pronounciation.setText(pronounciation);
-	}
-
 	private void setPronounciationText(Iterable<DataValue> data)
 	{
 		StringBuilder proBuffer = new StringBuilder();
@@ -269,7 +262,7 @@ public class NameGenPanel extends JPanel
 			proBuffer.append(aPronounciation);
 		}
 
-		setPronounciationText(proBuffer.toString());
+		pronounciation.setText(proBuffer.toString());
 	}
 
 	private void NameButtonActionPerformed(ActionEvent evt)
@@ -368,7 +361,7 @@ public class NameGenPanel extends JPanel
 
 				if (ele.getTitle() != null)
 				{
-					NameButton nb = new NameButton(ele);
+					AbstractButton nb = new NameButton(ele);
 					nb.addActionListener(this::NameButtonActionPerformed);
 					buttonPanel.add(nb);
 				}
@@ -520,16 +513,16 @@ public class NameGenPanel extends JPanel
 		jPanel7.add(jPanel12, BorderLayout.CENTER);
 		jPanel7.add(new JSeparator(), BorderLayout.SOUTH);
 
-		JPanel adjustNamePanel = new JPanel();
+		Container adjustNamePanel = new JPanel();
 		adjustNamePanel.setLayout(new BorderLayout());
 		
-		JLabel adjNameLabel = new JLabel(LanguageBundle.getString("in_rndNameAdjust")); //$NON-NLS-1$
+		Component adjNameLabel = new JLabel(LanguageBundle.getString("in_rndNameAdjust")); //$NON-NLS-1$
 		
 		adjustNamePanel.add(adjNameLabel, BorderLayout.NORTH);
 		
 		buttonPanel.setLayout(new FlowLayout(FlowLayout.LEFT));
 		// CODE-2099 Component needed to have correct vertical space available.
-		JLabel nb = new JLabel(" "); //$NON-NLS-1$
+		Component nb = new JLabel(" "); //$NON-NLS-1$
 		buttonPanel.add(nb);
 
 		adjustNamePanel.add(buttonPanel, BorderLayout.CENTER);
@@ -564,8 +557,8 @@ public class NameGenPanel extends JPanel
 
 		nameDisplayPanel.add(nameSubInfoPanel, BorderLayout.SOUTH);
 
-		JLabel nameTitleLabel = new JLabel(LanguageBundle.getString("in_sumName")); //$NON-NLS-1$
-		JPanel nameTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
+		Component nameTitleLabel = new JLabel(LanguageBundle.getString("in_sumName")); //$NON-NLS-1$
+		Container nameTitlePanel = new JPanel(new FlowLayout(FlowLayout.LEFT));
 		nameTitlePanel.add(nameTitleLabel);
 
 		JPanel topPanel = new JPanel();
@@ -612,7 +605,7 @@ public class NameGenPanel extends JPanel
 		{
 			String catKey = (String) cbCategory.getSelectedItem();
 			String sexKey = (String) cbSex.getSelectedItem();
-			RuleSet oldRS = (RuleSet) cbCatalog.getSelectedItem();
+			DataElement oldRS = (RuleSet) cbCatalog.getSelectedItem();
 			String catalogKey = "";
 
 			if (oldRS != null)
@@ -658,7 +651,7 @@ public class NameGenPanel extends JPanel
 	}
 
 	//	Get a list of all the gender categories in the category map
-	private Vector<String> getGenderCategoryNames()
+	private List<String> getGenderCategoryNames()
 	{
 		Vector<String> genders = new Vector<>();
 		Set<String> keySet = categories.keySet();
@@ -747,7 +740,7 @@ public class NameGenPanel extends JPanel
 		{
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
-			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
+			EntityResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
 			for (File dataFile : dataFiles)
@@ -883,33 +876,29 @@ public class NameGenPanel extends JPanel
 			Element child = (Element) element;
 			String elementName = child.getName();
 
-			if (elementName.equals("GETLIST"))
+			if (elementName.equals("GETLIST") || elementName.equals("GETRULE"))
 			{
 				String listId = child.getAttributeValue("idref");
 				dataRule.add(listId);
 			}
-			else if (elementName.equals("SPACE"))
+			else
 			{
-				SpaceRule sp = new SpaceRule();
+				DataElement sp;
+				switch (elementName)
+				{
+					case "SPACE":
+						sp = new SpaceRule();
+						break;
+					case "HYPHEN":
+						sp = new HyphenRule();
+						break;
+					case "CR":
+						sp = new CRRule();
+						break;
+				}
+
 				allVars.addDataElement(sp);
 				dataRule.add(sp.getId());
-			}
-			else if (elementName.equals("HYPHEN"))
-			{
-				HyphenRule hy = new HyphenRule();
-				allVars.addDataElement(hy);
-				dataRule.add(hy.getId());
-			}
-			else if (elementName.equals("CR"))
-			{
-				CRRule cr = new CRRule();
-				allVars.addDataElement(cr);
-				dataRule.add(cr.getId());
-			}
-			else if (elementName.equals("GETRULE"))
-			{
-				String ruleId = child.getAttributeValue("idref");
-				dataRule.add(ruleId);
 			}
 		}
 
@@ -971,7 +960,7 @@ public class NameGenPanel extends JPanel
 				}
 			}
 
-			DefaultComboBoxModel structModel = new DefaultComboBoxModel(struct);
+			ComboBoxModel structModel = new DefaultComboBoxModel(struct);
 			cbStructure.setModel(structModel);
 			cbStructure.setEnabled(true);
 		}
