@@ -1,5 +1,4 @@
 /*
- * SettingsHandler.java
  * Copyright 2001 (C) Jonas Karlsson
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on July 10, 2002, 2:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -27,6 +21,8 @@ import java.awt.Color;
 import java.awt.Dimension;
 import java.awt.Frame;
 import java.awt.Point;
+import java.awt.geom.Dimension2D;
+import java.awt.geom.Point2D;
 import java.io.File;
 import java.io.FileInputStream;
 import java.io.FileNotFoundException;
@@ -36,24 +32,27 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
+import java.util.Map.Entry;
 import java.util.Properties;
 import java.util.StringTokenizer;
+
 import javax.swing.SwingConstants;
-import org.apache.commons.lang3.SystemUtils;
+
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.SourceFormat;
 import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
-import pcgen.core.utils.SortedProperties;
 import pcgen.persistence.PersistenceManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * This class contains all settings-related code moved from Globals.java
@@ -67,97 +66,86 @@ import pcgen.util.Logging;
  **/
 public final class SettingsHandler
 {
-	private static boolean autoFeatsRefundable = false;
-	private static boolean autogenExoticMaterial = false;
-	private static boolean autogenMagic = false;
-	private static boolean autogenMasterwork = false;
-	private static boolean autogenRacial = false;
-	public static boolean validateBonuses = false;
+	private static boolean autoFeatsRefundable;
+	private static boolean autogenExoticMaterial;
+	private static boolean autogenMagic;
+	private static boolean autogenMasterwork;
+	private static boolean autogenRacial;
+	public static boolean validateBonuses;
 
 	//
 	// For EqBuilder
 	//
 	private static int maxPotionSpellLevel = Constants.DEFAULT_MAX_POTION_SPELL_LEVEL;
 	private static int maxWandSpellLevel   = Constants.DEFAULT_MAX_WAND_SPELL_LEVEL;
-	private static boolean allowMetamagicInCustomizer = false;
-	private static boolean spellMarketPriceAdjusted = false;
+	private static boolean allowMetamagicInCustomizer;
+	private static boolean spellMarketPriceAdjusted;
 
 	// Map of RuleCheck keys and their settings
-	private static Map<String, String> ruleCheckMap = new HashMap<>();
+	private static final Map<String, String> ruleCheckMap = new HashMap<>();
 
 	/** That browserPath is set to null is intentional. */
-	private static String browserPath = null; //Intentional null
+	private static String browserPath; //Intentional null
 
 	/**
 	 *  See @javax.swing.SwingConstants.
 	 */
 	private static int chaTabPlacement = SwingConstants.TOP;
-	private static Dimension customizerDimension = null;
-	private static Point customizerLeftUpperCorner = null;
+	private static Dimension customizerDimension;
+	private static Point customizerLeftUpperCorner;
 	private static int customizerSplit1 = -1;
 	private static int customizerSplit2 = -1;
-	private static boolean enforceSpendingBeforeLevelUp = false;
+	private static boolean enforceSpendingBeforeLevelUp;
 	private static final Properties FILTERSETTINGS = new Properties();
 	public static GameMode game = new GameMode("default");
-	private static boolean grimHPMode = false;
-	private static boolean grittyACMode = false;
-	private static Dimension kitSelectorDimension = null;
-	private static Point kitSelectorLeftUpperCorner = null;
+	private static boolean grimHPMode;
+	private static boolean grittyACMode;
+	private static Dimension kitSelectorDimension;
+	private static Point kitSelectorLeftUpperCorner;
 	private static boolean useWaitCursor = true;
-	private static boolean loadURLs = false;
+	private static boolean loadURLs;
 	private static boolean hpMaxAtFirstLevel = true;
 	private static boolean hpMaxAtFirstClassLevel = true;
 	private static boolean hpMaxAtFirstPCClassLevelOnly = true;
 	private static int hpRollMethod = Constants.HP_STANDARD;
 	private static int hpPercent    = Constants.DEFAULT_HP_PERCENT;
-	private static boolean ignoreMonsterHDCap = false;
+	private static boolean ignoreMonsterHDCap;
 
 	private static String invalidDmgText;
 	private static String invalidToHitText;
-	private static boolean gearTab_IgnoreCost = false;
-	private static boolean gearTab_AutoResize = false;
-	private static boolean gearTab_AllowDebt  = false;
+	private static boolean gearTab_IgnoreCost;
+	private static boolean gearTab_AutoResize;
+	private static boolean gearTab_AllowDebt;
 	private static int gearTab_SellRate = Constants.DEFAULT_GEAR_TAB_SELL_RATE;
 	private static int gearTab_BuyRate  = Constants.DEFAULT_GEAR_TAB_BUY_RATE;
-	private static boolean isROG = false;
-	private static Point leftUpperCorner = null;
+	private static boolean isROG;
+	private static Point leftUpperCorner;
 	private static int windowState = Frame.NORMAL;
 	private static int looknFeel = 1; // default to Java L&F
-	private static final SortedProperties options = new SortedProperties();
+	private static final Properties options = new Properties();
 	private static final Properties filepaths = new Properties();
 	private static final String fileLocation = Globals.getFilepathsPath();
-	private static File pccFilesLocation = null;
-	private static File pcgPath = new File(Globals.getDefaultPath());
-	private static File lastUsedPcgPath = null; // NB: This is not saved to preferences 
-	private static File backupPcgPath = null;
+	private static File pccFilesLocation;
+	private static File backupPcgPath;
 	private static boolean createPcgBackup = true;
 	private static File portraitsPath = new File(Globals.getDefaultPath());
-	private static File pcgenSponsorDir =
+	private static final File pcgenSponsorDir =
 		new File(Globals.getDefaultPath()
 			+ File.separator + "system" //$NON-NLS-1$
 			+ File.separator + "sponsors"); //$NON-NLS-1$
 
-	/**
-	 * Where to load the system lst files from.
-	 */
-	private static File pcgenOutputSheetDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "outputsheets"); //$NON-NLS-1$
 	private static File gmgenPluginDir =
 		new File(Globals.getDefaultPath()
 			+ File.separator + "plugins"); //$NON-NLS-1$
 	private static int prereqQualifyColor = Constants.DEFAULT_PREREQ_QUALIFY_COLOUR;
 	private static int prereqFailColor    = Constants.DEFAULT_PREREQ_FAIL_COLOUR;
-	private static boolean previewTabShown = false;
-	private static File pcgenPreviewDir =
-		new File(Globals.getDefaultPath()
-			+ File.separator + "preview");//$NON-NLS-1$
+	private static boolean previewTabShown;
 
-/////////////////////////////////////////////////
-	private static boolean saveCustomInLst = false;
+	/////////////////////////////////////////////////
+	private static boolean saveCustomInLst;
 	private static String selectedCharacterHTMLOutputSheet = ""; //$NON-NLS-1$
 	private static String selectedCharacterPDFOutputSheet = ""; //$NON-NLS-1$
-	private static boolean saveOutputSheetWithPC = false;
+	private static boolean saveOutputSheetWithPC;
 	private static boolean printSpellsWithPC = true;
 	private static String selectedPartyHTMLOutputSheet = ""; //$NON-NLS-1$
 	private static String selectedPartyPDFOutputSheet = ""; //$NON-NLS-1$
@@ -167,87 +155,88 @@ public final class SettingsHandler
 	private static boolean showHPDialogAtLevelUp = true;
 	private static boolean showStatDialogAtLevelUp = true;
 	private static boolean showToolBar = true;
-	private static boolean showSkillModifier = false;
-	private static boolean showSkillRanks = false;
+	private static boolean showSkillModifier;
+	private static boolean showSkillRanks;
 	private static boolean showWarningAtFirstLevelUp = true;
-	private static String skinLFThemePack = null;
-	private static boolean alwaysOverwrite = false;
+	private static String skinLFThemePack;
+	private static boolean alwaysOverwrite;
 	private static String defaultOSType = ""; //$NON-NLS-1$
 
-	/**
-	 *  See @javax.swing.SwingConstants
-	 */
 	private static int tabPlacement = SwingConstants.BOTTOM;
-	private static final String tmpPath = System.getProperty("java.io.tmpdir"); //$NON-NLS-1$
-	private static final File tempPath = new File(getTmpPath());
-	private static boolean useHigherLevelSlotsDefault = false;
-	private static boolean wantToLoadMasterworkAndMagic = false;
+	private static final File tempPath;
+
+	static
+	{
+		tempPath = new File(System.getProperty("java.io.tmpdir"));
+	}
+
+	private static boolean useHigherLevelSlotsDefault;
+	private static boolean wantToLoadMasterworkAndMagic;
 	private static int nameDisplayStyle = Constants.DISPLAY_STYLE_NAME;
 	private static boolean weaponProfPrintout = Constants.DEFAULT_PRINTOUT_WEAPONPROF;
 	private static String postExportCommandStandard = ""; //$NON-NLS-1$
 	private static String postExportCommandPDF = ""; //$NON-NLS-1$
-	private static boolean hideMonsterClasses = false;
-	private static boolean guiUsesOutputNameEquipment = false;
-	private static boolean guiUsesOutputNameSpells = false;
+	private static boolean hideMonsterClasses;
+	private static boolean guiUsesOutputNameEquipment;
+	private static boolean guiUsesOutputNameSpells;
 	private static int lastTipShown = -1;
-	private static boolean showMemoryArea = false;
+	private static final boolean showMemoryArea = false;
 	private static boolean showImagePreview = true;
 	private static boolean showTipOfTheDay = true;
-	private static boolean isGMGen = false;
-	private static boolean showSingleBoxPerBundle = false;
+	private static boolean showSingleBoxPerBundle;
 
-
-	public static String getSelectedGenerators(String string)
+	private SettingsHandler()
 	{
-		throw new UnsupportedOperationException("Not yet implemented");
 	}
 
-	public static void setSelectedGenerators(String prop, String generators)
-	{
-		throw new UnsupportedOperationException("Not yet implemented");
-	}
 
+	/**
+	 * Method setAlwaysOverwrite sets the alwaysOverwrite of this SettingsHandler object.
+	 * @param argAlwaysOverwrite the alwaysOverwrite of this SettingsHandler object.
+	 *
+	 */
 	public static void setAlwaysOverwrite(final boolean argAlwaysOverwrite)
 	{
 		alwaysOverwrite = argAlwaysOverwrite;
 	}
 
+	/**
+	 * Method getAlwaysOverwrite returns the alwaysOverwrite of this SettingsHandler
+	 * object.
+	 * @return the alwaysOverwrite (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean getAlwaysOverwrite()
 	{
 		return alwaysOverwrite;
 	}
 
-	public static void setDefaultOSType(final String argDefaultOSType)
-	{
-		defaultOSType = argDefaultOSType;
-	}
-
-	public static String getDefaultOSType()
-	{
-		return defaultOSType;
-	}
-
+	/**
+	 * Method setAutogen ...
+	 *
+	 * @param idx of type int
+	 * @param bFlag of type boolean
+	 */
 	public static void setAutogen(final int idx, final boolean bFlag)
 	{
 		switch (idx)
 		{
 			case Constants.AUTOGEN_RACIAL:
-				setAutogenRacial(bFlag);
+				autogenRacial = bFlag;
 
 				break;
 
 			case Constants.AUTOGEN_MASTERWORK:
-				setAutogenMasterwork(bFlag);
+				autogenMasterwork = bFlag;
 
 				break;
 
 			case Constants.AUTOGEN_MAGIC:
-				setAutogenMagic(bFlag);
+				autogenMagic = bFlag;
 
 				break;
 
 			case Constants.AUTOGEN_EXOTIC_MATERIAL:
-				setAutogenExoticMaterial(bFlag);
+				autogenExoticMaterial = bFlag;
 
 				break;
 
@@ -256,6 +245,12 @@ public final class SettingsHandler
 		}
 	}
 
+	/**
+	 * Method getAutogen ...
+	 *
+	 * @param idx of type int
+	 * @return boolean
+	 */
 	public static boolean getAutogen(final int idx)
 	{
 		if (!wantToLoadMasterworkAndMagic())
@@ -263,16 +258,16 @@ public final class SettingsHandler
 			switch (idx)
 			{
 				case Constants.AUTOGEN_RACIAL:
-					return isAutogenRacial();
+					return autogenRacial;
 
 				case Constants.AUTOGEN_MASTERWORK:
-					return isAutogenMasterwork();
+					return autogenMasterwork;
 
 				case Constants.AUTOGEN_MAGIC:
-					return isAutogenMagic();
+					return autogenMagic;
 
 				case Constants.AUTOGEN_EXOTIC_MATERIAL:
-					return isAutogenExoticMaterial();
+					return autogenExoticMaterial;
 
 				default:
 					break;
@@ -283,163 +278,85 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the path to the backup directory for character files.
+	 * Method setChaTabPlacement sets the chaTabPlacement of this SettingsHandler object.
 	 *
-	 * @param  path  the {@code File} representing the path
+	 *   See @javax.swing.SwingConstants.
+	 *
+	 * @param argChaTabPlacement the chaTabPlacement of this SettingsHandler object.
+	 *
 	 */
-	public static void setBackupPcgPath(final File path)
-	{
-		backupPcgPath = path;
-	}
-
-	/**
-	 * Returns the path to the backup directory for character files.
-	 *
-	 * @return    the {@code backupPcgPath} property
-	 */
-	public static File getBackupPcgPath()
-	{
-		return backupPcgPath;
-	}
-
-	/**
-	 * Sets the external browser path to use.
-	 *
-	 * @param  path  the {@code String} representing the path
-	 **/
-	public static void setBrowserPath(final String path)
-	{
-		browserPath = path;
-	}
-
-	/**
-	 * Returns the external browser path to use.
-	 *
-	 * @return    the {@code browserPath} property
-	 */
-	public static String getBrowserPath()
-	{
-		return browserPath;
-	}
-
 	public static void setChaTabPlacement(final int argChaTabPlacement)
 	{
 		chaTabPlacement = argChaTabPlacement;
 	}
 
+	/**
+	 * Method getChaTabPlacement returns the chaTabPlacement of this SettingsHandler
+	 * object.
+	 *
+	 *   See @javax.swing.SwingConstants.
+	 *
+	 * @return the chaTabPlacement (type int) of this SettingsHandler object.
+	 */
 	public static int getChaTabPlacement()
 	{
 		return chaTabPlacement;
 	}
 
 	/**
-	 * Sets the flag to determine whether PCGen should backup pcg files before saving
-	 *
-	 * @param  argCreatePcgBackup  the {@code flag}
+	 * Method getCustomizerDimension returns the customizerDimension of this
+	 * SettingsHandler object.
+	 * @return the customizerDimension (type Dimension2D) of this SettingsHandler object.
 	 */
-	public static void setCreatePcgBackup(final boolean argCreatePcgBackup)
-	{
-		createPcgBackup = argCreatePcgBackup;
-	}
-
-	/**
-	 * Returns the flag to determine whether PCGen should backup pcg files before saving
-	 *
-	 * @return    the {@code createPcgBackup} property
-	 */
-	public static boolean getCreatePcgBackup()
-	{
-		return createPcgBackup;
-	}
-
-	public static void setCustomizerDimension(final Dimension d)
-	{
-		customizerDimension = d;
-	}
-
-	public static Dimension getCustomizerDimension()
+	private static Dimension2D getCustomizerDimension()
 	{
 		return customizerDimension;
 	}
 
-	public static void setCustomizerLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		customizerLeftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getCustomizerLeftUpperCorner()
+	/**
+	 * Method getCustomizerLeftUpperCorner returns the customizerLeftUpperCorner of this
+	  * SettingsHandler object.
+	 * @return the customizerLeftUpperCorner (type Point2D) of this SettingsHandler object.
+	 */
+	private static Point2D getCustomizerLeftUpperCorner()
 	{
 		return customizerLeftUpperCorner;
 	}
 
-	public static void setCustomizerSplit1(final int split)
-	{
-		customizerSplit1 = split;
-	}
-
-	public static int getCustomizerSplit1()
-	{
-		return customizerSplit1;
-	}
-
-	public static void setCustomizerSplit2(final int split)
-	{
-		customizerSplit2 = split;
-	}
-
-	public static int getCustomizerSplit2()
-	{
-		return customizerSplit2;
-	}
-
 	/**
-	 * Sets whether PCgen will enforce the spending of all unallocated feats and skill points
-	 * before allowing the character to level up.
-	 * @param argEnforceSpendingBeforeLevelUp Should spending be enforced?
+	 * Method getEnforceSpendingBeforeLevelUp returns the enforceSpendingBeforeLevelUp
+	 * of this SettingsHandler object.
+	 * @return the enforceSpendingBeforeLevelUp (type boolean) of this SettingsHandler
+	 * object.
 	 */
-	public static void setEnforceSpendingBeforeLevelUp(final boolean argEnforceSpendingBeforeLevelUp)
-	{
-		enforceSpendingBeforeLevelUp = argEnforceSpendingBeforeLevelUp;
-	}
-
-	public static boolean getEnforceSpendingBeforeLevelUp()
+	static boolean getEnforceSpendingBeforeLevelUp()
 	{
 		return enforceSpendingBeforeLevelUp;
 	}
 
-	public static void setFilePaths(final String aString)
+	/**
+	 * Method setFilePaths sets the filePaths of this SettingsHandler object.
+	 * @param aString the filePaths of this SettingsHandler object.
+	 *
+	 */
+	private static void setFilePaths(final String aString)
 	{
-		getFilepathProp().setProperty("pcgen.filepaths", aString); //$NON-NLS-1$
+		filepaths.setProperty("pcgen.filepaths", aString); //$NON-NLS-1$
 	}
 
-	public static String getFilePaths()
+	/**
+	 * Method getFilePaths returns the filePaths of this SettingsHandler object.
+	 * @return the filePaths (type String) of this SettingsHandler object.
+	 */
+	static String getFilePaths()
 	{
 		String def_type = "user";
 		if (SystemUtils.IS_OS_MAC)
 		{
 			def_type = "mac_user";
 		}
-		return getFilepathProp().getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	public static Properties getFilepathProp()
-	{
-		return filepaths;
-	}
-
-	public static boolean getFirstRun()
-	{
-		// if filepaths.ini doesn't exist that means this is
-		// the first time PCGen has been run
-		final File aFile = new File(fileLocation);
-
-		return !aFile.exists();
-
-		}
-
-	public static boolean isGMGen()
-	{
-		return isGMGen;
+		return filepaths.getProperty("pcgen.filepaths", def_type); //$NON-NLS-1$
+		// $NON-NLS-2$
 	}
 
 	/**
@@ -461,19 +378,37 @@ public final class SettingsHandler
 		setGMGenOption(optionName, optionValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
+	/**
+	 * Method setGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type int
+	 */
 	public static void setGMGenOption(final String optionName, final int optionValue)
 	{
 		setGMGenOption(optionName, String.valueOf(optionValue));
 	}
 
+	/**
+	 * Method setGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type double
+	 */
 	public static void setGMGenOption(final String optionName, final double optionValue)
 	{
 		setGMGenOption(optionName, String.valueOf(optionValue));
 	}
 
+	/**
+	 * Method setGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type String
+	 */
 	public static void setGMGenOption(final String optionName, final String optionValue)
 	{
-		getOptions().setProperty("gmgen.options." + optionName, optionValue); //$NON-NLS-1$
+		options.setProperty("gmgen.options." + optionName, optionValue); //$NON-NLS-1$
 	}
 
 	/**
@@ -493,36 +428,74 @@ public final class SettingsHandler
 	 */
 	public static boolean getGMGenOption(final String optionName, final boolean defaultValue)
 	{
-		final String option = getGMGenOption(optionName, defaultValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
+		final String option = getGMGenOption(optionName, defaultValue ? "true" :
+		"false"); //$NON-NLS-1$ //$NON-NLS-2$
 
 		return "true".equalsIgnoreCase(option); //$NON-NLS-1$
 	}
 
+	/**
+	 * Method getGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type int
+	 * @return int
+	 */
 	public static int getGMGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getGMGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
+	/**
+	 * Method getGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type double
+	 * @return Double
+	 */
 	public static Double getGMGenOption(final String optionName, final double defaultValue)
 	{
 		return new Double(getGMGenOption(optionName, Double.toString(defaultValue)));
 	}
 
+	/**
+	 * Method getGMGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type String
+	 * @return String
+	 */
 	public static String getGMGenOption(final String optionName, final String defaultValue)
 	{
-		return getOptions().getProperty("gmgen.options." + optionName, defaultValue); //$NON-NLS-1$
+		return options.getProperty("gmgen.options." + optionName, defaultValue);
 	}
 
+	/**
+	 * Method setGUIUsesOutputNameEquipment sets the GUIUsesOutputNameEquipment of this SettingsHandler object.
+	 * @param argUseOutputNameEquipment the GUIUsesOutputNameEquipment of this SettingsHandler object.
+	 *
+	 */
 	public static void setGUIUsesOutputNameEquipment(final boolean argUseOutputNameEquipment)
 	{
 		guiUsesOutputNameEquipment = argUseOutputNameEquipment;
 	}
 
+	/**
+	 * Method setGUIUsesOutputNameSpells sets the GUIUsesOutputNameSpells of this SettingsHandler object.
+	 * @param argUseOutputNameSpells the GUIUsesOutputNameSpells of this SettingsHandler
+	  *                                 object.
+	 *
+	 */
 	public static void setGUIUsesOutputNameSpells(final boolean argUseOutputNameSpells)
 	{
 		guiUsesOutputNameSpells = argUseOutputNameSpells;
 	}
 
+	/**
+	 * Method setGame sets the game of this SettingsHandler object.
+	 * @param g the game of this SettingsHandler object.
+	 *
+	 */
 	public static void setGame(final String g)
 	{
 		final GameMode newMode = SystemCollections.getGameModeNamed(g);
@@ -531,11 +504,13 @@ public final class SettingsHandler
 		{
 			game = newMode;
 		}
-		String key = g;
 		// new key for game mode specific options are pcgen.options.gameMode.X.optionName
 		// but offer downward compatible support to read in old version for unitSet from 5.8.0
-		String unitSetName = getOptions().getProperty("pcgen.options.gameMode." + key + ".unitSetName",
-				getOptions().getProperty("pcgen.options.unitSetName." + key, game.getDefaultUnitSet()));
+
+
+		String unitSetName = options.getProperty("pcgen.options.gameMode." +
+						g + ".unitSetName",
+				options.getProperty("pcgen.options.unitSetName." + g, game.getDefaultUnitSet()));
 		if  (!game.selectUnitSet(unitSetName))
 		{
 			if  (!game.selectDefaultUnitSet())
@@ -543,8 +518,8 @@ public final class SettingsHandler
 				game.selectUnitSet(Constants.STANDARD_UNITSET_NAME);
 			}
 		}
-		game.setDefaultXPTableName(getPCGenOption("gameMode." + key + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		game.setDefaultCharacterType(getPCGenOption("gameMode." + key + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
+		game.setDefaultXPTableName(getPCGenOption("gameMode." + g + ".xpTableName", "")); //$NON-NLS-1$ //$NON-NLS-2$
+		game.setDefaultCharacterType(getPCGenOption("gameMode." + g + ".characterType", "")); //$NON-NLS-1$ //$NON-NLS-2$
 		
 		AbilityCategory featTemplate = game.getFeatTemplate();
 		if (featTemplate != null)
@@ -554,141 +529,206 @@ public final class SettingsHandler
 		getChosenCampaignFiles(game);
 	}
 
+	/**
+	 * Method getGame returns the game of this SettingsHandler object.
+	 * @return the game (type GameMode) of this SettingsHandler object.
+	 */
 	public static GameMode getGame()
 	{
 		return game;
 	}
 
-	public static void setGearTab_AllowDebt(final boolean allowDebt)
-	{
-		gearTab_AllowDebt = allowDebt;
-	}
-
-	public static boolean getGearTab_AllowDebt()
+	/**
+	 * Method getGearTab_AllowDebt returns the gearTab_AllowDebt of this SettingsHandler
+	  * object.
+	 * @return the gearTab_AllowDebt (type boolean) of this SettingsHandler object.
+	 */
+	static boolean getGearTab_AllowDebt()
 	{
 		return gearTab_AllowDebt;
 	}
 
-	public static void setGearTab_AutoResize(final boolean autoResize)
-	{
-		gearTab_AutoResize = autoResize;
-	}
-
-	public static boolean getGearTab_AutoResize()
-	{
-		return gearTab_AutoResize;
-	}
-
+	/**
+	 * Method setGearTab_BuyRate sets the gearTab_BuyRate of this SettingsHandler object.
+	 * @param argBuyRate the gearTab_BuyRate of this SettingsHandler object.
+	 *
+	 */
 	public static void setGearTab_BuyRate(final int argBuyRate)
 	{
 		gearTab_BuyRate = argBuyRate;
 	}
 
+	/**
+	 * Method getGearTab_BuyRate returns the gearTab_BuyRate of this SettingsHandler
+	 * object.
+	 * @return the gearTab_BuyRate (type int) of this SettingsHandler object.
+	 */
 	public static int getGearTab_BuyRate()
 	{
 		return gearTab_BuyRate;
 	}
 
-	public static void setGearTab_IgnoreCost(final boolean ignoreCost)
-	{
-		gearTab_IgnoreCost = ignoreCost;
-	}
-
-	public static boolean getGearTab_IgnoreCost()
+	/**
+	 * Method getGearTab_IgnoreCost returns the gearTab_IgnoreCost of this
+	 * SettingsHandler object.
+	 * @return the gearTab_IgnoreCost (type boolean) of this SettingsHandler object.
+	 */
+	static boolean getGearTab_IgnoreCost()
 	{
 		return gearTab_IgnoreCost;
 	}
 
+	/**
+	 * Method setGearTab_SellRate sets the gearTab_SellRate of this SettingsHandler
+	 * object.
+	 * @param argSellRate the gearTab_SellRate of this SettingsHandler object.
+	 *
+	 */
 	public static void setGearTab_SellRate(final int argSellRate)
 	{
 		gearTab_SellRate = argSellRate;
 	}
 
+	/**
+	 * Method getGearTab_SellRate returns the gearTab_SellRate of this SettingsHandler
+	 * object.
+	 * @return the gearTab_SellRate (type int) of this SettingsHandler object.
+	 */
 	public static int getGearTab_SellRate()
 	{
 		return gearTab_SellRate;
 	}
 
-	public static void setGmgenPluginDir(final File aFile)
-	{
-		gmgenPluginDir = aFile;
-	}
-
+	/**
+	 * Method getGmgenPluginDir returns the gmgenPluginDir of this SettingsHandler object.
+	 * @return the gmgenPluginDir (type File) of this SettingsHandler object.
+	 */
 	public static File getGmgenPluginDir()
 	{
 		return gmgenPluginDir;
 	}
 
+	/**
+	 * Method setHPMaxAtFirstLevel sets the HPMaxAtFirstLevel of this SettingsHandler
+	 * object.
+	 * @param aBool the HPMaxAtFirstLevel of this SettingsHandler object.
+	 *
+	 */
 	public static void setHPMaxAtFirstLevel(final boolean aBool)
 	{
 		hpMaxAtFirstLevel = aBool;
 	}
 
+	/**
+	 * Method isHPMaxAtFirstLevel returns the HPMaxAtFirstLevel of this SettingsHandler
+	 * object.
+	 * @return the HPMaxAtFirstLevel (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean isHPMaxAtFirstLevel()
 	{
 		return hpMaxAtFirstLevel;
 	}
 
+	/**
+	 * Method setHPMaxAtFirstClassLevel sets the HPMaxAtFirstClassLevel of this
+	 * SettingsHandler object.
+	 * @param aBool the HPMaxAtFirstClassLevel of this SettingsHandler object.
+	 *
+	 */
 	public static void setHPMaxAtFirstClassLevel(final boolean aBool)
 	{
 		hpMaxAtFirstClassLevel = aBool;
 	}
 
+	/**
+	 * Method isHPMaxAtFirstClassLevel returns the HPMaxAtFirstClassLevel of this
+	 * SettingsHandler object.
+	 * @return the HPMaxAtFirstClassLevel (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean isHPMaxAtFirstClassLevel()
 	{
 		return hpMaxAtFirstClassLevel;
 	}
 
-	public static void setHPMaxAtFirstPCClassLevelOnly(final boolean aBool)
-	{
-		hpMaxAtFirstPCClassLevelOnly = aBool;
-	}
-
+	/**
+	 * Method isHPMaxAtFirstPCClassLevelOnly returns the HPMaxAtFirstPCClassLevelOnly of this SettingsHandler object.
+	 * @return the HPMaxAtFirstPCClassLevelOnly (type boolean) of this SettingsHandler
+	 * object.
+	 */
 	public static boolean isHPMaxAtFirstPCClassLevelOnly()
 	{
 		return hpMaxAtFirstPCClassLevelOnly;
 	}
 
+	/**
+	 * Method setHPPercent sets the HPPercent of this SettingsHandler object.
+	 * @param argHPPct the HPPercent of this SettingsHandler object.
+	 *
+	 */
 	public static void setHPPercent(final int argHPPct)
 	{
 		hpPercent = argHPPct;
 	}
 
+	/**
+	 * Method getHPPercent returns the HPPercent of this SettingsHandler object.
+	 * @return the HPPercent (type int) of this SettingsHandler object.
+	 */
 	public static int getHPPercent()
 	{
 		return hpPercent;
 	}
 
+	/**
+	 * Method setHPRollMethod sets the HPRollMethod of this SettingsHandler object.
+	 * @param aBool the HPRollMethod of this SettingsHandler object.
+	 *
+	 */
 	public static void setHPRollMethod(final int aBool)
 	{
 		hpRollMethod = aBool;
 	}
 
+	/**
+	 * Method getHPRollMethod returns the HPRollMethod of this SettingsHandler object.
+	 * @return the HPRollMethod (type int) of this SettingsHandler object.
+	 */
 	public static int getHPRollMethod()
 	{
 		return hpRollMethod;
 	}
 
+	/**
+	 * Method getHTMLOutputSheetPath returns the HTMLOutputSheetPath of this SettingsHandler object.
+	 * @return the HTMLOutputSheetPath (type String) of this SettingsHandler object.
+	 */
 	public static String getHTMLOutputSheetPath()
 	{
-		if ("".equals(selectedCharacterHTMLOutputSheet)) //$NON-NLS-1$
+		if (selectedCharacterHTMLOutputSheet != null &&
+				selectedCharacterHTMLOutputSheet.isEmpty()) //$NON-NLS-1$
 		{
 			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
-		return new File(selectedCharacterHTMLOutputSheet).getParentFile().getAbsolutePath();
+		return new File(selectedCharacterHTMLOutputSheet).getParentFile()
+		.getAbsolutePath();
 	}
 
-	public static void setHideMonsterClasses(final boolean argHideMonsterClasses)
-	{
-		hideMonsterClasses = argHideMonsterClasses;
-	}
-
+	/**
+	 * Method setIgnoreMonsterHDCap sets the ignoreMonsterHDCap of this SettingsHandler object.
+	 * @param argIgoreCap the ignoreMonsterHDCap of this SettingsHandler object.
+	 *
+	 */
 	public static void setIgnoreMonsterHDCap(final boolean argIgoreCap)
 	{
 		ignoreMonsterHDCap = argIgoreCap;
 	}
 
+	/**
+	 * Method isIgnoreMonsterHDCap returns the ignoreMonsterHDCap of this
+	 * SettingsHandler object.
+	 * @return the ignoreMonsterHDCap (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean isIgnoreMonsterHDCap()
 	{
 		return ignoreMonsterHDCap;
@@ -702,6 +742,11 @@ public final class SettingsHandler
 		SettingsHandler.invalidDmgText = string;
 	}
 
+	/**
+	 * Method getInvalidDmgText returns the invalidDmgText of this SettingsHandler
+	 * object.
+	 * @return the invalidDmgText (type String) of this SettingsHandler object.
+	 */
 	public static String getInvalidDmgText()
 	{
 		return invalidDmgText;
@@ -714,179 +759,221 @@ public final class SettingsHandler
 		SettingsHandler.invalidToHitText = string;
 	}
 
+	/**
+	 * Method getInvalidToHitText returns the invalidToHitText of this SettingsHandler
+	 * object.
+	 * @return the invalidToHitText (type String) of this SettingsHandler object.
+	 */
 	public static String getInvalidToHitText()
 	{
 		return invalidToHitText;
 	}
 
 	/**
-	 * TODO: It's commented out in gmgen. Is it safe to remove?
-	 * @param GMGen
+	 * Method getKitSelectorDimension returns the kitSelectorDimension of this SettingsHandler object.
+	 * @return the kitSelectorDimension (type Dimension2D) of this SettingsHandler
+	 * object.
 	 */
-	public static void setIsGMGen(final boolean GMGen)
-	{
-		isGMGen = GMGen;
-	}
-
-	public static void setKitSelectorDimension(final Dimension d)
-	{
-		kitSelectorDimension = d;
-	}
-
-	public static Dimension getKitSelectorDimension()
+	private static Dimension2D getKitSelectorDimension()
 	{
 		return kitSelectorDimension;
 	}
 
-	public static void setKitSelectorLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		kitSelectorLeftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getKitSelectorLeftUpperCorner()
+	/**
+	 * Method getKitSelectorLeftUpperCorner returns the kitSelectorLeftUpperCorner of
+	 * this SettingsHandler object.
+	 * @return the kitSelectorLeftUpperCorner (type Point2D) of this SettingsHandler object.
+	 */
+	private static Point2D getKitSelectorLeftUpperCorner()
 	{
 		return kitSelectorLeftUpperCorner;
 	}
 
-	public static void setLastTipShown(final int argLastTipShown)
-	{
-		lastTipShown = argLastTipShown;
-	}
-
-	public static int getLastTipShown()
-	{
-		return lastTipShown;
-	}
-
-	public static void setLeftUpperCorner(final Point argLeftUpperCorner)
-	{
-		leftUpperCorner = argLeftUpperCorner;
-	}
-
-	public static Point getLeftUpperCorner()
+	/**
+	 * Method getLeftUpperCorner returns the leftUpperCorner of this SettingsHandler object.
+	 * @return the leftUpperCorner (type Point2D) of this SettingsHandler object.
+	 */
+	private static Point2D getLeftUpperCorner()
 	{
 		return leftUpperCorner;
 	}
 
+	/**
+	 * Method setLoadURLs sets the loadURLs of this SettingsHandler object.
+	 * @param aBool the loadURLs of this SettingsHandler object.
+	 *
+	 */
 	public static void setLoadURLs(final boolean aBool)
 	{
 		loadURLs = aBool;
 	}
 
+	/**
+	 * Method isLoadURLs returns the loadURLs of this SettingsHandler object.
+	 * @return the loadURLs (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean isLoadURLs()
 	{
 		return loadURLs;
 	}
 
-	public static void setLookAndFeel(final int argLookAndFeel)
-	{
-		looknFeel = argLookAndFeel;
-	}
-
-	public static int getLookAndFeel()
-	{
-		return looknFeel;
-	}
-
+	/**
+	 * Method setMaxPotionSpellLevel sets the maxPotionSpellLevel of this
+	 * SettingsHandler object.
+	 * @param anInt the maxPotionSpellLevel of this SettingsHandler object.
+	 *
+	 */
 	public static void setMaxPotionSpellLevel(final int anInt)
 	{
 		maxPotionSpellLevel = anInt;
 	}
 
+	/**
+	 * Method getMaxPotionSpellLevel returns the maxPotionSpellLevel of this
+	 * SettingsHandler object.
+	 * @return the maxPotionSpellLevel (type int) of this SettingsHandler object.
+	 */
 	public static int getMaxPotionSpellLevel()
 	{
 		return maxPotionSpellLevel;
 	}
 
+	/**
+	 * Method setMaxWandSpellLevel sets the maxWandSpellLevel of this SettingsHandler
+	 * object.
+	 * @param anInt the maxWandSpellLevel of this SettingsHandler object.
+	 *
+	 */
 	public static void setMaxWandSpellLevel(final int anInt)
 	{
 		maxWandSpellLevel = anInt;
 	}
 
+	/**
+	 * Method getMaxWandSpellLevel returns the maxWandSpellLevel of this SettingsHandler
+	 * object.
+	 * @return the maxWandSpellLevel (type int) of this SettingsHandler object.
+	 */
 	public static int getMaxWandSpellLevel()
 	{
 		return maxWandSpellLevel;
 	}
 
+	/**
+	 * Method setMetamagicAllowedInEqBuilder sets the metamagicAllowedInEqBuilder of
+	 * this SettingsHandler object.
+	 * @param aBool the metamagicAllowedInEqBuilder of this SettingsHandler object.
+	 *
+	 */
 	public static void setMetamagicAllowedInEqBuilder(final boolean aBool)
 	{
 		allowMetamagicInCustomizer = aBool;
 	}
 
+	/**
+	 * Method isMetamagicAllowedInEqBuilder returns the metamagicAllowedInEqBuilder of
+	 * this SettingsHandler object.
+	 * @return the metamagicAllowedInEqBuilder (type boolean) of this SettingsHandler
+	 * object.
+	 */
 	public static boolean isMetamagicAllowedInEqBuilder()
 	{
 		return allowMetamagicInCustomizer;
 	}
 
+	/**
+	 * Method setNameDisplayStyle sets the nameDisplayStyle of this SettingsHandler
+	 * object.
+	 * @param style the nameDisplayStyle of this SettingsHandler object.
+	 *
+	 */
 	public static void setNameDisplayStyle(final int style)
 	{
 		nameDisplayStyle = style;
 	}
 
+	/**
+	 * Method getNameDisplayStyle returns the nameDisplayStyle of this SettingsHandler object.
+	 * @return the nameDisplayStyle (type int) of this SettingsHandler object.
+	 */
 	public static int getNameDisplayStyle()
 	{
 		return nameDisplayStyle;
 	}
 
-	public static SortedProperties getOptions()
+	/**
+	 * Method getOptions returns the options of this SettingsHandler object.
+	 * @return the options (type Properties) of this SettingsHandler object.
+	 */
+	public static Properties getOptions()
 	{
 		return options;
 	}
 
+	/**
+	 * Method getOptionsFromProperties ...
+	 *
+	 * @param aPC of type PlayerCharacter
+	 * @return Dimension
+	 */
 	public static Dimension getOptionsFromProperties(final PlayerCharacter aPC)
 	{
 		Dimension d = new Dimension(0, 0);
 
 		final String tempBrowserPath = getPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
 
-		if (!"".equals(tempBrowserPath)) //$NON-NLS-1$
+		browserPath = null;
+		if (!StringUtils.isEmpty(tempBrowserPath)) //$NON-NLS-1$
 		{
-			setBrowserPath(tempBrowserPath);
-		}
-		else
-		{
-			setBrowserPath(null);
+			browserPath = tempBrowserPath;
 		}
 
-		setLeftUpperCorner(new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-				getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
+		leftUpperCorner =
+				new Point(getPCGenOption("windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
+				getPCGenOption("windowLeftUpperCorner.Y", -1.0).intValue());
 
-		setWindowState(getPCGenOption("windowState",Frame.NORMAL)); //$NON-NLS-1$
+
+		SettingsHandler.windowState = getPCGenOption("windowState",Frame.NORMAL);
 
 		Double dw = getPCGenOption("windowWidth", 0.0); //$NON-NLS-1$
 		Double dh = getPCGenOption("windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(
+
+				dh, 0.0))
 		{
 			final int width = Integer.parseInt(dw.toString().substring(0,
-						Math.min(dw.toString().length(), dw.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dw.toString().length(), dw.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			final int height = Integer.parseInt(dh.toString().substring(0,
-						Math.min(dh.toString().length(), dh.toString().lastIndexOf(".")))); //$NON-NLS-1$
+						Math.min(dh.toString().length(), dh.toString().lastIndexOf('.')))); //$NON-NLS-1$
 			d = new Dimension(width, height);
 		}
 
-		setCustomizerLeftUpperCorner(new Point(getPCGenOption("customizer.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-				getPCGenOption("customizer.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
+		customizerLeftUpperCorner =
+				new Point(getPCGenOption("customizer.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
+				getPCGenOption("customizer.windowLeftUpperCorner.Y", -1.0).intValue());
 		dw = getPCGenOption("customizer.windowWidth", 0.0); //$NON-NLS-1$
 		dh = getPCGenOption("customizer.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(dh, 0.0))
 		{
-			setCustomizerDimension(new Dimension(dw.intValue(), dh.intValue()));
+			customizerDimension = new Dimension(dw.intValue(), dh.intValue());
 		}
 
 
-		setKitSelectorLeftUpperCorner(new Point(getPCGenOption("kitSelector.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
-				getPCGenOption("kitSelector.windowLeftUpperCorner.Y", -1.0).intValue())); //$NON-NLS-1$
+		kitSelectorLeftUpperCorner =
+				new Point(getPCGenOption("kitSelector.windowLeftUpperCorner.X", -1.0).intValue(), //$NON-NLS-1$
+				getPCGenOption("kitSelector.windowLeftUpperCorner.Y", -1.0).intValue());
 		dw = getPCGenOption("kitSelector.windowWidth", 0.0); //$NON-NLS-1$
 		dh = getPCGenOption("kitSelector.windowHeight", 0.0); //$NON-NLS-1$
 
-		if (!CoreUtility.doublesEqual(dw.doubleValue(), 0.0) && !CoreUtility.doublesEqual(dh.doubleValue(), 0.0))
+		if (!CoreUtility.doublesEqual(dw, 0.0) && !CoreUtility.doublesEqual(
+
+				dh, 0.0))
 		{
-			setKitSelectorDimension(new Dimension(dw.intValue(), dh.intValue()));
+			kitSelectorDimension = new Dimension(dw.intValue(), dh.intValue());
 		}
-		
-		//
+
 		// Read in the buy/sell percentages for the gear tab
 		// If not in the .ini file and ignoreCost is set, then use 0%
 		// Otherwise set buy to 100% and sell to %50
@@ -908,97 +995,153 @@ public final class SettingsHandler
 			}
 		}
 
-		Globals.initCustColumnWidth(CoreUtility.split(getOptions().getProperty("pcgen.options.custColumnWidth", ""), ',')); //$NON-NLS-1$ //$NON-NLS-2$
+		Globals.initCustColumnWidth(CoreUtility.split(options.getProperty("pcgen.options.custColumnWidth", ""), ',')); //$NON-NLS-1$ //$NON-NLS-2$
 
 		loadURLs = getPCGenOption("loadURLs", false); //$NON-NLS-1$
 
 		Globals.setSourceDisplay(SourceFormat.values()[getPCGenOption("sourceDisplay", SourceFormat.LONG.ordinal())]); //$NON-NLS-1$
 
-		setAlwaysOverwrite(getPCGenOption("alwaysOverwrite", false)); //$NON-NLS-1$
-		setAutoFeatsRefundable(getPCGenOption("autoFeatsRefundable", false)); //$NON-NLS-1$
-		setAutogenExoticMaterial(getPCGenOption("autoGenerateExoticMaterial", false)); //$NON-NLS-1$
-		setAutogenMagic(getPCGenOption("autoGenerateMagic", false)); //$NON-NLS-1$
-		setAutogenMasterwork(getPCGenOption("autoGenerateMasterwork", false)); //$NON-NLS-1$
-		setAutogenRacial(getPCGenOption("autoGenerateRacial", false)); //$NON-NLS-1$
-		setChaTabPlacement(getOptionTabPlacement("chaTabPlacement", SwingConstants.TOP)); //$NON-NLS-1$
-		setCreatePcgBackup(getPCGenOption("createPcgBackup", true));
-		setCustomizerSplit1(getPCGenOption("customizer.split1", -1)); //$NON-NLS-1$
-		setCustomizerSplit2(getPCGenOption("customizer.split2", -1)); //$NON-NLS-1$
-		setDefaultOSType(getPCGenOption("defaultOSType", null)); //$NON-NLS-1$
-		setEnforceSpendingBeforeLevelUp(getPCGenOption("enforceSpendingBeforeLevelUp", false)); //$NON-NLS-1$
-		setGearTab_AllowDebt(getPCGenOption("GearTab.allowDebt", false)); //$NON-NLS-1$
-		setGearTab_AutoResize(getPCGenOption("GearTab.autoResize", false)); //$NON-NLS-1$
-		setGearTab_BuyRate(buyRate);
-		setGearTab_IgnoreCost(getPCGenOption("GearTab.ignoreCost", false)); //$NON-NLS-1$
-		setGearTab_SellRate(sellRate);
-		setGrimHPMode(getPCGenOption("grimHPMode", false)); //$NON-NLS-1$
-		setGrittyACMode(getPCGenOption("grittyACMode", false)); //$NON-NLS-1$
-		setGUIUsesOutputNameEquipment(getPCGenOption("GUIUsesOutputNameEquipment", false)); //$NON-NLS-1$
-		setGUIUsesOutputNameSpells(getPCGenOption("GUIUsesOutputNameSpells", false)); //$NON-NLS-1$
-		setHideMonsterClasses(getPCGenOption("hideMonsterClasses", false)); //$NON-NLS-1$
-		setHPMaxAtFirstLevel(getPCGenOption("hpMaxAtFirstLevel", true)); //$NON-NLS-1$
-		setHPMaxAtFirstClassLevel(getPCGenOption("hpMaxAtFirstClassLevel", false)); //$NON-NLS-1$
-		setHPMaxAtFirstPCClassLevelOnly(getPCGenOption("hpMaxAtFirstPCClassLevelOnly", false)); //$NON-NLS-1$
-		setHPPercent(getPCGenOption("hpPercent", 100)); //$NON-NLS-1$
-		setHPRollMethod(getPCGenOption("hpRollMethod", Constants.HP_STANDARD)); //$NON-NLS-1$
-		setIgnoreMonsterHDCap(getPCGenOption("ignoreMonsterHDCap", false)); //$NON-NLS-1$
-		setInvalidDmgText(getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
-		setInvalidToHitText(getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114")));  //$NON-NLS-1$//$NON-NLS-2$
-		setLastTipShown(getPCGenOption("lastTipOfTheDayTipShown", -1)); //$NON-NLS-1$
-		setLookAndFeel(getPCGenOption("looknFeel", 1)); //$NON-NLS-1$
-		setMaxPotionSpellLevel(getPCGenOption("maxPotionSpellLevel", 3)); //$NON-NLS-1$
-		setMaxWandSpellLevel(getPCGenOption("maxWandSpellLevel", 4)); //$NON-NLS-1$
-		setMetamagicAllowedInEqBuilder(getPCGenOption("allowMetamagicInCustomizer", false)); //$NON-NLS-1$
-		setPccFilesLocation(new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "data")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenOutputSheetDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "outputsheets")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setPcgenPreviewDir(new File(expandRelativePath(getOptions().getProperty("pcgen.files.pcgenPreviewDir", //$NON-NLS-1$
-				System.getProperty("user.dir") + File.separator + "preview")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setGmgenPluginDir(new File(expandRelativePath(getOptions().getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
-						System.getProperty("user.dir") + File.separator + "plugins")))); //$NON-NLS-1$ //$NON-NLS-2$
-		setBackupPcgPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.characters.backup", "")))); //$NON-NLS-1$
-		setPortraitsPath(new File(expandRelativePath(getOptions().getProperty("pcgen.files.portraits", //$NON-NLS-1$
-						Globals.getDefaultPcgPath()))));
-		setPostExportCommandStandard(getPCGenOption("postExportCommandStandard", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		setPostExportCommandPDF(getPCGenOption("postExportCommandPDF", "")); //$NON-NLS-1$ //$NON-NLS-2$
+
+		alwaysOverwrite = getPCGenOption("alwaysOverwrite", false);
+		autoFeatsRefundable = getPCGenOption("autoFeatsRefundable", false);
+
+		autogenExoticMaterial = getPCGenOption("autoGenerateExoticMaterial", false);
+
+		autogenMagic = getPCGenOption("autoGenerateMagic", false);
+		autogenMasterwork = getPCGenOption("autoGenerateMasterwork", false);
+
+		autogenRacial = getPCGenOption("autoGenerateRacial", false);
+		chaTabPlacement = getOptionTabPlacement("chaTabPlacement", SwingConstants.TOP);
+
+		createPcgBackup = getPCGenOption("createPcgBackup", true);
+		customizerSplit1 = getPCGenOption("customizer.split1", -1);
+		customizerSplit2 = getPCGenOption("customizer.split2", -1);
+		defaultOSType = getPCGenOption("defaultOSType", null);
+		enforceSpendingBeforeLevelUp =
+				getPCGenOption("enforceSpendingBeforeLevelUp", false);
+
+
+		gearTab_AllowDebt = getPCGenOption("GearTab.allowDebt", false);
+		gearTab_AutoResize = getPCGenOption("GearTab.autoResize", false);
+		gearTab_BuyRate = buyRate;
+		gearTab_IgnoreCost = getPCGenOption("GearTab.ignoreCost", false);
+		gearTab_SellRate = sellRate;
+		grimHPMode = getPCGenOption("grimHPMode", false);
+		grittyACMode = getPCGenOption("grittyACMode", false);
+		guiUsesOutputNameEquipment = getPCGenOption("GUIUsesOutputNameEquipment", false);
+
+		guiUsesOutputNameSpells = getPCGenOption("GUIUsesOutputNameSpells", false);
+
+		hideMonsterClasses = getPCGenOption("hideMonsterClasses", false);
+		hpMaxAtFirstLevel = getPCGenOption("hpMaxAtFirstLevel", true);
+		hpMaxAtFirstClassLevel = getPCGenOption("hpMaxAtFirstClassLevel", false);
+
+		hpMaxAtFirstPCClassLevelOnly =
+				getPCGenOption("hpMaxAtFirstPCClassLevelOnly", false);
+
+		hpPercent = getPCGenOption("hpPercent", 100);
+		hpRollMethod = getPCGenOption("hpRollMethod", Constants.HP_STANDARD);
+
+		ignoreMonsterHDCap = getPCGenOption("ignoreMonsterHDCap", false);
+		SettingsHandler.invalidDmgText =
+				getPCGenOption("invalidDmgText", LanguageBundle.getString("SettingsHandler.114"));
+
+
+		SettingsHandler.invalidToHitText =
+				getPCGenOption("invalidToHitText", LanguageBundle.getString("SettingsHandler.114"));
+
+		lastTipShown = getPCGenOption("lastTipOfTheDayTipShown", -1);
+		looknFeel = getPCGenOption("looknFeel", 1);
+		maxPotionSpellLevel = getPCGenOption("maxPotionSpellLevel", 3);
+		maxWandSpellLevel = getPCGenOption("maxWandSpellLevel", 4);
+		allowMetamagicInCustomizer = getPCGenOption("allowMetamagicInCustomizer", false);
+
+		pccFilesLocation =
+				new File(expandRelativePath(getPCGenOption("pccFilesLocation", //$NON-NLS-1$
+						System.getProperty("user.dir") + File.separator + "data")));
+
+		setPcgenOutputSheetDir(new File(expandRelativePath(options.getProperty("pcgen.files.pcgenOutputSheetDir", //$NON-NLS-1$
+				System.getProperty("user.dir") + File.separator + "outputsheets")))); //$NON-NLS-1$ //$NON-NLS-2$
+
+
+		gmgenPluginDir =
+				new File(expandRelativePath(options.getProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
+						System.getProperty("user.dir") + File.separator + "plugins")));
+
+
+		backupPcgPath =
+				new File(expandRelativePath(options.getProperty("pcgen.files.characters.backup", "")));
+
+
+		portraitsPath =
+				new File(expandRelativePath(options.getProperty("pcgen.files.portraits", //$NON-NLS-1$
+						Globals.getDefaultPcgPath())));
+		postExportCommandStandard = getPCGenOption("postExportCommandStandard", "");
+
+		postExportCommandPDF = getPCGenOption("postExportCommandPDF", "");
 		setPrereqFailColor(getPCGenOption("prereqFailColor", Color.red.getRGB())); //$NON-NLS-1$
 		setPrereqQualifyColor(getPCGenOption("prereqQualifyColor", Color.black.getRGB())); //$NON-NLS-1$
-		setPreviewTabShown(getPCGenOption("previewTabShown", true)); //$NON-NLS-1$
-		setROG(getPCGenOption("isROG", false)); //$NON-NLS-1$
-		setSaveCustomInLst(getPCGenOption("saveCustomInLst", false)); //$NON-NLS-1$
-		setSaveOutputSheetWithPC(getPCGenOption("saveOutputSheetWithPC", false)); //$NON-NLS-1$
-		setPrintSpellsWithPC(getPCGenOption("printSpellsWithPC", true)); //$NON-NLS-1$
-		setSelectedSpellSheet(expandRelativePath(getOptions().getProperty("pcgen.files.selectedSpellOutputSheet", ""))); //$NON-NLS-1$ //$NON-NLS-2$
-		setSelectedCharacterHTMLOutputSheet(expandRelativePath(getOptions().getProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
+
+		previewTabShown = getPCGenOption("previewTabShown", true);
+		isROG = getPCGenOption("isROG", false);
+		saveCustomInLst = getPCGenOption("saveCustomInLst", false);
+		saveOutputSheetWithPC = getPCGenOption("saveOutputSheetWithPC", false);
+
+		printSpellsWithPC = getPCGenOption("printSpellsWithPC", true);
+		selectedSpellSheet =
+				expandRelativePath(options.getProperty("pcgen.files.selectedSpellOutputSheet", ""));
+
+
+		setSelectedCharacterHTMLOutputSheet(expandRelativePath(options.getProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
 					"")), aPC); //$NON-NLS-1$
-		setSelectedCharacterPDFOutputSheet(expandRelativePath(getOptions().getProperty("pcgen.files.selectedCharacterPDFOutputSheet", //$NON-NLS-1$
+		setSelectedCharacterPDFOutputSheet(expandRelativePath(options.getProperty("pcgen.files.selectedCharacterPDFOutputSheet", //$NON-NLS-1$
 					"")), aPC); //$NON-NLS-1$
-		setSelectedEqSetTemplate(expandRelativePath(getOptions().getProperty("pcgen.files.selectedEqSetTemplate", ""))); //$NON-NLS-1$ //$NON-NLS-2$
-		setSelectedPartyHTMLOutputSheet(expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyHTMLOutputSheet", //$NON-NLS-1$
-					""))); //$NON-NLS-1$
-		setSelectedPartyPDFOutputSheet(expandRelativePath(getOptions().getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
-					""))); //$NON-NLS-1$
+		selectedEqSetTemplate =
+				expandRelativePath(options.getProperty("pcgen.files.selectedEqSetTemplate", ""));
+
+
+
+		selectedPartyHTMLOutputSheet =
+				expandRelativePath(options.getProperty("pcgen.files.selectedPartyHTMLOutputSheet", //$NON-NLS-1$
+					""));
+		selectedPartyPDFOutputSheet =
+				expandRelativePath(options.getProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
+					""));
 		setShowFeatDialogAtLevelUp(getPCGenOption("showFeatDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowHPDialogAtLevelUp(getPCGenOption("showHPDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowImagePreview(getPCGenOption("showImagePreview", true)); //$NON-NLS-1$
-		setShowSingleBoxPerBundle(getPCGenOption("showSingleBoxPerBundle", false)); //$NON-NLS-1$
-		setOutputDeprecationMessages(getPCGenOption("outputDeprecationMessages", true));
-		setInputUnconstructedMessages(getPCGenOption("inputUnconstructedMessages", false));
-		setShowStatDialogAtLevelUp(getPCGenOption("showStatDialogAtLevelUp", true)); //$NON-NLS-1$
-		setShowTipOfTheDay(getPCGenOption("showTipOfTheDay", true)); //$NON-NLS-1$
-		setShowToolBar(getPCGenOption("showToolBar", true)); //$NON-NLS-1$
-		setShowSkillModifier(getPCGenOption("showSkillModifier", true)); //$NON-NLS-1$
-		setShowSkillRanks(getPCGenOption("showSkillRanks", true)); //$NON-NLS-1$
-		setShowWarningAtFirstLevelUp(getPCGenOption("showWarningAtFirstLevelUp", true)); //$NON-NLS-1$
-		setSkinLFThemePack(getPCGenOption("skinLFThemePack", "")); //$NON-NLS-1$ //$NON-NLS-2$
-		setSpellMarketPriceAdjusted(getPCGenOption("spellMarketPriceAdjusted", false)); //$NON-NLS-1$
-		setTabPlacement(getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM)); //$NON-NLS-1$
-		setUseHigherLevelSlotsDefault(getPCGenOption("useHigherLevelSlotsDefault", false)); //$NON-NLS-1$
-		setUseWaitCursor(getPCGenOption("useWaitCursor", true)); //$NON-NLS-1$
-		setWantToLoadMasterworkAndMagic(getPCGenOption("loadMasterworkAndMagicFromLst", false)); //$NON-NLS-1$
-		setWeaponProfPrintout(getPCGenOption("weaponProfPrintout",
-			Constants.DEFAULT_PRINTOUT_WEAPONPROF)); //$NON-NLS-1$
+
+		showHPDialogAtLevelUp = getPCGenOption("showHPDialogAtLevelUp", true);
+
+		showImagePreview = getPCGenOption("showImagePreview", true);
+		showSingleBoxPerBundle = getPCGenOption("showSingleBoxPerBundle", false);
+
+		outputDeprecationMessages = getPCGenOption("outputDeprecationMessages", true);
+		inputUnconstructedMessages = getPCGenOption("inputUnconstructedMessages", false);
+
+		showStatDialogAtLevelUp = getPCGenOption("showStatDialogAtLevelUp", true);
+
+		showTipOfTheDay = getPCGenOption("showTipOfTheDay", true);
+		showToolBar = getPCGenOption("showToolBar", true);
+		showSkillModifier = getPCGenOption("showSkillModifier", true);
+		showSkillRanks = getPCGenOption("showSkillRanks", true);
+		SettingsHandler.showWarningAtFirstLevelUp =
+				getPCGenOption("showWarningAtFirstLevelUp", true);
+
+
+		skinLFThemePack = getPCGenOption("skinLFThemePack", "");
+
+		spellMarketPriceAdjusted = getPCGenOption("spellMarketPriceAdjusted", false);
+
+		tabPlacement = getOptionTabPlacement("tabPlacement", SwingConstants.BOTTOM);
+
+		useHigherLevelSlotsDefault = getPCGenOption("useHigherLevelSlotsDefault", false);
+
+		useWaitCursor = getPCGenOption("useWaitCursor", true);
+		wantToLoadMasterworkAndMagic =
+				getPCGenOption("loadMasterworkAndMagicFromLst", false);
+
+
+		weaponProfPrintout = getPCGenOption("weaponProfPrintout",
+			Constants.DEFAULT_PRINTOUT_WEAPONPROF);
 
 		// Load up all the RuleCheck stuff from the options.ini file
 		// It's stored as:
@@ -1017,7 +1160,7 @@ public final class SettingsHandler
 	private static void getChosenCampaignFiles(GameMode gameMode)
 	{
 		List<String> uriStringList =
-				CoreUtility.split(getOptions().getProperty(
+				CoreUtility.split(options.getProperty(
 					"pcgen.files.chosenCampaignSourcefiles." + gameMode.getName(), //$NON-NLS-1$
 					""), ',');
 		List<URI> uriList = new ArrayList<>(uriStringList.size());
@@ -1033,55 +1176,74 @@ public final class SettingsHandler
 		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 
+	/**
+	 * Method setOptionsProperties sets the optionsProperties of this SettingsHandler object.
+	 * @param aPC the optionsProperties of this SettingsHandler object.
+	 *
+	 */
 	public static void setOptionsProperties(final PlayerCharacter aPC)
 	{
-		if (getBackupPcgPath() != null && !getBackupPcgPath().getPath().equals(""))
+		if (backupPcgPath != null && !backupPcgPath.getPath().isEmpty())
 		{
-			getOptions().setProperty("pcgen.files.characters.backup", retractRelativePath(getBackupPcgPath().getAbsolutePath())); //$NON-NLS-1$
+			options.setProperty("pcgen.files.characters.backup", retractRelativePath(
+
+
+					backupPcgPath.getAbsolutePath())); //$NON-NLS-1$
 		}
 		else
 		{
-			getOptions().setProperty("pcgen.files.characters.backup", ""); //$NON-NLS-1$
+			options.setProperty("pcgen.files.characters.backup", ""); //$NON-NLS-1$
 		}
 
-		getOptions().setProperty("pcgen.files.portraits", retractRelativePath(getPortraitsPath().getAbsolutePath())); //$NON-NLS-1$
-		getOptions().setProperty("pcgen.files.selectedSpellOutputSheet", retractRelativePath(getSelectedSpellSheet())); //$NON-NLS-1$
-		getOptions().setProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
+		options.setProperty("pcgen.files.portraits", retractRelativePath(
+				portraitsPath.getAbsolutePath())); //$NON-NLS-1$
+
+
+		options.setProperty("pcgen.files.selectedSpellOutputSheet", retractRelativePath(
+				selectedSpellSheet)); //$NON-NLS-1$
+
+		options.setProperty("pcgen.files.selectedCharacterHTMLOutputSheet", //$NON-NLS-1$
 			retractRelativePath(getSelectedCharacterHTMLOutputSheet(aPC)));
-		getOptions().setProperty("pcgen.files.selectedCharacterPDFOutputSheet", //$NON-NLS-1$
+		options.setProperty("pcgen.files.selectedCharacterPDFOutputSheet", //$NON-NLS-1$
 			retractRelativePath(getSelectedCharacterPDFOutputSheet(aPC)));
-		getOptions().setProperty("pcgen.files.selectedPartyHTMLOutputSheet", //$NON-NLS-1$
-			retractRelativePath(getSelectedPartyHTMLOutputSheet()));
-		getOptions().setProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
-			retractRelativePath(getSelectedPartyPDFOutputSheet()));
-		getOptions().setProperty("pcgen.files.selectedEqSetTemplate", retractRelativePath(getSelectedEqSetTemplate())); //$NON-NLS-1$
-		getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
+		options.setProperty("pcgen.files.selectedPartyHTMLOutputSheet", //$NON-NLS-1$
+			retractRelativePath(selectedPartyHTMLOutputSheet));
+		options.setProperty("pcgen.files.selectedPartyPDFOutputSheet", //$NON-NLS-1$
+			retractRelativePath(selectedPartyPDFOutputSheet));
+		options.setProperty("pcgen.files.selectedEqSetTemplate", retractRelativePath(
+
+
+				selectedEqSetTemplate)); //$NON-NLS-1$
+
+		options.setProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
 			StringUtil.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), ", "));
 
-		getOptions().setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 
-		if (getGmgenPluginDir() != null)
+		options.setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
+
+
+		if (gmgenPluginDir != null)
 		{
-			getOptions().setProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
-				retractRelativePath(getGmgenPluginDir().getAbsolutePath()));
+			options.setProperty("gmgen.files.gmgenPluginDir", //$NON-NLS-1$
+				retractRelativePath(gmgenPluginDir.getAbsolutePath()));
 		}
 		else
 		{
-			getOptions().setProperty("gmgen.files.gmgenPluginDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
+			options.setProperty("gmgen.files.gmgenPluginDir", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (getBrowserPath() != null)
+		if (browserPath != null)
 		{
-			setPCGenOption("browserPath", getBrowserPath()); //$NON-NLS-1$
+			setPCGenOption("browserPath", browserPath); //$NON-NLS-1$
 		}
 		else
 		{
 			setPCGenOption("browserPath", ""); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
-		if (getGame() != null)
+		if (game != null)
 		{
-			setPCGenOption("game", getGame().getName()); //$NON-NLS-1$
+			setPCGenOption("game", game.getName()); //$NON-NLS-1$
 		}
 		else
 		{
@@ -1090,16 +1252,16 @@ public final class SettingsHandler
 
 		try
 		{
-			setPCGenOption("skinLFThemePack", getSkinLFThemePack()); //$NON-NLS-1$
+			setPCGenOption("skinLFThemePack", skinLFThemePack); //$NON-NLS-1$
 		}
 		catch (NullPointerException e)
 		{
 			//TODO: Should this really be ignored???  XXX
 		}
 
-		if (getPccFilesLocation() != null)
+		if (pccFilesLocation != null)
 		{
-			setPCGenOption("pccFilesLocation", retractRelativePath(getPccFilesLocation().getAbsolutePath())); //$NON-NLS-1$
+			setPCGenOption("pccFilesLocation", retractRelativePath(pccFilesLocation.getAbsolutePath())); //$NON-NLS-1$
 		}
 		else
 		{
@@ -1112,7 +1274,7 @@ public final class SettingsHandler
 			setPCGenOption("windowLeftUpperCorner.Y", getLeftUpperCorner().getY()); //$NON-NLS-1$
 		}
 
-		setPCGenOption("windowState",getWindowState()); //$NON-NLS-1$
+		setPCGenOption("windowState", windowState); //$NON-NLS-1$
 
 		if (Globals.getRootFrame() != null)
 		{
@@ -1168,123 +1330,159 @@ public final class SettingsHandler
 			setPCGenOption("gameMode." + gameModeKey + ".characterType", gameMode.getDefaultCharacterType());
 		}
 
-		setRuleChecksInOptions("ruleChecks"); //$NON-NLS-1$
+		setRuleChecksInOptions(); //$NON-NLS-1$
 
-		setPCGenOption("allowMetamagicInCustomizer", isMetamagicAllowedInEqBuilder()); //$NON-NLS-1$
-		setPCGenOption("alwaysOverwrite", getAlwaysOverwrite()); //$NON-NLS-1$
-		setPCGenOption("autoFeatsRefundable", isAutoFeatsRefundable()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateExoticMaterial", isAutogenExoticMaterial()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMagic", isAutogenMagic()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateMasterwork", isAutogenMasterwork()); //$NON-NLS-1$
-		setPCGenOption("autoGenerateRacial", isAutogenRacial()); //$NON-NLS-1$
+		setPCGenOption("allowMetamagicInCustomizer", allowMetamagicInCustomizer); //$NON-NLS-1$
+
+		setPCGenOption("alwaysOverwrite", alwaysOverwrite); //$NON-NLS-1$
+		setPCGenOption("autoFeatsRefundable", autoFeatsRefundable); //$NON-NLS-1$
+		setPCGenOption("autoGenerateExoticMaterial", autogenExoticMaterial); //$NON-NLS-1$
+
+		setPCGenOption("autoGenerateMagic", autogenMagic); //$NON-NLS-1$
+		setPCGenOption("autoGenerateMasterwork", autogenMasterwork); //$NON-NLS-1$
+		setPCGenOption("autoGenerateRacial", autogenRacial); //$NON-NLS-1$
 		setPCGenOption("chaTabPlacement", convertTabPlacementToString(chaTabPlacement)); //$NON-NLS-1$
-		setPCGenOption("createPcgBackup", getCreatePcgBackup()); //$NON-NLS-1$
-		setPCGenOption("customizer.split1", getCustomizerSplit1()); //$NON-NLS-1$
-		setPCGenOption("customizer.split2", getCustomizerSplit2()); //$NON-NLS-1$
-		setPCGenOption("defaultOSType", getDefaultOSType()); //$NON-NLS-1$
-		setPCGenOption("GearTab.allowDebt", getGearTab_AllowDebt()); //$NON-NLS-1$
-		setPCGenOption("GearTab.autoResize", getGearTab_AutoResize()); //$NON-NLS-1$
-		setPCGenOption("GearTab.buyRate", getGearTab_BuyRate()); //$NON-NLS-1$
-		setPCGenOption("GearTab.ignoreCost", getGearTab_IgnoreCost()); //$NON-NLS-1$
-		setPCGenOption("GearTab.sellRate", getGearTab_SellRate()); //$NON-NLS-1$
-		setPCGenOption("grimHPMode", isGrimHPMode()); //$NON-NLS-1$
-		setPCGenOption("grittyACMode", isGrittyACMode()); //$NON-NLS-1$
+
+		setPCGenOption("createPcgBackup", createPcgBackup); //$NON-NLS-1$
+		setPCGenOption("customizer.split1", customizerSplit1); //$NON-NLS-1$
+		setPCGenOption("customizer.split2", customizerSplit2); //$NON-NLS-1$
+		setPCGenOption("defaultOSType", defaultOSType); //$NON-NLS-1$
+		setPCGenOption("GearTab.allowDebt", gearTab_AllowDebt); //$NON-NLS-1$
+		setPCGenOption("GearTab.autoResize", gearTab_AutoResize); //$NON-NLS-1$
+		setPCGenOption("GearTab.buyRate", gearTab_BuyRate); //$NON-NLS-1$
+		setPCGenOption("GearTab.ignoreCost", gearTab_IgnoreCost); //$NON-NLS-1$
+		setPCGenOption("GearTab.sellRate", gearTab_SellRate); //$NON-NLS-1$
+		setPCGenOption("grimHPMode", grimHPMode); //$NON-NLS-1$
+		setPCGenOption("grittyACMode", grittyACMode); //$NON-NLS-1$
 		setPCGenOption("GUIUsesOutputNameEquipment", guiUsesOutputNameEquipment()); //$NON-NLS-1$
 		setPCGenOption("GUIUsesOutputNameSpells", guiUsesOutputNameSpells()); //$NON-NLS-1$
 		setPCGenOption("hideMonsterClasses", hideMonsterClasses()); //$NON-NLS-1$
-		setPCGenOption("hpMaxAtFirstLevel", isHPMaxAtFirstLevel()); //$NON-NLS-1$
-		setPCGenOption("hpMaxAtFirstClassLevel", isHPMaxAtFirstClassLevel()); //$NON-NLS-1$
-		setPCGenOption("hpMaxAtFirstPCClassLevelOnly", isHPMaxAtFirstPCClassLevelOnly()); //$NON-NLS-1$
-		setPCGenOption("hpPercent", getHPPercent()); //$NON-NLS-1$
-		setPCGenOption("hpRollMethod", getHPRollMethod()); //$NON-NLS-1$
-		setPCGenOption("ignoreMonsterHDCap", isIgnoreMonsterHDCap()); //$NON-NLS-1$
-		setPCGenOption("invalidDmgText", getInvalidDmgText()); //$NON-NLS-1$
-		setPCGenOption("invalidToHitText", getInvalidToHitText()); //$NON-NLS-1$
-		setPCGenOption("lastTipOfTheDayTipShown", getLastTipShown()); //$NON-NLS-1$
+		setPCGenOption("hpMaxAtFirstLevel", hpMaxAtFirstLevel); //$NON-NLS-1$
+		setPCGenOption("hpMaxAtFirstClassLevel", hpMaxAtFirstClassLevel); //$NON-NLS-1$
+
+		setPCGenOption("hpMaxAtFirstPCClassLevelOnly", hpMaxAtFirstPCClassLevelOnly); //$NON-NLS-1$
+
+		setPCGenOption("hpPercent", hpPercent); //$NON-NLS-1$
+		setPCGenOption("hpRollMethod", hpRollMethod); //$NON-NLS-1$
+		setPCGenOption("ignoreMonsterHDCap", ignoreMonsterHDCap); //$NON-NLS-1$
+		setPCGenOption("invalidDmgText", invalidDmgText); //$NON-NLS-1$
+		setPCGenOption("invalidToHitText", invalidToHitText); //$NON-NLS-1$
+		setPCGenOption("lastTipOfTheDayTipShown", lastTipShown); //$NON-NLS-1$
 		setPCGenOption("loadMasterworkAndMagicFromLst", wantToLoadMasterworkAndMagic()); //$NON-NLS-1$
 		setPCGenOption("loadURLs", loadURLs); //$NON-NLS-1$
-		setPCGenOption("looknFeel", getLookAndFeel()); //$NON-NLS-1$
-		setPCGenOption("maxPotionSpellLevel", getMaxPotionSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("maxWandSpellLevel", getMaxWandSpellLevel()); //$NON-NLS-1$
-		setPCGenOption("nameDisplayStyle", getNameDisplayStyle()); //$NON-NLS-1$
-		setPCGenOption("postExportCommandStandard", SettingsHandler.getPostExportCommandStandard()); //$NON-NLS-1$
-		setPCGenOption("postExportCommandPDF", SettingsHandler.getPostExportCommandPDF()); //$NON-NLS-1$
-		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(getPrereqFailColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("prereqQualifyColor", "0x" + Integer.toHexString(getPrereqQualifyColor())); //$NON-NLS-1$ //$NON-NLS-2$
-		setPCGenOption("previewTabShown", isPreviewTabShown()); //$NON-NLS-1$
-		setPCGenOption("saveCustomInLst", isSaveCustomInLst()); //$NON-NLS-1$
-		setPCGenOption("saveOutputSheetWithPC", getSaveOutputSheetWithPC()); //$NON-NLS-1$
-		setPCGenOption("printSpellsWithPC", getPrintSpellsWithPC()); //$NON-NLS-1$
-		setPCGenOption("showFeatDialogAtLevelUp", getShowFeatDialogAtLevelUp()); //$NON-NLS-1$
-		setPCGenOption("enforceSpendingBeforeLevelUp", getEnforceSpendingBeforeLevelUp()); //$NON-NLS-1$
-		setPCGenOption("showHPDialogAtLevelUp", getShowHPDialogAtLevelUp()); //$NON-NLS-1$
-		setPCGenOption("showMemoryArea", isShowMemoryArea()); //$NON-NLS-1$
-		setPCGenOption("showImagePreview", isShowImagePreview()); //$NON-NLS-1$
-		setPCGenOption("showStatDialogAtLevelUp", getShowStatDialogAtLevelUp()); //$NON-NLS-1$
-		setPCGenOption("showTipOfTheDay", getShowTipOfTheDay()); //$NON-NLS-1$
-		setPCGenOption("showToolBar", isShowToolBar()); //$NON-NLS-1$
-		setPCGenOption("showSkillModifier", getShowSkillModifier()); //$NON-NLS-1$
-		setPCGenOption("showSkillRanks", getShowSkillRanks()); //$NON-NLS-1$
-		setPCGenOption("showSingleBoxPerBundle", getShowSingleBoxPerBundle()); //$NON-NLS-1$
-		setPCGenOption("showWarningAtFirstLevelUp", isShowWarningAtFirstLevelUp()); //$NON-NLS-1$
-		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal()); //$NON-NLS-1$
-		setPCGenOption("spellMarketPriceAdjusted", isSpellMarketPriceAdjusted()); //$NON-NLS-1$
+		setPCGenOption("looknFeel", looknFeel); //$NON-NLS-1$
+		setPCGenOption("maxPotionSpellLevel", maxPotionSpellLevel); //$NON-NLS-1$
+		setPCGenOption("maxWandSpellLevel", maxWandSpellLevel); //$NON-NLS-1$
+		setPCGenOption("nameDisplayStyle", nameDisplayStyle); //$NON-NLS-1$
+		setPCGenOption("postExportCommandStandard", getPostExportCommandStandard()); //$NON-NLS-1$
+		setPCGenOption("postExportCommandPDF", getPostExportCommandPDF()); //$NON-NLS-1$
+
+		setPCGenOption("prereqFailColor", "0x" + Integer.toHexString(prereqFailColor)); //$NON-NLS-1$ //$NON-NLS-2$
+
+		setPCGenOption("prereqQualifyColor", "0x" + Integer.toHexString(prereqQualifyColor)); //$NON-NLS-1$ //$NON-NLS-2$
+
+		setPCGenOption("previewTabShown", previewTabShown); //$NON-NLS-1$
+		setPCGenOption("saveCustomInLst", saveCustomInLst); //$NON-NLS-1$
+		setPCGenOption("saveOutputSheetWithPC", saveOutputSheetWithPC); //$NON-NLS-1$
+
+		setPCGenOption("printSpellsWithPC", printSpellsWithPC); //$NON-NLS-1$
+		setPCGenOption("showFeatDialogAtLevelUp", showFeatDialogAtLevelUp); //$NON-NLS-1$
+
+		setPCGenOption("enforceSpendingBeforeLevelUp", enforceSpendingBeforeLevelUp); //$NON-NLS-1$
+
+		setPCGenOption("showHPDialogAtLevelUp", showHPDialogAtLevelUp); //$NON-NLS-1$
+
+		setPCGenOption("showMemoryArea", showMemoryArea); //$NON-NLS-1$
+		setPCGenOption("showImagePreview", showImagePreview); //$NON-NLS-1$
+		setPCGenOption("showStatDialogAtLevelUp", showStatDialogAtLevelUp); //$NON-NLS-1$
+
+		setPCGenOption("showTipOfTheDay", showTipOfTheDay); //$NON-NLS-1$
+		setPCGenOption("showToolBar", showToolBar); //$NON-NLS-1$
+		setPCGenOption("showSkillModifier", showSkillModifier); //$NON-NLS-1$
+		setPCGenOption("showSkillRanks", showSkillRanks); //$NON-NLS-1$
+		setPCGenOption("showSingleBoxPerBundle", showSingleBoxPerBundle); //$NON-NLS-1$
+
+		setPCGenOption("showWarningAtFirstLevelUp", showWarningAtFirstLevelUp); //$NON-NLS-1$
+		setPCGenOption("sourceDisplay", Globals.getSourceDisplay().ordinal());
+		//$NON-NLS-1$
+		setPCGenOption("spellMarketPriceAdjusted", spellMarketPriceAdjusted);
+		//$NON-NLS-1$
 		setPCGenOption("tabPlacement", convertTabPlacementToString(tabPlacement)); //$NON-NLS-1$
-		setPCGenOption("useHigherLevelSlotsDefault", isUseHigherLevelSlotsDefault()); //$NON-NLS-1$
-		setPCGenOption("useWaitCursor", getUseWaitCursor()); //$NON-NLS-1$
+
+		setPCGenOption("useHigherLevelSlotsDefault", useHigherLevelSlotsDefault);
+		//$NON-NLS-1$
+		setPCGenOption("useWaitCursor", useWaitCursor); //$NON-NLS-1$
 		setPCGenOption("validateBonuses", validateBonuses); //$NON-NLS-1$
-		setPCGenOption("weaponProfPrintout", SettingsHandler.getWeaponProfPrintout()); //$NON-NLS-1$
+		setPCGenOption("weaponProfPrintout", getWeaponProfPrintout()); //$NON-NLS-1$
 		setPCGenOption("outputDeprecationMessages", outputDeprecationMessages()); //$NON-NLS-1$
-		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages()); //$NON-NLS-1$
+		setPCGenOption("inputUnconstructedMessages", inputUnconstructedMessages());
+		//$NON-NLS-1$
 	}
 
-	public static void setPCGenOption(final String optionName, final int optionValue)
+	/**
+	 * Method setPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type int
+	 */
+	private static void setPCGenOption(final String optionName, final int optionValue)
 	{
 		setPCGenOption(optionName, String.valueOf(optionValue));
 	}
 
+	/**
+	 * Method setPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type String
+	 */
 	public static void setPCGenOption(final String optionName, final String optionValue)
 	{
 		if (optionValue==null) {
-			getOptions().remove("pcgen.options." + optionName); //$NON-NLS-1$
+			options.remove("pcgen.options." + optionName); //$NON-NLS-1$
 		}
 		else {
-			getOptions().setProperty("pcgen.options." + optionName, optionValue); //$NON-NLS-1$
+			options.setProperty("pcgen.options." + optionName, optionValue);
+			//$NON-NLS-1$
 		}
 	}
 
-	public static int getPCGenOption(final String optionName, final int defaultValue)
+	/**
+	 * Method getPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type int
+	 * @return int
+	 */
+	private static int getPCGenOption(final String optionName, final int defaultValue)
 	{
-		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue))).intValue();
+		return Integer.decode(getPCGenOption(optionName, String.valueOf(defaultValue)));
 	}
 
+	/**
+	 * Method getPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type String
+	 * @return String
+	 */
 	public static String getPCGenOption(final String optionName, final String defaultValue)
 	{
-		return getOptions().getProperty("pcgen.options." + optionName, defaultValue); //$NON-NLS-1$
-	}
-	
-	public static boolean hasPCGenOption(final String optionName)
-	{
-		return getOptions().containsKey("pcgen.options." + optionName);
+		return options.getProperty("pcgen.options." + optionName, defaultValue); //$NON-NLS-1$
 	}
 
+	/**
+	 * Method getPDFOutputSheetPath returns the PDFOutputSheetPath of this SettingsHandler object.
+	 * @return the PDFOutputSheetPath (type String) of this SettingsHandler object.
+	 */
 	public static String getPDFOutputSheetPath()
 	{
-		if ("".equals(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$
+		if (!StringUtils.isEmpty(selectedCharacterPDFOutputSheet)) //$NON-NLS-1$
 		{
 			return ConfigurationSettings.getOutputSheetsDir();
 		}
 
 		return new File(selectedCharacterPDFOutputSheet).getParentFile().getAbsolutePath();
-	}
-
-	/**
-	 * Where to load the data (lst) files from
-	 * @param argPccFilesLocation
-	 */
-	public static void setPccFilesLocation(final File argPccFilesLocation)
-	{
-		pccFilesLocation = argPccFilesLocation;
 	}
 
 	/**
@@ -1312,37 +1510,6 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Sets the path that was last used in a character or output file chooser.
-	 *
-	 * @param  path  the {@code File} representing the path
-	 */
-	public static void setLastUsedPcgPath(final File path)
-	{
-		if (path != null && !path.exists())
-		{
-			path.mkdirs();
-		}
-		lastUsedPcgPath = path;
-	}
-
-	/**
-	 * @return The path that was last used in a character or output file chooser.
-	 */
-	public static File getLastUsedPcgPath()
-	{
-		if (lastUsedPcgPath == null)
-		{
-			return pcgPath;
-		}
-		return lastUsedPcgPath;
-	}
-
-	public static void setPcgenSponsorDir(final File aFile)
-	{
-		pcgenSponsorDir = aFile;
-	}
-
-	/**
 	 * @deprecated 
 	 * @return the sponsor directory
 	 */
@@ -1352,24 +1519,14 @@ public final class SettingsHandler
 		return pcgenSponsorDir;
 	}
 
-	public static void setPcgenOutputSheetDir(final File aFile)
-	{
-		pcgenOutputSheetDir = aFile;
-	}
-
-	public static void setPcgenPreviewDir(final File aFile)
-	{
-		pcgenPreviewDir = aFile;
-	}
-
 	/**
-	 * Sets the path to the portrait files.
+	 * Method setPcgenOutputSheetDir sets the pcgenOutputSheetDir of this
+	 * SettingsHandler object.
+	 * @param aFile the pcgenOutputSheetDir of this SettingsHandler object.
 	 *
-	 * @param  path  the {@code File} representing the path
 	 */
-	public static void setPortraitsPath(final File path)
+	private static void setPcgenOutputSheetDir(final File aFile)
 	{
-		portraitsPath = path;
 	}
 
 	/**
@@ -1382,66 +1539,99 @@ public final class SettingsHandler
 		return portraitsPath;
 	}
 
+	/**
+	 * Method setPostExportCommandStandard sets the postExportCommandStandard of this
+	 * SettingsHandler object.
+	 * @param argPreference the postExportCommandStandard of this SettingsHandler object.
+	 *
+	 */
 	public static void setPostExportCommandStandard(final String argPreference)
 	{
 		postExportCommandStandard = argPreference;
 	}
 
+	/**
+	 * Method setPostExportCommandPDF sets the postExportCommandPDF of this SettingsHandler object.
+	 * @param argPreference the postExportCommandPDF of this SettingsHandler object.
+	 *
+	 */
 	public static void setPostExportCommandPDF(final String argPreference)
 	{
 		postExportCommandPDF = argPreference;
 	}
 
+	/**
+	 * Method getPostExportCommandStandard returns the postExportCommandStandard of this SettingsHandler object.
+	 * @return the postExportCommandStandard (type String) of this SettingsHandler
+	 * object.
+	 */
 	public static String getPostExportCommandStandard()
 	{
 		return postExportCommandStandard;
 	}
 
+	/**
+	 * Method getPostExportCommandPDF returns the postExportCommandPDF of this
+	 * SettingsHandler object.
+	 * @return the postExportCommandPDF (type String) of this SettingsHandler object.
+	 */
 	public static String getPostExportCommandPDF()
 	{
 		return postExportCommandPDF;
 	}
 
-	public static void setPrereqFailColor(final int newColor)
+	/**
+	 * Method setPrereqFailColor sets the prereqFailColor of this SettingsHandler object.
+	 * @param newColor the prereqFailColor of this SettingsHandler object.
+	 *
+	 */
+	private static void setPrereqFailColor(final int newColor)
 	{
 		prereqFailColor = newColor & 0x00FFFFFF;
 	}
 
-	public static int getPrereqFailColor()
-	{
-		return prereqFailColor;
-	}
-
+	/**
+	 * Method getPrereqFailColorAsHtmlStart returns the prereqFailColorAsHtmlStart of this SettingsHandler object.
+	 * @return the prereqFailColorAsHtmlStart (type String) of this SettingsHandler
+	 * object.
+	 */
 	public static String getPrereqFailColorAsHtmlStart()
 	{
 		final StringBuilder rString = new StringBuilder("<font color="); //$NON-NLS-1$
 
-		if (getPrereqFailColor() != 0)
+		if (prereqFailColor == 0)
 		{
-			rString.append("\"#").append(Integer.toHexString(getPrereqFailColor())).append("\""); //$NON-NLS-1$ //$NON-NLS-2$
+			rString.append("red"); //$NON-NLS-1$
 		}
 		else
 		{
-			rString.append("red"); //$NON-NLS-1$
+			rString.append("\"#")
+				   .append(Integer.toHexString(prereqFailColor))
+				   .append('"'); //$NON-NLS-1$ //$NON-NLS-2$
 		}
 
 		rString.append('>');
 
 		return rString.toString();
 	}
+	/**
+	 * Method getPrereqFailColorAsHtmlEnd returns the prereqFailColorAsHtmlEnd of this SettingsHandler object.
+	 * @return the prereqFailColorAsHtmlEnd (type String) of this SettingsHandler object.
+	 */
 	public static String getPrereqFailColorAsHtmlEnd()
 	{
 		return "</font>"; //$NON-NLS-1$
 	}
 
-	public static void setPrereqQualifyColor(final int newColor)
+	/**
+	 * Method setPrereqQualifyColor sets the prereqQualifyColor of this SettingsHandler
+	 * object.
+	 * @param newColor the prereqQualifyColor of this SettingsHandler object.
+	 *
+	 */
+	private static void setPrereqQualifyColor(final int newColor)
 	{
 		prereqQualifyColor = newColor & 0x00FFFFFF;
-	}
-
-	public static int getPrereqQualifyColor()
-	{
-		return prereqQualifyColor;
 	}
 
 	/**
@@ -1453,6 +1643,10 @@ public final class SettingsHandler
 		printSpellsWithPC = arg;
 	}
 
+	/**
+	 * Method getPrintSpellsWithPC returns the printSpellsWithPC of this SettingsHandler object.
+	 * @return the printSpellsWithPC (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean getPrintSpellsWithPC()
 	{
 		return printSpellsWithPC;
@@ -1504,20 +1698,10 @@ public final class SettingsHandler
 		return false;
 	}
 
-	public static void setSaveCustomEquipment(final boolean aBool)
-	{
-		setSaveCustomInLst(aBool);
-	}
-
 	/**
-	 * save the outputsheet location with the PC?
-	 * @param arg
-	 **/
-	public static void setSaveOutputSheetWithPC(final boolean arg)
-	{
-		saveOutputSheetWithPC = arg;
-	}
-
+	 * Method getSaveOutputSheetWithPC returns the saveOutputSheetWithPC of this SettingsHandler object.
+	 * @return the saveOutputSheetWithPC (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean getSaveOutputSheetWithPC()
 	{
 		return saveOutputSheetWithPC;
@@ -1531,7 +1715,7 @@ public final class SettingsHandler
 	 */
 	public static void setSelectedCharacterHTMLOutputSheet(final String path, final PlayerCharacter aPC)
 	{
-		if (getSaveOutputSheetWithPC() && (aPC != null))
+		if (saveOutputSheetWithPC && (aPC != null))
 		{
 			aPC.setSelectedCharacterHTMLOutputSheet(path);
 		}
@@ -1547,7 +1731,7 @@ public final class SettingsHandler
 	 **/
 	public static String getSelectedCharacterHTMLOutputSheet(final PlayerCharacter aPC)
 	{
-		if (getSaveOutputSheetWithPC() && (aPC != null))
+		if (saveOutputSheetWithPC && (aPC != null))
 		{
 			if (!aPC.getSelectedCharacterHTMLOutputSheet().isEmpty())
 			{
@@ -1566,7 +1750,7 @@ public final class SettingsHandler
 	 */
 	public static void setSelectedCharacterPDFOutputSheet(final String path, final PlayerCharacter aPC)
 	{
-		if (getSaveOutputSheetWithPC() && (aPC != null))
+		if (saveOutputSheetWithPC && (aPC != null))
 		{
 			aPC.setSelectedCharacterPDFOutputSheet(path);
 		}
@@ -1582,7 +1766,7 @@ public final class SettingsHandler
 	 */
 	public static String getSelectedCharacterPDFOutputSheet(final PlayerCharacter aPC)
 	{
-		if (getSaveOutputSheetWithPC() && (aPC != null))
+		if (saveOutputSheetWithPC && (aPC != null))
 		{
 			if (!aPC.getSelectedCharacterPDFOutputSheet().isEmpty())
 			{
@@ -1613,18 +1797,6 @@ public final class SettingsHandler
 		return selectedEqSetTemplate;
 	}
 
-	public static String getSelectedEqSetTemplateName()
-	{
-		if (!selectedEqSetTemplate.isEmpty())
-		{
-			final int i = selectedEqSetTemplate.lastIndexOf("\\"); //$NON-NLS-1$
-
-			return selectedEqSetTemplate.substring(i + 1);
-		}
-
-		return selectedEqSetTemplate;
-	}
-
 	/**
 	 * Sets the current party HTML template.
 	 *
@@ -1636,16 +1808,6 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Returns the current party HTML template.
-	 *
-	 * @return    the {@code selectedPartyHTMLOutputSheet} property
-	 **/
-	public static String getSelectedPartyHTMLOutputSheet()
-	{
-		return selectedPartyHTMLOutputSheet;
-	}
-
-	/**
 	 * Sets the current party PDF template.
 	 *
 	 * @param  path  a string containing the path to the template
@@ -1653,16 +1815,6 @@ public final class SettingsHandler
 	public static void setSelectedPartyPDFOutputSheet(final String path)
 	{
 		selectedPartyPDFOutputSheet = path;
-	}
-
-	/**
-	 * Returns the current party PDF template.
-	 *
-	 * @return    the {@code selectedPartyPDFOutputSheet} property
-	 **/
-	public static String getSelectedPartyPDFOutputSheet()
-	{
-		return selectedPartyPDFOutputSheet;
 	}
 
 	/**
@@ -1682,18 +1834,6 @@ public final class SettingsHandler
 	 **/
 	public static String getSelectedSpellSheet()
 	{
-		return selectedSpellSheet;
-	}
-
-	public static String getSelectedSpellSheetName()
-	{
-		if (!selectedSpellSheet.isEmpty())
-		{
-			final int i = selectedSpellSheet.lastIndexOf("\\"); //$NON-NLS-1$
-
-			return selectedSpellSheet.substring(i + 1);
-		}
-
 		return selectedSpellSheet;
 	}
 
@@ -1738,7 +1878,8 @@ public final class SettingsHandler
 
 	/**
 	 * Sets whether the Stat dialog should be shown at level up.
-	 * @param argShowStatDialogAtLevelUp Should the Stat dialog should be shown at level up?
+	 * @param argShowStatDialogAtLevelUp Should the Stat dialog should be shown at level
+	  *                                     up?
 	 */
 	public static void setShowStatDialogAtLevelUp(final boolean argShowStatDialogAtLevelUp)
 	{
@@ -1754,49 +1895,26 @@ public final class SettingsHandler
 		return showStatDialogAtLevelUp;
 	}
 
-	public static void setShowTipOfTheDay(final boolean argShowTipOfTheDay)
-	{
-		showTipOfTheDay = argShowTipOfTheDay;
-	}
-
-	public static boolean getShowTipOfTheDay()
-	{
-		return showTipOfTheDay;
-	}
-
 	/**
-	 * Sets the argShowWarningAtFirstLevelUp.
-	 * @param argShowWarningAtFirstLevelUp The argShowWarningAtFirstLevelUp to set
+	 * Method setTabPlacement sets the tabPlacement of this SettingsHandler object.
+	 *
+	 *   See @javax.swing.SwingConstants
+	 *
+	 * @param anInt the tabPlacement of this SettingsHandler object.
+	 *
 	 */
-	public static void setShowWarningAtFirstLevelUp(final boolean argShowWarningAtFirstLevelUp)
-	{
-		SettingsHandler.showWarningAtFirstLevelUp = argShowWarningAtFirstLevelUp;
-	}
-
-	/**
-	 * Returns the showWarningAtFirstLevelUp.
-	 * @return boolean
-	 */
-	public static boolean isShowWarningAtFirstLevelUp()
-	{
-		return showWarningAtFirstLevelUp;
-	}
-
-	public static void setSkinLFThemePack(final String argSkinLFThemePack)
-	{
-		skinLFThemePack = argSkinLFThemePack;
-	}
-
-	public static String getSkinLFThemePack()
-	{
-		return skinLFThemePack;
-	}
-
 	public static void setTabPlacement(final int anInt)
 	{
 		tabPlacement = anInt;
 	}
 
+	/**
+	 * Method getTabPlacement returns the tabPlacement of this SettingsHandler object.
+	 *
+	 *   See @javax.swing.SwingConstants
+	 *
+	 * @return the tabPlacement (type int) of this SettingsHandler object.
+	 */
 	public static int getTabPlacement()
 	{
 		return tabPlacement;
@@ -1812,63 +1930,56 @@ public final class SettingsHandler
 		return tempPath;
 	}
 
-	public static void setToolBarShown(final boolean argShowToolBar)
-	{
-		setShowToolBar(argShowToolBar);
-	}
-
-	public static boolean isToolBarShown()
-	{
-		return isShowToolBar();
-	}
-
 	/**
 	 * @return Returns the useHigherLevelSlotsDefault.
 	 */
-	public static boolean isUseHigherLevelSlotsDefault()
+	static boolean isUseHigherLevelSlotsDefault()
 	{
 		return useHigherLevelSlotsDefault;
 	}
 
 	/**
-	 * @param useHigherLevelSlotsDefault The useHigherLevelSlotsDefault to set.
+	 * Method setWantToLoadMasterworkAndMagic sets the wantToLoadMasterworkAndMagic of this SettingsHandler object.
+	 * @param bFlag the wantToLoadMasterworkAndMagic of this SettingsHandler object.
+	 *
 	 */
-	public static void setUseHigherLevelSlotsDefault(
-		boolean useHigherLevelSlotsDefault)
-	{
-		SettingsHandler.useHigherLevelSlotsDefault = useHigherLevelSlotsDefault;
-	}
-
-	public static void setUseWaitCursor(final boolean b)
-	{
-		useWaitCursor = b;
-	}
-
-	public static boolean getUseWaitCursor()
-	{
-		return useWaitCursor;
-	}
-
 	public static void setWantToLoadMasterworkAndMagic(final boolean bFlag)
 	{
 		wantToLoadMasterworkAndMagic = bFlag;
 	}
 
+	/**
+	 * Method setWeaponProfPrintout sets the weaponProfPrintout of this SettingsHandler object.
+	 * @param argPreference the weaponProfPrintout of this SettingsHandler object.
+	 *
+	 */
 	public static void setWeaponProfPrintout(final boolean argPreference)
 	{
 		weaponProfPrintout = argPreference;
 	}
 
+	/**
+	 * Method getWeaponProfPrintout returns the weaponProfPrintout of this SettingsHandler object.
+	 * @return the weaponProfPrintout (type boolean) of this SettingsHandler object.
+	 */
 	public static boolean getWeaponProfPrintout()
 	{
 		return weaponProfPrintout;
 	}
 
+	/**
+	 * Method guiUsesOutputNameEquipment ...
+	 * @return boolean
+	 */
 	public static boolean guiUsesOutputNameEquipment()
 	{
 		return guiUsesOutputNameEquipment;
 	}
 
+	/**
+	 * Method guiUsesOutputNameSpells ...
+	 * @return boolean
+	 */
 	public static boolean guiUsesOutputNameSpells()
 	{
 		return guiUsesOutputNameSpells;
@@ -1884,14 +1995,13 @@ public final class SettingsHandler
 		return ruleCheckMap.containsKey(aKey);
 	}
 
+	/**
+	 * Method hideMonsterClasses ...
+	 * @return boolean
+	 */
 	public static boolean hideMonsterClasses()
 	{
 		return hideMonsterClasses;
-	}
-
-	public static void readGUIOptionsProperties()
-	{
-		setNameDisplayStyle(getPCGenOption("nameDisplayStyle", Constants.DISPLAY_STYLE_NAME)); //$NON-NLS-1$
 	}
 
 	/**
@@ -1913,7 +2023,7 @@ public final class SettingsHandler
 		try
 		{
 			in = new FileInputStream(optionsLocation);
-			getOptions().load(in);
+			options.load(in);
 		}
 		catch (IOException e)
 		{
@@ -1942,28 +2052,24 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * retrieve filter settings
-	 *
-	 * <br>author: Thomas Behr 19-02-02
-	 *
-	 * @param optionName   the name of the property to retrieve
-	 * @return filter settings
+	 * Method wantToLoadMasterworkAndMagic ...
+	 * @return boolean
 	 */
-	public static String retrieveFilterSettings(final String optionName)
-	{
-		return getFilterSettings().getProperty("pcgen.filters." + optionName, //$NON-NLS-1$
-			getOptions().getProperty("pcgen.filters." + optionName, "")); //$NON-NLS-1$ //$NON-NLS-2$
-	}
-
-	public static boolean wantToLoadMasterworkAndMagic()
+	private static boolean wantToLoadMasterworkAndMagic()
 	{
 		return wantToLoadMasterworkAndMagic;
 	}
 
+	/**
+	 * Method getPropertiesFileHeader ...
+	 *
+	 * @param description of type String
+	 * @return String
+	 */
 	private static String getPropertiesFileHeader(final String description)
 	{
 		return "# Emacs, this is -*- java-properties-generic -*- mode."//$NON-NLS-1$
-			+ Constants.LINE_SEPARATOR + "#" //$NON-NLS-2$
+			+ Constants.LINE_SEPARATOR + '#' //$NON-NLS-2$
 			+ Constants.LINE_SEPARATOR + description //$NON-NLS-1$
 			+ Constants.LINE_SEPARATOR + "# Do not edit this file manually." //$NON-NLS-1$
 			+ Constants.LINE_SEPARATOR;
@@ -1972,7 +2078,7 @@ public final class SettingsHandler
 	/**
 	 * Writes out filepaths.ini
 	 **/
-	public static void writeFilePaths()
+	private static void writeFilePaths()
 	{
 		final String fType = getFilePaths();
 		final String header = getPropertiesFileHeader(
@@ -1986,11 +2092,23 @@ public final class SettingsHandler
 			}
 		}
 
-		// if it's the users home directory, we need to make sure
-		// that the $HOME/.pcgen directory exists
-		if (fType.equals("user")) //$NON-NLS-1$
+
+		if (fType.equals("user") || fType.equals("mac_user")) //$NON-NLS-1$
 		{
-			final String aLoc = System.getProperty("user.home") + File.separator + ".pcgen"; //$NON-NLS-1$ //$NON-NLS-2$
+			final String aLoc;
+			if (fType.equals("user"))
+			{
+				// if it's the users home directory, we need to make sure
+				// that the $HOME/.pcgen directory exists
+				aLoc = System.getProperty("user.home") + File.separator + ".pcgen";
+			}
+			else
+			{
+				// if it's the standard Mac user directory, we need to make sure
+				// that the $HOME/Library/Preferences/pcgen directory exists
+				aLoc = Globals.defaultMacOptionsPath;
+			}
+
 			final File aFile = new File(aLoc);
 
 			if (!aFile.exists())
@@ -2010,45 +2128,28 @@ public final class SettingsHandler
 			}
 		}
 
-		// if it's the standard Mac user directory, we need to make sure
-		// that the $HOME/Library/Preferences/pcgen directory exists
-		if (fType.equals("mac_user")) //$NON-NLS-1$
-		{
-			final String aLoc = Globals.defaultMacOptionsPath;
-			final File aFile = new File(aLoc);
-
-			if (!aFile.exists())
-			{
-				// Directory doesn't exist, so create it
-				aFile.mkdir();
-				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.dir.does.not.exist", aLoc)); //$NON-NLS-1$
-			}
-			else if (!aFile.isDirectory())
-			{
-				String notDir = LanguageBundle.getFormattedString(
-					"SettingsHandler.is.not.a.directory", aLoc); //$NON-NLS-2$
-				ShowMessageDelegate.showMessageDialog(
-					notDir,
-					Constants.APPLICATION_NAME,
-					MessageType.ERROR);
-			}
-		}
 
 		FileOutputStream out = null;
 
 		try
 		{
 			out = new FileOutputStream(fileLocation);
-			getFilepathProp().store(out, header);
+			filepaths.store(out, header);
 		}
 		catch (FileNotFoundException fnfe)
 		{
 			final File f = new File(fileLocation);
-			if (!f.canWrite()) {
-				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.filepaths.readonly", fileLocation)) ; //$NON-NLS-1$
+			if (f.canWrite())
+			{
+				Logging.errorPrint(LanguageBundle.getString(
+						"SettingsHandler.filepaths.write"), fnfe); //$NON-NLS-1$
 			}
-			else {
-				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.filepaths.write"), fnfe); //$NON-NLS-1$
+			else
+			{
+				Logging.errorPrint(LanguageBundle.getFormattedString(
+						"SettingsHandler.filepaths.readonly",
+						fileLocation
+				)); //$NON-NLS-1$
 			}
 		}
 		catch (IOException e)
@@ -2073,147 +2174,68 @@ public final class SettingsHandler
 	}
 
 	/**
-	 * Opens (options.ini) for writing and calls {@link SettingsHandler#setOptionsProperties(PlayerCharacter)}.
-	 * @param aPC
+	 * Method isAutogenExoticMaterial returns the autogenExoticMaterial of this
+	 * SettingsHandler object.
+	 * @return the autogenExoticMaterial (type boolean) of this SettingsHandler object.
 	 */
-	public static void writeOptionsProperties(final PlayerCharacter aPC)
-	{
-		writeFilePaths();
-		writeFilterSettings();
-
-		// Globals.getOptionsPath() will _always_ return a string
-		final String optionsLocation = Globals.getOptionsPath();
-		final String header = getPropertiesFileHeader(
-				"# options.ini -- options set in pcgen");
-
-		// Make sure all the Properties are set
-		setOptionsProperties(aPC);
-
-		FileOutputStream out = null;
-
-		try
-		{
-			out = new FileOutputStream(optionsLocation);
-			getOptions().mystore(out, header);
-		}
-		catch (FileNotFoundException fnfe)
-		{
-			final File f = new File(fileLocation);
-			if (!f.canWrite()) {
-				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.options.ini.read.only", optionsLocation)); //$NON-NLS-1$
-			}
-			else {
-				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.options.ini"), fnfe); //$NON-NLS-1$
-			}
-		}
-		finally
-		{
-			try
-			{
-				if (out != null)
-				{
-					out.close();
-				}
-			}
-			catch (IOException ex)
-			{
-				// Not much to do about it...
-				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.close.options.ini.write"), ex); //$NON-NLS-1$
-			}
-		}
-	}
-
 	static boolean isAutogenExoticMaterial()
 	{
 		return autogenExoticMaterial;
 	}
 
+	/**
+	 * Method isAutogenMagic returns the autogenMagic of this SettingsHandler object.
+	 * @return the autogenMagic (type boolean) of this SettingsHandler object.
+	 */
 	static boolean isAutogenMagic()
 	{
 		return autogenMagic;
 	}
 
+	/**
+	 * Method isAutogenMasterwork returns the autogenMasterwork of this SettingsHandler object.
+	 * @return the autogenMasterwork (type boolean) of this SettingsHandler object.
+	 */
 	static boolean isAutogenMasterwork()
 	{
 		return autogenMasterwork;
 	}
 
+	/**
+	 * Method isAutogenRacial returns the autogenRacial of this SettingsHandler object.
+	 * @return the autogenRacial (type boolean) of this SettingsHandler object.
+	 */
 	static boolean isAutogenRacial()
 	{
 		return autogenRacial;
 	}
 
+	/**
+	 * Method setPreviewTabShown sets the previewTabShown of this SettingsHandler object.
+	 * @param showPreviewTab the previewTabShown of this SettingsHandler object.
+	 *
+	 */
 	static void setPreviewTabShown(final boolean showPreviewTab)
 	{
 		previewTabShown = showPreviewTab;
 	}
 
+	/**
+	 * Method isPreviewTabShown returns the previewTabShown of this SettingsHandler object.
+	 * @return the previewTabShown (type boolean) of this SettingsHandler object.
+	 */
 	static boolean isPreviewTabShown()
 	{
 		return previewTabShown;
 	}
 
-	/** Sets whether 'automatic' class-granted feats can be turned in for other feats
-	 * @param argAutoFeatsRefundable
+	/**
+	 * Method getOptionTabPlacement ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type int
+	 * @return int
 	 */
-	private static void setAutoFeatsRefundable(final boolean argAutoFeatsRefundable)
-	{
-		autoFeatsRefundable = argAutoFeatsRefundable;
-	}
-
-	/** Returns whether 'automatic' class-granted feats can be turned in for other feats
-	 *  @return true if 'automatic' class-granted feats can be turned in for other feats
-	 */
-	private static boolean isAutoFeatsRefundable()
-	{
-		return autoFeatsRefundable;
-	}
-
-	private static void setAutogenExoticMaterial(final boolean aBool)
-	{
-		autogenExoticMaterial = aBool;
-	}
-
-	private static void setAutogenMagic(final boolean aBool)
-	{
-		autogenMagic = aBool;
-	}
-
-	private static void setAutogenMasterwork(final boolean aBool)
-	{
-		autogenMasterwork = aBool;
-	}
-
-	private static void setAutogenRacial(final boolean aBool)
-	{
-		autogenRacial = aBool;
-	}
-
-	private static Properties getFilterSettings()
-	{
-		return FILTERSETTINGS;
-	}
-
-	private static void setGrimHPMode(final boolean argGrimHPMode)
-	{
-		grimHPMode = argGrimHPMode;
-	}
-
-	private static boolean isGrimHPMode()
-	{
-		return grimHPMode;
-	}
-
-	private static void setGrittyACMode(final boolean aBool)
-	{
-		grittyACMode = aBool;
-	}
-
-	private static boolean isGrittyACMode()
-	{
-		return grittyACMode;
-	}
-
 	private static int getOptionTabPlacement(final String optionName, final int defaultValue)
 	{
 		final String aString = getPCGenOption(optionName, convertTabPlacementToString(defaultValue));
@@ -2278,12 +2300,18 @@ public final class SettingsHandler
 	 * @param optionName
 	 * @param optionValue
 	 */
-	public static void setPCGenOption(final String optionName, final boolean optionValue)
+	private static void setPCGenOption(final String optionName, final boolean optionValue)
 	{
 		setPCGenOption(optionName, optionValue ? "true" : "false"); //$NON-NLS-1$ //$NON-NLS-2$
 	}
 
-	public static void setPCGenOption(final String optionName, final double optionValue)
+	/**
+	 * Method setPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param optionValue of type double
+	 */
+	private static void setPCGenOption(final String optionName, final double optionValue)
 	{
 		setPCGenOption(optionName, String.valueOf(optionValue));
 	}
@@ -2310,102 +2338,50 @@ public final class SettingsHandler
 		return "true".equalsIgnoreCase(option); //$NON-NLS-1$
 	}
 
+	/**
+	 * Method getPCGenOption ...
+	 *
+	 * @param optionName of type String
+	 * @param defaultValue of type double
+	 * @return Double
+	 */
 	private static Double getPCGenOption(final String optionName, final double defaultValue)
 	{
 		return new Double(getPCGenOption(optionName, Double.toString(defaultValue)));
 	}
 
 	/**
-	 * What does this do???
-	 * @param ROG
-	 */
-	private static void setROG(final boolean ROG)
-	{
-		isROG = ROG;
-	}
-
-	/**
 	 * Set's the RuleChecks in the options.ini file
-	 * @param optionName
 	 **/
-	private static void setRuleChecksInOptions(final String optionName)
+	private static void setRuleChecksInOptions()
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
+		for (final Entry<String, String> stringStringEntry : ruleCheckMap.entrySet())
 		{
-			final String aKey = i.next();
-			final String aVal = ruleCheckMap.get(aKey);
+			final String aVal = stringStringEntry.getValue();
 
 			if (value.isEmpty())
 			{
-				value = aKey + "|" + aVal; //$NON-NLS-1$
+				value = stringStringEntry.getKey() + '|' + aVal; //$NON-NLS-1$
 			}
 			else
 			{
-				value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
+				value += (',' + stringStringEntry.getKey() + '|' + aVal); //$NON-NLS-1$
+				// $NON-NLS-2$
 			}
 		}
 
 		//setPCGenOption(optionName, value);
-		getOptions().setProperty("pcgen.options." + optionName, value); //$NON-NLS-1$
+		options.setProperty("pcgen.options." + "ruleChecks", value); //$NON-NLS-1$
 	}
 
-	private static void setSaveCustomInLst(final boolean aBool)
-	{
-		saveCustomInLst = aBool;
-	}
-
-	private static boolean isSaveCustomInLst()
-	{
-		return saveCustomInLst;
-	}
-
-	private static void setShowToolBar(final boolean argShowToolBar)
-	{
-		showToolBar = argShowToolBar;
-	}
-
-	private static boolean isShowToolBar()
-	{
-		return showToolBar;
-	}
-
-	public static void setShowSkillModifier(final boolean argShowSkillMod)
-	{
-		showSkillModifier = argShowSkillMod;
-	}
-
-	public static boolean getShowSkillModifier()
-	{
-		return showSkillModifier;
-	}
-
-	public static void setShowSkillRanks(final boolean argShowSkillRanks)
-	{
-		showSkillRanks = argShowSkillRanks;
-	}
-
-	public static boolean getShowSkillRanks()
-	{
-		return showSkillRanks;
-	}
-
-	private static void setSpellMarketPriceAdjusted(final boolean aBool)
-	{
-		spellMarketPriceAdjusted = aBool;
-	}
-
-	private static boolean isSpellMarketPriceAdjusted()
-	{
-		return spellMarketPriceAdjusted;
-	}
-
-	private static String getTmpPath()
-	{
-		return tmpPath;
-	}
-
+	/**
+	 * Method convertTabPlacementToString ...
+	 *
+	 * @param placement of type int
+	 * @return String
+	 */
 	private static String convertTabPlacementToString(final int placement)
 	{
 		switch (placement)
@@ -2424,14 +2400,20 @@ public final class SettingsHandler
 		}
 	}
 
-	/*
+	/**
+	 * Method expandRelativePath ...
+	 *
+	 * @param path of type String
+	 * @return String
+	 */
+ /*
 	 * If the path starts with an @ then it's a relative path
 	 */
 	private static String expandRelativePath(String path)
 	{
 		if (path.startsWith("@")) //$NON-NLS-1$
 		{
-			path = System.getProperty("user.dir") + path.substring(1); //$NON-NLS-1$
+			return System.getProperty("user.dir") + path.substring(1); //$NON-NLS-1$
 		}
 
 		return path;
@@ -2472,21 +2454,8 @@ public final class SettingsHandler
 		try
 		{
 			in = new FileInputStream(fileLocation);
-			getFilepathProp().load(in);
-			String fType = SettingsHandler.getFilePaths();
-
-			if ((fType == null) || (fType.length() < 1))
-			{
-				// make sure we have a default
-				if (SystemUtils.IS_OS_MAC)
-				{
-					fType = "mac_user"; //$NON-NLS-1$
-				}
-				else
-				{
-					fType = "user"; //$NON-NLS-1$
-				}
-			}
+			filepaths.load(in);
+			String fType = getFilePaths();
 		}
 		catch (IOException e)
 		{
@@ -2516,8 +2485,6 @@ public final class SettingsHandler
 
 	/**
 	 * Opens the filter.ini file for reading
-	 *
-	 * <br>author: Thomas Behr 10-03-02
 	 **/
 	private static void readFilterSettings()
 	{
@@ -2529,7 +2496,7 @@ public final class SettingsHandler
 		try
 		{
 			in = new FileInputStream(filterLocation);
-			getFilterSettings().load(in);
+			FILTERSETTINGS.load(in);
 		}
 		catch (IOException e)
 		{
@@ -2557,7 +2524,13 @@ public final class SettingsHandler
 		}
 	}
 
-	/*
+	/**
+	 * Method retractRelativePath ...
+	 *
+	 * @param path of type String
+	 * @return String
+	 */
+ /*
 	 * setup relative paths
 	 */
 	private static String retractRelativePath(String path)
@@ -2566,7 +2539,7 @@ public final class SettingsHandler
 
 		if (path.startsWith(userDir.getAbsolutePath()))
 		{
-			path = "@" + path.substring(userDir.getAbsolutePath().length()); //$NON-NLS-1$
+			return '@' + path.substring(userDir.getAbsolutePath().length()); //$NON-NLS-1$
 		}
 
 		return path;
@@ -2574,12 +2547,9 @@ public final class SettingsHandler
 
 	/**
 	 * Opens the filter.ini file for writing
-	 *
-	 * <br>author: Thomas Behr 10-03-02
 	 */
 	private static void writeFilterSettings()
 	{
-		// Globals.getFilterPath() will _always_ return a string
 		final String filterLocation = Globals.getFilterPath();
 		final String header = getPropertiesFileHeader(
 				"# filter.ini -- filters set in pcgen");
@@ -2589,16 +2559,22 @@ public final class SettingsHandler
 		try
 		{
 			out = new FileOutputStream(filterLocation);
-			getFilterSettings().store(out, header);
+			FILTERSETTINGS.store(out, header);
 		}
 		catch (FileNotFoundException fnfe)
 		{
 			final File f = new File(fileLocation);
-			if (!f.canWrite()) {
-				Logging.errorPrint(LanguageBundle.getFormattedString("SettingsHandler.filter.ini.readonly", filterLocation)); //$NON-NLS-1$
+			if (f.canWrite())
+			{
+				Logging.errorPrint(LanguageBundle.getString(
+						"SettingsHandler.can.not.write.filter.ini"), fnfe); //$NON-NLS-1$
 			}
-			else {
-				Logging.errorPrint(LanguageBundle.getString("SettingsHandler.can.not.write.filter.ini"), fnfe); //$NON-NLS-1$
+			else
+			{
+				Logging.errorPrint(LanguageBundle.getFormattedString(
+						"SettingsHandler.filter.ini.readonly",
+						filterLocation
+				)); //$NON-NLS-1$
 			}
 		}
 		catch (IOException e)
@@ -2622,65 +2598,7 @@ public final class SettingsHandler
 		}
 
 		// remove old filter stuff!
-		for (Iterator<Object> it = getOptions().keySet().iterator(); it.hasNext();)
-		{
-			if (((String) it.next()).startsWith("pcgen.filters.")) //$NON-NLS-1$
-			{
-				it.remove();
-			}
-		}
-	}
-
-	/**
-	 * <p>Returns the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
-	 *
-	 * @return Returns the windowState.
-	 */
-	public static int getWindowState()
-	{
-		return windowState;
-	}
-
-	/**
-	 * <p>Sets the window state.  This corresponds to the values returned/accepted
-	 * by {@code Frame.getExtendedState} and <code>Frame.setExtendedState</code>.</p>
-	 *
-	 * @param argWindowState The argWindowState to set.
-	 */
-	public static void setWindowState(final int argWindowState)
-	{
-		SettingsHandler.windowState = argWindowState;
-	}
-
-	/**
-	 * Shows the program memory use in the status bar if {@code true}.
-	 *
-	 * @return show memory setting for the status bar
-	 */
-	public static boolean isShowMemoryArea()
-	{
-		return showMemoryArea;
-	}
-
-	/**
-	 * Shows character portrait preview in the file chooser if {@code true}.
-	 *
-	 * @return show portrait preview
-	 */
-	public static boolean isShowImagePreview()
-	{
-		return showImagePreview;
-	}
-
-	/**
-	 * Toggles displaying the character portrait preview in the file chooser
-	 *
-	 * @param showImagePreview {@code true} to show portrait preview
-	 */
-	public static void setShowImagePreview(final boolean showImagePreview)
-	{
-		SettingsHandler.showImagePreview = showImagePreview;
+		options.keySet().removeIf(o -> ((String) o).startsWith("pcgen.filters."));
 	}
 
 	/**
@@ -2703,11 +2621,20 @@ public final class SettingsHandler
 
 	private static boolean outputDeprecationMessages = true;
 	
+	/**
+	 * Method outputDeprecationMessages ...
+	 * @return boolean
+	 */
 	public static boolean outputDeprecationMessages()
 	{
 		return outputDeprecationMessages;
 	}
 
+	/**
+	 * Method setOutputDeprecationMessages sets the outputDeprecationMessages of this SettingsHandler object.
+	 * @param b the outputDeprecationMessages of this SettingsHandler object.
+	 *
+	 */
 	public static void setOutputDeprecationMessages(boolean b)
 	{
 		outputDeprecationMessages = b;
@@ -2715,11 +2642,20 @@ public final class SettingsHandler
 
 	private static boolean inputUnconstructedMessages = true;
 	
+	/**
+	 * Method inputUnconstructedMessages ...
+	 * @return boolean
+	 */
 	public static boolean inputUnconstructedMessages()
 	{
 		return inputUnconstructedMessages;
 	}
 
+	/**
+	 * Method setInputUnconstructedMessages sets the inputUnconstructedMessages of this SettingsHandler object.
+	 * @param b the inputUnconstructedMessages of this SettingsHandler object.
+	 *
+	 */
 	public static void setInputUnconstructedMessages(boolean b)
 	{
 		inputUnconstructedMessages = b;

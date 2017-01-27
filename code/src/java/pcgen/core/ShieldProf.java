@@ -15,22 +15,19 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on January 14, 2008
  */
 package pcgen.core;
 
+import pcgen.base.formula.base.VarScoped;
 import pcgen.cdom.base.Ungranted;
 
 
 /**
  * {@code ShieldProf}.
  *
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * DO NOT DELETE (waiting for use)
  */
-public final class ShieldProf extends PObject implements Comparable<Object>,
-		Ungranted
+public final class ShieldProf extends PObject implements Ungranted
 {
 	/**
 	 * Compares keyName only
