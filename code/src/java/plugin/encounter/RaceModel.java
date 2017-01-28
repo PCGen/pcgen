@@ -19,10 +19,10 @@
  */
  package plugin.encounter;
 
+import javax.swing.DefaultListModel;
+
 import pcgen.core.Globals;
 import pcgen.core.Race;
-
-import javax.swing.DefaultListModel;
 
 /**
  * @author Jerril
@@ -32,9 +32,8 @@ public class RaceModel extends DefaultListModel
 	/**
 	 * Constructor for RaceModel.
 	 */
-	public RaceModel()
+	RaceModel()
 	{
-		super();
 	}
 
 	/**
