@@ -115,6 +115,7 @@ ABILITYCATEGORY:Warpriest Blessing			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	F
 ABILITYCATEGORY:Warpriest Bonus Feat		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:Warpriest Bonus Feat		PLURAL:Warpriest Bonus Feats			DISPLAYLOCATION:Feats
 ABILITYCATEGORY:Warpriest Focus Weapon Choice	VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability	TYPE:WarpriestFocusWeaponChoices	PLURAL:Warpriest Focus Weapon Choices	DISPLAYLOCATION:Class Features
 ABILITYCATEGORY:Warpriest Unarmed Strike		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Internal			TYPE:WarpriestIUS											DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Warpriest Channel Energy		VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:YES	FRACTIONALPOOL:NO		CATEGORY:Special Ability			TYPE:Warpriest Channel Energy							DISPLAYLOCATION:Class Features
 
 ###Block: Favoured Class Choice Categories
 # Ability Category							Visible		Editable?		Change Pool?	Fractional values?	Base Pool number				Category of Object		Type of Object						Display Location
