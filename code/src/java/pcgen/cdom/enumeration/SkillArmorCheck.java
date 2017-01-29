@@ -157,6 +157,7 @@ public enum SkillArmorCheck
 	/**
 	 * @deprecated due to PCACCHECK code control
 	 */
+	@Deprecated
 	protected int calculateMaxOld(PlayerCharacter pc)
 	{
 		int max = 0;

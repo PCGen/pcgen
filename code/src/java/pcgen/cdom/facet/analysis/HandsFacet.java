@@ -31,6 +31,7 @@ import pcgen.core.Race;
  * @author Thomas Parker (thpr [at] yahoo.com)
  * @deprecated due to HANDS CodeControl
  */
+@Deprecated
 public class HandsFacet
 {
 
