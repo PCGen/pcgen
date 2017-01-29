@@ -287,11 +287,11 @@ class DiceBagModel extends Observable
 
 			List children = root.getChildren("dice-roll");
 
-			for (Iterator i = children.iterator(); i.hasNext();)
-			{
-				Element die = (Element) i.next();
-				m_dice.add(die.getTextNormalize());
-			}
+            for (Object aChildren : children)
+            {
+                Element die = (Element) aChildren;
+                m_dice.add(die.getTextNormalize());
+            }
 		}
 	}
 

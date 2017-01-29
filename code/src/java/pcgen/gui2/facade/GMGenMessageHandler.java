@@ -107,15 +107,14 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 		RequestToSavePlayerCharacterMessage smessage = (RequestToSavePlayerCharacterMessage) message;
 		PlayerCharacter pc = smessage.getPc();
-		for (Iterator<CharacterFacade> iterator = CharacterManager.getCharacters().iterator(); iterator.hasNext();)
-		{
-			CharacterFacade facade = iterator.next();
-			if (facade.matchesCharacter(pc))
-			{
-				CharacterManager.saveCharacter(facade);
-				break;
-			}
-		}
+        for (CharacterFacade facade : CharacterManager.getCharacters())
+        {
+            if (facade.matchesCharacter(pc))
+            {
+                CharacterManager.saveCharacter(facade);
+                break;
+            }
+        }
 	}
 
 	private void handleSaveMessage(FileMenuSaveMessage message)
@@ -143,20 +142,20 @@ public class GMGenMessageHandler implements PCGenMessageHandler
 	{
 		InitHolderList list = message.getInitHolderList();
 
-		for (int i = 0; i < list.size(); i++)
-		{
-			InitHolder iH = list.get(i);
+        for (Object aList : list)
+        {
+            InitHolder iH = aList;
 
-			if (iH instanceof PcgCombatant)
-			{
-				//TODO: Resolve against the current PC list and add any new characters.
-				PcgCombatant pcg = (PcgCombatant) iH;
-				PlayerCharacter aPC = pcg.getPC();
-				Globals.getPCList().add(aPC);
-				aPC.setDirty(true);
+            if (iH instanceof PcgCombatant)
+            {
+                //TODO: Resolve against the current PC list and add any new characters.
+                PcgCombatant pcg = (PcgCombatant) iH;
+                PlayerCharacter aPC = pcg.getPC();
+                Globals.getPCList().add(aPC);
+                aPC.setDirty(true);
 //				addPCTab(aPC);
-			}
-		}
+            }
+        }
 	}
 
 	private void handleOpenPCGRequestMessage(RequestOpenPlayerCharacterMessage message)

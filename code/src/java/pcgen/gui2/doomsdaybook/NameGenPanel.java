@@ -630,20 +630,20 @@ public class NameGenPanel extends JPanel
 			int oldSelected = -1;
 			int n = 0;
 
-			for (final RuleSet rs : join)
-			{
-				if (rs.getUsage().equals("final"))
-				{
-					catalogs.add(rs);
+            for (RuleSet rs : join)
+            {
+                if (rs.getUsage().equals("final"))
+                {
+                    catalogs.add(rs);
 
-					if (rs.getTitle().equals(catalogKey))
-					{
-						oldSelected = n;
-					}
+                    if (rs.getTitle().equals(catalogKey))
+                    {
+                        oldSelected = n;
+                    }
 
-					n++;
-				}
-			}
+                    n++;
+                }
+            }
 
 			ComboBoxModel catalogModel =
 					new DefaultComboBoxModel(catalogs);
@@ -693,24 +693,24 @@ public class NameGenPanel extends JPanel
 		//	we need to determine if the selected category is supported by the 
 		//	available genders
 		//	loop through the available genders
-		for (String genderString : genders)
-		{
-			//	Get the list of rules for the current gender
-			List<RuleSet> genderRules = categories.get("Sex: " + genderString);
+        for (final String genderString : genders)
+        {
+            //	Get the list of rules for the current gender
+            List<RuleSet> genderRules = categories.get("Sex: " + genderString);
 
-			//	now loop through all the rules from the selected category
-			for (RuleSet categoryRule : categoryRules)
-			{
-				//	if the category rule is in the list of gender rules
-				//	add the current gender to the selectable gender list
-				//	we can stop processing the list once we find a match
-				if (genderRules.contains(categoryRule))
-				{
-					selectable.add(genderString);
-					break;
-				}
-			}
-		}
+            //	now loop through all the rules from the selected category
+            for (final RuleSet categoryRule : categoryRules)
+            {
+                //	if the category rule is in the list of gender rules
+                //	add the current gender to the selectable gender list
+                //	we can stop processing the list once we find a match
+                if (genderRules.contains(categoryRule))
+                {
+                    selectable.add(genderString);
+                    break;
+                }
+            }
+        }
 
 		//	Sort the genders
 		Collections.sort(selectable);
@@ -747,28 +747,29 @@ public class NameGenPanel extends JPanel
 		{
 			File[] dataFiles = path.listFiles(new XMLFilter());
 			SAXBuilder builder = new SAXBuilder();
-			GeneratorDtdResolver resolver = new GeneratorDtdResolver(path);
+			EntityResolver resolver = new GeneratorDtdResolver(path);
 			builder.setEntityResolver(resolver);
 
-			for (File dataFile : dataFiles)
-			{
-				try
-				{
-					URL url = dataFile.toURI().toURL();
-					Document nameSet = builder.build(url);
-					DocType dt = nameSet.getDocType();
+            for (final File dataFile : dataFiles)
+            {
+                try
+                {
+                    URL url = dataFile.toURI().toURL();
+                    Document nameSet = builder.build(url);
+                    DocType dt = nameSet.getDocType();
 
-					if (dt.getElementName().equals("GENERATOR"))
-					{
-						loadFromDocument(nameSet);
-					}
+                    if (dt.getElementName().equals("GENERATOR"))
+                    {
+                        loadFromDocument(nameSet);
+                    }
+
 				} catch (Exception e)
-				{
-					Logging.errorPrint(e.getMessage(), e);
-					JOptionPane.showMessageDialog(this, "XML Error with file "
-							+ dataFile.getName());
-				}
-			}
+                {
+                    Logging.errorPrint(e.getMessage(), e);
+                    JOptionPane.showMessageDialog(this, "XML Error with file "
+                            + dataFile.getName());
+                }
+            }
 
 			loadDropdowns();
 		}
@@ -819,11 +820,10 @@ public class NameGenPanel extends JPanel
 		Element generator = nameSet.getRootElement();
 		java.util.List<?> rulesets = generator.getChildren("RULESET");
 		java.util.List<?> lists = generator.getChildren("LIST");
-		ListIterator<?> listIterator = lists.listIterator();
 
-		while (listIterator.hasNext())
+		for (final Object list1 : lists)
 		{
-			Element list = (Element) listIterator.next();
+			Element list = (Element) list1;
 			loadList(list);
 		}
 

@@ -313,13 +313,13 @@ final class PCGVer2Parser implements PCGParser
 	{
 		initCache(lines.length);
 
-		for (int i = 0; i < lines.length; ++i)
-		{
-			if ((!lines[i].trim().isEmpty()) && !isComment(lines[i]))
-			{
-				cacheLine(lines[i].trim());
-			}
-		}
+        for (String line : lines)
+        {
+            if ((!line.trim().isEmpty()) && !isComment(line))
+            {
+                cacheLine(line.trim());
+            }
+        }
 	}
 
 	/*
@@ -4334,102 +4334,104 @@ final class PCGVer2Parser implements PCGParser
 					thePC);
 		boolean found = false;
 
-		for (int sindex = 0; sindex < spellLevels.length; ++sindex)
-		{
-			final int level = spellLevels[sindex];
-			final int metmagicLevels = totalAddedLevelsFromMetamagic(metaFeats); 
+        for (final Integer level : spellLevels)
+        {
+            final int metmagicLevels = totalAddedLevelsFromMetamagic(metaFeats);
 
-			if (spellLevel > 0 && spellLevel != (level+metmagicLevels))
-			{
-				// Skip spell in class lists that does not match level the character knows it.
-				continue;
-			}
-			
-			if (level < 0)
-			{
-				Collection<CDOMReference<Spell>> mods =
-						source.getListMods(Spell.SPELLS);
-				if (mods == null)
-				{
-					continue;
-				}
-				for (CDOMReference<Spell> ref : mods)
-				{
-					Collection<Spell> refSpells = ref.getContainedObjects();
-					Collection<AssociatedPrereqObject> assocs =
-							source.getListAssociations(Spell.SPELLS, ref);
-					for (Spell sp : refSpells)
-					{
-						if (aSpell.getKeyName().equals(sp.getKeyName()))
-						{
-							for (AssociatedPrereqObject apo : assocs)
-							{
-								String sb =
-										apo.getAssociation(AssociationKey.SPELLBOOK);
-								if (spellBook.equals(sb))
-								{
-									found = true;
-									break;
-								}
-							}
-						}
-					}
-				}
-				continue;
-			}
+            if (spellLevel > 0 && spellLevel != (level + metmagicLevels))
+            {
+                // Skip spell in class lists that does not match level the character
+                // knows it.
+                continue;
+            }
 
-			found = true;
+            if (level < 0)
+            {
+                Collection<CDOMReference<Spell>> mods =
+                        source.getListMods(Spell.SPELLS);
+                if (mods == null)
+                {
+                    continue;
+                }
+                for (CDOMReference<Spell> ref : mods)
+                {
+                    Collection<Spell> refSpells = ref.getContainedObjects();
+                    Collection<AssociatedPrereqObject> assocs =
+                            source.getListAssociations(Spell.SPELLS, ref);
+                    for (Spell sp : refSpells)
+                    {
+                        if (aSpell.getKeyName().equals(sp.getKeyName()))
+                        {
+                            for (AssociatedPrereqObject apo : assocs)
+                            {
+                                String sb =
+                                        apo.getAssociation(AssociationKey.SPELLBOOK);
+                                if (spellBook.equals(sb))
+                                {
+                                    found = true;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                continue;
+            }
 
-			// do not load auto knownspells into default spellbook
-			if (spellBook.equals(Globals.getDefaultSpellBook())
-				&& thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell,
-					level, false, thePC) && thePC.getAutoSpells())
-			{
-				continue;
-			}
+            found = true;
 
-			CharacterSpell aCharacterSpell =
-					thePC.getCharacterSpellForSpell(aPCClass, aSpell, source);
+            // do not load auto knownspells into default spellbook
+            if (spellBook.equals(Globals.getDefaultSpellBook())
+                    && thePC.getSpellSupport(aPCClass).isAutoKnownSpell(aSpell,
+                    level, false, thePC
+            ) && thePC.getAutoSpells())
+            {
+                continue;
+            }
 
-			// PC does not have that spell on that classes list
-			// so we'll need to add it to the list
-			if (aCharacterSpell == null)
-			{
-				aCharacterSpell = new CharacterSpell(source, aSpell);
-				aCharacterSpell.addInfo(level, times, spellBook);
-				thePC.addCharacterSpell(aPCClass, aCharacterSpell);
-			}
+            CharacterSpell aCharacterSpell =
+                    thePC.getCharacterSpellForSpell(aPCClass, aSpell, source);
 
-			SpellInfo aSpellInfo = null;
+            // PC does not have that spell on that classes list
+            // so we'll need to add it to the list
+            if (aCharacterSpell == null)
+            {
+                aCharacterSpell = new CharacterSpell(source, aSpell);
+                aCharacterSpell.addInfo(level, times, spellBook);
+                thePC.addCharacterSpell(aPCClass, aCharacterSpell);
+            }
 
-			if (source.getKeyName().equals(aPCClass.getKeyName())
-				|| !spellBook.equals(Globals.getDefaultSpellBook()))
-			{
-				aSpellInfo =
-						aCharacterSpell.getSpellInfoFor(spellBook, spellLevel);
+            SpellInfo aSpellInfo = null;
 
-				// This doesn't make sense. What does the
-				// metaFeats list have to do with this?
-				if ((aSpellInfo == null) || !metaFeats.isEmpty())
-				{
-					aSpellInfo =
-							aCharacterSpell.addInfo(spellLevel, times,
-								spellBook);
-				}
-			}
+            if (source.getKeyName().equals(aPCClass.getKeyName())
+                    || !spellBook.equals(Globals.getDefaultSpellBook()))
+            {
+                aSpellInfo =
+                        aCharacterSpell.getSpellInfoFor(spellBook, spellLevel);
 
-			if (aSpellInfo != null)
-			{
-				if (!metaFeats.isEmpty())
-				{
-					aSpellInfo.addFeatsToList(metaFeats);
-				}
-				aSpellInfo.setActualPPCost(ppCost);
-				aSpellInfo.setNumPages(numPages);
-				book.setNumPagesUsed(book.getNumPagesUsed() + numPages);
-				book.setNumSpells(book.getNumSpells() + 1);
-			}
-		}
+                // This doesn't make sense. What does the
+                // metaFeats list have to do with this?
+                if ((aSpellInfo == null) || !metaFeats.isEmpty())
+                {
+                    aSpellInfo =
+                            aCharacterSpell.addInfo(spellLevel, times,
+                                    spellBook
+                            );
+                }
+            }
+
+            if (aSpellInfo != null)
+            {
+                if (!metaFeats.isEmpty())
+                {
+                    aSpellInfo.addFeatsToList(metaFeats);
+                }
+                aSpellInfo.setActualPPCost(ppCost);
+                aSpellInfo.setNumPages(numPages);
+                book.setNumPagesUsed(book.getNumPagesUsed() + numPages);
+                book.setNumSpells(book.getNumSpells() + 1);
+            }
+        }
 		// end sindex for loop
 
 		if (!found)
@@ -5136,99 +5138,106 @@ final class PCGVer2Parser implements PCGParser
 			if (line.indexOf(IOConstants.TAG_CUSTOMIZATION) >= 0)
 			{
 				// might be customized item
-				for (Iterator<PCGElement> it = tokens.getElements().iterator(); it
-					.hasNext();)
-				{
-					element = it.next();
+                for (PCGElement pcgElement : tokens.getElements())
+                {
+                    element = pcgElement;
 
-					if (IOConstants.TAG_CUSTOMIZATION.equals(element.getName()))
-					{
-						String baseItemKey = Constants.EMPTY_STRING;
-						String customProperties = Constants.EMPTY_STRING;
+                    if (IOConstants.TAG_CUSTOMIZATION.equals(element.getName()))
+                    {
+                        String baseItemKey = Constants.EMPTY_STRING;
+                        String customProperties = Constants.EMPTY_STRING;
 
-						for (PCGElement child : element.getChildren())
-						{
-							final String childTag = child.getName();
+                        for (PCGElement child : element.getChildren())
+                        {
+                            final String childTag = child.getName();
 
-							if (IOConstants.TAG_BASEITEM.equals(childTag))
-							{
-								baseItemKey =
-										EntityEncoder.decode(child.getText());
-								// Check for an equipment key that has been updated.
-								baseItemKey =
-										EquipmentMigration
-											.getNewEquipmentKey(baseItemKey,
-												pcgenVersion, SettingsHandler
-													.getGame().getName());
-							}
-							else if (IOConstants.TAG_DATA.equals(childTag))
-							{
-								customProperties =
-										EntityEncoder.decode(child.getText());
-							}
-						}
+                            if (IOConstants.TAG_BASEITEM.equals(childTag))
+                            {
+                                baseItemKey =
+                                        EntityEncoder.decode(child.getText());
+                                // Check for an equipment key that has been updated.
+                                baseItemKey =
+                                        EquipmentMigration
+                                                .getNewEquipmentKey(baseItemKey,
+                                                        pcgenVersion, SettingsHandler
+                                                                .getGame().getName()
+                                                );
+                            }
+                            else if (IOConstants.TAG_DATA.equals(childTag))
+                            {
+                                customProperties =
+                                        EntityEncoder.decode(child.getText());
+                            }
+                        }
 
-						if (aEquip != null
-							&& baseItemKey.equals(aEquip.getBaseItemName()))
-						{
-							// We clear out any eqmods that the base item has as the
-							// EQMODs on the saved item override them.
-							EquipmentHead head =
-									aEquip.getEquipmentHeadReference(1);
-							if (head != null)
-							{
-								head.removeListFor(ListKey.EQMOD);
-								head.removeListFor(ListKey.EQMOD_INFO);
-							}
-							aEquip.setBase();
-							aEquip.load(customProperties, "$", "=", thePC); //$NON-NLS-1$ //$NON-NLS-2$
-							aEquip.setToCustomSize(thePC);
-						}
-						else
-						{
-							// Make sure that we are not picking up custom items!
-							Equipment aEquip2 =
-									Globals.getContext().getReferenceContext()
-										.silentlyGetConstructedCDOMObject(
-											Equipment.class, baseItemKey);
-							if (aEquip2 != null)
-							{
-								// Make sure we are not getting a custom item
-								if (aEquip2.isType(Constants.TYPE_CUSTOM))
-								{
-									aEquip2 = null;
-								}
-								else
-								{
-									// standard item
-									aEquip = aEquip2.clone();
-									// We clear out any eqmods that the base item has as the
-									// EQMODs on the saved item override them.
-									EquipmentHead head =
-											aEquip.getEquipmentHeadReference(1);
-									if (head != null)
-									{
-										head.removeListFor(ListKey.EQMOD);
-										head.removeListFor(ListKey.EQMOD_INFO);
-									}
-									aEquip.setBase();
-									aEquip.load(customProperties,
-										"$", "=", thePC); //$NON-NLS-1$//$NON-NLS-2$
-									aEquip.setToCustomSize(thePC);
-									aEquip.remove(StringKey.OUTPUT_NAME);
-									if (!aEquip.isType(Constants.TYPE_CUSTOM))
-									{
-										aEquip.addType(Type.CUSTOM);
-									}
-									Globals.getContext().getReferenceContext()
-										.importObject(aEquip.clone());
-								}
-							}
-						}
+                        if (aEquip != null
+                                && baseItemKey.equals(aEquip.getBaseItemName()))
+                        {
+                            // We clear out any eqmods that the base item has as the
+                            // EQMODs on the saved item override them.
+                            EquipmentHead head =
+                                    aEquip.getEquipmentHeadReference(1);
+                            if (head != null)
+                            {
+                                head.removeListFor(ListKey.EQMOD);
+                                head.removeListFor(ListKey.EQMOD_INFO);
+                            }
+                            aEquip.setBase();
+                            aEquip.load(
+                                    customProperties,
+                                    "$",
+                                    "=",
+                                    thePC
+                            ); //$NON-NLS-1$ //$NON-NLS-2$
+                            aEquip.setToCustomSize(thePC);
+                        }
+                        else
+                        {
+                            // Make sure that we are not picking up custom items!
+                            Equipment aEquip2 =
+                                    Globals.getContext().getReferenceContext()
+                                           .silentlyGetConstructedCDOMObject(
+                                                   Equipment.class, baseItemKey);
+                            if (aEquip2 != null)
+                            {
+                                // Make sure we are not getting a custom item
+                                if (aEquip2.isType(Constants.TYPE_CUSTOM))
+                                {
+                                    aEquip2 = null;
+                                }
+                                else
+                                {
+                                    // standard item
+                                    aEquip = aEquip2.clone();
+                                    // We clear out any eqmods that the base item has
+                                    // as the
+                                    // EQMODs on the saved item override them.
+                                    EquipmentHead head =
+                                            aEquip.getEquipmentHeadReference(1);
+                                    if (head != null)
+                                    {
+                                        head.removeListFor(ListKey.EQMOD);
+                                        head.removeListFor(ListKey.EQMOD_INFO);
+                                    }
+                                    aEquip.setBase();
+                                    aEquip.load(customProperties,
+                                            "$", "=", thePC
+                                    ); //$NON-NLS-1$//$NON-NLS-2$
+                                    aEquip.setToCustomSize(thePC);
+                                    aEquip.remove(StringKey.OUTPUT_NAME);
+                                    if (!aEquip.isType(Constants.TYPE_CUSTOM))
+                                    {
+                                        aEquip.addType(Type.CUSTOM);
+                                    }
+                                    Globals.getContext().getReferenceContext()
+                                           .importObject(aEquip.clone());
+                                }
+                            }
+                        }
 
-						break;
-					}
-				}
+                        break;
+                    }
+                }
 
 			}
 
@@ -5246,50 +5255,48 @@ final class PCGVer2Parser implements PCGParser
 			thePC.addEquipment(aEquip);
 		}
 
-		for (final Iterator<PCGElement> it = tokens.getElements().iterator(); it
-			.hasNext();)
-		{
-			element = it.next();
-			tag = element.getName();
+        for (PCGElement pcgElement : tokens.getElements())
+        {
+            element = pcgElement;
+            tag = element.getName();
 
-			if (IOConstants.TAG_QUANTITY.equals(tag))
-			{
-				float oldQty = aEquip.getQty();
-				aEquip.setQty(element.getText());
-				thePC.updateEquipmentQty(aEquip, oldQty, aEquip.getQty());
-			}
-			else if (IOConstants.TAG_OUTPUTORDER.equals(tag))
-			{
-				int index = 0;
+            if (IOConstants.TAG_QUANTITY.equals(tag))
+            {
+                float oldQty = aEquip.getQty();
+                aEquip.setQty(element.getText());
+                thePC.updateEquipmentQty(aEquip, oldQty, aEquip.getQty());
+            }
+            else if (IOConstants.TAG_OUTPUTORDER.equals(tag))
+            {
+                int index = 0;
 
-				try
-				{
-					index = Integer.parseInt(element.getText());
-				}
-				catch (NumberFormatException nfe)
-				{
-					// nothing we can or have to do about this
-				}
+                try
+                {
+                    index = Integer.parseInt(element.getText());
+                } catch (NumberFormatException nfe)
+                {
+                    // nothing we can or have to do about this
+                }
 
-				aEquip.setOutputIndex(index);
-				if (aEquip.isAutomatic())
-				{
-					thePC.cacheOutputIndex(aEquip);
-				}
-			}
-			else if (IOConstants.TAG_COST.equals(tag))
-			{
-				// TODO This else if switch currently does nothing?
-			}
-			else if (IOConstants.TAG_WT.equals(tag))
-			{
-				// TODO This else if switch currently does nothing?
-			}
-			else if (IOConstants.TAG_NOTE.equals(tag))
-			{
-				aEquip.setNote(element.getText());
-			}
-		}
+                aEquip.setOutputIndex(index);
+                if (aEquip.isAutomatic())
+                {
+                    thePC.cacheOutputIndex(aEquip);
+                }
+            }
+            else if (IOConstants.TAG_COST.equals(tag))
+            {
+                // TODO This else if switch currently does nothing?
+            }
+            else if (IOConstants.TAG_WT.equals(tag))
+            {
+                // TODO This else if switch currently does nothing?
+            }
+            else if (IOConstants.TAG_NOTE.equals(tag))
+            {
+                aEquip.setNote(element.getText());
+            }
+        }
 	}
 
 	private void parseEquipmentSetLine(final String line)
@@ -5869,17 +5876,17 @@ final class PCGVer2Parser implements PCGParser
 
 			int delimCount = 0;
 
-			for (int i = 0; i < chars.length; ++i)
-			{
-				if (chars[i] == nestedStartDelimiterChar)
-				{
-					++delimCount;
-				}
-				else if (chars[i] == nestedStopDelimiterChar)
-				{
-					--delimCount;
-				}
-			}
+            for (char aChar : chars)
+            {
+                if (aChar == nestedStartDelimiterChar)
+                {
+                    ++delimCount;
+                }
+                else if (aChar == nestedStopDelimiterChar)
+                {
+                    --delimCount;
+                }
+            }
 
 			if (delimCount < 0)
 			{

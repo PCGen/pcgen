@@ -64,9 +64,9 @@ public class DefaultSortableTreeTableNode extends DefaultTreeTableNode
         if (children != null)
         {
             children.sort(comparator);
-            for (int x = 0; x < children.size(); x++)
+            for (Object aChildren : children)
             {
-                SortableTreeTableNode child = (SortableTreeTableNode) children.get(x);
+                SortableTreeTableNode child = (SortableTreeTableNode) aChildren;
                 child.sortChildren(comparator);
             }
         }

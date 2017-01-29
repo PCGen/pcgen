@@ -87,21 +87,21 @@ public final class PreParserFactory implements PluginLoader
 	{
 		String[] kindsHandled = testClass.kindsHandled();
 
-		for (int i = 0; i < kindsHandled.length; i++)
-		{
-			Object test = parserLookup.get(kindsHandled[i].toLowerCase());
+        for (String aKindsHandled : kindsHandled)
+        {
+            Object test = parserLookup.get(aKindsHandled.toLowerCase());
 
-			if (test != null)
-			{
-				throw new PersistenceLayerException("Error registering '"
-					+ testClass.getClass().getName() + "' as test '"
-					+ kindsHandled[i]
-					+ "'. The test is already registered to '"
-					+ test.getClass().getName() + "'");
-			}
+            if (test != null)
+            {
+                throw new PersistenceLayerException("Error registering '"
+                        + testClass.getClass().getName() + "' as test '"
+                        + aKindsHandled
+                        + "'. The test is already registered to '"
+                        + test.getClass().getName() + "'");
+            }
 
-			parserLookup.put(kindsHandled[i].toLowerCase(), testClass);
-		}
+            parserLookup.put(aKindsHandled.toLowerCase(), testClass);
+        }
 	}
 
 	public static List<Prerequisite> parse(final List<String> preStrings)

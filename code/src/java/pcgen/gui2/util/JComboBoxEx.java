@@ -107,10 +107,10 @@ public class JComboBoxEx extends JComboBox
 		// setModel(getModel().getClass().getDeclaredConstructor(new Class[] {Object[].class}).newInstance(new Object[] {items}));
 		removeAllItems();
 
-		for (int i = 0; i < items.length; ++i)
-		{
-			super.addItem(items[i]);
-		}
+        for (Object item : items)
+        {
+            super.addItem(item);
+        }
 	}
 
 	/**

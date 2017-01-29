@@ -235,22 +235,21 @@ public class TextToken extends Token
 		char[] chars = temp.toCharArray();
 		StringBuilder res = new StringBuilder(value.length());
 		boolean start = true;
-		for (int i = 0; i < chars.length; i++)
-		{
-			char c = chars[i];
-			boolean whiteSpace =
-					(c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r');
-			if (start && !whiteSpace)
-			{
-				res.append(Character.toUpperCase(c));
-				start = false;
-			}
-			else
-			{
-				start = whiteSpace;
-				res.append(c);
-			}
-		}
+        for (char c : chars)
+        {
+            boolean whiteSpace =
+                    (c == ' ' || c == '\t' || c == '\n' || c == '\f' || c == '\r');
+            if (start && !whiteSpace)
+            {
+                res.append(Character.toUpperCase(c));
+                start = false;
+            }
+            else
+            {
+                start = whiteSpace;
+                res.append(c);
+            }
+        }
 		return res.toString();
 	}
 

@@ -237,12 +237,12 @@ public class PJepTest extends AbstractCharacterTestCase
 		assertFalse(jep.hasError());
 
 		SymbolTable symTab = jep.getSymbolTable();
-		for (Iterator iter = symTab.keySet().iterator(); iter.hasNext();)
-		{
-			String key = (String) iter.next();
-			Double value = (Double) symTab.getValue(key);
-			System.out.println(key + " => " + value);
-		}
+        for (Object o : symTab.keySet())
+        {
+            String key = (String) o;
+            Double value = (Double) symTab.getValue(key);
+            System.out.println(key + " => " + value);
+        }
 		jep.addVariable("MONKLVL", 5);
 		assertEquals(-1, jep.getValue(), 0.1);
 	}

@@ -609,37 +609,40 @@ public class PluginBuildTest extends TestCase
 		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
 		Set<String> jarSet = new HashSet<>();
 		String[] jars = jarFolder.list();
-		for (int i = 0; i < jars.length; i++)
-		{
-			if (jars[i].startsWith(jarPrefix))
-			{
-				jarSet.add(jars[i].toLowerCase());
-			}
-		}
-		for (int i = 0; i < sources.length; i++)
-		{
-			if (sources[i] != null && sources[i].endsWith(".java"))
-			{
-				//String testString = jarPrefix + sources[i].substring(0, sources[i].length()-5);
-				String testString = sources[i];
-				testString = testString.replaceAll(".java", "");
-				testString = testString.replaceAll("Token", "");
-				if (classSuffix.length() > 0)
-				{
-					testString = testString.replaceAll(classSuffix, "");
-				}
-				for (String exception[] : exceptions)
-				{
-					testString = testString.replaceAll(exception[0], exception[1]);
-				}
+        for (String jar : jars)
+        {
+            if (jar.startsWith(jarPrefix))
+            {
+                jarSet.add(jar.toLowerCase());
+            }
+        }
+        for (String source : sources)
+        {
+            if (source != null && source.endsWith(".java"))
+            {
+                //String testString = jarPrefix + sources[i].substring(0, sources[i]
+                // .length()-5);
+                String testString = source;
+                testString = testString.replaceAll(".java", "");
+                testString = testString.replaceAll("Token", "");
+                if (classSuffix.length() > 0)
+                {
+                    testString = testString.replaceAll(classSuffix, "");
+                }
+                for (String exception[] : exceptions)
+                {
+                    testString = testString.replaceAll(exception[0], exception[1]);
+                }
 
-				testString = jarPrefix + testString + ".jar";
-				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i]
-					+ " should be present in jars list as " + testString,
-					jarSet.contains(testString));
-			}
-		}
+                testString = jarPrefix + testString + ".jar";
+                testString = testString.toLowerCase();
+                assertTrue(
+                        "Jar for " + source
+                                + " should be present in jars list as " + testString,
+                        jarSet.contains(testString)
+                );
+            }
+        }
 	}
 	
 	/**
@@ -666,21 +669,22 @@ public class PluginBuildTest extends TestCase
 		{
 			String[] jars = folder.list();
 			String jarRegexPattern = jarRegexPrefix + ".*";
-			for (int i = 0; i < jars.length; i++)
-			{
-				if (jars[i].matches(jarRegexPattern))
-				{
-					String jarStr = jars[i].replaceFirst(jarRegexPrefix, "");
-					jarSet.add(jarStr.toLowerCase());
-				}
-			}
+            for (String jar : jars)
+            {
+                if (jar.matches(jarRegexPattern))
+                {
+                    String jarStr = jar.replaceFirst(jarRegexPrefix, "");
+                    jarSet.add(jarStr.toLowerCase());
+                }
+            }
 		}
-		for (int i = 0; i < sources.length; i++)
+		for (String source : sources)
 		{
-			if (sources[i] != null && sources[i].endsWith(".java"))
+			if (source != null && source.endsWith(".java"))
 			{
-				//String testString = jarPrefix + sources[i].substring(0, sources[i].length()-5);
-				String testString = sources[i];
+				//String testString = jarPrefix + sources[i].substring(0, sources[i]
+                // .length()-5);
+				String testString = source;
 				testString = testString.replaceAll(".java", "");
 				testString = testString.replaceAll("Token", "");
 				if (classSuffix.length() > 0)
@@ -694,7 +698,10 @@ public class PluginBuildTest extends TestCase
 
 				testString = testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
+				assertTrue(
+						"Jar for " + source + " should be present in jars list",
+						jarSet.contains(testString)
+				);
 			}
 		}
 	}

@@ -170,13 +170,13 @@ public class SpellLevel
 
 		if (levelInt.length > 0)
 		{
-			for (int i = 0; i < levelInt.length; i++)
-			{
-				if (levelInt[i] > -1)
-				{
-					return levelInt[i];
-				}
-			}
+            for (Integer aLevelInt : levelInt)
+            {
+                if (aLevelInt > -1)
+                {
+                    return aLevelInt;
+                }
+            }
 		}
 
 		return result;

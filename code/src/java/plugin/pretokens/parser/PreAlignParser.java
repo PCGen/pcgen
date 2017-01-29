@@ -99,14 +99,14 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 				prereq.setOperator(PrerequisiteOperator.GTEQ);
 				prereq.setOperand("1");
 
-				for (int i = 0; i < alignments.length; i++)
-				{
-					Prerequisite subreq = new Prerequisite();
-					subreq.setKind("align");
-					subreq.setKey(alignments[i]);
-					subreq.setOperator(PrerequisiteOperator.EQ);
-					prereq.addPrerequisite(subreq);
-				}
+                for (String alignment : alignments)
+                {
+                    Prerequisite subreq = new Prerequisite();
+                    subreq.setKind("align");
+                    subreq.setKey(alignment);
+                    subreq.setOperator(PrerequisiteOperator.EQ);
+                    prereq.addPrerequisite(subreq);
+                }
 			}
 		}
 		if (invertResult)

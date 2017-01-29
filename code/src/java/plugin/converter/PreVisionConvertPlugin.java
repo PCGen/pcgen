@@ -255,34 +255,33 @@ public class PreVisionConvertPlugin implements TokenProcessorPlugin
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
 		boolean needComma = false;
-		for (int i = 0; i < base.length; i++)
-		{
-			String tok = base[i];
-			// need to check zero...
+        for (String tok : base)
+        {
+            // need to check zero...
 
-			int equalLoc = tok.indexOf('=');
-			String target = tok.substring(equalLoc + 1);
-			if (needComma)
-			{
-				one.append(',');
-				any.append(',');
-			}
-			needComma = true;
+            int equalLoc = tok.indexOf('=');
+            String target = tok.substring(equalLoc + 1);
+            if (needComma)
+            {
+                one.append(',');
+                any.append(',');
+            }
+            needComma = true;
 
-			if (!"ANY".equals(target) && Integer.parseInt(target) == 0)
-			{
-				String start = tok.substring(0, equalLoc);
-				one.append(start);
-				any.append(start);
-				one.append("=1");
-				any.append("=ANY");
-			}
-			else
-			{
-				one.append(tok);
-				any.append(tok);
-			}
-		}
+            if (!"ANY".equals(target) && Integer.parseInt(target) == 0)
+            {
+                String start = tok.substring(0, equalLoc);
+                one.append(start);
+                any.append(start);
+                one.append("=1");
+                any.append("=ANY");
+            }
+            else
+            {
+                one.append(tok);
+                any.append(tok);
+            }
+        }
 		String oneResult = one.toString();
 		String anyResult = any.toString();
 		List<String> choice = new ArrayList<>();

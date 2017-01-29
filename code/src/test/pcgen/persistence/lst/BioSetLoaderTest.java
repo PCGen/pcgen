@@ -140,9 +140,8 @@ public final class BioSetLoaderTest extends TestCase
 	 */
 	public static void loadBioSet(LoadContext context, final String[] bioSetData, BioSetLoader loader) throws Exception
 	{
-		for (int i = 0; i < bioSetData.length; i++)
+		for (final String line : bioSetData)
 		{
-			final String line = bioSetData[i];
 			loader.parseLine(context, line, new URI("http://UNIT_TEST_CASE"));
 		}
 		SettingsHandler.getGame().setBioSet(loader.bioSet);

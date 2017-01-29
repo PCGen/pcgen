@@ -118,29 +118,28 @@ public class StatMinValueFacet extends AbstractSourcedListFacet<CharID, StatLock
 		Map<StatLock, Set<Object>> componentMap = getCachedMap(id);
 		if (componentMap != null)
 		{
-			for (Iterator<Map.Entry<StatLock, Set<Object>>> it = componentMap
-					.entrySet().iterator(); it.hasNext();)
-			{
-				Entry<StatLock, Set<Object>> me = it.next();
-				Set<Object> set = me.getValue();
-				StatLock lock = me.getKey();
-				if (lock.getLockedStat().equals(stat))
-				{
-					for (Object source : set)
-					{
-						String sourceString =
-								(source instanceof CDOMObject) ? ((CDOMObject) source)
-									.getQualifiedKey() : "";
-						Number val = formulaResolvingFacet.resolve(id, lock
-								.getLockValue(), sourceString);
-						if (val.doubleValue() > max.doubleValue())
-						{
-							hit = true;
-							max = val;
-						}
-					}
-				}
-			}
+            for (Entry<StatLock, Set<Object>> me : componentMap
+                    .entrySet())
+            {
+                Set<Object> set = me.getValue();
+                StatLock lock = me.getKey();
+                if (lock.getLockedStat().equals(stat))
+                {
+                    for (Object source : set)
+                    {
+                        String sourceString =
+                                (source instanceof CDOMObject) ? ((CDOMObject) source)
+                                        .getQualifiedKey() : "";
+                        Number val = formulaResolvingFacet.resolve(id, lock
+                                .getLockValue(), sourceString);
+                        if (val.doubleValue() > max.doubleValue())
+                        {
+                            hit = true;
+                            max = val;
+                        }
+                    }
+                }
+            }
 		}
 		return hit ? max : null;
 	}

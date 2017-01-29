@@ -85,14 +85,14 @@ public class PreItemTester extends AbstractDisplayPrereqTest implements
 					// Check to see if the equipment matches
 					// all of the types in the requested list;
 					boolean bMatches = true;
-					for (int i = 0, x = typeList.size(); i < x; ++i)
-					{
-						if (!eq.isType(typeList.get(i)))
-						{
-							bMatches = false;
-							break;
-						}
-					}
+                    for (String aTypeList : typeList)
+                    {
+                        if (!eq.isType(aTypeList))
+                        {
+                            bMatches = false;
+                            break;
+                        }
+                    }
 					if (bMatches)
 					{
 						runningTotal++;
