@@ -30,6 +30,8 @@ import pcgen.core.Language;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.add.AbilityToken;
 import tokenmodel.testsupport.AbstractAddListTokenTest;
 
@@ -48,7 +50,7 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -126,19 +128,19 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = ABILITY_MULT_TOKEN.parseToken(context, a, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_LANG_TOKEN.parseToken(context, a, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, a);
 		return a;

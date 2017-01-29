@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet.fact;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -48,13 +49,13 @@ public class AgeFacetTest extends AbstractItemFacetTest<Integer>
 	@Test
 	public void testItemSetMultGetAge()
 	{
-		assertEquals(0, facet.getAge(id));
+		Assert.assertEquals(0, facet.getAge(id));
 		getFacet().set(id, 4);
-		assertEquals(4, facet.getAge(id));
+		Assert.assertEquals(4, facet.getAge(id));
 		getFacet().set(id, 2);
-		assertEquals(2, facet.getAge(id));
+		Assert.assertEquals(2, facet.getAge(id));
 		// Remove
 		getFacet().remove(id);
-		assertEquals(0, facet.getAge(id));
+		Assert.assertEquals(0, facet.getAge(id));
 	}
 }

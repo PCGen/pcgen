@@ -34,6 +34,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 import pcgen.util.enumeration.Visibility;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -474,7 +476,7 @@ public class CountDistinctCommandTest extends AbstractCharacterTestCase
 		
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " two choices");
 		finalize(ab, "nibble", character, gCat);
-		assertEquals(3, character.getConsolidatedAssociationList(ab).size());
+		Assert.assertEquals(3, character.getConsolidatedAssociationList(ab).size());
 		character.setDirty(true);
 
 		is(character.getVariableValue(s,""), eq(1.0, 0.1), s + " three choices");

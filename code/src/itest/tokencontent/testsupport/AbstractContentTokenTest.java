@@ -17,6 +17,7 @@
  */
 package tokencontent.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -49,26 +50,26 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		Ability source = create(Ability.class, "Source");
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
 	public void testFromAlignment() throws PersistenceLayerException
 	{
 		processToken(lg);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		alignmentFacet.set(id, lg);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		alignmentFacet.set(id, ng);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//BioSet not *supposed* to do things like this
@@ -78,12 +79,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		Campaign source = create(Campaign.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		expandedCampaignFacet.add(id, source, this);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		expandedCampaignFacet.remove(id, source, this);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -91,10 +92,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		PCCheck source = create(PCCheck.class, "Source");
 		processToken(source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		checkFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -102,12 +103,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		PCClass source = create(PCClass.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		classFacet.addClass(id, source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		classFacet.removeClass(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -115,12 +116,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		PCClassLevel source = create(PCClassLevel.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		classLevelFacet.add(id, source, this);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		classLevelFacet.remove(id, source, this);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -128,12 +129,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		CompanionMod source = create(CompanionMod.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		companionModFacet.add(id, source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		companionModFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -141,12 +142,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		Deity source = create(Deity.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		deityFacet.set(id, source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		deityFacet.remove(id);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -155,13 +156,13 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 		Domain source = create(Domain.class, "Source");
 		PCClass pcc = create(PCClass.class, "Class");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		domainFacet.remove(id, source, classSource);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -169,12 +170,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		activeEqModFacet.add(id, source, this);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		activeEqModFacet.remove(id, source, this);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//Language not *supposed* to do things like this
@@ -184,12 +185,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		Race source = create(Race.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		raceFacet.remove(id);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//TODO SizeFacet is not a very good model for doing this by hand :(
@@ -202,10 +203,10 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		PCStat source = create(PCStat.class, "Source");
 		processToken(source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		statFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -213,12 +214,12 @@ public abstract class AbstractContentTokenTest extends AbstractTokenModelTest
 	{
 		PCTemplate source = create(PCTemplate.class, "Source");
 		processToken(source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		templateInputFacet.directAdd(id, source, getAssoc());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		templateInputFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	//WeaponProf not *supposed* to do things like this

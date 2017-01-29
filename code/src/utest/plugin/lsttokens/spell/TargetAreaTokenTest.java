@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.spell;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -65,15 +66,15 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 
 	@Test
 	public void testGoodParentheses() throws PersistenceLayerException {
-		assertTrue(parse("(first)"));
+		Assert.assertTrue(parse("(first)"));
 	}
 	
 	@Test
 	public void testBadParentheses() throws PersistenceLayerException {
-		assertFalse("Missing end paren should have been flagged.", parse("(first"));
-		assertFalse("Missing start paren should have been flagged.", parse("first)"));
-		assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
-		assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
+		Assert.assertFalse("Missing end paren should have been flagged.", parse("(first"));
+		Assert.assertFalse("Missing start paren should have been flagged.", parse("first)"));
+		Assert.assertFalse("Missing start paren should have been flagged.", parse("(fir)st)"));
+		Assert.assertFalse("Out of order parens should have been flagged.", parse(")(fir(st)"));
 	}
 
 	/*

@@ -79,6 +79,8 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.chooser.ChooserFactory;
 import pcgen.util.chooser.RandomChooser;
+
+import org.junit.Assert;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -164,7 +166,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		context.getReferenceContext().buildDeferredObjects();
 		context.getReferenceContext().buildDerivedObjects();
 		context.resolveDeferredTokens();
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		context.resolvePostValidationTokens();
 		context.resolvePostDeferredTokens();
 		context.loadCampaignFacets();
@@ -344,7 +346,7 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 	protected void checkEquality()
 	{
 		InequalityTester it = InequalityTesterInst.getInstance();
-		assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc.getCharID(),
 			reloadedPC.getCharID(), it));
 	}
 
@@ -357,8 +359,8 @@ public abstract class AbstractSaveRestoreTest extends TestCase
 		InputStream is = new ByteArrayInputStream(pcgString.getBytes());
 		PCGIOHandler ioh = new PCGIOHandler();
 		ioh.read(reloadedPC, is, true);
-		assertEquals(ioh.getErrors().toString(), 0, ioh.getErrors().size());
-		assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
+		Assert.assertEquals(ioh.getErrors().toString(), 0, ioh.getErrors().size());
+		Assert.assertEquals(ioh.getWarnings().toString(), 0, ioh.getWarnings().size());
 	}
 	
 	protected void dumpPC(PlayerCharacter plchar)

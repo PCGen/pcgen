@@ -67,6 +67,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.FeatLoader;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreVariableParser;
 
@@ -142,29 +144,29 @@ public class PCClassTest extends AbstractCharacterTestCase
 		cl2.put(VariableKey.getConstant("someVar"), FormulaFactory
 				.getFormulaFor("(CL=KEY_myClass/2) + CL=KEY_myClass"));
 
-		assertEquals(1, cl2.getVariableKeys().size());
-		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
-				.toString());
-		assertNotNull(cl2.get(VariableKey.getConstant("someVar")));
-		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
+		Assert.assertEquals(1, cl2.getVariableKeys().size());
+		Assert.assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+                                          .toString());
+		Assert.assertNotNull(cl2.get(VariableKey.getConstant("someVar")));
+		Assert.assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
 				VariableKey.getConstant("someVar")).toString());
 
 		myClass.setName("someOtherClass");
 
 		PCClassKeyChange.changeReferences("myClass", myClass);
 
-		assertEquals(1, cl2.getVariableKeys().size());
-		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
-				.toString());
-		assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
+		Assert.assertEquals(1, cl2.getVariableKeys().size());
+		Assert.assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+                                          .toString());
+		Assert.assertEquals("(CL=KEY_myClass/2) + CL=KEY_myClass", cl2.get(
 				VariableKey.getConstant("someVar")).toString());
 
 		PCClassKeyChange.changeReferences("KEY_myClass", myClass);
 
-		assertEquals(1, cl2.getVariableKeys().size());
-		assertEquals("someVar", cl2.getVariableKeys().iterator().next()
-				.toString());
-		assertEquals("(CL=someOtherClass/2) + CL=someOtherClass", cl2.get(
+		Assert.assertEquals(1, cl2.getVariableKeys().size());
+		Assert.assertEquals("someVar", cl2.getVariableKeys().iterator().next()
+                                          .toString());
+		Assert.assertEquals("(CL=someOtherClass/2) + CL=someOtherClass", cl2.get(
 				VariableKey.getConstant("someVar")).toString());
 	}
 
@@ -181,54 +183,54 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test skills granted for each level
 		bugbear.incrementClassLevel(1, humanoidClass);
 		PCLevelInfo levelInfo = bugbear.getLevelInfo(0);
-		assertEquals("First level of bugbear", 7, levelInfo
+		Assert.assertEquals("First level of bugbear", 7, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo(1);
-		assertEquals("2nd level of bugbear", 1, levelInfo
+		Assert.assertEquals("2nd level of bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo(2);
-		assertEquals("3rd level of bugbear", 1, levelInfo
+		Assert.assertEquals("3rd level of bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		// Craete a huge bugbear first level
 		bugbear = new PlayerCharacter();
 		bugbear.setRace(bigBugbearRace);
-		assertEquals("big bugbear", "L", bugbear.getDisplay().getSize());
+		Assert.assertEquals("big bugbear", "L", bugbear.getDisplay().getSize());
 		setPCStat(bugbear, intel, 10);
 		bugbear.incrementClassLevel(1, humanoidClass);
 		// Test skills granted for each level
 		levelInfo = bugbear.getLevelInfo(0);
-		assertEquals("First level of big bugbear", 6, levelInfo
+		Assert.assertEquals("First level of big bugbear", 6, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo(1);
-		assertEquals("2nd level of big bugbear", 0, levelInfo
+		Assert.assertEquals("2nd level of big bugbear", 0, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		bugbear.incrementClassLevel(1, humanoidClass);
 		levelInfo = bugbear.getLevelInfo(2);
-		assertEquals("3rd level of big bugbear", 1, levelInfo
+		Assert.assertEquals("3rd level of big bugbear", 1, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		// Create a nymph - first level
 		PlayerCharacter nymph = new PlayerCharacter();
 		nymph.setRace(nymphRace);
-		assertEquals("nymph", "M", nymph.getDisplay().getSize());
+		Assert.assertEquals("nymph", "M", nymph.getDisplay().getSize());
 		setPCStat(nymph, intel, 10);
 		nymph.incrementClassLevel(1, nymphClass);
 		// Test skills granted for each level
 		levelInfo = nymph.getLevelInfo(0);
-		assertEquals("First level of nymph", 24, levelInfo
+		Assert.assertEquals("First level of nymph", 24, levelInfo
 			.getSkillPointsGained(bugbear));
 
 		nymph.incrementClassLevel(1, nymphClass);
 		levelInfo = nymph.getLevelInfo(1);
-		assertEquals("2nd level of nymph", 6, levelInfo.getSkillPointsGained(bugbear));
+		Assert.assertEquals("2nd level of nymph", 6, levelInfo.getSkillPointsGained(bugbear));
 
 	}
 
@@ -284,34 +286,34 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		// Test no prereqs and no bypass fails class and var
-		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
+		Assert.assertFalse("PC with no prereqs should fail class qual test.", aPrClass
 			.qualifies(character, aPrClass));
-		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
+		Assert.assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test no prereqs and bypass passes class and fails var
 		aClassPreRule.setDefault(true);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
 			aPrClass.qualifies(character, aPrClass));
-		assertEquals(
+		Assert.assertEquals(
 			"PC with no prereqs should fail var qual test when bypass prereqs is on.",
 			0.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and bypass pass class and var
 		character.incrementClassLevel(1, aNqClass);
-		assertTrue("PC with prereqs and bypass should pass class qual test.",
+		Assert.assertTrue("PC with prereqs and bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
 		character.incrementClassLevel(1, aNqClass);
-		assertEquals("PC with prereqs and bypass should pass var qual test.",
+		Assert.assertEquals("PC with prereqs and bypass should pass var qual test.",
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and no bypass passes class and var
 		aClassPreRule.setDefault(false);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
-		assertEquals(
+		Assert.assertEquals(
 			"PC with prereqs and no bypass should pass var qual test.", 10.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
@@ -368,34 +370,34 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		// Test no prereqs and no bypass fails class and var
-		assertFalse("PC with no prereqs should fail class qual test.", aPrClass
+		Assert.assertFalse("PC with no prereqs should fail class qual test.", aPrClass
 			.qualifies(character, aPrClass));
-		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
+		Assert.assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test no prereqs and bypass passes class and fails var
 		aClassPreRule.setDefault(true);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with no prereqs should pass class qual test when bypassing prereqs is on.",
 			aPrClass.qualifies(character, aPrClass));
-		assertEquals(
+		Assert.assertEquals(
 			"PC with no prereqs should fail var qual test when bypass prereqs is on.",
 			0.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and bypass pass class and var
 		character.incrementClassLevel(1, aNqClass);
-		assertTrue("PC with prereqs and bypass should pass class qual test.",
+		Assert.assertTrue("PC with prereqs and bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
 		character.incrementClassLevel(1, aNqClass);
-		assertEquals("PC with prereqs and bypass should pass var qual test.",
+		Assert.assertEquals("PC with prereqs and bypass should pass var qual test.",
 			10.0, aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and no bypass passes class and var
 		aClassPreRule.setDefault(false);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with prereqs and no bypass should pass class qual test.",
 			aPrClass.qualifies(character, aPrClass));
-		assertEquals(
+		Assert.assertEquals(
 			"PC with prereqs and no bypass should pass var qual test.", 10.0,
 			aPrClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
@@ -412,27 +414,27 @@ public class PCClassTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 
 		// Test no prereqs and no qualifies fails class and var
-		assertFalse("PC with no prereqs should fail class qual test.", prClass
+		Assert.assertFalse("PC with no prereqs should fail class qual test.", prClass
 			.qualifies(character, prClass));
-		assertEquals("PC with no prereqs should fail var qual test.", 0.0,
+		Assert.assertEquals("PC with no prereqs should fail var qual test.", 0.0,
 			prClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test no prereqs and qualifies passes class and fails var
 		character.incrementClassLevel(1, qClass);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with no prereqs but a qualifies should pass class qual test.",
 			prClass.qualifies(character, prClass));
-		assertEquals(
+		Assert.assertEquals(
 			"PC with no prereqs but a qualifies should fail var qual test.",
 			0.0, prClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 
 		// Test prereqs and qualifies pass class and var
 		character.incrementClassLevel(1, nqClass);
-		assertTrue(
+		Assert.assertTrue(
 			"PC with prereqs and qualifies should pass class qual test.",
 			prClass.qualifies(character, prClass));
 		character.incrementClassLevel(1, nqClass);
-		assertEquals(
+		Assert.assertEquals(
 			"PC with prereqs and qualifies should pass var qual test.", 10.0,
 			prClass.getBonusTo("MISC", "SR", 1, character), 0.1);
 	}
@@ -449,7 +451,7 @@ public class PCClassTest extends AbstractCharacterTestCase
 		FactKey.getConstant("Abb", new StringManager());
 		// Test a basic class
 		String classPCCText = humanoidClass.getPCCText();
-		assertNotNull("PCC Text for race should not be null", classPCCText);
+		Assert.assertNotNull("PCC Text for race should not be null", classPCCText);
 
 		CampaignSourceEntry source;
 		try
@@ -464,10 +466,10 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PCClass reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
-		assertEquals(
+		Assert.assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());
-		assertEquals(
+		Assert.assertEquals(
 			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
 
@@ -480,22 +482,22 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PCClassLoader classLoader = new PCClassLoader();
 		classLoader.parseLine(Globals.getContext(), humanoidClass, b, source);
 		classPCCText = humanoidClass.getPCCText();
-		assertNotNull("PCC Text for race should not be null", classPCCText);
+		Assert.assertNotNull("PCC Text for race should not be null", classPCCText);
 
 		reconstClass = null;
 		System.out.println("Got text:" + classPCCText);
 		reconstClass = parsePCClassText(classPCCText, source);
-		assertEquals(
+		Assert.assertEquals(
 			"getPCCText should be the same after being encoded and reloaded",
 			classPCCText, reconstClass.getPCCText());
-		assertEquals(
+		Assert.assertEquals(
 			"Class abbrev was not restored after saving and reloading.",
 			humanoidClass.getAbbrev(), reconstClass.getAbbrev());
 		Collection<CDOMReference<Spell>> startSpells = humanoidClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
 		Collection<CDOMReference<Spell>> reconstSpells = reconstClass.getOriginalClassLevel(1).getListMods(Spell.SPELLS);
-		assertEquals("All spell should have been reconstituted.", startSpells
+		Assert.assertEquals("All spell should have been reconstituted.", startSpells
 			.size(), reconstSpells.size());
-		assertEquals("Spell names should been preserved.", startSpells, reconstSpells);
+		Assert.assertEquals("Spell names should been preserved.", startSpells, reconstSpells);
 
 	}
 
@@ -519,25 +521,25 @@ public class PCClassTest extends AbstractCharacterTestCase
 		Globals.getContext().getReferenceContext().importObject(megaCasterClass);
 
 		final PlayerCharacter character = getCharacter();
-		assertEquals("Highest spell level for class", 10, character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
+		Assert.assertEquals("Highest spell level for class", 10, character.getSpellSupport(megaCasterClass).getHighestLevelSpell());
 
 		character.incrementClassLevel(1, megaCasterClass);
 		PCClass charClass =
 				character.getClassKeyed(megaCasterClass.getKeyName());
-		assertEquals("Highest spell level for character's class", 10, character.getSpellSupport(charClass).getHighestLevelSpell());
+		Assert.assertEquals("Highest spell level for character's class", 10, character.getSpellSupport(charClass).getHighestLevelSpell());
 
 		String sbook = Globals.getDefaultSpellBook();
 
 		String cast =
 				character.getSpellSupport(charClass).getCastForLevel(10, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(10, sbook, character);
-		assertEquals(
+		Assert.assertEquals(
 			"Should not be able to cast 10th level spells at 1st level", "0",
 			cast);
 		cast =
 				character.getSpellSupport(charClass).getCastForLevel(5, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(5, sbook, character);
-		assertEquals("Should be able to cast 5th level spells at 1st level",
+		Assert.assertEquals("Should be able to cast 5th level spells at 1st level",
 			"5", cast);
 
 		Ability casterFeat = new Ability();
@@ -564,9 +566,9 @@ public class PCClassTest extends AbstractCharacterTestCase
 		cast =
 				character.getSpellSupport(charClass).getCastForLevel(11, sbook, true, false, character)
 					+ character.getSpellSupport(charClass).getBonusCastForLevelString(11, sbook, character);
-		assertEquals("Should be able to cast 11th level spells with feat", "1",
+		Assert.assertEquals("Should be able to cast 11th level spells with feat", "1",
 			cast);
-		assertEquals("Should be able to cast 11th level spells with feat", 11,
+		Assert.assertEquals("Should be able to cast 11th level spells with feat", 11,
 			character.getSpellSupport(charClass).getHighestLevelSpell(character));
 	}
 
@@ -592,22 +594,22 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test retrieval for a non-spell casting class.
 		character.incrementClassLevel(1, nqClass);
 		PCClass charClass = character.getClassKeyed(nqClass.getKeyName());
-		assertEquals("Known 0th level for non spell casting class", 0,
+		Assert.assertEquals("Known 0th level for non spell casting class", 0,
 			character.getSpellSupport(charClass).getKnownForLevel(0, character));
 
 		// Test retrieval for a spell casting class.
 		character.incrementClassLevel(1, megaCasterClass);
 		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
 		setPCStat(character, cha, 10);
-		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
-		assertEquals("Known 1st level where stat is too low", 0, character.getSpellSupport(charClass).getKnownForLevel(1, character));
+		Assert.assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
+		Assert.assertEquals("Known 1st level where stat is too low", 0, character.getSpellSupport(charClass).getKnownForLevel(1, character));
 		setPCStat(character, cha, 11);
 		character.calcActiveBonuses();
-		assertEquals("Known 1st level where stat is high enough, but no bonus",
+		Assert.assertEquals("Known 1st level where stat is high enough, but no bonus",
 			2, character.getSpellSupport(charClass).getKnownForLevel(1, character));
 		setPCStat(character, cha, 18);
 		character.calcActiveBonuses();
-		assertEquals("Known 1st level where stat gives bonus but not active",
+		Assert.assertEquals("Known 1st level where stat gives bonus but not active",
 			2, character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
 		RuleCheck bonusKnownRule = new RuleCheck();
@@ -624,25 +626,25 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bsi.setName("5");
 		bsi.setStatScore(20);
 		bsi.setStatRange(8);
-		assertEquals("Known 1st level where stat gives bonus and active", 3,
+		Assert.assertEquals("Known 1st level where stat gives bonus and active", 3,
 			character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
-		assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
-		assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
-		assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
+		Assert.assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
+		Assert.assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
+		Assert.assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
 		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
-		assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
-		assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		Assert.assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
+		Assert.assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
+		Assert.assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
 		// Add spell bonus for level above known max
 		bsi = new BonusSpellInfo();
 		bsi.setName("7");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		Assert.assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
-		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
+		Assert.assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
 
 	}
 
@@ -668,16 +670,16 @@ public class PCClassTest extends AbstractCharacterTestCase
 		// Test retrieval for a non-spell casting class.
 		character.incrementClassLevel(1, nqClass);
 		PCClass charClass = character.getClassKeyed(nqClass.getKeyName());
-		assertEquals("Known 0th level for non spell casting class", 0,
+		Assert.assertEquals("Known 0th level for non spell casting class", 0,
 			character.getSpellSupport(charClass).getKnownForLevel(0, character));
 
 		// Test retrieval for a spell casting class.
 		character.incrementClassLevel(1, megaCasterClass);
 		charClass = character.getClassKeyed(megaCasterClass.getKeyName());
 		setPCStat(character, cha, 10);
-		assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
+		Assert.assertEquals("Known 0th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(0, character));
 		character.calcActiveBonuses();
-		assertEquals("Known 1st level where stat is high enough, but no bonus",
+		Assert.assertEquals("Known 1st level where stat is high enough, but no bonus",
 			2, character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
 		RuleCheck bonusKnownRule = new RuleCheck();
@@ -694,25 +696,25 @@ public class PCClassTest extends AbstractCharacterTestCase
 		bsi.setName("5");
 		bsi.setStatScore(20);
 		bsi.setStatRange(8);
-		assertEquals("Known 1st level where stat would give bonus and active", 2,
+		Assert.assertEquals("Known 1st level where stat would give bonus and active", 2,
 			character.getSpellSupport(charClass).getKnownForLevel(1, character));
 
-		assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
-		assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
-		assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
+		Assert.assertEquals("Known 2nd level for character's class", 2, character.getSpellSupport(charClass).getKnownForLevel(2, character));
+		Assert.assertEquals("Known 3rd level for character's class", 3, character.getSpellSupport(charClass).getKnownForLevel(3, character));
+		Assert.assertEquals("Known 4th level for character's class", 4, character.getSpellSupport(charClass).getKnownForLevel(4, character));
 		charClass.put(IntegerKey.KNOWN_SPELLS_FROM_SPECIALTY, 1);
-		assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
-		assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		Assert.assertEquals("Known 5th level for character's class", 6, character.getSpellSupport(charClass).getKnownForLevel(5, character));
+		Assert.assertEquals("Known 6th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(6, character));
+		Assert.assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
 		// Add spell bonus for level above known max
 		bsi = new BonusSpellInfo();
 		bsi.setName("7");
 		bsi.setStatScore(12);
 		bsi.setStatRange(8);
-		assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
+		Assert.assertEquals("Known 7th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(7, character));
 
-		assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
+		Assert.assertEquals("Known 8th level for character's class", 0, character.getSpellSupport(charClass).getKnownForLevel(8, character));
 
 	}
 
@@ -758,39 +760,39 @@ public class PCClassTest extends AbstractCharacterTestCase
 		CDOMSingleRef<AbilityCategory> acRef =
 				context.getReferenceContext().getCDOMReference(
 					AbilityCategory.class, "TestCat");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		CDOMReference<AbilityList> autoList = AbilityList.getAbilityListReference(acRef, Nature.AUTOMATIC);
 		Collection<CDOMReference<Ability>> mods = pcclass.getListMods(autoList);
-		assertEquals(1, mods.size());
+		Assert.assertEquals(1, mods.size());
 		CDOMReference<Ability> ref = mods.iterator().next();
 		Collection<Ability> abilities = ref.getContainedObjects();
-		assertEquals(1, abilities.size());
-		assertEquals(ab1, abilities.iterator().next());
+		Assert.assertEquals(1, abilities.size());
+		Assert.assertEquals(ab1, abilities.iterator().next());
 		Collection<AssociatedPrereqObject> assocs = pcclass.getListAssociations(autoList, ref);
-		assertEquals(1, assocs.size());
+		Assert.assertEquals(1, assocs.size());
 		
 		PCClassLevel level = pcclass.getOriginalClassLevel(2);
 		mods = level.getListMods(autoList);
-		assertEquals(1, mods.size());
+		Assert.assertEquals(1, mods.size());
 		ref = mods.iterator().next();
 		abilities = ref.getContainedObjects();
-		assertEquals(1, abilities.size());
-		assertEquals(ab2, abilities.iterator().next());
+		Assert.assertEquals(1, abilities.size());
+		Assert.assertEquals(ab2, abilities.iterator().next());
 		assocs = level.getListAssociations(autoList, ref);
-		assertEquals(1, assocs.size());
+		Assert.assertEquals(1, assocs.size());
 
 		// Add the class to the character
 		PlayerCharacter pc = getCharacter();
 		pc.incrementClassLevel(1, pcclass, true);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
-		assertFalse("Character should not have ability2.", hasAbility(pc, cat,
+		Assert.assertFalse("Character should not have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 
 		pc.incrementClassLevel(1, pcclass, true);
-		assertTrue("Character should have ability1.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability1.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab1));
-		assertTrue("Character should have ability2.", hasAbility(pc, cat,
+		Assert.assertTrue("Character should have ability2.", hasAbility(pc, cat,
 			Nature.AUTOMATIC, ab2));
 	}
 	
@@ -803,12 +805,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
-		assertEquals("Bonus list empty", 0, bonusList.size());
+		Assert.assertEquals("Bonus list empty", 0, bonusList.size());
 
 		pc.incrementClassLevel(1, nymphClass);
 		bonusList = pc.getClassKeyed(nymphClass.getKeyName()).getRawBonusList(pc);
-		assertEquals("Only one bonus", 1, bonusList.size());
-		assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(0).toString());
+		Assert.assertEquals("Only one bonus", 1, bonusList.size());
+		Assert.assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(0).toString());
 	}
 
 	/**
@@ -820,14 +822,14 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		nymphClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = nymphClass.getRawBonusList(pc);
-		assertEquals("Bonus list empty", 0, bonusList.size());
+		Assert.assertEquals("Bonus list empty", 0, bonusList.size());
 		pc.setRace(nymphRace);
 		bonusList = nymphClass.getRawBonusList(pc);
-		assertEquals("Bonus list empty", 0, bonusList.size());
+		Assert.assertEquals("Bonus list empty", 0, bonusList.size());
 
 		pc.incrementClassLevel(1, nymphClass);
 		bonusList = pc.getClassKeyed(nymphClass.getKeyName()).getRawBonusList(pc);
-		assertEquals("No bonus due to the LEVELSPERFEAT", 0, bonusList.size());
+		Assert.assertEquals("No bonus due to the LEVELSPERFEAT", 0, bonusList.size());
 	}
 
 	/**
@@ -839,12 +841,12 @@ public class PCClassTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(nymphRace);
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
-		assertEquals("Bonus list starting size", 3, bonusList.size());
+		Assert.assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		pc.incrementClassLevel(1, humanoidClass);
 		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
-		assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(3).toString());
-		assertEquals("Only one new bonus", 4, bonusList.size());
+		Assert.assertEquals("Bonus added ", "FEAT|PCPOOL|MAX(CL-3+3,0)/3", bonusList.get(3).toString());
+		Assert.assertEquals("Only one new bonus", 4, bonusList.size());
 	}
 
 	/**
@@ -857,11 +859,11 @@ public class PCClassTest extends AbstractCharacterTestCase
 		pc.setRace(nymphRace);
 		humanoidClass.put(IntegerKey.LEVELS_PER_FEAT, 4);
 		List<BonusObj> bonusList = humanoidClass.getRawBonusList(pc);
-		assertEquals("Bonus list starting size", 3, bonusList.size());
+		Assert.assertEquals("Bonus list starting size", 3, bonusList.size());
 
 		pc.incrementClassLevel(1, humanoidClass);
 		bonusList = pc.getClassKeyed(humanoidClass.getKeyName()).getRawBonusList(pc);
-		assertEquals("No new bonus due to the LEVELSPERFEAT", 3, bonusList.size());
+		Assert.assertEquals("No new bonus due to the LEVELSPERFEAT", 3, bonusList.size());
 	}
 
 	/**

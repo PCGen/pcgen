@@ -19,6 +19,7 @@ package tokenmodel;
 
 import java.util.Collection;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.UserSelection;
@@ -58,34 +59,34 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		Assert.assertEquals(0, directAbilityFacet.getCount(id));
 		Object sel = getAssoc();
 		templateInputFacet.directAdd(id, source, sel);
-		assertTrue(containsExpected());
-		assertEquals(1, directAbilityFacet.getCount(id));
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(1, directAbilityFacet.getCount(id));
 		templateInputFacet.remove(id, source);
-		assertEquals(0, directAbilityFacet.getCount(id));
+		Assert.assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
 	@Test
@@ -100,41 +101,41 @@ public class AutoWeaponProfListTargetTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = new MultToken().parseToken(context, source, "YES");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, granted, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = new LangToken().parseToken(context, source, "ALL");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = token.parseToken(context, source, "FEAT|Granted (%LIST)");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, directAbilityFacet.getCount(id));
+		Assert.assertEquals(0, directAbilityFacet.getCount(id));
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source), "English");
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertTrue(containsExpected());
-		assertEquals(2, directAbilityFacet.getCount(id));
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(2, directAbilityFacet.getCount(id));
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(0, directAbilityFacet.getCount(id));
+		Assert.assertEquals(0, directAbilityFacet.getCount(id));
 	}
 
 	@Override

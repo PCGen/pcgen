@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -139,63 +140,63 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierOpenBracket() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierCloseBracket() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierEmptyBrackets() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierPipeInBrackets() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierCommaInBrackets() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierEmptyNotType() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierTypeDot() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierNotTypeDot() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
 		assertNoSideEffects();
 	}
 
@@ -203,7 +204,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testQualifierNotTypeDoubleDot()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=One..Two]"));
 		assertNoSideEffects();
 	}
@@ -211,14 +212,14 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierTypeEqualDot() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierTypeDoubleDot() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=One..Two]"));
 		assertNoSideEffects();
 	}
@@ -226,7 +227,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierNotTypeEqualDot() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
@@ -235,7 +236,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|]"));
 		assertNoSideEffects();
 	}
 
@@ -244,7 +245,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1,]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1,]"));
 		assertNoSideEffects();
 	}
 
@@ -253,7 +254,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[|TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[|TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -262,7 +263,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[,TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[,TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -273,7 +274,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, getTargetClass(), "TestWP1");
 		construct(primaryContext, getTargetClass(), "TestWP2");
 		construct(secondaryContext, getTargetClass(), "TestWP2");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP2||TestWP1]]"));
 		assertNoSideEffects();
 	}
@@ -281,7 +282,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo,,!TYPE=Bar]"));
 		assertNoSideEffects();
 	}
@@ -289,7 +290,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierAllType() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[ALL|TYPE=TestType]"));
 		assertNoSideEffects();
 	}
@@ -297,7 +298,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierTypeAll() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=TestType|ALL]"));
 		assertNoSideEffects();
 	}
@@ -305,7 +306,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierTypePrimBad() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1"));
 		assertNoSideEffects();
 	}
@@ -313,7 +314,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierPrimTypeBadPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo|TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -321,7 +322,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierPrimTypeBad() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo"));
 		assertNoSideEffects();
 	}
@@ -329,7 +330,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierTypePrimComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1,TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -337,25 +338,25 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierAllPrim() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testQualifierPrimAll() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testBadNoSideEffect() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP3|TYPE=]"));
 		assertNoSideEffects();
 	}
@@ -399,7 +400,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	@Test
 	public void testQualifierBadPrim() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
 		assertConstructionError();
 	}
 
@@ -409,7 +410,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
 		// Explicitly do NOT build TestWP0
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP0|TestWP1]"));
 		assertConstructionError();
 	}
@@ -420,7 +421,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
 		// this checks that the TYPE= doesn't consume the |
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TYPE=TestType|TestWP0]"));
 		assertConstructionError();
 	}
@@ -431,7 +432,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(secondaryContext, getTargetClass(), "TestWP1");
 		// this checks that the TYPE. doesn't consume the |
-		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
 				+ "TYPE.TestType.OtherTestType|TestWP0]"));
 		assertConstructionError();
 	}
@@ -445,11 +446,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(primaryContext, getTargetClass(), "TestWP2");
 		construct(secondaryContext, getTargetClass(), "TestWP2");
 		// Test with All
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP3|ALL]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP3|ALL]"));
 		assertNoSideEffects();
 	}
 
@@ -458,7 +459,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (!allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier
 					+ "[TYPE=Bar|TYPE=Goo]|" + qualifier
 					+ "[TYPE=Foo|TYPE=Yea]"));
 			assertNoSideEffects();
@@ -472,7 +473,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			construct(secondaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier
 					+ "[TestWP1]"));
 			assertNoSideEffects();
 		}
@@ -486,7 +487,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1 (Test)");
 			construct(secondaryContext, getTargetClass(), "TestWP1 (Test)");
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier
 					+ "[TestWP1 (Test)]"));
 			assertNoSideEffects();
 		}
@@ -497,7 +498,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (!allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[ALL]"));
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[ALL]"));
 			assertNoSideEffects();
 		}
 	}
@@ -521,7 +522,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifierOpenBracket()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "["));
 		assertNoSideEffects();
 	}
 
@@ -529,7 +530,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifierCloseBracket()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "]"));
 		assertNoSideEffects();
 	}
 
@@ -537,7 +538,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifierEmptyBracket()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[]"));
 		assertNoSideEffects();
 	}
 
@@ -568,7 +569,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinQualifiedOnlyPipe()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[|]"));
 		assertNoSideEffects();
 	}
 
@@ -576,7 +577,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinQualifiedOnlyComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[,]"));
 		assertNoSideEffects();
 	}
 
@@ -584,7 +585,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputStringQualified()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier + "[String]"));
 		assertConstructionError();
 	}
 
@@ -594,7 +595,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(primaryContext, getTargetClass(), "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1.TestWP2]"));
 		assertConstructionError();
 	}
@@ -603,7 +604,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedTypeEmpty()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=]"));
 		assertNoSideEffects();
 	}
 
@@ -611,7 +612,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedNotTypeEmpty()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=]"));
 		assertNoSideEffects();
 	}
 
@@ -619,7 +620,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedTypeUnterminated()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=One.]"));
 		assertNoSideEffects();
 	}
 
@@ -627,7 +628,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedNotTypeUnterminated()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=One.]"));
 		assertNoSideEffects();
 	}
 
@@ -635,7 +636,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedTypeDoubleSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=One..Two]"));
 		assertNoSideEffects();
 	}
@@ -644,7 +645,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedNotTypeDoubleSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[!TYPE=One..Two]"));
 		assertNoSideEffects();
 	}
@@ -653,7 +654,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedTypeFalseStart()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
@@ -661,7 +662,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputQualifiedNotTypeFalseStart()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[!TYPE=.One]"));
 		assertNoSideEffects();
 	}
 
@@ -670,7 +671,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|]"));
 		assertNoSideEffects();
 	}
 
@@ -679,7 +680,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1,]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1,]"));
 		assertNoSideEffects();
 	}
 
@@ -688,7 +689,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[|TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[|TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -697,7 +698,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[,TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[,TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -707,7 +708,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
 		construct(primaryContext, getTargetClass(), "TestWP2");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP2||TestWP1]]"));
 		assertNoSideEffects();
 	}
@@ -716,7 +717,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidQualifiedListDoubleJoinComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo,,!TYPE=Bar]"));
 		assertNoSideEffects();
 	}
@@ -727,7 +728,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
 		assertConstructionError();
 	}
@@ -737,7 +738,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo"));
 		assertNoSideEffects();
 	}
@@ -747,7 +748,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1"));
 		assertNoSideEffects();
 	}
@@ -757,7 +758,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1]TYPE=Foo|TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -767,7 +768,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=Foo]TestWP1,TYPE=Bar"));
 		assertNoSideEffects();
 	}
@@ -829,7 +830,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		 * consume the |
 		 */
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TYPE=TestType|TestWP2]"));
 		assertConstructionError();
 	}
@@ -843,7 +844,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		 * consume the |
 		 */
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|"
 				+ "TYPE.TestType.OtherTestType|TestWP2]"));
 		assertConstructionError();
 	}
@@ -974,7 +975,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|" + qualifier + "[ALL|TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -983,7 +984,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, getTargetClass(), "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP1|ALL]"));
 		assertNoSideEffects();
 	}
 
@@ -991,7 +992,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidQualifiedInputAnyType()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[ALL|TYPE=TestType]"));
 		assertNoSideEffects();
 	}
@@ -1000,7 +1001,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidQualifiedInputTypeAny()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TYPE=TestType|ALL]"));
 		assertNoSideEffects();
 	}
@@ -1015,11 +1016,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, getTargetClass(), "TestWP2");
 		construct(primaryContext, getTargetClass(), "TestWP3");
 		construct(secondaryContext, getTargetClass(), "TestWP3");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP3|TYPE=]"));
 		assertNoSideEffects();
 	}
@@ -1036,11 +1037,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, getTargetClass(), "TestWP3");
 		construct(primaryContext, getTargetClass(), "TestWP4");
 		construct(secondaryContext, getTargetClass(), "TestWP4");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP3||TestWP4]"));
 		assertNoSideEffects();
 	}
@@ -1055,11 +1056,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		construct(secondaryContext, getTargetClass(), "TestWP2");
 		construct(primaryContext, getTargetClass(), "TestWP3");
 		construct(secondaryContext, getTargetClass(), "TestWP3");
-		assertTrue(parse(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parse(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + qualifier
 				+ "[TestWP1|TestWP2]"));
-		assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP3|ALL]"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + qualifier + "[TestWP3|ALL]"));
 		assertNoSideEffects();
 	}
 
@@ -1093,7 +1094,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "["));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "["));
 			assertNoSideEffects();
 		}
 	}
@@ -1104,7 +1105,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "]"));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "]"));
 			assertNoSideEffects();
 		}
 	}
@@ -1115,7 +1116,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "[]"));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier + "[]"));
 			assertNoSideEffects();
 		}
 	}
@@ -1145,7 +1146,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[|]"));
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[|]"));
 			assertNoSideEffects();
 		}
 	}
@@ -1156,7 +1157,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[,]"));
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier + "[,]"));
 			assertNoSideEffects();
 		}
 	}
@@ -1167,7 +1168,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[String]"));
 			assertConstructionError();
 		}
@@ -1181,7 +1182,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			construct(primaryContext, getTargetClass(), "TestWP2");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1.TestWP2]"));
 			assertConstructionError();
 		}
@@ -1193,7 +1194,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=]"));
 			assertNoSideEffects();
 		}
@@ -1205,7 +1206,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=]"));
 			assertNoSideEffects();
 		}
@@ -1217,7 +1218,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=One.]"));
 			assertNoSideEffects();
 		}
@@ -1229,7 +1230,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=One.]"));
 			assertNoSideEffects();
 		}
@@ -1241,7 +1242,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=One..Two]"));
 			assertNoSideEffects();
 		}
@@ -1253,7 +1254,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=One..Two]"));
 			assertNoSideEffects();
 		}
@@ -1265,7 +1266,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=.One]"));
 			assertNoSideEffects();
 		}
@@ -1277,7 +1278,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[!TYPE=.One]"));
 			assertNoSideEffects();
 		}
@@ -1290,7 +1291,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|]"));
 			assertNoSideEffects();
 		}
@@ -1303,7 +1304,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1,]"));
 			assertNoSideEffects();
 		}
@@ -1316,7 +1317,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[|TestWP1]"));
 			assertNoSideEffects();
 		}
@@ -1329,7 +1330,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[,TestWP1]"));
 			assertNoSideEffects();
 		}
@@ -1343,7 +1344,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
 			construct(primaryContext, getTargetClass(), "TestWP2");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP2||TestWP1]]"));
 			assertNoSideEffects();
 		}
@@ -1355,7 +1356,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=Foo,,!TYPE=Bar]"));
 			assertNoSideEffects();
 		}
@@ -1369,7 +1370,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		{
 			// Explicitly do NOT build TestWP2
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
 			assertConstructionError();
 		}
@@ -1382,7 +1383,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1]TYPE=Foo"));
 			assertNoSideEffects();
 		}
@@ -1395,7 +1396,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=Foo]TestWP1"));
 			assertNoSideEffects();
 		}
@@ -1408,7 +1409,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1]TYPE=Foo|TYPE=Bar"));
 			assertNoSideEffects();
 		}
@@ -1421,7 +1422,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=Foo]TestWP1,TYPE=Bar"));
 			assertNoSideEffects();
 		}
@@ -1494,7 +1495,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			 * doesn't consume the |
 			 */
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TYPE=TestType|TestWP2]"));
 			assertConstructionError();
 		}
@@ -1511,7 +1512,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			 * doesn't consume the |
 			 */
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|" + "TYPE.TestType.OtherTestType|TestWP2]"));
 			assertConstructionError();
 		}
@@ -1674,7 +1675,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + "|!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + "|!" + qualifier
 					+ "[ALL|TestWP1]"));
 			assertNoSideEffects();
 		}
@@ -1688,7 +1689,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		if (allowsNotQualifier())
 		{
 			construct(primaryContext, getTargetClass(), "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|ALL]"));
 			assertNoSideEffects();
 		}
@@ -1700,7 +1701,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[ALL|TYPE=TestType]"));
 			assertNoSideEffects();
 		}
@@ -1712,7 +1713,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (allowsNotQualifier())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TYPE=TestType|ALL]"));
 			assertNoSideEffects();
 		}
@@ -1730,11 +1731,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(secondaryContext, getTargetClass(), "TestWP2");
 			construct(primaryContext, getTargetClass(), "TestWP3");
 			construct(secondaryContext, getTargetClass(), "TestWP3");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP3|TYPE=]"));
 			assertNoSideEffects();
 		}
@@ -1754,11 +1755,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(secondaryContext, getTargetClass(), "TestWP3");
 			construct(primaryContext, getTargetClass(), "TestWP4");
 			construct(secondaryContext, getTargetClass(), "TestWP4");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP3||TestWP4]"));
 			assertNoSideEffects();
 		}
@@ -1776,11 +1777,11 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 			construct(secondaryContext, getTargetClass(), "TestWP2");
 			construct(primaryContext, getTargetClass(), "TestWP3");
 			construct(secondaryContext, getTargetClass(), "TestWP3");
-			assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP1|TestWP2]"));
-			assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "!" + qualifier
 					+ "[TestWP3|ALL]"));
 			assertNoSideEffects();
 		}
@@ -1887,12 +1888,12 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		if (target == null)
 		{
-			assertFalse(parse(getSubTokenName() + '|' + token + "=Tgt"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + token + "=Tgt"
 				+ "[TYPE=TestType|ALL]"));
 		}
 		else
 		{
-			assertFalse(parse(getSubTokenName() + '|' + token 
+			Assert.assertFalse(parse(getSubTokenName() + '|' + token
 				+ "[TYPE=TestType|ALL]"));
 		}
 		assertNoSideEffects();
@@ -1920,7 +1921,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		primaryContext.getReferenceContext().buildDeferredObjects();
 		primaryContext.getReferenceContext().buildDerivedObjects();
 		primaryContext.resolveDeferredTokens();
-		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 		primaryContext.resolvePostValidationTokens();
 		primaryContext.resolvePostDeferredTokens();
 		primaryContext.loadCampaignFacets();
@@ -2032,7 +2033,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		QualifierToken<?> one = getQualifierClass().newInstance();
 		QualifierToken<?> two = getQualifierClass().newInstance();
-		assertTrue(one.equals(two));
+		Assert.assertTrue(one.equals(two));
 	}
 
 	protected abstract Class<? extends QualifierToken> getQualifierClass();

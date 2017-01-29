@@ -30,6 +30,7 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -71,7 +72,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			Assert.assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
 		}
 	}
 
@@ -96,7 +97,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			Assert.assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
 		}
 	}
 
@@ -124,7 +125,7 @@ public class BonusManagerTest extends AbstractCharacterTestCase
 		for (int i = 0; i < 10; i++)
 		{
 			pc.calcActiveBonuses();
-			assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
+			Assert.assertEquals("Incorrect bonus total", 3.0, pc.getTotalBonusTo("COMBAT", "AC"), 0.0001);
 		}
 	}
 

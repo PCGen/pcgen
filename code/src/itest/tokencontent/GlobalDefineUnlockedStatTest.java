@@ -22,6 +22,8 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.UnlockedStatFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.DefineStatLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
@@ -45,7 +47,7 @@ public class GlobalDefineUnlockedStatTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

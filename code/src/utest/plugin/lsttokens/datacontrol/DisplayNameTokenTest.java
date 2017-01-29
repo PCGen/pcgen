@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -84,40 +85,40 @@ public class DisplayNameTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assert.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assert.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
 	public void testValidStringYes() throws PersistenceLayerException
 	{
-		assertNull(cd.getDisplayName());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
-		assertNotNull(cd.getDisplayName());
-		assertEquals("YES", cd.getDisplayName());
+		Assert.assertNull(cd.getDisplayName());
+		Assert.assertTrue(token.parseToken(context, cd, "YES").passed());
+		Assert.assertNotNull(cd.getDisplayName());
+		Assert.assertEquals("YES", cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("YES", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertNull(cd.getDisplayName());
+		Assert.assertNull(cd.getDisplayName());
 		String str = "Wow! Some String?!?";
-		assertTrue(token.parseToken(context, cd, str).passed());
-		assertNotNull(cd.getDisplayName());
-		assertEquals(str, cd.getDisplayName());
+		Assert.assertTrue(token.parseToken(context, cd, str).passed());
+		Assert.assertNotNull(cd.getDisplayName());
+		Assert.assertEquals(str, cd.getDisplayName());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals(str, unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals(str, unparsed[0]);
 	}
 
 }

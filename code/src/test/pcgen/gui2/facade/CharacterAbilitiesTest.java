@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.facade;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -63,19 +64,19 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategoryFacade> categories = ca.getActiveAbilityCategories();
-		assertNotNull("Categories should not be null", categories);
-		assertTrue("Feat should be active", categories.containsElement(AbilityCategory.FEAT));
+		Assert.assertNotNull("Categories should not be null", categories);
+		Assert.assertTrue("Feat should be active", categories.containsElement(AbilityCategory.FEAT));
 		ListFacade<AbilityFacade> abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertNotNull("Feat list should not be null", abilities);
-		assertTrue("Feat list should be empty", abilities.isEmpty());
+		Assert.assertNotNull("Feat list should not be null", abilities);
+		Assert.assertTrue("Feat list should be empty", abilities.isEmpty());
 		
 		// Add an entry - note rebuild is implicit
 		Ability fencing = TestHelper.makeAbility("fencing", AbilityCategory.FEAT, "sport");
 		addAbility(AbilityCategory.FEAT, fencing);
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		Assert.assertEquals("Feat list should have one entry", 1, abilities.getSize());
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found fencing", fencing, abilityFromList);
+		Assert.assertEquals("Should have found fencing", fencing, abilityFromList);
 	}
 
 	/**
@@ -88,33 +89,33 @@ public class CharacterAbilitiesTest extends AbstractCharacterTestCase
 		CharacterAbilities ca = new CharacterAbilities(pc, uiDelegate, dataset, todoManager);
 		ca.rebuildAbilityLists();
 		ListFacade<AbilityCategoryFacade> categories = ca.getActiveAbilityCategories();
-		assertNotNull("Categories should not be null", categories);
-		assertTrue("Feat should be active", categories.containsElement(AbilityCategory.FEAT));
+		Assert.assertNotNull("Categories should not be null", categories);
+		Assert.assertTrue("Feat should be active", categories.containsElement(AbilityCategory.FEAT));
 		ListFacade<AbilityFacade> abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertNotNull("Feat list should not be null", abilities);
-		assertTrue("Feat list should be empty", abilities.isEmpty());
+		Assert.assertNotNull("Feat list should not be null", abilities);
+		Assert.assertTrue("Feat list should be empty", abilities.isEmpty());
 		
 		// Add an entry - note rebuild is implicit
 		Ability reading = TestHelper.makeAbility("reading", AbilityCategory.FEAT, "interest");
 		reading.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), reading, "STRING|Magazines|Books");
-		assertTrue(pr.passed());
+		Assert.assertTrue(pr.passed());
 		Globals.getContext().commit();
 		applyAbility(pc, AbilityCategory.FEAT, reading, "Books");
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertFalse("Feat list should not be empty", abilities.isEmpty());
+		Assert.assertFalse("Feat list should not be empty", abilities.isEmpty());
 		Ability abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found reading", reading, abilityFromList);
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		Assert.assertEquals("Should have found reading", reading, abilityFromList);
+		Assert.assertEquals("Feat list should have one entry", 1, abilities.getSize());
 
 		// Now add the choice
 		finalize(abilityFromList, "Magazines", pc, AbilityCategory.FEAT);
 		ca.rebuildAbilityLists();
 		abilities = ca.getAbilities(AbilityCategory.FEAT);
-		assertEquals("Feat list should have one entry", 1, abilities.getSize());
+		Assert.assertEquals("Feat list should have one entry", 1, abilities.getSize());
 		abilityFromList = (Ability) abilities.getElementAt(0);
-		assertEquals("Should have found reading", reading, abilityFromList);
+		Assert.assertEquals("Should have found reading", reading, abilityFromList);
 		
 	}
 	

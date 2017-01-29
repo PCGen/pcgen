@@ -21,6 +21,7 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.Formula;
@@ -129,14 +130,14 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName()));
+		Assert.assertFalse(parse(getSubTokenName()));
 		assertNoSideEffects();
 	}
 
@@ -144,14 +145,14 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputOnlySubTokenPipe()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'));
+		Assert.assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ Character.toString(getJoinCharacter())));
 		assertNoSideEffects();
 	}
@@ -160,7 +161,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputStringOnlyCat()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT"));
 		assertNoSideEffects();
 	}
 
@@ -168,7 +169,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputStringOnlyCatPipe()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|'));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|'));
 		assertNoSideEffects();
 	}
 
@@ -176,7 +177,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputStringOnlyCatNature()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"));
 		assertNoSideEffects();
 	}
 
@@ -185,7 +186,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		try
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORM"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORM"
 					+ '|' + "FeatName"));
 			assertNoSideEffects();
 		}
@@ -200,7 +201,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		try
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "AUTOMATIC"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT" + '|' + "AUTOMATIC"
 					+ '|' + "FeatName"));
 			assertNoSideEffects();
 		}
@@ -213,7 +214,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidCategory() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "InvalidCat" + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "InvalidCat" + '|'
 				+ "NORMAL" + '|' + "FeatName"));
 		assertNoSideEffects();
 	}
@@ -223,7 +224,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			throws PersistenceLayerException
 	{
 		System.err.println("!");
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestType"));
 		assertConstructionError();
 	}
@@ -233,7 +234,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT" + '|' + "NORMAL"
 				+ '|' + "TestWP1.TestWP2"));
 		assertConstructionError();
 	}
@@ -243,7 +244,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "-1|FEAT|NORMAL|TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "-1|FEAT|NORMAL|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -251,7 +252,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputZeroFormula() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "0|FEAT|NORMAL|TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "0|FEAT|NORMAL|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -259,7 +260,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputAnyNature() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|ANY|TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|ANY|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -268,7 +269,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE="));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE="));
 			assertNoSideEffects();
 		}
 	}
@@ -279,7 +280,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=One."));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=One."));
 			assertNoSideEffects();
 		}
 	}
@@ -287,7 +288,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidInputStacksNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS=x,TestWP1" + getJoinCharacter()
 				+ "TestWP2"));
 		assertNoSideEffects();
@@ -296,7 +297,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidInputOnlyStacks() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|STACKS=4"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|STACKS=4"));
 		assertNoSideEffects();
 	}
 
@@ -322,7 +323,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|'
+			Assert.assertFalse(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE=One..Two"));
 			assertNoSideEffects();
 		}
@@ -334,7 +335,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=.One"));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TYPE=.One"));
 			assertNoSideEffects();
 		}
 	}
@@ -397,7 +398,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter()));
 		assertNoSideEffects();
 	}
@@ -406,7 +407,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|"
 				+ getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
@@ -416,7 +417,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP2"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP2"
 				+ getJoinCharacter() + getJoinCharacter() + "TestWP1"));
 		assertNoSideEffects();
 	}
@@ -426,7 +427,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
 		assertConstructionError();
 	}
@@ -440,7 +441,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isTypeLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE=TestType" + getJoinCharacter()
 					+ "TestWP2"));
 			assertConstructionError();
@@ -456,7 +457,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isTypeLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TYPE.TestType.OtherTestType"
 					+ getJoinCharacter() + "TestWP2"));
 			assertConstructionError();
@@ -472,7 +473,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			a.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
 			CDOMObject b = construct(secondaryContext, "TestWP1");
 			b.addToListFor(ListKey.TYPE, Type.getConstant("TestType"));
-			assertTrue(parse(getSubTokenName() + '|'
+			Assert.assertTrue(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE.TestType"));
 			assertCleanConstruction();
 		}
@@ -610,7 +611,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"
 					+ getJoinCharacter() + "TestWP1"));
 			assertNoSideEffects();
 		}
@@ -622,7 +623,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		if (isAllLegal())
 		{
 			construct(primaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -633,7 +634,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|ALL"
 					+ getJoinCharacter() + "TYPE=TestType"));
 			assertNoSideEffects();
 		}
@@ -644,7 +645,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		if (isTypeLegal() && isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|'
+			Assert.assertFalse(parse(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TYPE=TestType" + getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -662,11 +663,11 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			construct(secondaryContext, "TestWP2");
 			construct(primaryContext, "TestWP3");
 			construct(secondaryContext, "TestWP3");
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary(getSubTokenName() + '|'
+			Assert.assertTrue(parseSecondary(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
 					+ getJoinCharacter() + "TYPE="));
 			assertNoSideEffects();
 		}
@@ -684,11 +685,11 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		construct(secondaryContext, "TestWP3");
 		construct(primaryContext, "TestWP4");
 		construct(secondaryContext, "TestWP4");
-		assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 				+ getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary(getSubTokenName() + '|'
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
 				+ getJoinCharacter() + getJoinCharacter() + "TestWP4"));
 		assertNoSideEffects();
 	}
@@ -705,11 +706,11 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			construct(secondaryContext, "TestWP2");
 			construct(primaryContext, "TestWP3");
 			construct(secondaryContext, "TestWP3");
-			assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
+			Assert.assertTrue(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP1"
 					+ getJoinCharacter() + "TestWP2"));
-			assertTrue(parseSecondary(getSubTokenName() + '|'
+			Assert.assertTrue(parseSecondary(getSubTokenName() + '|'
 					+ "FEAT|NORMAL|TestWP1" + getJoinCharacter() + "TestWP2"));
-			assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "FEAT|NORMAL|TestWP3"
 					+ getJoinCharacter() + "ALL"));
 			assertNoSideEffects();
 		}
@@ -747,7 +748,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputDoubleStacks() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS,STACKS,TestWP1"));
 		assertNoSideEffects();
 	}
@@ -756,7 +757,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputDoubleStack() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS=3,STACKS=2,TestWP1"));
 		assertNoSideEffects();
 	}
@@ -765,7 +766,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputStacksStack() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS,STACKS=2,TestWP1"));
 		assertNoSideEffects();
 	}
@@ -775,7 +776,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS=-4,TestWP1"));
 		assertNoSideEffects();
 	}
@@ -784,7 +785,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputZeroStack() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getSubTokenName() + '|'
+		Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "FEAT|NORMAL|STACKS=0,TestWP1"));
 		assertNoSideEffects();
 	}
@@ -837,7 +838,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		{
 			List<String> choices = new ArrayList<>();
 			AbilityUtilities.getUndecoratedName(name, choices);
-			assertEquals(1, choices.size());
+			Assert.assertEquals(1, choices.size());
 			ar.setChoice(choices.get(0));
 		}
 		return refs;

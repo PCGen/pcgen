@@ -31,6 +31,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.character.EquipSet;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * The Class <code>EquipSetMigrationTest</code> verifies the EquipSetMigration
  * class is functioning correctly.
@@ -63,7 +65,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
-		assertEquals("No equipsets", 0, pc.getDisplay().getEquipSet().size());
+		Assert.assertEquals("No equipsets", 0, pc.getDisplay().getEquipSet().size());
 	}
 
 	/**
@@ -93,7 +95,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.migrateEquipSets(pc, preOrderedVer);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 4, migratedList.size());
+		Assert.assertEquals("Unexpected number of equipsets", 4, migratedList.size());
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.01", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.02", eqItemTwo);
@@ -127,7 +129,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.renumberEquipmentSets(pc);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 5, migratedList.size());
+		Assert.assertEquals("Unexpected number of equipsets", 5, migratedList.size());
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.02", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.01", eqBackpack);
@@ -174,7 +176,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.renumberEquipmentSets(pc);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 9, migratedList.size());
+		Assert.assertEquals("Unexpected number of equipsets", 9, migratedList.size());
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(2), "0.1.01", eqItemOne);
 		verifyEquipSet(migratedList.get(3), "0.1.02", eqItemTwo);
@@ -213,7 +215,7 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 		EquipSetMigration.migrateEquipSets(pc, postOrderedVer);
 		List<EquipSet> migratedList = (List<EquipSet>) pc.getDisplay()
 			.getEquipSet();
-		assertEquals("Unexpected number of equipsets", 4, migratedList.size());
+		Assert.assertEquals("Unexpected number of equipsets", 4, migratedList.size());
 		verifyEquipSet(migratedList.get(0), "0.1", null);
 		verifyEquipSet(migratedList.get(1), "0.1.1", eqItemOne);
 		verifyEquipSet(migratedList.get(2), "0.1.6", eqItemTwo);
@@ -222,8 +224,8 @@ public class EquipSetMigrationTest extends AbstractCharacterTestCase
 	
 	private void verifyEquipSet(EquipSet equipSet, String expectedIdPath, Equipment expectedItem)
 	{
-		assertEquals("Unexpected item", expectedItem, equipSet.getItem());
-		assertEquals("Unexpected path", expectedIdPath, equipSet.getIdPath());
+		Assert.assertEquals("Unexpected item", expectedItem, equipSet.getItem());
+		Assert.assertEquals("Unexpected path", expectedIdPath, equipSet.getIdPath());
 	}
 
 	/**

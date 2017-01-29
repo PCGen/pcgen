@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -61,7 +62,7 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -74,26 +75,26 @@ public class GlobalCSkillTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		PCClass wizard = create(PCClass.class, "Wizard");
 		finishLoad();
 		pc.incrementClassLevel(1, wizard);
-		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
+		Assert.assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(granted, wizard));
 		templateInputFacet.directAdd(id, source, granted);
 		pc.calcActiveBonuses();
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(granted, wizard));
-		assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(granted, wizard));
+		Assert.assertTrue(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 		templateInputFacet.remove(id, source);
 		pc.calcActiveBonuses();
-		assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
+		Assert.assertFalse(globalAddedSkillCostFacet.contains(id, SkillCost.CLASS, granted));
 	}
 
 	@Override

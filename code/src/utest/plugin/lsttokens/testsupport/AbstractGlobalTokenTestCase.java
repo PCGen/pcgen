@@ -24,6 +24,7 @@ import java.util.Locale;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -110,23 +111,23 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue("Should be able to parse " + s, parse(s));
+			Assert.assertTrue("Should be able to parse " + s, parse(s));
 		}
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 
-		assertNotNull(str);
-		assertNotNull(unparsed);
-		assertEquals(str.length, unparsed.length);
+		Assert.assertNotNull(str);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + "th unparsed item to be equal",
+			Assert.assertEquals("Expected " + i + "th unparsed item to be equal",
 				str[i], unparsed[i]);
 		}
 
@@ -141,15 +142,15 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 				unparsedBuilt.toString(), testCampaign.getURI());
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf, secondaryProf);
+		Assert.assertEquals(primaryProf, secondaryProf);
 
 		// And that it comes back out the same again
 		validateUnparsed(secondaryContext, secondaryProf, unparsed);
 		assertCleanConstruction();
-		assertTrue(secondaryContext.getReferenceContext().validate(null));
-		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
-		assertEquals(0, primaryContext.getWriteMessageCount());
-		assertEquals(0, secondaryContext.getWriteMessageCount());
+		Assert.assertTrue(secondaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, secondaryContext.getWriteMessageCount());
 	}
 
 	
@@ -163,7 +164,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 			throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 
 		parse(deprecated);
 		primaryProf.setSourceURI(testCampaign.getURI());
@@ -190,16 +191,16 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		String[] sUnparsed = getToken().unparse(sc, sp);
 		if (unparsed == null)
 		{
-			assertNull(sUnparsed);
+			Assert.assertNull(sUnparsed);
 		}
 		else
 		{
 			for (int i = 0; i < unparsed.length && i < sUnparsed.length; i++)
 			{
-				assertEquals("Expected " + i + "th unparsed item to be equal",
+				Assert.assertEquals("Expected " + i + "th unparsed item to be equal",
 					unparsed[i], sUnparsed[i]);
 			}
-			assertEquals("Mismatched number of unparsed values",
+			Assert.assertEquals("Mismatched number of unparsed values",
 				unparsed.length, sUnparsed.length);
 		}
 
@@ -259,13 +260,13 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
-		assertTrue(cdo1.isCDOMEqual(cdo2));
+		Assert.assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
 
 	public void assertNoSideEffects()
 	{
 		isCDOMEqual(primaryProf, secondaryProf);
-		assertFalse(primaryContext.getListContext().hasMasterLists());
+		Assert.assertFalse(primaryContext.getListContext().hasMasterLists());
 	}
 
 	public abstract <T extends ConcretePrereqObject> CDOMPrimaryToken<T> getToken();
@@ -290,28 +291,28 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected void expectSingle(String[] unparsed, String expected)
 	{
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", expected, unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", expected, unparsed[0]);
 	}
 
 	protected void assertBadUnparse()
 	{
-		assertNull(getToken().unparse(primaryContext, primaryProf));
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
 	protected void assertConstructionError()
 	{
 		boolean validate = primaryContext.getReferenceContext().validate(null);
 		boolean resolve = primaryContext.getReferenceContext().resolveReferences(null);
-		assertFalse(validate && resolve);
+		Assert.assertFalse(validate && resolve);
 	}
 
 	protected void assertCleanConstruction()
 	{
-		assertTrue(primaryContext.getReferenceContext().validate(null));
-		assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(primaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 }

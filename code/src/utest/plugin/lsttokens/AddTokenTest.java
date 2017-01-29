@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -68,21 +69,21 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearLevel() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR.LEVEL1"));
+		Assert.assertFalse(parse(".CLEAR.LEVEL1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(Constants.LST_DOT_CLEAR));
+		Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Test
@@ -93,7 +94,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 		primaryProf.put(IntegerKey.LEVEL, 1);
 		secondaryProf = new PCClassLevel();
 		secondaryProf.put(IntegerKey.LEVEL, 1);
-		assertFalse(parse(Constants.LST_DOT_CLEAR));
+		Assert.assertFalse(parse(Constants.LST_DOT_CLEAR));
 		assertNoSideEffects();
 	}
 
@@ -105,7 +106,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 		primaryProf.put(IntegerKey.LEVEL, 1);
 		secondaryProf = new PCClassLevel();
 		secondaryProf.put(IntegerKey.LEVEL, 1);
-		assertFalse(parse(".CLEAR.LEVEL2"));
+		Assert.assertFalse(parse(".CLEAR.LEVEL2"));
 		assertNoSideEffects();
 	}
 
@@ -117,7 +118,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 		primaryProf.put(IntegerKey.LEVEL, 1);
 		secondaryProf = new PCClassLevel();
 		secondaryProf.put(IntegerKey.LEVEL, 1);
-		assertFalse(parse(".CLEAR.LEVELx"));
+		Assert.assertFalse(parse(".CLEAR.LEVELx"));
 		assertNoSideEffects();
 	}
 
@@ -128,7 +129,7 @@ public class AddTokenTest extends AbstractGlobalTokenTestCase
 		primaryProf.put(IntegerKey.LEVEL, 1);
 		secondaryProf = new PCClassLevel();
 		secondaryProf.put(IntegerKey.LEVEL, 1);
-		assertTrue(parse(".CLEAR.LEVEL1"));
+		Assert.assertTrue(parse(".CLEAR.LEVEL1"));
 	}
 
 	@Override

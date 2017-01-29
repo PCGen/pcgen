@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.auto;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -86,7 +87,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		} catch (ClassCastException e)
 		{
 			// Yep!

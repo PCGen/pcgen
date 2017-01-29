@@ -23,6 +23,7 @@ package pcgen.gui2.tools;
 import junit.framework.TestCase;
 import org.junit.After;
 import org.junit.AfterClass;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -67,7 +68,7 @@ public class IconsTest extends TestCase
 		System.out.println("getImageIcon");
 		for (Icons icon : Icons.values())
 		{
-			assertNotNull(icon.getImageIcon());
+			Assert.assertNotNull(icon.getImageIcon());
 		}
 	}
 

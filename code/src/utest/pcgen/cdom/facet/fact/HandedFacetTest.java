@@ -19,6 +19,7 @@ package pcgen.cdom.facet.fact;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -52,23 +53,23 @@ public class HandedFacetTest extends TestCase
 	@Test
 	public void testHandedUnsetNull()
 	{
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 	@Test
 	public void testHandedSet()
 	{
 		facet.setHanded(id, Handed.Left);
-		assertEquals(Handed.Left, facet.getHanded(id));
+		Assert.assertEquals(Handed.Left, facet.getHanded(id));
 		facet.removeHanded(id);
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 }

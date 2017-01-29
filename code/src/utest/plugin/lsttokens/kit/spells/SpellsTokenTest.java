@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.spells;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -60,37 +61,37 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	public void testInvalidInputEmptySpellbook()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=|CLASS=Wizard|Fireball=2"));
+		Assert.assertFalse(parse("SPELLBOOK=|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
 	public void testInvalidInputEmptyClass() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=|Fireball=2"));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=|Fireball=2"));
 	}
 
 	@Test
 	public void testInvalidInputTwoClass() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|CLASS=Cleric|Fireball=2"));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|CLASS=Cleric|Fireball=2"));
 	}
 
 	@Test
 	public void testInvalidInputTwoSpellbook() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|SPELLBOOK=Other|CLASS=Wizard|Fireball=2"));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|SPELLBOOK=Other|CLASS=Wizard|Fireball=2"));
 	}
 
 	@Test
 	public void testInvalidInputEmptySpell() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|=2"));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|=2"));
 	}
 
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|Fireball="));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|Fireball="));
 	}
 
 	@Test
@@ -104,19 +105,19 @@ public class SpellsTokenTest extends AbstractKitTokenTestCase<KitSpells>
 	@Test
 	public void testInvalidInputEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE."));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE."));
 	}
 
 	@Test
 	public void testInvalidInputTrailingType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One."));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One."));
 	}
 
 	@Test
 	public void testInvalidInputDoubleType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One..Two"));
+		Assert.assertFalse(parse("SPELLBOOK=Personal|CLASS=Wizard|TYPE.One..Two"));
 	}
 
 	@Test

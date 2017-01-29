@@ -43,6 +43,8 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * This class tests the handling of DESC fields in PCGen
  */
@@ -59,7 +61,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description(Constants.EMPTY_STRING);
-		assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).isEmpty());
+		Assert.assertTrue(desc.getDescription(this.getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).isEmpty());
 	}
 
 	/**
@@ -72,7 +74,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final String simpleDesc = "This is a test";
 		final Description desc = new Description(simpleDesc);
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(simpleDesc));
+		Assert.assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals(simpleDesc));
 	}
 
 	/**
@@ -109,7 +111,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Description desc = new Description("%1");
 		desc.addVariable("\"Variable\"");
-		assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals("Variable"));
+		Assert.assertTrue(desc.getDescription(getCharacter(), Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy))).equals("Variable"));
 	}
 
 	/**
@@ -123,7 +125,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("%NAME");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
-		assertTrue(getCharacter().getDescription(pobj).equals("PObject"));
+		Assert.assertTrue(getCharacter().getDescription(pobj).equals("PObject"));
 	}
 
 	/**
@@ -138,10 +140,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Description desc = new Description("%1");
 		desc.addVariable("TestVar");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
-		assertTrue(getCharacter().getDescription(dummy).equals("0"));
+		Assert.assertTrue(getCharacter().getDescription(dummy).equals("0"));
 
 		getCharacter().setRace(dummy);
-		assertTrue(getCharacter().getDescription(dummy).equals("2"));
+		Assert.assertTrue(getCharacter().getDescription(dummy).equals("2"));
 	}
 
 	/**
@@ -157,10 +159,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%CHOICE");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).isEmpty());
+		Assert.assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
-		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
+		Assert.assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
 	}
 
 	/**
@@ -176,11 +178,11 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).isEmpty());
+		Assert.assertTrue(getCharacter().getDescription(pobj).isEmpty());
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
 		
-		assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
+		Assert.assertTrue(getCharacter().getDescription(pobj).equals("Foo"));
 	}
 
 	/**
@@ -191,7 +193,7 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		final Deity pobj = new Deity();
 
 		final Description desc = new Description("%1");
-		assertTrue(getCharacter().getDescription(pobj).isEmpty());
+		Assert.assertTrue(getCharacter().getDescription(pobj).isEmpty());
 	}
 
 	/**
@@ -207,10 +209,10 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("%LIST");
 		pobj.addToListFor(ListKey.DESCRIPTION, desc);
 		PlayerCharacter pc = getCharacter();
-		assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
+		Assert.assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
 
 		add(ChooserUtilities.getChoiceManager(pobj, pc), pc, pobj, "Foo");
-		assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
+		Assert.assertTrue(getCharacter().getDescription(pobj).equals("Testing"));
 	}
 
 	/**
@@ -234,22 +236,22 @@ public class DescriptionTest extends AbstractCharacterTestCase
 		desc.addVariable("TestVar");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
 		List<CNAbility> wrappedDummy = Collections.singletonList(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, dummy));
-		assertEquals("0 test  ", desc.getDescription(pc, wrappedDummy));
+		Assert.assertEquals("0 test  ", desc.getDescription(pc, wrappedDummy));
 
 		AbilityCategory category = AbilityCategory.FEAT;
 
 		CNAbility cna = finalize(dummy, "Associated 1", pc, category);
 		finalize(dummy, "Associated 2", pc, category);
-		assertEquals("2 test  ", desc.getDescription(pc, wrappedDummy));
+		Assert.assertEquals("2 test  ", desc.getDescription(pc, wrappedDummy));
 
 		desc.addVariable("%CHOICE");
 		dummy.addToListFor(ListKey.DESCRIPTION, desc);
 		List<CNAbility> wrappedPCA = Collections.singletonList(cna);
-		assertEquals("2 test  Associated 1",
+		Assert.assertEquals("2 test  Associated 1",
 			desc.getDescription(pc, wrappedPCA));
 
 		desc.addVariable("%LIST");
-		assertEquals("Replacement of %LIST failed",
+		Assert.assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2 Associated 1",
 			desc.getDescription(pc, wrappedPCA));
 	}

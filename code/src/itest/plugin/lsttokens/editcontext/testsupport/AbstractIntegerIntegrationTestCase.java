@@ -19,6 +19,7 @@ package plugin.lsttokens.editcontext.testsupport;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -64,7 +65,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	@Test
 	public void testArchitectire() throws PersistenceLayerException
 	{
-		assertTrue(isPositiveAllowed() || isNegativeAllowed());
+		Assert.assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test

@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.StringKey;
@@ -29,24 +30,24 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getStringKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertEquals(null, primaryProf.get(getStringKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Niederösterreich"));
-		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
-		assertTrue(parse("Finger Lakes"));
-		assertEquals("Finger Lakes", primaryProf.get(getStringKey()));
-		assertTrue(parse("Rheinhessen"));
-		assertEquals("Rheinhessen", primaryProf.get(getStringKey()));
-		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals("Languedoc-Roussillon", primaryProf.get(getStringKey()));
-		assertTrue(parse("Yarra Valley"));
-		assertEquals("Yarra Valley", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Niederösterreich"));
+		Assert.assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Finger Lakes"));
+		Assert.assertEquals("Finger Lakes", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Rheinhessen"));
+		Assert.assertEquals("Rheinhessen", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertEquals("Languedoc-Roussillon", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Yarra Valley"));
+		Assert.assertEquals("Yarra Valley", primaryProf.get(getStringKey()));
 	}
 
 	public abstract StringKey getStringKey();
@@ -103,7 +104,7 @@ public abstract class AbstractGlobalStringTokenTestCase extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*

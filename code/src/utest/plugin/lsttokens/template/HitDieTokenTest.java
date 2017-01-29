@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.DividingFormula;
@@ -64,21 +65,21 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputTooManyLimits()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base"));
+		Assert.assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNotALimit() throws PersistenceLayerException
 	{
-		assertFalse(parse("15|PRECLASS:1,Fighter"));
+		Assert.assertFalse(parse("15|PRECLASS:1,Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyLimit() throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS="));
+		Assert.assertFalse(parse("15|CLASS="));
 		assertNoSideEffects();
 	}
 
@@ -86,7 +87,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEmptyTypeLimit()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS.TYPE="));
+		Assert.assertFalse(parse("15|CLASS.TYPE="));
 		assertNoSideEffects();
 	}
 
@@ -94,7 +95,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputStartDotTypeLimit()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS.TYPE=.Strange"));
+		Assert.assertFalse(parse("15|CLASS.TYPE=.Strange"));
 		assertNoSideEffects();
 	}
 
@@ -102,7 +103,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEndDotTypeLimit()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS.TYPE=Strange."));
+		Assert.assertFalse(parse("15|CLASS.TYPE=Strange."));
 		assertNoSideEffects();
 	}
 
@@ -110,110 +111,110 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputDoubleDotTypeLimit()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS.TYPE=Prestige..Strange"));
+		Assert.assertFalse(parse("15|CLASS.TYPE=Prestige..Strange"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivideNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%/-2"));
+		Assert.assertFalse(parse("%/-2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivideZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%/0"));
+		Assert.assertFalse(parse("%/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivide() throws PersistenceLayerException
 	{
-		assertTrue(parse("%/4"));
+		Assert.assertTrue(parse("%/4"));
 	}
 
 	@Test
 	public void testInvalidInputAddNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%+-3"));
+		Assert.assertFalse(parse("%+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputAddZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%+0"));
+		Assert.assertFalse(parse("%+0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputAdd() throws PersistenceLayerException
 	{
-		assertTrue(parse("%+4"));
+		Assert.assertTrue(parse("%+4"));
 	}
 
 	@Test
 	public void testInvalidInputMultiplyNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%*-3"));
+		Assert.assertFalse(parse("%*-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMultiplyZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%*0"));
+		Assert.assertFalse(parse("%*0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputMultiply() throws PersistenceLayerException
 	{
-		assertTrue(parse("%*4"));
+		Assert.assertTrue(parse("%*4"));
 	}
 
 	@Test
 	public void testInvalidInputSubtractNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%--3"));
+		Assert.assertFalse(parse("%--3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputSubtractZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%-0"));
+		Assert.assertFalse(parse("%-0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputSubtract() throws PersistenceLayerException
 	{
-		assertTrue(parse("%-4"));
+		Assert.assertTrue(parse("%-4"));
 	}
 
 	@Test
 	public void testInvalidInputUpNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up-3"));
+		Assert.assertFalse(parse("%up-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputUpZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up0"));
+		Assert.assertFalse(parse("%up0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputUpTooBig() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up5"));
+		Assert.assertFalse(parse("%up5"));
 		assertNoSideEffects();
 	}
 
@@ -221,60 +222,60 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputUpReallyTooBig()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%up15"));
+		Assert.assertFalse(parse("%up15"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputUp() throws PersistenceLayerException
 	{
-		assertTrue(parse("%up4"));
+		Assert.assertTrue(parse("%up4"));
 	}
 
 	@Test
 	public void testInvalidInputHUpNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hup-3"));
+		Assert.assertFalse(parse("%Hup-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputHUpZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hup0"));
+		Assert.assertFalse(parse("%Hup0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputHUp() throws PersistenceLayerException
 	{
-		assertTrue(parse("%Hup4"));
+		Assert.assertTrue(parse("%Hup4"));
 	}
 
 	@Test
 	public void testInvalidInputDownNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down-3"));
+		Assert.assertFalse(parse("%down-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDownZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down0"));
+		Assert.assertFalse(parse("%down0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDown() throws PersistenceLayerException
 	{
-		assertTrue(parse("%down4"));
+		Assert.assertTrue(parse("%down4"));
 	}
 
 	@Test
 	public void testInvalidInputDownTooBig() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down5"));
+		Assert.assertFalse(parse("%down5"));
 		assertNoSideEffects();
 	}
 
@@ -282,7 +283,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputDownReallyTooBig()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%down15"));
+		Assert.assertFalse(parse("%down15"));
 		assertNoSideEffects();
 	}
 
@@ -290,48 +291,48 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputHdownNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hdown-3"));
+		Assert.assertFalse(parse("%Hdown-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputHdownZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hdown0"));
+		Assert.assertFalse(parse("%Hdown0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputHdown() throws PersistenceLayerException
 	{
-		assertTrue(parse("%Hdown4"));
+		Assert.assertTrue(parse("%Hdown4"));
 	}
 
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-3"));
+		Assert.assertFalse(parse("-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("0"));
+		Assert.assertFalse(parse("0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDecimal() throws PersistenceLayerException
 	{
-		assertFalse(parse("3.5"));
+		Assert.assertFalse(parse("3.5"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMisspell() throws PersistenceLayerException
 	{
-		assertFalse(parse("%upn5"));
+		Assert.assertFalse(parse("%upn5"));
 		assertNoSideEffects();
 	}
 
@@ -567,7 +568,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.HITDIE, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -586,7 +587,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

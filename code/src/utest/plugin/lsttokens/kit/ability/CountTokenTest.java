@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.ability;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.kit.KitAbilities;
@@ -59,25 +60,25 @@ public class CountTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidInputFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("FormulaProhibited"));
+		Assert.assertFalse(parse("FormulaProhibited"));
 	}
 
 	@Test
 	public void testInvalidInputZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("0"));
+		Assert.assertFalse(parse("0"));
 	}
 
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-1"));
+		Assert.assertFalse(parse("-1"));
 	}
 
 	@Test
 	public void testInvalidInputDecimal() throws PersistenceLayerException
 	{
-		assertFalse(parse("1.5"));
+		Assert.assertFalse(parse("1.5"));
 	}
 
 }

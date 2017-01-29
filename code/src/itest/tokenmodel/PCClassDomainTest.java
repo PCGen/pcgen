@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Domain;
@@ -42,28 +43,28 @@ public class PCClassDomainTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, domainFacet.getCount(id));
+		Assert.assertEquals(0, domainFacet.getCount(id));
 		classFacet.addClass(id, source);
 		PCClass pcc = pc.getClassKeyed(source.getKeyName());
 		classFacet.setLevel(id, pcc, 1);
 		//TODO get rid of this using facets :)
 		DomainApplication.addDomainsUpToLevel(source, 1, pc);
-		assertEquals(1, domainFacet.getCount(id));
+		Assert.assertEquals(1, domainFacet.getCount(id));
 		classFacet.setLevel(id, pcc, 2);
 		DomainApplication.addDomainsUpToLevel(source, 2, pc);
-		assertTrue(domainFacet.contains(id, granted));
-		assertEquals(1, domainFacet.getCount(id));
+		Assert.assertTrue(domainFacet.contains(id, granted));
+		Assert.assertEquals(1, domainFacet.getCount(id));
 		classFacet.setLevel(id, pcc, 1);
 		DomainApplication.removeDomainsForLevel(source, 2, pc);
-		assertEquals(1, domainFacet.getCount(id));
+		Assert.assertEquals(1, domainFacet.getCount(id));
 		classFacet.setLevel(id, pcc, 0);
 		DomainApplication.removeDomainsForLevel(source, 1, pc);
 		pc.validateCharacterDomains();
 		classFacet.removeClass(id, source);
-		assertEquals(0, domainFacet.getCount(id));
+		Assert.assertEquals(0, domainFacet.getCount(id));
 	}
 
 	@Override

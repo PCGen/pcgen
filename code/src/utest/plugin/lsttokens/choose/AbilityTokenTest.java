@@ -19,6 +19,7 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -157,7 +158,7 @@ public class AbilityTokenTest extends
 	@Test
 	public void testInvalidBadCategory() throws PersistenceLayerException
 	{
-		assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
+		Assert.assertFalse(parse("ABILITY|BadCat|TYPE=Foo"));
 		assertNoSideEffects();
 	}
 }

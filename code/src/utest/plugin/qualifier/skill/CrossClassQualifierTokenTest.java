@@ -32,6 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -105,36 +106,36 @@ public class CrossClassQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|CROSSCLASS[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|CROSSCLASS[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(4, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(4, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(primaryProf));
 		pc.skillSet.put(s1, 2);
 		pc.skillSet.put(s2, 0);
 		set = info.getSet(pc);
-		assertEquals(4, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertEquals(4, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(primaryProf));
 		pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(4, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(s4));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(4, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(s4));
+		Assert.assertTrue(set.contains(primaryProf));
 	}
 
 		@Test
@@ -142,28 +143,28 @@ public class CrossClassQualifierTokenTest extends
 		{
 			setUpPC();
 			initializeObjects();
-			assertTrue(parse(getSubTokenName() + "|CROSSCLASS[TYPE=Masterful]"));
+			Assert.assertTrue(parse(getSubTokenName() + "|CROSSCLASS[TYPE=Masterful]"));
 			finishLoad();
 			TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 			ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 			pc.classMap.put(cl1, 1);
 			Collection<?> set = info.getSet(pc);
-			assertEquals(2, set.size());
-			assertTrue(set.contains(s2));
-			assertTrue(set.contains(s3));
+			Assert.assertEquals(2, set.size());
+			Assert.assertTrue(set.contains(s2));
+			Assert.assertTrue(set.contains(s3));
 			pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 			set = info.getSet(pc);
-			assertFalse(set.isEmpty());
-			assertEquals(1, set.size());
-			assertTrue(set.contains(s3));
+			Assert.assertFalse(set.isEmpty());
+			Assert.assertEquals(1, set.size());
+			Assert.assertTrue(set.contains(s3));
 			pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 			pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
 			set = info.getSet(pc);
-			assertFalse(set.isEmpty());
-			assertEquals(2, set.size());
-			assertTrue(set.contains(s3));
-			assertTrue(set.contains(s4));
+			Assert.assertFalse(set.isEmpty());
+			Assert.assertEquals(2, set.size());
+			Assert.assertTrue(set.contains(s3));
+			Assert.assertTrue(set.contains(s4));
 		}
 
 		@Test
@@ -171,27 +172,27 @@ public class CrossClassQualifierTokenTest extends
 		{
 			setUpPC();
 			initializeObjects();
-			assertTrue(parse(getSubTokenName() + "|!CROSSCLASS[TYPE=Masterful]"));
+			Assert.assertTrue(parse(getSubTokenName() + "|!CROSSCLASS[TYPE=Masterful]"));
 			finishLoad();
 			TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 			ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 			pc.classMap.put(cl1, 1);
 			Collection<?> set = info.getSet(pc);
-			assertEquals(1, set.size());
-			assertTrue(set.contains(s4));
+			Assert.assertEquals(1, set.size());
+			Assert.assertTrue(set.contains(s4));
 			pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 			set = info.getSet(pc);
-			assertFalse(set.isEmpty());
-			assertEquals(2, set.size());
-			assertTrue(set.contains(s2));
-			assertTrue(set.contains(s4));
+			Assert.assertFalse(set.isEmpty());
+			Assert.assertEquals(2, set.size());
+			Assert.assertTrue(set.contains(s2));
+			Assert.assertTrue(set.contains(s4));
 			pc.skillCostMap.put(s4, cl1, SkillCost.CROSS_CLASS);
 			pc.skillCostMap.put(s5, cl1, SkillCost.CROSS_CLASS);
 			set = info.getSet(pc);
-			assertFalse(set.isEmpty());
-			assertEquals(1, set.size());
-			assertTrue(set.contains(s2));
+			Assert.assertFalse(set.isEmpty());
+			Assert.assertEquals(1, set.size());
+			Assert.assertTrue(set.contains(s2));
 		}
 
 	private void initializeObjects()

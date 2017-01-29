@@ -27,6 +27,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.writer.PreAbilityWriter;
@@ -127,17 +129,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -160,17 +162,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -289,17 +291,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -321,17 +323,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -408,17 +410,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -437,17 +439,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -466,17 +468,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 
@@ -495,17 +497,17 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
 			boolean consolidated = w.toString().equals(consolidatedPre);
 			boolean separate = w.toString().equals(original);
-			assertTrue(consolidated || separate);
+			Assert.assertTrue(consolidated || separate);
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 

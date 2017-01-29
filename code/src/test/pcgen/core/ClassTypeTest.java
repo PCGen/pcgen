@@ -1,6 +1,7 @@
 package pcgen.core;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * <code>ClassTypeTest</code> <strong>needs documentation</strong>.
@@ -40,8 +41,8 @@ public class ClassTypeTest extends TestCase
 		final ClassType expected = new ClassType();
 		final ClassType actual = expected.clone();
 
-		assertEquals(expected.getCRFormula(), actual.getCRFormula());
-		assertEquals(expected.getXPPenalty(), actual.getXPPenalty());
-		assertEquals(expected.isMonster(), actual.isMonster());
+		Assert.assertEquals(expected.getCRFormula(), actual.getCRFormula());
+		Assert.assertEquals(expected.getXPPenalty(), actual.getXPPenalty());
+		Assert.assertEquals(expected.isMonster(), actual.isMonster());
 	}
 }

@@ -19,6 +19,7 @@ package pcgen.cdom.facet.analysis;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -60,14 +61,14 @@ public class HandsFacetTest extends TestCase
 	@Test
 	public void testRaceTypeUnsetNull()
 	{
-		assertEquals(0, facet.getHands(id));
+		Assert.assertEquals(0, facet.getHands(id));
 	}
 
 	@Test
 	public void testWithNothingInRaceDefault2()
 	{
 		rfacet.set(id, new Race());
-		assertEquals(2, facet.getHands(id));
+		Assert.assertEquals(2, facet.getHands(id));
 	}
 
 	@Test
@@ -76,7 +77,7 @@ public class HandsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.CREATURE_HANDS, 5);
 		rfacet.set(id, r);
-		assertEquals(0, facet.getHands(altid));
+		Assert.assertEquals(0, facet.getHands(altid));
 	}
 
 	@Test
@@ -85,9 +86,9 @@ public class HandsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.CREATURE_HANDS, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getHands(id));
+		Assert.assertEquals(5, facet.getHands(id));
 		rfacet.remove(id);
-		assertEquals(0, facet.getHands(id));
+		Assert.assertEquals(0, facet.getHands(id));
 	}
 
 	@Test
@@ -97,9 +98,9 @@ public class HandsFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.CREATURE_HANDS, 5);
 		tfacet.add(id, t, this);
-		assertEquals(5, facet.getHands(id));
+		Assert.assertEquals(5, facet.getHands(id));
 		tfacet.remove(id, t, this);
-		assertEquals(2, facet.getHands(id));
+		Assert.assertEquals(2, facet.getHands(id));
 	}
 
 	@Test
@@ -108,24 +109,24 @@ public class HandsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.CREATURE_HANDS, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getHands(id));
+		Assert.assertEquals(5, facet.getHands(id));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.put(IntegerKey.CREATURE_HANDS, 3);
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getHands(id));
+		Assert.assertEquals(3, facet.getHands(id));
 		PCTemplate t5 = new PCTemplate();
 		t5.setName("Other");
 		t5.put(IntegerKey.CREATURE_HANDS, 4);
 		tfacet.add(id, t5, this);
-		assertEquals(4, facet.getHands(id));
+		Assert.assertEquals(4, facet.getHands(id));
 		tfacet.remove(id, t, this);
-		assertEquals(4, facet.getHands(id));
+		Assert.assertEquals(4, facet.getHands(id));
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getHands(id));
+		Assert.assertEquals(3, facet.getHands(id));
 		tfacet.remove(id, t, this);
-		assertEquals(4, facet.getHands(id));
+		Assert.assertEquals(4, facet.getHands(id));
 		tfacet.remove(id, t5, this);
-		assertEquals(5, facet.getHands(id));
+		Assert.assertEquals(5, facet.getHands(id));
 	}
 }

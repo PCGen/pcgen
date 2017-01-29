@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -49,10 +50,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
-		assertTrue(parse("Rheinhessen"));
+		Assert.assertTrue(parse("Rheinhessen"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 		assertCleanConstruction();
 	}
 
@@ -62,10 +63,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Niederösterreich");
 		List<?> coll;
-		assertTrue(parse("Niederösterreich"));
+		Assert.assertTrue(parse("Niederösterreich"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
 		assertCleanConstruction();
 	}
 
@@ -74,10 +75,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
-		assertTrue(parse("Finger Lakes"));
+		Assert.assertTrue(parse("Finger Lakes"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertCleanConstruction();
 	}
 
@@ -87,10 +88,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(),
 				"Languedoc-Roussillon");
 		List<?> coll;
-		assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 		assertCleanConstruction();
 	}
 
@@ -99,10 +100,10 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Yarra Valley");
 		List<?> coll;
-		assertTrue(parse("Yarra Valley"));
+		Assert.assertTrue(parse("Yarra Valley"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Yarra Valley")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Yarra Valley")));
 		assertCleanConstruction();
 	}
 
@@ -113,12 +114,12 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 				"Niederösterreich");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Finger Lakes");
 		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(2, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 		assertCleanConstruction();
 	}
 
@@ -132,27 +133,27 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 				"Languedoc-Roussillon");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "Rheinhessen");
 		List<?> coll;
-		assertTrue(parse("Niederösterreich" + getJoinCharacter()
+		Assert.assertTrue(parse("Niederösterreich" + getJoinCharacter()
 				+ "Finger Lakes"));
-		assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
+		Assert.assertTrue(parse("Languedoc-Roussillon" + getJoinCharacter()
 				+ "Rheinhessen"));
 		coll = getUnparseTarget().getListFor(getListKey());
-		assertEquals(clearsByDefault() ? 2 : 4, coll.size());
+		Assert.assertEquals(clearsByDefault() ? 2 : 4, coll.size());
 		if (!clearsByDefault())
 		{
-			assertTrue(coll.contains(getConstant("Niederösterreich")));
-			assertTrue(coll.contains(getConstant("Finger Lakes")));
+			Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+			Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 		}
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 		assertCleanConstruction();
 	}
 
 	@Test
 	public void testInvalidListEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -160,8 +161,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse(""));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -169,8 +170,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -178,8 +179,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -188,9 +189,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
-		assertNull(primaryProf.getListFor(getListKey()));
+		Assert.assertNull(primaryProf.getListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -279,26 +280,26 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			Assert.assertNull("Expected item to be null", unparsed);
 		}
 		if (isClearDotLegal())
 		{
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		Assert.assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			Assert.assertNull("Expected item to be null", unparsed);
 		}
 	}
 
@@ -306,16 +307,16 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testReplacementInputsTwo() throws PersistenceLayerException
 	{
 		String[] unparsed;
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP1"
+		Assert.assertEquals("Expected item to be equal", "TestWP1"
 				+ getJoinCharacter() + "TestWP2", unparsed[0]);
 		if (isClearDotLegal())
 		{
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+			Assert.assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		}
 	}
 
@@ -324,8 +325,8 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		if (isClearLegal())
 		{
-			assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
-			assertNull(getUnparseTarget().getListFor(getListKey()));
+			Assert.assertFalse(parse("TestWP1" + getJoinCharacter() + Constants.LST_DOT_CLEAR));
+			Assert.assertNull(getUnparseTarget().getListFor(getListKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -335,7 +336,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	{
 		if (isClearDotLegal())
 		{
-			assertTrue(parse(".CLEAR.TestWP1"));
+			Assert.assertTrue(parse(".CLEAR.TestWP1"));
 			if (requiresPreconstruction())
 			{
 				assertConstructionError();
@@ -363,9 +364,9 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testInputInvalidAddsBasicNoSideEffect()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP4"));
 		assertNoSideEffects();
 	}
@@ -413,7 +414,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		getUnparseTarget().removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -432,7 +433,7 @@ public abstract class AbstractTypeSafeListTestCase<T extends CDOMObject, LT>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

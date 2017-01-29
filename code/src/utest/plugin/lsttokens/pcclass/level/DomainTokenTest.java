@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass.level;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -137,7 +138,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	public void testInvalidEmptyPre() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1|"));
+		Assert.assertFalse(parse("TestWP1|"));
 		assertNoSideEffects();
 	}
 
@@ -147,7 +148,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1|PRERACE:Dwarf|TestWP2"));
+		Assert.assertFalse(parse("TestWP1|PRERACE:Dwarf|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -178,7 +179,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertFalse(parse("TestWP1|PREFOO:1,Human"));
+		Assert.assertFalse(parse("TestWP1|PREFOO:1,Human"));
 		assertNoSideEffects();
 	}
 
@@ -186,7 +187,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.DOMAIN);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -205,7 +206,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -234,7 +235,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -249,7 +250,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		CDOMDirectSingleRef<Domain> ref = CDOMDirectSingleRef.getRef(wp1);
 		PreParserFactory prereqParser = PreParserFactory.getInstance();
 		Prerequisite prereq = prereqParser.parse("PRERACE:1,Dwarf");
-		assertNotNull(prereq);
+		Assert.assertNotNull(prereq);
 		QualifiedObject<CDOMSingleRef<Domain>> qo = new QualifiedObject<>(
 				ref, prereq);
 		primaryProf.addToListFor(ListKey.DOMAIN, qo);

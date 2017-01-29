@@ -20,6 +20,7 @@ package plugin.lsttokens.choose;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.BasicChooseInformation;
@@ -84,14 +85,14 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlySubToken() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName()));
+		Assert.assertFalse(parse(getSubTokenName()));
 		assertNoSideEffects();
 	}
 
@@ -99,14 +100,14 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidInputOnlySubTokenPipe()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|'));
+		Assert.assertFalse(parse(getSubTokenName() + '|'));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + "|,"));
+		Assert.assertFalse(parse(getSubTokenName() + "|,"));
 		assertNoSideEffects();
 	}
 
@@ -118,28 +119,28 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidListEndPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1|"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "TestWP1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListEndComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP1,"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "TestWP1,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListStartPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "|TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "|TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListStartComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + ",TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + ",TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -147,7 +148,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidListDoubleJoinPipe()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP2||TestWP1"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "TestWP2||TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -155,16 +156,16 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInvalidListDoubleJoinComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "TYPE=Foo,,!TYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "TestWP1"));
 		assertCleanConstruction();
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
 		assertCleanConstruction();
 	}
 
@@ -190,9 +191,9 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testInputInvalidAddsBasicNoSideEffect()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
-		assertFalse(parse(getSubTokenName() + '|' + "TestWP3||TestWP4"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "TestWP1|TestWP2"));
+		Assert.assertTrue(parseSecondary(getSubTokenName() + '|' + "TestWP1|TestWP2"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "TestWP3||TestWP4"));
 		assertNoSideEffects();
 	}
 
@@ -200,7 +201,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<ChooseInformation<?>> getObjectKey()
@@ -218,16 +219,16 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	{
 		parseForUnparse(value);
 		String[] unparse = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparse);
-		assertEquals(1, unparse.length);
-		assertEquals(unparse[0], getSubTokenName() + "|" + value);
+		Assert.assertNotNull(unparse);
+		Assert.assertEquals(1, unparse.length);
+		Assert.assertEquals(unparse[0], getSubTokenName() + "|" + value);
 	}
 
 	private void parseForUnparse(String value)
 	{
 		SimpleChoiceSet<String> scs = new SimpleChoiceSet<>(Arrays
 				.asList(value.split("\\|")), Constants.PIPE);
-		assertTrue(scs.getGroupingState().isValid());
+		Assert.assertTrue(scs.getGroupingState().isValid());
 		BasicChooseInformation<String> cs = new BasicChooseInformation<>(getSubTokenName(), scs);
 		cs.setTitle("Choose an Item");
 		primaryProf.put(ObjectKey.CHOOSE_INFO, cs);
@@ -242,7 +243,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -271,7 +272,7 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	@Test
 	public void testInvalidInputNoBrackets() throws PersistenceLayerException
 	{
-		assertFalse(parse("STRING|Sorry No [Brackets]"));
+		Assert.assertFalse(parse("STRING|Sorry No [Brackets]"));
 		assertNoSideEffects();
 	}
 

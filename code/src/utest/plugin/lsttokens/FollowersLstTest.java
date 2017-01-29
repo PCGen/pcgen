@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -56,56 +57,56 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Follower"));
+		Assert.assertFalse(parse("Follower"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Follower|"));
+		Assert.assertFalse(parse("Follower|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("|4"));
+		Assert.assertFalse(parse("|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Follower||4"));
+		Assert.assertFalse(parse("Follower||4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoPipeTypeTwo() throws PersistenceLayerException
 	{
-		assertFalse(parse("Follower|Pet|4"));
+		Assert.assertFalse(parse("Follower|Pet|4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBarEnding() throws PersistenceLayerException
 	{
-		assertFalse(parse("Follower|4|"));
+		Assert.assertFalse(parse("Follower|4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBarStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Follower|4"));
+		Assert.assertFalse(parse("|Follower|4"));
 		assertNoSideEffects();
 	}
 
@@ -113,7 +114,7 @@ public class FollowersLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidReversed() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(CompanionList.class, "Follower");
-		assertTrue(parse("Formula|Follower"));
+		Assert.assertTrue(parse("Formula|Follower"));
 		assertConstructionError();
 	}
 

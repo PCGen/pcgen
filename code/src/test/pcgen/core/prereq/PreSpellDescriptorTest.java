@@ -36,6 +36,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PreSpellDescriptorTest extends AbstractCharacterTestCase
@@ -130,13 +132,13 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testTwoClassDescriptor() throws Exception
@@ -147,19 +149,19 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory
 				.parse("PRESPELLDESCRIPTOR:3,Fire=2,Useful=2");
 
-		assertFalse(PrereqHandler.passes(prereq, character, null));
+		Assert.assertFalse(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testNotSimpleDescriptor() throws Exception
@@ -172,13 +174,13 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testNotTwoClassDescriptor() throws Exception
@@ -189,19 +191,19 @@ public class PreSpellDescriptorTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory
 				.parse("!PRESPELLDESCRIPTOR:3,Fire=2,Useful=2");
 
-		assertTrue(PrereqHandler.passes(prereq, character, null));
+		Assert.assertTrue(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 }

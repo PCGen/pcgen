@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.domain;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Domain;
@@ -95,7 +96,7 @@ public class CCSkillTokenTest extends AbstractListTokenTestCase<Domain, Skill>
 
 	public void testAllowClearList() throws PersistenceLayerException
 	{
-		assertTrue(parse(".CLEAR.LIST"));
+		Assert.assertTrue(parse(".CLEAR.LIST"));
 	}
 
 	@Test

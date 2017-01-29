@@ -28,6 +28,8 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -113,8 +115,8 @@ public class EquipmentListTest extends TestCase
 
 		List<Equipment> results =
 				EquipmentList.getEquipmentOfType("Weapon.Melee", "Magic");
-		assertEquals("Should get a single result", 1, results.size());
-		assertEquals("Should find the DUmmy equipment object.", eq, results
+		Assert.assertEquals("Should get a single result", 1, results.size());
+		Assert.assertEquals("Should find the DUmmy equipment object.", eq, results
 			.get(0));
 	}
 }

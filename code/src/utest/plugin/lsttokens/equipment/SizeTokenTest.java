@@ -19,6 +19,7 @@ package plugin.lsttokens.equipment;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,7 +80,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	{
 		if (token.parseToken(primaryContext, primaryProf, "W").passed())
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -121,7 +122,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.BASESIZE, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -141,7 +142,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

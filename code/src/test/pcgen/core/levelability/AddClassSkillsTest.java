@@ -56,6 +56,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+
 /**
  * Tests for Level Ability Class Skills
  */
@@ -116,22 +117,22 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 		
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Move Silently");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
+		Assert.assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(pc);
-		assertEquals(3, choiceSet.size());
-		assertEquals(2, choice.getCount().resolve(pc, ""));
+		Assert.assertEquals(3, choiceSet.size());
+		Assert.assertEquals(2, choice.getCount().resolve(pc, ""));
 		
 		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
 		}
-		assertTrue(choiceStrings.contains("Bluff"));
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Move Silently"));
+		Assert.assertTrue(choiceStrings.contains("Bluff"));
+		Assert.assertTrue(choiceStrings.contains("Listen"));
+		Assert.assertTrue(choiceStrings.contains("Move Silently"));
 	}
 
 	/**
@@ -144,23 +145,23 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
+		Assert.assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
-		assertEquals(3, choiceSet.size());
-		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
+		Assert.assertEquals(3, choiceSet.size());
+		Assert.assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
 		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : choiceSet)
 		{
 			choiceStrings.add(o.toString());
 		}
-		assertTrue(choiceStrings.contains("Bluff"));
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
+		Assert.assertTrue(choiceStrings.contains("Bluff"));
+		Assert.assertTrue(choiceStrings.contains("Listen"));
+		Assert.assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
 
 	/**
@@ -200,13 +201,13 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 
 		Globals.getContext().unconditionallyProcess(po, "ADD",
 				"CLASSSKILLS|2|KEY_Bluff,KEY_Listen,KEY_Knowledge (Arcana)");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 
 		List<PersistentTransitionChoice<?>> choiceList = po.getListFor(ListKey.ADD);
-		assertEquals(1, choiceList.size());
+		Assert.assertEquals(1, choiceList.size());
 		TransitionChoice<?> choice = choiceList.get(0);
 		Collection<?> choiceSet = choice.getChoices().getSet(getCharacter());
-		assertEquals(3, choiceSet.size());
+		Assert.assertEquals(3, choiceSet.size());
 		Set<Object> limitedSet = new HashSet<>();
 		ClassSkillChoiceActor csca = new ClassSkillChoiceActor(po, 0);
 		for (Object sc : choiceSet)
@@ -216,16 +217,16 @@ public class AddClassSkillsTest extends AbstractCharacterTestCase
 				limitedSet.add(sc);
 			}
 		}
-		assertEquals(2, limitedSet.size());
-		assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
+		Assert.assertEquals(2, limitedSet.size());
+		Assert.assertEquals(2, choice.getCount().resolve(getCharacter(), ""));
 		
 		List<String> choiceStrings = new ArrayList<>();
 		for (Object o : limitedSet)
 		{
 			choiceStrings.add(o.toString());
 		}
-		assertTrue(choiceStrings.contains("Listen"));
-		assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
+		Assert.assertTrue(choiceStrings.contains("Listen"));
+		Assert.assertTrue(choiceStrings.contains("Knowledge (Arcana)"));
 	}
 
 	private static PCClass parsePCClassText(String classPCCText,

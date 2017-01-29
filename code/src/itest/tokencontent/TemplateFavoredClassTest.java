@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.facet.FacetLibrary;
@@ -59,15 +60,15 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		templateInputFacet.directAdd(id, source, getAssoc());
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		templateInputFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Test
@@ -78,21 +79,21 @@ public class TemplateFavoredClassTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_CLASS_TOKEN.parseToken(context, source, "Favorite");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		templateInputFacet.add(id, source);
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		templateInputFacet.remove(id, source);
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 
 	@Override

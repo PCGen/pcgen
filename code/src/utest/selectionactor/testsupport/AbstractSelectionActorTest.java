@@ -17,6 +17,7 @@
  */
 package selectionactor.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.test.InequalityTester;
@@ -54,29 +55,29 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 		PlayerCharacter pc2 = new PlayerCharacter();
 		preparePC(pc1, owner);
 		preparePC(pc2, owner);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		ChooseSelectionActor<T> actor = getActor();
 		actor.applyChoice(owner, t, pc2);
-		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.applyChoice(owner, t, pc1);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.removeChoice(owner, t, pc2);
-		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.removeChoice(owner, t, pc1);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.applyChoice(owner, t, pc2);
-		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.applyChoice(owner, t, pc1);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.removeChoice(owner, t, pc2);
-		assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.removeChoice(owner, t, pc1);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		actor.applyChoice(owner, t, pc1);
 		actor.applyChoice(owner, t2, pc1);
 		actor.removeChoice(owner, t, pc1);
 		actor.applyChoice(owner, t2, pc2);
-		assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+		Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 	}
 
 	protected void preparePC(PlayerCharacter pc1, ChooseDriver owner)
@@ -108,31 +109,31 @@ public abstract class AbstractSelectionActorTest<T extends CDOMObject> extends A
 			ChooseDriver owner = getOwner();
 			PlayerCharacter pc1 = new PlayerCharacter();
 			PlayerCharacter pc2 = new PlayerCharacter();
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			ChooseSelectionActor<T> actor = getActor();
 			actor.applyChoice(owner, t, pc2);
-			assertTrue(pc2.hasLanguage(universal));
-			assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(pc2.hasLanguage(universal));
+			Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.applyChoice(owner, t, pc1);
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.removeChoice(owner, t, pc2);
-			assertFalse(pc2.hasLanguage(universal));
-			assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertFalse(pc2.hasLanguage(universal));
+			Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.removeChoice(owner, t, pc1);
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.applyChoice(owner, t, pc2);
-			assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.applyChoice(owner, t, pc1);
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.removeChoice(owner, t, pc2);
-			assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertFalse(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.removeChoice(owner, t, pc1);
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 			actor.applyChoice(owner, t, pc1);
 			actor.applyChoice(owner, t2, pc1);
 			actor.removeChoice(owner, t, pc1);
 			actor.applyChoice(owner, t2, pc2);
-			assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
+			Assert.assertTrue(AbstractStorageFacet.areEqualCache(pc1.getCharID(), pc2.getCharID(), it));
 		}
 	}
 

@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -78,19 +79,19 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 		raceFacet.directSet(id, source, getAssoc());
 		ClassSkillList dragonCSL =
 				context.getReferenceContext().silentlyGetConstructedCDOMObject(
 					ClassSkillList.class, "Dragon");
-		assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertTrue(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		pc.incrementClassLevel(1, dragon);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceFacet.remove(id);
-		assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
+		Assert.assertFalse(lscFacet.contains(id, dragonCSL, SkillCost.CLASS, sk));
 	}
 
 	@Test
@@ -101,25 +102,25 @@ public class RaceMonCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, mcsFacet.getCount(id));
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(0, mcsFacet.getCount(id));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceInputFacet.set(id, source);
-		assertTrue(mcsFacet.contains(id, sk));
-		assertEquals(1, mcsFacet.getCount(id));
+		Assert.assertTrue(mcsFacet.contains(id, sk));
+		Assert.assertEquals(1, mcsFacet.getCount(id));
 		pc.incrementClassLevel(1, dragon);
 		pc.setDirty(true);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		raceInputFacet.remove(id);
-		assertEquals(0, mcsFacet.getCount(id));
+		Assert.assertEquals(0, mcsFacet.getCount(id));
 	}
 
 	@Override

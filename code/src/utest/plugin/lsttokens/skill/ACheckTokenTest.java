@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.skill;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -63,9 +64,9 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertTrue(parseSecondary("YES"));
-		assertEquals(SkillArmorCheck.YES, primaryProf
+		Assert.assertTrue(parse("YES"));
+		Assert.assertTrue(parseSecondary("YES"));
+		Assert.assertEquals(SkillArmorCheck.YES, primaryProf
 			.get(ObjectKey.ARMOR_CHECK));
 		internalTestInvalidInputString(SkillArmorCheck.YES);
 		assertNoSideEffects();
@@ -74,15 +75,15 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	public void internalTestInvalidInputString(Object val)
 		throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.ARMOR_CHECK));
 		// Note case sensitivity
 		//TODO 516 deprecation
 		// assertFalse(parse("Yes"));
@@ -96,19 +97,19 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertEquals(SkillArmorCheck.YES, primaryProf
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(SkillArmorCheck.YES, primaryProf
 			.get(ObjectKey.ARMOR_CHECK));
-		assertTrue(parse("NO"));
-		assertEquals(SkillArmorCheck.NONE, primaryProf.get(ObjectKey.ARMOR_CHECK));
-		assertTrue(parse("PROFICIENT"));
-		assertEquals(SkillArmorCheck.NONPROF, primaryProf
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(SkillArmorCheck.NONE, primaryProf.get(ObjectKey.ARMOR_CHECK));
+		Assert.assertTrue(parse("PROFICIENT"));
+		Assert.assertEquals(SkillArmorCheck.NONPROF, primaryProf
 			.get(ObjectKey.ARMOR_CHECK));
-		assertTrue(parse("DOUBLE"));
-		assertEquals(SkillArmorCheck.DOUBLE, primaryProf
+		Assert.assertTrue(parse("DOUBLE"));
+		Assert.assertEquals(SkillArmorCheck.DOUBLE, primaryProf
 			.get(ObjectKey.ARMOR_CHECK));
-		assertTrue(parse("WEIGHT"));
-		assertEquals(SkillArmorCheck.WEIGHT, primaryProf
+		Assert.assertTrue(parse("WEIGHT"));
+		Assert.assertEquals(SkillArmorCheck.WEIGHT, primaryProf
 			.get(ObjectKey.ARMOR_CHECK));
 	}
 
@@ -158,7 +159,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<SkillArmorCheck> getObjectKey()
@@ -183,7 +184,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

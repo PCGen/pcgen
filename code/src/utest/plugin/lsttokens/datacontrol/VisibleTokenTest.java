@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -85,65 +86,65 @@ public class VisibleTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assert.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, "").passed());
+		Assert.assertFalse(token.parseToken(context, cd, "").passed());
 	}
 
 	@Test
 	public void testValidStringYes() throws PersistenceLayerException
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "YES").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.DEFAULT, cd.getVisibility());
+		Assert.assertNull(cd.getVisibility());
+		Assert.assertTrue(token.parseToken(context, cd, "YES").passed());
+		Assert.assertNotNull(cd.getVisibility());
+		Assert.assertEquals(Visibility.DEFAULT, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("YES", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("YES", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "NO").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.HIDDEN, cd.getVisibility());
+		Assert.assertNull(cd.getVisibility());
+		Assert.assertTrue(token.parseToken(context, cd, "NO").passed());
+		Assert.assertNotNull(cd.getVisibility());
+		Assert.assertEquals(Visibility.HIDDEN, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("NO", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("NO", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringDisplay() throws PersistenceLayerException
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "DISPLAY").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.DISPLAY_ONLY, cd.getVisibility());
+		Assert.assertNull(cd.getVisibility());
+		Assert.assertTrue(token.parseToken(context, cd, "DISPLAY").passed());
+		Assert.assertNotNull(cd.getVisibility());
+		Assert.assertEquals(Visibility.DISPLAY_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("DISPLAY", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("DISPLAY", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringExport() throws PersistenceLayerException
 	{
-		assertNull(cd.getVisibility());
-		assertTrue(token.parseToken(context, cd, "EXPORT").passed());
-		assertNotNull(cd.getVisibility());
-		assertEquals(Visibility.OUTPUT_ONLY, cd.getVisibility());
+		Assert.assertNull(cd.getVisibility());
+		Assert.assertTrue(token.parseToken(context, cd, "EXPORT").passed());
+		Assert.assertNotNull(cd.getVisibility());
+		Assert.assertEquals(Visibility.OUTPUT_ONLY, cd.getVisibility());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("EXPORT", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("EXPORT", unparsed[0]);
 	}
 
 }

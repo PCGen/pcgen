@@ -22,6 +22,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -76,33 +78,33 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREPCLEVEL:MIN=2");
-		assertFalse("Character is not 2nd level", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character is not 2nd level", PrereqHandler.passes(prereq,
 			character, null));
 		
 		character.incrementClassLevel(1, myClass, true);
 
-		assertTrue("Character has 2 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has 2 levels", PrereqHandler.passes(prereq,
 			character, null));
 		
 		character.incrementClassLevel(1, myClass, true);
 		prereq = factory.parse("PREPCLEVEL:MIN=2,MAX=3");
-		assertTrue("Character is 2nd or 3rd level", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is 2nd or 3rd level", PrereqHandler.passes(prereq,
 				character, null));
 		
 		character.incrementClassLevel(1, myClass, true);
-		assertFalse("Character is not 2nd or 3rd level", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character is not 2nd or 3rd level", PrereqHandler.passes(prereq,
 			character, null));
 		
 		prereq = factory.parse("!PREPCLEVEL:MIN=2,MAX=3");
-		assertTrue("Character is 2nd or 3rd level", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is 2nd or 3rd level", PrereqHandler.passes(prereq,
 				character, null));
 
 		prereq = factory.parse("!PREPCLEVEL:MIN=4");
-		assertFalse("Character is 4 or higher level", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character is 4 or higher level", PrereqHandler.passes(prereq,
 				character, null));
 		
 		prereq = factory.parse("!PREPCLEVEL:MAX=3");
-		assertTrue("Character is 3rd or higher level", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is 3rd or higher level", PrereqHandler.passes(prereq,
 				character, null));
 		
 		
@@ -129,45 +131,45 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 
 		prereq = factory.parse("PREPCLEVEL:MIN=4");
-		assertFalse("Character doesn't have 4 levels", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have 4 levels", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.setRace(race);
 
-		assertFalse("Character has 4 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has 4 levels", PrereqHandler.passes(prereq,
 			character, null));
 		
 		prereq = factory.parse("!PREPCLEVEL:MIN=5");
-		assertTrue("Character doesn't have 5 or more levels", PrereqHandler.passes(
+		Assert.assertTrue("Character doesn't have 5 or more levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		prereq = factory.parse("!PREPCLEVEL:MIN=3");
-		assertTrue("Character doesn't have 5 or more levels", PrereqHandler.passes(
+		Assert.assertTrue("Character doesn't have 5 or more levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		prereq = factory.parse("!PREPCLEVEL:MAX=3");
-		assertFalse("Character doesn't have 3 or more levels", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have 3 or more levels", PrereqHandler.passes(
 			prereq, character, null));
 
 		prereq = factory.parse("!PREPCLEVEL:MIN=6,MAX=7");
-		assertTrue("Character doesn't have between 6 and 7 levels", PrereqHandler.passes(
+		Assert.assertTrue("Character doesn't have between 6 and 7 levels", PrereqHandler.passes(
 			prereq, character, null));
 				
 		prereq = factory.parse("PREPCLEVEL:MIN=4,MAX=6");
-		assertFalse("Character doesn't have 4-6 levels", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have 4-6 levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		prereq = factory.parse("PREPCLEVEL:MIN=6,MAX=7");
-		assertFalse("Character doesn't have 6-7 levels", PrereqHandler.passes(
+		Assert.assertFalse("Character doesn't have 6-7 levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		prereq = factory.parse("PREPCLEVEL:MAX=7");
-		assertTrue("Character has no more than 5 levels", PrereqHandler.passes(
+		Assert.assertTrue("Character has no more than 5 levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		character.incrementClassLevel(4, myClass, true);
 		prereq = factory.parse("PREPCLEVEL:MAX=6");
-		assertTrue("Character has no more than 6 levels", PrereqHandler.passes(
+		Assert.assertTrue("Character has no more than 6 levels", PrereqHandler.passes(
 			prereq, character, null));
 		
 		
@@ -198,32 +200,32 @@ public class PrePCLevelTest extends AbstractCharacterTestCase
 		myClass.addToListFor(ListKey.BONUS, levelBonus);
 		character.calcActiveBonuses();
 
-		assertFalse("Character has only 4 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has only 4 levels", PrereqHandler.passes(prereq,
 			character, null));
 		
 		
 		prereq = factory.parse("PREPCLEVEL:MAX=6");
-		assertTrue("Character has more than 6 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has more than 6 levels", PrereqHandler.passes(prereq,
 				character, null));	
 		
 		prereq = factory.parse("!PREPCLEVEL:MAX=6");
-		assertFalse("Character is less than 6 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character is less than 6 levels", PrereqHandler.passes(prereq,
 				character, null));	
 		
 		prereq = factory.parse("!PREPCLEVEL:MIN=5");
-		assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
 				character, null));	
 
 		prereq = factory.parse("PREPCLEVEL:MIN=4,MAX=6");
-		assertFalse("Character does not have 4-6 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character does not have 4-6 levels", PrereqHandler.passes(prereq,
 				character, null));	
 		
 		prereq = factory.parse("PREPCLEVEL:MIN=6,MAX=8");
-		assertFalse("Character does not have 6-8 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character does not have 6-8 levels", PrereqHandler.passes(prereq,
 				character, null));	
 
 		prereq = factory.parse("!PREPCLEVEL:MIN=6,MAX=8");
-		assertTrue("Character is not 6-8 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is not 6-8 levels", PrereqHandler.passes(prereq,
 				character, null));	
 		
 		

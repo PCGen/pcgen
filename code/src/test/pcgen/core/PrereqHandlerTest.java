@@ -7,6 +7,8 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 
+import org.junit.Assert;
+
 /**
  * <code>PrereqHandlerTest</code> tests the operation of the
  * PrereqHandler class.
@@ -44,15 +46,15 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 
 		pc.setAlignment(le);
-		assertEquals("Non-negate returns false", false, PrereqHandler.passes(
+		Assert.assertEquals("Non-negate returns false", false, PrereqHandler.passes(
 			prereq, pc, null));
-		assertEquals("Negate returns false", false, PrereqHandler.passes(
+		Assert.assertEquals("Negate returns false", false, PrereqHandler.passes(
 			prereqNeg, pc, null));
 
 		pc.setAlignment(tn);
-		assertEquals("Non-negate returns true", true, PrereqHandler.passes(
+		Assert.assertEquals("Non-negate returns true", true, PrereqHandler.passes(
 			prereq, pc, null));
-		assertEquals("Negate returns true", true, PrereqHandler.passes(
+		Assert.assertEquals("Negate returns true", true, PrereqHandler.passes(
 			prereqNeg, pc, null));
 	}
 
@@ -70,7 +72,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		human.setName("Human");
 		pc.setRace(human);
 
-		assertTrue("No feat should return true", PrereqHandler.passes(prereq,
+		Assert.assertTrue("No feat should return true", PrereqHandler.passes(prereq,
 			pc, null));
 
 		final Ability ud = new Ability();
@@ -78,7 +80,7 @@ public class PrereqHandlerTest extends AbstractCharacterTestCase
 		ud.setCDOMCategory(AbilityCategory.FEAT);
 		ud.put(StringKey.KEY_NAME, "Uncanny Dodge");
 		addAbility(AbilityCategory.FEAT, ud);
-		assertFalse("Feat should return false", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Feat should return false", PrereqHandler.passes(prereq,
 			pc, null));
 	}
 }

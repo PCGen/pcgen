@@ -34,6 +34,8 @@ import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+
+import org.junit.Assert;
 import plugin.pretokens.test.PreTypeTester;
 
 public class PreTypeTest extends AbstractCharacterTestCase
@@ -71,7 +73,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.NEQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void test996803_3()
@@ -108,7 +110,7 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void test996803_4()
@@ -127,14 +129,14 @@ public class PreTypeTest extends AbstractCharacterTestCase
 		prereq.setOperator(PrerequisiteOperator.NEQ);
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testKindHandled()
 	{
 		final PreTypeTester preType = new PreTypeTester();
 
-		assertEquals("TYPE", preType.kindHandled());
+		Assert.assertEquals("TYPE", preType.kindHandled());
 	}
 
 }

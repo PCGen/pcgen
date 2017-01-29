@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -67,105 +68,105 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNameOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw"));
+		Assert.assertFalse(parse("Claw"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNameTypeOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty"));
+		Assert.assertFalse(parse("Claw,Nasty"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNameTypeMult() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty,*2"));
+		Assert.assertFalse(parse("Claw,Nasty,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyDamage() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty,*2,"));
+		Assert.assertFalse(parse("Claw,Nasty,*2,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyName() throws PersistenceLayerException
 	{
-		assertFalse(parse(",Nasty,*2,1d4"));
+		Assert.assertFalse(parse(",Nasty,*2,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyAttacks() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty,,1d4"));
+		Assert.assertFalse(parse("Claw,Nasty,,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidPipeEnding() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty,*1,1d4|"));
+		Assert.assertFalse(parse("Claw,Nasty,*1,1d4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidPipeStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Claw,Nasty,*1,1d4"));
+		Assert.assertFalse(parse("|Claw,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidType1() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty.,*1,1d4"));
+		Assert.assertFalse(parse("Claw,Nasty.,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidType2() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,.Nasty,*1,1d4"));
+		Assert.assertFalse(parse("Claw,.Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidType3() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty..Natural,*1,1d4"));
+		Assert.assertFalse(parse("Claw,Nasty..Natural,*1,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidAttacksNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty.Natural,xx,1d4"));
+		Assert.assertFalse(parse("Claw,Nasty.Natural,xx,1d4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidAttacksHandsNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Claw,Nasty.Natural,2,1d4,xx"));
+		Assert.assertFalse(parse("Claw,Nasty.Natural,2,1d4,xx"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReservedName() throws PersistenceLayerException
 	{
-		assertFalse(parse("None,Nasty,*1,1d4"));
+		Assert.assertFalse(parse("None,Nasty,*1,1d4"));
 		assertNoSideEffects();
 	}
 
@@ -174,7 +175,7 @@ public class NaturalAttacksLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("PRERACE:1,Human"));
+			Assert.assertFalse(parse("PRERACE:1,Human"));
 		}
 		catch (IllegalArgumentException iae)
 		{

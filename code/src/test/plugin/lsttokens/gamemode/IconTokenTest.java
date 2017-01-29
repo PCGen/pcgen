@@ -25,6 +25,8 @@ package plugin.lsttokens.gamemode;
 import java.net.URI;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.core.GameMode;
 import pcgen.core.SettingsHandler;
 
@@ -53,20 +55,20 @@ public class IconTokenTest extends TestCase
 	public void testValidSyntax() throws Exception
 	{
 		GameMode gameMode = SettingsHandler.getGame();
-		assertNull("starting condition, eyegear icon should be null", gameMode
+		Assert.assertNull("starting condition, eyegear icon should be null", gameMode
 			.getEquipTypeIcon("Eyegear"));
 
 		IconToken token = new IconToken();
-		assertTrue("Parse should succeed", token.parse(gameMode,
+		Assert.assertTrue("Parse should succeed", token.parse(gameMode,
 			"Eyegear|preview/summary/images/icon_eye.png", uri));		
 
-		assertEquals("Incorrect icon path",
+		Assert.assertEquals("Incorrect icon path",
 			"preview/summary/images/icon_eye.png", gameMode
 				.getEquipTypeIcon("Eyegear"));
-		assertEquals("Case misimatch fails",
+		Assert.assertEquals("Case misimatch fails",
 			"preview/summary/images/icon_eye.png", gameMode
 				.getEquipTypeIcon("EyegeaR"));
-		assertNull("Unknown type should be null", gameMode
+		Assert.assertNull("Unknown type should be null", gameMode
 			.getEquipTypeIcon("Unknown"));
 	}
 
@@ -74,9 +76,9 @@ public class IconTokenTest extends TestCase
 	{
 		GameMode gameMode = SettingsHandler.getGame();
 		IconToken token = new IconToken();
-		assertFalse("Parse should fail", token.parse(gameMode,
+		Assert.assertFalse("Parse should fail", token.parse(gameMode,
 			"Eyegear:preview/summary/images/icon_eye.png", uri));		
-		assertFalse("Parse should fail", token.parse(gameMode,
+		Assert.assertFalse("Parse should fail", token.parse(gameMode,
 			"Eyegear|preview/summary/images|icon_eye.png", uri));		
 	}
 }

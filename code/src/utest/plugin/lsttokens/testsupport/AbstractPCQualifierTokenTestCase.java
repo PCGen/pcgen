@@ -28,6 +28,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 
@@ -76,31 +77,31 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|PC"));
+		Assert.assertTrue(parse(getSubTokenName() + "|PC"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		addToPCSet(pc, wp1);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertEquals(wp1, set.iterator().next());
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertEquals(wp1, set.iterator().next());
 		addToPCSet(pc, wp2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
+		Assert.assertFalse(set.isEmpty());
 		if (typeAllowsMult())
 		{
-			assertEquals(2, set.size());
-			assertTrue(set.contains(wp1));
-			assertTrue(set.contains(wp2));
+			Assert.assertEquals(2, set.size());
+			Assert.assertTrue(set.contains(wp1));
+			Assert.assertTrue(set.contains(wp2));
 		}
 		else
 		{
-			assertEquals(1, set.size());
-			assertTrue(set.contains(wp2));
+			Assert.assertEquals(1, set.size());
+			Assert.assertTrue(set.contains(wp2));
 		}
 	}
 
@@ -136,19 +137,19 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|PC[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|PC[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		addToPCSet(pc, wp1);
 		addToPCSet(pc, wp2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertEquals(wp2, set.iterator().next());
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertEquals(wp2, set.iterator().next());
 	}
 
 	@Test
@@ -157,22 +158,22 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|!PC[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|!PC[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(wp2));
-		assertTrue(set.contains(wp3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(wp2));
+		Assert.assertTrue(set.contains(wp3));
 		addToPCSet(pc, wp1);
 		addToPCSet(pc, wp2);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(wp3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(wp3));
 	}
 
 	protected abstract void addToPCSet(TransparentPlayerCharacter pc, T item);

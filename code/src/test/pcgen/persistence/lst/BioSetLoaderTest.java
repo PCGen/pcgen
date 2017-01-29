@@ -31,6 +31,8 @@ import java.util.List;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
@@ -228,7 +230,7 @@ public final class BioSetLoaderTest extends TestCase
 				//						+ "' of "
 				//						+ baseRaceTag
 				//						+ ".");
-				assertEquals("BioSet tag " + testArg + " for race " + raceName
+				Assert.assertEquals("BioSet tag " + testArg + " for race " + raceName
 					+ ":", EXPECTED_VALUES[i][j], baseRaceTag.toString());
 			}
 		}
@@ -241,7 +243,7 @@ public final class BioSetLoaderTest extends TestCase
 	 */
 	public void testParseSecondBioSetGood() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
+		Assert.assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
 			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
 		String[] bioData2 = new String[]{
 			"AGESET:0|Adulthood",
@@ -260,7 +262,7 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getRacePCCText("None", "Ogre");
-		assertFalse("Ogre bio details expected after load but was "
+		Assert.assertFalse("Ogre bio details expected after load but was "
 			+ racePCCText, "REGION:None\n\n".equals(racePCCText));
 		
 	}
@@ -273,7 +275,7 @@ public final class BioSetLoaderTest extends TestCase
 	 */
 	public void testParseSecondBioSetBadName() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
+		Assert.assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
 			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
 		String[] bioData2 = new String[]{
 			"AGESET:0|Bad",
@@ -292,7 +294,7 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getRacePCCText("None", "Ogre");
-		assertTrue(
+		Assert.assertTrue(
 			"Expected details to be against original ageset name but was "
 				+ racePCCText,
 			racePCCText

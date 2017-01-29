@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.IntegerKey;
@@ -53,9 +54,9 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 		{
 			con = -3;
 		}
-		assertTrue(parse(con.toString()));
-		assertTrue(parseSecondary(con.toString()));
-		assertEquals(con, primaryProf.get(getIntegerKey()));
+		Assert.assertTrue(parse(con.toString()));
+		Assert.assertTrue(parseSecondary(con.toString()));
+		Assert.assertEquals(con, primaryProf.get(getIntegerKey()));
 		testInvalidInputs(con);
 		assertNoSideEffects();
 	}
@@ -64,42 +65,42 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		// Always ensure get is unchanged
 		// since no invalid item should set or reset the value
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("TestWP"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("ANY"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("FIVE"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("4.5"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("1/2"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
-		assertFalse(parse("1+3"));
-		assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("TestWP"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("ANY"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("FIVE"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("4.5"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("1/2"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
+		Assert.assertFalse(parse("1+3"));
+		Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
 		// Require Integer greater than or equal to zero
 		if (!isNegativeAllowed())
 		{
-			assertFalse(parse("-1"));
-			assertEquals(val, primaryProf.get(getIntegerKey()));
+			Assert.assertFalse(parse("-1"));
+			Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
 		}
 		if (!isPositiveAllowed())
 		{
-			assertFalse(parse("1"));
-			assertEquals(val, primaryProf.get(getIntegerKey()));
+			Assert.assertFalse(parse("1"));
+			Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
 		}
 		if (!isZeroAllowed())
 		{
-			assertFalse(parse("0"));
-			assertEquals(val, primaryProf.get(getIntegerKey()));
+			Assert.assertFalse(parse("0"));
+			Assert.assertEquals(val, primaryProf.get(getIntegerKey()));
 		}
 	}
 
@@ -108,74 +109,74 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		if (isPositiveAllowed())
 		{
-			assertTrue(parse("5"));
-			assertEquals(Integer.valueOf(5), primaryProf.get(getIntegerKey()));
-			assertTrue(parse("1"));
-			assertEquals(Integer.valueOf(1), primaryProf.get(getIntegerKey()));
+			Assert.assertTrue(parse("5"));
+			Assert.assertEquals(Integer.valueOf(5), primaryProf.get(getIntegerKey()));
+			Assert.assertTrue(parse("1"));
+			Assert.assertEquals(Integer.valueOf(1), primaryProf.get(getIntegerKey()));
 		}
 		if (isZeroAllowed())
 		{
-			assertTrue(parse("0"));
-			assertEquals(Integer.valueOf(0), primaryProf.get(getIntegerKey()));
+			Assert.assertTrue(parse("0"));
+			Assert.assertEquals(Integer.valueOf(0), primaryProf.get(getIntegerKey()));
 		}
 		if (isNegativeAllowed())
 		{
-			assertTrue(parse("-2"));
-			assertEquals(Integer.valueOf(-2), primaryProf.get(getIntegerKey()));
+			Assert.assertTrue(parse("-2"));
+			Assert.assertEquals(Integer.valueOf(-2), primaryProf.get(getIntegerKey()));
 		}
 	}
 
 	@Test
 	public void testOutputOne() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		Assert.assertTrue(0 == primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 1);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isPositiveAllowed())
 		{
-			assertEquals(1, unparsed.length);
-			assertEquals("1", unparsed[0]);
+			Assert.assertEquals(1, unparsed.length);
+			Assert.assertEquals("1", unparsed[0]);
 		}
 		else
 		{
-			assertNull(unparsed);
-			assertTrue(0 != primaryContext.getWriteMessageCount());
+			Assert.assertNull(unparsed);
+			Assert.assertTrue(0 != primaryContext.getWriteMessageCount());
 		}
 	}
 
 	@Test
 	public void testOutputZero() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		Assert.assertTrue(0 == primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 0);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isZeroAllowed())
 		{
-			assertEquals(1, unparsed.length);
-			assertEquals("0", unparsed[0]);
+			Assert.assertEquals(1, unparsed.length);
+			Assert.assertEquals("0", unparsed[0]);
 		}
 		else
 		{
-			assertNull(unparsed);
-			assertTrue(0 != primaryContext.getWriteMessageCount());
+			Assert.assertNull(unparsed);
+			Assert.assertTrue(0 != primaryContext.getWriteMessageCount());
 		}
 	}
 
 	@Test
 	public void testOutputMinusTwo() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		Assert.assertTrue(0 == primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), -2);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isNegativeAllowed())
 		{
-			assertEquals(1, unparsed.length);
-			assertEquals("-2", unparsed[0]);
+			Assert.assertEquals(1, unparsed.length);
+			Assert.assertEquals("-2", unparsed[0]);
 		}
 		else
 		{
-			assertNull(unparsed);
-			assertTrue(0 != primaryContext.getWriteMessageCount());
+			Assert.assertNull(unparsed);
+			Assert.assertTrue(0 != primaryContext.getWriteMessageCount());
 		}
 	}
 
@@ -184,17 +185,17 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	{
 		if (isPositiveAllowed())
 		{
-			assertTrue(parse("5"));
-			assertTrue(parse("1"));
+			Assert.assertTrue(parse("5"));
+			Assert.assertTrue(parse("1"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "1", unparsed[0]);
+			Assert.assertEquals("Expected item to be equal", "1", unparsed[0]);
 		}
 		else
 		{
-			assertTrue(parse("-2"));
-			assertTrue(parse("-4"));
+			Assert.assertTrue(parse("-2"));
+			Assert.assertTrue(parse("-4"));
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertEquals("Expected item to be equal", "-4", unparsed[0]);
+			Assert.assertEquals("Expected item to be equal", "-4", unparsed[0]);
 		}
 	}
 
@@ -263,7 +264,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testArchitecturePositiveNegative()
 	{
-		assertTrue(isPositiveAllowed() || isNegativeAllowed());
+		Assert.assertTrue(isPositiveAllowed() || isNegativeAllowed());
 	}
 
 	@Test
@@ -312,7 +313,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getIntegerKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	protected String[] setAndUnparse(int val)

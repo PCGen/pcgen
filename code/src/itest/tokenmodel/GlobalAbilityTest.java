@@ -28,6 +28,8 @@ import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.AbilityLst;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
@@ -43,7 +45,7 @@ public class GlobalAbilityTest extends AbstractGrantedListTokenTest<Ability>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

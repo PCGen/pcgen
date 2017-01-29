@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -56,7 +57,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -98,7 +99,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		PCAlignment source = create(PCAlignment.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 
 	@Override
@@ -107,7 +108,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		Campaign source = create(Campaign.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 
 	@Override
@@ -116,7 +117,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		CompanionMod source = create(CompanionMod.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 
 	@Override
@@ -125,7 +126,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		EquipmentModifier source = create(EquipmentModifier.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 
 	@Override
@@ -134,7 +135,7 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		PCCheck source = create(PCCheck.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 
 	@Override
@@ -143,6 +144,6 @@ public class GlobalQualifyTest extends AbstractContentTokenTest
 	{
 		PCStat source = create(PCStat.class, "Source");
 		ParseResult result = token.parseToken(context, source, "RACE|Dwarf");
-		assertFalse(result.passed());
+		Assert.assertFalse(result.passed());
 	}
 }

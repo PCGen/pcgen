@@ -20,6 +20,8 @@ package pcgen.core;
 import pcgen.AbstractCharacterTestCase;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 public class SizeAdjustmentTest extends AbstractCharacterTestCase
 {
 
@@ -41,14 +43,14 @@ public class SizeAdjustmentTest extends AbstractCharacterTestCase
 		context.getReferenceContext().resolveReferences(null);
 
 		PlayerCharacter pc = getCharacter();
-		assertEquals("M", pc.getDisplay().getSize());
+		Assert.assertEquals("M", pc.getDisplay().getSize());
 		pc.setRace(race);
-		assertEquals("S", pc.getDisplay().getSize());
+		Assert.assertEquals("S", pc.getDisplay().getSize());
 		pc.addTemplate(template);
-		assertEquals("D", pc.getDisplay().getSize());
+		Assert.assertEquals("D", pc.getDisplay().getSize());
 		pc.setDeity(deity);
 		pc.calcActiveBonuses();
-		assertEquals("T", pc.getDisplay().getSize());
+		Assert.assertEquals("T", pc.getDisplay().getSize());
 	}
 
 }

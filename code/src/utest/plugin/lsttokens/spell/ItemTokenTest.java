@@ -19,6 +19,7 @@ package plugin.lsttokens.spell;
 
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -99,10 +100,10 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testValidInputNegativeSimple() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Rheinhessen]"));
+		Assert.assertTrue(parse("[Rheinhessen]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
@@ -110,42 +111,42 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Niederösterreich]"));
+		Assert.assertTrue(parse("[Niederösterreich]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
 	}
 
 	@Test
 	public void testValidInputNegativeSpace() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Finger Lakes]"));
+		Assert.assertTrue(parse("[Finger Lakes]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
 	public void testValidInputNegativeHyphen() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Languedoc-Roussillon]"));
+		Assert.assertTrue(parse("[Languedoc-Roussillon]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(1, coll.size());
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertEquals(1, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
 	}
 
 	@Test
 	public void testValidInputNegativeList() throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
+		Assert.assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
 				+ "[Finger Lakes]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(2, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertEquals(2, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
 	}
 
 	@Test
@@ -153,22 +154,22 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 			throws PersistenceLayerException
 	{
 		List<?> coll;
-		assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
+		Assert.assertTrue(parse("[Niederösterreich]" + getJoinCharacter()
 				+ "[Finger Lakes]"));
-		assertTrue(parse("[Languedoc-Roussillon]" + getJoinCharacter()
+		Assert.assertTrue(parse("[Languedoc-Roussillon]" + getJoinCharacter()
 				+ "[Rheinhessen]"));
 		coll = primaryProf.getListFor(getNegativeListKey());
-		assertEquals(4, coll.size());
-		assertTrue(coll.contains(getConstant("Niederösterreich")));
-		assertTrue(coll.contains(getConstant("Finger Lakes")));
-		assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
-		assertTrue(coll.contains(getConstant("Rheinhessen")));
+		Assert.assertEquals(4, coll.size());
+		Assert.assertTrue(coll.contains(getConstant("Niederösterreich")));
+		Assert.assertTrue(coll.contains(getConstant("Finger Lakes")));
+		Assert.assertTrue(coll.contains(getConstant("Languedoc-Roussillon")));
+		Assert.assertTrue(coll.contains(getConstant("Rheinhessen")));
 	}
 
 	@Test
 	public void testInvalidNegativeEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("[]"));
+		Assert.assertFalse(parse("[]"));
 		assertNoSideEffects();
 	}
 
@@ -177,7 +178,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
-		assertFalse(parse("TestWP2[TestWP1]"));
+		Assert.assertFalse(parse("TestWP2[TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -186,7 +187,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
-		assertFalse(parse("[TestWP1]TestWP2"));
+		Assert.assertFalse(parse("[TestWP1]TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -194,7 +195,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testInvalidNegativeStart() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse("TestWP1]"));
+		Assert.assertFalse(parse("TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -202,7 +203,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testInvalidNegativeEnd() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse("[TestWP1"));
+		Assert.assertFalse(parse("[TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -210,7 +211,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testInvalidNegativeListEnd() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse("[TestWP1]" + getJoinCharacter()));
+		Assert.assertFalse(parse("[TestWP1]" + getJoinCharacter()));
 		assertNoSideEffects();
 	}
 
@@ -218,7 +219,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testInvalidNegativeListStart() throws PersistenceLayerException
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
-		assertFalse(parse(getJoinCharacter() + "[TestWP1]"));
+		Assert.assertFalse(parse(getJoinCharacter() + "[TestWP1]"));
 		assertNoSideEffects();
 	}
 
@@ -245,7 +246,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	{
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP1");
 		primaryContext.getReferenceContext().constructCDOMObject(getCDOMClass(), "TestWP2");
-		assertFalse(parse("[TestWP2]" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("[TestWP2]" + getJoinCharacter() + getJoinCharacter()
 				+ "[TestWP1]"));
 		assertNoSideEffects();
 	}
@@ -321,7 +322,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 	public void testUnparseRemoveNull() throws PersistenceLayerException
 	{
 		getUnparseTarget().removeListFor(ListKey.PROHIBITED_ITEM);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -340,7 +341,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -370,7 +371,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

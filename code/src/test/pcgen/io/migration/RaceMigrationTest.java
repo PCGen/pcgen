@@ -23,6 +23,8 @@
 package pcgen.io.migration;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -80,8 +82,8 @@ public class RaceMigrationTest extends TestCase
 	 */
 	public void testMaxVer()
 	{
-		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,2}, gameMode));
+		Assert.assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,0}, gameMode));
+		Assert.assertEquals("OldKey1", RaceMigration.getNewRaceKey("OldKey1", new int[]{6,0,2}, gameMode));
 	}
 
 	/**
@@ -89,8 +91,8 @@ public class RaceMigrationTest extends TestCase
 	 */
 	public void testNoCrossGameMode()
 	{
-		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{6,0,0}, gameMode));
-		assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{5,17,0}, gameMode));
+		Assert.assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{6,0,0}, gameMode));
+		Assert.assertEquals("OldKey3", RaceMigration.getNewRaceKey("OldKey3", new int[]{5,17,0}, gameMode));
 	}
 
 	/**
@@ -98,7 +100,7 @@ public class RaceMigrationTest extends TestCase
 	 */
 	public void testCaseInsensitive()
 	{
-		assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKEY1", new int[]{6,0,0}, gameMode));
+		Assert.assertEquals("NewKey1", RaceMigration.getNewRaceKey("OldKEY1", new int[]{6,0,0}, gameMode));
 	}
 
 }

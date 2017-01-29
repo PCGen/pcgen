@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -39,22 +40,22 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertNull(primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertNull(primaryProf.get(getObjectKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertTrue(parse("String"));
+		Assert.assertTrue(parse("String"));
 		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
-		assertTrue(parse("TestType"));
+		Assert.assertTrue(parse("TestType"));
 		assertConstructionError();
 	}
 
@@ -70,7 +71,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		}
 		else
 		{
-			assertNull(primaryProf.get(getObjectKey()));
+			Assert.assertNull(primaryProf.get(getObjectKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -87,7 +88,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		}
 		else
 		{
-			assertNull(primaryProf.get(getObjectKey()));
+			Assert.assertNull(primaryProf.get(getObjectKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -104,7 +105,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		}
 		else
 		{
-			assertNull(primaryProf.get(getObjectKey()));
+			Assert.assertNull(primaryProf.get(getObjectKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -152,19 +153,19 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		construct(primaryContext, "TestWP2");
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 
@@ -172,7 +173,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	public void testValidInputs() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP1"));
 		assertCleanConstruction();
 	}
 
@@ -214,7 +215,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -234,7 +235,7 @@ public abstract class AbstractItemTokenTestCase<T extends CDOMObject, TC extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

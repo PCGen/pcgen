@@ -20,6 +20,7 @@ package plugin.lsttokens.template;
 import java.net.URISyntaxException;
 
 import org.junit.After;
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -115,7 +116,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(StringKey.SIZEFORMULA, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test

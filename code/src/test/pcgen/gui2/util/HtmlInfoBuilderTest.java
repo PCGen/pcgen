@@ -30,6 +30,7 @@ import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
 
 
 /**
@@ -63,7 +64,7 @@ public class HtmlInfoBuilderTest extends TestCase
 		
 		b.append("Test");
 		
-		assertEquals("<html>Test</html>" , b.toString());
+		Assert.assertEquals("<html>Test</html>" , b.toString());
 	}
 	
 	/**
@@ -75,7 +76,7 @@ public class HtmlInfoBuilderTest extends TestCase
 		
 		b.appendElement("HP" , "25");
 		
-		assertEquals("<html><b>HP:</b>&nbsp;25</html>" , b.toString());
+		Assert.assertEquals("<html><b>HP:</b>&nbsp;25</html>" , b.toString());
 	}
 	
 	/**
@@ -87,7 +88,7 @@ public class HtmlInfoBuilderTest extends TestCase
 		LocaleDependentTestCase.before(Locale.US);
 		b.appendI18nElement("in_player", "Koen");
 		EnUsLocaleDependentTestCase.after();
-		assertEquals("<html><b>Player:</b>&nbsp;Koen</html>", b.toString());
+		Assert.assertEquals("<html><b>Player:</b>&nbsp;Koen</html>", b.toString());
 	}
 	
 	/**
@@ -100,7 +101,7 @@ public class HtmlInfoBuilderTest extends TestCase
 		LocaleDependentTestCase.before(Locale.US);
 		b.appendLineBreak().appendI18nElement("in_player" , "Koen");
 		EnUsLocaleDependentTestCase.after();
-		assertEquals("<html><b><font size=+1>Character</font></b>"+
+		Assert.assertEquals("<html><b><font size=+1>Character</font></b>"+
 				"<br><b>Player:</b>&nbsp;Koen</html>" , b.toString());
 	}
 	

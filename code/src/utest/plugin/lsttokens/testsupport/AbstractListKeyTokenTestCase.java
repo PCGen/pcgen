@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -36,7 +37,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(getListKey());
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -91,7 +92,7 @@ public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC exte
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{

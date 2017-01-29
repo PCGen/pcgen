@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -78,14 +79,14 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLeadingComma() throws PersistenceLayerException
 	{
-		assertFalse(parse(",Good"));
+		Assert.assertFalse(parse(",Good"));
 		assertNoSideEffects();
 	}
 
@@ -93,7 +94,7 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputTrailingComma()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Fireball,"));
+		Assert.assertFalse(parse("Fireball,"));
 		assertNoSideEffects();
 	}
 
@@ -101,7 +102,7 @@ public class ProhibitedTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testInvalidInputDoubleCommaSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Fireball,,Lightning Bolt"));
+		Assert.assertFalse(parse("Fireball,,Lightning Bolt"));
 		assertNoSideEffects();
 	}
 	

@@ -38,6 +38,8 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.TokenUtilities;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 /**
@@ -111,9 +113,9 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		pc.addDomain(sunDomain);
 		
 		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(sunDomain);
-		assertEquals("Incorrect number of spell lists for domain", 1, spellLists.size());
+		Assert.assertEquals("Incorrect number of spell lists for domain", 1, spellLists.size());
 		int level = SpellLevel.getFirstLevelForKey(domainSpell, spellLists, pc);
-		assertEquals("Incorrect spell level in domain list", 1, level);
+		Assert.assertEquals("Incorrect spell level in domain list", 1, level);
 	}
 
 	/**
@@ -126,8 +128,8 @@ public class PlayerCharacterSpellTest extends AbstractCharacterTestCase
 		pc.incrementClassLevel(1, divineClass);
 		
 		List<? extends CDOMList<Spell>> spellLists = pc.getSpellLists(pc.getClassKeyed(divineClass.getKeyName()));
-		assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
+		Assert.assertEquals("Incorrect number of spell lists in class list", 1, spellLists.size());
 		int level = SpellLevel.getFirstLevelForKey(classSpell, spellLists, pc);
-		assertEquals("Incorrect spell level in class list", 1, level);
+		Assert.assertEquals("Incorrect spell level in class list", 1, level);
 	}
 }

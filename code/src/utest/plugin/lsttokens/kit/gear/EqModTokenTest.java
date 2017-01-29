@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.gear;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.EquipmentModifier;
@@ -82,63 +83,63 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testInvalidEmptyAssociation() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|"));
+		Assert.assertFalse(parse("EQMOD2|"));
 	}
 
 	@Test
 	public void testInvalidTrailingAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|Assoc|"));
+		Assert.assertFalse(parse("EQMOD2|Assoc|"));
 	}
 
 	@Test
 	public void testInvalidEmptyModAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("|Assoc|Assoc2"));
+		Assert.assertFalse(parse("|Assoc|Assoc2"));
 	}
 
 	@Test
 	public void testInvalidEmptySecondModAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1.|Assoc|Assoc2"));
+		Assert.assertFalse(parse("MOD1.|Assoc|Assoc2"));
 	}
 
 	@Test
 	public void testInvalidEmptySecondModAfterAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
+		Assert.assertFalse(parse("MOD1|ModAssoc.|Assoc|Assoc2"));
 	}
 
 	@Test
 	public void testInvalidEmptyComplexAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1|ModAssoc[]"));
+		Assert.assertFalse(parse("MOD1|ModAssoc[]"));
 	}
 
 	@Test
 	public void testInvalidNoOpenBracketComplexAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1|ModAssoc Assoc]"));
+		Assert.assertFalse(parse("MOD1|ModAssoc Assoc]"));
 	}
 
 	@Test
 	public void testInvalidTwoOpenBracketComplexAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("MOD1|ModAssoc[[Assoc]"));
+		Assert.assertFalse(parse("MOD1|ModAssoc[[Assoc]"));
 	}
 
 	@Test
 	public void testInvalidDoubleBarAssociation()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("EQMOD2|Assoc||Assoc2"));
+		Assert.assertFalse(parse("EQMOD2|Assoc||Assoc2"));
 	}
 
 	public void testRoundRobinOnlyAssociation()
@@ -180,26 +181,26 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 	}
 
 	@Test
 	public void testInvalidInputJoinOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse(Character.toString(getJoinCharacter())));
+		Assert.assertFalse(parse(Character.toString(getJoinCharacter())));
 	}
 
 	@Test
 	public void testInvalidInputString() throws PersistenceLayerException
 	{
-		assertTrue(parse("String"));
+		Assert.assertTrue(parse("String"));
 		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputType() throws PersistenceLayerException
 	{
-		assertTrue(parse("TestType"));
+		Assert.assertTrue(parse("TestType"));
 		assertConstructionError();
 	}
 
@@ -210,7 +211,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
-			assertTrue(parse("TestWP1,TestWP2"));
+			Assert.assertTrue(parse("TestWP1,TestWP2"));
 			assertConstructionError();
 		}
 	}
@@ -247,7 +248,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		{
 			construct(primaryContext, "TestWP1");
 			construct(primaryContext, "TestWP2");
-			assertTrue(parse("TestWP1.TestWP2"));
+			Assert.assertTrue(parse("TestWP1.TestWP2"));
 			assertConstructionError();
 		}
 	}
@@ -291,14 +292,14 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
@@ -306,7 +307,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 
@@ -315,7 +316,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	{
 		// Explicitly do NOT build TestWP2
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertConstructionError();
 	}
 
@@ -324,7 +325,7 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
 		assertCleanConstruction();
 	}
 
@@ -363,9 +364,9 @@ public class EqModTokenTest extends AbstractKitTokenTestCase<KitGear>
 		construct(secondaryContext, "TestWP3");
 		construct(primaryContext, "TestWP4");
 		construct(secondaryContext, "TestWP4");
-		assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
-		assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertTrue(parse("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertTrue(parseSecondary("TestWP1" + getJoinCharacter() + "TestWP2"));
+		Assert.assertFalse(parse("TestWP3" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP4"));
 	}
 }

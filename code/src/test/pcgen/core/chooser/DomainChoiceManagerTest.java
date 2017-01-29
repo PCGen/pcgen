@@ -38,6 +38,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 /**
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
@@ -63,8 +65,8 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		Domain quux = context.getReferenceContext().constructCDOMObject(Domain.class, "KEY_Quux");
 		context.unconditionallyProcess(pObj, "CHOOSE",
 				"DOMAIN|KEY_Foo|KEY_Bar|KEY_Baz|KEY_Qux|KEY_Quux");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
-		assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertNotNull(pObj.get(ObjectKey.CHOOSE_INFO));
 		pObj.put(FormulaKey.NUMCHOICES, FormulaFactory.getFormulaFor(4));
 		PlayerCharacter aPC = getCharacter();
 
@@ -75,14 +77,14 @@ public class DomainChoiceManagerTest extends AbstractCharacterTestCase
 		List<Domain> aList = new ArrayList<>();
 		List<Domain> sList = new ArrayList<>();
 		choiceManager.getChoices(aPC, aList, sList);
-		assertEquals(5, aList.size());
-		assertTrue(aList.contains(foo));
-		assertTrue(aList.contains(bar));
-		assertTrue(aList.contains(baz));
-		assertTrue(aList.contains(qux));
-		assertTrue(aList.contains(quux));
+		Assert.assertEquals(5, aList.size());
+		Assert.assertTrue(aList.contains(foo));
+		Assert.assertTrue(aList.contains(bar));
+		Assert.assertTrue(aList.contains(baz));
+		Assert.assertTrue(aList.contains(qux));
+		Assert.assertTrue(aList.contains(quux));
 
-		assertEquals(0, sList.size());
+		Assert.assertEquals(0, sList.size());
 	}
 
 }

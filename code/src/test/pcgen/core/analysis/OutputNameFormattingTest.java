@@ -25,6 +25,7 @@ package pcgen.core.analysis;
 import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PObject;
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * Verify the function of the OutputNameFormatting class.
@@ -57,7 +58,7 @@ public class OutputNameFormattingTest extends TestCase
 	 */
 	public final void testGetOutputNameDisplay()
 	{
-		assertEquals("Expected unmodified name", NAME, OutputNameFormatting.getOutputName(testObj));
+		Assert.assertEquals("Expected unmodified name", NAME, OutputNameFormatting.getOutputName(testObj));
 	}
 	
 	/**
@@ -67,11 +68,11 @@ public class OutputNameFormattingTest extends TestCase
 	public final void testGetOutputNameBase()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[BASE]");
-		assertEquals("Expected just the name outside of brackets", "Companion",
+		Assert.assertEquals("Expected just the name outside of brackets", "Companion",
 			OutputNameFormatting.getOutputName(testObj));
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [BASE]");
-		assertEquals("Expected the BASE macro to be ignored", "Prefix [BASE]",
+		Assert.assertEquals("Expected the BASE macro to be ignored", "Prefix [BASE]",
 			OutputNameFormatting.getOutputName(testObj));
 	}
 	
@@ -82,15 +83,15 @@ public class OutputNameFormattingTest extends TestCase
 	public final void testGetOutputNameName()
 	{
 		testObj.put(StringKey.OUTPUT_NAME, "[NAME]");
-		assertEquals("Incorrect [NAME] expansion", "Race (Subtype)",
+		Assert.assertEquals("Incorrect [NAME] expansion", "Race (Subtype)",
 			OutputNameFormatting.getOutputName(testObj));
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [NAME]");
-		assertEquals("Incorrect [NAME] expansion", "Prefix Race (Subtype)",
+		Assert.assertEquals("Incorrect [NAME] expansion", "Prefix Race (Subtype)",
 			OutputNameFormatting.getOutputName(testObj));
 
 		testObj.put(StringKey.OUTPUT_NAME, "Prefix [NAME]|[NAME]");
-		assertEquals("Incorrect double [NAME] expansion", "Prefix Race (Subtype)|Race (Subtype)",
+		Assert.assertEquals("Incorrect double [NAME] expansion", "Prefix Race (Subtype)|Race (Subtype)",
 			OutputNameFormatting.getOutputName(testObj));
 	}
 

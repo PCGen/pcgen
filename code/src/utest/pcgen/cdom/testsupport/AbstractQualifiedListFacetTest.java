@@ -25,6 +25,7 @@ import java.util.Set;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.QualifiedActor;
@@ -78,20 +79,20 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 
 	protected void assertEventCount(int a, int r)
 	{
-		assertEquals(a, listener.addEventCount);
-		assertEquals(r, listener.removeEventCount);
+		Assert.assertEquals(a, listener.addEventCount);
+		Assert.assertEquals(r, listener.removeEventCount);
 	}
 
 	@Test
 	public void testTypeUnsetZeroCount()
 	{
-		assertEquals(0, getFacet().getCount(id));
+		Assert.assertEquals(0, getFacet().getCount(id));
 	}
 
 	@Test
 	public void testTypeUnsetEmpty()
 	{
-		assertTrue(getFacet().isEmpty(id));
+		Assert.assertTrue(getFacet().isEmpty(id));
 	}
 
 	@Test
@@ -104,8 +105,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeUnsetEmptySet()
 	{
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertTrue(getFacet().getSet(id).isEmpty());
 	}
 
 	@Test
@@ -117,7 +118,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().add(null, getObject(), source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -136,7 +137,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().add(id, null, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -153,17 +154,17 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	{
 		T t1 = getObject();
 		getFacet().add(id, t1, null);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertEquals(0, getFacet().getCount(altid));
-		assertTrue(getFacet().isEmpty(altid));
-		assertNotNull(getFacet().getSet(altid));
-		assertTrue(getFacet().getSet(altid).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(altid));
+		Assert.assertTrue(getFacet().isEmpty(altid));
+		Assert.assertNotNull(getFacet().getSet(altid));
+		Assert.assertTrue(getFacet().getSet(altid).isEmpty());
 	}
 
 	@Test
@@ -172,17 +173,17 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertEquals(0, getFacet().getCount(altid));
-		assertTrue(getFacet().isEmpty(altid));
-		assertNotNull(getFacet().getSet(altid));
-		assertTrue(getFacet().getSet(altid).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(altid));
+		Assert.assertTrue(getFacet().isEmpty(altid));
+		Assert.assertNotNull(getFacet().getSet(altid));
+		Assert.assertTrue(getFacet().getSet(altid).isEmpty());
 	}
 
 	@Test
@@ -191,19 +192,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -214,19 +215,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source2 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -236,22 +237,22 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		assertEventCount(1, 0);
 		T t2 = getAltObject();
 		getFacet().add(id, t2, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 	}
 
@@ -260,11 +261,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	{
 		Object source1 = new Object();
 		T t1 = getObject();
-		assertFalse(getFacet().contains(id, t1));
+		Assert.assertFalse(getFacet().contains(id, t1));
 		getFacet().add(id, t1, source1);
-		assertTrue(getFacet().contains(id, t1));
+		Assert.assertTrue(getFacet().contains(id, t1));
 		getFacet().remove(id, t1, source1);
-		assertFalse(getFacet().contains(id, t1));
+		Assert.assertFalse(getFacet().contains(id, t1));
 	}
 
 	@Test
@@ -274,7 +275,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().addAll(id, null, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -304,23 +305,23 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 		// Prove independence
 		pct.remove(t2);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 	}
 
 	@Test
@@ -333,13 +334,13 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 		Object source2 = new Object();
 		T t3 = getThirdObject();
@@ -347,14 +348,14 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);
-		assertEquals(3, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(3, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofthree = getFacet().getSet(id);
-		assertNotNull(setofthree);
-		assertEquals(3, setofthree.size());
-		assertTrue(setofthree.contains(t1));
-		assertTrue(setofthree.contains(t2));
-		assertTrue(setofthree.contains(t3));
+		Assert.assertNotNull(setofthree);
+		Assert.assertEquals(3, setofthree.size());
+		Assert.assertTrue(setofthree.contains(t1));
+		Assert.assertTrue(setofthree.contains(t2));
+		Assert.assertTrue(setofthree.contains(t3));
 		assertEventCount(3, 0);
 	}
 
@@ -367,12 +368,12 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct.add(t1);
 		pct.add(t1);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 		assertEventCount(1, 0);
 	}
 
@@ -389,7 +390,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().addAll(id, pct, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -398,12 +399,12 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		/*
 		 * TODO This should be zero, one or two???
 		 */
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(1, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(1, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
 		assertEventCount(1, 0);
 	}
 
@@ -424,20 +425,20 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		Object source2 = new Object();
 		getFacet().remove(id, t1, source2);
 		// No change (wrong source)
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -447,18 +448,18 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Remove
 		getFacet().remove(id, t1, source1);
-		assertEquals(0, getFacet().getCount(id));
-		assertTrue(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertTrue(getFacet().getSet(id).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(id));
+		Assert.assertTrue(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertTrue(getFacet().getSet(id).isEmpty());
 		assertEventCount(1, 1);
 	}
 
@@ -468,19 +469,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Useless Remove
 		getFacet().remove(id, getAltObject(), source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -490,19 +491,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, still only once in set (but twice on that source)
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getSet(id));
-		assertEquals(1, getFacet().getSet(id).size());
-		assertEquals(t1, getFacet().getSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getSet(id));
+		Assert.assertEquals(1, getFacet().getSet(id).size());
+		Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Only one Remove required to clear (source Set not source List)
 		getFacet().remove(id, t1, source1);
@@ -527,12 +528,12 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
 		getFacet().remove(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 		assertEventCount(2, 1);
 	}
 
@@ -544,7 +545,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().removeAll(id, null, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -581,20 +582,20 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertEventCount(3, 0);
 		getFacet().removeAll(id, pct, source1);
 		assertEventCount(3, 1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t2));
-		assertTrue(setoftwo.contains(t3));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t2));
+		Assert.assertTrue(setoftwo.contains(t3));
 		// Prove independence
 		pct.remove(t1);
 		setoftwo = getFacet().getSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t2));
-		assertTrue(setoftwo.contains(t3));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t2));
+		Assert.assertTrue(setoftwo.contains(t3));
 	}
 
 	@Test
@@ -615,11 +616,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		getFacet().removeAll(id, source1);
 		assertEventCount(3, 2);
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertTrue(setofone.contains(t3));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertTrue(setofone.contains(t3));
 	}
 
 	@Test
@@ -636,12 +637,12 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertEventCount(2, 0);
 		getFacet().removeAll(id, pct, source1);
 		assertEventCount(2, 1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 	}
 
 	@Test
@@ -659,7 +660,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		try
 		{
 			getFacet().removeAll(id, pct, source1);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -680,8 +681,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	{
 		Object source1 = new Object();
 		Object source2 = new Object();
-		assertNotNull(getFacet().removeAll(id));
-		assertTrue(getFacet().removeAll(id).isEmpty());
+		Assert.assertNotNull(getFacet().removeAll(id));
+		Assert.assertTrue(getFacet().removeAll(id).isEmpty());
 		T t1 = getObject();
 		T t2 = getAltObject();
 		getFacet().add(id, t1, source1);
@@ -690,17 +691,17 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertEventCount(2, 0);
 		Map<T, Set<Object>> map = getFacet().removeAll(id);
 		assertEventCount(2, 2);
-		assertNotNull(map);
-		assertEquals(2, map.size());
-		assertTrue(map.containsKey(t1));
-		assertTrue(map.containsKey(t2));
-		assertNotNull(map.get(t1));
-		assertNotNull(map.get(t2));
-		assertEquals(2, map.get(t1).size());
-		assertEquals(1, map.get(t2).size());
-		assertTrue(map.get(t1).contains(source1));
-		assertTrue(map.get(t1).contains(source2));
-		assertTrue(map.get(t2).contains(source2));
+		Assert.assertNotNull(map);
+		Assert.assertEquals(2, map.size());
+		Assert.assertTrue(map.containsKey(t1));
+		Assert.assertTrue(map.containsKey(t2));
+		Assert.assertNotNull(map.get(t1));
+		Assert.assertNotNull(map.get(t2));
+		Assert.assertEquals(2, map.get(t1).size());
+		Assert.assertEquals(1, map.get(t2).size());
+		Assert.assertTrue(map.get(t1).contains(source1));
+		Assert.assertTrue(map.get(t1).contains(source2));
+		Assert.assertTrue(map.get(t2).contains(source2));
 		testTypeUnsetZeroCount();
 		testTypeUnsetEmpty();
 		testTypeUnsetEmptySet();
@@ -718,11 +719,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.add(t2);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -732,11 +733,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.remove(t1);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -749,11 +750,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.addAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -763,11 +764,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.removeAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -777,11 +778,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.retainAll(new ArrayList<T>());
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -792,11 +793,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.clear();
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getSet(id));
-			assertEquals(1, getFacet().getSet(id).size());
-			assertEquals(t1, getFacet().getSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getSet(id));
+			Assert.assertEquals(1, getFacet().getSet(id).size());
+			Assert.assertEquals(t1, getFacet().getSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -821,48 +822,48 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		T t2 = getAltObject();
 		getFacet().add(id, t1, source1);
 		getFacet().add(id, t2, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertEquals(0, getFacet().getCount(altid));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertEquals(0, getFacet().getCount(altid));
 		getFacet().copyContents(id, altid);
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(2, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		Set<T> setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		// Prove independence (remove from id)
 		getFacet().remove(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Set<T> setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 
-		assertEquals(2, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(2, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		setoftwo = getFacet().getSet(altid);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		// Prove Independence (remove from altid)
 
 		getFacet().remove(altid, t2, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		setofone = getFacet().getSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t2));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t2));
 
-		assertEquals(1, getFacet().getCount(altid));
-		assertFalse(getFacet().isEmpty(altid));
+		Assert.assertEquals(1, getFacet().getCount(altid));
+		Assert.assertFalse(getFacet().isEmpty(altid));
 		setofone = getFacet().getSet(altid);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 	}
 
 	@Test
@@ -870,21 +871,21 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	{
 		Object source1 = new Object();
 		List<? extends T> origset = getFacet().getSet(id, source1);
-		assertNotNull(origset);
-		assertTrue(origset.isEmpty());
+		Assert.assertNotNull(origset);
+		Assert.assertTrue(origset.isEmpty());
 		T t1 = getObject();
 		T t2 = getAltObject();
 		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<? extends T> setoftwo = getFacet().getSet(id, source1);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 		Object source2 = new Object();
 		T t3 = getThirdObject();
@@ -892,28 +893,28 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);
-		assertEquals(3, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(3, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		setoftwo = getFacet().getSet(id, source1);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		setoftwo = getFacet().getSet(id, source2);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t3));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t3));
 		assertEventCount(3, 0);
 		getFacet().remove(id, t3, source2);
 		List<? extends T> setofone = getFacet().getSet(id, source2);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 		getFacet().remove(id, t1, source2);
 		List<? extends T> emptyset = getFacet().getSet(id, source2);
-		assertNotNull(emptyset);
-		assertEquals(0, emptyset.size());
+		Assert.assertNotNull(emptyset);
+		Assert.assertEquals(0, emptyset.size());
 	}
 
 	abstract protected AbstractQualifiedListFacet<T> getFacet();
@@ -952,17 +953,17 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getQualifiedSet(id));
-		assertEquals(1, getFacet().getQualifiedSet(id).size());
-		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getQualifiedSet(id));
+		Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+		Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// No cross-pollution
-		assertEquals(0, getFacet().getCount(altid));
-		assertTrue(getFacet().isEmpty(altid));
-		assertNotNull(getFacet().getQualifiedSet(altid));
-		assertTrue(getFacet().getQualifiedSet(altid).isEmpty());
+		Assert.assertEquals(0, getFacet().getCount(altid));
+		Assert.assertTrue(getFacet().isEmpty(altid));
+		Assert.assertNotNull(getFacet().getQualifiedSet(altid));
+		Assert.assertTrue(getFacet().getQualifiedSet(altid).isEmpty());
 	}
 
 	@Test
@@ -971,19 +972,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getQualifiedSet(id));
-		assertEquals(1, getFacet().getQualifiedSet(id).size());
-		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getQualifiedSet(id));
+		Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+		Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getQualifiedSet(id));
-		assertEquals(1, getFacet().getQualifiedSet(id).size());
-		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getQualifiedSet(id));
+		Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+		Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -994,19 +995,19 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source2 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getQualifiedSet(id));
-		assertEquals(1, getFacet().getQualifiedSet(id).size());
-		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getQualifiedSet(id));
+		Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+		Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		assertEventCount(1, 0);
 		// Add same, still only once in set (and only one event)
 		getFacet().add(id, t1, source2);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
-		assertNotNull(getFacet().getQualifiedSet(id));
-		assertEquals(1, getFacet().getQualifiedSet(id).size());
-		assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
+		Assert.assertNotNull(getFacet().getQualifiedSet(id));
+		Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+		Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		assertEventCount(1, 0);
 	}
 
@@ -1016,22 +1017,22 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		T t1 = getObject();
 		getFacet().add(id, t1, source1);
-		assertEquals(1, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(1, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<T> setofone = getFacet().getQualifiedSet(id);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertEquals(t1, setofone.iterator().next());
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertEquals(t1, setofone.iterator().next());
 		assertEventCount(1, 0);
 		T t2 = getAltObject();
 		getFacet().add(id, t2, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<T> setoftwo = getFacet().getQualifiedSet(id);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 	}
 
@@ -1047,11 +1048,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.add(t2);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1061,11 +1062,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.remove(t1);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1078,11 +1079,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.addAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1092,11 +1093,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.removeAll(pct);
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1106,11 +1107,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.retainAll(new ArrayList<T>());
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1121,11 +1122,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		{
 			set.clear();
 			// If we can modify, then make sure it's independent of the facet
-			assertEquals(1, getFacet().getCount(id));
-			assertFalse(getFacet().isEmpty(id));
-			assertNotNull(getFacet().getQualifiedSet(id));
-			assertEquals(1, getFacet().getQualifiedSet(id).size());
-			assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
+			Assert.assertEquals(1, getFacet().getCount(id));
+			Assert.assertFalse(getFacet().isEmpty(id));
+			Assert.assertNotNull(getFacet().getQualifiedSet(id));
+			Assert.assertEquals(1, getFacet().getQualifiedSet(id).size());
+			Assert.assertEquals(t1, getFacet().getQualifiedSet(id).iterator().next());
 		}
 		catch (UnsupportedOperationException e)
 		{
@@ -1139,22 +1140,22 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		Object source1 = new Object();
 		Collection<? extends T> origset =
 				getFacet().getQualifiedSet(id, source1);
-		assertNotNull(origset);
-		assertTrue(origset.isEmpty());
+		Assert.assertNotNull(origset);
+		Assert.assertTrue(origset.isEmpty());
 		T t1 = getObject();
 		T t2 = getAltObject();
 		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<? extends T> setoftwo =
 				getFacet().getQualifiedSet(id, source1);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 		Object source2 = new Object();
 		T t3 = getThirdObject();
@@ -1162,30 +1163,30 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);
-		assertEquals(3, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(3, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		setoftwo = getFacet().getQualifiedSet(id, source1);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		setoftwo = getFacet().getQualifiedSet(id, source2);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t3));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t3));
 		assertEventCount(3, 0);
 		getFacet().remove(id, t3, source2);
 		Collection<? extends T> setofone =
 				getFacet().getQualifiedSet(id, source2);
-		assertNotNull(setofone);
-		assertEquals(1, setofone.size());
-		assertTrue(setofone.contains(t1));
+		Assert.assertNotNull(setofone);
+		Assert.assertEquals(1, setofone.size());
+		Assert.assertTrue(setofone.contains(t1));
 		getFacet().remove(id, t1, source2);
 		Collection<? extends T> emptyset =
 				getFacet().getQualifiedSet(id, source2);
-		assertNotNull(emptyset);
-		assertEquals(0, emptyset.size());
+		Assert.assertNotNull(emptyset);
+		Assert.assertEquals(0, emptyset.size());
 	}
 
 	@Test
@@ -1202,22 +1203,22 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		};
 		Collection<? extends T> origset =
 				getFacet().actOnQualifiedSet(id, echo);
-		assertNotNull(origset);
-		assertTrue(origset.isEmpty());
+		Assert.assertNotNull(origset);
+		Assert.assertTrue(origset.isEmpty());
 		T t1 = getObject();
 		T t2 = getAltObject();
 		List<T> pct = new ArrayList<>();
 		pct.add(t1);
 		pct.add(t2);
 		getFacet().addAll(id, pct, source1);
-		assertEquals(2, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(2, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		Collection<? extends T> setoftwo =
 				getFacet().actOnQualifiedSet(id, echo);
-		assertNotNull(setoftwo);
-		assertEquals(2, setoftwo.size());
-		assertTrue(setoftwo.contains(t1));
-		assertTrue(setoftwo.contains(t2));
+		Assert.assertNotNull(setoftwo);
+		Assert.assertEquals(2, setoftwo.size());
+		Assert.assertTrue(setoftwo.contains(t1));
+		Assert.assertTrue(setoftwo.contains(t2));
 		assertEventCount(2, 0);
 		Object source2 = "Source2";
 		T t3 = getThirdObject();
@@ -1225,16 +1226,16 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct2.add(t1);
 		pct2.add(t3);
 		getFacet().addAll(id, pct2, source2);
-		assertEquals(3, getFacet().getCount(id));
-		assertFalse(getFacet().isEmpty(id));
+		Assert.assertEquals(3, getFacet().getCount(id));
+		Assert.assertFalse(getFacet().isEmpty(id));
 		List<T> setoffour = getFacet().actOnQualifiedSet(id, echo);
-		assertNotNull(setoffour);
-		assertEquals(4, setoffour.size());
-		assertTrue(setoffour.contains(t1));
+		Assert.assertNotNull(setoffour);
+		Assert.assertEquals(4, setoffour.size());
+		Assert.assertTrue(setoffour.contains(t1));
 		//two if T1
-		assertTrue(setoffour.indexOf(t1) != setoffour.lastIndexOf(t1));
-		assertTrue(setoffour.contains(t2));
-		assertTrue(setoffour.contains(t3));
+		Assert.assertTrue(setoffour.indexOf(t1) != setoffour.lastIndexOf(t1));
+		Assert.assertTrue(setoffour.contains(t2));
+		Assert.assertTrue(setoffour.contains(t3));
 		assertEventCount(3, 0);
 		QualifiedActor<T, String> sourcedep = new QualifiedActor<T, String>()
 		{
@@ -1245,12 +1246,12 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			}
 		};
 		List<String> stringset = getFacet().actOnQualifiedSet(id, sourcedep);
-		assertNotNull(stringset);
-		assertEquals(4, stringset.size());
-		assertTrue(stringset.contains(t1.toString() + ":" + source1.toString()));
-		assertTrue(stringset.contains(t1.toString() + ":" + source2.toString()));
-		assertTrue(stringset.contains(t2.toString() + ":" + source1.toString()));
-		assertTrue(stringset.contains(t3.toString() + ":" + source2.toString()));
+		Assert.assertNotNull(stringset);
+		Assert.assertEquals(4, stringset.size());
+		Assert.assertTrue(stringset.contains(t1.toString() + ":" + source1.toString()));
+		Assert.assertTrue(stringset.contains(t1.toString() + ":" + source2.toString()));
+		Assert.assertTrue(stringset.contains(t2.toString() + ":" + source1.toString()));
+		Assert.assertTrue(stringset.contains(t3.toString() + ":" + source2.toString()));
 		assertEventCount(3, 0);
 	}
 

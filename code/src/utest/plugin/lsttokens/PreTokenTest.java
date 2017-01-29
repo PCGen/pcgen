@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -66,21 +67,21 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOther() throws PersistenceLayerException
 	{
-		assertFalse(parse("SPELL"));
+		Assert.assertFalse(parse("SPELL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidTypeBarOnly() throws PersistenceLayerException
 	{
-		assertTrue(parse(Constants.LST_DOT_CLEAR));
+		Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 	}
 
 	@Override

@@ -20,6 +20,7 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -55,32 +56,32 @@ public abstract class AbstractCampaignTokenTestCase extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNull() throws PersistenceLayerException
 	{
-		assertFalse(parse(null));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse(null));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEndPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputStartPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|String"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("|String"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -89,8 +90,8 @@ public abstract class AbstractCampaignTokenTestCase extends
 	{
 		if (getSeparator() == null)
 		{
-			assertFalse(parse("String|Other"));
-			assertFalse(primaryProf.containsListFor(getListKey()));
+			Assert.assertFalse(parse("String|Other"));
+			Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 			assertNoSideEffects();
 		}
 	}
@@ -99,8 +100,8 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public void testInvalidInputIncludeNoParen()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("String|INCLUDE:Incl"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|INCLUDE:Incl"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -108,24 +109,24 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public void testInvalidInputIncludeDoubleParen()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("String|((INCLUDE:Incl))"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|((INCLUDE:Incl))"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyInclude() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|(INCLUDE:)"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|(INCLUDE:)"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMixedInclude() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|(INCLUDE:This|CATEGORY=Cat,That)"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|(INCLUDE:This|CATEGORY=Cat,That)"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -133,8 +134,8 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public void testInvalidInputExcludeNoParen()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("String|EXCLUDE:Incl"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|EXCLUDE:Incl"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -142,24 +143,24 @@ public abstract class AbstractCampaignTokenTestCase extends
 	public void testInvalidInputExcludeeDoubleParen()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("String|((EXCLUDE:Incl))"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|((EXCLUDE:Incl))"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyExclude() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|(EXCLUDE:)"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|(EXCLUDE:)"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMixedExclude() throws PersistenceLayerException
 	{
-		assertFalse(parse("String|(EXCLUDE:This|CATEGORY=Cat,That)"));
-		assertFalse(primaryProf.containsListFor(getListKey()));
+		Assert.assertFalse(parse("String|(EXCLUDE:This|CATEGORY=Cat,That)"));
+		Assert.assertFalse(primaryProf.containsListFor(getListKey()));
 		assertNoSideEffects();
 	}
 
@@ -167,7 +168,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	{
 		if (!allowIncludeExclude())
 		{
-			assertFalse(parse("@TestWP1|(INCLUDE:ARing|BItem)"));
+			Assert.assertFalse(parse("@TestWP1|(INCLUDE:ARing|BItem)"));
 		}
 	}
 
@@ -175,7 +176,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	{
 		if (!allowIncludeExclude())
 		{
-			assertFalse(parse("@TestWP1|(EXCLUDE:ARing|BItem)"));
+			Assert.assertFalse(parse("@TestWP1|(EXCLUDE:ARing|BItem)"));
 		}
 	}
 

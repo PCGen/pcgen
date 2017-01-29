@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.prof;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.kit.KitProf;
@@ -59,49 +60,49 @@ public class FreeTokenTest extends AbstractKitTokenTestCase<KitProf>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertTrue(parseSecondary("YES"));
-		assertEquals(Boolean.TRUE, getValue());
+		Assert.assertTrue(parse("YES"));
+		Assert.assertTrue(parseSecondary("YES"));
+		Assert.assertEquals(Boolean.TRUE, getValue());
 		internalTestInvalidInputString(Boolean.TRUE);
 	}
 
 	public void internalTestInvalidInputString(Object val)
 			throws PersistenceLayerException
 	{
-		assertEquals(val, getValue());
-		assertFalse(parse("String"));
-		assertEquals(val, getValue());
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, getValue());
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, getValue());
-		assertFalse(parse("ALL"));
-		assertEquals(val, getValue());
-		assertFalse(parse("Yo!"));
-		assertEquals(val, getValue());
-		assertFalse(parse("Now"));
-		assertEquals(val, getValue());
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("Yo!"));
+		Assert.assertEquals(val, getValue());
+		Assert.assertFalse(parse("Now"));
+		Assert.assertEquals(val, getValue());
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertEquals(Boolean.TRUE, getValue());
-		assertTrue(parse("NO"));
-		assertEquals(Boolean.FALSE, getValue());
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(Boolean.TRUE, getValue());
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(Boolean.FALSE, getValue());
 		// We're nice enough to be case insensitive here...
-		assertTrue(parse("YeS"));
-		assertEquals(Boolean.TRUE, getValue());
-		assertTrue(parse("Yes"));
-		assertEquals(Boolean.TRUE, getValue());
-		assertTrue(parse("No"));
-		assertEquals(Boolean.FALSE, getValue());
+		Assert.assertTrue(parse("YeS"));
+		Assert.assertEquals(Boolean.TRUE, getValue());
+		Assert.assertTrue(parse("Yes"));
+		Assert.assertEquals(Boolean.TRUE, getValue());
+		Assert.assertTrue(parse("No"));
+		Assert.assertEquals(Boolean.FALSE, getValue());
 		// Allow abbreviations
-		assertTrue(parse("Y"));
-		assertEquals(Boolean.TRUE, getValue());
-		assertTrue(parse("N"));
-		assertEquals(Boolean.FALSE, getValue());
+		Assert.assertTrue(parse("Y"));
+		Assert.assertEquals(Boolean.TRUE, getValue());
+		Assert.assertTrue(parse("N"));
+		Assert.assertEquals(Boolean.FALSE, getValue());
 	}
 
 	private Boolean getValue()

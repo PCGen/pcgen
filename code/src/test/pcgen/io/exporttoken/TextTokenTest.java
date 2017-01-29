@@ -30,6 +30,8 @@ import pcgen.cdom.enumeration.NumericPCAttribute;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
+
+import org.junit.Assert;
 import plugin.exporttokens.TextToken;
 
 /**
@@ -72,26 +74,26 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		ExportHandler eh = new ExportHandler(null);
 		PlayerCharacter character = getCharacter();
 
-		assertEquals("TEXT.LOWER.NAME",
+		Assert.assertEquals("TEXT.LOWER.NAME",
 			"the vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.LOWER.NAME", character, eh));
-		assertEquals("TEXT.UPPER.NAME",
+		Assert.assertEquals("TEXT.UPPER.NAME",
 			"THE VITAMINS ARE IN MY FRESH BRUSSELS SPROUTS", tok.getToken(
 				"TEXT.UPPER.NAME", character, eh));
-		assertEquals("TEXT.SENTENCE.NAME",
+		Assert.assertEquals("TEXT.SENTENCE.NAME",
 			"The vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.SENTENCE.NAME", character, eh));
-		assertEquals("TEXT.SENTENCE.NAME",
+		Assert.assertEquals("TEXT.SENTENCE.NAME",
 			"The vitamins are in my fresh brussels sprouts", tok.getToken(
 				"TEXT.SENTENCE.NAME", character, eh));
 		character.setPCAttribute(PCAttribute.NAME, "The Vitamins are in my Fresh Brussels Sprouts");
-		assertEquals("TEXT.SENTENCE.INTERESTS",
+		Assert.assertEquals("TEXT.SENTENCE.INTERESTS",
 			"One potatoe. Two potatoe. More", tok.getToken(
 				"TEXT.SENTENCE.INTERESTS", character, eh));
-		assertEquals("TEXT.TITLE.NAME",
+		Assert.assertEquals("TEXT.TITLE.NAME",
 			"The Vitamins Are In My Fresh Brussels Sprouts", tok.getToken(
 				"TEXT.TITLE.NAME", getCharacter(), eh));
-		assertEquals("TEXT.TITLE.NAME", "One Potatoe. Two Potatoe. More", tok
+		Assert.assertEquals("TEXT.TITLE.NAME", "One Potatoe. Two Potatoe. More", tok
 			.getToken("TEXT.TITLE.INTERESTS", character, eh));
 	}
 
@@ -105,43 +107,43 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		PlayerCharacter character = getCharacter();
 
 		character.setPCAttribute(NumericPCAttribute.AGE, 1);
-		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 2);
-		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 3);
-		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 4);
-		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 11);
-		assertEquals("Suffix 11", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 11", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 12);
-		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 13);
-		assertEquals("Suffix 13", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 13", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 14);
-		assertEquals("Suffix 14", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 14", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 21);
-		assertEquals("Suffix 21", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 21", "st", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 22);
-		assertEquals("Suffix 22", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 22", "nd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 23);
-		assertEquals("Suffix 23", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 23", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 24);
-		assertEquals("Suffix 24", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 24", "th", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 		character.setPCAttribute(NumericPCAttribute.AGE, 133);
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
+		Assert.assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.AGE",
 			getCharacter(), eh));
 	}
 
@@ -153,19 +155,19 @@ public class TextTokenTest extends AbstractCharacterTestCase
 		TextToken tok = new TextToken();
 		ExportHandler eh = new ExportHandler(null);
 
-		assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.1",
+		Assert.assertEquals("Suffix 1", "st", tok.getToken("TEXT.NUMSUFFIX.1",
 			getCharacter(), eh));
-		assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.2",
+		Assert.assertEquals("Suffix 2", "nd", tok.getToken("TEXT.NUMSUFFIX.2",
 			getCharacter(), eh));
-		assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.3",
+		Assert.assertEquals("Suffix 3", "rd", tok.getToken("TEXT.NUMSUFFIX.3",
 			getCharacter(), eh));
-		assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.4",
+		Assert.assertEquals("Suffix 4", "th", tok.getToken("TEXT.NUMSUFFIX.4",
 			getCharacter(), eh));
-		assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.12",
+		Assert.assertEquals("Suffix 12", "th", tok.getToken("TEXT.NUMSUFFIX.12",
 			getCharacter(), eh));
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133",
+		Assert.assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133",
 			getCharacter(), eh));
-		assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133.0",
+		Assert.assertEquals("Suffix 133", "rd", tok.getToken("TEXT.NUMSUFFIX.133.0",
 			getCharacter(), eh));
 	}
 

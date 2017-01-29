@@ -33,6 +33,7 @@ import pcgen.persistence.lst.LstToken;
 import pcgen.rules.context.LoadContext;
 import pcgen.testsupport.AbstractCharacterUsingTestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.AddLst;
@@ -67,7 +68,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
-		assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
+		Assert.assertEquals("CATEGORY=FEAT|NATURE=NORMAL|ItemName", pca
 			.encodeChoice(as));
 	}
 
@@ -77,7 +78,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		try
 		{
 			pca.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName");
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -86,7 +87,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability item = construct("ItemName");
 		CNAbilitySelection as =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item));
-		assertEquals(as, pca
+		Assert.assertEquals(as, pca
 			.decodeChoice(context, "CATEGORY=FEAT|NATURE=NORMAL|ItemName"));
 	}
 
@@ -102,7 +103,7 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 			TokenRegistration.register(ADD_TOKEN);
 			TokenRegistration.register(ADD_ABILITY_TOKEN);
 		} catch (PersistenceLayerException e1) {
-			fail("Cannot set up PC");
+			Assert.fail("Cannot set up PC");
 		}
 		Ability item = construct("ChooseAbility");
 		Ability parent = construct("Parent");
@@ -117,14 +118,14 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 		Ability badCA = context.getReferenceContext().constructCDOMObject(Ability.class, "ChooseAbility");
 		context.getReferenceContext().reassociateCategory(oc, badCA);
 		try {
-			assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
-			assertTrue(context.processToken(item, "MULT", "Yes"));
-			assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
-			assertTrue(context.processToken(badCA, "MULT", "Yes"));
-			assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
+			Assert.assertTrue(context.processToken(item, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
+			Assert.assertTrue(context.processToken(item, "MULT", "Yes"));
+			Assert.assertTrue(context.processToken(badCA, "CHOOSE", "LANG|Foo|Bar|Goo|Wow|Rev"));
+			Assert.assertTrue(context.processToken(badCA, "MULT", "Yes"));
+			Assert.assertTrue(context.processToken(parent, "ADD", "ABILITY|FEAT|NORMAL|ChooseAbility"));
 		} catch (PersistenceLayerException e) {
 			e.printStackTrace();
-			fail();
+			Assert.fail();
 		}
 		finishLoad(context);
 		PlayerCharacter pc = new PlayerCharacter();
@@ -141,48 +142,48 @@ public class AbilityTokenTest extends AbstractCharacterUsingTestCase
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.NORMAL, item), "Rev");
 		CNAbilitySelection revFFCAS = new CNAbilitySelection(CNAbilityFactory.getCNAbility(ff, Nature.NORMAL, item), "Rev");
 		
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertTrue(pca.allow(fooCAS, pc, false));
+		Assert.assertTrue(pca.allow(barCAS, pc, false));
+		Assert.assertTrue(pca.allow(gooCAS, pc, false));
+		Assert.assertTrue(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(badCACAS, source);
 		//Should have had no effect
-		assertTrue(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertTrue(pca.allow(fooCAS, pc, false));
+		Assert.assertTrue(pca.allow(barCAS, pc, false));
+		Assert.assertTrue(pca.allow(gooCAS, pc, false));
+		Assert.assertTrue(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(fooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertTrue(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertFalse(pca.allow(fooCAS, pc, false));
+		Assert.assertTrue(pca.allow(barCAS, pc, false));
+		Assert.assertTrue(pca.allow(gooCAS, pc, false));
+		Assert.assertTrue(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(barCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertTrue(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertFalse(pca.allow(fooCAS, pc, false));
+		Assert.assertFalse(pca.allow(barCAS, pc, false));
+		Assert.assertTrue(pca.allow(gooCAS, pc, false));
+		Assert.assertTrue(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(gooCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertTrue(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertFalse(pca.allow(fooCAS, pc, false));
+		Assert.assertFalse(pca.allow(barCAS, pc, false));
+		Assert.assertFalse(pca.allow(gooCAS, pc, false));
+		Assert.assertTrue(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(wowFFCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertTrue(pca.allow(revFFCAS, pc, false));
+		Assert.assertFalse(pca.allow(fooCAS, pc, false));
+		Assert.assertFalse(pca.allow(barCAS, pc, false));
+		Assert.assertFalse(pca.allow(gooCAS, pc, false));
+		Assert.assertFalse(pca.allow(wowCAS, pc, false));
+		Assert.assertTrue(pca.allow(revFFCAS, pc, false));
 		pc.applyAbility(revCAS, source);
-		assertFalse(pca.allow(fooCAS, pc, false));
-		assertFalse(pca.allow(barCAS, pc, false));
-		assertFalse(pca.allow(gooCAS, pc, false));
-		assertFalse(pca.allow(wowCAS, pc, false));
-		assertFalse(pca.allow(revFFCAS, pc, false));
+		Assert.assertFalse(pca.allow(fooCAS, pc, false));
+		Assert.assertFalse(pca.allow(barCAS, pc, false));
+		Assert.assertFalse(pca.allow(gooCAS, pc, false));
+		Assert.assertFalse(pca.allow(wowCAS, pc, false));
+		Assert.assertFalse(pca.allow(revFFCAS, pc, false));
 	}
 
 	protected Ability construct(String one)

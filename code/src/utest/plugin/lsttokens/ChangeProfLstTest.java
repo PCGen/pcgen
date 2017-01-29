@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -58,21 +59,21 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSourceOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer"));
+		Assert.assertFalse(parse("Hammer"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSourceEqualOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer="));
+		Assert.assertFalse(parse("Hammer="));
 		assertNoSideEffects();
 	}
 
@@ -80,63 +81,63 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidSourceEqualOnlyTypeTwo()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer=Martial|Pipe="));
+		Assert.assertFalse(parse("Hammer=Martial|Pipe="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptySource() throws PersistenceLayerException
 	{
-		assertFalse(parse("=Martial"));
+		Assert.assertFalse(parse("=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoEquals() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer==Martial"));
+		Assert.assertFalse(parse("Hammer==Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoEqualsTypeTwo() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer=TYPE.Heavy=Martial"));
+		Assert.assertFalse(parse("Hammer=TYPE.Heavy=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBarEnding() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer=Martial|"));
+		Assert.assertFalse(parse("Hammer=Martial|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBarStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Hammer=Martial"));
+		Assert.assertFalse(parse("|Hammer=Martial"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Hammer=Martial||Pipe=Exotic"));
+		Assert.assertFalse(parse("Hammer=Martial||Pipe=Exotic"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidReversed() throws PersistenceLayerException
 	{
-		assertTrue(parse("Martial=Hammer"));
+		Assert.assertTrue(parse("Martial=Hammer"));
 		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidResultPrimitive() throws PersistenceLayerException
 	{
-		assertTrue(parse("Hammer=Pipe"));
+		Assert.assertTrue(parse("Hammer=Pipe"));
 		assertConstructionError();
 	}
 
@@ -145,7 +146,7 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("Hammer=TYPE.Heavy"));
+			Assert.assertFalse(parse("Hammer=TYPE.Heavy"));
 		}
 		catch (IllegalArgumentException e)
 		{

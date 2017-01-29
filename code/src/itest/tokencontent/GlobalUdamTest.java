@@ -19,6 +19,7 @@ package tokencontent;
 
 import java.util.Collections;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -50,7 +51,7 @@ public class GlobalUdamTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

@@ -33,6 +33,8 @@ import java.util.List;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -223,13 +225,13 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 
 		// Test each token for old and new syntax processing.
 
-		assertEquals("New format SKILL Token", "****", evaluateToken(
+		Assert.assertEquals("New format SKILL Token", "****", evaluateToken(
 			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
 		// Now assign a weapon
 		character.addEquipment(weapon);
 		EquipSet es = new EquipSet("1", "Default", "", weapon);
 		character.addEquipSet(es);
-		assertEquals("New format SKILL Token", "**TestWpn**", evaluateToken(
+		Assert.assertEquals("New format SKILL Token", "**TestWpn**", evaluateToken(
 			"FOR.0,100,1,**\\WEAPON.%.NAME\\**,NONE,NONE,1", character));
 	}
 
@@ -244,7 +246,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		final String gemLoop =
 				"FOR.0,COUNT[EQTYPE.Gem],1,\\EQTYPE.Gem.%.NAME\\: \\EQTYPE.Gem.%.QTY\\, ,<br/>,1";
 
-		assertEquals("Gem Loop - no gems", "",
+		Assert.assertEquals("Gem Loop - no gems", "",
 			evaluateToken(gemLoop, character));
 
 		// Now assign a gem
@@ -252,16 +254,16 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		EquipSet es = new EquipSet("1", "Default", "", gem);
 		character.addEquipSet(es);
 		character.setDirty(true);
-		assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>", evaluateToken(
+		Assert.assertEquals("Gem loop - 1 gem", " TestGem: 1<br/>", evaluateToken(
 			gemLoop, character));
 	}
 
 	public void testJepIif() throws IOException
 	{
 		PlayerCharacter character = getCharacter();
-		assertEquals("Basic JEP boolean", new Float(1.0), character
+		Assert.assertEquals("Basic JEP boolean", new Float(1.0), character
 			.getVariableValue("max(0,2)==2", ""));
-		assertEquals("JEP boolean in IF", "true", evaluateToken(
+		Assert.assertEquals("JEP boolean in IF", "true", evaluateToken(
 			"OIF(max(0,2)==2,true,false)", character));
 //		assertEquals("JEP boolean in IF", "true", evaluateToken(
 //			"|OIF(max(0,2)==2)|\ntrue\n|ELSE|\nfalse\n|ENDIF|", character));
@@ -306,10 +308,10 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		addAbility(AbilityCategory.FEAT, dummyFeat6);
 		addAbility(AbilityCategory.FEAT, dummyFeat7);
 		
-		assertEquals("Test for evaluates correctly", "----------------",
+		Assert.assertEquals("Test for evaluates correctly", "----------------",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])),24,-,NONE,NONE,1", pc));
-		assertEquals("Test for evaluates correctly", "                ",
+		Assert.assertEquals("Test for evaluates correctly", "                ",
 			evaluateToken(
 				"FOR.1,((24-STRLEN[SKILL.0])),24, ,NONE,NONE,1", pc));
 		
@@ -333,7 +335,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		// will assume that x is a well formed type of value.  This was to get around 
 		// the problems with DFOR not taking ((count("ABILITIES";"CATEGORY=FEAT")+1)
 		// since it could not figure out how to parse it to send to the right place.
-		assertEquals("Test for DFOR ","[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]", 
+		Assert.assertEquals("Test for DFOR ","[ 1  5 ][ 2  6 ][ 3  7 ][ 4   ]",
 				evaluateToken(tok, pc)	);
 					
 	}
@@ -341,7 +343,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 	public void testForNoMoreItems() throws IOException
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Test for evaluates correctly", "SF",
+		Assert.assertEquals("Test for evaluates correctly", "SF",
 			evaluateToken(
 				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
 
@@ -349,7 +351,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		pc.addEquipment(armor);
 		EquipSet es = new EquipSet("1", "Default", "", armor);
 		pc.addEquipSet(es);
-		assertEquals("Test for evaluates correctly", "STestArmorSuitFSF",
+		Assert.assertEquals("Test for evaluates correctly", "STestArmorSuitFSF",
 			evaluateToken(
 				"FOR.0,100,1,\\ARMOR.SUIT.ALL.%.NAME\\,S,F,1", pc));
 		
@@ -395,37 +397,37 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		addAbility(cat, dummyFeat3);
 		addAbility(cat2, dummyFeat4);
 		
-		assertEquals("Unsigned output", "7", evaluateToken(
+		Assert.assertEquals("Unsigned output", "7", evaluateToken(
 			"VAR.NegLevels.INTVAL", pc));
-		assertEquals("Signed output", "+7", evaluateToken(
+		Assert.assertEquals("Signed output", "+7", evaluateToken(
 			"VAR.NegLevels.INTVAL.SIGN", pc));
 	
 		String tok ="";
 	
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
 		// if this evaluates math wise, the values should be string "1.0"
-		assertFalse("Token: |" + tok + "| != 1.0: ", evaluateToken(tok, pc).equals("1.0"));
+		Assert.assertFalse("Token: |" + tok + "| != 1.0: ", evaluateToken(tok, pc).equals("1.0"));
 		
 		tok = "VAR.count(\"ABILITIES\", \"CATEGORY=Maneuver\")";		
-		assertTrue("Token: |" + tok + "| == 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+		Assert.assertTrue("Token: |" + tok + "| == 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
 	
 		tok ="COUNT[\"ABILITIES\", \"CATEGORY=Maneuver\"]";		
-		assertFalse("Token: |" + tok + "| != 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
+		Assert.assertFalse("Token: |" + tok + "| != 1.0: ",  evaluateToken(tok, pc).equals("1.0"));
 		
 		tok = "count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")";
-		assertFalse("Token: |" + tok + "| != 1.0 ",  evaluateToken(tok, pc).equals("1.0"));
+		Assert.assertFalse("Token: |" + tok + "| != 1.0 ",  evaluateToken(tok, pc).equals("1.0"));
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertFalse("Token: |" + tok + "| == 5.0 ",  evaluateToken(tok, pc).equals("5.0"));
+		Assert.assertFalse("Token: |" + tok + "| == 5.0 ",  evaluateToken(tok, pc).equals("5.0"));
 		
 		tok = "${count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5}";
-		assertTrue("Token: |" + tok + "| != 6.0 ",  evaluateToken(tok, pc).equals("6.0"));
+		Assert.assertTrue("Token: |" + tok + "| != 6.0 ",  evaluateToken(tok, pc).equals("6.0"));
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertFalse("Token: |" + tok + "| == 3.0 ",  evaluateToken(tok, pc).equals("3.0"));
+		Assert.assertFalse("Token: |" + tok + "| == 3.0 ",  evaluateToken(tok, pc).equals("3.0"));
 		
 		tok = "${(count(\"ABILITIES\", \"CATEGORY=Maneuver(Special)\")+5)/3}";
-		assertTrue("Token: |" + tok + "| != 2.0 ",  evaluateToken(tok, pc).equals("2.0"));
+		Assert.assertTrue("Token: |" + tok + "| != 2.0 ",  evaluateToken(tok, pc).equals("2.0"));
 		
 		
 	}
@@ -441,7 +443,7 @@ public class ExportHandlerTest extends AbstractCharacterTestCase
 		List<PlayerCharacter> pcs = new ArrayList<>();
 		pcs.add(getCharacter());
 		String result = evaluatePartyToken(outputToken, pcs).trim();
-		assertEquals(
+		Assert.assertEquals(
 			"Party skills output",
 			"<combatants>" + System.getProperty("line.separator") + 
 			"<combatant>	<name></name>	<skills> Balance: +9;  KNOWLEDGE (ARCANA): +11;  KNOWLEDGE (RELIGION): +8;  Tumble: +10; </skills></combatant>   </combatants>",

@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -78,19 +80,19 @@ public class PreAttTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREATT:6");
 
-		assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character's BAB should be 6", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PREATT:7");
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
+		Assert.assertFalse("Character's BAB should be less than 7", PrereqHandler
 			.passes(prereq, character, null));
 
 		final BonusObj toHitBonus = Bonus.newBonus(context, "COMBAT|TOHIT|1");
 		myClass.getOriginalClassLevel(1).addToListFor(ListKey.BONUS, toHitBonus);
 		character.calcActiveBonuses();
 
-		assertFalse("Character's BAB should be less than 7", PrereqHandler
+		Assert.assertFalse("Character's BAB should be less than 7", PrereqHandler
 			.passes(prereq, character, null));
 	}
 

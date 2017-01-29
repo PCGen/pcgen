@@ -2,6 +2,7 @@ package pcgen.core.utils;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.utils.LastGroupSeparator.GroupingMismatchException;
@@ -15,7 +16,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			new LastGroupSeparator(null);
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -30,7 +31,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.getRoot();
-			fail();
+			Assert.fail();
 		}
 		catch (IllegalStateException e)
 		{
@@ -42,8 +43,8 @@ public class LastGroupSeparatorTest extends TestCase
 	public void testSimple()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test");
-		assertNull(cs.process());
-		assertEquals("Test", cs.getRoot());
+		Assert.assertNull(cs.process());
+		Assert.assertEquals("Test", cs.getRoot());
 	}
 
 	@Test
@@ -53,7 +54,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -69,7 +70,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -85,7 +86,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -101,7 +102,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -115,8 +116,8 @@ public class LastGroupSeparatorTest extends TestCase
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar),Test(Goo,Free)");
-		assertEquals("Goo,Free", cs.process());
-		assertEquals("Foo(Bar),Test", cs.getRoot());
+		Assert.assertEquals("Goo,Free", cs.process());
+		Assert.assertEquals("Foo(Bar),Test", cs.getRoot());
 	}
 
 	@Test
@@ -127,7 +128,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -144,7 +145,7 @@ public class LastGroupSeparatorTest extends TestCase
 		try
 		{
 			cs.process();
-			fail();
+			Assert.fail();
 		}
 		catch (GroupingMismatchException iae)
 		{
@@ -158,16 +159,16 @@ public class LastGroupSeparatorTest extends TestCase
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar(Wheel),Har),Test(Goo,Free)");
-		assertEquals("Goo,Free", cs.process());
-		assertEquals("Foo(Bar(Wheel),Har),Test", cs.getRoot());
+		Assert.assertEquals("Goo,Free", cs.process());
+		Assert.assertEquals("Foo(Bar(Wheel),Har),Test", cs.getRoot());
 	}
 
 	@Test
 	public void testEmptyParenSimple()
 	{
 		LastGroupSeparator cs = new LastGroupSeparator("Test()");
-		assertEquals("", cs.process());
-		assertEquals("Test", cs.getRoot());
+		Assert.assertEquals("", cs.process());
+		Assert.assertEquals("Test", cs.getRoot());
 	}
 
 	@Test
@@ -175,8 +176,8 @@ public class LastGroupSeparatorTest extends TestCase
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Foo(Bar(Wheel),Har),Test()");
-		assertEquals("", cs.process());
-		assertEquals("Foo(Bar(Wheel),Har),Test", cs.getRoot());
+		Assert.assertEquals("", cs.process());
+		Assert.assertEquals("Foo(Bar(Wheel),Har),Test", cs.getRoot());
 	}
 
 	@Test
@@ -184,8 +185,8 @@ public class LastGroupSeparatorTest extends TestCase
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Test(Goo,Free) (Bar(Wheel,Deal))");
-		assertEquals("Bar(Wheel,Deal)", cs.process());
-		assertEquals("Test(Goo,Free) ", cs.getRoot());
+		Assert.assertEquals("Bar(Wheel,Deal)", cs.process());
+		Assert.assertEquals("Test(Goo,Free) ", cs.getRoot());
 	}
 
 	@Test
@@ -193,7 +194,7 @@ public class LastGroupSeparatorTest extends TestCase
 	{
 		LastGroupSeparator cs = new LastGroupSeparator(
 				"Test(Goo,Free) (Bar(Wheel,Deal)) Greatness");
-		assertNull(cs.process());
-		assertEquals("Test(Goo,Free) (Bar(Wheel,Deal)) Greatness", cs.getRoot());
+		Assert.assertNull(cs.process());
+		Assert.assertEquals("Test(Goo,Free) (Bar(Wheel,Deal)) Greatness", cs.getRoot());
 	}
 }

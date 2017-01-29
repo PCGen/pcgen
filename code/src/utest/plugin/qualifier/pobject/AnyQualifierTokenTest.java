@@ -31,6 +31,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.RaceToken;
@@ -109,17 +110,17 @@ public class AnyQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|ANY[ALL]"));
 		finishLoad();
 		PlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(4, set.size());
-		assertTrue(set.contains(s1));
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
-		assertTrue(set.contains(primaryProf));
+		Assert.assertEquals(4, set.size());
+		Assert.assertTrue(set.contains(s1));
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
+		Assert.assertTrue(set.contains(primaryProf));
 	}
 
 	@Test
@@ -127,16 +128,16 @@ public class AnyQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|ANY[TYPE=Masterful]"));
 		finishLoad();
 		PlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		Collection<?> set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
 	}
 
 	private void initializeObjects()
@@ -162,7 +163,7 @@ public class AnyQualifierTokenTest extends
 		throws PersistenceLayerException
 	{
 		//Not any is empty, so the loader should reject
-		assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
+		Assert.assertFalse(parse(getSubTokenName() + "|!" + "ANY" + "[ALL]"));
 		assertNoSideEffects();
 	}
 
@@ -172,7 +173,7 @@ public class AnyQualifierTokenTest extends
 		throws PersistenceLayerException
 	{
 		//Not any is empty, so the loader should reject
-		assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
+		Assert.assertFalse(parse(getSubTokenName() + "|!" + "ANY"));
 		assertNoSideEffects();
 	}
 	

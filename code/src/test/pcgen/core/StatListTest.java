@@ -23,6 +23,7 @@
 
 package pcgen.core;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.AbstractCharacterTestCase;
@@ -89,22 +90,22 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetBaseStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
+		Assert.assertEquals("Starting STR should be 6", 6, pc.getBaseStatFor(str));
 
 		// Bonus should not affect base stat
 		addAbility(AbilityCategory.FEAT, bonus);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
+		Assert.assertEquals("Stat should still be base", 6, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
+		Assert.assertEquals("Stat should now be locked", 12, pc.getBaseStatFor(str));
 
 		addAbility(AbilityCategory.FEAT, lockedBonus);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
+		Assert.assertEquals("Stat should still be locked", 12, pc.getBaseStatFor(str));
 		
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 6, pc.getBaseStatFor(str));
+		Assert.assertEquals("Stat should now be unlocked", 6, pc.getBaseStatFor(str));
 	}
 
 	/**
@@ -114,22 +115,22 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testGetTotalStatFor()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
+		Assert.assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
 
 		// Bonus should affect total stat
 		addAbility(AbilityCategory.FEAT, bonus);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should have bonus", 13, pc.getTotalStatFor(str));
+		Assert.assertEquals("Stat should have bonus", 13, pc.getTotalStatFor(str));
 		
 		pc.addTemplate(locker);
-		assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
+		Assert.assertEquals("Stat should now be locked", 12, pc.getTotalStatFor(str));
 
 		addAbility(AbilityCategory.FEAT, lockedBonus);
 		pc.calcActiveBonuses();
-		assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
+		Assert.assertEquals("Stat should be locked but bonused", 15, pc.getTotalStatFor(str));
 
 		pc.addTemplate(unlocker);
-		assertEquals("Stat should now be unlocked", 13, pc.getTotalStatFor(str));
+		Assert.assertEquals("Stat should now be unlocked", 13, pc.getTotalStatFor(str));
 	}
 	
 	/**
@@ -138,8 +139,8 @@ public class StatListTest extends AbstractCharacterTestCase
 	public void testMinValueStat()
 	{
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
-		assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
+		Assert.assertEquals("Starting STR should be 6", 6, pc.getTotalStatFor(str));
+		Assert.assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
 
 		// With template lock
 		PCTemplate statMinValTemplate = new PCTemplate();
@@ -147,11 +148,11 @@ public class StatListTest extends AbstractCharacterTestCase
 		statMinValTemplate.addToListFor(ListKey.STAT_MINVALUE, new StatLock(
 			CDOMDirectSingleRef.getRef(str), FormulaFactory.getFormulaFor(8)));
 		pc.addTemplate(statMinValTemplate);
-		assertEquals("STR now has minimum value", 8, pc.getTotalStatFor(str));
-		assertEquals("Starting STR mod", -1, pc.getStatModFor(str));
+		Assert.assertEquals("STR now has minimum value", 8, pc.getTotalStatFor(str));
+		Assert.assertEquals("Starting STR mod", -1, pc.getStatModFor(str));
 		pc.removeTemplate(statMinValTemplate);
-		assertEquals("STR no longer has minimum value", 6, pc.getTotalStatFor(str));
-		assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
+		Assert.assertEquals("STR no longer has minimum value", 6, pc.getTotalStatFor(str));
+		Assert.assertEquals("Starting STR mod", -2, pc.getStatModFor(str));
 	}
 
 }

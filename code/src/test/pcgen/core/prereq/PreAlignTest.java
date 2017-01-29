@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -69,12 +71,12 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("!PREALIGN:TN");
 
-		assertTrue("Not TN should match character's alignment of NG",
+		Assert.assertTrue("Not TN should match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("!PREALIGN:NG");
 
-		assertFalse("Not TN should not match character's alignment of NG",
+		Assert.assertFalse("Not TN should not match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -92,7 +94,7 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		prereq.setKey("NG");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertTrue("Abbrev NG should match character's alignment of NG",
+		Assert.assertTrue("Abbrev NG should match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = new Prerequisite();
@@ -100,15 +102,15 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		prereq.setKey("LG");
 		prereq.setOperator(PrerequisiteOperator.EQ);
 
-		assertFalse("Abbrev LG should not match character's alignment of NG",
+		Assert.assertFalse("Abbrev LG should not match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREALIGN:NG");
-		assertTrue("Abbrev NG should match character's alignment of NG",
+		Assert.assertTrue("Abbrev NG should match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 		prereq = factory.parse("PREALIGN:LG");
-		assertFalse("Abbrev LG should not match character's alignment of NG",
+		Assert.assertFalse("Abbrev LG should not match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -122,18 +124,18 @@ public class PreAlignTest extends AbstractCharacterTestCase
 		final PlayerCharacter character = getCharacter();
 		character.setAlignment(ng);
 		character.setDeity(deity);
-		assertEquals("Deity should have been set for character.", deity,
+		Assert.assertEquals("Deity should have been set for character.", deity,
 			character.getDeity());
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:Deity");
 
-		assertTrue("Number 3 should match deity's alignment of NG",
+		Assert.assertTrue("Number 3 should match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
 		character.setAlignment(cg);
 
-		assertFalse("Number 6 should not match deity's alignment of NG",
+		Assert.assertFalse("Number 6 should not match deity's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -144,11 +146,11 @@ public class PreAlignTest extends AbstractCharacterTestCase
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		Prerequisite prereq = factory.parse("PREALIGN:LE,NG,NE");
-		assertTrue("LE, NG, or NE should match character's alignment of NG",
+		Assert.assertTrue("LE, NG, or NE should match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREALIGN:LE,NE,CE");
-		assertFalse(
+		Assert.assertFalse(
 			"LE, NE, or CE should not match character's alignment of NG",
 			PrereqHandler.passes(prereq, character, null));
 	}

@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -60,11 +61,11 @@ public class SkillClassesTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 		pc.incrementClassLevel(1, dragon);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 	}
 
 	@Override

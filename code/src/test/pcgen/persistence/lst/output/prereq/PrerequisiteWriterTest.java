@@ -45,6 +45,8 @@ import pcgen.persistence.GameModeFileLoader;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import util.Alignment;
 
 /**
@@ -489,7 +491,7 @@ public class PrerequisiteWriterTest extends TestCase
 			if (!bExceptionExpected)
 			{
 				ple.printStackTrace();
-				fail("parse caused PersistenceLayerException: "
+				Assert.fail("parse caused PersistenceLayerException: "
 					+ ple.toString());
 			}
 			bExceptionThrown = true;
@@ -506,14 +508,14 @@ public class PrerequisiteWriterTest extends TestCase
 				{
 					System.out.println(prereq.toString());
 				}
-				fail("exception expected but not thrown");
+				Assert.fail("exception expected but not thrown");
 			}
 			return;
 		}
 
 		if (prereq == null)
 		{
-			fail("Could not parse prereq: '" + aPreString + "'");
+			Assert.fail("Could not parse prereq: '" + aPreString + "'");
 		}
 
 		StringWriter sw = new StringWriter();
@@ -524,12 +526,12 @@ public class PrerequisiteWriterTest extends TestCase
 		}
 		catch (PersistenceLayerException ple)
 		{
-			fail("write caused PersistenceLayerException: " + ple.toString());
+			Assert.fail("write caused PersistenceLayerException: " + ple.toString());
 		}
 		final String writerOutput = sw.toString();
 		System.out.println("'" + aPreString + "' returned '" + writerOutput
 			+ "'");
-		assertTrue(aPreString + " returned '" + writerOutput + "' (expected '"
+		Assert.assertTrue(aPreString + " returned '" + writerOutput + "' (expected '"
 			+ expectedOutput + "'). " + prereq.toString(), expectedOutput
 			.equals(writerOutput));
 
@@ -538,7 +540,7 @@ public class PrerequisiteWriterTest extends TestCase
 		//
 		pcgen.core.PObject pobj = new pcgen.core.PObject();
 		pobj.addPrerequisite(prereq);
-		assertTrue("PrerequisiteWriter.prereqsToString failure",
+		Assert.assertTrue("PrerequisiteWriter.prereqsToString failure",
 			PrerequisiteWriter.prereqsToString(pobj).equals(expectedOutput));
 
 		try
@@ -550,7 +552,7 @@ public class PrerequisiteWriterTest extends TestCase
 			// expect a PersistenceLayerException as passed custom writer that throws IOExceptions
 			return;
 		}
-		fail("test writer failed to throw PersistenceLayerException");
+		Assert.fail("test writer failed to throw PersistenceLayerException");
 	}
 
 	private class myWriter extends Writer

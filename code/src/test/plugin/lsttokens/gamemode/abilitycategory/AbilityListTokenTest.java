@@ -27,6 +27,8 @@ import java.util.ArrayList;
 import java.util.Collection;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.core.Ability;
@@ -74,7 +76,7 @@ public class AbilityListTokenTest extends TestCase
 		{
 			found |= ref.getLSTformat(false).equals(key);
 		}
-		assertEquals(key + " in the list (" + expected + ") incorrect",
+		Assert.assertEquals(key + " in the list (" + expected + ") incorrect",
 				expected, found);
 	}
 	
@@ -86,15 +88,15 @@ public class AbilityListTokenTest extends TestCase
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
+		Assert.assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
+		Assert.assertEquals("Test category should start with an empty list of keys",
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
 		Ability track = buildFeat(context, "Track");
 		token.parseToken(context, aCat, "Track");
-		assertEquals("Test category should now have 1 key", 1, aCat
+		Assert.assertEquals("Test category should now have 1 key", 1, aCat
 				.getAbilityRefs().size());
 		assertContains(aCat, track, true);
 	}
@@ -107,9 +109,9 @@ public class AbilityListTokenTest extends TestCase
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
+		Assert.assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
+		Assert.assertEquals("Test category should start with an empty list of keys",
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
@@ -117,7 +119,7 @@ public class AbilityListTokenTest extends TestCase
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability pa = buildFeat(context, "Power Attack");
 		token.parseToken(context, aCat, "Track|Point Blank Shot");
-		assertEquals("Test category should now have 2 keys", 2, aCat
+		Assert.assertEquals("Test category should now have 2 keys", 2, aCat
 			.getAbilityRefs().size());
 		assertContains(aCat, track, true);
 		assertContains(aCat, pbs, true);
@@ -132,33 +134,33 @@ public class AbilityListTokenTest extends TestCase
 		AbilityCategory aCat = context.getReferenceContext().constructCDOMObject(
 				AbilityCategory.class, "TestCat");
 		aCat.setAbilityCategory(CDOMDirectSingleRef.getRef(AbilityCategory.FEAT));
-		assertFalse("Test category should start with an empty list of keys",
+		Assert.assertFalse("Test category should start with an empty list of keys",
 			aCat.hasDirectReferences());
-		assertEquals("Test category should start with an empty list of keys",
+		Assert.assertEquals("Test category should start with an empty list of keys",
 			0, aCat.getAbilityRefs().size());
 
 		AbilityListToken token = new AbilityListToken();
 		Ability pbs = buildFeat(context, "Point Blank Shot");
 		Ability sf = buildFeat(context, "Skill Focus");
 		token.parseToken(context, aCat, "Point Blank Shot|Skill Focus (Ride)|Skill Focus (Bluff)");
-		assertEquals("Test category should now have 3 keys", 3, aCat
+		Assert.assertEquals("Test category should now have 3 keys", 3, aCat
 			.getAbilityRefs().size());
 		assertContains(aCat, pbs, true);
 		assertContains(aCat, sf, false); //Because this tests LST format
 		context.getReferenceContext().validate(new LoadValidator(new ArrayList<>()));
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		Collection<CDOMSingleRef<Ability>> refs = aCat.getAbilityRefs();
 		boolean found = false;
 		for (CDOMSingleRef<Ability> ref : refs)
 		{
 			found |= ref.contains(pbs);
 		}
-		assertTrue("Expected Point Blank Shot Ability", found);
+		Assert.assertTrue("Expected Point Blank Shot Ability", found);
 		found = false;
 		for (CDOMSingleRef<Ability> ref : refs)
 		{
 			found |= ref.contains(sf);
 		}
-		assertTrue("Expected Skill Focus Ability", found);
+		Assert.assertTrue("Expected Skill Focus Ability", found);
 	}
 }

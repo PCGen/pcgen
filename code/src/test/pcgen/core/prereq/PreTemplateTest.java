@@ -33,6 +33,8 @@ import pcgen.AbstractCharacterTestCase;
 import pcgen.core.Globals;
 import pcgen.core.PCTemplate;
 import pcgen.core.PlayerCharacter;
+
+import org.junit.Assert;
 import plugin.pretokens.test.PreTemplateTester;
 
 public class PreTemplateTest extends AbstractCharacterTestCase
@@ -70,7 +72,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -88,7 +90,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -111,7 +113,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -134,7 +136,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	/**
@@ -162,7 +164,7 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("1");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -180,14 +182,14 @@ public class PreTemplateTest extends AbstractCharacterTestCase
 		prereq.setOperand("One");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testKindHandled()
 	{
 		final PreTemplateTester preTemplate = new PreTemplateTester();
 
-		assertEquals("TEMPLATE", preTemplate.kindHandled());
+		Assert.assertEquals("TEMPLATE", preTemplate.kindHandled());
 	}
 
 }

@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.deity;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Deity;
@@ -54,7 +55,7 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -65,7 +66,7 @@ public class DeityTokenTest extends AbstractKitTokenTestCase<KitDeity>
 		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(Deity.class, "English");
 		secondaryContext.getReferenceContext().constructCDOMObject(Deity.class, "English");
-		assertTrue(parse("Fireball,English"));
+		Assert.assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
 

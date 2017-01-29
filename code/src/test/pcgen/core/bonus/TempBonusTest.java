@@ -32,6 +32,8 @@ import pcgen.gui2.facade.TempBonusHelper;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 public class TempBonusTest extends AbstractCharacterTestCase
 {
 
@@ -41,14 +43,14 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_PC, bonus);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasPCTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasNonPCTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
 		try
 		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
+			Assert.assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
 		}
 		catch (NullPointerException e)
 		{
@@ -63,14 +65,14 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		BonusObj bonus = Bonus.newBonus(context, "WEAPON|DAMAGE,TOHIT|1|TYPE=Enhancement");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_ANYPC, bonus);
-		assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasAnyPCTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasCharacterTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasEquipmentTempBonus(spell));
 		try
 		{
-			assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
+			Assert.assertTrue(TempBonusHelper.getEquipmentApplyString(spell).isEmpty());
 		}
 		catch (NullPointerException e)
 		{
@@ -87,22 +89,22 @@ public class TempBonusTest extends AbstractCharacterTestCase
 		EquipBonus tb = new EquipBonus(bonus, "MARTIAL;SIMPLE;EXOTIC");
 		Spell spell = context.getReferenceContext().constructNowIfNecessary(Spell.class, "PCTempBonusItem");
 		spell.addToListFor(ListKey.BONUS_EQUIP, tb);
-		assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasPCTempBonus(spell));
-		assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
-		assertFalse(TempBonusHelper.hasCharacterTempBonus(spell));
-		assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasAnyPCTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasPCTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasNonPCTempBonus(spell));
+		Assert.assertFalse(TempBonusHelper.hasCharacterTempBonus(spell));
+		Assert.assertTrue(TempBonusHelper.hasEquipmentTempBonus(spell));
 		Set<String> eaStringSet = TempBonusHelper.getEquipmentApplyString(spell);
-		assertFalse(eaStringSet.isEmpty());
-		assertEquals(1, eaStringSet.size());
-		assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());
+		Assert.assertFalse(eaStringSet.isEmpty());
+		Assert.assertEquals(1, eaStringSet.size());
+		Assert.assertEquals("MARTIAL;SIMPLE;EXOTIC", eaStringSet.iterator().next());
 		Equipment dagger = context.getReferenceContext().constructNowIfNecessary(Equipment.class, "Dagger");
 		dagger.addToListFor(ListKey.TYPE, Type.WEAPON);
 		dagger.addToListFor(ListKey.TYPE, Type.getConstant("Martial"));
 		character.addEquipment(dagger);
 		List<InfoFacade> eList = TempBonusHelper.getListOfApplicableEquipment(spell, character);
-		assertEquals(1, eList.size());
-		assertEquals("Dagger", eList.iterator().next().getKeyName());
+		Assert.assertEquals(1, eList.size());
+		Assert.assertEquals("Dagger", eList.iterator().next().getKeyName());
 	}
 
 }

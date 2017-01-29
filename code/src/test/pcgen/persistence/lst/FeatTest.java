@@ -10,6 +10,8 @@ import java.net.URISyntaxException;
 import junit.framework.Test;
 import junit.framework.TestCase;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.base.lang.UnreachableError;
 import pcgen.core.Ability;
 import pcgen.core.Campaign;
@@ -86,7 +88,7 @@ public class FeatTest extends TestCase
 				Globals.getContext(),
 				alertnessFeat,
 				"Alertness	TYPE:General	DESC:+2 on Listen and Spot checks	BONUS:SKILL|Listen,Spot|2", source);
-		assertEquals("Alertness", alertnessFeat.getKeyName());
+		Assert.assertEquals("Alertness", alertnessFeat.getKeyName());
 	}
 
 	/**
@@ -113,7 +115,7 @@ public class FeatTest extends TestCase
 				Globals.getContext(),
 				ambidexterityFeat,
 				"Ambidexterity	PRESTAT:1,DEX=15	PREHANDSEQ:2	TYPE:General.Fighter	DESC:You ignore all penalties for using your off-hand	BONUS:COMBAT|TOHIT-SECONDARY|4", source);
-		assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
+		Assert.assertEquals("Ambidexterity", ambidexterityFeat.getKeyName());
 	}
 
 	/**
@@ -140,6 +142,6 @@ public class FeatTest extends TestCase
 				Globals.getContext(),
 				simpleWeaponFeat,
 				"Simple Weapon Proficiency	TYPE:General	DESC:You are proficient with all simple weapons. Non-proficiency suffers -4 to hit.	ADD:WEAPONPROFS|Simple", source);
-		assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
+		Assert.assertEquals("Simple Weapon Proficiency", simpleWeaponFeat.getKeyName());
 	}
 }

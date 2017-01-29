@@ -24,6 +24,7 @@ import java.util.List;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -119,13 +120,13 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 	protected void verifyCleanStart()
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf));
-		assertNull(getToken().unparse(secondaryContext, secondaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf));
 		// Ensure the graphs are the same at the start
-		assertEquals("The graphs are not the same at test start", primaryProf,
+		Assert.assertEquals("The graphs are not the same at test start", primaryProf,
 			secondaryProf);
 		// Ensure the graphs are the same at the start
-		assertTrue("The graphs are not the same at test start", primaryContext
+		Assert.assertTrue("The graphs are not the same at test start", primaryContext
 			.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 	}
@@ -141,7 +142,7 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		}
 		URI uri = campaign.getURI();
 		primaryContext.setSourceURI(uri);
-		assertTrue("Parsing of " + unparsedBuilt.toString()
+		Assert.assertTrue("Parsing of " + unparsedBuilt.toString()
 			+ " failed unexpectedly", getLoader().parseLine(primaryContext,
 			primaryProf, unparsedBuilt.toString(), campaign.getURI()));
 		tc.putText(uri, str);
@@ -170,17 +171,17 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 			String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 			if (str == null)
 			{
-				assertNull("Expecting empty unparsed", unparsed);
+				Assert.assertNull("Expecting empty unparsed", unparsed);
 				getLoader().parseLine(secondaryContext, secondaryProf, null,
 						uri);
 				continue;
 			}
-			assertNotNull(unparsed);
-			assertEquals(str.size(), unparsed.length);
+			Assert.assertNotNull(unparsed);
+			Assert.assertEquals(str.size(), unparsed.length);
 
 			for (int i = 0; i < str.size(); i++)
 			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
+				Assert.assertEquals("Expected " + i + " item to be equal", str.get(i),
 						unparsed[i]);
 			}
 
@@ -197,11 +198,11 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 		}
 
 		// Ensure the objects are the same
-		assertEquals("Re parse of unparsed string gave a different value",
+		Assert.assertEquals("Re parse of unparsed string gave a different value",
 			primaryProf, secondaryProf);
 
 		// Ensure the graphs are the same
-		assertTrue("Re parse of unparsed string gave a different graph",
+		Assert.assertTrue("Re parse of unparsed string gave a different graph",
 			primaryContext.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 
@@ -215,24 +216,24 @@ public abstract class AbstractIntegrationTestCase<T extends ConcretePrereqObject
 					secondaryProf);
 			if (str == null)
 			{
-				assertNull(unparsed);
+				Assert.assertNull(unparsed);
 				continue;
 			}
-			assertEquals(str.size(), unparsed.length);
+			Assert.assertEquals(str.size(), unparsed.length);
 
 			for (int i = 0; i < str.size(); i++)
 			{
-				assertEquals("Expected " + i + " item to be equal", str.get(i),
+				Assert.assertEquals("Expected " + i + " item to be equal", str.get(i),
 						unparsed[i]);
 			}
 		}
 
-		assertTrue("First parse context was not valid", primaryContext.getReferenceContext().validate(null));
-		assertTrue("Unprased/reparsed context was not valid", secondaryContext.getReferenceContext().validate(null));
-		assertEquals(
+		Assert.assertTrue("First parse context was not valid", primaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue("Unprased/reparsed context was not valid", secondaryContext.getReferenceContext().validate(null));
+		Assert.assertEquals(
 			"First parse and unparse/reparse had different number of messages",
 			expectedPrimaryMessageCount, primaryContext.getWriteMessageCount());
-		assertEquals("Unexpected messages in unparse/reparse", 0,
+		Assert.assertEquals("Unexpected messages in unparse/reparse", 0,
 			secondaryContext.getWriteMessageCount());
 	}
 

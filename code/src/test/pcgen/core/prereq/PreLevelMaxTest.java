@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -79,12 +81,12 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRELEVELMAX:1");
 
-		assertTrue("Character is not 2nd level", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is not 2nd level", PrereqHandler.passes(prereq,
 			character, null));
 
 		character.incrementClassLevel(1, myClass, true);
 
-		assertFalse("Character has 2 levels", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Character has 2 levels", PrereqHandler.passes(prereq,
 			character, null));
 	}
 
@@ -105,12 +107,12 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 
 		prereq = factory.parse("PRELEVELMAX:3");
 
-		assertTrue("Character doesn't have 4 levels", PrereqHandler.passes(
+		Assert.assertTrue("Character doesn't have 4 levels", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.setRace(race);
 
-		assertTrue("Character has 4 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has 4 levels", PrereqHandler.passes(prereq,
 			character, null));
 	}
 
@@ -139,7 +141,7 @@ public class PreLevelMaxTest extends AbstractCharacterTestCase
 		myClass.addToListFor(ListKey.BONUS, levelBonus);
 		character.calcActiveBonuses();
 
-		assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character has only 4 levels", PrereqHandler.passes(prereq,
 			character, null));
 	}
 

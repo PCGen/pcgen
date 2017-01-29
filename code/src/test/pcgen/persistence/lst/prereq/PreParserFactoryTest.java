@@ -31,6 +31,8 @@ import java.util.Locale;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.core.prereq.Prerequisite;
@@ -81,7 +83,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Enraged,1");
 
-		assertEquals(
+		Assert.assertEquals(
 			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" >\n</prereq>\n",
 			prereq.toString());
 	}
@@ -95,7 +97,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PREVARNEQ:Q:Enraged,1");
 
-		assertEquals(
+		Assert.assertEquals(
 			"<prereq kind=\"var\" key=\"Enraged\" operator=\"NEQ\" operand=\"1\" override-qualify=\"true\" >\n</prereq>\n",
 			prereq.toString());
 	}
@@ -106,7 +108,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 
 		Prerequisite prereq = factory.parse("PRESKILLTOT:TYPE.Knowledge=20");
 
-		assertEquals(
+		Assert.assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"20\" >\n"
 				+ "<prereq kind=\"skill\" total-values=\"true\" key=\"TYPE.Knowledge\" operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "</prereq>\n" + "</prereq>\n", prereq.toString());
@@ -118,7 +120,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		PreParserFactory factory = PreParserFactory.getInstance();
 
 		Prerequisite prereq = factory.parse("!PREALIGN:LG,LN,LE");
-		assertEquals(
+		Assert.assertEquals(
 			"<prereq operator=\"LT\" operand=\"1\" >\n"
 				+ "<prereq kind=\"align\" key=\"LG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
 				+ "<prereq kind=\"align\" key=\"LN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
@@ -126,7 +128,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 				+ "</prereq>\n", prereq.toString());
 
 		prereq = factory.parse("PREALIGN:NG,TN,NE,CG,CN,CE");
-		assertEquals(
+		Assert.assertEquals(
 			"<prereq operator=\"GTEQ\" operand=\"1\" >\n"
 				+ "<prereq kind=\"align\" key=\"NG\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"
 				+ "<prereq kind=\"align\" key=\"TN\" operator=\"EQ\" operand=\"1\" >\n</prereq>\n"

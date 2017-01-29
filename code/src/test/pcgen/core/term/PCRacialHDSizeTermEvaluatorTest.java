@@ -44,6 +44,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 /**
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
  * 
@@ -108,7 +110,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 	{
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(bugbearRace);
-		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
 	}
 
 	/**
@@ -119,7 +121,7 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(bugbearRace);
 		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Bugbear racial HD size should be 8", 8, eval.resolve(pc.getDisplay()), 0.001);
 	}
 
 	/**
@@ -130,6 +132,6 @@ public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = getCharacter();
 		pc.setRace(humanRace);
 		pc.incrementClassLevel(1, pcClass);
-		assertEquals("Human racial HD size should be 0", 0, eval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Human racial HD size should be 0", 0, eval.resolve(pc.getDisplay()), 0.001);
 	}
 }

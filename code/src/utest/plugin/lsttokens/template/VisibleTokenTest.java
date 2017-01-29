@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.template;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -56,11 +57,11 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertTrue(primaryContext.getWriteMessageCount() == 0);
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
 		secondaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertFalse(primaryContext.getWriteMessageCount() == 0);
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertFalse(primaryContext.getWriteMessageCount() == 0);
 		assertNoSideEffects();
 	}
 
@@ -74,9 +75,9 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("EXPORT"));
-		assertTrue(parseSecondary("EXPORT"));
-		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("EXPORT"));
+		Assert.assertTrue(parseSecondary("EXPORT"));
+		Assert.assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
 		internalTestInvalidInputString(Visibility.OUTPUT_ONLY);
 		assertNoSideEffects();
 	}
@@ -84,32 +85,32 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void internalTestInvalidInputString(Object val)
 		throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("Always"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("Always"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(ObjectKey.VISIBILITY));
 		// Note case sensitivity
-		assertFalse(parse("Display"));
+		Assert.assertFalse(parse("Display"));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("DISPLAY"));
-		assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("EXPORT"));
-		assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("YES"));
-		assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
-		assertTrue(parse("NO"));
-		assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("DISPLAY"));
+		Assert.assertEquals(Visibility.DISPLAY_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("EXPORT"));
+		Assert.assertEquals(Visibility.OUTPUT_ONLY, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(Visibility.DEFAULT, primaryProf.get(ObjectKey.VISIBILITY));
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(Visibility.HIDDEN, primaryProf.get(ObjectKey.VISIBILITY));
 	}
 
 	@Test
@@ -152,7 +153,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<Visibility> getObjectKey()
@@ -183,7 +184,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -75,56 +76,56 @@ public class TempValueLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputSingle() throws PersistenceLayerException
 	{
-		assertFalse(parse("buffalo"));
+		Assert.assertFalse(parse("buffalo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwo() throws PersistenceLayerException
 	{
-		assertFalse(parse("a|b"));
+		Assert.assertFalse(parse("a|b"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputThree() throws PersistenceLayerException
 	{
-		assertFalse(parse("a|b|c"));
+		Assert.assertFalse(parse("a|b|c"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOrder() throws PersistenceLayerException
 	{
-		assertFalse(parse("MAX=7|MIN=1|TITLE=Foo"));
+		Assert.assertFalse(parse("MAX=7|MIN=1|TITLE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOrder2() throws PersistenceLayerException
 	{
-		assertFalse(parse("MIN=1|TITLE=Foo|MAX=7"));
+		Assert.assertFalse(parse("MIN=1|TITLE=Foo|MAX=7"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoTitle() throws PersistenceLayerException
 	{
-		assertFalse(parse("MIN=1|MAX=7|Foo"));
+		Assert.assertFalse(parse("MIN=1|MAX=7|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputFour() throws PersistenceLayerException
 	{
-		assertFalse(parse("MIN=1|MAX=7|TITLE=Foo|Extra"));
+		Assert.assertFalse(parse("MIN=1|MAX=7|TITLE=Foo|Extra"));
 		assertNoSideEffects();
 	}
 

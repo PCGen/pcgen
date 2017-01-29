@@ -22,6 +22,7 @@ import java.net.URISyntaxException;
 
 import junit.framework.TestCase;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 
@@ -99,29 +100,29 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	public void runRoundRobin(String... str) throws PersistenceLayerException
 	{
 		// Default is not to write out anything
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertNull(getToken().unparse(primaryContext, primaryProf2));
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf2));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 		// Ensure the graphs are the same at the start
-		assertTrue(primaryContext.getListContext().masterListsEqual(
+		Assert.assertTrue(primaryContext.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 
 		// Set value
 		for (String s : str)
 		{
-			assertTrue(getToken().parseToken(primaryContext, primaryProf2, s).passed());
+			Assert.assertTrue(getToken().parseToken(primaryContext, primaryProf2, s).passed());
 		}
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertNull(getToken().unparse(primaryContext, primaryProf3));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf3));
 		// Get back the appropriate token:
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf2);
 
-		assertEquals(str.length, unparsed.length);
+		Assert.assertEquals(str.length, unparsed.length);
 
 		for (int i = 0; i < str.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", str[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", str[i],
 					unparsed[i]);
 		}
 
@@ -136,25 +137,25 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 				.toString(), testCampaign.getURI());
 
 		// Ensure the objects are the same
-		assertEquals(primaryProf1, secondaryProf1);
-		assertEquals(primaryProf2, secondaryProf2);
-		assertEquals(primaryProf3, secondaryProf3);
+		Assert.assertEquals(primaryProf1, secondaryProf1);
+		Assert.assertEquals(primaryProf2, secondaryProf2);
+		Assert.assertEquals(primaryProf3, secondaryProf3);
 
 		// Ensure the graphs are the same
-		assertTrue(primaryContext.getListContext().masterListsEqual(
+		Assert.assertTrue(primaryContext.getListContext().masterListsEqual(
 				secondaryContext.getListContext()));
 
 		// And that it comes back out the same again
 		// Doesn't pollute other levels
-		assertNull(getToken().unparse(secondaryContext, secondaryProf1));
-		assertNull(getToken().unparse(secondaryContext, secondaryProf3));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf1));
+		Assert.assertNull(getToken().unparse(secondaryContext, secondaryProf3));
 		String[] sUnparsed = getToken().unparse(secondaryContext,
 				secondaryProf2);
-		assertEquals(unparsed.length, sUnparsed.length);
+		Assert.assertEquals(unparsed.length, sUnparsed.length);
 
 		for (int i = 0; i < unparsed.length; i++)
 		{
-			assertEquals("Expected " + i + " item to be equal", unparsed[i],
+			Assert.assertEquals("Expected " + i + " item to be equal", unparsed[i],
 					sUnparsed[i]);
 		}
 	}

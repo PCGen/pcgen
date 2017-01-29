@@ -19,6 +19,7 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -230,7 +231,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 		{
 			construct(primaryContext, "TestWP1");
 			construct(secondaryContext, "TestWP1");
-			assertFalse(parse(getSubTokenName() + '|'
+			Assert.assertFalse(parse(getSubTokenName() + '|'
 				+ "TestWP1|ALL[PRERACE:Dwarf]"));
 			assertNoSideEffects();
 		}
@@ -255,7 +256,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (allowsPrerequisite())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "ALL|PRERACE:Dwarf|ALL"));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "ALL|PRERACE:Dwarf|ALL"));
 		}
 		assertNoSideEffects();
 	}
@@ -266,7 +267,7 @@ public abstract class AbstractAutoTokenTestCase<TC extends CDOMObject> extends
 	{
 		if (isAllLegal())
 		{
-			assertFalse(parse(getSubTokenName() + '|' + "%LIST|ALL"));
+			Assert.assertFalse(parse(getSubTokenName() + '|' + "%LIST|ALL"));
 			assertNoSideEffects();
 		}
 	}

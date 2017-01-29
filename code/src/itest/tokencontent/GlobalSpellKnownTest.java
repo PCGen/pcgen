@@ -36,6 +36,8 @@ import pcgen.core.prereq.PrerequisiteTestFactory;
 import pcgen.core.spell.Spell;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.SpellknownLst;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
@@ -79,7 +81,7 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -137,22 +139,22 @@ public class GlobalSpellKnownTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertFalse(containsExpected());
+		Assert.assertFalse(containsExpected());
 		PCTemplate varsource = create(PCTemplate.class, "VarSource");
 		varsource.put(VariableKey.getConstant("MyCasterLevel"), FormulaFactory.getFormulaFor(4.0));
 		templateInputFacet.directAdd(id, varsource, null);
 		pc.calcActiveBonuses();
-		assertTrue(containsExpected());
-		assertEquals(baseCount() + 1, targetFacetCount());
+		Assert.assertTrue(containsExpected());
+		Assert.assertEquals(baseCount() + 1, targetFacetCount());
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
 		pc.calcActiveBonuses();
-		assertEquals(baseCount(), targetFacetCount());
+		Assert.assertEquals(baseCount(), targetFacetCount());
 	}
 }

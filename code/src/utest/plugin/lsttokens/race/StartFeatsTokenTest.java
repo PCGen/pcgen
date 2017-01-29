@@ -19,6 +19,7 @@ package plugin.lsttokens.race;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -101,21 +102,21 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	@Test
 	public void testInvalidEquation() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "1+2").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "String").passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDecimal() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
+		Assert.assertFalse(token.parseToken(primaryContext, primaryProf, "4.0").passed());
 		assertNoSideEffects();
 	}
 
@@ -183,7 +184,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 		primaryProf.addToListFor(ListKey.BONUS, null);
 		try
 		{
-			assertNull(getToken().unparse(primaryContext, primaryProf));
+			Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 		}
 		catch (NullPointerException e)
 		{
@@ -200,11 +201,11 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	private BonusObj getBonus(int bonusValue) throws PersistenceLayerException
 	{
 		BonusObj bon = Bonus.newBonus(primaryContext, "FEAT|POOL|" + bonusValue);
-		assertNotNull(bon);
+		Assert.assertNotNull(bon);
 		PreParserFactory prereqParser = PreParserFactory.getInstance();
 		Prerequisite prereq = prereqParser
 				.parse("PREMULT:1,[PREHD:MIN=1],[PRELEVEL:MIN=1]");
-		assertNotNull(prereq);
+		Assert.assertNotNull(prereq);
 		bon.addPrerequisite(prereq);
 		bon.setTokenSource(token.getTokenName());
 		return bon;

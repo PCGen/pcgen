@@ -19,6 +19,7 @@ package plugin.lsttokens.template;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,42 +80,42 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidInputHDonly() throws PersistenceLayerException
 	{
-		assertFalse(parse("3"));
+		Assert.assertFalse(parse("3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("3|SR|3"));
+		Assert.assertFalse(parse("3|SR|3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOneColon() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:SR|2"));
+		Assert.assertFalse(parse("3:SR|2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyHD() throws PersistenceLayerException
 	{
-		assertFalse(parse(":DR:3/+1"));
+		Assert.assertFalse(parse(":DR:3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptySubtype() throws PersistenceLayerException
 	{
-		assertFalse(parse("4::3/+1"));
+		Assert.assertFalse(parse("4::3/+1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyDR() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:DR:"));
+		Assert.assertFalse(parse("3:DR:"));
 		assertNoSideEffects();
 	}
 
@@ -122,42 +123,42 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEmptyDRNoColon()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("3:DR"));
+		Assert.assertFalse(parse("3:DR"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoSlashDR() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:DR:1"));
+		Assert.assertFalse(parse("3:DR:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoSlashDR() throws PersistenceLayerException
 	{
-		assertFalse(parse("3+:DR:1/3/+4"));
+		Assert.assertFalse(parse("3+:DR:1/3/+4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptySR() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:SR:"));
+		Assert.assertFalse(parse("3:SR:"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptySA() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:SAB:"));
+		Assert.assertFalse(parse("3:SAB:"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyCR() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:CR:"));
+		Assert.assertFalse(parse("3:CR:"));
 		assertNoSideEffects();
 	}
 
@@ -165,7 +166,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEmptySRNoColon()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("3:SR"));
+		Assert.assertFalse(parse("3:SR"));
 		assertNoSideEffects();
 	}
 
@@ -173,7 +174,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEmptySANoColon()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("3:SAB"));
+		Assert.assertFalse(parse("3:SAB"));
 		assertNoSideEffects();
 	}
 
@@ -181,26 +182,26 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputEmptyCRNoColon()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("3:CR"));
+		Assert.assertFalse(parse("3:CR"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoAbbrs() throws PersistenceLayerException
 	{
-		assertFalse(parse("3:C:3"));
-		assertFalse(parse("3:D:1/+2"));
-		assertFalse(parse("3:CRA:3"));
-		assertFalse(parse("3:DRA:1/+2"));
-		assertFalse(parse("3:SABA:Special"));
-		assertFalse(parse("3:SRA:1"));
+		Assert.assertFalse(parse("3:C:3"));
+		Assert.assertFalse(parse("3:D:1/+2"));
+		Assert.assertFalse(parse("3:CRA:3"));
+		Assert.assertFalse(parse("3:DRA:1/+2"));
+		Assert.assertFalse(parse("3:SABA:Special"));
+		Assert.assertFalse(parse("3:SRA:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputBadClear() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEARSTUFF"));
+		Assert.assertFalse(parse(".CLEARSTUFF"));
 		assertNoSideEffects();
 	}
 
@@ -208,7 +209,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputNoSpecificClear()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR.3:CR:3"));
+		Assert.assertFalse(parse(".CLEAR.3:CR:3"));
 		assertNoSideEffects();
 	}
 
@@ -216,7 +217,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangePlus()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("+3:SAB:Special Abil"));
+		Assert.assertFalse(parse("+3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
@@ -224,7 +225,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangeMult()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("*3:SAB:Special Abil"));
+		Assert.assertFalse(parse("*3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
@@ -232,7 +233,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangeTwoDash()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("1-3:SAB:Special Abil"));
+		Assert.assertFalse(parse("1-3:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
@@ -240,7 +241,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangeEndDash()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("4-:SAB:Special Abil"));
+		Assert.assertFalse(parse("4-:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
@@ -248,7 +249,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangeEndPlus()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("4+:SAB:Special Abil"));
+		Assert.assertFalse(parse("4+:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
@@ -256,14 +257,14 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	public void testInvalidInputBadHDRangeUpTo()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("-4:SAB:Special Abil"));
+		Assert.assertFalse(parse("-4:SAB:Special Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadTemplateToken() throws PersistenceLayerException
 	{
-		assertFalse(parse("5:CR:x"));
+		Assert.assertFalse(parse("5:CR:x"));
 		assertNoSideEffects();
 	}
 
@@ -337,7 +338,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testParseClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(Constants.LST_DOT_CLEAR));
+		Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 		assertCleanConstruction();
 	}
 

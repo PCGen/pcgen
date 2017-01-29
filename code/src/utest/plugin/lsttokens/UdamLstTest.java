@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -111,77 +112,77 @@ public class UdamLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNotEnoughValues() throws PersistenceLayerException
 	{
-		assertTrue(parse("1,2,3,4,5,6,7,8"));
-		assertFalse(token.process(primaryContext, primaryProf));
+		Assert.assertTrue(parse("1,2,3,4,5,6,7,8"));
+		Assert.assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testInvalidTooManyValues() throws PersistenceLayerException
 	{
-		assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
-		assertFalse(token.process(primaryContext, primaryProf));
+		Assert.assertTrue(parse("1,2,3,4,5,6,7,8,9,0"));
+		Assert.assertFalse(token.process(primaryContext, primaryProf));
 	}
 
 	@Test
 	public void testInvalidEmptyValue1() throws PersistenceLayerException
 	{
-		assertFalse(parse(",2,3,4,5,6,7,8,9"));
+		Assert.assertFalse(parse(",2,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue2() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,,3,4,5,6,7,8,9"));
+		Assert.assertFalse(parse("1,,3,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue3() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,,4,5,6,7,8,9"));
+		Assert.assertFalse(parse("1,2,,4,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue4() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,,5,6,7,8,9"));
+		Assert.assertFalse(parse("1,2,3,,5,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue5() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,,6,7,8,9"));
+		Assert.assertFalse(parse("1,2,3,4,,6,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue6() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,,7,8,9"));
+		Assert.assertFalse(parse("1,2,3,4,5,,7,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue7() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,6,,8,9"));
+		Assert.assertFalse(parse("1,2,3,4,5,6,,8,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue8() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,6,7,,9"));
+		Assert.assertFalse(parse("1,2,3,4,5,6,7,,9"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyValue9() throws PersistenceLayerException
 	{
-		assertFalse(parse("1,2,3,4,5,6,7,8,"));
+		Assert.assertFalse(parse("1,2,3,4,5,6,7,8,"));
 		assertNoSideEffects();
 	}
 

@@ -36,6 +36,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.spell.Spell;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
 public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
@@ -130,13 +132,13 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	public void testTwoClassSUBSCHOOL() throws Exception
@@ -147,19 +149,19 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory
 				.parse("PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
 
-		assertFalse(PrereqHandler.passes(prereq, character, null));
+		Assert.assertFalse(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 
@@ -173,13 +175,13 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	public void testNotTwoClassSUBSCHOOL() throws Exception
@@ -190,18 +192,18 @@ public class PreSpellSubSchoolTest extends AbstractCharacterTestCase
 		Prerequisite prereq = factory
 				.parse("!PRESPELLSCHOOLSUB:3,Fire=2,Useful=2");
 
-		assertTrue(PrereqHandler.passes(prereq, character, null));
+		Assert.assertTrue(PrereqHandler.passes(prereq, character, null));
 		character.incrementClassLevel(1, wiz);
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, wiz);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 		character.incrementClassLevel(1, cle);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 }

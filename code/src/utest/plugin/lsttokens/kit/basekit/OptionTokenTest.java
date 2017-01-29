@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.basekit;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.kit.BaseKit;
@@ -54,19 +55,19 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	@Test
 	public void testInvalidInputTrailing() throws PersistenceLayerException
 	{
-		assertFalse(parse("Formula,"));
+		Assert.assertFalse(parse("Formula,"));
 	}
 
 	@Test
 	public void testInvalidInputStarting() throws PersistenceLayerException
 	{
-		assertFalse(parse(",Formula"));
+		Assert.assertFalse(parse(",Formula"));
 	}
 
 	@Test
 	public void testInvalidInputDouble() throws PersistenceLayerException
 	{
-		assertFalse(parse("Start,,Formula"));
+		Assert.assertFalse(parse("Start,,Formula"));
 	}
 
 	@Test
@@ -96,7 +97,7 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
 	private char getJoinCharacter()
@@ -107,13 +108,13 @@ public class OptionTokenTest extends AbstractKitTokenTestCase<BaseKit>
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse(getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse(getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 }

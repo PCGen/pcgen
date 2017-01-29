@@ -23,6 +23,8 @@
 package pcgen.io.migration;
 
 import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.core.SettingsHandler;
 import pcgen.core.SystemCollections;
 import pcgen.core.system.MigrationRule;
@@ -79,11 +81,11 @@ public class AbilityMigrationTest extends TestCase
 	public void testMaxVer()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey1", new int[]{6,0,2}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("OldKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("OldKey1", catKey.getKey());
 	}
 
 	/**
@@ -92,8 +94,8 @@ public class AbilityMigrationTest extends TestCase
 	public void testCatChange()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKey2", new int[]{5,17,5}, gameMode);
-		assertEquals("EarlyNewCat", catKey.getCategory());
-		assertEquals("EarlyNewKey", catKey.getKey());
+		Assert.assertEquals("EarlyNewCat", catKey.getCategory());
+		Assert.assertEquals("EarlyNewKey", catKey.getKey());
 	}
 
 	/**
@@ -102,11 +104,11 @@ public class AbilityMigrationTest extends TestCase
 	public void testCaseInsensitive()
 	{
 		CategorisedKey catKey = AbilityMigration.getNewAbilityKey("OldCAT", "OldKey1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCAT", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCAT", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 		catKey = AbilityMigration.getNewAbilityKey("OldCat", "OldKEY1", new int[]{6,0,0}, gameMode);
-		assertEquals("OldCat", catKey.getCategory());
-		assertEquals("NewKey1", catKey.getKey());
+		Assert.assertEquals("OldCat", catKey.getCategory());
+		Assert.assertEquals("NewKey1", catKey.getKey());
 	}
 
 }

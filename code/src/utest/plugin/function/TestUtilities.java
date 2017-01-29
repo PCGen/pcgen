@@ -21,7 +21,8 @@ import java.io.StringReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import junit.framework.TestCase;
+import org.junit.Assert;
+
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
@@ -37,7 +38,7 @@ public class TestUtilities
 		}
 		catch (ParseException e)
 		{
-			TestCase
+			Assert
 				.fail("Encountered Unexpected Exception: " + e.getMessage());
 			return null;
 		}

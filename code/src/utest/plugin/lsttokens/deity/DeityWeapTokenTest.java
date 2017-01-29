@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.deity;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -118,7 +119,7 @@ public class DeityWeapTokenTest extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.DEITYWEAPON);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -138,7 +139,7 @@ public class DeityWeapTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -169,7 +170,7 @@ public class DeityWeapTokenTest extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

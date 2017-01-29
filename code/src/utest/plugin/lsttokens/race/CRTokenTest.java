@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.race;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
@@ -60,7 +61,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 		try
 		{
 			boolean parse = parse("-1");
-			assertFalse(parse);
+			Assert.assertFalse(parse);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -75,7 +76,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 		try
 		{
 			boolean parse = parse("1/x");
-			assertFalse(parse);
+			Assert.assertFalse(parse);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -166,7 +167,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.CHALLENGE_RATING, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@SuppressWarnings("unchecked")
@@ -178,7 +179,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

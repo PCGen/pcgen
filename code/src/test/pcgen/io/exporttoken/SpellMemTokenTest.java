@@ -41,6 +41,8 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.core.character.CharacterSpell;
 import pcgen.core.spell.Spell;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Assert;
 import plugin.exporttokens.SpellMemToken;
 import plugin.lsttokens.testsupport.BuildUtilities;
 
@@ -166,12 +168,12 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		String result =
 				character.addSpell(charSpell, null, arcaneClass.getKeyName(),
 					Globals.getDefaultSpellBook(), 1, 1);
-		assertEquals("No CHA, so should reject attempt to add spell",
+		Assert.assertEquals("No CHA, so should reject attempt to add spell",
 			"You can only learn 0 spells for level 1 "
 				+ "\nand there are no higher-level slots available.", result);
 
 		SpellMemToken token = new SpellMemToken();
-		assertEquals("Retrieve spell from known list of arcane caster.",
+		Assert.assertEquals("Retrieve spell from known list of arcane caster.",
 			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character,
 				null));
 	}
@@ -201,13 +203,13 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		String result =
 				character.addSpell(charSpell, null, divineClass.getKeyName(),
 					Globals.getDefaultSpellBook(), 1, 1);
-		assertEquals("Known spells already has all spells, should reject.",
+		Assert.assertEquals("Known spells already has all spells, should reject.",
 			"The Known Spells spellbook contains all spells of this level that you "
 				+ "know. You cannot place spells in multiple times.", result);
 		result =
 				character.addSpell(charSpell, null, divineClass.getKeyName(),
 					spellBook, 1, 1);
-		assertEquals("No WIS, so should reject attempt to add spell",
+		Assert.assertEquals("No WIS, so should reject attempt to add spell",
 			"You can only prepare 0 spells for level 1 "
 				+ "\nand there are no higher-level slots available.", result);
 
@@ -216,14 +218,14 @@ public class SpellMemTokenTest extends AbstractCharacterTestCase
 		result =
 				character.addSpell(charSpell, null, divineClass.getKeyName(),
 					spellBook, 1, 1);
-		assertEquals("Should be no error messages from adding spell", "",
+		Assert.assertEquals("Should be no error messages from adding spell", "",
 			result);
 
 		SpellMemToken token = new SpellMemToken();
-		assertEquals("Retrieve spell from known list of divine caster.",
+		Assert.assertEquals("Retrieve spell from known list of divine caster.",
 			"Test Spell", token.getToken("SPELLMEM.0.0.1.0.NAME", character,
 				null));
-		assertEquals("Retrieve spell from prepared list of divine caster.",
+		Assert.assertEquals("Retrieve spell from prepared list of divine caster.",
 			"Test Spell", token.getToken("SPELLMEM.0.2.1.0.NAME", character,
 				null));
 	}

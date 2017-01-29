@@ -32,6 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Assert;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -106,26 +107,26 @@ public class ClassQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|CLASS[ALL]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|CLASS[ALL]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillSet.put(s1, 2);
 		pc.skillSet.put(s2, 0);
 		set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s3, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s1, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
 	}
 
 	@Test
@@ -133,21 +134,21 @@ public class ClassQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|CLASS[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|CLASS[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertTrue(set.isEmpty());
+		Assert.assertTrue(set.isEmpty());
 		pc.skillCostMap.put(s1, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s3, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s2));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s2));
 	}
 
 	@Test
@@ -155,23 +156,23 @@ public class ClassQualifierTokenTest extends
 	{
 		setUpPC();
 		initializeObjects();
-		assertTrue(parse(getSubTokenName() + "|!CLASS[TYPE=Masterful]"));
+		Assert.assertTrue(parse(getSubTokenName() + "|!CLASS[TYPE=Masterful]"));
 		finishLoad();
 		TransparentPlayerCharacter pc = new TransparentPlayerCharacter();
 
 		ChooseInformation<?> info = primaryProf.get(ObjectKey.CHOOSE_INFO);
 		pc.classMap.put(cl1, 1);
 		Collection<?> set = info.getSet(pc);
-		assertEquals(2, set.size());
-		assertTrue(set.contains(s2));
-		assertTrue(set.contains(s3));
+		Assert.assertEquals(2, set.size());
+		Assert.assertTrue(set.contains(s2));
+		Assert.assertTrue(set.contains(s3));
 		pc.skillCostMap.put(s1, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s2, cl1, SkillCost.CLASS);
 		pc.skillCostMap.put(s3, cl1, SkillCost.CROSS_CLASS);
 		set = info.getSet(pc);
-		assertFalse(set.isEmpty());
-		assertEquals(1, set.size());
-		assertTrue(set.contains(s3));
+		Assert.assertFalse(set.isEmpty());
+		Assert.assertEquals(1, set.size());
+		Assert.assertTrue(set.contains(s3));
 	}
 
 	private void initializeObjects()

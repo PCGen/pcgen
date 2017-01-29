@@ -34,6 +34,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.Race;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 /**
  * PCGVer2ParserCharacterTest runs tests on PCGVer2Parser which require a 
  * character to be supplied. 
@@ -76,6 +78,6 @@ public class PCGVer2ParserCharacterTest extends AbstractCharacterTestCase
 		
 		PersistentTransitionChoice<?> tc = rakshasha.getListFor(ListKey.ADD).get(0);
 		List<Object> assocList = pc.getAssocList(tc, AssociationListKey.ADD);
-		assertEquals("Number of associations for ADD " + assocList, 1, assocList.size());
+		Assert.assertEquals("Number of associations for ADD " + assocList, 1, assocList.size());
 	}
 }

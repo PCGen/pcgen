@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -61,42 +62,42 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOneItem() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal"));
+		Assert.assertFalse(parse("Normal"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,"));
+		Assert.assertFalse(parse("Normal,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyValue() throws PersistenceLayerException
 	{
-		assertFalse(parse(",30"));
+		Assert.assertFalse(parse(",30"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTwoComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,,30"));
+		Assert.assertFalse(parse("Normal,,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputThreeItems() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,30,Darkvision"));
+		Assert.assertFalse(parse("Normal,30,Darkvision"));
 		assertNoSideEffects();
 	}
 
@@ -104,7 +105,7 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNegativeMovement()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,-30"));
+		Assert.assertFalse(parse("Normal,-30"));
 		assertNoSideEffects();
 	}
 
@@ -112,7 +113,7 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNaNMovement()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,Foo"));
+		Assert.assertFalse(parse("Normal,Foo"));
 		assertNoSideEffects();
 	}
 
@@ -120,11 +121,11 @@ public class MoveLstTest extends AbstractGlobalTokenTestCase
 	public void testValidInputNumber()
 		throws PersistenceLayerException
 	{
-		assertTrue(parse("30"));
+		Assert.assertTrue(parse("30"));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "Walk,30", unparsed[0]);
 	}
 
 	@Test

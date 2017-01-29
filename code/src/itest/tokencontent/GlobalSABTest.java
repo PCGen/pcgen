@@ -23,6 +23,8 @@ import pcgen.cdom.facet.analysis.SpecialAbilityFacet;
 import pcgen.core.SpecialAbility;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.SabLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
@@ -46,7 +48,7 @@ public class GlobalSABTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

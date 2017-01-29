@@ -19,6 +19,7 @@ package plugin.lsttokens.kit.startpack;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -106,7 +107,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	{
 		try
 		{
-			assertFalse(parse("PRECLASS:1,Fighter=1"));
+			Assert.assertFalse(parse("PRECLASS:1,Fighter=1"));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -118,7 +119,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	@Test
 	public void testInvalidInputEmbeddedPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
+		Assert.assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -126,14 +127,14 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	public void testInvalidInputDoublePipePre()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
+		Assert.assertFalse(parse("TestWP1||PRECLASS:1,Fighter=1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputPostPrePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
+		Assert.assertFalse(parse("TestWP1|PRECLASS:1,Fighter=1|"));
 		assertNoSideEffects();
 	}
 

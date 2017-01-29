@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.pcclass.level;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.DividingFormula;
@@ -45,21 +46,21 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testInvalidInputTooManyLimits()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base", 2));
+		Assert.assertFalse(parse("15|CLASS=Fighter|CLASS.TYPE=Base", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNotALimit() throws PersistenceLayerException
 	{
-		assertFalse(parse("15|PRECLASS:1,Fighter", 2));
+		Assert.assertFalse(parse("15|PRECLASS:1,Fighter", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputEmptyLimit() throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS=", 2));
+		Assert.assertFalse(parse("15|CLASS=", 2));
 		assertNoSideEffects();
 	}
 
@@ -67,116 +68,116 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testInvalidInputEmptyTypeLimit()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("15|CLASS.TYPE=", 2));
+		Assert.assertFalse(parse("15|CLASS.TYPE=", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivideNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%/-2", 2));
+		Assert.assertFalse(parse("%/-2", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivideZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%/0", 2));
+		Assert.assertFalse(parse("%/0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDivide() throws PersistenceLayerException
 	{
-		assertTrue(parse("%/4", 2));
+		Assert.assertTrue(parse("%/4", 2));
 	}
 
 	@Test
 	public void testInvalidInputAddNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%+-3", 2));
+		Assert.assertFalse(parse("%+-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputAddZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%+0", 2));
+		Assert.assertFalse(parse("%+0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputAdd() throws PersistenceLayerException
 	{
-		assertTrue(parse("%+4", 2));
+		Assert.assertTrue(parse("%+4", 2));
 	}
 
 	@Test
 	public void testInvalidInputMultiplyNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%*-3", 2));
+		Assert.assertFalse(parse("%*-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMultiplyZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%*0", 2));
+		Assert.assertFalse(parse("%*0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputMultiply() throws PersistenceLayerException
 	{
-		assertTrue(parse("%*4", 2));
+		Assert.assertTrue(parse("%*4", 2));
 	}
 
 	@Test
 	public void testInvalidInputSubtractNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%--3", 2));
+		Assert.assertFalse(parse("%--3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputSubtractZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%-0", 2));
+		Assert.assertFalse(parse("%-0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputSubtract() throws PersistenceLayerException
 	{
-		assertTrue(parse("%-4", 2));
+		Assert.assertTrue(parse("%-4", 2));
 	}
 
 	@Test
 	public void testInvalidInputUpNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up-3", 2));
+		Assert.assertFalse(parse("%up-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputUpZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up0", 2));
+		Assert.assertFalse(parse("%up0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputUp() throws PersistenceLayerException
 	{
-		assertTrue(parse("%up4", 2));
+		Assert.assertTrue(parse("%up4", 2));
 	}
 
 	@Test
 	public void testInvalidInputUpTooBig() throws PersistenceLayerException
 	{
-		assertFalse(parse("%up5", 2));
+		Assert.assertFalse(parse("%up5", 2));
 		assertNoSideEffects();
 	}
 
@@ -184,54 +185,54 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testInvalidInputUpReallyTooBig()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%up15", 2));
+		Assert.assertFalse(parse("%up15", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputHUpNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hup-3", 2));
+		Assert.assertFalse(parse("%Hup-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputHUpZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hup0", 2));
+		Assert.assertFalse(parse("%Hup0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputHUp() throws PersistenceLayerException
 	{
-		assertTrue(parse("%Hup4", 2));
+		Assert.assertTrue(parse("%Hup4", 2));
 	}
 
 	@Test
 	public void testInvalidInputDownNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down-3", 2));
+		Assert.assertFalse(parse("%down-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDownZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down0", 2));
+		Assert.assertFalse(parse("%down0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputDown() throws PersistenceLayerException
 	{
-		assertTrue(parse("%down4", 2));
+		Assert.assertTrue(parse("%down4", 2));
 	}
 
 	@Test
 	public void testInvalidInputDownTooBig() throws PersistenceLayerException
 	{
-		assertFalse(parse("%down5", 3));
+		Assert.assertFalse(parse("%down5", 3));
 		assertNoSideEffects();
 	}
 
@@ -239,7 +240,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testInvalidInputDownReallyTooBig()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%down15", 3));
+		Assert.assertFalse(parse("%down15", 3));
 		assertNoSideEffects();
 	}
 
@@ -247,48 +248,48 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testInvalidInputHdownNegative()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hdown-3", 2));
+		Assert.assertFalse(parse("%Hdown-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputHdownZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("%Hdown0", 2));
+		Assert.assertFalse(parse("%Hdown0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidInputHdown() throws PersistenceLayerException
 	{
-		assertTrue(parse("%Hdown4", 2));
+		Assert.assertTrue(parse("%Hdown4", 2));
 	}
 
 	@Test
 	public void testInvalidInputNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-3", 2));
+		Assert.assertFalse(parse("-3", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("0", 2));
+		Assert.assertFalse(parse("0", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDecimal() throws PersistenceLayerException
 	{
-		assertFalse(parse("3.5", 2));
+		Assert.assertFalse(parse("3.5", 2));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMisspell() throws PersistenceLayerException
 	{
-		assertFalse(parse("%upn5", 2));
+		Assert.assertFalse(parse("%upn5", 2));
 		assertNoSideEffects();
 	}
 
@@ -368,7 +369,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf1.put(ObjectKey.HITDIE, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
 	}
 
 	@Test
@@ -387,7 +388,7 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf1);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -592,8 +593,8 @@ public class HitDieTokenTest extends AbstractPCClassLevelTokenTestCase
 
 	private void assertBadUnparse()
 	{
-		assertNull(getToken().unparse(primaryContext, primaryProf1));
-		assertTrue(primaryContext.getWriteMessageCount() > 0);
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf1));
+		Assert.assertTrue(primaryContext.getWriteMessageCount() > 0);
 	}
 
 }

@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -41,20 +42,20 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 			getConstant("Languedoc-Roussillon");
 			getConstant("Yarra Valley");
 		}
-		assertTrue(parse("Niederösterreich"));
-		assertEquals(getConstant("Niederösterreich"), primaryProf
+		Assert.assertTrue(parse("Niederösterreich"));
+		Assert.assertEquals(getConstant("Niederösterreich"), primaryProf
 			.get(getObjectKey()));
-		assertTrue(parse("Finger Lakes"));
-		assertEquals(getConstant("Finger Lakes"), primaryProf
+		Assert.assertTrue(parse("Finger Lakes"));
+		Assert.assertEquals(getConstant("Finger Lakes"), primaryProf
 			.get(getObjectKey()));
-		assertTrue(parse("Rheinhessen"));
-		assertEquals(getConstant("Rheinhessen"), primaryProf
+		Assert.assertTrue(parse("Rheinhessen"));
+		Assert.assertEquals(getConstant("Rheinhessen"), primaryProf
 			.get(getObjectKey()));
-		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals(getConstant("Languedoc-Roussillon"), primaryProf
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertEquals(getConstant("Languedoc-Roussillon"), primaryProf
 			.get(getObjectKey()));
-		assertTrue(parse("Yarra Valley"));
-		assertEquals(getConstant("Yarra Valley"), primaryProf
+		Assert.assertTrue(parse("Yarra Valley"));
+		Assert.assertEquals(getConstant("Yarra Valley"), primaryProf
 			.get(getObjectKey()));
 	}
 
@@ -75,20 +76,20 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 		}
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("TestWP1"));
-		assertTrue(parse("TestWP2"));
+		Assert.assertTrue(parse("TestWP1"));
+		Assert.assertTrue(parse("TestWP2"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "TestWP2", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be null", unparsed);
+			Assert.assertNull("Expected item to be null", unparsed);
 		}
 	}
 
@@ -114,7 +115,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	@Test
 	public void testInvalidEmptyInput() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
@@ -195,7 +196,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -215,7 +216,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

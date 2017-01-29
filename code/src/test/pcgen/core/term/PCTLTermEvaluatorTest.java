@@ -42,6 +42,8 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 
+import org.junit.Assert;
+
 /**
  * PCTLTermEvaluatorTest checks the fucntion of the TL variable.
  * 
@@ -96,19 +98,19 @@ public class PCTLTermEvaluatorTest extends AbstractCharacterTestCase
 		
 		PlayerCharacter pc = getCharacter();
 		
-		assertEquals("Before adding levels, shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Before adding levels, shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
 		
 		pc.setRace(bugbearRace);
-		assertEquals("With monster race shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("With monster race shold be 0th level", 0, tlEval.resolve(pc.getDisplay()), 0.001);
 		
 		pc.incrementClassLevel(1, humanoidClass);
-		assertEquals("Incorrect level", 1, tlEval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Incorrect level", 1, tlEval.resolve(pc.getDisplay()), 0.001);
 		
 		pc.incrementClassLevel(5, humanoidClass);
-		assertEquals("Incorrect level", 6, tlEval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Incorrect level", 6, tlEval.resolve(pc.getDisplay()), 0.001);
 		
 		pc.incrementClassLevel(-2, humanoidClass);
-		assertEquals("Incorrect level", 4, tlEval.resolve(pc.getDisplay()), 0.001);
+		Assert.assertEquals("Incorrect level", 4, tlEval.resolve(pc.getDisplay()), 0.001);
 
 	}
 }

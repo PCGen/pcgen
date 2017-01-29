@@ -28,6 +28,8 @@ import java.net.URISyntaxException;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.base.lang.UnreachableError;
 import pcgen.cdom.enumeration.ListKey;
@@ -79,29 +81,29 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has the Longsword proficiency.", 
+		Assert.assertTrue("Character has the Longsword proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
 		
-		assertFalse("Character does not have the Longbow proficiency", 
+		Assert.assertFalse("Character does not have the Longbow proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
 		
-		assertTrue("Character has the Dagger proficiency.", 
+		Assert.assertTrue("Character has the Dagger proficiency.",
 				PrereqHandler.passes(prereq, character, null));
 	}
 
@@ -116,29 +118,29 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword,Dagger");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.addTemplate(pct);
 
-		assertTrue("Character has one of Longsword or Dagger proficiency", 
+		Assert.assertTrue("Character has one of Longsword or Dagger proficiency",
 			PrereqHandler.passes(prereq, character, null));
 
 		prereq = factory.parse("PREWEAPONPROF:2,Longsword,Dagger");
 
-		assertTrue("Character has both Longsword and Dagger proficiency", 
+		Assert.assertTrue("Character has both Longsword and Dagger proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:3,Longsword,Dagger,Longbow");
 
-		assertFalse("Character has both Longsword and Dagger proficiency but not Longbow", 
+		Assert.assertFalse("Character has both Longsword and Dagger proficiency but not Longbow",
 				PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -155,29 +157,29 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
 		context.unconditionallyProcess(pctlb, "AUTO", "WEAPONPROF|Longbow");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
 		character.addTemplate(pctls);
 		
-		assertTrue("Character has one Martial Weapon Proficiency", 
+		Assert.assertTrue("Character has one Martial Weapon Proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:2,TYPE.Martial");
 
-		assertFalse("Character only has one proficiency", PrereqHandler.passes(
+		Assert.assertFalse("Character only has one proficiency", PrereqHandler.passes(
 			prereq, character, null));
 		
 		character.addTemplate(pctlb);
 		
-		assertTrue("Character has two Martial Weapon Proficiencies", 
+		Assert.assertTrue("Character has two Martial Weapon Proficiencies",
 				PrereqHandler.passes(prereq, character, null));
 	
 	}
@@ -192,29 +194,29 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pct = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pct, "AUTO", "WEAPONPROF|Longsword|Dagger");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		Prerequisite prereq;
 
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("!PREWEAPONPROF:1,Longsword");
 
-		assertTrue("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertTrue("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 
 		character.addTemplate(pct);
 
-		assertFalse("Character has the Longsword proficiency.", 
+		Assert.assertFalse("Character has the Longsword proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Longbow");
 		
-		assertTrue("Character does not have the Longbow proficiency", 
+		Assert.assertTrue("Character does not have the Longbow proficiency",
 				PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("!PREWEAPONPROF:1,Dagger");
 		
-		assertFalse("Character has the Dagger proficiency.", 
+		Assert.assertFalse("Character has the Dagger proficiency.",
 				PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -234,30 +236,30 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREWEAPONPROF:1,Longsword");
 
-		assertFalse("Character has no proficiencies", PrereqHandler.passes(
+		Assert.assertFalse("Character has no proficiencies", PrereqHandler.passes(
 			prereq, character, null));
 		
 		final Ability martialProf = 
 			TestHelper.makeAbility("Weapon Proficiency (Martial)", AbilityCategory.FEAT, "General");
 		Globals.getContext().unconditionallyProcess(martialProf, "AUTO",
 				"WEAPONPROF|TYPE.Martial");
-		assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(Globals.getContext().getReferenceContext().resolveReferences(null));
 		
 		AbstractCharacterTestCase.applyAbility(character, AbilityCategory.FEAT, martialProf, null);
 
-		assertTrue("Character has the Longsword proficiency.", 
+		Assert.assertTrue("Character has the Longsword proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Longbow");
-		assertTrue("Character has the Longbow proficiency.",
+		Assert.assertTrue("Character has the Longbow proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:1,Dagger");
-		assertFalse("Character does not have the Dagger proficiency.",
+		Assert.assertFalse("Character does not have the Dagger proficiency.",
 					PrereqHandler.passes(prereq, character, null));
 		
 		prereq = factory.parse("PREWEAPONPROF:1,TYPE.Martial");
-		assertTrue("Character has martial weaponprofs.",
+		Assert.assertTrue("Character has martial weaponprofs.",
 					PrereqHandler.passes(prereq, character, null));
 		
 	}
@@ -273,7 +275,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		PCTemplate pctls = new PCTemplate();
 		LoadContext context = Globals.getContext();
 		context.unconditionallyProcess(pctls, "AUTO", "WEAPONPROF|Longsword");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		
 		final FeatLoader featLoader = new FeatLoader();
 		
@@ -296,7 +298,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), bar, barStr, cse);
 		addAbility(AbilityCategory.FEAT, bar);
 		
-		assertEquals("Character should have 50 bonus hp added.",
+		Assert.assertEquals("Character should have 50 bonus hp added.",
 					baseHp+50,
 					character.hitPoints()
 					);
@@ -309,7 +311,7 @@ public class PreWeaponProfTest extends AbstractCharacterTestCase
 		featLoader.parseLine(Globals.getContext(), foo, fooStr, cse);
 		addAbility(AbilityCategory.FEAT, foo);
 		
-		assertEquals("Character has the longsword proficiency so the bonus should be added",
+		Assert.assertEquals("Character has the longsword proficiency so the bonus should be added",
 					baseHp+50+50,
 					character.hitPoints()
 					);

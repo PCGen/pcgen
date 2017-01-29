@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.weaponprof;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.IntegerKey;
@@ -72,20 +73,20 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<WeaponProf>
 	@Test
 	public void testValidSpecialCase() throws PersistenceLayerException
 	{
-		assertTrue(parse("1IFLARGERTHANWEAPON"));
-		assertEquals(Integer.valueOf(-1), primaryProf.get(IntegerKey.HANDS));
+		Assert.assertTrue(parse("1IFLARGERTHANWEAPON"));
+		Assert.assertEquals(Integer.valueOf(-1), primaryProf.get(IntegerKey.HANDS));
 		assertCleanConstruction();
-		assertTrue(secondaryContext.getReferenceContext().validate(null));
-		assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().validate(null));
+		Assert.assertTrue(secondaryContext.getReferenceContext().resolveReferences(null));
 	}
 
 	@Test
 	public void testUnparseSpecialCase() throws PersistenceLayerException
 	{
 		String[] unparsed = setAndUnparse(-1);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("Expected item to be equal", "1IFLARGERTHANWEAPON", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("Expected item to be equal", "1IFLARGERTHANWEAPON", unparsed[0]);
 	}
 
 	@Test

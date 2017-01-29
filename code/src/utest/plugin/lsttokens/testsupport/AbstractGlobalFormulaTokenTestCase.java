@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.Formula;
@@ -31,12 +32,12 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Variable1"));
-		assertEquals("Variable1", getFormula().toString());
-		assertTrue(parse("3"));
-		assertEquals("3", getFormula().toString());
-		assertTrue(parse("3+CL(\"Fighter\")"));
-		assertEquals("3+CL(\"Fighter\")", getFormula().toString());
+		Assert.assertTrue(parse("Variable1"));
+		Assert.assertEquals("Variable1", getFormula().toString());
+		Assert.assertTrue(parse("3"));
+		Assert.assertEquals("3", getFormula().toString());
+		Assert.assertTrue(parse("3+CL(\"Fighter\")"));
+		Assert.assertEquals("3+CL(\"Fighter\")", getFormula().toString());
 	}
 
 	protected Formula getFormula()
@@ -51,7 +52,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	{
 		try
 		{
-			assertFalse(parse(""));
+			Assert.assertFalse(parse(""));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -106,7 +107,7 @@ public abstract class AbstractGlobalFormulaTokenTestCase extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getFormulaKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private void setAndUnparseMatch(Formula val)

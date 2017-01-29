@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -31,8 +32,8 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getStringKey()));
+		Assert.assertFalse(parse(""));
+		Assert.assertEquals(null, primaryProf.get(getStringKey()));
 		assertNoSideEffects();
 	}
 
@@ -43,7 +44,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	{
 		try
 		{
-			assertEquals(isClearLegal(), parse(Constants.LST_DOT_CLEAR));
+			Assert.assertEquals(isClearLegal(), parse(Constants.LST_DOT_CLEAR));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -57,16 +58,16 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Niederösterreich"));
-		assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
-		assertTrue(parse("Finger Lakes"));
-		assertEquals("Finger Lakes", primaryProf.get(getStringKey()));
-		assertTrue(parse("Rheinhessen"));
-		assertEquals("Rheinhessen", primaryProf.get(getStringKey()));
-		assertTrue(parse("Languedoc-Roussillon"));
-		assertEquals("Languedoc-Roussillon", primaryProf.get(getStringKey()));
-		assertTrue(parse("Yarra Valley"));
-		assertEquals("Yarra Valley", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Niederösterreich"));
+		Assert.assertEquals("Niederösterreich", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Finger Lakes"));
+		Assert.assertEquals("Finger Lakes", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Rheinhessen"));
+		Assert.assertEquals("Rheinhessen", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Languedoc-Roussillon"));
+		Assert.assertEquals("Languedoc-Roussillon", primaryProf.get(getStringKey()));
+		Assert.assertTrue(parse("Yarra Valley"));
+		Assert.assertEquals("Yarra Valley", primaryProf.get(getStringKey()));
 	}
 
 	public abstract StringKey getStringKey();
@@ -77,19 +78,19 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 		String[] unparsed;
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
-		assertTrue(parse("Start"));
-		assertTrue(parse("Mod"));
+		Assert.assertTrue(parse("Start"));
+		Assert.assertTrue(parse("Mod"));
 		unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertEquals("Expected item to be equal", "Mod", unparsed[0]);
+		Assert.assertEquals("Expected item to be equal", "Mod", unparsed[0]);
 		if (isClearLegal())
 		{
-			assertTrue(parse(Constants.LST_DOT_CLEAR));
+			Assert.assertTrue(parse(Constants.LST_DOT_CLEAR));
 			unparsed = getToken().unparse(primaryContext, primaryProf);
-			assertNull("Expected item to be equal", unparsed);
+			Assert.assertNull("Expected item to be equal", unparsed);
 		}
 	}
 
@@ -145,7 +146,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getStringKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	/*

@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -79,28 +80,28 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidNoOpenParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision 25')"));
+		Assert.assertFalse(parse("Darkvision 25')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoCloseParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision (25'"));
+		Assert.assertFalse(parse("Darkvision (25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision 25'"));
+		Assert.assertFalse(parse("Darkvision 25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidExtraStuff() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision (25')Normal"));
+		Assert.assertFalse(parse("Darkvision (25')Normal"));
 		assertNoSideEffects();
 	}
 
@@ -108,49 +109,49 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidExtraStuffAfterFoot()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision (25'm)"));
+		Assert.assertFalse(parse("Darkvision (25'm)"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDecimalFoot() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision (25.5')"));
+		Assert.assertFalse(parse("Darkvision (25.5')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDistanceNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision (zzzb32')"));
+		Assert.assertFalse(parse("Darkvision (zzzb32')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidNoOpenParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision 25')"));
+		Assert.assertFalse(parse("Normal|Darkvision 25')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidNoCloseParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision (25'"));
+		Assert.assertFalse(parse("Normal|Darkvision (25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidNoParen() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision 25'"));
+		Assert.assertFalse(parse("Normal|Darkvision 25'"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidExtraStuff() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision (25')Normal"));
+		Assert.assertFalse(parse("Normal|Darkvision (25')Normal"));
 		assertNoSideEffects();
 	}
 
@@ -158,98 +159,98 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	public void test2InvalidExtraStuffAfterFoot()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision (25'm)"));
+		Assert.assertFalse(parse("Normal|Darkvision (25'm)"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidDecimalFoot() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision (25.5')"));
+		Assert.assertFalse(parse("Normal|Darkvision (25.5')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void test2InvalidDistanceNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal|Darkvision (zzzb32')"));
+		Assert.assertFalse(parse("Normal|Darkvision (zzzb32')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("Normal,Darkvision"));
+		Assert.assertFalse(parse("Normal,Darkvision"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("PRERACE:1,Dwarf"));
+		Assert.assertFalse(parse("PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTrailingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision|"));
+		Assert.assertFalse(parse("Darkvision|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidLeadingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Darkvision"));
+		Assert.assertFalse(parse("|Darkvision"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision||PRERACE:1,Dwarf"));
+		Assert.assertFalse(parse("Darkvision||PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMiddlePre() throws PersistenceLayerException
 	{
-		assertFalse(parse("Darkvision|PRERACE:1,Dwarf|Normal (100')"));
+		Assert.assertFalse(parse("Darkvision|PRERACE:1,Dwarf|Normal (100')"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearDotPre() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR.Darkvision|PRERACE:1,Dwarf"));
+		Assert.assertFalse(parse(".CLEAR.Darkvision|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearPre() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
+		Assert.assertFalse(parse(".CLEAR|PRERACE:1,Dwarf"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidDistanceFormula() throws PersistenceLayerException
 	{
-		assertTrue(parse("Darkvision (zzzb32)"));
+		Assert.assertTrue(parse("Darkvision (zzzb32)"));
 	}
 
 	@Test
 	public void testValidDistanceNoSpaceNumber()
 		throws PersistenceLayerException
 	{
-		assertTrue(parse("Darkvision(20')"));
+		Assert.assertTrue(parse("Darkvision(20')"));
 	}
 
 	@Test
 	public void testValidDistanceNoSpaceShortNumber()
 		throws PersistenceLayerException
 	{
-		assertTrue(parse("Darkvision(5')"));
+		Assert.assertTrue(parse("Darkvision(5')"));
 	}
 
 	@Test

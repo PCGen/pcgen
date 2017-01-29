@@ -17,6 +17,7 @@
  */
 package tokenmodel.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -45,16 +46,16 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		context.getReferenceContext().reassociateCategory(AbilityCategory.FEAT, source);
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		CNAbilitySelection cas =
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(AbilityCategory.FEAT, Nature.AUTOMATIC, source));
 		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertTrue(containsExpected(granted));
-		assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals((directAbilityFacet == getTargetFacet()) ? 2 : 1,
 			getCount());
 		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//BioSet not *supposed* to do things like this
@@ -65,13 +66,13 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		PCClass source = create(PCClass.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		classFacet.addClass(id, source);
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		classFacet.removeClass(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -80,13 +81,13 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		PCClassLevel source = create(PCClassLevel.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		classLevelFacet.add(id, source, this);
-		assertTrue(containsExpected(granted));
-		assertEquals((classLevelFacet == getTargetFacet()) ? 2 : 1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals((classLevelFacet == getTargetFacet()) ? 2 : 1, getCount());
 		classLevelFacet.remove(id, source, this);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -95,13 +96,13 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		Deity source = create(Deity.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		deityFacet.set(id, source);
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		deityFacet.remove(id);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	@Test
@@ -111,14 +112,14 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		PCClass pcc = create(PCClass.class, "Class");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		domainFacet.remove(id, source, classSource);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//Language not *supposed* to do things like this
@@ -129,13 +130,13 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		Race source = create(Race.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(containsExpected(granted));
-		assertEquals(1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals(1, getCount());
 		raceFacet.remove(id);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	//TODO SizeFacet is not a very good model for doing this by hand :(
@@ -149,13 +150,13 @@ public abstract class AbstractAddListTokenTest<T extends CDOMObject>
 		PCTemplate source = create(PCTemplate.class, "Source");
 		T granted = createGrantedObject();
 		processToken(source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		templateInputFacet.directAdd(id, source, getAssoc());
-		assertTrue(containsExpected(granted));
-		assertEquals((templateConsolidationFacet == getTargetFacet()) ? 2 : 1, getCount());
+		Assert.assertTrue(containsExpected(granted));
+		Assert.assertEquals((templateConsolidationFacet == getTargetFacet()) ? 2 : 1, getCount());
 		templateInputFacet.remove(id, source);
-		assertEquals(0, getCount());
-		assertTrue(cleanedSideEffects());
+		Assert.assertEquals(0, getCount());
+		Assert.assertTrue(cleanedSideEffects());
 	}
 
 	protected boolean cleanedSideEffects()

@@ -17,6 +17,7 @@
  */
 package tokencontent;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -71,17 +72,17 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
-		assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertTrue(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 		pc.addClass(dragon);
 		pc.setDirty(true);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
-		assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertFalse(lscFacet.contains(id, dragon, SkillCost.CLASS, sk));
 	}
 
 	@Test
@@ -92,24 +93,24 @@ public class DomainCSkillTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_SKILL_TOKEN.parseToken(context, source, "MySkill");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertFalse(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
-		assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertFalse(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertEquals(SkillCost.CROSS_CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.add(id, source, new ClassSource(dragon, 0));
-		assertTrue(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertTrue(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
 		pc.addClass(dragon);
 		pc.setDirty(true);
-		assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
+		Assert.assertEquals(SkillCost.CLASS, pc.getSkillCostForClass(sk, dragon));
 		domainInputFacet.remove(id, source);
-		assertFalse(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
+		Assert.assertFalse(lascFacet.contains(id, dragon, SkillCost.CLASS, sk));
 	}
 
 	@Override

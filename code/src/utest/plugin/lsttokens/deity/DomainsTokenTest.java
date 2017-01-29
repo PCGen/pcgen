@@ -19,6 +19,7 @@ package plugin.lsttokens.deity;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -123,14 +124,14 @@ public class DomainsTokenTest extends
 	@Test
 	public void testInvalidClearDotPre() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR.TestWP1|PRELEVEL:MIN=4"));
+		Assert.assertFalse(parse(".CLEAR.TestWP1|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearPre() throws PersistenceLayerException
 	{
-		assertFalse(parse(".CLEAR|PRELEVEL:MIN=4"));
+		Assert.assertFalse(parse(".CLEAR|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
@@ -145,7 +146,7 @@ public class DomainsTokenTest extends
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("!PRELEVEL:3"));
+		Assert.assertFalse(parse("!PRELEVEL:3"));
 		assertNoSideEffects();
 	}
 
@@ -154,7 +155,7 @@ public class DomainsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1|!PRELEVEL:3|TestWP2"));
+		Assert.assertFalse(parse("TestWP1|!PRELEVEL:3|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -163,7 +164,7 @@ public class DomainsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1,TestWP2|PREFOO:3"));
+		Assert.assertFalse(parse("TestWP1,TestWP2|PREFOO:3"));
 		assertNoSideEffects();
 	}
 
@@ -172,7 +173,7 @@ public class DomainsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1,TestWP2|!PREFOO:3"));
+		Assert.assertFalse(parse("TestWP1,TestWP2|!PREFOO:3"));
 		assertNoSideEffects();
 	}
 
@@ -181,7 +182,7 @@ public class DomainsTokenTest extends
 	{
 		construct(primaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
-		assertFalse(parse("TestWP1|PRELEVEL:4|TestWP2"));
+		Assert.assertFalse(parse("TestWP1|PRELEVEL:4|TestWP2"));
 		assertNoSideEffects();
 	}
 
@@ -259,9 +260,9 @@ public class DomainsTokenTest extends
 				.getRef(primaryContext.getReferenceContext().silentlyGetConstructedCDOMObject(
 						getTargetClass(), "TestWP2")), apo);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("TestWP1,TestWP2", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("TestWP1,TestWP2", unparsed[0]);
 	}
 
 	@Override

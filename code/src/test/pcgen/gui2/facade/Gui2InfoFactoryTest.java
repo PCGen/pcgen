@@ -33,6 +33,8 @@ import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import plugin.lsttokens.choose.StringToken;
 
 /**
@@ -62,16 +64,16 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		choiceAbility.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		StringToken st = new plugin.lsttokens.choose.StringToken();
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
-		assertTrue(pr.passed());
+		Assert.assertTrue(pr.passed());
 		Globals.getContext().commit();
 		finalize(choiceAbility, "Perception", pc,
 			AbilityCategory.FEAT);
-		assertEquals("Incorrect single choice", "Perception",
+		Assert.assertEquals("Incorrect single choice", "Perception",
 			ca.getChoices(choiceAbility));
 
 		finalize(choiceAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
-		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
+		Assert.assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
 			ca.getChoices(choiceAbility));
 	}
 	
@@ -94,7 +96,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 
 		TempBonusFacadeImpl tbf = new TempBonusFacadeImpl(tbAbility);
 
-		assertEquals("Unexpected temp bonus result",
+		Assert.assertEquals("Unexpected temp bonus result",
 			"<html><b><font size=+1>Combat expertise</font></b> (Ability)<br>"
 				+ "<b>Desc:</b>&nbsp;CE Desc<br><b>Source:</b>&nbsp;</html>",
 			infoFactory.getHTMLInfo(tbf));

@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.PCClass;
@@ -78,7 +79,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		try
 		{
-			assertFalse(parse(""));
+			Assert.assertFalse(parse(""));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -90,7 +91,7 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testRoundRobinOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("PRERACE:1,Human"));
+		Assert.assertFalse(parse("PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
@@ -160,10 +161,10 @@ public class MonSkillTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		addBonus(MonNonSkillHD.class);
 		MonnonskillhdToken othertoken = new MonnonskillhdToken();
 		TokenRegistration.register(othertoken);
-		assertTrue(othertoken.parseToken(primaryContext, primaryProf, "1").passed());
+		Assert.assertTrue(othertoken.parseToken(primaryContext, primaryProf, "1").passed());
 		primaryContext.commit();
-		assertNull(token.unparse(primaryContext, primaryProf));
-		assertNotNull(primaryContext.unparse(primaryProf));
+		Assert.assertNull(token.unparse(primaryContext, primaryProf));
+		Assert.assertNotNull(primaryContext.unparse(primaryProf));
 	}
 
 }

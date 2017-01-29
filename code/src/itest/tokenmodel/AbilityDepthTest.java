@@ -33,6 +33,8 @@ import pcgen.core.AbilityCategory;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.AbilityLst;
 import plugin.lsttokens.add.AbilityToken;
 import plugin.lsttokens.deprecated.VFeatLst;
@@ -120,7 +122,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		if (!result.passed())
 		{
 			result.printMessages();
-			fail();
+			Assert.fail();
 		}
 		result =
 				secondToken.parseToken(context, mid,
@@ -128,7 +130,7 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 		if (!result.passed())
 		{
 			result.printMessages();
-			fail();
+			Assert.fail();
 		}
 
 		finishLoad();
@@ -138,15 +140,15 @@ public class AbilityDepthTest extends AbstractTokenModelTest
 				new CNAbilitySelection(CNAbilityFactory.getCNAbility(
 					AbilityCategory.FEAT, Nature.AUTOMATIC, top));
 
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		pc.addAbility(cas, "This", "That");
 		//		directAbilityFacet.add(id, cas, UserSelection.getInstance());
-		assertTrue(containsExpected(mid));
-		assertTrue(containsExpected(target));
-		assertEquals(3, getCount());
+		Assert.assertTrue(containsExpected(mid));
+		Assert.assertTrue(containsExpected(target));
+		Assert.assertEquals(3, getCount());
 		pc.removeAbility(cas, "This", "That");
 		//		directAbilityFacet.remove(id, cas, UserSelection.getInstance());
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 	}
 
 	protected boolean containsExpected(Ability granted)

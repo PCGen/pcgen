@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -54,14 +55,14 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOneItem() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk"));
+		Assert.assertFalse(parse("Walk"));
 		assertNoSideEffects();
 	}
 
@@ -69,21 +70,21 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNoSecondValue()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,"));
+		Assert.assertFalse(parse("Walk,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,"));
+		Assert.assertFalse(parse("Walk,Fly,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyValue() throws PersistenceLayerException
 	{
-		assertFalse(parse(",30"));
+		Assert.assertFalse(parse(",30"));
 		assertNoSideEffects();
 	}
 
@@ -91,21 +92,21 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputMissingSecondValue()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,,*2"));
+		Assert.assertFalse(parse("Walk,,*2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputThreeComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,0,Fly,30"));
+		Assert.assertFalse(parse("Walk,0,Fly,30"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoBase() throws PersistenceLayerException
 	{
-		assertFalse(parse(",Fly,30"));
+		Assert.assertFalse(parse(",Fly,30"));
 		assertNoSideEffects();
 	}
 
@@ -114,7 +115,7 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("Walk,30,Fly"));
+			Assert.assertFalse(parse("Walk,30,Fly"));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -127,7 +128,7 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNegativeMultiply()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,*-3"));
+		Assert.assertFalse(parse("Walk,Fly,*-3"));
 		assertNoSideEffects();
 	}
 
@@ -135,28 +136,28 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputNegativeDivide()
 		throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,/-3"));
+		Assert.assertFalse(parse("Walk,Fly,/-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputZeroDivide() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,/0"));
+		Assert.assertFalse(parse("Walk,Fly,/0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputMixedSigns() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,+-3"));
+		Assert.assertFalse(parse("Walk,Fly,+-3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMultiple() throws PersistenceLayerException
 	{
-		assertFalse(parse("Walk,Fly,*3,Walk,Crawl,/2"));
+		Assert.assertFalse(parse("Walk,Fly,*3,Walk,Crawl,/2"));
 		assertNoSideEffects();
 	}
 
@@ -165,7 +166,7 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("Walk,Fly,Foo"));
+			Assert.assertFalse(parse("Walk,Fly,Foo"));
 		}
 		catch (NumberFormatException nfe)
 		{
@@ -177,19 +178,19 @@ public class MoveCloneLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testValidPositive() throws PersistenceLayerException
 	{
-		assertTrue(parse("Walk,Fly,30"));
+		Assert.assertTrue(parse("Walk,Fly,30"));
 	}
 
 	@Test
 	public void testValidZero() throws PersistenceLayerException
 	{
-		assertTrue(parse("Walk,Fly,0"));
+		Assert.assertTrue(parse("Walk,Fly,0"));
 	}
 
 	@Test
 	public void testValidPlusZero() throws PersistenceLayerException
 	{
-		assertTrue(parse("Walk,Fly,+0"));
+		Assert.assertTrue(parse("Walk,Fly,+0"));
 	}
 
 	@Test

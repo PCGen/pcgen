@@ -9,6 +9,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.base.SimpleAssociatedObject;
@@ -70,7 +72,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("30");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -94,7 +96,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("30");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	/**
@@ -118,7 +120,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("30");
 
 		final boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -136,7 +138,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("ANY");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -146,7 +148,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -164,7 +166,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("ANY");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -174,7 +176,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	/**
@@ -192,7 +194,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("ANY");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
 						.getVisionType("Darkvision"), FormulaFactory.ZERO)),
@@ -201,7 +203,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -219,7 +221,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("ANY");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -229,7 +231,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	/**
@@ -247,7 +249,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("0");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -256,7 +258,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		character.addTemplate(template);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -274,7 +276,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("0");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -284,7 +286,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 	/**
@@ -302,7 +304,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("0");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -311,7 +313,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 
 		character.addTemplate(template);
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue(passes);
+		Assert.assertTrue(passes);
 	}
 
 	/**
@@ -329,7 +331,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		prereq.setOperand("0");
 
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 
 		template.putToList(Vision.VISIONLIST,
 				CDOMDirectSingleRef.getRef(new Vision(VisionType
@@ -339,7 +341,7 @@ public class PreVisionTest extends AbstractCharacterTestCase
 		character.addTemplate(template);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse(passes);
+		Assert.assertFalse(passes);
 	}
 
 }

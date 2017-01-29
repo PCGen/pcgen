@@ -19,6 +19,7 @@ package tokenmodel;
 
 import java.util.Collection;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -65,7 +66,7 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}
@@ -178,13 +179,13 @@ public class AddAbilityVirtualTest extends AbstractAddListTokenTest<Ability>
 			}
 			
 		};
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 		ClassSource classSource = new ClassSource(pcc);
 		domainFacet.add(id, source, classSource);
-		assertTrue(containsExpected(a));
-		assertEquals(2, getCount());
+		Assert.assertTrue(containsExpected(a));
+		Assert.assertEquals(2, getCount());
 		domainFacet.remove(id, source);
-		assertEquals(0, getCount());
+		Assert.assertEquals(0, getCount());
 	}
 
 }

@@ -24,6 +24,8 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.Vision;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.VisionLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
@@ -47,7 +49,7 @@ public class GlobalVisionTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

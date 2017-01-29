@@ -40,6 +40,8 @@ import pcgen.core.Language;
 import pcgen.core.PlayerCharacter;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * This class tests the handling of ASPECT fields in PCGen
  * 
@@ -60,13 +62,13 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Ability dummy =
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Aspect aspect = new Aspect(ASPECT_NAME, Constants.EMPTY_STRING);
-		assertEquals("", aspect.getAspectText(this.getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("", aspect.getAspectText(this.getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	public void testNull()
 	{
 		final Aspect aspect = new Aspect(ASPECT_NAME, Constants.EMPTY_STRING);
-		assertEquals("", aspect.getAspectText(this.getCharacter(), null));
+		Assert.assertEquals("", aspect.getAspectText(this.getCharacter(), null));
 	}
 
 	/**
@@ -79,7 +81,7 @@ public class AspectTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final String simpleDesc = "This is a test";
 		final Aspect aspect = new Aspect(ASPECT_NAME, simpleDesc);
-		assertEquals(simpleDesc, aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals(simpleDesc, aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -91,7 +93,7 @@ public class AspectTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("\"Variable\"");
-		assertEquals("Variable", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("Variable", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -105,7 +107,7 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%NAME");
-		assertEquals("PObject", aspect.getAspectText(getCharacter(), buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("PObject", aspect.getAspectText(getCharacter(), buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -120,10 +122,10 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("TestVar");
-		assertEquals("0", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("0", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 
 		addAbility(AbilityCategory.FEAT, dummy);
-		assertEquals("2", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("2", aspect.getAspectText(getCharacter(), buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -140,11 +142,11 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
 		aspect.addVariable("%LIST");
-		assertEquals("", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 		AbilityCategory category = AbilityCategory.FEAT;
 
 		CNAbility cna = finalize(pobj, "Foo", pc, category);
-		assertEquals("Foo", aspect.getAspectText(pc, Collections.singletonList(cna)));
+		Assert.assertEquals("Foo", aspect.getAspectText(pc, Collections.singletonList(cna)));
 	}
 
 	/**
@@ -156,7 +158,7 @@ public class AspectTest extends AbstractCharacterTestCase
 				TestHelper.makeAbility("dummy", AbilityCategory.FEAT, "Foo");
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1");
-		assertEquals("", aspect.getAspectText(getCharacter(), buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("", aspect.getAspectText(getCharacter(), buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -173,10 +175,10 @@ public class AspectTest extends AbstractCharacterTestCase
 		final Aspect aspect = new Aspect(ASPECT_NAME, "Testing");
 		aspect.addVariable("%LIST");
 		PlayerCharacter pc = getCharacter();
-		assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 
 		AbstractCharacterTestCase.applyAbility(pc, AbilityCategory.FEAT, pobj, "Foo");
-		assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("Testing", aspect.getAspectText(pc, buildMap(pobj, AbilityCategory.FEAT, Nature.NORMAL)));
 	}
 
 	/**
@@ -197,21 +199,21 @@ public class AspectTest extends AbstractCharacterTestCase
 
 		final Aspect aspect = new Aspect(ASPECT_NAME, "%1 test %2");
 		aspect.addVariable("TestVar");
-		assertEquals("0 test ", aspect.getAspectText(pc, buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
+		Assert.assertEquals("0 test ", aspect.getAspectText(pc, buildMap(dummy, AbilityCategory.FEAT, Nature.NORMAL)));
 
 		CNAbility cna = finalize(dummy, "Associated 1", pc, AbilityCategory.FEAT);
 		finalize(dummy, "Associated 2", pc, AbilityCategory.FEAT);
-		assertEquals("2 test ", aspect.getAspectText(pc, Collections.singletonList(cna)));
+		Assert.assertEquals("2 test ", aspect.getAspectText(pc, Collections.singletonList(cna)));
 
 		aspect.addVariable("%LIST");
-		assertEquals("Replacement of %LIST failed",
+		Assert.assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1 and Associated 2", aspect
 				.getAspectText(pc, Collections.singletonList(cna)));
 
 		finalize(dummy, "Associated 3", pc, AbilityCategory.FEAT);
 
 		aspect.addVariable("%LIST");
-		assertEquals("Replacement of %LIST failed",
+		Assert.assertEquals("Replacement of %LIST failed",
 			"2 test Associated 1, Associated 2, Associated 3", aspect
 				.getAspectText(pc, Collections.singletonList(cna)));
 	}

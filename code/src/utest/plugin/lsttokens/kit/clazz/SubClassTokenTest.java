@@ -19,6 +19,7 @@ package plugin.lsttokens.kit.clazz;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.SubClassCategory;
@@ -70,7 +71,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -86,7 +87,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 		primaryContext.getReferenceContext().reassociateCategory(cat, sc);
 		sc = secondaryContext.getReferenceContext().constructCDOMObject(SubClass.class, "English");
 		secondaryContext.getReferenceContext().reassociateCategory(cat, sc);
-		assertTrue(parse("Fireball,English"));
+		Assert.assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
 

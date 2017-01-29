@@ -26,6 +26,8 @@ import pcgen.cdom.helper.ProfProvider;
 import pcgen.core.ShieldProf;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.auto.ShieldProfToken;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
@@ -46,7 +48,7 @@ public class AutoShieldProfTest extends
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

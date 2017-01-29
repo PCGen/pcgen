@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -59,15 +60,15 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, templateConsolidationFacet.getCount(id));
+		Assert.assertEquals(0, templateConsolidationFacet.getCount(id));
 		raceFacet.directSet(id, source, getAssoc());
-		assertTrue(templateConsolidationFacet.contains(id, granted));
-		assertEquals(1, templateConsolidationFacet.getCount(id));
+		Assert.assertTrue(templateConsolidationFacet.contains(id, granted));
+		Assert.assertEquals(1, templateConsolidationFacet.getCount(id));
 		raceFacet.remove(id);
-		assertEquals(0, templateConsolidationFacet.getCount(id));
+		Assert.assertEquals(0, templateConsolidationFacet.getCount(id));
 	}
 
 	@Test
@@ -79,22 +80,22 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		result = CHOOSE_TEMPLATE_TOKEN.parseToken(context, source, "Granted");
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		source.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.TRUE);
 		finishLoad();
-		assertEquals(0, templateConsolidationFacet.getCount(id));
+		Assert.assertEquals(0, templateConsolidationFacet.getCount(id));
 		raceInputFacet.set(id, source);
-		assertTrue(templateConsolidationFacet.contains(id, granted));
-		assertEquals(1, templateConsolidationFacet.getCount(id));
+		Assert.assertTrue(templateConsolidationFacet.contains(id, granted));
+		Assert.assertEquals(1, templateConsolidationFacet.getCount(id));
 		raceInputFacet.remove(id);
-		assertEquals(0, templateConsolidationFacet.getCount(id));
+		Assert.assertEquals(0, templateConsolidationFacet.getCount(id));
 	}
 
 	@Override
@@ -104,7 +105,7 @@ public class GlobalTemplateTest extends AbstractGrantedListTokenTest<PCTemplate>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

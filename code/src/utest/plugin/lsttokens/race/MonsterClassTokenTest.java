@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.race;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.FormulaFactory;
@@ -59,42 +60,42 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	@Test
 	public void testInvalidNoColon() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter"));
+		Assert.assertFalse(parse("Fighter"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoColon() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter:4:1"));
+		Assert.assertFalse(parse("Fighter:4:1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidLevelNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter:-4"));
+		Assert.assertFalse(parse("Fighter:-4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidLevelZero() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter:0"));
+		Assert.assertFalse(parse("Fighter:0"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidLevelNaN() throws PersistenceLayerException
 	{
-		assertFalse(parse("Fighter:Level"));
+		Assert.assertFalse(parse("Fighter:Level"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testBadClass() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fighter:4"));
+		Assert.assertTrue(parse("Fighter:4"));
 		assertConstructionError();
 	}
 
@@ -128,7 +129,7 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(ObjectKey.MONSTER_CLASS, null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -173,7 +174,7 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

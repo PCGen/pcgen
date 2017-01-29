@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.EqModNameOpt;
@@ -59,7 +60,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		try
 		{
 			boolean parse = parse("INVALID");
-			assertFalse(parse);
+			Assert.assertFalse(parse);
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -70,21 +71,21 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	@Test
 	public void testBadInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testBadInputPlainText() throws PersistenceLayerException
 	{
-		assertFalse(parse("TEXT"));
+		Assert.assertFalse(parse("TEXT"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testBadInputEmptyText() throws PersistenceLayerException
 	{
-		assertFalse(parse("TEXT="));
+		Assert.assertFalse(parse("TEXT="));
 		assertNoSideEffects();
 	}
 
@@ -166,7 +167,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<EqModNameOpt> getObjectKey()
@@ -200,7 +201,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

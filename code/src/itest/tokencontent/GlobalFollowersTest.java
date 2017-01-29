@@ -23,6 +23,8 @@ import pcgen.cdom.facet.analysis.FollowerLimitFacet;
 import pcgen.cdom.list.CompanionList;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.FollowersLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
@@ -49,7 +51,7 @@ public class GlobalFollowersTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

@@ -31,6 +31,8 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.persistence.lst.SourceEntry;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import plugin.pretokens.parser.PreVariableParser;
 
 /**
@@ -70,7 +72,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 				"1,count(\"ABILITIES\",\"CATEGORY=BARDIC\",\"NAME=Dancer\")",
 				false, false);
 
-		assertFalse("Test matches with no abilities.", PrereqHandler.passes(
+		Assert.assertFalse("Test matches with no abilities.", PrereqHandler.passes(
 				prereq, character, null));
 
 		Ability ab2 = TestHelper.makeAbility("Dancer", "BARDIC",
@@ -78,7 +80,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		ab2.put(ObjectKey.MULTIPLE_ALLOWED, Boolean.FALSE);
 		addAbility(TestHelper.getAbilityCategory(ab2), ab2);
 
-		assertTrue("Test fails with ability present.", PrereqHandler.passes(
+		Assert.assertTrue("Test fails with ability present.", PrereqHandler.passes(
 				prereq, character, null));
 	}
 
@@ -92,17 +94,17 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PreVariableParser parser = new PreVariableParser();
 		Prerequisite prereq = parser.parse("VAR", "abs(STR),1,abs(DEX),3",
 				false, false);
-		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
+		Assert.assertFalse("Test matches with no stats passing", PrereqHandler.passes(
 				prereq, character, null));
 
 		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
-		assertFalse("Test matches with no stats passing", PrereqHandler.passes(
+		Assert.assertFalse("Test matches with no stats passing", PrereqHandler.passes(
 				prereq, character, null));
 
 		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
-		assertTrue("Test should match now both stats pass", PrereqHandler
+		Assert.assertTrue("Test should match now both stats pass", PrereqHandler
 				.passes(prereq, character, null));
 
 	}
@@ -117,17 +119,17 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PreVariableParser parser = new PreVariableParser();
 		Prerequisite prereq = parser.parse("VAR", "abs(STR),1,abs(DEX),3",
 				true, false);
-		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
+		Assert.assertTrue("Test matches with no stats passing", PrereqHandler.passes(
 				prereq, character, null));
 
 		setPCStat(character, str, 12);
 		character.calcActiveBonuses();
-		assertTrue("Test matches with no stats passing", PrereqHandler.passes(
+		Assert.assertTrue("Test matches with no stats passing", PrereqHandler.passes(
 				prereq, character, null));
 
 		setPCStat(character, dex, 16);
 		character.calcActiveBonuses();
-		assertFalse("Test should match now both stats pass", PrereqHandler
+		Assert.assertFalse("Test should match now both stats pass", PrereqHandler
 				.passes(prereq, character, null));
 
 	}
@@ -149,13 +151,13 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
 			PlayerCharacter character = this.getCharacter();
-			assertFalse(notawarrior.qualifies(character, notawarrior));
+			Assert.assertFalse(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, warrior);
-			assertTrue(notawarrior.qualifies(character, notawarrior));
+			Assert.assertTrue(notawarrior.qualifies(character, notawarrior));
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -178,11 +180,11 @@ public class PreVarTest extends AbstractCharacterTestCase
 			context.getReferenceContext().resolveReferences(null);
 			PlayerCharacter character = this.getCharacter();
 			setPCStat(character, intel, 16);
-			assertTrue(spellcaster.qualifies(character, spellcaster));
+			Assert.assertTrue(spellcaster.qualifies(character, spellcaster));
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -199,7 +201,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(spellcaster, "CSKILL", "Concentration");
 		context.unconditionallyProcess(spellcaster, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:BASESPELLSTAT,2");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		setPCStat(character, intel, 16);
 		PCClassLoader loader = new PCClassLoader();
@@ -208,15 +210,15 @@ public class PreVarTest extends AbstractCharacterTestCase
 			SourceEntry se = new CampaignSourceEntry(new Campaign(), new URI(
 					"file://test"));
 			loader.completeObject(context, se, spellcaster);
-			assertEquals(0, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(0, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 			character.incrementClassLevel(1, spellcaster);
-			assertEquals(5, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(5, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -234,7 +236,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5|PREVARGT:MyVar,1");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -244,15 +246,15 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, notawarrior);
 			PlayerCharacter character = this.getCharacter();
 			character.incrementClassLevel(1, notawarrior);
-			assertEquals(0, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(0, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 			character.incrementClassLevel(1, warrior);
-			assertEquals(5, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(5, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -271,7 +273,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.unconditionallyProcess(notawarrior, "CSKILL", "Concentration");
 		context.unconditionallyProcess(notawarrior, "BONUS",
 				"SKILL|Concentration|5");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		PCClassLoader loader = new PCClassLoader();
 		try
 		{
@@ -280,21 +282,21 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, warrior);
 			loader.completeObject(context, se, notawarrior);
 			PlayerCharacter character = this.getCharacter();
-			assertFalse(notawarrior.qualifies(character, notawarrior));
+			Assert.assertFalse(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior); //Fails
-			assertEquals(0, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(0, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 			character.incrementClassLevel(1, warrior);
-			assertEquals(0, SkillModifier.modifier(concentration, character)
-					.intValue());
-			assertTrue(notawarrior.qualifies(character, notawarrior));
+			Assert.assertEquals(0, SkillModifier.modifier(concentration, character)
+                                                .intValue());
+			Assert.assertTrue(notawarrior.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior);
-			assertEquals(5, SkillModifier.modifier(concentration, character)
-					.intValue());
+			Assert.assertEquals(5, SkillModifier.modifier(concentration, character)
+                                                .intValue());
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -306,7 +308,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		PCClassLevel level1 = warrior.getOriginalClassLevel(1);
 		context.unconditionallyProcess(level1, "SAB",
 				"Test Works|PREVARGTEQ:CL,3");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
@@ -316,18 +318,18 @@ public class PreVarTest extends AbstractCharacterTestCase
 					"file://test"));
 			loader.completeObject(context, se, warrior);
 			List<SpecialAbility> sabList = level1.getListFor(ListKey.SAB);
-			assertNotNull(sabList);
-			assertEquals(1, sabList.size());
+			Assert.assertNotNull(sabList);
+			Assert.assertEquals(1, sabList.size());
 			SpecialAbility sab = sabList.get(0);
-			assertFalse(sab.qualifies(character, warrior));
+			Assert.assertFalse(sab.qualifies(character, warrior));
 			character.incrementClassLevel(1, warrior);
-			assertFalse(sab.qualifies(character, warrior));
+			Assert.assertFalse(sab.qualifies(character, warrior));
 			character.incrementClassLevel(1, warrior);
-			assertTrue(sab.qualifies(character, warrior));
+			Assert.assertTrue(sab.qualifies(character, warrior));
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 
@@ -339,7 +341,7 @@ public class PreVarTest extends AbstractCharacterTestCase
 		context.getReferenceContext().importObject(warrior);
 		context.unconditionallyProcess(warrior, "SAB",
 				"Test Works|PREVARGTEQ:CL,2");
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 		PlayerCharacter character = this.getCharacter();
 		character.incrementClassLevel(1, warrior);
 		PCClassLoader loader = new PCClassLoader();
@@ -350,18 +352,18 @@ public class PreVarTest extends AbstractCharacterTestCase
 			loader.completeObject(context, se, warrior);
 			PCClass notawarrior = loader.getCopy(context, "Warrior", "NotAWarrior", se);
 			List<SpecialAbility> sabList = notawarrior.getListFor(ListKey.SAB);
-			assertNotNull(sabList);
-			assertEquals(1, sabList.size());
+			Assert.assertNotNull(sabList);
+			Assert.assertEquals(1, sabList.size());
 			SpecialAbility sab = sabList.get(0);
-			assertFalse(sab.qualifies(character, notawarrior));
+			Assert.assertFalse(sab.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior);
-			assertFalse(sab.qualifies(character, notawarrior));
+			Assert.assertFalse(sab.qualifies(character, notawarrior));
 			character.incrementClassLevel(1, notawarrior);
-			assertTrue(sab.qualifies(character, notawarrior));
+			Assert.assertTrue(sab.qualifies(character, notawarrior));
 		}
 		catch (URISyntaxException | PersistenceLayerException e)
 		{
-			fail(e.getMessage());
+			Assert.fail(e.getMessage());
 		}
 	}
 }

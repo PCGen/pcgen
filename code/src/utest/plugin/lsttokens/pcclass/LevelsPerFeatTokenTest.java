@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -72,91 +73,91 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("1+3"));
+		Assert.assertFalse(parse("1+3"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNonLevelType() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|Foo=bar"));
+		Assert.assertFalse(parse("4|Foo=bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingLevelType1() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|"));
+		Assert.assertFalse(parse("4|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingLevelType() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|Foo"));
+		Assert.assertFalse(parse("4|Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingLevelType2() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|LEVELTYPE"));
+		Assert.assertFalse(parse("4|LEVELTYPE"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingLevelType3() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|LEVELTYPE="));
+		Assert.assertFalse(parse("4|LEVELTYPE="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingFormula() throws PersistenceLayerException
 	{
-		assertFalse(parse("|LEVELTYPE=Foo"));
+		Assert.assertFalse(parse("|LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTooManyPipes() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|LEVELTYPE=Foo|LEVELTYPE=Bar"));
+		Assert.assertFalse(parse("4|LEVELTYPE=Foo|LEVELTYPE=Bar"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTooManyMiddlePipes() throws PersistenceLayerException
 	{
-		assertFalse(parse("4||LEVELTYPE=Foo"));
+		Assert.assertFalse(parse("4||LEVELTYPE=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidMissingLevelType4() throws PersistenceLayerException
 	{
-		assertFalse(parse("4|=Foo"));
+		Assert.assertFalse(parse("4|=Foo"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidString() throws PersistenceLayerException
 	{
-		assertFalse(parse("String"));
+		Assert.assertFalse(parse("String"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNegative() throws PersistenceLayerException
 	{
-		assertFalse(parse("-1"));
+		Assert.assertFalse(parse("-1"));
 		assertNoSideEffects();
 	}
 
@@ -224,7 +225,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getIntegerKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	protected String[] setAndUnparse(int val)

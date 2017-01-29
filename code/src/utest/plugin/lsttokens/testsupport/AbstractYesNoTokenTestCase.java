@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -39,16 +40,16 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputStringSet() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertTrue(parseSecondary("YES"));
-		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("YES"));
+		Assert.assertTrue(parseSecondary("YES"));
+		Assert.assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
 		internalTestInvalidInputString(Boolean.TRUE);
 		assertNoSideEffects();
 	}
@@ -56,40 +57,40 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 	public void internalTestInvalidInputString(Object val)
 		throws PersistenceLayerException
 	{
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("String"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("TYPE=TestType"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("TYPE.TestType"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("ALL"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("Yo!"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
-		assertFalse(parse("Now"));
-		assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("String"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("TYPE=TestType"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("TYPE.TestType"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("ALL"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("Yo!"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
+		Assert.assertFalse(parse("Now"));
+		Assert.assertEquals(val, primaryProf.get(getObjectKey()));
 	}
 
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("YES"));
-		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
-		assertTrue(parse("NO"));
-		assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("YES"));
+		Assert.assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("NO"));
+		Assert.assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
 		// We're nice enough to be case insensitive here...
-		assertTrue(parse("YeS"));
-		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
-		assertTrue(parse("Yes"));
-		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
-		assertTrue(parse("No"));
-		assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("YeS"));
+		Assert.assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("Yes"));
+		Assert.assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("No"));
+		Assert.assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
 		// Allow abbreviations
-		assertTrue(parse("Y"));
-		assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
-		assertTrue(parse("N"));
-		assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("Y"));
+		Assert.assertEquals(Boolean.TRUE, primaryProf.get(getObjectKey()));
+		Assert.assertTrue(parse("N"));
+		Assert.assertEquals(Boolean.FALSE, primaryProf.get(getObjectKey()));
 	}
 
 	@Test
@@ -133,7 +134,7 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 	{
 		primaryProf.put(getObjectKey(), null);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull(unparsed);
+		Assert.assertNull(unparsed);
 	}
 
 	@SuppressWarnings("unchecked")
@@ -145,7 +146,7 @@ public abstract class AbstractYesNoTokenTestCase<T extends CDOMObject> extends
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

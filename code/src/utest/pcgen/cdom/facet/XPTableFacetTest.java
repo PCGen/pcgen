@@ -17,6 +17,7 @@
  */
 package pcgen.cdom.facet;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.CharID;
@@ -52,7 +53,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, -1));
+		Assert.assertNull(facet.getLevelInfo(id, -1));
 	}
 
 	@Test
@@ -61,14 +62,14 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 0));
+		Assert.assertNull(facet.getLevelInfo(id, 0));
 	}
 
 	@Test
 	public void testGetLevelInfoNoTable()
 	{
 		CharID id = getCharID();
-		assertNull(facet.getLevelInfo(id, 1));
+		Assert.assertNull(facet.getLevelInfo(id, 1));
 	}
 	
 	@Test
@@ -77,7 +78,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		XPTable t1 = getItem();
 		CharID id = getCharID();
 		facet.set(id, t1);
-		assertNull(facet.getLevelInfo(id, 1));
+		Assert.assertNull(facet.getLevelInfo(id, 1));
 	}
 
 	@Test
@@ -89,8 +90,8 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		Assert.assertNotNull(xpt);
+		Assert.assertEquals(li, xpt);
 	}
 
 	@Test
@@ -102,7 +103,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNull(xpt);
+		Assert.assertNull(xpt);
 	}
 	
 	@Test
@@ -114,8 +115,8 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
-		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		Assert.assertNotNull(xpt);
+		Assert.assertEquals(li, xpt);
 	}
 	
 

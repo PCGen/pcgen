@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.Gender;
 import pcgen.core.PlayerCharacter;
@@ -65,17 +67,17 @@ public class PreGenderTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PREGENDER:M");
 
-		assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
+		Assert.assertTrue("Character is Male", PrereqHandler.passes(prereq, character,
 			null));
 
 		prereq = factory.parse("PREGENDER:m");
 
-		assertFalse("Case is significant", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Case is significant", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PREGENDER:Moose");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Requires a full match", PrereqHandler.passes(prereq,
 			character, null));
 	}
 }

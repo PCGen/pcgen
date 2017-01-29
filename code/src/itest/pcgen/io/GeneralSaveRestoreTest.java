@@ -26,6 +26,8 @@ import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.io.testsupport.AbstractSaveRestoreTest;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
@@ -43,35 +45,35 @@ public class GeneralSaveRestoreTest extends AbstractSaveRestoreTest
 		PCTemplate pct = context.getReferenceContext().constructCDOMObject(PCTemplate.class, "Templ");
 		try
 		{
-			assertTrue(context.processToken(a, "MULT", "YES"));
-			assertTrue(context.processToken(a, "STACK", "YES"));
-			assertTrue(context.processToken(a, "CHOOSE", "LANG|English"));
-			assertTrue(context.processToken(a, "AUTO", "LANG|%LIST"));
-			assertTrue(context.processToken(pct, "FEAT", "Ab"));
+			Assert.assertTrue(context.processToken(a, "MULT", "YES"));
+			Assert.assertTrue(context.processToken(a, "STACK", "YES"));
+			Assert.assertTrue(context.processToken(a, "CHOOSE", "LANG|English"));
+			Assert.assertTrue(context.processToken(a, "AUTO", "LANG|%LIST"));
+			Assert.assertTrue(context.processToken(pct, "FEAT", "Ab"));
 		}
 		catch (PersistenceLayerException e)
 		{
-			fail (e.getMessage());
+			Assert.fail (e.getMessage());
 		}
 		finishLoad();
 		pc.addTemplate(pct);
-		assertTrue(pc.hasLanguage(lang));
+		Assert.assertTrue(pc.hasLanguage(lang));
 		runRoundRobin(null);
-		assertTrue(reloadedPC.hasLanguage(lang));
+		Assert.assertTrue(reloadedPC.hasLanguage(lang));
 		List<CNAbility> cnaList = pc.getMatchingCNAbilities(a);
-		assertEquals(1, cnaList.size());
+		Assert.assertEquals(1, cnaList.size());
 		List<String> assocs = pc.getAssociationList(cnaList.get(0));
-		assertEquals(1, assocs.size());
-		assertEquals("English", assocs.get(0));
+		Assert.assertEquals(1, assocs.size());
+		Assert.assertEquals("English", assocs.get(0));
 		cnaList = reloadedPC.getMatchingCNAbilities(a);
-		assertEquals(1, cnaList.size());
+		Assert.assertEquals(1, cnaList.size());
 		assocs = reloadedPC.getAssociationList(cnaList.get(0));
-		assertEquals(1, assocs.size());
-		assertEquals("English", assocs.get(0));
-		assertEquals("Ab(English)", ExportHandler.getTokenString(pc, "TEMPLATE.0.FEAT"));
-		assertEquals("Ab(English)", ExportHandler.getTokenString(reloadedPC, "TEMPLATE.0.FEAT"));
+		Assert.assertEquals(1, assocs.size());
+		Assert.assertEquals("English", assocs.get(0));
+		Assert.assertEquals("Ab(English)", ExportHandler.getTokenString(pc, "TEMPLATE.0.FEAT"));
+		Assert.assertEquals("Ab(English)", ExportHandler.getTokenString(reloadedPC, "TEMPLATE.0.FEAT"));
 		reloadedPC.removeTemplate(pct);
-		assertFalse(reloadedPC.hasLanguage(lang));
+		Assert.assertFalse(reloadedPC.hasLanguage(lang));
 	}
 	
 	

@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.base.CDOMObject;
@@ -82,98 +83,98 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNotANature() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NotANature|,TestWP1"));
+		Assert.assertFalse(parse("FEAT|NotANature|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNotaCategory() throws PersistenceLayerException
 	{
-		assertFalse(parse("NotaCategory|NORMAL|,TestWP1"));
+		Assert.assertFalse(parse("NotaCategory|NORMAL|,TestWP1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidNoAbility() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL"));
+		Assert.assertFalse(parse("FEAT|NORMAL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidCategoryOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT"));
+		Assert.assertFalse(parse("FEAT"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidCategoryBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|"));
+		Assert.assertFalse(parse("FEAT|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyCategory() throws PersistenceLayerException
 	{
-		assertFalse(parse("|NORMAL|Abil"));
+		Assert.assertFalse(parse("|NORMAL|Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyNature() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT||Abil"));
+		Assert.assertFalse(parse("FEAT||Abil"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyAbility() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|"));
+		Assert.assertFalse(parse("FEAT|NORMAL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|PRERACE:1,Human"));
+		Assert.assertFalse(parse("FEAT|NORMAL|PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleBarAbility() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|Abil1||Abil2"));
+		Assert.assertFalse(parse("FEAT|NORMAL|Abil1||Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearDotPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|.CLEAR.Abil1|PRELEVEL:MIN=4"));
+		Assert.assertFalse(parse("FEAT|NORMAL|.CLEAR.Abil1|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidClearPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|.CLEAR|PRELEVEL:MIN=4"));
+		Assert.assertFalse(parse("FEAT|NORMAL|.CLEAR|PRELEVEL:MIN=4"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInsertedPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));
+		Assert.assertFalse(parse("FEAT|NORMAL|Abil1|PRELEVEL:MIN=4|Abil2"));
 		assertNoSideEffects();
 	}
 
@@ -181,28 +182,28 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidDoubleBarStartAbility()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL||Abil1|Abil2"));
+		Assert.assertFalse(parse("FEAT|NORMAL||Abil1|Abil2"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBarEndAbility() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|NORMAL|Abil1|"));
+		Assert.assertFalse(parse("FEAT|NORMAL|Abil1|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidAnyNature() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|ANY|Abil1"));
+		Assert.assertFalse(parse("FEAT|ANY|Abil1"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("FEAT|AUTOMATIC|%LIST|PRERACE:1,Human"));
+		Assert.assertFalse(parse("FEAT|AUTOMATIC|%LIST|PRERACE:1,Human"));
 		assertNoSideEffects();
 	}
 
@@ -373,9 +374,9 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "TestWP2");
 		construct(primaryContext, "TestWP3");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse("Feat|VIRTUAL|TestWP1|TestWP2"));
-		assertTrue(parseSecondary("Feat|VIRTUAL|TestWP1|TestWP2"));
-		assertFalse(parse("Feat|VIRTUAL|TestWP3|TYPE="));
+		Assert.assertTrue(parse("Feat|VIRTUAL|TestWP1|TestWP2"));
+		Assert.assertTrue(parseSecondary("Feat|VIRTUAL|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TestWP3|TYPE="));
 		assertNoSideEffects();
 	}
 
@@ -389,9 +390,9 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "TestWP2");
 		construct(primaryContext, "TestWP3");
 		construct(secondaryContext, "TestWP3");
-		assertTrue(parse("Feat|VIRTUAL|TestWP1|TestWP2"));
-		assertTrue(parseSecondary("Feat|VIRTUAL|TestWP1|TestWP2"));
-		assertFalse(parse("Feat|VIRTUAL|TestWP3|.CLEAR.TestWP1|.CLEAR.TYPE="));
+		Assert.assertTrue(parse("Feat|VIRTUAL|TestWP1|TestWP2"));
+		Assert.assertTrue(parseSecondary("Feat|VIRTUAL|TestWP1|TestWP2"));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TestWP3|.CLEAR.TestWP1|.CLEAR.TYPE="));
 		assertNoSideEffects();
 	}
 
@@ -444,7 +445,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE=TestType|TestWP2"));
+		Assert.assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE=TestType|TestWP2"));
 		assertConstructionError();
 	}
 
@@ -455,14 +456,14 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		// Explicitly do NOT build TestWP2 (this checks that the TYPE= doesn't
 		// consume the |
 		construct(primaryContext, "TestWP1");
-		assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE.TestType.OtherTestType|TestWP2"));
+		Assert.assertTrue(parse("Feat|VIRTUAL|TestWP1|TYPE.TestType.OtherTestType|TestWP2"));
 		assertConstructionError();
 	}
 
 	@Test
 	public void testInvalidInputTypeEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("Feat|VIRTUAL|TYPE="));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TYPE="));
 		assertNoSideEffects();
 	}
 
@@ -470,7 +471,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputTypeUnterminated()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Feat|VIRTUAL|TYPE=One."));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TYPE=One."));
 		assertNoSideEffects();
 	}
 
@@ -478,7 +479,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputTypeDoubleSeparator()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Feat|VIRTUAL|TYPE=One..Two"));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TYPE=One..Two"));
 		assertNoSideEffects();
 	}
 
@@ -486,7 +487,7 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidInputTypeFalseStart()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("Feat|VIRTUAL|TYPE=.One"));
+		Assert.assertFalse(parse("Feat|VIRTUAL|TYPE=.One"));
 		assertNoSideEffects();
 	}
 
@@ -521,8 +522,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertTrue(parse("FEAT|VIRTUAL|TestWP1"));
-		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|TestWP1"));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
 		assertNoSideEffects();
 	}
 
@@ -532,9 +533,9 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()
+		Assert.assertTrue(parse("FEAT|VIRTUAL|" + getClearString()
 			+ getJoinCharacter() + "TestWP1"));
-		assertTrue(parseSecondary("FEAT|VIRTUAL|TestWP1"));
+		Assert.assertTrue(parseSecondary("FEAT|VIRTUAL|TestWP1"));
 		assertNoSideEffects();
 	}
 
@@ -543,8 +544,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 	{
 		construct(primaryContext, "TestWP1");
 		construct(secondaryContext, "TestWP1");
-		assertTrue(parse("FEAT|VIRTUAL|TestWP1(%LIST)"));
-		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|TestWP1(%LIST)"));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
 		assertNoSideEffects();
 	}
 
@@ -555,8 +556,8 @@ public class AbilityLstTest extends AbstractGlobalTokenTestCase
 		construct(secondaryContext, "TestWP1");
 		construct(primaryContext, "TestWP2");
 		construct(secondaryContext, "TestWP2");
-		assertTrue(parse("FEAT|VIRTUAL|TestWP2|TestWP1(%LIST)"));
-		assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|TestWP2|TestWP1(%LIST)"));
+		Assert.assertTrue(parse("FEAT|VIRTUAL|" + getClearString()));
 		assertNoSideEffects();
 	}
 

@@ -19,6 +19,7 @@ package plugin.lsttokens.skill;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.BeforeClass;
 import org.junit.Test;
@@ -82,28 +83,28 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLeadingBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Wizard"));
+		Assert.assertFalse(parse("|Wizard"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTrailingBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("Wizard|"));
+		Assert.assertFalse(parse("Wizard|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNegationMix() throws PersistenceLayerException
 	{
-		assertFalse(parse("Wizard|!Sorcerer"));
+		Assert.assertFalse(parse("Wizard|!Sorcerer"));
 		assertNoSideEffects();
 	}
 
@@ -111,14 +112,14 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	public void testInvalidInputNegationMixTwo()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("!Wizard|Sorcerer"));
+		Assert.assertFalse(parse("!Wizard|Sorcerer"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("Wizard||Sorcerer"));
+		Assert.assertFalse(parse("Wizard||Sorcerer"));
 		assertNoSideEffects();
 	}
 
@@ -147,7 +148,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testInvalidInputNotClass() throws PersistenceLayerException
 	{
-		assertTrue(parse("Wizard"));
+		Assert.assertTrue(parse("Wizard"));
 		assertConstructionError();
 	}
 
@@ -155,7 +156,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	public void testInvalidInputNotClassCompound()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse("Wizard|Sorcerer"));
+		Assert.assertTrue(parse("Wizard|Sorcerer"));
 		assertConstructionError();
 	}
 
@@ -164,7 +165,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	{
 		try
 		{
-			assertFalse(parse("Wizard|ALL"));
+			Assert.assertFalse(parse("Wizard|ALL"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -179,7 +180,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	{
 		try
 		{
-			assertFalse(parse("!Wizard|ALL"));
+			Assert.assertFalse(parse("!Wizard|ALL"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -192,21 +193,21 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	public void testInvalidInputNegativeAll() throws PersistenceLayerException
 	{
 		// This technically gets caught by the PRECLASS parser...
-		assertFalse(parse("!ALL"));
+		Assert.assertFalse(parse("!ALL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNonSensicalAll() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALL|!ALL"));
+		Assert.assertFalse(parse("ALL|!ALL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNonSensicalAllSpecific() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALL|Wizard"));
+		Assert.assertFalse(parse("ALL|Wizard"));
 		assertNoSideEffects();
 	}
 
@@ -222,7 +223,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
 		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -232,7 +233,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinNegated() throws PersistenceLayerException
 	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
 		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -242,7 +243,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinPipe() throws PersistenceLayerException
 	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
 		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");
@@ -256,7 +257,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Test
 	public void testRoundRobinNegatedPipe() throws PersistenceLayerException
 	{
-		assertEquals(0, primaryContext.getWriteMessageCount());
+		Assert.assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Wizard");
 		secondaryContext.getReferenceContext()
 				.constructCDOMObject(ClassSkillList.class, "Wizard");

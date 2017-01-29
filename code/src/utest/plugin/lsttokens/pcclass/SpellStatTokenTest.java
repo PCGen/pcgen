@@ -19,6 +19,7 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -80,7 +81,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		if (parse("NAN"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -93,7 +94,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		if (parse("STR,INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -106,7 +107,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		if (parse("STR|INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -119,7 +120,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	{
 		if (parse("STR.INT"))
 		{
-			assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
+			Assert.assertFalse(primaryContext.getReferenceContext().resolveReferences(null));
 		}
 		else
 		{
@@ -227,7 +228,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
@@ -244,7 +245,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -301,7 +302,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -351,7 +352,7 @@ public class SpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

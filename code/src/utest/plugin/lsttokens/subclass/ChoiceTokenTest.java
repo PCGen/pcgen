@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.subclass;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -57,70 +58,70 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputOnlyType() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOL"));
+		Assert.assertFalse(parse("SCHOOL"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoValue() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOL|"));
+		Assert.assertFalse(parse("SCHOOL|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNoType() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Good"));
+		Assert.assertFalse(parse("|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputLeadingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("|SCHOOL|Good"));
+		Assert.assertFalse(parse("|SCHOOL|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTrailingPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOL|Good|"));
+		Assert.assertFalse(parse("SCHOOL|Good|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputDoublPipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOL||Good"));
+		Assert.assertFalse(parse("SCHOOL||Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputTripleContent() throws PersistenceLayerException
 	{
-		assertFalse(parse("SCHOOL|Bad|Good"));
+		Assert.assertFalse(parse("SCHOOL|Bad|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputNotAType() throws PersistenceLayerException
 	{
-		assertFalse(parse("NOTATYPE|Good"));
+		Assert.assertFalse(parse("NOTATYPE|Good"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidInputIllegalType() throws PersistenceLayerException
 	{
-		assertFalse(parse("ALIGNMENT|LawfulGood"));
+		Assert.assertFalse(parse("ALIGNMENT|LawfulGood"));
 		assertNoSideEffects();
 	}
 
@@ -160,7 +161,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getObjectKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private ObjectKey<SpellProhibitor> getObjectKey()
@@ -209,7 +210,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{

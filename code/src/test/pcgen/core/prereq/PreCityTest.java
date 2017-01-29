@@ -24,6 +24,8 @@ package pcgen.core.prereq;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.textui.TestRunner;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.enumeration.PCAttribute;
 import pcgen.core.PlayerCharacter;
@@ -65,17 +67,17 @@ public class PreCityTest extends AbstractCharacterTestCase
 		final PreParserFactory factory = PreParserFactory.getInstance();
 		prereq = factory.parse("PRECITY:Klamath");
 
-		assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Character is from Klamath", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PRECITY:KLAMATH");
 
-		assertTrue("Case is not significant", PrereqHandler.passes(prereq,
+		Assert.assertTrue("Case is not significant", PrereqHandler.passes(prereq,
 			character, null));
 
 		prereq = factory.parse("PRECITY:Klam");
 
-		assertFalse("Requires a full match", PrereqHandler.passes(prereq,
+		Assert.assertFalse("Requires a full match", PrereqHandler.passes(prereq,
 			character, null));
 	}
 }

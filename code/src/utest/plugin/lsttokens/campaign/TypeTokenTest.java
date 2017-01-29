@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.campaign;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.Campaign;
@@ -60,42 +61,42 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	@Test
 	public void testInvalidListEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse("."));
+		Assert.assertFalse(parse("."));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListTrailing() throws PersistenceLayerException
 	{
-		assertFalse(parse("Type."));
+		Assert.assertFalse(parse("Type."));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListLeading() throws PersistenceLayerException
 	{
-		assertFalse(parse(".Type"));
+		Assert.assertFalse(parse(".Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListDouble() throws PersistenceLayerException
 	{
-		assertFalse(parse("One..Type"));
+		Assert.assertFalse(parse("One..Type"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidListTooMany() throws PersistenceLayerException
 	{
-		assertFalse(parse("One.Two.Three.Oops"));
+		Assert.assertFalse(parse("One.Two.Three.Oops"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 

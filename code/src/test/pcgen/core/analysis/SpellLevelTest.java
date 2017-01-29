@@ -45,6 +45,8 @@ import pcgen.persistence.lst.PCClassLoader;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
  * 
@@ -96,22 +98,22 @@ public class SpellLevelTest extends AbstractCharacterTestCase
 		context.getReferenceContext().buildDeferredObjects();
 		context.getReferenceContext().buildDerivedObjects();
 		context.getReferenceContext().validate(null);
-		assertTrue(context.getReferenceContext().resolveReferences(null));
+		Assert.assertTrue(context.getReferenceContext().resolveReferences(null));
 
 		PlayerCharacter aPC = getCharacter();
 
 		Collection<Integer> levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Initial number of spell levels incorrect", 0, levels.size());
+		Assert.assertEquals("Initial number of spell levels incorrect", 0, levels.size());
 		
 		addAbility(AbilityCategory.FEAT, ab1);
 
 		// Now for the tests
 		levels = listManagerFacet.getScopes2(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST));
-		assertEquals("Incorrect number of spell levels returned", 1, levels.size());
-		assertEquals("Incorrect spell level returned", Integer.valueOf(3), levels.iterator().next());
+		Assert.assertEquals("Incorrect number of spell levels returned", 1, levels.size());
+		Assert.assertEquals("Incorrect spell level returned", Integer.valueOf(3), levels.iterator().next());
 		Collection<Spell> result = listManagerFacet.getSet(aPC.getCharID(), pcc.get(ObjectKey.CLASS_SPELLLIST), 3);
-		assertEquals("Incorrect number of spells returned", 1, result.size());
-		assertEquals("Incorrect spell returned", spell, result.iterator().next());
+		Assert.assertEquals("Incorrect number of spells returned", 1, result.size());
+		Assert.assertEquals("Incorrect spell returned", spell, result.iterator().next());
 		
 	}
 

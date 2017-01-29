@@ -19,6 +19,7 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -85,28 +86,28 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellbookOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook"));
+		Assert.assertFalse(parse("SpellBook"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellbookBarOnly() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|"));
+		Assert.assertFalse(parse("SpellBook|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptySpellbook() throws PersistenceLayerException
 	{
-		assertFalse(parse("|Fireball"));
+		Assert.assertFalse(parse("|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -114,7 +115,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidSpellbookAndSpellBarOnly()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|Fireball|"));
+		Assert.assertFalse(parse("SpellBook|Fireball|"));
 		assertNoSideEffects();
 	}
 
@@ -122,42 +123,42 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	public void testInvalidSpellCommaStarting()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|,Fireball"));
+		Assert.assertFalse(parse("SpellBook|,Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellCommaEnding() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|Fireball,"));
+		Assert.assertFalse(parse("SpellBook|Fireball,"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellDoubleComma() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|Fireball,,DCFormula"));
+		Assert.assertFalse(parse("SpellBook|Fireball,,DCFormula"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|Fireball||Lightning Bolt"));
+		Assert.assertFalse(parse("SpellBook|Fireball||Lightning Bolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidSpellEmbeddedPre() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|Fireball|PRERACE:1,Human|Lightning Bolt"));
+		Assert.assertFalse(parse("SpellBook|Fireball|PRERACE:1,Human|Lightning Bolt"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadTimes() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMES=|Fireball"));
+		Assert.assertFalse(parse("SpellBook|TIMES=|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -166,7 +167,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellBook|TIMES=3"));
+			Assert.assertFalse(parse("SpellBook|TIMES=3"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -178,7 +179,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidOnlyTimesBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMES=3|"));
+		Assert.assertFalse(parse("SpellBook|TIMES=3|"));
 		assertNoSideEffects();
 	}
 
@@ -187,7 +188,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellBook|CASTERLEVEL=3"));
+			Assert.assertFalse(parse("SpellBook|CASTERLEVEL=3"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -199,14 +200,14 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmptyTimeUnit() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMEUNIT=|Fireball"));
+		Assert.assertFalse(parse("SpellBook|TIMEUNIT=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoTimeUnit() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMEUNIT=Hour|TIMEUNIT=Day|Fireball"));
+		Assert.assertFalse(parse("SpellBook|TIMEUNIT=Hour|TIMEUNIT=Day|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -223,7 +224,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellBook|TIMEUNIT=Day"));
+			Assert.assertFalse(parse("SpellBook|TIMEUNIT=Day"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -235,49 +236,49 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testInvalidEmptyTimes() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMES=|Fireball"));
+		Assert.assertFalse(parse("SpellBook|TIMES=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyCasterLevel() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
+		Assert.assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoTimes() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|TIMES=3|TIMES=4|Fireball"));
+		Assert.assertFalse(parse("SpellBook|TIMES=3|TIMES=4|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidTwoCasterLevel() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|CASTERLEVEL=3|CASTERLEVEL=4|Fireball"));
+		Assert.assertFalse(parse("SpellBook|CASTERLEVEL=3|CASTERLEVEL=4|Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyLevelBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|CASTERLEVEL=3|"));
+		Assert.assertFalse(parse("SpellBook|CASTERLEVEL=3|"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoubleBar() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook||Fireball"));
+		Assert.assertFalse(parse("SpellBook||Fireball"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadCasterLevel() throws PersistenceLayerException
 	{
-		assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
+		Assert.assertFalse(parse("SpellBook|CASTERLEVEL=|Fireball"));
 		assertNoSideEffects();
 	}
 
@@ -300,7 +301,7 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	{
 		try
 		{
-			assertFalse(parse("SpellBook|TIMES=2|PRERACE:1,Human"));
+			Assert.assertFalse(parse("SpellBook|TIMES=2|PRERACE:1,Human"));
 		}
 		catch (IllegalArgumentException iae)
 		{
@@ -390,13 +391,13 @@ public class SpellsLstTest extends AbstractGlobalTokenTestCase
 	@Test
 	public void testValidClear() throws PersistenceLayerException
 	{
-		assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
+		Assert.assertTrue(parse(Constants.LST_DOT_CLEAR_ALL));
 	}
 
 	@Test
 	public void testInvalidChainedClear() throws PersistenceLayerException
 	{
-		assertFalse(parse(Constants.LST_DOT_CLEAR_ALL + "|" + getLegalValue()));
+		Assert.assertFalse(parse(Constants.LST_DOT_CLEAR_ALL + "|" + getLegalValue()));
 		assertNoSideEffects();
 	}
 

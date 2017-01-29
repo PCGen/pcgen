@@ -20,9 +20,9 @@ package plugin.function;
 import java.util.ArrayList;
 import java.util.List;
 
+import org.junit.Assert;
 import org.junit.Test;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formatmanager.SimpleFormatManagerLibrary;
 import pcgen.base.formula.base.EvaluationManager;
@@ -311,7 +311,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		semanticsVisitor.visit(node, semantics);
 		if (semantics.isValid())
 		{
-			TestCase.fail("Expected Invalid Formula: " + formula);
+			Assert.fail("Expected Invalid Formula: " + formula);
 		}
 	}
 
@@ -351,7 +351,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		Assert.assertTrue(rv.toString().equals(formula));
 	}
 
 	@Test
@@ -393,7 +393,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (result instanceof Number)
 		{
-			TestCase.fail(
+			Assert.fail(
 				"Expected Invalid result, should have been a string due to invalid column: "
 					+ result);
 		}
@@ -438,7 +438,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		Object result = new EvaluateVisitor().visit(node, manager);
 		if (!result.equals(0))
 		{
-			TestCase.fail(
+			Assert.fail(
 				"Expected Invalid result, should have been zero due to invalid column: "
 					+ result);
 		}

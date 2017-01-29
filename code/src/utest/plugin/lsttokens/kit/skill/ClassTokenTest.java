@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.skill;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.core.PCClass;
@@ -54,7 +55,7 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("Fireball"));
+		Assert.assertTrue(parse("Fireball"));
 		assertConstructionError();
 	}
 
@@ -65,7 +66,7 @@ public class ClassTokenTest extends AbstractKitTokenTestCase<KitSkill>
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fireball");
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "English");
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "English");
-		assertTrue(parse("Fireball,English"));
+		Assert.assertTrue(parse("Fireball,English"));
 		assertConstructionError();
 	}
 

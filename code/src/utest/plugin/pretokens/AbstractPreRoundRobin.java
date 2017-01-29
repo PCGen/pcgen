@@ -31,6 +31,8 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
 public abstract class AbstractPreRoundRobin extends TestCase
@@ -68,11 +70,11 @@ public abstract class AbstractPreRoundRobin extends TestCase
 					.getInstance().getWriter(p.getKind());
 			if (writer == null)
 			{
-				fail("Could not find Writer for: " + p.getKind());
+				Assert.fail("Could not find Writer for: " + p.getKind());
 			}
 			StringWriter w = new StringWriter();
 			writer.write(w, p);
-			assertEquals(d, w.toString());
+			Assert.assertEquals(d, w.toString());
 			/*
 			 * Now try new system
 			 */
@@ -89,22 +91,22 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			{
 				context.rollback();
 				Logging.replayParsedMessages();
-				fail();
+				Assert.fail();
 			}
 			Logging.clearParseMessages();
 			Collection<String> output = context.unparse(obj);
 			if (output == null || output.isEmpty())
 			{
 				// Uh Oh
-				fail("Unable to unparse: " + key + ":" + value);
+				Assert.fail("Unable to unparse: " + key + ":" + value);
 			}
-			assertEquals(1, output.size());
-			assertEquals(d, output.iterator().next());
+			Assert.assertEquals(1, output.size());
+			Assert.assertEquals(d, output.iterator().next());
 		}
 		catch (PersistenceLayerException e)
 		{
 			e.printStackTrace();
-			fail(e.getLocalizedMessage());
+			Assert.fail(e.getLocalizedMessage());
 		}
 	}
 

@@ -22,6 +22,7 @@
  */
 package pcgen.gui2.facade;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -55,11 +56,11 @@ public class CharacterFacadeImplTest extends AbstractCharacterTestCase
 		PlayerCharacter pc = new PlayerCharacter();
 		CharacterFacadeImpl charFacade =
 				new CharacterFacadeImpl(pc, uiDelegate, dataset);
-		assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
+		Assert.assertNotNull("Unable to create CharacterFacadeImpl", charFacade);
 		EquipSet defaultEquipSet =
 				pc.getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
-		assertNotNull("Unable to find default equip set", defaultEquipSet);
-		assertEquals("Incorrect id of the default equip set",
+		Assert.assertNotNull("Unable to find default equip set", defaultEquipSet);
+		Assert.assertEquals("Incorrect id of the default equip set",
 			EquipSet.DEFAULT_SET_PATH, defaultEquipSet.getIdPath());
 	}
 	

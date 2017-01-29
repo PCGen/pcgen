@@ -31,6 +31,8 @@ import java.util.List;
 import java.util.Locale;
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
@@ -150,7 +152,7 @@ public class BioSetTest extends AbstractCharacterTestCase
 			{
 				final Object baseElem = baseIter.next();
 				final Object newElem = newIter.next();
-				assertEquals("Comparison of " + testArg + " values (b,n).",
+				Assert.assertEquals("Comparison of " + testArg + " values (b,n).",
 					baseElem, newElem);
 			}
 		}
@@ -179,25 +181,25 @@ public class BioSetTest extends AbstractCharacterTestCase
 			currBioSet.randomize("AGECAT" + ageCat, pc);
 			final int age = pc.getDisplay().getAge();
 			//System.out.println("Age for cat " + ageCat + " is " + age + ".");
-			assertTrue("Generated age " + age + " is not between "
+			Assert.assertTrue("Generated age " + age + " is not between "
 				+ BASE_AGE[ageCat] + " and " + MAX_AGE[ageCat],
 				(age >= BASE_AGE[ageCat] && age <= MAX_AGE[ageCat]));
 		}
 		LocaleDependentTestCase.before(Locale.US);
 		currBioSet.randomize("AGE.HT.WT.EYES.HAIR.SKIN", pc);
 		LocaleDependentTestCase.after();
-		assertTrue("Generated height " + pc.getDisplay().getHeight()
+		Assert.assertTrue("Generated height " + pc.getDisplay().getHeight()
 			+ " is not in required range.", (pc.getDisplay().getHeight() >= 58 && pc
 					.getDisplay().getHeight() <= 78));
-		assertTrue("Generated weight " + pc.getDisplay().getWeight()
+		Assert.assertTrue("Generated weight " + pc.getDisplay().getWeight()
 			+ " is not in required range.", (pc.getDisplay().getWeight() >= 120 && pc
 					.getDisplay().getWeight() <= 280));
-		assertTrue("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
+		Assert.assertTrue("Generated eye colour " + pc.getSafeStringFor(PCStringKey.EYECOLOR)
 			+ " is not valid.", ("Blue".equals(pc.getSafeStringFor(PCStringKey.EYECOLOR))));
-		assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
+		Assert.assertTrue("Generated hair colour " + pc.getSafeStringFor(PCStringKey.HAIRCOLOR)
 			+ " is not valid.", ("Blond".equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR)) || "Brown"
 			.equals(pc.getSafeStringFor(PCStringKey.HAIRCOLOR))));
-		assertTrue("Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
+		Assert.assertTrue("Generated skin colour " + pc.getSafeStringFor(PCStringKey.SKINCOLOR)
 			+ " is not valid.", ("Pasty".equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR)) || "Tanned"
 			.equals(pc.getSafeStringFor(PCStringKey.SKINCOLOR))));
 	}
@@ -214,23 +216,23 @@ public class BioSetTest extends AbstractCharacterTestCase
 		pc.setRace(human);
 		pc.setPCAttribute(NumericPCAttribute.AGE, 12);
 		int idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		Assert.assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 17);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
+		Assert.assertEquals("Ageset for " + display.getAge() + ".", 0, idx);
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 36);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
+		Assert.assertEquals("Ageset for " + display.getAge() + ".", 1, idx);
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 54);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
+		Assert.assertEquals("Ageset for " + display.getAge() + ".", 2, idx);
 
 		pc.setPCAttribute(NumericPCAttribute.AGE, 72);
 		idx = display.getAgeSetIndex();
-		assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
+		Assert.assertEquals("Ageset for " + display.getAge() + ".", 3, idx);
 
 		SettingsHandler.getGame().getBioSet().getAgeSet(Region.getConstant(pc.getDisplay().getRegionString()), idx);
 

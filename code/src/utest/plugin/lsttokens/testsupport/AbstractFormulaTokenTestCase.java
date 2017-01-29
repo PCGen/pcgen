@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.testsupport;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.Formula;
@@ -32,14 +33,14 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	@Test
 	public void testValidInputs() throws PersistenceLayerException
 	{
-		assertTrue(parse("Variable1"));
-		assertEquals("Variable1", getFormula().toString());
-		assertTrue(parse("3"));
-		assertEquals("3", getFormula().toString());
-		assertTrue(parse("3+CL(\"Fighter\")"));
-		assertEquals("3+CL(\"Fighter\")", getFormula().toString());
-		assertTrue(parse("if(var(\"SIZE==3||SIZE==4\"),5,0)"));
-		assertEquals("if(var(\"SIZE==3||SIZE==4\"),5,0)", getFormula().toString());
+		Assert.assertTrue(parse("Variable1"));
+		Assert.assertEquals("Variable1", getFormula().toString());
+		Assert.assertTrue(parse("3"));
+		Assert.assertEquals("3", getFormula().toString());
+		Assert.assertTrue(parse("3+CL(\"Fighter\")"));
+		Assert.assertEquals("3+CL(\"Fighter\")", getFormula().toString());
+		Assert.assertTrue(parse("if(var(\"SIZE==3||SIZE==4\"),5,0)"));
+		Assert.assertEquals("if(var(\"SIZE==3||SIZE==4\"),5,0)", getFormula().toString());
 	}
 
 	protected Formula getFormula()
@@ -54,7 +55,7 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	{
 		try
 		{
-			assertFalse(parse(""));
+			Assert.assertFalse(parse(""));
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -109,7 +110,7 @@ public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.put(getFormulaKey(), null);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	private void setAndUnparseMatch(Formula val)

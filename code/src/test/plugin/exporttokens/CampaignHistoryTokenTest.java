@@ -27,6 +27,7 @@ import java.io.File;
 import java.io.IOException;
 import java.io.StringWriter;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -75,24 +76,24 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
-		assertEquals("Field Campaign", visibleEntry.getCampaign(),
+		Assert.assertEquals("Field Campaign", visibleEntry.getCampaign(),
 			evaluateToken("CAMPAIGNHISTORY.0.CAMPAIGN", character));
-		assertEquals("Field ADVENTURE", visibleEntry.getAdventure(),
+		Assert.assertEquals("Field ADVENTURE", visibleEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.0.ADVENture", character));
-		assertEquals("Field PARTY", visibleEntry.getParty(),
+		Assert.assertEquals("Field PARTY", visibleEntry.getParty(),
 			evaluateToken("CAMPAIGNHISTORY.0.PARTY", character));
-		assertEquals("Field DATE", visibleEntry.getDate(),
+		Assert.assertEquals("Field DATE", visibleEntry.getDate(),
 			evaluateToken("CAMPAIGNHISTORY.0.DATE", character));
-		assertEquals("Field XP", visibleEntry.getXpField(),
+		Assert.assertEquals("Field XP", visibleEntry.getXpField(),
 			Integer.parseInt(evaluateToken("CAMPAIGNHISTORY.0.XP", character)));
-		assertEquals("Field GM", visibleEntry.getGmField(),
+		Assert.assertEquals("Field GM", visibleEntry.getGmField(),
 			evaluateToken("CAMPAIGNHISTORY.0.GM", character));
-		assertEquals("Field Text", visibleEntry.getChronicle(),
+		Assert.assertEquals("Field Text", visibleEntry.getChronicle(),
 			evaluateToken("CAMPAIGNHISTORY.0.TEXT", character));
-		assertEquals("Default field", visibleEntry.getChronicle(),
+		Assert.assertEquals("Default field", visibleEntry.getChronicle(),
 			evaluateToken("CAMPAIGNHISTORY.0", character));
 
-		assertEquals("Invalid field", "",
+		Assert.assertEquals("Invalid field", "",
 			evaluateToken("CAMPAIGNHISTORY.0.LALALA", character));
 	}
 
@@ -102,27 +103,27 @@ public class CampaignHistoryTokenTest  extends AbstractCharacterTestCase
 	{
 		FileAccess.setCurrentOutputFilter("xml");
 		PlayerCharacter character = getCharacter();
-		assertEquals("Default visibility", visibleEntry.getAdventure(),
+		Assert.assertEquals("Default visibility", visibleEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.0.ADVENTURE", character));
-		assertEquals("Default visibility", "",
+		Assert.assertEquals("Default visibility", "",
 			evaluateToken("CAMPAIGNHISTORY.1.ADVENTURE", character));
 
-		assertEquals("Hidden visibility", hiddenEntry.getAdventure(),
+		Assert.assertEquals("Hidden visibility", hiddenEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.HIDDEN.0.ADVENTURE", character));
-		assertEquals("Hidden visibility", "",
+		Assert.assertEquals("Hidden visibility", "",
 			evaluateToken("CAMPAIGNHISTORY.HIDDEN.1.ADVENTURE", character));
 
-		assertEquals("All visibility", visibleEntry.getAdventure(),
+		Assert.assertEquals("All visibility", visibleEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.ALL.0.ADVENTURE", character));
-		assertEquals("All visibility", hiddenEntry.getAdventure(),
+		Assert.assertEquals("All visibility", hiddenEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.ALL.1.ADVENTURE", character));
 
-		assertEquals("Visible visibility", visibleEntry.getAdventure(),
+		Assert.assertEquals("Visible visibility", visibleEntry.getAdventure(),
 			evaluateToken("CAMPAIGNHISTORY.VISIBLE.0.ADVENTURE", character));
-		assertEquals("Visible visibility", "",
+		Assert.assertEquals("Visible visibility", "",
 			evaluateToken("CAMPAIGNHISTORY.VISIBLE.1.ADVENTURE", character));
 
-		assertEquals("Invalid visibility", "",
+		Assert.assertEquals("Invalid visibility", "",
 			evaluateToken("CAMPAIGNHISTORY.LALALA.0.ADVENTURE", character));
 	}
 

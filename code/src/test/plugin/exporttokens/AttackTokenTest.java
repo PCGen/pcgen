@@ -25,6 +25,8 @@ package plugin.exporttokens;
 
 import junit.framework.Test;
 import junit.framework.TestSuite;
+import org.junit.Assert;
+
 import pcgen.AbstractCharacterTestCase;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
@@ -106,10 +108,10 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 	 */
 	public void testBase() throws Exception
 	{
-		assertEquals("Total melee attack no bonus", "+2", new AttackToken()
+		Assert.assertEquals("Total melee attack no bonus", "+2", new AttackToken()
 			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
 
-		assertEquals("Total melee attack no bonus short", "+2",
+		Assert.assertEquals("Total melee attack no bonus short", "+2",
 			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
 				getCharacter(), null));
 	}
@@ -123,10 +125,10 @@ public class AttackTokenTest extends AbstractCharacterTestCase
 		getCharacter().incrementClassLevel(1, myClass, true);
 		getCharacter().calcActiveBonuses();
 
-		assertEquals("Total melee attack no bonus", "+8/+3", new AttackToken()
+		Assert.assertEquals("Total melee attack no bonus", "+8/+3", new AttackToken()
 			.getToken("ATTACK.MELEE.TOTAL", getCharacter(), null));
 
-		assertEquals("Total melee attack no bonus short", "+8",
+		Assert.assertEquals("Total melee attack no bonus short", "+8",
 			new AttackToken().getToken("ATTACK.MELEE.TOTAL.SHORT",
 				getCharacter(), null));
 	}

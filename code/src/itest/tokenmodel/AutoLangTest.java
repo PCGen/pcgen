@@ -22,6 +22,8 @@ import pcgen.cdom.facet.model.LanguageFacet;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import tokenmodel.testsupport.AbstractGrantedListTokenTest;
 
 public class AutoLangTest extends AbstractGrantedListTokenTest<Language>
@@ -34,7 +36,7 @@ public class AutoLangTest extends AbstractGrantedListTokenTest<Language>
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

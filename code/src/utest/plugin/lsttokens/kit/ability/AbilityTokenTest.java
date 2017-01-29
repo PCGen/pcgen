@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.kit.ability;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
@@ -57,7 +58,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidInputEmptyCount() throws PersistenceLayerException
 	{
-		assertTrue(parse("CATEGORY=FEAT|Fireball"));
+		Assert.assertTrue(parse("CATEGORY=FEAT|Fireball"));
 		assertConstructionError();
 	}
 
@@ -106,7 +107,7 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidListEnd() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
+		Assert.assertFalse(parse("CATEGORY=FEAT|TestWP1" + getJoinCharacter()));
 	}
 
 	private char getJoinCharacter()
@@ -117,13 +118,13 @@ public class AbilityTokenTest extends AbstractKitTokenTestCase<KitAbilities>
 	@Test
 	public void testInvalidListStart() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
+		Assert.assertFalse(parse("CATEGORY=FEAT|" + getJoinCharacter() + "TestWP1"));
 	}
 
 	@Test
 	public void testInvalidListDoubleJoin() throws PersistenceLayerException
 	{
-		assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
+		Assert.assertFalse(parse("CATEGORY=FEAT|TestWP2" + getJoinCharacter() + getJoinCharacter()
 				+ "TestWP1"));
 	}
 

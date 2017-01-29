@@ -17,6 +17,7 @@
  */
 package tokenmodel;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.cdom.facet.FacetLibrary;
@@ -45,15 +46,15 @@ public class PCClassLangbonusTest extends AbstractTokenModelTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
-		assertEquals(0, startingLanguageFacet.getCount(id));
+		Assert.assertEquals(0, startingLanguageFacet.getCount(id));
 		classFacet.addClass(id, source);
-		assertTrue(startingLanguageFacet.contains(id, granted));
-		assertEquals(1, startingLanguageFacet.getCount(id));
+		Assert.assertTrue(startingLanguageFacet.contains(id, granted));
+		Assert.assertEquals(1, startingLanguageFacet.getCount(id));
 		classFacet.removeClass(id, source);
-		assertEquals(0, startingLanguageFacet.getCount(id));
+		Assert.assertEquals(0, startingLanguageFacet.getCount(id));
 	}
 
 	@Override

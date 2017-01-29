@@ -39,6 +39,8 @@ import pcgen.core.Skill;
 import pcgen.core.analysis.SkillRankControl;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.TestHelper;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.parser.PreClassParser;
@@ -138,7 +140,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PreMult test = new PreMult();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
+		Assert.assertEquals(1, passes);
 	}
 
 	/**
@@ -195,30 +197,30 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 		final PreMult test = new PreMult();
 		int passes = test.passes(prereq, character, null);
-		assertEquals("No feats should not pass", 0, passes);
+		Assert.assertEquals("No feats should not pass", 0, passes);
 
 		addAbility(AbilityCategory.FEAT, metamagic1);
 		passes = test.passes(prereq, character, null);
-		assertEquals("One feat should not pass", 0, passes);
+		Assert.assertEquals("One feat should not pass", 0, passes);
 
 		addAbility(AbilityCategory.FEAT, metamagic2);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Two feats should not pass", 0, passes);
+		Assert.assertEquals("Two feats should not pass", 0, passes);
 
 		addAbility(AbilityCategory.FEAT, metamagic3);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Three feats should pass", 1, passes);
+		Assert.assertEquals("Three feats should pass", 1, passes);
 
 		removeAbility(AbilityCategory.FEAT, metamagic3);
 		addAbility(AbilityCategory.FEAT, item1);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Three feats should pass", 1, passes);
+		Assert.assertEquals("Three feats should pass", 1, passes);
 
 		addAbility(AbilityCategory.FEAT, item2);
 		addAbility(AbilityCategory.FEAT, item3);
 		addAbility(AbilityCategory.FEAT, metamagic3);
 		passes = test.passes(prereq, character, null);
-		assertEquals("Six feats should pass", 1, passes);
+		Assert.assertEquals("Six feats should pass", 1, passes);
 
 		removeAbility(AbilityCategory.FEAT, metamagic3);
 		removeAbility(AbilityCategory.FEAT, item3);
@@ -243,7 +245,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 					false, false);
 		final PlayerCharacter character = getCharacter();
 		boolean passes = PrereqHandler.passes(prereq, character, null);
-		assertFalse("Should not pass 2 knowledge skill test with 1 skill",
+		Assert.assertFalse("Should not pass 2 knowledge skill test with 1 skill",
 			passes);
 
 		final Skill extraKnow = new Skill();
@@ -253,6 +255,6 @@ public class PreMultTest extends AbstractCharacterTestCase
 		SkillRankControl.modRanks(5.0, myClass, true, character, extraKnow);
 
 		passes = PrereqHandler.passes(prereq, character, null);
-		assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);
+		Assert.assertTrue("Should pass 2 knowledge skill test with 2 skills", passes);
 	}
 }

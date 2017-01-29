@@ -34,6 +34,8 @@ import pcgen.cdom.enumeration.StringKey;
 import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.analysis.SubClassApplication;
+
+import org.junit.Assert;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.pretokens.test.PreSubClassTester;
 
@@ -88,7 +90,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
+		Assert.assertEquals(1, passes);
 	}
 
 	/**
@@ -118,7 +120,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
+		Assert.assertEquals(1, passes);
 	}
 
 	/**
@@ -150,7 +152,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(1, passes);
+		Assert.assertEquals(1, passes);
 	}
 
 	/**
@@ -174,7 +176,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(0, passes);
+		Assert.assertEquals(0, passes);
 	}
 
 	/**
@@ -200,7 +202,7 @@ public class PreSubClassTest extends AbstractCharacterTestCase
 
 		final PreSubClassTester test = new PreSubClassTester();
 		final int passes = test.passes(prereq, character, null);
-		assertEquals(0, passes);
+		Assert.assertEquals(0, passes);
 	}
 
 }

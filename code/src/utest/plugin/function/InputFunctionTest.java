@@ -17,6 +17,7 @@
  */
 package plugin.function;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.formula.base.ScopeInstance;
@@ -127,7 +128,7 @@ public class InputFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertEquals(rv.toString(), formula);
+		Assert.assertEquals(rv.toString(), formula);
 	}
 
 }

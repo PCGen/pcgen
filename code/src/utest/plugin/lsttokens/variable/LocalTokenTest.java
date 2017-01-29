@@ -17,6 +17,7 @@
  */
 package plugin.lsttokens.variable;
 
+import org.junit.Assert;
 import org.junit.Test;
 
 import pcgen.base.lang.ObjectUtil;
@@ -66,110 +67,110 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 		DatasetVariable dv = new DatasetVariable();
 		dv.setName("FirstName");
 		ParseResult pr = token.parseToken(primaryContext, dv, "VarName");
-		assertFalse(pr.passed());
+		Assert.assertFalse(pr.passed());
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadName() throws PersistenceLayerException
 	{
-		assertFalse(parse("Bad-Name"));
+		Assert.assertFalse(parse("Bad-Name"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testValidBasic() throws PersistenceLayerException
 	{
-		assertTrue(parse("EQUIPMENT|IsANumberVar"));
+		Assert.assertTrue(parse("EQUIPMENT|IsANumberVar"));
 	}
 
 	@Test
 	public void testValidFormatted() throws PersistenceLayerException
 	{
-		assertTrue(parse("EQUIPMENT|NUMBER=IsANumberVar"));
+		Assert.assertTrue(parse("EQUIPMENT|NUMBER=IsANumberVar"));
 	}
 
 	@Test
 	public void testInvalidDoubleEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING==Pipe"));
+		Assert.assertFalse(parse("EQUIPMENT|STRING==Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidDoublePipe() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT||STRING=Pipe"));
+		Assert.assertFalse(parse("EQUIPMENT||STRING=Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidThreeArgs() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING|Pipe"));
+		Assert.assertFalse(parse("EQUIPMENT|STRING|Pipe"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidThreeEqualArgs() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|STRING=Pipe=Too"));
+		Assert.assertFalse(parse("EQUIPMENT|STRING=Pipe=Too"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmpty() throws PersistenceLayerException
 	{
-		assertFalse(parse(""));
+		Assert.assertFalse(parse(""));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidOnlyEqual() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|="));
+		Assert.assertFalse(parse("EQUIPMENT|="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|=Value"));
+		Assert.assertFalse(parse("EQUIPMENT|=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyVarName() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|NUMBER="));
+		Assert.assertFalse(parse("EQUIPMENT|NUMBER="));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadFormat() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|BADFORMAT=Illegal"));
+		Assert.assertFalse(parse("EQUIPMENT|BADFORMAT=Illegal"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidName() throws PersistenceLayerException
 	{
-		assertFalse(parse("EQUIPMENT|NUMBER=Illegal Name!"));
+		Assert.assertFalse(parse("EQUIPMENT|NUMBER=Illegal Name!"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidEmptyScope() throws PersistenceLayerException
 	{
-		assertFalse(parse("|STRING=Value"));
+		Assert.assertFalse(parse("|STRING=Value"));
 		assertNoSideEffects();
 	}
 
 	@Test
 	public void testInvalidBadScope() throws PersistenceLayerException
 	{
-		assertFalse(parse("BADSCOPE|STRING=Illegal"));
+		Assert.assertFalse(parse("BADSCOPE|STRING=Illegal"));
 		assertNoSideEffects();
 	}
 
@@ -203,25 +204,25 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 		DatasetVariable dv = new DatasetVariable();
 		ParseResult pr =
 				token.parseToken(primaryContext, dv, "EQUIPMENT|MyVar");
-		assertTrue(pr.passed());
-		assertFalse(parse("EQUIPMENT|STRING=MyVar"));
+		Assert.assertTrue(pr.passed());
+		Assert.assertFalse(parse("EQUIPMENT|STRING=MyVar"));
 		assertNoSideEffects();
 	}
 
 	@Override
 	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
 	{
-		assertTrue(
+		Assert.assertTrue(
 			"Display Name not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getDisplayName(),
 				dv2.getDisplayName()));
-		assertTrue("Format not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Format not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
-		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getScopeName(), dv2.getScopeName()));
-		assertTrue("Source URI not equal " + dv1 + " and " + dv2,
+		Assert.assertTrue("Source URI not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getSourceURI(), dv2.getSourceURI()));
-		assertTrue(
+		Assert.assertTrue(
 			"Explanation not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getExplanation(),
 				dv2.getExplanation()));
@@ -243,9 +244,9 @@ public class LocalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 	@Test
 	public void testOverwrite() throws PersistenceLayerException
 	{
-		assertTrue(parse(getLegalValue()));
+		Assert.assertTrue(parse(getLegalValue()));
 		validateUnparsed(primaryContext, primaryProf, getLegalValue());
-		assertFalse(parse(getAlternateLegalValue()));
+		Assert.assertFalse(parse(getAlternateLegalValue()));
 	}
 
 }

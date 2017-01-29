@@ -23,6 +23,8 @@ import pcgen.cdom.facet.FacetLibrary;
 import pcgen.cdom.facet.analysis.VariableFacet;
 import pcgen.rules.persistence.token.CDOMToken;
 import pcgen.rules.persistence.token.ParseResult;
+
+import org.junit.Assert;
 import plugin.lsttokens.DefineLst;
 import tokencontent.testsupport.AbstractContentTokenTest;
 
@@ -46,7 +48,7 @@ public class GlobalDefineVariableTest extends AbstractContentTokenTest
 		if (result != ParseResult.SUCCESS)
 		{
 			result.printMessages();
-			fail("Test Setup Failed");
+			Assert.fail("Test Setup Failed");
 		}
 		finishLoad();
 	}

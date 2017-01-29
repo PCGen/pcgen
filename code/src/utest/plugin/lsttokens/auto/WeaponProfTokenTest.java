@@ -19,6 +19,7 @@ package plugin.lsttokens.auto;
 
 import java.net.URISyntaxException;
 
+import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 
@@ -74,7 +75,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testUnparseNull() throws PersistenceLayerException
 	{
 		primaryProf.removeListFor(ListKey.WEAPONPROF);
-		assertNull(getToken().unparse(primaryContext, primaryProf));
+		Assert.assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
 	@Test
@@ -134,7 +135,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 		primaryProf.put(ObjectKey.HAS_DEITY_WEAPONPROF,
 				new QualifiedObject<>(Boolean.FALSE));
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
-		assertNull(unparsed);
+		Assert.assertNull(unparsed);
 	}
 
 
@@ -164,7 +165,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (NullPointerException e)
 		{
@@ -181,7 +182,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 		try
 		{
 			getToken().unparse(primaryContext, primaryProf);
-			fail();
+			Assert.fail();
 		}
 		catch (ClassCastException e)
 		{
@@ -193,7 +194,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testInvalidAllPlusDeityWeaponsIllegal()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "DEITYWEAPONS|ALL"));
 		assertNoSideEffects();
 	}
 
@@ -201,14 +202,14 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 	public void testValidPrereqLegal()
 			throws PersistenceLayerException
 	{
-		assertTrue(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,DAGGER"));
+		Assert.assertTrue(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,DAGGER"));
 	}
 
 	@Test
 	public void testInvalidPrereqIllegal()
 			throws PersistenceLayerException
 	{
-		assertFalse(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,TYPE=Piercing"));
+		Assert.assertFalse(parse(getSubTokenName() + '|' + "CROSSBOW|PREWEAPONPROF:1,TYPE=Piercing"));
 	}
 
 	@Override

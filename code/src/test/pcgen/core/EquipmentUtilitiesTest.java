@@ -32,6 +32,8 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
+import org.junit.Assert;
+
 /**
  * @author nuance
  *
@@ -78,11 +80,11 @@ public class EquipmentUtilitiesTest extends PCGenTestCase
 		List<Equipment> eqList = new ArrayList<>();
 		eqList.add(towel);
 		eqList.add(backpackSml);
-		assertEquals("Expected to find backpack", backpackSml,
+		Assert.assertEquals("Expected to find backpack", backpackSml,
 			EquipmentUtilities.findEquipmentByBaseKey(eqList, "backpack"));
-		assertEquals("Expected not to find torch", null,
+		Assert.assertEquals("Expected not to find torch", null,
 			EquipmentUtilities.findEquipmentByBaseKey(eqList, "torch"));
-		assertEquals("Expected to find towel", towel,
+		Assert.assertEquals("Expected to find towel", towel,
 			EquipmentUtilities.findEquipmentByBaseKey(eqList, "ToWeL"));
 	}
 }
