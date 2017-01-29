@@ -15,10 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  InitHolderComperator.java
- *
- *  Created on January 16, 2002, 1:13 PM
  */
 package gmgen.plugin;
 
@@ -26,7 +22,6 @@ import java.util.Comparator;
 
 /**
  * Compares InitHolder objects
- *@author     devon
  */
 public class InitHolderComperator implements Comparator<InitHolder>
 {
@@ -40,10 +35,8 @@ public class InitHolderComperator implements Comparator<InitHolder>
     @Override
 	public int compare(InitHolder o1, InitHolder o2)
 	{
-		InitHolder i1 = o1;
-		InitHolder i2 = o2;
-		SystemInitiative init1 = i1.getInitiative();
-		SystemInitiative init2 = i2.getInitiative();
+		SystemInitiative init1 = o1.getInitiative();
+		SystemInitiative init2 = o2.getInitiative();
 		Integer initval1 = init1.getCurrentInitiative();
 		Integer initval2 = init2.getCurrentInitiative();
 

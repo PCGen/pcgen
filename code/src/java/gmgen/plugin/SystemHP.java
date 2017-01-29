@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemHP.java
  */
 package gmgen.plugin;
 
@@ -390,7 +388,7 @@ public class SystemHP
 	 * End status that has a duration, e.g. Dazed
 	 * @return state
 	 */
-	public State endDurationedStatus()
+	State endDurationedStatus()
 	{
 		if (state == State.Unconsious || state == State.Dazed)
 		{
@@ -403,7 +401,7 @@ public class SystemHP
 	/**
 	 * End the round
 	 */
-	public void endRound()
+	void endRound()
 	{
 		firstround = false;
 	}
@@ -413,7 +411,7 @@ public class SystemHP
 	 * @param heal
 	 * @return the state
 	 */
-	public State heal(int heal)
+	State heal(int heal)
 	{
 		if (state != State.Dead)
 		{
@@ -450,7 +448,7 @@ public class SystemHP
 	 * Kill the PC
 	 * @return the state
 	 */
-	public State kill()
+	State kill()
 	{
 		state = State.Dead;
 		current = 0;
@@ -463,7 +461,7 @@ public class SystemHP
 	 * @param type
 	 * @return the state
 	 */
-	public State nonLethalDamage(boolean type)
+	State nonLethalDamage(boolean type)
 	{
 		if (state == State.Nothing)
 		{
@@ -484,7 +482,7 @@ public class SystemHP
 	 * Raise the PC from the dead
 	 * @return the state
 	 */
-	public State raise()
+	State raise()
 	{
 		if (state == State.Dead)
 		{
@@ -499,7 +497,7 @@ public class SystemHP
 	 * Stabilize a bleeding PC
 	 * @return the state
 	 */
-	public State stabilize()
+	State stabilize()
 	{
 		if (state == State.Bleeding)
 		{
@@ -514,7 +512,7 @@ public class SystemHP
 	 * @param damage
 	 * @return the state
 	 */
-	public State subdualDamage(int damage)
+	State subdualDamage(int damage)
 	{
 		subdual += damage;
 

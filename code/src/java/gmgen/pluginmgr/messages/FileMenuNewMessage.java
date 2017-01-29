@@ -27,10 +27,6 @@ import pcgen.pluginmgr.PCGenMessage;
 /**
  * The Class {@code FileMenuOpenMessage} encapsulates an advisory that the
  * GMGen new file menu item has been selected.
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class FileMenuNewMessage extends PCGenMessage

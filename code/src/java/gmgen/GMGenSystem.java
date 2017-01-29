@@ -15,27 +15,12 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package gmgen;
 
-import gmgen.gui.PreferencesDialog;
-import gmgen.gui.PreferencesRootTreeNode;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
-import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
-import gmgen.pluginmgr.messages.EditMenuPasteSelectionMessage;
-import gmgen.pluginmgr.messages.FileMenuNewMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -53,8 +38,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.tools.CommonMenuText;
@@ -69,6 +52,21 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
+
+import gmgen.gui.PreferencesDialog;
+import gmgen.gui.PreferencesRootTreeNode;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuPasteSelectionMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+import gmgen.util.LogUtilities;
+import org.apache.commons.lang3.SystemUtils;
 
 
 /**
@@ -242,10 +240,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Clears the edit menu to allow a plugin to populate it.
      */
-    public void clearEditMenu() {
+    private void clearEditMenu() {
         editMenu.removeAll();
 
-        /**
+        /*
          * Preferences on the Macintosh is in the application menu. See
          * macOSXRegistration()
          */
@@ -681,7 +679,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     private void mPreferencesActionPerformed(ActionEvent event) {
-        PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
+        Window dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
     }
 

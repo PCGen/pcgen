@@ -15,12 +15,10 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  State.java
- *
- *  Created on July, 1st 2013
  */
 package gmgen.plugin;
+
+import java.util.Arrays;
 
 import pcgen.system.LanguageBundle;
 
@@ -102,20 +100,16 @@ public enum State {
 	 * @return {@link #Nothing} if no match (and not {@code null})
 	 */
 	public static State getState(String value) {
-		for (State s : State.values()) {
-			if (s.name().equals(value)) {
-				return s;
-			}
-		}
-		return Nothing;
+		return Arrays.stream(State.values())
+					 .filter(s -> s.name().equals(value))
+					 .findFirst()
+					 .orElse(Nothing);
 	}
 
 	public static State getStateLocalised(String value) {
-		for (State s : State.values()) {
-			if (s.toString().equals(value)) {
-				return s;
-			}
-		}
-		return Nothing;
+		return Arrays.stream(State.values())
+					 .filter(s -> s.toString().equals(value))
+					 .findFirst()
+					 .orElse(Nothing);
 	}
 }
