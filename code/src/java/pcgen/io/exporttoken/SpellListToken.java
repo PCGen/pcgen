@@ -1,5 +1,4 @@
 /*
- * SpellListToken.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,7 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Jul 15, 2004
- *
- * $Id$
- *
+
  */
 package pcgen.io.exporttoken;
 
@@ -28,9 +23,6 @@ import java.util.StringTokenizer;
 /**
  * {@code SpellListToken} is the base class for the SPELLLIST
  * family of tokens.
- *
- *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class SpellListToken extends Token
 {

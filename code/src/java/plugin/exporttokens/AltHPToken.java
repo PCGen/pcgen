@@ -1,5 +1,4 @@
 /*
- * AltHPToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package plugin.exporttokens;
 
@@ -37,9 +31,6 @@ public class AltHPToken extends Token
 	/** Name of Token */
 	public static final String TOKENNAME = "ALTHP";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -48,7 +39,6 @@ public class AltHPToken extends Token
 
 	/**
 	 * TODO: Move this into HPToken as HP.ALT
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
 	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
@@ -61,7 +51,7 @@ public class AltHPToken extends Token
 	 * @param pc
 	 * @return token
 	 */
-	public static int getAltHPToken(PlayerCharacter pc)
+	private static int getAltHPToken(PlayerCharacter pc)
 	{
 		int i;
 		String solverValue = pc.getControl(CControl.ALTHP);

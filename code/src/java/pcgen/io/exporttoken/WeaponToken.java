@@ -61,6 +61,8 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 
+import org.apache.commons.lang3.math.NumberUtils;
+
 /**
  * Deal with the WEAPON Token
  */
@@ -208,7 +210,7 @@ public class WeaponToken extends Token
 			token = aTok.nextToken();
 		}
 
-		weapon = getIntToken(token, 0);
+		weapon = NumberUtils.toInt(token, 0);
 		if (weapon < weaponList.size())
 		{
 			eq = weaponList.get(weapon);

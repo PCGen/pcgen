@@ -1,5 +1,4 @@
 /*
- * AbilityListToken.java
  * Copyright 2006 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 21/11/2006
- *
- * $Id$
  */
 
 package pcgen.io.exporttoken;
@@ -75,9 +70,6 @@ public class AbilityListToken extends Token
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -187,16 +179,11 @@ public class AbilityListToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+		allCats.stream()
+			   .filter(aCat -> AbilityCategory.ANY.equals(aCategory) ||
+					   aCat.getParentCategory().equals(aCategory))
+			   .flatMap(aCat -> pc.getPoolAbilities(aCat, Nature.NORMAL).stream())
+			   .forEach(cna -> listOfAbilities.addToListFor(cna.getAbility(), cna));
 		return listOfAbilities;
 	}
 

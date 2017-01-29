@@ -23,10 +23,12 @@
  */
 package pcgen.io.exporttoken;
 
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
 
-import java.util.StringTokenizer;
+import org.apache.commons.lang3.math.NumberUtils;
 
 /**
  * The Abstract Token class for Export Tokens
@@ -34,7 +36,7 @@ import java.util.StringTokenizer;
 public abstract class Token
 {
 	/** Constant for subtoken separator */
-	public static final String SUBTOKENSEP = "."; //$NON-NLS-1$
+	protected static final String SUBTOKENSEP = "."; //$NON-NLS-1$
 
 	/**
 	 * True if the token is UTF-8 encoded
@@ -72,35 +74,14 @@ public abstract class Token
 	 * @return the integer value of the next token or the defaultVal if we can't
 	 * make an integer from the next token.
 	 */
-	protected static int getIntToken(StringTokenizer tok, int defaultVal)
+	static int getIntToken(StringTokenizer tok, int defaultVal)
 	{
 		int retInt = defaultVal;
 		if (tok.hasMoreTokens())
 		{
-			retInt = getIntToken(tok.nextToken(), defaultVal);
+			retInt = NumberUtils.toInt(tok.nextToken(), defaultVal);
 		}
 		return retInt;
 	}
 
-	/**
-	 * This is a utility method to safely get an int value from a token.  If the
-	 * token does not represent an integer the default value will be returned
-	 * instead.
-	 * @param token Integer token
-	 * @param defaultVal Value to return if this is not an integer
-	 * @return int value or default value if not an int
-	 */
-	protected static int getIntToken(String token, int defaultVal)
-	{
-		int retInt = defaultVal;
-		try
-		{
-			retInt = Integer.parseInt(token);
-		}
-		catch (NumberFormatException e)
-		{
-			// Handled.  We return the default value in this case.
-		}
-		return retInt;
-	}
 }

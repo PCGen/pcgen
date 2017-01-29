@@ -1,5 +1,4 @@
 /*
- * AbilityToken.java
  * Copyright 2006 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20/11/2006
- *
- * $Id: $
  */
 
 package pcgen.io.exporttoken;
@@ -71,8 +66,6 @@ import pcgen.util.enumeration.View;
  * <li>z is what is to be output DESC, TYPE, SOURCE, default is name, or
  * TYPE=&lt;type&gt; - type filter</li>
  * </ul>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityToken extends Token
 {
@@ -109,10 +102,6 @@ public class AbilityToken extends Token
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String,
-	 *      pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -294,10 +283,8 @@ public class AbilityToken extends Token
 		}
 
 		// Build the return string to give to the OutputSheet
-		String retString =
-				getRetString(tokenSource, pc, eh, abilityIndex, aList);
 
-		return retString;
+		return getRetString(tokenSource, pc, eh, abilityIndex, aList);
 	}
 
 	/**
@@ -317,8 +304,7 @@ public class AbilityToken extends Token
 		List<String> negate, String abilityType, View view,
 		String aspect, MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<>();
-		aList.addAll(listOfAbilities.getKeySet());
+		List<Ability> aList = new ArrayList<>(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
@@ -328,7 +314,7 @@ public class AbilityToken extends Token
 		boolean matchAspectDef = false;
 
 		// List to build up
-		List<Ability> bList = new ArrayList<>();
+		Collection<Ability> bList = new ArrayList<>();
 
 		// For each ability figure out whether it should be displayed depending
 		// on its visibility filtering and its ability type filtering 
@@ -369,8 +355,7 @@ public class AbilityToken extends Token
 	static MapToList<Ability, CNAbility> buildAbilityList(String key, View view,
 		MapToList<Ability, CNAbility> listOfAbilities)
 	{
-		List<Ability> aList = new ArrayList<>();
-		aList.addAll(listOfAbilities.getKeySet());
+		List<Ability> aList = new ArrayList<>(listOfAbilities.getKeySet());
 
 		// Sort the ability list passed in
 		Globals.sortPObjectListByName(aList);
@@ -379,7 +364,7 @@ public class AbilityToken extends Token
 		boolean matchVisibilityDef = false;
 
 		// List to build up
-		List<Ability> bList = new ArrayList<>();
+		Collection<Ability> bList = new ArrayList<>();
 
 		// For each ability figure out whether it should be displayed depending
 		// on its visibility filtering and its ability type filtering 
@@ -467,7 +452,7 @@ public class AbilityToken extends Token
 	/**
 	 * Helper method, returns true if the ability meets the visibility requirements.
 	 * 
-	 * @param visibility The ability Type to test
+	 * @param v The ability Type to test
 	 * @param aAbility The ability
 	 * @return true if it meets the visibility requirements
 	 */
@@ -500,7 +485,7 @@ public class AbilityToken extends Token
 	 *            The export handler.
 	 * @param abilityIndex
 	 *            The location of the ability in the list.
-	 * @param aList
+	 * @param aMapToList
 	 *            The list of abilities to get the ability from.
 	 * @return The token value.
 	 */
@@ -508,12 +493,11 @@ public class AbilityToken extends Token
 		ExportHandler eh, int abilityIndex, MapToList<Ability, CNAbility> aMapToList)
 	{
 		String retString = "";
-		Ability aAbility;
 		List<Ability> aList = new ArrayList<>(aMapToList.getKeySet());
 		// If the ability index given is within a valid range
 		if (abilityIndex >= 0 && abilityIndex < aList.size())
 		{
-			aAbility = aList.get(abilityIndex);
+			Ability aAbility = aList.get(abilityIndex);
 			List<CNAbility> abilities = aMapToList.getListFor(aAbility);
 			if (abilities.isEmpty())
 			{
@@ -543,10 +527,9 @@ public class AbilityToken extends Token
 			else if (tokenSource.endsWith(".ASSOCIATED"))
 			{
 				List<String> assocs = new ArrayList<>();
-				for (CNAbility cna : abilities)
-				{
-					assocs.addAll(pc.getAssociationExportList(cna));
-				}
+				abilities.stream()
+						 .map(pc::getAssociationExportList)
+						 .forEach(assocs::addAll);
 				Collections.sort(assocs);
 				retString = StringUtil.join(assocs, ",");
 			}
@@ -559,12 +542,10 @@ public class AbilityToken extends Token
 			}
 			else if (tokenSource.endsWith(".ASSOCIATEDCOUNT"))
 			{
-				int count = 0;
-				for (CNAbility cna : abilities)
-				{
-					count += pc.getDetailedAssociationCount(cna);
-				}
-				retString = Integer.toString(count);
+				return Integer.toString(
+						abilities.stream()
+								 .mapToInt(pc::getDetailedAssociationCount)
+								 .sum());
 			}
 			else if (tokenSource.endsWith(".SOURCE"))
 			{
@@ -691,13 +672,9 @@ public class AbilityToken extends Token
 	/**
 	 * Gets the aspect string for an aspect identified by position or name.
 	 * 
-	 * @param pc
-	 *            The character being exported.
-	 * @param ability
-	 *            The ability being queried.
-	 * @param key
-	 *            The key (number or name) of the aspect to retrieve
-	 * 
+	 * @param pc The character being exported.
+	 * @param abilities The ability being queried.
+	 * @param key The key (number or name) of the aspect to retrieve
 	 * @return the aspect string
 	 */
 	private String getAspectString(PlayerCharacter pc,
@@ -776,16 +753,11 @@ public class AbilityToken extends Token
 		final MapToList<Ability, CNAbility> listOfAbilities = new HashMapToList<>();
 		Collection<AbilityCategory> allCats =
 				SettingsHandler.getGame().getAllAbilityCategories();
-		for (AbilityCategory aCat : allCats)
-		{
-			if (AbilityCategory.ANY.equals(aCategory) || aCat.getParentCategory().equals(aCategory))
-			{
-				for (CNAbility cna : pc.getPoolAbilities(aCat, Nature.NORMAL))
-				{
-					listOfAbilities.addToListFor(cna.getAbility(), cna);
-				}
-			}
-		}
+		allCats.stream()
+			   .filter(aCat -> AbilityCategory.ANY.equals(aCategory) ||
+					   aCat.getParentCategory().equals(aCategory))
+			   .flatMap(aCat -> pc.getPoolAbilities(aCat, Nature.NORMAL).stream())
+			   .forEach(cna -> listOfAbilities.addToListFor(cna.getAbility(), cna));
 		return listOfAbilities;
 	}
 
