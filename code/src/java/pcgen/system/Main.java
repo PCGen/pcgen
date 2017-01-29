@@ -1,5 +1,4 @@
 /*
- * Main.java
  * Copyright 2009 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Sep 1, 2009, 6:17:59 PM
  */
 package pcgen.system;
 
@@ -24,7 +21,6 @@ import java.awt.Component;
 import java.awt.Font;
 import java.awt.FontFormatException;
 import java.awt.GraphicsEnvironment;
-import java.awt.Window;
 import java.io.File;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -271,6 +267,7 @@ public final class Main
 
 	private static void configureUI()
 	{
+		Utility.configurePlatformUI();
 		String language = ConfigurationSettings.getLanguage();
 		String country = ConfigurationSettings.getCountry();
 		if (StringUtils.isNotEmpty(language) && StringUtils.isNotEmpty(country))
@@ -294,12 +291,12 @@ public final class Main
 		int minorVar = Integer.parseInt(javaVer[1]);
 		if (!ignoreJavaVer)
 		{
-			if ((majorVar < 1) || ((majorVar == 1) && (minorVar < 6)))
+			if ((majorVar < 1) || ((majorVar == 1) && (minorVar < 8)))
 			{
 				String message =
 						"Java version "
 								+ javaVerString
-								+ " is too old. PCGen requires at least Java 1.6 to run.";
+								+ " is too old. PCGen requires at least Java 1.8 to run.";
 				Logging.errorPrint(message);
 				if (useGui)
 				{
