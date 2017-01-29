@@ -125,6 +125,6 @@ public class SpellCasterToken implements QualifierToken<WeaponProf>, PrimitiveFi
 	@Override
 	public boolean allow(PlayerCharacter pc, WeaponProf po)
 	{
-		return pc.isSpellCaster(1);
+		return pc.isSpellCaster();
 	}
 }
