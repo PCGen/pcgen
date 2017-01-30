@@ -1139,3 +1139,36 @@ Time Stop.MOD															CLASSES:Wizard=9
 True Polymorph.MOD														CLASSES:Wizard=9
 Weird.MOD																CLASSES:Wizard=9
 Wish.MOD																CLASSES:Wizard=9
+
+###Block: Warlock Book of Shadows -- Ritual Spells from the SRD
+Find Familiar.MOD			CLASSES:Warlock Book of Shadows=1
+Alarm.MOD				CLASSES:Warlock Book of Shadows=1
+Animal Messenger.MOD		CLASSES:Warlock Book of Shadows=1
+Augury.MOD				CLASSES:Warlock Book of Shadows=1
+Commune.MOD				CLASSES:Warlock Book of Shadows=1
+Commune with Nature.MOD		CLASSES:Warlock Book of Shadows=1
+Comprehend Languages.MOD	CLASSES:Warlock Book of Shadows=1
+Contact Other Plane.MOD		CLASSES:Warlock Book of Shadows=1
+Detect Magic.MOD			CLASSES:Warlock Book of Shadows=1
+Detect Poison and Disease.MOD	CLASSES:Warlock Book of Shadows=1
+Divination.MOD			CLASSES:Warlock Book of Shadows=1
+Floating Disc.MOD			CLASSES:Warlock Book of Shadows=1
+Forbiddance.MOD			CLASSES:Warlock Book of Shadows=1
+Gentle Repose.MOD			CLASSES:Warlock Book of Shadows=1
+Identify.MOD			CLASSES:Warlock Book of Shadows=1
+Illusory Script.MOD		CLASSES:Warlock Book of Shadows=1
+Instant Summons.MOD		CLASSES:Warlock Book of Shadows=1
+Locate Animals or Plants.MOD	CLASSES:Warlock Book of Shadows=1
+Magic Mouth.MOD			CLASSES:Warlock Book of Shadows=1
+Meld into Stone.MOD		CLASSES:Warlock Book of Shadows=1
+Phantom Steed.MOD			CLASSES:Warlock Book of Shadows=1
+Purify Food and Drink.MOD	CLASSES:Warlock Book of Shadows=1
+Speak with Animals.MOD		CLASSES:Warlock Book of Shadows=1
+Telepathic Bond.MOD		CLASSES:Warlock Book of Shadows=1
+Tiny Hut.MOD			CLASSES:Warlock Book of Shadows=1
+Unseen Servant.MOD		CLASSES:Warlock Book of Shadows=1
+Water Breathing.MOD		CLASSES:Warlock Book of Shadows=1
+Water Walk.MOD			CLASSES:Warlock Book of Shadows=1
+
+
+
