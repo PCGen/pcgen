@@ -1908,7 +1908,7 @@ public class Gui2InfoFactory implements InfoFactory
 					}
 					int level = spellInfo.getActualLevel();
 					
-					int count = spellCountMap.containsKey(level) ? spellCountMap.get(level) : 0;
+					int count = spellCountMap.getOrDefault(level, 0);
 					count += spellInfo.getTimes();
 					spellCountMap.put(level, count);
 					if (level > highestSpellLevel)

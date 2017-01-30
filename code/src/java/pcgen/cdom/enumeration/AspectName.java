@@ -105,12 +105,7 @@ public final class AspectName implements TypeSafeConstant,
 	public static AspectName getConstant(String name)
 	{
 		initializeNameMap();
-		AspectName aspect = nameMap.get(name);
-		if (aspect == null)
-		{
-			aspect = new AspectName(name);
-			nameMap.put(name, aspect);
-		}
+		AspectName aspect = nameMap.computeIfAbsent(name, k -> new AspectName(name));
 		return aspect;
 	}
 

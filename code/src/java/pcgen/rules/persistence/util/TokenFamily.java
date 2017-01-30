@@ -281,12 +281,7 @@ public final class TokenFamily implements Comparable<TokenFamily>
 			buildMap();
 		}
 		Revision r = new Revision(primary, secondary, tertiary);
-		TokenFamily o = typeMap.get(r);
-		if (o == null)
-		{
-			o = new TokenFamily(r);
-			typeMap.put(r, o);
-		}
+		TokenFamily o = typeMap.computeIfAbsent(r, TokenFamily::new);
 		return o;
 	}
 

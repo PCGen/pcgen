@@ -95,12 +95,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	public static Region getConstant(String name)
 	{
 		initializeTypeMap();
-		Region region = typeMap.get(name);
-		if (region == null)
-		{
-			region = new Region(name);
-			typeMap.put(name, region);
-		}
+		Region region = typeMap.computeIfAbsent(name, k -> new Region(name));
 		return region;
 	}
 

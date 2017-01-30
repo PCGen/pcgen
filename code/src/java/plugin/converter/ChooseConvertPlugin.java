@@ -53,18 +53,18 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 	{
 		String value = tpe.getValue();
 		String feat = value.substring(5);
-		String decision = featAnswered.get(feat);
-		if (decision == null)
-		{
-			decision =
-					tpe.getDecider().getConversionDecision(
-						"Need help with underlying type for "
-							+ getProcessedToken() + ":" + value
-							+ " which is used in " + tpe.getObjectName()
-							+ " in file " + tpe.getPrimary().getSourceURI(),
-						buildDescriptions(feat), CHOICES, CHOICES.size() - 1);
-			featAnswered.put(feat, decision);
-		}
+		String
+				decision =
+				featAnswered.computeIfAbsent(
+						feat,
+						f -> tpe.getDecider().getConversionDecision(
+								"Need help with underlying type for "
+										+ getProcessedToken() + ":" + value
+										+ " which is used in " + tpe.getObjectName()
+										+ " in file " + tpe.getPrimary().getSourceURI(),
+								buildDescriptions(f), CHOICES, CHOICES.size() - 1
+						)
+				);
 		tpe.append(tpe.getKey());
 		tpe.append(':');
 		tpe.append(decision);
@@ -100,14 +100,14 @@ public class ChooseConvertPlugin implements TokenProcessorPlugin
 		String decision = tpe.getDecider().getConversionInput(
 				"Please provide class spell list which " + tpe.getObjectName()
 						+ " modifies").trim();
-		String stat = spelllistAnswered.get(decision);
-		if (stat == null)
-		{
-			stat = tpe.getDecider().getConversionInput(
-					"Please provide SPELLSTAT (abbreviation) for Class "
-							+ decision).trim().toUpperCase();
-			spelllistAnswered.put(decision, stat);
-		}
+		String
+				stat =
+				spelllistAnswered.computeIfAbsent(
+						decision,
+						d -> tpe.getDecider().getConversionInput(
+								"Please provide SPELLSTAT (abbreviation) for Class "
+										+ d).trim().toUpperCase()
+				);
 		tpe.append(tpe.getKey());
 		tpe.append(":SPELLS|CLASSLIST=");
 		tpe.append(decision);

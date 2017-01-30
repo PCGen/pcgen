@@ -95,12 +95,7 @@ public final class VariableKey implements TypeSafeConstant
 	public static VariableKey getConstant(String name)
 	{
 		initializeTypeMap();
-		VariableKey key = typeMap.get(name);
-		if (key == null)
-		{
-			key = new VariableKey(name);
-			typeMap.put(name, key);
-		}
+		VariableKey key = typeMap.computeIfAbsent(name, k -> new VariableKey(name));
 		return key;
 	}
 
