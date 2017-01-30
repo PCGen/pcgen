@@ -10,7 +10,6 @@ import java.io.UnsupportedEncodingException;
 import java.util.Locale;
 
 import org.custommonkey.xmlunit.XMLTestCase;
-import org.custommonkey.xmlunit.XMLUnit;
 
 import pcgen.LocaleDependentTestCase;
 import pcgen.cdom.base.Constants;
@@ -50,8 +49,7 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	}
 
 	/**
-	 * Set the JAXP factories to use the Xerces parser
-	 * - declare to throw Exception as if this fails then 
+	 * Declare to throw Exception as if this fails then
 	 * all the tests will fail, and JUnit copes with these.
 	 * Exceptions for us.
 	 * @throws Exception 
@@ -60,21 +58,6 @@ public abstract class pcGenGUITestCase extends XMLTestCase
 	public void setUp() throws Exception
 	{
 		super.setUp();
-		XMLUnit
-			.setControlParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
-
-		/* 
-		 * This next line is strictly not required - if no test parser is
-		 * explicitly specified then the same factory class will be used for
-		 * both test and control
-		 */
-		XMLUnit
-			.setTestParser("org.apache.xerces.jaxp.DocumentBuilderFactoryImpl");
-
-		XMLUnit
-			.setSAXParserFactory("org.apache.xerces.jaxp.SAXParserFactoryImpl");
-		XMLUnit
-			.setTransformerFactory("org.apache.xalan.processor.TransformerFactoryImpl");
 		LocaleDependentTestCase.before(Locale.US);
 	}
 	
