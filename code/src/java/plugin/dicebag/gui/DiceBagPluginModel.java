@@ -19,39 +19,28 @@ package plugin.dicebag.gui;
 
 import java.io.File;
 import java.util.ArrayList;
-import java.util.List;
+import java.util.Collection;
 import java.util.Observable;
 
 /**
  * <p>The model for the pluging -- basically a linked list of open
  * dice bags.  This is an {@code Observable} class that sends
  * out messages to observers (views).</p>
- *
- * @author Ross M. Lodge
- *
  */
-public class DiceBagPluginModel extends Observable
+class DiceBagPluginModel extends Observable
 {
 	/** The currently active bag. */
 	private DiceBagModel m_activeBag;
 
 	/** A list of the open dice-bags */
-	private List<DiceBagModel> m_diceBags = new ArrayList<>();
-
-	/**
-	 * <p>Default (and only) constructor.  Creates an empty model.</p>
-	 */
-	public DiceBagPluginModel()
-	{
-		// Empty Constructor
-	}
+	private final Collection<DiceBagModel> m_diceBags = new ArrayList<>();
 
 	/**
 	 * <p>Sets the currently active bag.</p>
 	 *
 	 * @param model Model that's active
 	 */
-	public void setActiveBag(DiceBagModel model)
+	void setActiveBag(DiceBagModel model)
 	{
 		m_activeBag = model;
 	}
@@ -61,7 +50,7 @@ public class DiceBagPluginModel extends Observable
 	 *
 	 * @return The currently active bag.
 	 */
-	public DiceBagModel getActiveBag()
+	DiceBagModel getActiveBag()
 	{
 		return m_activeBag;
 	}
@@ -69,7 +58,7 @@ public class DiceBagPluginModel extends Observable
 	/**
 	 * <p>Adds a new dice bag.  Generates a {@code DICE_BAG_ADDED} message.</p>
 	 */
-	public void addNewDicebag()
+	void addNewDicebag()
 	{
 		DiceBagModel bag = new DiceBagModel();
 		m_diceBags.add(bag);
@@ -83,7 +72,7 @@ public class DiceBagPluginModel extends Observable
 	 *
 	 * @param bag Bag to close
 	 */
-	public void closeDiceBag(DiceBagModel bag)
+	void closeDiceBag(DiceBagModel bag)
 	{
 		m_diceBags.remove(bag);
 		setChanged();
@@ -97,11 +86,10 @@ public class DiceBagPluginModel extends Observable
 	 * @param f File to load
 	 * @return TRUE or FALSE
 	 */
-	public boolean loadDiceBag(File f)
+	boolean loadDiceBag(File f)
 	{
-		boolean returnValue = false;
 		DiceBagModel bag = new DiceBagModel(f);
-		returnValue = m_diceBags.add(bag);
+		boolean returnValue = m_diceBags.add(bag);
 		setChanged();
 		notifyObservers(new DiceBagMessage(DiceBagMessage.DICE_BAG_ADDED, bag));
 
@@ -115,7 +103,7 @@ public class DiceBagPluginModel extends Observable
 	 * @param bag bag to save
 	 * @param f File to save to.
 	 */
-	public void saveDiceBag(DiceBagModel bag, File f)
+	void saveDiceBag(DiceBagModel bag, File f)
 	{
 		bag.saveToFile(f);
 		setChanged();
@@ -127,7 +115,7 @@ public class DiceBagPluginModel extends Observable
 	 *
 	 * @param bag Bag to save.
 	 */
-	public void saveDiceBag(DiceBagModel bag)
+	void saveDiceBag(DiceBagModel bag)
 	{
 		saveDiceBag(bag, new File(bag.getFilePath()));
 	}

@@ -32,25 +32,19 @@ import gmgen.GMGenSystem;
 import plugin.dicebag.DiceBagPlugin;
 
 /**
- * <p>
- * The controler class for DiceBag plugin. Should handle all interface actions.
- * </p>
- *
- * @author Ross M. Lodge
+ * The controller class for DiceBag plugin. Should handle all interface actions.
  */
 public class DiceBagPluginController
 {
 
 	/** The model */
-	private DiceBagPluginModel theModel = null;
+	private final DiceBagPluginModel theModel;
 
 	/** The view */
-	private DiceBagPluginView theView = null;
+	private final DiceBagPluginView theView;
 
 	/**
-	 * <p>
 	 * Primary constructor for the DiceBagController object.
-	 * </p>
 	 */
 	public DiceBagPluginController()
 	{
@@ -83,8 +77,7 @@ public class DiceBagPluginController
 	{
 		File returnValue = null;
 		JFileChooser save = new JFileChooser();
-		String fileExt = "dbg";
-		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
+		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", "dbg");
 		save.addChoosableFileFilter(ff);
 		save.setFileFilter(ff);
 
@@ -156,8 +149,7 @@ public class DiceBagPluginController
 			}
 		}
 
-		String fileExt = "dbg";
-		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", fileExt);
+		FileFilter ff = new FileNameExtensionFilter("GMGen Dice Bag", "dbg");
 		open.addChoosableFileFilter(ff);
 		open.setFileFilter(ff);
 
@@ -183,8 +175,7 @@ public class DiceBagPluginController
 
 	/**
 	 * <p>
-	 * Saves the currently active bag (if it exists), using
-	 * {@code chooseSaveFile()}.
+	 * Saves the currently active bag (if it exists), using {@code chooseSaveFile()}.
 	 * </p>
 	 */
 	public void fileSave()
@@ -225,7 +216,7 @@ public class DiceBagPluginController
 	}
 
 	//opens bags that were open when the plugins last closed.
-	protected void openInitialBags()
+	private void openInitialBags()
 	{
 		String lastFiles =
 				SettingsHandler.getGMGenOption(DiceBagPlugin.LOG_NAME
@@ -233,7 +224,7 @@ public class DiceBagPluginController
 		StringTokenizer tok = new StringTokenizer(lastFiles, "|");
 		boolean noLoads = true;
 
-		for (int i = 0; tok.hasMoreTokens(); i++)
+		while (tok.hasMoreTokens())
 		{
 			String fileName = tok.nextToken();
 			File file = new File(fileName);
@@ -244,8 +235,7 @@ public class DiceBagPluginController
 				{
 					theModel.loadDiceBag(file);
 					noLoads = false;
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					// TODO: Exception needs to be handled
 				}

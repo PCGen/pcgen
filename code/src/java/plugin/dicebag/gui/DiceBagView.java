@@ -17,18 +17,30 @@
  */
 package plugin.dicebag.gui;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.AbstractTableModel;
+
 import pcgen.gui2.tools.Icons;
 
 /**
@@ -39,13 +51,13 @@ import pcgen.gui2.tools.Icons;
 public class DiceBagView extends JInternalFrame implements Observer
 {
 	/** Bag model for this bag view */
-	DiceBagModel m_bag = null;
+	private DiceBagModel m_bag = null;
 
 	/** Listener for all buttons */
-	private BagListener m_bagListener = new BagListener();
+	private final ActionListener m_bagListener = new BagListener();
 
 	/** Table model for editing table */
-	private BagTableModel m_tableModel = new BagTableModel();
+	private final BagTableModel m_tableModel = new BagTableModel();
 
 	/** Button to delete selected records */
 	private JButton m_deleteSelected;
@@ -106,7 +118,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 *
 	 * @param bag The DiceBagModel for this view
 	 */
-	public DiceBagView(DiceBagModel bag)
+	DiceBagView(DiceBagModel bag)
 	{
 		m_bag = bag;
 		initComponents();
@@ -117,7 +129,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 *
 	 * @return The model for this view.
 	 */
-	public DiceBagModel getBag()
+	DiceBagModel getBag()
 	{
 		return m_bag;
 	}
@@ -129,7 +141,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 *
 	 * @param e Event that fired handler.
 	 */
-	public void handleEdit(ActionEvent e)
+	private void handleEdit(ActionEvent e)
 	{
 		setupEditMode();
 	}
@@ -499,7 +511,7 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
+				setRollResult(m_exprField.getText(), DiceBagModel.rollDie(m_exprField
 					.getText()));
 			}
 			else if ("EDIT".equals(command))

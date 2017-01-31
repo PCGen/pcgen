@@ -17,19 +17,22 @@
  */
 package plugin.dicebag.gui;
 
-import pcgen.core.SettingsHandler;
-import plugin.dicebag.DiceBagPlugin;
-
-import javax.swing.JDesktopPane;
-import javax.swing.JOptionPane;
-import javax.swing.WindowConstants;
-import javax.swing.event.InternalFrameAdapter;
-import javax.swing.event.InternalFrameEvent;
 import java.awt.Color;
 import java.awt.Component;
 import java.io.File;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.JDesktopPane;
+import javax.swing.JInternalFrame;
+import javax.swing.JOptionPane;
+import javax.swing.WindowConstants;
+import javax.swing.event.InternalFrameAdapter;
+import javax.swing.event.InternalFrameEvent;
+
+import pcgen.core.SettingsHandler;
+
+import plugin.dicebag.DiceBagPlugin;
 
 /**
  *
@@ -57,9 +60,8 @@ public class DiceBagPluginView implements Observer
 	 *
 	 * @param o The observable object.
 	 */
-	public DiceBagPluginView(DiceBagPluginModel o)
+	DiceBagPluginView(DiceBagPluginModel o)
 	{
-		super();
 		o.addObserver(this);
 		m_model = o;
 		initComponents();
@@ -71,7 +73,7 @@ public class DiceBagPluginView implements Observer
 	 *
 	 * @return The main or root component for this view.
 	 */
-	public Component getMainComponent()
+	Component getMainComponent()
 	{
 		return theDesktop;
 	}
@@ -79,16 +81,16 @@ public class DiceBagPluginView implements Observer
 	/**
 	 * <p>Handles the close all message; requests save for all bags.</p>
 	 */
-	public void closeAll()
+	void closeAll()
 	{
 		Component[] frames = theDesktop.getComponents();
 		StringBuilder files = new StringBuilder();
 
-		for (int i = 0; i < frames.length; i++)
+		for (Component frame : frames)
 		{
-			if (frames[i] instanceof DiceBagView)
+			if (frame instanceof DiceBagView)
 			{
-				DiceBagModel bag = ((DiceBagView) frames[i]).getBag();
+				DiceBagModel bag = ((DiceBagView) frame).getBag();
 				askSaveBag(bag, JOptionPane.YES_NO_OPTION);
 
 				if (!bag.isChanged() && !bag.isBagEmpty())
@@ -108,7 +110,7 @@ public class DiceBagPluginView implements Observer
 	 *
 	 * @param e The event that fired this handler.
 	 */
-	public void internalFrameActivated(InternalFrameEvent e)
+	private void internalFrameActivated(InternalFrameEvent e)
 	{
 		if ((e.getInternalFrame() != null)
 			&& e.getInternalFrame() instanceof DiceBagView)
@@ -123,7 +125,7 @@ public class DiceBagPluginView implements Observer
 	 *
 	 * @param e The event that fired this handler.
 	 */
-	public void internalFrameClosed(InternalFrameEvent e)
+	private void internalFrameClosed(InternalFrameEvent e)
 	{
 		if ((e.getInternalFrame() != null)
 			&& e.getInternalFrame() instanceof DiceBagView)
@@ -138,7 +140,7 @@ public class DiceBagPluginView implements Observer
 	 *
 	 * @param e The event which fired this handler.
 	 */
-	public void internalFrameClosing(InternalFrameEvent e)
+	private void internalFrameClosing(InternalFrameEvent e)
 	{
 		if ((e.getInternalFrame() != null)
 			&& e.getInternalFrame() instanceof DiceBagView)
@@ -153,7 +155,7 @@ public class DiceBagPluginView implements Observer
 					WindowConstants.DO_NOTHING_ON_CLOSE);
 			}
 			else if ((answer == JOptionPane.NO_OPTION)
-				&& (answer == JOptionPane.YES_OPTION))
+				|| (answer == JOptionPane.YES_OPTION))
 			{
 				e.getInternalFrame().setDefaultCloseOperation(
 					WindowConstants.HIDE_ON_CLOSE);
@@ -192,13 +194,9 @@ public class DiceBagPluginView implements Observer
 					break;
 
 				case DiceBagMessage.DICE_BAG_SAVED:
-					diceBagSaved(msg.getDiceBag());
-
 					break;
 
 				case DiceBagMessage.MODEL_INITIALIZED:
-					modelInitialized();
-
 					break;
 
 				default:
@@ -214,11 +212,11 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
+		for (Component frame : frames)
 		{
-			if (frames[i] instanceof DiceBagView)
+			if (frame instanceof DiceBagView)
 			{
-				((DiceBagView) frames[i]).hide();
+				((DiceBagView) frame).hide();
 			}
 		}
 	}
@@ -287,7 +285,7 @@ public class DiceBagPluginView implements Observer
 	 */
 	private void diceBagAdded(DiceBagModel model)
 	{
-		DiceBagView view = new DiceBagView(model);
+		JInternalFrame view = new DiceBagView(model);
 		view.addInternalFrameListener(listener);
 		theDesktop.add(view);
 		view.setLocation(newX, newY);
@@ -313,26 +311,16 @@ public class DiceBagPluginView implements Observer
 	{
 		Component[] frames = theDesktop.getComponents();
 
-		for (int i = 0; i < frames.length; i++)
+		for (Component frame : frames)
 		{
-			if (frames[i] instanceof DiceBagView)
+			if (frame instanceof DiceBagView)
 			{
-				if (((DiceBagView) frames[i]).getBag() == model)
+				if (((DiceBagView) frame).getBag() == model)
 				{
-					((DiceBagView) frames[i]).hide();
+					((DiceBagView) frame).hide();
 				}
 			}
 		}
-	}
-
-	/**
-	 * <p>Does nothing.</p>
-	 *
-	 * @param model
-	 */
-	private void diceBagSaved(DiceBagModel model)
-	{
-		// Do nothing . . .
 	}
 
 	/**
@@ -342,14 +330,6 @@ public class DiceBagPluginView implements Observer
 	{
 		theDesktop = new JDesktopPane();
 		theDesktop.setBackground(Color.LIGHT_GRAY);
-	}
-
-	/**
-	 * <p>Does nothing.</p>
-	 */
-	private void modelInitialized()
-	{
-		// Do nothing . . .
 	}
 
 	/**
