@@ -494,12 +494,12 @@ public class DataSet implements DataSetFacade
 		public int compare(Race r1, Race r2)
 		{
 		    final int BEFORE = -1;
-		    final int EQUAL = 0;
-		    final int AFTER = 1;
+			final int AFTER = 1;
 
 		    if (r1 == r2)
 		    {
-		    	return EQUAL;
+			    final int EQUAL = 0;
+			    return EQUAL;
 		    }
 
 		    final String NONE_SELECTED = "<none selected>";
@@ -566,12 +566,12 @@ public class DataSet implements DataSetFacade
 		public int compare(PCClass c1, PCClass c2)
 		{
 		    final int BEFORE = -1;
-		    final int EQUAL = 0;
-		    final int AFTER = 1;
+			final int AFTER = 1;
 
 		    if (c1 == c2)
 		    {
-		    	return EQUAL;
+			    final int EQUAL = 0;
+			    return EQUAL;
 		    }
 		    	
 		    final String BASE_TYPE = "BASE.PC";
@@ -625,7 +625,7 @@ public class DataSet implements DataSetFacade
 
         private TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>> map;
 
-        public AbilityMap()
+        AbilityMap()
         {
             map = new TreeMap<>(new AbilityCategoryComparator());
         }
@@ -659,9 +659,8 @@ public class DataSet implements DataSetFacade
 		    final int BEFORE = -1;
 		    final int EQUAL = 0;
 		    final int AFTER = 1;
-		    final String ORDER[] = {"FEATS", "RACIAL ABILITIES", "TRAITS", "CLASS ABILITIES"};
 
-		    if (o1 == o2)
+			if (o1 == o2)
 		    {
 		    	return EQUAL;
 		    }
@@ -681,7 +680,9 @@ public class DataSet implements DataSetFacade
 		    }
 		    if ((ac1Display != null && ac2Display != null) && !ac1Display.equals(ac2Display))
 		    {
-		    	for (String displayOrder : ORDER)
+			    final String[] ORDER =
+					    {"FEATS", "RACIAL ABILITIES", "TRAITS", "CLASS ABILITIES"};
+			    for (String displayOrder : ORDER)
 				{
 					if (ac1Display.equals(displayOrder))
 					{
@@ -728,12 +729,10 @@ public class DataSet implements DataSetFacade
 	@Override
 	public String toString()
 	{
-		StringBuilder builder = new StringBuilder();
-		builder.append("DataSet [gameMode=");
-		builder.append(gameMode);
-		builder.append(", campaigns=");
-		builder.append(campaigns);
-		builder.append("]");
-		return builder.toString();
+		return "DataSet [gameMode=" +
+				gameMode +
+				", campaigns=" +
+				campaigns +
+				"]";
 	}
 }

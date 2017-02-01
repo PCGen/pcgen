@@ -1,5 +1,4 @@
-/**
- * ChronicleEntry.java
+/*
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 30/09/2011 10:17:51 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -26,11 +21,7 @@ import pcgen.facade.core.ChronicleEntryFacade;
 
 /**
  * The Class {@code ChronicleEntry} contains a record of an
- * event in the character's history. 
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * event in the character's history.
  */
 public class ChronicleEntry implements ChronicleEntryFacade, Cloneable
 {

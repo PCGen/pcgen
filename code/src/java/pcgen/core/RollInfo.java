@@ -22,9 +22,9 @@
  */
 package pcgen.core;
 
-import pcgen.util.Logging;
-
 import java.util.StringTokenizer;
+
+import pcgen.util.Logging;
 
 import org.apache.commons.lang3.StringUtils;
 
@@ -87,7 +87,7 @@ public final class RollInfo
 		return parseRollInfo(new RollInfo(), rollString);
 	}
 	
-	public static String parseRollInfo(RollInfo rollInfo, String rollString)
+	private static String parseRollInfo(RollInfo rollInfo, String rollString)
 	{
 		// To really do this right, we change the token string
 		// as we go along so that we maintain parser state by
@@ -96,10 +96,10 @@ public final class RollInfo
 		// of flex and friends for a "mini-language" whose
 		// statements evaluate to dice rolls.  Too much LISP
 		// on the brain.  --bko
-		final StringTokenizer st = new StringTokenizer(rollString, " ", true);
 
 		try
 		{
+			final StringTokenizer st = new StringTokenizer(rollString, " ", true);
 			String tok = st.nextToken("d");
 
 			if ("d".equals(tok))
@@ -320,22 +320,6 @@ public final class RollInfo
 		}
 	}
 
-	/**
-	 * Main method
-	 * Boy, does this need testing!
-	 * @param args 
-	 */
-	public static void main(final String[] args)
-	{
-		Logging.setDebugMode(true);
-
-		for (int i = 0; i < args.length; ++i)
-		{
-			final RollInfo ri = new RollInfo(args[i]);
-			Logging.debugPrint(ri + ": " + RollInfo.roll());
-		}
-	}
-
 	@Override
 	public String toString()
 	{
@@ -486,15 +470,4 @@ public final class RollInfo
 		return buf.toString();
 	}
 
-	/**
-	 * Roll the dice.  UNIMPLEMENTED FOR NOW!
-	 *
-	 * @return int the results
-	 */
-	private static int roll()
-	{
-		final int result = 0;
-
-		return result;
-	}
 }
