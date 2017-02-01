@@ -210,93 +210,96 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 		
 		List<String> doneList = new ArrayList<>();
 
-		for (int i = 0; i < hrRadio.length; i++)
-		{
-			if (hrRadio[i] == null)
-			{
-				continue;
-			}
+        for (JRadioButton aHrRadio1 : hrRadio)
+        {
+            if (aHrRadio1 == null)
+            {
+                continue;
+            }
 
-			String aKey = hrRadio[i].getActionCommand();
-			RuleCheck aRule = gameMode.getModeContext().getReferenceContext()
-					.silentlyGetConstructedCDOMObject(RuleCheck.class, aKey);
+            String aKey = aHrRadio1.getActionCommand();
+            RuleCheck aRule = gameMode.getModeContext().getReferenceContext()
+                                      .silentlyGetConstructedCDOMObject(
+                                              RuleCheck.class,
+                                              aKey
+                                      );
 
-			if (aRule == null)
-			{
-				continue;
-			}
-			if (doneList.contains(aKey))
-			{
-				continue;
-			}
+            if (aRule == null)
+            {
+                continue;
+            }
+            if (doneList.contains(aKey))
+            {
+                continue;
+            }
 
-			CDOMSingleRef<RuleCheck> excludedRef = aRule.getExclude();
-			if ((excludedRef != null)
-					&& doneList.contains(excludedRef.getLSTformat(false)))
-			{
-				continue;
-			}
+            CDOMSingleRef<RuleCheck> excludedRef = aRule.getExclude();
+            if ((excludedRef != null)
+                    && doneList.contains(excludedRef.getLSTformat(false)))
+            {
+                continue;
+            }
 
-			String aDesc = aRule.getDesc();
+            String aDesc = aRule.getDesc();
 
-			hrGroup[groupNum] = new ButtonGroup();
-			hrGroup[groupNum].add(hrRadio[i]);
-			doneList.add(aKey);
+            hrGroup[groupNum] = new ButtonGroup();
+            hrGroup[groupNum].add(aHrRadio1);
+            doneList.add(aKey);
 
-			Utility.buildConstraints(c, 0, gridNum, 3, 1, 0, 0);
+            Utility.buildConstraints(c, 0, gridNum, 3, 1, 0, 0);
 
-			JPanel subPanel = new JPanel();
-			gridbag.setConstraints(subPanel, c);
+            JPanel subPanel = new JPanel();
+            gridbag.setConstraints(subPanel, c);
 
-			subPanel.setLayout(gridbag);
+            subPanel.setLayout(gridbag);
 
-			GridBagConstraints cc = new GridBagConstraints();
-			cc.fill = GridBagConstraints.HORIZONTAL;
-			cc.insets = new Insets(0, 4, 0, 0);
+            GridBagConstraints cc = new GridBagConstraints();
+            cc.fill = GridBagConstraints.HORIZONTAL;
+            cc.insets = new Insets(0, 4, 0, 0);
 
-			Border aBord = BorderFactory.createEtchedBorder();
-			subPanel.setBorder(aBord);
+            Border aBord = BorderFactory.createEtchedBorder();
+            subPanel.setBorder(aBord);
 
 //			JLabel label = new JLabel(aDesc);
-			cc.anchor = GridBagConstraints.LINE_START;
-			Utility.buildConstraints(cc, 0, 0, 2, 1, 2, 0);
+            cc.anchor = GridBagConstraints.LINE_START;
+            Utility.buildConstraints(cc, 0, 0, 2, 1, 2, 0);
 //			gridbag.setConstraints(label, cc);
 //			subPanel.add(label);
 //			cc.anchor = GridBagConstraints.EAST;
 //			Utility.buildConstraints(cc, 2, 0, 1, 1, 1, 0);
-			hrRadio[i].setText(MessageFormat.format(HOUSE_RULE_STR, aDesc, aKey));
-			gridbag.setConstraints(hrRadio[i], cc);
-			subPanel.add(hrRadio[i]);
+            aHrRadio1.setText(MessageFormat.format(HOUSE_RULE_STR, aDesc, aKey));
+            gridbag.setConstraints(aHrRadio1, cc);
+            subPanel.add(aHrRadio1);
 
-			for (int ii = 0; ii < hrRadio.length; ii++)
-			{
-				if (hrRadio[i] == null)
-				{
-					continue;
-				}
+            for (JRadioButton aHrRadio : hrRadio)
+            {
+                if (aHrRadio1 == null)
+                {
+                    continue;
+                }
 
-				String exKey = hrRadio[ii].getActionCommand();
+                String exKey = aHrRadio.getActionCommand();
 
-				if ((excludedRef != null) && excludedRef.hasBeenResolved()
-						&& exKey.equals(excludedRef.get().getKeyName()))
-				{
-					aRule = excludedRef.get();
-					aDesc = aRule.getDesc();
-					hrGroup[groupNum].add(hrRadio[ii]);
-					doneList.add(excludedRef.getLSTformat(false));
+                if ((excludedRef != null) && excludedRef.hasBeenResolved()
+                        && exKey.equals(excludedRef.get().getKeyName()))
+                {
+                    aRule = excludedRef.get();
+                    aDesc = aRule.getDesc();
+                    hrGroup[groupNum].add(aHrRadio);
+                    doneList.add(excludedRef.getLSTformat(false));
 
-					cc.anchor = GridBagConstraints.LINE_START;
-					Utility.buildConstraints(cc, 0, 1, 2, 1, 2, 0);
-					hrRadio[ii].setText(MessageFormat.format(HOUSE_RULE_STR, aDesc, exKey));
-					gridbag.setConstraints(hrRadio[ii], cc);
-					subPanel.add(hrRadio[ii]);
-				}
-			}
+                    cc.anchor = GridBagConstraints.LINE_START;
+                    Utility.buildConstraints(cc, 0, 1, 2, 1, 2, 0);
+                    aHrRadio.setText(MessageFormat.format(HOUSE_RULE_STR, aDesc, exKey));
+                    gridbag.setConstraints(aHrRadio, cc);
+                    subPanel.add(aHrRadio);
+                }
+            }
 
-			mainPanel.add(subPanel);
-			++gridNum;
-			++groupNum;
-		}
+            mainPanel.add(subPanel);
+            ++gridNum;
+            ++groupNum;
+        }
 	}
 
 	/* (non-Javadoc)
@@ -316,37 +319,37 @@ public class HouseRulesPanel extends PCGenPrefsPanel
 	{
 		final GameMode gameMode = SettingsHandler.getGame();
 
-		for (int i = 0; i < hrBoxes.length; i++)
-		{
-			if (hrBoxes[i] != null)
-			{
-				String aKey = hrBoxes[i].getActionCommand();
-				boolean aBool = hrBoxes[i].isSelected();
+        for (JCheckBox hrBoxe : hrBoxes)
+        {
+            if (hrBoxe != null)
+            {
+                String aKey = hrBoxe.getActionCommand();
+                boolean aBool = hrBoxe.isSelected();
 
-				// Save settings
-				if (gameMode.getModeContext().getReferenceContext()
-						.containsConstructedCDOMObject(RuleCheck.class, aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
-			}
-		}
+                // Save settings
+                if (gameMode.getModeContext().getReferenceContext()
+                            .containsConstructedCDOMObject(RuleCheck.class, aKey))
+                {
+                    SettingsHandler.setRuleCheck(aKey, aBool);
+                }
+            }
+        }
 
-		for (int i = 0; i < hrRadio.length; i++)
-		{
-			if (hrRadio[i] != null)
-			{
-				String aKey = hrRadio[i].getActionCommand();
-				boolean aBool = hrRadio[i].isSelected();
+        for (JRadioButton aHrRadio : hrRadio)
+        {
+            if (aHrRadio != null)
+            {
+                String aKey = aHrRadio.getActionCommand();
+                boolean aBool = aHrRadio.isSelected();
 
-				// Save settings
-				if (gameMode.getModeContext().getReferenceContext()
-						.containsConstructedCDOMObject(RuleCheck.class, aKey))
-				{
-					SettingsHandler.setRuleCheck(aKey, aBool);
-				}
-			}
-		}
+                // Save settings
+                if (gameMode.getModeContext().getReferenceContext()
+                            .containsConstructedCDOMObject(RuleCheck.class, aKey))
+                {
+                    SettingsHandler.setRuleCheck(aKey, aBool);
+                }
+            }
+        }
 	}
 
 	/* (non-Javadoc)

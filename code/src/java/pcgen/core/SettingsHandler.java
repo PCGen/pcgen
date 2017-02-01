@@ -2332,20 +2332,19 @@ public final class SettingsHandler
 	{
 		String value = ""; //$NON-NLS-1$
 
-		for (Iterator<String> i = ruleCheckMap.keySet().iterator(); i.hasNext();)
-		{
-			final String aKey = i.next();
-			final String aVal = ruleCheckMap.get(aKey);
+        for (final String aKey : ruleCheckMap.keySet())
+        {
+            final String aVal = ruleCheckMap.get(aKey);
 
-			if (value.isEmpty())
-			{
-				value = aKey + "|" + aVal; //$NON-NLS-1$
-			}
-			else
-			{
-				value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
-			}
-		}
+            if (value.isEmpty())
+            {
+                value = aKey + "|" + aVal; //$NON-NLS-1$
+            }
+            else
+            {
+                value += ("," + aKey + "|" + aVal); //$NON-NLS-1$ //$NON-NLS-2$
+            }
+        }
 
 		//setPCGenOption(optionName, value);
 		getOptions().setProperty("pcgen.options." + optionName, value); //$NON-NLS-1$
