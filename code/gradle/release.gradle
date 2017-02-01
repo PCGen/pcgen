@@ -42,7 +42,6 @@ ext {
             exclude 'pcgen-*.jar'
             exclude 'skinlf*.jar'
             exclude 'fop*.jar'
-            exclude 'xerces*.jar'
             exclude 'batik*.jar'
         }
         into ('/libs')
@@ -51,7 +50,6 @@ ext {
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
-            include 'xerces*.jar'
             include 'batik*.jar'
         }
         into ('/plugin/pdf/libs')
