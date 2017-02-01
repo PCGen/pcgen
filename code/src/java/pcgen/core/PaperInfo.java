@@ -1,5 +1,4 @@
 /*
- * PaperInfo.java
  * Copyright 2010 (C) Thomas Parker <thpr@users.sourceforge.net>
  * Copyright 2001 (C) Greg Bingleman <byngl@hotmail.com>
  *
@@ -16,24 +15,18 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on February 25, 2002, 10:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
 import java.net.URI;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.system.LanguageBundle;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The Paper information for output sheets
- *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class PaperInfo implements Loadable
 {

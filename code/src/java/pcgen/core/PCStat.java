@@ -1,5 +1,4 @@
 /*
- * PCStat.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on August 10, 2002, 11:58 PM
  */
 package pcgen.core;
 
@@ -26,11 +23,6 @@ import pcgen.cdom.base.SortKeyRequired;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.facade.core.StatFacade;
 
-/**
- * {@code PCStat}.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- */
 public final class PCStat extends PObject implements StatFacade,
 		NonInteractive, SortKeyRequired, VarScoped
 {
@@ -39,12 +31,9 @@ public final class PCStat extends PObject implements StatFacade,
 	{
 		return getSafe(IntegerKey.MIN_VALUE);		
 	}
+
 	/*
-	 * (non-Javadoc)
-	 * @see pcgen.core.PObject#toString()
-	 * 
-	 * This is what the UI displays for the CHOOSE:PCSTAT. Removed additional sb.append to de-clutter display.
-	 * 
+	 * This is what the UI displays for the CHOOSE:PCSTAT.
 	 */
 	@Override
 	public String toString()

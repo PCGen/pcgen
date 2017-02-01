@@ -1,5 +1,4 @@
 /*
- * Deity.java
  * Copyright 2001 (C) Bryan McRoberts (merton_monk@yahoo.com)
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
@@ -38,11 +33,6 @@ import pcgen.cdom.reference.CDOMSingleRef;
 import pcgen.facade.core.AlignmentFacade;
 import pcgen.facade.core.DeityFacade;
 
-/**
- * {@code Deity}.
- * 
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
- */
 public final class Deity extends PObject implements DeityFacade
 {
 	public static final CDOMReference<DomainList> DOMAINLIST;

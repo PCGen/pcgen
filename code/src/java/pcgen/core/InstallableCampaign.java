@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 27/12/2007
- *
- * $Id$
  */
 
 package pcgen.core;
@@ -26,10 +22,6 @@ package pcgen.core;
 /**
  * {@code InstallableCampaign} is a campaign (or data set) that can be
  * installed into the PCGen instance.
- * 
- * (Tue, 23 Dec 2008) $
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InstallableCampaign extends Campaign
 {
