@@ -22,7 +22,7 @@ import java.io.File;
 
 /**
  * This is the interface for the classes that will be exporting or saving to a
- * file.<br>
+ * file.
  */
 public interface ExportHandler
 {

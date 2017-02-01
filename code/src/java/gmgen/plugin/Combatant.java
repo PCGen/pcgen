@@ -15,20 +15,14 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  XMLCombatant.java
- *
- *  Created on January 24, 2002, 11:15 AM
  */
 package gmgen.plugin;
 
-import gmgen.plugin.dice.Dice;
 import java.util.List;
 import java.util.Vector;
 
-/**
- *@author     devon
- */
+import gmgen.plugin.dice.Dice;
+
 public abstract class Combatant implements InitHolder
 {
 	/*
@@ -68,7 +62,7 @@ public abstract class Combatant implements InitHolder
 	 * Sets the Combatant Type.
 	 * @param comType
 	 */
-	public void setCombatantType(String comType)
+	protected void setCombatantType(String comType)
 	{
 		this.comType = comType;
 	}
@@ -253,7 +247,7 @@ public abstract class Combatant implements InitHolder
 	 */
 	public abstract int getXP();
 
-	/**  Causes the XMLCombatant to bleed for 1 point of damage */
+	/**  Causes the Combatant to bleed for 1 point of damage */
 	public void bleed()
 	{
 		setStatus(hitPoints.bleed());
@@ -270,11 +264,11 @@ public abstract class Combatant implements InitHolder
 	}
 
 	/**
-	 *  Decrements the duration
+	 * Decrements the duration
 	 *
 	 *@return    new duration
 	 */
-	public int decDuration()
+	public void decDuration()
 	{
 		if (duration > 0)
 		{
@@ -286,7 +280,6 @@ public abstract class Combatant implements InitHolder
 			}
 		}
 
-		return duration;
 	}
 
     @Override

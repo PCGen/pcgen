@@ -1292,6 +1292,7 @@ public final class SettingsHandler
 	 * @deprecated Use ConfigurationSettings.getPccFilesDir() instead.
 	 * @return pcc files location
 	 */
+	@Deprecated
 	public static File getPccFilesLocation()
 	{
 		return pccFilesLocation;
@@ -1345,6 +1346,7 @@ public final class SettingsHandler
 	 * @deprecated 
 	 * @return the sponsor directory
 	 */
+	@Deprecated
 	public static File getPcgenSponsorDir()
 	{
 		return pcgenSponsorDir;
@@ -1374,6 +1376,7 @@ public final class SettingsHandler
 	 * @deprecated Use PCGenSettings.getPortraitsDir()
 	 * @return the portraits directory
 	 */
+	@Deprecated
 	public static File getPortraitsPath()
 	{
 		return portraitsPath;
