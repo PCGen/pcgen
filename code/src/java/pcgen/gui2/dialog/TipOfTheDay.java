@@ -23,8 +23,10 @@
 package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.FlowLayout;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
@@ -35,10 +37,12 @@ import java.awt.event.KeyEvent;
 import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 
+import javax.swing.AbstractButton;
 import javax.swing.BorderFactory;
 import javax.swing.Icon;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JComponent;
 import javax.swing.JDialog;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -74,7 +78,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	private final TipOfTheDayHandler tipHandler;
 
 	/** Creates new TipOfTheDay */
-	public TipOfTheDay(PCGenFrame frame)
+	public TipOfTheDay(Frame frame)
 	{
 		super(frame, true);
 		//IconUtilitities.maybeSetIcon(this, "TipOfTheDay16.gif");
@@ -128,7 +132,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 	//
 	private void initUI()
 	{
-		final JPanel panel = new JPanel(new BorderLayout(2, 2));
+		final JComponent panel = new JPanel(new BorderLayout(2, 2));
 		panel.setBorder(BorderFactory.createEmptyBorder(3, 3, 3, 3));
 
 		JLabel iconLabel;
@@ -138,7 +142,7 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 
 		iconLabel.setOpaque(true);
 		panel.add(iconLabel, BorderLayout.WEST);
-		final JLabel lblDidYouKnow = new JLabel("    " + LanguageBundle.getString("in_tod_didyouknow"));
+		final JComponent lblDidYouKnow = new JLabel("    " + LanguageBundle.getString("in_tod_didyouknow"));
 		FontManipulation.xxlarge(lblDidYouKnow);
 		lblDidYouKnow.setOpaque(true);
 
@@ -147,10 +151,10 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		tipText.setFocusable(false);
 		tipText.addHyperlinkListener(new Hyperactive());
 
-		final JScrollPane pane = new JScrollPane(tipText);
+		final JComponent pane = new JScrollPane(tipText);
 		pane.setBorder(null);
 
-		final JPanel content = new JPanel(new BorderLayout(0, 2));
+		final JComponent content = new JPanel(new BorderLayout(0, 2));
 		content.add(lblDidYouKnow, BorderLayout.NORTH);
 		content.add(pane, BorderLayout.CENTER);
 		content.setPreferredSize(new Dimension(585, 230));
@@ -164,22 +168,22 @@ public final class TipOfTheDay extends JDialog implements ActionListener
 		btnClose.addActionListener(this);
 		// TODO give focus to close button
 
-		final JButton btnPrevTip = new JButton(LanguageBundle.getString("in_tod_prevTip"));
+		final AbstractButton btnPrevTip = new JButton(LanguageBundle.getString("in_tod_prevTip"));
 		btnPrevTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_prevTip"));
 		btnPrevTip.addActionListener(this);
 		btnPrevTip.setActionCommand(PREV);
 
-		final JButton btnNextTip = new JButton(LanguageBundle.getString("in_tod_nextTip"));
+		final AbstractButton btnNextTip = new JButton(LanguageBundle.getString("in_tod_nextTip"));
 		btnNextTip.setMnemonic(LanguageBundle.getMnemonic("in_mn_tod_nextTip"));
 		btnNextTip.addActionListener(this);
 		btnNextTip.setActionCommand(NEXT);
 
-		final JPanel actions = new JPanel(new GridBagLayout());
+		final Container actions = new JPanel(new GridBagLayout());
 		final GridBagConstraints c = new GridBagConstraints(0, 0, 1, 1, 1, 1, GridBagConstraints.WEST,
 				GridBagConstraints.NONE, new Insets(1, 1, 1, 1), 0, 0);
 		actions.add(chkShowTips, c);
 
-		final JPanel buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
+		final Container buttons = new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		buttons.add(btnPrevTip);
 		buttons.add(btnNextTip);
 		buttons.add(btnClose);

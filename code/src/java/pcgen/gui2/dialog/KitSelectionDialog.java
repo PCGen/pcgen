@@ -24,6 +24,7 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Frame;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
@@ -61,7 +62,7 @@ public class KitSelectionDialog extends JDialog
 	 * @param frame The parent frame we are displaying over.
 	 * @param character The character being displayed.
 	 */
-	public KitSelectionDialog(JFrame frame, CharacterFacade character)
+	public KitSelectionDialog(Frame frame, CharacterFacade character)
 	{
 		super(frame, true);
 		setTitle(LanguageBundle.getString("in_mnuEditAddKit")); //$NON-NLS-1$

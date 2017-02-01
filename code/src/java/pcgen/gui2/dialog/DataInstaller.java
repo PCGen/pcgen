@@ -23,6 +23,8 @@
 
 package pcgen.gui2.dialog;
 
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -170,8 +172,8 @@ public class DataInstaller extends JFrame
 			}
 
 			// Scan for non standard files and files that would be overwritten
-			List<String> directories = new ArrayList<>();
-			List<String> files = new ArrayList<>();
+			Collection<String> directories = new ArrayList<>();
+			Collection<String> files = new ArrayList<>();
 			if (!populateFileAndDirLists(dataSet, directories, files))
 			{
 				return false;
@@ -664,7 +666,8 @@ public class DataInstaller extends JFrame
 	
 		// Data set selection row
 		Utility.buildConstraints(gbc, 0, 0, 1, 1, 0.0, 0.0);
-		JLabel dataSetLabel = new JLabel(LanguageBundle.getString("in_diDataSet"), SwingConstants.RIGHT);
+		Component
+                dataSetLabel = new JLabel(LanguageBundle.getString("in_diDataSet"), SwingConstants.RIGHT);
 		gridbag.setConstraints(dataSetLabel, gbc);
 		add(dataSetLabel, gbc);
 		
@@ -697,7 +700,8 @@ public class DataInstaller extends JFrame
 		// Location row
 		Utility.buildConstraints(gbc, 0, 2, 1, 1, 0.0, 0.0);
 		gbc.fill = GridBagConstraints.HORIZONTAL;
-		JLabel locLabel = new JLabel(LanguageBundle.getString("in_diLocation"), SwingConstants.RIGHT);
+		Component
+                locLabel = new JLabel(LanguageBundle.getString("in_diLocation"), SwingConstants.RIGHT);
 		gridbag.setConstraints(locLabel, gbc);
 		add(locLabel, gbc);
 		
@@ -719,7 +723,7 @@ public class DataInstaller extends JFrame
 		locHomebrewDataButton.setToolTipText(LanguageBundle
 			.getString("in_diHomebrewData_tip"));
 		exclusiveGroup.add(locHomebrewDataButton);
-		JPanel optionsPanel = new JPanel();
+		Container optionsPanel = new JPanel();
 		optionsPanel.add(locDataButton);
 		optionsPanel.add(locVendorDataButton);
 		optionsPanel.add(locHomebrewDataButton);
@@ -737,7 +741,7 @@ public class DataInstaller extends JFrame
 		CommonMenuText.name(closeButton, "close"); //$NON-NLS-1$
 		closeButton.addActionListener(listener);
 
-		JPanel buttonsPanel = new JPanel();
+		Container buttonsPanel = new JPanel();
 		buttonsPanel.add(installButton);
 		buttonsPanel.add(closeButton);
 		Utility.buildConstraints(gbc, 2, 3, 2, 1, 0.0, 0.0);

@@ -24,6 +24,9 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.FlowLayout;
+import java.awt.Frame;
+
+import javax.swing.AbstractButton;
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -51,7 +54,7 @@ public class SinglePrefDialog extends JDialog
 	 * @param parent The parent frame, used for positioning and to be modal 
 	 * @param prefsPanel The panel to be displayed.
 	 */
-	public SinglePrefDialog(JFrame parent, PCGenPrefsPanel prefsPanel)
+	public SinglePrefDialog(Frame parent, PCGenPrefsPanel prefsPanel)
 	{
 		super(parent, prefsPanel.getTitle(), true);
 		
@@ -76,12 +79,12 @@ public class SinglePrefDialog extends JDialog
 		controlPanel = new JPanel();
 		controlPanel.setLayout(new FlowLayout(FlowLayout.RIGHT));
 
-		JButton okButton = new JButton(LanguageBundle.getString("in_ok"));
+		AbstractButton okButton = new JButton(LanguageBundle.getString("in_ok"));
 		okButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok"));
 		controlPanel.add(okButton);
 		okButton.addActionListener(evt -> okButtonActionPerformed());
 
-		JButton cancelButton =
+		AbstractButton cancelButton =
 				new JButton(LanguageBundle.getString("in_cancel"));
 		cancelButton.setMnemonic(LanguageBundle.getMnemonic("in_mn_cancel"));
 		controlPanel.add(cancelButton);

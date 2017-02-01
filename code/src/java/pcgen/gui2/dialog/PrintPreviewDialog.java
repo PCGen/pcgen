@@ -28,6 +28,7 @@ import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.Insets;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.print.Pageable;
@@ -91,7 +92,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 
 	public static void showPrintPreviewDialog(PCGenFrame frame)
 	{
-		JDialog dialog = new PrintPreviewDialog(frame);
+		Window dialog = new PrintPreviewDialog(frame);
 		Utility.setComponentRelativeLocation(frame, dialog);
 		dialog.setVisible(true);
 	}
@@ -276,7 +277,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		Container pane = getContentPane();
 		pane.setLayout(new BorderLayout());
 		{//layout top bar
-			JPanel bar = new JPanel(new GridBagLayout());
+			Container bar = new JPanel(new GridBagLayout());
 			GridBagConstraints gbc = new GridBagConstraints();
 			gbc.fill = GridBagConstraints.HORIZONTAL;
 			gbc.anchor = GridBagConstraints.BASELINE;
@@ -319,7 +320,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 	private static class PercentEditor extends JFormattedTextField implements ComboBoxEditor, PropertyChangeListener
 	{
 
-		public PercentEditor(JComboBox comboBox)
+		PercentEditor(JComboBox comboBox)
 		{
 			super(NumberFormat.getPercentInstance());
 			addPropertyChangeListener("value", this);
@@ -360,7 +361,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 
 		private URI uri;
 
-		public PreviewLoader(URI uri)
+		PreviewLoader(URI uri)
 		{
 			this.uri = uri;
 			progressBar.setIndeterminate(true);
@@ -462,7 +463,7 @@ public final class PrintPreviewDialog extends JDialog implements ActionListener
 		{
 			try
 			{
-				DefaultComboBoxModel model = new DefaultComboBoxModel(get());
+				ComboBoxModel model = new DefaultComboBoxModel(get());
 				model.setSelectedItem(null);
 				sheetBox.setModel(model);
 			}

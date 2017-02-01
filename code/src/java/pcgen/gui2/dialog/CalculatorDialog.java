@@ -80,7 +80,7 @@ public class CalculatorDialog extends JDialog
 		private JTextField formulaText;
 		private JTextArea outputText;
 		
-		public ButtonPanel(JTextField formulaText, JTextArea outputText)
+		ButtonPanel(JTextField formulaText, JTextArea outputText)
 		{
 			calcButton = new JButton(LanguageBundle.getString("in_calculate"));
 			clearButton = new JButton(LanguageBundle.getString("in_clear"));
@@ -137,7 +137,7 @@ public class CalculatorDialog extends JDialog
 		private final JTextField formulaText;
 		private final ButtonPanel buttonPanel;
 		
-		public FormulaPanel(JTextArea outputText)
+		FormulaPanel(JTextArea outputText)
 		{
 			formulaText = new JTextField();
 			buttonPanel = new ButtonPanel(formulaText, outputText);

@@ -37,6 +37,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 
+import javax.swing.AbstractButton;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -202,7 +203,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		pane.setLayout(new BorderLayout());
 
 		JSplitPane split = new JSplitPane();
-		JPanel leftPane = new JPanel(new BorderLayout());
+		Container leftPane = new JPanel(new BorderLayout());
 		if (availTable != null)
 		{
 			availTable.setAutoCreateRowSorter(true);
@@ -226,8 +227,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			leftPane.add(availPanel, BorderLayout.WEST);
 		}
 
-		JPanel buttonPane1 = new JPanel(new FlowLayout());
-		JButton addButton = new JButton(chooser.getAddButtonName());
+		Container buttonPane1 = new JPanel(new FlowLayout());
+		AbstractButton addButton = new JButton(chooser.getAddButtonName());
 		addButton.setActionCommand("ADD");
 		addButton.addActionListener(this);
 		buttonPane1.add(addButton);
@@ -236,8 +237,8 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		
 		split.setLeftComponent(leftPane);
 
-		JPanel rightPane = new JPanel(new BorderLayout());
-		JPanel labelPane = new JPanel(new GridBagLayout());
+		Container rightPane = new JPanel(new BorderLayout());
+		Container labelPane = new JPanel(new GridBagLayout());
 
 		GridBagConstraints gbc = new GridBagConstraints();
 		gbc.gridwidth = GridBagConstraints.REMAINDER;
@@ -252,9 +253,9 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		list.addActionListener(this);
 		rightPane.add(new JScrollPane(list), BorderLayout.CENTER);
 
-		JPanel buttonPane2 = new JPanel(new FlowLayout());
+		Container buttonPane2 = new JPanel(new FlowLayout());
 		buttonPane2.add(new JLabel(Icons.Back16.getImageIcon()));
-		JButton removeButton = new JButton(chooser.getRemoveButtonName());
+		AbstractButton removeButton = new JButton(chooser.getRemoveButtonName());
 		removeButton.setActionCommand("REMOVE");
 		removeButton.addActionListener(this);
 		buttonPane2.add(removeButton);
@@ -278,7 +279,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		{
 			pane.add(split, BorderLayout.CENTER);
 		}
-		JPanel bottomPane = new JPanel(new FlowLayout());
+		Container bottomPane = new JPanel(new FlowLayout());
 		JButton button = new JButton(LanguageBundle.getString("in_ok")); //$NON-NLS-1$
 		button.setMnemonic(LanguageBundle.getMnemonic("in_mn_ok")); //$NON-NLS-1$
 		button.setActionCommand("OK");
@@ -350,7 +351,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 		if (e.getActionCommand().equals("REMOVE") || e.getSource() == list)
 		{
 			Object value = list.getSelectedValue();
-			if (value != null && value instanceof InfoFacade)
+			if (value instanceof InfoFacade)
 			{
 				chooser.removeSelected((InfoFacade) value);
 				if (availInput != null)
@@ -404,9 +405,11 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 			DefaultListFacade<TreeView<InfoFacade>> views =
                     new DefaultListFacade<>();
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.NAME,
-				chooser.getAvailableTableTitle(), chooser));
+					chooser.getAvailableTableTitle(), chooser
+			));
 			views.addElement(new ChooserTreeView(ChooserTreeViewType.TYPE_NAME,
-				chooser.getAvailableTableTypeNameTitle(), chooser));
+					chooser.getAvailableTableTypeNameTitle(), chooser
+			));
 			return views;
 		}
 
@@ -453,7 +456,7 @@ public class ChooserDialog extends JDialog implements ActionListener, ReferenceL
 
 	}
 
-	private final class ChooserTreeView implements TreeView<InfoFacade>
+	private static final class ChooserTreeView implements TreeView<InfoFacade>
 	{
 		
 		private String viewName;

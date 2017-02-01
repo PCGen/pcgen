@@ -26,6 +26,8 @@ package pcgen.gui2.dialog;
 
 import java.awt.BorderLayout;
 import java.awt.CardLayout;
+import java.awt.Component;
+import java.awt.Container;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
@@ -33,6 +35,7 @@ import java.awt.Insets;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import javax.swing.BorderFactory;
 import javax.swing.BoxLayout;
@@ -57,6 +60,7 @@ import javax.swing.event.TreeSelectionListener;
 import javax.swing.tree.DefaultMutableTreeNode;
 import javax.swing.tree.DefaultTreeCellRenderer;
 import javax.swing.tree.DefaultTreeModel;
+import javax.swing.tree.MutableTreeNode;
 import javax.swing.tree.TreePath;
 import javax.swing.tree.TreeSelectionModel;
 
@@ -160,13 +164,13 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 	}
 
 	private void addPluginPanes(DefaultMutableTreeNode rootNode,
-		DefaultMutableTreeNode pluginNode)
+                                MutableTreeNode pluginNode)
 	{
 		if (pluginsPanel == null)
 		{
 			pluginsPanel = new PreferencesPluginsPanel();
 		}
-		JTabbedPane tpane = new JTabbedPane();
+		Container tpane = new JTabbedPane();
 		tpane.add(pluginsPanel.toString(), pluginsPanel);
 		settingsPanel.add(tpane, LanguageBundle.getString("in_Prefs_plugins")); //$NON-NLS-1$
 		rootNode.add(pluginNode);
@@ -215,10 +219,8 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 	}
 
-	private static JPanel buildEmptyPanel(String title, String messageText)
+	private static Component buildEmptyPanel(String title, String messageText)
 	{
-		GridBagLayout gridbag = new GridBagLayout();
-		GridBagConstraints c = new GridBagConstraints();
 		JLabel label;
 		JPanel panel = new JPanel();
 		Border etched = null;
@@ -226,9 +228,9 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 		title1.setTitleJustification(TitledBorder.LEFT);
 		panel.setBorder(title1);
-		gridbag = new GridBagLayout();
+		GridBagLayout gridbag = new GridBagLayout();
 		panel.setLayout(gridbag);
-		c = new GridBagConstraints();
+		GridBagConstraints c = new GridBagConstraints();
 		c.fill = GridBagConstraints.HORIZONTAL;
 		c.anchor = GridBagConstraints.CENTER;
 		c.insets = new Insets(2, 2, 2, 2);
@@ -353,24 +355,20 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		settingsTree.expandPath(new TreePath(pluginNode.getPath()));
 
 		// Add the listener which switches panels when a node of the tree is selected
-		settingsTree.addTreeSelectionListener(new TreeSelectionListener()
+		settingsTree.addTreeSelectionListener(e ->
 		{
-			@Override
-			public void valueChanged(TreeSelectionEvent e)
-			{
-				DefaultMutableTreeNode node =
-						(DefaultMutableTreeNode) settingsTree
-							.getLastSelectedPathComponent();
+            DefaultMutableTreeNode node =
+                    (DefaultMutableTreeNode) settingsTree
+                        .getLastSelectedPathComponent();
 
-				if (node == null)
-				{
-					return;
-				}
+            if (node == null)
+            {
+                return;
+            }
 
-				CardLayout cl = (CardLayout) (settingsPanel.getLayout());
-				cl.show(settingsPanel, String.valueOf(node));
-			}
-		});
+            CardLayout cl = (CardLayout) (settingsPanel.getLayout());
+            cl.show(settingsPanel, String.valueOf(node));
+        });
 
 		// Build the split pane
 		splitPane =
@@ -395,7 +393,7 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 		panelList.add(prefsPanel);
 		parent.add(new DefaultMutableTreeNode(prefsPanel
 			.getTitle()));
-		JScrollPane rightScroll = new JScrollPane(prefsPanel);
+		Component rightScroll = new JScrollPane(prefsPanel);
 		settingsPanel.add(rightScroll, prefsPanel.getTitle());
 	}
 
@@ -432,13 +430,13 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {
-	private final HashMap<String, PluginRef> pluginMap = new HashMap<>();
+	private final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
 	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
-	public PreferencesPluginsPanel()
+    PreferencesPluginsPanel()
 	{
 		for(PluginManager.PluginInfo info : PluginManager.getInstance().getPluginInfoList())
 		{
@@ -509,7 +507,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 		private JRadioButton pcgenButton;
 		private JRadioButton gmgenButton;
 
-		public PluginRef(String pluginName, String pluginTitle, String defaultSystem) 
+		PluginRef(String pluginName, String pluginTitle, String defaultSystem)
 		{
 			this.pluginName = pluginName;
 			this.pluginTitle = pluginTitle;
