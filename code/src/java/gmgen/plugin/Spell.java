@@ -15,30 +15,19 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Spell.java
- *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
-
-import org.jdom2.Element;
-import pcgen.util.Logging;
 
 import java.util.List;
 import java.util.Vector;
 
-/**
- *@author     devon
- */
+import pcgen.util.Logging;
+
+import org.jdom2.Element;
+
 public class Spell extends Event
 {
-	protected String anEffect;
 	protected String aName;
-	protected String aPlayer;
-	protected String aStatus = "Active";
-	protected boolean anAlert;
-	protected int aDuration;
 
 	/**
 	 *  Creates new Spell
@@ -109,10 +98,10 @@ public class Spell extends Event
 					rowVector.add("");
 					break;
 				case "Init":  // Spell's Initiative
-					rowVector.add("" + init.getCurrentInitiative());
+					rowVector.add(String.valueOf(init.getCurrentInitiative()));
 					break;
 				case "Dur":  // Spell's Duration
-					rowVector.add("" + getDuration());
+					rowVector.add(String.valueOf(getDuration()));
 					break;
 				case "#":  // Ignored
 					rowVector.add("");
@@ -138,9 +127,9 @@ public class Spell extends Event
 		Element retElement = new Element("Spell");
 		Element initiative = new Element("Initiative");
 
-		initiative.setAttribute("initiative", init.getCurrentInitiative() + "");
-		initiative.setAttribute("duration", getDuration() + "");
-		initiative.setAttribute("alert", isAlert() + "");
+		initiative.setAttribute("initiative", String.valueOf(init.getCurrentInitiative()));
+		initiative.setAttribute("duration", String.valueOf(getDuration()));
+		initiative.setAttribute("alert", String.valueOf(isAlert()));
 		retElement.addContent(initiative);
 
 		retElement.setAttribute("name", getName());

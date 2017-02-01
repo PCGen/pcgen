@@ -15,13 +15,12 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package gmgen;
 
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -225,7 +224,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Clears the edit menu to allow a plugin to populate it.
      */
-    public void clearEditMenu() {
+    private void clearEditMenu() {
         editMenu.removeAll();
 
         /*
@@ -665,7 +664,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     private void mPreferencesActionPerformed(ActionEvent event) {
-        PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
+        Window dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
     }
 

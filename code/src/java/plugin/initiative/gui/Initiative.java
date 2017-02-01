@@ -1629,7 +1629,7 @@ public class Initiative extends javax.swing.JPanel
 			if (iH instanceof Combatant)
 			{
 				Combatant cbt = (Combatant) iH;
-				cbt.init.check();
+				cbt.init.check(0);
 				writeToCombatTabWithRound(cbt.getName() + " ("
 					+ cbt.getPlayer() + ") Rerolled");
 				combatantUpdated(cbt);
