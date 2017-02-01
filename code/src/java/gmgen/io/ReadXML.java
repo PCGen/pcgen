@@ -20,14 +20,17 @@ package gmgen.io;
 
 import java.io.File;
 import java.io.IOException;
-import java.util.List;
-import java.util.Vector;
+import java.util.ArrayList;
+import java.util.Collection;
+
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
 import javax.xml.parsers.ParserConfigurationException;
+
+import pcgen.util.Logging;
+
 import org.w3c.dom.Document;
 import org.xml.sax.SAXException;
-import pcgen.util.Logging;
 
 /**
  * This class is used to read through XML tables on disk.
@@ -68,15 +71,6 @@ public class ReadXML
 	public VectorTable getTable()
 	{
 		return vt;
-	}
-
-	/**
-	 * Gets the name of the table.
-	 * @return the name of the table.
-	 */
-	public String getTableName()
-	{
-		return tableName;
 	}
 
 	/**
@@ -131,7 +125,7 @@ public class ReadXML
 
 			for (int x = 0; x < rows; x++)
 			{
-				List<String> row = new Vector<>();
+				Collection<String> row = new ArrayList<>();
 
 				for (int y = 0; y < cols; y++)
 				{
