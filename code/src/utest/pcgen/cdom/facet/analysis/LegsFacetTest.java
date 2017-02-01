@@ -17,20 +17,20 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.cdom.facet.analysis.LegsFacet;
 import pcgen.cdom.facet.model.RaceFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
-public class LegsFacetTest extends TestCase
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class LegsFacetTest
+
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -45,11 +45,10 @@ public class LegsFacetTest extends TestCase
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new LegsFacet();
-		super.setUp();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
@@ -60,14 +59,14 @@ public class LegsFacetTest extends TestCase
 	@Test
 	public void testRaceTypeUnsetNull()
 	{
-		assertEquals(0, facet.getLegs(id));
+		Assert.assertEquals(0, facet.getLegs(id));
 	}
 
 	@Test
 	public void testWithNothingInRaceDefault2()
 	{
 		rfacet.set(id, new Race());
-		assertEquals(2, facet.getLegs(id));
+		Assert.assertEquals(2, facet.getLegs(id));
 	}
 
 	@Test
@@ -76,7 +75,7 @@ public class LegsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
 		rfacet.set(id, r);
-		assertEquals(0, facet.getLegs(altid));
+		Assert.assertEquals(0, facet.getLegs(altid));
 	}
 
 	@Test
@@ -85,9 +84,9 @@ public class LegsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getLegs(id));
+		Assert.assertEquals(5, facet.getLegs(id));
 		rfacet.remove(id);
-		assertEquals(0, facet.getLegs(id));
+		Assert.assertEquals(0, facet.getLegs(id));
 	}
 
 	@Test
@@ -97,9 +96,9 @@ public class LegsFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(IntegerKey.LEGS, 5);
 		tfacet.add(id, t, this);
-		assertEquals(5, facet.getLegs(id));
+		Assert.assertEquals(5, facet.getLegs(id));
 		tfacet.remove(id, t, this);
-		assertEquals(2, facet.getLegs(id));
+		Assert.assertEquals(2, facet.getLegs(id));
 	}
 
 	@Test
@@ -108,24 +107,24 @@ public class LegsFacetTest extends TestCase
 		Race r = new Race();
 		r.put(IntegerKey.LEGS, 5);
 		rfacet.set(id, r);
-		assertEquals(5, facet.getLegs(id));
+		Assert.assertEquals(5, facet.getLegs(id));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.put(IntegerKey.LEGS, 3);
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getLegs(id));
+		Assert.assertEquals(3, facet.getLegs(id));
 		PCTemplate t5 = new PCTemplate();
 		t5.setName("Other");
 		t5.put(IntegerKey.LEGS, 4);
 		tfacet.add(id, t5, this);
-		assertEquals(4, facet.getLegs(id));
+		Assert.assertEquals(4, facet.getLegs(id));
 		tfacet.remove(id, t, this);
-		assertEquals(4, facet.getLegs(id));
+		Assert.assertEquals(4, facet.getLegs(id));
 		tfacet.add(id, t, this);
-		assertEquals(3, facet.getLegs(id));
+		Assert.assertEquals(3, facet.getLegs(id));
 		tfacet.remove(id, t, this);
-		assertEquals(4, facet.getLegs(id));
+		Assert.assertEquals(4, facet.getLegs(id));
 		tfacet.remove(id, t5, this);
-		assertEquals(5, facet.getLegs(id));
+		Assert.assertEquals(5, facet.getLegs(id));
 	}
 }

@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.base.format.OrderedPairManager;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.content.ContentDefinition;
@@ -37,9 +31,14 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class DataTypeTokenTest extends TestCase
+public class DataTypeTokenTest
 {
 
 	static DataFormatToken token = new DataFormatToken();
@@ -59,7 +58,6 @@ public class DataTypeTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -86,7 +84,7 @@ public class DataTypeTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, cd, null).passed());
+		Assert.assertFalse(token.parseToken(context, cd, null).passed());
 	}
 
 	@Test
@@ -94,7 +92,7 @@ public class DataTypeTokenTest extends TestCase
 	{
 		try
 		{
-			assertFalse(token.parseToken(context, cd, "").passed());
+			Assert.assertFalse(token.parseToken(context, cd, "").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -107,7 +105,7 @@ public class DataTypeTokenTest extends TestCase
 	{
 		try
 		{
-			assertFalse(token.parseToken(context, cd, "NotAType").passed());
+			Assert.assertFalse(token.parseToken(context, cd, "NotAType").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -118,27 +116,27 @@ public class DataTypeTokenTest extends TestCase
 	@Test
 	public void testValidStringString() throws PersistenceLayerException
 	{
-		assertNull(cd.getFormatManager());
-		assertTrue(token.parseToken(context, cd, "STRING").passed());
-		assertNotNull(cd.getFormatManager());
-		assertEquals(StringManager.class, cd.getFormatManager().getClass());
+		Assert.assertNull(cd.getFormatManager());
+		Assert.assertTrue(token.parseToken(context, cd, "STRING").passed());
+		Assert.assertNotNull(cd.getFormatManager());
+		Assert.assertEquals(StringManager.class, cd.getFormatManager().getClass());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("STRING", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("STRING", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertNull(cd.getFormatManager());
-		assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
-		assertNotNull(cd.getFormatManager());
-		assertEquals(OrderedPairManager.class, cd.getFormatManager().getClass());
+		Assert.assertNull(cd.getFormatManager());
+		Assert.assertTrue(token.parseToken(context, cd, "ORDEREDPAIR").passed());
+		Assert.assertNotNull(cd.getFormatManager());
+		Assert.assertEquals(OrderedPairManager.class, cd.getFormatManager().getClass());
 		String[] unparsed = token.unparse(context, cd);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("ORDEREDPAIR", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("ORDEREDPAIR", unparsed[0]);
 	}
 
 }

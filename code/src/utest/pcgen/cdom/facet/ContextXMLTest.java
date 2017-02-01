@@ -18,17 +18,14 @@
 package pcgen.cdom.facet;
 
 import java.io.IOException;
-import java.util.zip.ZipException;
-
-import junit.framework.TestCase;
 
 import org.junit.Test;
 
-public class ContextXMLTest extends TestCase
+public class ContextXMLTest
 {
 
 	@Test
-	public void test() throws ZipException, IOException
+	public void test() throws IOException
 	{
 //		Collection<AbstractStorageFacet> storageBeans =
 //				SpringHelper.getStorageBeans();

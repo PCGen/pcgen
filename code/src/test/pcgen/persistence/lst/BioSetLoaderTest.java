@@ -28,21 +28,25 @@ package pcgen.persistence.lst;
 
 import java.net.URI;
 import java.util.List;
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.framework.TestCase;
+
 import pcgen.cdom.base.Constants;
 import pcgen.core.BioSet;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
 import pcgen.rules.context.LoadContext;
 
+import junit.framework.Test;
+import junit.framework.TestSuite;
+import org.junit.After;
+import org.junit.Assert;
+import org.junit.Before;
+
 /**
  * A collection of tests to validate the functioning of the BioSetLoader class.
  * Static methods are also made available should other test classes require
  * BioSet loading functions.
  */
-public final class BioSetLoaderTest extends TestCase
+public final class BioSetLoaderTest
 {
 	/**
 	 * The sample Bio set data for testing.
@@ -87,10 +91,9 @@ public final class BioSetLoaderTest extends TestCase
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
-    @Override
-	protected void setUp() throws Exception
+    @Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 
 		loader = new BioSetLoader();
 		BioSetLoaderTest.loadBioSet(Globals.getContext(), BIO_SET_DATA, loader);
@@ -99,8 +102,8 @@ public final class BioSetLoaderTest extends TestCase
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#tearDown()
 	 */
-    @Override
-	protected void tearDown() throws Exception
+    @After
+	public void tearDown() throws Exception
 	{
 		try
 		{
@@ -109,26 +112,7 @@ public final class BioSetLoaderTest extends TestCase
 
 		finally
 		{
-			super.tearDown();
 		}
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 */
-	public BioSetLoaderTest()
-	{
-		// Do Nothing
-	}
-
-	/**
-	 * Basic constructor, name only.
-	 *
-	 * @param name The name of the test class.
-	 */
-	public BioSetLoaderTest(final String name)
-	{
-		super(name);
 	}
 
 	/**
@@ -149,16 +133,6 @@ public final class BioSetLoaderTest extends TestCase
 	}
 
 	/**
-	 * Run the tests standalone from the command line.
-	 *
-	 * @param args Command line args - ignored.
-	 */
-	public static void main(final String[] args)
-	{
-		junit.textui.TestRunner.run(BioSetLoaderTest.class);
-	}
-
-	/**
 	 * Quick test suite creation - adds all methods beginning with "test".
 	 *
 	 * @return The Test suite
@@ -172,6 +146,7 @@ public final class BioSetLoaderTest extends TestCase
 	 * Validate the data loaded in setUp() to verify that the parseLine fucntion in
 	 * BioSetLoader is functioning properly.
 	 */
+	@org.junit.Test
 	public void testParseLine()
 	{
 		final String[] TEST_TAGS =
@@ -228,8 +203,8 @@ public final class BioSetLoaderTest extends TestCase
 				//						+ "' of "
 				//						+ baseRaceTag
 				//						+ ".");
-				assertEquals("BioSet tag " + testArg + " for race " + raceName
-					+ ":", EXPECTED_VALUES[i][j], baseRaceTag.toString());
+				Assert.assertEquals("BioSet tag " + testArg + " for race " + raceName
+						+ ":", EXPECTED_VALUES[i][j], baseRaceTag.toString());
 			}
 		}
 
@@ -239,10 +214,15 @@ public final class BioSetLoaderTest extends TestCase
 	 * Check that a valid second bio set definition can be loaded.
 	 * @throws Exception
 	 */
+	@org.junit.Test
 	public void testParseSecondBioSetGood() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+		Assert.assertEquals(
+				"No ogre bio details expected before load",
+				"REGION:None\n\n",
+				SettingsHandler
+						.getGame().getBioSet().getRacePCCText("None", "Ogre")
+		);
 		String[] bioData2 = new String[]{
 			"AGESET:0|Adulthood",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -260,8 +240,8 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getRacePCCText("None", "Ogre");
-		assertFalse("Ogre bio details expected after load but was "
-			+ racePCCText, "REGION:None\n\n".equals(racePCCText));
+		Assert.assertFalse("Ogre bio details expected after load but was "
+				+ racePCCText, "REGION:None\n\n".equals(racePCCText));
 		
 	}
 
@@ -271,10 +251,15 @@ public final class BioSetLoaderTest extends TestCase
 	 * the age set will be used.
 	 * @throws Exception
 	 */
+	@org.junit.Test
 	public void testParseSecondBioSetBadName() throws Exception
 	{
-		assertEquals("No ogre bio details expected before load", "REGION:None\n\n", SettingsHandler
-			.getGame().getBioSet().getRacePCCText("None", "Ogre"));
+		Assert.assertEquals(
+				"No ogre bio details expected before load",
+				"REGION:None\n\n",
+				SettingsHandler
+						.getGame().getBioSet().getRacePCCText("None", "Ogre")
+		);
 		String[] bioData2 = new String[]{
 			"AGESET:0|Bad",
 			"RACENAME:Ogre		CLASS:Barbarian,Rogue,Sorcerer[BASEAGEADD:1d4]|Bard,Fighter,Paladin,Ranger[BASEAGEADD:1d6]|Cleric,Druid,Monk,Wizard[BASEAGEADD:2d6]",
@@ -292,10 +277,11 @@ public final class BioSetLoaderTest extends TestCase
 		String racePCCText =
 				SettingsHandler.getGame().getBioSet()
 					.getRacePCCText("None", "Ogre");
-		assertTrue(
-			"Expected details to be against original ageset name but was "
-				+ racePCCText,
-			racePCCText
-				.startsWith("REGION:None\n\nAGESET:0|Adulthood\nRACENAME:Ogre"));
+		Assert.assertTrue(
+				"Expected details to be against original ageset name but was "
+						+ racePCCText,
+				racePCCText
+						.startsWith("REGION:None\n\nAGESET:0|Adulthood\nRACENAME:Ogre")
+		);
 	}
 }

@@ -20,12 +20,6 @@ package plugin.lsttokens.datacontrol;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.content.UserFunction;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
@@ -34,9 +28,14 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public class ValueTokenTest extends TestCase
+public class ValueTokenTest
 {
 
 	static ValueToken token = new ValueToken();
@@ -56,7 +55,6 @@ public class ValueTokenTest extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
@@ -84,7 +82,7 @@ public class ValueTokenTest extends TestCase
 	@Test
 	public void testInvalidInputNullString() throws PersistenceLayerException
 	{
-		assertFalse(token.parseToken(context, function, null).passed());
+		Assert.assertFalse(token.parseToken(context, function, null).passed());
 	}
 
 	@Test
@@ -92,7 +90,7 @@ public class ValueTokenTest extends TestCase
 	{
 		try
 		{
-			assertFalse(token.parseToken(context, function, "").passed());
+			Assert.assertFalse(token.parseToken(context, function, "").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -105,7 +103,7 @@ public class ValueTokenTest extends TestCase
 	{
 		try
 		{
-			assertFalse(token.parseToken(context, function, "2+").passed());
+			Assert.assertFalse(token.parseToken(context, function, "2+").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -116,10 +114,10 @@ public class ValueTokenTest extends TestCase
 	@Test
 	public void testInvalidNonMatchingDefine() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(context, function, "3+4").passed());
+		Assert.assertTrue(token.parseToken(context, function, "3+4").passed());
 		try
 		{
-			assertFalse(token.parseToken(context, function, "2+3").passed());
+			Assert.assertFalse(token.parseToken(context, function, "2+3").passed());
 		}
 		catch (IllegalArgumentException e)
 		{
@@ -130,28 +128,28 @@ public class ValueTokenTest extends TestCase
 	@Test
 	public void testInvalidAllowMatchingDefine() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(context, function, "3+4").passed());
-		assertTrue(token.parseToken(context, function, "3+4").passed());
+		Assert.assertTrue(token.parseToken(context, function, "3+4").passed());
+		Assert.assertTrue(token.parseToken(context, function, "3+4").passed());
 	}
 
 	@Test
 	public void testValidStringString() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(context, function, "2+3").passed());
+		Assert.assertTrue(token.parseToken(context, function, "2+3").passed());
 		String[] unparsed = token.unparse(context, function);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("2+3", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("2+3", unparsed[0]);
 	}
 
 	@Test
 	public void testValidStringNo() throws PersistenceLayerException
 	{
-		assertTrue(token.parseToken(context, function, "3-4").passed());
+		Assert.assertTrue(token.parseToken(context, function, "3-4").passed());
 		String[] unparsed = token.unparse(context, function);
-		assertNotNull(unparsed);
-		assertEquals(1, unparsed.length);
-		assertEquals("3-4", unparsed[0]);
+		Assert.assertNotNull(unparsed);
+		Assert.assertEquals(1, unparsed.length);
+		Assert.assertEquals("3-4", unparsed[0]);
 	}
 
 }

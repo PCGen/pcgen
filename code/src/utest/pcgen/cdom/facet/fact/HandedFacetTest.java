@@ -17,18 +17,17 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Handed;
-import pcgen.cdom.facet.fact.HandedFacet;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class HandedFacetTest extends TestCase
+import org.junit.Assert;
+import org.junit.Before;
+import org.junit.Test;
+
+public class HandedFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -40,11 +39,10 @@ public class HandedFacetTest extends TestCase
 	private HandedFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new HandedFacet();
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 	}
@@ -52,23 +50,23 @@ public class HandedFacetTest extends TestCase
 	@Test
 	public void testHandedUnsetNull()
 	{
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 	@Test
 	public void testWithNothingInTemplates()
 	{
 		tfacet.add(id, new PCTemplate(), this);
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 	@Test
 	public void testHandedSet()
 	{
 		facet.setHanded(id, Handed.Left);
-		assertEquals(Handed.Left, facet.getHanded(id));
+		Assert.assertEquals(Handed.Left, facet.getHanded(id));
 		facet.removeHanded(id);
-		assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
+		Assert.assertEquals(Handed.getDefaultValue(), facet.getHanded(id));
 	}
 
 }

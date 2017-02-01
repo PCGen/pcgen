@@ -33,6 +33,7 @@ import java.util.Set;
 import junit.framework.Test;
 import junit.framework.TestSuite;
 import junit.framework.TestCase;
+import org.junit.Assert;
 
 /**
  * <code>PluginBuildTest</code> verifies that the pluginbuild.xml file has all 
@@ -42,7 +43,7 @@ import junit.framework.TestCase;
  *
  * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
-public class PluginBuildTest extends TestCase
+public class PluginBuildTest
 {
 	/**
 	 * Array of exceptions to normal names. Each entry is a pair of
@@ -69,6 +70,7 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all 'bonus' token plugins.
 	 */
+	@org.junit.Test
 	public void testBonusPlugins()
 	{
 		String jarPrefix = "BonusToken-";
@@ -80,13 +82,17 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all deprecated token plugins.
 	 */
+	@org.junit.Test
 	public void testDeprecatedPlugins()
 	{
 		String jarPrefix = "^[a-zA-Z]*-DEPRECATED-";
 		String sourceSuffix = "Lst";
 		File sourceFolder = new File("code/src/java/plugin/lsttokens/deprecated");
 		File jarFolder[] = new File[]{new File("plugins/lstplugins"), new File("plugins/preplugins"), new File("plugins/bonusplugins")};
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+
+		Assert.assertTrue("Source folder " +
+				sourceFolder.getAbsolutePath() +
+				" should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
@@ -102,6 +108,7 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all export token plugins.
 	 */
+	@org.junit.Test
 	public void testExportPlugins()
 	{
 		String jarPrefix = "ExportToken-";
@@ -113,6 +120,7 @@ public class PluginBuildTest extends TestCase
 	/**
 	 * Check for the presence of all JEP command plugins.
 	 */
+	@org.junit.Test
 	public void testJepPlugins()
 	{
 		String jarPrefix = "JepCommand-";
@@ -125,6 +133,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all ability
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstAbilityPlugins()
 	{
 		String jarPrefix = "AbilityLstToken-";
@@ -137,6 +146,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all 'add'
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstAddPlugins()
 	{
 		String jarPrefix = "AddLstToken-";
@@ -149,6 +159,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all 'automatic'
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstAutoPlugins()
 	{
 		String jarPrefix = "AutoLstToken-";
@@ -161,6 +172,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all campaign
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstCampaignPlugins()
 	{
 		String jarPrefix = "CampaignLstToken-";
@@ -173,6 +185,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all campaign
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstInstallableCampaignPlugins()
 	{
 		String jarPrefix = "InstCampaignLstToken-";
@@ -185,6 +198,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all choose
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstChoosePlugins()
 	{
 		String jarPrefix = "ChooseToken-";
@@ -197,6 +211,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all choose
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstEqModChoosePlugins()
 	{
 		String jarPrefix = "EquipmentModifierChooseLstToken-";
@@ -209,6 +224,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all class
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstClassPlugins()
 	{
 		String jarPrefix = "ClassLstToken-";
@@ -221,6 +237,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all class
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstClassLevelPlugins()
 	{
 		String jarPrefix = "ClassLevelLstToken-";
@@ -233,6 +250,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all companion mod
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstCompanionModPlugins()
 	{
 		String jarPrefix = "CompanionModLstToken-";
@@ -245,6 +263,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all deity
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstDietyPlugins()
 	{
 		String jarPrefix = "DeityLstToken-";
@@ -257,6 +276,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all domain
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstDomainPlugins()
 	{
 		String jarPrefix = "DomainLstToken-";
@@ -269,6 +289,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all equipment
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstEquipmentPlugins()
 	{
 		String jarPrefix = "EquipmentLstToken-";
@@ -281,6 +302,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all equipment modifier
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstEquipmentModifierPlugins()
 	{
 		String jarPrefix = "EquipmentModifierLstToken-";
@@ -293,6 +315,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all global
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstGlobalPlugins()
 	{
 		String jarPrefix = "LstToken-";
@@ -305,6 +328,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all kit
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstKitPlugins()
 	{
 		String jarPrefix = "KitLstToken-";
@@ -365,6 +389,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all race
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstRacePlugins()
 	{
 		String jarPrefix = "RaceLstToken-";
@@ -377,6 +402,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all skill
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstSkillPlugins()
 	{
 		String jarPrefix = "SkillLstToken-";
@@ -389,6 +415,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all spell
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstSpellPlugins()
 	{
 		String jarPrefix = "SpellLstToken-";
@@ -401,6 +428,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all sub class
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstSubclassPlugins()
 	{
 		String jarPrefix = "SubClassLstToken-";
@@ -413,6 +441,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all template
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstTemplatePlugins()
 	{
 		String jarPrefix = "TemplateLstToken-";
@@ -425,6 +454,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all weapon proficiency
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstWeaponProfPlugins()
 	{
 		String jarPrefix = "WeaponProfLstToken-";
@@ -437,12 +467,15 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all prerequisite
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testPrePlugins()
 	{
 		String jarPrefix = "PreToken-";
 		File sourceFolder = new File("code/src/java/plugin/pretokens/parser");
 		File jarFolder = new File("plugins/preplugins");
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		Assert.assertTrue("Source folder " +
+				sourceFolder.getAbsolutePath() +
+				" should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		List<String> srcList = new ArrayList<>();
 		srcList.addAll(Arrays.asList(sources));
@@ -455,6 +488,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all variable
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testLstVariablePlugins()
 	{
 		String jarPrefix = "VariableLstToken-";
@@ -467,6 +501,7 @@ public class PluginBuildTest extends TestCase
 	 * Check for the presence of all system (gamemode, miscinfo etc) file
 	 * token parsing plugins.
 	 */
+	@org.junit.Test
 	public void testSystemLstPlugins()
 	{
 		String jarPrefix = "GameModeLstToken-";
@@ -588,7 +623,9 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, File sourceFolder,
 		File jarFolder, String classSuffix)
 	{
-		assertTrue("Source folder " + sourceFolder.getAbsolutePath() + " should be a directory", sourceFolder.isDirectory());
+		Assert.assertTrue("Source folder " +
+				sourceFolder.getAbsolutePath() +
+				" should be a directory", sourceFolder.isDirectory());
 		String[] sources = sourceFolder.list();
 		checkPluginJars(jarPrefix, jarFolder, classSuffix, sources);
 	}
@@ -606,7 +643,9 @@ public class PluginBuildTest extends TestCase
 	private void checkPluginJars(String jarPrefix, 
 		File jarFolder, String classSuffix, String[] sources)
 	{
-		assertTrue("Jar folder " + jarFolder.getAbsolutePath() + " should be a directory", jarFolder.isDirectory());
+		Assert.assertTrue("Jar folder " +
+				jarFolder.getAbsolutePath() +
+				" should be a directory", jarFolder.isDirectory());
 		Set<String> jarSet = new HashSet<>();
 		String[] jars = jarFolder.list();
 		for (int i = 0; i < jars.length; i++)
@@ -635,9 +674,11 @@ public class PluginBuildTest extends TestCase
 
 				testString = jarPrefix + testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i]
-					+ " should be present in jars list as " + testString,
-					jarSet.contains(testString));
+				Assert.assertTrue(
+						"Jar for " + sources[i]
+								+ " should be present in jars list as " + testString,
+						jarSet.contains(testString)
+				);
 			}
 		}
 	}
@@ -659,7 +700,9 @@ public class PluginBuildTest extends TestCase
 	{
 		for (File folder : jarFolder)
 		{
-			assertTrue("Jar folder " + folder.getAbsolutePath() + " should be a directory", folder.isDirectory());
+			Assert.assertTrue("Jar folder " +
+					folder.getAbsolutePath() +
+					" should be a directory", folder.isDirectory());
 		}
 		Set<String> jarSet = new HashSet<>();
 		for (File folder : jarFolder)
@@ -694,7 +737,9 @@ public class PluginBuildTest extends TestCase
 
 				testString = testString + ".jar";
 				testString = testString.toLowerCase();
-				assertTrue("Jar for " + sources[i] + " should be present in jars list", jarSet.contains(testString));
+				Assert.assertTrue("Jar for " +
+						sources[i] +
+						" should be present in jars list", jarSet.contains(testString));
 			}
 		}
 	}
