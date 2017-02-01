@@ -315,7 +315,7 @@ public class SpinningTabbedPane extends JTabbedPane
             }
         }
 
-        return Arrays.copyOf(list1, n);
+        return Arrays.copyOf(list1, n - 1);
     }
 
     private String getPlainTitleAt(int index)
