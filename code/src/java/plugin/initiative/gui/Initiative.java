@@ -47,6 +47,7 @@ import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.JTableHeader;
 import javax.swing.table.TableCellRenderer;
@@ -55,9 +56,18 @@ import javax.swing.table.TableColumnModel;
 import javax.swing.text.DefaultFormatter;
 import javax.swing.text.NumberFormatter;
 
+import pcgen.core.Globals;
+import pcgen.core.PCStat;
+import pcgen.core.PlayerCharacter;
+import pcgen.core.SettingsHandler;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.PluginManager;
+import pcgen.system.LanguageBundle;
+import pcgen.system.PCGenSettings;
+import pcgen.util.Logging;
+
 import gmgen.GMGenSystem;
 import gmgen.gui.FlippingSplitPane;
-import gmgen.io.SimpleFileFilter;
 import gmgen.plugin.Combatant;
 import gmgen.plugin.Event;
 import gmgen.plugin.InfoCharacterDetails;
@@ -71,16 +81,6 @@ import gmgen.plugin.SystemInitiative;
 import gmgen.plugin.dice.Dice;
 import gmgen.pluginmgr.messages.CombatantHasBeenUpdatedMessage;
 import gmgen.util.LogUtilities;
-import pcgen.core.Globals;
-import pcgen.core.PCStat;
-import pcgen.core.PlayerCharacter;
-import pcgen.core.SettingsHandler;
-import pcgen.pluginmgr.PCGenMessageHandler;
-import pcgen.pluginmgr.PluginManager;
-import pcgen.system.LanguageBundle;
-import pcgen.system.PCGenSettings;
-import pcgen.util.Logging;
-
 import org.jdom2.Document;
 import org.jdom2.Element;
 import org.jdom2.input.SAXBuilder;
@@ -1766,8 +1766,8 @@ public class Initiative extends javax.swing.JPanel
 
 		String[] fileExt = {"gmi", "init"};
 		FileFilter sff =
-				new SimpleFileFilter(fileExt,
-					"GMGen Initiative/Encounter Export");
+				new FileNameExtensionFilter("GMGen Initiative/Encounter Export", fileExt
+                );
 		fLoad.addChoosableFileFilter(sff);
 		fLoad.setFileFilter(sff);
 
