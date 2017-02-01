@@ -23,7 +23,6 @@ import java.io.File;
 
 /**
  * This class is used to set the file filters in add/save dialogs.
- * @author Expires 2003
  */
 public class SimpleFileFilter extends FileFilter
 {

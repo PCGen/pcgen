@@ -25,7 +25,6 @@
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 package gmgen.pluginmgr.messages;

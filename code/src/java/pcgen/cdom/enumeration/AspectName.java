@@ -35,7 +35,6 @@ import pcgen.base.util.CaseInsensitiveMap;
  * less memory when identical Aspect names exist in two CDOMObjects.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class AspectName implements TypeSafeConstant,
 		Comparable<AspectName>

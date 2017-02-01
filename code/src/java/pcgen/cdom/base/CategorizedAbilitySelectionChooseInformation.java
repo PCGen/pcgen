@@ -31,7 +31,6 @@ import pcgen.core.AbilityCategory;
  * CategorizedAbilitySelectionChooseInformation
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CategorizedAbilitySelectionChooseInformation extends
 		BasicChooseInformation<AbilitySelection>

@@ -28,7 +28,6 @@ import java.util.List;
  *  to a singleton instance that can be used by system classes as well as
  *  plugins.
  *
- *@author     Tod Milam
  */
 public final class LogUtilities implements LogReceiver
 {

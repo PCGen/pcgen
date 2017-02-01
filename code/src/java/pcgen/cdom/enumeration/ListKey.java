@@ -84,7 +84,6 @@ import pcgen.persistence.lst.CampaignSourceEntry;
 import pcgen.persistence.lst.utils.DeferredLine;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal List Characteristics of an object. It
  * is designed to act as an index to a specific Object items within a
