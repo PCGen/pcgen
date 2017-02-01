@@ -50,12 +50,7 @@ public final class VisionType extends AbstractConstant
 		 * CONSIDER Now this is CASE INSENSITIVE. Should this really be the
 		 * case? - thpr 10/28/06
 		 */
-		VisionType o = typeMap.get(caseInsensitiveS);
-		if (o == null)
-		{
-			o = new VisionType();
-			typeMap.put(caseInsensitiveS, o);
-		}
+		VisionType o = typeMap.computeIfAbsent(caseInsensitiveS, k -> new VisionType());
 		return o;
 	}
 

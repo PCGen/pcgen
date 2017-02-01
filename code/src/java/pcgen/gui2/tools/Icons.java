@@ -180,13 +180,10 @@ public enum Icons
 
 	public ImageIcon getImageIcon()
 	{
-		ImageIcon image = iconMap.get(this);
-		if (image == null)
-		{
-			image = createImageIcon(name() + extension);
-			iconMap.put(this, image);
-		}
-		return image;
+        ImageIcon
+                image =
+                iconMap.computeIfAbsent(this, k -> createImageIcon(name() + extension));
+        return image;
 	}
 
 }

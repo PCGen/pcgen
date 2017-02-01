@@ -375,13 +375,10 @@ public final class SystemCollections
 	 */
 	public static void addToBirthplaceList(final String birthplace, final String gameMode)
 	{
-		List<String> birthplaceList = birthplaceMap.get(gameMode);
-		if (birthplaceList == null)
-		{
-			birthplaceList = new ArrayList<>();
-			birthplaceMap.put(gameMode, birthplaceList);
-		}
-		if (!birthplaceList.contains(birthplace))
+        List<String>
+                birthplaceList =
+                birthplaceMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!birthplaceList.contains(birthplace))
 		{
 			birthplaceList.add(birthplace);
 		}
@@ -396,13 +393,8 @@ public final class SystemCollections
 	 */
 	public static void addToCityList(final String city, final String gameMode)
 	{
-		List<String> cityList = cityMap.get(gameMode);
-		if (cityList == null)
-		{
-			cityList = new ArrayList<>();
-			cityMap.put(gameMode, cityList);
-		}
-		if (!cityList.contains(city))
+        List<String> cityList = cityMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!cityList.contains(city))
 		{
 			cityList.add(city);
 		}
@@ -417,13 +409,10 @@ public final class SystemCollections
 	 */
 	public static void addToEquipSlotsList(final EquipSlot equipmentSlot, final String gameMode)
 	{
-		List<EquipSlot> equipSlotList = equipSlotMap.get(gameMode);
-		if (equipSlotList == null)
-		{
-			equipSlotList = new ArrayList<>();
-			equipSlotMap.put(gameMode, equipSlotList);
-		}
-		if (!equipSlotList.contains(equipmentSlot))
+        List<EquipSlot>
+                equipSlotList =
+                equipSlotMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!equipSlotList.contains(equipmentSlot))
 		{
 			equipSlotList.add(equipmentSlot);
 		}
@@ -436,13 +425,10 @@ public final class SystemCollections
 	 */
 	public static void addToBodyStructureList(final String bodyStructure, final String gameMode)
 	{
-		List<String> bodyStructureList = bodyStructureMap.get(gameMode);
-		if (bodyStructureList == null)
-		{
-			bodyStructureList = new ArrayList<>();
-			bodyStructureMap.put(gameMode, bodyStructureList);
-		}
-		if (!bodyStructureList.contains(bodyStructure))
+        List<String>
+                bodyStructureList =
+                bodyStructureMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!bodyStructureList.contains(bodyStructure))
 		{
 			bodyStructureList.add(bodyStructure);
 		}
@@ -456,13 +442,10 @@ public final class SystemCollections
 	 */
 	public static void addToMigrationRulesList(final MigrationRule migrationRule, final String gameMode)
 	{
-		List<MigrationRule> migrationRuleList = migrationRuleMap.get(gameMode);
-		if (migrationRuleList == null)
-		{
-			migrationRuleList = new ArrayList<>();
-			migrationRuleMap.put(gameMode, migrationRuleList);
-		}
-		if (!migrationRuleList.contains(migrationRule))
+        List<MigrationRule>
+                migrationRuleList =
+                migrationRuleMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!migrationRuleList.contains(migrationRule))
 		{
 			migrationRuleList.add(migrationRule);
 		}
@@ -489,13 +472,10 @@ public final class SystemCollections
 	 */
 	public static void addToHairStyleList(final String hairStyle, final String gameMode)
 	{
-		List<String> hairStyleList = hairStyleMap.get(gameMode);
-		if (hairStyleList == null)
-		{
-			hairStyleList = new ArrayList<>();
-			hairStyleMap.put(gameMode, hairStyleList);
-		}
-		if (!hairStyleList.contains(hairStyle))
+        List<String>
+                hairStyleList =
+                hairStyleMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!hairStyleList.contains(hairStyle))
 		{
 			hairStyleList.add(hairStyle);
 		}
@@ -511,13 +491,10 @@ public final class SystemCollections
 	 */
 	public static void addToInterestsList(final String interest, final String gameMode)
 	{
-		List<String> interestsList = interestsMap.get(gameMode);
-		if (interestsList == null)
-		{
-			interestsList = new ArrayList<>();
-			interestsMap.put(gameMode, interestsList);
-		}
-		if (!interestsList.contains(interest))
+        List<String>
+                interestsList =
+                interestsMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!interestsList.contains(interest))
 		{
 			interestsList.add(interest);
 		}
@@ -532,13 +509,10 @@ public final class SystemCollections
 	 */
 	public static void addToLocationList(final String location, final String gameMode)
 	{
-		List<String> locationList = locationMap.get(gameMode);
-		if (locationList == null)
-		{
-			locationList = new ArrayList<>();
-			locationMap.put(gameMode, locationList);
-		}
-		if (!locationList.contains(location))
+        List<String>
+                locationList =
+                locationMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!locationList.contains(location))
 		{
 			locationList.add(location);
 		}
@@ -553,13 +527,10 @@ public final class SystemCollections
 	 */
 	public static void addToPhobiaList(final String phobia, final String gameMode)
 	{
-		List<String> phobiaList = phobiaMap.get(gameMode);
-		if (phobiaList == null)
-		{
-			phobiaList = new ArrayList<>();
-			phobiaMap.put(gameMode, phobiaList);
-		}
-		if (!phobiaList.contains(phobia))
+        List<String>
+                phobiaList =
+                phobiaMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!phobiaList.contains(phobia))
 		{
 			phobiaList.add(phobia);
 		}
@@ -574,13 +545,10 @@ public final class SystemCollections
 	 */
 	public static void addToPhraseList(final String phrase, final String gameMode)
 	{
-		Set<String> phraseList = phraseMap.get(gameMode);
-		if (phraseList == null)
-		{
-			phraseList = new HashSet<>();
-			phraseMap.put(gameMode, phraseList);
-		}
-		phraseList.add(phrase);
+        Set<String>
+                phraseList =
+                phraseMap.computeIfAbsent(gameMode, k -> new HashSet<>());
+        phraseList.add(phrase);
 	}
 
 	//SPEECHLIST
@@ -592,13 +560,10 @@ public final class SystemCollections
 	 */
 	public static void addToSpeechList(final String speech, final String gameMode)
 	{
-		List<String> speechList = speechMap.get(gameMode);
-		if (speechList == null)
-		{
-			speechList = new ArrayList<>();
-			speechMap.put(gameMode, speechList);
-		}
-		if (!speechList.contains(speech))
+        List<String>
+                speechList =
+                speechMap.computeIfAbsent(gameMode, k -> new ArrayList<>());
+        if (!speechList.contains(speech))
 		{
 			speechList.add(speech);
 		}
@@ -614,13 +579,8 @@ public final class SystemCollections
 	 */
 	public static void addToTraitList(final String trait, final String gameMode)
 	{
-		Set<String> traitList = traitMap.get(gameMode);
-		if (traitList == null)
-		{
-			traitList = new HashSet<>();
-			traitMap.put(gameMode, traitList);
-		}
-		traitList.add(trait);
+        Set<String> traitList = traitMap.computeIfAbsent(gameMode, k -> new HashSet<>());
+        traitList.add(trait);
 	}
 
 	/**

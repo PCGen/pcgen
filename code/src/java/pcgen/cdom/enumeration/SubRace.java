@@ -96,13 +96,8 @@ public final class SubRace implements TypeSafeConstant
 	public static SubRace getConstant(String name)
 	{
 		initializeTypeMap();
-		SubRace subRace = typeMap.get(name);
-		if (subRace == null)
-		{
-			subRace = new SubRace(name);
-			typeMap.put(name, subRace);
-		}
-		return subRace;
+        SubRace subRace = typeMap.computeIfAbsent(name, k -> new SubRace(name));
+        return subRace;
 	}
 
 	/**

@@ -1563,13 +1563,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public ReferenceFacade<Number> getScoreBaseRef(StatFacade stat)
 	{
-		WriteableReferenceFacade<Number> score = statScoreMap.get(stat);
-		if (score == null)
-		{
-			score = new DefaultReferenceFacade<>(theCharacter.getTotalStatFor((PCStat) stat));
-			statScoreMap.put(stat, score);
-		}
-		return score;
+        WriteableReferenceFacade<Number>
+                score =
+                statScoreMap.computeIfAbsent(
+                        stat,
+                        s -> new DefaultReferenceFacade<>(theCharacter.getTotalStatFor(
+                                (PCStat) s))
+                );
+        return score;
 	}
 
 	/* (non-Javadoc)
@@ -1656,14 +1657,14 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 	@Override
 	public void setScoreBase(StatFacade stat, int score)
 	{
-		WriteableReferenceFacade<Number> facade = statScoreMap.get(stat);
-		if (facade == null)
-		{
-			facade = new DefaultReferenceFacade<>(score);
-			statScoreMap.put(stat, facade);
-		}
+        WriteableReferenceFacade<Number>
+                facade =
+                statScoreMap.computeIfAbsent(
+                        stat,
+                        k -> new DefaultReferenceFacade<>(score)
+                );
 
-		PCStat pcStat = null;
+        PCStat pcStat = null;
 		final int pcPlayerLevels = charDisplay.totalNonMonsterLevels();
 		Collection<PCStat> pcStatList = charDisplay.getStatSet();
 		for (PCStat aStat : pcStatList)

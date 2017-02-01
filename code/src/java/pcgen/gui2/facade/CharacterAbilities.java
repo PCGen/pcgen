@@ -469,13 +469,10 @@ public class CharacterAbilities
 	 */
 	public ListFacade<AbilityFacade> getAbilities(AbilityCategoryFacade category)
 	{
-		DefaultListFacade<AbilityFacade> abList = abilityListMap.get(category);
-		if (abList == null)
-		{
-			abList = new DefaultListFacade<>();
-			abilityListMap.put(category, abList);
-		}
-		return abList;
+        DefaultListFacade<AbilityFacade>
+                abList =
+                abilityListMap.computeIfAbsent(category, k -> new DefaultListFacade<>());
+        return abList;
 	}
 	
 	/**
@@ -715,13 +712,13 @@ public class CharacterAbilities
 			return;
 		}
 		AbilityCategoryFacade cat = (AbilityCategoryFacade) cas.getAbilityCategory();
-		DefaultListFacade<AbilityFacade> listFacade = workingAbilityListMap.get(cat);
-		if (listFacade == null)
-		{
-			listFacade = new DefaultListFacade<>();
-			workingAbilityListMap.put(cat, listFacade);
-		}
-		if (!listFacade.containsElement(ability))
+        DefaultListFacade<AbilityFacade>
+                listFacade =
+                workingAbilityListMap.computeIfAbsent(
+                        cat,
+                        k -> new DefaultListFacade<>()
+                );
+        if (!listFacade.containsElement(ability))
 		{
 			listFacade.addElement(ability);
 		}

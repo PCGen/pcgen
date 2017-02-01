@@ -293,13 +293,8 @@ public class EquipmentModel implements ListListener<EquipmentSetFacade>, Referen
 					equip = ((EquipNode) value).getEquipment();
 
 					String path = equip.getIcon().getAbsolutePath();
-					ImageIcon icon = iconCache.get(path);
-					if (icon == null)
-					{
-						icon = new ImageIcon(path);
-						iconCache.put(path, icon);
-					}
-					setIcon(icon);
+                    ImageIcon icon = iconCache.computeIfAbsent(path, ImageIcon::new);
+                    setIcon(icon);
 
 					if (!character.isQualifiedFor(equip))
 					{

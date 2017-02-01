@@ -49,16 +49,16 @@ public final class EquipmentMigration
 	 */
 	public static String getNewEquipmentKey(String equipKey, int[] pcgVer, String gameModeName)
 	{
-		List<MigrationRule> equipChangeList = equipChangesForVer.get(pcgVer);
-		if (equipChangeList == null)
-		{
-			equipChangeList =
-					MigrationUtils.getChangeList(pcgVer, gameModeName,
-						ObjectType.EQUIPMENT);
-			equipChangesForVer.put(pcgVer, equipChangeList);
-		}
+        List<MigrationRule>
+                equipChangeList =
+                equipChangesForVer.computeIfAbsent(
+                        pcgVer,
+                        v -> MigrationUtils.getChangeList(v, gameModeName,
+                                ObjectType.EQUIPMENT
+                        )
+                );
 
-		for (MigrationRule rule : equipChangeList)
+        for (MigrationRule rule : equipChangeList)
 		{
 			if (rule.getOldKey().equalsIgnoreCase(equipKey))
 			{

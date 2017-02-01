@@ -272,13 +272,8 @@ public class IntegerKey
 	 */
 	public static IntegerKey getConstant(String name)
 	{
-		IntegerKey key = typeMap.get(name);
-		if (key == null)
-		{
-			key = new IntegerKey(name, 0);
-			typeMap.put(name, key);
-		}
-		return key;
+        IntegerKey key = typeMap.computeIfAbsent(name, k -> new IntegerKey(name, 0));
+        return key;
 	}
 
 	/**
@@ -295,13 +290,10 @@ public class IntegerKey
 	 */
 	public static IntegerKey getConstant(String name, int defaultValue)
 	{
-		IntegerKey key = typeMap.get(name);
-		if (key == null)
-		{
-			key = new IntegerKey(name, defaultValue);
-			typeMap.put(name, key);
-		}
-		return key;
+        IntegerKey
+                key =
+                typeMap.computeIfAbsent(name, k -> new IntegerKey(name, defaultValue));
+        return key;
 	}
 
 	/**
