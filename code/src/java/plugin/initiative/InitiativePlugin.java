@@ -22,22 +22,6 @@
  */
 package plugin.initiative;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
-import gmgen.io.SimpleFileFilter;
-import gmgen.plugin.InitHolder;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import gmgen.util.LogUtilities;
-
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
@@ -48,6 +32,7 @@ import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
 import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -63,6 +48,21 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.pluginmgr.messages.RequestToSavePlayerCharacterMessage;
 import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage;
 import pcgen.system.PCGenSettings;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
+import gmgen.plugin.InitHolder;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+import gmgen.util.LogUtilities;
 import plugin.initiative.gui.Initiative;
 import plugin.initiative.gui.PreferencesDamagePanel;
 import plugin.initiative.gui.PreferencesInitiativePanel;
@@ -105,23 +105,6 @@ public class InitiativePlugin implements InteractivePlugin
 	public InitiativePlugin()
 	{
 		// Do Nothing
-	}
-
-	public FileFilter[] getFileTypes()
-	{
-		FileFilter[] ff = {getFileType()};
-
-		return ff;
-	}
-
-	/**
-	 * Get the file type
-	 * @return the file type
-	 */
-	public FileFilter getFileType()
-	{
-		String[] init = new String[]{"gmi", "init"};
-		return new SimpleFileFilter(init, "Initiative Export");
 	}
 
 	/**
@@ -194,12 +177,12 @@ public class InitiativePlugin implements InteractivePlugin
 		}
 
 		// TODO should probably handle zip pcg
-		String[] pcgs = new String[]{"pcg", "pcp"};
-		String[] init = new String[]{"gmi", "init"};
-		SimpleFileFilter ff = new SimpleFileFilter(init, "Initiative Export");
+		String[] pcgs = {"pcg", "pcp"};
+		String[] init = {"gmi", "init"};
+		FileFilter ff = new FileNameExtensionFilter("Initiative Export", init);
 		chooser.addChoosableFileFilter(ff);
 		chooser
-			.addChoosableFileFilter(new SimpleFileFilter(pcgs, "PCGen File"));
+			.addChoosableFileFilter(new FileNameExtensionFilter("PCGen File", pcgs));
 		chooser.removeChoosableFileFilter(chooser.getAcceptAllFileFilter());
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -212,19 +195,22 @@ public class InitiativePlugin implements InteractivePlugin
 		{
 			File[] pcFiles = chooser.getSelectedFiles();
 
-			for (int i = 0; i < pcFiles.length; i++)
+			for (File pcFile : pcFiles)
 			{
-				if (PCGFile.isPCGenCharacterOrPartyFile(pcFiles[i]))
+				if (PCGFile.isPCGenCharacterOrPartyFile(pcFile))
 				{
-					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(this, pcFiles[i],
-						false));
+					messageHandler.handleMessage(new RequestOpenPlayerCharacterMessage(
+							this,
+							pcFile,
+							false
+					));
 
 					//loadPCG(pcFiles[i]);
 				}
-				else if (pcFiles[i].toString().endsWith(".init")
-					|| pcFiles[i].toString().endsWith(".gmi"))
+				else if (pcFile.toString().endsWith(".init")
+						|| pcFile.toString().endsWith(".gmi"))
 				{
-					loadINIT(pcFiles[i]);
+					loadINIT(pcFile);
 				}
 			}
 			/* loop through selected files */
@@ -246,7 +232,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
+	private void handleCombatRequestMessage(CombatHasBeenInitiatedMessage message)
 	{
 		message.setCombat(theView.initList);
 	}
@@ -258,7 +244,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleFileOpenMessage(FileMenuOpenMessage message)
+	private void handleFileOpenMessage(FileMenuOpenMessage message)
 	{
 		if (GMGenSystemView.getTabPane().getSelectedComponent() instanceof Initiative)
 		{
@@ -274,16 +260,15 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleInitHolderListSendMessage(
-		TransmitInitiativeValuesBetweenComponentsMessage message)
+	private void handleInitHolderListSendMessage(
+			TransmitInitiativeValuesBetweenComponentsMessage message)
 	{
 		if (message.getSource() != this)
 		{
 			InitHolderList cl = message.getInitHolderList();
 
-			for (int i = 0; i < cl.size(); i++)
+			for (InitHolder iH : cl)
 			{
-				InitHolder iH = cl.get(i);
 				theView.addInitHolder(iH);
 			}
 
@@ -343,7 +328,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCClosedMessage(PlayerCharacterWasClosedMessage message)
+	private void handlePCClosedMessage(PlayerCharacterWasClosedMessage message)
 	{
 		theView.removePcgCombatant(message.getPC());
 		theView.refreshTable();
@@ -356,7 +341,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
+	private void handlePCLoadedMessage(PlayerCharacterWasLoadedMessage message)
 	{
 			PlayerCharacter pc = message.getPc();
 			String type = "PC";
@@ -387,7 +372,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Saves the combatants to a file
 	 * </p>
 	 */
-	public void fileSave()
+	private void fileSave()
 	{
 		for (int i = 0; i < theView.initList.size(); i++)
 		{
@@ -410,7 +395,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleSaveMessage(FileMenuSaveMessage message)
+	private void handleSaveMessage(FileMenuSaveMessage message)
 	{
 		if (isActive())
 		{
@@ -427,7 +412,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
+	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
 		if (isActive())
 		{
@@ -457,7 +442,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param message
 	 */
-	public void handleWindowClosedMessage(GMGenBeingClosedMessage message)
+	private void handleWindowClosedMessage(GMGenBeingClosedMessage message)
 	{
 		theView.setExitPrefs();
 	}
@@ -480,7 +465,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param evt
 	 */
-	public void initMenuItem(ActionEvent evt)
+	private void initMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -498,7 +483,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 * Initializes the menus.
 	 * </p>
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		initToolsItem.setMnemonic('I');
 		initToolsItem.setText("Initiative");
@@ -513,7 +498,7 @@ public class InitiativePlugin implements InteractivePlugin
 	 *
 	 * @param initFile
 	 */
-	public void loadINIT(File initFile)
+	private void loadINIT(File initFile)
 	{
 		theView.loadINIT(initFile, this);
 	}
@@ -525,8 +510,6 @@ public class InitiativePlugin implements InteractivePlugin
 	 */
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), name);
 	}
 }

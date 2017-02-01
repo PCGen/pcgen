@@ -32,14 +32,8 @@ class SystemDie extends Die
 	/** Constructor for the SystemDie object
 	 * @param modifier Modifier to each roll
 	 */
-	private SystemDie(final int modifier)
+	SystemDie(final int modifier)
 	{
 		super(new SystemDieConfig(1, 20, modifier, Die.rand));
-	}
-
-	/**  Constructor for the SystemDie object */
-	SystemDie()
-	{
-		this(0);
 	}
 }

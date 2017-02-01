@@ -49,6 +49,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to EQACCHECK CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey AC_CHECK = getConstant("AC_CHECK");
 
 	public static final IntegerKey ADD_SPELL_LEVEL = getConstant("ADD_SPELL_LEVEL");
@@ -65,16 +66,19 @@ public class IntegerKey
 	/**
 	 * @deprecated due to CRITMULT CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey CRIT_MULT = getConstant("CRIT_MULT");
 
 	/**
 	 * @deprecated due to CRITRANGE CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey CRIT_RANGE = getConstant("CRIT_RANGE");
 
 	/**
 	 * @deprecated due to EDR CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey EDR = getConstant("EDR");
 
 	public static final IntegerKey HANDS = getConstant("HANDS", 1);
@@ -82,6 +86,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to HANDS CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey CREATURE_HANDS = getConstant(
 			"CREATURE_HANDS", 2);
 
@@ -92,6 +97,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to LEGS CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey LEGS = getConstant("LEGS", 2);
 
 	public static final IntegerKey LEVEL = getConstant("LEVEL");
@@ -106,6 +112,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to MAXDEX CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey MAX_DEX = getConstant("MAX_DEX",
 			Constants.MAX_MAXDEX);
 
@@ -122,6 +129,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to RANGE code control
 	 */
+	@Deprecated
 	public static final IntegerKey RANGE = getConstant("RANGE");
 
 	public static final IntegerKey CAMPAIGN_RANK = getConstant("CAMPAIGN_RANK",
@@ -130,11 +138,13 @@ public class IntegerKey
 	/**
 	 * @deprecated due to PCREACH and EQREACH CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey REACH = getConstant("REACH", 5);
 
 	/**
 	 * @deprecated due to EQREACH CodeControl
 	 */
+	@Deprecated
 	public static final IntegerKey REACH_MULT = getConstant("REACH_MULT", 1);
 
 	public static final IntegerKey SLOTS = getConstant("SLOTS", 1);
@@ -142,6 +152,7 @@ public class IntegerKey
 	/**
 	 * @deprecated due to EQSPELLFAILURE code control
 	 */
+	@Deprecated
 	public static final IntegerKey SPELL_FAILURE = getConstant("SPELL_FAILURE");
 
 	public static final IntegerKey START_FEATS = getConstant("START_FEATS");

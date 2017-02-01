@@ -29,9 +29,6 @@ import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
-import org.apache.commons.lang3.StringUtils;
-import org.jdom2.Element;
-
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -59,6 +56,9 @@ import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
+import org.jdom2.Element;
 
 /**
  *@author     devon
@@ -693,7 +693,7 @@ public class PcgCombatant extends Combatant
 			statBuf.append(" ");
 
 			statBuf.append("<font class='type'>AL:</font> ");
-			statBuf.append(pcOut.getAlignmentShort()); //|ALIGNMENT.SHORT|
+			statBuf.append(pcOut.getAlignment()); //|ALIGNMENT.SHORT|
 			statBuf.append("; ");
 
 			statBuf
@@ -792,7 +792,7 @@ public class PcgCombatant extends Combatant
 			return statBuf.toString();
 		}
 
-		protected String getStatBlockLineSkills()
+		String getStatBlockLineSkills()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);
@@ -1115,7 +1115,7 @@ public class PcgCombatant extends Combatant
 			}
 		}
 
-		protected String getStatBlockTitle()
+		String getStatBlockTitle()
 		{
 			StringBuilder statBuf = new StringBuilder();
 			PlayerCharacterOutput pcOut = new PlayerCharacterOutput(pc);

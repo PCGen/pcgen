@@ -91,40 +91,6 @@ public final class FormulaFactory
 	}
 
 	/**
-	 * Returns a Formula for the given String, using "old" formula system
-	 * 
-	 * @param formulaString
-	 *            The String to be converted to a Formula
-	 * @return A Formula for the given String.
-	 * @throws IllegalArgumentException
-	 *             if the given String is null or empty
-	 */
-	public static Formula getJEPFormulaFor(String formulaString)
-	{
-		if (formulaString == null || formulaString.isEmpty())
-		{
-			throw new IllegalArgumentException("Formula cannot be empty");
-		}
-		try
-		{
-			return getFormulaFor(Integer.valueOf(formulaString));
-		}
-		catch (NumberFormatException e)
-		{
-			// Okay, just not an integer
-			try
-			{
-				return getFormulaFor(Double.valueOf(formulaString));
-			}
-			catch (NumberFormatException e2)
-			{
-				// Okay, just not a double
-				return new JEPFormula(formulaString);
-			}
-		}
-	}
-
-	/**
 	 * Returns a Formula for the given Number.
 	 * 
 	 * @param number
@@ -157,7 +123,7 @@ public final class FormulaFactory
 		 * @throws IllegalArgumentException
 		 *             if the given Number is null
 		 */
-		public NumberFormula(Number intValue)
+		private NumberFormula(Number intValue)
 		{
 			if (intValue == null)
 			{
@@ -203,8 +169,6 @@ public final class FormulaFactory
 
 		/**
 		 * Returns the consistent-with-equals hashCode for this NumberFormula
-		 * 
-		 * @see java.lang.Object#hashCode()
 		 */
 		@Override
 		public int hashCode()
@@ -216,8 +180,6 @@ public final class FormulaFactory
 		 * Returns true if this NumberFormula is equal to the given Object.
 		 * Equality is defined as being another NumberFormula object with equal
 		 * value.
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -277,7 +239,7 @@ public final class FormulaFactory
 		 * @throws IllegalArgumentException
 		 *             if the given value is null
 		 */
-		public SimpleFormula(T val)
+		private SimpleFormula(T val)
 		{
 			if (val == null)
 			{
@@ -298,8 +260,7 @@ public final class FormulaFactory
 
 		/**
 		 * Returns the consistent-with-equals hashCode for this SimpleFormula
-		 * 
-		 * @see java.lang.Object#hashCode()
+		 *
 		 */
 		@Override
 		public int hashCode()
@@ -311,8 +272,7 @@ public final class FormulaFactory
 		 * Returns true if this SimpleFormula is equal to the given Object.
 		 * Equality is defined as being another SimpleFormula object with equal
 		 * value.
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
