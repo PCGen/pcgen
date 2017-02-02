@@ -82,7 +82,7 @@ allprojects {
     }
 }
 
-task echoVer() << {
+task echoVer() doLast {
     println "${project.name} Version: ${project.version} (${buildTimestamp})"
 }
 
