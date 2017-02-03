@@ -1,5 +1,4 @@
 /*
- * ExportException.java
  * Copyright James Dempsey, 2014
  *
  * This library is free software; you can redistribute it and/or
@@ -15,38 +14,28 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 20 Jul 2014 8:27:55 am
- *
- * $Id$
  */
 package pcgen.io;
-
-import pcgen.exception.PcgenException;
 
 /**
  * The Class {@code ExportException} indicates an export action failed.
  * This is normally the result of a problem in the export template or in 
  * the system configuration. 
- *
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
-public class ExportException extends PcgenException
+public class ExportException extends Exception
 {
 
 	/**
 	 * Constructs an instance of {@code ExportException}
 	 *  with the specified {@link Throwable rootCause}
 	 * and the specified detail message.
-	 * @param rootCause the root cause of the exception.
 	 * @param msg the detail message.
+	 * @param rootCause the root cause of the exception.
 	 */
-	public ExportException(Throwable rootCause, String msg)
+	ExportException(String msg, Throwable rootCause)
 	{
-		super(rootCause, msg);
+		super(msg, rootCause);
 	}
 
 }
