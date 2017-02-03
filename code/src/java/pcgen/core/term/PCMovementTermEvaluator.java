@@ -40,7 +40,7 @@ public class PCMovementTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override

@@ -38,7 +38,7 @@ public class PCEncumberanceTermEvaluator
 	@Override
 	public Float resolve(CharacterDisplay display)
 	{
-		return convertToFloat(originalText, evaluate(display));
+		return TermUtil.convertToFloat(originalText, evaluate(display));
 	}
 
 	@Override
