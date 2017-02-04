@@ -21,6 +21,7 @@ import java.net.URI;
 import java.util.HashMap;
 import java.util.Map;
 
+import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Kit;
 import pcgen.core.kit.BaseKit;
@@ -81,8 +82,10 @@ public class CDOMKitLoader
 		return true;
 	}
 
-	private <CC extends BaseKit> boolean subParse(LoadContext context, Kit kit,
-			CDOMSubLineLoader<CC> loader, String line)
+	private static <CC extends BaseKit> boolean subParse(LoadContext context,
+														 CDOMObject kit,
+														 CDOMSubLineLoader<CC> loader,
+														 String line)
 			throws PersistenceLayerException
 	{
 		CC obj = loader.getCDOMObject();

@@ -1030,7 +1030,7 @@ public final class SettingsHandler
 						+ " to a URI: " + e.getLocalizedMessage());
 			}
 		}
-		PersistenceManager.getInstance().setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
+		PersistenceManager.setChosenCampaignSourcefiles(uriList, gameMode); //$NON-NLS-1$
 	}
 
 	public static void setOptionsProperties(final PlayerCharacter aPC)
@@ -1056,7 +1056,7 @@ public final class SettingsHandler
 			retractRelativePath(getSelectedPartyPDFOutputSheet()));
 		getOptions().setProperty("pcgen.files.selectedEqSetTemplate", retractRelativePath(getSelectedEqSetTemplate())); //$NON-NLS-1$
 		getOptions().setProperty("pcgen.files.chosenCampaignSourcefiles", //$NON-NLS-1$
-			StringUtil.join(PersistenceManager.getInstance().getChosenCampaignSourcefiles(), ", "));
+			StringUtil.join(PersistenceManager.getChosenCampaignSourcefiles(), ", "));
 
 		getOptions().setProperty("pcgen.options.custColumnWidth", StringUtil.join(Globals.getCustColumnWidth(), ", ")); //$NON-NLS-1$
 

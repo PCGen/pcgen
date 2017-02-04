@@ -157,14 +157,7 @@ public class URIEntry
 	 */
 	public String getLSTformat()
 	{
-		if (uriFac == null)
-		{
-			return uri.toString();
-		}
-		else
-		{
-			return uriFac.getOffset();
-		}
+		return (uriFac == null) ? uri.toString() : uriFac.getOffset();
 	}
 
 	/**
@@ -177,7 +170,7 @@ public class URIEntry
 	 * @return a new URIEntry for a filename in the same directory as this
 	 *         URIEntry
 	 */
-	public URIEntry getRelatedTarget(String fileName)
+	URIEntry getRelatedTarget(String fileName)
 	{
 		return new URIEntry(campaignName, new URIFactory(Objects.requireNonNull(uriFac).getRootURI(),
 			fileName));
@@ -196,10 +189,10 @@ public class URIEntry
 	 *            The offset from the root URI for the URIEntry
 	 * @return A new URIEntry from the given Campaign name, rootURI and offset
 	 */
-	public static URIEntry getURIEntry(String campaignName, URI rootURI,
-		String offset)
+	static URIEntry getURIEntry(String campaignName, URI rootURI,
+								String offset)
 	{
-		if (offset == null || offset.isEmpty())
+		if ((offset == null) || offset.isEmpty())
 		{
 			Logging.errorPrint("Cannot build URIEntry for empty value in "
 				+ rootURI);

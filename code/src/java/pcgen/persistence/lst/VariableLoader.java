@@ -22,10 +22,10 @@
 package pcgen.persistence.lst;
 
 import java.net.URI;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Observable;
-import java.util.Set;
 import java.util.StringTokenizer;
 
 import pcgen.cdom.content.DatasetVariable;
@@ -81,7 +81,7 @@ public class VariableLoader extends Observable
 		List<CampaignSourceEntry> fileList) throws PersistenceLayerException
 	{
 		// Track which sources have been loaded already
-		Set<CampaignSourceEntry> loadedFiles =
+		Collection<CampaignSourceEntry> loadedFiles =
 				new HashSet<>();
 
 		// Load the files themselves as thoroughly as possible
@@ -103,8 +103,8 @@ public class VariableLoader extends Observable
 	 *            CampaignSourceEntry containing the absolute file path or the
 	 *            URL from which to read LST formatted data.
 	 */
-	protected void loadLstFile(LoadContext context,
-		CampaignSourceEntry sourceEntry)
+	private void loadLstFile(LoadContext context,
+							 CampaignSourceEntry sourceEntry)
 	{
 		setChanged();
 		URI uri = sourceEntry.getURI();

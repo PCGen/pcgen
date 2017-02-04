@@ -371,23 +371,23 @@ public class FacadeFactory
 	public static boolean passesPrereqs(List<CampaignFacade> campaigns)
 	{
 		PersistenceManager pman = PersistenceManager.getInstance();
-		List<URI> oldList = pman.getChosenCampaignSourcefiles();
+		List<URI> oldList = PersistenceManager.getChosenCampaignSourcefiles();
 		List<URI> uris = new ArrayList<>();
 		for (CampaignFacade campaignFacade : campaigns)
 		{
 			uris.add(((Campaign)campaignFacade).getSourceURI());
 		}
-		pman.setChosenCampaignSourcefiles(uris);
+		PersistenceManager.setChosenCampaignSourcefiles(uris);
 		for (CampaignFacade campaignFacade : campaigns)
 		{
 			Campaign camp = ((Campaign)campaignFacade);
 			if(!camp.qualifies(null, camp))
 			{
-				pman.setChosenCampaignSourcefiles(oldList);
+				PersistenceManager.setChosenCampaignSourcefiles(oldList);
 				return false;
 			}
 		}
-		pman.setChosenCampaignSourcefiles(oldList);
+		PersistenceManager.setChosenCampaignSourcefiles(oldList);
 		return true;
 	}
 	
