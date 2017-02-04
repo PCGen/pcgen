@@ -15,12 +15,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,13 +44,10 @@ import pcgen.util.Logging;
  * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
- * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
- * 
  */
 public class Description extends ConcretePrereqObject
 {
-	private List<String> theComponents = new ArrayList<>();
+	private Collection<String> theComponents = new ArrayList<>();
 	private List<String> theVariables = null;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
@@ -263,14 +259,7 @@ public class Description extends ConcretePrereqObject
 							}
 						}
 						String joinString;
-						if (assocList.size() == 2)
-						{
-							joinString = " and ";
-						}
-						else
-						{
-							joinString = ", ";
-						}
+						joinString = (assocList.size() == 2) ? " and " : ", ";
 						Collections.sort(assocList);
 						buf.append(StringUtil.joinToStringBuilder(assocList,
 							joinString));
@@ -359,11 +348,7 @@ public class Description extends ConcretePrereqObject
 		}
 		if ( theVariables != null )
 		{
-			for ( final String var : theVariables )
-			{
-				buf.append(Constants.PIPE);
-				buf.append(var);
-			}
+			theVariables.stream().map(var -> Constants.PIPE + var).forEach(buf::append);
 		}
 		
 		if (hasPrerequisites())

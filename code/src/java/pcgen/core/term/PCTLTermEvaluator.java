@@ -29,7 +29,7 @@ import pcgen.core.display.CharacterDisplay;
 public class PCTLTermEvaluator 
 		extends BasePCDTermEvaluator implements TermEvaluator
 {
-	public PCTLTermEvaluator(String originalText)
+	PCTLTermEvaluator(String originalText)
 	{
 		this.originalText = originalText;
 	}

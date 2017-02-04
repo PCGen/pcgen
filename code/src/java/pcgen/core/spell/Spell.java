@@ -14,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core.spell;
 
@@ -37,8 +33,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriter;
 
 /**
  * {@code Spell} represents a magic spell from the games rules.
- *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class Spell extends PObject implements InfoFacade, Ungranted
@@ -55,15 +49,12 @@ public final class Spell extends PObject implements InfoFacade, Ungranted
 	@Override
 	public String getPCCText()
 	{
-		final StringBuilder txt = new StringBuilder(200);
-		txt.append(getDisplayName());
-		txt.append("\t");
-		txt.append(StringUtil.joinToStringBuilder(Globals.getContext().unparse(
-				this), "\t"));
-		txt.append("\t");
-		txt.append(PrerequisiteWriter.prereqsToString(this));
 
-		return txt.toString();
+		return getDisplayName()
+				+ "\t"
+				+ StringUtil.join(Globals.getContext().unparse(this), "\t")
+				+ "\t"
+				+ PrerequisiteWriter.prereqsToString(this);
 	}
 
 	/**
