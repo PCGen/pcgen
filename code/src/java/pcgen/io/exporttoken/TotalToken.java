@@ -1,5 +1,4 @@
 /*
- * TotalToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.io.exporttoken;
 
@@ -25,11 +21,12 @@ import pcgen.core.Globals;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.utils.CoreUtility;
 import pcgen.io.ExportHandler;
 import pcgen.util.BigDecimalHelper;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
+
+import freemarker.template.utility.StringUtil;
 
 /**
  * Deal with returning TOTAL Tokens
@@ -44,18 +41,12 @@ public class TotalToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "TOTAL";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -98,25 +89,23 @@ public class TotalToken extends Token
 	 * @param display
 	 * @return the LOAD sub token
 	 */
-	public static String getLoadToken(CharacterDisplay display)
+	private static String getLoadToken(CharacterDisplay display)
 	{
 		Load load = display.getLoadType();
 
 		switch (load)
 		{
 			case LIGHT:
-				return CoreUtility.capitalizeFirstLetter(Load.LIGHT.toString());
+				return StringUtil.capitalize(Load.LIGHT.toString());
 
 			case MEDIUM:
-				return CoreUtility
-					.capitalizeFirstLetter(Load.MEDIUM.toString());
+				return StringUtil.capitalize(Load.MEDIUM.toString());
 
 			case HEAVY:
-				return CoreUtility.capitalizeFirstLetter(Load.HEAVY.toString());
+				return StringUtil.capitalize(Load.HEAVY.toString());
 
 			case OVERLOAD:
-				return CoreUtility.capitalizeFirstLetter(Load.OVERLOAD
-					.toString());
+				return StringUtil.capitalize(Load.OVERLOAD.toString());
 
 			default:
 				Logging
@@ -132,7 +121,7 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the VALUE sub token
 	 */
-	public static String getValueToken(PlayerCharacter pc)
+	private static String getValueToken(PlayerCharacter pc)
 	{
 		return BigDecimalHelper.trimZeros(pc.totalValue()) + " "
 			+ SettingsHandler.getGame().getCurrencyDisplay();
@@ -143,7 +132,7 @@ public class TotalToken extends Token
 	 * @param display
 	 * @return the WEIGHT sub token
 	 */
-	public static String getWeightToken(CharacterDisplay display)
+	private static String getWeightToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			display.totalWeight().doubleValue())
