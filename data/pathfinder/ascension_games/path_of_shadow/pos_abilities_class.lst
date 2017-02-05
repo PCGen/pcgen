@@ -344,6 +344,59 @@ Eclipse			KEY:Monk Of The Eclipsing Moon ~ Eclipse			CATEGORY:Special Ability	TY
 Abundant Step		KEY:Monk Of The Eclipsing Moon ~ Abundant Step		CATEGORY:Special Ability	TYPE:Monk Class Feature.SpecialQuality.Supernatural	SOURCEPAGE:p.29	DESC:[not implemented]This works as the monk ability of the same name, except the monk of the eclipsing moon must begin and end his teleportation in an area of dim light or darkness. This modifies the abundant step ability.
 Eyes of the Moon		KEY:Monk Of The Eclipsing Moon ~ Eyes of the Moon	CATEGORY:Special Ability	TYPE:Monk Class Feature.SpecialQuality.Supernatural	SOURCEPAGE:p.29	DESC:[not implemented]At 17th level, a monk of the eclipsing moon gains the see in darkness ability, allowing him to see perfectly to any distance in darkness, including supernatural darkness. This ability replaces tongue of the sun and moon.
 
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_BlindFight|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_CombatReflexes|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DazzlingDisplay|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_Dodge|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_IntimidatingProwess|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MoonlightStalker|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_NightmareFist|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedBlindFight|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedFeint|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MoonlightStalkerFeint|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_NightmareWeaver|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ShatterDefenses|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DeadlyStroke|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterBlindFight|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedCritical|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MoonlightStalkerMaster|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_NightmareStriker|0
+
+
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_BlindFight|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_CombatReflexes|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_DazzlingDisplay|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_Dodge|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_IntimidatingProwess|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_MoonlightStalker|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_NightmareFist|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedBlindFight|1|PREVARGTEQ:MonkBonusFeatLVL,6	
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedFeint|1|PREVARGTEQ:MonkBonusFeatLVL,6
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_MoonlightStalkerFeint|1|PREVARGTEQ:MonkBonusFeatLVL,6
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_NightmareWeaver|1|PREVARGTEQ:MonkBonusFeatLVL,6
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ShatterDefenses|1|PREVARGTEQ:MonkBonusFeatLVL,6
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_DeadlyStroke|1|PREVARGTEQ:MonkBonusFeatLVL,10
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_GreaterBlindFight|1|PREVARGTEQ:MonkBonusFeatLVL,10
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedCritical|1|PREVARGTEQ:MonkBonusFeatLVL,10
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_MoonlightStalkerMaster|1|PREVARGTEQ:MonkBonusFeatLVL,10
+CATEGORY=Special Ability|Monk Of The Eclipsing Moon ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_NightmareStriker|1|PREVARGTEQ:MonkBonusFeatLVL,10
+
+#
+Blind-Fight						KEY:Monk Bonus Feat ~ Blind-Fight					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Blind-Fight					PREVARGTEQ:MonkBonusFeat_Blind-Fight,1			ABILITY:FEAT|VIRTUAL|Blind-Fight				
+Dazzling Display					KEY:Monk Bonus Feat ~ Dazzling Display				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dazzling Display				PREVARGTEQ:MonkBonusFeat_Dazzling Display,1		ABILITY:FEAT|VIRTUAL|Dazzling Display			
+Intimidating Prowess				KEY:Monk Bonus Feat ~ Intimidating Prowess			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess			PREVARGTEQ:MonkBonusFeat_Intimidating Prowess,1		ABILITY:FEAT|VIRTUAL|Intimidating Prowess		
+Moonlight Stalker					KEY:Monk Bonus Feat ~ Moonlight Stalker				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Moonlight Stalker				PREVARGTEQ:MonkBonusFeat_Moonlight Stalker,1		ABILITY:FEAT|VIRTUAL|Moonlight Stalker			
+Nightmare Fist					KEY:Monk Bonus Feat ~ Nightmare Fist				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Nightmare Fist				PREVARGTEQ:MonkBonusFeat_Nightmare Fist,1			ABILITY:FEAT|VIRTUAL|Nightmare Fist			
+Improved Blind-Fight				KEY:Monk Bonus Feat ~ Improved Blind-Fight			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Blind-Fight			PREVARGTEQ:MonkBonusFeat_Improved Blind-Fight,1		ABILITY:FEAT|VIRTUAL|Improved Blind-Fight		
+Moonlight Stalker Feint				KEY:Monk Bonus Feat ~ Moonlight Stalker Feint			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Moonlight Stalker Feint			PREVARGTEQ:MonkBonusFeat_Moonlight Stalker Feint,1	ABILITY:FEAT|VIRTUAL|Moonlight Stalker Feint		
+Nightmare Weaver					KEY:Monk Bonus Feat ~ Nightmare Weaver				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Nightmare Weaver				PREVARGTEQ:MonkBonusFeat_Nightmare Weaver,1		ABILITY:FEAT|VIRTUAL|Nightmare Weaver			
+Shatter Defenses					KEY:Monk Bonus Feat ~ Shatter Defenses				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shatter Defenses				PREVARGTEQ:MonkBonusFeat_Shatter Defenses,1		ABILITY:FEAT|VIRTUAL|Shatter Defenses			
+Deadly Stroke					KEY:Monk Bonus Feat ~ Deadly Stroke					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Deadly Stroke					PREVARGTEQ:MonkBonusFeat_Deadly Stroke,1			ABILITY:FEAT|VIRTUAL|Deadly Stroke			
+Greater Blind-Fight				KEY:Monk Bonus Feat ~ Greater Blind-Fight				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Blind-Fight				PREVARGTEQ:MonkBonusFeat_Greater Blind-Fight,1		ABILITY:FEAT|VIRTUAL|Greater Blind-Fight		
+Moonlight Stalker Master			KEY:Monk Bonus Feat ~ Moonlight Stalker Master			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Moonlight Stalker Master			PREVARGTEQ:MonkBonusFeat_Moonlight Stalker Master,1	ABILITY:FEAT|VIRTUAL|Moonlight Stalker Master	
+Nightmare Striker					KEY:Monk Bonus Feat ~ Nightmare Striker				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Nightmare Striker				PREVARGTEQ:MonkBonusFeat_Nightmare Striker,1		ABILITY:FEAT|VIRTUAL|Nightmare Striker			
+
 # Nightblade
 # COMMENT: Replaces All Daily Uses Of The Nightblade's Path Power. Huh?! Why not just say removes the path power?
 Dark Conjuror	KEY:Nightblade Archetype ~ Dark Conjuror	CATEGORY:Archetype	TYPE:Archetype.NightbladeArchetype		PRECLASS:1,Nightblade=1		PREMULT:1,[PREABILITY:1,CATEGORY=Archetype,Nightblade Archetype ~ Dark Conjuror],[!PREFACT:1,ABILITIES,Nightblade_Archetype_PathTechnique1=true,Nightblade_Archetype_NightbladeArt3=true,Nightblade_Archetype_NightbladeArt9=true,Nightblade_Archetype_PathPower=true]		FACT:Nightblade_Archetype_PathPower|true	FACT:Nightblade_CF_PathPower|true	FACT:Nightblade_CF_PathTechnique1|true	FACT:Nightblade_CF_NightbladeArt3|true	FACT:Nightblade_CF_NightbladeArt9|true	FACT:Nightblade_Archetype_PathTechnique1|true	FACT:Nightblade_Archetype_NightbladeArt3|true	FACT:Nightblade_Archetype_NightbladeArt9|true	COST:0		SOURCEPAGE:p.28		ASPECT:Archetype Base Class|Nightblade	DESC:Shadow magic has a variety of uses to explore, one of which is the ability to create quasi-real creatures out of shadowstuff. A dark conjuror focuses primarily on this capability, summoning forth hordes of terrifying creatures to do her bidding.	ABILITY:Nightblade Class Feature|AUTOMATIC|Dark Conjuror ~ Shadow Summon|PRECLASS:1,Nightblade=1			ABILITY:Nightblade Class Feature|AUTOMATIC|Dark Conjuror ~ Shadow Familiar|PRECLASS:1,Nightblade=1			ABILITY:Nightblade Class Feature|AUTOMATIC|Dark Conjuror ~ Summoning Spells|PRECLASS:1,Nightblade=3		ABILITY:Nightblade Class Feature|AUTOMATIC|Dark Conjuror ~ Bonded Senses|PRECLASS:1,Nightblade=9		
