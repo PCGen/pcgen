@@ -955,26 +955,26 @@ CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_Sunderi
 CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_TrippingStrike|0		
 
 
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,1	
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,1	
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,1		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,1		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,1		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedSunder|1|PREVARGTEQ:MonkBonusFeatLVL,1		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedTrip|1|PREVARGTEQ:MonkBonusFeatLVL,1		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,6	
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDrag|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterSunder|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterTrip|1|PREVARGTEQ:MonkBonusFeatLVL,6		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BullRushStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DisarmingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_RepositioningStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10	
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SunderingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
-CATEGORY=Internal|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TrippingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedSunder|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedTrip|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,6	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDrag|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterSunder|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterTrip|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BullRushStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DisarmingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_RepositioningStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SunderingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TrippingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
 
 ###Block:
 Improved Bull Rush	KEY:Monk Bonus Feat ~ Improved Bull Rush		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush		PREVARGTEQ:MonkBonusFeat_ImprovedBullRush,1	ABILITY:FEAT|VIRTUAL|Improved Bull Rush
