@@ -51,69 +51,69 @@ Sword of Inner Fire.MOD											EQMOD:BRILL.FLM_BRST.PLUS1W								SOURCEPAGE:
 
 ###Block: Other Magic Items
 # Equipment Name					Product Identity?	Type							Cost		Weight	Source Page
-Ambrosia									TYPE:OtherMagic					COST:10000	WT:1		SOURCEPAGE:p.146
-Anchoring Belt								TYPE:OtherMagic					COST:60000	WT:10		SOURCEPAGE:p.147
-Blind Helm									TYPE:OtherMagic					COST:85000	WT:3		SOURCEPAGE:p.147
-Book of Banishing								TYPE:OtherMagic					COST:50000	WT:2		SOURCEPAGE:p.147
-Book of Perfect Jokes							TYPE:OtherMagic					COST:27000	WT:1		SOURCEPAGE:p.147
-Boots of Earth and Wind							TYPE:OtherMagic					COST:20000	WT:3		SOURCEPAGE:p.147
-Bountiful Bottle								TYPE:OtherMagic					COST:60000	WT:1		SOURCEPAGE:p.148
-Bracers of Might								TYPE:OtherMagic					COST:60000	WT:0.5	SOURCEPAGE:p.148
-Bracers of the Shield Mates						TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
-Canopic Jar									TYPE:OtherMagic					COST:60000	WT:2		SOURCEPAGE:p.148
-Cape of Free Will +1							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:1500	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +2							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:6000	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +3							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:13500	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +4							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:24000	WT:1		SOURCEPAGE:p.148
-Cape of Free Will +5							EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:37500	WT:1		SOURCEPAGE:p.148
+Ambrosia									TYPE:Magic.Wondrous					COST:10000	WT:1		SOURCEPAGE:p.146
+Anchoring Belt								TYPE:Magic.Wondrous.Belt					COST:60000	WT:10		SOURCEPAGE:p.147
+Blind Helm									TYPE:Magic.Wondrous.Headgear					COST:85000	WT:3		SOURCEPAGE:p.147
+Book of Banishing								TYPE:Magic.Wondrous					COST:50000	WT:2		SOURCEPAGE:p.147
+Book of Perfect Jokes							TYPE:Magic.Wondrous					COST:27000	WT:1		SOURCEPAGE:p.147
+Boots of Earth and Wind							TYPE:Magic.Wondrous					COST:20000	WT:3		SOURCEPAGE:p.147
+Bountiful Bottle								TYPE:Magic.Wondrous					COST:60000	WT:1		SOURCEPAGE:p.148
+Bracers of Might								TYPE:Magic.Wondrous.Bracer					COST:60000	WT:0.5	SOURCEPAGE:p.148
+Bracers of the Shield Mates						TYPE:Magic.Wondrous.Bracer					COST:60000	WT:2		SOURCEPAGE:p.148
+Canopic Jar									TYPE:Magic.Wondrous					COST:60000	WT:2		SOURCEPAGE:p.148
+Cape of Free Will +1							EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:1500	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +2							EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:6000	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +3							EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:13500	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +4							EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:24000	WT:1		SOURCEPAGE:p.148
+Cape of Free Will +5							EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:37500	WT:1		SOURCEPAGE:p.148
 Cayden's Cup					NAMEISPI:YES	TYPE:OtherMagic					COST:16500	WT:1		SOURCEPAGE:p.149
 Censet of Sanctuary							TYPE:OtherMagic					COST:18000	WT:2		SOURCEPAGE:p.149
 Chime of Disillusionment						TYPE:OtherMagic					COST:35000	WT:2		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +1						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:1500	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +2						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:6000	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +3						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:13500	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +4						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:24000	WT:1		SOURCEPAGE:p.149
-Cloak of Quick Reflexes +5						EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:37500	WT:1		SOURCEPAGE:p.149
-Cloak of the Hunt								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape					COST:12000	WT:1		SOURCEPAGE:p.150
-Cornucopia of Plenty							TYPE:OtherMagic					COST:35000	WT:5		SOURCEPAGE:p.150
-Death Warden's Bandolier						TYPE:OtherMagic					COST:15000	WT:3		SOURCEPAGE:p.150
-Dolorous Rod								TYPE:OtherMagic					COST:120000	WT:5		SOURCEPAGE:p.150
-Everburning Lantern							TYPE:OtherMagic.Slot_None			COST:3000	WT:2		SOURCEPAGE:p.151
-Eye Orb									TYPE:OtherMagic.Slot_None			COST:80000	WT:1		SOURCEPAGE:p.151
-Figure of Wondrous Power (Basalt Dragon)				TYPE:OtherMagic.Slot_None			COST:60000	WT:1		SOURCEPAGE:p.151
-Gallow's Rope								TYPE:OtherMagic.Slot_Neck.Amulet		COST:18000	WT:4		SOURCEPAGE:p.151
-Gloves of Distant Action						TYPE:OtherMagic.Slot_Hand.Glove		COST:20000	WT:0		SOURCEPAGE:p.151
-Gloves of Spell Snaring							TYPE:OtherMagic.Slot_Hand.Glove		COST:9000	WT:0		SOURCEPAGE:p.151
-Golden Holy Symbol							TYPE:OtherMagic.Slot_Neck.Amulet		COST:10000	WT:1		SOURCEPAGE:p.152
-Headband of Sealed Thoughts						TYPE:OtherMagic.Slot_Headband.Headband	COST:150000	WT:1		SOURCEPAGE:p.152
-Helm of the Serpent King						TYPE:OtherMagic.Slot_Head.Helm		COST:96000	WT:3		SOURCEPAGE:p.152
-Herbs of the Primal Beast						TYPE:OtherMagic.Slot_None			COST:1400	WT:0.5	SOURCEPAGE:p.152
-Immolation Cloak								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape		COST:65000	WT:1		SOURCEPAGE:p.153
-Inescapable Gloves							TYPE:OtherMagic.Slot_Hands.Glove		COST:9000	WT:1		SOURCEPAGE:p.153
-Laurel Wreath								TYPE:OtherMagic.Slot_Head.Helm		COST:19000	WT:1		SOURCEPAGE:p.153
-Lyre of Storms								TYPE:OtherMagic.Slot_None			COST:65000	WT:5		SOURCEPAGE:p.153
-Mantle of the Faithful Vessel						TYPE:OtherMagic.Slot_Chest.Mantle		COST:10000	WT:2		SOURCEPAGE:p.153
-Mirroring Belt								TYPE:OtherMagic.Slot_Belt			COST:36000	WT:2		SOURCEPAGE:p.154
-Mithral Rose								TYPE:OtherMagic.Slot_None			COST:9000	WT:0		SOURCEPAGE:p.154
-Monocle of Unveiled Auras						TYPE:OtherMagic.Slot_Eyes.Eyewear		COST:12700	WT:0		SOURCEPAGE:p.154
-Moonstone Cat								TYPE:OtherMagic.Slot_None			COST:12000	WT:1		SOURCEPAGE:p.154
-Necklace of Spectral Strikes						TYPE:OtherMagic.Slot_Neck			COST:35500	WT:0		SOURCEPAGE:p.154
-Nextar of the Gods							TYPE:OtherMagic.Slot_None			COST:5000	WT:1		SOURCEPAGE:p.155
-Pauldrons of Unflinching Fortitude +1				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:1500	WT:1		SOURCEPAGE:p.155
-Pauldrons of Unflinching Fortitude +2				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:6000	WT:1		SOURCEPAGE:p.155
-Pauldrons of Unflinching Fortitude +3				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:13500	WT:1		SOURCEPAGE:p.155
-Pauldrons of Unflinching Fortitude +4				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:24000	WT:1		SOURCEPAGE:p.155
-Pauldrons of Unflinching Fortitude +5				TYPE:OtherMagic.Slot_Shoulders.Cape		COST:37500	WT:1		SOURCEPAGE:p.155
-Penitent's Robes								TYPE:OtherMagic.Slot_Body			COST:95000	WT:1		SOURCEPAGE:p.155
-Phoenix Cloak								EQMOD:CLOTH	TYPE:OtherMagic.Slot_Shoulders.Cape		COST:55000	WT:7		SOURCEPAGE:p.156
-Ring of Energy Dampening						TYPE:OtherMagic.Slot_Ring.Ring		COST:31500	WT:0		SOURCEPAGE:p.156
-Ring of Transcendent Spells						TYPE:OtherMagic.Slot_Ring.Ring		COST:30000	WT:0		SOURCEPAGE:p.156
-Root of the World Tree (Lesser)					TYPE:OtherMagic.Slot_None			COST:300	WT:0		SOURCEPAGE:p.156
-Root of the World Tree (Normal)					TYPE:OtherMagic.Slot_None			COST:1000	WT:0		SOURCEPAGE:p.156
-Root of the World Tree (Greater)					TYPE:OtherMagic.Slot_None			COST:2500	WT:0		SOURCEPAGE:p.156
-Seven-League Boots							TYPE:OtherMagic.Slot_Feet.Boot		COST:80000	WT:1		SOURCEPAGE:p.156
-Stonefist Gloves								TYPE:OtherMagic.Slot_Hands.Glove		COST:10000	WT:3		SOURCEPAGE:p.157
-Torc of Truespeech							TYPE:OtherMagic.Slot_Neck.Amulet		COST:60000	WT:2		SOURCEPAGE:p.157
+Cloak of Quick Reflexes +1						EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:1500	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +2						EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:6000	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +3						EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:13500	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +4						EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:24000	WT:1		SOURCEPAGE:p.149
+Cloak of Quick Reflexes +5						EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:37500	WT:1		SOURCEPAGE:p.149
+Cloak of the Hunt								EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak					COST:12000	WT:1		SOURCEPAGE:p.150
+Cornucopia of Plenty							TYPE:Magic.Wondrous					COST:35000	WT:5		SOURCEPAGE:p.150
+Death Warden's Bandolier						TYPE:Magic.Wondrous					COST:15000	WT:3		SOURCEPAGE:p.150
+Dolorous Rod								TYPE:Magic.Wondrous.Rod					COST:120000	WT:5		SOURCEPAGE:p.150
+Everburning Lantern							TYPE:Magic.Wondrous			COST:3000	WT:2		SOURCEPAGE:p.151
+Eye Orb									TYPE:Magic.Wondrous			COST:80000	WT:1		SOURCEPAGE:p.151
+Figure of Wondrous Power (Basalt Dragon)				TYPE:Magic.Wondrous			COST:60000	WT:1		SOURCEPAGE:p.151
+Gallow's Rope								TYPE:Magic.Wondrous.Amulet		COST:18000	WT:4		SOURCEPAGE:p.151
+Gloves of Distant Action						TYPE:Magic.Wondrous.Glove		COST:20000	WT:0		SOURCEPAGE:p.151
+Gloves of Spell Snaring							TYPE:Magic.Wondrous.Glove		COST:9000	WT:0		SOURCEPAGE:p.151
+Golden Holy Symbol							TYPE:Magic.Wondrous.Amulet		COST:10000	WT:1		SOURCEPAGE:p.152
+Headband of Sealed Thoughts						TYPE:Magic.Wondrous.Headband	COST:150000	WT:1		SOURCEPAGE:p.152
+Helm of the Serpent King						TYPE:Magic.Wondrous.Headgear		COST:96000	WT:3		SOURCEPAGE:p.152
+Herbs of the Primal Beast						TYPE:Magic.Wondrous			COST:1400	WT:0.5	SOURCEPAGE:p.152
+Immolation Cloak								EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak		COST:65000	WT:1		SOURCEPAGE:p.153
+Inescapable Gloves							TYPE:Magic.Wondrous.Glove		COST:9000	WT:1		SOURCEPAGE:p.153
+Laurel Wreath								TYPE:Magic.Wondrous.Headgear		COST:19000	WT:1		SOURCEPAGE:p.153
+Lyre of Storms								TYPE:Magic.Wondrous			COST:65000	WT:5		SOURCEPAGE:p.153
+Mantle of the Faithful Vessel						TYPE:Magic.Wondrous.Cloak		COST:10000	WT:2		SOURCEPAGE:p.153
+Mirroring Belt								TYPE:Magic.Wondrous.Belt			COST:36000	WT:2		SOURCEPAGE:p.154
+Mithral Rose								TYPE:Magic.Wondrous			COST:9000	WT:0		SOURCEPAGE:p.154
+Monocle of Unveiled Auras						TYPE:Magic.Wondrous.Eyegear		COST:12700	WT:0		SOURCEPAGE:p.154
+Moonstone Cat								TYPE:Magic.Wondrous			COST:12000	WT:1		SOURCEPAGE:p.154
+Necklace of Spectral Strikes						TYPE:Magic.Wondrous.Amulet			COST:35500	WT:0		SOURCEPAGE:p.154
+Nectar of the Gods							TYPE:Magic.Wondrous			COST:5000	WT:1		SOURCEPAGE:p.155
+Pauldrons of Unflinching Fortitude +1				TYPE:Magic.Wondrous.Cloak		COST:1500	WT:1		SOURCEPAGE:p.155
+Pauldrons of Unflinching Fortitude +2				TYPE:Magic.Wondrous.Cloak		COST:6000	WT:1		SOURCEPAGE:p.155
+Pauldrons of Unflinching Fortitude +3				TYPE:Magic.Wondrous.Cloak		COST:13500	WT:1		SOURCEPAGE:p.155
+Pauldrons of Unflinching Fortitude +4				TYPE:Magic.Wondrous.Cloak		COST:24000	WT:1		SOURCEPAGE:p.155
+Pauldrons of Unflinching Fortitude +5				TYPE:Magic.Wondrous.Cloak		COST:37500	WT:1		SOURCEPAGE:p.155
+Penitent's Robes								TYPE:Magic.Wondrous.Bodywear			COST:95000	WT:1		SOURCEPAGE:p.155
+Phoenix Cloak								EQMOD:CLOTH	TYPE:Magic.Wondrous.Cloak		COST:55000	WT:7		SOURCEPAGE:p.156
+Ring of Energy Dampening						TYPE:Magic.Wondrous.Ring		COST:31500	WT:0		SOURCEPAGE:p.156
+Ring of Transcendent Spells						TYPE:Magic.Wondrous.Ring		COST:30000	WT:0		SOURCEPAGE:p.156
+Root of the World Tree (Lesser)					TYPE:Magic.Wondrous			COST:300	WT:0		SOURCEPAGE:p.156
+Root of the World Tree (Normal)					TYPE:Magic.Wondrous			COST:1000	WT:0		SOURCEPAGE:p.156
+Root of the World Tree (Greater)					TYPE:Magic.Wondrous			COST:2500	WT:0		SOURCEPAGE:p.156
+Seven-League Boots							TYPE:Magic.Wondrous.Boot		COST:80000	WT:1		SOURCEPAGE:p.156
+Stonefist Gloves								TYPE:Magic.Wondrous.Glove		COST:10000	WT:3		SOURCEPAGE:p.157
+Torc of Truespeech							TYPE:Magic.Wondrous.Amulet		COST:60000	WT:2		SOURCEPAGE:p.157
 
 ###Block: Artifacts
 # Equipment Name						Product Identity?	Type										Weight	Modifier					Source Page		Stat bonus					Weapon prop. bonus
@@ -125,34 +125,34 @@ Kukri.COPY=Witherfang
 Dagger.COPY=Legendsbane
 Mace (Light).COPY=Scepter of the Shining Lord
 
-Aegis.MOD										TYPE:Artifact.MinorArtifact						WT:15		EQMOD:DTRMN.PLUS4S			SOURCEPAGE:p.
-Black Iron Axe.MOD								TYPE:Artifact.MinorArtifact						WT:12		EQMOD:KEEN.PLUS5W.VORPAL		SOURCEPAGE:p.							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
-Bullroarers of Outburst								TYPE:Artifact.MinorArtifact.Slot_None				WT:5								SOURCEPAGE:p.
-Elemental Chain									TYPE:Artifact.MinorArtifact.Slot_None				WT:3								SOURCEPAGE:p.
-Fleshhook of Mythic Sustenance						TYPE:Artifact.MinorArtifact.Slot_None				WT:12								SOURCEPAGE:p.
-Fortune's Arrow									TYPE:Artifact.MinorArtifact.Slot_None.Arrow.Ammunition	WT:0.1							SOURCEPAGE:p.
-Glabrezu Claw									TYPE:Artifact.MinorArtifact.Slot_None				WT:5		EQMOD:PLUS3W.SEEK				SOURCEPAGE:p.
-Hermetic Flask									TYPE:Artifact.MinorArtifact.Slot_None				WT:1								SOURCEPAGE:p.
-Nexus Crystal									TYPE:Artifact.MinorArtifact.Slot_None				WT:1								SOURCEPAGE:p.160
-Ring of Equilibrium								TYPE:Artifact.MinorArtifact.Slot_Ring.Ring			WT:0								SOURCEPAGE:p.160
-Rod of Spell Sundering								TYPE:Artifact.MinorArtifact.Slot_None				WT:4								SOURCEPAGE:p.161
-Screaming Spear of the Sun.MOD						TYPE:Artifact.MinorArtifact						WT:4								SOURCEPAGE:p.161
-Staff of Eldritch sovereignty							TYPE:Artifact.MinorArtifact.Slot_None				WT:5								SOURCEPAGE:p.161
-Sword of the Mists.MOD								TYPE:Artifact.MinorArtifact						WT:12								SOURCEPAGE:p.162
-Torc of the Heavens								TYPE:Artifact.MinorArtifact.Slot_Neck				WT:1								SOURCEPAGE:p.162
-Witherfang.MOD						NAMEISPI:YES	TYPE:Artifact.MinorArtifact						WT:2		EQMOD:PLUS3W				SOURCEPAGE:p.163
+Aegis.MOD										TYPE:Artifact.Minor						WT:15		EQMOD:DTRMN.PLUS4S			SOURCEPAGE:p.
+Black Iron Axe.MOD								TYPE:Artifact.Minor						WT:12		EQMOD:KEEN.PLUS5W.VORPAL		SOURCEPAGE:p.							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
+Bullroarers of Outburst								TYPE:Artifact.Minor				WT:5								SOURCEPAGE:p.
+Elemental Chain									TYPE:Artifact.Minor				WT:3								SOURCEPAGE:p.
+Fleshhook of Mythic Sustenance						TYPE:Artifact.Minor				WT:12								SOURCEPAGE:p.
+Fortune's Arrow									TYPE:Artifact.Minor.Arrow.Ammunition	WT:0.1							SOURCEPAGE:p.
+Glabrezu Claw									TYPE:Artifact.Minor				WT:5		EQMOD:PLUS3W.SEEK				SOURCEPAGE:p.
+Hermetic Flask									TYPE:Artifact.Minor				WT:1								SOURCEPAGE:p.
+Nexus Crystal									TYPE:Artifact.Minor				WT:1								SOURCEPAGE:p.160
+Ring of Equilibrium								TYPE:Artifact.Minor.Ring			WT:0								SOURCEPAGE:p.160
+Rod of Spell Sundering								TYPE:Artifact.Minor.Rod				WT:4								SOURCEPAGE:p.161
+Screaming Spear of the Sun.MOD						TYPE:Artifact.Minor						WT:4								SOURCEPAGE:p.161
+Staff of Eldritch sovereignty							TYPE:Artifact.Minor.Staff				WT:5								SOURCEPAGE:p.161
+Sword of the Mists.MOD								TYPE:Artifact.Minor						WT:12								SOURCEPAGE:p.162
+Torc of the Heavens								TYPE:Artifact.Minor.Amulet				WT:1								SOURCEPAGE:p.162
+Witherfang.MOD						NAMEISPI:YES	TYPE:Artifact.Minor						WT:2		EQMOD:PLUS3W				SOURCEPAGE:p.163
 
 # Major Artifacts
-Apocalypse Box									TYPE:Artifact.MajorArtifact.Slot_None				WT:2								SOURCEPAGE:p.163
-Diadem of Nod									TYPE:Artifact.MajorArtifact.Slot_Headband				WT:1								SOURCEPAGE:p.164
-Emperor's Mammoth									TYPE:Artifact.MajorArtifact.Slot_None				WT:1								SOURCEPAGE:p.164
-Frozen Heart of Cocytus								TYPE:Artifact.MajorArtifact.Slot_None				WT:1								SOURCEPAGE:p.164
-Legendsbane.MOD						NAMEISPI:YES	TYPE:Artifact.MajorArtifact						WT:1		EQMOD:ADAMANT_WEAP.PLUS5W.SPEED	SOURCEPAGE:p.164							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
-Netherworld Cauldron								TYPE:Artifact.MajorArtifact.Slot_None				WT:500000							SOURCEPAGE:p.165
-Nimbus of Radiant Truth								TYPE:Artifact.MajorArtifact.Slot_None				WT:0								SOURCEPAGE:p.165
-Plaguebringer									TYPE:Artifact.MajorArtifact.Slot_None				WT:0								SOURCEPAGE:p.166
-Scepter of the Shining Lord.MOD						TYPE:Artifact.MajorArtifact						WT:4		EQMOD:BRILL.PLUS5W			SOURCEPAGE:p.166	BONUS:STAT|CHA|4|TYPE=Enhancement	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
-Shadowwraith Heart								TYPE:Artifact.MajorArtifact.Slot_None				WT:3								SOURCEPAGE:p.167
-Silver Maiden									TYPE:Artifact.MajorArtifact.Slot_None.Vessel			WT:1000000							SOURCEPAGE:p.167
-Tarnhelm										TYPE:Artifact.MajorArtifact.Slot_Head				WT:2								SOURCEPAGE:p.168
-Trueforge										TYPE:Artifact.MajorArtifact						WT:500							SOURCEPAGE:p.168
+Apocalypse Box									TYPE:Artifact.Major				WT:2								SOURCEPAGE:p.163
+Diadem of Nod									TYPE:Artifact.Major.Headband				WT:1								SOURCEPAGE:p.164
+Emperor's Mammoth									TYPE:Artifact.Major				WT:1								SOURCEPAGE:p.164
+Frozen Heart of Cocytus								TYPE:Artifact.Major				WT:1								SOURCEPAGE:p.164
+Legendsbane.MOD						NAMEISPI:YES	TYPE:Artifact.Major						WT:1		EQMOD:ADAMANT_WEAP.PLUS5W.SPEED	SOURCEPAGE:p.164							BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
+Netherworld Cauldron								TYPE:Artifact.Major				WT:500000							SOURCEPAGE:p.165
+Nimbus of Radiant Truth								TYPE:Artifact.Major				WT:0								SOURCEPAGE:p.165
+Plaguebringer									TYPE:Artifact.Major				WT:0								SOURCEPAGE:p.166
+Scepter of the Shining Lord.MOD						TYPE:Artifact.Major						WT:4		EQMOD:BRILL.PLUS5W			SOURCEPAGE:p.166	BONUS:STAT|CHA|4|TYPE=Enhancement	BONUS:WEAPON|TOHIT,DAMAGE|1|TYPE=Enhancement.STACK
+Shadowwraith Heart								TYPE:Artifact.Major				WT:3								SOURCEPAGE:p.167
+Silver Maiden									TYPE:Artifact.Major.Transportation.Ships			WT:1000000							SOURCEPAGE:p.167
+Tarnhelm										TYPE:Artifact.Major.Headgear				WT:2								SOURCEPAGE:p.168
+Trueforge										TYPE:Artifact.Major						WT:500							SOURCEPAGE:p.168
