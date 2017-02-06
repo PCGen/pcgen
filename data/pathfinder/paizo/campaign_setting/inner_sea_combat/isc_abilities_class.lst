@@ -82,6 +82,37 @@ Stunning Fist		KEY:Hamatulatsu Master ~ Stunning Fist		CATEGORY:Special Ability	
 Ki Pool			KEY:Hamatulatsu Master ~ Ki Pool			CATEGORY:Special Ability	TYPE:Monk Class Feature.SpecialQuality.Supernatural	DESC:By spending 1 point from her ki pool as a swift action, a hamatulatsu master can make one additional attack at her highest attack bonus when making a flurry of blows attack. Alternatively, she can spend 1 ki point as a swift action to gain one additional use of her stunning fist ability that round, though this does not grant her an additional attack. Finally, as an immediate action, a hamatulatsu master can spend 1 ki point to make a single melee attack with a +2 bonus against a creature that has damaged her with a natural melee attack, unarmed strike, or weapon without the reach property. This ability otherwise functions as normal for a monk of her level.																									SOURCEPAGE:p.39
 Infernal Resilience	KEY:Hamatulatsu Master ~ Infernal Resilience	CATEGORY:Special Ability	TYPE:Monk Class Feature.SpecialQuality.Extraordinary	DESC:At 5th level, a hamatulatsu master gains immunity to all spells, spell-like abilities, and effects with the pain descriptor, as well as a +2 bonus on saving throws against effects that would sicken, nauseate, stagger, or stun her. This ability replaces purity of body.																																																																																											SOURCEPAGE:p.39
 
+###Block:
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_DeflectArrows|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_Dodge|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ExoticWeaponProficiency|1|PREVARGTEQ:MonkBonusFeatLVL,1		DEFINE:MonkBonusFeat_ExoticWeaponProficiency|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_IntimidatingProwess|1|PREVARGTEQ:MonkBonusFeatLVL,1			DEFINE:MonkBonusFeat_IntimidatingProwess|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ScorpionStyle|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_WeaponFocus|1|PREVARGTEQ:MonkBonusFeatLVL,1				DEFINE:MonkBonusFeat_WeaponFocus|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_GorgonsFist|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_Hamatulatsu|1|PREVARGTEQ:MonkBonusFeatLVL,6			DEFINE:MonkBonusFeat_Hamatulatsu|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedSunder|1|PREVARGTEQ:MonkBonusFeatLVL,6			DEFINE:MonkBonusFeat_ImprovedSunder|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_Mobility|1|PREVARGTEQ:MonkBonusFeatLVL,6	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_PowerAttack|1|PREVARGTEQ:MonkBonusFeatLVL,6			DEFINE:MonkBonusFeat_PowerAttack|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_CriticalFocus|1|PREVARGTEQ:MonkBonusFeatLVL,10		DEFINE:MonkBonusFeat_CriticalFocus|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImpalingCritical_UnarmedStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		DEFINE:MonkBonusFeat_ImpalingCritical_UnarmedStrike|0
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedCritical|1|PREVARGTEQ:MonkBonusFeatLVL,10	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_MedusasWrath|1|PREVARGTEQ:MonkBonusFeatLVL,10	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_SnatchArrows|1|PREVARGTEQ:MonkBonusFeatLVL,10	
+CATEGORY=Special Ability|Hamatulatsu Master ~ Bonus Feats.MOD	BONUS:VAR|MonkBonusFeat_ImprovedImpalingCritical|1|PREVARGTEQ:MonkBonusFeatLVL,14	DEFINE:MonkBonusFeat_ImprovedImpalingCritical|0
+
+###Block: New Bonus Monk Feats
+Exotic Weapon Proficiency		KEY:Monk Bonus Feat ~ Exotic Weapon Proficiency			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_ExoticWeaponProficiency,1											ABILITY:FEAT|VIRTUAL|Exotic Weapon Proficiency (%LIST)	MULT:YES	CHOOSE:WEAPONPROFICIENCY|ANY[TYPE=Exotic]
+Intimidating Prowess			KEY:Monk Bonus Feat ~ Intimidating Prowess			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Intimidating Prowess		PREVARGTEQ:MonkBonusFeat_IntimidatingProwess,1		ABILITY:FEAT|VIRTUAL|Intimidating Prowess
+Weapon Focus				KEY:Monk Bonus Feat ~ Weapon Focus					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_WeaponFocus,1	ABILITY:FEAT|VIRTUAL|Weapon Focus
+Hamatulatsu					KEY:Monk Bonus Feat ~ Hamatulatsu					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Hamatulatsu		PREVARGTEQ:MonkBonusFeat_Hamatulatsu,1	ABILITY:FEAT|VIRTUAL|Hamatulatsu
+Improved Sunder				KEY:Monk Bonus Feat ~ Improved Sunder				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder	PREVARGTEQ:MonkBonusFeat_ImprovedSunder,1	ABILITY:FEAT|VIRTUAL|Improved Sunder
+Power Attack				KEY:Monk Bonus Feat ~ Power Attack					CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Power Attack		PREVARGTEQ:MonkBonusFeat_PowerAttack,1	ABILITY:FEAT|VIRTUAL|Power Attack
+Critical Focus				KEY:Monk Bonus Feat ~ Critical Focus				CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_CriticalFocus,1	!PREABILITY:1,CATEGORY=FEAT,Critical Focus	ABILITY:FEAT|VIRTUAL|Critical Focus
+Impaling Critical (unarmed strike)	KEY:Monk Bonus Feat ~ Impaling Critical ~ unarmed strike	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_ImpalingCritical_UnarmedStrike,1											ABILITY:FEAT|VIRTUAL|Impaling Critical (unarmed strike)
+Improved Impaling Critical		KEY:Monk Bonus Feat ~ Improved Impaling Critical		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	PREVARGTEQ:MonkBonusFeat_ImprovedImpalingCritical,1		ABILITY:FEAT|VIRTUAL|Improved Impaling Critical (%LIST)	STACK:NO	MULT:YES	CHOOSE:ABILITYSELECTION|FEAT|Impaling Critical
+
 ###Block: IRORAN PALADIN
 # Ability Name		Unique Key						Category of Ability		Type													Define											Description																																																																														Ability																Modify VAR																													Class Skill				Source Page
 Skills			KEY:Iroran Paladin ~ Skills			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.ArchetypeAbility.SpecialQuality																DESC:In addition to the normal paladin class skills, you gain Acrobatics, Climb and Swim as class skills.																																																																																																													CSKILL:Acrobatics|Climb|Swim	SOURCEPAGE:p.39

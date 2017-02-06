@@ -318,6 +318,7 @@ Race Bonus Language ~ Orc								VISIBLE:NO																																					
 Race Bonus Language ~ Sylvan								VISIBLE:NO																																																																																																					LANGBONUS:Sylvan
 Race Bonus Language ~ Terran								VISIBLE:NO																																																																																																					LANGBONUS:Terran
 Race Bonus Language ~ Undercommon							VISIBLE:NO																																																																																																					LANGBONUS:Undercommon
+Race Bonus Language ~ All								VISIBLE:NO																																																																																																					LANGBONUS:ALL
 
 ###Block: Combat Templates
 #Template Name			Visible	Source Page	Temporary effect description	Temporary Bonus	TEMPVALUE
