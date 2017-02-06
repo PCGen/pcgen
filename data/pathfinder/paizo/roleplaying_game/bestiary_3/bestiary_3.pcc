@@ -87,10 +87,6 @@ ABILITY:b3_abilities_race_arg.lst
 ABILITYCATEGORY:b3_abilitycategories_arg.lst
 RACE:b3_races_arg.lst
 
-# Separate out races used by OA to simplify dependencies
-ABILITY:b3_abilities_race_oa.lst
-RACE:b3_races_oa.lst
-
 
 #MOVE TO CORE ESSENTIALS
 KIT:b3_kits_companion.lst
