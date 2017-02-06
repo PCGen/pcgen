@@ -66,8 +66,8 @@ SPELL:support/oa_spells_ma.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
 SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
 
 # Needed for a Medium archetype
-ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race_oa.lst|!PRECAMPAIGN:1,Bestiary 3
-RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races_oa.lst|(INCLUDE:Kami (Shikigami))|!PRECAMPAIGN:1,Bestiary 3
+ABILITY:support/oa_abilities_race_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3
+RACE:support/oa_races_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3
 
 # ENTRY DATE: 2015-11 to 2016-05 (so far!)
 # LST MONKEY: Paul Shipley (Medium,Mesmerist), Andrew Maitland (Everything else...)
