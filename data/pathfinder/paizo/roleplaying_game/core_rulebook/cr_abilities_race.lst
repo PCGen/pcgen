@@ -13,10 +13,11 @@ Race Traits ~ Gnome					CATEGORY:Internal
 Race Traits ~ Half-Elf					CATEGORY:Internal
 Race Traits ~ Half-Orc					CATEGORY:Internal
 Race Traits ~ Halfling					CATEGORY:Internal
-Race Traits ~ Human					CATEGORY:Internal
+Race Traits ~ Human					CATEGORY:Internal	ABILITY:Human Subrace|AUTOMATIC|Human ~ Default|!PREABILITY:1,CATEGORY=Internal,TYPE.HumanSubraceSelection
 
 Remove Excess Points from Pool	SORTKEY:1	CATEGORY:Special Ability	TYPE:HumanRacialTrait.DwarfRacialTrait.ElfRacialTrait.GnomeRacialTrait.HalfElfRacialTrait.HalfOrcRacialTrait.HalflingRacialTrait	VISIBLE:DISPLAY	STACK:YES	MULT:YES	CHOOSE:NOCHOICE	COST:1
 
+Human ~ Default	CATEGORY:Internal	TYPE:HumanSubrace	TEMPLATE:Race Bonus Language ~ All	AUTO:LANG|Common	BONUS:ABILITYPOOL|Ability Bonus|1
 
 ###Block: Racial Traits
 #
@@ -66,8 +67,8 @@ CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOM
 CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Sure-Footed|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingSureFooted
 CATEGORY=Internal|Race Traits ~ Halfling.MOD	ABILITY:Halfling Racial Trait|AUTOMATIC|Halfling ~ Weapon Familiarity|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HalflingWeaponFamiliarity
 #
-CATEGORY=Internal|Race Traits ~ Human.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
-CATEGORY=Internal|Race Traits ~ Human.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
+CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Bonus Feat|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanBonusFeat
+CATEGORY=Internal|Human ~ Default.MOD		ABILITY:Human Racial Trait|AUTOMATIC|Human ~ Skilled|!PREABILITY:1,CATEGORY=Special Ability,TYPE.HumanSkilled
 
 ##################
 # RACE ABILITIES #
