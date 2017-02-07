@@ -151,6 +151,7 @@ Stink Bomb*			KEY:Discovery ~ Stink Bomb		CATEGORY:Special Ability	TYPE:Alchemis
 ###Block: Archetype Support
 # Ability Name							Bonus Ability Pool
 CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL/2,1|PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery1
+CATEGORY=Special Ability|Alchemist ~ Discovery.MOD	BONUS:ABILITYPOOL|Alchemist Discovery|-1|PREVARGTEQ:AlchemistDiscoveryLVL,8|PREABILITY:1,CATEGORY=Archetype,AlchemistDiscovery8
 
 ###Block: Alchemist grand discoveries
 # Ability Name			Unique Key					Category of Ability		Type												Required Ability									Description																																												Stat bonus		Modify VAR				Allow Follower
