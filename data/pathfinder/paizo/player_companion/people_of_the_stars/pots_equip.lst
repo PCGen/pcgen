@@ -11,17 +11,17 @@ Rations, Space (per day)		KEY:Rations (Space/Day)								TYPE:Interstellar Equip
 Traveler's pocket watch														TYPE:Interstellar Equipment	COST:1000	WT:1																SOURCEPAGE:p.19
 
 # Atronomical Equipment
-Cosmogram																TYPE:Atronomical Equipment	COST:200	WT:0.5															SOURCEPAGE:p.26
-Orrery (Tellurium)														TYPE:Atronomical Equipment	COST:100	WT:2																SOURCEPAGE:p.26
-Orrery (Calculating Tellurium)												TYPE:Atronomical Equipment	COST:200	WT:2																SOURCEPAGE:p.26
-Orrery (Standard)															TYPE:Atronomical Equipment	COST:750	WT:5																SOURCEPAGE:p.26
-Orrery (Grand)															TYPE:Atronomical Equipment	COST:1000	WT:12																SOURCEPAGE:p.26
-Orrery (Calculating Standard)													TYPE:Atronomical Equipment	COST:1500	WT:5																SOURCEPAGE:p.26
-Orrery (Calculating Grand)													TYPE:Atronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.26
+Cosmogram																TYPE:Astronomical Equipment	COST:200	WT:0.5															SOURCEPAGE:p.26
+Orrery (Tellurium)														TYPE:Astronomical Equipment	COST:100	WT:2																SOURCEPAGE:p.26
+Orrery (Calculating Tellurium)												TYPE:Astronomical Equipment	COST:200	WT:2																SOURCEPAGE:p.26
+Orrery (Standard)															TYPE:Astronomical Equipment	COST:750	WT:5																SOURCEPAGE:p.26
+Orrery (Grand)															TYPE:Astronomical Equipment	COST:1000	WT:12																SOURCEPAGE:p.26
+Orrery (Calculating Standard)													TYPE:Astronomical Equipment	COST:1500	WT:5																SOURCEPAGE:p.26
+Orrery (Calculating Grand)													TYPE:Astronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.26
 
-Telescope (x10)															TYPE:Atronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.27
-Telescope (x50)															TYPE:Atronomical Equipment	COST:4000	WT:23																SOURCEPAGE:p.27
-Telescope (x250)															TYPE:Atronomical Equipment	COST:8000	WT:44																SOURCEPAGE:p.27
+Telescope (x10)															TYPE:Astronomical Equipment	COST:2000	WT:12																SOURCEPAGE:p.27
+Telescope (x50)															TYPE:Astronomical Equipment	COST:4000	WT:23																SOURCEPAGE:p.27
+Telescope (x250)															TYPE:Astronomical Equipment	COST:8000	WT:44																SOURCEPAGE:p.27
 
 # Interstellar Magic Items
 Astrologer's Telescope														TYPE:Interstellar Magic Items	COST:54000	WT:30																SOURCEPAGE:p.30
