@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
  package plugin.overland.util;
 
@@ -31,13 +30,13 @@ public abstract class Pair<K, V>
 	 * @param left - left Object to add
 	 * @param right - right Object to add
 	 */
-	public Pair(K left, V right)
+	private Pair(K left, V right)
 	{
 		this.left = left;
 		this.right = right;
 	}
 
-	public Pair()
+	Pair()
 	{
 		this(null, null);
 	}
