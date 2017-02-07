@@ -90,18 +90,7 @@ public class InitiativePlugin implements InteractivePlugin
 	/** The English name of the plugin. */
 	private String name = "Initiative";
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
-
 	private PCGenMessageHandler messageHandler;
-
-	/**
-	 * Creates a new instance of InitiativePlugin
-	 */
-	public InitiativePlugin()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.

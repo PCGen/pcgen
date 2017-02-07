@@ -124,9 +124,6 @@ public class EncounterPlugin extends MouseAdapter
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_encounter_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
 
 	/**
