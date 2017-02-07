@@ -14,10 +14,31 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.experience;
+
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.io.File;
+import java.util.Collection;
+
+import javax.swing.JMenuItem;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JTabbedPane;
+import javax.swing.event.ChangeEvent;
+import javax.swing.event.ChangeListener;
+
+import pcgen.core.SettingsHandler;
+import pcgen.gui2.tools.Utility;
+import pcgen.pluginmgr.InteractivePlugin;
+import pcgen.pluginmgr.PCGenMessage;
+import pcgen.pluginmgr.PCGenMessageHandler;
+import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
+import pcgen.system.LanguageBundle;
+import pcgen.util.Logging;
 
 import gmgen.GMGenSystem;
 import gmgen.GMGenSystemView;
@@ -28,26 +49,6 @@ import gmgen.pluginmgr.messages.CombatHasBeenInitiatedMessage;
 import gmgen.pluginmgr.messages.FileMenuSaveMessage;
 import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
 import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
-import java.awt.event.KeyAdapter;
-import java.awt.event.KeyEvent;
-import java.io.File;
-import java.util.Collection;
-import javax.swing.JMenuItem;
-import javax.swing.JOptionPane;
-import javax.swing.JPanel;
-import javax.swing.JTabbedPane;
-import javax.swing.event.ChangeEvent;
-import javax.swing.event.ChangeListener;
-import pcgen.core.SettingsHandler;
-import pcgen.gui2.tools.Utility;
-import pcgen.pluginmgr.InteractivePlugin;
-import pcgen.pluginmgr.PCGenMessage;
-import pcgen.pluginmgr.PCGenMessageHandler;
-import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
-import pcgen.system.LanguageBundle;
-import pcgen.util.Logging;
 import plugin.experience.gui.AddDefeatedCombatant;
 import plugin.experience.gui.ExperienceAdjusterView;
 import plugin.experience.gui.PreferencesExperiencePanel;
@@ -56,9 +57,6 @@ import plugin.experience.gui.PreferencesExperiencePanel;
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem
  * } and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
  */
 public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractivePlugin,
 		ActionListener, ChangeListener /*Observer*/
@@ -67,11 +65,11 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	public static final String LOG_NAME = "Experience_Adjuster"; //$NON-NLS-1$
 
 	/** The model that holds all the data for this section. */
-	protected ExperienceAdjusterModel eaModel;
+	private ExperienceAdjusterModel eaModel;
 
 	/** The user interface that this class will be using. */
-	protected ExperienceAdjusterView eaView;
-	protected InitHolderList initList;
+	private ExperienceAdjusterView eaView;
+	private InitHolderList initList;
 
 	/** The plugin menu item in the tools menu. */
 	private JMenuItem experienceToolsItem = new JMenuItem();
@@ -82,9 +80,6 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	private static final String IN_NAME = "in_plugin_experience_name"; //$NON-NLS-1$
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_experience_name"; //$NON-NLS-1$
-
-	/** The version number of the plugin. */
-	protected String version = "01.00.99.01.00";
 
 	private PCGenMessageHandler messageHandler;
 
@@ -187,7 +182,7 @@ public class ExperienceAdjusterPlugin extends KeyAdapter implements InteractiveP
 	 * Adjust the CR
 	 * @param cbt
 	 */
-	public void adjustCR(Combatant cbt)
+	private void adjustCR(Combatant cbt)
 	{
 		String inputValue =
 				JOptionPane.showInputDialog(GMGenSystem.inst, "CR", Float
