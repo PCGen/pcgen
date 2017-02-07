@@ -17,28 +17,27 @@
  */
 package translation.util;
 
-import static org.junit.Assert.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
+import org.junit.Assert;
 import org.junit.Test;
+
+import static org.hamcrest.CoreMatchers.hasItem;
+import static org.hamcrest.CoreMatchers.is;
+import static org.hamcrest.CoreMatchers.not;
 
 /**
  * JUnit Tests for {@link translation.util.Tips}.
- *
  */
 @SuppressWarnings("nls")
 public class TipsTest
 {
 
-	String comment = "# This is a comment in the tips file";
-	String emptyLine = "";
-	String tip = "For each method, write a test method";
-	String tip2 = "Another tip for you";
-
-	String FILE1 = comment+"\n\n"+tip;
-	String FILE2 = tip+"\n"+tip2+"\n";
+	private static final String comment = "# This is a comment in the tips file";
+	private static final String emptyLine = "";
+	private static final String tip = "For each method, write a test method";
+	private static final String tip2 = "Another tip for you";
 
 	/**
 	 * Test method for {@link translation.util.Tips#addTip(java.util.Set, java.lang.String)}.
@@ -47,41 +46,41 @@ public class TipsTest
 	public void testAddTip()
 	{
 		Set<String> t = new HashSet<>();
-		assertEquals(0, t.size());
+		Assert.assertThat(t.size(), is(0));
 		Tips.addTip(t, tip);
-		assertTrue(t.contains(tip));
-		assertEquals(1, t.size());
+		Assert.assertThat(t, hasItem(tip));
+		Assert.assertThat(t.size(), is(1));
 		Tips.addTip(t, tip);
-		assertTrue(t.contains(tip));
-		assertEquals(1, t.size());
+		Assert.assertThat(t, hasItem(tip));
+		Assert.assertThat(t.size(), is(1));
 	}
 
 	@Test
 	public void isTip() throws Exception
 	{
-		assertFalse(Tips.isTip(emptyLine));
-		assertFalse(Tips.isTip(comment));
-		assertTrue(Tips.isTip(tip));
-		assertTrue(Tips.isTip(tip2));
+		Assert.assertThat(Tips.isTip(emptyLine), not(is(false)));
+		Assert.assertThat(Tips.isTip(comment), not(is(false)));
+		Assert.assertThat(Tips.isTip(tip), is(true));
+		Assert.assertThat(Tips.isTip(tip2), is(true));
 	}
 	
 	@Test
 	public void removeEscapeTest()
 	{
-		assertEquals("", Tips.removeEscaped(""));
-		assertEquals("a", Tips.removeEscaped("a"));
-		assertEquals("l'eau", Tips.removeEscaped("l\\'eau"));
-		assertEquals("\"quoted\"", Tips.removeEscaped("\\\"quoted\\\""));
-		assertEquals("\\", Tips.removeEscaped("\\\\"));
+		Assert.assertThat(Tips.removeEscaped(""), is(""));
+		Assert.assertThat(Tips.removeEscaped("a"), is("a"));
+		Assert.assertThat(Tips.removeEscaped("l\\'eau"), is("l'eau"));
+		Assert.assertThat(Tips.removeEscaped("\\\"quoted\\\""), is("\"quoted\""));
+		Assert.assertThat(Tips.removeEscaped("\\\\"), is("\\"));
 	}
 	
 	@Test
 	public void escapeTest()
 	{
-		assertEquals("", Tips.escape(""));
-		assertEquals("a", Tips.escape("a"));
-		assertEquals("l\\'eau", Tips.escape("l'eau"));
-		assertEquals("\\\"quoted\\\"", Tips.escape("\"quoted\""));
-		assertEquals("\\\\", Tips.escape("\\"));
+		Assert.assertThat(Tips.escape(""), is(""));
+		Assert.assertThat(Tips.escape("a"), is("a"));
+		Assert.assertThat(Tips.escape("l'eau"), is("l\\'eau"));
+		Assert.assertThat(Tips.escape("\"quoted\""), is("\\\"quoted\\\""));
+		Assert.assertThat(Tips.escape("\\"), is("\\\\"));
 	}
 }
