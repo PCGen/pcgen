@@ -34,7 +34,6 @@ import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre attack tokens.
- *
  */
 public class PreTotalABParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface

@@ -39,13 +39,6 @@ import pcgen.util.Logging;
 public class PreStatParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface
 {
-	/**
-	 *
-	 */
-	public PreStatParser()
-	{
-		super();
-	}
 
 	/**
 	 * Get the type of prerequisite handled by this token.
@@ -130,8 +123,8 @@ public class PreStatParser extends AbstractPrerequisiteParser implements
 			}
 
 			if ((prereq.getPrerequisiteCount() == 1)
-				&& prereq.getOperator().equals(PrerequisiteOperator.GTEQ)
-				&& prereq.getOperand().equals("1"))
+					&& (prereq.getOperator() == PrerequisiteOperator.GTEQ)
+					&& prereq.getOperand().equals("1"))
 			{
 				prereq = prereq.getPrerequisites().get(0);
 			}

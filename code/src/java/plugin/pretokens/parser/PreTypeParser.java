@@ -50,7 +50,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 	                          boolean overrideQualify) throws PersistenceLayerException
 	{
 
-		int aNum = 1;
+		int aNum;
 		final StringTokenizer aTok = new StringTokenizer(formula, ",");
 		String aString = aTok.nextToken();
 		try
@@ -59,7 +59,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException(formula + " must start with a number in PRETYPE");
+			throw new PersistenceLayerException(nfe, formula + " must start with a number in PRETYPE");
 		}
 
 		// Parse new style syntax
