@@ -48,7 +48,7 @@ public class PreSkillSitParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private void extractSkill(Prerequisite prereq)
+	private static void extractSkill(Prerequisite prereq)
 		throws PersistenceLayerException
 	{
 		String skill = "";
