@@ -73,10 +73,10 @@ public class PreSkillTotalParser extends AbstractPrerequisiteParser implements
 		int total = 0;
 
 		String[] tokens = formula.split(",");
-		for (int i = 0; i < tokens.length; i++)
+		for (String token1 : tokens)
 		{
-			String token = tokens[i];
-			if (token.indexOf("=") > -1)
+			String token = token1;
+			if (token.contains("="))
 			{
 				String[] subTokens = token.split("=");
 				token = subTokens[0];
