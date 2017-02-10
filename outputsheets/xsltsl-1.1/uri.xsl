@@ -11,7 +11,6 @@
   <doc:reference xmlns="">
     <referenceinfo>
       <releaseinfo role="meta">
-        $Id: uri.xsl,v 1.6 2002/01/11 22:07:08 injektilo Exp $
       </releaseinfo>
       <author>
         <surname>Diamond</surname>
