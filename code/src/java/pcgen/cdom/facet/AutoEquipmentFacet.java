@@ -35,7 +35,6 @@ import pcgen.core.QualifiedObject;
  * AutoEquipmentFacet is a Facet that tracks the Automatic Equipment objects
  * (those granted by AUTO:EQUIP) that are contained in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoEquipmentFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Equipment>>>

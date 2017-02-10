@@ -37,7 +37,6 @@ import pcgen.gui2.UIPropertyContext;
  * AddLevelFacet performs the addition of levels to a Player Character that are
  * defined by the ADDLEVEL token.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AddLevelFacet implements DataFacetChangeListener<CharID, PCTemplate>
 {
