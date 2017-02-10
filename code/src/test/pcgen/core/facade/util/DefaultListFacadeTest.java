@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 09/06/2012 11:30:14 AM
  *
- * $Id$
  */
 package pcgen.core.facade.util;
 
@@ -40,7 +38,6 @@ import pcgen.facade.util.event.ListListener;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class DefaultListFacadeTest
