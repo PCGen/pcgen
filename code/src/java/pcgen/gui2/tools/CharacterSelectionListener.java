@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 18, 2008, 5:14:21 PM
  */
 package pcgen.gui2.tools;
 
@@ -24,7 +23,6 @@ import pcgen.facade.core.CharacterFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @FunctionalInterface
 public interface CharacterSelectionListener
