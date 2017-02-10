@@ -6,7 +6,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 /**
- * @author karianna
  * Class deals with SPECIALLIST Token
  */
 public class SpecialListToken extends Token
