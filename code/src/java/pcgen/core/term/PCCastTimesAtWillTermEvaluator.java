@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 10/07/2009 6:41:36 PM
  *
- * $Id$
  */
 package pcgen.core.term;
 
@@ -30,7 +28,6 @@ import pcgen.core.character.CharacterSpell;
  * times per day value of the ATWILL constant. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCCastTimesAtWillTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
