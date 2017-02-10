@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.pretokens.test;
@@ -40,7 +38,6 @@ import pcgen.system.LanguageBundle;
  * {@code PreArmorProfTester} does the testing of armor proficiency
  * prerequisites. 
  *
- * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
 public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
