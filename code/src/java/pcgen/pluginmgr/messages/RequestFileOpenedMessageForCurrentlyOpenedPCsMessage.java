@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/02/2014 10:17:19 pm
  *
- * $Id$
  */
 package pcgen.pluginmgr.messages;
 
@@ -31,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 @SuppressWarnings("serial")
