@@ -38,7 +38,6 @@ import pcgen.rules.context.AbstractReferenceContext;
  * ChangeProfFacet is a Facet that tracks the ChangeProf objects that are
  * contained in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChangeProfFacet extends AbstractSourcedListFacet<CharID, ChangeProf>
 		implements DataFacetChangeListener<CharID, CDOMObject>

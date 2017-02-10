@@ -30,7 +30,6 @@ import pcgen.core.Skill;
  * UsableSkillsFacet is a Facet that tracks Non-Exclusive Use-Untrained skills
  * for a PC (CLASS or CROSSCLASS for any PCClass)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UsableSkillsFacet extends AbstractSourcedListFacet<CharID, Skill>
 		implements SubScopeFacetChangeListener<Skill, SkillCost, PCClass>

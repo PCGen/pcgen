@@ -42,7 +42,6 @@ import pcgen.core.FollowerOption;
  * FollowerOptionFacet is a Facet that tracks the FollowerOptions that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerOptionFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>
