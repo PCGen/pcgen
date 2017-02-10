@@ -16,14 +16,12 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 19, 2002, 5:15 PM
  */
 package pcgen.io;
 
 /**
  * {@code IOConstants}
  *
- * @author   Thomas Behr
  */
 @SuppressWarnings("nls")
 interface IOConstants

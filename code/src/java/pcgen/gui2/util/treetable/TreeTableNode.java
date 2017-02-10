@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 20, 2008, 3:47:33 PM
  */
 package pcgen.gui2.util.treetable;
 
@@ -26,7 +25,6 @@ import pcgen.gui2.util.table.Row;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public interface TreeTableNode extends TreeNode, Row
 {

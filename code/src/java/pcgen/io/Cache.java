@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 08, 2002, 12:15 AM
  */
 package pcgen.io;
 
@@ -30,7 +29,6 @@ import java.util.Map;
  * Convenience wrapper class for a HashMap containing
  * only List intances filled with String instances.
  *
- * @author Thomas Behr 08-00-02
  */
 final class Cache
 {

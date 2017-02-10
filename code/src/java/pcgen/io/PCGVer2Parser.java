@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 22, 2002, 12:15 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io;
@@ -159,7 +157,6 @@ import pcgen.util.enumeration.ProhibitedSpellType;
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
  *
- * @author Thomas Behr 22-03-02
  */
 final class PCGVer2Parser implements PCGParser
 {

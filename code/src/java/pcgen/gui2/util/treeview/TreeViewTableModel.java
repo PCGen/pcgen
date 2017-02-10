@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 11, 2008, 9:04:19 PM
  */
 package pcgen.gui2.util.treeview;
 
@@ -46,7 +45,6 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class TreeViewTableModel<E> extends AbstractTreeTableModel
 		implements SortableTreeTableModel

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 19, 2002, 4:15 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io;
@@ -114,7 +112,6 @@ import pcgen.util.StringPClassUtil;
  * <i>nestedtag</i> := TAGNAME ':' '[' taglist ']'
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
  *
- * @author Thomas Behr 19-03-02
  */
 public final class PCGVer2Creator
 {
