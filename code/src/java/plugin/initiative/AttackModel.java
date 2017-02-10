@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on May 24, 2003
  */
 package plugin.initiative;
 
@@ -36,7 +35,6 @@ import pcgen.base.lang.StringUtil;
  * primary and off-hand by a slash, and the same with crit multiples
  * and ranges.</p>
  *
- * @author Ross M. Lodge
  */
 public class AttackModel extends PObjectModel
 {
