@@ -34,7 +34,6 @@ import pcgen.core.bonus.BonusUtilities;
  * StatBonusFacet is a Facet that calculates the bonus provided by PCStat objects on
  * a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatBonusFacet
 {

@@ -25,7 +25,6 @@ import pcgen.core.PCClass;
  * SubClassFacet stores the SubClass identifier that are applied to a Player
  * Character, in relation to the parent PCClass objects.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SubClassFacet extends
 		AbstractAssociationFacet<CharID, PCClass, String>
