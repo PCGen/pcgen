@@ -18,7 +18,6 @@
  *
  * Created 30-Mar-2014 22:45:18
  *
- * Current Ver: $Revision:$
  *
  */
 
@@ -32,7 +31,6 @@ import pcgen.core.PlayerCharacter;
  * CR tag in the race definition. 
  * 
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class PCBaseCRTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {

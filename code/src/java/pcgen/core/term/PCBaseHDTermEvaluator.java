@@ -18,7 +18,6 @@
  *
  * Created 07-May-2014 22:45:18
  *
- * Current Ver: $Revision:$
  *
  */
 
@@ -32,7 +31,6 @@ import pcgen.core.PlayerCharacter;
  * MONSTERCLASS tag in the race definition. 
  * 
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class PCBaseHDTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator {
