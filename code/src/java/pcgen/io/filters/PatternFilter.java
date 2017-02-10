@@ -36,7 +36,6 @@ import pcgen.util.Logging;
  * suitable for a particular file type. e.g. Converting special characters 
  * into safe XML equivalents for outputting to xml files.
  *    
- * @author apsen
  */
 public class PatternFilter implements OutputFilter
 {

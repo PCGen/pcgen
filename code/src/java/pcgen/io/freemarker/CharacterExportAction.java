@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -35,7 +33,6 @@ import pcgen.util.Logging;
  * handle export tokens to produce a result.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface CharacterExportAction
 {
