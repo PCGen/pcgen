@@ -23,7 +23,6 @@ import java.util.EventObject;
 /**
  * To be implemented by listener of {@link TravelMethod} model change
  *
- * @author Vincent Lhote
  *
  */
 public interface TravelMethodListener extends EventListener

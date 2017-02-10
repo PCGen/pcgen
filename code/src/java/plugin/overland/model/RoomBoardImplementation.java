@@ -23,7 +23,6 @@ import plugin.overland.util.RBCost;
 /**
  * Implementation of RoomBoard. This class is package view on purpose.
  *
- * @author Vincent Lhote
  *
  */
 class RoomBoardImplementation implements RoomBoard
