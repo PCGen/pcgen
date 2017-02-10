@@ -8,7 +8,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbilityToken;
 
 /**
- * @author karianna
  *
  * Class deals with FEAT Token
  */
