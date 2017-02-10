@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 15, 2002, 9:30 PM
  */
 package pcgen.io;
 
@@ -26,7 +25,6 @@ import pcgen.cdom.base.Constants;
  * {@code ParseException}<br>
  *
  *
- * @author ???
  */
 final class PCGParseException extends Exception
 {
