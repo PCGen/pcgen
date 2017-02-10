@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 20, 2007
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.add;
@@ -83,7 +81,6 @@ import pcgen.util.enumeration.Visibility;
  * </ul>
  * (Sun, 20 May 2007) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMSecondaryToken<CDOMObject>, PersistentChoiceActor<CNAbilitySelection>

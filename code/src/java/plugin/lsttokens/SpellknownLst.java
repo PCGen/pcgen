@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 31/12/2008 12:35:22 PM
  *
- * $Id: $
  */
 
 package plugin.lsttokens;
@@ -58,7 +56,6 @@ import pcgen.util.Logging;
  * </pre>
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellknownLst extends AbstractSpellListToken implements
 		CDOMPrimaryToken<CDOMObject>
