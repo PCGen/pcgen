@@ -44,7 +44,6 @@ import pcgen.system.LanguageBundle;
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ColorsPanel extends PCGenPrefsPanel

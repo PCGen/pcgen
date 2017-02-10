@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 29, 2008, 10:30:57 PM
  */
 package pcgen.gui2.tabs;
 
@@ -87,7 +86,6 @@ import pcgen.system.LanguageBundle;
  * follows the state management guidelines of a {@code CharacterInfoTab}.
  *
  * @see pcgen.gui2.tabs.CharacterInfoTab
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AbilityChooserTab extends FlippingSplitPane implements StateEditable, TodoHandler
