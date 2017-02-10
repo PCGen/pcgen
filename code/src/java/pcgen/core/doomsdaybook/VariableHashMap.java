@@ -18,7 +18,6 @@
  *
  * VariableHashMap.java
  *
- * Created on November 1, 2002, 1:15 PM
  */
 package pcgen.core.doomsdaybook;
 
@@ -34,7 +33,6 @@ import java.util.Map;
  * secondary map of DataElement objects and a list of Operation objects.
  *
  *
- * @author devon
  */
 public class VariableHashMap extends HashMap<String, String>
 {
