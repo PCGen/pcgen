@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/03/2012 1:54:05 PM
  *
- * $Id$
  */
 package pcgen.facade.core;
 
@@ -28,7 +26,6 @@ package pcgen.facade.core;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public interface NoteFacade
