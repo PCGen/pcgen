@@ -33,7 +33,6 @@ import pcgen.core.PlayerCharacter;
  * BonusActiviationFacet is a Facet that triggers to activate BonusObj objects
  * on CDOMObjects which are added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BonusActiviationFacet implements
 		DataFacetChangeListener<CharID, CDOMObject>

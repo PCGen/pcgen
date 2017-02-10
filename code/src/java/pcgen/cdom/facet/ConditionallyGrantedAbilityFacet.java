@@ -34,7 +34,6 @@ import pcgen.util.Logging;
  * about Ability objects that are contained in a Player Character because the
  * Player Character did pass prerequisites for the conditional Ability.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionallyGrantedAbilityFacet extends
 		AbstractListFacet<CharID, CNAbilitySelection>

@@ -37,7 +37,6 @@ import pcgen.core.PCTemplate;
  * granted to the PlayerCharacter. Conditional Templates are those items that
  * are set by HD, LEVEL, and REPEATLEVEL tokens in PCTemplates.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ConditionalTemplateFacet extends AbstractListFacet<CharID, PCTemplate>
 		implements DataFacetChangeListener<CharID, PCTemplate>, LevelChangeListener

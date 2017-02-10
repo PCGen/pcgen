@@ -30,7 +30,6 @@ import pcgen.core.bonus.BonusUtilities;
  * CheckFacet is a Facet that tracks the PCCheck objects available to a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CheckBonusFacet
 {

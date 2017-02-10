@@ -30,7 +30,6 @@ import pcgen.core.spell.Spell;
  * CDOMObject. This may be a static SpellList or a choice of a SpellLists
  * available to the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ClassSpellListFacet
 {

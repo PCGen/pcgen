@@ -33,7 +33,6 @@ import pcgen.core.Skill;
  * PlayerCharacter and allows other classes to listen to such changes on a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 {
@@ -140,7 +139,6 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * SkillRankChangeFacet when a SkillRank Bonus value has changed for a
 	 * Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	@FunctionalInterface
 	public interface SkillRankChangeListener
@@ -163,7 +161,6 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * SkillRankChangeEvent is an event sent to a SkillRankChangeListener when a
 	 * SkillRank Bonus value changes on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class SkillRankChangeEvent
 	{
@@ -241,7 +238,6 @@ public class BonusSkillRankChangeFacet extends AbstractStorageFacet<CharID>
 	 * structure for adding and removing listeners to a class that can provide
 	 * updates for changes to SkillRank Bonus values on a Player Character.
 	 * 
-	 * @author Thomas Parker (thpr [at] yahoo.com)
 	 */
 	public static class SkillRankChangeSupport
 	{
