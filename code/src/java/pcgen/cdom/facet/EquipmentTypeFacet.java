@@ -28,7 +28,6 @@ import pcgen.rules.context.LoadContext;
  * EquipmentTypeFacet is a Facet that calculates the TYPE items that have been
  * added to a Equipment in a dataset.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentTypeFacet extends AbstractListFacet<DataSetID, Type>
 		implements DataSetInitializedFacet

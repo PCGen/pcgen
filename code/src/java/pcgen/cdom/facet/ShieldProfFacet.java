@@ -31,7 +31,6 @@ import pcgen.cdom.helper.ShieldProfProvider;
  * ShieldProfFacet is a Facet that tracks the ShieldProfs that have been granted
  * to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ShieldProfFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

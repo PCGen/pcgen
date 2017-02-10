@@ -24,7 +24,6 @@ import java.util.Map;
 import pcgen.cdom.helper.SpringHelper;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * FacetLibrary is a container for the Facets that process information about
  * PlayerCharacters

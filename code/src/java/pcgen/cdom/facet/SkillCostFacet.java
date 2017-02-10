@@ -34,7 +34,6 @@ import pcgen.core.Skill;
 /**
  * SkillCostFacet is a Facet that tracks costs of Skills for each PCClass
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillCostFacet extends
 		AbstractSubScopeFacet<Skill, SkillCost, PCClass> implements
