@@ -54,7 +54,6 @@ import plugin.primitive.spell.SubSchoolToken;
  *
  * <br/>
  * 
- * @author Tom Parker
  */
 public class SpellsTokenTest extends
 		AbstractChooseTokenTestCase<CDOMObject, Spell>
