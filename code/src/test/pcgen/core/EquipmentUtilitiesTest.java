@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17 March 2005
  *
  * $Author: nuance $
  * $Date: 2006-03-22 00:25:03 +0000 (Wed, 22 Mar 2006) $
@@ -33,7 +32,6 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.util.TestHelper;
 
 /**
- * @author nuance
  *
  */
 public class EquipmentUtilitiesTest extends PCGenTestCase
