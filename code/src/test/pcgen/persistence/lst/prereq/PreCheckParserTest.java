@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -35,7 +33,6 @@ import pcgen.core.prereq.Prerequisite;
 import plugin.pretokens.parser.PreCheckParser;
 
 /**
- * @author wardc
  */
 @SuppressWarnings("nls")
 public class PreCheckParserTest extends EnUsLocaleDependentTestCase

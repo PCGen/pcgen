@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 28/06/2010 3:33:01 PM
  *
- * $Id$
  */
 package pcgen.rules.context;
 
@@ -43,7 +41,6 @@ import pcgen.util.TestHelper;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class LoadContextTest extends TestCase
 {
