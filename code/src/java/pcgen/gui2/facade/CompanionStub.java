@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 21/03/2012 9:52:14 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -33,7 +31,6 @@ import pcgen.facade.util.ReferenceFacade;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class CompanionStub implements CompanionStubFacade
