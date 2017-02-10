@@ -46,7 +46,6 @@ import pcgen.gui2.util.FacadeListModel;
  *  
  * @param <E> The type of object being managed, generally a Facade 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public abstract class DeferredCharacterComboBoxModel<E> extends
