@@ -27,7 +27,6 @@ import pcgen.cdom.facet.base.AbstractStorageFacet;
  * This Class is a Type Safe Constant. It is designed to hold a unique Data Set
  * Identifier in a type-safe fashion
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public final class DataSetID implements TypeSafeConstant, PCGenIdentifier
 {
