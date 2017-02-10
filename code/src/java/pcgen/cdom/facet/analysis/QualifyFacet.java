@@ -35,7 +35,6 @@ import pcgen.cdom.reference.Qualifier;
  * QualifyFacet is a Facet that tracks the objects to which the Player Character
  * should Qualify.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class QualifyFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>

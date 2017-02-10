@@ -38,7 +38,6 @@ import pcgen.core.PCStat;
  * StatLockFacet is a Facet that tracks the Stats that have been locked on a
  * Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StatLockFacet extends AbstractSourcedListFacet<CharID, StatLock> implements
 		DataFacetChangeListener<CharID, CDOMObject>

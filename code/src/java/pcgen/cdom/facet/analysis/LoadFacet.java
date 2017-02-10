@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Load;
  * underlying Load information used for these calculations is defined in the
  * Game Mode LST files.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LoadFacet
 {

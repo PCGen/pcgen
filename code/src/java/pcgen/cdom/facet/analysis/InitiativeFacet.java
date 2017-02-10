@@ -27,7 +27,6 @@ import pcgen.cdom.facet.FormulaResolvingFacet;
  * InitiativeFacet is a Facet that calculates the Initiative value for a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class InitiativeFacet
 {
