@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 21, 2001, 2:15 PM
  *
- * $Id$
  */
 package pcgen.core.utils;
 
@@ -27,7 +25,6 @@ import java.util.Observable;
 /**
  * This is a facade for gui objects in the core code.
  *
- * @author     Jonas Karlsson
  */
 public final class ShowMessageDelegate extends Observable
 {

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 22, 2011, 12:01:45 AM
  */
 package pcgen.facade.core;
 
@@ -27,7 +26,6 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface EquipmentListFacade extends ListFacade<EquipmentFacade>
 {
