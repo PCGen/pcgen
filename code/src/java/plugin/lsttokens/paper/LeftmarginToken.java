@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 2, 2002, 8:02 AM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.paper;
@@ -33,7 +31,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code LeftmarginToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class LeftmarginToken extends AbstractNonEmptyToken<PaperInfo> implements
 		CDOMPrimaryToken<PaperInfo>
