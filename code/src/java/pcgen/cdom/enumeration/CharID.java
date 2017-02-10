@@ -24,7 +24,6 @@ import pcgen.cdom.base.PCGenIdentifier;
 import pcgen.cdom.facet.base.AbstractStorageFacet;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant. It is designed to hold a unique Character
  * Identifier in a type-safe fashion
