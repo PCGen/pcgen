@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package plugin.pcgtracker.gui;
 
@@ -27,7 +26,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author  Soulcatcher
  */
 // TODO Add some gap to buttons. Use icons on buttons?
 public class PCGTrackerView extends javax.swing.JPanel

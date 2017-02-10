@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on May 24, 2003
  */
 package plugin.notes.gui;
 
@@ -44,7 +43,6 @@ import pcgen.gui2.tools.Icons;
  *  represent a file. You can launch files in supported operating systems from
  *  JIcon into their associated application.
  *
- *@author     soulcatcher
  */
 public class JIcon extends JPanel
 {

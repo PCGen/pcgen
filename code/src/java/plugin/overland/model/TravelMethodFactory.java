@@ -46,7 +46,6 @@ import plugin.overland.util.Localized;
 /**
  * Builds a Travel Method instance from an XML document.
  * 
- * @author Vincent Lhote
  */
 public class TravelMethodFactory
 {
