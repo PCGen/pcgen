@@ -7,7 +7,6 @@
 # put the files in the proper directories for the NSIS script that build the Windows
 # installer.
 #
-# $Id$
 
 
 use strict;

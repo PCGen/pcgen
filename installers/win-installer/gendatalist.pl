@@ -7,7 +7,6 @@
 # for the NSIS script that builds the Windows installer.
 # Author: James Dempsey October 2006
 #
-# $Id: release.pl 1551 2006-10-29 03:21:16Z jdempsey $
 
 
 use strict;
