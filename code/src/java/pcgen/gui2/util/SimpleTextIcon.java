@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 17, 2008, 4:24:42 PM
  */
 package pcgen.gui2.util;
 
@@ -33,7 +32,6 @@ import javax.swing.Icon;
  * cases. For instance a SimpleTextIcon can be used to display different texts for a button's
  * rollover event.
  * *Note* The SimpleTextIcon does not treat html text specially so it will be displayed verbatim.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SimpleTextIcon implements Icon
 {

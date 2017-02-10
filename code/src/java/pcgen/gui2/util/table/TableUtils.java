@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 10, 2011, 1:10:02 PM
  */
 package pcgen.gui2.util.table;
 
@@ -31,7 +30,6 @@ import javax.swing.table.TableColumn;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TableUtils
 {

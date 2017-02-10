@@ -19,7 +19,6 @@
  */
 
 /**
- * @author Kim Winz &lt;kwinz@users.sourceforge.net&gt;
  * 
  * StatusWorker extends SwingWorker to handle progress display in the status bar.
  * 		It replaces TaskExecutor, which was a private class inside PCGenStatusBar.
