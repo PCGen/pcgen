@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 20/02/2012 7:31:38 AM
  *
- * $Id$
  */
 package pcgen.gui2;
 
@@ -57,7 +55,6 @@ import org.junit.Test;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class ScanForUnusedIl8nKeys

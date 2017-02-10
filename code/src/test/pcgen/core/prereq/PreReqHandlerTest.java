@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 14-Jan-2004
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -41,7 +39,6 @@ import junit.framework.TestSuite;
 import junit.textui.TestRunner;
 
 /**
- * @author wardc
  */
 @SuppressWarnings("nls")
 public class PreReqHandlerTest extends TestCase
