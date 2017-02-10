@@ -11,7 +11,6 @@
   <doc:reference xmlns="">
     <referenceinfo>
       <releaseinfo role="meta">
-        $Id: example.xsl,v 1.5 2002/01/04 23:43:17 balls Exp $
       </releaseinfo>
       <author>
         <surname>Ball</surname>

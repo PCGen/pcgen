@@ -8,7 +8,6 @@
   <doc:reference xmlns=''>
     <referenceinfo>
       <releaseinfo role="meta">
-	$Id: markup.xsl,v 1.5 2003/03/31 21:07:28 balls Exp $
       </releaseinfo>
       <author>
 	<surname>Ball</surname>

@@ -8,7 +8,6 @@
   <doc:reference xmlns="">
     <referenceinfo>
       <releaseinfo role="meta">
-        $Id: math.xsl,v 1.4 2004/10/08 06:37:25 balls Exp $
       </releaseinfo>
       <author>
         <surname>Ball</surname>
