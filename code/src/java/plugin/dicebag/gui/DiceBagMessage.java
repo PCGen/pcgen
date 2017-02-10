@@ -31,7 +31,6 @@ package plugin.dicebag.gui;
  * <li>Dice Bag Saved</li>
  * </ul>
  *
- * @author Ross Lodge
  */
 public class DiceBagMessage
 {
