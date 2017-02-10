@@ -8,7 +8,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
 import pcgen.util.Logging;
 
 /**
- * @author karianna
  * Class deals with SPELLBOOKNAME Token
  */
 public class SpellBookNameToken extends AbstractExportToken
