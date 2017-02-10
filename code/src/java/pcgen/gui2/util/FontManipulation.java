@@ -38,7 +38,6 @@ import java.awt.Font;
  * <li>x-small
  * <li>xx-small
  * </ul>
- * @author Vincent Lhote
  */
 public class FontManipulation
 {
