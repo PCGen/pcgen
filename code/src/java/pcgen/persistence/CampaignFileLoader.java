@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 15, 2010, 4:00:56 PM
  */
 package pcgen.persistence;
 
@@ -38,7 +37,6 @@ import pcgen.util.Logging;
 import org.apache.commons.lang3.StringUtils;
 
 /**
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignFileLoader extends PCGenTask
 {
