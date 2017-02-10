@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package plugin.experience;
 
@@ -34,8 +33,6 @@ import plugin.experience.gui.PreferencesExperiencePanel;
 /**
  * This {@code class} holds all the necessary data in order to have
  * functionality for the experience adjuster.<br>
- * Created on February 19, 2003<br>
- * Updated on February 26, 2003
  */
 public class ExperienceAdjusterModel extends Observable
 {

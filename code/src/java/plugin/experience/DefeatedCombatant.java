@@ -17,7 +17,6 @@
  *
  *  DefeatedCombatant.java
  *
- *  Created on January 24, 2002, 11:15 AM
  */
 package plugin.experience;
 
@@ -31,7 +30,6 @@ import gmgen.plugin.SystemInitiative;
 import org.jdom2.Element;
 
 /**
- *@author     devon
  */
 public class DefeatedCombatant extends Combatant
 {

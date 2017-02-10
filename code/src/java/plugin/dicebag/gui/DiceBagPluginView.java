@@ -35,7 +35,6 @@ import java.util.Observer;
  *
  * <p>The view class for the DiceBag plugin.  Should manage and initialize
  * all GUI components.  Should delegate all user actions to the controller class.</p>
- * @author Ross M. Lodge
  */
 public class DiceBagPluginView implements Observer
 {
@@ -355,7 +354,6 @@ public class DiceBagPluginView implements Observer
 	/**
 	 * <p>Listener for events on the internal frame children of this view.</p>
 	 *
-	 * @author Ross M. Lodge
 	 */
 	private class ChildListener extends InternalFrameAdapter
 	{
