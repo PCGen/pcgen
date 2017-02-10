@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 1, 2002, 2:15 PM
  */
 package pcgen.core.doomsdaybook;
 
@@ -26,7 +25,6 @@ package pcgen.core.doomsdaybook;
  * multiplying the variable's current value.
  *
  *
- * @author Devon D Jones
  */
 public class Operation implements Comparable
 {

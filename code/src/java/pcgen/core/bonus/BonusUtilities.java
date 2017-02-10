@@ -18,7 +18,6 @@
  *
  * Refactored out of PObject July 22, 2005
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.bonus;
 
@@ -28,7 +27,6 @@ import java.util.List;
 import java.util.StringTokenizer;
 
 /**
- * @author Tom Parker &lt;thpr@sourceforge.net&gt;
  *
  * This is a utility class related to BonusObj objects.
  */
