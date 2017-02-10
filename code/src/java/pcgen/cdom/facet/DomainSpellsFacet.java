@@ -35,7 +35,6 @@ import pcgen.core.spell.Spell;
  * DomainSpellsFacet tracks the Domain Spells allowed / granted to the Player
  * Character due to the Domain selections of the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DomainSpellsFacet extends
 		AbstractSourcedListFacet<CharID, CDOMList<Spell>> implements

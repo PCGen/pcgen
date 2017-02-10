@@ -34,7 +34,6 @@ import pcgen.core.WeaponProf;
  * granted to a Player Character via the Deity selection of the Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DeityWeaponProfFacet extends AbstractSourcedListFacet<CharID, WeaponProf>
 		implements DataFacetChangeListener<CharID, Deity>
