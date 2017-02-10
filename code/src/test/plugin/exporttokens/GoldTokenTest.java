@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 25/05/2014 10:18:28 am
  *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -37,7 +35,6 @@ import plugin.exporttokens.deprecated.GoldToken;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class GoldTokenTest extends AbstractCharacterTestCase
