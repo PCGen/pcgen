@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Apr 9, 2005
  *
- * $Id$
  *
  */
 package pcgen.io.exporttoken;
@@ -44,7 +42,6 @@ import pcgen.rules.context.LoadContext;
  * <code>StatTokenTest</code> tests the functioning of the STAT token. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class StatTokenTest extends AbstractCharacterTestCase

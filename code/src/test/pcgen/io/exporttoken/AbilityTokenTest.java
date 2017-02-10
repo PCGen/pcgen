@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17/08/2008 14:04:19
  *
- * $Id: $
  */
 package pcgen.io.exporttoken;
 
@@ -51,7 +49,6 @@ import pcgen.util.enumeration.Visibility;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityTokenTest extends AbstractCharacterTestCase
 {
