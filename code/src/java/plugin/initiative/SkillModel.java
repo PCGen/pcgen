@@ -21,7 +21,6 @@ package plugin.initiative;
  * <p>This class models a skill.  It basically represents a skill as a name and
  * total bonus.</p>
  *
- * @author Ross M. Lodge
  */
 public class SkillModel extends CheckModel
 {
