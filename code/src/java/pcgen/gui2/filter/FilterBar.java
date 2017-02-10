@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 5:41:26 PM
  */
 package pcgen.gui2.filter;
 
@@ -44,7 +43,6 @@ import org.apache.commons.lang3.ArrayUtils;
  * is a filter which contains a set of other DisplayableFilters. At the bottom of a FilterBar is a
  * region of space with an arrow at the center. When this is clicked all of the children filters will
  * be hidden from view.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterBar<C, E> extends JPanel implements DisplayableFilter<C, E>
 {
