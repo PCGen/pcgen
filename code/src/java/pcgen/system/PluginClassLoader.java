@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 25, 2009, 3:14:40 PM
  */
 package pcgen.system;
 
@@ -48,7 +47,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class PluginClassLoader extends PCGenTask
 {

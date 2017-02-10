@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/08/2013
  *
- * $Id$
  */
 package pcgen.util;
 
@@ -33,7 +31,6 @@ import pcgen.core.VariableProcessor;
  * two commands.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class AbstractCountCommand extends PCGenCommand
 {

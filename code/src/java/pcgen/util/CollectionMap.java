@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2007, 6:39 PM
  *
  * To change this template, choose Tools | Template Manager
  * and open the template in the editor.
@@ -30,7 +29,6 @@ import java.util.Map;
 
 /**
  *
- * @author Connor Petty
  */
 public interface CollectionMap<K, V, C extends Collection<V>> extends Map<K, C>{
     /**

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on April 12, 2003, 3:20 AM
  */
 package pcgen.util;
 
@@ -47,7 +46,6 @@ import pcgen.core.SettingsHandler;
  * This contains logging functions. It is a proxy for the 
  * Java logging API.
  * 
- * @author     Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  */
 public class Logging
 {

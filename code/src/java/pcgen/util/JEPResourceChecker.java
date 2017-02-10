@@ -16,16 +16,13 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 30, 2003, 10:34 AM
  *
- * @(#) $Id$
  */
 package pcgen.util;
 
 /**
  * {@code JEPResourceChecker}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class JEPResourceChecker
 {
