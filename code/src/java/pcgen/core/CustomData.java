@@ -16,10 +16,8 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 23, 2002, 12:53 AM
  *
  *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
@@ -47,7 +45,6 @@ import pcgen.util.Logging;
 /**
  * {@code CustomData}
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class CustomData
 {

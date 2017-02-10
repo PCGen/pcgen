@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/08/2008 16:36:13
  *
- * $Id$
  */
 package pcgen.cdom.helper;
 
@@ -51,7 +49,6 @@ import pcgen.util.Logging;
  * &quot;substitution&quot;.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  * 
  */
 public class Aspect extends ConcretePrereqObject

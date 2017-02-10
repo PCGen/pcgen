@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/09/2008 23:20:54
  *
- * $Id: $
  */
 package pcgen.cdom.util;
 
@@ -46,7 +44,6 @@ import pcgen.cdom.enumeration.MapKey;
  * **NOTE** This class is NOT thread safe.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MapKeyMap
 {

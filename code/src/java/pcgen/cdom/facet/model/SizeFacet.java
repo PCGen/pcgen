@@ -47,7 +47,6 @@ import pcgen.output.publish.OutputDB;
 /**
  * SizeFacet tracks the SizeAdjustment for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> implements
 		DataFacetChangeListener<CharID, CDOMObject>, LevelChangeListener,
