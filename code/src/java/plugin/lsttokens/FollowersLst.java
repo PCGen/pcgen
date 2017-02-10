@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package plugin.lsttokens;
 
@@ -64,7 +63,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code FOLLOWERS:Familiar|1}<br>
  * A character is allowed only 1 companion of type Familiar
  *
- * @author divaa01
  *
  */
 public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
