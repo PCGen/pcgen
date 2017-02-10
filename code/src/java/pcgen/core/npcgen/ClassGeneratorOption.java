@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -28,7 +27,6 @@ import pcgen.util.Logging;
 /**
  * This class represents a particular class generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class ClassGeneratorOption extends GeneratorOption
 {

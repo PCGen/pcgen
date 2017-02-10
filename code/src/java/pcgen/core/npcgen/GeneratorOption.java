@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -29,7 +28,6 @@ import pcgen.cdom.base.Constants;
  * <p>Options are represented by a name and a list of possible choices for that
  * options.  Each choice can have a weight specified.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public abstract class GeneratorOption

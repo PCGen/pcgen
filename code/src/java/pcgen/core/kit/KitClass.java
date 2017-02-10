@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 20, 2005, 1640h
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -40,7 +38,6 @@ import pcgen.gui2.UIPropertyContext;
 /**
  * {@code KitClass} <strong>needs documentation</strong>.
  *
- * @author boomer70
  */
 public class KitClass extends BaseKit
 {
