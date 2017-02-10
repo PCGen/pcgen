@@ -21,7 +21,6 @@ import java.io.File;
 
 /**
  *
- * @author  devon
  */
 public class XMLFilter implements java.io.FilenameFilter
 {

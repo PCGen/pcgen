@@ -21,7 +21,6 @@ import pcgen.core.doomsdaybook.DataElement;
 
 /**
  *
- * @author  devon
  */
 class NameButton extends javax.swing.JButton
 {

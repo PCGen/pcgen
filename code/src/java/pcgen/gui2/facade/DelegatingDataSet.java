@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 4, 2014, 5:35:52 PM
  */
 package pcgen.gui2.facade;
 
@@ -60,7 +59,6 @@ import pcgen.facade.util.MapFacade;
  * between the DelegatingDataSet and the actual DataSetFacade thus preventing an
  * memory leaks that could occur from an outside event listener.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DelegatingDataSet implements DataSetFacade
 {
