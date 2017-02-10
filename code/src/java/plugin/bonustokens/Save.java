@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision: 23293 $
  *
  */
 package plugin.bonustokens;
@@ -36,7 +34,6 @@ import pcgen.util.Logging;
 /**
  * {@code SAVE}.  Derived from CHECKS
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Save extends BonusObj
 {
