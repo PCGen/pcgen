@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 16, 2006, 11:43 AM
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -36,7 +34,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * Code to represent a bio setting choices for a Kit.
  *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public class KitBio extends BaseKit
 {

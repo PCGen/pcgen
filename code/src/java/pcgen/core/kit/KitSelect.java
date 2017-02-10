@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2005
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -31,7 +29,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitSelect}.
  *
- * @author Aaron Divinsky &lt;boomer70@yahoo.com&gt;
  */
 public final class KitSelect extends BaseKit
 {

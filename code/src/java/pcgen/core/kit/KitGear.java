@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 23, 2002, 8:58 PM
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -49,7 +47,6 @@ import pcgen.core.character.EquipSet;
 /**
  * {@code KitGear}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitGear extends BaseKit
 {
