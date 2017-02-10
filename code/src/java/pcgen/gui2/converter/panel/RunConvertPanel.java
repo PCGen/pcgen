@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/01/2009 11:31:57 AM
  *
- * $Id$
  */
 
 package pcgen.gui2.converter.panel;
@@ -82,7 +80,6 @@ import pcgen.util.Logging;
  * the conversion is being run.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class RunConvertPanel extends ConvertSubPanel implements Observer, ConversionDecider
 {

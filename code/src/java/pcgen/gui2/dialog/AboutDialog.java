@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 7, 2010, 1:01:02 PM
  *
- * Current Ver: $Revision: 11596 $ <br>
  *
  */
 package pcgen.gui2.dialog;
@@ -66,7 +64,6 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class AboutDialog extends JDialog
 {
@@ -88,7 +85,6 @@ public class AboutDialog extends JDialog
  * Create a simple panel to identify the program and those who contributed
  * to it.
  *
- * @author  Tom Epperly &lt;tomepperly@home.com&gt;
  * Modified 4/8/02 by W Robert Reed III (Mynex)
  * Adds List Monkeys Display area
  * Cleaned up naming schema
