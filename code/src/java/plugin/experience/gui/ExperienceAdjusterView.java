@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package plugin.experience.gui;
 
@@ -46,8 +45,6 @@ import plugin.experience.ExperienceAdjusterModel;
  * created by the {@code ExperienceAdjusterController}.  The view is
  * implemented as a {@code JPanel} so it can be added to the
  * {@code JTabbedPane} of the <code>GMGenSystemView</code>.<br>
- * Created on February 19, 2003<br>
- * Updated on March 6, 2003
  */
 // TODO use multi column list rather than a single line
 public class ExperienceAdjusterView extends javax.swing.JPanel
