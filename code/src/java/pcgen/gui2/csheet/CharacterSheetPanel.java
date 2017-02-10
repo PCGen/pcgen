@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 19, 2008, 3:06:38 PM
  */
 package pcgen.gui2.csheet;
 
@@ -56,7 +55,6 @@ import org.xml.sax.SAXException;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CharacterSheetPanel extends HtmlPanel implements CharacterSelectionListener
 {
