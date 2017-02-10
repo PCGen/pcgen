@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 14, 2008, 3:51:27 PM
  */
 package pcgen.gui2;
 
@@ -69,7 +68,6 @@ import pcgen.util.Logging;
  * and accessory popup menus that may use them. Since all of the action
  * handlers are Action objects they can be disabled or enabled to cause
  * all buttons that use the actions to update themselves accordingly.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenActionMap extends ActionMap
 {

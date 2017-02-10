@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 25, 2010, 2:26:17 PM
  */
 package pcgen.facade.util.event;
 
@@ -24,7 +23,6 @@ import java.util.EventObject;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class ListEvent<E> extends EventObject
 {

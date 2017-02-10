@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/01/2009 2:41:34 PM
  *
- * $Id$
  */
 package pcgen.gui2.converter;
 
@@ -30,7 +28,6 @@ import java.util.List;
  * that needs to be converted. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface ConversionDecider
 {

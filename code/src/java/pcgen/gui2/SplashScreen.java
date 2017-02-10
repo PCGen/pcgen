@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 1, 2009, 10:49:27 PM
  */
 package pcgen.gui2;
 
@@ -41,7 +40,6 @@ import pcgen.system.PCGenTaskListener;
  * PCGen's splash screen which is shown upon startup.
  *
  * @see pcgen.system.Main
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SplashScreen extends JWindow implements PCGenTaskListener
 {
