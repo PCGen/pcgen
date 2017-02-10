@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Created on June 4, 2002
  */
 package pcgen.gui2.util;
 
@@ -29,7 +28,6 @@ import javax.swing.JEditorPane;
  *  {@code JLabelPane} extends {@code JEditorPane} for PCGen
  *  Label panes
  *
- * @author &lt;a href="mailto:jujutsunerd@users.sourceforge.net"&gt;Jonas Karlsson&lt;/a&gt;
  */
 public final class JLabelPane extends JEditorPane
 {

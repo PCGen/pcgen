@@ -18,7 +18,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA.
  *
- * Created on August 18th, 2002.
  */
 package pcgen.gui2.tools; // hm.binkley.gui;
 
@@ -34,7 +33,6 @@ import org.jetbrains.annotations.Contract;
 /**
  * {@code Utilities}.
  *
- * @author &lt;a href="binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  *
  * @see SwingConstants
  */

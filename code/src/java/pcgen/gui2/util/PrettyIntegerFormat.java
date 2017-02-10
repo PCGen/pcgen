@@ -28,7 +28,6 @@ import java.text.DecimalFormatSymbols;
  * It will not display big modifiers correctly {@literal (modifiers > 1,000)}, because the thousand separator is locale dependent.
  * This is not really a problem, because their is an ability limit of 1,000 in PCGen.
  * 
- * @author Vincent Lhote
  */
 public class PrettyIntegerFormat extends DecimalFormat 
 {

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 27, 2001, 20:36 PM
  */
 package pcgen.gui2.util;
 
@@ -43,7 +42,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
 /**
  *  {@code JTableEx} extends JTable to provide auto-tooltips.
  *
- * @author     Jonas Karlsson &lt;jujutsunerd@users.sourceforge.net&gt;
  */
 public class JTableEx extends JTable
 {
