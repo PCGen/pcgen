@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 13, 2003, 11:50 AM
  */
 
 package pcgen.persistence.lst;
@@ -41,7 +40,6 @@ import pcgen.util.Logging;
  * MigrationLoader is a LstFileLoader that processes the migration.lst file
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationLoader extends LstLineFileLoader
 {
