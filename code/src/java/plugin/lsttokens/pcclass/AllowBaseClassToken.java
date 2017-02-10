@@ -23,7 +23,6 @@ import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * @author joe.frazier
  * 
  * Added for [ 1849571 ] New Class tag: ALLOWBASECLASS:x
  * 
