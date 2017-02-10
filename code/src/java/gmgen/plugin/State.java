@@ -25,7 +25,6 @@ import pcgen.system.LanguageBundle;
 /**
  * The state of a combatant, or an event.
  * 
- * @author Vincent Lhote
  */
 public enum State {
 	/* Used in Event */

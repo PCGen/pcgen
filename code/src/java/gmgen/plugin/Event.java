@@ -18,7 +18,6 @@
  *
  *  Spell.java
  *
- *  Created on January 16, 2002, 12:27 PM
  */
 package gmgen.plugin;
 
@@ -31,7 +30,6 @@ import pcgen.util.Logging;
 import org.jdom2.Element;
 
 /**
- *@author     devon
  */
 public class Event implements InitHolder
 {

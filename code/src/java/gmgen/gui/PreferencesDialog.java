@@ -18,7 +18,6 @@
  *
  *  PreferencesDialog.java
  *
- *  Created on August 29, 2002, 2:17 PM
  */
 package gmgen.gui;
 

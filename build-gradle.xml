@@ -2,7 +2,6 @@
 <!--
 build-gradle.xml - a stub ant file to allow gradle to include just the plugin build tasks.
 
-$Id$
 -->
 <project name="pcgen" basedir=".">
     <property name="manifest.file" value="code/manifest" />
