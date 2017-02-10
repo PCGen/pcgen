@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core;
@@ -30,7 +28,6 @@ import java.math.BigDecimal;
 /**
  * {@code LevelInfo} describes the data associated with a level
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class LevelInfo
 {

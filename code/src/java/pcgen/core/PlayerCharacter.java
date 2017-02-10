@@ -281,7 +281,6 @@ import pcgen.util.enumeration.Load;
 /**
  * {@code PlayerCharacter}.
  *
- * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
  */
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
