@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 3, 2010, 5:36:10 PM
  */
 package pcgen.gui2.tabs;
 
@@ -31,7 +30,6 @@ import pcgen.util.enumeration.Tab;
  * A container for information relating to how a character tab should be
  * displayed.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TabTitle
 {
