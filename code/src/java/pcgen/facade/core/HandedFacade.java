@@ -21,7 +21,6 @@ package pcgen.facade.core;
 /**
  * Facade for Handedness.
  * 
- * @author Vincent Lhote
  */
 public interface HandedFacade
 {

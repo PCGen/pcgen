@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 2013-09-25
  *
- * $Id$
  */
 package pcgen.facade.core;
 
@@ -28,7 +26,6 @@ package pcgen.facade.core;
  * interact with Size Adjustment objects.  
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public interface SizeAdjustmentFacade extends InfoFacade
 {

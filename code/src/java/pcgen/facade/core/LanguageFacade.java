@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 1, 2010, 2:34:09 PM
  */
 package pcgen.facade.core;
 
@@ -24,7 +23,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface LanguageFacade
 {
