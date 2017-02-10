@@ -34,7 +34,6 @@ import pcgen.util.enumeration.Load;
  * UnencumberedArmorFacet is a Facet that tracks the Load objects for
  * Unencumbered Armor that have been locked on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnencumberedArmorFacet extends AbstractSourcedListFacet<CharID, Load>
 		implements DataFacetChangeListener<CharID, CDOMObject>

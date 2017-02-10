@@ -34,7 +34,6 @@ import pcgen.core.Race;
  * RacialSubTypesFacet is a Facet that tracks the Racial Sub Types of a
  * PlayerCharacter
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class RacialSubTypesFacet
 {

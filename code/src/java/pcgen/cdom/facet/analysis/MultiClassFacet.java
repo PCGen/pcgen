@@ -31,7 +31,6 @@ import pcgen.core.PCClass;
  * Performs calculations related to multi-class characters (e.g. XP penalty
  * multiplier)
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MultiClassFacet
 {

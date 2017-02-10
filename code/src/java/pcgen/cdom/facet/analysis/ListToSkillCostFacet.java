@@ -33,7 +33,6 @@ import pcgen.core.Skill;
  * ListSkillCostFacet processes SkillCosts associated with the MONCSKILL and
  * MONCCSKILL tokens.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ListToSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements
