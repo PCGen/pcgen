@@ -26,7 +26,6 @@ import pcgen.core.spell.Spell;
  * that are contained in a Player Character. These are post-resolution of spells
  * for which the PC is qualified.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class KnownSpellFacet extends
 		AbstractSubScopeFacet<CDOMList<Spell>, Integer, Spell>
