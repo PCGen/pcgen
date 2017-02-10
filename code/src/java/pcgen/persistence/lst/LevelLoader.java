@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 16, 2002, 10:00 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -37,7 +35,6 @@ import pcgen.util.Logging;
  * {@code LevelLoader} loads up the level system file
  * by processing each line passed to it.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  **/
 public final class LevelLoader
 {

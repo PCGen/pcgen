@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 8, 2016, 10:44:28 PM
  */
 package pcgen.output.actor;
 
@@ -37,7 +36,6 @@ import pcgen.output.model.CollectionModel;
  * 
  * Note that the actual name of the interpolation is stored externally to this
  * Actor (in CDOMObjectWrapperInfo to be precise)
- * @author Connor Petty <cpmeister@users.sourceforge.net>
  */
 public class TypeActor implements OutputActor<CDOMObject>
 {
