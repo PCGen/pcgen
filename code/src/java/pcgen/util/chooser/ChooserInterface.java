@@ -30,7 +30,6 @@ import java.util.List;
  *
  * TODO: Make these lists use generics.
  *
- * @author    Jonas Karlsson
  */
 public interface ChooserInterface
 {

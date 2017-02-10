@@ -28,7 +28,6 @@ import pcgen.facade.core.UIDelegate;
  * to reduce the core/gui interdependence. Much more work is needed on this...
  * Currently only a SwingChooser has been implemented.
  *
- * @author    Jonas Karlsson
  */
 public final class ChooserFactory
 {
