@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 
@@ -35,7 +33,6 @@ import pcgen.util.Logging;
  * NewCategoryToken
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class NewCategoryToken implements MigrationLstToken
 {
