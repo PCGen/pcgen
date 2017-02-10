@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Mar 17, 2012, 8:54:27 PM
  */
 package pcgen.facade.util;
 
@@ -27,7 +26,6 @@ import java.util.Set;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DefaultMapFacade<K, V> extends AbstractMapFacade<K, V>
 {
