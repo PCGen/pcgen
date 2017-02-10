@@ -19,7 +19,6 @@
  *
  * Created 03 Oct 2008
  *
- * Current Ver: $Revision:$
  */
 
 package pcgen.core.term;
