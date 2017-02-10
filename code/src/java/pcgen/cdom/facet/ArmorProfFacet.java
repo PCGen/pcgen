@@ -32,7 +32,6 @@ import pcgen.cdom.helper.ArmorProfProvider;
  * to a Player Character by looking for AUTO:ARMORPROF entries on CDOMObjects
  * added to/removed from the Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class ArmorProfFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {
