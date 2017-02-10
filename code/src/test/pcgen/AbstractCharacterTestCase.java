@@ -1,5 +1,4 @@
 /*
- * Created on 23-Dec-2003
  *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
@@ -41,7 +40,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * This is an abstract TestClass designed to be able to create a PlayerCharacter
  * Object.
  *
- * @author frugal@purplewombat.co.uk
  */
 @SuppressWarnings("nls")
 public abstract class AbstractCharacterTestCase extends PCGenTestCase

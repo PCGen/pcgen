@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/01/2012 11:09:46 AM
  *
- * $Id: PlayerCharacterSpellTest.java 19041 2013-01-06 18:52:59Z thpr $
  */
 package pcgen.core;
 
@@ -41,7 +39,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  *
  * <br/>
  * 
- * @author Stefan Radermacher <zaister@users.sourceforge.net>
  */
 
 public class ChallengeRatingPathfinderTest extends AbstractCharacterTestCase
