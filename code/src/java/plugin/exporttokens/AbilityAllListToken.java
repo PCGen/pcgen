@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 22/11/2006
  *
- * $Id: $
  */
 package plugin.exporttokens;
 
@@ -43,7 +41,6 @@ import pcgen.io.exporttoken.AbilityListToken;
  * {@literal z is an option list of TYPE=<type> - type filter - may be negated}
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilityAllListToken extends AbilityListToken
 {
