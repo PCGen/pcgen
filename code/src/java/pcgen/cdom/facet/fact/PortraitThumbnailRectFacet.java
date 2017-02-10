@@ -28,7 +28,6 @@ import pcgen.cdom.facet.base.AbstractItemFacet;
  * the character's portrait.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PortraitThumbnailRectFacet extends AbstractItemFacet<CharID, Rectangle>
 {

@@ -45,7 +45,6 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
  * 
  * null is NOT a valid source.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public abstract class AbstractSingleSourceListFacet<T, ST> extends
 		AbstractDataFacet<CharID, T>
