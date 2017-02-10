@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 15, 2008, 6:58:51 PM
  */
 package pcgen.gui2.tabs;
 
@@ -49,7 +48,6 @@ import pcgen.util.enumeration.Tab;
  * manage the states of all the AbilityChooserTab.
  *
  * @see AbilityChooserTab
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class AbilitiesInfoTab extends SharedTabPane implements CharacterInfoTab, TodoHandler
