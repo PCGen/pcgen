@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 16, 2002, 10:00 PM AEST (+10:00)
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.system;
@@ -40,7 +38,6 @@ import pcgen.util.Logging;
  * {@code LoadInfo} describes the data associated with a loads and
  * encumbrance
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class LoadInfo implements Loadable
 {

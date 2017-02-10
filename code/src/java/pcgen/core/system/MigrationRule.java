@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 2013-06-01 10:15:00 AM
  *
- * $Id$
  */
 package pcgen.core.system;
 
@@ -31,7 +29,6 @@ import pcgen.core.utils.CoreUtility;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class MigrationRule
 {
