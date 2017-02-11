@@ -33,7 +33,7 @@ public class LangbonusTokenTest extends
 {
 
 	static LangbonusToken token = new LangbonusToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

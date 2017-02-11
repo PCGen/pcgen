@@ -40,7 +40,7 @@ public class FaceTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static FaceToken token = new FaceToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 	static ModifierFactory<OrderedPair> m = new SetModifierFactory();
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 

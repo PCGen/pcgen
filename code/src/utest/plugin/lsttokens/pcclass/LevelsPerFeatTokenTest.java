@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static LevelsperfeatToken token = new LevelsperfeatToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

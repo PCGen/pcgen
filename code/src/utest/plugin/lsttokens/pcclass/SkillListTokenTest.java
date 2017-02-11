@@ -43,7 +43,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static SkilllistToken token = new SkilllistToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<? extends PCClass> getCDOMClass()

@@ -34,7 +34,7 @@ public class CRTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static CrToken token = new CrToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

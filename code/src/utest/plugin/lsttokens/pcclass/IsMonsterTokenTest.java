@@ -30,7 +30,7 @@ public class IsMonsterTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 {
 
 	static IsmonsterToken token = new IsmonsterToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

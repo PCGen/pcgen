@@ -46,7 +46,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 	static SpelllistToken token = new SpelllistToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<? extends PCClass> getCDOMClass()

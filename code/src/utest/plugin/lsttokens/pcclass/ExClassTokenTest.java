@@ -34,7 +34,7 @@ public class ExClassTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static ExclassToken token = new ExclassToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
