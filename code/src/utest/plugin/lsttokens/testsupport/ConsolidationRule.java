@@ -19,28 +19,16 @@ package plugin.lsttokens.testsupport;
 
 import pcgen.base.lang.StringUtil;
 
+@FunctionalInterface
 public interface ConsolidationRule
 {
 
 	public String[] getAnswer(String... strings);
 
-	public static final ConsolidationRule OVERWRITE = new ConsolidationRule()
-	{
-        @Override
-		public String[] getAnswer(String... strings)
-		{
-			return new String[] { strings[strings.length - 1] };
-		}
-	};
+	public static final ConsolidationRule OVERWRITE =
+			strings -> new String[] { strings[strings.length - 1] };
 
-	public static final ConsolidationRule SEPARATE = new ConsolidationRule()
-	{
-        @Override
-		public String[] getAnswer(String... strings)
-		{
-			return strings;
-		}
-	};
+	public static final ConsolidationRule SEPARATE = strings -> strings;
 
 	public static class AppendingConsolidation implements ConsolidationRule
 	{
