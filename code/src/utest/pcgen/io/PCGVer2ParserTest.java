@@ -181,7 +181,6 @@ public class PCGVer2ParserTest
 		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
 		int[] version = parser.getPcgenVersion();
-		parser.getPcgenVersionSuffix();
 
 		assertThat("version length is correct", version.length, is(3));
 	}
