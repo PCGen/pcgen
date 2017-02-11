@@ -88,7 +88,7 @@ public class DamageReductionFacetTest extends
 		Map<DamageReduction, Set<Object>> drList =
                 new IdentityHashMap<>();
 		String listResult = drFacet.getDRString(id, drList);
-		assertEquals(listResult, "");
+		assertEquals("", listResult);
 		Set<Object> sourceSet = new HashSet<>();
 		sourceSet.add(new Object());
 

@@ -131,7 +131,7 @@ public class RegionTokenTest extends
 	@Test
 	public void testUnparseIllegal() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		Region o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, true);
@@ -142,7 +142,7 @@ public class RegionTokenTest extends
 	@Test
 	public void testUnparseLegalWithFalse() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		Region o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORREGION, false);
