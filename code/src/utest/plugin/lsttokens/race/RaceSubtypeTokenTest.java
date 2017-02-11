@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.RaceSubType;
 import pcgen.core.Race;

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.sizeadjustment;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.persistence.CDOMLoader;

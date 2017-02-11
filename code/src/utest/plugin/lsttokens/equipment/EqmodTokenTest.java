@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 

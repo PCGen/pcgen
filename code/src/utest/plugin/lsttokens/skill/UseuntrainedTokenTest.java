@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.skill;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Skill;
 import pcgen.rules.persistence.CDOMLoader;
