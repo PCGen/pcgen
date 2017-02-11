@@ -118,7 +118,7 @@ public class FollowerToken extends Token
 		StringWriter writer = new StringWriter();
 		BufferedWriter bw = new BufferedWriter(writer);
 
-		String token = "".equals(followerToken) ? "NAME" : followerToken;
+		String token = (followerToken != null) && followerToken.isEmpty() ? "NAME" : followerToken;
 
 		for (PlayerCharacter eachPC : Globals.getPCList())
 		{
