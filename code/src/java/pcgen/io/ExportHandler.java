@@ -3512,8 +3512,7 @@ public final class ExportHandler
 				// 
 				// Collect this text (without the pipe)
 				// to be passed for replacement later.
-				else if (betweenPipes && lastPipeIndex == -1 || !betweenPipes
-					&& lastPipeIndex == 0)
+				else if (lastPipeIndex == (betweenPipes ? -1 : 0))
 				{
 					textBetweenPipes.append(aLine.substring(lastPipeIndex + 1));
 					betweenPipes = true;
