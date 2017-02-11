@@ -37,7 +37,7 @@ public class SchoolTokenTest extends
 {
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final SchoolToken SCHOOL_TOKEN = new SchoolToken();
 
