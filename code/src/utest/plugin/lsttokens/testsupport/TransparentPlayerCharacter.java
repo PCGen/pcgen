@@ -169,7 +169,7 @@ public class TransparentPlayerCharacter extends PlayerCharacter
 	@Override
 	public boolean isClassSkill(PCClass aClass, Skill sk)
 	{
-		return SkillCost.CLASS.equals(skillCostMap.get(sk, aClass));
+		return SkillCost.CLASS == skillCostMap.get(sk, aClass);
 	}
 
 	@Override
