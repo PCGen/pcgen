@@ -1188,14 +1188,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	public void testActOnQualifiedSet()
 	{
 		Object source1 = "Source1";
-		QualifiedActor<T, T> echo = new QualifiedActor<T, T>()
-		{
-			@Override
-			public T act(T object, Object source)
-			{
-				return object;
-			}
-		};
+		QualifiedActor<T, T> echo = (object, source) -> object;
 		Collection<? extends T> origset =
 				getFacet().actOnQualifiedSet(id, echo);
 		assertNotNull(origset);
@@ -1232,14 +1225,8 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertTrue(setoffour.contains(t2));
 		assertTrue(setoffour.contains(t3));
 		assertEventCount(3, 0);
-		QualifiedActor<T, String> sourcedep = new QualifiedActor<T, String>()
-		{
-			@Override
-			public String act(T object, Object source)
-			{
-				return object.toString() + ":" + source.toString();
-			}
-		};
+		QualifiedActor<T, String> sourcedep =
+				(object, source) -> object.toString() + ":" + source.toString();
 		List<String> stringset = getFacet().actOnQualifiedSet(id, sourcedep);
 		assertNotNull(stringset);
 		assertEquals(4, stringset.size());

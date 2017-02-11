@@ -37,14 +37,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "EQUIP|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };
-			}
-		};
+		return strings -> new String[] { "EQUIP|TestWP1|TestWP1|TestWP2|TestWP2|TestWP3" };
 	}
 
 	@Override
