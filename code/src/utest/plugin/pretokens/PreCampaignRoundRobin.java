@@ -76,7 +76,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 
 	public void testNegateItem()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}
