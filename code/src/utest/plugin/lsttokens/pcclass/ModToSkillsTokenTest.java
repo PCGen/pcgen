@@ -56,9 +56,4 @@ public class ModToSkillsTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 		return ObjectKey.MOD_TO_SKILLS;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }
