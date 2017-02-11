@@ -1305,8 +1305,8 @@ public class EqToken extends Token
 				Set<String> qualities = new TreeSet<>();
 				for (Map.Entry<String, String> me : qualityMap.entrySet())
 				{
-					qualities.add(new StringBuilder().append(me.getKey())
-							.append(": ").append(me.getValue()).toString());
+					qualities.add(me.getKey() +
+							": " + me.getValue());
 				}
 				return StringUtil.join(qualities, ", ");
 			}
