@@ -31,7 +31,7 @@ public class AllowBaseClassTokenTest extends
 {
 
 	static AllowBaseClassToken token = new AllowBaseClassToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

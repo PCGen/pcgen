@@ -28,7 +28,7 @@ public class RangeTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

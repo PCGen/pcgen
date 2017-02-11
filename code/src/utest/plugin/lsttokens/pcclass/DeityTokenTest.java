@@ -34,7 +34,7 @@ public class DeityTokenTest extends AbstractListTokenTestCase<PCClass, Deity>
 {
 
 	static DeityToken token = new DeityToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

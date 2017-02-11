@@ -28,7 +28,7 @@ public class SlotsTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static SlotsToken token = new SlotsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
