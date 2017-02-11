@@ -31,12 +31,6 @@ public class CcskillLstTest extends AbstractSelectionActorTest<Skill>
 
 	private static final ChooseSelectionActor<Skill> cra = new CcskillLst();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{

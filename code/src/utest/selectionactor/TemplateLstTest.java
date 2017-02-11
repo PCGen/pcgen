@@ -29,12 +29,6 @@ public class TemplateLstTest extends AbstractSelectionActorTest<PCTemplate>
 
 	private static final ChooseSelectionActor<PCTemplate> csa = new TemplateLst();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ChooseSelectionActor<PCTemplate> getActor()
 	{

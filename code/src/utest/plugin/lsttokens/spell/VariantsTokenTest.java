@@ -68,12 +68,6 @@ public class VariantsTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 		return ListKey.VARIANTS;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearDotLegal()
 	{

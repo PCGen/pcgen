@@ -29,12 +29,6 @@ public class LangTokenTest extends AbstractSelectionActorTest<Language>
 
 	private static final ChooseSelectionActor cra = new LangToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ChooseSelectionActor<Language> getActor()
 	{
