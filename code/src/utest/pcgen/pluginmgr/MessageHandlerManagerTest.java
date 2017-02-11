@@ -171,7 +171,7 @@ public class MessageHandlerManagerTest
 	}
 
 	/**
-	 * The Class <code>MessageRecorder</code> is a message handler that
+	 * The Class {@code MessageRecorder} is a message handler that
 	 * simply tracks the messages is receives, allowing testing of message distribution.
 	 */
 	private static class MessageRecorder implements PCGenMessageHandler
@@ -196,7 +196,7 @@ public class MessageHandlerManagerTest
 	}
 	
 	/**
-	 * The Class <code>MessageConsumer</code> will consume any message it receives.
+	 * The Class {@code MessageConsumer} will consume any message it receives.
 	 */
 	private static class MessageConsumer extends MessageRecorder
 	{

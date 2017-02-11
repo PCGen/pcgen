@@ -27,7 +27,7 @@ import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
 
 /**
- * The Class <code>PreCampaignRoundRobin</code> is responsible for testing 
+ * The Class {@code PreCampaignRoundRobin} is responsible for testing
  * that PRECAMPAIGN tags can be read and written. 
  * 
  * 
