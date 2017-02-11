@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class WtTokenTest extends AbstractBigDecimalTokenTestCase<Equipment>
 {
 	static WtToken token = new WtToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

@@ -31,7 +31,7 @@ public class SPropTokenTest extends
 		AbstractTextPropertyTokenTestCase<EquipmentModifier>
 {
 	static SpropToken token = new SpropToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
