@@ -263,13 +263,6 @@ public class ChangeProfLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic" };
-			}
-		};
+		return strings -> new String[] { "Hammer,Pipe,Wand,TYPE.Heavy,TYPE.Medium=Martial|Nail,TYPE.Crazy,TYPE.Disposable=Exotic" };
 	}
 }

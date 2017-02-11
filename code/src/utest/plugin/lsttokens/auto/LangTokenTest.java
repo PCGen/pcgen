@@ -113,14 +113,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule() {
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
-			}
-		};
+		return strings -> new String[] { "LANG|TestWP1|TestWP2|TestWP1|TestWP2|TestWP3" };
 	}
 	
 	/**

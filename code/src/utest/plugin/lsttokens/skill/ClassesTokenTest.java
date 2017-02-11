@@ -282,14 +282,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[]{"Bard|Sorcerer|Wizard"};
-			}
-		};
+		return strings -> new String[]{"Bard|Sorcerer|Wizard"};
 	}
 }
