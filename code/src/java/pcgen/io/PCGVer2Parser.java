@@ -6143,9 +6143,8 @@ final class PCGVer2Parser implements PCGParser
 		int currentBonusLang = thePC.getDetailedAssociationCount(langbonus);
 		boolean foundLang = currentBonusLang > 0;
 
-		Set<Language> foundLanguages = new HashSet<>();
+		Set<Language> foundLanguages = new HashSet<>(thePC.getLanguageSet());
 		//Captures Auto (AUTO:LANG) and Persistent choices (ADD ex ability and CHOOSE)
-		foundLanguages.addAll(thePC.getLanguageSet());
 		cachedLanguages.removeAll(foundLanguages);
 
 		HashMapToList<Language, Object> langSources = new HashMapToList<>();
