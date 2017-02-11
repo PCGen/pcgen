@@ -17,17 +17,13 @@
  */
 package pcgen.cdom.facet.input;
 
-import pcgen.cdom.enumeration.CharID;
-import pcgen.cdom.enumeration.SkillCost;
-import pcgen.cdom.facet.base.AbstractScopeFacet;
-import pcgen.core.Skill;
+import pcgen.cdom.facet.base.AbstractAssociationFacet;
 
 /**
  * Stores the Global SkillCost values as applied by CSKILL:%LIST and
  * CCSKILL:%LIST
  * 
  */
-public class GlobalAddedSkillCostFacet extends
-		AbstractScopeFacet<CharID, SkillCost, Skill>
+public class GlobalAddedSkillCostFacet extends AbstractAssociationFacet
 {
 }
