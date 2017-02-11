@@ -118,10 +118,10 @@ public class PCGVer2ParserTest
 	@Test
 	public void test_1045596_6()
 	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
 
 		try
 		{
+			PCGVer2Parser parser = new PCGVer2Parser(null);
 			parser.parseVersionLine("5.7.1");
 			fail("Should have thrown an exception");
 		}
@@ -134,10 +134,10 @@ public class PCGVer2ParserTest
 	@Test
 	public void test_1045596_7()
 	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
 
 		try
 		{
+			PCGVer2Parser parser = new PCGVer2Parser(null);
 			parser.parseVersionLine("VERSION:5.7.1RC1");
 			fail("Should have thrown an exception");
 		}

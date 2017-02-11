@@ -111,11 +111,11 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddNullID()
 	{
-		Object source1 = new Object();
 		//Remove to try to avoid any event being formed
 		getFacet().removeDataFacetChangeListener(listener);
 		try
 		{
+			Object source1 = new Object();
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
@@ -132,9 +132,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddNull()
 	{
-		Object source1 = new Object();
 		try
 		{
+			Object source1 = new Object();
 			getFacet().add(id, null, source1);
 			fail();
 		}
@@ -270,9 +270,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddAllNull()
 	{
-		Object source1 = new Object();
 		try
 		{
+			Object source1 = new Object();
 			getFacet().addAll(id, null, source1);
 			fail();
 		}
@@ -379,7 +379,6 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 	@Test
 	public void testTypeAddAllNullInList()
 	{
-		Object source1 = new Object();
 		T t1 = getObject();
 		T t2 = getObject();
 		List<T> pct = new ArrayList<>();
@@ -388,6 +387,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		pct.add(t2);
 		try
 		{
+			Object source1 = new Object();
 			getFacet().addAll(id, pct, source1);
 			fail();
 		}

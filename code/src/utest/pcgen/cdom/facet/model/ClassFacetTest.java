@@ -689,9 +689,9 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
 			assertFalse(facet.setClassLevel(id, null, pcl));
 			fail();
 		}
@@ -710,9 +710,9 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClass t1 = new PCClass();
 		try
 		{
+			PCClass t1 = new PCClass();
 			assertFalse(facet.setClassLevel(id, t1, null));
 			fail();
 		}
@@ -729,10 +729,10 @@ public class ClassFacetTest extends TestCase
 	@Test
 	public void testSetClassLevelNotAdded()
 	{
-		PCClass t1 = new PCClass();
-		PCClassLevel pcl = new PCClassLevel();
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
+			PCClass t1 = new PCClass();
 			assertFalse(facet.setClassLevel(id, t1, pcl));
 		}
 		catch (CloneNotSupportedException e)
@@ -747,12 +747,12 @@ public class ClassFacetTest extends TestCase
 	{
 		PCClass cl = new PCClass();
 		facet.addClass(id, cl);
-		PCClass t1 = new PCClass();
-		PCClassLevel pcl = new PCClassLevel();
 		//INTENTIONALLY commented out to show what is "bad"
 		//pcl.put(IntegerKey.LEVEL, 4);
 		try
 		{
+			PCClassLevel pcl = new PCClassLevel();
+			PCClass t1 = new PCClass();
 			facet.setClassLevel(id, t1, pcl);
 			fail();
 		}
