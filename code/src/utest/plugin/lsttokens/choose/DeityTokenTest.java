@@ -18,8 +18,6 @@
 package plugin.lsttokens.choose;
 
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.Deity;
 import pcgen.core.Race;

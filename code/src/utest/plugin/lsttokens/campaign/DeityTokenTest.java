@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;

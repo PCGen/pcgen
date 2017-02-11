@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCAlignment;
 import pcgen.core.Race;
