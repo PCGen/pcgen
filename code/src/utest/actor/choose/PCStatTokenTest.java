@@ -30,12 +30,6 @@ public class PCStatTokenTest extends
 
 	static PCStatToken pca = new PCStatToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<PCStat> getActor()
 	{
