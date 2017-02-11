@@ -70,12 +70,6 @@ public class BooktypeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 		return ListKey.BOOK_TYPE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearDotLegal()
 	{
