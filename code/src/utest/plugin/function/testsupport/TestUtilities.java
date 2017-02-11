@@ -21,13 +21,18 @@ import java.io.StringReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import junit.framework.TestCase;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
-public class TestUtilities
+import junit.framework.TestCase;
+
+public final class TestUtilities
 {
+
+	private TestUtilities()
+	{
+	}
 
 	public static SimpleNode doParse(String formula)
 	{
