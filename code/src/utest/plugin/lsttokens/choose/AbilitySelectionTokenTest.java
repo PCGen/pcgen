@@ -58,7 +58,7 @@ public class AbilitySelectionTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AbilitySelectionToken subtoken = new AbilitySelectionToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

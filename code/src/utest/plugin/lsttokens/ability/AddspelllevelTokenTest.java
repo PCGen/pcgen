@@ -30,7 +30,7 @@ public class AddspelllevelTokenTest extends AbstractIntegerTokenTestCase<Ability
 {
 
 	static AddspelllevelToken token = new AddspelllevelToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

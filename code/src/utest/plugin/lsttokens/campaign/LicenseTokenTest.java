@@ -36,7 +36,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static LicenseToken token = new LicenseToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

@@ -45,7 +45,7 @@ public class VisionLstTest extends AbstractGlobalTokenTestCase
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	static CDOMPrimaryToken<CDOMObject> token = new VisionLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	@Before

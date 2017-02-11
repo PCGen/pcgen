@@ -32,7 +32,7 @@ public class GamemodeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 {
 
 	static GamemodeToken token = new GamemodeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
