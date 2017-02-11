@@ -59,8 +59,8 @@ import org.apache.commons.lang3.math.Fraction;
  */
 public class PlayerCharacterOutput
 {
-	private PlayerCharacter pc;
-	private CharacterDisplay display;
+	private final PlayerCharacter pc;
+	private final CharacterDisplay display;
 
 	public PlayerCharacterOutput(PlayerCharacter pc)
 	{

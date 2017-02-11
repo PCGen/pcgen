@@ -49,7 +49,7 @@ public class PreferencesDialog extends AbstractPreferencesDialog
 
     private FlippingSplitPane jSplitPane1;
     private javax.swing.JTree prefsTree;
-    private PreferencesRootTreeNode root;
+    private final PreferencesRootTreeNode root;
     private JPanel prefsPane;
     private CardLayout cardLayout;
 

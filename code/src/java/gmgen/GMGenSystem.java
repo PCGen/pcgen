@@ -146,11 +146,11 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     private JSeparator toolsSeparator1;
 
     // Tree for the preferences dialog
-    private PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
+    private final PreferencesRootTreeNode rootNode = new PreferencesRootTreeNode();
 
     private final PCGenMessageHandler messageHandler;
 
-	private PluginManager pluginManager;
+	private final PluginManager pluginManager;
 
     /**
      * Constructor
