@@ -57,7 +57,7 @@ public class CDOMTokenLoader<T extends Loadable> implements CDOMLoader<T>
 				returnValue &= false;
 			}
 			String key = token.substring(0, colonLoc);
-			String value = (colonLoc == token.length() - 1) ? null : token
+			String value = (colonLoc == (token.length() - 1)) ? null : token
 					.substring(colonLoc + 1);
 			if (context.processToken(obj, key.intern(), value.intern()))
 			{
