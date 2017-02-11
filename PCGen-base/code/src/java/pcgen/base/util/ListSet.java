@@ -164,9 +164,9 @@ public class ListSet<T> extends AbstractSet<T>
 		}
 		else
 		{
-			for (Iterator<T> it = list.iterator(); it.hasNext();)
+			for (T aList : list)
 			{
-				if (comparator.compare(it.next(), element) == 0)
+				if (comparator.compare(aList, element) == 0)
 				{
 					contains = true;
 					break;
@@ -227,9 +227,9 @@ public class ListSet<T> extends AbstractSet<T>
 		}
 		@SuppressWarnings("unchecked")
 		T comp = (T) element;
-		for (Iterator<T> it = list.iterator(); it.hasNext();)
+		for (T aList : list)
 		{
-			if (comparator.compare(comp, it.next()) == 0)
+			if (comparator.compare(comp, aList) == 0)
 			{
 				return true;
 			}
