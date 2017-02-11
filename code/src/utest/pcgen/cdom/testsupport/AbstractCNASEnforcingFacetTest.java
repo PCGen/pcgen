@@ -39,7 +39,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
-	private class Listener implements
+	private static class Listener implements
 			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 

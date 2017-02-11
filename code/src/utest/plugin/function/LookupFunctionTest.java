@@ -452,7 +452,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return tc;
 	}
 
-	private class Finder implements ObjectDatabase
+	private static class Finder implements ObjectDatabase
 	{
 		DoubleKeyMap<Class<?>, String, Object> map = new DoubleKeyMap<>();
 

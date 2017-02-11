@@ -59,7 +59,7 @@ import plugin.function.DropIntoContext;
 
 public class SetSolverManagerTest
 {
-	private final class BasicSet implements BasicCalculation
+	private static final class BasicSet implements BasicCalculation
 	{
 		@Override
 		public String getIdentification()
@@ -126,7 +126,8 @@ public class SetSolverManagerTest
 				am1.getModifier(0, "", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
-		NEPCalculation calc = new ProcessCalculation<>(new Equipment(), new BasicSet(), equipmentManager);
+		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
+				new BasicSet(), equipmentManager);
 		CalculationModifier em = new CalculationModifier<>(calc, 0);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
@@ -229,10 +230,12 @@ public class SetSolverManagerTest
 		{
 		}, fm, globalScope, numberManager);
 		
-		NEPCalculation calc1 = new ProcessCalculation<>(equip, new BasicSet(), equipmentManager);
+		NEPCalculation calc1 = new ProcessCalculation<>(equip,
+				new BasicSet(), equipmentManager);
 		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000);
 
-		NEPCalculation calc2 = new ProcessCalculation<>(equipalt, new BasicSet(), equipmentManager);
+		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
+				new BasicSet(), equipmentManager);
 		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000);
 
 		manager.addModifier(varIDe, mod2, scopeInste);
