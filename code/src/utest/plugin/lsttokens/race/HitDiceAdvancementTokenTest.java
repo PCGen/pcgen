@@ -178,7 +178,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ListKey<Integer> getListKey()
+	private static ListKey<Integer> getListKey()
 	{
 		return ListKey.HITDICE_ADVANCEMENT;
 	}

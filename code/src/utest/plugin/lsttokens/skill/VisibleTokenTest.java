@@ -175,7 +175,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Visibility> getObjectKey()
+	private static ObjectKey<Visibility> getObjectKey()
 	{
 		return ObjectKey.VISIBILITY;
 	}

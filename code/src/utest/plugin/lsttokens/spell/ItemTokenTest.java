@@ -72,7 +72,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		return ListKey.ITEM;
 	}
 
-	public ListKey<?> getNegativeListKey()
+	public static ListKey<?> getNegativeListKey()
 	{
 		return ListKey.PROHIBITED_ITEM;
 	}

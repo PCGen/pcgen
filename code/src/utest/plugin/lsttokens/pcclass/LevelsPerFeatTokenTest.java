@@ -64,7 +64,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return token;
 	}
 
-	public ObjectKey<?> getObjectKey()
+	public static ObjectKey<?> getObjectKey()
 	{
 		return ObjectKey.ALIGNMENT;
 	}
@@ -215,7 +215,7 @@ public class LevelsPerFeatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertBadUnparse();
 	}
 
-	private IntegerKey getIntegerKey()
+	private static IntegerKey getIntegerKey()
 	{
 		return IntegerKey.LEVELS_PER_FEAT;
 	}

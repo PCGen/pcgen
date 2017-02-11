@@ -184,7 +184,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
+	private static ObjectKey<CDOMSingleRef<PCStat>> getObjectKey()
 	{
 		return ObjectKey.BONUS_SPELL_STAT;
 	}

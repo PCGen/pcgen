@@ -161,7 +161,7 @@ public class ACheckTokenTest extends AbstractCDOMTokenTestCase<Skill>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<SkillArmorCheck> getObjectKey()
+	private static ObjectKey<SkillArmorCheck> getObjectKey()
 	{
 		return ObjectKey.ARMOR_CHECK;
 	}
