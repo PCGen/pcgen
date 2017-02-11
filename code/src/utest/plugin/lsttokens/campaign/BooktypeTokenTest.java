@@ -32,7 +32,7 @@ public class BooktypeTokenTest extends AbstractTypeSafeListTestCase<Campaign, St
 {
 
 	static BooktypeToken token = new BooktypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

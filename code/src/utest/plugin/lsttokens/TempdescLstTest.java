@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class TempdescLstTest extends AbstractGlobalStringTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new TempdescLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

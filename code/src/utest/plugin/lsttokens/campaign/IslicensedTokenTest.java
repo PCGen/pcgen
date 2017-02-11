@@ -30,7 +30,7 @@ public class IslicensedTokenTest extends AbstractYesNoTokenTestCase<Campaign>
 {
 
 	static IslicensedToken token = new IslicensedToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

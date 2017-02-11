@@ -30,7 +30,7 @@ public class ShowinmenuTokenTest extends AbstractYesNoTokenTestCase<Campaign>
 {
 
 	static ShowinmenuToken token = new ShowinmenuToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
