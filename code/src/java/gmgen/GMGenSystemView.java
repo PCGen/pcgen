@@ -73,7 +73,7 @@ public class GMGenSystemView extends JPanel implements ChangeListener
 	 *@param  pane      the pane to be displayed.
 	 *@param  index     index to place the pane at
 	 */
-	public void insertPane(String paneName, Component pane, int index)
+	public static void insertPane(String paneName, Component pane, int index)
 	{
 		tabbedPane.insertTab(paneName, null, pane, paneName, index);
 	}
