@@ -37,10 +37,14 @@ import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
-public class TokenRegistration
+public final class TokenRegistration
 {
 
 	public static Set<String> ppiSet = new HashSet<>();
+
+	private TokenRegistration()
+	{
+	}
 
 	public static void register(PrerequisiteParserInterface ppi)
 		throws PersistenceLayerException
