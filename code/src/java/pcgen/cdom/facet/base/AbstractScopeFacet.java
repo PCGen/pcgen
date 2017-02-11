@@ -64,12 +64,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			throw new IllegalArgumentException("Object cannot be null");
 		}
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
-		Map<T, Set<Object>> scopeMap = map.get(scope);
-		if (scopeMap == null)
-		{
-			scopeMap = new IdentityHashMap<>();
-			map.put(scope, scopeMap);
-		}
+		Map<T, Set<Object>> scopeMap =
+				map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		Set<Object> sources = scopeMap.get(obj);
 		boolean isNew = (sources == null);
 		if (isNew)
@@ -96,12 +92,8 @@ public class AbstractScopeFacet<IDT extends PCGenIdentifier, S, T> extends
 			throw new IllegalArgumentException("Collection cannot be null");
 		}
 		Map<S, Map<T, Set<Object>>> map = getConstructingInfo(id);
-		Map<T, Set<Object>> scopeMap = map.get(scope);
-		if (scopeMap == null)
-		{
-			scopeMap = new IdentityHashMap<>();
-			map.put(scope, scopeMap);
-		}
+		Map<T, Set<Object>> scopeMap =
+				map.computeIfAbsent(scope, k -> new IdentityHashMap<>());
 		for (T obj : coll)
 		{
 			Set<Object> sources = scopeMap.get(obj);
