@@ -815,14 +815,11 @@ public class PcgCombatant extends Combatant
 
 				firstLine = false;
 
-				int modSkill;
-
 				CDOMSingleRef<PCStat> keyStat = skill.get(ObjectKey.KEY_STAT);
 				if (keyStat != null)
 				{
-					modSkill =
-							SkillModifier.modifier(skill, pc).intValue()
-								- pc.getStatModFor(keyStat.get());
+					int modSkill = SkillModifier.modifier(skill, pc).intValue()
+							- pc.getStatModFor(keyStat.get());
 					Logging.debugPrint("modSkill: " + modSkill);
 				}
 

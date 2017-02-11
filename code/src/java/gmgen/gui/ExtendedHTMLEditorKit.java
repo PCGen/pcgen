@@ -460,7 +460,6 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
 
         if (closingTag) {
             String searchEndTagString = "</" + tag.toString() + ">";
-            int hitUp;
             int beginEndTag;
             int endEndTag;
             caret = position[1];
@@ -472,13 +471,12 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             int interncaret = position[1];
 
             do {
-                int temphitpoint;
                 boolean flaghitup;
-                hitUp = 0;
+                int hitUp = 0;
 
                 do {
                     flaghitup = false;
-                    temphitpoint = source.indexOf(searchString, interncaret);
+                    int temphitpoint = source.indexOf(searchString, interncaret);
 
                     if ((temphitpoint > 0) && (temphitpoint < beginEndTag)) {
                         hitUp++;
