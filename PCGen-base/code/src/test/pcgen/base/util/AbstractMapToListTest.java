@@ -42,7 +42,7 @@ public abstract class AbstractMapToListTest extends TestCase
 
 	private static final Character CONST_A = 'A';
 
-	public void populate(AbstractMapToList<Integer, Character> dkm)
+	public static void populate(AbstractMapToList<Integer, Character> dkm)
 	{
 		dkm.addToListFor(Integer.valueOf(1), CONST_A);
 		dkm.addToListFor(Integer.valueOf(1), CONST_B);
