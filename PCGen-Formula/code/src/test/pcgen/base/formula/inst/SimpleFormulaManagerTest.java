@@ -25,7 +25,6 @@ import pcgen.base.solver.SolverFactory;
 public class SimpleFormulaManagerTest extends TestCase
 {
 
-	private LegalScopeLibrary scopeLibrary;
 	private VariableLibrary varLibrary;
 	private SimpleOperatorLibrary opLibrary;
 	private SimpleVariableStore resultsStore;
@@ -36,7 +35,7 @@ public class SimpleFormulaManagerTest extends TestCase
 	protected void setUp() throws Exception
 	{
 		super.setUp();
-		scopeLibrary = new LegalScopeLibrary();
+		LegalScopeLibrary scopeLibrary = new LegalScopeLibrary();
 		varLibrary = new VariableLibrary(scopeLibrary);
 		opLibrary = new SimpleOperatorLibrary();
 		resultsStore = new SimpleVariableStore();
