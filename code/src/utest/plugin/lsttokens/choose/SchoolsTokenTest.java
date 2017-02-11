@@ -47,7 +47,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	static plugin.primitive.pobject.AbilityToken<?> abprim =
 			new plugin.primitive.pobject.AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

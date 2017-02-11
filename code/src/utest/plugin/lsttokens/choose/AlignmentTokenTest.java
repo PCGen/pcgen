@@ -37,7 +37,7 @@ public class AlignmentTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AlignmentToken subtoken = new AlignmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

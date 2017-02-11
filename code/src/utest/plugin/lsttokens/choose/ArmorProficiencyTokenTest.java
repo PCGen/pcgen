@@ -38,7 +38,7 @@ public class ArmorProficiencyTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static ArmorProficiencyToken subtoken = new ArmorProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

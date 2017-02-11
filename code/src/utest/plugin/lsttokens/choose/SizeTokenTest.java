@@ -39,7 +39,7 @@ public class SizeTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static SizeToken subtoken = new SizeToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

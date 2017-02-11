@@ -32,7 +32,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 {
 	static ModsToken token = new ModsToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
