@@ -298,17 +298,15 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		ChoiceSet<ClassSkillList> cs = new ChoiceSet<>(getToken()
 				.getTokenName(), rcs);
 		cs.setTitle("Pick a ClassSkillList");
-		PersistentTransitionChoice<ClassSkillList> tc = new ConcretePersistentTransitionChoice<>(
+		return new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
-		return tc;
 	}
 
 	protected static ReferenceChoiceSet<ClassSkillList> buildRCS(
 			CDOMReference<ClassSkillList>... refs)
 	{
-		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(
+		return new ReferenceChoiceSet<>(
 				Arrays.asList(refs));
-		return rcs;
 	}
 
 	@Test

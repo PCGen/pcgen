@@ -752,15 +752,13 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 	{
 		ChoiceSet<TC> cs = new ChoiceSet<>(getSubTokenName(), rcs);
 		cs.setTitle("Pick a " + getTargetClass().getSimpleName());
-		PersistentTransitionChoice<TC> tc = new ConcretePersistentTransitionChoice<>(
+		return new ConcretePersistentTransitionChoice<>(
 				cs, FormulaFactory.ONE);
-		return tc;
 	}
 
 	protected ReferenceChoiceSet<TC> buildRCS(CDOMReference<TC>... refs)
 	{
-		ReferenceChoiceSet<TC> rcs = new ReferenceChoiceSet<>(Arrays.asList(refs));
-		return rcs;
+		return new ReferenceChoiceSet<>(Arrays.asList(refs));
 	}
 
 	@Override
