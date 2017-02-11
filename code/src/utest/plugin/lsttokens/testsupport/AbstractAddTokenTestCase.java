@@ -44,7 +44,7 @@ public abstract class AbstractAddTokenTestCase<TC extends CDOMObject> extends
 		AbstractSelectionTokenTestCase<CDOMObject, TC>
 {
 	static AddLst token = new AddLst();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public char getJoinCharacter()

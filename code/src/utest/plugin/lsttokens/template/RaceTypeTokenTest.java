@@ -32,7 +32,7 @@ public class RaceTypeTokenTest extends
 {
 
 	static RacetypeToken token = new RacetypeToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

@@ -34,7 +34,7 @@ public class GlobalTokenTest extends AbstractTokenTestCase<DatasetVariable>
 
 	private static GlobalToken token = new GlobalToken();
 	private static CDOMTokenLoader<DatasetVariable> loader =
-			new CDOMTokenLoader<DatasetVariable>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMPrimaryToken<DatasetVariable> getToken()

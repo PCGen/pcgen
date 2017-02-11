@@ -33,7 +33,7 @@ public class SubregionTokenTest extends
 {
 
 	static SubregionToken token = new SubregionToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
