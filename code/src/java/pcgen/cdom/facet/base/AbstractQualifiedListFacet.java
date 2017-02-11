@@ -26,6 +26,7 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
+import java.util.Objects;
 import java.util.Set;
 
 import pcgen.base.util.WrappedMapSet;
@@ -97,10 +98,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 	 */
 	public void add(CharID id, T obj, Object source)
 	{
-		if (obj == null)
-		{
-			throw new IllegalArgumentException("Object to add may not be null");
-		}
+		Objects.requireNonNull(obj);
 		Map<T, Set<Object>> map = getConstructingCachedMap(id);
 		Set<Object> set = map.get(obj);
 		boolean fireNew = (set == null);
@@ -232,10 +230,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			return Collections.emptyMap();
 		}
 		removeCache(id);
-		for (T obj : componentMap.keySet())
-		{
-			fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED);
-		}
+		componentMap.keySet().forEach(obj ->
+				fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED)
+		);
 		return componentMap;
 	}
 
@@ -543,7 +540,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			 * This list exists primarily to eliminate the possibility of a
 			 * concurrent modification exception on a recursive remove
 			 */
-			List<T> removedKeys = new ArrayList<>();
+			Collection<T> removedKeys = new ArrayList<>();
 			for (Iterator<Map.Entry<T, Set<Object>>> it =
 					componentMap.entrySet().iterator(); it.hasNext();)
 			{
@@ -560,11 +557,9 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 			{
 				removeCache(id);
 			}
-			for (T obj : removedKeys)
-			{
-				fireDataFacetChangeEvent(id, obj,
-					DataFacetChangeEvent.DATA_REMOVED);
-			}
+			removedKeys.forEach(obj ->
+					fireDataFacetChangeEvent(id, obj, DataFacetChangeEvent.DATA_REMOVED)
+			);
 		}
 	}
 

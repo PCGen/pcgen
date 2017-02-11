@@ -344,13 +344,8 @@ public class AbilityToken extends Token
 		}
 		try
 		{
-			MapToList<Ability, CNAbility> mtl =
-                    new GenericMapToList<>(
-                            LinkedHashMap.class);
-			for (Ability a : bList)
-			{
-				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			MapToList<Ability, CNAbility> mtl = new GenericMapToList<>(LinkedHashMap.class);
+			bList.forEach(a -> mtl.addAllToListFor(a, listOfAbilities.getListFor(a)));
 			return mtl;
 		}
 		catch (InstantiationException | IllegalAccessException e)
@@ -394,13 +389,8 @@ public class AbilityToken extends Token
 		}
 		try
 		{
-			MapToList<Ability, CNAbility> mtl =
-                    new GenericMapToList<>(
-                            LinkedHashMap.class);
-			for (Ability a : bList)
-			{
-				mtl.addAllToListFor(a, listOfAbilities.getListFor(a));
-			}
+			MapToList<Ability, CNAbility> mtl = new GenericMapToList<>(LinkedHashMap.class);
+			bList.forEach(a -> mtl.addAllToListFor(a, listOfAbilities.getListFor(a)));
 			return mtl;
 		}
 		catch (InstantiationException | IllegalAccessException e)
