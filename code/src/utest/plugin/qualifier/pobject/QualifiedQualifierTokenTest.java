@@ -44,7 +44,7 @@ public class QualifiedQualifierTokenTest extends
 
 	private static final CDOMPrimaryToken token = new ChooseLst();
 	private static final CDOMSecondaryToken subtoken = new RaceToken();
-	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	private static final CDOMLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private Race s1;
 	private Race s2;
 
