@@ -197,7 +197,7 @@ public class MultiplyNumberModifierTest
 		MultiplyModifierFactory factory = new MultiplyModifierFactory();
 		Modifier<Number> modifier =
 				factory.getModifier(35, "6.5", new ManagerFactory(){}, null, varScope, numManager);
-		assertEquals((35l<<32)+factory.getInherentPriority(), modifier.getPriority());
+		assertEquals((35L <<32)+factory.getInherentPriority(), modifier.getPriority());
 		assertSame(Number.class, modifier.getVariableFormat());
 		assertEquals(27.95, modifier.process(EvalManagerUtilities.getInputEM(4.3)));
 	}
