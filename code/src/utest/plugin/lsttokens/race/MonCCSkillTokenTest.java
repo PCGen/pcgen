@@ -41,7 +41,7 @@ public class MonCCSkillTokenTest extends
 		AbstractListContextTokenTestCase<Race, Skill>
 {
 	static MonccskillToken token = new MonccskillToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

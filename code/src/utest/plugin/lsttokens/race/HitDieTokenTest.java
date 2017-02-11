@@ -40,7 +40,7 @@ public class HitDieTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static HitdieToken token = new HitdieToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
