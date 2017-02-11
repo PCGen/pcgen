@@ -48,18 +48,18 @@ public final class TestUtilities
 		}
 	}
 
-	public static final double SMALL_ERROR = Math.pow(10, -10);
+	static final double SMALL_ERROR = Math.pow(10, -10);
 
-	public static boolean doubleEqual(double d1, double d2, double delta)
+	static boolean doubleEqual(double d1, double d2)
 	{
-		if (delta < 0)
+		if (SMALL_ERROR < 0)
 		{
 			throw new IllegalArgumentException(
-				"Delta for doubleEqual cannot be < 0: " + delta);
+				"Delta for doubleEqual cannot be < 0: " + SMALL_ERROR);
 		}
 		double diff = d1 - d2;
-		return ((diff >= 0) && (diff < delta))
-			|| ((diff < 0) && (diff > -delta));
+		return ((diff >= 0) && (diff < SMALL_ERROR))
+			|| ((diff < 0) && (diff > -SMALL_ERROR));
 	}
 
 

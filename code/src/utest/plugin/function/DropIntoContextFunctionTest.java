@@ -55,10 +55,10 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "dropIntoContext(\"EQUIPMENT\")";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 		String s = "dropIntoContext(\"EQUIPMENT\", \"Foo\", 4, 5)";
 		SimpleNode simpleNode = TestUtilities.doParse(s);
-		isNotValid(s, simpleNode, numberManager, null);
+		isNotValid(s, simpleNode);
 	}
 
 	@Test
@@ -66,7 +66,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "dropIntoContext(3,\"EquipKey\",3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -74,7 +74,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 	{
 		String formula = "dropIntoContext(\"EQUIPMENT\",3,3)";
 		SimpleNode node = TestUtilities.doParse(formula);
-		isNotValid(formula, node, numberManager, null);
+		isNotValid(formula, node);
 	}
 
 	@Test
@@ -113,7 +113,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 			TestCase.fail("Expected Valid Formula: " + formula
 				+ " but was told: " + semantics.getReport());
 		}
-		isStatic(formula, node, false);
+		isStatic(formula, node);
 		Equipment equip = new Equipment();
 		equip.setName("EquipKey");
 		ScopeInstance scopeInst = getInstanceFactory().get("EQUIPMENT", equip);
@@ -149,7 +149,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 			TestCase.fail("Expected Valid Formula: " + formula
 				+ " but was told: " + semantics.getReport());
 		}
-		isStatic(formula, node, false);
+		isStatic(formula, node);
 		Equipment equip = new Equipment();
 		equip.setName("EquipKey");
 		Equipment equipalt = new Equipment();
