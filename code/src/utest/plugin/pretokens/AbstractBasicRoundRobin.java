@@ -25,7 +25,7 @@ public abstract class AbstractBasicRoundRobin extends AbstractPreRoundRobin
 
 	public abstract boolean isTypeAllowed();
 
-	protected boolean isSubAllowed()
+	protected static boolean isSubAllowed()
 	{
 		return true;
 	}

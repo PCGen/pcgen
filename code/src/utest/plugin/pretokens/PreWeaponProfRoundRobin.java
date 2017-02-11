@@ -66,7 +66,7 @@ public class PreWeaponProfRoundRobin extends AbstractBasicRoundRobin
 
 	public void testNegateItem()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:1,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}
