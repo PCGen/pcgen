@@ -67,6 +67,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		super.setUp();
 		if (!classSetUpFired)
 		{
 			classSetUp();

@@ -69,6 +69,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
+		super.setUp();
 		if (!classSetUpFired)
 		{
 			classSetUp();
