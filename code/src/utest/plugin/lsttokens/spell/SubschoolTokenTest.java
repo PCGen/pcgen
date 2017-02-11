@@ -30,7 +30,7 @@ public class SubschoolTokenTest extends AbstractTypeSafeListTestCase<Spell, Stri
 {
 
 	static SubschoolToken token = new SubschoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

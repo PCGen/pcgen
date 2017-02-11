@@ -30,7 +30,7 @@ public class DescriptorTokenTest extends AbstractTypeSafeListTestCase<Spell, Str
 {
 
 	static DescriptorToken token = new DescriptorToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

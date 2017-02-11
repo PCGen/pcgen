@@ -30,7 +30,7 @@ public class VariantsTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static VariantsToken token = new VariantsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

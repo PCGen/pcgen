@@ -34,7 +34,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 {
 
 	static ItemToken token = new ItemToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
