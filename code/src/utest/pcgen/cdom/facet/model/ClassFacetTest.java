@@ -756,15 +756,10 @@ public class ClassFacetTest extends TestCase
 			facet.setClassLevel(id, t1, pcl);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//yep!
-		}
-		catch (NullPointerException e)
-		{
-			//okay too!
-		}
-		catch (CloneNotSupportedException e)
+		} catch (CloneNotSupportedException e)
 		{
 			fail(e.getMessage());
 		}
