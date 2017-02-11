@@ -42,11 +42,10 @@ public final class CSVUtilities
 	{
 		if (string.contains("\"") || string.contains(","))
 		{
-			StringBuilder escaped = new StringBuilder(string.length() + 20);
-			escaped.append('"');
-			escaped.append(string.replace("\"", "\"\""));
-			escaped.append('"');
-			return escaped.toString();
+			String escaped = "\"" +
+					string.replace("\"", "\"\"") +
+					'"';
+			return escaped;
 		}
 		return string;
 	}
