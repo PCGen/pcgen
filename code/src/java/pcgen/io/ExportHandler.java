@@ -43,11 +43,6 @@ import java.util.StringTokenizer;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import freemarker.template.Configuration;
-import freemarker.template.ObjectWrapper;
-import freemarker.template.Template;
-import freemarker.template.TemplateException;
-import freemarker.template.Version;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -94,6 +89,12 @@ import pcgen.util.Delta;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
 
+import freemarker.template.Configuration;
+import freemarker.template.ObjectWrapper;
+import freemarker.template.Template;
+import freemarker.template.TemplateException;
+import freemarker.template.Version;
+
 /**
  * This class deals with exporting a PC to various types of output sheets 
  * including XML, HTML, PDF and Text.
@@ -107,10 +108,10 @@ import pcgen.util.enumeration.View;
 public final class ExportHandler
 {
 	/** A constant stating that we are using JEP parsing */
-	private static final Float JEP_TRUE = new Float(1.0);
+	private static final Float JEP_TRUE = 1.0f;
 
 	/** A map of output tokens to export */
-	private static Map<String, Token> tokenMap = new HashMap<>();
+	private static final Map<String, Token> tokenMap = new HashMap<>();
 
 	/** 
 	 * A variable to hold the state of whether or not the output token map to
@@ -1224,7 +1225,7 @@ public final class ExportHandler
 		boolean attackRoutine = false;
 		String attackData = "";
 
-		Float total = new Float(0.0);
+		Float total = 0.0f;
 		for (int i = 0; i < str.length(); ++i)
 		{
 			valString += str.substring(i, i + 1);
@@ -1423,8 +1424,10 @@ public final class ExportHandler
 							{
 								case ADDITION_MODE:
 									total =
-											new Float(total.doubleValue()
-												+ Double.parseDouble(valString));
+											(float) (
+													total.doubleValue()
+															+ Double.parseDouble
+															(valString));
 
 									break;
 
