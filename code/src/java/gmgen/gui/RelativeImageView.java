@@ -111,8 +111,8 @@ public class RelativeImageView extends View implements ImageObserver
 	 * We don't directly implement ImageObserver, instead we use an instance
 	 * that calls back to us.
 	 */
-	private ImageObserver imageObserver;
-	private Rectangle fBounds;
+	private final ImageObserver imageObserver;
+	private final Rectangle fBounds;
 
 	/**
 	 * Used for alt text. Will be non-null if the image couldn't be found,
