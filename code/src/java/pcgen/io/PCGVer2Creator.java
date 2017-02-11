@@ -28,7 +28,6 @@ import java.io.File;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -1778,7 +1777,7 @@ public final class PCGVer2Creator
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
-	private void appendOutputSheetsLines(StringBuilder buffer)
+	private static void appendOutputSheetsLines(StringBuilder buffer)
 	{
 		if (SettingsHandler.getSaveOutputSheetWithPC())
 		{
@@ -2589,8 +2588,8 @@ public final class PCGVer2Creator
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
-		List<? extends CNAbilitySelection> featList)
+	private static void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
+	                                      List<? extends CNAbilitySelection> featList)
 	{
 		for (CNAbilitySelection s : featList)
 		{
@@ -2662,7 +2661,7 @@ public final class PCGVer2Creator
 	 * @param target
 	 * @return temp bonus name
 	 **/
-	private String tempBonusName(final Object creator, Object target)
+	private static String tempBonusName(final Object creator, Object target)
 	{
 		final StringBuilder cb = new StringBuilder(100);
 
