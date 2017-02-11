@@ -36,7 +36,7 @@ public final class FacetLibrary
 		//Do not instantiate
 	}
 
-	private static Map<Class<?>, Object> facets = new HashMap<>();
+	private static final Map<Class<?>, Object> facets = new HashMap<>();
 
 	public static <T extends Object> T getFacet(Class<T> cl)
 	{

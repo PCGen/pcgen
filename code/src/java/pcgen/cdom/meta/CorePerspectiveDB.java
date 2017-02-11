@@ -38,15 +38,15 @@ public final class CorePerspectiveDB
 		//Do not construct utility class
 	}
 
-	private static DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
+	private static final DoubleKeyMap<CorePerspective, Object, FacetView<?>> map =
             new DoubleKeyMap<>();
-	private static HashMap<CorePerspective, FacetView<?>> rootmap =
+	private static final HashMap<CorePerspective, FacetView<?>> rootmap =
             new HashMap<>();
-	private static HashMap<Object, FacetView<?>> facetToView =
+	private static final HashMap<Object, FacetView<?>> facetToView =
             new HashMap<>();
-	private static Map<Object, CorePerspective> facetToPerspective =
+	private static final Map<Object, CorePerspective> facetToPerspective =
             new HashMap<>();
-	private static HashMapToList<Object, Object> virtualParents =
+	private static final HashMapToList<Object, Object> virtualParents =
             new HashMapToList<>();
 
 	public static <S, D> Object register(CorePerspective perspective,

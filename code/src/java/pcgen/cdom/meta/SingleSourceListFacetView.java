@@ -26,7 +26,7 @@ import pcgen.cdom.facet.base.AbstractSingleSourceListFacet;
 public class SingleSourceListFacetView<T> implements FacetView<T>
 {
 
-	private AbstractSingleSourceListFacet<T, ?> facet;
+	private final AbstractSingleSourceListFacet<T, ?> facet;
 	
 	SingleSourceListFacetView(AbstractSingleSourceListFacet<T, ?> facet)
 	{

@@ -76,7 +76,7 @@ public abstract class AbstractQualifiedListFacet<T extends QualifyingObject>
 		extends AbstractDataFacet<CharID, T>
 {
 
-	private PrerequisiteFacet prereqFacet = FacetLibrary
+	private final PrerequisiteFacet prereqFacet = FacetLibrary
 			.getFacet(PrerequisiteFacet.class);
 
 	/**

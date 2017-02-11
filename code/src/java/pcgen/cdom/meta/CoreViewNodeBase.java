@@ -29,7 +29,7 @@ import pcgen.facade.core.CoreViewNodeFacade;
  */
 public abstract class CoreViewNodeBase implements CoreViewNodeFacade
 {
-	private List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
+	private final List<CoreViewNodeFacade> grantedByList = new ArrayList<>();
 
 	@Override
 	public List<CoreViewNodeFacade> getGrantedByNodes()
