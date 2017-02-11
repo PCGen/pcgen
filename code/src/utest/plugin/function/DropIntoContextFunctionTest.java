@@ -125,7 +125,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2, context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		assertEquals(rv.toString(), formula);
 	}
 
 	@Test
@@ -170,7 +170,7 @@ public class DropIntoContextFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2, context);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		assertEquals(rv.toString(), formula);
 		getVariableStore().put(varIDq, "EquipAlt");
 		evaluatesTo(formula, node, 3, context);
 	}

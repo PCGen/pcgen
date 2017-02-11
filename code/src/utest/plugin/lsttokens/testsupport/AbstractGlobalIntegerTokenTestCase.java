@@ -128,7 +128,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testOutputOne() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 1);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isPositiveAllowed())
@@ -146,7 +146,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testOutputZero() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), 0);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isZeroAllowed())
@@ -164,7 +164,7 @@ public abstract class AbstractGlobalIntegerTokenTestCase extends
 	@Test
 	public void testOutputMinusTwo() throws PersistenceLayerException
 	{
-		assertTrue(0 == primaryContext.getWriteMessageCount());
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(getIntegerKey(), -2);
 		String[] unparsed = getToken().unparse(primaryContext, primaryProf);
 		if (isNegativeAllowed())

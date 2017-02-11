@@ -48,7 +48,7 @@ public class MultiplyingFormulaTest
 		MultiplyingFormula f2 = new MultiplyingFormula(1);
 		MultiplyingFormula f3 = new MultiplyingFormula(2);
 		MultiplyingFormula f4 = new MultiplyingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
