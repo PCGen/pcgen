@@ -38,7 +38,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;
 

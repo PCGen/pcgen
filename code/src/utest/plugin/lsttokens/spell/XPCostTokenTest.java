@@ -30,7 +30,7 @@ public class XPCostTokenTest extends AbstractIntegerTokenTestCase<Spell>
 {
 
 	static XpcostToken token = new XpcostToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

@@ -62,7 +62,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	static StartfeatsToken token = new StartfeatsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

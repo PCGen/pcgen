@@ -41,7 +41,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	static DomainsToken token = new DomainsToken();
 	static CDOMTokenLoader<Spell> loader =
-			new CDOMTokenLoader<Spell>();
+			new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

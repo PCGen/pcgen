@@ -40,7 +40,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 	private SizeAdjustment ps;
 
 	@Override

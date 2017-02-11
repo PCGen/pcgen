@@ -33,7 +33,7 @@ public class RangeTokenTest extends AbstractTypeSafeListTestCase<Spell, String>
 {
 
 	static RangeToken token = new RangeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()

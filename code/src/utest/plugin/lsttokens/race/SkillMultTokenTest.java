@@ -30,7 +30,7 @@ public class SkillMultTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static SkillmultToken token = new SkillmultToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

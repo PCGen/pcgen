@@ -30,7 +30,7 @@ public class UseuntrainedTokenTest extends AbstractYesNoTokenTestCase<Skill>
 {
 
 	static UseuntrainedToken token = new UseuntrainedToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

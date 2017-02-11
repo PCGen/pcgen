@@ -36,7 +36,7 @@ public class MonsterClassTokenTest extends AbstractCDOMTokenTestCase<Race>
 {
 
 	static MonsterclassToken token = new MonsterclassToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()

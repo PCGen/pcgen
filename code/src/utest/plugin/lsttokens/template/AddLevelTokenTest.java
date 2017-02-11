@@ -38,7 +38,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 	static AddLevelToken token = new AddLevelToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

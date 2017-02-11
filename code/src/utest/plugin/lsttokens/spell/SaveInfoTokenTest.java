@@ -30,7 +30,7 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static SaveinfoToken token = new SaveinfoToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
