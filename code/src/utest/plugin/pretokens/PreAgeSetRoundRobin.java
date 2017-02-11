@@ -28,7 +28,7 @@ import plugin.pretokens.parser.PreAgeSetParser;
 import plugin.pretokens.writer.PreAgeSetWriter;
 
 /**
- * <code>PreAgeSetRoundRobin</code> verifies that preageset tags can be 
+ * {@code PreAgeSetRoundRobin} verifies that preageset tags can be
  * read and written.
  *
  *

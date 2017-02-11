@@ -44,7 +44,7 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
 /**
- * The Class <code>SpellknownLstTest</code> is responsible for testing the 
+ * The Class {@code SpellknownLstTest} is responsible for testing the
  * function of the spellknownlst class.
  * 
  * 
