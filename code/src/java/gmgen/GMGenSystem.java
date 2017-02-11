@@ -269,7 +269,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
             RequestAddTabToGMGenMessage tmessage = (RequestAddTabToGMGenMessage) message;
             Logging.debugPrint("Creating Tab "
                     + GMGenSystemView.getTabPane().getTabCount());
-            theView.insertPane(tmessage.getName(), tmessage.getPane(),
+            GMGenSystemView.insertPane(tmessage.getName(), tmessage.getPane(),
                     GMGenSystemView.getTabPane().getTabCount());
         } else if (message instanceof RequestAddPreferencesPanelMessage) {
         	RequestAddPreferencesPanelMessage pmessage = (RequestAddPreferencesPanelMessage) message;
@@ -639,7 +639,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     // Initializes the Logger component.
-    private void initLogger() {
+    private static void initLogger() {
         boolean logging = SettingsHandler.getGMGenOption(SETTING_LOGGING_ON, false);
         LogUtilities.inst().setLogging(logging);
     }

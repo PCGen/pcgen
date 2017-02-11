@@ -160,7 +160,7 @@ public class PlayerCharacterOutput
 		return null;
 	}
 
-	String getDomainName(Domain domain)
+	static String getDomainName(Domain domain)
 	{
 		return domain.getDisplayName();
 	}
@@ -386,7 +386,7 @@ public class PlayerCharacterOutput
 		return getWeaponToken(weaponNo, "DAMAGE");
 	}
 
-	String getWeaponHand(Equipment eq)
+	static String getWeaponHand(Equipment eq)
 	{
 		String location = eq.getLocation().getString();
 		final int start = location.indexOf('(') + 1; // move past the paren
@@ -404,7 +404,7 @@ public class PlayerCharacterOutput
 		return location;
 	}
 
-	String getWeaponName(Equipment eq)
+	static String getWeaponName(Equipment eq)
 	{
 		return eq.getOutputName() + eq.getAppliedName();
 	}
@@ -415,7 +415,7 @@ public class PlayerCharacterOutput
 			+ Globals.getGameModeUnitSet().getDistanceUnit();
 	}
 
-	String getWeaponSize(Equipment eq)
+	static String getWeaponSize(Equipment eq)
 	{
 		return eq.getSize();
 	}
@@ -430,7 +430,7 @@ public class PlayerCharacterOutput
 		return getWeaponToken(weaponNo, "TOTALHIT");
 	}
 
-	String getWeaponType(Equipment eq)
+	static String getWeaponType(Equipment eq)
 	{
 		String types = getWeaponType(eq, true);
 
@@ -442,7 +442,7 @@ public class PlayerCharacterOutput
 		return types;
 	}
 
-	private String getWeaponType(Equipment eq, boolean primary)
+	private static String getWeaponType(Equipment eq, boolean primary)
 	{
 		StringBuilder sb = new StringBuilder();
 		StringTokenizer aTok =
