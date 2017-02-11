@@ -31,7 +31,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * 			WEIGHT.NOUNIT
  * 			WEIGHT.x
  * 
- * @author	Devon Jones
  */
 public class WeightToken extends AbstractExportToken
 {

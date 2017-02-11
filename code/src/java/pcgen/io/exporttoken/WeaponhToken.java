@@ -45,7 +45,6 @@ import pcgen.system.LanguageBundle;
 /**
  * {@code WeaponhToken}.
  *
- * @author	binkley
  */
 public class WeaponhToken extends WeaponToken
 {
