@@ -354,7 +354,7 @@ public final class ExportHandler
 				{
 					outputWriter.flush();
 				}
-				catch (Exception e2)
+				catch (Exception ignored)
 				{
 				}
 			}

@@ -1041,9 +1041,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		}
 	}
 
-	@Override
-	public abstract boolean isType(String type);
-
 	public <T extends CDOMObject> boolean hasObjectOnList(
 			CDOMReference<? extends CDOMList<T>> list, T element)
 	{
