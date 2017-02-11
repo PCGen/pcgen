@@ -96,12 +96,9 @@ public class SkillRankFacet extends AbstractStorageFacet<CharID>
 		}
 		Float oldRank = getRank(id, skill);
 		Map<Skill, Map<PCClass, Double>> map = getConstructingInfo(id);
-		Map<PCClass, Double> clMap = map.get(skill);
-		if (clMap == null)
-		{
-			clMap = new IdentityHashMap<>();
-			map.put(skill, clMap);
-		}
+		Map<PCClass, Double>
+				clMap =
+				map.computeIfAbsent(skill, k -> new IdentityHashMap<>());
 		clMap.put(pcc, value);
 
 		

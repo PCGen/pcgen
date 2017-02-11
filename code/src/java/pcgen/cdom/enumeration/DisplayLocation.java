@@ -106,12 +106,9 @@ public final class DisplayLocation implements TypeSafeConstant,
 	 */
 	public static DisplayLocation getConstant(String name)
 	{
-		DisplayLocation type = typeMap.get(name);
-		if (type == null)
-		{
-			type = new DisplayLocation(name);
-			typeMap.put(name, type);
-		}
+		DisplayLocation
+				type =
+				typeMap.computeIfAbsent(name, k -> new DisplayLocation(name));
 		return type;
 	}
 

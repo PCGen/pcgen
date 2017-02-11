@@ -154,12 +154,12 @@ public class ClassData
 		{
 			theAbilityWeights = new HashMap<>();
 		}
-		WeightedCollection<Ability> abilities = theAbilityWeights.get(aCategory);
-		if ( abilities == null )
-		{
-			abilities = new WeightedCollection<>();
-			theAbilityWeights.put(aCategory, abilities);
-		}
+		WeightedCollection<Ability>
+				abilities =
+				theAbilityWeights.computeIfAbsent(
+						aCategory,
+						k -> new WeightedCollection<>()
+				);
 		if ( ! abilities.contains(anAbility) )
 		{
 			abilities.add(anAbility, aWeight);
@@ -232,12 +232,12 @@ public class ClassData
 		{
 			theDomainWeights  = new HashMap<>();
 		}
-		WeightedCollection<Domain> domains = theDomainWeights.get(aDeityKey);
-		if ( domains == null )
-		{
-			domains = new WeightedCollection<>();
-			theDomainWeights.put( aDeityKey, domains );
-		}
+		WeightedCollection<Domain>
+				domains =
+				theDomainWeights.computeIfAbsent(
+						aDeityKey,
+						k -> new WeightedCollection<>()
+				);
 		domains.add(aDomain, aWeight);
 	}
 	
@@ -268,12 +268,12 @@ public class ClassData
 		{
 			theKnownSpellWeights = new HashMap<>();
 		}
-		WeightedCollection<Spell> spells = theKnownSpellWeights.get(aLevel);
-		if ( spells == null )
-		{
-			spells = new WeightedCollection<>();
-			theKnownSpellWeights.put(aLevel, spells);
-		}
+		WeightedCollection<Spell>
+				spells =
+				theKnownSpellWeights.computeIfAbsent(
+						aLevel,
+						k -> new WeightedCollection<>()
+				);
 		if ( ! spells.contains(aSpell) )
 		{
 			spells.add(aSpell, aWeight);
@@ -320,12 +320,12 @@ public class ClassData
 		{
 			thePreparedSpellWeights = new HashMap<>();
 		}
-		WeightedCollection<Spell> spells = thePreparedSpellWeights.get(aLevel);
-		if ( spells == null )
-		{
-			spells = new WeightedCollection<>();
-			thePreparedSpellWeights.put(aLevel, spells);
-		}
+		WeightedCollection<Spell>
+				spells =
+				thePreparedSpellWeights.computeIfAbsent(
+						aLevel,
+						k -> new WeightedCollection<>()
+				);
 		if ( ! spells.contains(aSpell) )
 		{
 			spells.add(aSpell, aWeight);

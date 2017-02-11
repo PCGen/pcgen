@@ -601,12 +601,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void addLevelInfo(final String xpTableName, final LevelInfo levInfo)
 	{
-		XPTable xpTable = xpTableInfo.get(xpTableName);
-		if (xpTable == null)
-		{
-			xpTable = new XPTable(xpTableName);
-			xpTableInfo.put(xpTableName, xpTable);
-		}
+		XPTable xpTable = xpTableInfo.computeIfAbsent(xpTableName, XPTable::new);
 		xpTable.addLevelInfo(levInfo.getLevelString(), levInfo);
 	}
 
@@ -2732,12 +2727,12 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void addHiddenType(Class<?> cl, String s)
 	{
-		Set<String> set = hiddenTypes.get(cl);
-		if (set == null)
-		{
-			set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-			hiddenTypes.put(cl, set);
-		}
+		Set<String>
+				set =
+				hiddenTypes.computeIfAbsent(
+						cl,
+						k -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER)
+				);
 		set.add(s);
 	}
 

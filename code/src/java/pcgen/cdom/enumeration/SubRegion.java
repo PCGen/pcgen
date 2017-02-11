@@ -96,12 +96,7 @@ public final class SubRegion implements TypeSafeConstant
 	public static SubRegion getConstant(String name)
 	{
 		initializeTypeMap();
-		SubRegion subRegion = typeMap.get(name);
-		if (subRegion == null)
-		{
-			subRegion = new SubRegion(name);
-			typeMap.put(name, subRegion);
-		}
+		SubRegion subRegion = typeMap.computeIfAbsent(name, k -> new SubRegion(name));
 		return subRegion;
 	}
 

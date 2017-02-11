@@ -96,12 +96,7 @@ public final class RaceType implements TypeSafeConstant
 	public static RaceType getConstant(String name)
 	{
 		initializeTypeMap();
-		RaceType racetype = typeMap.get(name);
-		if (racetype == null)
-		{
-			racetype = new RaceType(name);
-			typeMap.put(name, racetype);
-		}
+		RaceType racetype = typeMap.computeIfAbsent(name, k -> new RaceType(name));
 		return racetype;
 	}
 

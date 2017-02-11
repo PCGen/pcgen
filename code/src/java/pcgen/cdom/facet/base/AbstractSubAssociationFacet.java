@@ -120,12 +120,7 @@ public abstract class AbstractSubAssociationFacet<IDT extends PCGenIdentifier, S
 			map = getComponentMap();
 			setCache(id, map);
 		}
-		Map<S2, A> subMap = map.get(obj1);
-		if (subMap == null)
-		{
-			subMap = getSubComponentMap();
-			map.put(obj1, subMap);
-		}
+		Map<S2, A> subMap = map.computeIfAbsent(obj1, k -> getSubComponentMap());
 		return subMap;
 	}
 

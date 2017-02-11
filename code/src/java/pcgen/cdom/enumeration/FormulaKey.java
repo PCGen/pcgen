@@ -162,12 +162,12 @@ public class FormulaKey implements TypeSafeConstant
 	 */
 	public static FormulaKey getConstant(String name)
 	{
-		FormulaKey key = typeMap.get(name);
-		if (key == null)
-		{
-			key = new FormulaKey(name, FormulaFactory.ZERO);
-			typeMap.put(name, key);
-		}
+		FormulaKey
+				key =
+				typeMap.computeIfAbsent(
+						name,
+						k -> new FormulaKey(name, FormulaFactory.ZERO)
+				);
 		return key;
 	}
 
@@ -185,12 +185,9 @@ public class FormulaKey implements TypeSafeConstant
 	 */
 	public static FormulaKey getConstant(String name, Formula formula)
 	{
-		FormulaKey key = typeMap.get(name);
-		if (key == null)
-		{
-			key = new FormulaKey(name, formula);
-			typeMap.put(name, key);
-		}
+		FormulaKey
+				key =
+				typeMap.computeIfAbsent(name, k -> new FormulaKey(name, formula));
 		return key;
 	}
 

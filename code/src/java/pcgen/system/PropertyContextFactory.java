@@ -79,12 +79,7 @@ public class PropertyContextFactory
 					+ "Settings changes will not be saved. File is " + file.getAbsolutePath());
 		}
 
-		PropertyContext context = contextMap.get(name);
-		if (context == null)
-		{
-			context = new PropertyContext(name);
-			contextMap.put(name, context);
-		}
+		PropertyContext context = contextMap.computeIfAbsent(name, PropertyContext::new);
 		FileInputStream in = null;
 		boolean loaded = false;
 		try
