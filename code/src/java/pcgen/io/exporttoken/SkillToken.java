@@ -240,8 +240,8 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported.
 	 * @return The skill tag output value.
 	 */
-	protected String getSkillProperty(Skill aSkill, String property,
-		PlayerCharacter pc)
+	protected static String getSkillProperty(Skill aSkill, String property,
+	                                         PlayerCharacter pc)
 	{
 		if (aSkill == null)
 		{
@@ -349,8 +349,8 @@ public class SkillToken extends Token
 	 * @param pc The character to be reported upon.
 	 * @return The value of the property.
 	 */
-	private String getSkillPropValue(Skill aSkill, int property,
-		String propertyText, PlayerCharacter pc)
+	private static String getSkillPropValue(Skill aSkill, int property,
+	                                        String propertyText, PlayerCharacter pc)
 	{
 		StringBuilder retValue = new StringBuilder();
 
