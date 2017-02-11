@@ -169,7 +169,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModNameOpt> getObjectKey()
+	private static ObjectKey<EqModNameOpt> getObjectKey()
 	{
 		return ObjectKey.NAME_OPT;
 	}
