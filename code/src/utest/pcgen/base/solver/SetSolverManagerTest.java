@@ -15,16 +15,8 @@
  */
 package pcgen.base.solver;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
@@ -55,7 +47,15 @@ import pcgen.cdom.reference.CDOMFactory;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.ModifierFactory;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.function.DropIntoContext;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class SetSolverManagerTest
 {
@@ -86,10 +86,7 @@ public class SetSolverManagerTest
 		}
 	}
 
-	private static final Class<String[]> STRING_ARRAY = (Class<String[]>) String[].class;
 	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
-	private FunctionLibrary fl;
-	private OperatorLibrary ol;
 	private TrackingVariableCache vc;
 	private LegalScopeLibrary vsLib;
 	private VariableLibrary sl;
@@ -104,9 +101,9 @@ public class SetSolverManagerTest
 	@Before
 	public void setUp() throws Exception
 	{
-		fl = new SimpleFunctionLibrary();
+		FunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new DropIntoContext());
-		ol = new SimpleOperatorLibrary();
+		OperatorLibrary ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
 		vsLib = new LegalScopeLibrary();
 		EquipmentScope equipScope = new EquipmentScope();
