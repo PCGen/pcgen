@@ -44,7 +44,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -61,7 +61,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -78,7 +78,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test

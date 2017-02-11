@@ -43,7 +43,7 @@ public class SourceDateLstTest extends AbstractGlobalTokenTestCase {
 	@Test
 	public void testInvalidInputEmpty() throws PersistenceLayerException {
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getKey()));
+		assertNull(primaryProf.get(getKey()));
 		assertNoSideEffects();
 	}
 

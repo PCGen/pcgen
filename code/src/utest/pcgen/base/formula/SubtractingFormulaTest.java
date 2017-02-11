@@ -50,7 +50,7 @@ public class SubtractingFormulaTest
 		SubtractingFormula f2 = new SubtractingFormula(1);
 		SubtractingFormula f3 = new SubtractingFormula(2);
 		SubtractingFormula f4 = new SubtractingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));
