@@ -261,7 +261,7 @@ public class ArrayFormatManager<T> implements FormatManager<T[]>
 		public T[] get()
 		{
 			Class<T> arrayClass = componentManager.getManagedClass();
-			List<T> returnList = new ArrayList<T>(array.length * 5);
+			List<T> returnList = new ArrayList<>(array.length * 5);
 			for (Indirect<T> indirect : array)
 			{
 				returnList.add(indirect.get());

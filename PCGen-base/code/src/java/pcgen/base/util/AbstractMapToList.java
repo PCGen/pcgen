@@ -94,7 +94,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 			throw new IllegalArgumentException("Cannot re-initialize key: "
 				+ key);
 		}
-		mapToList.put(key, new ArrayList<V>());
+		mapToList.put(key, new ArrayList<>());
 	}
 
 	/**
@@ -367,7 +367,7 @@ public abstract class AbstractMapToList<K, V> implements MapToList<K, V>
 	public List<V> getListFor(K key)
 	{
 		List<V> list = mapToList.get(key);
-		return list == null ? null : new ArrayList<V>(list);
+		return list == null ? null : new ArrayList<>(list);
 	}
 
 	/**

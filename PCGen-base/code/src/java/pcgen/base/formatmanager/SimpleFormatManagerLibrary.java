@@ -32,7 +32,7 @@ public final class SimpleFormatManagerLibrary implements FormatManagerLibrary
 	 * A Map storing the FormatManagerBuilders by (case-insensitive) name
 	 */
 	private CaseInsensitiveMap<FormatManagerFactory> builderByIdentifier =
-			new CaseInsensitiveMap<FormatManagerFactory>();
+			new CaseInsensitiveMap<>();
 
 	/**
 	 * Gets the FormatManager for the given String identifying a format of

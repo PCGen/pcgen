@@ -42,13 +42,13 @@ public class OneToOneMap<K, V>
 	/**
 	 * The underlying map used to store references from the Keys to the Values.
 	 */
-	private final Map<K, V> forwardMap = new HashMap<K, V>();
+	private final Map<K, V> forwardMap = new HashMap<>();
 
 	/**
 	 * The underlying map used to store references from the Values back to the
 	 * Keys.
 	 */
-	private final Map<V, K> reverseMap = new HashMap<V, K>();
+	private final Map<V, K> reverseMap = new HashMap<>();
 
 	/**
 	 * Clears the OneToOneMap (removes all keys and values).
@@ -131,7 +131,7 @@ public class OneToOneMap<K, V>
 	 */
 	public Set<K> keySet()
 	{
-		return new HashSet<K>(forwardMap.keySet());
+		return new HashSet<>(forwardMap.keySet());
 	}
 
 	/**
@@ -212,7 +212,7 @@ public class OneToOneMap<K, V>
 	 */
 	public Collection<V> values()
 	{
-		return new HashSet<V>(reverseMap.keySet());
+		return new HashSet<>(reverseMap.keySet());
 	}
 
 	/**

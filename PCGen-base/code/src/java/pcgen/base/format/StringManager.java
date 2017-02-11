@@ -46,7 +46,7 @@ public class StringManager implements FormatManager<String>
 	@Override
 	public Indirect<String> convertIndirect(String s)
 	{
-		return new BasicIndirect<String>(this, Objects.requireNonNull(s));
+		return new BasicIndirect<>(this, Objects.requireNonNull(s));
 	}
 
 	/**

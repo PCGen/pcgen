@@ -40,7 +40,7 @@ public class IdentityList<T> implements List<T>
 	 * The underlying map providing storage of Identity structures.
 	 */
 	private final List<Identity<T>> embeddedList =
-			new LinkedList<Identity<T>>();
+			new LinkedList<>();
 
 	/**
 	 * Creates a new (empty) IdentityList.
@@ -75,7 +75,7 @@ public class IdentityList<T> implements List<T>
 	 */
 	private <V> Identity<V> getIdentity(V value)
 	{
-		return new Identity<V>(value);
+		return new Identity<>(value);
 	}
 
 	@Override
@@ -170,7 +170,7 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public Iterator<T> iterator()
 	{
-		return new IdentityIterator<T>(embeddedList.listIterator());
+		return new IdentityIterator<>(embeddedList.listIterator());
 	}
 
 	@Override
@@ -182,13 +182,13 @@ public class IdentityList<T> implements List<T>
 	@Override
 	public ListIterator<T> listIterator()
 	{
-		return new IdentityIterator<T>(embeddedList.listIterator());
+		return new IdentityIterator<>(embeddedList.listIterator());
 	}
 
 	@Override
 	public ListIterator<T> listIterator(int index)
 	{
-		return new IdentityIterator<T>(embeddedList.listIterator(index));
+		return new IdentityIterator<>(embeddedList.listIterator(index));
 	}
 
 	@Override

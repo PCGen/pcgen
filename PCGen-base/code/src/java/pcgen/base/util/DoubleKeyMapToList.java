@@ -91,7 +91,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 		super();
 		firstClass = HashMap.class;
 		secondClass = firstClass;
-		mtmtl = new HashMap<K1, MapToList<K2, V>>();
+		mtmtl = new HashMap<>();
 	}
 
 	/**
@@ -372,7 +372,7 @@ public class DoubleKeyMapToList<K1, K2, V> implements Cloneable
 	{
 		// Need to 'clone' the Set, since Map returns a set that is still
 		// associated with the Map
-		return new WrappedMapSet<K1>(firstClass, mtmtl.keySet());
+		return new WrappedMapSet<>(firstClass, mtmtl.keySet());
 	}
 
 	/**

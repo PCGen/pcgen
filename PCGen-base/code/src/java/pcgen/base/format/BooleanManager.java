@@ -54,7 +54,7 @@ public class BooleanManager implements FormatManager<Boolean>
 	@Override
 	public Indirect<Boolean> convertIndirect(String s)
 	{
-		return new BasicIndirect<Boolean>(this, convert(s));
+		return new BasicIndirect<>(this, convert(s));
 	}
 
 	/**

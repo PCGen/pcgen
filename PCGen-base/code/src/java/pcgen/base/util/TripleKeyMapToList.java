@@ -77,8 +77,10 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 	{
 		super();
 		thirdClass = HashMap.class;
-		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(HashMap.class,
-				HashMap.class);
+		map = new DoubleKeyMap<>(
+				HashMap.class,
+				HashMap.class
+		);
 	}
 
 	/**
@@ -102,7 +104,7 @@ public class TripleKeyMapToList<K1, K2, K3, V>
 		Class<? extends Map> cl2, Class<? extends Map> cl3)
 	{
 		super();
-		map = new DoubleKeyMap<K1, K2, MapToList<K3, V>>(cl1, cl2);
+		map = new DoubleKeyMap<>(cl1, cl2);
 		thirdClass = Objects.requireNonNull(cl3);
 		/*
 		 * This "useless" call is designed to exercise the code to ensure that

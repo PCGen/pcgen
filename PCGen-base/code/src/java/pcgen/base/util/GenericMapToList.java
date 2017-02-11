@@ -116,7 +116,7 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	{
 		try
 		{
-			return new GenericMapToList<K, V>(cl);
+			return new GenericMapToList<>(cl);
 		}
 		catch (InstantiationException e)
 		{
@@ -143,6 +143,6 @@ public class GenericMapToList<K, V> extends AbstractMapToList<K, V>
 	@Override
 	protected Set<K> getEmptySet()
 	{
-		return new WrappedMapSet<K>(underlyingClass);
+		return new WrappedMapSet<>(underlyingClass);
 	}
 }

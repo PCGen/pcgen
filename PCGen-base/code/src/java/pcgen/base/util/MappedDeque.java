@@ -38,7 +38,7 @@ public class MappedDeque
 	 * The underlying map for this MappedDeque that contains the Deque objects.
 	 */
 	private final Map<TypedKey<?>, Deque<Object>> map =
-			new HashMap<TypedKey<?>, Deque<Object>>();
+			new HashMap<>();
 
 	/**
 	 * The object used to represent the null value in the Deque objects. (Deque

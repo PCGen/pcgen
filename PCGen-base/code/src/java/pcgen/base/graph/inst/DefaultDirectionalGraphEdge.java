@@ -59,7 +59,7 @@ public class DefaultDirectionalGraphEdge<N> extends DefaultGraphEdge<N>
 	@Override
 	public DefaultDirectionalGraphEdge<N> createReplacementEdge(N gn1, N gn2)
 	{
-		return new DefaultDirectionalGraphEdge<N>(gn1, gn2);
+		return new DefaultDirectionalGraphEdge<>(gn1, gn2);
 	}
 
 	/**

@@ -116,7 +116,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	@Override
 	public DefaultGraphEdge<N> createReplacementEdge(N node1, N node2)
 	{
-		return new DefaultGraphEdge<N>(node1, node2);
+		return new DefaultGraphEdge<>(node1, node2);
 	}
 
 	/**
@@ -131,7 +131,7 @@ public class DefaultGraphEdge<N> implements GraphEdge<N>
 	@Override
 	public List<N> getAdjacentNodes()
 	{
-		List<N> l = new LinkedList<N>();
+		List<N> l = new LinkedList<>();
 		l.add(firstNode);
 		l.add(secondNode);
 		return l;

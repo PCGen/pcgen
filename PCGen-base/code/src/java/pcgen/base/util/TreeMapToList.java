@@ -70,7 +70,7 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 	 */
 	public TreeMapToList()
 	{
-		super(new TreeMap<K, List<V>>());
+		super(new TreeMap<>());
 		comparator = null;
 	}
 
@@ -84,7 +84,7 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 	 */
 	public TreeMapToList(Comparator<? super K> comp)
 	{
-		super(new TreeMap<K, List<V>>(comp));
+		super(new TreeMap<>(comp));
 		comparator = comp;
 	}
 
@@ -99,6 +99,6 @@ public class TreeMapToList<K, V> extends AbstractMapToList<K, V>
 	@Override
 	protected Set<K> getEmptySet()
 	{
-		return new TreeSet<K>(comparator);
+		return new TreeSet<>(comparator);
 	}
 }
