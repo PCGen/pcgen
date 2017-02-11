@@ -18,7 +18,6 @@ SOURCEWEB:http://paizo.com/store/downloads/pathfinder/pathfinderRPG/v5748btpy8fo
 SOURCEDATE:2010-08
 ISOGL:YES
 
-# COMMENT: Updated to Errata 2nd Printing - Last Updated - 12/01/2010 on Oct 6th, 2012 - LegacyKing
 
 
 #COVER:@/pathfinder/paizo/roleplaying_game/advanced_players_guide/advanced_players_guide.jpg
@@ -39,7 +38,6 @@ COPYRIGHT:PCGen dataset conversion for "Pathfinder RPG Advanced Player's Guide" 
 #EXTRAFILE:OGL.txt
 
 # Additional Resources
-# Last Updated Friday, January 9, 2015
 #
 # Pathfinder Roleplaying Game: Advanced Player's Guide
 # All playtest versions of the six new base classes from this book are no longer legal for play as of 8/3/10. Anyone playing the playtest version of one of the six new base classes must have updated his or her character as of 8/3/10. Updating your character means adjusting only the things that have changed, but not rebuilding the character.
