@@ -119,7 +119,7 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (NullPointerException e)
 		{
 			// Yep!
 		}
