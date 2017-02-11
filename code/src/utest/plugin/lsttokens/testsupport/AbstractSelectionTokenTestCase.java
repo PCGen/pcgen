@@ -20,8 +20,6 @@ package plugin.lsttokens.testsupport;
 import java.net.URISyntaxException;
 import java.util.Arrays;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceSet;
@@ -34,6 +32,8 @@ import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 
 public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -748,7 +748,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 		return buildTC(rcs);
 	}
 
-	protected PersistentTransitionChoice<TC> buildTC(ReferenceChoiceSet<TC> rcs)
+	private PersistentTransitionChoice<TC> buildTC(ReferenceChoiceSet<TC> rcs)
 	{
 		ChoiceSet<TC> cs = new ChoiceSet<>(getSubTokenName(), rcs);
 		cs.setTitle("Pick a " + getTargetClass().getSimpleName());
@@ -756,7 +756,7 @@ public abstract class AbstractSelectionTokenTestCase<T extends CDOMObject, TC ex
 				cs, FormulaFactory.ONE);
 	}
 
-	protected ReferenceChoiceSet<TC> buildRCS(CDOMReference<TC>... refs)
+	private ReferenceChoiceSet<TC> buildRCS(CDOMReference<TC>... refs)
 	{
 		return new ReferenceChoiceSet<>(Arrays.asList(refs));
 	}
