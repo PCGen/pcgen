@@ -39,7 +39,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SortKeyLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
