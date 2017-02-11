@@ -82,7 +82,7 @@ public class LangBonusTokenTest extends AbstractKitTokenTestCase<KitLangBonus>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}

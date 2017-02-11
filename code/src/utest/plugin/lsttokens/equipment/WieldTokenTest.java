@@ -132,7 +132,7 @@ public class WieldTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<WieldCategory> getObjectKey()
+	private static ObjectKey<WieldCategory> getObjectKey()
 	{
 		return ObjectKey.WIELD;
 	}

@@ -143,7 +143,7 @@ public class FormatcatTokenTest extends
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModFormatCat> getObjectKey()
+	private static ObjectKey<EqModFormatCat> getObjectKey()
 	{
 		return ObjectKey.FORMAT;
 	}
