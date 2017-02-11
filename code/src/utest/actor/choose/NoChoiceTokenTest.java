@@ -29,12 +29,6 @@ public class NoChoiceTokenTest extends
 
 	static NoChoiceToken pca = new NoChoiceToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<String> getActor()
 	{
