@@ -71,12 +71,6 @@ public class ItypeTokenTest extends
 		return ListKey.ITEM_TYPES;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public boolean isClearDotLegal()
 	{

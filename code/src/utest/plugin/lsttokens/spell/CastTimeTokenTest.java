@@ -50,12 +50,6 @@ public class CastTimeTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 		return token;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public String getConstant(String string)
 	{
