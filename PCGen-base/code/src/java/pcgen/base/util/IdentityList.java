@@ -73,7 +73,7 @@ public class IdentityList<T> implements List<T>
 	 *            The value for which the identity is being returned
 	 * @return The Identity object for the given parameter
 	 */
-	private <V> Identity<V> getIdentity(V value)
+	private static <V> Identity<V> getIdentity(V value)
 	{
 		return new Identity<V>(value);
 	}
@@ -257,7 +257,7 @@ public class IdentityList<T> implements List<T>
 	 * @param target
 	 *            The target array which will be loaded
 	 */
-	private <V> void putIntoArray(Object[] source, V[] target)
+	private static <V> void putIntoArray(Object[] source, V[] target)
 	{
 		for (int i = 0; i < source.length; i++)
 		{

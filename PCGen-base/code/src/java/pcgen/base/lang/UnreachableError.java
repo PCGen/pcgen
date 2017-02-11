@@ -47,7 +47,6 @@ public class UnreachableError extends Error
 	 */
 	public UnreachableError()
 	{
-		super();
 	}
 
 	/**

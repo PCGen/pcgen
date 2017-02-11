@@ -43,12 +43,12 @@ public class OrderedPair
 	/**
 	 * Stores the x value of this OrderedPair.
 	 */
-	private Number x;
+	private final Number x;
 
 	/**
 	 * Stores the y value of this OrderedPair.
 	 */
-	private Number y;
+	private final Number y;
 
 	/**
 	 * Constructs a new OrderedPair from the given Numbers.

@@ -66,10 +66,9 @@ public class CaseInsensitiveMap<V> extends HashMap<Object, V>
 	 *            The key to be resolved, if necessary
 	 * @return The key used for storing objects in the HashMap
 	 */
-	private Object resolveObject(Object key)
+	private static Object resolveObject(Object key)
 	{
-		return key instanceof String ? new CaseInsensitiveString((String) key)
-			: key;
+		return (key instanceof String) ? new CaseInsensitiveString((String) key) : key;
 	}
 
 	@Override
