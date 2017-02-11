@@ -33,7 +33,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class RegionLstTest extends AbstractGlobalTokenTestCase
 {
 	static RegionLst token = new RegionLst();
-	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
+	static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Domain> getCDOMClass()

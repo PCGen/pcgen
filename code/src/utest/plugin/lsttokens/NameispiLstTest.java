@@ -29,7 +29,7 @@ public class NameispiLstTest extends AbstractGlobalYesNoTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new NameispiLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

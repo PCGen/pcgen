@@ -43,7 +43,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SpelllevelLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

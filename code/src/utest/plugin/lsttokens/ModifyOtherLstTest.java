@@ -37,7 +37,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 public class ModifyOtherLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new ModifyOtherLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

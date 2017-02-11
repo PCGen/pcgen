@@ -39,7 +39,7 @@ import plugin.pretokens.writer.PreRaceWriter;
 public class SabLstTest extends AbstractGlobalTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SabLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

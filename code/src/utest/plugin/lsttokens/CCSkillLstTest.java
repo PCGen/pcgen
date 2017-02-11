@@ -68,7 +68,7 @@ public class CCSkillLstTest extends AbstractGlobalListTokenTestCase<Skill>
 	}
 
 	static CDOMPrimaryToken<CDOMObject> token = new CcskillLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()
