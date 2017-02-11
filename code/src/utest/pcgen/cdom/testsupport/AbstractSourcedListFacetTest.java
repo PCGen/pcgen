@@ -949,9 +949,9 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		assertFalse(getFacet().containsFrom(id, source2));
 	}
 
-	abstract protected AbstractSourcedListFacet<CharID, T> getFacet();
+	protected abstract AbstractSourcedListFacet<CharID, T> getFacet();
 
-	abstract protected T getObject();
+	protected abstract T getObject();
 
 	protected T getAltObject()
 	{
