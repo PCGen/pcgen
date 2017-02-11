@@ -43,7 +43,7 @@ public class WrappedMapSetTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		ls = new WrappedMapSet<Integer>(IdentityHashMap.class);
+		ls = new WrappedMapSet<>(IdentityHashMap.class);
 	}
 
 	@Test
@@ -127,24 +127,27 @@ public class WrappedMapSetTest extends TestCase
 	{
 		try
 		{
-			ls = new WrappedMapSet<Integer>(null);
+			ls = new WrappedMapSet<>(null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
 		{
 			//:)
 		}
-		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{}));
+		ls = new WrappedMapSet<>(IdentityHashMap.class, Arrays.asList(new Integer[]{}));
 		assertFalse(ls.contains(a1));
 		assertFalse(ls.contains(b1));
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
-		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{a1}));
+		ls = new WrappedMapSet<>(IdentityHashMap.class, Arrays.asList(new Integer[]{a1}));
 		assertTrue(ls.contains(a1));
 		assertFalse(ls.contains(b1));
 		assertFalse(ls.isEmpty());
 		assertEquals(1, ls.size());
-		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, Arrays.asList(new Integer[]{a1, a1}));
+		ls = new WrappedMapSet<>(
+				IdentityHashMap.class,
+				Arrays.asList(new Integer[]{a1, a1})
+		);
 		assertTrue(ls.contains(a1));
 		assertFalse(ls.contains(b1));
 		assertEquals(1, ls.size());
@@ -154,10 +157,10 @@ public class WrappedMapSetTest extends TestCase
 		assertFalse(ls.contains(b1));
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
 		list.add(a1);
 		list.add(b1);
-		ls = new WrappedMapSet<Integer>(IdentityHashMap.class, list);
+		ls = new WrappedMapSet<>(IdentityHashMap.class, list);
 		assertTrue(ls.contains(a1));
 		assertTrue(ls.contains(b1));
 		assertEquals(2, ls.size());
@@ -179,7 +182,7 @@ public class WrappedMapSetTest extends TestCase
 		try
 		{
 			Class cl = getClass();
-			ls = new WrappedMapSet<Integer>(cl);
+			ls = new WrappedMapSet<>(cl);
 			fail();
 		}
 		catch (ClassCastException e)

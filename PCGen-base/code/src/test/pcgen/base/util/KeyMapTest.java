@@ -45,7 +45,7 @@ public class KeyMapTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		otom = new KeyMap<Double>();
+		otom = new KeyMap<>();
 	}
 
 	public void populate()
@@ -185,7 +185,7 @@ public class KeyMapTest extends TestCase
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
-		Set<String> full = new HashSet<String>(s);
+		Set<String> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
 		assertTrue(full.remove(SA));
@@ -217,7 +217,7 @@ public class KeyMapTest extends TestCase
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
-		Set<Double> full = new HashSet<Double>(s);
+		Set<Double> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
 		assertTrue(full.remove(D0));
@@ -250,7 +250,7 @@ public class KeyMapTest extends TestCase
 		assertNotNull(s);
 		assertEquals(2, s.size());
 		//copy since we don't know what is returned is modifiable
-		Set<Double> full = new HashSet<Double>(s);
+		Set<Double> full = new HashSet<>(s);
 		//make sure we didn't lose anything
 		assertEquals(2, full.size());
 		assertTrue(full.remove(D0));

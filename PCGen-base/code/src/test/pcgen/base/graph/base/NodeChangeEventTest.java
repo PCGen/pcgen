@@ -39,8 +39,9 @@ public class NodeChangeEventTest extends TestCase
 	{
 		try
 		{
-			new NodeChangeEvent<Object>(null, new Object(),
-				NodeChangeEvent.NODE_ADDED);
+			new NodeChangeEvent<>(null, new Object(),
+					NodeChangeEvent.NODE_ADDED
+			);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -49,9 +50,10 @@ public class NodeChangeEventTest extends TestCase
 		}
 		try
 		{
-			new NodeChangeEvent<Object>(
-				new SimpleListMapGraph<Object, Edge<Object>>(), null,
-				NodeChangeEvent.NODE_ADDED);
+			new NodeChangeEvent<>(
+					new SimpleListMapGraph<>(), null,
+					NodeChangeEvent.NODE_ADDED
+			);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)

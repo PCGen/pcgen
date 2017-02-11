@@ -41,18 +41,18 @@ public class DefaultGraphEdgeTest extends TestCase
 		node2 = new Double(2);
 		node3 = new Double(5);
 		node4 = new Double(16);
-		edge1 = new DefaultGraphEdge<Double>(node1, node2);
-		edge2 = new DefaultGraphEdge<Double>(node2, node1);
-		edge3 = new DefaultGraphEdge<Double>(node1, node3);
-		edge4 = new DefaultGraphEdge<Double>(node1, node3);
-		edge5 = new DefaultGraphEdge<Double>(node4, node4);
+		edge1 = new DefaultGraphEdge<>(node1, node2);
+		edge2 = new DefaultGraphEdge<>(node2, node1);
+		edge3 = new DefaultGraphEdge<>(node1, node3);
+		edge4 = new DefaultGraphEdge<>(node1, node3);
+		edge5 = new DefaultGraphEdge<>(node4, node4);
 	}
 
 	public void testDefaultGraphEdge()
 	{
 		try
 		{
-			new DefaultGraphEdge<Double>(node1, null);
+			new DefaultGraphEdge<>(node1, null);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)
@@ -61,7 +61,7 @@ public class DefaultGraphEdgeTest extends TestCase
 		}
 		try
 		{
-			new DefaultGraphEdge<Double>(null, node3);
+			new DefaultGraphEdge<>(null, node3);
 			fail();
 		}
 		catch (IllegalArgumentException | NullPointerException e)

@@ -63,10 +63,10 @@ public class ListSetTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		ls = new ListSet<Integer>();
-		ls2 = new ListSet<Integer>(15);
-		ls3 = new ListSet<Integer>(c);
-		ls4 = new ListSet<Integer>(14, c);
+		ls = new ListSet<>();
+		ls2 = new ListSet<>(15);
+		ls3 = new ListSet<>(c);
+		ls4 = new ListSet<>(14, c);
 	}
 
 	@Test
@@ -288,7 +288,7 @@ public class ListSetTest extends TestCase
 		set.add(three);
 		Integer one = Integer.valueOf(1);
 		set.add(one);
-		List<Integer> total = new ArrayList<Integer>();
+		List<Integer> total = new ArrayList<>();
 		total.add(one);
 		total.add(three);
 		total.add(five);
@@ -348,7 +348,7 @@ public class ListSetTest extends TestCase
 		set.add(three);
 		Integer one = Integer.valueOf(1);
 		set.add(one);
-		List<Integer> total = new ArrayList<Integer>();
+		List<Integer> total = new ArrayList<>();
 		total.add(one);
 		total.add(three);
 		total.add(five);
@@ -378,24 +378,25 @@ public class ListSetTest extends TestCase
 		try
 		{
 			Collection<Integer> nc = null;
-			ls = new ListSet<Integer>(nc);
+			ls = new ListSet<>(nc);
 			fail();
 		}
 		catch (NullPointerException e)
 		{
 			//:)
 		}
-		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{}));
+		ls = new ListSet<>(Arrays.asList(new Integer[]{}));
 		assertFalse(ls.contains(Integer.valueOf(1)));
 		assertFalse(ls.contains(Integer.valueOf(2)));
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
-		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{Integer.valueOf(1)}));
+		ls = new ListSet<>(Arrays.asList(new Integer[]{Integer.valueOf(1)}));
 		assertTrue(ls.contains(Integer.valueOf(1)));
 		assertFalse(ls.contains(Integer.valueOf(2)));
 		assertFalse(ls.isEmpty());
 		assertEquals(1, ls.size());
-		ls = new ListSet<Integer>(Arrays.asList(new Integer[]{Integer.valueOf(1), Integer.valueOf(1)}));
+		ls = new ListSet<>(Arrays.asList(new Integer[]{Integer.valueOf(1),
+				Integer.valueOf(1)}));
 		assertTrue(ls.contains(Integer.valueOf(1)));
 		assertFalse(ls.contains(Integer.valueOf(2)));
 		assertEquals(2, ls.size());
@@ -405,10 +406,10 @@ public class ListSetTest extends TestCase
 		assertFalse(ls.contains(Integer.valueOf(2)));
 		assertTrue(ls.isEmpty());
 		assertEquals(0, ls.size());
-		List<Integer> list = new ArrayList<Integer>();
+		List<Integer> list = new ArrayList<>();
 		list.add(Integer.valueOf(1));
 		list.add(Integer.valueOf(2));
-		ls = new ListSet<Integer>(list);
+		ls = new ListSet<>(list);
 		assertTrue(ls.contains(Integer.valueOf(1)));
 		assertTrue(ls.contains(Integer.valueOf(2)));
 		assertEquals(2, ls.size());

@@ -98,88 +98,88 @@ public class TripleKeyMapTest extends TestCase
 	@Test
 	public void testPutGet()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runPutGet(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runPutGet(false);
 	}
 
 	@Test
 	public void testContainsKey()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runContainsKey(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runContainsKey(false);
 	}
 
 	@Test
 	public void testRemove()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runRemove(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runRemove(false);
 	}
 
 	@Test
 	public void testGetKeySet()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runGetKeySet(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runGetKeySet(false);
 	}
 
 	@Test
 	public void testGetSecondaryKeySet()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runGetSecondaryKeySet(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runGetSecondaryKeySet(false);
 	}
 
 	@Test
 	public void testGetTertiaryKeySet()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runGetTertiaryKeySet(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runGetTertiaryKeySet(false);
 	}
 
 	@Test
 	public void testClearIsEmpty()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runClearIsEmpty(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runClearIsEmpty(false);
 	}
 
 	@Test
 	public void testValues()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		runValues(true);
 		tkm =
-				new TripleKeyMap<Integer, Double, Character, String>(
-					TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
+				new TripleKeyMap<>(
+						TreeMap.class, IdentityHashMap.class, IdentityHashMap.class);
 		runValues(false);
 	}
 
@@ -558,7 +558,7 @@ public class TripleKeyMapTest extends TestCase
 	@Test
 	public void testClone()
 	{
-		tkm = new TripleKeyMap<Integer, Double, Character, String>();
+		tkm = new TripleKeyMap<>();
 		populate(true);
 		TripleKeyMap<Integer, Double, Character, String> copy;
 		try

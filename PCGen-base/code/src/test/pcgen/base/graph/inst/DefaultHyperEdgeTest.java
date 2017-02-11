@@ -44,23 +44,23 @@ public class DefaultHyperEdgeTest extends TestCase
 		node5 = new Integer(5);
 		node6 = new Integer(6);
 		edge1 =
-				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
-					node4, node3, node6}));
+				new DefaultHyperEdge<>(Arrays.asList(new Integer[]{
+						node4, node3, node6}));
 		edge2 =
-				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
-					node6, node5}));
+				new DefaultHyperEdge<>(Arrays.asList(new Integer[]{
+						node6, node5}));
 		edge3 =
-				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
-					node6, node4, node3}));
+				new DefaultHyperEdge<>(Arrays.asList(new Integer[]{
+						node6, node4, node3}));
 		edge4 =
-				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
-					node6, node3}));
+				new DefaultHyperEdge<>(Arrays.asList(new Integer[]{
+						node6, node3}));
 		edge5 =
-				new DefaultHyperEdge<Integer>(
-					Arrays.asList(new Integer[]{node6}));
+				new DefaultHyperEdge<>(
+						Arrays.asList(new Integer[]{node6}));
 		edge6 =
-				new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{
-					node4, node6}));
+				new DefaultHyperEdge<>(Arrays.asList(new Integer[]{
+						node4, node6}));
 	}
 
 	public void testDefaultHyperEdge()
@@ -76,7 +76,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		try
 		{
-			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{}));
+			new DefaultHyperEdge<>(Arrays.asList(new Integer[]{}));
 			fail();
 		}
 		catch (IllegalArgumentException iae)
@@ -85,8 +85,8 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		try
 		{
-			new DefaultHyperEdge<Integer>(Arrays.asList(new Integer[]{node4,
-				null}));
+			new DefaultHyperEdge<>(Arrays.asList(new Integer[]{node4,
+					null}));
 			fail();
 		}
 		catch (IllegalArgumentException iae)
@@ -163,7 +163,7 @@ public class DefaultHyperEdgeTest extends TestCase
 		}
 		try
 		{
-			edge1.createReplacementEdge(new ArrayList<Integer>());
+			edge1.createReplacementEdge(new ArrayList<>());
 			fail();
 		}
 		catch (IllegalArgumentException e)

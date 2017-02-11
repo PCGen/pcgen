@@ -31,7 +31,7 @@ public class DefaultMapTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		dm = new DefaultMap<Object, Double>();
+		dm = new DefaultMap<>();
 	}
 
 	public void populate()

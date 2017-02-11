@@ -57,7 +57,7 @@ public class TripleKeyMapToListTest extends TestCase
 	@Before
 	public void setUp()
 	{
-		dkm = new TripleKeyMapToList<Integer, Double, Long, Character>();
+		dkm = new TripleKeyMapToList<>();
 	}
 
 	public void populate()
@@ -301,7 +301,7 @@ public class TripleKeyMapToListTest extends TestCase
 	{
 		Integer i1 = I1;
 		Double d1 = D1;
-		List<Character> l = new ArrayList<Character>();
+		List<Character> l = new ArrayList<>();
 		l.add(CONST_A);
 		l.add(null);
 		l.add(CONST_A);
