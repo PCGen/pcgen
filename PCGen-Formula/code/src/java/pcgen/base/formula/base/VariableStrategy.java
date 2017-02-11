@@ -20,6 +20,7 @@ package pcgen.base.formula.base;
  * when a variable is encountered in a formula. This behavior can change, based on whether
  * the current context is static or dynamic. Therefore, multiple strategies exist.
  */
+@FunctionalInterface
 public interface VariableStrategy
 {
 	/**
