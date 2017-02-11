@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.core.PCTemplate;
 import pcgen.rules.persistence.CDOMLoader;

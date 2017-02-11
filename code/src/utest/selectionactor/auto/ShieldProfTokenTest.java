@@ -20,7 +20,6 @@ package selectionactor.auto;
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.ShieldProf;
 
-import org.junit.Test;
 import plugin.lsttokens.auto.ShieldProfToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 

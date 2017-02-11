@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.core.PCTemplate;
 import pcgen.core.WeaponProf;
 import pcgen.rules.persistence.CDOMLoader;
