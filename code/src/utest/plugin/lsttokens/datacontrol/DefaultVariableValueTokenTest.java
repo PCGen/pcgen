@@ -46,7 +46,7 @@ public class DefaultVariableValueTokenTest extends
 	private static DefaultVariableValueToken token =
 			new DefaultVariableValueToken();
 	private static CDOMTokenLoader<DefaultVarValue> loader =
-			new CDOMTokenLoader<DefaultVarValue>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
