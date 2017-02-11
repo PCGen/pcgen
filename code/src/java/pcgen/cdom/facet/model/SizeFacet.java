@@ -192,7 +192,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 		return sizesToAdvance(race, levelFacet.getMonsterLevelCount(id));
 	}
 	
-	int sizesToAdvance(Race race, int monsterLevelCount)
+	static int sizesToAdvance(Race race, int monsterLevelCount)
 	{
 		List<Integer> hda = race.getListFor(ListKey.HITDICE_ADVANCEMENT);
 		int steps = 0;
