@@ -30,7 +30,6 @@ import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
-import pcgen.cdom.facet.analysis.InitiativeFacet;
 
 public class InitiativeFacetTest extends TestCase
 {
