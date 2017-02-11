@@ -22,7 +22,6 @@ import pcgen.cdom.helper.ClassSkillChoiceActor;
 import pcgen.core.Skill;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 
 public class ClassSkillChoiceActorTest extends
 		AbstractPersistentCDOMChoiceActorTestCase<Skill>

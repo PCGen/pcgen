@@ -21,7 +21,6 @@ import pcgen.cdom.base.Persistent;
 import pcgen.core.Skill;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.add.SkillToken;
 
 public class SkillTokenTest extends

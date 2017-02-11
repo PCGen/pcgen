@@ -17,8 +17,6 @@
  */
 package actor.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Chooser;
 import pcgen.core.spell.Spell;
 import plugin.lsttokens.choose.SpellsToken;

@@ -21,7 +21,6 @@ import pcgen.cdom.base.Chooser;
 import pcgen.cdom.identifier.SpellSchool;
 
 import actor.testsupport.AbstractPersistentChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.choose.SchoolsToken;
 
 public class SchoolsTokenTest extends

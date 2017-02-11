@@ -21,7 +21,6 @@ import pcgen.cdom.base.Persistent;
 import pcgen.core.PCClass;
 
 import actor.testsupport.AbstractPersistentCDOMChoiceActorTestCase;
-import org.junit.Test;
 import plugin.lsttokens.add.SpellCasterToken;
 
 public class SpellCasterTokenTest extends
