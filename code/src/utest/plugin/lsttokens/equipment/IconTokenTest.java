@@ -1,4 +1,4 @@
-/**
+/*
  * Copyright James Dempsey, 2011
  *
  * This library is free software; you can redistribute it and/or
@@ -26,9 +26,6 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
  * The Class {@code IconTokenTest} tests the equipment ICON token.
- *
- * <br/>
- * 
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {
