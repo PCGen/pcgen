@@ -36,7 +36,7 @@ public class IntegerKeyComparator implements Comparator<CDOMObject>
 	 * CDOMObject with this IntegerKey will be used to determine the order of
 	 * the objects.
 	 */
-	private IntegerKey ik;
+	private final IntegerKey ik;
 
 	/**
 	 * Constructs a new IntegerKeyComparator that will use the given IntegerKey

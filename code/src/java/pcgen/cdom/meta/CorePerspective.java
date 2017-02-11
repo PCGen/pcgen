@@ -35,7 +35,7 @@ public final class CorePerspective
 	
 	private static CaseInsensitiveMap<CorePerspective> map = null;
 	
-	private String name;
+	private final String name;
 
 	private CorePerspective(String name)
 	{

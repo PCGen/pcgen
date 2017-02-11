@@ -32,24 +32,24 @@ import pcgen.core.PCStat;
 public class StatCalcFacet
 {
 
-	private StatValueFacet statValueFacet = FacetLibrary
+	private final StatValueFacet statValueFacet = FacetLibrary
 		.getFacet(StatValueFacet.class);
-	private StatLockFacet statLockFacet = FacetLibrary
+	private final StatLockFacet statLockFacet = FacetLibrary
 		.getFacet(StatLockFacet.class);
-	private UnlockedStatFacet unlockedStatFacet = FacetLibrary
+	private final UnlockedStatFacet unlockedStatFacet = FacetLibrary
 		.getFacet(UnlockedStatFacet.class);
-	private NonStatStatFacet nonStatStatFacet = FacetLibrary
+	private final NonStatStatFacet nonStatStatFacet = FacetLibrary
 			.getFacet(NonStatStatFacet.class);
-	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary
+	private final NonStatToStatFacet nonStatToStatFacet = FacetLibrary
 			.getFacet(NonStatToStatFacet.class);
-	private StatMinValueFacet statMinValueFacet = FacetLibrary
+	private final StatMinValueFacet statMinValueFacet = FacetLibrary
 			.getFacet(StatMinValueFacet.class);
-	private StatMaxValueFacet statMaxValueFacet = FacetLibrary
+	private final StatMaxValueFacet statMaxValueFacet = FacetLibrary
 			.getFacet(StatMaxValueFacet.class);
 
-	private VariableCheckingFacet variableCheckingFacet = FacetLibrary
+	private final VariableCheckingFacet variableCheckingFacet = FacetLibrary
 		.getFacet(VariableCheckingFacet.class);
-	private BonusCheckingFacet bonusCheckingFacet = FacetLibrary
+	private final BonusCheckingFacet bonusCheckingFacet = FacetLibrary
 		.getFacet(BonusCheckingFacet.class);
 
 	/**
