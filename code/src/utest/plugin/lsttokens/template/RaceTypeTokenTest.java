@@ -64,12 +64,6 @@ public class RaceTypeTokenTest extends
 		return ObjectKey.RACETYPE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean requiresPreconstruction()
 	{
