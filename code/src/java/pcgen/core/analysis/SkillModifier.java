@@ -22,6 +22,7 @@
 package pcgen.core.analysis;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Pattern;
 
 import pcgen.cdom.enumeration.ObjectKey;
@@ -35,6 +36,10 @@ import pcgen.core.Skill;
 
 public final class SkillModifier
 {
+
+	private SkillModifier()
+	{
+	}
 
 	public static Integer modifier(Skill sk, PlayerCharacter aPC)
 	{
@@ -55,10 +60,13 @@ public final class SkillModifier
 		bonus += aPC.getTotalBonusTo("SKILL", keyName);
 
 		// loop through all current skill types checking for boni
-		for (Type singleType : sk.getTrueTypeList(false))
-		{
-			bonus += aPC.getTotalBonusTo("SKILL", "TYPE." + singleType);
-		}
+		bonus += sk.getTrueTypeList(false)
+		           .stream()
+		           .mapToInt(singleType -> (int) aPC.getTotalBonusTo(
+				           "SKILL",
+				           "TYPE." + singleType
+		           ))
+		           .sum();
 
 		// now check for any lists of skills, etc
 		bonus += aPC.getTotalBonusTo("SKILL", "LIST");
@@ -73,10 +81,13 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CSKILL", keyName);
 
 			// loop through all current skill types checking for boni
-			for (Type singleType : sk.getTrueTypeList(false))
-			{
-				bonus += aPC.getTotalBonusTo("CSKILL", "TYPE." + singleType);
-			}
+			bonus += sk.getTrueTypeList(false)
+			           .stream()
+			           .mapToInt(singleType -> (int) aPC.getTotalBonusTo(
+					           "CSKILL",
+					           "TYPE." + singleType
+			           ))
+			           .sum();
 
 			bonus += aPC.getTotalBonusTo("CSKILL", "LIST");
 		}
@@ -87,10 +98,13 @@ public final class SkillModifier
 			bonus += aPC.getTotalBonusTo("CCSKILL", keyName);
 
 			// loop through all current skill types checking for boni
-			for (Type singleType : sk.getTrueTypeList(false))
-			{
-				bonus += aPC.getTotalBonusTo("CCSKILL", "TYPE." + singleType);
-			}
+			bonus += sk.getTrueTypeList(false)
+			           .stream()
+			           .mapToInt(singleType -> (int) aPC.getTotalBonusTo(
+					           "CCSKILL",
+					           "TYPE." + singleType
+			           ))
+			           .sum();
 
 			bonus += aPC.getTotalBonusTo("CCSKILL", "LIST");
 		}
@@ -124,13 +138,14 @@ public final class SkillModifier
 			int statMod = 0;
 			if (Globals.getGameModeHasPointPool())
 			{
-				ArrayList<Type> typeList = new ArrayList<>();
+				List<Type> typeList = new ArrayList<>();
 				SkillInfoUtilities.getKeyStatList(pc, sk, typeList);
-				for (int i = 0; i < typeList.size(); ++i)
-				{
-					statMod += pc.getTotalBonusTo("SKILL", "TYPE."
-							+ typeList.get(i));
-				}
+				statMod = typeList.stream()
+				                  .mapToInt(type -> (int) pc.getTotalBonusTo(
+						                  "SKILL",
+						                  "TYPE."
+								                  + type
+				                  )).sum();
 			}
 			return statMod;
 		}
