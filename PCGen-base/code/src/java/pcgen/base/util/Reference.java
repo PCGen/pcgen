@@ -32,6 +32,7 @@ package pcgen.base.util;
  * @param <T>
  *            The type of object that the Reference contains
  */
+@FunctionalInterface
 public interface Reference<T>
 {
 	/**
