@@ -868,11 +868,7 @@ public final class ExportHandler
 			// integer values
 			final int left = Integer.parseInt(leftString);
 			final int right= Integer.parseInt(rightString);
-			if (left == right)
-			{
-				return true;
-			}
-			return false;
+			return left == right;
 		}
 		catch (NumberFormatException e)
 		{
@@ -2093,11 +2089,7 @@ public final class ExportHandler
 		{
 			return true;
 		}
-		if (aString.isEmpty())
-		{
-			return true;
-		}
-		return false;
+		return aString.isEmpty();
 	}
 
 	/**
@@ -2108,13 +2100,9 @@ public final class ExportHandler
 	 */
 	private boolean isFilterToken(String aString)
 	{
-		if ((!aString.isEmpty()) && (aString.charAt(0) == '%')
-			&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
-			&& (aString.lastIndexOf('>') == -1))
-		{
-			return true;
-		}
-		return false;
+		return (!aString.isEmpty()) && (aString.charAt(0) == '%')
+				&& (aString.length() > 1) && (aString.lastIndexOf('<') == -1)
+				&& (aString.lastIndexOf('>') == -1);
 	}
 
 	/**
@@ -2125,11 +2113,7 @@ public final class ExportHandler
 	 */
 	private boolean isValidSubToken(String tokenString)
 	{
-		if (tokenString.indexOf("SUB") == 0 && (tokenString.indexOf(".") > 3))
-		{
-			return true;
-		}
-		return false;
+		return tokenString.indexOf("SUB") == 0 && (tokenString.indexOf(".") > 3);
 	}
 
 	/**
@@ -2140,11 +2124,7 @@ public final class ExportHandler
 	 */
 	boolean isForOrDForToken(String tokenString)
 	{
-		if (tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR."))
-		{
-			return true;
-		}
-		return false;
+		return tokenString.startsWith("FOR.") || tokenString.startsWith("DFOR.");
 	}
 
 	/**
@@ -2155,16 +2135,12 @@ public final class ExportHandler
 	 */
 	private boolean containsMathematicalToken(String testString)
 	{
-		if ((testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
-			|| (testString.contains(".INTVAL"))
-			|| (testString.contains(".SIGN"))
-			|| (testString.contains(".NOZERO"))
-			|| (testString.contains(".TRUNC"))
-			|| (testString.indexOf('*') >= 0) || (testString.indexOf('/') >= 0))
-		{
-			return true;
-		}
-		return false;
+		return (testString.indexOf('+') >= 0) || (testString.indexOf('-') >= 0)
+				|| (testString.contains(".INTVAL"))
+				|| (testString.contains(".SIGN"))
+				|| (testString.contains(".NOZERO"))
+				|| (testString.contains(".TRUNC"))
+				|| (testString.indexOf('*') >= 0) || (testString.indexOf('/') >= 0);
 	}
 
 	/**
