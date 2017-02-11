@@ -192,7 +192,7 @@ public class VisionFacet extends
 		for (Map.Entry<VisionType, Integer> me : map.entrySet())
 		{
 			returnSet.add(new Vision(me.getKey(), FormulaFactory
-					.getFormulaFor(me.getValue().intValue())));
+					.getFormulaFor(me.getValue())));
 		}
 		return returnSet;
 	}
@@ -269,7 +269,7 @@ public class VisionFacet extends
 		{
 			return null;
 		}
-		return new Vision(type, FormulaFactory.getFormulaFor(i.intValue()));
+		return new Vision(type, FormulaFactory.getFormulaFor(i));
 	}
 
 	/**
