@@ -76,12 +76,6 @@ public class StringTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	}
 
 	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
-	@Test
 	public void testInvalidInputEmptyString() throws PersistenceLayerException
 	{
 		assertFalse(parse(""));
