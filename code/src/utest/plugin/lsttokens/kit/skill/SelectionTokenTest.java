@@ -82,7 +82,7 @@ public class SelectionTokenTest extends AbstractKitTokenTestCase<KitSkill>
 		assertFalse(parse("TestWP1" + getJoinCharacter()));
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return ',';
 	}

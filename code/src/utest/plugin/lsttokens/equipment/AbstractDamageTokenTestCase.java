@@ -112,7 +112,7 @@ public abstract class AbstractDamageTokenTestCase extends
 	// assertBadUnparse();
 	// }
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.DAMAGE;
 	}

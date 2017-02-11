@@ -51,7 +51,7 @@ public class ProfTokenTest extends AbstractKitTokenTestCase<KitProf>
 		return token;
 	}
 
-	private char getJoinCharacter()
+	private static char getJoinCharacter()
 	{
 		return '|';
 	}
