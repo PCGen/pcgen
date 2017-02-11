@@ -30,12 +30,6 @@ public class WeaponBonusListActorTest extends
 
 	private static final WeaponbonusToken pca = new WeaponbonusToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Persistent<WeaponProf> getActor()
 	{

@@ -30,12 +30,6 @@ public class AlignmentTokenTest extends
 
 	static AlignmentToken pca = new AlignmentToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<PCAlignment> getActor()
 	{

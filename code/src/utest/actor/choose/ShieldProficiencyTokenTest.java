@@ -30,12 +30,6 @@ public class ShieldProficiencyTokenTest extends
 
 	static ShieldProficiencyToken pca = new ShieldProficiencyToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public Chooser<ShieldProf> getActor()
 	{
