@@ -273,7 +273,7 @@ public class DynamicSolverManagerTest extends AbstractSolverManagerTest
 
 	}
 
-	private class Limb implements VarScoped
+	private final class Limb implements VarScoped
 	{
 		private final String name;
 
