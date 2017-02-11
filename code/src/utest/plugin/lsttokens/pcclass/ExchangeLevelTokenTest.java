@@ -54,7 +54,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return token;
 	}
 
-	public Class<PCClass> getTargetClass()
+	public static Class<PCClass> getTargetClass()
 	{
 		return PCClass.class;
 	}

@@ -257,7 +257,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 		expectSingle(unparsed, getLegalValue() + "|PRERACE:1,Dwarf");
 	}
 
-	private QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
+	private static QualifiedObject<CDOMSingleRef<Domain>> buildQO(Domain wp1)
 	{
 		return new QualifiedObject<>(CDOMDirectSingleRef
 				.getRef(wp1));

@@ -316,12 +316,12 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		runRoundRobin("2|TestWP1|TestWP2|DOMAIN.AestWP3");
 	}
 
-	protected ClassSpellList construct(LoadContext loadContext, String one)
+	protected static ClassSpellList construct(LoadContext loadContext, String one)
 	{
 		return loadContext.getReferenceContext().constructCDOMObject(ClassSpellList.class, one);
 	}
 
-	protected void constructDomain(LoadContext loadContext, String one)
+	protected static void constructDomain(LoadContext loadContext, String one)
 	{
 		loadContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, one);
 	}
@@ -363,7 +363,7 @@ public class SpellListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return tc;
 	}
 
-	protected ReferenceChoiceSet<ClassSpellList> buildRCS(
+	protected static ReferenceChoiceSet<ClassSpellList> buildRCS(
 			CDOMReference<ClassSpellList>... refs)
 	{
 		ReferenceChoiceSet<ClassSpellList> rcs = new ReferenceChoiceSet<>(

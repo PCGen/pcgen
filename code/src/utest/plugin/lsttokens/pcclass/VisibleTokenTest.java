@@ -162,7 +162,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Visibility> getObjectKey()
+	private static ObjectKey<Visibility> getObjectKey()
 	{
 		return ObjectKey.VISIBILITY;
 	}

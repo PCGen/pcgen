@@ -261,7 +261,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		runRoundRobin("2|TestWP1|TestWP2|TestWP3");
 	}
 
-	protected ClassSkillList construct(LoadContext loadContext, String one)
+	protected static ClassSkillList construct(LoadContext loadContext, String one)
 	{
 		return loadContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, one);
 	}
@@ -303,7 +303,7 @@ public class SkillListTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		return tc;
 	}
 
-	protected ReferenceChoiceSet<ClassSkillList> buildRCS(
+	protected static ReferenceChoiceSet<ClassSkillList> buildRCS(
 			CDOMReference<ClassSkillList>... refs)
 	{
 		ReferenceChoiceSet<ClassSkillList> rcs = new ReferenceChoiceSet<>(

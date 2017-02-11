@@ -116,7 +116,7 @@ public class RaceTypeTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<Prerequisite> getObjectKey()
+	private static ObjectKey<Prerequisite> getObjectKey()
 	{
 		return ObjectKey.PRERACETYPE;
 	}
