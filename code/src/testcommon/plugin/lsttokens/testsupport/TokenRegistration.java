@@ -40,7 +40,7 @@ import pcgen.rules.persistence.token.QualifierToken;
 public class TokenRegistration
 {
 
-	public static Set<String> ppiSet = new HashSet<>();
+	public static final Set<String> ppiSet = new HashSet<>();
 
 	public static void register(PrerequisiteParserInterface ppi)
 		throws PersistenceLayerException
@@ -59,7 +59,7 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<LstToken> tokenSet = new HashSet<>();
+	public static final Set<LstToken> tokenSet = new HashSet<>();
 
 	public static void register(LstToken token)
 	{
@@ -79,7 +79,7 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<Token> exportSet = new HashSet<>();
+	public static final Set<Token> exportSet = new HashSet<>();
 
 	public static void register(Token token)
 	{
@@ -99,7 +99,7 @@ public class TokenRegistration
 		PreParserFactory.clear();
 	}
 
-	public static Set<String> pwSet = new HashSet<>();
+	public static final Set<String> pwSet = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
@@ -128,7 +128,7 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<ModifierFactory<?>> mSet = new HashSet<>();
+	public static final Set<ModifierFactory<?>> mSet = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{

@@ -24,7 +24,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 public class AltDamageTokenTest extends AbstractDamageTokenTestCase
 {
 
-	public static AltdamageToken token = new AltdamageToken();
+	public static final AltdamageToken token = new AltdamageToken();
 
 	@Override
 	public CDOMPrimaryToken<Equipment> getToken()
