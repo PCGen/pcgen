@@ -138,7 +138,7 @@ public class SubraceTokenTest extends
 	@Test
 	public void testUnparseIllegal() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, true);
@@ -149,7 +149,7 @@ public class SubraceTokenTest extends
 	@Test
 	public void testUnparseLegalWithFalse() throws PersistenceLayerException
 	{
-		assertEquals(primaryContext.getWriteMessageCount(), 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		SubRace o = getConstant(getLegalValue());
 		primaryProf.put(getObjectKey(), o);
 		primaryProf.put(ObjectKey.USETEMPLATENAMEFORSUBRACE, false);
