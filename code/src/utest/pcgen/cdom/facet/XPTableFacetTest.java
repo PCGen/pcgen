@@ -90,7 +90,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
 		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		assertSame(li, xpt);
 	}
 
 	@Test
@@ -115,7 +115,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		facet.set(id, t1);
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
 		assertNotNull(xpt);
-		assertEquals(li, xpt);
+		assertSame(li, xpt);
 	}
 	
 

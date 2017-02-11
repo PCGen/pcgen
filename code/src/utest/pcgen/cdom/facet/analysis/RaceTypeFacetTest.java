@@ -96,7 +96,7 @@ public class RaceTypeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		rfacet.remove(id);
 		assertNull(facet.getRaceType(id));
 	}
@@ -108,7 +108,7 @@ public class RaceTypeFacetTest extends TestCase
 		CompanionMod c = new CompanionMod();
 		c.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		cfacet.add(id, c);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		cfacet.remove(id, c);
 		assertNull(facet.getRaceType(id));
 	}
@@ -120,7 +120,7 @@ public class RaceTypeFacetTest extends TestCase
 		PCTemplate t = new PCTemplate();
 		t.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		tfacet.add(id, t, this);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		tfacet.remove(id, t, this);
 		assertNull(facet.getRaceType(id));
 	}
@@ -131,13 +131,13 @@ public class RaceTypeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		CompanionMod c = new CompanionMod();
 		c.put(ObjectKey.RACETYPE, RACE_TYPE_TOO);
 		cfacet.add(id, c);
-		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
+		assertSame(RACE_TYPE_TOO, facet.getRaceType(id));
 		cfacet.remove(id, c);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 	}
 
 	@Test
@@ -146,19 +146,19 @@ public class RaceTypeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		CompanionMod c = new CompanionMod();
 		c.put(ObjectKey.RACETYPE, RACE_TYPE_TOO);
 		cfacet.add(id, c);
-		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
+		assertSame(RACE_TYPE_TOO, facet.getRaceType(id));
 		PCTemplate t = new PCTemplate();
 		t.put(ObjectKey.RACETYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t, this);
-		assertEquals(LAST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(LAST_RACE_TYPE, facet.getRaceType(id));
 		tfacet.remove(id, t, this);
-		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
+		assertSame(RACE_TYPE_TOO, facet.getRaceType(id));
 		cfacet.remove(id, c);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 	}
 
 	@Test
@@ -167,24 +167,24 @@ public class RaceTypeFacetTest extends TestCase
 		Race r = new Race();
 		r.put(ObjectKey.RACETYPE, TEST_RACE_TYPE);
 		rfacet.set(id, r);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 		PCTemplate t = new PCTemplate();
 		t.setName("PCT");
 		t.put(ObjectKey.RACETYPE, RACE_TYPE_TOO);
 		tfacet.add(id, t, this);
-		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
+		assertSame(RACE_TYPE_TOO, facet.getRaceType(id));
 		PCTemplate t2 = new PCTemplate();
 		t2.setName("Other");
 		t2.put(ObjectKey.RACETYPE, LAST_RACE_TYPE);
 		tfacet.add(id, t2, this);
-		assertEquals(LAST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(LAST_RACE_TYPE, facet.getRaceType(id));
 		tfacet.remove(id, t, this);
-		assertEquals(LAST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(LAST_RACE_TYPE, facet.getRaceType(id));
 		tfacet.add(id, t, this);
-		assertEquals(RACE_TYPE_TOO, facet.getRaceType(id));
+		assertSame(RACE_TYPE_TOO, facet.getRaceType(id));
 		tfacet.remove(id, t, this);
-		assertEquals(LAST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(LAST_RACE_TYPE, facet.getRaceType(id));
 		tfacet.remove(id, t2, this);
-		assertEquals(TEST_RACE_TYPE, facet.getRaceType(id));
+		assertSame(TEST_RACE_TYPE, facet.getRaceType(id));
 	}
 }
