@@ -479,9 +479,9 @@ public final class PCGVer2Creator
 
 	private void appendCampaignLine(StringBuilder buffer)
 	{
-		String del = Constants.EMPTY_STRING;
 		if (campaigns != null)
 		{
+			String del = Constants.EMPTY_STRING;
 			for (CampaignFacade campaign : campaigns)
 			{
 				buffer.append(del);
@@ -2124,7 +2124,6 @@ public final class PCGVer2Creator
 	 */
 	private void appendSpellLines(StringBuilder buffer)
 	{
-		String del;
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
@@ -2186,7 +2185,7 @@ public final class PCGVer2Creator
 						buffer.append('|');
 						buffer.append(IOConstants.TAG_FEATLIST).append(':');
 						buffer.append('[');
-						del = Constants.EMPTY_STRING;
+						String del = Constants.EMPTY_STRING;
 
 						for (Ability feat : metaFeats)
 						{

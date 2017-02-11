@@ -227,12 +227,10 @@ public final class ExportHandler
 		FileAccess.setCurrentOutputFilter(templateFile.getName());
 
 		BufferedReader br = null;
-		FileInputStream fis = null;
-		InputStreamReader isr = null;
 		try
 		{
-			fis = new FileInputStream(templateFile);
-			isr = new InputStreamReader(fis, "UTF-8");
+			FileInputStream fis = new FileInputStream(templateFile);
+			InputStreamReader isr = new InputStreamReader(fis, "UTF-8");
 			br = new BufferedReader(isr);
 
 			// A Buffer to hold the result of the preparation
@@ -308,11 +306,11 @@ public final class ExportHandler
 	 */
 	private void exportCharacterUsingFreemarker(PlayerCharacter aPC, BufferedWriter outputWriter) throws ExportException
 	{
-		Configuration cfg = new Configuration();
 
 		try
 		{
 			// Set Directory for templates
+			Configuration cfg = new Configuration();
 			cfg.setDirectoryForTemplateLoading(templateFile.getParentFile());
 			cfg.setIncompatibleImprovements(new Version("2.3.20"));
 			
