@@ -116,7 +116,7 @@ public class ModsTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<EqModControl> getObjectKey()
+	private static ObjectKey<EqModControl> getObjectKey()
 	{
 		return ObjectKey.MOD_CONTROL;
 	}

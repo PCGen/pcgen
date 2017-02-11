@@ -515,14 +515,14 @@ public class ProficiencyTokenTest extends AbstractCDOMTokenTestCase<Equipment>
 		}
 	}
 
-	protected void construct(LoadContext loadContext, String one)
+	protected static void construct(LoadContext loadContext, String one)
 	{
 		loadContext.getReferenceContext().constructCDOMObject(WeaponProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ShieldProf.class, one);
 		loadContext.getReferenceContext().constructCDOMObject(ArmorProf.class, one);
 	}
 
-	private boolean isClearLegal()
+	private static boolean isClearLegal()
 	{
 		return false;
 	}
