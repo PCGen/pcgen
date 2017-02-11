@@ -24,7 +24,6 @@ package gmgen.gui; // hm.binkley.gui;
 
 
 import java.awt.event.InputEvent;
-import java.awt.event.MouseEvent;
 
 import javax.swing.ImageIcon;
 import javax.swing.SwingConstants;
@@ -64,7 +63,7 @@ final class Utilities
 	 *
 	 * @return {@code boolean}, the condition
 	 */
-	static boolean isShiftLeftMouseButton(MouseEvent e)
+	static boolean isShiftLeftMouseButton(InputEvent e)
 	{
 		return ((e.getModifiers() & InputEvent.BUTTON1_MASK) == InputEvent.BUTTON1_MASK) && e.isShiftDown();
 	}
