@@ -188,11 +188,11 @@ public class SimpleFormatManagerLibraryTest extends TestCase
 	public void testManagedClass()
 	{
 		FormatManager<?> manager = library.getFormatManager("ARRAY[NUMBER]");
-		assertEquals(Number[].class, manager.getManagedClass());
+		assertSame(Number[].class, manager.getManagedClass());
 		manager = library.getFormatManager("ARRAY[STRING]");
-		assertEquals(String[].class, manager.getManagedClass());
+		assertSame(String[].class, manager.getManagedClass());
 		manager = library.getFormatManager("STRING");
-		assertEquals(String.class, manager.getManagedClass());
+		assertSame(String.class, manager.getManagedClass());
 	}
 
 	public void testGetComponent()
