@@ -19,7 +19,6 @@ package pcgen.cdom.facet.model;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractListFacet;
-import pcgen.cdom.facet.model.StatFacet;
 import pcgen.cdom.testsupport.AbstractListFacetTest;
 import pcgen.core.PCStat;
 
