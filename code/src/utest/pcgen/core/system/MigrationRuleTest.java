@@ -34,9 +34,6 @@ public class MigrationRuleTest
 
 	private MigrationRule migrationRule;
 
-	/**
-	 * @throws java.lang.Exception
-	 */
 	@Before
 	public void setUp() throws Exception
 	{
