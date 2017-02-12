@@ -233,9 +233,8 @@ public class RelativeImageView extends View implements ImageObserver
 
 		try
 		{
-			URL u = new URL(reference, src);
 
-			return u;
+			return new URL(reference, src);
 		}
 		catch (MalformedURLException e)
 		{
