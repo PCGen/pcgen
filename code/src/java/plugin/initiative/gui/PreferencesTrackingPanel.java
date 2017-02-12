@@ -22,8 +22,18 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.Font;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JCheckBox;
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
 import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
+
+import gmgen.gui.PreferencesPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**
@@ -31,21 +41,21 @@ import plugin.initiative.InitiativePlugin;
  *
  *@author     devon
  */
-public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
+public class PreferencesTrackingPanel extends PreferencesPanel
 {
 	// End of variables declaration//GEN-END:variables
-	private Initiative initiative;
-	private javax.swing.JCheckBox deathCheckBox;
-	private javax.swing.JCheckBox hpCheckBox;
-	private javax.swing.JCheckBox spellCheckBox;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
+	private final Initiative initiative;
+	private JCheckBox deathCheckBox;
+	private JCheckBox hpCheckBox;
+	private JCheckBox spellCheckBox;
+	private JLabel jLabel1;
+	private JLabel jLabel2;
+	private JLabel jLabel3;
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JSeparator jSeparator2;
+	private JLabel jLabel4;
+	private JSeparator jSeparator1;
+	private JSeparator jSeparator2;
 
 	/**  Creates new form PreferencesTrackingPanel
 	 * @param initiative
@@ -154,96 +164,96 @@ public class PreferencesTrackingPanel extends gmgen.gui.PreferencesPanel
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
-		jLabel1 = new javax.swing.JLabel();
-		spellCheckBox = new javax.swing.JCheckBox();
-		jSeparator1 = new javax.swing.JSeparator();
-		jLabel2 = new javax.swing.JLabel();
-		jSeparator2 = new javax.swing.JSeparator();
-		jLabel3 = new javax.swing.JLabel();
-		deathCheckBox = new javax.swing.JCheckBox();
-		jLabel4 = new javax.swing.JLabel();
-		hpCheckBox = new javax.swing.JCheckBox();
+		jLabel1 = new JLabel();
+		spellCheckBox = new JCheckBox();
+		jSeparator1 = new JSeparator();
+		jLabel2 = new JLabel();
+		jSeparator2 = new JSeparator();
+		jLabel3 = new JLabel();
+		deathCheckBox = new JCheckBox();
+		jLabel4 = new JLabel();
+		hpCheckBox = new JCheckBox();
 
-		setLayout(new java.awt.GridBagLayout());
+		setLayout(new GridBagLayout());
 
 		jLabel1.setText("Spells");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 10, 0, 0);
 		add(jLabel1, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
 		gridBagConstraints.ipady = -1;
-		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
+		gridBagConstraints.insets = new Insets(0, 25, 0, 0);
 		add(spellCheckBox, gridBagConstraints);
 
 		jSeparator1.setOrientation(SwingConstants.VERTICAL);
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.gridheight = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
 		gridBagConstraints.ipadx = 8;
 		gridBagConstraints.ipady = 260;
-		gridBagConstraints.insets = new java.awt.Insets(8, 17, 0, 0);
+		gridBagConstraints.insets = new Insets(8, 17, 0, 0);
 		add(jSeparator1, gridBagConstraints);
 
-		jLabel2.setFont(new java.awt.Font("Dialog", 1, 18));
+		jLabel2.setFont(new Font("Dialog", 1, 18));
 		jLabel2.setText("Pick what is tracked");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(10, 10, 0, 0);
 		add(jLabel2, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
 		gridBagConstraints.ipadx = 400;
 		gridBagConstraints.ipady = 8;
-		gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+		gridBagConstraints.insets = new Insets(6, 0, 0, 0);
 		add(jSeparator2, gridBagConstraints);
 
 		jLabel3.setText("Death");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 10, 0, 0);
 		add(jLabel3, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(0, 25, 0, 0);
 		add(deathCheckBox, gridBagConstraints);
 
 		jLabel4.setText("Hit Points");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 10, 0, 0);
 		add(jLabel4, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(0, 25, 0, 0);
 		add(hpCheckBox, gridBagConstraints);
 	}
 	//GEN-END:initComponents

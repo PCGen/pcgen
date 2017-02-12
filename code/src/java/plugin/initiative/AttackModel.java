@@ -68,31 +68,31 @@ public class AttackModel extends PObjectModel
 	private static final int SEGMENT_POSITION_SPROP = 9;
 
 	/** Hand of weapon as string */
-	private String hand = null;
+	private String hand;
 
 	/** Range of weapon as string */
-	private String range = null;
+	private String range;
 
 	/** Size of weapon as string. */
-	private String size = null;
+	private String size;
 
 	/** Special properties of weapon as string. */
-	private String specialProp = null;
+	private String specialProp;
 
 	/** Type of weapon as string */
-	private String type = null;
+	private String type;
 
 	/** List of crit multiples for weapon. */
-	private List<String> critMultiple = null;
+	private List<String> critMultiple;
 
 	/** List of critical ranges for weapon. */
-	private List<String> critRange = null;
+	private List<String> critRange;
 
 	/** List of damage strings for weapon. */
-	private List<String> damage = null;
+	private List<String> damage;
 
 	/** List of to-hit bonuses. */
-	private List<String> toHit = null;
+	private List<String> toHit;
 
 	/** Index of first off-hand attack. */
 	private int firstOffHandAttack = -1;

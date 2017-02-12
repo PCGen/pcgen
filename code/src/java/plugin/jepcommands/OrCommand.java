@@ -46,8 +46,7 @@ public class OrCommand extends PCGenCommand
 
 	public OrCommand()
 	{
-		super();
-        numberOfParameters = -1;
+		numberOfParameters = -1;
     }
 
 	/**
@@ -66,7 +65,7 @@ public class OrCommand extends PCGenCommand
 	 * @throws ParseException
 	 */
 	@Override
-    @SuppressWarnings({"unchecked"})
+	@SuppressWarnings("unchecked")
     //Uses JEP, which doesn't use generics
 	public void run(final Stack inStack) throws ParseException
 	{

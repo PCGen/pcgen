@@ -44,7 +44,7 @@ import plugin.initiative.DiceRollModel;
 class DiceRollDialog extends JDialog
 {
 	/** The skill model for this dialog. */
-	DiceRollModel m_model = null;
+	DiceRollModel m_model;
 
 	/** Button to exit the dialog */
 	private JButton m_ok;

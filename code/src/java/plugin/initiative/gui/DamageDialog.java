@@ -22,22 +22,39 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
+
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author  soulcatcher
  */
-public class DamageDialog extends javax.swing.JDialog
+public class DamageDialog extends JDialog
 {
 	/** OK_VALUE = 0 */
 	public static final int OK_VALUE = 0;
 	/** CANCEL_VALUE = 1 */
 	public static final int CANCEL_VALUE = 1;
 
-	private javax.swing.JButton bCancel;
-	private javax.swing.JButton bOK;
-	private javax.swing.JCheckBox subdualField;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JTextField damageField;
+	private JButton bCancel;
+	private JButton bOK;
+	private JCheckBox subdualField;
+	private JLabel jLabel1;
+	private JTextField damageField;
 	private int damage;
 	private int retVal;
 
@@ -46,7 +63,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 * @param parent
 	 * @param modal
 	 */
-	public DamageDialog(java.awt.Frame parent, boolean modal)
+	public DamageDialog(Frame parent, boolean modal)
 	{
 		super(parent, modal);
 		initComponents();
@@ -58,7 +75,7 @@ public class DamageDialog extends javax.swing.JDialog
 	 */
 	public static void main(String[] args)
 	{
-		new DamageDialog(new javax.swing.JFrame(), true).setVisible(true);
+		new DamageDialog(new JFrame(), true).setVisible(true);
 	}
 
 	/**
@@ -135,12 +152,12 @@ public class DamageDialog extends javax.swing.JDialog
 	}
 
 	//Event handlers
-	private void bCancelActionPerformed(java.awt.event.ActionEvent evt)
+	private void bCancelActionPerformed(ActionEvent evt)
 	{
 		cancel();
 	}
 
-	private void bOKActionPerformed(java.awt.event.ActionEvent evt)
+	private void bOKActionPerformed(ActionEvent evt)
 	{
 		submit();
 	}
@@ -148,12 +165,12 @@ public class DamageDialog extends javax.swing.JDialog
 	/** Closes the dialog 
 	 * @param evt
 	 */
-	private void closeDialog(java.awt.event.WindowEvent evt)
+	private void closeDialog(WindowEvent evt)
 	{
 		cancel();
 	}
 
-	private void damageFieldActionPerformed(java.awt.event.ActionEvent evt)
+	private void damageFieldActionPerformed(ActionEvent evt)
 	{
 		try
 		{
@@ -165,9 +182,9 @@ public class DamageDialog extends javax.swing.JDialog
 		}
 	}
 
-	private void damageFieldKeyTyped(java.awt.event.KeyEvent evt)
+	private void damageFieldKeyTyped(KeyEvent evt)
 	{
-		if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+		if (evt.getKeyCode() == KeyEvent.VK_ENTER)
 		{
 			submit();
 		}
@@ -180,67 +197,67 @@ public class DamageDialog extends javax.swing.JDialog
 	 */
 	private void initComponents()
 	{
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
-		jLabel1 = new javax.swing.JLabel();
-		damageField = new javax.swing.JTextField();
-		subdualField = new javax.swing.JCheckBox();
-		bOK = new javax.swing.JButton();
-		bCancel = new javax.swing.JButton();
+		jLabel1 = new JLabel();
+		damageField = new JTextField();
+		subdualField = new JCheckBox();
+		bOK = new JButton();
+		bCancel = new JButton();
 
-		getContentPane().setLayout(new java.awt.GridBagLayout());
+		getContentPane().setLayout(new GridBagLayout());
 
-		addWindowListener(new java.awt.event.WindowAdapter()
+		addWindowListener(new WindowAdapter()
 		{
             @Override
-			public void windowClosing(java.awt.event.WindowEvent evt)
+			public void windowClosing(WindowEvent evt)
 			{
 				closeDialog(evt);
 			}
 		});
 
 		jLabel1.setText("Damage");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		getContentPane().add(jLabel1, gridBagConstraints);
 
 		damageField.addActionListener(this::damageFieldActionPerformed);
-		damageField.addKeyListener(new java.awt.event.KeyAdapter()
+		damageField.addKeyListener(new KeyAdapter()
 		{
             @Override
-			public void keyReleased(java.awt.event.KeyEvent evt)
+			public void keyReleased(KeyEvent evt)
 			{
 				damageFieldKeyTyped(evt);
 			}
 		});
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		getContentPane().add(damageField, gridBagConstraints);
 
 		subdualField.setText("Subdual");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		getContentPane().add(subdualField, gridBagConstraints);
 
 		bOK.setText("Ok");
 		bOK.addActionListener(this::bOKActionPerformed);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+		gridBagConstraints.insets = new Insets(10, 0, 0, 10);
 		getContentPane().add(bOK, gridBagConstraints);
 
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(this::bCancelActionPerformed);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.SOUTHEAST;
+		gridBagConstraints.anchor = GridBagConstraints.SOUTHEAST;
 		getContentPane().add(bCancel, gridBagConstraints);
 
 		pack();

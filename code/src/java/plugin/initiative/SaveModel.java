@@ -48,7 +48,7 @@ public class SaveModel extends PObjectModel
 	int m_dc = 0;
 
 	/** Save type */
-	String m_saveType = null;
+	String m_saveType;
 
 	/**
 	 * <p>

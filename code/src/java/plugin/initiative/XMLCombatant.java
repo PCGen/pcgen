@@ -47,7 +47,7 @@ public class XMLCombatant extends Combatant
 	protected int xp;
 
 	/** The JDOM element from which the combatant was derived. */
-	private Element combatant;
+	private final Element combatant;
 
 	/**
 	 *  Creates new XMLCombatant from a JDOM Element.
@@ -500,7 +500,7 @@ public class XMLCombatant extends Combatant
     @Override
 	public Element getSaveElement()
 	{
-		Element retElement = (Element) combatant.clone();
+		Element retElement = combatant.clone();
 		retElement.detach();
 
 		int dexMod = init.getAttribute().getModifier();

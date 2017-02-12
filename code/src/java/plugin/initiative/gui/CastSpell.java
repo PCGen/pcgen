@@ -26,6 +26,7 @@ import gmgen.plugin.Spell;
 
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.Insets;
 
@@ -56,7 +57,7 @@ public class CastSpell extends StartEvent
 	 *@param  modal       is modal?
 	 *@param  initiative  Initiative panel
 	 */
-	public CastSpell(java.awt.Frame parent, boolean modal, Initiative initiative)
+	public CastSpell(Frame parent, boolean modal, Initiative initiative)
 	{
 		super(parent, modal, initiative);
 	}
@@ -71,7 +72,7 @@ public class CastSpell extends StartEvent
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public CastSpell(java.awt.Frame parent, boolean modal,
+	public CastSpell(Frame parent, boolean modal,
 		Initiative initiative, String player, int init)
 	{
 		super(parent, modal, initiative, player, init);
@@ -168,7 +169,7 @@ public class CastSpell extends StartEvent
 
 		descPanel = new JPanel(new BorderLayout());
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 3;

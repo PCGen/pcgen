@@ -42,7 +42,7 @@ public class ResidenceToken extends AbstractExportToken
 
 	//TODO: Move this to a token that has all of the descriptive stuff about a character
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.Token#getToken(String, pcgen.core.PlayerCharacter, ExportHandler)
 	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,

@@ -31,7 +31,6 @@ public class IfCommand extends PCGenCommand
 	 */
 	public IfCommand()
 	{
-		super();
 		numberOfParameters = 3;
 	}
 

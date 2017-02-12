@@ -53,7 +53,7 @@ public class OutputnameLst extends AbstractNonEmptyToken<CDOMObject> implements
 					+ " is not valid for an equipment modifier. The "
 					+ "FORMATCAT and NAMEOPT tags should be used instead. Will assume "
 					+ "NAMEOPT:TEXT=" + value + ". Object was "
-					+ obj.toString());
+					+ obj);
 			context.getObjectContext().put(obj, StringKey.NAME_TEXT, value);
 			context.getObjectContext().put(obj, ObjectKey.NAME_OPT,
 				EqModNameOpt.valueOfIgnoreCase("TEXT"));

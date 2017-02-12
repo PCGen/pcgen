@@ -20,6 +20,7 @@ package plugin.initiative.gui;
 import java.awt.Color;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
+import java.text.NumberFormat;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
@@ -49,8 +50,8 @@ public class Utils
 	 */
 	public static JFormattedTextField buildIntegerField(int min, int max)
 	{
-		java.text.NumberFormat numberFormat =
-				java.text.NumberFormat.getIntegerInstance();
+		NumberFormat numberFormat =
+				NumberFormat.getIntegerInstance();
 		NumberFormatter formatter = new NumberFormatter(numberFormat);
 		formatter.setMinimum(min);
 		formatter.setMaximum(max);
@@ -96,8 +97,8 @@ public class Utils
 	 */
 	public static JFormattedTextField buildFloatField(float min, float max)
 	{
-		java.text.NumberFormat numberFormat =
-				java.text.NumberFormat.getNumberInstance();
+		NumberFormat numberFormat =
+				NumberFormat.getNumberInstance();
 
 		// numberFormat.setParseIntegerOnly(false);
 

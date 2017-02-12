@@ -144,7 +144,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count, context);
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{
@@ -287,7 +287,7 @@ public class AbilityToken extends AbstractNonEmptyToken<CDOMObject> implements
 		StringBuilder title = new StringBuilder(50);
 		if (!Nature.NORMAL.equals(nature))
 		{
-			title.append(nature.toString());
+			title.append(nature);
 			title.append(' ');
 		}
 		title.append(first);

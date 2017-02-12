@@ -51,7 +51,6 @@ public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 	 */
 	public OpposedSkillTypeModel()
 	{
-		super();
 		columns.addColumn("TYPE", String.class, null, false, "Type");
 	}
 

@@ -400,7 +400,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			List<SpecialProperty> spropList = eq.getSafeListFor(ListKey.SPECIAL_PROPERTIES);
 			for (SpecialProperty sprop : spropList)
 			{
-				sb.append(",SPROP=").append(sprop.toString());
+				sb.append(",SPROP=").append(sprop);
 			}
 
 			first = false;

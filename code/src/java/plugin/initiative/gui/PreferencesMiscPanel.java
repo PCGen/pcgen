@@ -22,9 +22,19 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.Dimension;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+
+import javax.swing.JLabel;
+import javax.swing.JSeparator;
+import javax.swing.JTextField;
 import javax.swing.SwingConstants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import gmgen.gui.PreferencesPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**
@@ -32,21 +42,21 @@ import plugin.initiative.InitiativePlugin;
  *
  *@author     devon
  */
-public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
+public class PreferencesMiscPanel extends PreferencesPanel
 {
 	private static final String OPTION_NAME_MAXNUM = InitiativePlugin.LOG_NAME + ".dbMaxNum"; //$NON-NLS-1$
 	private static final String OPTION_NAME_DBMAXHP = InitiativePlugin.LOG_NAME + ".dbMaxHP"; //$NON-NLS-1$
 	
 	
-	private Initiative initiative;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
+	private final Initiative initiative;
+	private JLabel jLabel2;
+	private JLabel jLabel3;
 
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JSeparator jSeparator2;
-	private javax.swing.JTextField tbHitPoints;
-	private javax.swing.JTextField tbNumber;
+	private JLabel jLabel4;
+	private JSeparator jSeparator1;
+	private JSeparator jSeparator2;
+	private JTextField tbHitPoints;
+	private JTextField tbNumber;
 
 	/**  Creates new form PreferencesMiscPanel
 	 * @param initiative
@@ -129,80 +139,80 @@ public class PreferencesMiscPanel extends gmgen.gui.PreferencesPanel
 	private void initComponents()
 	{ //GEN-BEGIN:initComponents
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
-		jSeparator1 = new javax.swing.JSeparator();
-		jLabel2 = new javax.swing.JLabel();
-		jSeparator2 = new javax.swing.JSeparator();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel4 = new javax.swing.JLabel();
-		tbHitPoints = new javax.swing.JTextField();
-		tbNumber = new javax.swing.JTextField();
+		jSeparator1 = new JSeparator();
+		jLabel2 = new JLabel();
+		jSeparator2 = new JSeparator();
+		jLabel3 = new JLabel();
+		jLabel4 = new JLabel();
+		tbHitPoints = new JTextField();
+		tbNumber = new JTextField();
 
-		setLayout(new java.awt.GridBagLayout());
+		setLayout(new GridBagLayout());
 
 		jSeparator1.setOrientation(SwingConstants.VERTICAL);
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.gridheight = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
 		gridBagConstraints.ipadx = 8;
 		gridBagConstraints.ipady = 260;
-		gridBagConstraints.insets = new java.awt.Insets(8, 17, 0, 0);
+		gridBagConstraints.insets = new Insets(8, 17, 0, 0);
 		add(jSeparator1, gridBagConstraints);
 
 		jLabel2.setText(LanguageBundle.getString("in_plugin_init_misc")); //$NON-NLS-1$
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(10, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(10, 10, 0, 0);
 		add(jLabel2, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.gridwidth = 6;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
 		gridBagConstraints.ipadx = 400;
 		gridBagConstraints.ipady = 8;
-		gridBagConstraints.insets = new java.awt.Insets(6, 0, 0, 0);
+		gridBagConstraints.insets = new Insets(6, 0, 0, 0);
 		add(jSeparator2, gridBagConstraints);
 
 		jLabel3.setText(LanguageBundle.getString("in_plugin_init_maxHp")); //$NON-NLS-1$
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 10, 0, 0);
 		add(jLabel3, gridBagConstraints);
 
 		jLabel4.setText(LanguageBundle.getString("in_plugin_init_maxNum")); //$NON-NLS-1$
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 10, 0, 0);
 		add(jLabel4, gridBagConstraints);
 
-		tbHitPoints.setMinimumSize(new java.awt.Dimension(20, 20));
-		tbHitPoints.setPreferredSize(new java.awt.Dimension(20, 20));
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		tbHitPoints.setMinimumSize(new Dimension(20, 20));
+		tbHitPoints.setPreferredSize(new Dimension(20, 20));
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 3;
 		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 25, 0, 0);
 		add(tbHitPoints, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 4;
 		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.BOTH;
-		gridBagConstraints.insets = new java.awt.Insets(0, 25, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.BOTH;
+		gridBagConstraints.insets = new Insets(0, 25, 0, 0);
 		add(tbNumber, gridBagConstraints);
 	}
 	//GEN-END:initComponents

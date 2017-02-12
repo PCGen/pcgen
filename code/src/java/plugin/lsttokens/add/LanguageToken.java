@@ -88,7 +88,7 @@ public class LanguageToken extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!count.isValid())
 			{
 				return new ParseResult.Fail("Count in " + getTokenName()
-						+ " was not valid: " + count.toString(), context);
+						+ " was not valid: " + count, context);
 			}
 			if (count.isStatic() && count.resolveStatic().doubleValue() <= 0)
 			{

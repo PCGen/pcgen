@@ -55,19 +55,19 @@ import pcgen.core.RollingMethods;
 public class AttackDialog extends JDialog
 {
 	/** <p>List of resulting damage values, one for each successful attack.</p> */
-	private List<Integer> m_damageList = null;
+	private List<Integer> m_damageList;
 
 	/**
 	 * <p>List of targets, one for each successful attack.  Each one matches a damage value in
 	 * m_damagelist</p>
 	 */
-	private List m_targetList = null;
+	private List m_targetList;
 
 	/** <p>This dialog's attack model; that is, the attack object this dialog will resolve.</p> */
-	private AttackModel m_attack = null;
+	private AttackModel m_attack;
 
 	/** <p>Instance of {@code AttackTableModel}.</p> */
-	private AttackTableModel m_tableModel = null;
+	private AttackTableModel m_tableModel;
 
 	/** <p>{@code JComboBox} for Armor class types.</p> */
 	private JComboBox m_acTypeCombo;
@@ -75,7 +75,7 @@ public class AttackDialog extends JDialog
 	/**
 	 * Cell editor for target column
 	 */
-	private JComboBox m_targets = null;
+	private JComboBox m_targets;
 
 	/** <p>{@code JComboBox} for combatants.</p> */
 	private JComboBox m_targetsCombo;
@@ -87,10 +87,10 @@ public class AttackDialog extends JDialog
 	private JLabel m_totalDamageLabel;
 
 	/** <p>The dialog's {@code JTable}; holds all attack information for display</p> */
-	private JTable m_table = null;
+	private JTable m_table;
 
 	/** <p>Vector of combatants that are valid targets.</p> */
-	private Vector m_combatants = null;
+	private Vector m_combatants;
 
 	/** <p>{@code boolean}; whether or not damage is subdual.</p> */
 	private boolean m_subdual;
@@ -305,7 +305,7 @@ public class AttackDialog extends JDialog
 	 */
 	private void initComponents()
 	{
-		setTitle("Attack: " + m_attack.toString());
+		setTitle("Attack: " + m_attack);
 
 		//Set Layout
 		getContentPane().setLayout(new BorderLayout());
@@ -487,7 +487,7 @@ public class AttackDialog extends JDialog
 		 * Seems that might be a way to clean this up to be more understandable - would also 
 		 * prevent some object use (Boolean) - thpr 10/27/06
 		 */
-		private Object[][] columns =
+		private final Object[][] columns =
 				{
 					{"Bonus", Integer.class, null, Boolean.FALSE,
 						COLUMN_KEY_BONUS},
@@ -522,7 +522,6 @@ public class AttackDialog extends JDialog
 		 */
 		public AttackTableModel()
 		{
-			super();
 
 			int[] attacks = m_attack.getBonusList();
 			Vector<Object> values = new Vector<>(columns.length);

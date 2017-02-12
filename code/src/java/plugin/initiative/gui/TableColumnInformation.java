@@ -42,15 +42,15 @@ public class TableColumnInformation
 	private static class ColStruct
 	{
 		/** The runtime class the column stores. */
-		public Class<?> columnClass = null;
+		public Class<?> columnClass;
 		/** A string key by which the column is identified. */
-		public String columnKey = null;
+		public String columnKey;
 		/** The default value used when a new row is created. */
-		public Object defaultValue = null;
+		public Object defaultValue;
 		/** Is the column editable. */
 		public boolean editable = false;
 		/** The column heading label */
-		public String label = null;
+		public String label;
 
 		/**
 		 * <p>
@@ -85,7 +85,7 @@ public class TableColumnInformation
 	}
 
 	/** An arraylist of {@code ColStructs} */
-	private List<ColStruct> columns = null;
+	private List<ColStruct> columns;
 
 	/**
 	 * <p>

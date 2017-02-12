@@ -56,7 +56,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 
 	public enum DefineStatSubToken 
 	{
-		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE, MAXVALUE;
+		LOCK, UNLOCK, NONSTAT, STAT, MINVALUE, MAXVALUE
 	}
 	
 	@Override
@@ -123,7 +123,7 @@ public class DefineStatLst implements CDOMPrimaryToken<CDOMObject>
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString(), context);
+						+ " was not valid: " + f, context);
 			}
 		}
 		

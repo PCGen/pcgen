@@ -52,7 +52,7 @@ public class SelectLst implements CDOMPrimaryToken<CDOMObject>
 		if (!formula.isValid())
 		{
 			return new ParseResult.Fail("Formula in " + getTokenName()
-					+ " was not valid: " + formula.toString(), context);
+					+ " was not valid: " + formula, context);
 		}
 		context.getObjectContext().put(cdo, FormulaKey.SELECT, formula);
 		return ParseResult.SUCCESS;
