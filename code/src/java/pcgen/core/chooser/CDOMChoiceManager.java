@@ -44,7 +44,7 @@ public class CDOMChoiceManager<T> implements ChoiceManagerList<T>
 	protected ChooseController<T> controller = new ChooseController<>();
 	protected final ChooseInformation<T> info;
 
-	private transient int preChooserChoices;
+	private int preChooserChoices;
 
 	public CDOMChoiceManager(ChooseDriver cdo,
 		ChooseInformation<T> chooseType, Integer numChoices,

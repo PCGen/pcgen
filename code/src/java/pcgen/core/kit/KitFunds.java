@@ -37,7 +37,7 @@ public final class KitFunds extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient int theQty = 0;
+	private int theQty = 0;
 
 	@Override
 	public String toString()

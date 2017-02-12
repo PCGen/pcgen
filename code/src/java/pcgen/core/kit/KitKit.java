@@ -41,7 +41,7 @@ public class KitKit extends BaseKit
 
 	// These members store the state of an instance of this class.  They are
 	// not cloned.
-	private transient Map<Kit, List<BaseKit>> appliedKits =
+	private Map<Kit, List<BaseKit>> appliedKits =
             new HashMap<>();
 
 	/**

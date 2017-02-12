@@ -58,7 +58,7 @@ public final class KitSpells extends BaseKit
             new DoubleKeyMap<>();
 	private Formula countFormula;
 
-	private transient List<KitSpellBookEntry> theSpells = null;
+	private List<KitSpellBookEntry> theSpells = null;
 
 	/**
 	 * @param formula the count formula to set
