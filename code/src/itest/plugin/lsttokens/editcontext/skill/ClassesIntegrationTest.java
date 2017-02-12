@@ -17,17 +17,15 @@
  */
 package plugin.lsttokens.editcontext.skill;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.list.ClassSkillList;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
 import plugin.lsttokens.skill.ClassesToken;
@@ -52,8 +50,7 @@ public class ClassesIntegrationTest extends AbstractIntegrationTestCase<Skill>
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		if (!classSetUpFired)

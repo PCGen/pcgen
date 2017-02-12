@@ -17,17 +17,15 @@
  */
 package plugin.lsttokens.editcontext.deity;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.Deity;
 import pcgen.core.PCAlignment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.deity.AlignToken;
 import plugin.lsttokens.editcontext.testsupport.AbstractIntegrationTestCase;
 import plugin.lsttokens.editcontext.testsupport.TestContext;
@@ -41,8 +39,7 @@ public class AlignIntegrationTest extends AbstractIntegrationTestCase<Deity>
 
 	@Override
 	@Before
-	public final void setUp() throws PersistenceLayerException,
-			URISyntaxException
+	public final void setUp() throws Exception
 	{
 		super.setUp();
 		PCAlignment lg = BuildUtilities.createAlignment("Lawful Good", "LG");
