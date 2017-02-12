@@ -1,5 +1,4 @@
 /*
- *  GMGenSystem.java - main class for GMGen
  *  Copyright (C) 2003 Devon Jones, Emily Smirle
  *
  *  This library is free software; you can redistribute it and/or
