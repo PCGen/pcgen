@@ -1,5 +1,4 @@
 /*
- * SkillToken.java
  * Copyright 2004 (C) James Dempsey <jdempsey@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Aug 5, 2004
- *
- * $Id$
- *
  */
 package pcgen.io.exporttoken;
 
@@ -27,8 +21,6 @@ import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
 import java.util.StringTokenizer;
-
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.SkillCost;
@@ -47,6 +39,8 @@ import pcgen.core.display.SkillDisplay;
 import pcgen.io.ExportHandler;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.View;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * {@code SkillToken} is the base class for the SKILL
@@ -89,18 +83,12 @@ public class SkillToken extends Token
 	private PlayerCharacter lastPC = null;
 	private int lastPCSerial;
 	
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -579,8 +567,8 @@ public class SkillToken extends Token
 				new StringTokenizer(property.substring(3), ",");
 		int numArgs = aTok.countTokens();
 		int acp = aSkill.getSafe(ObjectKey.ARMOR_CHECK).ordinal();
-		String acpText[] = new String[numArgs]; 
-				
+		String acpText[] = new String[numArgs];
+
 		for (int i = 0; aTok.hasMoreTokens(); i++) {
 			acpText[i] = aTok.nextToken();
 		}

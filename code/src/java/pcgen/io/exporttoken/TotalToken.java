@@ -46,18 +46,12 @@ public class TotalToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "TOTAL";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -89,7 +83,7 @@ public class TotalToken extends Token
 	 * @param display
 	 * @return the CAPACITY sub token
 	 */
-	public static String getCapacityToken(CharacterDisplay display)
+	private static String getCapacityToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			display.getMaxLoad().doubleValue());
@@ -100,7 +94,7 @@ public class TotalToken extends Token
 	 * @param display
 	 * @return the LOAD sub token
 	 */
-	public static String getLoadToken(CharacterDisplay display)
+	private static String getLoadToken(CharacterDisplay display)
 	{
 		Load load = display.getLoadType();
 
@@ -134,7 +128,7 @@ public class TotalToken extends Token
 	 * @param pc
 	 * @return the VALUE sub token
 	 */
-	public static String getValueToken(PlayerCharacter pc)
+	private static String getValueToken(PlayerCharacter pc)
 	{
 		return BigDecimalHelper.trimZeros(pc.totalValue()) + " "
 			+ SettingsHandler.getGame().getCurrencyDisplay();
@@ -145,7 +139,7 @@ public class TotalToken extends Token
 	 * @param display
 	 * @return the WEIGHT sub token
 	 */
-	public static String getWeightToken(CharacterDisplay display)
+	private static String getWeightToken(CharacterDisplay display)
 	{
 		return Globals.getGameModeUnitSet().displayWeightInUnitSet(
 			display.totalWeight().doubleValue())

@@ -1,5 +1,4 @@
 /*
- * BonusToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,15 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.io.exporttoken;
 
-import pcgen.core.Equipment;
+import java.util.StringTokenizer;
+
 import pcgen.core.PlayerCharacter;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.prereq.Prerequisite;
@@ -32,8 +27,6 @@ import pcgen.io.ExportHandler;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.util.Logging;
-
-import java.util.StringTokenizer;
 
 /**
  * Deals with BONUS token
@@ -50,8 +43,6 @@ public class BonusToken extends Token
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 *
 	 * TODO: Bonuses need to be stripped out, and there need to be methods for the various types.
 	 */
 	@Override
@@ -186,10 +177,11 @@ public class BonusToken extends Token
 					restOfBucket = bucket.substring(7);
 				}
 
-				for (Equipment eq : pc.getEquipmentOfType(restOfBucket, "", 1))
-				{
-					lastValue += eq.bonusTo(pc, aType, aName, true);
-				}
+				lastValue +=
+						pc.getEquipmentOfType(restOfBucket, "", 1)
+						  .stream()
+						  .mapToDouble(eq -> eq.bonusTo(pc, aType, aName, true))
+						  .sum();
 			}
 			else
 			{

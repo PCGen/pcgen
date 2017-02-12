@@ -1,5 +1,4 @@
 /*
- * EqTypeToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,22 +14,17 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.io.exporttoken;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.StringTokenizer;
 
 import pcgen.cdom.base.Constants;
 import pcgen.core.Equipment;
 import pcgen.core.PlayerCharacter;
 import pcgen.io.ExportHandler;
-
-import java.util.ArrayList;
-import java.util.List;
-import java.util.StringTokenizer;
 
 /**
  * Deal with EQTYPE Token
@@ -38,7 +32,7 @@ import java.util.StringTokenizer;
 public class EqTypeToken extends EqToken
 {
 	/** Token Name */
-	public static final String TOKEN_NAME = "EQTYPE";
+	private static final String TOKEN_NAME = "EQTYPE";
 
 	/**
 	 * @see pcgen.io.exporttoken.Token#getTokenName()
@@ -72,13 +66,9 @@ public class EqTypeToken extends EqToken
 		List<Equipment> eqList = new ArrayList<>();
 		if ("Container".equals(token))
 		{
-			for (Equipment eq : pc.getEquipmentListInOutputOrder(merge))
-			{
-				if (eq.acceptsChildren())
-				{
-					eqList.add(eq);
-				}
-			}
+			pc.getEquipmentListInOutputOrder(merge).stream()
+			  .filter(Equipment::acceptsChildren)
+			  .forEach(eqList::add);
 		}
 		else
 		{

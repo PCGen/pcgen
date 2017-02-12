@@ -1,5 +1,4 @@
 /*
- * StatToken.java
  * Copyright 2003 (C) Devon Jones <soulcatcher@evilsoft.org>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on December 15, 2003, 12:21 PM
- *
- * Current Ver: $Revision$
- *
  */
 
 package pcgen.io.exporttoken;
@@ -61,9 +55,6 @@ public class StatToken extends Token
 {
 	public static final String TOKENNAME = "STAT";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
@@ -201,7 +192,7 @@ public class StatToken extends Token
 		return retString;
 	}
 
-	public static String getStatToken(PlayerCharacter pc, PCStat stat,
+	private static String getStatToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel)
 	{
@@ -209,7 +200,7 @@ public class StatToken extends Token
 			aLevel, true);
 	}
 
-	public static String getStatToken(PlayerCharacter pc, PCStat stat,
+	private static String getStatToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel, final boolean checkGameMode)
 	{
@@ -251,7 +242,7 @@ public class StatToken extends Token
 		return Integer.toString(aTotal);
 	}
 
-	public static String getModToken(PlayerCharacter pc, PCStat stat,
+	private static String getModToken(PlayerCharacter pc, PCStat stat,
 		boolean useTemp, boolean useEquip, boolean usePost, boolean useLevel,
 		int aLevel)
 	{
@@ -267,7 +258,7 @@ public class StatToken extends Token
 		return Delta.toString(temp);
 	}
 
-	public static String getBaseToken(PlayerCharacter pc, PCStat stat)
+	private static String getBaseToken(PlayerCharacter pc, PCStat stat)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -276,7 +267,7 @@ public class StatToken extends Token
 		return Integer.toString(pc.getBaseStatFor(stat));
 	}
 
-	public static String getBaseModToken(PlayerCharacter pc, PCStat stat)
+	private static String getBaseModToken(PlayerCharacter pc, PCStat stat)
 	{
 		if (pc.getDisplay().isNonAbility(stat))
 		{
@@ -287,16 +278,4 @@ public class StatToken extends Token
 
 		return Delta.toString(temp);
 	}
-
-	
-
-	/*
-	 * Wrapper functions for calls with old arguments
-	 */
-
-	public static String getModToken(PlayerCharacter pc, PCStat stat)
-	{
-		return getModToken(pc, stat, true, true, true, false, 0);
-	}
-
 }
