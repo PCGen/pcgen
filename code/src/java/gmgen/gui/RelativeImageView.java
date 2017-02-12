@@ -247,7 +247,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Returns the icon to use while in the process of loading the image.
 	 * @return Icon
 	 */
-	public Icon getLoadingImageIcon()
+	public static Icon getLoadingImageIcon()
 	{
 		loadDefaultIconsIfNecessary();
 
@@ -267,7 +267,7 @@ public class RelativeImageView extends View implements ImageObserver
 	 * Returns the icon to use if the image couldn't be found.
 	 * @return Icon
 	 */
-	public Icon getNoImageIcon()
+	public static Icon getNoImageIcon()
 	{
 		loadDefaultIconsIfNecessary();
 

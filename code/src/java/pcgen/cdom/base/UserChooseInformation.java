@@ -118,8 +118,9 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		}
 	}
 
-	private void applyChoice(ChooseDriver owner, PlayerCharacter pc, String choice,
-		ChooseSelectionActor<String> csa)
+	private static void applyChoice(ChooseDriver owner, PlayerCharacter pc, String
+			choice,
+	                                ChooseSelectionActor<String> csa)
 	{
 		csa.applyChoice(owner, choice, pc);
 	}
@@ -173,7 +174,7 @@ public class UserChooseInformation implements ChooseInformation<String>,
 		title = chooseTitle;
 	}
 
-	private AssociationListKey<String> getListKey()
+	private static AssociationListKey<String> getListKey()
 	{
 		return AssociationListKey.getKeyFor(String.class, "CHOOSE*USERCHOICE");
 	}
