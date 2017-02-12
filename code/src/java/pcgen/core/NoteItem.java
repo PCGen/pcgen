@@ -24,11 +24,6 @@ import pcgen.facade.core.NoteFacade;
 import pcgen.io.FileAccess;
 import pcgen.util.Logging;
 
-
-/**
- * {@code NoteItem}.
- *
- */
 public final class NoteItem implements NoteFacade, Cloneable
 {
 	private String name = "";
@@ -126,7 +121,7 @@ public final class NoteItem implements NoteFacade, Cloneable
 	}
 
 	@Override
-	protected NoteItem clone()
+	public NoteItem clone()
 	{
 		try
 		{

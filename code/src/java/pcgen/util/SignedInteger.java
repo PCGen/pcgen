@@ -1,5 +1,4 @@
 /*
- * SignedInteger.java
  * Copyright James Dempsey, 2013
  *
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
  */
 package pcgen.util;
 
@@ -24,8 +21,6 @@ package pcgen.util;
  * The Class {@code SignedInteger} provides a number which always carries a
  * leading sign in its string representation. It is currently used for displaying 
  * numerically sorted lists of modifiers in choosers.
- *
- * 
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {
@@ -118,11 +113,7 @@ public class SignedInteger extends Number implements Comparable<SignedInteger>
 			return false;
 		}
 		SignedInteger other = (SignedInteger) obj;
-		if (value != other.value)
-		{
-			return false;
-		}
-		return true;
+		return value == other.value;
 	}
 
 }

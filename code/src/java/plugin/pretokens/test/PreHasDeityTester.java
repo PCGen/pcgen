@@ -1,5 +1,4 @@
 /*
- *
  * Copyright 2003 (C) Chris Ward <frugal@purplewombat.co.uk>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
- *
- *
  */
 package plugin.pretokens.test;
 
@@ -30,9 +24,7 @@ import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 
-/**
- *
- */
+
 public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		PrerequisiteTest
 {
@@ -50,11 +42,11 @@ public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
 		if (prereq.getOperator().equals(PrerequisiteOperator.EQ)
 			|| prereq.getOperator().equals(PrerequisiteOperator.GTEQ))
 		{
-			runningTotal = flag == true ? 1 : 0;
+			runningTotal = flag ? 1 : 0;
 		}
 		else
 		{
-			runningTotal = flag == false ? 1 : 0;
+			runningTotal = flag ? 0 : 1;
 		}
 
 		return countedTotal(prereq, runningTotal);

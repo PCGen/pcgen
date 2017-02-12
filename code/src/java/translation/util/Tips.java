@@ -214,7 +214,7 @@ public final class Tips
 		return (line != null) && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
 	}
 
-	static void addTip(Collection<String> tips, String tip)
+	protected static void addTip(Set<String> tips, String tip)
 	{
 		tips.add(tip);
 	}

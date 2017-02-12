@@ -1,5 +1,4 @@
 /*
- * Equipment.java
  * Copyright 2001 (C) Bryan McRoberts <merton.monk@codemonkeypublishing.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,9 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *
- *
  */
 package pcgen.core;
 
@@ -40,8 +36,6 @@ import java.util.StringTokenizer;
 import java.util.TreeSet;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.VarScoped;
@@ -98,11 +92,8 @@ import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.View;
 import pcgen.util.enumeration.Visibility;
 
-/**
- * {@code Equipment}.
- * 
- *         27
- */
+import org.apache.commons.lang3.StringUtils;
+
 public final class Equipment extends PObject implements Serializable,
 		Comparable<Object>, VariableContainer, EquipmentFacade, VarScoped
 {
@@ -185,6 +176,7 @@ public final class Equipment extends PObject implements Serializable,
 
 	private boolean virtualItem;
 
+	public Equipment()
 	{
 		final SizeAdjustment sizeAdj = SizeUtilities.getDefaultSizeAdjustment();
 		if (sizeAdj != null)

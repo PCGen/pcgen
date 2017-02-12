@@ -21,9 +21,9 @@ package pcgen.system;
 
 import java.io.File;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.output.publish.OutputDB;
+
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * This stores some of the properties that pcgen uses.
@@ -91,16 +91,16 @@ public final class PCGenSettings extends PropertyContext
 	{
 		super("options.ini");
 		setProperty(PCG_SAVE_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
+					(SystemUtils.USER_DIR + "/characters").replace('/',
 																				 File.separatorChar));
 		setProperty(PCP_SAVE_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
+					(SystemUtils.USER_DIR + "/characters").replace('/',
 																				 File.separatorChar));
 		setProperty(CHAR_PORTRAITS_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
+					(SystemUtils.USER_DIR + "/characters").replace('/',
 																				 File.separatorChar));
 		setProperty(BACKUP_PCG_PATH,
-					(ConfigurationSettings.getUserDir() + "/characters").replace('/',
+					(SystemUtils.USER_DIR + "/characters").replace('/',
 																				 File.separatorChar));
 		setProperty(VENDOR_DATA_DIR, "@vendordata");
 		setProperty(HOMEBREW_DATA_DIR, "@homebrewdata");
