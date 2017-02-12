@@ -39,7 +39,6 @@ import java.util.StringTokenizer;
  *
  */
 public class PreDamageReductionParser extends AbstractPrerequisiteParser
-		implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

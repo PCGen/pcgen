@@ -37,7 +37,6 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  */
 public class PreLevelMaxParser extends AbstractPrerequisiteIntegerParser
-		implements PrerequisiteParserInterface
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

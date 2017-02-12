@@ -30,8 +30,7 @@ import pcgen.persistence.lst.prereq.PrerequisiteParserInterface;
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PreKitParser extends AbstractPrerequisiteListParser implements
-		PrerequisiteParserInterface
+public class PreKitParser extends AbstractPrerequisiteListParser
 {
 	/**
 	 * Get the type of prerequisite handled by this token.

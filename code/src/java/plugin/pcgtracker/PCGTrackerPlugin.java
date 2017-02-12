@@ -22,6 +22,7 @@
 import java.awt.Component;
 import java.awt.Cursor;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.io.File;
@@ -65,7 +66,7 @@ import plugin.pcgtracker.gui.PCGTrackerView;
  * } and will have it's own model and view.<br>
  */
 public class PCGTrackerPlugin implements InteractivePlugin,
-		java.awt.event.ActionListener
+		ActionListener
 {
 	public static final String LOG_NAME = "PCG_Tracker"; //$NON-NLS-1$
 
@@ -76,8 +77,8 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	private static final String FILENAME_PCG = "pcg"; //$NON-NLS-1$
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem charToolsItem = new JMenuItem();
-	private PCGTrackerModel model = new PCGTrackerModel();
+	private final JMenuItem charToolsItem = new JMenuItem();
+	private final PCGTrackerModel model = new PCGTrackerModel();
 	private PCGTrackerView theView;
 
 	/** The English name of the plugin. */
@@ -473,7 +474,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 */
 	static final class FilenameChangeListener implements PropertyChangeListener
 	{
-		private JFileChooser fileChooser;
+		private final JFileChooser fileChooser;
 		private String lastSelName;
 
 		FilenameChangeListener(String aFileName, JFileChooser aFileChooser)

@@ -32,7 +32,6 @@ public class PCGTrackerModel extends DefaultListModel
 	 */
 	public PCGTrackerModel()
 	{
-		super();
 	}
 
 	public void add(PlayerCharacter pc)
@@ -78,7 +77,7 @@ public class PCGTrackerModel extends DefaultListModel
 
 	private static class LoadedPC
 	{
-		private PlayerCharacter pc;
+		private final PlayerCharacter pc;
 
 		public LoadedPC(PlayerCharacter pc)
 		{

@@ -192,7 +192,6 @@ public class PreFactParser extends AbstractPrerequisiteListParser
 	}
 
 	private static void setLocation(Prerequisite prereq, String location)
-		throws PersistenceLayerException
 	{
 		if (prereq.getPrerequisiteCount() == 0)
 		{

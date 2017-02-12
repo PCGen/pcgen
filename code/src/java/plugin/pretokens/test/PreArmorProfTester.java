@@ -42,7 +42,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author Chris Ward &lt;frugal@purplewombat.co.uk&gt;
  */
-public class PreArmorProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreArmorProfTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

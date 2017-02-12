@@ -34,7 +34,7 @@ import pcgen.system.LanguageBundle;
  * @author perchrh
  *
  */
-public class PreAgeSetTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreAgeSetTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)
