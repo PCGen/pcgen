@@ -81,7 +81,7 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private boolean validateNotZero(Prerequisite prereq)
+	private static boolean validateNotZero(Prerequisite prereq)
 	{
 		boolean returnValue = true;
 		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase("VISION"))
