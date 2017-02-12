@@ -51,7 +51,7 @@ public final class Region implements TypeSafeConstant, Comparable<Region>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private Region(String name)
 	{

@@ -51,7 +51,7 @@ public final class AspectName implements TypeSafeConstant,
 	private final String fieldName;
 
 	/** The ordinal of this Constant. */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	/**
 	 * Instantiates a new ability aspect.

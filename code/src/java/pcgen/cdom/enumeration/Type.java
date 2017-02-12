@@ -108,7 +108,7 @@ public final class Type implements TypeSafeConstant, Comparable<Type>
 	/**
 	 * The ordinal of this Constant
 	 */
-	private final transient int ordinal;
+	private final int ordinal;
 
 	private Type(String name)
 	{
