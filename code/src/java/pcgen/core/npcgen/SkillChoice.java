@@ -32,7 +32,7 @@ import pcgen.core.Skill;
  * to treat them special.
  * 
  * <p>As an example, if the user specifies that TYPE.Profession skills are to 
- * have a certain weight the assumption is that that weight applies to picking
+ * have a certain weight the assumption is that weight applies to picking
  * a single Profession skill and not to each Profession skill individually.
  * 
  * @author boomer70 &lt;boomer70@yahoo.com&gt;

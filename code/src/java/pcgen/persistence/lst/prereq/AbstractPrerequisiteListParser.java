@@ -191,7 +191,7 @@ public abstract class AbstractPrerequisiteListParser
 
 		// Token now contains all of the possible matches,
 		// min contains the target number (if there is one)
-		// number contains the number of 'tokens' that be be at least 'min'
+		// number contains the number of 'tokens' that be at least 'min'
 		if (elementsLength > 2)
 		{
 			// we have more than one option, so use a group

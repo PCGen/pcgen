@@ -91,7 +91,7 @@ public interface Constants
 	/** The prefix of a character template file name. */
 	String CHARACTER_TEMPLATE_PREFIX = "csheet"; //$NON-NLS-1$
 
-	/** The prefix of a a party template file name. */
+	/** The prefix of a party template file name. */
 	String PARTY_TEMPLATE_PREFIX = "psheet"; //$NON-NLS-1$
 
 	/** A constant string representing the type custom. */
