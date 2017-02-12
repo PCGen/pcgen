@@ -32,7 +32,7 @@ public class DiceRollModel extends PObjectModel
 	/** Constant for decoding object string */
 	private static final int SEGMENT_POSITION_DICE_EXPRESSION = 1;
 	/** The dice roller expression */
-	private String m_expression = null;
+	private String m_expression;
 
 	/**
 	 * <p>

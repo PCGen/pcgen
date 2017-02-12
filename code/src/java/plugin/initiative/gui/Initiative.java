@@ -22,8 +22,13 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.BorderLayout;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.event.ActionEvent;
+import java.awt.event.MouseAdapter;
+import java.awt.event.MouseEvent;
+import java.beans.PropertyChangeEvent;
 import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -33,19 +38,32 @@ import java.util.List;
 import java.util.Vector;
 import java.util.stream.Collectors;
 
+import javax.swing.BoxLayout;
 import javax.swing.DefaultCellEditor;
 import javax.swing.JButton;
 import javax.swing.JCheckBox;
+import javax.swing.JCheckBoxMenuItem;
 import javax.swing.JComboBox;
 import javax.swing.JDialog;
 import javax.swing.JFileChooser;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JPopupMenu;
+import javax.swing.JScrollPane;
 import javax.swing.JSeparator;
+import javax.swing.JTabbedPane;
 import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextPane;
+import javax.swing.JToolBar;
+import javax.swing.event.ChangeEvent;
 import javax.swing.event.HyperlinkEvent;
 import javax.swing.event.HyperlinkListener;
 import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.TableColumnModelEvent;
+import javax.swing.event.TableColumnModelListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.table.DefaultTableModel;
@@ -98,7 +116,7 @@ import plugin.initiative.XMLCombatant;
 /**
  *@author     Devon Jones
  */
-public class Initiative extends javax.swing.JPanel
+public class Initiative extends JPanel
 {
 	//** End Dynamic Components **
 	//** Other Variables **
@@ -107,17 +125,17 @@ public class Initiative extends javax.swing.JPanel
 	public final InitHolderList initList = new InitHolderList();
 	private final JButton bCast = new JButton();
 	private final JButton bOpposedSkill = new JButton();
-	private javax.swing.JButton bCombatantReRoll;
+	private JButton bCombatantReRoll;
 	private final JButton bDamage = new JButton();
-	private javax.swing.JButton bDelete;
+	private JButton bDelete;
 	private final JButton bEvent = new JButton();
 	private final JButton bHeal = new JButton();
 	private final JButton bKill = new JButton();
-	private javax.swing.JButton bNextInit;
+	private JButton bNextInit;
 	private final JButton bRaise = new JButton();
-	private javax.swing.JButton bRoll;
+	private JButton bRoll;
 	private final JButton bRefresh = new JButton();
-	private final javax.swing.JButton bDuplicateCombatant = new JButton();
+	private final JButton bDuplicateCombatant = new JButton();
 
 	// End of variables declaration                   
 	//** Dynamic Components **
@@ -125,26 +143,26 @@ public class Initiative extends javax.swing.JPanel
 	private final JButton bStabilize = new JButton();
 	private final JCheckBox showDead = new JCheckBox();
 	private final JCheckBox showEvents = new JCheckBox();
-	private javax.swing.JCheckBoxMenuItem tablePopupCBDuration;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBHP;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBHPMax;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBInitiative;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBName;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBNumber;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBPlayer;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBPlus;
+	private JCheckBoxMenuItem tablePopupCBDuration;
+	private JCheckBoxMenuItem tablePopupCBHP;
+	private JCheckBoxMenuItem tablePopupCBHPMax;
+	private JCheckBoxMenuItem tablePopupCBInitiative;
+	private JCheckBoxMenuItem tablePopupCBName;
+	private JCheckBoxMenuItem tablePopupCBNumber;
+	private JCheckBoxMenuItem tablePopupCBPlayer;
+	private JCheckBoxMenuItem tablePopupCBPlus;
 
 	//** End Copy & Paste Functions **
 	// Variables declaration - do not modify                     
-	private javax.swing.JCheckBoxMenuItem tablePopupCBStatus;
-	private javax.swing.JCheckBoxMenuItem tablePopupCBType;
-	private javax.swing.JLabel lCounter;
-	private javax.swing.JPopupMenu tablePopup;
+	private JCheckBoxMenuItem tablePopupCBStatus;
+	private JCheckBoxMenuItem tablePopupCBType;
+	private JLabel lCounter;
+	private JPopupMenu tablePopup;
 	private FlippingSplitPane jSplitPane1;
-	private javax.swing.JTabbedPane tpaneInfo;
-	private javax.swing.JTable combatantTable;
-	private javax.swing.JTextArea tpCombatInfo;
-	private javax.swing.JToolBar bottomToolbar;
+	private JTabbedPane tpaneInfo;
+	private JTable combatantTable;
+	private JTextArea tpCombatInfo;
+	private JToolBar bottomToolbar;
 	private List columnList = new ArrayList();
 	private LogUtilities log;
 	private int currentCombat = 1;
@@ -362,7 +380,7 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	void addTab(final Combatant cbt)
 	{
-		javax.swing.JTextPane lp = new javax.swing.JTextPane();
+		JTextPane lp = new JTextPane();
 		lp.setContentType( "text/html" );
 		InfoCharacterDetails ic = new InfoCharacterDetails(cbt, lp);
 		tpaneInfo.addTab(cbt.getName(), ic.getScrollPane());
@@ -2002,7 +2020,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                           
-	private void TablePopupActionPerformed(java.awt.event.ActionEvent evt)
+	private void TablePopupActionPerformed(ActionEvent evt)
 	{
 		                                           
 		checkAndFixColumns(tablePopupCBName.getState(), "Name");
@@ -2036,39 +2054,39 @@ public class Initiative extends javax.swing.JPanel
 	{
 		TableColumnModel colModel = combatantTable.getColumnModel();
 		colModel
-			.addColumnModelListener(new javax.swing.event.TableColumnModelListener()
+			.addColumnModelListener(new TableColumnModelListener()
 			{
             @Override
 				public void columnAdded(
-					javax.swing.event.TableColumnModelEvent e)
+					TableColumnModelEvent e)
 				{
 					colModAdded(e);
 				}
 
             @Override
 				public void columnMarginChanged(
-					javax.swing.event.ChangeEvent e)
+					ChangeEvent e)
 				{
 					colModMarginChanged(e);
 				}
 
             @Override
 				public void columnMoved(
-					javax.swing.event.TableColumnModelEvent e)
+					TableColumnModelEvent e)
 				{
 					colModMoved(e);
 				}
 
             @Override
 				public void columnRemoved(
-					javax.swing.event.TableColumnModelEvent e)
+					TableColumnModelEvent e)
 				{
 					colModRemoved(e);
 				}
 
             @Override
 				public void columnSelectionChanged(
-					javax.swing.event.ListSelectionEvent e)
+					ListSelectionEvent e)
 				{
 					colModSelectionChanged(e);
 				}
@@ -2076,66 +2094,66 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                         
-	private void bAddCombatantActionPerformed(java.awt.event.ActionEvent evt)
+	private void bAddCombatantActionPerformed(ActionEvent evt)
 	{
 		                                              
 		addCombatant();
 	}
 
-	private void bCastActionPerformed(java.awt.event.ActionEvent evt)
+	private void bCastActionPerformed(ActionEvent evt)
 	{
 		castSpell();
 		focusNextInit();
 	}
 
 	                                       
-	private void bCombatantReRollActionPerformed(java.awt.event.ActionEvent evt)
+	private void bCombatantReRollActionPerformed(ActionEvent evt)
 	{
 		                                                 
 		rerollCombatant();
 		focusNextInit();
 	}
 
-	private void bDamageActionPerformed(java.awt.event.ActionEvent evt)
+	private void bDamageActionPerformed(ActionEvent evt)
 	{
 		damageCombatant();
 		focusNextInit();
 	}
 
 	                                            
-	private void bDeleteActionPerformed(java.awt.event.ActionEvent evt)
+	private void bDeleteActionPerformed(ActionEvent evt)
 	{
 		                                        
 		deleteCombatant();
 		focusNextInit();
 	}
 
-	private void bEventActionPerformed(java.awt.event.ActionEvent evt)
+	private void bEventActionPerformed(ActionEvent evt)
 	{
 		startEvent();
 		focusNextInit();
 	}
 
-	private void bHealActionPerformed(java.awt.event.ActionEvent evt)
+	private void bHealActionPerformed(ActionEvent evt)
 	{
 		healCombatant();
 		focusNextInit();
 	}
 
-	private void bKillActionPerformed(java.awt.event.ActionEvent evt)
+	private void bKillActionPerformed(ActionEvent evt)
 	{
 		killCombatant();
 		focusNextInit();
 	}
 
 	                                        
-	private void bNextInitActionPerformed(java.awt.event.ActionEvent evt)
+	private void bNextInitActionPerformed(ActionEvent evt)
 	{
 		                                          
 		nextInit();
 	}
 
-	private void bRaiseActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRaiseActionPerformed(ActionEvent evt)
 	{
 		raiseCombatant();
 		refreshTable();
@@ -2143,7 +2161,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                                
-	private void bRefocusActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRefocusActionPerformed(ActionEvent evt)
 	{
 		                                         
 		refocusCombatant();
@@ -2151,7 +2169,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                             
-	private void bRollActionPerformed(java.awt.event.ActionEvent evt)
+	private void bRollActionPerformed(ActionEvent evt)
 	{
 		                                      
 		roll();
@@ -2159,12 +2177,12 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                          
-	private void bSaveActionPerformed(java.awt.event.ActionEvent evt)
+	private void bSaveActionPerformed(ActionEvent evt)
 	{
 		rollSave();
 	}
 
-	private void bStabilizeActionPerformed(java.awt.event.ActionEvent evt)
+	private void bStabilizeActionPerformed(ActionEvent evt)
 	{
 		stabilizeCombatant();
 		refreshTable();
@@ -2296,33 +2314,33 @@ public class Initiative extends javax.swing.JPanel
 		dlg.dispose();
 	}
 
-	private void colModAdded(javax.swing.event.TableColumnModelEvent evt)
+	private void colModAdded(TableColumnModelEvent evt)
 	{
 		// TODO:  Method does nothing?
 	}
 
-	private void colModMarginChanged(javax.swing.event.ChangeEvent evt)
+	private void colModMarginChanged(ChangeEvent evt)
 	{
 		trackTable();
 	}
 
-	private void colModMoved(javax.swing.event.TableColumnModelEvent evt)
+	private void colModMoved(TableColumnModelEvent evt)
 	{
 		trackTable();
 	}
 
-	private void colModRemoved(javax.swing.event.TableColumnModelEvent evt)
+	private void colModRemoved(TableColumnModelEvent evt)
 	{
 		// TODO:  Method does nothing?
 	}
 
-	private void colModSelectionChanged(javax.swing.event.ListSelectionEvent evt)
+	private void colModSelectionChanged(ListSelectionEvent evt)
 	{
 		// TODO:  Method does nothing?
 	}
 
 	                                     
-	private void combatantTableMousePressed(java.awt.event.MouseEvent evt)
+	private void combatantTableMousePressed(MouseEvent evt)
 	{
 		                                            
 		if (evt.isPopupTrigger())
@@ -2333,7 +2351,7 @@ public class Initiative extends javax.swing.JPanel
 	}
 
 	                                             
-	private void combatantTableMouseReleased(java.awt.event.MouseEvent evt)
+	private void combatantTableMouseReleased(MouseEvent evt)
 	{
 		                                             
 		if (evt.isPopupTrigger())
@@ -2343,7 +2361,7 @@ public class Initiative extends javax.swing.JPanel
 		}
 	}
 
-	private void combatantTablePropertyChange(java.beans.PropertyChangeEvent evt)
+	private void combatantTablePropertyChange(PropertyChangeEvent evt)
 	{
 		                                              
 		editTableRow();
@@ -2409,35 +2427,35 @@ public class Initiative extends javax.swing.JPanel
 	 */
 	private void initComponents()
 	{//GEN-BEGIN:initComponents
-		tablePopup = new javax.swing.JPopupMenu();
-		tablePopupCBNumber = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBName = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBPlayer = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBStatus = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBPlus = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBInitiative = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBDuration = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBHP = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBHPMax = new javax.swing.JCheckBoxMenuItem();
-		tablePopupCBType = new javax.swing.JCheckBoxMenuItem();
-		final javax.swing.JToolBar topToolbar = new javax.swing.JToolBar();
-		final javax.swing.JPanel buttonPanelTop = new javax.swing.JPanel();
-		bRoll = new javax.swing.JButton();
+		tablePopup = new JPopupMenu();
+		tablePopupCBNumber = new JCheckBoxMenuItem();
+		tablePopupCBName = new JCheckBoxMenuItem();
+		tablePopupCBPlayer = new JCheckBoxMenuItem();
+		tablePopupCBStatus = new JCheckBoxMenuItem();
+		tablePopupCBPlus = new JCheckBoxMenuItem();
+		tablePopupCBInitiative = new JCheckBoxMenuItem();
+		tablePopupCBDuration = new JCheckBoxMenuItem();
+		tablePopupCBHP = new JCheckBoxMenuItem();
+		tablePopupCBHPMax = new JCheckBoxMenuItem();
+		tablePopupCBType = new JCheckBoxMenuItem();
+		final JToolBar topToolbar = new JToolBar();
+		final JPanel buttonPanelTop = new JPanel();
+		bRoll = new JButton();
 		final JButton bAddCombatant = new JButton();
-		bNextInit = new javax.swing.JButton();
+		bNextInit = new JButton();
 		final JButton bRefocus = new JButton();
-		bCombatantReRoll = new javax.swing.JButton();
-		bDelete = new javax.swing.JButton();
-		final javax.swing.JPanel jPanel2 = new javax.swing.JPanel();
-		lCounter = new javax.swing.JLabel();
+		bCombatantReRoll = new JButton();
+		bDelete = new JButton();
+		final JPanel jPanel2 = new JPanel();
+		lCounter = new JLabel();
 		jSplitPane1 = new FlippingSplitPane();
-		final javax.swing.JScrollPane jScrollPane1 = new javax.swing.JScrollPane();
-		final javax.swing.JScrollPane jScrollEvents = new javax.swing.JScrollPane();
-		combatantTable = new javax.swing.JTable();
-		tpaneInfo = new javax.swing.JTabbedPane();
-		tpCombatInfo = new javax.swing.JTextArea();
+		final JScrollPane jScrollPane1 = new JScrollPane();
+		final JScrollPane jScrollEvents = new JScrollPane();
+		combatantTable = new JTable();
+		tpaneInfo = new JTabbedPane();
+		tpCombatInfo = new JTextArea();
 		tpCombatInfo.setName("Events");
-		bottomToolbar = new javax.swing.JToolBar();
+		bottomToolbar = new JToolBar();
 
 		tablePopupCBNumber.setText("#");
 		tablePopupCBNumber
@@ -2487,11 +2505,11 @@ public class Initiative extends javax.swing.JPanel
 
 		tablePopup.add(tablePopupCBType);
 
-		setLayout(new java.awt.BorderLayout());
+		setLayout(new BorderLayout());
 
-		setPreferredSize(new java.awt.Dimension(700, 600));
-		buttonPanelTop.setLayout(new javax.swing.BoxLayout(buttonPanelTop,
-			javax.swing.BoxLayout.X_AXIS));
+		setPreferredSize(new Dimension(700, 600));
+		buttonPanelTop.setLayout(new BoxLayout(buttonPanelTop,
+			BoxLayout.X_AXIS));
 
 		bAddCombatant.setText("Add Combatant");
 		bAddCombatant.addActionListener(this::bAddCombatantActionPerformed);
@@ -2550,21 +2568,21 @@ public class Initiative extends javax.swing.JPanel
 
 		topToolbar.add(lCounter);
 
-		add(topToolbar, java.awt.BorderLayout.NORTH);
+		add(topToolbar, BorderLayout.NORTH);
 
 		jSplitPane1.setDividerLocation(400);
 		jSplitPane1.setOneTouchExpandable(true);
-		jSplitPane1.setPreferredSize(new java.awt.Dimension(800, 405));
-		combatantTable.addMouseListener(new java.awt.event.MouseAdapter()
+		jSplitPane1.setPreferredSize(new Dimension(800, 405));
+		combatantTable.addMouseListener(new MouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent e)
+			public void mousePressed(MouseEvent e)
 			{
 				combatantTableMousePressed(e);
 			}
 
 			@Override
-			public void mouseReleased(java.awt.event.MouseEvent e)
+			public void mouseReleased(MouseEvent e)
 			{
 				combatantTableMouseReleased(e);
 			}
@@ -2589,9 +2607,9 @@ public class Initiative extends javax.swing.JPanel
 
 		jSplitPane1.setRightComponent(tpaneInfo);
 
-		add(jSplitPane1, java.awt.BorderLayout.CENTER);
+		add(jSplitPane1, BorderLayout.CENTER);
 
-		add(bottomToolbar, java.awt.BorderLayout.SOUTH);
+		add(bottomToolbar, BorderLayout.SOUTH);
 		bottomToolbar.add(bOpposedSkill);
 	}
 
@@ -2721,16 +2739,16 @@ public class Initiative extends javax.swing.JPanel
 		initTableColumns();
 
 		JTableHeader header = combatantTable.getTableHeader();
-		header.addMouseListener(new java.awt.event.MouseAdapter()
+		header.addMouseListener(new MouseAdapter()
 		{
 			@Override
-			public void mousePressed(java.awt.event.MouseEvent e)
+			public void mousePressed(MouseEvent e)
 			{
 				combatantTableMousePressed(e);
 			}
 
 			@Override
-			public void mouseReleased(java.awt.event.MouseEvent e)
+			public void mouseReleased(MouseEvent e)
 			{
 				combatantTableMouseReleased(e);
 			}
@@ -2911,14 +2929,14 @@ public class Initiative extends javax.swing.JPanel
 		columnList = getColumnOrder();
 	}
 
-	private void showDeadActionPerformed(java.awt.event.ActionEvent evt)
+	private void showDeadActionPerformed(ActionEvent evt)
 	{
 		checkDeadTabs();
 		refreshTable();
 		focusNextInit();
 	}
 
-	private void showEventsActionPerformed(java.awt.event.ActionEvent evt)
+	private void showEventsActionPerformed(ActionEvent evt)
 	{
 		refreshTable();
 		focusNextInit();

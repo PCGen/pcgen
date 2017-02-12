@@ -19,7 +19,6 @@ public class MinCommand extends PCGenCommand
 	 */
 	public MinCommand()
 	{
-		super();
 		numberOfParameters = -1;
 	}
 

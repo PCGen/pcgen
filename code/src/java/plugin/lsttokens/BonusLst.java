@@ -158,7 +158,7 @@ public class BonusLst implements CDOMPrimaryToken<CDOMObject>,
 									+ obj.getClass().getSimpleName() + " "
 									+ obj.getKeyName()
 									+ " contained an invalid AbilityCategory "
-									+ o.toString(), dummyCtx);
+									+ o, dummyCtx);
 							returnValue = false;
 						}
 					}

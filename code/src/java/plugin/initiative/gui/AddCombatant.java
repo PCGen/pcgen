@@ -22,9 +22,23 @@
  */
 package plugin.initiative.gui;
 
+import java.awt.Color;
+import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.util.Vector;
+
+import javax.swing.DefaultComboBoxModel;
+import javax.swing.JComboBox;
 import javax.swing.JComponent;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
 
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.dialog.AbstractDialog;
@@ -49,36 +63,36 @@ public class AddCombatant extends AbstractDialog
 	/** The initiative component */
 	public Initiative initiative;
 
-	private javax.swing.JComboBox typeCombo;
+	private JComboBox typeCombo;
 
-	private javax.swing.JLabel nameLabel;
-	private javax.swing.JLabel conLabel;
-	private javax.swing.JLabel intLabel;
-	private javax.swing.JLabel wisLabel;
-	private javax.swing.JLabel chaLabel;
-	private javax.swing.JLabel fortLabel;
-	private javax.swing.JLabel reflexLabel;
-	private javax.swing.JLabel willLabel;
-	private javax.swing.JLabel crLabel;
-	private javax.swing.JLabel noteLabel;
-	private javax.swing.JLabel playerLabel;
-	private javax.swing.JLabel bonusLabel;
-	private javax.swing.JLabel numberLabel;
-	private javax.swing.JLabel neg20Label;
-	private javax.swing.JLabel neg20Label2;
-	private javax.swing.JLabel hpLabel;
-	private javax.swing.JLabel typeLabel;
-	private javax.swing.JLabel strLabel;
-	private javax.swing.JLabel dexLabel;
+	private JLabel nameLabel;
+	private JLabel conLabel;
+	private JLabel intLabel;
+	private JLabel wisLabel;
+	private JLabel chaLabel;
+	private JLabel fortLabel;
+	private JLabel reflexLabel;
+	private JLabel willLabel;
+	private JLabel crLabel;
+	private JLabel noteLabel;
+	private JLabel playerLabel;
+	private JLabel bonusLabel;
+	private JLabel numberLabel;
+	private JLabel neg20Label;
+	private JLabel neg20Label2;
+	private JLabel hpLabel;
+	private JLabel typeLabel;
+	private JLabel strLabel;
+	private JLabel dexLabel;
 
-	private javax.swing.JSeparator jSeparator1;
+	private JSeparator jSeparator1;
 
-	private javax.swing.JSlider bonusSlider;
-	private javax.swing.JSlider hpSlider;
-	private javax.swing.JSlider numberSlider;
+	private JSlider bonusSlider;
+	private JSlider hpSlider;
+	private JSlider numberSlider;
 
-	private javax.swing.JTextField nameField;
-	private javax.swing.JTextField playerField;
+	private JTextField nameField;
+	private JTextField playerField;
 
 	private JFormattedTextField crField;
 	private JFormattedTextField strField;
@@ -102,7 +116,7 @@ public class AddCombatant extends AbstractDialog
 	 * @param  modal       Is the dialog modal
 	 * @param  initiative  The initiative tracker reference.
 	 */
-	public AddCombatant(java.awt.Frame parent, boolean modal,
+	public AddCombatant(Frame parent, boolean modal,
 		Initiative initiative)
 	{
 		super(parent, "no title?", modal);
@@ -194,38 +208,38 @@ public class AddCombatant extends AbstractDialog
 	{
 		JPanel center = new JPanel();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
 		bonusSlider = Utils.buildSlider(-20, 20);
 		numberSlider = Utils.buildSlider(1, 20);
 		hpSlider = Utils.buildSlider(1, 100, 5, 25);
 
-		typeCombo = new javax.swing.JComboBox();
+		typeCombo = new JComboBox();
 
-		jSeparator1 = new javax.swing.JSeparator();
+		jSeparator1 = new JSeparator();
 
-		nameLabel = new javax.swing.JLabel();
-		playerLabel = new javax.swing.JLabel();
-		bonusLabel = new javax.swing.JLabel();
-		numberLabel = new javax.swing.JLabel();
-		neg20Label = new javax.swing.JLabel();
-		hpLabel = new javax.swing.JLabel();
-		typeLabel = new javax.swing.JLabel();
-		strLabel = new javax.swing.JLabel();
-		dexLabel = new javax.swing.JLabel();
-		conLabel = new javax.swing.JLabel();
-		intLabel = new javax.swing.JLabel();
-		wisLabel = new javax.swing.JLabel();
-		chaLabel = new javax.swing.JLabel();
-		fortLabel = new javax.swing.JLabel();
-		reflexLabel = new javax.swing.JLabel();
-		willLabel = new javax.swing.JLabel();
-		neg20Label2 = new javax.swing.JLabel();
-		crLabel = new javax.swing.JLabel();
-		noteLabel = new javax.swing.JLabel();
+		nameLabel = new JLabel();
+		playerLabel = new JLabel();
+		bonusLabel = new JLabel();
+		numberLabel = new JLabel();
+		neg20Label = new JLabel();
+		hpLabel = new JLabel();
+		typeLabel = new JLabel();
+		strLabel = new JLabel();
+		dexLabel = new JLabel();
+		conLabel = new JLabel();
+		intLabel = new JLabel();
+		wisLabel = new JLabel();
+		chaLabel = new JLabel();
+		fortLabel = new JLabel();
+		reflexLabel = new JLabel();
+		willLabel = new JLabel();
+		neg20Label2 = new JLabel();
+		crLabel = new JLabel();
+		noteLabel = new JLabel();
 
-		nameField = new javax.swing.JTextField();
-		playerField = new javax.swing.JTextField();
+		nameField = new JTextField();
+		playerField = new JTextField();
 
 		crField = Utils.buildFloatField(-10, 50);
 		conField = Utils.buildIntegerField(0, 100);
@@ -242,332 +256,332 @@ public class AddCombatant extends AbstractDialog
 		hpField = Utils.buildIntegerFieldWithSlider(hpSlider);
 		numberField = Utils.buildIntegerFieldWithSlider(numberSlider);
 
-		center.setLayout(new java.awt.GridBagLayout());
+		center.setLayout(new GridBagLayout());
 
 		nameLabel.setText("Name");
-		gridBagConstraints = new java.awt.GridBagConstraints();
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 5, 10, 0);
+		gridBagConstraints = new GridBagConstraints();
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(10, 5, 10, 0);
 		center.add(nameLabel, gridBagConstraints);
 
-		nameField.setMinimumSize(new java.awt.Dimension(100, 21));
-		nameField.setPreferredSize(new java.awt.Dimension(200, 21));
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		nameField.setMinimumSize(new Dimension(100, 21));
+		nameField.setPreferredSize(new Dimension(200, 21));
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(10, 0, 0, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(nameField, gridBagConstraints);
 
 		playerLabel.setText("Player");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
 		center.add(playerLabel, gridBagConstraints);
 
-		playerField.setPreferredSize(new java.awt.Dimension(200, 21));
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		playerField.setPreferredSize(new Dimension(200, 21));
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
 		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(playerField, gridBagConstraints);
 
 		bonusLabel.setText("Bonus");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
 		center.add(bonusLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 2;
 		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(bonusSlider, gridBagConstraints);
 
 		numberLabel.setText("Number");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
 		center.add(numberLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 4;
 		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(numberSlider, gridBagConstraints);
 
-		neg20Label.setForeground(new java.awt.Color(204, 204, 204));
+		neg20Label.setForeground(new Color(204, 204, 204));
 		neg20Label.setText("-20");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 0;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
+		gridBagConstraints.insets = new Insets(10, 0, 0, 10);
 		center.add(neg20Label, gridBagConstraints);
 
 		hpLabel.setText("Hit Points");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
 		center.add(hpLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 3;
 		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(hpSlider, gridBagConstraints);
 
 		typeLabel.setText("Type");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		center.add(typeLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 5;
 		gridBagConstraints.gridwidth = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(typeCombo, gridBagConstraints);
 
 		bonusField.setValue(0);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		center.add(bonusField, gridBagConstraints);
 
 		hpField.setValue(1);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		center.add(hpField, gridBagConstraints);
 
 		numberField.setValue(1);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		center.add(numberField, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 8;
 		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
 		center.add(jSeparator1, gridBagConstraints);
 
 		strLabel.setText("STR");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		center.add(strLabel, gridBagConstraints);
 
 		dexLabel.setText("DEX");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		center.add(dexLabel, gridBagConstraints);
 
 		conLabel.setText("CON");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 11;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		center.add(conLabel, gridBagConstraints);
 
 		intLabel.setText("INT");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 12;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		center.add(intLabel, gridBagConstraints);
 
 		wisLabel.setText("WIS");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 13;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
 		center.add(wisLabel, gridBagConstraints);
 
 		chaLabel.setText("CHA");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 14;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
 		center.add(chaLabel, gridBagConstraints);
 
 		conField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 11;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(conField, gridBagConstraints);
 
 		strField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(strField, gridBagConstraints);
 
 		dexField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(dexField, gridBagConstraints);
 
 		intField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 12;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(intField, gridBagConstraints);
 
 		wisField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 13;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(wisField, gridBagConstraints);
 
 		chaField.setValue(10);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 14;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(chaField, gridBagConstraints);
 
 		fortLabel.setText("Fort");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+		gridBagConstraints.insets = new Insets(0, 0, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
 		center.add(fortLabel, gridBagConstraints);
 
 		reflexLabel.setText("Reflex");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 30, 0, 5);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(0, 30, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
 		center.add(reflexLabel, gridBagConstraints);
 
 		willLabel.setText("Will");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 11;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 5);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+		gridBagConstraints.insets = new Insets(0, 0, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
 		center.add(willLabel, gridBagConstraints);
 
 		fortitudeField.setValue(0);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(fortitudeField, gridBagConstraints);
 
 		reflexField.setValue(0);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(reflexField, gridBagConstraints);
 
 		willField.setValue(0);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 3;
 		gridBagConstraints.gridy = 11;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(willField, gridBagConstraints);
 
-		neg20Label2.setForeground(new java.awt.Color(204, 204, 204));
+		neg20Label2.setForeground(new Color(204, 204, 204));
 		neg20Label2.setText("-20");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 0;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 0, 0, 10);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
+		gridBagConstraints.insets = new Insets(10, 0, 0, 10);
 		center.add(neg20Label2, gridBagConstraints);
 
 		crLabel.setText("CR");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 5, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 5, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(crLabel, gridBagConstraints);
 
 		noteLabel
 			.setText("(Note, use decimal fractions for CR less than 1. Ex: .5 = 1/2)");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
 		gridBagConstraints.gridwidth = 5;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(noteLabel, gridBagConstraints);
 
 		crField.setText("1");
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		center.add(crField, gridBagConstraints);
 
 		return center;
@@ -580,14 +594,14 @@ public class AddCombatant extends AbstractDialog
 	 */
 	private void initDropDown()
 	{
-		java.util.Vector<String> vType = new java.util.Vector<>();
+		Vector<String> vType = new Vector<>();
 		vType.add("Enemy");
 		vType.add("Ally");
 		vType.add("PC");
 		vType.add("Non Combatant");
 
-		javax.swing.DefaultComboBoxModel typeModel =
-				new javax.swing.DefaultComboBoxModel(vType);
+		DefaultComboBoxModel typeModel =
+				new DefaultComboBoxModel(vType);
 		typeCombo.setModel(typeModel);
 	}
 

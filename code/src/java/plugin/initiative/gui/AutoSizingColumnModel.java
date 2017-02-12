@@ -32,7 +32,7 @@ import java.util.Enumeration;
 public class AutoSizingColumnModel extends DefaultTableColumnModel
 {
 	private static final int COLUMN_WIDTH_PADDING = 10;
-	JTable m_table = null;
+	JTable m_table;
 
 	/**
 	 * Set preffered column width

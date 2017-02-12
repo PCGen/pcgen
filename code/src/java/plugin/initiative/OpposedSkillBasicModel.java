@@ -58,7 +58,7 @@ public class OpposedSkillBasicModel extends AbstractTableModel
 	protected class InitWrapper
 	{
 
-		PcgCombatant initiative = null;
+		PcgCombatant initiative;
 
 		/** 
 		 * Constructor 

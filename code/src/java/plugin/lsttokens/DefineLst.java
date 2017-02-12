@@ -90,7 +90,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 			if (!f.isValid())
 			{
 				return new ParseResult.Fail("Formula in " + getTokenName()
-						+ " was not valid: " + f.toString(), context);
+						+ " was not valid: " + f, context);
 			}
 			if ((!f.isStatic() || f.resolveStatic().intValue() != 0) && !(var.startsWith("MAXLEVELSTAT=")))
 			{
@@ -134,7 +134,7 @@ public class DefineLst implements CDOMPrimaryToken<CDOMObject>
 		{
 			for (VariableKey key : keys)
 			{
-				set.add(key.toString() + Constants.PIPE
+				set.add(key + Constants.PIPE
 						+ context.getObjectContext().getVariable(obj, key));
 			}
 		}

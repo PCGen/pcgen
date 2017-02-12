@@ -1,6 +1,8 @@
 package plugin.jepcommands;
 
 import org.nfunk.jep.ParseException;
+
+import pcgen.core.RollingMethods;
 import pcgen.util.PCGenCommand;
 import pcgen.util.PJEP;
 
@@ -67,7 +69,7 @@ public class RollCommand extends PCGenCommand
 
         if (param1 instanceof String)
 		{
-            final Object result = pcgen.core.RollingMethods.roll((String) param1);
+            final Object result = RollingMethods.roll((String) param1);
             inStack.push(result);
 		}
 		else

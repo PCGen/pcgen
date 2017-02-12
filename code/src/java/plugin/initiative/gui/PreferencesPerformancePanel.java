@@ -31,6 +31,8 @@ import javax.swing.JScrollPane;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import gmgen.gui.PreferencesPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**
@@ -38,7 +40,7 @@ import plugin.initiative.InitiativePlugin;
  *
  * @author devon
  */
-public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
+public class PreferencesPerformancePanel extends PreferencesPanel
 {
 	private static final String OPTION_NAME = InitiativePlugin.LOG_NAME + ".refreshOnStateChange"; //$NON-NLS-1$
 	

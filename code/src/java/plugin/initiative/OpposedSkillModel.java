@@ -63,11 +63,11 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	protected class SkillInitWrapper extends InitWrapper
 	{
 		/** Integer representing a fudge factor */
-		private Integer fudge = null;
+		private Integer fudge;
 		/** Integer representing the result of the roll */
-		private Integer result = null;
+		private Integer result;
 		/** Integer cacheing the roll value itself */
-		private Integer roll = null;
+		private Integer roll;
 
 		/**
 		 * <p>
@@ -213,7 +213,6 @@ public class OpposedSkillModel extends OpposedSkillBasicModel
 	 */
 	public OpposedSkillModel()
 	{
-		super();
 		columns.addColumn("BONUS", Integer.class, 0, false,
 			"Bonus");
 		columns.addColumn("FUDGE", Integer.class, null, true, "Fudge");

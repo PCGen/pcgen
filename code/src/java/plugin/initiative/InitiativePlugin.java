@@ -89,13 +89,13 @@ public class InitiativePlugin implements InteractivePlugin
 	private Initiative theView;
 
 	/** The plugin menu item in the tools menu. */
-	private JMenuItem initToolsItem = new JMenuItem();
+	private final JMenuItem initToolsItem = new JMenuItem();
 
 	/** The English name of the plugin. */
-	private String name = "Initiative";
+	private final String name = "Initiative";
 
 	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
+	private final String version = "01.00.99.01.00";
 
 	private PCGenMessageHandler messageHandler;
 

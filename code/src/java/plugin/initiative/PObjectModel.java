@@ -48,8 +48,8 @@ public abstract class PObjectModel
 	/** Constant for decoding incoming string types */
 	private static final String TYPE_PREFIX_DICE_ROLL = "dice:";
 
-	protected String m_name = null;
-	protected String[] outputTokens = null;
+	protected String m_name;
+	protected String[] outputTokens;
 
 	/**
 	 * <p>

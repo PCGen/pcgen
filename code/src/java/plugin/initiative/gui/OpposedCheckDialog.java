@@ -120,7 +120,7 @@ class OpposedCheckDialog extends JDialog
 			/**
 			 * A list of combatants that are being transferred.
 			 */
-			private List<PcgCombatant> items = null;
+			private List<PcgCombatant> items;
 
 			/**
 			 * <p>
@@ -178,7 +178,7 @@ class OpposedCheckDialog extends JDialog
 		}
 
 		/** A data flavor for use in the transfer */
-		private DataFlavor combatantFlavor = null;
+		private DataFlavor combatantFlavor;
 
 		/** The mime type used by the data flavor.  Not really accurate, since
 		 * the transferrable class really returns a List.
@@ -187,9 +187,9 @@ class OpposedCheckDialog extends JDialog
 				DataFlavor.javaJVMLocalObjectMimeType
 					+ ";class=gmgen.plugin.PcgCombatant";
 		/** The source data model for the transfer. */
-		private OpposedSkillBasicModel sourceModel = null;
+		private OpposedSkillBasicModel sourceModel;
 		/** The source table for the transfer. */
-		private JTable sourceTable = null;
+		private JTable sourceTable;
 
 		/**
 		 * <p>
@@ -305,39 +305,39 @@ class OpposedCheckDialog extends JDialog
 	private final TransferHandler transferHandler =
 			new CombatantTransferHandler();
 	/** Label for the available table */
-	private JLabel availableLabel = null; //
+	private JLabel availableLabel; //
 	/** Scroll pane for the available table */
-	private JScrollPane availableScrollPane = null; //
+	private JScrollPane availableScrollPane; //
 	/** JTable that holds the available combatants */
-	private JTable availableTable = null; //
+	private JTable availableTable; //
 	/** Data model for the available table */
-	private OpposedSkillTypeModel ivjAvailableModel = null;
+	private OpposedSkillTypeModel ivjAvailableModel;
 	/** Data model for the opposed table */
-	private OpposedSkillModel ivjOpposedSkillModel = null;
+	private OpposedSkillModel ivjOpposedSkillModel;
 	/** Data model for the rolling table */
-	private OpposedSkillModel ivjRollingSkillModel = null;
+	private OpposedSkillModel ivjRollingSkillModel;
 	/** The main panel; functions as a content pane for the dialog. */
-	private JPanel jContentPane = null;
+	private JPanel jContentPane;
 	/** Ok button */
-	private JButton okButton = null; //
+	private JButton okButton; //
 	/** Combo box lising skills for the opposing group */
-	private JComboBox<Object> opposingComboBox = null; //
+	private JComboBox<Object> opposingComboBox; //
 	/** Label for the opposing group */
-	private JLabel opposingGroupLabel = null; //
+	private JLabel opposingGroupLabel; //
 	/** Scroll pane for the opposing group table */
-	private JScrollPane opposingGroupScrollPane = null; //
+	private JScrollPane opposingGroupScrollPane; //
 	/** Table for the opposing group of combatants */
-	private JTable opposingGroupTable = null; //
+	private JTable opposingGroupTable; //
 	/** Button for rolling skill checks */
-	private JButton rollButton = null; //
+	private JButton rollButton; //
 	/** Combo box listing skills for the rolling group */
-	private JComboBox<Object> rollingComboBox = null; //
+	private JComboBox<Object> rollingComboBox; //
 	/** Label for the rolling group */
-	private JLabel rollingGroupLabel = null; //
+	private JLabel rollingGroupLabel; //
 	/** Scroll pane for rollingGroupTable */
-	private JScrollPane rollingGroupScrollPane = null; //
+	private JScrollPane rollingGroupScrollPane; //
 	/** Table that holds the main (rolling) group of combatants */
-	private JTable rollingGroupTable = null; //
+	private JTable rollingGroupTable; //
 	/** Sorted list of skill names */
 	private final TreeSet<String> skillNames = new TreeSet<>();
 

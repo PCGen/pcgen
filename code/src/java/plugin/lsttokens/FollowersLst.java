@@ -127,7 +127,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 		if (!num.isValid())
 		{
 			return new ParseResult.Fail("Number of Followers in "
-					+ getTokenName() + " was not valid: " + num.toString(), context);
+					+ getTokenName() + " was not valid: " + num, context);
 		}
 		context.getObjectContext().addToList(obj, ListKey.FOLLOWERS,
 				new FollowerLimit(cl, num));
@@ -149,7 +149,7 @@ public class FollowersLst implements CDOMPrimaryToken<CDOMObject>
 			String followerType = fl.getCompanionList().getLSTformat(false);
 			Formula followerNumber = fl.getValue();
 			returnSet.add(followerType + Constants.PIPE
-					+ followerNumber.toString());
+					+ followerNumber);
 		}
 		return returnSet.toArray(new String[returnSet.size()]);
 	}

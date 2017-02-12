@@ -38,13 +38,15 @@ import javax.swing.border.TitledBorder;
 
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
+
+import gmgen.gui.PreferencesPanel;
 import plugin.initiative.InitiativePlugin;
 
 /**
  *
  * @author soulcatcher
  */
-public class PreferencesMassiveDamagePanel extends gmgen.gui.PreferencesPanel
+public class PreferencesMassiveDamagePanel extends PreferencesPanel
 {
 
 	private static final String OPTION_NAME_TYPE = InitiativePlugin.LOG_NAME + ".Damage.Massive.Type"; //$NON-NLS-1$

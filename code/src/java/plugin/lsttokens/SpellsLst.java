@@ -246,7 +246,7 @@ public class SpellsLst extends AbstractNonEmptyToken<CDOMObject> implements
 			if (!timesFormula.isValid())
 			{
 				return new ParseResult.Fail("Times in " + getTokenName()
-						+ " was not valid: " + timesFormula.toString(), context);
+						+ " was not valid: " + timesFormula, context);
 			}
 			dkm.put(spell, AssociationKey.TIMES_PER_UNIT, timesFormula);
 			if (timeunit != null)

@@ -19,7 +19,6 @@ public class MaxCommand extends PCGenCommand
 	 */
 	public MaxCommand()
 	{
-		super();
 		numberOfParameters = -1;
 	}
 

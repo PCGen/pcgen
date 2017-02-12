@@ -26,12 +26,33 @@ import gmgen.plugin.PcgCombatant;
 import gmgen.plugin.PlayerCharacterOutput;
 import gmgen.plugin.SystemAttribute;
 
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.FlowLayout;
+import java.awt.Font;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
+import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.beans.PropertyChangeEvent;
 import java.beans.PropertyChangeListener;
 import java.util.List;
 
+import javax.swing.ButtonGroup;
+import javax.swing.JButton;
+import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.JRadioButton;
+import javax.swing.JSeparator;
+import javax.swing.JSlider;
 import javax.swing.JTextField;
 
 import pcgen.core.Globals;
@@ -48,7 +69,7 @@ import plugin.initiative.XMLCombatant;
  * @author Devon Jones
  *
  */
-public class SavingThrowDialog extends javax.swing.JDialog
+public class SavingThrowDialog extends JDialog
 {
 	/** Statis for save types */
 	public static final int NULL_SAVE = 0;
@@ -60,39 +81,39 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	public static final int PASS_OPTION = 1;
 	public static final int FAIL_OPTION = 2;
 
-	private javax.swing.ButtonGroup saveTypeGroup;
-	private Combatant cbt;
-	private javax.swing.JButton cancelButton;
-	private javax.swing.JButton failButton;
-	private javax.swing.JButton passButton;
-	private javax.swing.JButton rollButton;
-	private javax.swing.JLabel characterName;
-	private javax.swing.JLabel jLabel1;
-	private javax.swing.JLabel jLabel2;
-	private javax.swing.JLabel jLabel3;
-	private javax.swing.JLabel jLabel4;
-	private javax.swing.JLabel jLabel5;
-	private javax.swing.JLabel jLabel6;
-	private javax.swing.JLabel jLabel7;
-	private javax.swing.JLabel jLabel8;
-	private javax.swing.JLabel jLabel9;
-	private javax.swing.JPanel jPanel1;
-	private javax.swing.JPanel jPanel2;
-	private javax.swing.JPanel jPanel3;
-	private javax.swing.JRadioButton fortitudeSelection;
-	private javax.swing.JRadioButton reflexSelection;
-	private javax.swing.JRadioButton willSelection;
-	private javax.swing.JSeparator jSeparator1;
-	private javax.swing.JSlider saveDCSlider;
-	private javax.swing.JSlider saveMagicSlider;
-	private javax.swing.JSlider saveTempSlider;
-	private javax.swing.JTextField saveAbility;
-	private javax.swing.JTextField saveBase;
+	private ButtonGroup saveTypeGroup;
+	private final Combatant cbt;
+	private JButton cancelButton;
+	private JButton failButton;
+	private JButton passButton;
+	private JButton rollButton;
+	private JLabel characterName;
+	private JLabel jLabel1;
+	private JLabel jLabel2;
+	private JLabel jLabel3;
+	private JLabel jLabel4;
+	private JLabel jLabel5;
+	private JLabel jLabel6;
+	private JLabel jLabel7;
+	private JLabel jLabel8;
+	private JLabel jLabel9;
+	private JPanel jPanel1;
+	private JPanel jPanel2;
+	private JPanel jPanel3;
+	private JRadioButton fortitudeSelection;
+	private JRadioButton reflexSelection;
+	private JRadioButton willSelection;
+	private JSeparator jSeparator1;
+	private JSlider saveDCSlider;
+	private JSlider saveMagicSlider;
+	private JSlider saveTempSlider;
+	private JTextField saveAbility;
+	private JTextField saveBase;
 	private JFormattedTextField saveDC;
 	private JFormattedTextField saveMagic;
-	private javax.swing.JTextField saveMisc;
+	private JTextField saveMisc;
 	private JFormattedTextField saveTemp;
-	private javax.swing.JTextField saveTotal;
+	private JTextField saveTotal;
 	private int lastRoll = 0;
 	private int retValue = CANCEL_OPTION;
 	private SaveModel m_saveModel;
@@ -106,7 +127,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param modal
 	 * @param cbt
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal, Combatant cbt)
+	public SavingThrowDialog(Frame parent, boolean modal, Combatant cbt)
 	{
 		this(parent, modal, cbt, 0, NULL_SAVE);
 	}
@@ -123,7 +144,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param dc
 	 * @param saveType
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
+	public SavingThrowDialog(Frame parent, boolean modal,
 		Combatant cbt, int dc, int saveType)
 	{
 		super(parent, modal);
@@ -146,7 +167,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * @param cbt
 	 * @param model
 	 */
-	public SavingThrowDialog(java.awt.Frame parent, boolean modal,
+	public SavingThrowDialog(Frame parent, boolean modal,
 		Combatant cbt, SaveModel model)
 	{
 		super(parent, modal);
@@ -604,35 +625,35 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 */
 	private void initComponents()
 	{
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 
-		saveTypeGroup = new javax.swing.ButtonGroup();
+		saveTypeGroup = new ButtonGroup();
 
-		fortitudeSelection = new javax.swing.JRadioButton();
-		reflexSelection = new javax.swing.JRadioButton();
-		willSelection = new javax.swing.JRadioButton();
+		fortitudeSelection = new JRadioButton();
+		reflexSelection = new JRadioButton();
+		willSelection = new JRadioButton();
 
-		rollButton = new javax.swing.JButton();
-		passButton = new javax.swing.JButton();
-		failButton = new javax.swing.JButton();
-		cancelButton = new javax.swing.JButton();
+		rollButton = new JButton();
+		passButton = new JButton();
+		failButton = new JButton();
+		cancelButton = new JButton();
 
-		jPanel1 = new javax.swing.JPanel();
-		jPanel2 = new javax.swing.JPanel();
-		jLabel1 = new javax.swing.JLabel();
-		jLabel2 = new javax.swing.JLabel();
-		jLabel3 = new javax.swing.JLabel();
-		jLabel4 = new javax.swing.JLabel();
-		jLabel5 = new javax.swing.JLabel();
-		jLabel6 = new javax.swing.JLabel();
-		jPanel3 = new javax.swing.JPanel();
+		jPanel1 = new JPanel();
+		jPanel2 = new JPanel();
+		jLabel1 = new JLabel();
+		jLabel2 = new JLabel();
+		jLabel3 = new JLabel();
+		jLabel4 = new JLabel();
+		jLabel5 = new JLabel();
+		jLabel6 = new JLabel();
+		jPanel3 = new JPanel();
 
-		jLabel7 = new javax.swing.JLabel();
-		jLabel8 = new javax.swing.JLabel();
-		characterName = new javax.swing.JLabel();
-		jLabel9 = new javax.swing.JLabel();
+		jLabel7 = new JLabel();
+		jLabel8 = new JLabel();
+		characterName = new JLabel();
+		jLabel9 = new JLabel();
 
-		jSeparator1 = new javax.swing.JSeparator();
+		jSeparator1 = new JSeparator();
 
 		saveTempSlider = Utils.buildSlider(-5, 20);
 		saveMagicSlider = Utils.buildSlider(-5, 20);
@@ -648,16 +669,16 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		saveDC = Utils.buildIntegerFieldWithSlider(saveDCSlider);
 
 		setTitle("Saving Throw");
-		addWindowListener(new java.awt.event.WindowAdapter()
+		addWindowListener(new WindowAdapter()
 		{
             @Override
-			public void windowClosing(java.awt.event.WindowEvent evt)
+			public void windowClosing(WindowEvent evt)
 			{
 				closeDialog(evt);
 			}
 		});
 
-		jPanel1.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+		jPanel1.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		rollButton.setText("Roll");
 		rollButton.addActionListener(this::rollButtonActionPerformed);
@@ -679,161 +700,161 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		jPanel1.add(cancelButton);
 
-		getContentPane().add(jPanel1, java.awt.BorderLayout.SOUTH);
+		getContentPane().add(jPanel1, BorderLayout.SOUTH);
 
-		jPanel2.setLayout(new java.awt.GridBagLayout());
+		jPanel2.setLayout(new GridBagLayout());
 
 		jLabel1.setText("Base Save");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 5);
 		jPanel2.add(jLabel1, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveBase, gridBagConstraints);
 
 		jLabel2.setText("Ability Modifier");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 5);
 		jPanel2.add(jLabel2, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveAbility, gridBagConstraints);
 
 		jLabel3.setText("Magic Modifier");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 5);
 		jPanel2.add(jLabel3, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveMagic, gridBagConstraints);
 
 		jLabel4.setText("Misc Modifier");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 5);
 		jPanel2.add(jLabel4, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 5;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveMisc, gridBagConstraints);
 
 		jLabel5.setText("Temp Modifier");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 5);
 		jPanel2.add(jLabel5, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveTemp, gridBagConstraints);
 
 		jLabel6.setText("Total");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 7;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 5);
 		jPanel2.add(jLabel6, gridBagConstraints);
 
-		saveTotal.setBackground(new java.awt.Color(204, 204, 204));
+		saveTotal.setBackground(new Color(204, 204, 204));
 		saveTotal.setEditable(false);
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 7;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		jPanel2.add(saveTotal, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 6;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 2);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 2);
 		jPanel2.add(saveTempSlider, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 2);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 2);
 		jPanel2.add(saveMagicSlider, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		jPanel2.add(saveDC, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 5, 0, 2);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(10, 5, 0, 2);
 		jPanel2.add(saveDCSlider, gridBagConstraints);
 
 		jLabel7.setText("Difficulty Class");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 9;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(10, 5, 0, 5);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(10, 5, 0, 5);
 		jPanel2.add(jLabel7, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = 1;
-		gridBagConstraints.insets = new java.awt.Insets(0, 10, 0, 10);
+		gridBagConstraints.insets = new Insets(0, 10, 0, 10);
 		jPanel2.add(jLabel8, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 8;
 		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.insets = new java.awt.Insets(0, 2, 0, 0);
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.insets = new Insets(0, 2, 0, 0);
 		jPanel2.add(jSeparator1, gridBagConstraints);
 
 		jLabel9.setText("Save Type");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 0);
 		jPanel2.add(jLabel9, gridBagConstraints);
 
-		jPanel3.setLayout(new java.awt.FlowLayout(java.awt.FlowLayout.LEFT));
+		jPanel3.setLayout(new FlowLayout(FlowLayout.LEFT));
 
 		fortitudeSelection.setText("Fortitude");
 		saveTypeGroup.add(fortitudeSelection);
@@ -854,21 +875,21 @@ public class SavingThrowDialog extends javax.swing.JDialog
 
 		jPanel3.add(willSelection);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = 10;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 0, 2);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 5, 0, 2);
 		jPanel2.add(jPanel3, gridBagConstraints);
 
-		characterName.setFont(new java.awt.Font("Dialog", 1, 14));
+		characterName.setFont(new Font("Dialog", 1, 14));
 		characterName.setText(" ");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = 0;
 		gridBagConstraints.gridwidth = 3;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
-		gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 5, 10, 0);
 		jPanel2.add(characterName, gridBagConstraints);
 
 		saveAbility.addKeyListener(new EnterKeyAdapter());
@@ -879,7 +900,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 		saveTemp.addKeyListener(new EnterKeyAdapter());
 		saveTotal.addKeyListener(new EnterKeyAdapter());
 
-		getContentPane().add(jPanel2, java.awt.BorderLayout.WEST);
+		getContentPane().add(jPanel2, BorderLayout.WEST);
 
 		pack();
 	}
@@ -890,7 +911,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * <p>Cancels the dialog.</p>
 	 * @param evt
 	 */
-	private void cancelButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void cancelButtonActionPerformed(ActionEvent evt)
 	{
 		retValue = CANCEL_OPTION;
 		setVisible(false);
@@ -902,7 +923,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * <p>Closes the dialog</p>
 	 * @param evt
 	 */
-	private void closeDialog(java.awt.event.WindowEvent evt)
+	private void closeDialog(WindowEvent evt)
 	{
 		setVisible(false);
 		dispose();
@@ -913,7 +934,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * <p>"Fails" the save and cancels the dialog.</p>
 	 * @param evt
 	 */
-	private void failButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void failButtonActionPerformed(ActionEvent evt)
 	{
 		updateModel();
 		retValue = FAIL_OPTION;
@@ -925,7 +946,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * <p>"Passes" the save and closes the dialog.</p>
 	 * @param evt
 	 */
-	private void passButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void passButtonActionPerformed(ActionEvent evt)
 	{
 		updateModel();
 		retValue = PASS_OPTION;
@@ -938,7 +959,7 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * <p>Rolls the save, passes or fails, and closes the dialog.</p>
 	 * @param evt
 	 */
-	private void rollButtonActionPerformed(java.awt.event.ActionEvent evt)
+	private void rollButtonActionPerformed(ActionEvent evt)
 	{
 		roll();
 	}
@@ -949,17 +970,17 @@ public class SavingThrowDialog extends javax.swing.JDialog
 	 * </p>
 	 * @param evt
 	 */
-	private void saveSelectedActionPerformed(java.awt.event.ActionEvent evt)
+	private void saveSelectedActionPerformed(ActionEvent evt)
 	{
 		setDefaults(getSaveType());
 	}
 
-	private class EnterKeyAdapter extends java.awt.event.KeyAdapter
+	private class EnterKeyAdapter extends KeyAdapter
 	{
         @Override
-		public void keyReleased(java.awt.event.KeyEvent evt)
+		public void keyReleased(KeyEvent evt)
 		{
-			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+			if (evt.getKeyCode() == KeyEvent.VK_ENTER)
 			{
 				roll();
 			}

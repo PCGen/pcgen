@@ -42,7 +42,7 @@ public class SizeToken extends AbstractExportToken
 	}
 
 	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
+	 * @see pcgen.io.exporttoken.Token#getToken(String, pcgen.core.PlayerCharacter, ExportHandler)
 	 */
 	@Override
 	public String getToken(String tokenSource, CharacterDisplay display,

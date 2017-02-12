@@ -53,7 +53,6 @@ public class IsgamemodeCommand extends PCGenCommand
 	 */
 	public IsgamemodeCommand()
 	{
-		super();
 		numberOfParameters = 1;
 	}
 

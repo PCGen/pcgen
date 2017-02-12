@@ -27,38 +27,53 @@ import pcgen.core.SettingsHandler;
 import plugin.initiative.InitiativePlugin;
 
 import javax.swing.BorderFactory;
+import javax.swing.JButton;
+import javax.swing.JCheckBox;
+import javax.swing.JDialog;
 import javax.swing.JFormattedTextField;
+import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.JSlider;
+import javax.swing.JTextField;
+
 import java.awt.BorderLayout;
 import java.awt.Dimension;
+import java.awt.Frame;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+import java.awt.Insets;
 import java.awt.event.ActionEvent;
+import java.awt.event.KeyAdapter;
+import java.awt.event.KeyEvent;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 
 /**
  *@author     devon
  */
-public class StartEvent extends javax.swing.JDialog
+public class StartEvent extends JDialog
 {
 
 	/**  The initiative panel */
 	protected JPanel mainPanel;
 	/** initiative */
 	public Initiative initiative;
-	protected javax.swing.JButton bCancel;
-	protected javax.swing.JButton bSave;
-	protected javax.swing.JCheckBox cbAlert;
-	protected javax.swing.JLabel nameLabel;
-	protected javax.swing.JLabel playerLabel;
-	protected javax.swing.JLabel durationLabel;
+	protected JButton bCancel;
+	protected JButton bSave;
+	protected JCheckBox cbAlert;
+	protected JLabel nameLabel;
+	protected JLabel playerLabel;
+	protected JLabel durationLabel;
 
-	protected javax.swing.JLabel effectLabel;
-	protected javax.swing.JLabel initiativeLabel;
-	protected javax.swing.JSlider sDuration;
-	protected javax.swing.JSlider sInit;
+	protected JLabel effectLabel;
+	protected JLabel initiativeLabel;
+	protected JSlider sDuration;
+	protected JSlider sInit;
 	protected JFormattedTextField lDuration;
 	protected JFormattedTextField lInit;
-	protected javax.swing.JTextField tEffect;
-	protected javax.swing.JTextField tName;
-	protected javax.swing.JTextField tPlayer;
+	protected JTextField tEffect;
+	protected JTextField tName;
+	protected JTextField tPlayer;
 
 	protected String sTitle = "Start Event Timer";
 	protected String sAlertLabel = "Alert when event Completes/Occurs";
@@ -72,7 +87,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  modal       is modal?
 	 *@param  initiative  Initiative panel
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal,
+	public StartEvent(Frame parent, boolean modal,
 		Initiative initiative)
 	{
 		super(parent, modal);
@@ -91,7 +106,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *@param  player      player name
 	 *@param  init        player's initiative
 	 */
-	public StartEvent(java.awt.Frame parent, boolean modal,
+	public StartEvent(Frame parent, boolean modal,
 		Initiative initiative, String player, int init)
 	{
 		super(parent, modal);
@@ -167,7 +182,7 @@ public class StartEvent extends javax.swing.JDialog
 	 *
 	 *@param  evt  close event
 	 */
-	protected void closeDialog(java.awt.event.WindowEvent evt)
+	protected void closeDialog(WindowEvent evt)
 	{
 		setVisible(false);
 		dispose();
@@ -207,15 +222,15 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addButtons()
 	{
-		bSave = new javax.swing.JButton();
-		bCancel = new javax.swing.JButton();
+		bSave = new JButton();
+		bCancel = new JButton();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		//Buttons
 		bSave.setText("Save");
 		bSave.addActionListener(this::saveAndClose);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
 		//gridBagConstraints.insets = new java.awt.Insets(0, 5, 10, 0);
@@ -224,35 +239,35 @@ public class StartEvent extends javax.swing.JDialog
 		bCancel.setText("Cancel");
 		bCancel.addActionListener(this::cancelAndClose);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHEAST;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHEAST;
 		mainPanel.add(bCancel, gridBagConstraints);
 		gridBagRow++;
 	}
 
 	protected void addEffect()
 	{
-		effectLabel = new javax.swing.JLabel();
-		tEffect = new javax.swing.JTextField();
+		effectLabel = new JLabel();
+		tEffect = new JTextField();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		effectLabel.setText("Effect");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		mainPanel.add(effectLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		mainPanel.add(tEffect, gridBagConstraints);
 
 		tEffect.addKeyListener(new EnterKeyAdapter());
@@ -261,16 +276,16 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addAlert()
 	{
-		cbAlert = new javax.swing.JCheckBox();
+		cbAlert = new JCheckBox();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		cbAlert.setText(sAlertLabel);
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		mainPanel.add(cbAlert, gridBagConstraints);
 
 		cbAlert.addKeyListener(new EnterKeyAdapter());
@@ -279,32 +294,32 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addInitiative()
 	{
-		initiativeLabel = new javax.swing.JLabel();
+		initiativeLabel = new JLabel();
 		sInit = Utils.buildSlider(1, 50);
 		lInit = Utils.buildIntegerFieldWithSlider(sInit);
 		lInit.setValue(1);
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		initiativeLabel.setText("Initiative");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 5, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 0, 5, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		mainPanel.add(initiativeLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		mainPanel.add(sInit, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		mainPanel.add(lInit, gridBagConstraints);
 		lInit.setMinimumSize(new Dimension(lInit.getPreferredSize().width,
 			lInit.getPreferredSize().height));
@@ -315,34 +330,34 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addDuration()
 	{
-		durationLabel = new javax.swing.JLabel();
+		durationLabel = new JLabel();
 		sDuration = Utils.buildSlider(1, 50);
 		lDuration = Utils.buildIntegerFieldWithSlider(sDuration);
 		lDuration.setValue(1);
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		durationLabel.setText("Duration");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		mainPanel.add(durationLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 2;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.ipadx = -80;
 		gridBagConstraints.ipady = 4;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		mainPanel.add(sDuration, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTHWEST;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.anchor = GridBagConstraints.NORTHWEST;
 		mainPanel.add(lDuration, gridBagConstraints);
 		lDuration.setMinimumSize(new Dimension(
 			lDuration.getPreferredSize().width,
@@ -354,25 +369,25 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addPlayer()
 	{
-		playerLabel = new javax.swing.JLabel();
-		tPlayer = new javax.swing.JTextField();
+		playerLabel = new JLabel();
+		tPlayer = new JTextField();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		playerLabel.setText("Player");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		mainPanel.add(playerLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.ipadx = 37;
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		mainPanel.add(tPlayer, gridBagConstraints);
 
 		tPlayer.addKeyListener(new EnterKeyAdapter());
@@ -381,17 +396,17 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void basicSetup()
 	{
-		mainPanel = new JPanel(new java.awt.GridBagLayout());
+		mainPanel = new JPanel(new GridBagLayout());
 		mainPanel.setBorder(BorderFactory.createEmptyBorder(5, 5, 5, 5));
 		getContentPane().setLayout(new BorderLayout());
 		getContentPane().add(mainPanel, BorderLayout.CENTER);
 
 		setTitle(sTitle);
 
-		addWindowListener(new java.awt.event.WindowAdapter()
+		addWindowListener(new WindowAdapter()
 		{
             @Override
-			public void windowClosing(java.awt.event.WindowEvent evt)
+			public void windowClosing(WindowEvent evt)
 			{
 				closeDialog(evt);
 			}
@@ -400,26 +415,26 @@ public class StartEvent extends javax.swing.JDialog
 
 	protected void addName()
 	{
-		nameLabel = new javax.swing.JLabel();
-		tName = new javax.swing.JTextField();
+		nameLabel = new JLabel();
+		tName = new JTextField();
 
-		java.awt.GridBagConstraints gridBagConstraints;
+		GridBagConstraints gridBagConstraints;
 		nameLabel.setText("Name");
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 0;
 		gridBagConstraints.gridy = gridBagRow;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 10, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.WEST;
+		gridBagConstraints.insets = new Insets(0, 0, 10, 0);
+		gridBagConstraints.anchor = GridBagConstraints.WEST;
 		mainPanel.add(nameLabel, gridBagConstraints);
 
-		gridBagConstraints = new java.awt.GridBagConstraints();
+		gridBagConstraints = new GridBagConstraints();
 		gridBagConstraints.gridx = 1;
 		gridBagConstraints.gridy = gridBagRow;
 		gridBagConstraints.gridwidth = 2;
-		gridBagConstraints.fill = java.awt.GridBagConstraints.HORIZONTAL;
+		gridBagConstraints.fill = GridBagConstraints.HORIZONTAL;
 		gridBagConstraints.ipadx = 37;
-		gridBagConstraints.insets = new java.awt.Insets(0, 0, 0, 0);
-		gridBagConstraints.anchor = java.awt.GridBagConstraints.NORTH;
+		gridBagConstraints.insets = new Insets(0, 0, 0, 0);
+		gridBagConstraints.anchor = GridBagConstraints.NORTH;
 		mainPanel.add(tName, gridBagConstraints);
 
 		tName.addKeyListener(new EnterKeyAdapter());
@@ -427,12 +442,12 @@ public class StartEvent extends javax.swing.JDialog
 		gridBagRow++;
 	}
 
-	protected class EnterKeyAdapter extends java.awt.event.KeyAdapter
+	protected class EnterKeyAdapter extends KeyAdapter
 	{
         @Override
-		public void keyReleased(java.awt.event.KeyEvent evt)
+		public void keyReleased(KeyEvent evt)
 		{
-			if (evt.getKeyCode() == java.awt.event.KeyEvent.VK_ENTER)
+			if (evt.getKeyCode() == KeyEvent.VK_ENTER)
 			{
 				save();
 			}
