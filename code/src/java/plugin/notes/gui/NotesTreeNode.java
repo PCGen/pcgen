@@ -827,8 +827,6 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 			num++;
 		}
-
-		return null;
 	}
 
 	/** Create a new child named "New Node (n)", and create it's directory.
