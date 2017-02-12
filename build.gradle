@@ -13,6 +13,8 @@
  * Author: James Dempsey
  */
 
+import org.apache.tools.ant.taskdefs.condition.Os
+
 plugins {
     id 'application'
     id 'build-dashboard'
@@ -21,6 +23,7 @@ plugins {
     id 'java'
     id 'maven'
     id 'pmd'
+
 
     id "de.undercouch.download" version "3.2.0"
     id 'edu.sc.seis.launch4j' version '2.1.0'
@@ -236,6 +239,15 @@ task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
     rename "(.+)-$version(.+)", '$1$2'
 }
 
+task unixLineEndings( type: Exec) {
+    if(Os.isFamily(Os.FAMILY_WINDOWS)){
+        workingDir "$projectDir/code/sbin"
+        commandLine "fromdos", "$projectDir/code/pcgen.sh"
+    }else if(Os.isFamily(Os.FAMILY_UNIX)){
+        commandLine "dos2unix", "$projectDir/code/pcgen.sh"
+    }
+}
+
 task syncLibsToRoot(type: Sync, dependsOn: [copyToLibs, jar, converterJar]) {
     outputs.dir("$projectDir/libs")
     inputs.files(fileTree("$buildDir/libs"))
@@ -322,7 +334,7 @@ task inttest(type: Test, dependsOn: 'jar') {
 
     // Report each test as it is started.
     beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
+        logger.lifecycle("Running test: " + descriptor)
     }
 }
 
@@ -338,7 +350,7 @@ task pfinttest(type: Test, dependsOn: 'jar') {
 
     // Report each test as it is started.
     beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
+        logger.lifecycle("Running test: " + descriptor)
     }
 }
 
@@ -354,7 +366,7 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
 
     // Report each test as it is started.
     beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
+        logger.lifecycle("Running test: " + descriptor)
     }
 }
 
@@ -370,7 +382,7 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 
     // Report each test as it is started.
     beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
+        logger.lifecycle("Running test: " + descriptor)
     }
 }
 
