@@ -379,7 +379,7 @@ task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.14.1'
+    gradleVersion = '3.3'
 }
 
 //Disable failing on javadoc warning
