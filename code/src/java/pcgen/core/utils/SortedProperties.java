@@ -1,6 +1,4 @@
 /*
- *  SortedProperties.java
- *
  *  This library is free software; you can redistribute it and/or
  *  modify it under the terms of the GNU Lesser General Public
  *  License as published by the Free Software Foundation; either
@@ -14,23 +12,22 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on November 07, 2003, 2:15 AM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core.utils;
 
-import pcgen.util.Logging;
+import java.io.BufferedWriter;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStreamWriter;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Properties;
+import java.util.TreeMap;
 
-import java.io.*;
-import java.util.*;
+import pcgen.util.Logging;
 
 /**
  * An subclass of Properties whose output is sorted
- *
- * @author Jayme Cox &lt;jaymecox@users.sourceforge.net&gt;
  */
 public class SortedProperties extends Properties
 {
@@ -50,9 +47,8 @@ public class SortedProperties extends Properties
 	public void mystore(final FileOutputStream out, final String header)
 	{
 		BufferedWriter bw = null;
-		final SortedMap<Object, Object> aMap = new TreeMap<>(this);
+		final Map<Object, Object> aMap = new TreeMap<>(this);
 		final Iterator<Map.Entry<Object, Object>> entries = aMap.entrySet().iterator();
-		Map.Entry<Object, Object> entry;
 
 		try
 		{
@@ -62,11 +58,11 @@ public class SortedProperties extends Properties
 
 			while (entries.hasNext())
 			{
-				entry = entries.next();
+				Map.Entry<Object, Object> entry = entries.next();
 
 				// The following characters must be escaped:
 				// #, !, = and :
-				final String aString = fixUp((String) entry.getValue());
+				final String aString = fixUp((CharSequence) entry.getValue());
 				bw.write(convertStringToKey((String) entry.getKey()) + "=" + aString);
 				bw.newLine();
 			}
@@ -102,7 +98,7 @@ public class SortedProperties extends Properties
 		}
 	}
 
-	private static String fixUp(final String aString)
+	private static String fixUp(final CharSequence aString)
 	{
 		final StringBuilder ab = new StringBuilder(aString.length());
 
