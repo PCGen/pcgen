@@ -92,8 +92,7 @@ public class NotesPlugin implements InteractivePlugin
 
 	public static FileFilter getFileType()
 	{
-		String fileExt = EXTENSION_NOTES;
-		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"), fileExt); //$NON-NLS-1$
+		return new FileNameExtensionFilter(LanguageBundle.getString("in_plugin_notes_file"), EXTENSION_NOTES);
 	}
 
 	/**
@@ -187,7 +186,7 @@ public class NotesPlugin implements InteractivePlugin
 	 * @param evt
 	 *          Action Event of a click on the tool menu item
 	 */
-	private void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -267,7 +266,7 @@ public class NotesPlugin implements InteractivePlugin
 	{
 		notesToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_notes_name")); //$NON-NLS-1$
 		notesToolsItem.setText(getLocalizedName());
-		notesToolsItem.addActionListener(this::toolMenuItem);
+		notesToolsItem.addActionListener(NotesPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 

@@ -21,24 +21,20 @@
  */
 package plugin.experience;
 
+import java.util.List;
+
+import pcgen.system.LanguageBundle;
+
 import gmgen.plugin.Combatant;
 import gmgen.plugin.SystemHP;
 import gmgen.plugin.SystemInitiative;
 import org.jdom2.Element;
-
-import pcgen.system.LanguageBundle;
-
-import java.util.List;
 
 /**
  *@author     devon
  */
 public class DefeatedCombatant extends Combatant
 {
-	/*
-	 *  History:
-	 *  March 20, 2003: Cleanup for Version 1.0
-	 */
 	protected String name;
 	protected float cr;
 	protected int xp;

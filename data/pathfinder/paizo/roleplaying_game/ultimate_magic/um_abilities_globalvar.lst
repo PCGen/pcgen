@@ -12,7 +12,7 @@ CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Cantrips|
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spellstrike|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellstrike|PREVARGTEQ:Magus_CFP_Level,2
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Magus Arcana|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusArcana|PREVARGTEQ:Magus_CFP_Level,3
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Spell Recall|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusSpellRecall|PREVARGTEQ:Magus_CFP_Level,4
-CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Bonus Feats|PREVARGTEQ:Magus_CFP_Level,5
+CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Bonus Feats|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusBonusFeats|PREVARGTEQ:Magus_CFP_Level,5
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Knowledge Pool|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusKnowledgePool|PREVARGTEQ:Magus_CFP_Level,7
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Improved Spell Combat|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusImprovedSpellCombat|PREVARGTEQ:Magus_CFP_Level,8
 CATEGORY=Class|Magus.MOD	ABILITY:Magus Class Feature|AUTOMATIC|Magus ~ Fighter Training|!PREABILITY:1,CATEGORY=Archetype,TYPE.MagusFighterTraining|PREVARGTEQ:Magus_CFP_Level,10

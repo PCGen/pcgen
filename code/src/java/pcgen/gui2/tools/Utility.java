@@ -1,7 +1,5 @@
 /*
- * CoreUtility.java
- * Copyright 2002-2003 (C) B. K. Oxley (binkley)
- * <binkley@alumni.rice.edu>
+ * Copyright 2002-2003 (C) B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  *
  * This library is free software; you can redistribute it and/or
  * modify it under the terms of the GNU Lesser General Public License
@@ -17,8 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
- *
- * Created on Februrary 4th, 2002.
  */
 package pcgen.gui2.tools;
 
@@ -56,11 +52,10 @@ import pcgen.system.PCGenSettings;
 
 import org.apache.commons.lang3.SystemUtils;
 import org.jetbrains.annotations.Contract;
+import org.jetbrains.annotations.Nullable;
 
 /**
  * Convenience methods from various sources.
- *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class Utility
 {
@@ -321,11 +316,7 @@ public final class Utility
 			                     "never");
 		}
 
-		if (PCGenSettings.getBrowserPath() == null)
-		{
-			//No action, as we have no idea what a good default would be...
-		}
-		else
+		if (PCGenSettings.getBrowserPath() != null)
 		{
 			fc.setCurrentDirectory(new File(PCGenSettings.getBrowserPath()));
 		}
@@ -468,14 +459,18 @@ public final class Utility
 	}
 
 	/**
-	 * This method is used to set the name of the application for the window manager, especially X11.
+	 * This method is used to set the name of the application for the window manager
 	 *
 	 * @param title Title to use
 	 */
 	public static void setApplicationTitle(String title)
 	{
-		Toolkit xToolkit = Toolkit.getDefaultToolkit();
+		// macOS
+		System.setProperty("com.apple.mrj.application.apple.menu.about.name", title);
+		System.setProperty("apple.awt.application.name", title);
 
+		// X11
+		Toolkit xToolkit = Toolkit.getDefaultToolkit();
 		try
 		{
 			Field awtAppClassNameField =
@@ -488,6 +483,16 @@ public final class Utility
 			// Rather than do a OS system condition, just ignore this expected exception
 			//Logging.log(Level.FINEST, "Can not set name of application for window manager", e);
 		}
+	}
+
+	public static void configurePlatformUI()
+	{
+		System.setProperty("com.apple.macos.useScreenMenuBar", "true");
+		System.setProperty("apple.laf.useScreenMenuBar", "true");
+		System.setProperty("com.apple.macos.use-file-dialog-packages", "true");
+		System.setProperty("com.apple.mrj.application.growbox.intrudes", "false");
+		System.setProperty("com.apple.mrj.application.live-resize", "true");
+		System.setProperty("apple.awt.brushMetalLook", "true");
 	}
 
 	/**
@@ -521,7 +526,7 @@ public final class Utility
 	 * @return the tabbed pane for a component
 	 */
 	@Contract("null -> null")
-	public static JTabbedPane getTabbedPaneFor(Component c)
+	public static @Nullable JTabbedPane getTabbedPaneFor(Component c)
 	{
 		if (c == null)
 		{

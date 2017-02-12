@@ -320,7 +320,7 @@ else {
                     }xmsi,
                 ]
             },
-            # For the pdf export, we need the fop, jdom and xml-apis librairies
+            # For the pdf export, we need the fop, and jdom librairies
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/plugin/pdf/lib",
                 files_to_keep_ref   => [
                     # files

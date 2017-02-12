@@ -15,27 +15,12 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  Created on May 24, 2003
  */
 package gmgen;
 
-import gmgen.gui.PreferencesDialog;
-import gmgen.gui.PreferencesRootTreeNode;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
-import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
-import gmgen.pluginmgr.messages.EditMenuPasteSelectionMessage;
-import gmgen.pluginmgr.messages.FileMenuNewMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-import gmgen.util.LogUtilities;
-
 import java.awt.BorderLayout;
 import java.awt.Frame;
+import java.awt.Window;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.awt.event.WindowAdapter;
@@ -53,8 +38,6 @@ import javax.swing.event.ChangeListener;
 import javax.swing.event.MenuEvent;
 import javax.swing.event.MenuListener;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.core.SettingsHandler;
 import pcgen.gui2.PCGenActionMap;
 import pcgen.gui2.tools.CommonMenuText;
@@ -69,6 +52,21 @@ import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 import pcgen.util.SwingWorker;
+
+import gmgen.gui.PreferencesDialog;
+import gmgen.gui.PreferencesRootTreeNode;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.EditMenuCopySelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuCutSelectionMessage;
+import gmgen.pluginmgr.messages.EditMenuPasteSelectionMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddPreferencesPanelMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
+import gmgen.util.LogUtilities;
+import org.apache.commons.lang3.SystemUtils;
 
 
 /**
@@ -108,9 +106,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     // The main <code>JPanel</code> view for the system.
     private GMGenSystemView theView;
 
-    /** {@code true} if this is a Mac OS X system. */
-    private static final boolean MAC_OS_X = SystemUtils.IS_OS_MAC_OSX;
-    
     /** GMGen Application name */
     public static final String APPLICATION_NAME = "GMGen"; //$NON-NLS-1$
 
@@ -171,8 +166,10 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     private void initialize() {
-        if (MAC_OS_X) {
-            initialiseMacOS();
+        Utility.configurePlatformUI();
+
+        if (SystemUtils.IS_OS_MAC_OSX) {
+            macOSXRegistration();
         }
         Utility.setApplicationTitle(APPLICATION_NAME);
 
@@ -187,21 +184,6 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         messageHandler.handleMessage(new RequestFileOpenedMessageForCurrentlyOpenedPCsMessage(this));
         messageHandler.handleMessage(new FocusOrStateChangeOccurredMessage(this, editMenu));
         inst.setVisible(true);
-    }
-
-    /*
-     * Fixes for Mac OS X look-and-feel menu problems.sk4p 12 Dec 2002
-     */
-    // TODO factorize. PCGen must be doing the same thing.
-    private void initialiseMacOS() {
-        System.setProperty("com.apple.mrj.application.growbox.intrudes",  //$NON-NLS-1$
-                "false"); //$NON-NLS-1$
-        System.setProperty("com.apple.mrj.application.live-resize", "false"); //$NON-NLS-1$ //$NON-NLS-2$
-        System.setProperty("com.apple.macos.smallTabs", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-        System.setProperty("apple.laf.useScreenMenuBar", "true"); //$NON-NLS-1$ //$NON-NLS-2$
-        System.setProperty("com.apple.mrj.application.apple.menu.about.name", //$NON-NLS-1$
-                APPLICATION_NAME);
-        macOSXRegistration();
     }
 
     /**
@@ -242,20 +224,21 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     /**
      * Clears the edit menu to allow a plugin to populate it.
      */
-    public void clearEditMenu() {
+    private void clearEditMenu() {
         editMenu.removeAll();
 
-        /**
+        /*
          * Preferences on the Macintosh is in the application menu. See
          * macOSXRegistration()
          */
-        if (!MAC_OS_X) {
+        if (!SystemUtils.IS_OS_MAC_OSX) {
             editMenu.add(editSeparator1);
             CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
             editMenu.add(preferencesEditItem);
             preferencesEditItem.setEnabled(true);
             ActionListener[] listenerArray = preferencesEditItem
                     .getActionListeners();
+
 
             for (final ActionListener aListenerArray : listenerArray)
             {
@@ -524,7 +507,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         editMenu.add(pasteEditItem);
 
         // Preferences... on MAC OS X is in the application menu. See macOSXRegistration()
-        if (!MAC_OS_X) {
+        if (!SystemUtils.IS_OS_MAC_OSX) {
             editMenu.add(editSeparator1);
 
             CommonMenuText.name(preferencesEditItem, PCGenActionMap.MNU_TOOLS_PREFERENCES);
@@ -563,7 +546,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
         createFileSaveMenuItem();
 
         // Exit is quit on the Macintosh is in the application menu. See macOSXRegistration()
-        if (!MAC_OS_X) {
+        if (!SystemUtils.IS_OS_MAC_OSX) {
             exitForMacOSX();
         }
 
@@ -681,7 +664,7 @@ public final class GMGenSystem extends JFrame implements ChangeListener,
     }
 
     private void mPreferencesActionPerformed(ActionEvent event) {
-        PreferencesDialog dialog = new PreferencesDialog(this, true, rootNode);
+        Window dialog = new PreferencesDialog(this, true, rootNode);
         dialog.setVisible(true);
     }
 

@@ -22,12 +22,13 @@
  */
 package gmgen.plugin;
 
-import org.jdom2.Element;
-import pcgen.util.Logging;
-
 import java.text.MessageFormat;
 import java.util.List;
 import java.util.Vector;
+
+import pcgen.util.Logging;
+
+import org.jdom2.Element;
 
 /**
  *@author     devon
@@ -376,7 +377,7 @@ public class Event implements InitHolder
 	 * @param init
 	 * @param alert
 	 */
-	protected final void setValues(String name, String player, State status, String effect, int duration, int init,
+	final void setValues(String name, String player, State status, String effect, int duration, int init,
 		boolean alert)
 	{
 		this.name = name;

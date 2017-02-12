@@ -38,14 +38,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 		converter = conv;
 	}
 
-	private static final PrimitiveFilter PREVENT = new PrimitiveFilter()
-	{
-		@Override
-		public boolean allow(PlayerCharacter pc, Object obj)
-		{
-			return false;
-		}
-	};
+	private static final PrimitiveFilter PREVENT = (pc, obj) -> false;
 
 	@Override
 	public Collection<? extends R> convert(ObjectContainer<B> orig)
@@ -64,7 +57,7 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 
 		private final PrimitiveFilter<T> filter;
 
-		public InvertingFilter(PrimitiveFilter<T> fil)
+		private InvertingFilter(PrimitiveFilter<T> fil)
 		{
 			if (fil == null)
 			{
@@ -85,8 +78,6 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	/**
 	 * Returns the consistent-with-equals hashCode for this
 	 * NegateFilterConverter
-	 * 
-	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
 	public int hashCode()
@@ -98,8 +89,6 @@ public class NegateFilterConverter<B, R> implements Converter<B, R>
 	 * Returns true if this NegateFilterConverter is equal to the given Object.
 	 * Equality is defined as being another NegateFilterConverter object with
 	 * equal underlying contents.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
 	public boolean equals(Object obj)

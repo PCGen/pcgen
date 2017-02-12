@@ -19,6 +19,7 @@ package pcgen.cdom.base;
 
 import pcgen.rules.context.LoadContext;
 
+@FunctionalInterface
 public interface DataSetInitializedFacet
 {
 	public void initialize(LoadContext context);

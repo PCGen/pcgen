@@ -23,7 +23,6 @@ package pcgen.gui2.plaf;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -35,12 +34,11 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
+
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -82,26 +80,12 @@ public final class LookAndFeelManager
             //the rest don't matter
             return 0;
         };
+
+
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
 		Arrays.sort(lafInfo, lafcomp);
-		if (!SystemUtils.IS_OS_WINDOWS)
-		{
-			// Replace the broken Windows L&F which will
-			// only run on M$ platforms with one that will
-			// run everywhere.  No difference otherwise.
-			for (int i = 0; i < lafInfo.length; ++i)
-			{
-				if (lafInfo[i].getClassName().endsWith("WindowsLookAndFeel")) //$NON-NLS-1$
-				{
-					lafInfo[i] =
-							new UIManager.LookAndFeelInfo(lafInfo[i].getName(),
-								"pcgen.gui2.plaf.FakeWindowsLookAndFeel"); //$NON-NLS-1$
-					break;
-				}
-			}
 
-		}
 		int length = lafInfo.length;
 		if (HAS_SKIN_LAF)
 		{
@@ -144,11 +128,9 @@ public final class LookAndFeelManager
 		UIManager.setInstalledLookAndFeels(lafInfo);
 	}
 
-	private static String selectedLookAndFeel = null;
 	private static String selectedTheme = null;
 	private static String currentTheme = null;
 	private static String currentLAF = null;
-	private String oldThemePack = null;
 
 	private LookAndFeelManager()
 	{
@@ -177,7 +159,7 @@ public final class LookAndFeelManager
 		currentLAF = "Java";
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		LookAndFeelInfo nimbus = getNimbusLaf();
-		if (screenSize.height > 800 &&  nimbus != null)
+		if (screenSize.height > 800 && nimbus != null)
 		{
 			currentLAF = nimbus.getName();
 		}
@@ -190,24 +172,16 @@ public final class LookAndFeelManager
 	private static LookAndFeelInfo getNimbusLaf()
 	{
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
-		for (LookAndFeelInfo lookAndFeelInfo : lafInfo)
-		{
-			if ("nimbus".equalsIgnoreCase(lookAndFeelInfo.getName()))
-			{
-				return lookAndFeelInfo;
-			}
-		}
-		return null;
+		return Arrays.stream(lafInfo)
+					 .filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase
+							 (lookAndFeelInfo.getName()))
+					 .findFirst()
+					 .orElse(null);
 	}
 	
 	public static Action[] getActions()
 	{
 		return lafHandlers;
-	}
-
-	public static void addThemePackListener(PropertyChangeListener listener)
-	{
-		ConfigurationSettings.getInstance().addPropertyChangeListener("selectedThemePack", listener);
 	}
 
 	public static String getCurrentThemePack()

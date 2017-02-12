@@ -42,7 +42,6 @@ ext {
             exclude 'pcgen-*.jar'
             exclude 'skinlf*.jar'
             exclude 'fop*.jar'
-            exclude 'xerces*.jar'
             exclude 'batik*.jar'
         }
         into ('/libs')
@@ -51,7 +50,6 @@ ext {
     pdfLibs = copySpec {
         from("${buildDir}/libs") {
             include 'fop*.jar'
-            include 'xerces*.jar'
             include 'batik*.jar'
         }
         into ('/plugin/pdf/libs')
@@ -228,7 +226,7 @@ task layoutNsisOptional(type: Copy, dependsOn: copyToRoot) {
 // Generate the publisher/data list for the Windows installer script
 task genDataList << {
     new ByteArrayOutputStream().withStream { os ->
-        def result = exec {
+        exec {
             workingDir = "${projectDir}/installers/win-installer"
             executable = 'perl'
             args = ['gendatalist.pl']
