@@ -32,8 +32,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author jayme cox &lt;jaymecox@users.sourceforge.net&gt;
  *
  */
-public class PreWieldTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreWieldTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

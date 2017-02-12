@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreEquipTwoWeaponTester extends PreEquippedTester implements PrerequisiteTest
+public class PreEquipTwoWeaponTester extends PreEquippedTester
 {
 
 	/* (non-Javadoc)

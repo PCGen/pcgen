@@ -42,7 +42,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreEquipTester extends AbstractPrerequisiteTest
 {
 
 	/*

@@ -37,8 +37,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreUnarmedAttackTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreUnarmedAttackTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

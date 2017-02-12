@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpecialAbilityTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSpecialAbilityTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

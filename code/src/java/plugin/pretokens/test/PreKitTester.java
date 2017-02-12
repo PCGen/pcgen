@@ -37,7 +37,7 @@ import pcgen.system.LanguageBundle;
  *
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
-public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreKitTester extends AbstractDisplayPrereqTest
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;

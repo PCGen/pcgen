@@ -35,8 +35,7 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreSkillSitTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSkillSitTester extends AbstractPrerequisiteTest
 {
 
 	@Override

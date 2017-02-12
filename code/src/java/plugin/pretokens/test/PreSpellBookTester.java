@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author wardc
  *
  */
-public class PreSpellBookTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreSpellBookTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

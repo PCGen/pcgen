@@ -36,8 +36,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreHPTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreHPTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

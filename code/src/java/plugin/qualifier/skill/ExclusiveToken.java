@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 public class ExclusiveToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 {
 
-	private PrimitiveCollection<Skill> pcs = null;
+	private PrimitiveCollection<Skill> pcs;
 
 	private boolean wasRestricted = false;
 

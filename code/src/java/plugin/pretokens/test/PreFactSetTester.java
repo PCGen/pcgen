@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
 /**
  * The Class {@code PreFactTester} is responsible for testing FACT values on an object.
  */
-public class PreFactSetTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreFactSetTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

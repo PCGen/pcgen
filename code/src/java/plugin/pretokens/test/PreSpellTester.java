@@ -45,8 +45,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpellTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -65,7 +64,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 		{
 			Logging
 				.errorPrint(LanguageBundle
-					.getString("PreSpell.error.badly_formed_attribute") + prereq.toString()); //$NON-NLS-1$
+					.getString("PreSpell.error.badly_formed_attribute") + prereq); //$NON-NLS-1$
 		}
 
 		// Build a list of all possible spells
@@ -125,7 +124,7 @@ public class PreSpellTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
+				{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpell.toHtml", args); //$NON-NLS-1$
 	}

@@ -46,7 +46,7 @@ public class EquipmentToken implements QualifierToken<ShieldProf>,
 {
 	private static final Type SHIELD_TYPE = Type.getConstant("Shield");
 
-	private PrimitiveCollection<Equipment> pcs = null;
+	private PrimitiveCollection<Equipment> pcs;
 
 	private boolean wasRestricted = false;
 

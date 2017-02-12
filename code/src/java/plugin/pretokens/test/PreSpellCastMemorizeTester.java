@@ -22,7 +22,6 @@ import pcgen.system.LanguageBundle;
  * Window - Preferences - Java - Code Generation - Code and Comments
  */
 public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
-		implements PrerequisiteTest
 {
 
 	/**
@@ -69,7 +68,7 @@ public class PreSpellCastMemorizeTester extends AbstractDisplayPrereqTest
 		final boolean prereqMemorized =
 				prereq.getKey().toUpperCase().startsWith("Y"); //$NON-NLS-1$
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
+				{prereq.getOperator().toDisplayString(),
 					prereq.getOperand()};
 
 		if (prereqMemorized)

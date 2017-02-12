@@ -36,8 +36,7 @@ import pcgen.system.LanguageBundle;
  * @author wardc
  *
  */
-public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreSpellCastTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)
@@ -81,7 +80,7 @@ public class PreSpellCastTester extends AbstractDisplayPrereqTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
+				{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle.getFormattedString("PreSpellCast.toHtml", args); //$NON-NLS-1$
 	}
