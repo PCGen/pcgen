@@ -268,7 +268,7 @@ public class JTreeTable extends JTableEx
 	 * Makes sure all the path components in path are expanded (except
 	 * for the last path component) and scrolls so that the
 	 * node identified by the path is displayed. Only works when this
-	 * {@code JTree} is contained in a <code>JScrollPane</code>.
+	 * {@code JTree} is contained in a {@code JScrollPane}.
 	 *
 	 * @param path  the {@code TreePath} identifying the node to
 	 *         bring into view
@@ -741,7 +741,7 @@ public class JTreeTable extends JTableEx
 		}
 
 		/**
-		 * If <code>updatingListSelectionModel</code> is false,
+		 * If {@code updatingListSelectionModel} is false,
 		 * this will reset the selected paths from the selected
 		 * rows in the list selection model.
 		 **/

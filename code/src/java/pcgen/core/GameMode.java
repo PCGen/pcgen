@@ -959,6 +959,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @return String the weaopn reach formula
 	 * @deprecated due to EQREACH code control
 	 */
+	@Deprecated
 	public String getWeaponReachFormula ()
 	{
 		return this.weaponReachFormula;
@@ -1286,6 +1287,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param aString	the new weapon reach formula
 	 * @deprecated due to EQREACH code control
 	 */
+	@Deprecated
 	public void setWeaponReachFormula (String aString)
 	{
 		this.weaponReachFormula = aString;

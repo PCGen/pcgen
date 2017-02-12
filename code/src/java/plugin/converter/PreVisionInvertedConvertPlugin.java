@@ -255,9 +255,8 @@ public class PreVisionInvertedConvertPlugin implements TokenProcessorPlugin
 		StringBuilder one = getPrefix(tpe, num);
 		StringBuilder any = getPrefix(tpe, num);
 		boolean needComma = false;
-		for (int i = 0; i < base.length; i++)
+		for (String tok : base)
 		{
-			String tok = base[i];
 			// need to check zero...
 
 			int equalLoc = tok.indexOf('=');

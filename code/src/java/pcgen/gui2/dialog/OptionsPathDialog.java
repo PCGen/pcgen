@@ -21,12 +21,15 @@
 package pcgen.gui2.dialog;
 
 import java.awt.Dimension;
+import java.awt.Frame;
 import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
 import java.awt.Insets;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.File;
 
+import javax.swing.AbstractButton;
 import javax.swing.ButtonGroup;
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -54,7 +57,7 @@ public class OptionsPathDialog extends JDialog
 	private final JButton dirButton;
 	private String selectedDir;
 
-	public OptionsPathDialog(JFrame frame)
+	private OptionsPathDialog(Frame frame)
 	{
 		super(frame, true);
 		this.dirField = new JTextField();
@@ -73,7 +76,7 @@ public class OptionsPathDialog extends JDialog
 		dialog.setVisible(true);
 		tempFrame.setVisible(false);
 		tempFrame.dispose();
-		return dialog.getSelectedDirectory();
+		return dialog.selectedDir;
 	}
 
 	private void initComponents()
@@ -82,7 +85,7 @@ public class OptionsPathDialog extends JDialog
 		setTitle("Directory for options.ini location");
 		setDefaultCloseOperation(WindowConstants.DO_NOTHING_ON_CLOSE);
 
-		getContentPane().setLayout(new java.awt.GridBagLayout());
+		getContentPane().setLayout(new GridBagLayout());
 		GridBagConstraints gridBagConstraints = new GridBagConstraints();
 
 		JLabel label = new JLabel("Select a directory to store PCGen options in:");
@@ -99,7 +102,7 @@ public class OptionsPathDialog extends JDialog
 		gridBagConstraints.insets = new Insets(4, 4, 4, 4);
 		getContentPane().add(label, gridBagConstraints);
 
-		ActionHandler handler = new ActionHandler();
+		ActionListener handler = new ActionHandler();
 		ButtonGroup group = new ButtonGroup();
 
 		gridBagConstraints.insets = new Insets(0, 4, 0, 4);
@@ -139,27 +142,22 @@ public class OptionsPathDialog extends JDialog
 		dirButton.setActionCommand("custom");
 		dirButton.setMargin(new Insets(2, 2, 2, 2));
 
-		gridBagConstraints = new GridBagConstraints();
-		gridBagConstraints.gridwidth = GridBagConstraints.REMAINDER;
-		gridBagConstraints.insets = new Insets(0, 0, 0, 4);
-		getContentPane().add(dirButton, gridBagConstraints);
+		GridBagConstraints bagConstraints = new GridBagConstraints();
+		bagConstraints.gridwidth = GridBagConstraints.REMAINDER;
+		bagConstraints.insets = new Insets(0, 0, 0, 4);
+		getContentPane().add(dirButton, bagConstraints);
 
 		JButton okButton = new JButton("OK");
 		okButton.setPreferredSize(new Dimension(75, 23));
 		okButton.setActionCommand("ok");
 		okButton.addActionListener(handler);
 
-		gridBagConstraints.insets = new Insets(4, 0, 4, 0);
-		getContentPane().add(okButton, gridBagConstraints);
+		bagConstraints.insets = new Insets(4, 0, 4, 0);
+		getContentPane().add(okButton, bagConstraints);
 		getRootPane().setDefaultButton(okButton);
 
 		pack();
 		setLocationRelativeTo(null);
-	}
-
-	public String getSelectedDirectory()
-	{
-		return selectedDir;
 	}
 
 	private void addRadioButton(String text, String command, ButtonGroup group,
@@ -170,7 +168,7 @@ public class OptionsPathDialog extends JDialog
 		{
 			text += " (default)"; //for i18n this will need to be handled differently
 		}
-		JRadioButton rButton = new JRadioButton(text);
+		AbstractButton rButton = new JRadioButton(text);
 		rButton.setActionCommand(command);
 		rButton.setSelected(selected);
 		rButton.addActionListener(listener);
@@ -222,7 +220,7 @@ public class OptionsPathDialog extends JDialog
 			}
 			else if (command.equals("ok"))
 			{
-				OptionsPathDialog.this.dispose();
+				dispose();
 			}
 			else
 			{

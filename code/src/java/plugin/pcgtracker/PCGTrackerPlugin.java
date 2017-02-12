@@ -30,15 +30,9 @@ import javax.swing.JFileChooser;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
+import javax.swing.filechooser.FileFilter;
+import javax.swing.filechooser.FileNameExtensionFilter;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.gui.ImagePreview;
-import gmgen.io.SimpleFileFilter;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.SettingsHandler;
@@ -55,15 +49,20 @@ import pcgen.pluginmgr.messages.RequestOpenPlayerCharacterMessage;
 import pcgen.system.LanguageBundle;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.gui.ImagePreview;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
  * the Adjusting of experience.  This class is called by the {@code GMGenSystem
  * } and will have it's own model and view.<br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
  */
 public class PCGTrackerPlugin implements InteractivePlugin,
 		java.awt.event.ActionListener
@@ -273,8 +272,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		JFileChooser chooser = new JFileChooser();
 		chooser.setCurrentDirectory(defaultFile);
 
-		String[] pcgs = new String[]{FILENAME_PCG, FILENAME_PCP};
-		SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file")); //$NON-NLS-1$
+		String[] pcgs = {FILENAME_PCG, FILENAME_PCP};
+		FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file"),
+
+                pcgs); //$NON-NLS-1$
 		chooser.addChoosableFileFilter(ff);
 		chooser.setFileFilter(ff);
 		chooser.setMultiSelectionEnabled(true);
@@ -306,7 +307,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/**
 	 * Registers all the listeners for any actions.
 	 */
-	public void initListeners()
+	private void initListeners()
 	{
 		theView.getRemoveButton().addActionListener(this);
 		theView.getSaveButton().addActionListener(this);
@@ -314,7 +315,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		theView.getLoadButton().addActionListener(this);
 	}
 
-	public void removeSelected()
+	private void removeSelected()
 	{
 		for (Object obj : theView.getLoadedList().getSelectedValuesList())
 		{
@@ -358,12 +359,13 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		{
 			JFileChooser fc =
 					ImagePreview.decorateWithImagePreview(new JFileChooser());
-			String[] pcgs = new String[]{FILENAME_PCG};
-			SimpleFileFilter ff = new SimpleFileFilter(pcgs, LanguageBundle.getString("in_pcgen_file_char")); //$NON-NLS-1$
+			String[] pcgs = {FILENAME_PCG};
+			FileFilter ff = new FileNameExtensionFilter(LanguageBundle.getString("in_pcgen_file_char"),
+                    pcgs); //$NON-NLS-1$
 			fc.setFileFilter(ff);
 			fc.setSelectedFile(prevFile);
 
-			FilenameChangeListener listener =
+			PropertyChangeListener listener =
 					new FilenameChangeListener(aPCFileName, fc);
 
 			fc.addPropertyChangeListener(listener);
@@ -441,7 +443,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -519,9 +521,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 */
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), NAME);
 	}
 
 }

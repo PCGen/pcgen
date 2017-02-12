@@ -30,6 +30,7 @@ import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Random;
 import java.util.Vector;
 
@@ -40,15 +41,6 @@ import javax.swing.JPanel;
 import javax.swing.JTabbedPane;
 import javax.swing.ListModel;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.io.ReadXML;
-import gmgen.io.VectorTable;
-import gmgen.plugin.InitHolderList;
-import gmgen.plugin.PcgCombatant;
-import gmgen.plugin.dice.Dice;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.base.FormulaFactory;
@@ -79,6 +71,15 @@ import pcgen.pluginmgr.messages.TransmitInitiativeValuesBetweenComponentsMessage
 import pcgen.system.LanguageBundle;
 import pcgen.util.Logging;
 
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.io.ReadXML;
+import gmgen.io.VectorTable;
+import gmgen.plugin.InitHolderList;
+import gmgen.plugin.PcgCombatant;
+import gmgen.plugin.dice.Dice;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.encounter.gui.EncounterView;
 
 /**
@@ -130,8 +131,7 @@ public class EncounterPlugin extends MouseAdapter
 	private PCGenMessageHandler messageHandler;
 
 	/**
-	 * Creates an instance of this class creating a new {@code InitHolderList
-	 * }.
+	 * Creates an instance of this class creating a new {@code InitHolderList}.
 	 */
 	public EncounterPlugin()
 	{
@@ -145,7 +145,7 @@ public class EncounterPlugin extends MouseAdapter
 	public void start(PCGenMessageHandler mh)
 	{
     	messageHandler = mh;
-		theModel = new EncounterModel(getDataDirectory() + File.separator + DIR_ENCOUNTER);
+		theModel = new EncounterModel();
 		theView = new EncounterView();
 		theRaces = new RaceModel();
 		theList = new InitHolderList();
@@ -195,7 +195,7 @@ public class EncounterPlugin extends MouseAdapter
 		return NAME;
 	}
 	
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(IN_NAME);
 	}
@@ -433,7 +433,7 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		encounterToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		encounterToolsItem.setText(getLocalizedName());
-		encounterToolsItem.addActionListener(this::toolMenuItem);
+		encounterToolsItem.addActionListener(EncounterPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, encounterToolsItem));
 	}
 
@@ -523,7 +523,7 @@ public class EncounterPlugin extends MouseAdapter
 	 * Tool item menu
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -539,7 +539,7 @@ public class EncounterPlugin extends MouseAdapter
 	/**
 	 * Updates all necessary items if there has been a change.
 	 */
-	public void updateUI()
+	private void updateUI()
 	{
 		int sel;
 
@@ -549,7 +549,7 @@ public class EncounterPlugin extends MouseAdapter
 		}
 
 		// Get any currently selected items in the Races list
-		ArrayList<Object> selected = new ArrayList<>();
+		List<Object> selected = new ArrayList<>();
 
 		for (int index : theView.getLibraryCreatures().getSelectedIndices())
 		{
@@ -596,7 +596,7 @@ public class EncounterPlugin extends MouseAdapter
 
 		// re-select the selected creatures only if they still exist in 
 		//	the Races list - may not if sources have been changed
-		ArrayList<Integer> stillSelected = new ArrayList<>();
+		List<Integer> stillSelected = new ArrayList<>();
 
 		for (Object obj : selected)
 		{
@@ -628,7 +628,6 @@ public class EncounterPlugin extends MouseAdapter
 	 *         file.
 	 */
 	private Vector<?> getMonsterFromTable(String table)
-		throws FileNotFoundException
 	{
 		String tablePath;
 		String tableEntry;
@@ -695,9 +694,7 @@ public class EncounterPlugin extends MouseAdapter
 
 			for (int x = 0; x < Integer.parseInt(dice[0]); x++)
 			{
-				num =
-						num.intValue()
-								+ roll.nextInt(Integer.parseInt(dice[1])) + 1;
+				num += roll.nextInt(Integer.parseInt(dice[1])) + 1;
 			}
 		}
 
@@ -708,7 +705,7 @@ public class EncounterPlugin extends MouseAdapter
 		return toReturn;
 	}
 
-	private String getNewIdPath(PlayerCharacter aPC, EquipSet eSet)
+	private static String getNewIdPath(PlayerCharacter aPC, EquipSet eSet)
 	{
 		String pid = "0";
 		int newID = 0;
@@ -740,7 +737,7 @@ public class EncounterPlugin extends MouseAdapter
 	private static List<String> getWeaponLocationChoices(int hands,
 		String multiHand)
 	{
-		ArrayList<String> result = new ArrayList<>(hands + 2);
+		List<String> result = new ArrayList<>(hands + 2);
 
 		if (hands > 0)
 		{
@@ -775,21 +772,21 @@ public class EncounterPlugin extends MouseAdapter
 		}
 	}
 
-	private EquipSet createDefaultEquipset(PlayerCharacter aPC)
+	private static EquipSet createDefaultEquipset(PlayerCharacter aPC)
 	{
 		EquipSet eSet;
 
-		if (!aPC.getDisplay().hasEquipSet())
+		if (aPC.getDisplay().hasEquipSet())
+		{
+			eSet = aPC.getDisplay().getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
+		}
+		else
 		{
 			String id = getNewIdPath(aPC, null);
 			String defaultEquipSet = "Default Set";
 			eSet = new EquipSet(id, defaultEquipSet);
 			aPC.addEquipSet(eSet);
 			Logging.debugPrint("Adding EquipSet: " + defaultEquipSet);
-		}
-		else
-		{
-			eSet = aPC.getDisplay().getEquipSetByIdPath(EquipSet.DEFAULT_SET_PATH);
 		}
 
 		return eSet;
@@ -804,19 +801,10 @@ public class EncounterPlugin extends MouseAdapter
 	{
 		Vector<?> critters;
 
-		try
-		{
-			critters = getMonsterFromTable(Environment);
-		}
-		catch (FileNotFoundException e)
-		{
-			Logging.errorPrint(e.getMessage(), e);
-
-			return;
-		}
+		critters = getMonsterFromTable(Environment);
 
 		//	If we don't find anything just return.
-		if (critters.size() < 1)
+		if (critters.isEmpty())
 		{
 			// TODO: Maybe we need a message here to inform the user that nothing was found
 			// in the currently selected environment that matches the EL criteria
@@ -911,7 +899,7 @@ public class EncounterPlugin extends MouseAdapter
 		aPC.setCalcEquipmentList();
 	}
 
-	private void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
+	private static void handleMonster(PlayerCharacter aPC, LevelCommandFactory lcf)
 	{
 		PCClass cl = lcf.getPCClass();
 		int levels = lcf.getLevelCount().resolve(aPC, "").intValue();
@@ -930,7 +918,7 @@ public class EncounterPlugin extends MouseAdapter
 		}
 	}
 
-	private void handleNonMonster(PlayerCharacter aPC)
+	private static void handleNonMonster(PlayerCharacter aPC)
 	{
 		PCClass mclass = Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(PCClass.class, "Warrior");
 
@@ -959,7 +947,7 @@ public class EncounterPlugin extends MouseAdapter
 		return true;
 	}
 
-	private final List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
+	private static List<String> locationChoices(PlayerCharacter pc, Equipment eqI)
 	{
 		// Some Equipment locations are based on the number of hands
 		int hands = 0;
@@ -1042,7 +1030,7 @@ public class EncounterPlugin extends MouseAdapter
 		return aList;
 	}
 
-	private int getHands(PlayerCharacter pc)
+	private static int getHands(PlayerCharacter pc)
 	{
 		String solverValue = pc.getControl(CControl.CREATUREHANDS);
 		if (solverValue == null)
@@ -1179,7 +1167,7 @@ public class EncounterPlugin extends MouseAdapter
 
 		// make a HashMap to keep track of the number of each
 		// item that is already equipped to a slot
-		HashMap<String, String> slotMap = new HashMap<>();
+		Map<String, String> slotMap = new HashMap<>();
 
 		for (EquipSet eqSet : pc.getDisplay().getEquipSet())
 		{
@@ -1326,7 +1314,7 @@ public class EncounterPlugin extends MouseAdapter
 		updateUI();
 	}
 
-	private void rollHP(PlayerCharacter aPC)
+	private static void rollHP(PlayerCharacter aPC)
 	{
 		CharacterDisplay display = aPC.getDisplay();
 		for (PCClass pcClass : display.getClassSet())

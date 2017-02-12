@@ -15,8 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  SystemInitiative.java
  */
 package gmgen.plugin;
 
@@ -48,18 +46,9 @@ public class SystemInitiative
 
 	/**
 	 * Constructor
-	 * @param attribute
-	 */
-	public SystemInitiative(SystemAttribute attribute)
-	{
-		this(attribute, 0);
-	}
-
-	/**
-	 * Constructor
 	 * @param bonus
 	 */
-	public SystemInitiative(int bonus)
+	SystemInitiative(int bonus)
 	{
 		this(new SystemAttribute("Attribute", 10), bonus);
 	}
@@ -145,15 +134,6 @@ public class SystemInitiative
 	public int getModifier()
 	{
 		return attribute.getModifier() + incrementalBonus;
-	}
-
-	/**
-	 * Set the new curent initiative and return it
-	 * @return the new curent initiative
-	 */
-	public int check()
-	{
-		return check(0);
 	}
 
 	/**

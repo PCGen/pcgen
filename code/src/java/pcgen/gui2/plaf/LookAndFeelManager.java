@@ -23,7 +23,6 @@ package pcgen.gui2.plaf;
 import java.awt.Dimension;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
-import java.beans.PropertyChangeListener;
 import java.util.Arrays;
 import java.util.Comparator;
 import java.util.HashMap;
@@ -35,11 +34,11 @@ import javax.swing.LookAndFeel;
 import javax.swing.UIManager;
 import javax.swing.UIManager.LookAndFeelInfo;
 
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.system.ConfigurationSettings;
 import pcgen.util.Logging;
 import pcgen.util.SkinLFResourceChecker;
+
+import com.l2fprod.gui.plaf.skin.SkinLookAndFeel;
 
 /**
  * {@code UIFactory}.
@@ -49,7 +48,7 @@ import pcgen.util.SkinLFResourceChecker;
 public final class LookAndFeelManager
 {
 
-	public static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
+	private static final boolean HAS_SKIN_LAF = SkinLFResourceChecker.getMissingResourceCount() == 0;
 	private static final String SYSTEM_LAF_CLASS = UIManager.getSystemLookAndFeelClassName();
 	private static final String CROSS_LAF_CLASS = UIManager.getCrossPlatformLookAndFeelClassName();
 	private static final LookAndFeelHandler[] lafHandlers;
@@ -58,65 +57,35 @@ public final class LookAndFeelManager
 
 	static
 	{
-		try
+		Comparator<LookAndFeelInfo> lafcomp = (o1, o2) ->
 		{
-			// Add the Kunststoff L&F before asking the UIManager.
-			Class.forName("com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-			UIManager.installLookAndFeel("Kunststoff", "com.incors.plaf.kunststoff.KunststoffLookAndFeel");
-		}
-		catch (ClassNotFoundException ex)
-		{
-			//not much we can do can do about this
-		}
-		Comparator<LookAndFeelInfo> lafcomp = new Comparator<LookAndFeelInfo>()
-		{
+            //System laf goes first
+            if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
+            {
+                return 1;
+            }
+            //Cross Platfrom laf goes second
+            if (o1.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return -1;
+            }
+            if (o2.getClassName().equals(CROSS_LAF_CLASS))
+            {
+                return 1;
+            }
+            //the rest don't matter
+            return 0;
+        };
 
-			@Override
-			public int compare(LookAndFeelInfo o1, LookAndFeelInfo o2)
-			{
-				//System laf goes first
-				if (o1.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(SYSTEM_LAF_CLASS))
-				{
-					return 1;
-				}
-				//Cross Platfrom laf goes second
-				if (o1.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return -1;
-				}
-				if (o2.getClassName().equals(CROSS_LAF_CLASS))
-				{
-					return 1;
-				}
-				//the rest don't matter
-				return 0;
-			}
 
-		};
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
 		//Sort them so that they are in a UI friendly order
 		Arrays.sort(lafInfo, lafcomp);
-		if (!SystemUtils.IS_OS_WINDOWS)
-		{
-			// Replace the broken Windows L&F which will
-			// only run on M$ platforms with one that will
-			// run everywhere.  No difference otherwise.
-			for (int i = 0; i < lafInfo.length; ++i)
-			{
-				if (lafInfo[i].getClassName().endsWith("WindowsLookAndFeel")) //$NON-NLS-1$
-				{
-					lafInfo[i] =
-							new UIManager.LookAndFeelInfo(lafInfo[i].getName(),
-								"pcgen.gui2.plaf.FakeWindowsLookAndFeel"); //$NON-NLS-1$
-					break;
-				}
-			}
 
-		}
 		int length = lafInfo.length;
 		if (HAS_SKIN_LAF)
 		{
@@ -159,11 +128,9 @@ public final class LookAndFeelManager
 		UIManager.setInstalledLookAndFeels(lafInfo);
 	}
 
-	private static String selectedLookAndFeel = null;
 	private static String selectedTheme = null;
 	private static String currentTheme = null;
 	private static String currentLAF = null;
-	private String oldThemePack = null;
 
 	private LookAndFeelManager()
 	{
@@ -192,7 +159,7 @@ public final class LookAndFeelManager
 		currentLAF = "Java";
 		Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
 		LookAndFeelInfo nimbus = getNimbusLaf();
-		if (screenSize.height > 800 &&  nimbus != null)
+		if (screenSize.height > 800 && nimbus != null)
 		{
 			currentLAF = nimbus.getName();
 		}
@@ -205,24 +172,16 @@ public final class LookAndFeelManager
 	private static LookAndFeelInfo getNimbusLaf()
 	{
 		LookAndFeelInfo[] lafInfo = UIManager.getInstalledLookAndFeels();
-		for (LookAndFeelInfo lookAndFeelInfo : lafInfo)
-		{
-			if ("nimbus".equalsIgnoreCase(lookAndFeelInfo.getName()))
-			{
-				return lookAndFeelInfo;
-			}
-		}
-		return null;
+		return Arrays.stream(lafInfo)
+					 .filter(lookAndFeelInfo -> "nimbus".equalsIgnoreCase
+							 (lookAndFeelInfo.getName()))
+					 .findFirst()
+					 .orElse(null);
 	}
 	
 	public static Action[] getActions()
 	{
 		return lafHandlers;
-	}
-
-	public static void addThemePackListener(PropertyChangeListener listener)
-	{
-		ConfigurationSettings.getInstance().addPropertyChangeListener("selectedThemePack", listener);
 	}
 
 	public static String getCurrentThemePack()
@@ -246,7 +205,7 @@ public final class LookAndFeelManager
 		try
 		{
 			//path += File.separator + selectedTheme;
-			LookAndFeel laf = SkinManager.createSkinLAF(selectedTheme);
+			LookAndFeel laf = createSkinLAF(selectedTheme);
 			UIManager.setLookAndFeel(laf);
 
 			ConfigurationSettings.setSystemProperty("lookAndFeel", "Skinned");
@@ -262,7 +221,7 @@ public final class LookAndFeelManager
 				{
 					//fall back to old theme
 					//path += File.separator + currentTheme;
-					LookAndFeel laf = SkinManager.createSkinLAF(currentTheme);
+					LookAndFeel laf = createSkinLAF(currentTheme);
 					UIManager.setLookAndFeel(laf);
 				}
 				catch (Exception ex1)
@@ -323,12 +282,24 @@ public final class LookAndFeelManager
 		}
 	}
 
+	/**
+	 * Apply a skin to PCGen GUI
+	 *
+	 * @param themePath a string describing the path to a theme file
+	 * @return a LookAndFeel instance
+	 */
+	private static LookAndFeel createSkinLAF(String themePath) throws Exception
+	{
+		SkinLookAndFeel.setSkin(SkinLookAndFeel.loadThemePack(themePath));
+		return new SkinLookAndFeel();
+	}
+
 	public static class LookAndFeelHandler extends AbstractAction
 	{
 
 		private String className;
 
-		public LookAndFeelHandler(String name, String className, String tooltip)
+		LookAndFeelHandler(String name, String className, String tooltip)
 		{
 			super(name);
 			this.className = className;

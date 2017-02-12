@@ -56,27 +56,18 @@ public class LookupFunction implements Function
 	 */
 	private static final Class<DataTable> DATATABLE_CLASS = DataTable.class;
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getFunctionName()
 	{
 		return "Lookup";
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Boolean isStatic(StaticVisitor visitor, Node[] args)
 	{
 		return false;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> allowArgs(SemanticsVisitor visitor, Node[] args,
 		FormulaSemantics semantics)
@@ -145,9 +136,6 @@ public class LookupFunction implements Function
 		return rf;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Object evaluate(EvaluateVisitor visitor, Node[] args,
 		EvaluationManager manager)
@@ -190,9 +178,6 @@ public class LookupFunction implements Function
 		return dataTable.lookupExact(lookupValue, columnName);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public void getDependencies(DependencyVisitor visitor,
 		DependencyManager manager, Node[] args)

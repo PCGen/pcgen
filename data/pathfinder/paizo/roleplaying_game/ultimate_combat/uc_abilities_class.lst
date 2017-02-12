@@ -931,11 +931,76 @@ Meditative Maneuver	KEY:Maneuver Master ~ Meditative Maneuver	CATEGORY:Special A
 Sweeping Maneuver		KEY:Maneuver Master ~ Sweeping Maneuver	CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 11th level, a maneuver master can make two combat maneuvers as a standard action, as long as neither maneuver requires the maneuver master to move. He may perform two identical maneuvers against two adjacent enemies, or he may perform two different combat maneuvers against the same target. This ability replaces diamond body.																																																																																																							SOURCEPAGE:p.59
 Whirlwind Maneuver	KEY:Maneuver Master ~ Whirlwind Maneuver	CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 15th level, once per day as a full-round action, a maneuver master can attempt a single combat maneuver against every opponent he threatens, as long as the combat maneuver does not require movement. He makes a single combat maneuver check, and it applies to all targets. This ability replaces quivering palm.																																																																																																										SOURCEPAGE:p.59
 
-###Block: Maneuver Master ~ Bonus Feat
-#ManeuverMasterBonusFeat		DESC:In addition to normal monk bonus feats, a maneuver master may select any Improved combat maneuver feat (such as Improved Overrun) as a bonus feat.
-# As for the maneuver master's selectable bonus feats, here's the list I've compiled:
-# Improved feats: Improved Bull Rush, Improved Dirty Trick, Improved Disarm, Improved Drag,
-# Improved Grapple, Improved Overrun, Improved Reposition, Improved Steal, Improved Sunder, Improved Trip
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedBullRush|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedDirtyTrick|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedDisarm|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedGrapple|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedOverrun|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedSunder|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ImprovedTrip|0	
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterBullRush|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterDirtyTrick|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterDisarm|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterDrag|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterGrapple|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterOverrun|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterSunder|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_GreaterTrip|0		
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_BullRushStrike|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DisarmingStrike|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_RepositioningStrike|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SunderingStrike|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_TrippingStrike|0		
+
+
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedSunder|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ImprovedTrip|1|PREVARGTEQ:MonkBonusFeatLVL,1		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterBullRush|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDirtyTrick|1|PREVARGTEQ:MonkBonusFeatLVL,6	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDisarm|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterDrag|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterOverrun|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterSunder|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_GreaterTrip|1|PREVARGTEQ:MonkBonusFeatLVL,6		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BullRushStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DisarmingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_RepositioningStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10	
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SunderingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+CATEGORY=Special Ability|Maneuver Master ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TrippingStrike|1|PREVARGTEQ:MonkBonusFeatLVL,10		
+
+###Block:
+Improved Bull Rush	KEY:Monk Bonus Feat ~ Improved Bull Rush		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush		PREVARGTEQ:MonkBonusFeat_ImprovedBullRush,1	ABILITY:FEAT|VIRTUAL|Improved Bull Rush
+Improved Dirty Trick	KEY:Monk Bonus Feat ~ Improved Dirty Trick	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Dirty Trick	PREVARGTEQ:MonkBonusFeat_ImprovedDirtyTrick,1	ABILITY:FEAT|VIRTUAL|Improved Dirty Trick
+Improved Disarm		KEY:Monk Bonus Feat ~ Improved Disarm		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Disarm		PREVARGTEQ:MonkBonusFeat_ImprovedDisarm,1		ABILITY:FEAT|VIRTUAL|Improved Disarm
+Improved Grapple		KEY:Monk Bonus Feat ~ Improved Grapple		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Grapple		PREVARGTEQ:MonkBonusFeat_ImprovedGrapple,1	ABILITY:FEAT|VIRTUAL|Improved Grapple
+Improved Overrun		KEY:Monk Bonus Feat ~ Improved Overrun		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Overrun		PREVARGTEQ:MonkBonusFeat_ImprovedOverrun,1	ABILITY:FEAT|VIRTUAL|Improved Overrun
+Improved Sunder		KEY:Monk Bonus Feat ~ Improved Sunder		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder		PREVARGTEQ:MonkBonusFeat_ImprovedSunder,1		ABILITY:FEAT|VIRTUAL|Improved Sunder
+Improved Trip		KEY:Monk Bonus Feat ~ Improved Trip			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Trip			PREVARGTEQ:MonkBonusFeat_ImprovedTrip,1		ABILITY:FEAT|VIRTUAL|Improved Trip
+Greater Bull Rush		KEY:Monk Bonus Feat ~ Greater Bull Rush		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Bull Rush		PREVARGTEQ:MonkBonusFeat_GreaterBullRush,1	ABILITY:FEAT|VIRTUAL|Greater Bull Rush
+Greater Dirty Trick	KEY:Monk Bonus Feat ~ Greater Dirty Trick		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Dirty Trick		PREVARGTEQ:MonkBonusFeat_GreaterDirtyTrick,1	ABILITY:FEAT|VIRTUAL|Greater Dirty Trick
+Greater Disarm		KEY:Monk Bonus Feat ~ Greater Disarm		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Disarm		PREVARGTEQ:MonkBonusFeat_GreaterDisarm,1		ABILITY:FEAT|VIRTUAL|Greater Disarm
+Greater Drag		KEY:Monk Bonus Feat ~ Greater Drag			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Drag			PREVARGTEQ:MonkBonusFeat_GreaterDrag,1		ABILITY:FEAT|VIRTUAL|Greater Drag
+Greater Grapple		KEY:Monk Bonus Feat ~ Greater Grapple		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Grapple		PREVARGTEQ:MonkBonusFeat_GreaterGrapple,1		ABILITY:FEAT|VIRTUAL|Greater Grapple
+Greater Overrun		KEY:Monk Bonus Feat ~ Greater Overrun		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Overrun		PREVARGTEQ:MonkBonusFeat_GreaterOverrun,1		ABILITY:FEAT|VIRTUAL|Greater Overrun
+Greater Sunder		KEY:Monk Bonus Feat ~ Greater Sunder		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Sunder		PREVARGTEQ:MonkBonusFeat_GreaterSunder,1		ABILITY:FEAT|VIRTUAL|Greater Sunder
+Greater Trip		KEY:Monk Bonus Feat ~ Greater Trip			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Trip			PREVARGTEQ:MonkBonusFeat_GreaterTrip,1		ABILITY:FEAT|VIRTUAL|Greater Trip
+Bull Rush Strike		KEY:Monk Bonus Feat ~ Bull Rush Strike		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Bull Rush Strike		PREVARGTEQ:MonkBonusFeat_BullRushStrike,1		ABILITY:FEAT|VIRTUAL|Bull Rush Strike
+Disarming Strike		KEY:Monk Bonus Feat ~ Disarming Strike		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Disarming Strike		PREVARGTEQ:MonkBonusFeat_DisarmingStrike,1	ABILITY:FEAT|VIRTUAL|Disarming Strike
+Repositioning Strike	KEY:Monk Bonus Feat ~ Repositioning Strike	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Repositioning Strike	PREVARGTEQ:MonkBonusFeat_RepositioningStrike,1	ABILITY:FEAT|VIRTUAL|Repositioning Strike
+Sundering Strike		KEY:Monk Bonus Feat ~ Sundering Strike		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Sundering Strike		PREVARGTEQ:MonkBonusFeat_SunderingStrike,1	ABILITY:FEAT|VIRTUAL|Sundering Strike
+Tripping Strike		KEY:Monk Bonus Feat ~ Tripping Strike		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Tripping Strike		PREVARGTEQ:MonkBonusFeat_TrippingStrike,1		ABILITY:FEAT|VIRTUAL|Tripping Strike
+
+
+
+###Block: Maneuver Master ~ Bonus Feat - Deprecated - Remove 7.2
 # Ability Name		Unique Key							Category of Ability		Type					Visible		Restricted Ability						Var. Min. Value				Ability
 Improved Bull Rush	KEY:Maneuver Master ~ Improved Bull Rush		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Bull Rush		PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Bull Rush
 Improved Dirty Trick	KEY:Maneuver Master ~ Improved Dirty Trick	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Dirty Trick	PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Dirty Trick
@@ -944,9 +1009,6 @@ Improved Grapple		KEY:Maneuver Master ~ Improved Grapple		CATEGORY:Special Abili
 Improved Overrun		KEY:Maneuver Master ~ Improved Overrun		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Overrun		PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Overrun
 Improved Sunder		KEY:Maneuver Master ~ Improved Sunder		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Sunder		PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Sunder
 Improved Trip		KEY:Maneuver Master ~ Improved Trip			CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Trip			PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Trip
-# At 6th level and above, he may select any Greater combat maneuver feat (such as Greater Grapple) as a bonus feat.
-# Greater Feats: Greater Bull Rush, Greater Dirty Trick, Greater Disarm, Greater Drag, Greater Grapple,
-# Greater Overrun, Greater Reposition, Greater Steal, Greater Sunder, Greater Trip
 Greater Bull Rush		KEY:Maneuver Master ~ Greater Bull Rush		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Bull Rush		PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Bull Rush
 Greater Dirty Trick	KEY:Maneuver Master ~ Greater Dirty Trick		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Dirty Trick		PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Dirty Trick
 Greater Disarm		KEY:Maneuver Master ~ Greater Disarm		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Disarm		PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Disarm
@@ -955,8 +1017,6 @@ Greater Grapple		KEY:Maneuver Master ~ Greater Grapple		CATEGORY:Special Ability
 Greater Overrun		KEY:Maneuver Master ~ Greater Overrun		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Overrun		PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Overrun
 Greater Sunder		KEY:Maneuver Master ~ Greater Sunder		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Sunder		PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Sunder
 Greater Trip		KEY:Maneuver Master ~ Greater Trip			CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Trip			PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Trip
-# At 10th level and above, he may select any maneuver Strike feat (such as Tripping Strike) as a bonus feat
-# Strike feats: Bull Rush Strike, Disarming Strike, Repositioning Strike, Sundering Strike, Tripping Strike
 Bull Rush Strike		KEY:Maneuver Master ~ Bull Rush Strike		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Bull Rush Strike		PREVARGTEQ:MonkBonusFeatLVL,10	ABILITY:FEAT|VIRTUAL|Bull Rush Strike
 Disarming Strike		KEY:Maneuver Master ~ Disarming Strike		CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Disarming Strike		PREVARGTEQ:MonkBonusFeatLVL,10	ABILITY:FEAT|VIRTUAL|Disarming Strike
 Repositioning Strike	KEY:Maneuver Master ~ Repositioning Strike	CATEGORY:Special Ability	TYPE:ManeuverMasterBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Repositioning Strike	PREVARGTEQ:MonkBonusFeatLVL,10	ABILITY:FEAT|VIRTUAL|Repositioning Strike
@@ -978,9 +1038,161 @@ Greater Defensive Roll	KEY:Martial Artist ~ Greater Defensive Roll	CATEGORY:Spec
 
 ###Block:  Master Of Many Styles
 # Ability Name	Unique Key						Category of Ability		Type												Define				Description																																																																																																																																																																											Bonus Ability Pool											Modify VAR					Source Page
-Bonus Feat		KEY:Master Of Many Styles ~ Bonus Feat	CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality			DEFINE:MonkBonusFeatLVL|0	DESC:At 1st level, 2nd level, and every four levels thereafter, a master of many styles may select a bonus style feat or the Elemental Fist feat (Advanced Player's Guide 158). He does not need to meet the prerequisites of that feat, except the Elemental Fist feat. Starting at 6th level, a master of many styles can choose to instead gain a wildcard style slot. Whenever he enters one or more styles, he can spend his wildcard style slots to gain feats in those styles' feat paths (such as Earth Child Topple) as long as he meets the prerequisites. Each time he changes styles, he can also change these wildcard style slots. This ability replaces a monk's standard bonus feats.																																																												BONUS:ABILITYPOOL|Master Of Many Styles Bonus Feat|1+MAX((MonkBonusFeatLVL+2)/4,0)	BONUS:VAR|MonkBonusFeatLVL|MonkLVL	SOURCEPAGE:p.59
+Bonus Feat		KEY:Master Of Many Styles ~ Bonus Feat	CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality			DEFINE:MonkBonusFeatLVL|0	DESC:At 1st level, 2nd level, and every four levels thereafter, a master of many styles may select a bonus style feat or the Elemental Fist feat (Advanced Player's Guide 158). He does not need to meet the prerequisites of that feat, except the Elemental Fist feat. Starting at 6th level, a master of many styles can choose to instead gain a wildcard style slot. Whenever he enters one or more styles, he can spend his wildcard style slots to gain feats in those styles' feat paths (such as Earth Child Topple) as long as he meets the prerequisites. Each time he changes styles, he can also change these wildcard style slots. This ability replaces a monk's standard bonus feats.																																																												BONUS:ABILITYPOOL|Master Of Many Styles Bonus Feat|1+MAX((MonkBonusFeatLVL+2)/4,0)	BONUS:VAR|MonkBonusFeatLVL|0	BONUS:ABILITYPOOL|Monk Bonus Feat|-1+max((MonkBonusFeatLVL+2)/4,0)		SOURCEPAGE:p.59
 Fuse Style		KEY:Master Of Many Styles ~ Fuse Style	CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 1st level, a master of many styles can fuse two of the styles he knows into a more perfect style. The master of many styles can have two style feat stances active at once. Starting a stance provided by a style feat is still a swift action, but when the master of many styles switches to another style feat, he can choose one style whose stance is already active to persist. He may only have two style feat stances active at a time. At 8th level, the master of many styles can fuse three styles at once. He can have the stances of three style feats active at the same time. Furthermore, he can enter up to three stances as a swift action. At 15th level, the master of many styles can fuse four styles at once. He can have the stances of four style feats active at the same time. Furthermore, he can enter up to four stances as a free action by spending 1 point from his ki pool. He gains a bonus on attack rolls equal to the number of styles whose stances he currently has active. This ability replaces flurry of blows.																					SOURCEPAGE:p.60
 Perfect Style	KEY:Master Of Many Styles ~ Perfect Style	CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 20th level, a master of many styles can have the stances of five style feats active at once, and can change those stances as a free action. This ability replaces perfect self.																																																																																																																																																																		SOURCEPAGE:p.60
+
+Elemental Fist		KEY:Monk Bonus Feat ~ Elemental Fist		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Elemental Fist,Elemental Fist ~ Full Version	PREVARGTEQ:MonkBonusFeat_ElementalFist,1		ABILITY:FEAT|VIRTUAL|Elemental Fist ~ Full Version
+Boar Style			KEY:Monk Bonus Feat ~ Boar Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Boar Style							PREVARGTEQ:MonkBonusFeat_BoarStyle,1		ABILITY:FEAT|VIRTUAL|Boar Style
+Boar Ferocity		KEY:Monk Bonus Feat ~ Boar Ferocity			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Boar Ferocity							PREVARGTEQ:MonkBonusFeat_BoarFerocity,1		ABILITY:FEAT|VIRTUAL|Boar Ferocity
+Boar Shred			KEY:Monk Bonus Feat ~ Boar Shred			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Boar Shred							PREVARGTEQ:MonkBonusFeat_BoarShred,1		ABILITY:FEAT|VIRTUAL|Boar Shred
+Crane Style			KEY:Monk Bonus Feat ~ Crane Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Crane Style							PREVARGTEQ:MonkBonusFeat_CraneStyle,1		ABILITY:FEAT|VIRTUAL|Crane Style
+Crane Riposte		KEY:Monk Bonus Feat ~ Crane Riposte			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Crane Riposte							PREVARGTEQ:MonkBonusFeat_CraneRiposte,1		ABILITY:FEAT|VIRTUAL|Crane Riposte
+Crane Wing			KEY:Monk Bonus Feat ~ Crane Wing			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Crane Wing							PREVARGTEQ:MonkBonusFeat_CraneWing,1		ABILITY:FEAT|VIRTUAL|Crane Wing
+Djinni Style		KEY:Monk Bonus Feat ~ Djinni Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Djinni Style							PREVARGTEQ:MonkBonusFeat_DjinniStyle,1		ABILITY:FEAT|VIRTUAL|Djinni Style
+Djinni Spirit		KEY:Monk Bonus Feat ~ Djinni Spirit			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Djinni Spirit							PREVARGTEQ:MonkBonusFeat_DjinniSpirit,1		ABILITY:FEAT|VIRTUAL|Djinni Spirit
+Djinni Spin			KEY:Monk Bonus Feat ~ Djinni Spin			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Djinni Spin							PREVARGTEQ:MonkBonusFeat_DjinniSpin,1		ABILITY:FEAT|VIRTUAL|Djinni Spin
+Dragon Style		KEY:Monk Bonus Feat ~ Dragon Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dragon Style							PREVARGTEQ:MonkBonusFeat_DragonStyle,1		ABILITY:FEAT|VIRTUAL|Dragon Style
+Dragon Ferocity		KEY:Monk Bonus Feat ~ Dragon Ferocity		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dragon Ferocity						PREVARGTEQ:MonkBonusFeat_DragonFerocity,1		ABILITY:FEAT|VIRTUAL|Dragon Ferocity
+Dragon Roar			KEY:Monk Bonus Feat ~ Dragon Roar			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Dragon Roar							PREVARGTEQ:MonkBonusFeat_DragonRoar,1		ABILITY:FEAT|VIRTUAL|Dragon Roar
+Earth Child Style		KEY:Monk Bonus Feat ~ Earth Child Style		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Earth Child Style						PREVARGTEQ:MonkBonusFeat_EarthChildStyle,1	ABILITY:FEAT|VIRTUAL|Earth Child Style
+Earth Child Topple	KEY:Monk Bonus Feat ~ Earth Child Topple		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Earth Child Topple						PREVARGTEQ:MonkBonusFeat_EarthChildTopple,1	ABILITY:FEAT|VIRTUAL|Earth Child Topple
+Earth Child Binder	KEY:Monk Bonus Feat ~ Earth Child Binder		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Earth Child Binder						PREVARGTEQ:MonkBonusFeat_EarthChildBinder,1	ABILITY:FEAT|VIRTUAL|Earth Child Binder
+Efreeti Style		KEY:Monk Bonus Feat ~ Efreeti Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Efreeti Style							PREVARGTEQ:MonkBonusFeat_EfreetiStyle,1		ABILITY:FEAT|VIRTUAL|Efreeti Style
+Efreeti Stance		KEY:Monk Bonus Feat ~ Efreeti Stance		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Efreeti Stance						PREVARGTEQ:MonkBonusFeat_EfreetiStance,1		ABILITY:FEAT|VIRTUAL|Efreeti Stance
+Efreeti Touch		KEY:Monk Bonus Feat ~ Efreeti Touch			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Efreeti Touch							PREVARGTEQ:MonkBonusFeat_EfreetiTouch,1		ABILITY:FEAT|VIRTUAL|Efreeti Touch
+Janni Style			KEY:Monk Bonus Feat ~ Janni Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Janni Style							PREVARGTEQ:MonkBonusFeat_JanniStyle,1		ABILITY:FEAT|VIRTUAL|Janni Style
+Janni Tempest		KEY:Monk Bonus Feat ~ Janni Tempest			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Janni Tempest							PREVARGTEQ:MonkBonusFeat_JanniTempest,1		ABILITY:FEAT|VIRTUAL|Janni Tempest
+Janni Rush			KEY:Monk Bonus Feat ~ Janni Rush			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Janni Rush							PREVARGTEQ:MonkBonusFeat_JanniRush,1		ABILITY:FEAT|VIRTUAL|Janni Rush
+Kirin Style			KEY:Monk Bonus Feat ~ Kirin Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Kirin Style							PREVARGTEQ:MonkBonusFeat_KirinStyle,1		ABILITY:FEAT|VIRTUAL|Kirin Style
+Kirin Strike		KEY:Monk Bonus Feat ~ Kirin Strike			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Kirin Strike							PREVARGTEQ:MonkBonusFeat_KirinStrike,1		ABILITY:FEAT|VIRTUAL|Kirin Strike
+Kirin Path			KEY:Monk Bonus Feat ~ Kirin Path			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Kirin Path							PREVARGTEQ:MonkBonusFeat_KirinPath,1		ABILITY:FEAT|VIRTUAL|Kirin Path
+Mantis Style		KEY:Monk Bonus Feat ~ Mantis Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mantis Style							PREVARGTEQ:MonkBonusFeat_MantisStyle,1		ABILITY:FEAT|VIRTUAL|Mantis Style
+Mantis Wisdom		KEY:Monk Bonus Feat ~ Mantis Wisdom			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mantis Wisdom							PREVARGTEQ:MonkBonusFeat_MantisWisdom,1		ABILITY:FEAT|VIRTUAL|Mantis Wisdom
+Mantis Torment		KEY:Monk Bonus Feat ~ Mantis Torment		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mantis Torment						PREVARGTEQ:MonkBonusFeat_MantisTorment,1		ABILITY:FEAT|VIRTUAL|Mantis Torment
+Marid Style			KEY:Monk Bonus Feat ~ Marid Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Marid Style							PREVARGTEQ:MonkBonusFeat_MaridStyle,1		ABILITY:FEAT|VIRTUAL|Marid Style
+Marid Spirit		KEY:Monk Bonus Feat ~ Marid Spirit			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Marid Spirit							PREVARGTEQ:MonkBonusFeat_MaridSpirit,1		ABILITY:FEAT|VIRTUAL|Marid Spirit
+Marid Coldsnap		KEY:Monk Bonus Feat ~ Marid Coldsnap		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Marid Coldsnap						PREVARGTEQ:MonkBonusFeat_MaridColdsnap,1		ABILITY:FEAT|VIRTUAL|Marid Coldsnap
+Monkey Style		KEY:Monk Bonus Feat ~ Monkey Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Monkey Style							PREVARGTEQ:MonkBonusFeat_MonkeyStyle,1		ABILITY:FEAT|VIRTUAL|Monkey Style
+Monkey Moves		KEY:Monk Bonus Feat ~ Monkey Moves			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Monkey Moves							PREVARGTEQ:MonkBonusFeat_MonkeyMoves,1		ABILITY:FEAT|VIRTUAL|Monkey Moves
+Monkey Shine		KEY:Monk Bonus Feat ~ Monkey Shine			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Monkey Shine							PREVARGTEQ:MonkBonusFeat_MonkeyShine,1		ABILITY:FEAT|VIRTUAL|Monkey Shine
+Panther Style		KEY:Monk Bonus Feat ~ Panther Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Panther Style							PREVARGTEQ:MonkBonusFeat_PantherStyle,1		ABILITY:FEAT|VIRTUAL|Panther Style
+Panther Claw		KEY:Monk Bonus Feat ~ Panther Claw			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Panther Claw							PREVARGTEQ:MonkBonusFeat_PantherClaw,1		ABILITY:FEAT|VIRTUAL|Panther Claw
+Panther Parry		KEY:Monk Bonus Feat ~ Panther Parry			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Panther Parry							PREVARGTEQ:MonkBonusFeat_PantherParry,1		ABILITY:FEAT|VIRTUAL|Panther Parry
+Shaitan Style		KEY:Monk Bonus Feat ~ Shaitan Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shaitan Style							PREVARGTEQ:MonkBonusFeat_ShaitanStyle,1		ABILITY:FEAT|VIRTUAL|Shaitan Style
+Shaitan Skin		KEY:Monk Bonus Feat ~ Shaitan Skin			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shaitan Skin							PREVARGTEQ:MonkBonusFeat_ShaitanSkin,1		ABILITY:FEAT|VIRTUAL|Shaitan Skin
+Shaitan Earthblast	KEY:Monk Bonus Feat ~ Shaitan Earthblast		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Shaitan Earthblast						PREVARGTEQ:MonkBonusFeat_ShaitanEarthblast,1	ABILITY:FEAT|VIRTUAL|Shaitan Earthblast
+Snake Style			KEY:Monk Bonus Feat ~ Snake Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snake Style							PREVARGTEQ:MonkBonusFeat_SnakeStyle,1		ABILITY:FEAT|VIRTUAL|Snake Style
+Snake Sidewind		KEY:Monk Bonus Feat ~ Snake Sidewind		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snake Sidewind						PREVARGTEQ:MonkBonusFeat_SnakeSidewind,1		ABILITY:FEAT|VIRTUAL|Snake Sidewind
+Snake Fang			KEY:Monk Bonus Feat ~ Snake Fang			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snake Fang							PREVARGTEQ:MonkBonusFeat_SnakeFang,1		ABILITY:FEAT|VIRTUAL|Snake Fang
+Snapping Turtle Style	KEY:Monk Bonus Feat ~ Snapping Turtle Style	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snapping Turtle Style					PREVARGTEQ:MonkBonusFeat_SnappingTurtleStyle,1	ABILITY:FEAT|VIRTUAL|Snapping Turtle Style
+Snapping Turtle Clutch	KEY:Monk Bonus Feat ~ Snapping Turtle Clutch	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snapping Turtle Clutch					PREVARGTEQ:MonkBonusFeat_SnappingTurtleClutch,1	ABILITY:FEAT|VIRTUAL|Snapping Turtle Clutch
+Snapping Turtle Shell	KEY:Monk Bonus Feat ~ Snapping Turtle Shell	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Snapping Turtle Shell					PREVARGTEQ:MonkBonusFeat_SnappingTurtleShell,1	ABILITY:FEAT|VIRTUAL|Snapping Turtle Shell
+Tiger Style			KEY:Monk Bonus Feat ~ Tiger Style			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Tiger Style							PREVARGTEQ:MonkBonusFeat_TigerStyle,1		ABILITY:FEAT|VIRTUAL|Tiger Style
+Tiger Claws			KEY:Monk Bonus Feat ~ Tiger Claws			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Tiger Claws							PREVARGTEQ:MonkBonusFeat_TigerClaws,1		ABILITY:FEAT|VIRTUAL|Tiger Claws
+Tiger Pounce		KEY:Monk Bonus Feat ~ Tiger Pounce			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Tiger Pounce							PREVARGTEQ:MonkBonusFeat_TigerPounce,1		ABILITY:FEAT|VIRTUAL|Tiger Pounce
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ElementalFist|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_BoarStyle|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_BoarFerocity|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_BoarShred|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_CraneStyle|0
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_CraneRiposte|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_CraneWing|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DjinniStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DjinniSpirit|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DjinniSpin|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DragonStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DragonFerocity|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_DragonRoar|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EarthChildStyle|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EarthChildTopple|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EarthChildBinder|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EfreetiStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EfreetiStance|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_EfreetiTouch|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_JanniStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_JanniTempest|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_JanniRush|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_KirinStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_KirinStrike|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_KirinPath|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MantisStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MantisWisdom|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MantisTorment|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MaridStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MaridSpirit|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MaridColdsnap|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MonkeyStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MonkeyMoves|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MonkeyShine|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PantherStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PantherClaw|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_PantherParry|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ShaitanStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ShaitanSkin|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_ShaitanEarthblast|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnakeStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnakeSidewind|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnakeFang|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnappingTurtleStyle|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnappingTurtleClutch|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SnappingTurtleShell|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_TigerStyle|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_TigerClaws|0				
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_TigerPounce|0				
+
+
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ElementalFist|1|PREABILITY:1,CATEGORY=FEAT,Improved Unarmed Strike|PRESTAT:2,CON=13,WIS=13|PRETOTALAB:8
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BoarStyle|1
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BoarFerocity|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Boar Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Boar Style]
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_BoarShred|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Boar Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Boar Style]
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_CraneStyle|1
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_CraneRiposte|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Crane Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Crane Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_CraneWing|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Crane Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Crane Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DjinniStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DjinniSpirit|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Djinni Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Djinni Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DjinniSpin|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Djinni Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Djinni Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DragonStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DragonFerocity|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Dragon Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Dragon Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_DragonRoar|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Dragon Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Dragon Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EarthChildStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EarthChildTopple|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Earth Child Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Earth Child Style]		
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EarthChildBinder|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Earth Child Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Earth Child Style]		
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EfreetiStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EfreetiStance|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Efreeti Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Efreeti Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_EfreetiTouch|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Efreeti Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Efreeti Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_JanniStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_JanniTempest|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Janni Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Janni Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_JanniRush|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Janni Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Janni Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_KirinStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_KirinStrike|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Kirin Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Kirin Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_KirinPath|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Kirin Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Kirin Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MantisStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MantisWisdom|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mantis Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Mantis Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MantisTorment|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Mantis Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Mantis Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MaridStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MaridSpirit|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Marid Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Marid Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MaridColdsnap|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Marid Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Marid Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MonkeyStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MonkeyMoves|1|PREMULT:1,[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Monkey Style],[PREABILITY:1,CATEGORY=FEAT,Monkey Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MonkeyShine|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Monkey Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Monkey Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_PantherStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_PantherClaw|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Panther Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Panther Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_PantherParry|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Panther Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Panther Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ShaitanStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ShaitanSkin|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Shaitan Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Shaitan Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_ShaitanEarthblast|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Shaitan Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Shaitan Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnakeStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnakeSidewind|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Snake Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Snake Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnakeFang|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Snake Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Snake Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnappingTurtleStyle|1																										
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnappingTurtleClutch|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Snapping Turtle Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Snapping Turtle Style]	
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SnappingTurtleShell|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Snapping Turtle Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Snapping Turtle Style]	
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TigerStyle|1																											
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TigerClaws|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Tiger Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Tiger Style]				
+CATEGORY=Special Ability|Master Of Many Styles ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_TigerPounce|1|PREMULT:1,[PREABILITY:1,CATEGORY=FEAT,Tiger Style],[PREABILITY:1,CATEGORY=Special Ability,Master of Many Styles ~ Tiger Style]				
+
 
 ###Block: Master Of Many Styles ~ Bonus Feat
 #MasterOfManyStylesBonusFeat	DESC:At 1st level, 2nd level, and every four levels thereafter, a master of many styles may select a bonus style feat or the Elemental Fist feat (Advanced Player's Guide 158). He does not have to meet the prerequisites of that feat, except the Elemental Fist feat. Alternatively, a master of many styles may choose a feat in that style's feat path (such as Earth Child Topple) as one of these bonus feats if he already has the appropriate style feat (such as Earth Child Style). The master of many styles does not need to meet any other prerequisite of the feat in the style's feat path. This ability replaces a monk's standard bonus feats.																																																																																																																				SOURCEPAGE:p.59
@@ -1066,12 +1278,38 @@ Replace All with Wisdom							CATEGORY:Internal			TYPE:MonkClassFeatures.AttackS
 # Ability Name			Unique Key						Category of Ability		Type												Define				Description																																																																																																								Auto Armor Prof				Auto Weapon Prof					Ability											Bonus Ability Pool																														Combat bonus				Modify VAR					Source Page
 Weapon and Armor Proficiency	KEY:Sohei ~ Weapon and Armor Proficiency	CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality								DESC:A sohei is proficient with all simple and martial weapons and with light armor, instead of a monk's usual weapon and armor proficiencies. This ability alters the monk's weapon and armor proficiencies.																																																																							AUTO:ARMORPROF|ARMORTYPE=Light	AUTO:WEAPONPROF|TYPE=Simple|TYPE=Martial	ABILITY:Internal|AUTOMATIC|TYPE=WeaponProfMartial|TYPE=ArmorProfLight																																														SOURCEPAGE:p.60
 Skills				KEY:Sohei ~ Skills				CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality								DESC:A sohei gains Handle Animal as a class skill.																																																																																																																																																																							SOURCEPAGE:p.60
-Bonus Feats				KEY:Sohei ~ Bonus Feat				CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality			DEFINE:MonkBonusFeatLVL|0	DESC:A sohei may select mounted combat feats as bonus feats.																																																																																																																								BONUS:ABILITYPOOL|Sohei Bonus Feat|1+MAX((MonkBonusFeatLVL+2)/4,0)																												BONUS:VAR|MonkBonusFeatLVL|MonkLVL	SOURCEPAGE:p.60
+Bonus Feats				KEY:Sohei ~ Bonus Feat				CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality			DEFINE:MonkBonusFeatLVL|0	DESC:A sohei may select mounted combat feats as bonus feats.																																																																																																																								BONUS:ABILITYPOOL|Sohei Bonus Feat|0																												BONUS:VAR|MonkBonusFeatLVL|0	SOURCEPAGE:p.60
 Devoted Guardian			KEY:Sohei ~ Devoted Guardian			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 1st level, a sohei can always act in a surprise round even if he does not notice his enemies, though he remains flat-footed until he acts. In addition, a sohei gains a bonus on initiative rolls equal to 1/2 his monk level. At 20th level, a sohei's initiative roll is automatically a natural 20. This ability replaces stunning fist.																																																																																																											BONUS:COMBAT|INITIATIVE|MonkLVL/2							SOURCEPAGE:p.60
 Unarmed Strike			KEY:Sohei ~ Unarmed Strike			CATEGORY:Special Ability	TYPE:MonkClassFeatures.ArchetypeAbility.SpecialQuality								DESC:A sohei's unarmed strike damage does not increase at 4th level and above.																																																																																																																																																																		SOURCEPAGE:p.60
 Monastic Mount			KEY:Sohei ~ Monastic Mount			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality						DESC:At 4th level, a sohei may spend 1 point from his ki pool to grant his mount temporary hit points equal to twice his level for 1 hour per level. In addition, as long as the sohei and his mount are adjacent, including when mounted, the mount gains any of the following abilities the sohei possesses - AC bonus, diamond soul, evasion, high jump, improved evasion, ki strike (as long as the sohei has at least 1 point in his ki pool), perfect self, and still mind. When a sohei spends points from his ki pool, his mount gains the same benefits as the sohei. This ability replaces fast movement and increased unarmed damage.																																																																							SOURCEPAGE:p.60
 Ki Weapon				KEY:Sohei ~ Ki Weapon				CATEGORY:Special Ability	TYPE:MonkClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality						DESC:At 4th level, as a swift action, a sohei may spend 1 point from his ki pool to grant any weapon he wields (including his unarmed strike) a +1 enhancement bonus on attack and damage rolls, increasing by +1 per four levels after 4th to a maximum bonus of +5 at 20th level, until the end of his next turn. This ability replaces slow fall and abundant step.																																																																																																																				SOURCEPAGE:p.60
 Weapon Training			KEY:Sohei ~ Weapon Training			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Extraordinary.ArchetypeAbility.SpecialQuality						DESC:At 6th level, a sohei gains weapon training in one of the following weapon groups, as the fighter class feature (Core Rulebook 56) - bows, crossbows, monk weapons, polearms, spears, or thrown weapons. He may select an additional group of weapons for every six levels after 6th, to a maximum of three at 18th level. A sohei may use flurry of blows and ki strike with any weapon in which he has weapon training. This ability replaces purity of body, diamond body, quivering palm, timeless body, and tongue of sun and moon.																															ABILITY:Special Ability|AUTOMATIC|Fighter ~ Weapon Training			BONUS:ABILITYPOOL|Sohei Weapon Training I|1|PRECLASS:1,Monk=6	BONUS:ABILITYPOOL|Sohei Weapon Training II|1|PRECLASS:1,Monk=12	BONUS:ABILITYPOOL|Sohei Weapon Training III|1|PRECLASS:1,Monk=18													SOURCEPAGE:p.60
+
+Cavalry Formation	KEY:Monk Bonus Feat ~ Cavalry Formation	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Cavalry Formation	PREVARGTEQ:MonkBonusFeat_CavalryFormation,1	ABILITY:FEAT|VIRTUAL|Cavalry Formation
+Ride-By Attack	KEY:Monk Bonus Feat ~ Ride-By Attack	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Ride-By Attack	PREVARGTEQ:MonkBonusFeat_RideByAttack,1		ABILITY:FEAT|VIRTUAL|Ride-By Attack
+Spirited Charge	KEY:Monk Bonus Feat ~ Spirited Charge	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Spirited Charge	PREVARGTEQ:MonkBonusFeat_SpiritedCharge,1		ABILITY:FEAT|VIRTUAL|Spirited Charge
+Trample		KEY:Monk Bonus Feat ~ Trample			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Trample			PREVARGTEQ:MonkBonusFeat_Trample,1			ABILITY:FEAT|VIRTUAL|Trample
+Unseat		KEY:Monk Bonus Feat ~ Unseat			CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Unseat			PREVARGTEQ:MonkBonusFeat_Unseat,1			ABILITY:FEAT|VIRTUAL|Unseat
+Mounted Archery	KEY:Monk Bonus Feat ~ Mounted Archery	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Archery	PREVARGTEQ:MonkBonusFeat_MountedArchery,1		ABILITY:FEAT|VIRTUAL|Mounted Archery
+Mounted Combat	KEY:Monk Bonus Feat ~ Mounted Combat	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Mounted Combat	PREVARGTEQ:MonkBonusFeat_MountedCombat,1		ABILITY:FEAT|VIRTUAL|Mounted Combat
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_CavalryFormation|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_RideByAttack|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_SpiritedCharge|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_Trample|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_Unseat|0			
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MountedArchery|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:MonkBonusFeat_MountedCombat|0		
+
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_CavalryFormation|1	
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_RideByAttack|1		
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_SpiritedCharge|1		
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_Trample|1			
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_Unseat|1			
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MountedArchery|1		
+CATEGORY=Special Ability|Sohei ~ Bonus Feat.MOD	BONUS:VAR|MonkBonusFeat_MountedCombat|1		
+
+
 
 ###Block: Sohei ~ Bonus Feat		A sohei may select mounted combat feats as bonus feats.
 # COMMENT: Vague, and no guidelines on level, granted all at level 1.
@@ -1094,7 +1332,29 @@ Inescapable Grasp	KEY:Tetori ~ Inescapable Grasp	CATEGORY:Special Ability	TYPE:M
 Form Lock		KEY:Tetori ~ Form Lock			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality						DESC:At 13th level, a tetori can negate a polymorph effect by touch with a Wisdom check, adding a bonus equal to his monk level, against a DC of 11 + the caster level of the effect (or HD of the creature, for supernatural polymorph effects). This is a standard action requiring 2 points from the tetori's ki pool, or an immediate action if a creature the tetori is grappling attempts to use a polymorph effect. This ability replaces diamond soul.																																																																							SOURCEPAGE:p.61
 Iron Body		KEY:Tetori ~ Iron Body			CATEGORY:Special Ability	TYPE:MonkClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality						DESC:At 19th level, as a move action, a tetori can make his tissues ultra-dense for 1 minute as the iron body spell (Core Rulebook 302) by spending 3 points from his ki pool. This ability replaces empty body.																																																																																																															SOURCEPAGE:p.61
 
-###Block: Tetori ~ Bonus Feat
+Improved Grapple	KEY:Monk Bonus Feat ~ Improved Grapple	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Grapple	PREVARGTEQ:MonkBonusFeat_ImprovedGrapple,1	ABILITY:FEAT|VIRTUAL|Improved Grapple
+Greater Grapple	KEY:Monk Bonus Feat ~ Greater Grapple	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Grapple	PREVARGTEQ:MonkBonusFeat_GreaterGrapple,1		ABILITY:FEAT|VIRTUAL|Greater Grapple
+Stunning Pin	KEY:Monk Bonus Feat ~ Stunning Pin		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Stunning Pin		PREVARGTEQ:MonkBonusFeat_StunningPin,1		ABILITY:FEAT|VIRTUAL|Stunning Pin
+Pinning Knockout	KEY:Monk Bonus Feat ~ Pinning Knockout	CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Pinning Knockout	PREVARGTEQ:MonkBonusFeat_PinningKnockout,1	ABILITY:FEAT|VIRTUAL|Pinning Knockout
+Chokehold		KEY:Monk Bonus Feat ~ Chokehold		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Chokehold		PREVARGTEQ:MonkBonusFeat_Chokehold,1		ABILITY:FEAT|VIRTUAL|Chokehold
+Neckbreaker		KEY:Monk Bonus Feat ~ Neckbreaker		CATEGORY:Special Ability	TYPE:MonkBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Neckbreaker		PREVARGTEQ:MonkBonusFeat_Neckbreaker,1		ABILITY:FEAT|VIRTUAL|Neckbreaker
+
+
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:ImprovedGrapple|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:GreaterGrapple|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:StunningPin|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:PinningKnockout|0	
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:Chokehold|0		
+CATEGORY=Special Ability|Monk ~ Monk Bonus Feat.MOD	DEFINE:Neckbreaker|0		
+
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|ImprovedGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,1	
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|GreaterGrapple|1|PREVARGTEQ:MonkBonusFeatLVL,6	
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|StunningPin|1|PREVARGTEQ:MonkBonusFeatLVL,2		
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|PinningKnockout|1|PREVARGTEQ:MonkBonusFeatLVL,10
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|Chokehold|1|PREVARGTEQ:MonkBonusFeatLVL,14
+CATEGORY=Special Ability|Tetori ~ Bonus Feat.MOD	BONUS:VAR|Neckbreaker|1|PREVARGTEQ:MonkBonusFeatLVL,18	
+
+###Block: Tetori ~ Bonus Feat - DEPRECATED - REMOVE 7.2
 # Ability Name	Unique Key				Category of Ability		Type				Visible		Restricted Ability					Var. Min. Value				Ability
 Improved Grapple	KEY:Tetori ~ Improved Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Improved Grapple	PREVARGTEQ:MonkBonusFeatLVL,1		ABILITY:FEAT|VIRTUAL|Improved Grapple
 Greater Grapple	KEY:Tetori ~ Greater Grapple	CATEGORY:Special Ability	TYPE:TetoriBonusFeat	VISIBLE:DISPLAY	!PREABILITY:1,CATEGORY=FEAT,Greater Grapple	PREVARGTEQ:MonkBonusFeatLVL,6		ABILITY:FEAT|VIRTUAL|Greater Grapple
@@ -1119,7 +1379,7 @@ Knight of the Sepulcher	KEY:Paladin Archetype ~ Knight Of The Sepulcher	CATEGORY
 # Ability Name			Unique Key								Category of Ability		Type													Define														Description																																																																																																																																																																																																																																																																																																																																																										Clone Movement		Auto Armor Prof				Auto Weapon Prof							Ability																																			Bonus Ability Pool							Bonus DR					Modify VAR																																	Allow Follower			Allowed Companions																													Vision			Damage Reduction			Source Page		Aspects
 Precise Shot			KEY:Divine Hunter ~ Precise Shot				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.ArchetypeAbility.SpecialQuality																			DESC:A divine hunter gains Precise Shot as a bonus feat at 1st level, even if she doesn't meet the prerequisites. This ability replaces her Heavy Armor Proficiency.																																																																																																																																																																																																																																																																																																																																																			ABILITY:FEAT|AUTOMATIC|Precise Shot																																																																																																																															SOURCEPAGE:p.62
 Shared Precision			KEY:Divine Hunter ~ Shared Precision			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality																	DESC:At 3rd level, when a divine hunter hits a creature with a ranged attack, she grants her allies within 10 feet of her the benefit of the Precise Shot feat against that target until the start of her next turn. Her allies must remain within 10 feet of her, and must be able both to see and hear the divine hunter to gain this benefit. This ability replaces aura of courage.																																																																																																																																																																																																																																																																																																																																																																																																																																																				SOURCEPAGE:p.62
-Divine Bond				KEY:Divine Hunter ~ Divine Bond				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality																	DESC:At 5th level, a divine hunter forms a bond with her deity. This functions as the paladin's divine bond ability, except the bond must always take the form of a ranged or throwing weapon (excluding ammunition). In addition to the listed abilities, a divine hunter can add the distance, returning, or seeking special abilities to her weapon, but she cannot add the defending or disruption special abilities. Special abilities added to throwing weapons function normally when the weapon is used in melee. This ability replaces the standard paladin's divine bond.																																																																																																																																																																																																																																																																																	ABILITY:Special Ability|AUTOMATIC|Divine Hunter ~ Celestial Spirit																																																																																																																									SOURCEPAGE:p.62
+Divine Bond				KEY:Divine Hunter ~ Divine Bond				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality																	DESC:At 5th level, a divine hunter forms a bond with her deity. This functions as the paladin's divine bond ability, except the bond must always take the form of a ranged or throwing weapon (excluding ammunition). In addition to the listed abilities, a divine hunter can add the distance, returning, or seeking special abilities to her weapon, but she cannot add the defending or disruption special abilities. Special abilities added to throwing weapons function normally when the weapon is used in melee. This ability replaces the standard paladin's divine bond.																																																																																																																																																																																																																																																																																	ABILITY:Special Ability|AUTOMATIC|Divine Hunter ~ Celestial Spirit																																																																																																																									SOURCEPAGE:p.62	DEFINE:DivineBondLVL|0	DEFINE:DivineBondTimes|0	BONUS:VAR|DivineBondTimes|min((DivineBondLVL-1)/4,4)	BONUS:VAR|DivineBondLVL|PaladinLVL
 Distant Mercy			KEY:Divine Hunter ~ Distant Mercy				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.SpellLike.ArchetypeAbility.SpecialQuality																	DESC:At 6th level, a divine hunter can expend two uses of her lay on hand abilities to use her lay on hands ability on a target within 5 feet per paladin level. Distant mercy has no effect on creatures harmed by positive energy, such as undead. This ability replaces the paladin's 6th-level mercy.																																																																																																																																																																																																																																																																																																																																																																																																																																																																	SOURCEPAGE:p.62
 Aura of Care			KEY:Divine Hunter ~ Aura Of Care				CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality																	DESC:At 8th level, a divine hunter and her allies gain a preternatural awareness of each other's position in battle. She and any allies within 10 feet of her no longer provide cover against each other's ranged attacks unless they wish to. Allies who cannot move or otherwise take actions still provide cover, as do flat-footed allies. The divine hunter and her allies must be able to see or hear each other to use this ability. This ability replaces aura of resolve.																																																																																																																																																																																																																																																																																																																																																																																																																																					SOURCEPAGE:p.62
 Hunter's Blessing			KEY:Divine Hunter ~ Hunter's Blessing			CATEGORY:Special Ability	TYPE:PaladinClassFeatures.Supernatural.ArchetypeAbility.SpecialQuality																	DESC:At 11th level, a divine hunter can expend a use of her smite evil ability as a swift action to grant herself and all allies within 10 feet the Deadly Aim, Precise Shot, and Improved Precise Shot feats, even if they lack the prerequisites. The effects last for 1 minute. Evil creatures gain no benefit from this ability. This ability replaces aura of justice.																																																																																																																																																																																																																																																																																																																																																																																																																																																						SOURCEPAGE:p.62

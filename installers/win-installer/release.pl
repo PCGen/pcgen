@@ -222,8 +222,6 @@ close(NSISC);
 print "Copy Windows local files...\n";
 
 rcopy( "$SRC_NSIS/Local", "$DEST_BASE_FOLDER/nsis_dir/Local" );
-# No longer required under SVN 1.7
-#rmtree( "$DEST_BASE_FOLDER/nsis_dir/Local/.svn" );
 
 # Copy the release notes over
 
@@ -316,13 +314,13 @@ else {
                 files_to_skip_ref   => [
                     # files - skip jars installed using other options and testing only jars
                     qr{ [/]
-                        (?:  kunststoff | skinlf | fop | jdom
+                        (?:  skinlf | fop | jdom
                         	| javacc | junit | xmlunit | objenesis | clover | easymock | emma | hamcrest  )
                         [^/]* \z
                     }xmsi,
                 ]
             },
-            # For the pdf export, we need the fop, jdom and xml-apis librairies
+            # For the pdf export, we need the fop, and jdom librairies
             {   destination         => "$DEST_NSIS_OPTION_FOLDER/plugin/pdf/lib",
                 files_to_keep_ref   => [
                     # files
@@ -337,7 +335,7 @@ else {
                 files_to_keep_ref   => [
                     # files
                     qr{ [/]
-                        (?: kunststoff | skinlf  )
+                        (?: skinlf  )
                         [^/]* \z
                     }xmsi,
                 ],

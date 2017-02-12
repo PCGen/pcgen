@@ -7,8 +7,7 @@ RANK:1
 GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide
-#INCLUDES=Ultimate Magic,INCLUDES=Ultimate Combat
+PRECAMPAIGN:4,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Magic,INCLUDES=Advanced Class Guide
 PUBNAMELONG:Paizo Inc.
 PUBNAMESHORT:Paizo
 PUBNAMEWEB:http://paizo.com
@@ -56,18 +55,19 @@ TEMPLATE:oa_templates.lst
 #SPELL:occult_rituals.lst
 
 # Support
-ABILITY:support/oa_feats_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-ABILITY:support/oa_feats_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
-SPELL:support/oa_spells_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_acg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Class Guide
+ABILITY:support/oa_feats_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+SPELL:support/oa_spells_uc.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Combat
+
+ABILITY:support/oa_feats_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+SPELL:support/oa_spells_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
 SPELL:support/oa_spells_ma.lst|PRECAMPAIGN:1,INCLUDES=Mythic Adventures
 SPELL:support/oa_spells_mc.lst|PRECAMPAIGN:1,INCLUDES=Monster Codex
 
 # Needed for a Medium archetype
-ABILITY:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_abilities_race.lst|(INCLUDE:CATEGORY=Internal,Race Traits ~ Kami (Shikigami)|CATEGORY=Special Ability,Shikigami ~ Improvised Weapon Mastery|CATEGORY=Special Ability,Shikigami ~ Spell-Like Abilities)|!PRECAMPAIGN:1,Bestiary 3
-RACE:@/pathfinder/paizo/roleplaying_game/bestiary_3/b3_races.lst|(INCLUDE:Kami (Shikigami))|!PRECAMPAIGN:1,Bestiary 3
+ABILITY:support/oa_abilities_race_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3
+RACE:support/oa_races_b3.lst|!PRECAMPAIGN:1,INCLUDES=Bestiary 3
 
 # ENTRY DATE: 2015-11 to 2016-05 (so far!)
 # LST MONKEY: Paul Shipley (Medium,Mesmerist), Andrew Maitland (Everything else...)

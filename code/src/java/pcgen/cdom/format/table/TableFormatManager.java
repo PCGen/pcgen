@@ -74,9 +74,6 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		this.resultFormat = Objects.requireNonNull(resultFormat);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public DataTable convert(String inputStr)
 	{
@@ -84,9 +81,6 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		return database.get(DataTable.class, inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Indirect<DataTable> convertIndirect(String inputStr)
 	{
@@ -99,27 +93,18 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		return database.getIndirect(DataTable.class, inputStr);
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String unconvert(DataTable table)
 	{
 		return table.getName();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public Class<DataTable> getManagedClass()
 	{
 		return DataTable.class;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public String getIdentifierType()
 	{
@@ -132,27 +117,18 @@ public final class TableFormatManager implements FormatManager<DataTable>
 		return sb.toString();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public FormatManager<?> getComponentManager()
 	{
 		return null;
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public int hashCode()
 	{
 		return lookupFormat.hashCode() ^ resultFormat.hashCode();
 	}
 
-	/**
-	 * {@inheritDoc}
-	 */
 	@Override
 	public boolean equals(Object o)
 	{

@@ -212,15 +212,12 @@ public class DataTable implements Loadable
 	 */
 	public FormatManager<?> getFormat(String columnName)
 	{
-		for (TableColumn column : columns)
-		{
-			if (column.getName().equals(columnName))
-			{
-				return column.getFormatManager();
-			}
-		}
-		throw new IllegalArgumentException(
-			"Column Name must exist in the DataTable");
+		return columns.stream()
+			   .filter(column -> column.getName().equals(columnName))
+			   .findFirst()
+			   .orElseThrow(() -> new IllegalArgumentException(
+					   "Column Name must exist in the DataTable"))
+				.getFormatManager();
 	}
 
 	/**
@@ -294,17 +291,12 @@ public class DataTable implements Loadable
 		return row[resultingColumnNumber];
 	}
 
-	@SuppressWarnings("PMD.ReturnEmptyArrayRatherThanNull")
 	private Object[] getRow(Object lookupValue)
 	{
-		for (Object[] row : dataByRow)
-		{
-			if (lookupValue.equals(row[0]))
-			{
-				return row;
-			}
-		}
-		return null;
+		return dataByRow.stream()
+						.filter(row -> lookupValue.equals(row[0]))
+						.findFirst()
+						.orElse(null);
 	}
 
 	/**

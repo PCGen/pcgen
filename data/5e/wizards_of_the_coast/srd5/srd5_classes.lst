@@ -538,7 +538,7 @@ CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Wizard|CL
 ###Block
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Cantrips
-#	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook
+1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellbook
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Preparing and Casting Spells
 #	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Spellcasting Ability
 1	ABILITY:Special Ability|AUTOMATIC|Wizard ~ Ritual Casting
@@ -570,3 +570,8 @@ CLASS:Wizard	SPELLSTAT:INT	MEMORIZE:YES	BONUS:CASTERLEVEL|Wizard|CL
 18	CAST:1,1,1,1,1,1,1,1,1,1
 19	CAST:1,1,1,1,1,1,1,1,1,1
 20	CAST:1,1,1,1,1,1,1,1,1,1
+
+
+CLASS:Warlock Book of Shadows	SPELLSTAT:CHA	MEMORIZE:YES	BONUS:CASTERLEVEL|Warlock|CL
+1:REPEATLEVEL:1	CAST:1,1,1,1,1,1,1,1
+1	

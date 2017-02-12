@@ -1873,6 +1873,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The rawCritRange value
 	 * @deprecated due to CRITRANGE code control
 	 */
+	@Deprecated
 	public int getRawCritRange(final boolean bPrimary)
 	{
 		int range = getHeadInfo(bPrimary ? 1 : 2, IntegerKey.CRIT_RANGE);
@@ -2354,6 +2355,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return Description of the Return Value
 	 * @deprecated due to ACCHECK code control
 	 */
+	@Deprecated
 	public Integer preFormulaAcCheck(final PlayerCharacter aPC)
 	{
 		return Math.min(getSafe(IntegerKey.AC_CHECK)
@@ -5363,6 +5365,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The critMultiplier value
 	 * @deprecated due to CRITMULT code control
 	 */
+	@Deprecated
 	public int getCritMultiplier()
 	{
 		int mult = getHeadInfo(1, IntegerKey.CRIT_MULT);
@@ -5384,6 +5387,7 @@ public final class Equipment extends PObject implements Serializable,
 	 * @return The altCritMultiplier value
 	 * @deprecated due to CRITMULT code control
 	 */
+	@Deprecated
 	public int getAltCritMultiplier()
 	{
 		int mult = getHeadInfo(2, IntegerKey.CRIT_MULT);
@@ -5402,6 +5406,7 @@ public final class Equipment extends PObject implements Serializable,
 	/**
 	 * @deprecated due to CRITMULT and CRITRANGE code controls
 	 */
+	@Deprecated
 	private int getHeadInfo(int headnum, IntegerKey ik)
 	{
 		EquipmentHead head = getEquipmentHeadReference(headnum);

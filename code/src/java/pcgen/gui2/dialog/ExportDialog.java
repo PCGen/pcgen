@@ -57,15 +57,6 @@ import javax.swing.event.ListSelectionListener;
 import javax.swing.filechooser.FileFilter;
 import javax.swing.filechooser.FileNameExtensionFilter;
 
-import org.apache.commons.io.FileUtils;
-import org.apache.commons.io.filefilter.FileFilterUtils;
-import org.apache.commons.io.filefilter.IOFileFilter;
-import org.apache.commons.io.filefilter.SuffixFileFilter;
-import org.apache.commons.io.filefilter.TrueFileFilter;
-import org.apache.commons.lang3.BooleanUtils;
-import org.apache.commons.lang3.StringUtils;
-import org.apache.commons.lang3.SystemUtils;
-
 import pcgen.cdom.base.Constants;
 import pcgen.core.Globals;
 import pcgen.core.SettingsHandler;
@@ -81,6 +72,15 @@ import pcgen.system.CharacterManager;
 import pcgen.system.ConfigurationSettings;
 import pcgen.system.PCGenSettings;
 import pcgen.util.Logging;
+
+import org.apache.commons.io.FileUtils;
+import org.apache.commons.io.filefilter.FileFilterUtils;
+import org.apache.commons.io.filefilter.IOFileFilter;
+import org.apache.commons.io.filefilter.SuffixFileFilter;
+import org.apache.commons.io.filefilter.TrueFileFilter;
+import org.apache.commons.lang3.BooleanUtils;
+import org.apache.commons.lang3.StringUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 /**
  * The dialog provides the list of output sheets for a character or party to
@@ -347,7 +347,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				path = new File(PCGenSettings.getPcgDir());
 			}
 			name = character.getTabNameRef().get();
-			if (name == null || "".equals(name))
+			if (StringUtils.isEmpty(name))
 			{
 				name = character.getNameRef().get();
 			}
@@ -679,8 +679,7 @@ public final class ExportDialog extends JDialog implements ActionListener, ListS
 				return Collections.emptyList();
 			}
 			IOFileFilter fileFilter = FileFilterUtils.notFileFilter(new SuffixFileFilter(".fo"));
-			IOFileFilter dirFilter = FileFilterUtils.makeSVNAware(TrueFileFilter.INSTANCE);
-			return FileUtils.listFiles(dir, fileFilter, dirFilter);
+			return FileUtils.listFiles(dir, fileFilter, TrueFileFilter.INSTANCE);
 		}
 
 		@Override

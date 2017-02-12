@@ -162,7 +162,7 @@ public enum Icons
 	 * @param fileName {@code String}, the path to the
 	 * {@code IconImage} source
 	 *
-	 * @return {@code ImageIcon}, the icon or <code>null</code>
+	 * @return {@code ImageIcon}, the icon or {@code null}
 	 * on failure
 	 * @deprecated Should be private to force use of cache. Filename should be defined in this file as enum.
 	 */

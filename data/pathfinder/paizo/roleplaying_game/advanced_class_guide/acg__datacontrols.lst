@@ -226,6 +226,7 @@ FACTDEF:ABILITY|Investigator_Archetype_StudiedStrike				DATAFORMAT:BOOLEAN	REQUI
 FACTDEF:ABILITY|Investigator_Archetype_TrueInspiration			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 
 FACTDEF:ABILITY|Investigator_Archetype_PoisonImmunity				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
+FACTDEF:ABILITY|Investigator_Archetype_Talent3					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_Talent9					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance2			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
 FACTDEF:ABILITY|Investigator_Archetype_PoisonResistance4			DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Determines whether the archetype affects - Proficiencies
@@ -249,6 +250,7 @@ FACTDEF:ABILITY|Investigator_CF_StudiedStrike					DATAFORMAT:BOOLEAN	REQUIRED:NO
 FACTDEF:ABILITY|Investigator_CF_TrueInspiration					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 
 FACTDEF:ABILITY|Investigator_CF_PoisonImmunity					DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
+FACTDEF:ABILITY|Investigator_CF_Talent3						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_Talent9						DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance2				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
 FACTDEF:ABILITY|Investigator_CF_PoisonResistance4				DATAFORMAT:BOOLEAN	REQUIRED:NO	SELECTABLE:NO	VISIBLE:YES	DISPLAYNAME:Proficiencies		EXPLANATION:Investigator Proficiencies removed
