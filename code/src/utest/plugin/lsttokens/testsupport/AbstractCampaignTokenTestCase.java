@@ -18,20 +18,19 @@
 package plugin.lsttokens.testsupport;
 
 import java.net.URI;
-import java.net.URISyntaxException;
-
-import org.junit.Test;
 
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 
+import org.junit.Test;
+
 public abstract class AbstractCampaignTokenTestCase extends
 		AbstractCDOMTokenTestCase<Campaign>
 {
 
-	static CDOMTokenLoader<Campaign> loader =
+	private static final CDOMLoader<Campaign> loader =
 			new CDOMTokenLoader<>();
 
 	public abstract ListKey<?> getListKey();
@@ -44,7 +43,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		URI uri = new URI("http://www.sourceforge.net");

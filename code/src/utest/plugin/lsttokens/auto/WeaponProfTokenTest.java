@@ -17,11 +17,6 @@
  */
 package plugin.lsttokens.auto;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -33,6 +28,9 @@ import pcgen.core.QualifiedObject;
 import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreWeaponProfParser;
@@ -46,7 +44,7 @@ public class WeaponProfTokenTest extends AbstractAutoTokenTestCase<WeaponProf>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(preWpnProf);
