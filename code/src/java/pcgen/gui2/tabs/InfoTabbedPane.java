@@ -301,7 +301,7 @@ public final class InfoTabbedPane extends JTabbedPane
 	 * This class handles the concurrent processing of storing and restoring tab
 	 * models. Conceptually this process consists of two separate processing
 	 * queues. One queue is the orderly execution of restoring tab models which
-	 * takes place in a a semi-concurrent manner. Each tab has its models
+	 * takes place in a semi-concurrent manner. Each tab has its models
 	 * restored as a separate task on the EventDispatchThread which allows for
 	 * the UI to remain responsive to other events. If the user selects a
 	 * different character while tab models are being restored then the model

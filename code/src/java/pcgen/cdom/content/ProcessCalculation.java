@@ -52,7 +52,7 @@ public final class ProcessCalculation<T> extends AbstractNEPCalculation<T>
 	 *            BasicCalculation when this ProcessCalculation is processed
 	 * @param calc
 	 *            The BasicCalculation which defines the operation to be
-	 *            performed when this this ProcessCalculation is processed
+	 *            performed when this ProcessCalculation is processed
 	 */
 	public ProcessCalculation(T object, BasicCalculation<T> calc,
 		FormatManager<T> fmtManager)

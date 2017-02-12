@@ -33,7 +33,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * A FactParser is a dynamically built subtoken created when a FACT: is defined
  * 
  * @param <T>
- *            The type of of object upon which the FactParser can be used
+ *            The type of object upon which the FactParser can be used
  * @param <F>
  *            The format of the data stored in the Factt
  */

@@ -259,7 +259,7 @@ public class ChallengeRatingFacet
 		while (levelsNonKey > 1)
 		{
 			cr++;
-			// TODO: maybe the divisor 2 should be be made configurable, 
+			// TODO: maybe the divisor 2 should be made configurable, 
 			// or the whole calculation put into a formula
 			levelsNonKey -= 2;
 			levelsConverted += 2;

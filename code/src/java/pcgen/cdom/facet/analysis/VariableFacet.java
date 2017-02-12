@@ -206,7 +206,7 @@ public class VariableFacet extends AbstractStorageFacet<CharID> implements
 	 *            The CharID identifying the Player Character for which the
 	 *            numeric variable value is to be returned
 	 * @param key
-	 *            The VariableKey identifying the variable which which the value
+	 *            The VariableKey identifying the variable which the value
 	 *            is to be returned
 	 * @param isMax
 	 *            Used to determine if this method returns the maximum (true) or

@@ -346,7 +346,7 @@ public class SpellProgressionCache implements Cloneable {
 	 * could provide that spell level). This DOES NOT return a class level where
 	 * a spell count is "-" (or spells are not available at all).
 	 * 
-	 * If allowBonus is false, this this will return a class level where the
+	 * If allowBonus is false, this will return a class level where the
 	 * CAST or KNOWN spell count is greater than zero (since no bonuses would be
 	 * applied to make the spell count a non-zero value)
 	 * 

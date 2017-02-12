@@ -39,7 +39,7 @@ import pcgen.rules.persistence.token.ParseResult;
  * defined
  * 
  * @param <T>
- *            The type of of object upon which the FactSetParser can be used
+ *            The type of object upon which the FactSetParser can be used
  * @param <F>
  *            The format of the data stored in the FactSet
  */

@@ -4443,7 +4443,7 @@ public final class Equipment extends PObject implements Serializable,
 	}
 
 	/**
-	 * same as getSpecialAbilityList except if if you have the same ability
+	 * same as getSpecialAbilityList except if you have the same ability
 	 * twice, it only lists it once with (2) at the end.
 	 * 
 	 * @param abilityList The list of abilities

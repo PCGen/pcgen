@@ -154,7 +154,7 @@ public final class FopTask implements Runnable
 
 	/**
 	 * Creates a new FopTask that transforms the input stream using the given xsltFile and outputs a
-	 * pdf document to the given Renderer. This task can can be used for both previewing a pdf
+	 * pdf document to the given Renderer. This task can be used for both previewing a pdf
 	 * document as well as printing a pdf
 	 *
 	 * @param inputXmlStream the fop xml input stream

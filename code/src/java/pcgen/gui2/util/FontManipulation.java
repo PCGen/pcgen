@@ -62,7 +62,7 @@ public class FontManipulation
 	}
 
 	/**
-	 * For extra extra large font.
+	 * For extra large font.
 	 * 
 	 * @param f
 	 *            base font
@@ -73,7 +73,7 @@ public class FontManipulation
 	}
 
 	/**
-	 * For extra extra large font.
+	 * For extra large font.
 	 * 
 	 * @param container
 	 *            element to change the font of

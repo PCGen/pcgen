@@ -2046,7 +2046,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	}
 
 	/**
-	 * same as getSpecialAbilityList except if if you have the same ability
+	 * same as getSpecialAbilityList except if you have the same ability
 	 * twice, it only lists it once with (2) at the end.
 	 *
 	 * @return List
