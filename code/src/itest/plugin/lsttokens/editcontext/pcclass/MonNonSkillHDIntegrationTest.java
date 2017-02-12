@@ -36,7 +36,7 @@ public class MonNonSkillHDIntegrationTest extends
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		prefix = "CLASS:";

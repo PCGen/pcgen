@@ -51,7 +51,7 @@ public class StartFeatsTokenTest extends AbstractCDOMTokenTestCase<Race>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(prehd);

@@ -51,7 +51,7 @@ public class AbilitySelectionTokenTest
 	protected LoadContext context;
 
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		Globals.emptyLists();
 		SettingsHandler.getGame().clearLoadContext();

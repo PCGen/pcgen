@@ -51,7 +51,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		addBonus(MonNonSkillHD.class);

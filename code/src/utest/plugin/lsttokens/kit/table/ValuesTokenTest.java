@@ -41,7 +41,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 			"TABLE", KitTable.class);
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		TokenRegistration.register(eqmodToken);
 		TokenRegistration.register(lookupToken);

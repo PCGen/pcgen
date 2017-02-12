@@ -45,7 +45,7 @@ public class FaceIntegrationTest extends AbstractIntegrationTestCase<Race>
 	private FormatManager<OrderedPair> opManager = new OrderedPairManager();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(m);

@@ -38,7 +38,7 @@ public class SubClassTokenTest extends AbstractKitTokenTestCase<KitClass>
 			"SKILL", KitClass.class);
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		primaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Wizard");

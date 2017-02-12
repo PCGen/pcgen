@@ -59,7 +59,7 @@ public class SizeIntegrationTest extends AbstractIntegrationTestCase<Equipment>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SizeAdjustment ps = BuildUtilities.createSize("Small", 0);

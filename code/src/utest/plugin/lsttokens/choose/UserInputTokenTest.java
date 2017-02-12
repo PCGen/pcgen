@@ -41,7 +41,7 @@ public class UserInputTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 			new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(subtoken);

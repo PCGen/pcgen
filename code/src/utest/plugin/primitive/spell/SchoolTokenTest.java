@@ -47,7 +47,7 @@ public class SchoolTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		primaryContext.getReferenceContext().constructNowIfNecessary(SpellSchool.class, "SampleSchool");

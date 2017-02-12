@@ -44,7 +44,7 @@ public class MonCSkillTokenTest extends
 	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		ClassSkillList a = primaryContext.getReferenceContext().constructCDOMObject(ClassSkillList.class, "Scary Monster");

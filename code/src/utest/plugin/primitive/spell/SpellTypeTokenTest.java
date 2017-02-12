@@ -46,7 +46,7 @@ public class SpellTypeTokenTest extends
 	}
 
 	@Override
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(SPELLTYPE_TOKEN);

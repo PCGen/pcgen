@@ -60,7 +60,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	@Override
 	@Before
-	public void setUp() throws PersistenceLayerException, URISyntaxException
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		SizeAdjustment ps = BuildUtilities.createSize("Small", 0);
