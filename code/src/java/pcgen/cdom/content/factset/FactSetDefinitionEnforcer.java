@@ -34,7 +34,7 @@ import pcgen.util.Logging;
  * FACTSET present on the object.
  * 
  * @param <T>
- *            The type of of object upon which the FactSetDefinitionEnforcer
+ *            The type of object upon which the FactSetDefinitionEnforcer
  *            will be used
  * @param <F>
  *            The format of the data stored in the FactSet

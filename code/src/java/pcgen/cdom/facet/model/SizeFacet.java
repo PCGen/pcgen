@@ -161,7 +161,7 @@ public class SizeFacet extends AbstractDataFacet<CharID, SizeAdjustment> impleme
 			iSize += sizesToAdvance(id, race);
 
 			//
-			// Must still be be a valid size
+			// Must still be a valid size
 			//
 			int maxIndex = Globals.getContext().getReferenceContext()
 					.getConstructedObjectCount(SIZEADJUSTMENT_CLASS) - 1;

@@ -53,7 +53,7 @@ public final class FormulaCalculation<T> extends AbstractNEPCalculation<T>
 	 *            is processed
 	 * @param calc
 	 *            The BasicCalculation which defines the operation to be
-	 *            performed when this this FormulaCalculation is processed
+	 *            performed when this FormulaCalculation is processed
 	 */
 	public FormulaCalculation(NEPFormula<T> formula, BasicCalculation<T> calc)
 	{

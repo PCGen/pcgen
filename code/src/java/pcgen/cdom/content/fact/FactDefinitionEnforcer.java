@@ -32,7 +32,7 @@ import pcgen.util.Logging;
  * present on the object.
  * 
  * @param <T>
- *            The type of of object upon which the FactDefinitionEnforcer will
+ *            The type of object upon which the FactDefinitionEnforcer will
  *            be used
  * @param <F>
  *            The format of the data stored in the Fact
