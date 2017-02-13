@@ -835,35 +835,32 @@ public class SpinningTabbedPane extends JTabbedPane
                     ultimatum = indices[indices.length - 1];
             }
 
-            for (int indice : indices)
+            int indice = indices[0];
+            if (index < indice)
             {
-                if (index < indice)
-                {
-                    continue;
-                }
-
-                if (index > primum)
-                {
-                    if (index > secundum)
-                    {
-                        add(new MoveTabMenuItem(index, SwingConstants.TOP));
-                    }
-
-                    add(new MoveTabMenuItem(index, SwingConstants.LEFT));
-                }
-
-                if (index < ultimatum)
-                {
-                    add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
-
-                    if (index < penultimatum)
-                    {
-                        add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
-                    }
-                }
-
-                break;
+                return;
             }
+
+            if (index > primum)
+            {
+                if (index > secundum)
+                {
+                    add(new MoveTabMenuItem(index, SwingConstants.TOP));
+                }
+
+                add(new MoveTabMenuItem(index, SwingConstants.LEFT));
+            }
+
+            if (index < ultimatum)
+            {
+                add(new MoveTabMenuItem(index, SwingConstants.RIGHT));
+
+                if (index < penultimatum)
+                {
+                    add(new MoveTabMenuItem(index, SwingConstants.BOTTOM));
+                }
+            }
+
         }
 
     }

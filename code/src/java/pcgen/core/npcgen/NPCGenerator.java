@@ -1,5 +1,4 @@
 /*
- * NPCGenerator.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,13 +14,15 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package pcgen.core.npcgen;
 
 import java.util.ArrayList;
 import java.util.Iterator;
 import java.util.List;
+import java.util.Objects;
+import java.util.stream.Collectors;
+import java.util.stream.IntStream;
 
 import pcgen.base.util.RandomUtil;
 import pcgen.base.util.WeightedCollection;
@@ -65,8 +66,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * This class implements the NPC generator.  It is a singleton object and 
  * therefore should not be created locally.
- * 
- *
  */
 public final class NPCGenerator
 {
@@ -75,11 +74,10 @@ public final class NPCGenerator
 	private Configuration theConfiguration = null;
 
 	// Rule options
-	private int theSubSkillWeightAdd = 10;
+	private final int theSubSkillWeightAdd = 10;
 	
 	private NPCGenerator()
 	{
-		// Private so this can't be constructed.
 	}
 
 	/**
@@ -234,20 +232,17 @@ public final class NPCGenerator
 				{
 					Logging.debugPrint("NPCGenerator: Skill already at max."); //$NON-NLS-1$
 					// Check that there are some skills we can advance in
-					boolean ranksLeft = false;
-					for (SkillChoice skillChoice : skillList)
-					{
-						Skill chkSkill = skillChoice.getSkill();
-						if (chkSkill != null)
-						{
-							if (aPC.getRank(chkSkill).doubleValue() < aPC.getMaxRank(chkSkill, aClass).
-									doubleValue())
-							{
-								ranksLeft = true;
-								break;
-							}
-						}
-					}
+					boolean ranksLeft = skillList.stream()
+					                             .map(SkillChoice::getSkill)
+					                             .filter(Objects::nonNull)
+					                             .anyMatch(chkSkill ->
+							                             aPC.getRank(chkSkill)
+							                                .doubleValue()
+									                             < aPC.getMaxRank(
+									                             chkSkill,
+									                             aClass
+							                             ).
+											                                  doubleValue());
 					if (!ranksLeft)
 					{
 						Logging.errorPrint("Unable to spend all skill points.");
@@ -302,12 +297,13 @@ public final class NPCGenerator
                 theConfiguration.getStatWeights(aClass.getKeyName()));
 
 		final List<PCStat> ret = new ArrayList<>();
-		for (int i = 0; i < pc.getDisplay().getStatCount(); i++)
-		{
-			final PCStat stat = stats.getRandomValue();
-			ret.add(stat);
-			stats.remove(stat);
-		}
+		IntStream.range(0, pc.getDisplay().getStatCount())
+		         .mapToObj(i -> stats.getRandomValue())
+		         .forEach(stat ->
+		         {
+			         ret.add(stat);
+			         stats.remove(stat);
+		         });
 
 		return ret;
 	}
@@ -458,16 +454,15 @@ public final class NPCGenerator
 		{
 			return;
 		}
-		final WeightedCollection<Domain> domains = new WeightedCollection<>();
-		for (Domain d : aPC.getDomainSet())
-		{
-			// if any domains have this class as a source
-			// and is a valid domain, add them
-			if (aClass.equals(aPC.getDomainSource(d).getPcclass()))
-			{
-				domains.add(d);
-			}
-		}
+		final WeightedCollection<Domain> domains = aPC.getDomainSet()
+		                                              .stream()
+		                                              .filter(d -> aClass.equals(aPC
+				                                              .getDomainSource(
+				                                              d).getPcclass()))
+		                                              .collect(Collectors.toCollection(
+				                                              WeightedCollection::new));
+		// if any domains have this class as a source
+// and is a valid domain, add them
 		final Domain domain = domains.getRandomValue();
 		final WeightedCollection<Spell> domainSpells =
                 new WeightedCollection<>(aPC.getSpellsIn(domain.get(ObjectKey.DOMAIN_SPELLLIST),
@@ -494,13 +489,13 @@ public final class NPCGenerator
 			}
 			final String aString = aPC.addSpell(cs, new ArrayList<>(), aClass.getKeyName(),
 					   aBookName, aLevel, aLevel);
-			if (!aString.isEmpty())
+			if (aString.isEmpty())
 			{
-				Logging.debugPrint("Add spell failed: " + aString); //$NON-NLS-1$
+				added = true;
 			}
 			else
 			{
-				added = true;
+				Logging.debugPrint("Add spell failed: " + aString); //$NON-NLS-1$
 			}
 		}
 	}
@@ -599,17 +594,21 @@ public final class NPCGenerator
 				else
 				{
 					doneRacialClasses = true;
-					for ( ; ; )
+					while (true)
 					{
 						aClass = getClass(classList.get(i));
 						if (aClass == null)
 						{
 							break;
 						}
-						if (aClass.getSafe(ObjectKey.VISIBILITY).equals(Visibility.DEFAULT)
-							&& aClass.qualifies(aPC, aClass))
+						if (aClass.getSafe(ObjectKey.VISIBILITY)
+						          .equals(Visibility.DEFAULT)
+								&& aClass.qualifies(aPC, aClass))
 						{
-							Logging.debugPrint( "NPCGenerator: Selecting " + aClass + " for class " + classList.get(i) ); //$NON-NLS-1$ //$NON-NLS-2$
+							Logging.debugPrint(
+									"NPCGenerator: Selecting " + aClass + " for class "
+											+ classList.get(i)); //$NON-NLS-1$
+							// $NON-NLS-2$
 							break;
 						}
 						// TODO Remove a failed class from the list.
