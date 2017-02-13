@@ -112,6 +112,7 @@
     <exclude name="UseStringBufferForStringAppends" />
     <exclude name="UseArrayListInsteadOfVector" />
     <exclude name="UnnecessaryWrapperObjectCreation" />
+    <exclude name="SimplifyStartsWith" />
   </rule>
   <rule ref="rulesets/java/strictexception.xml">
     <exclude name="AvoidCatchingGenericException" />
