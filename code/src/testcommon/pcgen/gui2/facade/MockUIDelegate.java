@@ -31,7 +31,7 @@ import pcgen.system.PropertyContext;
 import pcgen.util.Logging;
 
 /**
- * The Class <code></code> is ...
+ * The Class {@code} is ...
  *
  * <br/>
  * 

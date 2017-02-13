@@ -367,7 +367,7 @@ public final class EquipmentChoice
 	}
 
 	/**
-	 * Add Equipment of Type typeString to to the available list of
+	 * Add Equipment of Type typeString to the available list of
 	 * the Equipment Chooser equipChoice
 	 * @param typeString  the type of Equipment to add to the chooser
 	 */

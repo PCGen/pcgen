@@ -22,7 +22,7 @@ import pcgen.cdom.facet.base.AbstractSourcedListFacet;
 import pcgen.cdom.inst.PCClassLevel;
 
 /**
- * ClassLevelFacet is a Facet that that tracks the PCClassLevel objects that
+ * ClassLevelFacet is a Facet that tracks the PCClassLevel objects that
  * have been granted to a Player Character.
  * 
  * @author Thomas Parker (thpr [at] yahoo.com)

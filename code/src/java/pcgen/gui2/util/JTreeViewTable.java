@@ -63,7 +63,7 @@ import pcgen.util.ListMap;
 
 /**
  * JTreeViewTable is a subclass of JTreeTable that uses a TreeViewModel instead
- * of a a TreeTableModel. The TreeViewModel is a oriented towards displaying
+ * of a TreeTableModel. The TreeViewModel is a oriented towards displaying
  * arbitrary objects as a tree instead of TreeTableNodes. In addition, the
  * TreeViewModel supports multiple viewing methods and column visibility
  * controls.
