@@ -60,7 +60,7 @@ public final class ChoiceSetLoadUtilities
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
 
-		for (; pipe.hasNext();)
+		while (pipe.hasNext())
 		{
 			String joinedAnd = pipe.next();
 			if (hasIllegalSeparator(',', joinedAnd))
@@ -71,25 +71,31 @@ public final class ChoiceSetLoadUtilities
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
-			for (; comma.hasNext();)
+			while (comma.hasNext())
 			{
 				String primitive = comma.next();
 				if (primitive == null || primitive.isEmpty())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was null or empty: " + primitive);
+					Logging.addParseMessage(
+							Logging.LST_ERROR,
+							"Choice argument was null or empty: " + primitive
+					);
 					return null;
 				}
 				QualifierToken<T> qual = getQualifier(context, sc,
-						primitive);
+						primitive
+				);
 				if (qual == null)
 				{
 					PrimitiveCollection<T> pcf = getSimplePrimitive(context,
-							sc, primitive);
+							sc, primitive
+					);
 					if (pcf == null)
 					{
-						Logging.addParseMessage(Logging.LST_ERROR,
-								"Choice argument was not valid: " + primitive);
+						Logging.addParseMessage(
+								Logging.LST_ERROR,
+								"Choice argument was not valid: " + primitive
+						);
 						return null;
 					}
 					else
@@ -165,7 +171,7 @@ public final class ChoiceSetLoadUtilities
 		ParsingSeparator pipe = new ParsingSeparator(joinedOr, '|');
 		pipe.addGroupingPair('[', ']');
 		pipe.addGroupingPair('(', ')');
-		for (; pipe.hasNext();)
+		while (pipe.hasNext())
 		{
 			String joinedAnd = pipe.next();
 			if (joinedAnd.isEmpty() || hasIllegalSeparator(',', joinedAnd))
@@ -176,21 +182,26 @@ public final class ChoiceSetLoadUtilities
 			ParsingSeparator comma = new ParsingSeparator(joinedAnd, ',');
 			comma.addGroupingPair('[', ']');
 			comma.addGroupingPair('(', ')');
-			for (; comma.hasNext();)
+			while (comma.hasNext())
 			{
 				String primitive = comma.next();
 				if (primitive == null || primitive.isEmpty())
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was null or empty: " + primitive);
+					Logging.addParseMessage(
+							Logging.LST_ERROR,
+							"Choice argument was null or empty: " + primitive
+					);
 					return null;
 				}
 				PrimitiveCollection<T> pcf = getSimplePrimitive(context,
-						sc, primitive);
+						sc, primitive
+				);
 				if (pcf == null)
 				{
-					Logging.addParseMessage(Logging.LST_ERROR,
-							"Choice argument was not valid: " + primitive);
+					Logging.addParseMessage(
+							Logging.LST_ERROR,
+							"Choice argument was not valid: " + primitive
+					);
 					return null;
 				}
 				else
