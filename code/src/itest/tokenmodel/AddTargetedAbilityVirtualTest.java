@@ -88,20 +88,17 @@ public class AddTargetedAbilityVirtualTest extends AbstractAddListTokenTest<Abil
 			boolean abilityExpected =
 					a.getAbility().equals(context.getReferenceContext().silentlyGetConstructedCDOMObject(
 						Ability.class, AbilityCategory.FEAT, "Granted"));
-			if (abilityExpected)
+			if (abilityExpected && (pc.getDetailedAssociationCount(a) == 1))
 			{
-				if (pc.getDetailedAssociationCount(a) == 1)
+				if (!pc.getAssociationList(a).get(0).equals("English"))
 				{
-					if (!pc.getAssociationList(a).get(0).equals("English"))
-					{
-						continue;
-					}
-					Language english =
-							context.getReferenceContext().silentlyGetConstructedCDOMObject(
-								Language.class, "English");
-					languageFacet.contains(id, english);
-					return true;
+					continue;
 				}
+				Language english =
+						context.getReferenceContext().silentlyGetConstructedCDOMObject(
+							Language.class, "English");
+				languageFacet.contains(id, english);
+				return true;
 			}
 		}
 		return false;
