@@ -1023,7 +1023,9 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 							continue;
 						}
 					}
-				} else {
+				}
+				else
+				{
 					remove(node);
 				}
 			}
@@ -1203,7 +1205,9 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				dir = new File(path + File.separator + newName);
 				rehomeChildren(dir.getAbsolutePath());
-			} else {
+			}
+			else
+			{
 				dir = new File(oldPath);
 				setUserObject(oldName);
 			}
