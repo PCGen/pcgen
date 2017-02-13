@@ -280,10 +280,6 @@ clean {
 test {
     exclude 'pcgen/testsupport/**'
     //	maxParallelForks 4
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task itest(type: Test, dependsOn: jar) {
@@ -291,10 +287,6 @@ task itest(type: Test, dependsOn: jar) {
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
@@ -302,15 +294,10 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     forkEvery = 1
-    maxHeapSize = "512m"
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
     ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
@@ -319,59 +306,34 @@ task datatest(type: Test, dependsOn: 'jar') {
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
     ignoreFailures=ignoreTestFailures
-    maxHeapSize = "512m"
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/**/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_pathfinder/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_35e/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_modern/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-	events "started", "skipped", "failed"
-    }
 }
 
 // Do the lot!
@@ -386,6 +348,13 @@ task wrapper(type: Wrapper) {
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
+    }
+    tasks.withType(Test) {
+        testLogging {
+            exceptionFormat = 'full'
+            events "started", "skipped", "failed"
+        }
+        maxHeapSize = "512m"
     }
 }
 
