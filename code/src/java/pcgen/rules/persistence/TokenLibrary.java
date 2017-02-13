@@ -143,6 +143,7 @@ public final class TokenLibrary implements PluginLoader
 		{
 			return it.next();
 		}
+		return null;
 	}
 
 	public static Collection<PostValidationToken<? extends Loadable>> getPostValidationTokens()

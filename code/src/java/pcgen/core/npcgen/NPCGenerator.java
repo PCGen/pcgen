@@ -594,28 +594,24 @@ public final class NPCGenerator
 				else
 				{
 					doneRacialClasses = true;
-					while (true)
+					aClass = getClass(classList.get(i));
+					if (aClass == null)
 					{
-						aClass = getClass(classList.get(i));
-						if (aClass == null)
-						{
-							break;
-						}
-						if (aClass.getSafe(ObjectKey.VISIBILITY)
-						          .equals(Visibility.DEFAULT)
-								&& aClass.qualifies(aPC, aClass))
-						{
-							Logging.debugPrint(
-									"NPCGenerator: Selecting " + aClass + " for class "
-											+ classList.get(i)); //$NON-NLS-1$
-							// $NON-NLS-2$
-							break;
-						}
-						// TODO Remove a failed class from the list.
-						Logging.errorPrint("Counld not add a level of " + aClass);
-						aClass = null;
 						break;
 					}
+					if (aClass.getSafe(ObjectKey.VISIBILITY)
+					          .equals(Visibility.DEFAULT)
+							&& aClass.qualifies(aPC, aClass))
+					{
+						Logging.debugPrint(
+								"NPCGenerator: Selecting " + aClass + " for class "
+										+ classList.get(i)); //$NON-NLS-1$
+						// $NON-NLS-2$
+						break;
+					}
+					// TODO Remove a failed class from the list.
+					Logging.errorPrint("Counld not add a level of " + aClass);
+					aClass = null;
 				}
 				if (aClass == null)
 				{
