@@ -140,7 +140,7 @@ public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 			}
 			evalStr = evalStr.substring(5, endInd);
 			int val = aPC.getVariableValue(evalStr, "").intValue();
-			String evalVal = "" + val;
+			String evalVal = String.valueOf(val);
 			modString.append(evalVal);
 			modString.append(aValue.substring(endInd + 5));
 			ret = modString.toString();
