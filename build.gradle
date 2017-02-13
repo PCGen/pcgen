@@ -180,7 +180,7 @@ dependencies {
     findbugs 'com.google.code.findbugs:findbugs:3.0.1'
     findbugs configurations.findbugsPlugins.dependencies
 
-    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.8.2'
+    findbugsPlugins 'com.mebigfatguy.fb-contrib:fb-contrib:6.8.3'
 }
 
 ant.importBuild 'build-gradle.xml'
@@ -378,7 +378,7 @@ task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '3.3'
+    gradleVersion = '3.4.1'
 }
 
 //Disable failing on javadoc warning
