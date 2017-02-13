@@ -90,7 +90,9 @@ public abstract class AbstractCollectionMap<K, V, C extends Collection<V>>
     {
 	C collection = get(key);
 	if(collection != null)
-	    return collection.size();
+	{
+		return collection.size();
+	}
 	return 0;
     }
     

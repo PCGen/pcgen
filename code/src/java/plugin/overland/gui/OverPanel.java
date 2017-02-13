@@ -152,7 +152,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butToDistActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.TIME;
 		Object o = txtTime.getValue();
 		if (o != null && o instanceof Number)
@@ -168,7 +170,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butImperialToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.IMPERIAL_DISTANCE;
 		Object o = txtDist.getValue();
 		if (o != null && o instanceof Number)
@@ -182,7 +186,9 @@ public class OverPanel extends javax.swing.JPanel
 	private void butMetricToTimeActionPerformed()
 	{
 		if (selectedTM == null)
+		{
 			return;
+		}
 		lastEdited = TravelMethodTextField.METRIC_DISTANCE;
 		Object o = txtDistMetric.getValue();
 		if (o != null && o instanceof Number)
@@ -929,7 +935,9 @@ public class OverPanel extends javax.swing.JPanel
 			public void itemStateChanged(ItemEvent e)
 			{
 				if (e.getStateChange() == ItemEvent.DESELECTED)
+				{
 					return;
+				}
 				changedTM();
 			}
 		});
@@ -965,11 +973,15 @@ public class OverPanel extends javax.swing.JPanel
 	{
 		// remove previous listener
 		if (selectedTM != null)
+		{
 			selectedTM.removeTravelMethodListener(listener);
+		}
 		selectedTM = (TravelMethod) aModel.getSelectedItem();
 		// XXX correct?
 		if (selectedTM == null)
+		{
 			return;
+		}
 
 		method.setModel(selectedTM.getMethodsModel());
 		method.setSelectedIndex(0);
@@ -1020,6 +1032,7 @@ public class OverPanel extends javax.swing.JPanel
 			butToDist.setEnabled(imperialSpeedString != null && metricSpeedString != null);
 			// Updates other text fields based on the last edited one
 			if (lastEdited != null)
+			{
 				switch (lastEdited)
 				{
 					case IMPERIAL_DISTANCE:
@@ -1032,6 +1045,7 @@ public class OverPanel extends javax.swing.JPanel
 						butToDistActionPerformed();
 						break;
 				}
+			}
 		}
 
 		@Override

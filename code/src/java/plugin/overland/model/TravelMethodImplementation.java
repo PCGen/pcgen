@@ -138,10 +138,14 @@ class TravelMethodImplementation implements TravelMethod
 		}
 		String tId = map.get(terrainsModel.getSelectedItem());
 		if (!multByRoadByTerrains.containsKey(tId))
+		{
 			return null;
+		}
 		String rId = routesId.get(selectedMethod.getWay()).get(routesModel.getSelectedItem());
 		if (!multByRoadByTerrains.get(tId).containsKey(rId))
+		{
 			return null;
+		}
 		return multByRoadByTerrains.get(tId).get(rId);
 	}
 
@@ -150,7 +154,9 @@ class TravelMethodImplementation implements TravelMethod
 		Combo c = getSelectedCombo();
 		Number n2 = c.getMult();
 		if (n2 == null)
+		{
 			return null;
+		}
 		StringBuilder n = new StringBuilder();
 		n.append(LanguageBundle.getPrettyMultiplier(n2.doubleValue()));
 		if (c.getAddMph().doubleValue() != 0)
@@ -230,7 +236,9 @@ class TravelMethodImplementation implements TravelMethod
 		{
 			double speed = selectedPace.getMult().doubleValue() * selectedChoice.getKmh().doubleValue();
 			if (selectedPace.isUseDays())
+			{
 				speed *= selectedChoice.getHoursInDay().doubleValue();
+			}
 			return speed;
 		}
 		return null;
@@ -244,7 +252,9 @@ class TravelMethodImplementation implements TravelMethod
 		{
 			double speed = selectedPace.getMult().doubleValue() * selectedChoice.getMph().doubleValue();
 			if (selectedPace.isUseDays())
+			{
 				speed *= selectedChoice.getHoursInDay().doubleValue();
+			}
 			return speed;
 		}
 		return null;
@@ -280,7 +290,9 @@ class TravelMethodImplementation implements TravelMethod
 		if (selectedChoice != null && selectedPace != null)
 		{
 			if (selectedPace.isUseDays())
+			{
 				return selectedChoice.getHoursInDay().doubleValue();
+			}
 		}
 		return 1.0;
 	}
@@ -290,17 +302,26 @@ class TravelMethodImplementation implements TravelMethod
 		Pace selectedPace = paceModel.getSelected();
 
 		if (selectedPace == null)
+		{
 			return LanguageBundle.getString("in_unitUnknown"); //$NON-NLS-1$
+		}
 		else if (selectedPace.isUseDays())
+		{
 			return LanguageBundle.getString("in_unitDays"); //$NON-NLS-1$
-		else return LanguageBundle.getString("in_unitHours"); //$NON-NLS-1$
+		}
+		else
+		{
+			return LanguageBundle.getString("in_unitHours"); //$NON-NLS-1$
+		}
 	}
 
 	private String getSelectedComment()
 	{
 		Pace selectedPace = paceModel.getSelected();
 		if (selectedPace == null)
+		{
 			return ""; //$NON-NLS-1$
+		}
 		return selectedPace.comment.toString();
 	}
 
@@ -380,7 +401,9 @@ class TravelMethodImplementation implements TravelMethod
 		}
 		String n2 = getMultString();
 		if (n2 == null)
+		{
 			return;
+		}
 
 		Object[] listeners = listenerList.getListenerList();
 		TravelSpeedEvent e = null;
@@ -425,7 +448,9 @@ class TravelMethodImplementation implements TravelMethod
 				((TravelMethodListener) listeners[i + 1]).unmodifiedSpeedUpdated(e);
 				// the modified speed also has changed if the mult has a value
 				if (hasMult)
+				{
 					((TravelMethodListener) listeners[i + 1]).speedUpdated(e);
+				}
 			}
 		}
 	}
@@ -726,7 +751,9 @@ class TravelMethodImplementation implements TravelMethod
 		private int getSize(Method m)
 		{
 			if (m == null || !listByWay.containsKey(m.getWay()))
+			{
 				return 0;
+			}
 			return listByWay.get(m.getWay()).size();
 		}
 
@@ -740,7 +767,10 @@ class TravelMethodImplementation implements TravelMethod
 		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || !listByWay.containsKey(selectedMethod.getWay()))
+
+			{
 				return null;
+			}
 			return listByWay.get(selectedMethod.getWay()).get(index);
 		}
 
@@ -772,7 +802,9 @@ class TravelMethodImplementation implements TravelMethod
 				String previousWay = previousMethod.getWay();
 				String selectedWay = selectedMethod.getWay();
 				if (previousWay.equals(selectedWay))
+				{
 					return;
+				}
 				// handle selection. keep same index if not too big, else selection becomes 0
 				List<Localized> previousList = listByWay.get(previousWay);
 				int previousIndex = previousList.indexOf(selected);
@@ -786,8 +818,13 @@ class TravelMethodImplementation implements TravelMethod
 				if (selectedMethod != null)
 				{
 					if (previousIndex < end && previousIndex >= 0)
+					{
 						selected = selectedList.get(previousIndex);
-					else selected = selectedList.get(0);
+					}
+					else
+					{
+						selected = selectedList.get(0);
+					}
 				}
 				// handle firing change event
 				int previousSize = getSize(previousMethod);
@@ -802,10 +839,16 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
+
+				{
 					;
+				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
+
+				{
 					;
+				}
 				if (start != end)
 				{
 					fireContentsChanged(source, start, end - 1);
@@ -841,7 +884,9 @@ class TravelMethodImplementation implements TravelMethod
 		public int getSize()
 		{
 			if (selectedMethod == null)
+			{
 				return 0;
+			}
 			return getList(selectedMethod).size();
 		}
 
@@ -851,7 +896,10 @@ class TravelMethodImplementation implements TravelMethod
 		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || index < 0 || getList(selectedMethod).size() <= index)
+
+			{
 				return null;
+			}
 			return getList(selectedMethod).get(index);
 		}
 
@@ -890,8 +938,13 @@ class TravelMethodImplementation implements TravelMethod
 				if (selectedMethod != null)
 				{
 					if (previousIndex < end && previousIndex >= 0)
+					{
 						selected = selectedList.get(previousIndex);
-					else selected = selectedList.get(0);
+					}
+					else
+					{
+						selected = selectedList.get(0);
+					}
 				}
 				// handle firing change event
 				int previousSize = previousList.size();
@@ -906,10 +959,16 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
+
+				{
 					;
+				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
+
+				{
 					;
+				}
 				if (start != end)
 				{
 					fireContentsChanged(source, start, end - 1);
