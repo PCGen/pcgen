@@ -141,19 +141,29 @@ public class SkillChoice
 	public boolean equals(Object obj)
 	{
 		if (this == obj)
+		{
 			return true;
+		}
 		if (obj == null)
+		{
 			return false;
+		}
 		if (getClass() != obj.getClass())
+		{
 			return false;
+		}
 		final SkillChoice other = (SkillChoice) obj;
 		if (theKey == null)
 		{
 			if (other.theKey != null)
+			{
 				return false;
+			}
 		}
 		else if (!theKey.equals(other.theKey))
+		{
 			return false;
+		}
 		return true;
 	}
 }
