@@ -17,23 +17,13 @@
  */
 package plugin.dicebag;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuNewMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.io.File;
-import java.net.URL;
+import java.util.stream.IntStream;
 
 import javax.swing.AbstractAction;
 import javax.swing.Action;
 import javax.swing.Icon;
-import javax.swing.ImageIcon;
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
 import javax.swing.JTabbedPane;
@@ -45,19 +35,23 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
- * @author RossLodge
- *
- * <p>
  * The base plugin class for the DiceBag plugin. This class handles mediation
  * between the GUI components of in {@code dicebag.gui} and the plugin
  * framework. This class should <b>not </b> pass framework events directly on to
  * the {@code dicebag.gui} classes, nor should those classes call the
  * framework directly.
- * </p>
- *
  */
 public class DiceBagPlugin implements InteractivePlugin
 {
@@ -81,20 +75,7 @@ public class DiceBagPlugin implements InteractivePlugin
 	/** Key of dice bag tab. */
 	private static final String IN_NAME = "in_plugin_dicebag_name"; //$NON-NLS-1$
 
-	/** Version number. (NOTE: does this mean anything?) */
-	private String version = "00.00.00.01"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
-
-	/**
-	 * <p>
-	 * Default (and only) constructor. Initializes the plugin.
-	 * </p>
-	 */
-	public DiceBagPlugin()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * <p>
@@ -179,17 +160,13 @@ public class DiceBagPlugin implements InteractivePlugin
 	 * @param evt
 	 *          ActionEvent that fired this method.
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i).equals(theController.getComponent()))
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+				 .filter(i -> tp.getComponentAt(i).equals(theController.getComponent()))
+				 .forEach(tp::setSelectedIndex);
 	}
 
 	/**
@@ -305,13 +282,13 @@ public class DiceBagPlugin implements InteractivePlugin
 	private void initMenus()
 	{
 		notesToolsItem =
-				makeMenuItem(getLocalizedName(), DiceBagPlugin.DICEBAG_TOOLS_COMMAND, null,
-					LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
+				makeMenuItem(getLocalizedName(), DiceBagPlugin.DICEBAG_TOOLS_COMMAND,
+						LanguageBundle.getString("in_plugin_dicebag_desc"), //$NON-NLS-1$
 					LanguageBundle.getMnemonic("in_mn_plugin_dicebag_name")); //$NON-NLS-1$
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, notesToolsItem));
 	}
 
-	private String getLocalizedName()
+	private static String getLocalizedName()
 	{
 		return LanguageBundle.getString(DiceBagPlugin.IN_NAME);
 	}
@@ -326,35 +303,18 @@ public class DiceBagPlugin implements InteractivePlugin
 	 *          Text to appear in label.
 	 * @param key
 	 *          Command string.
-	 * @param iconPath
-	 *          Path to icon resource; may be null. Resolved with
-	 *          getClass().getResource()
 	 * @param desc
 	 *          Description (tool tip text)
 	 * @param mnemonic
 	 *          Mnemonic integer. Should be from KeyEvents
 	 * @return A new JMenuItem
 	 */
-	private JMenuItem makeMenuItem(String text, String key, String iconPath,
-		String desc, Integer mnemonic)
+	private JMenuItem makeMenuItem(String text, String key,
+								   String desc, Integer mnemonic)
 	{
 
-		URL imageURL = null;
-
-		if ((iconPath != null) && (!iconPath.isEmpty()))
-		{
-			imageURL = getClass().getResource(iconPath);
-		}
-
 		Action action;
-		if (imageURL != null)
-		{
-			action = new ActionDelegate(text, new ImageIcon(imageURL));
-		}
-		else
-		{
-			action = new ActionDelegate(text);
-		}
+		action = new ActionDelegate(text);
 
 		action.putValue(Action.SHORT_DESCRIPTION, desc);
 		action.putValue(Action.MNEMONIC_KEY, mnemonic);

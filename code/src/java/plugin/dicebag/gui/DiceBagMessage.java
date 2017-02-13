@@ -30,28 +30,26 @@ package plugin.dicebag.gui;
  * <li>All Dice Bags Removed</li>
  * <li>Dice Bag Saved</li>
  * </ul>
- *
- * @author Ross Lodge
  */
 public class DiceBagMessage
 {
 	/** Constant for message with no type. */
-	public static final int NO_TYPE = 0;
+	private static final int NO_TYPE = 0;
 
 	/** Constant for message indicating the model has been initialized. */
-	public static final int MODEL_INITIALIZED = 1;
+	static final int MODEL_INITIALIZED = 1;
 
 	/** Constant for message indicating a dice bag has been added. */
-	public static final int DICE_BAG_ADDED = 2;
+	static final int DICE_BAG_ADDED = 2;
 
 	/** Constant for message indicating a dice bag has been removed */
-	public static final int DICE_BAG_REMOVED = 4;
+	static final int DICE_BAG_REMOVED = 4;
 
 	/** Constant for message indicating all dice bages have been removed. */
-	public static final int ALL_DICE_BAGS_REMOVED = 8;
+	static final int ALL_DICE_BAGS_REMOVED = 8;
 
 	/** Constant for message indicating a dice bag has been saved. */
-	public static final int DICE_BAG_SAVED = 64;
+	static final int DICE_BAG_SAVED = 64;
 
 	/** Dice bag that the message pertains to. */
 	private DiceBagModel m_diceBag = null;
@@ -64,7 +62,7 @@ public class DiceBagMessage
 	 *
 	 * @param type One of the constants . . .
 	 */
-	public DiceBagMessage(int type)
+	private DiceBagMessage(int type)
 	{
 		m_type = type;
 	}
@@ -75,7 +73,7 @@ public class DiceBagMessage
 	 * @param type One of the constants
 	 * @param bag Bag this message pertains to
 	 */
-	public DiceBagMessage(int type, DiceBagModel bag)
+	DiceBagMessage(int type, DiceBagModel bag)
 	{
 		this(type);
 		m_diceBag = bag;
@@ -86,7 +84,7 @@ public class DiceBagMessage
 	 *
 	 * @return Dice bag the message pertains to, if any.
 	 */
-	public DiceBagModel getDiceBag()
+	DiceBagModel getDiceBag()
 	{
 		return m_diceBag;
 	}
