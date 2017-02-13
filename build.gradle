@@ -344,9 +344,9 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
 }
 
-//Disable failing on javadoc warning
 allprojects {
     tasks.withType(Javadoc) {
+        //Disable failing on javadoc warning
         options.addBooleanOption('Xdoclint:none', true)
     }
     tasks.withType(Test) {
