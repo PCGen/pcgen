@@ -387,7 +387,6 @@ public abstract class AbstractPrerequisiteListParser
 						}
 						subreq.setKey(elements[i]);
 					}
-					break;
 				}
 			}
 			else
