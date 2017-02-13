@@ -17,6 +17,7 @@
  */
 package pcgen.rules.persistence.util;
 
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
@@ -85,7 +86,7 @@ public class TokenFamilySubIterator<C> implements
 	 * we do this Iterator, otherwise this Iterator will provide tokens that are
 	 * designed to be unreachable (And thus will produce errors)
 	 */
-	private final Set<String> used = new HashSet<>();
+	private final Collection<String> used = new HashSet<>();
 
 	/**
 	 * Constructs a new TokenFamilySubIterator for the given Class and parent
@@ -108,8 +109,7 @@ public class TokenFamilySubIterator<C> implements
 
 	/**
 	 * Returns the next CDOMSecondaryToken
-	 * 
-	 * @see java.util.Iterator#next()
+	 *
 	 */
 	@Override
 	public CDOMSecondaryToken<? super C> next()
@@ -162,10 +162,9 @@ public class TokenFamilySubIterator<C> implements
 	private CDOMSecondaryToken<? super C> getNext()
 	{
 		needNewToken = false;
-		while (subIterator.hasNext())
+		if (subIterator.hasNext())
 		{
-			CDOMSecondaryToken<? super C> tok = subIterator.next();
-			return tok;
+			return subIterator.next();
 		}
 		if (OBJECT_CLASS.equals(actingClass))
 		{
@@ -178,9 +177,6 @@ public class TokenFamilySubIterator<C> implements
 		return getNext();
 	}
 
-	/**
-	 * @see java.util.Iterator#hasNext()
-	 */
 	@Override
 	public boolean hasNext()
 	{
@@ -190,13 +186,10 @@ public class TokenFamilySubIterator<C> implements
 
 	/**
 	 * Unsupported
-	 * 
-	 * @see java.util.Iterator#remove()
 	 */
 	@Override
 	public void remove()
 	{
-		throw new UnsupportedOperationException(
-				"Iterator does not support remove");
+		throw new UnsupportedOperationException("Iterator does not support remove");
 	}
 }
