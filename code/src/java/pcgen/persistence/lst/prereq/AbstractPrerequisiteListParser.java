@@ -26,13 +26,13 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.core.prereq.Prerequisite;
 import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Abstract PRE parser, provides common parsing for many PRE tokens.
@@ -148,12 +148,12 @@ public abstract class AbstractPrerequisiteListParser
 		{
 			throw new PersistenceLayerException(parseResult.toString());
 		}
-		if (!allowsNegate() && (formula.indexOf("[") >= 0 || formula.indexOf("]") >= 0))
+		if (!allowsNegate() && (formula.contains("[") || formula.contains("]")))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain []: " + formula);
 		}
-		if (formula.indexOf("|") >= 0)
+		if (formula.contains("|"))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain |: " + formula);
@@ -402,7 +402,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 	}
 
-	private String getRequirementKey(String[] tokens)
+	private static String getRequirementKey(String[] tokens)
 	{
 		String reqKey;
 		if (tokens.length == 2)
@@ -411,8 +411,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 		else
 		{
-			List<String> parts = new ArrayList<>();
-			parts.addAll(Arrays.asList(tokens));
+			List<String> parts = new ArrayList<>(Arrays.asList(tokens));
 			parts.remove(parts.size()-1);
 			reqKey = StringUtils.join(parts, "=");
 		}
