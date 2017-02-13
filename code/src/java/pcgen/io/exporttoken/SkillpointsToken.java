@@ -46,18 +46,12 @@ public class SkillpointsToken extends Token
 	/** Token name */
 	public static final String TOKENNAME = "SKILLPOINTS";
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getTokenName()
-	 */
 	@Override
 	public String getTokenName()
 	{
 		return TOKENNAME;
 	}
 
-	/**
-	 * @see pcgen.io.exporttoken.Token#getToken(java.lang.String, pcgen.core.PlayerCharacter, pcgen.io.ExportHandler)
-	 */
 	@Override
 	public String getToken(String tokenSource, PlayerCharacter pc,
 		ExportHandler eh)
@@ -96,26 +90,16 @@ public class SkillpointsToken extends Token
 
 		if ("TOTAL".equals(bString) || "UNUSED".equals(bString))
 		{
-			if (classNum >= 0)
-			{
-				aTotalSkillPoints += getUnusedSkillPoints(pc, classNum);
-			}
-			else
-			{
-				aTotalSkillPoints += getUnusedSkillPoints(pc);
-			}
+			aTotalSkillPoints += (classNum >= 0) ?
+					getUnusedSkillPoints(pc, classNum) :
+					getUnusedSkillPoints(pc);
 		}
 
 		if ("TOTAL".equals(bString) || "USED".equals(bString))
 		{
-			if (classNum >= 0)
-			{
-				aTotalSkillPoints += getUsedSkillPoints(pc, classNum);
-			}
-			else
-			{
-				aTotalSkillPoints += getUsedSkillPoints(pc);
-			}
+			aTotalSkillPoints += (classNum >= 0) ?
+					getUsedSkillPoints(pc, classNum) :
+					getUsedSkillPoints(pc);
 		}
 
 		return BigDecimalHelper.trimZeros(new BigDecimal(aTotalSkillPoints));

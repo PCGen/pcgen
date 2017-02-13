@@ -1,5 +1,4 @@
 /*
- * DataSet.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Apr 27, 2010, 2:45:31 PM
  */
 package pcgen.core;
 
@@ -68,34 +65,30 @@ import pcgen.core.prereq.PrerequisiteOperator;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.enumeration.View;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class DataSet implements DataSetFacade
 {
 
-	private DefaultListFacade<RaceFacade> races;
-	private DefaultListFacade<ClassFacade> classes;
-	private DefaultListFacade<DeityFacade> deities;
-	private DefaultListFacade<SkillFacade> skills;
-	private DefaultListFacade<TemplateFacade> templates;
-	private DefaultListFacade<AlignmentFacade> alignments;
-	private DefaultListFacade<KitFacade> kits;
-	private DefaultListFacade<StatFacade> stats;
-    private AbilityMap abilityMap;
+	private final DefaultListFacade<RaceFacade> races;
+	private final DefaultListFacade<ClassFacade> classes;
+	private final DefaultListFacade<DeityFacade> deities;
+	private final DefaultListFacade<SkillFacade> skills;
+	private final DefaultListFacade<TemplateFacade> templates;
+	private final DefaultListFacade<AlignmentFacade> alignments;
+	private final DefaultListFacade<KitFacade> kits;
+	private final DefaultListFacade<StatFacade> stats;
+    private final AbilityMap abilityMap;
 //	private DefaultListFacade<AbilityCategoryFacade> categories;
 //	private Map<AbilityCategoryFacade, ListFacade<AbilityFacade>> abilityMap;
 	private final LoadContext context;
 	private final GameMode gameMode;
 	private final ListFacade<CampaignFacade> campaigns;
 	private SkillFacade speakLanguageSkill = null;
-	private DefaultListFacade<BodyStructureFacade> bodyStructures;
-	private DefaultListFacade<EquipmentFacade> equipment;
-	private DefaultListFacade<String> xpTableNames;
+	private final DefaultListFacade<BodyStructureFacade> bodyStructures;
+	private final DefaultListFacade<EquipmentFacade> equipment;
+	private final DefaultListFacade<String> xpTableNames;
 	private DefaultListFacade<GearBuySellFacade> gearBuySellSchemes;
-	private DefaultListFacade<String> characterTypes;
-	private DefaultListFacade<SizeAdjustmentFacade> sizes;
+	private final DefaultListFacade<String> characterTypes;
+	private final DefaultListFacade<SizeAdjustmentFacade> sizes;
 
 	public DataSet( LoadContext context, GameMode gameMode, ListFacade<CampaignFacade> campaigns)
 	{
@@ -282,8 +275,8 @@ public class DataSet implements DataSetFacade
 	 */
 	private void createGearBuySellSchemes()
 	{
-		BigDecimal fullPrice = new BigDecimal(100.0);
-		BigDecimal halfPrice = new BigDecimal(50.0);
+		BigDecimal fullPrice = new BigDecimal("100.0");
+		BigDecimal halfPrice = new BigDecimal("50.0");
 		BigDecimal free = BigDecimal.ZERO;
 		gearBuySellSchemes = new DefaultListFacade<>();
 		// TODO i18n this
@@ -623,7 +616,7 @@ public class DataSet implements DataSetFacade
 	class AbilityMap extends AbstractMapFacade<AbilityCategoryFacade, ListFacade<AbilityFacade>>
     {
 
-        private TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>> map;
+        private final TreeMap<AbilityCategoryFacade, ListFacade<AbilityFacade>> map;
 
         AbilityMap()
         {
