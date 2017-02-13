@@ -282,6 +282,7 @@ test {
     //	maxParallelForks 4
     testLogging {
         exceptionFormat = 'full'
+	events "started", "skipped", "failed"
     }
 }
 
@@ -292,6 +293,7 @@ task itest(type: Test, dependsOn: jar) {
     ignoreFailures=ignoreTestFailures
     testLogging {
         exceptionFormat = 'full'
+	events "started", "skipped", "failed"
     }
 }
 
@@ -307,6 +309,7 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     ignoreFailures=ignoreTestFailures
     testLogging {
         exceptionFormat = 'full'
+	events "started", "skipped", "failed"
     }
 }
 
@@ -319,6 +322,7 @@ task datatest(type: Test, dependsOn: 'jar') {
     maxHeapSize = "512m"
     testLogging {
         exceptionFormat = 'full'
+	events "started", "skipped", "failed"
     }
 }
 
@@ -330,11 +334,7 @@ task inttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/**/*Test.class'
     testLogging {
         exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-        logger.lifecycle("Running test: " + descriptor)
+	events "started", "skipped", "failed"
     }
 }
 
@@ -346,11 +346,7 @@ task pfinttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/game_pathfinder/*Test.class'
     testLogging {
         exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-        logger.lifecycle("Running test: " + descriptor)
+	events "started", "skipped", "failed"
     }
 }
 
@@ -362,11 +358,7 @@ task rsrdinttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/game_35e/*Test.class'
     testLogging {
         exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-        logger.lifecycle("Running test: " + descriptor)
+	events "started", "skipped", "failed"
     }
 }
 
@@ -378,11 +370,7 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
     include 'pcgen/inttest/game_modern/*Test.class'
     testLogging {
         exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-        logger.lifecycle("Running test: " + descriptor)
+	events "started", "skipped", "failed"
     }
 }
 
