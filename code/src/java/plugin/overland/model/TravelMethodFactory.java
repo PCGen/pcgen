@@ -110,8 +110,7 @@ public final class TravelMethodFactory
 						TravelMethod tm = TravelMethodFactory.create(methodSet);
 						tms.add(tm);
 					}
-				}
-				catch (Exception e)
+				} catch (Exception e)
 				{
 					Logging.errorPrint(e.getMessage(), e);
 				}
@@ -265,6 +264,7 @@ public final class TravelMethodFactory
 		Number n = def;
 		String attributeValue = e.getAttributeValue(string);
 		if (attributeValue != null)
+		{
 			try
 			{
 				n = nf.parse(attributeValue);
@@ -274,6 +274,7 @@ public final class TravelMethodFactory
 				// TODO Auto-generated catch block
 				exception.printStackTrace();
 			}
+		}
 		return n;
 	}
 
