@@ -20,10 +20,8 @@
   <rule ref="rulesets/java/basic.xml">
     <exclude name="AvoidUsingHardCodedIP" />
     <exclude name="AvoidDecimalLiteralsInBigDecimalConstructor" />
-    <exclude name="ForLoopShouldBeWhileLoop" />
     <exclude name="BigIntegerInstantiation" />
     <exclude name="CollapsibleIfStatements" />
-    <exclude name="AvoidBranchingStatementAsLastInLoop" />
     <exclude name="SimplifiedTernary" />
     <exclude name="OverrideBothEqualsAndHashcode" />
     <exclude name="UnconditionalIfStatement" />
