@@ -172,7 +172,7 @@ public abstract class AbstractPrerequisiteListParser
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException("'" + elements[0]
+			throw new PersistenceLayerException(nfe, "'" + elements[0]
 				+ "' is not a valid integer");
 		}
 
@@ -282,13 +282,10 @@ public abstract class AbstractPrerequisiteListParser
 				subreq.setOperand(Integer.toString(min));
 				prereq.addPrerequisite(subreq);
 			}
-			for (Prerequisite element : prereq.getPrerequisites())
-			{
-				if (element.getOperand().equals("-99"))
-				{
-					element.setOperand("1");
-				}
-			}
+			prereq.getPrerequisites()
+			      .stream()
+			      .filter(element -> element.getOperand().equals("-99"))
+			      .forEach(element -> element.setOperand("1"));
 			if (hasKeyOnly && hasKeyValue)
 			{
 				Logging
@@ -353,7 +350,7 @@ public abstract class AbstractPrerequisiteListParser
 								}
 								else
 								{
-									throw new PersistenceLayerException(
+									throw new PersistenceLayerException(nfe,
 										"Prerequisites of kind " + kind
 											+ " do not support 'ANY'");
 								}
@@ -456,7 +453,7 @@ public abstract class AbstractPrerequisiteListParser
 	 * 
 	 * @param prereq the new no need for char
 	 */
-	protected void setNoNeedForChar(Prerequisite prereq)
+	protected static void setNoNeedForChar(Prerequisite prereq)
 	{
 		if (prereq == null)
 		{
