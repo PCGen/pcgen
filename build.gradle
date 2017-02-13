@@ -355,6 +355,10 @@ allprojects {
             events "started", "skipped", "failed"
         }
         maxHeapSize = "512m"
+        reports {
+            junitXml.enabled = true
+            html.enabled = true
+        }
     }
 }
 
