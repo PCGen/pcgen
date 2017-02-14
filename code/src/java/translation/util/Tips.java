@@ -182,7 +182,7 @@ public final class Tips
 		}
 	}
 
-	protected static void addTips(Set<String> tips, BufferedReader reader)
+	static void addTips(Set<String> tips, BufferedReader reader)
 	{
 		String line;
 		try
@@ -202,12 +202,12 @@ public final class Tips
 		}
 	}
 
-	protected static boolean isTip(String line)
+	static boolean isTip(String line)
 	{
 		return line != null && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
 	}
 
-	protected static void addTip(Set<String> tips, String tip)
+	static void addTip(Set<String> tips, String tip)
 	{
 		tips.add(tip);
 	}
@@ -406,7 +406,7 @@ public final class Tips
 	 * @return non escaped string
 	 */
 	@SuppressWarnings("nls")
-	protected static String removeEscaped(String string)
+	static String removeEscaped(String string)
 	{
 		return string.replaceAll("\\\\\'", "'").replaceAll("\\\\\"", "\"").replaceAll("\\\\\\\\", "\\\\");
 	}
@@ -416,7 +416,7 @@ public final class Tips
 	 * @return
 	 */
 	@SuppressWarnings("nls")
-	protected static String escape(String string)
+	static String escape(String string)
 	{
 		return string.replaceAll("\\\\", "\\\\\\\\").replaceAll("\'", "\\\\\'").replaceAll("\"", "\\\\\"");
 	}

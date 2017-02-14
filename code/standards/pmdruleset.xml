@@ -106,6 +106,8 @@
     <exclude name="ConstantsInInterface" />
     <exclude name="AccessorClassGeneration" />
     <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons" />
+    <exclude name="UseUtilityClass" />
+    <exclude name="SimplifyBooleanReturns" />
   </rule>
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />

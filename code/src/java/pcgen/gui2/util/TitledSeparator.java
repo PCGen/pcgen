@@ -1,5 +1,4 @@
 /*
- * TitledSeparator.java
  * Copyright 2008 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on Aug 23, 2008, 3:26:37 PM
  */
 package pcgen.gui2.util;
 
@@ -28,10 +25,6 @@ import java.awt.Insets;
 import javax.swing.JComponent;
 import javax.swing.border.TitledBorder;
 
-/**
- *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
- */
 public class TitledSeparator extends JComponent
 {
 
@@ -128,13 +121,14 @@ public class TitledSeparator extends JComponent
     {
         switch (titlePosition)
         {
-            default:
-                throw new IllegalArgumentException();
             case DEFAULT_POSITION:
             case ABOVE:
             case MIDDLE:
             case BELOW:
                 titledBorder.setTitlePosition(titlePosition);
+                break;
+            default:
+                throw new IllegalArgumentException();
         }
 
     }

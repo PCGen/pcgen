@@ -24,6 +24,7 @@ import java.util.List;
 import pcgen.facade.util.AbstractListFacade;
 
 import org.apache.commons.lang3.ArrayUtils;
+import org.apache.commons.lang3.SystemUtils;
 
 class RecentFileList extends AbstractListFacade<File>
 {
@@ -38,7 +39,7 @@ class RecentFileList extends AbstractListFacade<File>
 		String[] recentFiles = PCGenSettings.getInstance().getStringArray(contextProp);
 		if (!ArrayUtils.isEmpty(recentFiles))
 		{
-			URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
+			URI userdir = new File(SystemUtils.USER_DIR).toURI();
 			for (int i = recentFiles.length-1; i >= 0; i--)
 			{
 				addRecentFile(new File(userdir.resolve(recentFiles[i])));
@@ -48,7 +49,7 @@ class RecentFileList extends AbstractListFacade<File>
 
 	private void updateRecentFileProp()
 	{
-		URI userdir = new File(ConfigurationSettings.getUserDir()).toURI();
+		URI userdir = new File(SystemUtils.USER_DIR).toURI();
 
 		List<String> uris = new ArrayList<>(fileList.size());
 		for (final File file : fileList)
