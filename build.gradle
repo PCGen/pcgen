@@ -334,6 +334,7 @@ allprojects {
             exceptionFormat = 'full'
             events 'failed', 'skipped'
         }
+	options.compilerArgs += '-Werror'
     }
 }
 
