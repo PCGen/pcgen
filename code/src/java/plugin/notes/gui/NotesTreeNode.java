@@ -564,7 +564,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			for (; newNodes.hasMoreElements();)
+			while (newNodes.hasMoreElements())
 			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				if (node.isTreeDirty())
@@ -683,7 +683,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			for (; newNodes.hasMoreElements();)
+			while (newNodes.hasMoreElements())
 			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.checkCache();
@@ -747,7 +747,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			{
 				Enumeration<MutableTreeNode> newNodes = children();
 
-				for (; newNodes.hasMoreElements();)
+				while (newNodes.hasMoreElements())
 				{
 					NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 					node.checkSave();
@@ -1009,7 +1009,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 			List<File> childDirs = Arrays.asList(dir.listFiles());
 			List<File> removeDirs = new ArrayList<File>();
 
-			for (; childNodes.hasMoreElements();)
+			while (childNodes.hasMoreElements())
 			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				File nodeDir = node.getDir();
@@ -1048,7 +1048,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 
 			Enumeration<MutableTreeNode> newNodes = children();
 
-			for (; newNodes.hasMoreElements();)
+			while (newNodes.hasMoreElements())
 			{
 				NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 				node.refresh();
@@ -1097,7 +1097,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 		{
 			Enumeration<MutableTreeNode> childNodes = children();
 
-			for (; childNodes.hasMoreElements();)
+			while (childNodes.hasMoreElements())
 			{
 				NotesTreeNode node = (NotesTreeNode) childNodes.nextElement();
 				node.rehome(path);
@@ -1288,7 +1288,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		Enumeration<MutableTreeNode> newNodes = children();
 
-		for (; newNodes.hasMoreElements();)
+		while (newNodes.hasMoreElements())
 		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.save();
@@ -1330,7 +1330,7 @@ public class NotesTreeNode implements MutableTreeNode, DocumentListener
 	{
 		Enumeration<MutableTreeNode> newNodes = children();
 
-		for (; newNodes.hasMoreElements();)
+		while (newNodes.hasMoreElements())
 		{
 			NotesTreeNode node = (NotesTreeNode) newNodes.nextElement();
 			node.trimEmpty();

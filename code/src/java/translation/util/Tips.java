@@ -41,11 +41,8 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * The duplicates from the tips files should appear only once in the PO Template files.
  * 
  * This class tries to be independent of code, but still needs Apache Commons Lang.
- * 
- * @author Vincent Lhote
- * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
-public class Tips
+public final class Tips
 {
 	/** Quote char */
 	private static final char QUOTE = '"';
@@ -59,6 +56,10 @@ public class Tips
 
 	/** true to add a message to tips that are not translated, false to copy them as is so they won't appear */
 	private static final boolean MARK_UNTRANSLATED = true;
+
+	private Tips()
+	{
+	}
 
 	public static void generatePOT(File rootDirectory, String potFilename)
 	{

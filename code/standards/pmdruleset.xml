@@ -103,6 +103,9 @@
     <exclude name="UseVarargs" />
     <exclude name="FieldDeclarationsShouldBeAtStartOfClass" />
     <exclude name="GodClass" />
+    <exclude name="ConstantsInInterface" />
+    <exclude name="AccessorClassGeneration" />
+    <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons" />
   </rule>
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
