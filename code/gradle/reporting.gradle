@@ -3,9 +3,12 @@
  * called from the main build.gradle file.
  *
  * Usage: gradle allReports
- * 
- * Author: James Dempsey 
  */
+
+buildScan {
+	licenseAgreementUrl = 'https://gradle.com/terms-of-service';
+	licenseAgree = 'yes'
+}
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
@@ -42,4 +45,16 @@ tasks.withType(FindBugs) {
 						'DoInsideDoPrivileged', 'CyclomaticComplexity']
 	}
 }
-task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain'] }
+
+// unused: dependency-tuple, unused-dependency, duplicate-dependency-class
+gradleLint.rules = [
+	'dependency-parentheses',
+	'unused-exclude-by-dep',
+	'unused-exclude-by-conf',
+	'rename-nebula-stash',
+	'overridden-dependency-version',
+	'archaic-wrapper',
+	'all-nebula-renames',
+]
+
+task allReports { dependsOn = ['checkstyleMain', 'pmdMain', 'findbugsMain', 'lintGradle'] }
