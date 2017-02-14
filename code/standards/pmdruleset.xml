@@ -2,7 +2,7 @@
 
 <!--
    - Code quality rule set for use with the PCGen Java code.
-   - See https://pmd.github.io/pmd-5.5.1/pmd-java/rules/index.html
+   - See https://pmd.github.io/pmd-5.5.3/pmd-java/rules/index.html
    - for descriptions of the rules applied. 
  -->
 <ruleset xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
@@ -108,6 +108,8 @@
     <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons" />
     <exclude name="UseUtilityClass" />
     <exclude name="SimplifyBooleanReturns" />
+    <exclude name="EqualsNull" />
+    <exclude name="MissingStaticMethodInNonInstantiatableClass" />
   </rule>
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
