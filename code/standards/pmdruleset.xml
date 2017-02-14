@@ -90,7 +90,6 @@
     <exclude name="JUnitTestContainsTooManyAsserts" />
     <exclude name="UseAssertSameInsteadOfAssertTrue" />
     <exclude name="UseAssertEqualsInsteadOfAssertTrue" />
-    <exclude name="JUnitSpelling" />
   </rule>
   <!--<rule ref="rulesets/java/jakarta.xml" />-->
   <rule ref="rulesets/java/logging-jakarta-commons.xml" />
@@ -126,7 +125,6 @@
   </rule>
   <rule ref="rulesets/java/strings.xml">
     <exclude name="AvoidDuplicateLiterals" />
-    <exclude name="InefficientStringBuffering" />
     <exclude name="AppendCharacterWithChar" />
     <exclude name="ConsecutiveLiteralAppends" />
     <exclude name="AvoidStringBufferField" />
