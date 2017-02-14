@@ -3,9 +3,12 @@
  * called from the main build.gradle file.
  *
  * Usage: gradle allReports
- * 
- * Author: James Dempsey 
  */
+
+buildScan {
+	licenseAgreementUrl = 'https://gradle.com/terms-of-service';
+	licenseAgree = 'yes'
+}
 
 checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
