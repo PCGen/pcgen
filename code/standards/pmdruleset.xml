@@ -108,6 +108,7 @@
     <exclude name="PositionLiteralsFirstInCaseInsensitiveComparisons" />
     <exclude name="UseUtilityClass" />
     <exclude name="SimplifyBooleanReturns" />
+    <exclude name="EqualsNull" />
   </rule>
   <rule ref="rulesets/java/empty.xml">
     <exclude name="EmptyCatchBlock" />
