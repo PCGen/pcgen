@@ -45,7 +45,7 @@ public enum AttackType
 		return identifier;
 	}
 
-	public static AttackType getInstance(String ident)
+	public static AttackType getAttackInstance(String ident)
 	{
 		return Arrays.stream(AttackType.values())
 		             .filter(at -> at.identifier.equals(ident))
