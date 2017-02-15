@@ -17,20 +17,21 @@
  */
 package plugin.lsttokens.editcontext.testsupport;
 
-import java.net.URISyntaxException;
-
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.bonustokens.Feat;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreHDParser;
 import plugin.pretokens.parser.PreLevelParser;
 import plugin.pretokens.writer.PreHDWriter;
 import plugin.pretokens.writer.PreLevelWriter;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertThat;
 
 public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 		extends AbstractIntegrationTestCase<T>
@@ -44,10 +45,10 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 
 	public abstract boolean doesOverwrite();
 
-	PreHDParser prehd = new PreHDParser();
-	PreHDWriter prehdwriter = new PreHDWriter();
-	PreLevelParser prelevel = new PreLevelParser();
-	PreLevelWriter prelevelwriter = new PreLevelWriter();
+	private PreHDParser prehd = new PreHDParser();
+	private PreHDWriter prehdwriter = new PreHDWriter();
+	private PreLevelParser prelevel = new PreLevelParser();
+	private PreLevelWriter prelevelwriter = new PreLevelWriter();
 
 	@Override
 	@Before
@@ -64,7 +65,7 @@ public abstract class AbstractIntegerIntegrationTestCase<T extends CDOMObject>
 	@Test
 	public void testArchitectire() throws PersistenceLayerException
 	{
-		assertTrue(isPositiveAllowed() || isNegativeAllowed());
+		assertThat(isPositiveAllowed() || isNegativeAllowed(), is(true));
 	}
 
 	@Test
