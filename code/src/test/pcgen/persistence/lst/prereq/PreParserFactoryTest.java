@@ -52,7 +52,7 @@ public class PreParserFactoryTest extends AbstractCharacterTestCase
 		return new TestSuite(PreParserFactoryTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override
