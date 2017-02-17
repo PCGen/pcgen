@@ -37,7 +37,7 @@ public class PreLevelMaxWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -46,7 +46,7 @@ public class PreLevelMaxWriter extends AbstractPrerequisiteWriter implements
 		return "levelmax";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +56,7 @@ public class PreLevelMaxWriter extends AbstractPrerequisiteWriter implements
 			PrerequisiteOperator.GT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
