@@ -40,7 +40,7 @@ public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
 		implements PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -49,7 +49,7 @@ public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
 		return "uatt";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -59,7 +59,7 @@ public class PreUnarmedAttackWriter extends AbstractPrerequisiteWriter
 			PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override

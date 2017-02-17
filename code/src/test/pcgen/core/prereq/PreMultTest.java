@@ -68,7 +68,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 		return new TestSuite(PreMultTest.class);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override
@@ -88,7 +88,7 @@ public class PreMultTest extends AbstractCharacterTestCase
 
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#tearDown()
 	 */
     @Override

@@ -319,7 +319,7 @@ public class PreArmorProfTest extends AbstractCharacterTestCase
 	
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override
