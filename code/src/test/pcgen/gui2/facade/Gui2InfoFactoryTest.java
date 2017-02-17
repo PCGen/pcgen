@@ -97,7 +97,7 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 			infoFactory.getHTMLInfo(tbf));
 	}	
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override

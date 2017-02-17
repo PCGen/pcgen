@@ -51,7 +51,7 @@ public class IsgamemodeCommandTest extends PCGenTestCase
 	/*
 	 * @see TestCase#setUp()
 	 */
-	/* (non-Javadoc)
+	/**
 	 * @see junit.framework.TestCase#setUp()
 	 */
     @Override

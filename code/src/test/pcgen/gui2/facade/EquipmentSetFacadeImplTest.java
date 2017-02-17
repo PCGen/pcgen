@@ -470,7 +470,7 @@ public class EquipmentSetFacadeImplTest extends AbstractCharacterTestCase
 		return newSet;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.AbstractCharacterTestCase#setUp()
 	 */
 	@Override
