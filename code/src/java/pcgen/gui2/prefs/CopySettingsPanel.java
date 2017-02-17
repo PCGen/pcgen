@@ -121,7 +121,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		this.add(label);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -130,7 +130,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		return in_copy_settings;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -139,7 +139,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 		// Do nothing
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override
@@ -165,7 +165,7 @@ public class CopySettingsPanel extends PCGenPrefsPanel
 	private final class CopyButtonListener implements ActionListener
 	{
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override

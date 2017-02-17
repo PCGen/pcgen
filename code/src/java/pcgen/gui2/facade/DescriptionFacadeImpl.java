@@ -158,7 +158,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#createChronicleEntry()
 	 */
 	@Override
@@ -170,7 +170,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		return chronicleEntry;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#removeChronicleEntry(pcgen.core.ChronicleEntry)
 	 */
 	@Override
@@ -183,7 +183,7 @@ class DescriptionFacadeImpl implements DescriptionFacade
 		chronicleEntries.removeElement(chronicleEntry);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.DescriptionFacade#getChronicleEntries()
 	 */
 	@Override

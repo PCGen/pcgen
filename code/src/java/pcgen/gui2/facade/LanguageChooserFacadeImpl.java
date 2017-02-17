@@ -204,7 +204,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#addSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -219,7 +219,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()-1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#removeSelected(pcgen.core.facade.LanguageFacade)
 	 */
 	@Override
@@ -230,7 +230,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		numSelectionsRemain.set(numSelectionsRemain.get()+1);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getAvailableList()
 	 */
 	@Override
@@ -240,7 +240,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return availableList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getName()
 	 */
 	@Override
@@ -249,7 +249,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return name;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getRemainingSelections()
 	 */
 	@Override
@@ -258,7 +258,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return numSelectionsRemain;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#getSelectedList()
 	 */
 	@Override
@@ -267,7 +267,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		return selectedList;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#commit()
 	 */
 	@Override
@@ -287,7 +287,7 @@ public final class LanguageChooserFacadeImpl implements LanguageChooserFacade
 		pcFacade.refreshLanguageList();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.LanguageChooserFacade#rollback()
 	 */
 	@Override

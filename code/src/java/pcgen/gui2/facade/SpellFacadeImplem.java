@@ -57,7 +57,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getSource()
 	 */
 	@Override
@@ -67,7 +67,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 			Globals.getSourceDisplay(), true);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getSourceForNodeDisplay()
 	 */
     @Override
@@ -77,7 +77,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 				SourceFormat.LONG, true);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.InfoFacade#getKeyName()
 	 */
 	@Override
@@ -86,7 +86,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return spell.getKeyName();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getSchool()
 	 */
 	@Override
@@ -95,7 +95,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return spell.getListAsString(ListKey.SPELL_SCHOOL);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getSubschool()
 	 */
 	@Override
@@ -104,7 +104,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
         return spell.getListAsString(ListKey.SPELL_SUBSCHOOL);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getDescriptors()
 	 */
 	@Override
@@ -118,7 +118,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return descriptors.toArray(new String[descriptors.size()]);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getComponents()
 	 */
 	@Override
@@ -127,7 +127,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return spell.getListAsString(ListKey.COMPONENTS);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getRange()
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
         return pc.getSpellRange(charSpell, spellInfo);
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.SpellFacade#getDuration()
 	 */
 	@Override
@@ -175,7 +175,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return spellInfo;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 */
 	@Override
@@ -201,7 +201,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return buff.toString();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#hashCode()
 	 */
 	@Override
@@ -220,7 +220,7 @@ public class SpellFacadeImplem implements SpellFacade, SortKeyAware
 		return result;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#equals(java.lang.Object)
 	 */
 	@Override
