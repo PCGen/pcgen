@@ -598,12 +598,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void addLevelInfo(final String xpTableName, final LevelInfo levInfo)
 	{
-		XPTable xpTable = xpTableInfo.get(xpTableName);
-		if (xpTable == null)
-		{
-			xpTable = new XPTable(xpTableName);
-			xpTableInfo.put(xpTableName, xpTable);
-		}
+		XPTable xpTable = xpTableInfo.computeIfAbsent(xpTableName, XPTable::new);
 		xpTable.addLevelInfo(levInfo.getLevelString(), levInfo);
 	}
 
@@ -1875,7 +1870,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 				final PointBuyCost pbc = pointBuyStatCosts.get(statValue);
 				if (pbc.qualifies(pc, null))
 				{
-					lastStat = statValue.intValue();
+					lastStat = statValue;
 				}
 			}
 		}
@@ -2076,12 +2071,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	private boolean isPurchaseStatModeAllowed()
 	{
-		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.isEmpty()))
-		{
-			return false;
-		}
-
-		return true;
+		return !((pointBuyStatCosts == null) || (pointBuyStatCosts.isEmpty()));
 	}
 
 	/**
@@ -2473,7 +2463,6 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 		{
 			dieSizes[i] = list.get(i);
 		}
-		list = null;
 		this.setDieSizes(dieSizes);
 	}
 
@@ -2642,14 +2631,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	private AbstractReferenceContext getRefContext()
 	{
-		if (SettingsHandler.inputUnconstructedMessages())
-		{
-			return new TrackingReferenceContext();
-		}
-		else
-		{
-			return new RuntimeReferenceContext();
-		}
+		return SettingsHandler.inputUnconstructedMessages() ?
+				new TrackingReferenceContext() :
+				new RuntimeReferenceContext();
 	}
 
 
@@ -2697,12 +2681,10 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 
 	public void addHiddenType(Class<?> cl, String s)
 	{
-		Set<String> set = hiddenTypes.get(cl);
-		if (set == null)
-		{
-			set = new TreeSet<>(String.CASE_INSENSITIVE_ORDER);
-			hiddenTypes.put(cl, set);
-		}
+		Set<String> set = hiddenTypes.computeIfAbsent(
+				cl,
+				k -> new TreeSet<>(String.CASE_INSENSITIVE_ORDER)
+		);
 		set.add(s);
 	}
 
@@ -3027,14 +3009,9 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	@Override
 	public String getHeightUnit()
 	{
-		if ("ftin".equals(getUnitSet().getHeightUnit()))
-		{
-			return "inches";
-		}
-		else
-		{
-			return getUnitSet().getHeightUnit();
-		}
+		return "ftin".equals(getUnitSet().getHeightUnit()) ?
+				"inches" :
+				getUnitSet().getHeightUnit();
 	}
 
 	@Override

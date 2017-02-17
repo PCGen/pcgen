@@ -1,5 +1,4 @@
 /*
- * GameModeFileLoader.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
  */
 package pcgen.persistence;
 
@@ -68,9 +66,6 @@ import pcgen.system.PCGenTask;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
 
-/**
- *
- */
 public class GameModeFileLoader extends PCGenTask
 {
 
@@ -132,20 +127,20 @@ public class GameModeFileLoader extends PCGenTask
 	}
 
 	private static UnitSet DEFAULT_UNIT_SET;
-	private LstLineFileLoader ruleCheckLoader = new SimpleLoader<>(RuleCheck.class);
-	private LstLineFileLoader loadInfoLoader = new LoadInfoLoader();
-	private LstLineFileLoader eqSlotLoader = new EquipSlotLoader();
-	private LstLineFileLoader paperLoader = new SimplePrefixLoader<>(PaperInfo.class, "NAME");
-	private LstLineFileLoader pointBuyLoader = new PointBuyLoader();
-	private LstLineFileLoader traitLoader = new TraitLoader();
-	private LstLineFileLoader locationLoader = new LocationLoader();
-	private LstLineFileLoader sizeLoader = new SizeAdjustmentLoader();
-	private LstLineFileLoader statCheckLoader = new StatsAndChecksLoader();
-	private LstLineFileLoader migrationLoader = new MigrationLoader();
-	private LstLineFileLoader bioLoader = new BioSetLoader();
-	private LstLineFileLoader sponsorLoader = new SimplePrefixLoader<>(Sponsor.class, "SPONSOR");
-	private LstLineFileLoader equipIconLoader = new EquipIconLoader();
-	private LstLineFileLoader codeControlLoader = new CodeControlLoader();
+	private final LstLineFileLoader ruleCheckLoader = new SimpleLoader<>(RuleCheck.class);
+	private final LstLineFileLoader loadInfoLoader = new LoadInfoLoader();
+	private final LstLineFileLoader eqSlotLoader = new EquipSlotLoader();
+	private final LstLineFileLoader paperLoader = new SimplePrefixLoader<>(PaperInfo.class, "NAME");
+	private final LstLineFileLoader pointBuyLoader = new PointBuyLoader();
+	private final LstLineFileLoader traitLoader = new TraitLoader();
+	private final LstLineFileLoader locationLoader = new LocationLoader();
+	private final LstLineFileLoader sizeLoader = new SizeAdjustmentLoader();
+	private final LstLineFileLoader statCheckLoader = new StatsAndChecksLoader();
+	private final LstLineFileLoader migrationLoader = new MigrationLoader();
+	private final LstLineFileLoader bioLoader = new BioSetLoader();
+	private final LstLineFileLoader sponsorLoader = new SimplePrefixLoader<>(Sponsor.class, "SPONSOR");
+	private final LstLineFileLoader equipIconLoader = new EquipIconLoader();
+	private final LstLineFileLoader codeControlLoader = new CodeControlLoader();
 
 	/**
 	 * Load a sponsors lst file.
