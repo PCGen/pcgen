@@ -38,7 +38,7 @@ public class PreDomainTester extends AbstractDisplayPrereqTest
 
 	private static final Class<Domain> DOMAIN_CLASS = Domain.class;
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override

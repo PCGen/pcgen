@@ -36,7 +36,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 public class PreEquipPrimaryTester extends PreEquippedTester implements PrerequisiteTest
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)
 	 */
 	@Override
