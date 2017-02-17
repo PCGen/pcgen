@@ -45,7 +45,7 @@ public class PCBaseHDTermEvaluator
 		this.originalText = expressionString;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#resolve(pcgen.core.PlayerCharacter)
 	 */
 	@Override
@@ -54,7 +54,7 @@ public class PCBaseHDTermEvaluator
 		return pc.getDisplay().getBaseHD();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isSourceDependant()
 	 */
 	@Override
@@ -63,7 +63,7 @@ public class PCBaseHDTermEvaluator
 		return false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.term.TermEvaluator#isStatic()
 	 */
 	public boolean isStatic()

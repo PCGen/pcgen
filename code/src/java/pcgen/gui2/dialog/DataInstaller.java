@@ -191,7 +191,7 @@ public class DataInstaller extends JFrame
 			return createFiles(dataSet, destDir, files);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
         @Override

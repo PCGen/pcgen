@@ -161,7 +161,7 @@ public class DIWarningDialog extends JDialog implements
 		
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 	 */
     @Override
