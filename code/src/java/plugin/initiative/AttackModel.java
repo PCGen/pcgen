@@ -671,7 +671,7 @@ public class AttackModel extends PObjectModel
 		return type;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see java.lang.Object#toString()
 	 *
 	 * Gets a string representation of the object.
