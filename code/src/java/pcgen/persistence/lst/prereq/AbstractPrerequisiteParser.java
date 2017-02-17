@@ -99,7 +99,7 @@ public abstract class AbstractPrerequisiteParser implements PrerequisiteParserIn
 			return new ParseResult.Fail("PRE"+kind
 				+ " arguments may not end with " + separator + " : " + value);
 		}
-		if (value.indexOf(String.valueOf(new char[]{separator, separator})) != -1)
+		if (value.contains(String.valueOf(new char[]{separator, separator})))
 		{
 			return new ParseResult.Fail("PRE"+kind
 				+ " arguments uses double separator " + separator + separator
