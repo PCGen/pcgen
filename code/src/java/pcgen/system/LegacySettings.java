@@ -52,7 +52,7 @@ final class LegacySettings extends PropertyContext
 		return instance;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.system.PropertyContext#afterPropertiesLoaded()
 	 */
 	@Override
@@ -63,7 +63,7 @@ final class LegacySettings extends PropertyContext
 		super.afterPropertiesLoaded();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.system.PropertyContext#beforePropertiesSaved()
 	 */
 	@Override
