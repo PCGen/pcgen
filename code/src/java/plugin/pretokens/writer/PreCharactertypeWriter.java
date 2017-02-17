@@ -37,7 +37,7 @@ public class PreCharactertypeWriter extends AbstractPrerequisiteWriter implement
 		PrerequisiteWriterInterface
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#kindHandled()
 	 */
     @Override
@@ -46,7 +46,7 @@ public class PreCharactertypeWriter extends AbstractPrerequisiteWriter implement
 		return "CHARACTERTYPE";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#operatorsHandled()
 	 */
     @Override
@@ -56,7 +56,7 @@ public class PreCharactertypeWriter extends AbstractPrerequisiteWriter implement
 				PrerequisiteOperator.LT};
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface#write(java.io.Writer, pcgen.core.prereq.Prerequisite)
 	 */
     @Override
