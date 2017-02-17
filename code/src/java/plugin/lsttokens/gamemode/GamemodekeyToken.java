@@ -33,7 +33,7 @@ import pcgen.persistence.lst.GameModeLstToken;
 public class GamemodekeyToken implements GameModeLstToken
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
     @Override
@@ -42,7 +42,7 @@ public class GamemodekeyToken implements GameModeLstToken
 		return "GAMEMODEKEY";
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.GameModeLstToken#parse(pcgen.core.GameMode, java.lang.String, java.net.URI)
 	 */
     @Override

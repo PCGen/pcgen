@@ -43,7 +43,7 @@ public class NewKeyToken implements MigrationLstToken
 	private Pattern invalidKeyPattern = Pattern.compile(".*[,|\\||\\\\|:|;|\\.|%|\\*|=|\\[|\\]].*");
 	private Pattern invalidSourceKeyPattern = Pattern.compile(".*[\\||\\\\|;|%|\\*|=|\\[|\\]].*");
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstToken#getTokenName()
 	 */
 	@Override
