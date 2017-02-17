@@ -211,7 +211,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		}
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -220,7 +220,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return in_lookAndFeel;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -246,7 +246,7 @@ public class LookAndFeelPanel extends PCGenPrefsPanel
 		return needsRestart;
 	}
 	
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

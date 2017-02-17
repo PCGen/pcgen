@@ -366,7 +366,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		button.setMargin(new Insets(0, 3, 0, 3));
 		return button;
 	}
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PCGenPrefsPanel#getTitle()
 	 */
 	@Override
@@ -375,7 +375,7 @@ public class OutputPanel extends PCGenPrefsPanel
 		return in_output;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#applyPreferences()
 	 */
 	@Override
@@ -432,7 +432,7 @@ public class OutputPanel extends PCGenPrefsPanel
 				generateTempFileWithPdf.isSelected());
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.gui2.prefs.PreferencesPanel#initPreferences()
 	 */
 	@Override

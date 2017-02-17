@@ -1204,7 +1204,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			character.getRollMethodRef().removeReferenceListener(this);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override
@@ -1221,7 +1221,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			setEnabled(character.isStatRollEnabled());
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
@@ -1230,7 +1230,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			update();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
@@ -1239,7 +1239,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			update();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
@@ -1296,7 +1296,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 		{
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see java.awt.event.ActionListener#actionPerformed(java.awt.event.ActionEvent)
 		 */
 		@Override
@@ -1529,7 +1529,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			reference.removeReferenceListener(this);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 		 */
 		@Override
@@ -1587,7 +1587,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			character.getTodoList().removeListListener(this);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
@@ -1596,7 +1596,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			refreshTodoList();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
@@ -1605,7 +1605,7 @@ public class SummaryInfoTab extends JPanel implements CharacterInfoTab, TodoHand
 			refreshTodoList();
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 		 */
 		@Override
