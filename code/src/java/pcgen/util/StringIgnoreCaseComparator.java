@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Created on July 30, 2003, 8:34 AM
  */
 package pcgen.util;
 
@@ -30,7 +29,6 @@ import java.io.Serializable;
  * for applications such as maintaining a sorted
  * {@code JComboBoxEx} and the like.
  *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class StringIgnoreCaseComparator implements Comparator<Object>, Serializable
 {

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 28, 2003, 11:18 PM
  *
- * @(#) $Id$
  */
 package pcgen.util;
 
@@ -40,7 +38,6 @@ import pcgen.system.PluginLoader;
 /**
  * {@code PJEP}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  *
  * Provides a common interface setup for Singular Systems' Java Mathematical Expression Parser.
  *
