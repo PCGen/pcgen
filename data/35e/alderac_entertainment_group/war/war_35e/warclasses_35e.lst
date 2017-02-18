@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name		List of Class Spells by Level
 CLASS:Beast Handler.MOD	SPELLLEVEL:CLASS|Beast Handler=1|Enlarge Person,Hide from Animals,Reduce Person|Beast Handler=2|Charm Animal,Magic Fang (Greater),Summon Nature's Ally II

@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Modifier Name	Unique Key			Naming Option	Type								Cost		Visible		Type granted				Keys to replace		Source Page					Prohibited Type							Special Property
 Ring			KEY:RING			NAMEOPT:NORMAL	TYPE:BaseMaterial.Ring					COST:0	VISIBLE:QUALIFY											SOURCEPAGE:srdmagicitemsrings		!PRETYPE:1,EQMODTYPE=Mundane	!PRETYPE:1,Metal,Wooden
