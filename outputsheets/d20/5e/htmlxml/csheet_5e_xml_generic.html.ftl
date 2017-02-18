@@ -1,7 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	$Id: Export XML 2017-01-21 Andrew Maitland $
 -->
 <character>
 	<proficiency_bonus>${pcstring('VAR.Proficiency_Bonus.INTVAL.SIGN')}</proficiency_bonus>
