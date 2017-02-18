@@ -1,3 +1,2 @@
-# CVS $Revision: $ $Author: $ -- Mon Sep 15 19:12:35 2014 -- reformated by prettylst.pl v1.51 (build 25088)
 # Ability Name	Category of Ability		Type				Visible	Special ABility							Define								Description							Modify VAR				Source Page			Aspects
 Sneak Attack	CATEGORY:Special Ability	TYPE:SpecialAttack	VISIBLE:NO	SAB:Sneak Attack +%d%|SneakAttackDice|SneakAttackDie	DEFINE:SneakAttackDie|0	DEFINE:SneakAttackDice|0	DESC:+%1d%2|SneakAttackDice|SneakAttackDie	BONUS:VAR|SneakAttackDie|6	SOURCEPAGE:ClassesII	ASPECT:Ability Benefit|+%1d%2|SneakAttackDice|SneakAttackDie
