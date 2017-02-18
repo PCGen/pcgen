@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 23, 2011, 2:02:31 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -38,7 +37,6 @@ import pcgen.system.LanguageBundle;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SpellTreeViewModel implements TreeViewModel<SuperNode>
 {

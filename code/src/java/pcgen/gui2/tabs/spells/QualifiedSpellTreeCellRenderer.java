@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 05/06/2012 9:40:42 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs.spells;
 
@@ -44,7 +42,6 @@ import pcgen.system.LanguageBundle;
  * <br>
  * -0700 (Tue, 05 Jun 2012) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer
 {
