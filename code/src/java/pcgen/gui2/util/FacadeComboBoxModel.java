@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 8, 2010, 6:18:36 PM
  */
 package pcgen.gui2.util;
 
@@ -33,7 +32,6 @@ import pcgen.facade.util.ListFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeComboBoxModel<E> extends AbstractListModel
 		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>

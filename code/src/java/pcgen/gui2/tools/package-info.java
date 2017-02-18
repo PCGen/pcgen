@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 24, 2014, 3:31:44 PM
  * 
- * $Id$
  */
 /**
  * This package contains utility classes which are used to implement PCGen's UI.

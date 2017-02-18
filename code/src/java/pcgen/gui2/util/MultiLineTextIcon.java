@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jun 24, 2008, 7:06:58 PM
  */
 package pcgen.gui2.util;
 
@@ -29,7 +28,6 @@ import javax.swing.Icon;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class MultiLineTextIcon implements Icon
 {
