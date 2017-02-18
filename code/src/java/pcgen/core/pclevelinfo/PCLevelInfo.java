@@ -180,24 +180,18 @@ public final class PCLevelInfo implements Cloneable
 
 		if (statsPreModified != null)
 		{
-			for ( PCLevelInfoStat stat : statsPreModified )
-			{
-				if (stat.getStat().equals(aStat))
-				{
-					mod += stat.getStatMod();
-				}
-			}
+			mod = statsPreModified.stream()
+			                      .filter(stat -> stat.getStat().equals(aStat))
+			                      .mapToInt(PCLevelInfoStat::getStatMod)
+			                      .sum();
 		}
 
 		if (includePost && (statsPostModified != null))
 		{
-			for ( PCLevelInfoStat stat : statsPostModified )
-			{
-				if (stat.getStat().equals(aStat))
-				{
-					mod += stat.getStatMod();
-				}
-			}
+			mod += statsPostModified.stream()
+			                        .filter(stat -> stat.getStat().equals(aStat))
+			                        .mapToInt(PCLevelInfoStat::getStatMod)
+			                        .sum();
 		}
 
 		return mod;
@@ -243,11 +237,9 @@ public final class PCLevelInfo implements Cloneable
 			statList = statsPostModified;
 		}
 
-		PCLevelInfoStat aStat;
-
 		for (int i = 0; i < statList.size(); ++i)
 		{
-			aStat = statList.get(i);
+			PCLevelInfoStat aStat = statList.get(i);
 
 			if (stat.equals(aStat.getStat()))
 			{

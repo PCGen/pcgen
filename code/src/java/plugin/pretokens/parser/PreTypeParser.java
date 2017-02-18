@@ -58,7 +58,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException(nfe, formula + " must start with a number in PRETYPE");
+			throw new PersistenceLayerException(formula + " must start with a number in PRETYPE", nfe);
 		}
 
 		// Parse new style syntax

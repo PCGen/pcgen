@@ -1,5 +1,4 @@
-/**
- * pcgen.core.term.EvaluatorFactoryPCVar.java
+/*
  * Copyright 2008 Andrew Wilson
  * <nuance@users.sourceforge.net>.
  *
@@ -16,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public License
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 03 August 2008
- *
- * Current Ver: $Revision:$
  */
 
 package pcgen.core.term;
@@ -979,7 +974,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 			{
 				classString = expressionString.substring(matchedSection.length());
 			}
-			
+
 			return new PCBLTermEvaluator(
 					expressionString,
 					classString);
@@ -999,10 +994,8 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 		{
 
 			if (!src.startsWith("CLASS:")) {
-				StringBuilder sB = new StringBuilder();
-				sB.append(matchedSection);
-				sB.append(" may only be used in a Class");
-				throw new TermEvaulatorException(sB.toString());				
+				String sB = matchedSection + " may only be used in a Class";
+				throw new TermEvaulatorException(sB);
 			}
 
 			int i;
@@ -1020,7 +1013,7 @@ public enum TermEvaluatorBuilderPCVar implements TermEvaluatorBuilder
 				sB.append(src);
 				sB.append(" should have an integer following ");
 				sB.append(matchedSection);
-				throw new TermEvaulatorException(sB.toString());
+				throw new TermEvaulatorException(e, sB.toString());
 			}
 
 			return new PCCLBeforeLevelTermEvaluator(

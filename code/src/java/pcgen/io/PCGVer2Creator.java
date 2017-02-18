@@ -1,5 +1,4 @@
 /*
- * PCGVer2Creator.java
  * Copyright 2002 (C) Thomas Behr <ravenlock@gmx.de>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on March 19, 2002, 4:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.io;
 
@@ -31,11 +25,9 @@ import java.util.Collections;
 import java.util.Comparator;
 import java.util.List;
 import java.util.Map;
-import java.util.Set;
+import java.util.Map.Entry;
 import java.util.StringTokenizer;
 import java.util.TreeSet;
-
-import org.apache.commons.lang3.StringUtils;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.cdom.base.CDOMList;
@@ -44,6 +36,7 @@ import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Constants;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.base.PersistentTransitionChoice;
 import pcgen.cdom.base.SelectableSet;
 import pcgen.cdom.base.TransitionChoice;
@@ -102,6 +95,8 @@ import pcgen.util.FileHelper;
 import pcgen.util.Logging;
 import pcgen.util.StringPClassUtil;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * {@code PCGVer2Creator}<br>
  * Creates a line oriented format.
@@ -113,16 +108,12 @@ import pcgen.util.StringPClassUtil;
  * <i>tag</i> := simpletag | nestedtag
  * <i>nestedtag</i> := TAGNAME ':' '[' taglist ']'
  * <i>simpletag</i> := TAGNAME ':' TAGVALUE
- *
- * @author Thomas Behr 19-03-02
  */
 public final class PCGVer2Creator
 {
 	/*
 	 * DO NOT CHANGE line separator.
 	 * Need to keep the Unix line separator to ensure cross-platform portability.
-	 *
-	 * author: Thomas Behr 2002-11-13
 	 */
 
 	private final PlayerCharacter thePC;
@@ -482,15 +473,13 @@ public final class PCGVer2Creator
 
 	private void appendCampaignLine(StringBuilder buffer)
 	{
-		String del = Constants.EMPTY_STRING;
 		if (campaigns != null)
 		{
 			for (CampaignFacade campaign : campaigns)
 			{
-				buffer.append(del);
+				buffer.append(Constants.EMPTY_STRING);
 				buffer.append(IOConstants.TAG_CAMPAIGN).append(':');
 				buffer.append(campaign.getKeyName());
-				del = "|"; //$NON-NLS-1$
 			}
 			buffer.append(IOConstants.LINE_SEP);
 		}
@@ -517,14 +506,7 @@ public final class PCGVer2Creator
 
 	private GameMode getGameMode()
 	{
-		if (mode != null)
-		{
-			return mode;
-		}
-		else
-		{
-			return SettingsHandler.getGame();
-		}
+		return (mode != null) ? mode : SettingsHandler.getGame();
 	}
 
 	private void appendGameModeLine(StringBuilder buffer)
@@ -824,11 +806,10 @@ public final class PCGVer2Creator
 					.getProhibitedSchools(pcClass);
 			if (prohib != null)
 			{
-				Set<String> set = new TreeSet<>();
-				for (SpellProhibitor sp : prohib)
-				{
-					set.addAll(sp.getValueList());
-				}
+				Collection<String> set = new TreeSet<>();
+				prohib.stream()
+				      .map(SpellProhibitor::getValueList)
+				      .forEach(set::addAll);
 				if (!set.isEmpty())
 				{
 					buffer.append('|');
@@ -853,12 +834,9 @@ public final class PCGVer2Creator
 			List<? extends SpecialAbility> salist = charDisplay.getUserSpecialAbilityList(pcClass);
 			if (salist != null)
 			{
-				for (SpecialAbility sa : salist)
-				{
-					specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa
-							.getKeyName());
-					break;
-				}
+				SpecialAbility sa = salist.get(0);
+				specials.put(pcClass.getKeyName() + IOConstants.TAG_SA + 0, sa
+						.getKeyName());
 			}
 
 			for (BonusObj save : thePC.getSaveableBonusList(pcClass))
@@ -992,11 +970,6 @@ public final class PCGVer2Creator
 
 	/**
 	 * Convenience Method
-	 *
-	 * <br>author: Thomas Behr 19-03-02
-	 *
-	 * @param comment
-	 * @param buffer
 	 */
 	private static void appendComment(String comment, StringBuilder buffer)
 	{
@@ -1215,7 +1188,7 @@ public final class PCGVer2Creator
 				buffer.append(IOConstants.TAG_EQSETBONUS).append(':');
 				buffer.append(eSet.getIdPath());
 
-				List<String> trackList = new ArrayList<>();
+				Collection<String> trackList = new ArrayList<>();
 
 				for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : eSet
 						.getTempBonusMap().entrySet())
@@ -1369,20 +1342,13 @@ public final class PCGVer2Creator
 	 */
 	private void appendAbilityLines(StringBuilder buffer)
 	{
-		ArrayList<AbilityCategory> categories = new ArrayList<>(
+		List<AbilityCategory> categories = new ArrayList<>(
                 getGameMode().getAllAbilityCategories());
 		categories.add(AbilityCategory.LANGBONUS);
 
 		Collection<CNAbilitySelection> virtSave = thePC.getSaveAbilities();
 		
-		categories.sort(new Comparator<AbilityCategory>()
-        {
-            @Override
-            public int compare(AbilityCategory a, AbilityCategory b)
-            {
-                return a.getKeyName().compareTo(b.getKeyName());
-            }
-        });
+		categories.sort(Comparator.comparing(AbilityCategory::getKeyName));
 		
 		for (final AbilityCategory cat : categories)
 		{
@@ -1601,7 +1567,7 @@ public final class PCGVer2Creator
 	private void appendLanguageLine(StringBuilder buffer)
 	{
 		String del = Constants.EMPTY_STRING;
-		TreeSet<Language> sortedlangs = new TreeSet(charDisplay.getLanguageSet());
+		Iterable<Language> sortedlangs = new TreeSet<>(charDisplay.getLanguageSet());
 		
 		for (final Language lang : sortedlangs)
 		{
@@ -1623,9 +1589,6 @@ public final class PCGVer2Creator
 
 	/**
 	 * Convenience Method
-	 *
-	 * <br>author: Thomas Behr 19-03-02
-	 *
 	 * @param buffer
 	 */
 	private static void appendNewline(StringBuilder buffer)
@@ -1778,7 +1741,7 @@ public final class PCGVer2Creator
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
-	private void appendOutputSheetsLines(StringBuilder buffer)
+	private static void appendOutputSheetsLines(StringBuilder buffer)
 	{
 		if (SettingsHandler.getSaveOutputSheetWithPC())
 		{
@@ -1918,7 +1881,7 @@ public final class PCGVer2Creator
 	 * DEITY=deityname|totallevels
 	 */
 	private static void appendSourceInTaggedFormat(StringBuilder buffer,
-			CDOMObject source)
+	                                               CDOMObject source)
 	{
 		buffer.append(IOConstants.TAG_SOURCE).append(':');
 		buffer.append('[');
@@ -1938,7 +1901,7 @@ public final class PCGVer2Creator
 	}
 
 	private static void appendSpecials(StringBuilder buffer,
-		List<String> specials, String tag_group, String tag_item, int lvl)
+	                                   Collection<String> specials, String tag_group, String tag_item, int lvl)
 	{
 		if ((specials != null) && (!specials.isEmpty()))
 		{
@@ -2127,7 +2090,6 @@ public final class PCGVer2Creator
 	 */
 	private void appendSpellLines(StringBuilder buffer)
 	{
-		String del;
 
 		for (PCClass pcClass : charDisplay.getClassSet())
 		{
@@ -2189,7 +2151,7 @@ public final class PCGVer2Creator
 						buffer.append('|');
 						buffer.append(IOConstants.TAG_FEATLIST).append(':');
 						buffer.append('[');
-						del = Constants.EMPTY_STRING;
+						String del = Constants.EMPTY_STRING;
 
 						for (Ability feat : metaFeats)
 						{
@@ -2281,28 +2243,25 @@ public final class PCGVer2Creator
 
 	private void appendTempBonuses(StringBuilder buffer)
 	{
-		final List<String> trackList = new ArrayList<>();
-		TreeSet<Map.Entry<BonusObj, BonusManager.TempBonusInfo>> sortedbonus = new TreeSet<>(
-                new Comparator<Map.Entry<BonusObj, BonusManager.TempBonusInfo>>() {
-                    @Override
-                    public int compare(Map.Entry<BonusObj, BonusManager.TempBonusInfo> a, Map.Entry<BonusObj, BonusManager.TempBonusInfo> b) {
-                        BonusObj keyA = a.getKey();
-                        BonusObj keyB = b.getKey();
-                        if (!keyA.getBonusName().equals(keyB.getBonusName())) {
-                            return keyA.getBonusName().compareTo(keyB.getBonusName());
-                        }
-                        if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
-                            return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
-                        }
-                        return keyA.getPCCText().compareTo(keyB.getPCCText());
-                    }
-                });
+		final Collection<String> trackList = new ArrayList<>();
+		Collection<Entry<BonusObj, TempBonusInfo>> sortedbonus = new TreeSet<>(
+				(a, b) ->
+				{
+				    BonusObj keyA = a.getKey();
+				    BonusObj keyB = b.getKey();
+				    if (!keyA.getBonusName().equals(keyB.getBonusName())) {
+				        return keyA.getBonusName().compareTo(keyB.getBonusName());
+				    }
+				    if (!keyA.getBonusInfo().equals(keyB.getBonusInfo())) {
+				        return keyA.getBonusInfo().compareTo(keyB.getBonusInfo());
+				    }
+				    return keyA.getPCCText().compareTo(keyB.getPCCText());
+				});
 		sortedbonus.addAll(thePC.getTempBonusMap().entrySet());
 		
 		//for (BonusManager.TempBonusInfo tbi : thePC.getTempBonusMap().values())
 		for (Map.Entry<BonusObj, BonusManager.TempBonusInfo> me : sortedbonus)
 		{
-			BonusObj bonus = me.getKey();
 			TempBonusInfo tbi = me.getValue();
 			Object creObj = tbi.source;
 			Object tarObj = tbi.target;
@@ -2552,7 +2511,7 @@ public final class PCGVer2Creator
 		buffer.append(IOConstants.LINE_SEP);
 	}
 
-	private String chosenFeats(PCTemplate pct)
+	private String chosenFeats(CDOMObject pct)
 	{
 		final StringBuilder aString = new StringBuilder(50);
 		for (PCTemplate rlt : pct.getSafeListFor(ListKey.REPEATLEVEL_TEMPLATES))
@@ -2589,8 +2548,8 @@ public final class PCGVer2Creator
 		return aString.toString();
 	}
 
-	private void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
-		List<? extends CNAbilitySelection> featList)
+	private static void writeTemplateFeat(StringBuilder aString, PCTemplate pct,
+	                                      Iterable<? extends CNAbilitySelection> featList)
 	{
 		for (CNAbilitySelection s : featList)
 		{
@@ -2613,9 +2572,6 @@ public final class PCGVer2Creator
 
 	/**
 	 * Convenience Method
-	 *
-	 * <br>author: Thomas Behr 19-03-02
-	 *
 	 * @param s   the String which will be converted into a comment;
 	 *            i.e. '#','\r' will be removed,
 	 *                 '\t','\f' will be replaced with ' ',
@@ -2662,14 +2618,14 @@ public final class PCGVer2Creator
 	 * @param target
 	 * @return temp bonus name
 	 **/
-	private String tempBonusName(final Object creator, Object target)
+	private static String tempBonusName(final Object creator, Object target)
 	{
 		final StringBuilder cb = new StringBuilder(100);
 
 		cb.append(IOConstants.TAG_TEMPBONUS).append(':');
 		if (creator instanceof CDOMObject)
 		{
-			final CDOMObject oCreator = (CDOMObject) creator;
+			final Identified oCreator = (CDOMObject) creator;
 
 			if (oCreator instanceof Ability)
 			{
