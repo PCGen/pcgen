@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 20, 2007
  *
- * $Id$
  *
  */
 package plugin.jepcommands;
@@ -39,7 +37,6 @@ import pcgen.util.enumeration.Visibility;
  * <code>CountCommandTest</code> tests the functioning of the jep count plugin
  *
  *
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class CountCommandTest extends AbstractCharacterTestCase
 {

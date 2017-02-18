@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package pcgen.core.system;
 
@@ -30,7 +28,6 @@ import static org.junit.Assert.*;
  * MigrationRuleTest checks the functions of the MigrationRule class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MigrationRuleTest
 {

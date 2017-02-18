@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/12/2013 09:04:19
  *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -56,7 +54,6 @@ import pcgen.util.enumeration.Visibility;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class VAbilityTokenTest extends AbstractCharacterTestCase
 {

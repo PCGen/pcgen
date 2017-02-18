@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 26, 2007
  *
- * $Id: OrCommandTest.java 4432 2007-10-27 02:19:47Z nuance $
  *
  */
 package plugin.jepcommands;
@@ -48,7 +46,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  * 
  * (Fri, 26 Oct 2007) $
  * 
- * @author andrew wilson <nuance@users.sourceforge.net>
  */
 public class ClassLevelCommandTest extends AbstractCharacterTestCase
 {
