@@ -1,4 +1,4 @@
-/**
+/*
  * pcgen.core.term.TermEvaulatorException.java
  * Copyright (c) 2008 Andrew Wilson <nuance@users.sourceforge.net>.
  *
@@ -15,25 +15,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created 06-Aug-2008 06:09:49
- *
- * Current Ver: $Revision:$
- *
  */
 
 package pcgen.core.term;
 
-import pcgen.exception.PcgenException;
-
-public class TermEvaulatorException extends PcgenException{
-	/**
-	 * Creates a new instance of {@code TermEvaulatorException} without detail message.
-	 */
-	public TermEvaulatorException()
-	{
-		super();
-	}
+public class TermEvaulatorException extends Exception {
 
 	/**
 	 * Constructs an instance of {@code TermEvaulatorException} with the specified detail message.
@@ -44,15 +30,4 @@ public class TermEvaulatorException extends PcgenException{
 		super(msg);
 	}
 
-	/**
-	 * Constructs an instance of {@code TermEvaulatorException}
-	 *  with the specified {@link Throwable rootCause}
-	 * and the specified detail message.
-	 * @param rootCause the root cause of the exception.
-	 * @param msg the detail message.
-	 */
-	public TermEvaulatorException(Throwable rootCause, String msg)
-	{
-		super(rootCause, msg);
-	}
 }
