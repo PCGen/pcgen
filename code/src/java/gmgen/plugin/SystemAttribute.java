@@ -20,8 +20,8 @@ package gmgen.plugin;
 
 public class SystemAttribute
 {
-	private String description;
-	private String name;
+	private final String description;
+	private final String name;
 	private SystemDie die;
 	private int value;
 
