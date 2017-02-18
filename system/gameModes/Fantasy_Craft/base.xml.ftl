@@ -1,7 +1,6 @@
 <#ftl encoding="UTF-8" strip_whitespace=true >
 <?xml version="1.0" encoding="UTF-8"?>
 <!--
-	$Id: base.xml 24177 2014-06-16 22:41:07Z jdempsey $
 -->
 <character>
 	<export>
