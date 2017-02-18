@@ -14,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.pcgtracker;
 
@@ -61,8 +59,8 @@ import plugin.pcgtracker.gui.PCGTrackerView;
 
 /**
  * The {@code ExperienceAdjusterController} handles the functionality of
- * the Adjusting of experience.  This class is called by the {@code GMGenSystem
- * } and will have it's own model and view.<br>
+ * the Adjusting of experience.  This class is called by the {@code GMGenSystem}
+ * and will have it's own model and view.
  */
 public class PCGTrackerPlugin implements InteractivePlugin,
 		java.awt.event.ActionListener
@@ -85,18 +83,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	/** Key of plugin tab. */
 	private static final String IN_NAME = "in_plugin_pcgtracker_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private static final String version = "01.00.99.01.00"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
-
-	/**
-	 * Creates a new instance of PCGTrackerPlugin
-	 */
-	public PCGTrackerPlugin()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
@@ -332,10 +319,10 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * @param aPC The PlayerCharacter to save
 	 * @param saveas boolean if {@code true}, ask for file name
 	 *
-	 * @return {@code true} if saved; <code>false</code> if save as cancelled
+	 * @return {@code true} if saved; {@code false} if save as cancelled
 	 */
 	// TODO use pcgen save methods rather than implementing it again
-	public boolean savePC(PlayerCharacter aPC, boolean saveas)
+	private boolean savePC(PlayerCharacter aPC, boolean saveas)
 	{
 		boolean newPC = false;
 		File prevFile;
@@ -443,7 +430,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 		return true;
 	}
 
-	private void toolMenuItem(ActionEvent evt)
+	private static void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
@@ -460,7 +447,7 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	{
 		charToolsItem.setMnemonic(LanguageBundle.getMnemonic("in_mn_plugin_pcgtracker_name")); //$NON-NLS-1$
 		charToolsItem.setText(LanguageBundle.getString("in_plugin_pcgtracker_name")); //$NON-NLS-1$
-		charToolsItem.addActionListener(this::toolMenuItem);
+		charToolsItem.addActionListener(PCGTrackerPlugin::toolMenuItem);
 		messageHandler.handleMessage(new AddMenuItemToGMGenToolsMenuMessage(this, charToolsItem));
 	}
 

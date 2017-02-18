@@ -17,15 +17,6 @@
  */
 package plugin.dicebag;
 
-import gmgen.GMGenSystem;
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.FileMenuNewMessage;
-import gmgen.pluginmgr.messages.FileMenuOpenMessage;
-import gmgen.pluginmgr.messages.FileMenuSaveMessage;
-import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
-
 import java.awt.event.ActionEvent;
 import java.io.File;
 import java.net.URL;
@@ -45,6 +36,15 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+
+import gmgen.GMGenSystem;
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.FileMenuNewMessage;
+import gmgen.pluginmgr.messages.FileMenuOpenMessage;
+import gmgen.pluginmgr.messages.FileMenuSaveMessage;
+import gmgen.pluginmgr.messages.GMGenBeingClosedMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
@@ -80,9 +80,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	private static final String NAME = "DiceBag"; //$NON-NLS-1$
 	/** Key of dice bag tab. */
 	private static final String IN_NAME = "in_plugin_dicebag_name"; //$NON-NLS-1$
-
-	/** Version number. (NOTE: does this mean anything?) */
-	private String version = "00.00.00.01"; //$NON-NLS-1$
 
 	private PCGenMessageHandler messageHandler;
 
