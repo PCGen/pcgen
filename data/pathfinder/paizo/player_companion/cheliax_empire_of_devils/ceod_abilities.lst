@@ -1,4 +1,3 @@
-# CVS $Revision: 19436 $ $Author: amaitland $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 
@@ -15,7 +14,6 @@ Chelaxian		NAMEISPI:YES	CATEGORY:Background	TYPE:HumanSubrace	VISIBLE:DISPLAY	TE
 # Ability Name	Product Identity?	Category of Ability	Type		Visible		Description					Template						Source Page
 Cheliax		NAMEISPI:YES	CATEGORY:Background	TYPE:Region	VISIBLE:DISPLAY	DESC:Diabolical Empire in Decline	TEMPLATE:Regional Affinity (Cheliax)	SOURCEPAGE:p.68
 
-# CVS $Revision: 21484 $ $Author: amaitland $ -- Wed Mar 20 16:10:53 2013 -- reformated by prettylst.pl v1.39 (build 15052)
 SOURCELONG:Cheliax, Empire of Devils	SOURCESHORT:CEOD	SOURCEWEB:http://paizo.com/pathfinder/pathfinderCompanion/pathfinderRPG/v5748btpy89ca	SOURCEDATE:2009-08
 # Original Entry by: Stefan Radermacher
 

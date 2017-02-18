@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Fri Jun 17 21:51:56 2016 -- reformated by PCGen PrettyLST v6.06.00
 
 # Modifier Name	Unique Key			Type								Cost		Visible		Type granted				Keys to replace	Source Page		Required Type				Combat bonus						Bonus to skill		Modify VAR							Bonus Equip Mods						Bonus Armor Mods																				Bonus Weapon Mods			Modify the item cost				Weapon prop. bonus											Special Property																						Ability								Change Armor Type		Choose			Apply to both heads
 Horacalcum		KEY:HORACALCUM_ARMR_LT	TYPE:BaseMaterial.MasterworkQuality.Armor		COST:10000	VISIBLE:QUALIFY	ITYPE:Metal.Horacalcum.Masterwork	REPLACES:MWORKA	SOURCEPAGE:p.57	PRETYPE:2,Metal,Light			BONUS:COMBAT|INITIATIVE|1|TYPE=Circumstance					BONUS:VAR|ArmorCheckPenalty|-1|TYPE=Enhancement																																																									SPROP:25% more hp																																							ASSIGNTOALL:NO
