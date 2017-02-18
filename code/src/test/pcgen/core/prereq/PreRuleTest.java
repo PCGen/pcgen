@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 6, 2007
  *
- * Current Ver: $Revision: 1777 $
  *
  */
 package pcgen.core.prereq;
@@ -37,7 +35,6 @@ import plugin.pretokens.parser.PreRuleParser;
  * <code>PreRuleTest</code> checks the function of the rule 
  * prereq tester.
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreRuleTest extends AbstractCharacterTestCase

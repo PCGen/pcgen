@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 13/12/2013
  *
- * $Id: PCTLTermEvaluatorTest.java 22604 2013-12-13 12:27:49Z jdempsey $
  */
 package pcgen.core.term;
 
@@ -48,7 +46,6 @@ import pcgen.rules.context.LoadContext;
  * PCRacialHDSizeTermEvaluatorTest checks the function of the RACIALHDSIZE variable.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PCRacialHDSizeTermEvaluatorTest extends AbstractCharacterTestCase
 {

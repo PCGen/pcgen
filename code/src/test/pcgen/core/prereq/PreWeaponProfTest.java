@@ -50,7 +50,6 @@ import pcgen.util.TestHelper;
  * working correctly.
  *
  *
- * @author Koen Van Daele <kador@foeffighters.be>
  */
 public class PreWeaponProfTest extends AbstractCharacterTestCase
 {

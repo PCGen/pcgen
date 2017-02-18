@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 06/04/2012 8:30:30 AM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -50,7 +48,6 @@ import pcgen.util.TestHelper;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class CompanionSupportFacadeImplTest extends AbstractCharacterTestCase
 {
