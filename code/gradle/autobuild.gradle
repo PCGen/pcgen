@@ -30,7 +30,7 @@ task copySite(type: Copy) {
     outputs.upToDateWhen { false }
     from "${projectDir}/code/gradle/site"
     into "${destAutobuildDir}"
-    expand(copyright: '2016', version: version, timestamp: buildTimestamp)
+    expand(copyright: new Date().format('yyyy'), version: version, timestamp: buildTimestamp)
 }
 
 task deployAutobuild (dependsOn: ['copyDocs', 'copyDist', 'copySite', \
