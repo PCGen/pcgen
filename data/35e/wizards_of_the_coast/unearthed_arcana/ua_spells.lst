@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Thu Jul 10 13:41:29 2014 -- reformated by prettylst.pl v1.51 (build 24365)
 
 # This doesn't take into account (Paladin) spells from other sources.  No way to 'Remove spells from a spell list'
 # Spell Name				Classes of caster							Description

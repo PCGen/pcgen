@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Sun Jun 22 17:23:35 2014 -- reformated by prettylst.pl v1.51 (build 24190)
 
 STARTPACK:Wizard Spell Book	EQUIPBUY:0	PREMULT:2,[PREPCLEVEL:MAX=1],[PRECLASS:1,Wizard=1]
 GEAR:Spellbook (Wizard's/Blank)	LOCATION:Carried
