@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Wed Sep  3 00:18:24 2014 -- reformated by prettylst.pl v1.51 (build 24947)
 SOURCELONG:DCC 28 - Into the Wilds	SOURCESHORT:DCC28	SOURCEWEB:http://www.goodman-games.com/	SOURCEDATE:2006-01
 # Equipment Name			Output Name					Required Weapon Proficiency	Type										Cost		Weight	Crit Mult	Crit Range	Damage	Modifier	Range		Source Page
 Javelin (Small Barbed)		OUTPUTNAME:[NAME] Javelin		PROFICIENCY:WEAPON|Javelin	TYPE:Weapon.Martial.Ranged.Standard.Piercing.Thrown.Javelin	COST:1	WT:3		CRITMULT:x2	CRITRANGE:1	DAMAGE:1d4	EQMOD:WOOD	RANGE:20	SOURCEPAGE:p.6
