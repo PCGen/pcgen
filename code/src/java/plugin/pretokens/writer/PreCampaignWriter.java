@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/07/2008 12:22:16
  *
- * $Id: $
  */
 package plugin.pretokens.writer;
 
@@ -36,7 +34,6 @@ import java.io.Writer;
  * a CAMPAIGN prerequisite allowing it to be written to a LST file etc. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreCampaignWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface
