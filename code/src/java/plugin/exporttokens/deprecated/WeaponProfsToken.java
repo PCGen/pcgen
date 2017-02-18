@@ -26,15 +26,11 @@ package plugin.exporttokens.deprecated;
 import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.core.display.CharacterDisplay;
-import pcgen.core.display.DisplayUtilities;
 import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.AbstractExportToken;
 
-/**
- * {@code WeaponProfsToken}.
- *
- * @author	binkley
- */
+import org.apache.commons.lang3.StringUtils;
+
 public class WeaponProfsToken extends AbstractExportToken
 {
 	/**
@@ -64,8 +60,9 @@ public class WeaponProfsToken extends AbstractExportToken
 	{
 		if (SettingsHandler.getWeaponProfPrintout())
 		{
-			return DisplayUtilities.joinDisplayName(
-				display.getSortedWeaponProfs(), ", ");
+			return StringUtils.join(
+					display.getSortedWeaponProfs().stream().map(k -> k.getDisplayName()),
+					", ");
 		}
 		else
 		{
