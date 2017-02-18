@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Ability Name				Category of Ability		Type				Required Ability									Special ABility				Description		Multiple?	Choose																																																				Ability								Bonus DC				Bonus to skill		Source Page
 Artificer Skill Focus			CATEGORY:Special Ability	TYPE:General													SAB:Skill Focus (%CHOICE)		DESC:See Text	MULT:YES	CHOOSE:SKILL|Alchemy|Concentration|Diplomacy|Disable Device|Drive|Heal|Intimidate|Knowledge (Architecture and Engineering)|Knowledge (Clockworks)|Knowledge (Engine Programming)|Knowledge (Firearms)|Knowledge (Steamcraft)|Listen|Munitions|Open Lock|Ride|Search|TYPE=Craft|TYPE=Profession|Use Rope|Use Steamcraft Device															BONUS:SKILL|LIST|2	SOURCEPAGE:p.53
