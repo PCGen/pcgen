@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 2/10/2008 15:57:15
  *
- * $Id: $
  */
 package plugin.lsttokens.kit;
 
@@ -39,7 +37,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * The Class {@code LangBonusToken} handles the LANGBONUS kit tag.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class LangBonusToken extends AbstractTokenWithSeparator<KitLangBonus>
 		implements CDOMPrimaryToken<KitLangBonus>
