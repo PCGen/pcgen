@@ -26,7 +26,6 @@ import java.net.URI;
  * Provide an utility method to open files with {@link Desktop}.
  * Non package elements should use {@link Utility#viewInBrowser} which is public.
  * 
- * @author Vincent Lhote
  *
  */
 final class DesktopBrowserLauncher

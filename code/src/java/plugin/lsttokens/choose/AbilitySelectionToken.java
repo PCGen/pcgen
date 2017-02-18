@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 06/06/2013
  *
- * $Id$
  */
 package plugin.lsttokens.choose;
 
@@ -50,7 +48,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * New chooser plugin, handles ability selection.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class AbilitySelectionToken extends AbstractTokenWithSeparator<CDOMObject>
 		implements CDOMSecondaryToken<CDOMObject>,

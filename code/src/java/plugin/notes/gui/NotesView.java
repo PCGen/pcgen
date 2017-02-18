@@ -29,6 +29,7 @@ import java.awt.dnd.DropTargetAdapter;
 import java.awt.dnd.DropTargetDragEvent;
 import java.awt.dnd.DropTargetDropEvent;
 import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.awt.event.KeyEvent;
 import java.io.BufferedInputStream;
 import java.io.File;
@@ -83,6 +84,7 @@ import javax.swing.text.SimpleAttributeSet;
 import javax.swing.text.StyleConstants;
 import javax.swing.text.StyledDocument;
 import javax.swing.text.StyledEditorKit;
+import javax.swing.text.StyledEditorKit.AlignmentAction;
 import javax.swing.text.html.HTML;
 import javax.swing.tree.DefaultTreeModel;
 import javax.swing.tree.MutableTreeNode;
@@ -105,7 +107,7 @@ import gmgen.GMGenSystemView;
 import gmgen.gui.ExtendedHTMLDocument;
 import gmgen.gui.ExtendedHTMLEditorKit;
 import gmgen.gui.FlippingSplitPane;
-import gmgen.gui.ImageFileChooser;
+import gmgen.gui.ImageFileChooserPreview;
 import gmgen.util.LogReceiver;
 import gmgen.util.LogUtilities;
 import gmgen.util.MiscUtilities;
@@ -761,13 +763,14 @@ public class NotesView extends JPanel
 	 */
 	private File getImageFromChooser(String startDir, String[] exts, String desc)
 	{
-		JFileChooser jImageDialog = new ImageFileChooser(new File(startDir));
+		JFileChooser jImageDialog = new JFileChooser();
+		jImageDialog.setCurrentDirectory(new File(startDir));
+		jImageDialog.setAccessory(new ImageFileChooserPreview(jImageDialog));
 		jImageDialog.setDialogType(JFileChooser.CUSTOM_DIALOG);
 		jImageDialog.setFileFilter(new FileNameExtensionFilter(desc, exts));
 		jImageDialog.setDialogTitle("Select an Image to Insert");
 
-		int optionSelected = JFileChooser.CANCEL_OPTION;
-		optionSelected = jImageDialog.showDialog(this, "Insert");
+		int optionSelected = jImageDialog.showDialog(this, "Insert");
 
 		if (optionSelected == JFileChooser.APPROVE_OPTION)
 		{
@@ -808,9 +811,8 @@ public class NotesView extends JPanel
 		java.awt.event.ActionEvent evt)
 	{
 		//GEN-FIRST:event_centerJustifyButtonActionPerformed
-		Action action =
-				new StyledEditorKit.AlignmentAction("Align Centre",
-					StyleConstants.ALIGN_CENTER);
+		ActionListener action =
+				new AlignmentAction("Align Centre", StyleConstants.ALIGN_CENTER);
 		action.actionPerformed(evt);
 		editor.grabFocus();
 
@@ -963,8 +965,7 @@ public class NotesView extends JPanel
 		// TODO: This sucks, clean it up
 		Element elem;
 		int pos = editor.getCaretPosition();
-		ExtendedHTMLDocument htmlDoc =
-				(ExtendedHTMLDocument) editor.getStyledDocument();
+		StyledDocument htmlDoc = (ExtendedHTMLDocument) editor.getStyledDocument();
 
 		try
 		{

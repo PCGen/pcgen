@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 20/10/2008 21:59:06
  *
- * $Id: $
  */
 package pcgen.gui2.prefs;
 
@@ -52,7 +50,6 @@ import pcgen.system.LanguageBundle;
  * gamemode.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CopySettingsPanel extends PCGenPrefsPanel

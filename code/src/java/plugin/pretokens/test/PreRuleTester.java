@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19-Dec-2003
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.pretokens.test;
@@ -35,7 +33,6 @@ import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.core.prereq.PrerequisiteTestFactory;
 
 /**
- * @author wardc
  *
  */
 public class PreRuleTester extends AbstractPrerequisiteTest implements PrerequisiteTest

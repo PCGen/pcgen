@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 03/11/2013
  *
- * $Id$
  */
 package plugin.exporttokens;
 
@@ -50,7 +48,6 @@ import pcgen.util.Logging;
  * CAMPAIGNHISTORY.v.x.TEXT
  * </pre>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignHistoryToken extends Token
 {

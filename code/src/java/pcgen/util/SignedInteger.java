@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/01/2013 11:26:33 AM
  *
- * $Id$
  */
 package pcgen.util;
 
@@ -29,7 +27,6 @@ package pcgen.util;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SignedInteger extends Number implements Comparable<SignedInteger>
 {

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/11/2006
  *
- * $Id$
  */
 
 package plugin.jepcommands;
@@ -38,7 +36,6 @@ import pcgen.util.Logging;
  * be the type of object being counted and further parameters will specify the criteria.
  * 26 Oct 2007) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CountCommand extends AbstractCountCommand
 {

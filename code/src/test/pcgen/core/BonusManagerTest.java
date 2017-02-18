@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 31/03/2013 10:09:50 PM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -38,7 +36,6 @@ import org.junit.Test;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class BonusManagerTest extends AbstractCharacterTestCase

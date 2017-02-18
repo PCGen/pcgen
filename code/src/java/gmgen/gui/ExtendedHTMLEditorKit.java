@@ -26,13 +26,24 @@ import java.util.Enumeration;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.StringTokenizer;
+
 import javax.swing.Action;
 import javax.swing.JEditorPane;
 import javax.swing.JTextPane;
-import javax.swing.text.*;
+import javax.swing.text.BadLocationException;
+import javax.swing.text.DefaultEditorKit;
+import javax.swing.text.Document;
+import javax.swing.text.Element;
+import javax.swing.text.JTextComponent;
+import javax.swing.text.SimpleAttributeSet;
+import javax.swing.text.StyleConstants;
+import javax.swing.text.TextAction;
+import javax.swing.text.View;
+import javax.swing.text.ViewFactory;
 import javax.swing.text.html.HTML;
 import javax.swing.text.html.HTMLDocument;
 import javax.swing.text.html.HTMLEditorKit;
+import javax.swing.text.html.ImageView;
 import javax.swing.text.html.StyleSheet;
 
 /**
@@ -530,7 +541,7 @@ public class ExtendedHTMLEditorKit extends HTMLEditorKit {
             if (obj instanceof HTML.Tag) {
                 HTML.Tag tagType = (HTML.Tag) obj;
                 if (tagType == HTML.Tag.IMG) {
-                    return new RelativeImageView(elem);
+                    return new ImageView(elem);
                 }
             }
             return super.create(elem);

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/10/2013
  *
- * $Id$
  */
 package plugin.pretokens.test;
 
@@ -35,7 +33,6 @@ import pcgen.system.LanguageBundle;
 /**
  * Prerequisite tester, tests for the presence of a kit.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {

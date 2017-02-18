@@ -39,7 +39,6 @@ import pcgen.util.TestHelper;
  * working correctly.
  *
  *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreLangTest extends AbstractCharacterTestCase
 {

@@ -18,7 +18,6 @@ import pcgen.io.exporttoken.AbilityListToken;
  * {@code VFeatListToken} deals with VFEATLIST output token.
  *
  *
- * @author karianna
  */
 public class VFeatListToken extends AbilityListToken
 {

@@ -30,7 +30,6 @@ import plugin.initiative.DiceRollModel;
  * A generic check dialog; handles an expression with a DC
  * </p>
  *
- * @author Ross M. Lodge
  *
  */
 public class CheckDialog extends DiceRollDialog

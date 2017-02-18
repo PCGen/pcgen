@@ -14,18 +14,13 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * $Id$
  */
  package plugin.overland;
-
-import gmgen.GMGenSystemView;
-import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
-import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 
 import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.io.File;
+import java.util.stream.IntStream;
 
 import javax.swing.JMenuItem;
 import javax.swing.JOptionPane;
@@ -38,15 +33,15 @@ import pcgen.pluginmgr.PCGenMessage;
 import pcgen.pluginmgr.PCGenMessageHandler;
 import pcgen.pluginmgr.messages.FocusOrStateChangeOccurredMessage;
 import pcgen.system.LanguageBundle;
+
+import gmgen.GMGenSystemView;
+import gmgen.pluginmgr.messages.AddMenuItemToGMGenToolsMenuMessage;
+import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.overland.gui.OverPanel;
 
 /**
  * The {@code Overland Plugin} provides a number
- * of useful utilities that help with overland travel <br>
- * Created on February 26, 2003<br>
- * Updated on February 26, 2003
- * @author  Expires 2003
- * @author Vincent Lhote
+ * of useful utilities that help with overland travel.
  */
 public class OverlandPlugin implements InteractivePlugin
 {
@@ -66,18 +61,7 @@ public class OverlandPlugin implements InteractivePlugin
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_overland_name"; //$NON-NLS-1$
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00"; //$NON-NLS-1$
-
 	private PCGenMessageHandler messageHandler;
-
-	/**
-	 * Creates a new instance of OverlandPlugin
-	 */
-	public OverlandPlugin()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.
@@ -162,7 +146,7 @@ public class OverlandPlugin implements InteractivePlugin
 	/**
 	 * Initialise the menus for this plugin
 	 */
-	public void initMenus()
+	private void initMenus()
 	{
 		overToolsItem.setMnemonic(LanguageBundle.getMnemonic(IN_NAME_MN));
 		overToolsItem.setText(getLocalizedName());
@@ -174,24 +158,18 @@ public class OverlandPlugin implements InteractivePlugin
 	 * Sets the index for the pane 
 	 * @param evt
 	 */
-	public void toolMenuItem(ActionEvent evt)
+	private void toolMenuItem(ActionEvent evt)
 	{
 		JTabbedPane tp = GMGenSystemView.getTabPane();
 
-		for (int i = 0; i < tp.getTabCount(); i++)
-		{
-			if (tp.getComponentAt(i) instanceof OverPanel)
-			{
-				tp.setSelectedIndex(i);
-			}
-		}
+		IntStream.range(0, tp.getTabCount())
+		         .filter(i -> tp.getComponentAt(i) instanceof OverPanel)
+		         .forEach(tp::setSelectedIndex);
 	}
 
 	@Override
 	public File getDataDirectory()
 	{
-		File dataDir =
-				new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
-		return dataDir;
+		return new File(SettingsHandler.getGmgenPluginDir(), getPluginName());
 	}
 }

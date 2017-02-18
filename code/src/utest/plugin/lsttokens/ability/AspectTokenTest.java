@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 16/08/2008 18:42:10
  *
- * $Id: $
  */
 package plugin.lsttokens.ability;
 
@@ -37,7 +35,6 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * the Ability AspectToken is working properly 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AspectTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {

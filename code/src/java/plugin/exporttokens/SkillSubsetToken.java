@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Aug 5, 2004
  *
- * $Id$
  *
  */
 package plugin.exporttokens;
@@ -41,7 +39,6 @@ import pcgen.util.enumeration.View;
  * eg SKILLSUBSET.2.KNOWLEDGE.RANK
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 // SKILLSUBSET

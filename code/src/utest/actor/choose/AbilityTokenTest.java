@@ -38,7 +38,6 @@ import static org.junit.Assert.*;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class AbilityTokenTest
 {

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/01/2009 11:40:53 AM
  *
- * $Id: $
  */
 
 package pcgen.core.analysis;
@@ -49,7 +47,6 @@ import pcgen.util.TestHelper;
  * The Class <code>SpellLevelTest</code> checks the SpellLevel class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SpellLevelTest extends AbstractCharacterTestCase
 {

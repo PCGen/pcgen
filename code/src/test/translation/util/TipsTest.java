@@ -27,7 +27,6 @@ import org.junit.Test;
 /**
  * JUnit Tests for {@link translation.util.Tips}.
  *
- * @author Vincent Lhote
  */
 @SuppressWarnings("nls")
 public class TipsTest

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 17, 2006
  *
- * $Id: VarTokenTest.java 201 2006-03-14 23:19:50Z nuance $
  *
  */
 package pcgen.io.exporttoken;
@@ -37,7 +35,6 @@ import plugin.exporttokens.TextToken;
  * token processing code. 
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TextTokenTest extends AbstractCharacterTestCase
 {
