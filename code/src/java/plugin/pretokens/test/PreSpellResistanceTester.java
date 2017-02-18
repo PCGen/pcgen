@@ -32,7 +32,6 @@ import pcgen.core.prereq.PrerequisiteTest;
  *
  */
 public class PreSpellResistanceTester extends AbstractPrerequisiteTest
-		implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)

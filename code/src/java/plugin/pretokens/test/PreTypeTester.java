@@ -42,8 +42,7 @@ import pcgen.util.Logging;
  * Prerequisite tester, tests for the presence of a type.
  *
  */
-public class PreTypeTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreTypeTester extends AbstractDisplayPrereqTest
 {
 
 	/**

@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreDeityDomainTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityDomainTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

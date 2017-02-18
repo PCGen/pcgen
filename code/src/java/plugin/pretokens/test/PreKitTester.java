@@ -34,7 +34,7 @@ import pcgen.system.LanguageBundle;
  * Prerequisite tester, tests for the presence of a kit.
  *
  */
-public class PreKitTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreKitTester extends AbstractDisplayPrereqTest
 {
 
 	private static final Class<Kit> KIT_CLASS = Kit.class;

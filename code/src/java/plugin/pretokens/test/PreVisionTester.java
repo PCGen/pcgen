@@ -34,7 +34,7 @@ import pcgen.util.enumeration.VisionType;
  *
  * Checks a characters vision..
  */
-public class PreVisionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreVisionTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

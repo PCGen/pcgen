@@ -33,7 +33,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreSpellBookTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreSpellBookTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

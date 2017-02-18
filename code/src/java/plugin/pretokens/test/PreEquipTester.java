@@ -39,7 +39,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreEquipTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreEquipTester extends AbstractPrerequisiteTest
 {
 
 	/*

@@ -32,8 +32,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreLevelMaxTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreLevelMaxTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

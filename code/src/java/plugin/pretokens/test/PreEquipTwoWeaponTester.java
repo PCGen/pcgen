@@ -33,7 +33,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreEquipTwoWeaponTester extends PreEquippedTester implements PrerequisiteTest
+public class PreEquipTwoWeaponTester extends PreEquippedTester
 {
 
 	/* (non-Javadoc)

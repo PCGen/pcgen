@@ -37,7 +37,7 @@ public class CarriedToken implements QualifierToken<Equipment>,
 		PrimitiveFilter<Equipment>
 {
 
-	private PrimitiveCollection<Equipment> pcs = null;
+	private PrimitiveCollection<Equipment> pcs;
 
 	private boolean wasRestricted = false;
 

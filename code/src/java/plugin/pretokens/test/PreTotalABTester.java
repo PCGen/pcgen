@@ -30,7 +30,7 @@ import pcgen.core.prereq.PrerequisiteException;
 import pcgen.core.prereq.PrerequisiteTest;
 import pcgen.system.LanguageBundle;
 
-public class PreTotalABTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreTotalABTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

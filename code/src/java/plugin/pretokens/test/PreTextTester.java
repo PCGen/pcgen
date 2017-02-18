@@ -34,7 +34,7 @@ import pcgen.system.LanguageBundle;
  * Prerequisite tester, test for the presence of text.
  *
  */
-public class PreTextTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreTextTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

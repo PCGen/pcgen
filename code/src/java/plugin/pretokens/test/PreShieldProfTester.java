@@ -35,7 +35,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreShieldProfTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreShieldProfTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

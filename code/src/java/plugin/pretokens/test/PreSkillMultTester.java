@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreSkillMultTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreSkillMultTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

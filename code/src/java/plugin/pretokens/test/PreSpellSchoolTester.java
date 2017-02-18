@@ -36,8 +36,7 @@ import java.util.List;
  * Prerequisite tester, tests for the presence of a school of spellcasting.
  *
  */
-public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellSchoolTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -75,7 +74,7 @@ public class PreSpellSchoolTester extends AbstractPrerequisiteTest implements
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
+				{prereq.getOperator().toDisplayString(),
 					"1", prereq.getOperand(), prereq.getKey()};
 		return LanguageBundle
 			.getFormattedString("PreSpellSchool.toHtml", args); //$NON-NLS-1$

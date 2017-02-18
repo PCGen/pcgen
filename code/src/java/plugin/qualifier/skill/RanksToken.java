@@ -38,7 +38,7 @@ public class RanksToken implements QualifierToken<Skill>, PrimitiveFilter<Skill>
 
 	private static final String MAXRANK = "MAXRANK";
 
-	private PrimitiveCollection<Skill> pcs = null;
+	private PrimitiveCollection<Skill> pcs;
 
 	private boolean wasRestricted = false;
 

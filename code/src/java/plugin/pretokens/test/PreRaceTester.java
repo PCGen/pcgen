@@ -45,7 +45,7 @@ import pcgen.core.prereq.PrerequisiteTest;
  * @author	byngl &lt;byngl@hotmail.com&gt;
  *
  */
-public class PreRaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreRaceTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)
@@ -106,7 +106,7 @@ public class PreRaceTester extends AbstractDisplayPrereqTest implements Prerequi
 			String raceToMatch = requiredRace.substring(9);
 			String raceType = display.getRaceType();
 			boolean isMatchingRaceType = raceType.equalsIgnoreCase(
-				requiredRace.substring(9)) ? true : false;
+					requiredRace.substring(9));
 			if (isMatchingRaceType) 
 			{
 				++runningTotal;

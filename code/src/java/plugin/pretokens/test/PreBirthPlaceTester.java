@@ -32,7 +32,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreBirthPlaceTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreBirthPlaceTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

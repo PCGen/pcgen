@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
  * Prerequisite tester, tests for the presence of a subclass.
  *
  */
-public class PreSubClassTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreSubClassTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

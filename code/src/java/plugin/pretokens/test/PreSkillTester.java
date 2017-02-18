@@ -42,8 +42,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreSkillTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSkillTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -90,7 +89,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 				if (percentageSignPosition >= 0)
 				{
 					foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, aSkill);
-					foundSkill = (foundMatch)? true: false;
+					foundSkill = foundMatch;
 					runningTotal = getRunningTotal(aSkill, character
 						, prereq, foundMatch, runningTotal, requiredRanks);
 				}
@@ -186,7 +185,7 @@ public class PreSkillTester extends AbstractPrerequisiteTest implements
 						for(Type mockType: mockTypes)
 						{
 							foundMatch = matchesTypeWildCard(skillKey, percentageSignPosition, foundSkill, target);
-							foundSkill = (foundMatch)? true: false;
+							foundSkill = foundMatch;
 							runningTotal = getRunningTotal(mock, character
 								, prereq, foundMatch, runningTotal, requiredRanks);	
 							if (foundSkill)

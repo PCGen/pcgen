@@ -36,7 +36,7 @@ import pcgen.system.LanguageBundle;
  * Prerequisite tester, tests for the presence of a template.
  *
  */
-public class PreTemplateTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreTemplateTester extends AbstractDisplayPrereqTest
 {
 
 	private static final Class<PCTemplate> PCTEMPLATE_CLASS = PCTemplate.class;

@@ -39,7 +39,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreCSkillTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCSkillTester extends AbstractPrerequisiteTest
 {
 	/* (non-Javadoc)
 	 * @see pcgen.core.prereq.PrerequisiteTest#passes(pcgen.core.PlayerCharacter)

@@ -35,7 +35,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreCheckBaseTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreCheckBaseTester extends AbstractPrerequisiteTest
 {
 
 	/**

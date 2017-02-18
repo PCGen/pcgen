@@ -28,8 +28,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PrePCLevelTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PrePCLevelTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

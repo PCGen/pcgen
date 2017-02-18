@@ -35,8 +35,7 @@ import java.util.List;
 /**
  *
  */
-public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest implements
-		PrerequisiteTest
+public class PreSpellSchoolSubTester extends AbstractPrerequisiteTest
 {
 
 	/* (non-Javadoc)

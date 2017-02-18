@@ -21,7 +21,7 @@ import pcgen.util.Logging;
 /**
  * Prerequisite test that the character has a deity with the correct alignment.
  */
-public class PreDeityAlignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreDeityAlignTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)

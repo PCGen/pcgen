@@ -38,7 +38,7 @@ import pcgen.core.utils.CoreUtility;
 /**
  * Prerequisite test for the presence of a variable.
  */
-public class PreVariableTester extends AbstractPrerequisiteTest implements PrerequisiteTest
+public class PreVariableTester extends AbstractPrerequisiteTest
 {
 
 	/**

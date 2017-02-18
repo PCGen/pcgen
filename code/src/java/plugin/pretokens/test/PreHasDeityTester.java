@@ -34,8 +34,7 @@ import pcgen.core.prereq.PrerequisiteTest;
 /**
  *
  */
-public class PreHasDeityTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreHasDeityTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

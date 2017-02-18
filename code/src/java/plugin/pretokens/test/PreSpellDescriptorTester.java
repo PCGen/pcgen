@@ -35,7 +35,6 @@ import java.util.List;
  *
  */
 public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
-		implements PrerequisiteTest
 {
 
 	/* (non-Javadoc)
@@ -73,7 +72,7 @@ public class PreSpellDescriptorTester extends AbstractPrerequisiteTest
 	public String toHtmlString(final Prerequisite prereq)
 	{
 		final Object[] args =
-				new Object[]{prereq.getOperator().toDisplayString(),
+				{prereq.getOperator().toDisplayString(),
 					prereq.getOperand(), prereq.getSubKey(), prereq.getKey()};
 		return LanguageBundle.getFormattedString(
 			"PreSpellDescriptor.toHtml", args); //$NON-NLS-1$

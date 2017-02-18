@@ -35,7 +35,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreRegionTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
+public class PreRegionTester extends AbstractDisplayPrereqTest
 {
 
 	@Override

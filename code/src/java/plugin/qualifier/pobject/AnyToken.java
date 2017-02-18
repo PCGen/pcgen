@@ -36,7 +36,7 @@ public class AnyToken<T extends CDOMObject> implements QualifierToken<T>
 
 	private Class<T> refClass;
 
-	private PrimitiveCollection<T> pcs = null;
+	private PrimitiveCollection<T> pcs;
 
 	private boolean wasRestricted = false;
 

@@ -33,8 +33,7 @@ import pcgen.system.LanguageBundle;
 /**
  *
  */
-public class PreLegsTester extends AbstractDisplayPrereqTest implements
-		PrerequisiteTest
+public class PreLegsTester extends AbstractDisplayPrereqTest
 {
 
 	/* (non-Javadoc)
