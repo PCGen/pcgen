@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 9, 2013, 11:24:18 AM
  */
 package pcgen.gui2.tools;
 
@@ -30,7 +29,6 @@ import pcgen.system.PropertyContext;
  * This is a type of DynamicTableColumnModel which links each of the added columns
  * to a PropertyContext to allow for a persistence of column properties across
  * program executions.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PrefTableColumnModel extends DefaultDynamicTableColumnModel
 {

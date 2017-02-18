@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/05/2013 7:02:42 AM
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -71,7 +69,6 @@ import pcgen.util.TestHelper;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @RunWith(Parameterized.class)
 public class DataLoadTest implements PCGenTaskListener

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 09/10/2013
  *
- * $Id$
  */
 package pcgen.gui2.equip;
 
@@ -50,7 +48,6 @@ import pcgen.system.LanguageBundle;
 /**
  * SpellChoicePanel provides the user interface for the user to select a spell.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SpellChoicePanel extends JPanel

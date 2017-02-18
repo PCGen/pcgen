@@ -23,7 +23,6 @@ import pcgen.core.term.TermEvaulatorException;
  *
  * Created 10/04/2008
  *
- * Current Ver: $Revision:$
  */
 
 public class TermUtilitiesTest extends PCGenTestCase

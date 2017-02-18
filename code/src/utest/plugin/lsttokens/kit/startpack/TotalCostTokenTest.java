@@ -42,7 +42,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * Test class for TotalCostToken. Check ths parsing of the TOTALCOST token. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {

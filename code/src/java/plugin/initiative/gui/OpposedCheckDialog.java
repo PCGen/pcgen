@@ -18,7 +18,6 @@
  *
  * OpposedCheckDialog.java
  *
- * Created on May 4, 2004, 1:32:24 PM
  */
 
 package plugin.initiative.gui;
@@ -94,7 +93,6 @@ import plugin.initiative.OpposedSkillTypeModel;
  *    <li>TODO: Add logging support to the initiative tracker log</li>
  * </ul>
  *
- * @author LodgeR
  */
 class OpposedCheckDialog extends JDialog
 {

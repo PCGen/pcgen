@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 7, 2010, 2:35:48 PM
  */
 package pcgen.system;
 
@@ -55,7 +54,6 @@ import org.apache.commons.lang3.ArrayUtils;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeFactory
 {

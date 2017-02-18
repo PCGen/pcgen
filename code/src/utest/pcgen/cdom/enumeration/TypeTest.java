@@ -29,7 +29,6 @@ import static org.junit.Assert.*;
  * The Class {@code TypeTest} tests that the Type
  * class is functioning correctly.
  * 
- * @author Jasper Spaans <jasperspaans@users.sourceforge.net>
  */
 public class TypeTest
 {

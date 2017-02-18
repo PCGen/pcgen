@@ -42,7 +42,6 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * 
  * This class tries to be independent of code, but still needs Apache Commons Lang.
  * 
- * @author Vincent Lhote
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
 public class Tips

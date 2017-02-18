@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/12/2013
  *
- * $Id$
  */
 package pcgen.io.freemarker;
 
@@ -44,7 +42,6 @@ import freemarker.template.TemplateModelException;
  * 
  * <p>Nested content is output once for each loop</p>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class EquipSetLoopDirective implements TemplateDirectiveModel
 {

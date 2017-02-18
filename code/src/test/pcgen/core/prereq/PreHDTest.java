@@ -44,7 +44,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * working correctly.
  *
  *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 @SuppressWarnings("nls")
 public class PreHDTest extends AbstractCharacterTestCase

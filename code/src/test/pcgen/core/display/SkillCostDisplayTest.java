@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/09/2008 21:04:10
  *
- * $Id: $
  */
 package pcgen.core.display;
 
@@ -45,7 +43,6 @@ import pcgen.util.TestHelper;
  * SkillModifier class is operating correctly.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SkillCostDisplayTest extends AbstractCharacterTestCase
 {

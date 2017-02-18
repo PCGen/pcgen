@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 24 Dec 2015
  */
 package plugin.pretokens;
 
@@ -34,7 +33,6 @@ import plugin.pretokens.writer.PreFactSetWriter;
  * The Class <code>PreFactRoundRobin</code> tests the parsing and unparsing of 
  * PREFACTs. 
 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreFactSetRoundRobin extends AbstractPreRoundRobin
 {

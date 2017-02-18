@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17-Sep-2005
  *
  */
 package pcgen.core.prereq;
@@ -37,7 +36,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * working correctly.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreDeityAlignTest extends AbstractCharacterTestCase
 {

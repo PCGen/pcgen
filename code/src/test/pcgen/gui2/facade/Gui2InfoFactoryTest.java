@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 23/09/2012 12:00:00 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -41,7 +39,6 @@ import plugin.lsttokens.choose.StringToken;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 {

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on August 25, 2003, 12:00 PM
  */
 package pcgen.system;
 
@@ -39,7 +38,6 @@ import org.apache.commons.lang3.StringUtils;
  * This class is used to manage the properties of the PCGen application
  * itself, such as its version, release date, etc.
  *
- * @author sage_sam
  */
 public final class PCGenPropBundle
 {

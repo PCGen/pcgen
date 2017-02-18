@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 30/05/2010 10:00:00 PM
  *
- * $Id$
  */
 package plugin.lsttokens.gamemode;
 
@@ -36,7 +34,6 @@ import pcgen.util.Logging;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InfoSheetToken implements GameModeLstToken
 {

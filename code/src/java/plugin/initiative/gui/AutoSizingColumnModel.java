@@ -25,7 +25,6 @@ import javax.swing.table.TableColumn;
 import java.util.Enumeration;
 
 /**
- * @author LodgeR
  * <p>GradesViewColumnModel</p>
  * <p>edit method description . . .</p>
  */

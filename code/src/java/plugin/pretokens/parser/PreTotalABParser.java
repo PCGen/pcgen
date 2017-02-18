@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17-Dec-2003
  *
- * Current Ver: $Revision: 18181 $
  *
  *
  *
@@ -34,7 +32,6 @@ import pcgen.util.Logging;
 
 /**
  * A prerequisite parser class that handles the parsing of pre attack tokens.
- *
  */
 public class PreTotalABParser extends AbstractPrerequisiteParser implements
 		PrerequisiteParserInterface

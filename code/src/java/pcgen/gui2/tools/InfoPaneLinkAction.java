@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/10/2013
  *
- * $Id$
  */
 package pcgen.gui2.tools;
 
@@ -37,7 +35,6 @@ import pcgen.util.Logging;
  * The Class {@code InfoPaneLinkAction} acts on the user clicking on hyperlinks
  * in an info pane such as the source info pane.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class InfoPaneLinkAction
 		implements HyperlinkListener

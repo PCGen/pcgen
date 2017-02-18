@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/07/2008 18:44:57
  *
- * $Id: $
  */
 package plugin.lsttokens.gamemode;
 
@@ -33,7 +31,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * the value of the DEFAULTDATASET tag and processing it against the game mode..
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class DefaultdatasetToken implements GameModeLstToken
 {

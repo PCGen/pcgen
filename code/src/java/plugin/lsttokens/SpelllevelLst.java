@@ -44,7 +44,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * @author djones4
  *
  */
 public class SpelllevelLst extends AbstractSpellListToken implements
