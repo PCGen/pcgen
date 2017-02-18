@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Mar 18, 2012, 11:49:23 PM
  */
 package pcgen.gui2.facade;
 
@@ -37,7 +36,6 @@ import pcgen.facade.util.event.ReferenceListener;
  * This class is used to help aid implementation of the
  * {@code CompanionSupportFacadeImpl}
  * @see pcgen.gui2.facade.CompanionSupportFacadeImpl
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CompanionFacadeDelegate implements CompanionFacade
 {
