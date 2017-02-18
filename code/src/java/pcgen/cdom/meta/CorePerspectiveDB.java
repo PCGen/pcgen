@@ -109,8 +109,8 @@ public final class CorePerspectiveDB
 		public Location(FacetBehavior behavior, String source)
 		{
 			location =
-					new StringBuilder(40).append(behavior).append(" (")
-						.append(source).append(")").toString();
+					String.valueOf(behavior) + " (" +
+							source + ")";
 		}
 
 		@Override
