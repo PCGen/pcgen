@@ -1,4 +1,3 @@
-# CVS $Revision: $ $Author: $ -- Thu Jan 29 16:18:08 2015 -- reformated by prettylst.pl v1.51 (build 25712)
 
 # Ability Category						Visible		Editable?		Change Pool?	Base Pool number			Category of Object		Type of Object					Plural description for UI				Display Location
 ABILITYCATEGORY:Ulfen Guard Class Feature			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO							CATEGORY:Special Ability	TYPE:Ulfen Guard Class Feature		PLURAL:Ulfen Guard Class Features			DISPLAYLOCATION:Class Features
