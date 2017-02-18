@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 12, 2005, 8:10 PM
  *
- * Current Ver: $Revision: 1.1 $
  *
  */
 package plugin.lsttokens.gamemode;
@@ -32,7 +30,6 @@ import java.net.URI;
 /**
  * {@code StartStatMaxToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class StartStatMaxToken implements GameModeLstToken
 {

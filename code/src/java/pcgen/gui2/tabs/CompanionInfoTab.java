@@ -13,7 +13,6 @@
  * if not, write to the Free Software Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA
  * 02111-1307 USA
  *
- * Created on Mar 4, 2012, 5:01:02 PM
  */
 package pcgen.gui2.tabs;
 
@@ -105,7 +104,6 @@ import pcgen.util.enumeration.Tab;
  * This component allows a user to manage a character's companions (animal,
  * familiar, cohort, mount, etc).
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class CompanionInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler, DisplayAwareTab

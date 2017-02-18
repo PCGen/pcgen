@@ -67,7 +67,6 @@ import pcgen.system.LanguageBundle;
  * the character stats purchase mode (aka point buy) configuration dialog.  
  * 
  * 
- * @author Chris Ryan
  */
 public final class PurchaseModeFrame extends JDialog
 {

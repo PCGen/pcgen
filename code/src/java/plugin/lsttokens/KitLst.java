@@ -47,7 +47,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * @author djones4
  *
  */
 public class KitLst extends AbstractTokenWithSeparator<CDOMObject> implements

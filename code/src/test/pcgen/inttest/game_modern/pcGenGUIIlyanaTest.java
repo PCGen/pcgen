@@ -18,7 +18,6 @@
  *
  * Created/Reinstated on 09/07/2015
  *
- * $Id$
  */
 package pcgen.inttest.game_modern;
 

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Jul 15, 2004
  *
- * $Id$
  *
  */
 package plugin.exporttokens;
@@ -43,7 +41,6 @@ import pcgen.util.Delta;
  * ends in .LEVEL
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public class SpellListClassToken extends SpellListToken

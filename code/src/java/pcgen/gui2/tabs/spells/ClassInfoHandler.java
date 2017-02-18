@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 14, 2011, 5:25:57 PM
  */
 package pcgen.gui2.tabs.spells;
 
@@ -32,7 +31,6 @@ import pcgen.gui2.util.JTreeViewTable;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class ClassInfoHandler implements ListSelectionListener
 {

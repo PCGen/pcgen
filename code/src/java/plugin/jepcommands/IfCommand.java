@@ -17,7 +17,6 @@ import java.util.Stack;
  * otherise.
  * </p>
  *
- * @author Ross M. Lodge
  *
  */
 public class IfCommand extends PCGenCommand

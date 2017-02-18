@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 24/08/2008 13:48:39
  *
- * $Id: $
  */
 package plugin.jepcommands;
 
@@ -41,7 +39,6 @@ import pcgen.util.PCGenCommand;
  * </p>
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class IsgamemodeCommand extends PCGenCommand
 {

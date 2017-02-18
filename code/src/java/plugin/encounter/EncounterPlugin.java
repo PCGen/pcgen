@@ -14,7 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
  package plugin.encounter;
 
@@ -123,9 +122,6 @@ public class EncounterPlugin extends MouseAdapter
 	private static final String IN_NAME = "in_plugin_encounter_name"; //$NON-NLS-1$
 	/** Mnemonic in menu for {@link #IN_NAME} */
 	private static final String IN_NAME_MN = "in_mn_plugin_encounter_name"; //$NON-NLS-1$
-
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	private PCGenMessageHandler messageHandler;
 
