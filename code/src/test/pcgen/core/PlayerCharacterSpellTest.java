@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/01/2012 11:09:46 AM
  *
- * $Id$
  */
 package pcgen.core;
 
@@ -46,7 +44,6 @@ import plugin.lsttokens.testsupport.BuildUtilities;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 
 public class PlayerCharacterSpellTest extends AbstractCharacterTestCase

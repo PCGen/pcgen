@@ -27,7 +27,6 @@ import pcgen.util.enumeration.Visibility;
 /**
  * Handles the VISIBLE token on an ABILITYCATEGORY line.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class VisibleToken extends AbstractNonEmptyToken<AbilityCategory>

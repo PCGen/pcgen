@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -81,7 +79,7 @@ public class PreVisionParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private boolean validateNotZero(Prerequisite prereq)
+	private static boolean validateNotZero(Prerequisite prereq)
 	{
 		boolean returnValue = true;
 		if (prereq.getKind() != null && prereq.getKind().equalsIgnoreCase("VISION"))

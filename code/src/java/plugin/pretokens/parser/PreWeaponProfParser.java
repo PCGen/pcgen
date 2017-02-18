@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision$
  *
  *
  *
@@ -72,7 +70,7 @@ public class PreWeaponProfParser extends AbstractPrerequisiteListParser
 		return prereq;
 	}
 
-	private void doTypeInvertFixUp(Prerequisite prereq)
+	private static void doTypeInvertFixUp(Prerequisite prereq)
 	{
 		if ("weaponprof".equalsIgnoreCase(prereq.getKind()))
 		{

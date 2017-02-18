@@ -15,9 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- *  InitFileFilter.java
- *
  */
 package plugin.initiative;
 
@@ -90,18 +87,7 @@ public class InitiativePlugin implements InteractivePlugin
 	/** The English name of the plugin. */
 	private String name = "Initiative";
 
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00";
-
 	private PCGenMessageHandler messageHandler;
-
-	/**
-	 * Creates a new instance of InitiativePlugin
-	 */
-	public InitiativePlugin()
-	{
-		// Do Nothing
-	}
 
 	/**
 	 * Starts the plugin, registering itself with the {@code TabAddMessage}.

@@ -18,7 +18,6 @@
  *
  *  AddCombatant.java
  *
- *  Created on January 4, 2002, 2:10 PM
  */
 package plugin.initiative.gui;
 
@@ -40,9 +39,7 @@ import plugin.initiative.XMLCombatant;
  * the combatant(s) and saves them to the initiative model.
  * </p>
  *
- * <p>Current Ver: $Revision$</p>
  *
- * @author     devon
  */
 public class AddCombatant extends AbstractDialog
 {

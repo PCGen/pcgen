@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 06/10/2011 7:59:35 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -51,7 +49,6 @@ import pcgen.system.LanguageBundle;
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 class DescriptionFacadeImpl implements DescriptionFacade
 {

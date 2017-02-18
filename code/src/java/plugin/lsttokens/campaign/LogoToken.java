@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 30/01/2008
  *
- * $Id$
  */
 package plugin.lsttokens.campaign;
 
@@ -41,7 +39,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * {@code LogoToken} parses the LOGO Token.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class LogoToken extends AbstractTokenWithSeparator<Campaign> implements
 		CDOMPrimaryToken<Campaign>, InstallLstToken

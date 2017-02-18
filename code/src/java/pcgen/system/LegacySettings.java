@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on 19/11/2010, 20:19:00
  *
- * $Id: LegacySettings.java 13875 2010-11-19 22:05:26Z jdempsey $
  */
 package pcgen.system;
 
@@ -31,7 +29,6 @@ import pcgen.core.SettingsHandler;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 final class LegacySettings extends PropertyContext
 {

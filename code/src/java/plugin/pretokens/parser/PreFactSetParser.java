@@ -87,12 +87,12 @@ public class PreFactSetParser extends AbstractPrerequisiteListParser
 		{
 			throw new PersistenceLayerException(parseResult.toString());
 		}
-		if (formula.indexOf("[") >= 0 || formula.indexOf("]") >= 0)
+		if (formula.contains("[") || formula.contains("]"))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain []: " + formula);
 		}
-		if (formula.indexOf("|") >= 0)
+		if (formula.contains("|"))
 		{
 			throw new PersistenceLayerException("Prerequisite " + kind
 				+ " can not contain |: " + formula);

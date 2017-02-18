@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 17, 2005, 2:31 PM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -34,7 +32,6 @@ import pcgen.util.Logging;
 /**
  * {@code TabToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class TabToken implements GameModeLstToken
 {

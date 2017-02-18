@@ -34,7 +34,6 @@ import javax.swing.text.NumberFormatter;
  * A utility class for building some GUI elements
  * </p>
  *
- * @author Ross M. Lodge
  *
  */
 public class Utils

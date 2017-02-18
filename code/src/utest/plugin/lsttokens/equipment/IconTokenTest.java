@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 14/02/2011 9:06:00 PM
  *
- * $Id$
  */
 package plugin.lsttokens.equipment;
 
@@ -34,7 +32,6 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 2, 2008, 7:47:15 PM
  */
 
 package pcgen.util;
@@ -26,7 +25,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public interface ListMap<K, V, C extends List<V>> extends CollectionMap<K, V, C>{
     void add(K key, int index, V value);

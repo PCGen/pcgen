@@ -32,7 +32,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * entries are going to do or when they should be used. The text will only be 
  * displayed in the Temporary Bonus Tab.
  * 
- * @author djones4
  */
 public class TempdescLst extends AbstractNonEmptyToken<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 6, 2010, 1:30:26 PM
  */
 package pcgen.gui2.tabs.skill;
 
@@ -48,7 +47,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
  * A model to back the table of character levels and the skill points 
  * associated with them.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class SkillPointTableModel extends AbstractTableModel
 		implements ListListener<CharacterLevelFacade>, ClassListener, SkillPointListener

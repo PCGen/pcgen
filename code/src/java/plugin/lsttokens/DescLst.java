@@ -38,7 +38,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * Handles DESC token processing
  *
- * @author djones4
  */
 public class DescLst extends AbstractTokenWithSeparator<CDOMObject> implements
 		CDOMPrimaryToken<CDOMObject>

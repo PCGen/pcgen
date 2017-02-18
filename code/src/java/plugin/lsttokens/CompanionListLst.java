@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package plugin.lsttokens;
 
@@ -101,7 +100,6 @@ import pcgen.rules.persistence.token.ParseResult;
  * An Ape companion to a 4th level Druid gains the benefits normally granted to
  * a companion of a 1st level Druid.
  *
- * @author divaa01
  *
  */
 public class CompanionListLst extends AbstractTokenWithSeparator<CDOMObject>

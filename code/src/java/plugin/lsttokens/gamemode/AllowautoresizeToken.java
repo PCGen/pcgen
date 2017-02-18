@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 8, 2002, 6:25 PM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.gamemode;
@@ -31,7 +29,6 @@ import pcgen.persistence.lst.GameModeLstToken;
 /**
  * {@code AllowautoresizeToken}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public class AllowautoresizeToken implements GameModeLstToken
 {
