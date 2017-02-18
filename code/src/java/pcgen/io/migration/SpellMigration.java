@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 04/24/2016
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -34,7 +32,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * used to allow clean loading of older characters which were saved with spell 
  * keys that have now been changed in the data.
  * 
- * @author Andrew Maitland <drew0500@yahoo.com>
  */
 public final class SpellMigration
 {
