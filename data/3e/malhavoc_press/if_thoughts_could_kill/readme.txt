@@ -1,4 +1,3 @@
-# CVS $Revision: 1.1 $ $Author: eddyanthony $
 The "secondary discipline" concept from the ITCK Psion variant is unsupported by PCGen 
 and so is not included.
 
