@@ -31,7 +31,7 @@ group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""
 
-defaultTasks 'clean', 'build'
+defaultTasks 'build'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
