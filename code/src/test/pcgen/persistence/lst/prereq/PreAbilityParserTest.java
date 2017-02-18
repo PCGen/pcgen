@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 23, 2006
  *
- * Current Ver: $Revision: 1777 $
  *
  */
 package pcgen.persistence.lst.prereq;
@@ -41,7 +39,6 @@ import plugin.pretokens.parser.PreAbilityParser;
  * PREABILITY parser.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 @SuppressWarnings("nls")
 public class PreAbilityParserTest extends EnUsLocaleDependentTestCase
