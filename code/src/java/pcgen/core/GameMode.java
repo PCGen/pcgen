@@ -1212,7 +1212,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 */
 	public void setXPAwards(final String aString)
 	{
-		String sTmp = "";;
+		String sTmp = "";
 		StringTokenizer aTok = new StringTokenizer(aString, "|", false);
 		
 		while (aTok.hasMoreTokens())

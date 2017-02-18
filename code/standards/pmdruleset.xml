@@ -109,9 +109,6 @@
     <exclude name="EmptyCatchBlock" />
     <exclude name="EmptyIfStmt" />
     <exclude name="EmptyWhileStmt" />
-    <exclude name="EmptyStaticInitializer" />
-    <exclude name="EmptyInitializer" />
-    <exclude name="EmptyStatementNotInLoop" />
   </rule>
   <rule ref="rulesets/java/finalizers.xml"/>
   <rule ref="rulesets/java/imports.xml">

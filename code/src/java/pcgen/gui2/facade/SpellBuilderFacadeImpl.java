@@ -667,7 +667,6 @@ public class SpellBuilderFacadeImpl implements SpellBuilderFacade
 
 		// Handle variants
 		List<String> variants = new ArrayList<>();
-		;
 		if (newSpell != null)
 		{
 			variants = newSpell.getSafeListFor(ListKey.VARIANTS);

@@ -20,7 +20,8 @@ pmd {
 	ruleSetFiles = files('code/standards/pmdruleset.xml')
 	
 	sourceSets = []
-	toolVersion = "5.5.3"
+	toolVersion = "5.5.4"
+	consoleOutput = true
 }
 
 findbugs {
