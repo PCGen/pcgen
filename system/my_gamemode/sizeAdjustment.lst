@@ -1,5 +1,4 @@
 #
-# $Id: sizeAdjustment.lst 202 2006-03-14 23:28:28Z nuance $
 #
 #SIZENAME:Fine		ABB:F	BONUS:ITEMCOST|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.5
 #SIZENAME:Fine		BONUS:ITEMWEIGHT|TYPE=Ammunition,TYPE=Armor,TYPE=Shield,TYPE=Weapon|0.1	BONUS:ITEMWEIGHT|TYPE=Goods|0.25
