@@ -29,7 +29,7 @@ group = 'net.sourceforge.pcgen'
 
 description = """PCGen"""
 
-defaultTasks 'clean', 'build'
+defaultTasks 'build'
 
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
@@ -373,7 +373,7 @@ task msrdinttest(type: Test, dependsOn: 'jar') {
 }
 
 // Do the lot!
-task all(dependsOn: ['clean', 'build', 'slowtest', 'javadoc', 'allReports']) {
+task all(dependsOn: ['build', 'slowtest', 'javadoc', 'allReports']) {
 }
 
 task wrapper(type: Wrapper) {
@@ -384,6 +384,14 @@ task wrapper(type: Wrapper) {
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
+    }
+    tasks.withType(Test) {
+        maxHeapSize = "512m"
+        testLogging {
+            exceptionFormat = 'full'
+            events 'started', 'failed', 'skipped'
+        }
+        ignoreFailures = hasProperty('ignoreTestFailures')
     }
 }
 
