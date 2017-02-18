@@ -29,7 +29,6 @@ import junit.framework.TestCase;
  * The solution is to override {@link #runBare()} and save the exception from
  * the unit test, rethrowing it after {@code tearDown} finishes.
  *
- * @author <a href="binkley@alumni.rice.edu">B. K Oxley (binkley)</a>
  * @deprecated the described bug no longer exists on modern versions of junit
  */
 @SuppressWarnings("nls")

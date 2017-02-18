@@ -30,7 +30,6 @@ import junit.framework.TestSuite;
  * TestSuite that is composed of the individual test classes.  Pick up all the
  * individual PCGen core test cases into this one.
  *
- * @author B. K. Oxley (binkley) <binkley@alumni.rice.edu>
  */
 public final class AllJUnitTests
 {
