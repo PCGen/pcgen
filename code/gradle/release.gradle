@@ -19,8 +19,6 @@
  *   c.	Tag
  *   d.	Update version - increment version and add snapshot
  *   e.	Commit new version
- *
- * Author: James Dempsey
  */
 
 apply from: "code/gradle/releaseUtils.groovy"

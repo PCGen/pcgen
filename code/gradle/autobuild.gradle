@@ -4,8 +4,6 @@
  * deployed with the site.
  *
  * Usage: gradle deployAutobuild
- *
- * Author: James Dempsey
  */
 ext {
     if (System.env.BUILD_NUMBER) {
