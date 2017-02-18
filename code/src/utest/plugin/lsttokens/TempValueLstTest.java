@@ -36,7 +36,6 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * Token parse and unparsing tests for TempValueLst
  *
  * <br/>
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TempValueLstTest extends AbstractGlobalTokenTestCase
 {
