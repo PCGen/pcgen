@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 03, 2002, 2:15 PM
  */
 package pcgen.system;
 
@@ -31,7 +30,6 @@ import pcgen.util.Logging;
  * It provides a set of features to translate il8n keys into text in the 
  * language chosen in preferences.
  *
- * @author Thomas Behr 03-01-02
  */
 public final class LanguageBundle
 {

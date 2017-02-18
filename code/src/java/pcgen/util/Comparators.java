@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 14, 2008, 11:23:02 PM
  */
 package pcgen.util;
 
@@ -32,7 +31,6 @@ import pcgen.gui2.util.treetable.TreeTableNode;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 @SuppressWarnings("unchecked")
 public final class Comparators
@@ -145,7 +143,6 @@ public final class Comparators
 	 * {@code String}s.  This is particularly useful for applications
 	 * such as maintaining a sorted {@code JComboBoxEx} and the like.
 	 *
-	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringComparator implements Comparator<Object>,
 			Serializable
@@ -167,7 +164,6 @@ public final class Comparators
 	 * for applications such as maintaining a sorted
 	 * {@code JComboBoxEx} and the like.
 	 *
-	 * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
 	 */
 	private static final class ToStringIgnoreCaseComparator implements
 			Comparator<Object>, Serializable
