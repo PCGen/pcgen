@@ -1,5 +1,4 @@
 /*
- * CampaignPanel.java
  * Copyright 2008 (C) James Dempsey
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 17/01/2009 10:59:55 PM
- *
- * $Id: $
  */
 package pcgen.gui2.converter.panel;
 
@@ -38,8 +33,6 @@ import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 import javax.swing.table.AbstractTableModel;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -50,12 +43,11 @@ import pcgen.gui2.converter.event.ProgressEvent;
 import pcgen.gui2.tools.Utility;
 import pcgen.system.PCGenSettings;
 
+import org.apache.commons.lang3.StringUtils;
+
 /**
  * The Class {@code CampaignPanel} displays a panel allowing
  * the user to select the campaigns to be converted.
- * 
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignPanel extends ConvertSubPanel
 {
@@ -254,7 +246,7 @@ public class CampaignPanel extends ConvertSubPanel
 		@Override
 		public String getColumnName(int col)
 		{
-			return columnNames[col].toString();
+			return columnNames[col];
 		}
 
 		/* (non-Javadoc)

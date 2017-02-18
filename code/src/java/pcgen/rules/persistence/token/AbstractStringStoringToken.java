@@ -44,6 +44,6 @@ public abstract class AbstractStringStoringToken<T extends CDOMObject> extends
 		{
 			return null;
 		}
-		return new String[]{value.toString()};
+		return new String[]{value};
 	}
 }

@@ -17,6 +17,7 @@
  */
 package pcgen.base.util;
 
+import java.util.AbstractCollection;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -24,10 +25,18 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
-import static org.junit.Assert.*;
+
+import pcgen.base.lang.StringUtil;
+
 import org.junit.Before;
 import org.junit.Test;
-import pcgen.base.lang.StringUtil;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class WeightedCollectionTest
 {
@@ -60,9 +69,7 @@ public class WeightedCollectionTest
 		try {
             new WeightedCollection<>((Collection<Integer>) null);
 			fail();
-		} catch (NullPointerException npe) {
-			// OK
-		} catch (IllegalArgumentException iae) {
+		} catch (NullPointerException | IllegalArgumentException npe) {
 			// OK
 		}
 	}
@@ -73,7 +80,7 @@ public class WeightedCollectionTest
 		assertTrue(c.add(I1));
 		assertTrue(c.add(I2));
 		assertTrue(c.add(null));
-		WeightedCollection<Integer> col = new WeightedCollection<>(c);
+		AbstractCollection<Integer> col = new WeightedCollection<>(c);
 		assertEquals(3, col.size());
 		c.add(4);
 		assertEquals(3, col.size());
@@ -493,12 +500,13 @@ public class WeightedCollectionTest
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
+		String s4 = "asting";
 		assertTrue(swc.isEmpty());
 		assertFalse(swc.contains(s1));
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains(s4)); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
@@ -563,12 +571,13 @@ public class WeightedCollectionTest
 		String s1 = "asting";
 		String s2 = "aString1";
 		String s3 = "Bobcat";
+		String s4 = "asting";
 		assertTrue(swc.isEmpty());
 		assertFalse(swc.contains(s1));
 		assertTrue(swc.add(s1));
 		assertFalse(swc.isEmpty());
 		assertTrue(swc.contains(s1));
-		assertTrue(swc.contains(new String("asting"))); // value semantic
+		assertTrue(swc.contains(s4)); // value semantic
 		assertFalse(swc.contains(s2));
 		assertEquals(1, swc.size());
 		assertTrue(swc.add(s1));
@@ -629,8 +638,8 @@ public class WeightedCollectionTest
 	@Test
 	public void testComparatorEquals()
 	{
-		WeightedCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
-		WeightedCollection<String> swc = new WeightedCollection<>();
+		AbstractCollection<String> iwc = new WeightedCollection<>(String.CASE_INSENSITIVE_ORDER);
+		AbstractCollection<String> swc = new WeightedCollection<>();
 		assertTrue(iwc.isEmpty());
 		assertEquals(iwc, iwc);
 		assertEquals(swc, swc);
