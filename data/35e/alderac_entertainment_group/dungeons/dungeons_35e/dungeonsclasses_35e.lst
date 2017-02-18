@@ -1,4 +1,3 @@
-# CVS $Revision$ $Author$ -- Tue Dec 15 01:48:08 2015 -- reformated by PCGen PrettyLST v6.06.00
 
 # Class Name		Remove Class Skill	Class Skill
 CLASS:Crusader.MOD	CSKILL:.CLEAR		CSKILL:Concentration|TYPE=Craft|Diplomacy|Heal|Knowledge (arcana)|Knowledge (Subterranean Cultures)|Knowledge (religion)|Spellcraft

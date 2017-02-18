@@ -456,7 +456,6 @@ public class PCGTrackerPlugin implements InteractivePlugin,
 	 * changed".  Ensures that the filename doesn't get changed
 	 * when a directory is selected.
 	 *
-	 * @author Dmitry Jemerov &lt;yole@spb.cityline.ru&gt;
 	 */
 	static final class FilenameChangeListener implements PropertyChangeListener
 	{
