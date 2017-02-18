@@ -267,7 +267,7 @@ public class SpellBook implements Cloneable
 	 * @see java.lang.Object#clone()
 	 */
 	@Override
-	public Object clone()
+	public SpellBook clone()
 	{
 		SpellBook aClone = null;
 		try
