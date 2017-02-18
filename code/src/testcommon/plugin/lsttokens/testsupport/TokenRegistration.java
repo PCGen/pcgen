@@ -19,8 +19,8 @@ package plugin.lsttokens.testsupport;
 
 
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
-import java.util.Set;
 
 import pcgen.core.bonus.BonusObj;
 import pcgen.io.ExportHandler;
@@ -37,10 +37,14 @@ import pcgen.rules.persistence.token.ModifierFactory;
 import pcgen.rules.persistence.token.PrimitiveToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
-public class TokenRegistration
+public final class TokenRegistration
 {
 
-	public static Set<String> ppiSet = new HashSet<>();
+	private static final Collection<String> ppiSet = new HashSet<>();
+
+	private TokenRegistration()
+	{
+	}
 
 	public static void register(PrerequisiteParserInterface ppi)
 		throws PersistenceLayerException
@@ -59,7 +63,7 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<LstToken> tokenSet = new HashSet<>();
+	private static final Collection<LstToken> tokenSet = new HashSet<>();
 
 	public static void register(LstToken token)
 	{
@@ -79,7 +83,7 @@ public class TokenRegistration
 		}
 	}
 
-	public static Set<Token> exportSet = new HashSet<>();
+	private static final Collection<Token> exportSet = new HashSet<>();
 
 	public static void register(Token token)
 	{
@@ -99,7 +103,7 @@ public class TokenRegistration
 		PreParserFactory.clear();
 	}
 
-	public static Set<String> pwSet = new HashSet<>();
+	private static final Collection<String> pwSet = new HashSet<>();
 
 	public static void register(PrerequisiteWriterInterface writer)
 		throws PersistenceLayerException
@@ -118,17 +122,13 @@ public class TokenRegistration
 		{
 			TokenLibrary.addBonusClass(cl);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
 	}
 
-	public static Set<ModifierFactory<?>> mSet = new HashSet<>();
+	private static final Collection<ModifierFactory<?>> mSet = new HashSet<>();
 
 	public static void register(ModifierFactory<?> m)
 	{

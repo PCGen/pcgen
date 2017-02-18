@@ -20,9 +20,13 @@ import pcgen.core.PCStat;
 import pcgen.core.SizeAdjustment;
 import pcgen.rules.context.LoadContext;
 
-public class BuildUtilities
+public final class BuildUtilities
 {
 	private static final StringManager STR_MGR = new StringManager();
+
+	private BuildUtilities()
+	{
+	}
 
 	public static PCAlignment createAlignment(final String longName,
 		final String shortName)
