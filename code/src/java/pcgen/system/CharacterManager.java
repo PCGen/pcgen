@@ -1,5 +1,4 @@
 /*
- * CharacterManager.java
  * Copyright 2010 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
@@ -15,8 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- * 
- * Created on May 8, 2010, 5:13:06 PM
  */
 package pcgen.system;
 
@@ -60,10 +57,6 @@ import org.apache.commons.lang3.StringUtils;
  * a listenable list that allows users of this class to not
  * only see what characters are open but to easily track any
  * changes to the list of available characters.
- *
- * <br>
- * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class CharacterManager
 {
