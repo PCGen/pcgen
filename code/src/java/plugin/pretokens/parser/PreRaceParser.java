@@ -79,7 +79,7 @@ public class PreRaceParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private void NegateRaceChoice(Prerequisite prereq)
+	private static void NegateRaceChoice(Prerequisite prereq)
 	{
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())
