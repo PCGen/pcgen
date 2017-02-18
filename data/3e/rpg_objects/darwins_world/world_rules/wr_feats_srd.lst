@@ -1,4 +1,3 @@
-# CVS $Revision: 24919 $ $Author: amaitland $ -- Fri Jan  1 12:57:05 2016 -- reformated by PCGen PrettyLST v6.06.00
 SOURCELONG:RPGObjects - Darwin's World - World Rules	SOURCESHORT:DarwinWR	SOURCEWEB:http://www.darwinrpg.com	SOURCEDATE:2001-01
 
 # Feat Name				Type				Required Feat									Prohibited Feat						Req. nb of Hands	Required Lvl	Required Skill	Required Stat				PRETOTALAB		Var. Min. Value				Define										Description																																																																																												Stackable?	Multiple?	Choose																	Auto Armor Prof				Auto Shield Prof				Auto Weapon Prof			Ability								Add Spell Lvl	Combat bonus								Bonus to HP			% bonus to range								Save bonus			Bonus to skill			Modify VAR																					Weapon prof. bonus													Source Page			Temporary Bonus
