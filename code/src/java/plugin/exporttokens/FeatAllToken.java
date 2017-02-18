@@ -16,7 +16,6 @@ import pcgen.io.exporttoken.AbilityToken;
 import pcgen.util.enumeration.View;
 
 /**
- * @author karianna
  * Class deals with FEATALL Token
  */
 public class FeatAllToken extends AbilityToken

@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package pcgen.gui2.doomsdaybook;
 
@@ -80,7 +79,6 @@ import plugin.doomsdaybook.RandomNamePlugin;
 /**
  * Main panel of the random name generator.
  * 
- * @author  devon
  */
 public class NameGenPanel extends JPanel
 {

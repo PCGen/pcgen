@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 25/04/2008
  *
- * $Id$
  */
 
 package pcgen.core;
@@ -34,7 +32,6 @@ import pcgen.cdom.enumeration.StringKey;
  * <code>SourceEntryTest</code> verifies the function of the SourceEntry class.
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SourceEntryTest extends TestCase
 {

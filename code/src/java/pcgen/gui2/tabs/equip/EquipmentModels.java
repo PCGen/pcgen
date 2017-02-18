@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 25, 2011, 3:26:08 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -75,7 +74,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  *  
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentModels
 {

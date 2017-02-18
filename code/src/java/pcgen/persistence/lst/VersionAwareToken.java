@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package pcgen.persistence.lst;
 
@@ -27,7 +25,6 @@ import pcgen.util.Logging;
 /**
  * VersionAwareToken is a token class that needs to verify a version.
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public abstract class VersionAwareToken
 {

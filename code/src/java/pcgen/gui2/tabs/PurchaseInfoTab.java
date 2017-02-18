@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 14, 2011, 7:35:28 PM
  */
 package pcgen.gui2.tabs;
 
@@ -109,7 +108,6 @@ import pcgen.util.enumeration.Tab;
  * A character tab providing the user with the ability to buy and sell
  * equipment.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoTab
@@ -583,7 +581,6 @@ public class PurchaseInfoTab extends FlippingSplitPane implements CharacterInfoT
 	 * The Class {@code DeleteCustomAction} defines an action to delete a
 	 * custom equipment item.
 	 *
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	private class DeleteCustomAction extends AbstractAction
 	{

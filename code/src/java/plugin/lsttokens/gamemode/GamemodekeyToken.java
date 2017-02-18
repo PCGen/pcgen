@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 7, 2007
  *
- * Current Ver: $Revision$
  *
  */package plugin.lsttokens.gamemode;
 
@@ -31,7 +29,6 @@ import pcgen.persistence.lst.GameModeLstToken;
  * {@code GamemodekeyToken} parses the GAMEMODEKEY token.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class GamemodekeyToken implements GameModeLstToken
 {

@@ -41,7 +41,6 @@ import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
 
 /**
- * @author djones4
  *
  */
 public class UdamLst extends AbstractToken implements CDOMPrimaryToken<CDOMObject>,

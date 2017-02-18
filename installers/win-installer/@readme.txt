@@ -1,4 +1,3 @@
-$Id$
 
 Project: pcgen
 Module:  win-installer

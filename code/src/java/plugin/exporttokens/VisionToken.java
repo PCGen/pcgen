@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 15, 2003, 12:21 PM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.exporttokens;
@@ -38,7 +36,6 @@ import pcgen.io.exporttoken.AbstractExportToken;
  * VISION.
  *
  *
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class VisionToken extends AbstractExportToken
 {

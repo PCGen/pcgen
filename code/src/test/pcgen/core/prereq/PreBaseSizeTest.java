@@ -44,7 +44,6 @@ import pcgen.rules.context.LoadContext;
  * working correctly.
  *
  *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 @SuppressWarnings("nls")
 public class PreBaseSizeTest extends AbstractCharacterTestCase

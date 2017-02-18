@@ -18,7 +18,6 @@
  *
  *  CastSpell.java
  *
- *  Created on January 16, 2002, 3:08 PM
  */
 package plugin.initiative.gui;
 
@@ -40,7 +39,6 @@ import plugin.initiative.SpellModel;
  * Dialog which casts a spell, creating a durationed event in the
  * initiative tracker.
  * </p>
- * @author     devon
  */
 @SuppressWarnings("serial")
 public class CastSpell extends StartEvent

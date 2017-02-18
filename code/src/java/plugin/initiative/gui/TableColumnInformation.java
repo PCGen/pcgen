@@ -27,9 +27,7 @@ import java.util.List;
  * but a utility class for maintaining column information inside a {@code TableModel}.
  * </p>
  *
- * <p>Current Ver: $Revision$</p>
  * 
- * @author LodgeR
  */
 public class TableColumnInformation
 {

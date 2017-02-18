@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 10, 2008, 8:03:21 PM
  */
 package pcgen.gui2.tabs;
 
@@ -87,7 +86,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * This component allows the user to manage a character's skills.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class SkillInfoTab extends FlippingSplitPane implements CharacterInfoTab, TodoHandler

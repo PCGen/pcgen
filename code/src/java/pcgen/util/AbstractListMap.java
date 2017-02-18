@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 2, 2008, 11:38:30 PM
  */
 package pcgen.util;
 
@@ -25,7 +24,6 @@ import java.util.List;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public abstract class AbstractListMap<K, V, L extends List<V>>
 	extends AbstractCollectionMap<K, V, L> implements ListMap<K, V, L>

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 17, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -48,10 +46,7 @@ import pcgen.system.PCGenSettings;
  * to directly create characters.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
- * @author AD9C15
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public abstract class LstObjectFileLoader<T extends CDOMObject> extends Observable
 {

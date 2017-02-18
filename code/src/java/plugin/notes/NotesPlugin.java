@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.notes;
 
@@ -58,7 +57,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  * plugin for the {@code GMGenSystem}, is called by the
  * {@code PluginLoader} and will create a model and a view for this
  * plugin.
- *
  */
 public class NotesPlugin implements InteractivePlugin
 {
@@ -68,7 +66,6 @@ public class NotesPlugin implements InteractivePlugin
 	/** The Log Name for the Logging system */
 	public static final String LOG_NAME = "Notes"; //$NON-NLS-1$
 
-	private static final String OPTION_NAME_SYSTEM = LOG_NAME + ".System"; //$NON-NLS-1$
 	private static final String OPTION_NAME_LOADORDER = LOG_NAME + ".LoadOrder"; //$NON-NLS-1$
 	private static final String OPTION_NAME_DATADIR = LOG_NAME + ".DataDir"; //$NON-NLS-1$
 
@@ -82,9 +79,6 @@ public class NotesPlugin implements InteractivePlugin
 	private static final String NAME = "Notes"; //$NON-NLS-1$
 	/** Key for the name of the plugin. */
 	private static final String IN_NAME = "in_plugin_notes_name"; //$NON-NLS-1$
-
-	/** The version number of the plugin. */
-	private String version = "01.00.99.01.00"; //$NON-NLS-1$
 
 	private PCGenMessageHandler messageHandler;
 
@@ -216,12 +210,11 @@ public class NotesPlugin implements InteractivePlugin
 	 */
 	private void handleStateChangedMessage(FocusOrStateChangeOccurredMessage message)
 	{
-		FocusOrStateChangeOccurredMessage smessage = message;
 		if (isActive())
 		{
 			notesToolsItem.setEnabled(false);
 
-			JMenu editMenu = smessage.getEditMenu();
+			JMenu editMenu = message.getEditMenu();
 			if (editMenu != null)
 			{
 				theView.initEditMenu(editMenu);

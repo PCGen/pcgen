@@ -17,7 +17,6 @@ import pcgen.io.ExportHandler;
 import pcgen.io.exporttoken.Token;
 
 /**
- * @author karianna
  * Class deals with SKILLLISTMODS Token
  */
 public class SkillListModsToken extends Token

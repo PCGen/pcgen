@@ -347,7 +347,7 @@ public final class ExportHandler
 		{
 			String message = "Error exporting character using template " + templateFile;
 			Logging.errorPrint(message, exc);
-			throw new ExportException(exc, message + " : " + exc.getLocalizedMessage());
+			throw new ExportException(message + " : " + exc.getLocalizedMessage(), exc);
 		}
 		finally
 		{

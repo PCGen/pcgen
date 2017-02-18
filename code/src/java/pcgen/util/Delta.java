@@ -17,7 +17,6 @@
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
  *
- * Created on April 28, 2001, 8:34 AM
  */
 package pcgen.util;
 
@@ -25,7 +24,6 @@ package pcgen.util;
  * A helper for {@code java.lang.Integer} which understands a
  * leading plus sign for string conversion.
  *
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  * @see java.lang.Integer
  */
 public final class Delta
