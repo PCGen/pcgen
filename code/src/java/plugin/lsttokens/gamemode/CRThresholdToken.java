@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id: RandomNamePlugin.java 24888 2014-08-16 01:57:34Z jdempsey $
  */
 package plugin.lsttokens.gamemode;
 

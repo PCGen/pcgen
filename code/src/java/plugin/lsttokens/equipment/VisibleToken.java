@@ -30,7 +30,6 @@ import pcgen.util.enumeration.Visibility;
  * VisibleToken handles the processing of the VISIBLE tag in the
  * definition of an Equipment object.
  * 
- * @author Stefan Radermacher
  */
 public class VisibleToken extends AbstractNonEmptyToken<Equipment>
 	implements CDOMPrimaryToken<Equipment>

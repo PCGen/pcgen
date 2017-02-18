@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 30/05/2010 10:00:00 PM
  *
- * $Id: InfoSheetToken.java 18181 2012-11-06 19:50:30Z javydreamercsw $
  */
 package plugin.lsttokens.gamemode;
 
@@ -39,7 +37,6 @@ import pcgen.util.Logging;
  *
  * <br>
  * 
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  */
 public class OutputSheetToken implements GameModeLstToken
 {
