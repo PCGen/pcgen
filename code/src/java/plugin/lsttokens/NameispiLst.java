@@ -23,7 +23,6 @@ import pcgen.rules.persistence.token.AbstractYesNoToken;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 
 /**
- * @author djones4
  *
  */
 public class NameispiLst extends AbstractYesNoToken<CDOMObject> implements

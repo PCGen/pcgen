@@ -33,7 +33,6 @@ import pcgen.rules.persistence.token.ComplexParseResult;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * @author djones4
  *
  */
 public class AddLst extends AbstractNonEmptyToken<CDOMObject> implements
