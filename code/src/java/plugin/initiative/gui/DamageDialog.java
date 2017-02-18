@@ -18,13 +18,11 @@
  *
  * DamageDialog.java
  *
- * Created on July 20, 2003, 10:30 AM
  */
 package plugin.initiative.gui;
 
 /**
  *
- * @author  soulcatcher
  */
 public class DamageDialog extends javax.swing.JDialog
 {

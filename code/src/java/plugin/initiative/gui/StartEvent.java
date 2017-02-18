@@ -18,7 +18,6 @@
  *
  *  StartEvent.java
  *
- *  Created on January 16, 2002, 3:08 PM
  */
 package plugin.initiative.gui;
 
@@ -34,7 +33,6 @@ import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 
 /**
- *@author     devon
  */
 public class StartEvent extends javax.swing.JDialog
 {

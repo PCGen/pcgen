@@ -18,7 +18,6 @@
  *
  *  OpposedSkillAvailableModel.java
  *
- *  Created on May 4, 2004, 2:56:35 PM
  */
 
 package plugin.initiative;
@@ -32,14 +31,12 @@ import java.util.List;
  * </p>
  * 
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>
  * <p>
  * </p>
  * 
- * @author LodgeR
  */
 public class OpposedSkillTypeModel extends OpposedSkillBasicModel
 {

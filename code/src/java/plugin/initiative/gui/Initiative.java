@@ -18,7 +18,6 @@
  *
  *  Initiative.java
  *
- *  Created on September 18, 2002, 4:36 PM
  */
 package plugin.initiative.gui;
 
@@ -96,7 +95,6 @@ import plugin.initiative.SpellModel;
 import plugin.initiative.XMLCombatant;
 
 /**
- *@author     Devon Jones
  */
 public class Initiative extends javax.swing.JPanel
 {

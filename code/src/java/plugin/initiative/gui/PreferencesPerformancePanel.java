@@ -18,7 +18,6 @@
  *
  *  PreferencesTrackingPanel.java
  *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.initiative.gui;
 
@@ -36,7 +35,6 @@ import plugin.initiative.InitiativePlugin;
 /**
  * Panel that tracks the misc preferences
  *
- * @author devon
  */
 public class PreferencesPerformancePanel extends gmgen.gui.PreferencesPanel
 {

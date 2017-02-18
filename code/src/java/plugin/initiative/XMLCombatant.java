@@ -18,7 +18,6 @@
  *
  *  XMLCombatant.java
  *
- *  Created on January 24, 2002, 11:15 AM
  */
 package plugin.initiative;
 
@@ -37,7 +36,6 @@ import org.jdom2.Element;
 import pcgen.util.Logging;
 
 /**
- *@author     devon
  */
 public class XMLCombatant extends Combatant
 {
