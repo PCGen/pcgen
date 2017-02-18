@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 9, 2011, 5:42:00 PM
  */
 package pcgen.gui2.tabs.ability;
 
@@ -34,7 +33,6 @@ import pcgen.gui2.filter.FilteredListFacadeTableModel;
  * The model for the bottom left table showing the ability categories and 
  * their pool points.
  * 
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CategoryTableModel extends
 		FilteredListFacadeTableModel<AbilityCategoryFacade> implements

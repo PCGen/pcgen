@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 17, 2011, 8:25:16 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -29,7 +28,6 @@ import pcgen.facade.core.EquipmentFacade;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentSelection implements Transferable
 {

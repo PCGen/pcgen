@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 08/06/2012 7:42:35 PM
  *
- * $Id$
  */
 package pcgen.gui2.tabs;
 
@@ -77,7 +75,6 @@ import pcgen.util.enumeration.Tab;
  * <br>
  * -0700 (Sat, 17 May 2014) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
 {

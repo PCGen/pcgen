@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 26, 2011, 7:57:40 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -64,7 +63,6 @@ import pcgen.gui2.tools.Icons;
 /**
  * The CampaignHistoryInfoPane displays a set of chronicles that the user can fill in for his
  * character.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class CampaignHistoryInfoPane extends JPanel implements CharacterInfoTab
 {

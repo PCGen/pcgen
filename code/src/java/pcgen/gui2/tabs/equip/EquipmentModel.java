@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 7, 2010, 3:18:39 PM
  */
 package pcgen.gui2.tabs.equip;
 
@@ -58,7 +57,6 @@ import pcgen.gui2.util.JTreeTable;
  * The parent model for the selected panel. Maps the various equipment sets for
  * a character.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class EquipmentModel implements ListListener<EquipmentSetFacade>, ReferenceListener<EquipmentSetFacade>,
 		TableModelListener

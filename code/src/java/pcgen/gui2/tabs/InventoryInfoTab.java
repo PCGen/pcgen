@@ -15,9 +15,7 @@
  * along with this library; if not, write to the Free Software Foundation, Inc.,
  * 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 29/09/2010 7:16:42 PM
  *
- * $Id: InventoryInfoTab.java 14613 2011-02-25 22:43:05Z cpmeister $
  */
 package pcgen.gui2.tabs;
 
@@ -33,7 +31,6 @@ import pcgen.util.enumeration.Tab;
  * <br>
  * -0800 (Fri, 25 Feb 2011) $
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class InventoryInfoTab extends JTabbedPane implements CharacterInfoTab, TodoHandler

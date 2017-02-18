@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Oct 1, 2011, 4:46:28 PM
  */
 package pcgen.gui2.tabs.models;
 
@@ -32,7 +31,6 @@ import pcgen.facade.util.event.ReferenceListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class BigDecimalFieldHandler implements PropertyChangeListener, ReferenceListener<BigDecimal>
 {
