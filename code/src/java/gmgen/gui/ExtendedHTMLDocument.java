@@ -142,12 +142,10 @@ public class ExtendedHTMLDocument extends HTMLDocument {
 				MutableAttributeSet attr
 						= (MutableAttributeSet) e.getAttributes();
 				Enumeration<?> aNames = attr.getAttributeNames();
-				Object value;
-				Object aName;
 
 				while (aNames.hasMoreElements()) {
-					aName = aNames.nextElement();
-					value = attr.getAttribute(aName);
+					Object aName = aNames.nextElement();
+					Object value = attr.getAttribute(aName);
 
 					if ((value != null) && !value.toString()
 							.equalsIgnoreCase(tag.toString())) {

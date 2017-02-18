@@ -898,13 +898,12 @@ public class RelativeImageView extends View implements ImageObserver
 			return null;
 		}
 
-		byte[] buffer;
 		try (
 				ByteArrayOutputStream out = new ByteArrayOutputStream(1024);
 				BufferedInputStream in = new BufferedInputStream(resource);
 		) {
 
-			buffer = new byte[1024];
+			byte[] buffer = new byte[1024];
 			int n;
 
 			while ((n = in.read(buffer)) > 0)
@@ -1135,9 +1134,6 @@ public class RelativeImageView extends View implements ImageObserver
 	 */
 	private void updateImageSize()
 	{
-		int newWidth;
-		int newHeight;
-		int newState = 0;
 		Image newImage = getImage();
 
 		if (newImage != null)
@@ -1147,14 +1143,15 @@ public class RelativeImageView extends View implements ImageObserver
 			// Get the width/height and set the state ivar before calling
 			// anything that might cause the image to be loaded, and thus the
 			// ImageHandler to be called.
-			newWidth = getIntAttr(HTML.Attribute.WIDTH, -1);
+			int newWidth = getIntAttr(HTML.Attribute.WIDTH, -1);
 
+			int newState = 0;
 			if (newWidth > 0)
 			{
 				newState |= WIDTH_FLAG;
 			}
 
-			newHeight = getIntAttr(HTML.Attribute.HEIGHT, -1);
+			int newHeight = getIntAttr(HTML.Attribute.HEIGHT, -1);
 
 			if (newHeight > 0)
 			{
