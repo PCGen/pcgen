@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/07/2008 15:46:38
  *
- * $Id$
  */
 package pcgen.core.prereq;
 
@@ -43,7 +41,6 @@ import org.junit.Test;
  * of the PRECAMPAIGN tag.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreCampaignTest extends AbstractCharacterTestCase
 {
