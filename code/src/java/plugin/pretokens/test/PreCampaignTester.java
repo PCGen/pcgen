@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/07/2008 12:38:47
  *
- * $Id: $
  */
 package plugin.pretokens.test;
 
@@ -46,7 +44,6 @@ import pcgen.util.Logging;
  * currently loaded sources satisfy the campaign prerequisite.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreCampaignTester extends AbstractDisplayPrereqTest implements PrerequisiteTest
 {
