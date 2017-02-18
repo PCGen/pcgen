@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 29, 2009, 1:00:39 PM
  */
 package pcgen.gui2.tabs;
 
@@ -63,7 +62,6 @@ import pcgen.util.enumeration.Tab;
  * This class is the tabbed pane that contains all of the CharacterInfoTabs and
  * manages the models for those tabs.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public final class InfoTabbedPane extends JTabbedPane

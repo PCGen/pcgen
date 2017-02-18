@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 17/11/2010 19:50:00
  *
- * $Id$
  */
 package pcgen.gui2.prefs;
 
@@ -42,7 +40,6 @@ import pcgen.system.LanguageBundle;
  * preferences to be edited by the user.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class InputPanel extends PCGenPrefsPanel
