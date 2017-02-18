@@ -42,12 +42,6 @@ targetCompatibility = 1.8
 
 ext {
     binDir = "code/bin"
-
-    // Default ignoreTestFailures to false if it is not provided
-    if (!hasProperty('ignoreTestFailures')) {
-        ignoreTestFailures = false;
-    }
-
 }
 
 mainClassName = 'pcgen.system.Main'
@@ -231,7 +225,6 @@ task copyToLibs(type: Copy) {
 }
 
 task copyToRoot(type: Copy, dependsOn: [copyToLibs, jar, converterJar]) {
-
     from "$buildDir/libs/pcgen-${version}.jar"
     from "$buildDir/libs/pcgen-${version}-batch-convert.jar"
     from "$buildDir/release/pcgen.exe"
@@ -271,20 +264,12 @@ clean {
 
 test {
     exclude 'pcgen/testsupport/**'
-    //	maxParallelForks 4
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task itest(type: Test, dependsOn: jar) {
     testClassesDir = sourceSets.itest.output.classesDir
     classpath = sourceSets.itest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
@@ -292,14 +277,9 @@ task slowtest(type: Test, dependsOn: ['jar', 'itest']) {
     classpath = sourceSets.slowtest.runtimeClasspath
     systemProperties['jar.path'] = jar.archivePath
     forkEvery = 1
-    maxHeapSize = "512m"
     // Exclude the two suites to avoid duplicate test runs.
     exclude 'AllJUnitTests.class'
     exclude 'pcgen/core/AllJUnitTests.class'
-    ignoreFailures=ignoreTestFailures
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task datatest(type: Test, dependsOn: 'jar') {
@@ -307,75 +287,34 @@ task datatest(type: Test, dependsOn: 'jar') {
     classpath = sourceSets.slowtest.runtimeClasspath
     include 'pcgen/persistence/lst/DataTest.class'
     include 'pcgen/persistence/lst/DataLoadTest.class'
-    ignoreFailures=ignoreTestFailures
-    maxHeapSize = "512m"
-    testLogging {
-        exceptionFormat = 'full'
-    }
 }
 
 task inttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/**/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task pfinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_pathfinder/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task rsrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_35e/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 task msrdinttest(type: Test, dependsOn: 'jar') {
     testClassesDir = sourceSets.slowtest.output.classesDir
     classpath = sourceSets.slowtest.runtimeClasspath
     forkEvery = 1
-    maxHeapSize = "512m"
     include 'pcgen/inttest/game_modern/*Test.class'
-    testLogging {
-        exceptionFormat = 'full'
-    }
-
-    // Report each test as it is started.
-    beforeTest { descriptor ->
-    	logger.lifecycle("Running test: " + descriptor)
-    }
 }
 
 // Do the lot!
@@ -386,10 +325,17 @@ task wrapper(type: Wrapper) {
     gradleVersion = '3.3'
 }
 
-//Disable failing on javadoc warning
 allprojects {
     tasks.withType(Javadoc) {
         options.addBooleanOption('Xdoclint:none', true)
+    }
+    tasks.withType(Test) {
+        maxHeapSize = "512m"
+        testLogging {
+            exceptionFormat = 'full'
+            events 'started', 'failed', 'skipped'
+        }
+        ignoreFailures = hasProperty('ignoreTestFailures')
     }
 }
 
