@@ -17,7 +17,6 @@
  *
  *  AddDefeatedCombatant.java
  *
- *  Created on January 4, 2002, 2:10 PM
  */
 package plugin.experience.gui;
 
@@ -38,7 +37,6 @@ import plugin.experience.ExperienceAdjusterPlugin;
 import plugin.experience.ExperienceListItem;
 
 /**
- *@author     devon
  */
 public class AddDefeatedCombatant extends AbstractDialog
 {
