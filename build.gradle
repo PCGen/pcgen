@@ -333,7 +333,7 @@ allprojects {
         maxHeapSize = "512m"
         testLogging {
             exceptionFormat = 'full'
-            events 'started', 'failed', 'skipped'
+            events 'failed', 'skipped'
         }
         ignoreFailures = hasProperty('ignoreTestFailures')
     }
