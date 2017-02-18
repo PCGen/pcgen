@@ -43,7 +43,6 @@ public final class Domain extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual attribute of a domain that may be bonused.
 	 * @param tagNumber the index of the domain attribute type.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The domain attribute.
 	 */
 	@Override

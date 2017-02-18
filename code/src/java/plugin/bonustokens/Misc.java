@@ -48,7 +48,6 @@ public final class Misc extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual miscellaneous attribute that may be bonused.
 	 * @param tagNumber the index of the miscellaneous attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The miscellaneous attribute.
 	 */
 	@Override

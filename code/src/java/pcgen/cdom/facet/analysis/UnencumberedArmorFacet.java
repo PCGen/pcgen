@@ -52,8 +52,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<CharID, Loa
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -77,8 +76,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<CharID, Loa
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, CDOMObject> dfce)
@@ -100,8 +98,7 @@ public class UnencumberedArmorFacet extends AbstractSourcedListFacet<CharID, Loa
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this UnencumberedArmorFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
+	 *
 	 */
 	@Override
 	protected Map<Load, Set<Object>> getComponentMap()

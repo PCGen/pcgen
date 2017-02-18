@@ -120,11 +120,6 @@ public class CampaignSourceEntry implements SourceEntry
 		return includeItems;
 	}
 
-	/**
-	 * @param arg0 
-	 * @return true if equals
-	 * @see java.lang.Object#equals(java.lang.Object)
-	 */
 	@Override
 	public boolean equals(Object arg0)
 	{
@@ -141,18 +136,12 @@ public class CampaignSourceEntry implements SourceEntry
 			&& includeItems.equals(other.includeItems);
 	}
 
-	/**
-	 * @see java.lang.Object#hashCode()
-	 */
 	@Override
 	public int hashCode()
 	{
 		return this.uri.getLSTformat().hashCode();
 	}
 
-	/**
-	 * @see java.lang.Object#toString()
-	 */
 	@Override
 	public String toString()
 	{

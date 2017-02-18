@@ -42,9 +42,6 @@ public class InstallLoader extends LstLineFileLoader
 {
 	private InstallableCampaign campaign = null;
 
-	/**
-	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstString(LoadContext, URI, String)
-	 */
 	@Override
 	public void loadLstString(LoadContext context, URI fileName, String lstData) throws PersistenceLayerException
 	{

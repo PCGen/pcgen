@@ -62,8 +62,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, Integer> dfce)
@@ -114,8 +113,7 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataRemoved(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataRemoved(DataFacetChangeEvent<CharID, Integer> dfce)

@@ -53,7 +53,6 @@ public final class WeaponProf extends MultiTagBonusObj
 	/**
 	 * Get by index, an individual weapon proficiency attribute that may be bonused.
 	 * @param tagNumber the index of the weapon proficiency attribute.
-	 * @see pcgen.core.bonus.MultiTagBonusObj#getBonusTag(int)
 	 * @return The weapon proficiency attribute.
 	 */
 	@Override

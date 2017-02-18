@@ -62,7 +62,6 @@ public class AddingFormula implements ReferenceFormula<Integer>
 	 *             if more than one Number is provided as an argument
 	 * @throws NullPointerException
 	 *             if the Number provided is null
-	 * @see pcgen.base.formula.ReferenceFormula#resolve(Number...)
 	 */
 	@Override
 	public Integer resolve(Number... numbers)
@@ -77,8 +76,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Returns a String representation of this AddingFormula
-	 * 
-	 * @see java.lang.Object#toString()
+	 *
 	 */
 	@Override
 	public String toString()
@@ -95,8 +93,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Consistent-with-equals hashCode method
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -106,8 +103,7 @@ public class AddingFormula implements ReferenceFormula<Integer>
 
 	/**
 	 * Returns true if this AddingFormula is equal to the given Object.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

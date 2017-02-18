@@ -98,8 +98,7 @@ public class HitDieLock implements Processor<HitDie>
 
 	/**
 	 * Returns the consistent-with-equals hashCode for this HitDieLock
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -111,8 +110,7 @@ public class HitDieLock implements Processor<HitDie>
 	 * Returns true if this HitDieLock is equal to the given Object. Equality is
 	 * defined as being another HitDieLock object with HitDie to which it is
 	 * "locked".
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)

@@ -75,9 +75,6 @@ public class EquipmentListTest extends TestCase
 		super(name);
 	}
 
-	/**
-	 * @see junit.framework.TestCase#setUp()
-	 */
 	@Override
 	public void setUp() throws Exception
 	{

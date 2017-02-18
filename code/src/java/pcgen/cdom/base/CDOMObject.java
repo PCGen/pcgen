@@ -1198,9 +1198,6 @@ public abstract class CDOMObject extends ConcretePrereqObject implements
 		return getSafe(ObjectKey.INTERNAL).booleanValue();
 	}
 
-	/**
-	 * @see pcgen.cdom.base.Reducible#getCDOMObject()
-	 */
 	@Override
 	public CDOMObject getCDOMObject()
 	{

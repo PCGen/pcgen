@@ -552,8 +552,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -641,8 +640,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 * 
-		 * @see java.util.Iterator#hasNext()
+		 *
 		 */
 		@Override
 		public boolean hasNext()
@@ -654,8 +652,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Returns the next element in the iteration.
 		 * 
 		 * @return The next element.
-		 * 
-		 * @see java.util.Iterator#next()
+		 *
 		 */
 		@Override
 		public E next()
@@ -666,8 +663,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Removes from the WeightedCollection the last element returned from
 		 * the iteration.
-		 * 
-		 * @see java.util.Iterator#remove()
+		 *
 		 */
 		@Override
 		public void remove()
@@ -710,8 +706,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 
 		/**
 		 * Compare two WeightedItem objects
-		 * 
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

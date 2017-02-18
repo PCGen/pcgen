@@ -72,8 +72,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 * getConstructingCacheMap(CharID) in order to implicitly call this method.
 	 * 
 	 * @return A new (empty) Map for use in this ActiveSpellsFacet.
-	 * 
-	 * @see pcgen.cdom.facet.base.AbstractSourcedListFacet#getComponentMap()
+	 *
 	 */
 	@Override
 	protected Map<CharacterSpell, Set<Object>> getComponentMap()
@@ -92,8 +91,7 @@ public class ActiveSpellsFacet extends AbstractSourcedListFacet<CharID, Characte
 	 * @param dfce
 	 *            The DataFacetChangeEvent containing the information about the
 	 *            change
-	 * 
-	 * @see pcgen.cdom.facet.event.DataFacetChangeListener#dataAdded(pcgen.cdom.facet.event.DataFacetChangeEvent)
+	 *
 	 */
 	@Override
 	public void dataAdded(DataFacetChangeEvent<CharID, CDOMObject> dfce)

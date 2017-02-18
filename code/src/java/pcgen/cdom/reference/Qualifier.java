@@ -89,8 +89,7 @@ public class Qualifier
 
 	/**
 	 * Returns a consistent-with-equals hashCode for this Qualifier
-	 * 
-	 * @see java.lang.Object#hashCode()
+	 *
 	 */
 	@Override
 	public int hashCode()
@@ -101,8 +100,7 @@ public class Qualifier
 	/**
 	 * Returns true if the given object is a Qualifier with identical underlying
 	 * CDOMObject class and reference.
-	 * 
-	 * @see java.lang.Object#equals(java.lang.Object)
+	 *
 	 */
 	@Override
 	public boolean equals(Object obj)
