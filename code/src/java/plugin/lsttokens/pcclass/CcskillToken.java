@@ -37,7 +37,6 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 
 /**
- * @author djones4
  * 
  */
 public class CcskillToken extends AbstractTokenWithSeparator<PCClass> implements
