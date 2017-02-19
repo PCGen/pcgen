@@ -36,7 +36,6 @@ import plugin.dicebag.DiceBagPlugin;
  * The controler class for DiceBag plugin. Should handle all interface actions.
  * </p>
  *
- * @author Ross M. Lodge
  */
 public class DiceBagPluginController
 {

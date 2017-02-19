@@ -48,7 +48,6 @@ import gmgen.pluginmgr.messages.RequestAddTabToGMGenMessage;
 import plugin.dicebag.gui.DiceBagPluginController;
 
 /**
- * @author RossLodge
  *
  * <p>
  * The base plugin class for the DiceBag plugin. This class handles mediation
@@ -361,7 +360,6 @@ public class DiceBagPlugin implements InteractivePlugin
 	}
 
 	/**
-	 * @author Ross Lodge
 	 *
 	 * <p>
 	 * Action class to handle all menu item actions.

@@ -27,7 +27,6 @@ import java.util.Observable;
  * dice bags.  This is an {@code Observable} class that sends
  * out messages to observers (views).</p>
  *
- * @author Ross M. Lodge
  *
  */
 public class DiceBagPluginModel extends Observable

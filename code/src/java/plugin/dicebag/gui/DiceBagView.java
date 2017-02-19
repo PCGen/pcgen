@@ -47,7 +47,6 @@ import pcgen.gui2.tools.Icons;
 /**
  * <p>The internal frame view class for the DiceBag.</p>
  *
- * @author Ross M. Lodge
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {
@@ -498,7 +497,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
 	 *
-	 * @author Ross M. Lodge
 	 */
 	private class BagListener implements ActionListener
 	{
@@ -558,7 +556,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
 	 *
-	 * @author Ross M. Lodge
 	 *
 	 */
 	private class BagTableModel extends AbstractTableModel

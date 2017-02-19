@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on December 13, 2002, 9:19 AM
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.bonustokens;
@@ -28,7 +26,6 @@ import pcgen.core.bonus.MultiTagBonusObj;
 /**
  * {@code Vision} deals with bonuses to a character's vision.
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class Vision extends MultiTagBonusObj
 {
