@@ -22,7 +22,6 @@ package plugin.initiative;
  * Models a generic 1d20+/-X check.
  * </p>
  * 
- * @author Ross M. Lodge
  *
  */
 public class CheckModel extends DiceRollModel

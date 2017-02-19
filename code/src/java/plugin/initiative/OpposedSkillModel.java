@@ -18,7 +18,6 @@
  *
  * OpposedSkillModel.java
  *
- * Created on May 4, 2004, 1:49:47 PM
  */
 
 package plugin.initiative;
@@ -42,14 +41,12 @@ import pcgen.core.RollingMethods;
  * </p>
  *
  * <p>
- * Current Ver: $Revision$
  * </p>
  * <p>
  * </p>
  * <p>
  * </p>
  *
- * @author LodgeR
  */
 public class OpposedSkillModel extends OpposedSkillBasicModel
 {
