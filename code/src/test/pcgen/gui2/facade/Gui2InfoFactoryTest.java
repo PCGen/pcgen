@@ -61,12 +61,12 @@ public class Gui2InfoFactoryTest extends AbstractCharacterTestCase
 		ParseResult pr = st.parseToken(Globals.getContext(), choiceAbility, "SKILL|Perception|Acrobatics");
 		assertTrue(pr.passed());
 		Globals.getContext().commit();
-		finalize(choiceAbility, "Perception", pc,
+		finalizeTest(choiceAbility, "Perception", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect single choice", "Perception",
 			ca.getChoices(choiceAbility));
 
-		finalize(choiceAbility, "Acrobatics", pc,
+		finalizeTest(choiceAbility, "Acrobatics", pc,
 			AbilityCategory.FEAT);
 		assertEquals("Incorrect multiple choice", "Acrobatics, Perception",
 			ca.getChoices(choiceAbility));

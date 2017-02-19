@@ -237,8 +237,8 @@ public class DescriptionTest extends AbstractCharacterTestCase
 
 		AbilityCategory category = AbilityCategory.FEAT;
 
-		CNAbility cna = finalize(dummy, "Associated 1", pc, category);
-		finalize(dummy, "Associated 2", pc, category);
+		CNAbility cna = finalizeTest(dummy, "Associated 1", pc, category);
+		finalizeTest(dummy, "Associated 2", pc, category);
 		assertEquals("2 test  ", desc.getDescription(pc, wrappedDummy));
 
 		desc.addVariable("%CHOICE");
