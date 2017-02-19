@@ -31,4 +31,4 @@ The following text is the property of Wizards of the Coast, Inc. and is Copyrigh
 14 Reformation: If any provision of this License is held to be unenforceable, such provision shall be reformed only to the extent necessary to make it enforceable.
 
 15 COPYRIGHT NOTICE
-Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.PCGen dataset conversion for Slayer's Guide to Minotaurs Copyright 2004, PCGen Data team including, but not limited to, Emily Smirle.
+Open Game License v 1.0 Copyright 2000, Wizards of the Coast, Inc.PCGen dataset conversion for Slayer's Guide to Minotaurs Copyright 2004, PCGen Data team including, but not limited to, Emily Smirle.
