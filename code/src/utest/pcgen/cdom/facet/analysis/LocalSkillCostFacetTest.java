@@ -91,13 +91,9 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, null, SkillCost.CLASS);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// Yep!
-		}
-		catch (NullPointerException e)
-		{
-			// Just as Good!
 		}
 	}
 
@@ -109,13 +105,9 @@ public class LocalSkillCostFacetTest extends TestCase
 			addCost(id, class1, getObject(), null);
 			fail();
 		}
-		catch (IllegalArgumentException e)
+		catch (IllegalArgumentException | NullPointerException e)
 		{
 			// Yep!
-		}
-		catch (NullPointerException e)
-		{
-			// Just as Good!
 		}
 	}
 

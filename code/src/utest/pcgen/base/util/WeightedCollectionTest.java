@@ -60,9 +60,7 @@ public class WeightedCollectionTest
 		try {
             new WeightedCollection<>((Collection<Integer>) null);
 			fail();
-		} catch (NullPointerException npe) {
-			// OK
-		} catch (IllegalArgumentException iae) {
+		} catch (NullPointerException | IllegalArgumentException npe) {
 			// OK
 		}
 	}
@@ -426,9 +424,7 @@ public class WeightedCollectionTest
 		try {
 			it.remove();
 			fail();
-		} catch (IllegalStateException e) {
-			// OK
-		} catch (UnsupportedOperationException e) {
+		} catch (IllegalStateException | UnsupportedOperationException e) {
 			// OK
 		}
 	}
