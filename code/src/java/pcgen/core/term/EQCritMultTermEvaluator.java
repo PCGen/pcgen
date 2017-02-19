@@ -18,7 +18,6 @@
  *
  * Created 03-Oct-2008 02:14:17
  *
- * Current Ver: $Revision:$
  *
  */
 
