@@ -56,7 +56,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	@Test
 	public void testInvalidOutput()
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
 		secondaryProf.put(ObjectKey.VISIBILITY, Visibility.QUALIFY);
 		assertNull(token.unparse(primaryContext, primaryProf));
