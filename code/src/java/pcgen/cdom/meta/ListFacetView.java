@@ -27,7 +27,7 @@ public class ListFacetView<T> implements FacetView<T>
 
 	private AbstractSourcedListFacet<CharID, T> facet;
 	
-	public ListFacetView(AbstractSourcedListFacet<CharID, T> facet)
+	ListFacetView(AbstractSourcedListFacet<CharID, T> facet)
 	{
 		this.facet = facet;
 	}

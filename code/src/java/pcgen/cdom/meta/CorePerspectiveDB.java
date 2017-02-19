@@ -106,11 +106,9 @@ public final class CorePerspectiveDB
 
 		private final String location;
 
-		public Location(FacetBehavior behavior, String source)
+		private Location(FacetBehavior behavior, String source)
 		{
-			location =
-					new StringBuilder(40).append(behavior).append(" (")
-						.append(source).append(")").toString();
+			location = String.valueOf(behavior) + " (" + source + ")";
 		}
 
 		@Override
@@ -118,11 +116,6 @@ public final class CorePerspectiveDB
 		{
 			return location;
 		}
-	}
-
-	public static Collection<CorePerspective> getPerspectives()
-	{
-		return map.getKeySet();
 	}
 
 	public static Collection<Object> getLocations(CorePerspective perspective)

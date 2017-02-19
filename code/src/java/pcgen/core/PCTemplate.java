@@ -1,5 +1,4 @@
 /*
- * PCTemplate.java
  * Copyright 2001 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,11 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * Current Ver: $Revision$
- *
  */
 package pcgen.core;
 
@@ -38,11 +32,6 @@ import pcgen.core.bonus.BonusObj;
 import pcgen.facade.core.TemplateFacade;
 import pcgen.util.enumeration.View;
 
-/**
- * {@code PCTemplate}.
- * 
- * @author Mark Hulsman &lt;hulsmanm@purdue.edu&gt;
- */
 public final class PCTemplate extends PObject implements TemplateFacade, ChooseDriver
 {
 	/**
