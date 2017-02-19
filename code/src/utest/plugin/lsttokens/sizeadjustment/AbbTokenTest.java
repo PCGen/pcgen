@@ -174,7 +174,7 @@ public class AbbTokenTest extends AbstractCDOMTokenTestCase<SizeAdjustment>
 		return getToken().unparse(primaryContext, primaryProf);
 	}
 
-	private StringKey getStringKey()
+	private static StringKey getStringKey()
 	{
 		return StringKey.ABB_KR;
 	}

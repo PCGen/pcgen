@@ -66,7 +66,7 @@ public class ValuesTokenTest extends AbstractKitTokenTestCase<KitTable>
 		return token;
 	}
 
-	public char getJoinCharacter()
+	public static char getJoinCharacter()
 	{
 		return '.';
 	}
