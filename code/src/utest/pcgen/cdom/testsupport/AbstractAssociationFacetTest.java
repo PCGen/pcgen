@@ -22,21 +22,18 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		TestCase
 {
 	private CharID id;
 	private CharID altid;
-
-	ST oneSource = developSource(getTypeObj());
 
 	@Override
 	public void setUp() throws Exception
