@@ -63,7 +63,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	static TotalCostToken token = new TotalCostToken();
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()

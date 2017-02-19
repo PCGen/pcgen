@@ -37,7 +37,7 @@ public class ArmortypeTokenTest extends
 {
 
 	static ArmortypeToken token = new ArmortypeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()

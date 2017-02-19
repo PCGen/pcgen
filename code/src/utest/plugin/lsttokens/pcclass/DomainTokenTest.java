@@ -43,7 +43,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClass, Domain>
 {
 
 	static DomainToken token = new DomainToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

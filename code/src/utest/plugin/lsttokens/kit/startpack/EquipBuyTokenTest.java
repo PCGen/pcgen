@@ -58,7 +58,7 @@ public class EquipBuyTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	static EquipBuyToken token = new EquipBuyToken();
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()
