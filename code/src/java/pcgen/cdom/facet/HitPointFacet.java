@@ -42,7 +42,6 @@ import pcgen.core.SettingsHandler;
  * Specifically this Facet stores the number of hit points granted to a Player
  * Character for each PCClassLevel possessed by the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class HitPointFacet extends
 		AbstractAssociationFacet<CharID, PCClassLevel, Integer> implements

@@ -33,7 +33,6 @@ import pcgen.core.Skill;
  * SkillListFacet stores the SkillList objects for a PCClass of a Player
  * Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillListToCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements

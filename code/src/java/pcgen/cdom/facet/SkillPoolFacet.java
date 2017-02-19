@@ -25,7 +25,6 @@ import pcgen.core.PCClass;
  * SkillPoolFacet stores the number of Spill Points associated to a specific
  * PCClass for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SkillPoolFacet extends
 		AbstractAssociationFacet<CharID, PCClass, Integer>
