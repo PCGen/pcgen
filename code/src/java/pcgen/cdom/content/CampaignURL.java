@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 28/01/2008
  *
- * $Id$
  */
 
 package pcgen.cdom.content;
@@ -31,7 +29,6 @@ import java.net.URI;
  * 
  * (Tue, 23 Dec 2008) $
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class CampaignURL implements Comparable<CampaignURL>
 {

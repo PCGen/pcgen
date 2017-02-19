@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 16, 2006
  *
- * Current Ver: $Revision: $
  */
 package pcgen.cdom.content;
 
@@ -42,7 +40,6 @@ import pcgen.cdom.base.QualifyingObject;
  * over clarity is preferred in the output so that is what the methods attempt
  * to provide.
  * 
- * @author boomer70
  * 
  */
 public class DamageReduction extends ConcretePrereqObject implements

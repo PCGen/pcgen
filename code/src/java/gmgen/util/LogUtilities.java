@@ -16,7 +16,6 @@
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- *  Created on May 24, 2003
  */
 package gmgen.util;
 
@@ -28,7 +27,6 @@ import java.util.List;
  *  to a singleton instance that can be used by system classes as well as
  *  plugins.
  *
- *@author     Tod Milam
  */
 public final class LogUtilities implements LogReceiver
 {

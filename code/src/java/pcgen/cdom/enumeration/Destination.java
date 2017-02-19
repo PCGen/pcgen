@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/12/2007
  *
- * $Id: InstallableCampaign.java 8660 2008-12-23 22:08:08Z thpr $
  */
 package pcgen.cdom.enumeration;
 

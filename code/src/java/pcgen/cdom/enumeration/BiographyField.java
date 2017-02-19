@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 02/01/2012 11:16:59 AM
  *
- * $Id$
  */
 package pcgen.cdom.enumeration;
 
@@ -26,7 +24,6 @@ package pcgen.cdom.enumeration;
  * {@code BiographyField} lists the possible biographical fields which may
  * be edited or suppressed from export.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("nls")
 public enum BiographyField
