@@ -39,7 +39,7 @@ public abstract class AbstractPCQualifierTokenTestCase<T extends CDOMObject>
 	private static CDOMTokenLoader<CDOMObject> loader =
 			new CDOMTokenLoader<>();
 
-	public AbstractPCQualifierTokenTestCase()
+	protected AbstractPCQualifierTokenTestCase()
 	{
 		super("PC", null);
 	}
