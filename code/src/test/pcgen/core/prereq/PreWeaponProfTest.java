@@ -1,5 +1,4 @@
 /*
- * PreWeaponProfTest.java
  *
  * Copyright 2007 (C) Koen Van Daele <kador@foeffighters.be>
  *
