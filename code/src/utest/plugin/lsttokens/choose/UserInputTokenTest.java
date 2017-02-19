@@ -38,7 +38,7 @@ public class UserInputTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static ChooseLst token = new ChooseLst();
 	static UserInputToken subtoken = new UserInputToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

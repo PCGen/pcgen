@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 public class IconTokenTest extends AbstractStringTokenTestCase<Equipment>
 {
 	static IconToken token = new IconToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()
