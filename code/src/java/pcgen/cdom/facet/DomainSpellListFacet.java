@@ -30,7 +30,6 @@ import pcgen.core.Domain;
  * Character by a CDOMObject. This may be a static SpellList or a choice of a
  * SpellLists available to the Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DomainSpellListFacet implements
 		DataFacetChangeListener<CharID, Domain>

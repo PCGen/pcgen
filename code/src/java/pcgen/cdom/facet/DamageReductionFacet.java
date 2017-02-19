@@ -38,7 +38,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * DamageReductionFacet is a Facet that tracks the DamageReduction objects that
  * have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DamageReductionFacet extends
 		AbstractSourcedListFacet<CharID, DamageReduction> implements

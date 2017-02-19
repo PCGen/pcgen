@@ -30,7 +30,6 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * DirectAbilityFacet is a Facet that tracks the CategorizedAbilitySelection
  * that have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DirectAbilityFacet extends AbstractCNASEnforcingFacet
 {

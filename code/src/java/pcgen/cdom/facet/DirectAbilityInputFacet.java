@@ -26,7 +26,6 @@ import pcgen.cdom.helper.CNAbilitySelection;
  * DirectAbilityInputFacet is a Facet that tracks the Abilities that are added
  * with indirect grants via %LIST that have been granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class DirectAbilityInputFacet
 		extends
