@@ -30,7 +30,7 @@ import plugin.pretokens.parser.PreFactParser;
 import plugin.pretokens.writer.PreFactWriter;
 
 /**
- * The Class <code>PreFactRoundRobin</code> tests the parsing and unparsing of 
+ * The Class {@code PreFactRoundRobin} tests the parsing and unparsing of
  * PREFACTs. 
 
  */

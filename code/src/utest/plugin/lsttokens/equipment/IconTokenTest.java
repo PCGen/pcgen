@@ -28,7 +28,7 @@ import plugin.lsttokens.testsupport.AbstractStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
- * The Class <code>IconTokenTest</code> tests the equipment ICON token.
+ * The Class {@code IconTokenTest} tests the equipment ICON token.
  *
  * <br/>
  * 

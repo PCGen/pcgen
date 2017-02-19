@@ -31,7 +31,7 @@ import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
 /**
- * The Class <code>AspectTokenTest</code> is responsible for verifying that
+ * The Class {@code AspectTokenTest} is responsible for verifying that
  * the Ability AspectToken is working properly 
  * 
  * 
