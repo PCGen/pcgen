@@ -41,7 +41,6 @@ import pcgen.util.Logging;
 
 /**
  *
- * @author  Bryan McRoberts &lt;merton_monk@yahoo.com&gt;
  */
 public final class BioSetLoader extends LstLineFileLoader
 {
