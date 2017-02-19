@@ -34,7 +34,7 @@ public class TypeLstTest extends AbstractGlobalTypeSafeListTestCase
 {
 
 	static TypeLst token = new TypeLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

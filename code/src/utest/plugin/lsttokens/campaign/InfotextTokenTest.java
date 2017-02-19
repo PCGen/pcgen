@@ -34,7 +34,7 @@ public class InfotextTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static InfotextToken token = new InfotextToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

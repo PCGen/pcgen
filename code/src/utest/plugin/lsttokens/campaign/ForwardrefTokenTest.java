@@ -34,7 +34,7 @@ public class ForwardrefTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static CDOMPrimaryToken<Campaign> token = new ForwardRefToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<Campaign> getLoader()

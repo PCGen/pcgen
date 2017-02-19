@@ -37,7 +37,7 @@ public class SpellKnownTest extends AbstractGlobalTokenTestCase
 {
 	static BonusLst token = new BonusLst();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	@Before

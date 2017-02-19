@@ -28,7 +28,7 @@ public class PubnameshortTokenTest extends AbstractStringTokenTestCase<Campaign>
 {
 
 	static PubnameshortToken token = new PubnameshortToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

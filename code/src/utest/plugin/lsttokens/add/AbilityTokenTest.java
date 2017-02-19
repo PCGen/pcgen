@@ -57,7 +57,7 @@ public class AbilityTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 
 	static AddLst token = new AddLst();
 	static AbilityToken subtoken = new AbilityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
