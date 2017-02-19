@@ -36,7 +36,7 @@ public class DeityTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static DomainToken subtoken = new DomainToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final plugin.primitive.domain.DeityToken DEITY_TOKEN = new plugin.primitive.domain.DeityToken();
 

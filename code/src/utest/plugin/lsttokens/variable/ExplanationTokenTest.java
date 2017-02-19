@@ -35,7 +35,7 @@ public class ExplanationTokenTest extends
 
 	private static ExplanationToken token = new ExplanationToken();
 	private static CDOMTokenLoader<DatasetVariable> loader =
-			new CDOMTokenLoader<DatasetVariable>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMPrimaryToken<DatasetVariable> getToken()
