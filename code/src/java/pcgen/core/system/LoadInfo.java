@@ -1,5 +1,4 @@
 /*
- * LoadInfo.java
  * Copyright (c) Thomas Parker, 2010.
  * Copyright 2002 (C) James Dempsey
  *
