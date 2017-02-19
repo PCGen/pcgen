@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 09, 2002, 0:00 AM
  */
 package pcgen.io;
 
@@ -30,7 +29,6 @@ import java.util.StringTokenizer;
  * Encodes reserved characters and escape sequences as entities<br>
  * Decodes entities as reserved characters and escape sequences
  *
- * @author Thomas Behr
  */
 public final class EntityEncoder
 {

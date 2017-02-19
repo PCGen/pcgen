@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 20, 2016, 4:18:25 PM
  */
 package pcgen.gui2.util.treeview;
 
@@ -27,7 +26,6 @@ import java.util.WeakHashMap;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public abstract class CachedDataView<E> implements DataView<E>
 {
