@@ -91,8 +91,8 @@ public class ExplanationTokenTest extends
 	@Override
 	public void isCDOMEqual(DatasetVariable dv1, DatasetVariable dv2)
 	{
-		assertTrue("Display Name not equal " + dv1 + " and " + dv2, dv1
-			.getDisplayName().equals(dv2.getDisplayName()));
+		assertEquals("Display Name not equal " + dv1 + " and " + dv2, dv1
+				.getDisplayName(), dv2.getDisplayName());
 		assertTrue("Format not equal " + dv1 + " and " + dv2,
 			ObjectUtil.compareWithNull(dv1.getFormat(), dv2.getFormat()));
 		assertTrue("Scope Name not equal " + dv1 + " and " + dv2,
