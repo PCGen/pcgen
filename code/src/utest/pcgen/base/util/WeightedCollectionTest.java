@@ -224,7 +224,7 @@ public class WeightedCollectionTest
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		assertTrue(wc2.add(2));
-		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 		wc2.add(null);
@@ -234,7 +234,7 @@ public class WeightedCollectionTest
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		wc2.add(null);
-		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 	}
