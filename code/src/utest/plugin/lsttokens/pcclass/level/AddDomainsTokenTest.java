@@ -41,7 +41,7 @@ public class AddDomainsTokenTest extends
 {
 
 	static AdddomainsToken token = new AdddomainsToken();
-	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	static CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

@@ -30,7 +30,7 @@ public class SpellBookTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 {
 
 	static SpellbookToken token = new SpellbookToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()

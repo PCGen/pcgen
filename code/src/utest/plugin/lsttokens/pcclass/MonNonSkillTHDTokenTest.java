@@ -45,7 +45,7 @@ public class MonNonSkillTHDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static MonnonskillhdToken token = new MonnonskillhdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();

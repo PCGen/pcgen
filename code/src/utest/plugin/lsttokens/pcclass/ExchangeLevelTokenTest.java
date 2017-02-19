@@ -34,7 +34,7 @@ public class ExchangeLevelTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 {
 
 	static ExchangelevelToken token = new ExchangelevelToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
