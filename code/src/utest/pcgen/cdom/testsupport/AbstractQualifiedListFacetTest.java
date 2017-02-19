@@ -916,9 +916,9 @@ public abstract class AbstractQualifiedListFacetTest<T extends QualifyingObject>
 		assertEquals(0, emptyset.size());
 	}
 
-	abstract protected AbstractQualifiedListFacet<T> getFacet();
+	protected abstract AbstractQualifiedListFacet<T> getFacet();
 
-	abstract protected T getObject();
+	protected abstract T getObject();
 
 	protected T getAltObject()
 	{
