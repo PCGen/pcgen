@@ -47,7 +47,7 @@ public class EquipmentQualifierTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static ShieldProficiencyToken subtoken = new ShieldProficiencyToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 	private WeaponProf wp1;
 	private ShieldProf sp1, sp2;
 	private ArmorProf ap1;
