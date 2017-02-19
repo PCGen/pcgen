@@ -179,14 +179,6 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "Possibility|TestWP1|TestWP2" };
-			}
-		};
+		return strings -> new String[] { "Possibility|TestWP1|TestWP2" };
 	}
 }
