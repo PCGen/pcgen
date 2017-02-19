@@ -34,7 +34,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 {
 
 	static ChoiceToken token = new ChoiceToken();
-	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<SubClass>();
+	static CDOMTokenLoader<SubClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SubClass> getCDOMClass()

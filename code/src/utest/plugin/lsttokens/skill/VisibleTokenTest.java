@@ -33,7 +33,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static VisibleToken token = new VisibleToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()

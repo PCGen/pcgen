@@ -31,7 +31,7 @@ public class TargetAreaTokenTest extends AbstractStringTokenTestCase<Spell>
 {
 
 	static TargetareaToken token = new TargetareaToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
