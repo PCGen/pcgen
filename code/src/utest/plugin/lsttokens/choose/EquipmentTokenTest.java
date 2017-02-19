@@ -70,12 +70,6 @@ public class EquipmentTokenTest extends
 		return Equipment.class;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean allowsQualifier()
 	{
