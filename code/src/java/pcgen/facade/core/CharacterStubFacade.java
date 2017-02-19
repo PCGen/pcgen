@@ -1,5 +1,4 @@
 /*
- * CharacterStubFacade.java
  * Copyright 2012 Connor Petty <cpmeister@users.sourceforge.net>
  * 
  * This library is free software; you can redistribute it and/or
