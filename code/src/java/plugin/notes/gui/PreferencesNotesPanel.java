@@ -17,7 +17,6 @@
  *
  *  PreferencesNotesPanel.java
  *
- *  Created on August 29, 2002, 2:41 PM
  */
 package plugin.notes.gui;
 
@@ -44,7 +43,6 @@ import pcgen.system.LanguageBundle;
 /**
  * Panel that tracks the misc preferences
  *
- * @author devon
  */
 public class PreferencesNotesPanel extends gmgen.gui.PreferencesPanel
 {

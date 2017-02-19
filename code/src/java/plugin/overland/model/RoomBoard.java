@@ -23,7 +23,6 @@ import plugin.overland.util.RBCost;
 /**
  * Interface for the room and board elements.
  *
- * @author Vincent Lhote
  *
  */
 public interface RoomBoard

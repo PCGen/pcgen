@@ -117,7 +117,6 @@ import plugin.notes.NotesPlugin;
  *  This class is the main view for the Notes Plugin. Mostof the work is done
  *  here and in the NotesTreeNode Class.
  *
- * @author     soulcatcher
  */
 public class NotesView extends JPanel
 {
