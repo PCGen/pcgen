@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/01/2011 3:17:17 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -79,7 +77,6 @@ import pcgen.util.enumeration.Tab;
  * where each item is located. As a result it also manages what items are 
  * deemed active.
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>

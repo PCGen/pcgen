@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 09/06/2012 12:41:49 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -58,7 +56,6 @@ import pcgen.util.Logging;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class TempBonusHelper
 {
