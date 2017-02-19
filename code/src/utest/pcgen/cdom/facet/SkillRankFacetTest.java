@@ -17,16 +17,15 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
+
+import junit.framework.TestCase;
+import org.junit.Test;
 
 public class SkillRankFacetTest extends TestCase
 {
