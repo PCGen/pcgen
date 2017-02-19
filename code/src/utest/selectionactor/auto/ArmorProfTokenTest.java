@@ -29,12 +29,6 @@ public class ArmorProfTokenTest extends AbstractSelectionActorTest<ArmorProf>
 
 	private static final ChooseSelectionActor<ArmorProf> cra = new ArmorProfToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ChooseSelectionActor<ArmorProf> getActor()
 	{

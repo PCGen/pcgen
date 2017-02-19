@@ -80,12 +80,6 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected boolean requiresPreconstruction()
 	{
