@@ -620,7 +620,7 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		}
 	}
 
-	protected String getClearString()
+	protected static String getClearString()
 	{
 		return Constants.LST_DOT_CLEAR;
 	}

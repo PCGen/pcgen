@@ -163,7 +163,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<SpellProhibitor> getObjectKey()
+	private static ObjectKey<SpellProhibitor> getObjectKey()
 	{
 		return ObjectKey.CHOICE;
 	}
@@ -192,7 +192,7 @@ public class ChoiceTokenTest extends AbstractCDOMTokenTestCase<SubClass>
 		expectSingle(getToken().unparse(primaryContext, primaryProf), "DESCRIPTOR|Fire");
 	}
 
-	private SpellProhibitor getConstant(ProhibitedSpellType type, String args)
+	private static SpellProhibitor getConstant(ProhibitedSpellType type, String args)
 	{
 		SpellProhibitor spellProb = new SpellProhibitor();
 		spellProb.setType(type);

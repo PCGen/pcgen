@@ -59,7 +59,7 @@ public abstract class AbstractPreRoundRobin extends TestCase
 		runSimpleRoundRobin("!" + s, "!" + s);
 	}
 
-	public void runSimpleRoundRobin(String s, String d)
+	public static void runSimpleRoundRobin(String s, String d)
 	{
 		try
 		{
