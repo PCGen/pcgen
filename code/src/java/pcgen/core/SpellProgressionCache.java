@@ -1,5 +1,4 @@
 /*
- * PCLevelCastingInfo.java
  * Copyright 2006 (C) Tom Parker <thpr@users.sourceforge.net>
  *
  * This library is free software; you can redistribute it and/or
