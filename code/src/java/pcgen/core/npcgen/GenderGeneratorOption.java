@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -26,7 +25,6 @@ import pcgen.cdom.enumeration.Gender;
 /**
  * This class represents a particular gender generator option.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  */
 public class GenderGeneratorOption extends GeneratorOption
 {

@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 28, 2002, 11:50 PM
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -39,7 +37,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * Common code for the kits.
  * 
- * @author Jonas Karlson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class BaseKit extends ConcretePrereqObject implements Loadable
 {
