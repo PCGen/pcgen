@@ -57,9 +57,4 @@ public class IsDefaultSizeTokenTest extends
 		return ObjectKey.IS_DEFAULT_SIZE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

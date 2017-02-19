@@ -56,10 +56,4 @@ public class UseuntrainedTokenTest extends AbstractYesNoTokenTestCase<Skill>
 		return ObjectKey.USE_UNTRAINED;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 }

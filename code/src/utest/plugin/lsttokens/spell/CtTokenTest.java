@@ -74,9 +74,4 @@ public class CtTokenTest extends AbstractIntegerTokenTestCase<Spell>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		//Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }
