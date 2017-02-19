@@ -133,7 +133,7 @@ public class FactDefTokenTest extends TestCase
 		assertNotNull(fd.getFactName());
 		assertNotNull(fd.getUsableLocation());
 		assertEquals("Possibility", fd.getFactName());
-		assertEquals(Skill.class, fd.getUsableLocation());
+		assertSame(Skill.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);
@@ -149,7 +149,7 @@ public class FactDefTokenTest extends TestCase
 		assertNotNull(fd.getFactName());
 		assertNotNull(fd.getUsableLocation());
 		assertEquals("Caster", fd.getFactName());
-		assertEquals(Domain.class, fd.getUsableLocation());
+		assertSame(Domain.class, fd.getUsableLocation());
 		String[] unparsed = token.unparse(context, fd);
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

@@ -247,7 +247,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(2, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 1);
 		ClassLevelChangeEvent event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(0, event.getOldLevel());
 		assertEquals(2, event.getNewLevel());
@@ -256,7 +256,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(3, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 2);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(2, event.getOldLevel());
 		assertEquals(3, event.getNewLevel());
@@ -265,7 +265,7 @@ public class ClassFacetTest extends TestCase
 		assertEquals(1, facet.getLevel(id, t1));
 		assertEventCount(1, 0, 3);
 		event = classListener.lastLevelEvent;
-		assertEquals(id, event.getCharID());
+		assertSame(id, event.getCharID());
 		assertEquals(t1, event.getPCClass());
 		assertEquals(3, event.getOldLevel());
 		assertEquals(1, event.getNewLevel());
@@ -801,7 +801,7 @@ public class ClassFacetTest extends TestCase
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
+			assertSame(id, event.getCharID());
 			assertEquals(t1, event.getPCClass());
 			assertEquals(old, event.getOldLevel());
 			assertEquals(pcl, event.getNewLevel());
@@ -859,7 +859,7 @@ public class ClassFacetTest extends TestCase
 		{
 			assertTrue(facet.setClassLevel(id, t1, pcl));
 			ClassLevelObjectChangeEvent event = classListener.lastLevelObjectEvent;
-			assertEquals(id, event.getCharID());
+			assertSame(id, event.getCharID());
 			assertEquals(t1, event.getPCClass());
 			assertEquals(old, event.getOldLevel());
 			assertEquals(pcl, event.getNewLevel());
