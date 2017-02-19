@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Nov 6, 2011, 7:39:26 PM
  */
 package pcgen.facade.core;
 
@@ -30,7 +29,6 @@ import pcgen.io.ExportHandler;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public interface PartyFacade extends ListFacade<CharacterFacade>
 {
