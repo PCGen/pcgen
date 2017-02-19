@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 26/01/2009 10:56:36 PM
  *
- * $Id$
  */
 package pcgen.gui2.dialog;
 
@@ -47,7 +45,6 @@ import pcgen.system.LanguageBundle;
  * files will be displayed in a scrollable area.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class DIWarningDialog extends JDialog implements
