@@ -32,7 +32,6 @@ import pcgen.core.Movement;
  * MovementFacet is a Facet that tracks the Movement objects that are contained
  * in a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class MovementFacet extends AbstractSourcedListFacet<CharID, Movement> implements
 		DataFacetChangeListener<CharID, CDOMObject>

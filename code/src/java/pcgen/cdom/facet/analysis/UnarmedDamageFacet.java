@@ -44,7 +44,6 @@ import pcgen.core.analysis.SizeUtilities;
  * UnarmedDamageFacet is a Facet that tracks the Unarmed Damage info that have
  * been added to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class UnarmedDamageFacet extends AbstractSourcedListFacet<CharID, List<String>>
 		implements DataFacetChangeListener<CharID, CDOMObject>

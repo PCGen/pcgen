@@ -38,7 +38,6 @@ import pcgen.util.Logging;
 /**
  * LocalSkillCostFacet is a Facet to track Skill costs
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class LocalSkillCostFacet extends
 		AbstractSubScopeFacet<PCClass, SkillCost, Skill> implements

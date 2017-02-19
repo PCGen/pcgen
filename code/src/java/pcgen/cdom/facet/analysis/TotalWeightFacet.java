@@ -30,7 +30,6 @@ import pcgen.core.RuleConstants;
  * Equipment carried by a Player Character (does not include the body weight of
  * the Player Character).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class TotalWeightFacet
 {
