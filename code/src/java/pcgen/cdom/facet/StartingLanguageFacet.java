@@ -34,7 +34,6 @@ import pcgen.core.Language;
  * StartingLanguageFacet is a Facet that tracks the Languages that are available
  * to a Player Character from the LANGBONUS token.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class StartingLanguageFacet extends AbstractSourcedListFacet<CharID, Language>
 		implements DataFacetChangeListener<CharID, CDOMObject>

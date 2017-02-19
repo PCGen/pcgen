@@ -41,7 +41,6 @@ import pcgen.cdom.list.CompanionList;
  * FollowerLimitFacet is a Facet that tracks the Follower Limits that have been
  * set for a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class FollowerLimitFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, CDOMObject>

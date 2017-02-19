@@ -29,7 +29,6 @@ import pcgen.core.Equipment;
  * This serves as a consolidation point for Equipment that is active on a Player
  * Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class SourcedEquipmentFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, Equipment>
