@@ -118,7 +118,7 @@ public class TermUtilities {
 			String src,
 			int fixed) throws TermEvaulatorException
 	{
-		int expEnd = expressionString.lastIndexOf("]");
+		int expEnd = expressionString.lastIndexOf(']');
 
 		if (expEnd != expressionString.length() - 1)
 		{

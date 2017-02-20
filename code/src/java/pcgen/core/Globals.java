@@ -819,8 +819,8 @@ public final class Globals
 			final String s = aList.get(idx);
 			if (s.contains("%"))
 			{
-				final String beforeString = s.substring(0, s.indexOf("%"));
-				final String afterString = s.substring(s.indexOf("%") + 1);
+				final String beforeString = s.substring(0, s.indexOf('%'));
+				final String afterString = s.substring(s.indexOf('%') + 1);
 				cmdArray[idx] = beforeString + fileName + afterString;
 			}
 			else

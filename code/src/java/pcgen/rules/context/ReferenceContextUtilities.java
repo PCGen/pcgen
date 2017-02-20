@@ -69,7 +69,7 @@ public final class ReferenceContextUtilities
 						continue;
 					}
 					ClassIdentity<?> clIdentity = ci.getClassIdentity();
-					if (choice.indexOf("%") > -1)
+					if (choice.indexOf('%') > -1)
 					{
 						//patterns or %LIST are OK
 						//See CollectionToAbilitySelection.ExpandingConverter

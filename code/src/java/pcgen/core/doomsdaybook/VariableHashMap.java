@@ -320,7 +320,7 @@ public class VariableHashMap extends HashMap<String, String>
 
 		if (val.matches("\\$\\{.*?\\}.*"))
 		{
-			String var = val.substring(val.indexOf("${") + 2, val.indexOf("}"));
+			String var = val.substring(val.indexOf("${") + 2, val.indexOf('}'));
 			String value = get(var);
 
 			if (value == null)

@@ -76,7 +76,7 @@ public class WeaponProfToken extends AbstractNonEmptyToken<CDOMObject> implement
 		String weaponProfs;
 		Prerequisite prereq = null; // Do not initialize, null is significant!
 		boolean isPre = false;
-		if (value.indexOf("[") == -1)
+		if (value.indexOf('[') == -1)
 		{
 			// Supported version of PRExxx using |.  Needs to be at the front of the
 			// Parsing code because many objects expect the pre to have been determined

@@ -73,7 +73,7 @@ public class SubstitutionLevelSupport
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
-					.indexOf("\t")));
+					.indexOf('\t')));
 	
 			if (aLevel == modLevel)
 			{
@@ -104,7 +104,7 @@ public class SubstitutionLevelSupport
 		{
 			String aLine = line.lstLine;
 			final int modLevel = Integer.parseInt(aLine.substring(0, aLine
-					.indexOf("\t")));
+					.indexOf('\t')));
 	
 			if (level == modLevel)
 			{
