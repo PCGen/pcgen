@@ -17,6 +17,5 @@
  */
 /**
  * This package content should not be shipped with bin distribution of PCGen as it is meant to be used by translators.
- *
  */
 package translation.util;
