@@ -39,7 +39,6 @@ import pcgen.system.LanguageBundle;
  * is heavily based on QualifiedTreeCellRenderer
  *
  * <br>
- * -0700 (Tue, 05 Jun 2012) $
  *
  */
 public class QualifiedSpellTreeCellRenderer extends CharacterTreeCellRenderer

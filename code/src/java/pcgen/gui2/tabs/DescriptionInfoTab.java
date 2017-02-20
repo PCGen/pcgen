@@ -58,7 +58,6 @@ import pcgen.util.enumeration.Tab;
  * implemented description tab.
  *
  * <br>
- * -0700 (Wed, 29 Sep 2010) $
  *
  */
 @SuppressWarnings("serial")

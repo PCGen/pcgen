@@ -72,7 +72,6 @@ import pcgen.util.enumeration.Tab;
  * temporary bonus should be applied to their character.
  *
  * <br>
- * -0700 (Sat, 17 May 2014) $
  *
  */
 public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfoTab
