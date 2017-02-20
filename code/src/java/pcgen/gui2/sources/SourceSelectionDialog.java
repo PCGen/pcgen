@@ -430,7 +430,8 @@ public class SourceSelectionDialog extends JDialog
 
 		public SourceSelectionFacade[] getDisplayedSources()
 		{
-			return displayedSources.toArray(new SourceSelectionFacade[0]);
+			return displayedSources.toArray(new SourceSelectionFacade[displayedSources
+					.size()]);
 		}
 
 		@Override

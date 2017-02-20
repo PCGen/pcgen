@@ -302,7 +302,7 @@ public class TokenSupport
 		{
 			return null;
 		}
-		return result.toArray(new String[]{});
+		return result.toArray(new String[result.size()]);
 	}
 
 	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
