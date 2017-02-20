@@ -33,7 +33,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * ask that the character be added to the message for later use, however this 
  * should not be assumed to be present until all message processing is completed.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

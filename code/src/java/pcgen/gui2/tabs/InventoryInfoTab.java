@@ -28,7 +28,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code InventoryInfoTab} is a placeholder for the yet to be
  * implemented Inventory tab.
- * <br>
  * -0800 (Fri, 25 Feb 2011) $
  *
  */

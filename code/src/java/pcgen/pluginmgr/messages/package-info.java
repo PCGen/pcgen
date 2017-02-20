@@ -23,7 +23,6 @@
 /**
  * The set of messages which are shared between PCGen and GMGen.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

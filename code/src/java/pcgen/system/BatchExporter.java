@@ -66,7 +66,6 @@ import org.apache.commons.lang3.StringUtils;
  * one of the export methods called. When used as a library the static methods
  * should be used and supplied with preloaded characters.  
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

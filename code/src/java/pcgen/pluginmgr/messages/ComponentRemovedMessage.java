@@ -29,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessageHandler;
  * The Class {@code ComponentRemovedMessage} indicates that a plugin has
  * been removed from the system. 
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

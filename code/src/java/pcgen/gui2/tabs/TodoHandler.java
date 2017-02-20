@@ -23,7 +23,6 @@ package pcgen.gui2.tabs;
  * of which field should be used to action a todo. This may be by highlighting 
  * the field, or changing focus to the field.   
  *
- * <br>
  * 
  */
 

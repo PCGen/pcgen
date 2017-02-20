@@ -557,7 +557,6 @@ public class AttackModel extends PObjectModel
 	 * {@code
 	 *    Bonus/Bonus/Bonus...;off hand bonus/off hand bonus...
 	 * }
-	 * <br>
 	 * The method splits the string into primary and off-hand bonus values, and
 	 * splits the separate strings into individual bonuses. The length of the
 	 * resulting list of bonuses drives the indices used to determine bonuses

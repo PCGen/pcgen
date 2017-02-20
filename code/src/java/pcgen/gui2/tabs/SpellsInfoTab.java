@@ -32,7 +32,6 @@ import pcgen.util.enumeration.Tab;
 /**
  * The Class {@code SpellsInfoTab} is a placeholder for the yet
  * to be implemented Seplls tab.
- * <br>
  * 
  */
 @SuppressWarnings("serial")

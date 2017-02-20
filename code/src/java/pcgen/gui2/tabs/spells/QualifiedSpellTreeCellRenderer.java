@@ -39,7 +39,6 @@ import pcgen.system.LanguageBundle;
  * cell with colouring indicating if the item can be known by the character. It
  * is heavily based on QualifiedTreeCellRenderer
  *
- * <br>
  * -0700 (Tue, 05 Jun 2012) $
  *
  */

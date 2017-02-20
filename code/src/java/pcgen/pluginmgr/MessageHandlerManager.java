@@ -31,7 +31,6 @@ import pcgen.pluginmgr.messages.ComponentRemovedMessage;
  * The Class {@code MessageHandlerManager} records the list of message handlers
  * and ensures that they get advised of any messages in order. 
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

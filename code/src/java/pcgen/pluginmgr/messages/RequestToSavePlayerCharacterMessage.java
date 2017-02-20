@@ -29,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code RequestToSavePlayerCharacterMessage} encapsulates a
  * request that PCGen save the specified character.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

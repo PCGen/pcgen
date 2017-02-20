@@ -29,7 +29,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code PlayerCharacterWasLoadedMessage} encapsulates a
  * message that a character was opened in PCGen. 
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

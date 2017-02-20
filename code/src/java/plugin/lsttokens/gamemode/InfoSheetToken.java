@@ -32,7 +32,6 @@ import pcgen.util.Logging;
  * game mode specific information output sheet to be specified that will be 
  * displayed on the summary tab when editing a character. 
  *
- * <br>
  * 
  */
 public class InfoSheetToken implements GameModeLstToken

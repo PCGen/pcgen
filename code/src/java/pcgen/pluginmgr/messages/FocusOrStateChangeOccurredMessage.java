@@ -30,7 +30,6 @@ import pcgen.pluginmgr.PCGenMessage;
  * The Class {@code FocusOrStateChangeOccurredMessage} encapsulates a message
  * that the user has switched from gmgen to pcgen or vice versa.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

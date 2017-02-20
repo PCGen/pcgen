@@ -37,7 +37,6 @@ import pcgen.system.LanguageBundle;
  * that is displayed in the summary tab to advise the user of important 
  * stats for their character. The output sheet to be displayed is specified in 
  * the game mode miscinfo.lst file using the INFOSHEET tag.
- * <br>
  *    
  */
 public class InfoPaneHandler implements ReferenceListener<Object>,
