@@ -38,7 +38,7 @@ public class SizeTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static SizeToken token = new SizeToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

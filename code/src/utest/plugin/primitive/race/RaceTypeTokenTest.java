@@ -36,7 +36,7 @@ public class RaceTypeTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static RaceToken subtoken = new RaceToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final RaceTypeToken RACETYPE_TOKEN = new RaceTypeToken();
 

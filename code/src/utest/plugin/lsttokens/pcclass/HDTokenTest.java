@@ -34,7 +34,7 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 
 	static HdToken token = new HdToken();
 	static CDOMTokenLoader<PCClass> loader =
-			new CDOMTokenLoader<PCClass>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -52,12 +52,6 @@ public class HDTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	public CDOMPrimaryToken<PCClass> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test

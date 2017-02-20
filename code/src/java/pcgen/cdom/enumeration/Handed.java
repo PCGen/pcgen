@@ -27,7 +27,6 @@ import pcgen.system.LanguageBundle;
  * quickly compared and use less memory when identical Genders exist in two
  * CDOMObjects.
  * 
- * @author Vincent Lhote
  */
 public enum Handed implements HandedFacade
 {

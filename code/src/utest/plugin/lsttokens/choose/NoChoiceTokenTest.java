@@ -38,7 +38,7 @@ public class NoChoiceTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	static ChooseLst token = new ChooseLst();
 	static NoChoiceToken subtoken = new NoChoiceToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -63,12 +63,6 @@ public class NoChoiceTokenTest extends AbstractCDOMTokenTestCase<CDOMObject>
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

@@ -37,7 +37,7 @@ public class AlignmentTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AlignmentToken subtoken = new AlignmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -67,12 +67,6 @@ public class AlignmentTokenTest extends
 	public Class<PCAlignment> getTargetClass()
 	{
 		return PCAlignment.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

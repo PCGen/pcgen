@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 07/02/2009 1:52:35 PM
  *
- * $Id$
  */
 package pcgen.core.term;
 
@@ -30,7 +28,6 @@ import pcgen.core.PlayerCharacter;
  * the character's maximum total hit points. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PCHPTermEvaluator 
 		extends BasePCTermEvaluator implements TermEvaluator

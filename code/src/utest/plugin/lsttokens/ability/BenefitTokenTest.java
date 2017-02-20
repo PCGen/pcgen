@@ -39,7 +39,7 @@ public class BenefitTokenTest extends AbstractCDOMTokenTestCase<Ability>
 {
 
 	static BenefitToken token = new BenefitToken();
-	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<Ability>();
+	static CDOMTokenLoader<Ability> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()

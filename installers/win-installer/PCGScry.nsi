@@ -1,4 +1,3 @@
-; Current Ver: $Revision: 1.1 $
 ; Last Editor: $Author: glasswalker $
 ; Last Edited: $Date: 2005/05/16 23:47:56 $
 ;

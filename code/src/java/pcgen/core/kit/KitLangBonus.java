@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 2/10/2008 16:50:38
  *
- * $Id: $
  */
 package pcgen.core.kit;
 
@@ -40,7 +38,6 @@ import pcgen.core.chooser.ChooserUtilities;
  * Deals with applying a bonus language via a Kit
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class KitLangBonus extends BaseKit
 {

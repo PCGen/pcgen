@@ -28,7 +28,6 @@ import pcgen.system.LanguageBundle;
  * 
  * Used by pcgen and gmgen.
  *
- * @author Vincent Lhote
  */
 public class CommonMenuText
 {

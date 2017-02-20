@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on July 8th, 2002.
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.gui2.dialog;
@@ -87,7 +85,6 @@ import pcgen.system.PCGenSettings;
 /**
  *  PCGen preferences dialog
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class PreferencesDialog extends AbstractPreferencesDialog
 {
@@ -428,7 +425,6 @@ public final class PreferencesDialog extends AbstractPreferencesDialog
 
 /**
  *
- * @author  soulcatcher
  */
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel
 {

@@ -72,12 +72,12 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		return "CATEGORY=Mutation,";
 	}
 
-	public String getAltPrefix()
+	public static String getAltPrefix()
 	{
 		return "CATEGORY=Special Ability,";
 	}
 
-	public String getAnyPrefix()
+	public static String getAnyPrefix()
 	{
 		return "CATEGORY=ANY,";
 	}

@@ -28,7 +28,7 @@ public class AcCheckTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static AccheckToken token = new AccheckToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

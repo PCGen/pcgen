@@ -36,7 +36,7 @@ public class GenderLockTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 {
 
 	static GenderlockToken token = new GenderlockToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

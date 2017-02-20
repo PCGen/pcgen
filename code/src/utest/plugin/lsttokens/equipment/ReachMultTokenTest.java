@@ -28,7 +28,7 @@ public class ReachMultTokenTest extends AbstractIntegerTokenTestCase<Equipment>
 {
 
 	static ReachMultToken token = new ReachMultToken();
-	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<Equipment>();
+	static CDOMTokenLoader<Equipment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Equipment> getCDOMClass()

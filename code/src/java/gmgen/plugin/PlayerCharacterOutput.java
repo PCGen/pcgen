@@ -123,7 +123,7 @@ public class PlayerCharacterOutput
 				newCr = (int) cr;
 			}
 
-			retString = (newCr > -99) ? (retString + newCr) : (retString + cr);
+			retString += ((newCr > -99) ? newCr : cr);
 		}
 		return retString;
 	}

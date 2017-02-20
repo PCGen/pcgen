@@ -25,6 +25,7 @@ import java.util.Map;
 
 import pcgen.base.lang.StringUtil;
 import pcgen.base.util.HashMapToList;
+import pcgen.base.util.MapToList;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Identified;
@@ -40,18 +41,20 @@ import pcgen.facade.core.CoreViewNodeFacade;
 import pcgen.core.prereq.PrerequisiteUtilities;
 import pcgen.util.Logging;
 
-public class CoreUtils
+class CoreUtils
 {
-	public static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
-		CorePerspective pers)
+	private CoreUtils()
+	{
+	}
+
+	static <T> List<CoreViewNodeFacade> buildCoreDebugList(PlayerCharacter pc,
+	                                                       CorePerspective pers)
 	{
 		CharID id = pc.getCharID();
 		List<CoreViewNodeFacade> coreViewList = new ArrayList<>();
 		Collection<Object> locations = CorePerspectiveDB.getLocations(pers);
-		HashMapToList<Object, FacetView<T>> sources =
-                new HashMapToList<>();
-		Map<FacetView<T>, CoreViewNodeBase> facetToNode =
-                new HashMap<>();
+		MapToList<Object, FacetView<T>> sources = new HashMapToList<>();
+		Map<FacetView<T>, CoreViewNodeBase> facetToNode = new HashMap<>();
 
 		/*
 		 * Create the nodes that are part of this perspective.
@@ -60,8 +63,7 @@ public class CoreUtils
 		{
 			//Create (w/ identifier)
 			FacetView<T> view = CorePerspectiveDB.getView(pers, location);
-			LocationCoreViewNode<T> node =
-                    new LocationCoreViewNode<>(location);
+			CoreViewNodeBase node = new LocationCoreViewNode<>(location);
 			facetToNode.put(view, node);
 			coreViewList.add(node);
 			//Store what facets listen to my content (for use later)
@@ -253,7 +255,7 @@ public class CoreUtils
 		/**
 		 * Create a new instance of CoreUtils.LocationCoreViewNode
 		 */
-		public ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
+		private ObjectCoreViewNode(PlayerCharacter pc, T object, List<String> sourceDesc)
 		{
 			this.pc = pc;
 			this.object = object;

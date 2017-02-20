@@ -351,7 +351,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		evaluatesTo(formula, node, 2);
 		Object rv =
 				new ReconstructionVisitor().visit(node, new StringBuilder());
-		assertTrue(rv.toString().equals(formula));
+		assertEquals(rv.toString(), formula);
 	}
 
 	@Test
@@ -452,7 +452,7 @@ public class LookupFunctionTest extends AbstractFormulaTestCase
 		return tc;
 	}
 
-	private class Finder implements ObjectDatabase
+	private static class Finder implements ObjectDatabase
 	{
 		DoubleKeyMap<Class<?>, String, Object> map = new DoubleKeyMap<>();
 

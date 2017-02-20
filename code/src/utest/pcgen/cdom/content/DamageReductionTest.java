@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision: $
  *
  *
  *
@@ -49,7 +48,7 @@ public class DamageReductionTest
 		assertFalse(dr1.equals(dr2));
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(5), "Magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10), "magic");
 		assertFalse(dr1.equals(dr2));
@@ -58,11 +57,11 @@ public class DamageReductionTest
 				"magic and good");
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10),
 				"good and magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		dr2 = new DamageReduction(FormulaFactory.getFormulaFor(10),
 				"Good and magic");
-		assertTrue(dr1.equals(dr2));
+		assertEquals(dr1, dr2);
 
 		/*
 		 * TODO DR can be fooled

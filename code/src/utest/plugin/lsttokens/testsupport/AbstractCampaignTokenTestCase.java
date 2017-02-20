@@ -32,7 +32,7 @@ public abstract class AbstractCampaignTokenTestCase extends
 {
 
 	static CDOMTokenLoader<Campaign> loader =
-			new CDOMTokenLoader<Campaign>();
+			new CDOMTokenLoader<>();
 
 	public abstract ListKey<?> getListKey();
 

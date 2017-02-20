@@ -30,7 +30,7 @@ public class DescriptorTokenTest extends AbstractTypeSafeListTestCase<Spell, Str
 {
 
 	static DescriptorToken token = new DescriptorToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -66,12 +66,6 @@ public class DescriptorTokenTest extends AbstractTypeSafeListTestCase<Spell, Str
 	public ListKey<String> getListKey()
 	{
 		return ListKey.SPELL_DESCRIPTOR;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

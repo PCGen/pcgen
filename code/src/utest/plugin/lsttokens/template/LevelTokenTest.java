@@ -42,7 +42,7 @@ public class LevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 
 	static LevelToken token = new LevelToken();
 	static CDOMTokenLoader<PCTemplate> loader =
-			new CDOMTokenLoader<PCTemplate>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	@Before

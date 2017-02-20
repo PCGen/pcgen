@@ -29,12 +29,6 @@ public class MoncskillTokenTest extends AbstractSelectionActorTest<Skill>
 
 	static MoncskillToken cra = new MoncskillToken();
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	public ChooseSelectionActor<Skill> getActor()
 	{

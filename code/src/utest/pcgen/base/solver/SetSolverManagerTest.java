@@ -15,16 +15,8 @@
  */
 package pcgen.base.solver;
 
-import static org.hamcrest.CoreMatchers.is;
-import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertThat;
-import static org.junit.Assert.assertTrue;
-
 import java.util.Arrays;
 import java.util.List;
-
-import org.junit.Before;
-import org.junit.Test;
 
 import pcgen.base.calculation.BasicCalculation;
 import pcgen.base.calculation.CalculationModifier;
@@ -55,11 +47,19 @@ import pcgen.cdom.reference.CDOMFactory;
 import pcgen.cdom.reference.SimpleReferenceManufacturer;
 import pcgen.core.Equipment;
 import pcgen.rules.persistence.token.ModifierFactory;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.function.DropIntoContext;
+
+import static org.hamcrest.CoreMatchers.is;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertThat;
+import static org.junit.Assert.assertTrue;
 
 public class SetSolverManagerTest
 {
-	private final class BasicSet implements BasicCalculation
+	private static final class BasicSet implements BasicCalculation
 	{
 		@Override
 		public String getIdentification()
@@ -86,10 +86,7 @@ public class SetSolverManagerTest
 		}
 	}
 
-	private static final Class<String[]> STRING_ARRAY = (Class<String[]>) String[].class;
 	private final LegalScope globalScope = new SimpleLegalScope(null, "Global");
-	private FunctionLibrary fl;
-	private OperatorLibrary ol;
 	private TrackingVariableCache vc;
 	private LegalScopeLibrary vsLib;
 	private VariableLibrary sl;
@@ -104,9 +101,9 @@ public class SetSolverManagerTest
 	@Before
 	public void setUp() throws Exception
 	{
-		fl = new SimpleFunctionLibrary();
+		FunctionLibrary fl = new SimpleFunctionLibrary();
 		fl.addFunction(new DropIntoContext());
-		ol = new SimpleOperatorLibrary();
+		OperatorLibrary ol = new SimpleOperatorLibrary();
 		vc = new TrackingVariableCache();
 		vsLib = new LegalScopeLibrary();
 		EquipmentScope equipScope = new EquipmentScope();
@@ -126,7 +123,8 @@ public class SetSolverManagerTest
 				am1.getModifier(0, "", managerFactory, null, globalScope, arrayManager);
 		solverFactory.addSolverFormat(arrayManager.getManagedClass(), emptyArrayMod);
 		
-		NEPCalculation calc = new ProcessCalculation<>(new Equipment(), new BasicSet(), equipmentManager);
+		NEPCalculation calc = new ProcessCalculation<>(new Equipment(),
+				new BasicSet(), equipmentManager);
 		CalculationModifier em = new CalculationModifier<>(calc, 0);
 		solverFactory.addSolverFormat(Equipment.class, em);
 
@@ -229,10 +227,12 @@ public class SetSolverManagerTest
 		{
 		}, fm, globalScope, numberManager);
 		
-		NEPCalculation calc1 = new ProcessCalculation<>(equip, new BasicSet(), equipmentManager);
+		NEPCalculation calc1 = new ProcessCalculation<>(equip,
+				new BasicSet(), equipmentManager);
 		CalculationModifier mod_e1 = new CalculationModifier<>(calc1, 2000);
 
-		NEPCalculation calc2 = new ProcessCalculation<>(equipalt, new BasicSet(), equipmentManager);
+		NEPCalculation calc2 = new ProcessCalculation<>(equipalt,
+				new BasicSet(), equipmentManager);
 		CalculationModifier mod_e2 = new CalculationModifier<>(calc2, 3000);
 
 		manager.addModifier(varIDe, mod2, scopeInste);

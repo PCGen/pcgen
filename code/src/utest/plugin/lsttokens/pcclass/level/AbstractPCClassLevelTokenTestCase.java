@@ -56,7 +56,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 	protected PCClassLevel secondaryProf2;
 	protected PCClassLevel primaryProf3;
 	protected PCClassLevel secondaryProf3;
-	protected CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<PCClassLevel>();
+	protected CDOMTokenLoader<PCClassLevel> loader = new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;
 	protected static CampaignSourceEntry testCampaign;
@@ -93,7 +93,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		secondaryProf3 = secondaryProf.getOriginalClassLevel(3);
 	}
 
-	public Class<? extends PCClassLevel> getCDOMClass()
+	public static Class<? extends PCClassLevel> getCDOMClass()
 	{
 		return PCClassLevel.class;
 	}
@@ -170,7 +170,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 
 	public abstract CDOMPrimaryToken<PCClassLevel> getToken();
 
-	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
+	public static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
@@ -233,7 +233,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
-	protected void expectSingle(String[] unparsed, String expected)
+	protected static void expectSingle(String[] unparsed, String expected)
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

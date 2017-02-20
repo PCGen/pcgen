@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Sep 4, 2009, 8:21:08 PM
  */
 package pcgen.system;
 
@@ -39,7 +38,6 @@ import org.apache.commons.lang3.math.NumberUtils;
  * that share its ancestors are visible but only that child's namespace is editable.
  * It is considered bad practice to look at the other siblings properties from within
  * a child.
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class PropertyContext implements PropertyChangeListener
 {

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on September 28, 2002, 11:50 PM
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -43,7 +41,6 @@ import pcgen.core.WeaponProf;
 /**
  * {@code KitFeat}.
  *
- * @author Greg Bingleman &lt;byngl@hotmail.com&gt;
  */
 public final class KitProf extends BaseKit
 {

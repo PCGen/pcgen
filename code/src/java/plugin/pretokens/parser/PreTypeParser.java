@@ -1,5 +1,4 @@
 /*
- * Created on 23-Dec-2003
  *
  * To change the template for this generated file go to
  * Window - Preferences - Java - Code Generation - Code and Comments
@@ -50,7 +49,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 	                          boolean overrideQualify) throws PersistenceLayerException
 	{
 
-		int aNum = 1;
+		int aNum;
 		final StringTokenizer aTok = new StringTokenizer(formula, ",");
 		String aString = aTok.nextToken();
 		try
@@ -59,7 +58,7 @@ public class PreTypeParser extends AbstractPrerequisiteParser implements
 		}
 		catch (NumberFormatException nfe)
 		{
-			throw new PersistenceLayerException(formula + " must start with a number in PRETYPE");
+			throw new PersistenceLayerException(formula + " must start with a number in PRETYPE", nfe);
 		}
 
 		// Parse new style syntax

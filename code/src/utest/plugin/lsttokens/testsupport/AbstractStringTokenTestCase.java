@@ -32,7 +32,7 @@ public abstract class AbstractStringTokenTestCase<T extends CDOMObject> extends
 	public void testInvalidInputEmpty() throws PersistenceLayerException
 	{
 		assertFalse(parse(""));
-		assertEquals(null, primaryProf.get(getStringKey()));
+		assertNull(primaryProf.get(getStringKey()));
 		assertNoSideEffects();
 	}
 

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Jun 17, 2006
  *
- * $Id: InfoKnownSpells.java 1030 2006-05-26 08:25:10Z jdempsey $
  *
  */
 package plugin.exporttokens;
@@ -40,7 +38,6 @@ import pcgen.util.Logging;
  * 
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class FollowerTypeToken extends Token
 {

@@ -30,7 +30,6 @@ import pcgen.rules.context.LoadContext;
 
 /**
  * 
- * @author David Rice &lt;david-pcgen@jcuz.com&gt;
  */
 public class GenericLoader<T extends CDOMObject> extends
 		LstObjectFileLoader<T>

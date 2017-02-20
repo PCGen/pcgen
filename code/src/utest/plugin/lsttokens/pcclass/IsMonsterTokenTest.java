@@ -30,7 +30,7 @@ public class IsMonsterTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 {
 
 	static IsmonsterToken token = new IsmonsterToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -56,9 +56,4 @@ public class IsMonsterTokenTest extends AbstractYesNoTokenTestCase<PCClass>
 		return ObjectKey.IS_MONSTER;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

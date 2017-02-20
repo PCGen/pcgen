@@ -1,5 +1,4 @@
 /*
- * RollingMethods.java
  * Copyright 2001 (C) Mario Bonassin
  *
  * This library is free software; you can redistribute it and/or
@@ -16,10 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307
  * USA
- *
- * Created on April 21, 2001, 2:15 PM
- *
- * $Id$
  */
 package pcgen.core;
 
@@ -38,9 +33,6 @@ import org.nfunk.jep.function.PostfixMathCommand;
 
 /**
  * {@code RollingMethods}.
- *
- * @author Mario Bonassin &lt;zebuleon@users.sourceforge.net&gt;
- * @author &lt;a href="mailto:binkley@alumni.rice.edu"&gt;B. K. Oxley (binkley)&lt;/a&gt;
  */
 public final class RollingMethods
 {
@@ -60,7 +52,7 @@ public final class RollingMethods
      */
     public static int roll(final int times, final int sides)
     {
-        return roll(times, sides, times, 0, 0);
+        return roll(times, sides, times, 0);
     }
 
     /**
@@ -216,23 +208,19 @@ public final class RollingMethods
      * @param sides
      * @param numToKeep
      * @param reroll
-     * @param modifier
      * @return the result of the die roll
      */
     private static int roll(
             final int times,
             final int sides,
             final int numToKeep,
-            final int reroll,
-            final int modifier)
+            final int reroll)
     {
-        return IntStream.generate(
-                () ->  roll(sides - reroll) + reroll
-        )
-                .limit(times)
-                .sorted()
-                .limit(numToKeep)
-                .sum() + modifier;
+        return IntStream.generate(() -> roll(sides - reroll) + reroll)
+            .limit(times)
+            .sorted()
+            .limit(numToKeep)
+            .sum();
     }
 
     /**
@@ -315,8 +303,7 @@ public final class RollingMethods
                     keep = new int[vec.size()];
                     for (int x = 0; x < vec.size(); x++)
                     {
-                        keep[x] = ((int) Math.round((Double) vec.get(x))) -
-                                1;
+                        keep[x] = ((int) Math.round((Double) vec.get(x))) - 1;
                     }
                 }
                 else
@@ -358,14 +345,14 @@ public final class RollingMethods
                 double result = 0;
                 if (keep == null)
                 {
-                    result = roll(iRolls, iFaces, numToKeep, reroll, 0);
+                    result = roll(iRolls, iFaces, numToKeep, reroll);
                 }
                 else
                 {
                     result = roll(iRolls, iFaces, keep);
                 }
                 // push the result on the inStack
-                stack.push(new Double(result));
+                stack.push(result);
             }
             else
             {

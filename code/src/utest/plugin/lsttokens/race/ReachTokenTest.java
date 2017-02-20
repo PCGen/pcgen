@@ -30,7 +30,7 @@ public class ReachTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static ReachToken token = new ReachToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -72,12 +72,6 @@ public class ReachTokenTest extends AbstractIntegerTokenTestCase<Race>
 	public boolean isPositiveAllowed()
 	{
 		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 }

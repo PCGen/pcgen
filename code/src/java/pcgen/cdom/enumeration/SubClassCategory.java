@@ -28,7 +28,6 @@ import pcgen.cdom.reference.ManufacturableFactory;
 import pcgen.core.SubClass;
 
 /**
- * @author Tom Parker (thpr [at] yahoo.com)
  * 
  * This Class is a Type Safe Constant.
  */

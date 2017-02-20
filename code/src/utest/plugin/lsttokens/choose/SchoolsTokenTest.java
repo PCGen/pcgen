@@ -47,7 +47,7 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	static plugin.primitive.pobject.AbilityToken<?> abprim =
 			new plugin.primitive.pobject.AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader =
-			new CDOMTokenLoader<CDOMObject>();
+			new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -73,12 +73,6 @@ public class SchoolsTokenTest extends AbstractChooseTokenTestCase
 	public CDOMPrimaryToken<CDOMObject> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

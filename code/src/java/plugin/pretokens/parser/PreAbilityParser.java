@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on January 23, 2006
  *
- * Current Ver: $Revision: 1777 $
  *
  */
 package plugin.pretokens.parser;
@@ -86,7 +84,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		boolean extract = "ability".equalsIgnoreCase(kind);
 		kind = "ability";
 		Prerequisite prereq = super.parse(kind, formula, invertResult, overrideQualify);
-		prereq.setOriginalCheckmult(formula.indexOf(",CHECKMULT,") != -1);
+		prereq.setOriginalCheckmult(formula.contains(",CHECKMULT,"));
 
 		if (extract)
 		{
@@ -115,7 +113,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 		return prereq;
 	}
 
-	private void setCategory(Prerequisite prereq, String string)
+	private static void setCategory(Prerequisite prereq, String string)
 	{
 		prereq.setCategoryName(string);
 		for (Prerequisite element : prereq.getPrerequisites())
@@ -130,7 +128,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 * @param prereq The prereq to be processed.
 	 * @throws PersistenceLayerException If more than one category entry is found 
 	 */
-	private void extractCategory(Prerequisite prereq)
+	private static void extractCategory(Prerequisite prereq)
 		throws PersistenceLayerException
 	{
 		String categoryName = "";
@@ -153,7 +151,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 				prereq.setCategoryName(categoryName);
 			}
 		}
-		
+
 		// Copy to a temporary list as we wil be adjusting the main one.
 		List<Prerequisite> prereqList =
 				new ArrayList<>(prereq.getPrerequisites());
@@ -184,7 +182,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 								"Errors.PreAbility.CategoryNotFirst",
 								tempCat));
 					}
-					
+
 					if (tempCat.toUpperCase().trim().equals("ANY"))
 					{
 						Logging.errorPrint("ANY no longer allowed as an Ability Category in PREABILITY");
@@ -239,7 +237,7 @@ public class PreAbilityParser extends AbstractPrerequisiteListParser implements
 	 *
 	 * @param prereq The prereq to be negated.
 	 */
-	private void negateAbilityChoice(Prerequisite prereq)
+	private static void negateAbilityChoice(Prerequisite prereq)
 	{
 		int modified = 0;
 		for (Prerequisite p : prereq.getPrerequisites())

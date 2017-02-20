@@ -15,10 +15,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on 12/05/2009 6:43:46 PM
- *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -194,14 +190,7 @@ import pcgen.util.enumeration.View;
  * the {@link CharacterFacade} interface for the new user interface. It is 
  * intended to provide a full implementation of the new ui/core 
  * interaction layer.
- * <p>
- * <b>Issues needing resolution:</b>
- * <ul>
- * <li>Who is responsible for undo management and how will it work?</li>
- * </ul>
- * <br>
- * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
+ * TODO: Who is responsible for undo management and how will it work?
  */
 public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListener, ListListener<EquipmentFacade>,
 		HitPointListener 

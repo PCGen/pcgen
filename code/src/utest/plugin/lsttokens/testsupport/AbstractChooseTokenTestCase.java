@@ -77,8 +77,8 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		return construct(loadContext, getTargetClass(), one);
 	}
 
-	protected CDOMObject construct(LoadContext loadContext,
-			Class<? extends CDOMObject> cl, String one)
+	protected static CDOMObject construct(LoadContext loadContext,
+	                                      Class<? extends CDOMObject> cl, String one)
 	{
 		return loadContext.getReferenceContext().constructCDOMObject(cl, one);
 	}
@@ -1378,7 +1378,7 @@ public abstract class AbstractChooseTokenTestCase<T extends CDOMObject, TC exten
 		assertNull(getToken().unparse(primaryContext, primaryProf));
 	}
 
-	private ObjectKey<ChooseInformation<?>> getObjectKey()
+	private static ObjectKey<ChooseInformation<?>> getObjectKey()
 	{
 		return ObjectKey.CHOOSE_INFO;
 	}

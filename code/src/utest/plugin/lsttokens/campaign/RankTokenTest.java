@@ -30,7 +30,7 @@ public class RankTokenTest extends AbstractIntegerTokenTestCase<Campaign>
 {
 
 	static RankToken token = new RankToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -74,9 +74,4 @@ public class RankTokenTest extends AbstractIntegerTokenTestCase<Campaign>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

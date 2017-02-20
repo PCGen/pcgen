@@ -15,9 +15,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on June 18, 2005.
  *
- * Current Ver: $Revision: 513 $
  */
 package pcgen.cdom.enumeration;
 
@@ -30,7 +28,6 @@ import pcgen.base.util.CaseInsensitiveMap;
 import pcgen.base.util.FixedStringList;
 
 /**
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  * 
  * This is a Typesafe enumeration of legal Characteristics of an Association. It
  * is designed to act as an index to a specific Objects within an item that

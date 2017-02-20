@@ -30,7 +30,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class HidetypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 	static HidetypeToken token = new HidetypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()

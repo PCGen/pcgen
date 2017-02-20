@@ -30,7 +30,7 @@ public class UseuntrainedTokenTest extends AbstractYesNoTokenTestCase<Skill>
 {
 
 	static UseuntrainedToken token = new UseuntrainedToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Skill> getCDOMClass()
@@ -54,12 +54,6 @@ public class UseuntrainedTokenTest extends AbstractYesNoTokenTestCase<Skill>
 	public ObjectKey<Boolean> getObjectKey()
 	{
 		return ObjectKey.USE_UNTRAINED;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 }

@@ -207,7 +207,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		expectSingle(unparsed, getLegalValue());
 	}
 
-	private SpecialProperty getConstant(String value)
+	private static SpecialProperty getConstant(String value)
 	{
 		return SpecialProperty.createFromLst(value);
 	}
@@ -241,7 +241,7 @@ public abstract class AbstractTextPropertyTokenTestCase<T extends CDOMObject>
 		assertTrue(upList.contains(getAlternateLegalValue()));
 	}
 
-	private ListKey<SpecialProperty> getListKey()
+	private static ListKey<SpecialProperty> getListKey()
 	{
 		return ListKey.SPECIAL_PROPERTIES;
 	}

@@ -38,7 +38,7 @@ public class AlignTokenTest extends
 {
 	static ChooseLst token = new ChooseLst();
 	static DeityToken subtoken = new DeityToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	private static final AlignToken ALIGN_TOKEN = new AlignToken();
 

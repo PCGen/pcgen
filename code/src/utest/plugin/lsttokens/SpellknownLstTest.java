@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 31/12/2008 3:20:40 PM
  *
- * $Id: $
  */
 package plugin.lsttokens;
 
@@ -46,17 +44,16 @@ import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
 
 /**
- * The Class <code>SpellknownLstTest</code> is responsible for testing the 
+ * The Class {@code SpellknownLstTest} is responsible for testing the
  * function of the spellknownlst class.
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SpellknownLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new SpellknownLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	/* (non-Javadoc)
 	 * @see plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase#getLoader()

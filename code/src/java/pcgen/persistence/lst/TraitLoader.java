@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on October 08, 2003, 12:00 PM
  *
- * Current Ver: $Revision$ <br>
  */
 package pcgen.persistence.lst;
 
@@ -32,9 +30,7 @@ import java.net.URI;
  * This class is a LstFileLoader used to load character traits.
  *
  * <p>
- * Current Ver: $Revision$ <br>
  *
- * @author ad9c15
  */
 public class TraitLoader extends LstLineFileLoader
 {

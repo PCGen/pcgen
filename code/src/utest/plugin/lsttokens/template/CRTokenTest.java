@@ -31,7 +31,7 @@ public class CRTokenTest extends AbstractBigDecimalTokenTestCase<PCTemplate>
 {
 
 	static CrToken token = new CrToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()

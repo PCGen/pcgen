@@ -31,7 +31,7 @@ public class FumblerangeTokenTest extends
 {
 
 	static FumblerangeToken token = new FumblerangeToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -63,9 +63,4 @@ public class FumblerangeTokenTest extends
 		return false;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

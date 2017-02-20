@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 15, 2010, 5:01:27 PM
  */
 package pcgen.gui2.filter;
 
@@ -35,7 +34,6 @@ import javax.swing.JPanel;
  * that it is possible to deselect all of the buttons.
  * @param <C> The context that this filter is defined under
  * @param <E> The element type that will be filtered
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilterButtonGroupPanel<C, E> extends JPanel
 		implements DisplayableFilter<C, E>, ItemListener

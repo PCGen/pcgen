@@ -39,7 +39,7 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	private Listener listener = new Listener();
 	protected Object oneSource = new Object();
 
-	private class Listener implements
+	private static class Listener implements
 			DataFacetChangeListener<CharID, CNAbilitySelection>
 	{
 
@@ -123,9 +123,9 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	@Test
 	public void testTypeAddNull()
 	{
-		Object source1 = new Object();
 		try
 		{
+			Object source1 = new Object();
 			getFacet().add(id, null, source1);
 			fail();
 		}
@@ -142,11 +142,11 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	@Test
 	public void testTypeAddNullID()
 	{
-		Object source1 = new Object();
 		//Remove to try to avoid any event being formed
 		getFacet().removeDataFacetChangeListener(listener);
 		try
 		{
+			Object source1 = new Object();
 			getFacet().add(null, getObject(), source1);
 			fail();
 		}
@@ -272,11 +272,11 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 	@Test
 	public void testTypeRemoveUseless()
 	{
-		Object source1 = new Object();
 		//Remove to try to avoid any event being formed
 		getFacet().removeDataFacetChangeListener(listener);
 		try
 		{
+			Object source1 = new Object();
 			getFacet().add(null, getObject(), source1);
 			//ignored
 		}

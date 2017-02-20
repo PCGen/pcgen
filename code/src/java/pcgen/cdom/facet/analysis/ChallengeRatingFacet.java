@@ -44,7 +44,6 @@ import pcgen.core.SettingsHandler;
  * ChallengeRatingFacet is a Facet that calculates the Challenge Rating of a
  * Player Character
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class ChallengeRatingFacet
 {

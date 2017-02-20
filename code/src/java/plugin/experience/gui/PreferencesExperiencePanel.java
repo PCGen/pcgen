@@ -17,7 +17,6 @@
  *
  * PreferencesExperiencePanel.java
  *
- * Created on July 11, 2003, 4:34 PM
  */
 package plugin.experience.gui;
 
@@ -31,7 +30,6 @@ import java.awt.BorderLayout;
 
 /**
  *
- * @author soulcatcher
  */
 public class PreferencesExperiencePanel extends gmgen.gui.PreferencesPanel
 {

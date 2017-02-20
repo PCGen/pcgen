@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeEvent;
@@ -28,12 +24,16 @@ import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
+import junit.framework.TestCase;
+import org.junit.Test;
+
 public class SkillRankFacetTest extends TestCase
 {
 	private CharID id;
 	private CharID altid;
 	private SkillRankFacet facet = new SkillRankFacet();
-	private Skill s1, s2, s3;
+	private Skill s1;
+	private Skill s2;
 	private PCClass cl1, cl2;
 
 	private SRListener listener = new SRListener();
@@ -65,7 +65,7 @@ public class SkillRankFacetTest extends TestCase
 		s1.setName("S1");
 		s2 = new Skill();
 		s2.setName("S2");
-		s3 = new Skill();
+		Skill s3 = new Skill();
 		s3.setName("S3");
 		cl1 = new PCClass();
 		cl1.setName("Cl1");

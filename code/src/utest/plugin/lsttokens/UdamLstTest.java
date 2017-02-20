@@ -36,7 +36,7 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
 public class UdamLstTest extends AbstractGlobalTokenTestCase
 {
 	static UdamLst token = new UdamLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	protected SizeAdjustment colossal;
 	protected SizeAdjustment gargantuan;

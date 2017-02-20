@@ -30,7 +30,7 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static SaveinfoToken token = new SaveinfoToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -78,12 +78,6 @@ public class SaveInfoTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	public boolean isClearLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

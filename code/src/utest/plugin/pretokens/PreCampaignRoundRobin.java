@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 12/07/2008 12:29:09
  *
- * $Id: $
  */
 package plugin.pretokens;
 
@@ -29,11 +27,10 @@ import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
 
 /**
- * The Class <code>PreCampaignRoundRobin</code> is responsible for testing 
+ * The Class {@code PreCampaignRoundRobin} is responsible for testing
  * that PRECAMPAIGN tags can be read and written. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 {
@@ -79,7 +76,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 
 	public void testNegateItem()
 	{
-		this.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
+		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",
 				"PREMULT:2,[PRE" + getBaseString() + ":1,Foo],[!PRE"
 						+ getBaseString() + ":1,TYPE=Bar]");
 	}

@@ -31,7 +31,6 @@ import pcgen.core.Equipment;
  * NaturalWeaponFacet is a Facet that tracks the NaturalWeapons that have been
  * granted to a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalWeaponFacet extends AbstractSourcedListFacet<CharID, Equipment>
 		implements DataFacetChangeListener<CharID, CDOMObject>

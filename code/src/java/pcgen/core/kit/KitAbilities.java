@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 10 September 2005
  *
- * $Id$
  */
 package pcgen.core.kit;
 
@@ -47,7 +45,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * {@code KitAbiltiies}.
  *
- * @author   Andrew Wilson &lt;nuance@sourceforge.net&gt;
  */
 public final class KitAbilities extends BaseKit
 {

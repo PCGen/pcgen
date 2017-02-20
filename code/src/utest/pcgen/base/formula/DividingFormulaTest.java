@@ -47,7 +47,7 @@ public class DividingFormulaTest
 		DividingFormula f2 = new DividingFormula(1);
 		DividingFormula f3 = new DividingFormula(2);
 		DividingFormula f4 = new DividingFormula(-1);
-		assertTrue(f1 != f2);
+		assertNotSame(f1, f2);
 		assertEquals(f1.hashCode(), f2.hashCode());
 		assertEquals(f1, f2);
 		assertFalse(f1.equals(null));

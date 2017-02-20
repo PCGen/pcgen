@@ -37,7 +37,6 @@ import pcgen.system.LanguageBundle;
 /**
  * A dialog with a Ok, a cancel and eventually an apply button.
  *
- * @author Vincent Lhote
  *
  */
 public abstract class AbstractDialog extends JDialog

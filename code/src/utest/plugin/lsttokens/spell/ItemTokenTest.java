@@ -34,7 +34,7 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 {
 
 	static ItemToken token = new ItemToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -72,15 +72,9 @@ public class ItemTokenTest extends AbstractTypeSafeListTestCase<Spell, Type>
 		return ListKey.ITEM;
 	}
 
-	public ListKey<?> getNegativeListKey()
+	public static ListKey<?> getNegativeListKey()
 	{
 		return ListKey.PROHIBITED_ITEM;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

@@ -207,7 +207,8 @@ public abstract class AbstractFormulaTestCase extends TestCase
 		else if (valueOf instanceof Double)
 		{
 			if (TestUtilities.doubleEqual(((Double) valueOf).doubleValue(),
-				((Number) result).doubleValue(), TestUtilities.SMALL_ERROR))
+				((Number) result).doubleValue()
+			))
 			{
 				return;
 			}

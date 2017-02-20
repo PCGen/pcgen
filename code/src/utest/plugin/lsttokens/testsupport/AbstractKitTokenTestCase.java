@@ -95,11 +95,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		{
 			return getCDOMClass().newInstance();
 		}
-		catch (InstantiationException e)
-		{
-			throw new InternalError(e.getMessage());
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			throw new InternalError(e.getMessage());
 		}
@@ -118,11 +114,7 @@ public abstract class AbstractKitTokenTestCase<T extends Loadable> extends TestC
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}

@@ -32,7 +32,6 @@ import pcgen.core.WeaponProf;
  * NaturalWeaponProfFacet is a Facet that tracks the WeaponProfs that have been
  * implicitly granted to a Player Character via NATURALATTACKS
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NaturalWeaponProfFacet extends
 		AbstractSourcedListFacet<CharID, WeaponProf> implements

@@ -1,5 +1,4 @@
 /*
- * AbilityInfoPanel.java
  * Copyright 2006 (C) Aaron Divinsky <boomer70@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,12 +14,11 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Current Ver: $Revision$
  */
 package pcgen.core;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.Collections;
 import java.util.List;
 
@@ -45,14 +43,11 @@ import pcgen.util.Logging;
  * <br>would be replaced with the string &quot;This is a variable substitution
  * string&quot; if the variable list was &quot;a&quot;,&quot;string&quot;, 
  * &quot;substitution&quot;.
- * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
- * 
  */
 public class Description extends ConcretePrereqObject
 {
-	private List<String> theComponents = new ArrayList<>();
-	private List<String> theVariables = null;
+	private Collection<String> theComponents = new ArrayList<>();
+	private List<String> theVariables;
 	
 	private static final String VAR_NAME = "%NAME"; //$NON-NLS-1$
 	private static final String VAR_CHOICE = "%CHOICE"; //$NON-NLS-1$

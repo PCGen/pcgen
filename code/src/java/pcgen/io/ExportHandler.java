@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on March 07, 2002, 8:30 PM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.io;
@@ -105,7 +103,6 @@ import pcgen.util.enumeration.View;
  * code in here deals with replacing tokens and dealing with the FOR and IIF 
  * constructs that can be found in the character sheet templates. 
  *
- * @author Thomas Behr
  */
 public final class ExportHandler
 {
@@ -347,7 +344,7 @@ public final class ExportHandler
 		{
 			String message = "Error exporting character using template " + templateFile;
 			Logging.errorPrint(message, exc);
-			throw new ExportException(exc, message + " : " + exc.getLocalizedMessage());
+			throw new ExportException(message + " : " + exc.getLocalizedMessage(), exc);
 		}
 		finally
 		{
@@ -3820,7 +3817,6 @@ public final class ExportHandler
 	/**
 	 * {@code PStringTokenizer}
 	 *
-	 * @author Bryan McRoberts &lt;merton_monk@users.sourceforge.net&gt;
 	 */
 	private static final class PStringTokenizer
 	{

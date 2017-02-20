@@ -36,8 +36,6 @@ import java.util.StringTokenizer;
 import java.util.TreeMap;
 import java.util.TreeSet;
 
-import org.apache.commons.lang3.StringUtils;
-
 import pcgen.base.util.HashMapToList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.Categorized;
@@ -66,6 +64,8 @@ import pcgen.system.PropertyContext;
 import pcgen.util.ComparableComparator;
 import pcgen.util.Logging;
 import pcgen.util.enumeration.Tab;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * Handles game modes.
@@ -417,7 +417,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get BAB Minimum value.
 	 * @return BAB Minimum value
 	 */
-	public int getBabMinVal()
+	int getBabMinVal()
 	{
 		return babMinVal;
 	}
@@ -444,7 +444,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get max level check.
 	 * @return max level check
 	 */
-	public int getChecksMaxLvl()
+	int getChecksMaxLvl()
 	{
 		return checksMaxLvl;
 	}
@@ -685,7 +685,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param type
 	 * @return plus calculation
 	 */
-	public String getPlusCalculation(final String type)
+	String getPlusCalculation(final String type)
 	{
 		String aString = null;
 
@@ -752,7 +752,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the base DC for Spells.
 	 * @return the base DC for Spells
 	 */
-	public String getSpellBaseDC()
+	String getSpellBaseDC()
 	{
 		return spellBaseDC;
 	}
@@ -798,7 +798,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param aRange
 	 * @return spell range formula
 	 */
-	public String getSpellRangeFormula(final String aRange)
+	String getSpellRangeFormula(final String aRange)
 	{
 		String aString = null;
 
@@ -823,7 +823,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the BAB Attack Bonus cycle.
 	 * @return the BAB Attack Bonus cycle
 	 */
-	public int getBabAttCyc()
+	int getBabAttCyc()
 	{
 		return babAttCyc;
 	}
@@ -841,7 +841,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the max BAB attacks allowed.
 	 * @return the max BAB attacks allowed
 	 */
-	public int getBabMaxAtt()
+	int getBabMaxAtt()
 	{
 		return babMaxAtt;
 	}
@@ -1611,7 +1611,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the point pool name.
 	 * @return point pool name
 	 */
-	public String getPointPoolName()
+	String getPointPoolName()
 	{
 		return pointPoolName;
 	}
@@ -1760,7 +1760,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Get the point buy by stat mapping.
 	 * @return the point buy by stat mapping
 	 */
-	public SortedMap<Integer, PointBuyCost> getPointBuyStatCostMap()
+	SortedMap<Integer, PointBuyCost> getPointBuyStatCostMap()
 	{
 		return pointBuyStatCosts;
 	}
@@ -2087,7 +2087,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Return true if the purchasing of stats mode is allowed.
 	 * @return true if the purchasing of stats mode is allowed
 	 */
-	public boolean isPurchaseStatModeAllowed()
+	private boolean isPurchaseStatModeAllowed()
 	{
 		if ((pointBuyStatCosts == null) || (pointBuyStatCosts.isEmpty()))
 		{
@@ -2323,7 +2323,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Return an <b>unmodifiable</b> version of the bonus stacking list.
 	 * @return an <b>unmodifiable</b> version of the bonus stacking list.
 	 */
-	public List<String> getUnmodifiableBonusStackList()
+	List<String> getUnmodifiableBonusStackList()
 	{
 		return Collections.unmodifiableList(bonusStackList);
 	}
@@ -2353,7 +2353,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 *
 	 */
-	public AbilityCategory silentlyGetAbilityCategory(final String aKey)
+	private AbilityCategory silentlyGetAbilityCategory(final String aKey)
 	{
 		AbilityCategory cat = getContext().getReferenceContext()
 				.silentlyGetConstructedCDOMObject(AbilityCategory.class, aKey);
@@ -2416,7 +2416,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 *
 	 */
-	public String getPreviewDir()
+	private String getPreviewDir()
 	{
 		return thePreviewDir;
 	}
@@ -2512,7 +2512,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Sets's current gamemodes MaxDieSize.
 	 * @param dice
 	 */
-	public void setMaxDieSize(final int dice)
+	private void setMaxDieSize(final int dice)
 	{
 		maxDieSize = dice;
 	}
@@ -2529,7 +2529,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * Sets's current gamemodes MinDieSize.
 	 * @param dice
 	 */
-	public void setMinDieSize(final int dice)
+	private void setMinDieSize(final int dice)
 	{
 		minDieSize = dice;
 	}
@@ -2558,7 +2558,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * be resized by the automatic resize feature.
 	 * @return the resizableTypeList
 	 */
-	public List<String> getResizableTypeList()
+	List<String> getResizableTypeList()
 	{
 		return Collections.unmodifiableList(resizableTypeList);
 	}
@@ -2680,8 +2680,8 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 *
 	 */
-	public static <T extends Loadable> void resolveReferenceManufacturer(
-		AbstractReferenceContext rc, ReferenceManufacturer<T> rm)
+	static <T extends Loadable> void resolveReferenceManufacturer(
+			AbstractReferenceContext rc, ReferenceManufacturer<T> rm)
 	{
 		Class<T> c = rm.getReferenceClass();
 		ReferenceManufacturer<T> mfg;
@@ -3050,7 +3050,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	 * @param equipType The equipment type
 	 * @return The priority, or 0 if none is known.
 	 */
-	public int getEquipTypeIconPriority(String equipType)
+	int getEquipTypeIconPriority(String equipType)
 	{
 		Integer priority =
 				this.equipTypeIconPriorityMap.get(equipType.toUpperCase());
@@ -3091,7 +3091,7 @@ public final class GameMode implements Comparable<Object>, GameModeFacade
 	/**
 	 *
 	 */
-	public AbilityCategory getFeatTemplate()
+	AbilityCategory getFeatTemplate()
 	{
 		return featTemplate;
 	}

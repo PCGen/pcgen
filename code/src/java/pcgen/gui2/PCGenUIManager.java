@@ -34,7 +34,6 @@ import org.apache.commons.lang3.SystemUtils;
  * frameworks such as the application toolbar for Macs.
  *
  * @see pcgen.gui2.PCGenFrame
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public final class PCGenUIManager
 {

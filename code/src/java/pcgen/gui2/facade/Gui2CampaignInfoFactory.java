@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 08/03/2011 7:18:51 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -53,7 +51,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class Gui2CampaignInfoFactory implements CampaignInfoFactory
 {

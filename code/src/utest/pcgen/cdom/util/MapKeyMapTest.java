@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 14/09/2008 09:53:37
  *
- * $Id: $
  */
 package pcgen.cdom.util;
 
@@ -40,7 +38,6 @@ import static org.junit.Assert.*;
  * class is functioning correctly. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MapKeyMapTest
 {
@@ -108,8 +105,8 @@ public class MapKeyMapTest
 	{
 		MapKeyMap newMap = new MapKeyMap();
 
-		assertEquals("Expect an empty map intially", null, newMap
-			.get(MapKey.ASPECT, ageKey));
+		assertNull("Expect an empty map intially", newMap
+				.get(MapKey.ASPECT, ageKey));
 		
 		newMap.putAll(mapKeyMap);
 		assertEquals("Retrieve 3rd item by both keys", breedAspect, newMap
@@ -144,8 +141,8 @@ public class MapKeyMapTest
 			.get(MapKey.ASPECT, breedKey).get(0));
 		assertTrue("Should be true as item is present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
-		assertEquals("Validate breed is no longer present", null, mapKeyMap
-			.get(MapKey.ASPECT, breedKey));
+		assertNull("Validate breed is no longer present", mapKeyMap
+				.get(MapKey.ASPECT, breedKey));
 		assertFalse("Should be false as item is no longer present", mapKeyMap
 			.removeFromMapFor(MapKey.ASPECT, breedKey));
 	}

@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 28/01/2008
  *
- * $Id$
  */
 
 package pcgen.core;
@@ -37,7 +35,6 @@ import plugin.lsttokens.testsupport.TokenRegistration;
  * 
  * (Tue, 11 Nov 2008) $
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class CampaignTest extends TestCase
 {

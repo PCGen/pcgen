@@ -1076,7 +1076,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public void testInvalidInputJoinedDotNotQualifierAlone()
 			throws PersistenceLayerException
 	{
-		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier + "");
+		boolean parse = parse(getSubTokenName() + '|' + "PC.!" + qualifier);
 		if (parse)
 		{
 			assertConstructionError();
@@ -2032,7 +2032,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	{
 		QualifierToken<?> one = getQualifierClass().newInstance();
 		QualifierToken<?> two = getQualifierClass().newInstance();
-		assertTrue(one.equals(two));
+		assertEquals(one, two);
 	}
 
 	protected abstract Class<? extends QualifierToken> getQualifierClass();

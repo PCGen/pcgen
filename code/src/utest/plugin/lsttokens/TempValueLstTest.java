@@ -36,13 +36,12 @@ import plugin.lsttokens.testsupport.ConsolidationRule;
  * Token parse and unparsing tests for TempValueLst
  *
  * <br/>
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TempValueLstTest extends AbstractGlobalTokenTestCase
 {
 
 	static CDOMPrimaryToken<CDOMObject> token = new TempValueLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException

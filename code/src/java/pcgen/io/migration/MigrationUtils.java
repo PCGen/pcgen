@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 02/06/2013
  *
- * $Id$
  */
 package pcgen.io.migration;
 
@@ -33,7 +31,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
  * MigrationUtils provides common helper functions for migration classes.
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class MigrationUtils
 {

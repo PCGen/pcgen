@@ -44,7 +44,6 @@ import java.util.TreeSet;
  * {@code get(4)} will return Item 2.
  * <p>
  * 
- * @author boomer70 and Tom Parker (thpr@users.sourceforge.net)
  * @param <E>
  *            The Class stored in the WeightedCollection
  * @see java.util.Collection
@@ -281,7 +280,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * 
 	 * @return An <tt>Iterator</tt> for the WeightedCollection.
 	 */
-	public Iterator<E> unweightedIterator()
+	Iterator<E> unweightedIterator()
 	{
 		return new UnweightedIterator();
 	}
@@ -486,7 +485,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	 * This class is a simple wrapper to associate an object from a
 	 * <tt>WeightedList</tt> and its weight.
 	 * 
-	 * @author boomer70
 	 * 
 	 * @param <T>
 	 */
@@ -505,7 +503,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            The weight of the item within the list.
 		 */
-		public WeightedItem(T element, int weight)
+		WeightedItem(T element, int weight)
 		{
 			theElement = element;
 			theWeight = weight;
@@ -537,7 +535,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * @param weight
 		 *            an amount of weight to add.
 		 */
-		public void addWeight(int weight)
+		void addWeight(int weight)
 		{
 			theWeight += weight;
 		}
@@ -552,8 +550,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Equals method. Note this is required in order to have the .equals()
 		 * at the WeightedCollection level work properly (it is a deep equals)
-		 * 
-		 * @see java.lang.Object#equals(java.lang.Object)
+		 *
 		 */
 		@Override
 		public boolean equals(Object obj)
@@ -641,8 +638,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Checks if there are any more elements in the iteration.
 		 * 
 		 * @return <tt>true</tt> if there are more elements.
-		 * 
-		 * @see java.util.Iterator#hasNext()
+		 *
 		 */
 		@Override
 		public boolean hasNext()
@@ -654,8 +650,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 * Returns the next element in the iteration.
 		 * 
 		 * @return The next element.
-		 * 
-		 * @see java.util.Iterator#next()
 		 */
 		@Override
 		public E next()
@@ -666,8 +660,6 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		/**
 		 * Removes from the WeightedCollection the last element returned from
 		 * the iteration.
-		 * 
-		 * @see java.util.Iterator#remove()
 		 */
 		@Override
 		public void remove()
@@ -703,15 +695,14 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		 *            objects underlying the WeightedItem objects compared by
 		 *            this WeightedItemComparator
 		 */
-		public WeightedItemComparator(Comparator<? super WICT> comp)
+		WeightedItemComparator(Comparator<? super WICT> comp)
 		{
 			delegate = comp;
 		}
 
 		/**
 		 * Compare two WeightedItem objects
-		 * 
-		 * @see java.util.Comparator#compare(java.lang.Object, java.lang.Object)
+		 *
 		 */
 		@Override
 		public int compare(WeightedItem<WICT> item1, WeightedItem<WICT> item2)

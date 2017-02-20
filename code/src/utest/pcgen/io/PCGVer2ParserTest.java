@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 19-Nov-2004
  */
 package pcgen.io;
 
@@ -45,7 +44,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -62,7 +61,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -79,7 +78,7 @@ public class PCGVer2ParserTest
 		assertEquals(5, version[0]);
 		assertEquals(7, version[1]);
 		assertEquals(1, version[2]);
-		assertEquals(null, suffix);
+		assertNull(suffix);
 	}
 
 	@Test
@@ -119,10 +118,10 @@ public class PCGVer2ParserTest
 	@Test
 	public void test_1045596_6()
 	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
 
 		try
 		{
+			PCGVer2Parser parser = new PCGVer2Parser(null);
 			parser.parseVersionLine("5.7.1");
 			fail("Should have thrown an exception");
 		}
@@ -135,10 +134,10 @@ public class PCGVer2ParserTest
 	@Test
 	public void test_1045596_7()
 	{
-		PCGVer2Parser parser = new PCGVer2Parser(null);
 
 		try
 		{
+			PCGVer2Parser parser = new PCGVer2Parser(null);
 			parser.parseVersionLine("VERSION:5.7.1RC1");
 			fail("Should have thrown an exception");
 		}
@@ -182,7 +181,6 @@ public class PCGVer2ParserTest
 		parser.parseVersionLine("VERSION:" + PCGenPropBundle.getVersionNumber());
 
 		int[] version = parser.getPcgenVersion();
-		parser.getPcgenVersionSuffix();
 
 		assertThat("version length is correct", version.length, is(3));
 	}

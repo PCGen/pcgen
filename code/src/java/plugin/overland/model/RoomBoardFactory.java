@@ -34,8 +34,6 @@ import plugin.overland.util.RBCost;
 /**
  * Factory for RoomBoard. Read from XML files.
  *
- * @author Juliean Galak (method code)
- * @author Vincent Lhote (move to factory)
  */
 public final class RoomBoardFactory
 {

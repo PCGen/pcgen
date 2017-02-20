@@ -15,7 +15,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * $Id$
  */
  package plugin.encounter.gui;
 
@@ -45,8 +44,6 @@ import pcgen.system.LanguageBundle;
 /**
  * View part (in MVC model) of the encounter plugin, a JPanel.
  * 
- * @author Soulcatcher
- * @author Vincent Lhote
  */
 public class EncounterView extends JPanel
 {

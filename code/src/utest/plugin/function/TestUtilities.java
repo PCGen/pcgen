@@ -21,15 +21,20 @@ import java.io.StringReader;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
 
-import junit.framework.TestCase;
 import pcgen.base.formula.parse.FormulaParser;
 import pcgen.base.formula.parse.ParseException;
 import pcgen.base.formula.parse.SimpleNode;
 
-public class TestUtilities
+import static org.junit.Assert.*;
+
+public final class TestUtilities
 {
 
-	public static SimpleNode doParse(String formula)
+	private TestUtilities()
+	{
+	}
+
+	static SimpleNode doParse(String formula)
 	{
 		try
 		{
@@ -37,24 +42,18 @@ public class TestUtilities
 		}
 		catch (ParseException e)
 		{
-			TestCase
-				.fail("Encountered Unexpected Exception: " + e.getMessage());
+			fail("Encountered Unexpected Exception: " + e.getMessage());
 			return null;
 		}
 	}
 
-	public static final double SMALL_ERROR = Math.pow(10, -10);
+	private static final double SMALL_ERROR = Math.pow(10, -10);
 
-	public static boolean doubleEqual(double d1, double d2, double delta)
+	static boolean doubleEqual(double d1, double d2)
 	{
-		if (delta < 0)
-		{
-			throw new IllegalArgumentException(
-				"Delta for doubleEqual cannot be < 0: " + delta);
-		}
 		double diff = d1 - d2;
-		return ((diff >= 0) && (diff < delta))
-			|| ((diff < 0) && (diff > -delta));
+		return ((diff >= 0) && (diff < TestUtilities.SMALL_ERROR))
+			|| ((diff < 0) && (diff > -TestUtilities.SMALL_ERROR));
 	}
 
 
@@ -83,7 +82,7 @@ public class TestUtilities
 		{
 			instance = constructor.newInstance();
 		}
-		catch (InvocationTargetException ite)
+		catch (InvocationTargetException | InstantiationException ite)
 		{
 			System.err.println("Instance creation failed with [" + ite.getCause() + "]");
 		}
@@ -91,11 +90,7 @@ public class TestUtilities
 		{
 			System.err.println("Instance creation failed due to access violation.");
 		}
-		catch (InstantiationException ie)
-		{
-			System.err.println("Instance creation failed with [" + ie.getCause() + "]");
-		}
-		
+
 		return instance;
 	}
 }

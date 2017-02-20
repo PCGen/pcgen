@@ -30,7 +30,7 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<Race>
 {
 
 	static HandsToken token = new HandsToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -74,9 +74,4 @@ public class HandsTokenTest extends AbstractIntegerTokenTestCase<Race>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

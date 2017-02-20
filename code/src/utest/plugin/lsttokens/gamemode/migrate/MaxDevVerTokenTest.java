@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 01/06/2013
  *
- * $Id$
  */
 package plugin.lsttokens.gamemode.migrate;
 
@@ -33,7 +31,6 @@ import pcgen.core.system.MigrationRule.ObjectType;
 /**
  * MaxDevVerTokenTest checks the function of the MaxDevVerToken class.
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class MaxDevVerTokenTest
 {

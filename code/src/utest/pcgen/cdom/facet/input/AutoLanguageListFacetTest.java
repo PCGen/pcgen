@@ -19,7 +19,6 @@ package pcgen.cdom.facet.input;
 
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
-import pcgen.cdom.facet.input.AutoLanguageListFacet;
 import pcgen.cdom.testsupport.AbstractSourcedListFacetTest;
 import pcgen.core.Language;
 

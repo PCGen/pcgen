@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.lsttokens.pointbuy.method;
@@ -37,7 +36,6 @@ import pcgen.rules.persistence.token.ParseResult;
 /**
  * {@code BonusToken}
  * 
- * @author Devon Jones &lt;soulcatcher@evilsoft.org&gt;
  */
 public class BonusToken extends AbstractNonEmptyToken<PointBuyMethod> implements
 		CDOMPrimaryToken<PointBuyMethod>

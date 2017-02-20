@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 11, 2010, 2:01:06 PM
  */
 package pcgen.gui2.tabs.summary;
 
@@ -65,7 +64,6 @@ import pcgen.gui2.util.table.TableCellUtilities;
 /**
  * Model used for the Ability/statistics table.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class StatTableModel extends AbstractTableModel implements ReferenceListener<Number>
 {

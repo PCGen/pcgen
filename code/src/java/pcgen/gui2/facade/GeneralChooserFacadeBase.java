@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 06/01/2012 9:23:01 AM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -43,7 +41,6 @@ import pcgen.system.LanguageBundle;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 
 public abstract class GeneralChooserFacadeBase implements ChooserFacade

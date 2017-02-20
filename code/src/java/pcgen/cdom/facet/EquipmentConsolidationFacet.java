@@ -39,7 +39,6 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
  * 
  * @see pcgen.cdom.facet.CDOMObjectConsolidationFacet
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class EquipmentConsolidationFacet extends
 		AbstractSourcedListFacet<CharID, CDOMObject> implements

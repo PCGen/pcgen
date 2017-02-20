@@ -32,7 +32,6 @@ import pcgen.core.Skill;
  * GlobalSkillCostFacet is a Facet to track Skill costs as applied by direct
  * skill references in CSKILL and CCSKILL
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GlobalSkillCostFacet extends
 		AbstractScopeFacet<CharID, SkillCost, Skill> implements

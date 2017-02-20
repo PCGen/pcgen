@@ -30,7 +30,7 @@ public class RemovableTokenTest extends AbstractYesNoTokenTestCase<PCTemplate>
 {
 
 	static RemovableToken token = new RemovableToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -56,9 +56,4 @@ public class RemovableTokenTest extends AbstractYesNoTokenTestCase<PCTemplate>
 		return ObjectKey.REMOVABLE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

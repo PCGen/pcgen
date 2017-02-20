@@ -38,7 +38,7 @@ public class PCStatTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static PCStatToken subtoken = new PCStatToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -68,12 +68,6 @@ public class PCStatTokenTest extends
 	public Class<PCStat> getTargetClass()
 	{
 		return PCStat.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

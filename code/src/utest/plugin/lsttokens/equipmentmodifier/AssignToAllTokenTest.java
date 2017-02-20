@@ -31,7 +31,7 @@ public class AssignToAllTokenTest extends
 {
 
 	static AssigntoallToken token = new AssigntoallToken();
-	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<EquipmentModifier>();
+	static CDOMTokenLoader<EquipmentModifier> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<EquipmentModifier> getCDOMClass()
@@ -57,9 +57,4 @@ public class AssignToAllTokenTest extends
 		return ObjectKey.ASSIGN_TO_ALL;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

@@ -33,7 +33,7 @@ public class LangbonusTokenTest extends
 {
 
 	static LangbonusToken token = new LangbonusToken();
-	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<Race>();
+	static CDOMTokenLoader<Race> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -87,12 +87,6 @@ public class LangbonusTokenTest extends
 	public char getJoinCharacter()
 	{
 		return ',';
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

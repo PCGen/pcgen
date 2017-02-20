@@ -30,7 +30,7 @@ public class CastTimeTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static CasttimeToken token = new CasttimeToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -48,12 +48,6 @@ public class CastTimeTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	public CDOMPrimaryToken<Spell> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

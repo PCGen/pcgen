@@ -41,7 +41,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 
 	static DomainsToken token = new DomainsToken();
 	static CDOMTokenLoader<Spell> loader =
-			new CDOMTokenLoader<Spell>();
+			new CDOMTokenLoader<>();
 
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
@@ -256,7 +256,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinSimple() throws PersistenceLayerException
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		runRoundRobin("Fire=4");
@@ -274,7 +274,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinComma() throws PersistenceLayerException
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
@@ -285,7 +285,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinPipe() throws PersistenceLayerException
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");
@@ -296,7 +296,7 @@ public class DomainsTokenTest extends AbstractCDOMTokenTestCase<Spell>
 	@Test
 	public void testRoundRobinCommaPipe() throws PersistenceLayerException
 	{
-		assertTrue(primaryContext.getWriteMessageCount() == 0);
+		assertEquals(0, primaryContext.getWriteMessageCount());
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		secondaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Fire");
 		primaryContext.getReferenceContext().constructCDOMObject(DomainSpellList.class, "Good");

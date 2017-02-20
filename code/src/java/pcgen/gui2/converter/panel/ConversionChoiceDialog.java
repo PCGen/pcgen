@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 27/01/2009 10:56:36 PM
  *
- * $Id$
  */
 package pcgen.gui2.converter.panel;
 
@@ -48,7 +46,6 @@ import pcgen.util.Logging;
  * of some data items. 
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 @SuppressWarnings("serial")
 public class ConversionChoiceDialog extends JDialog implements

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision$
  */
 package pcgen.core.npcgen;
 
@@ -44,7 +43,6 @@ import pcgen.util.Logging;
 /**
  * Parse a equipment table (random treasure) data file.
  * 
- * @author boomer70 &lt;boomer70@yahoo.com&gt;
  * 
  */
 public class EquipmentTableParser
@@ -141,7 +139,6 @@ public class EquipmentTableParser
 	 * This is the parsing event handler class.  The methods in this class are
 	 * called by the SAX parser as it finds various elements in the XML file.
 	 * 
-	 * @author boomer70 &lt;boomer70@yahoo.com&gt;
 	 *
 	 */
 	class EquipmentTableHandler extends DefaultHandler

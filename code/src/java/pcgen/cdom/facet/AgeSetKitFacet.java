@@ -37,7 +37,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * AgeSetKitFacet stores
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 		DataFacetChangeListener<CharID, Integer>
@@ -177,7 +176,6 @@ public class AgeSetKitFacet extends AbstractStorageFacet<CharID> implements
 	 * AgeSetKitFacet. This class should not be exposed outside of
 	 * AgeSetKitFacet.
 	 * 
-	 * @author thpr (thpr [at] yahoo.com)
 	 */
 	private static class CacheInfo
 	{

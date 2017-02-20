@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on May 14, 2010, 2:06:44 PM
  */
 package pcgen.gui2.filter;
 
@@ -34,7 +33,6 @@ import pcgen.gui2.util.treeview.TreeViewModel;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FilteredTreeViewModel<C, E>
 		implements TreeViewModel<E>, ListListener<E>

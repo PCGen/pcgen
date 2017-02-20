@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Feb 10, 2008, 5:29:12 PM
  */
 package pcgen.gui2.util.treeview;
 
@@ -26,7 +25,6 @@ import org.apache.commons.lang3.StringUtils;
 
 /**
  *
- * @author Connor Petty &lt;mistercpp2000@gmail.com&gt;
  */
 public class TreeViewPath<E>
 {

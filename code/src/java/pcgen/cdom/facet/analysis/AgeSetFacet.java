@@ -37,7 +37,6 @@ import pcgen.output.publish.OutputDB;
 /**
  * AgeSetFacet stores the AgeSet for the Player Character.
  * 
- * @author Tom Parker (thpr [at] yahoo.com)
  */
 public class AgeSetFacet extends AbstractItemFacet<CharID, AgeSet> implements
 		DataFacetChangeListener<CharID, Object>, ItemFacet<CharID, AgeSet>

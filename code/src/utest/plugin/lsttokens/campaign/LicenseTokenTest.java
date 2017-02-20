@@ -36,7 +36,7 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static LicenseToken token = new LicenseToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -68,12 +68,6 @@ public class LicenseTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 		URI uri = new URI("http://www.sourceforge.net");
 		primaryContext.setSourceURI(uri);
 		secondaryContext.setSourceURI(uri);
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test

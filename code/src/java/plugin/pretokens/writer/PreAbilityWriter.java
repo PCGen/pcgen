@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18-Dec-2003
  *
- * Current Ver: $Revision: 1821 $
  *
  *
  *
@@ -39,7 +37,6 @@ import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
  * {@code PreAbilityWriter} outputs ability prereqs.
  *
  *
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class PreAbilityWriter extends AbstractPrerequisiteWriter implements
 		PrerequisiteWriterInterface

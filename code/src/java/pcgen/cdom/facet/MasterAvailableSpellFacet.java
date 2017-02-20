@@ -41,7 +41,6 @@ import pcgen.rules.context.LoadContext;
  * character class. Note this is a "global" facet in that it does not have
  * method that depend on CharID (they are not character specific).
  * 
- * @author Tom Parker &lt;thpr@users.sourceforge.net&gt;
  */
 public class MasterAvailableSpellFacet extends
 		AbstractListFacet<DataSetID, AvailableSpell> implements

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Apr 30, 2010, 3:26:19 PM
  */
 package pcgen.facade.util;
 
@@ -25,7 +24,6 @@ import pcgen.facade.util.event.ListListener;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class DelegatingListFacade<E> extends AbstractListFacade<E> implements ListListener<E>
 {

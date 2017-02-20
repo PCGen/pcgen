@@ -97,11 +97,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		{
 			TokenLibrary.addBonusClass(clazz);
 		}
-		catch (InstantiationException e)
-		{
-			e.printStackTrace();
-		}
-		catch (IllegalAccessException e)
+		catch (InstantiationException | IllegalAccessException e)
 		{
 			e.printStackTrace();
 		}
@@ -257,7 +253,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 		return getToken().getTokenName();
 	}
 
-	public void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
+	public static void isCDOMEqual(CDOMObject cdo1, CDOMObject cdo2)
 	{
 		assertTrue(cdo1.isCDOMEqual(cdo2));
 	}
@@ -288,7 +284,7 @@ public abstract class AbstractGlobalTokenTestCase extends TestCase
 
 	protected abstract ConsolidationRule getConsolidationRule();
 
-	protected void expectSingle(String[] unparsed, String expected)
+	protected static void expectSingle(String[] unparsed, String expected)
 	{
 		assertNotNull(unparsed);
 		assertEquals(1, unparsed.length);

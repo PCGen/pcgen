@@ -18,7 +18,6 @@
 package pcgen.base.formula;
 
 /**
- * @author Thomas Parker (thpr [at] yahoo.com)
  * 
  * Represents a Formula that can have arguments provided to drive resolution of
  * the formula.

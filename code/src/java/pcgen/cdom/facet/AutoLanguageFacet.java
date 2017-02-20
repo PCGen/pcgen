@@ -39,7 +39,6 @@ import pcgen.core.QualifiedObject;
  * AutoLanguageFacet is a Facet that tracks the Languages that have been granted
  * to a Player Character through the AUTO:LANG and LANGAUTO tokens
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AutoLanguageFacet extends
 		AbstractQualifiedListFacet<QualifiedObject<CDOMReference<Language>>>

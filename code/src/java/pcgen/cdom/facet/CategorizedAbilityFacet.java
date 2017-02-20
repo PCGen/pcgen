@@ -37,7 +37,6 @@ import pcgen.core.Ability;
  * A CategorizedAbilityFacet is a DataFacet that contains information about
  * Ability objects that are contained in a PlayerCharacter
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CategorizedAbilityFacet extends AbstractDataFacet<CharID, Ability>
 {

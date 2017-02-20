@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Mar 11, 2012, 4:22:39 PM
  */
 package pcgen.facade.util.event;
 
@@ -24,7 +23,6 @@ import java.util.EventObject;
 
 /**
  * This is simply a marker class for facade based events
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class FacadeEvent extends EventObject
 {

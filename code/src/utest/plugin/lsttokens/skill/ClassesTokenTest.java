@@ -38,7 +38,7 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 {
 
 	static ClassesToken token = new ClassesToken();
-	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<Skill>();
+	static CDOMTokenLoader<Skill> loader = new CDOMTokenLoader<>();
 
 	private static boolean classSetUpFired = false;
 
@@ -282,14 +282,6 @@ public class ClassesTokenTest extends AbstractCDOMTokenTestCase<Skill>
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[]{"Bard|Sorcerer|Wizard"};
-			}
-		};
+		return strings -> new String[]{"Bard|Sorcerer|Wizard"};
 	}
 }

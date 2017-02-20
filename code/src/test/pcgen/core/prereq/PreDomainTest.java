@@ -41,7 +41,6 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
  * working correctly.
  *
  *
- * @author Aaron Divinsky <boomer70@yahoo.com>
  */
 public class PreDomainTest extends AbstractCharacterTestCase
 {
@@ -138,7 +137,6 @@ public class PreDomainTest extends AbstractCharacterTestCase
 	/**
 	 * Test for any domain.
 	 * 
-	 * @author Koen Van Daele <vandaelek@users.sorceforge.net>
 	 * @throws Exception
 	 */
 	public void testAny() throws Exception

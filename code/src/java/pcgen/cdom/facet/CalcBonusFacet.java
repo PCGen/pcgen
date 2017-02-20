@@ -30,7 +30,6 @@ import pcgen.core.PlayerCharacter;
  * CalcBonusFacet is a Facet that triggers when an object is added in order to
  * trigger the global Bonus value recalculation.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class CalcBonusFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

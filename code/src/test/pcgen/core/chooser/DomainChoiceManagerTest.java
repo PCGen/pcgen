@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Oct 7, 2005
  *
  * $Author: nuance $
  * $Date: 2006-03-26 08:00:03 +0100 (Sun, 26 Mar 2006) $
@@ -42,7 +41,6 @@ import pcgen.rules.context.LoadContext;
  * {@code DomainChoiceManagerTest} test that the DomainChoiceManager class is
  * functioning correctly.
  * 
- * @author Andrew Wilson <nuance@sourceforge.net>
  */
 
 public class DomainChoiceManagerTest extends AbstractCharacterTestCase

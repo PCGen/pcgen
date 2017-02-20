@@ -30,7 +30,7 @@ public class CtTokenTest extends AbstractIntegerTokenTestCase<Spell>
 {
 
 	static CtToken token = new CtToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -74,9 +74,4 @@ public class CtTokenTest extends AbstractIntegerTokenTestCase<Spell>
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		//Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

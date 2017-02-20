@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 15/10/2011 4:20:41 PM
  *
- * $Id$
  */
 package pcgen.gui2.facade;
 
@@ -105,7 +103,6 @@ import pcgen.util.enumeration.View;
  *
  * <br>
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public class SpellSupportFacadeImpl implements SpellSupportFacade,
 		EquipmentListListener, ListListener<EquipmentFacade>
@@ -1435,7 +1432,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display and process a spell. It covers spells that are available, known, 
 	 * memorised etc.
 	 * 
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class SpellNodeImpl implements SpellNode
 	{
@@ -1644,7 +1640,6 @@ public class SpellSupportFacadeImpl implements SpellSupportFacade,
 	 * display an empty spell list. It is only used to ensure the spell list name 
 	 * is displayed.
 	 * 
-	 * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
 	 */
 	public class DummySpellNodeImpl implements SpellNode
 	{

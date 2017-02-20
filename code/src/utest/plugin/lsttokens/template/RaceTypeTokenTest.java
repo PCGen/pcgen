@@ -32,7 +32,7 @@ public class RaceTypeTokenTest extends
 {
 
 	static RacetypeToken token = new RacetypeToken();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCTemplate> getCDOMClass()
@@ -62,12 +62,6 @@ public class RaceTypeTokenTest extends
 	public ObjectKey<RaceType> getObjectKey()
 	{
 		return ObjectKey.RACETYPE;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

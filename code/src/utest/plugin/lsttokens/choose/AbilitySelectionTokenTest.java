@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 06/06/2013
  *
- * $Id$
  */
 package plugin.lsttokens.choose;
 
@@ -60,7 +58,7 @@ public class AbilitySelectionTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static AbilitySelectionToken subtoken = new AbilitySelectionToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Ability> getCDOMClass()
@@ -90,12 +88,6 @@ public class AbilitySelectionTokenTest extends
 	public Class<Ability> getTargetClass()
 	{
 		return Ability.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class KnownSpellsFromSpecialtyTokenTest extends
 {
 
 	static KnownspellsfromspecialtyToken token = new KnownspellsfromspecialtyToken();
-	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<PCClass>();
+	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<PCClass> getCDOMClass()
@@ -75,9 +75,4 @@ public class KnownSpellsFromSpecialtyTokenTest extends
 		return true;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

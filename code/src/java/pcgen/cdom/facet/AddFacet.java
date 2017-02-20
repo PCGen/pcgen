@@ -32,7 +32,6 @@ import pcgen.core.PlayerCharacter;
 /**
  * AddFacet is a Facet that triggers when an object has an ADD token
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class AddFacet implements DataFacetChangeListener<CharID, CDOMObject>
 {

@@ -29,8 +29,6 @@ import javax.swing.tree.TreeModel;
  * the TreeTableModel can return a value for each of the columns and
  * set that value if isCellEditable() returns true.
  *
- * @author Philip Milne
- * @author Scott Violet
  */
 public interface TreeTableModel extends TreeModel
 {

@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 8, 2011, 5:17:22 PM
  */
 package pcgen.gui2.tabs.bio;
 
@@ -33,7 +32,6 @@ import javax.swing.JComponent;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 class PortraitPane extends JComponent
 {

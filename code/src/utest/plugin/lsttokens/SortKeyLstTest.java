@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 18/07/2010 8:37:13 AM
  *
- * $Id$
  */
 package plugin.lsttokens;
 
@@ -31,18 +29,17 @@ import plugin.lsttokens.testsupport.AbstractGlobalStringTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
 /**
- * The Class <code>SortKeyLstTest</code> is a round robin test for the SORTKEY tag. 
+ * The Class {@code SortKeyLstTest} is a round robin test for the SORTKEY tag.
  * It checks that the parse and unparse are working correctly and that a parsed 
  * result can be unparsed back to the original input.  
  *
  * <br/>
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class SortKeyLstTest extends AbstractGlobalStringTokenTestCase
 {
 	static CDOMPrimaryToken<CDOMObject> token = new SortKeyLst();
-	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<PCTemplate>();
+	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public CDOMLoader<PCTemplate> getLoader()

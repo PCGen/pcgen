@@ -30,7 +30,7 @@ public class SubschoolTokenTest extends AbstractTypeSafeListTestCase<Spell, Stri
 {
 
 	static SubschoolToken token = new SubschoolToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -66,12 +66,6 @@ public class SubschoolTokenTest extends AbstractTypeSafeListTestCase<Spell, Stri
 	public ListKey<String> getListKey()
 	{
 		return ListKey.SPELL_SUBSCHOOL;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

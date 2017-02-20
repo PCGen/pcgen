@@ -17,9 +17,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on February 24, 2003, 10:29 AM
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.persistence.lst;
@@ -31,7 +29,6 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 
 /**
- * @author Stefan Radermacher &lt;zaister@users.sourceforge.net&gt;
  **/
 public class LoadInfoLoader extends SimpleLoader<LoadInfo>
 {

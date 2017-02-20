@@ -17,24 +17,36 @@
  */
 package plugin.dicebag.gui;
 
-import javax.swing.*;
-import javax.swing.border.EmptyBorder;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
-import javax.swing.table.AbstractTableModel;
-import java.awt.*;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Observable;
 import java.util.Observer;
+
+import javax.swing.Box;
+import javax.swing.BoxLayout;
+import javax.swing.JButton;
+import javax.swing.JInternalFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextField;
+import javax.swing.border.EmptyBorder;
+import javax.swing.event.DocumentEvent;
+import javax.swing.event.DocumentListener;
+import javax.swing.table.AbstractTableModel;
+
+import pcgen.core.RollingMethods;
 import pcgen.gui2.tools.Icons;
 
 /**
  * <p>The internal frame view class for the DiceBag.</p>
  *
- * @author Ross M. Lodge
  */
 public class DiceBagView extends JInternalFrame implements Observer
 {
@@ -485,7 +497,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	/**
 	 * <p>An action listener for the buttons in the GUI.</p>
 	 *
-	 * @author Ross M. Lodge
 	 */
 	private class BagListener implements ActionListener
 	{
@@ -499,8 +510,8 @@ public class DiceBagView extends JInternalFrame implements Observer
 
 			if ("ROLL".equals(command))
 			{
-				setRollResult(m_exprField.getText(), m_bag.rollDie(m_exprField
-					.getText()));
+				setRollResult(m_exprField.getText(),
+						RollingMethods.roll(m_exprField.getText()));
 			}
 			else if ("EDIT".equals(command))
 			{
@@ -545,7 +556,6 @@ public class DiceBagView extends JInternalFrame implements Observer
 	 * Basically this overrides enough of {@code AbstracTableModel}
 	 * to make the code useful.</p>
 	 *
-	 * @author Ross M. Lodge
 	 *
 	 */
 	private class BagTableModel extends AbstractTableModel

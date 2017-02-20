@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on May 24, 2003
  */
 package gmgen.util;
 
@@ -26,7 +25,6 @@ package gmgen.util;
  * It is used by the LogUtilities class to allow log messages to be sent to any
  * number of logging destinations.
  *
- * @author Tod Milam
  */
 public interface LogReceiver
 {

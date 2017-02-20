@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on November 28, 2003
  *
- * Current Ver: $Revision$
  *
  */
 package plugin.pretokens.parser;
@@ -99,11 +97,11 @@ public class PreAlignParser extends AbstractPrerequisiteParser implements
 				prereq.setOperator(PrerequisiteOperator.GTEQ);
 				prereq.setOperand("1");
 
-				for (int i = 0; i < alignments.length; i++)
+				for (String alignment : alignments)
 				{
 					Prerequisite subreq = new Prerequisite();
 					subreq.setKind("align");
-					subreq.setKey(alignments[i]);
+					subreq.setKey(alignment);
 					subreq.setOperator(PrerequisiteOperator.EQ);
 					prereq.addPrerequisite(subreq);
 				}

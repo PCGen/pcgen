@@ -38,7 +38,7 @@ public class EquipmentTokenTest extends
 
 	static ChooseLst token = new ChooseLst();
 	static EquipmentToken subtoken = new EquipmentToken();
-	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<CDOMObject>();
+	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Race> getCDOMClass()
@@ -68,12 +68,6 @@ public class EquipmentTokenTest extends
 	public Class<Equipment> getTargetClass()
 	{
 		return Equipment.class;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

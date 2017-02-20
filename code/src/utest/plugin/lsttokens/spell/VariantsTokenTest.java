@@ -30,7 +30,7 @@ public class VariantsTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 {
 
 	static VariantsToken token = new VariantsToken();
-	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<Spell>();
+	static CDOMTokenLoader<Spell> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Spell> getCDOMClass()
@@ -66,12 +66,6 @@ public class VariantsTokenTest extends AbstractTypeSafeListTestCase<Spell, Strin
 	public ListKey<String> getListKey()
 	{
 		return ListKey.VARIANTS;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

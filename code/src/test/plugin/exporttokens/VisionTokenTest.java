@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 8 March, 2009
  *
- * $Id$
  *
  */
 package plugin.exporttokens;
@@ -46,7 +44,6 @@ import pcgen.rules.context.LoadContext;
  * <code>VisionTokenTest</code> tests the function of the VISION token.  
  *
  *
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class VisionTokenTest extends AbstractCharacterTestCase
 {

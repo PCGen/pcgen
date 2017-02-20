@@ -31,7 +31,7 @@ public class IsDefaultSizeTokenTest extends
 {
 
 	static IsdefaultsizeToken token = new IsdefaultsizeToken();
-	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<SizeAdjustment>();
+	static CDOMTokenLoader<SizeAdjustment> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<SizeAdjustment> getCDOMClass()
@@ -57,9 +57,4 @@ public class IsDefaultSizeTokenTest extends
 		return ObjectKey.IS_DEFAULT_SIZE;
 	}
 
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
 }

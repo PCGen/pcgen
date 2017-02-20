@@ -40,7 +40,6 @@ import pcgen.util.enumeration.View;
  * A GrantedAbilityFacet is a DataFacet that contains information about Ability
  * objects that are contained in a Player Character,
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class GrantedAbilityFacet extends AbstractCNASEnforcingFacet implements
 		SetFacet<CharID, CNAbilitySelection>

@@ -30,7 +30,6 @@ import org.jdom2.Element;
  * translations. If PCGen UI language can only be changed after a restart, the
  * other language information is not stored to reduce memory usage.
  * 
- * @author Vincent Lhote
  * 
  */
 // TODO move to pcgen.?.util or gmgen.?.util

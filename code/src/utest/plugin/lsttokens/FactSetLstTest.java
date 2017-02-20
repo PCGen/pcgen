@@ -40,7 +40,7 @@ import plugin.lsttokens.testsupport.TokenRegistration;
 public class FactSetLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactSetLst token = new FactSetLst();
-	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<Domain>();
+	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public void setUp() throws PersistenceLayerException, URISyntaxException
@@ -179,14 +179,6 @@ public class FactSetLstTest extends AbstractGlobalTokenTestCase
 	@Override
 	protected ConsolidationRule getConsolidationRule()
 	{
-		return new ConsolidationRule()
-		{
-
-            @Override
-			public String[] getAnswer(String... strings)
-			{
-				return new String[] { "Possibility|TestWP1|TestWP2" };
-			}
-		};
+		return strings -> new String[] { "Possibility|TestWP1|TestWP2" };
 	}
 }

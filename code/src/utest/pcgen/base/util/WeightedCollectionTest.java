@@ -24,10 +24,18 @@ import java.util.Comparator;
 import java.util.Iterator;
 import java.util.NoSuchElementException;
 import java.util.TreeSet;
-import static org.junit.Assert.*;
+
+import pcgen.base.lang.StringUtil;
+
 import org.junit.Before;
 import org.junit.Test;
-import pcgen.base.lang.StringUtil;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public class WeightedCollectionTest
 {
@@ -60,9 +68,7 @@ public class WeightedCollectionTest
 		try {
             new WeightedCollection<>((Collection<Integer>) null);
 			fail();
-		} catch (NullPointerException npe) {
-			// OK
-		} catch (IllegalArgumentException iae) {
+		} catch (NullPointerException | IllegalArgumentException npe) {
 			// OK
 		}
 	}
@@ -226,7 +232,7 @@ public class WeightedCollectionTest
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		assertTrue(wc2.add(2));
-		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 		wc2.add(null);
@@ -236,7 +242,7 @@ public class WeightedCollectionTest
 		assertFalse(wc.equals(wc2));
 		assertFalse(wc2.equals(wc));
 		wc2.add(null);
-		assertEquals(wc, wc2);
+		assertEquals(wc2, wc);
 		assertEquals(wc2, wc);
 		assertEquals(wc.hashCode(), wc2.hashCode());
 	}
@@ -426,9 +432,7 @@ public class WeightedCollectionTest
 		try {
 			it.remove();
 			fail();
-		} catch (IllegalStateException e) {
-			// OK
-		} catch (UnsupportedOperationException e) {
+		} catch (IllegalStateException | UnsupportedOperationException e) {
 			// OK
 		}
 	}

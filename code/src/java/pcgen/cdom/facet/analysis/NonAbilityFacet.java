@@ -24,7 +24,6 @@ import pcgen.core.PCStat;
  * NonAbilityFacet is a Facet that tracks the Non-Abilities (PCStat objects)
  * that have been set on a Player Character.
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class NonAbilityFacet
 {

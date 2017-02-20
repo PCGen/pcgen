@@ -39,7 +39,6 @@ import pcgen.core.bonus.BonusPair;
  * on the actual bonus values themselves (meaning the aggregate results of
  * calculations).
  * 
- * @author Thomas Parker (thpr [at] yahoo.com)
  */
 public class BonusCheckingFacet
 {

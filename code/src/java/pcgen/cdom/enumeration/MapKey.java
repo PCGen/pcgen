@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on 11/09/2008 19:28:45
  *
- * $Id: $
  */
 package pcgen.cdom.enumeration;
 
@@ -45,7 +43,6 @@ import pcgen.util.enumeration.AttackType;
  * the type of object stored by the ListKey. (This assists with Generics)
  * 
  * 
- * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */
 public final class MapKey<K, V>
 {

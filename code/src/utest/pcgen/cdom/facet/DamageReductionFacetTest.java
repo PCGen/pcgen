@@ -17,7 +17,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Current Ver: $Revision: $
  *
  *
  *
@@ -89,7 +88,7 @@ public class DamageReductionFacetTest extends
 		Map<DamageReduction, Set<Object>> drList =
                 new IdentityHashMap<>();
 		String listResult = drFacet.getDRString(id, drList);
-		assertEquals(listResult, "");
+		assertEquals("", listResult);
 		Set<Object> sourceSet = new HashSet<>();
 		sourceSet.add(new Object());
 

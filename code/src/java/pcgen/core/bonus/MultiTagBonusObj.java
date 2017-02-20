@@ -16,9 +16,7 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  *
- * Created on Mar 29, 2003, 00:00
  *
- * Current Ver: $Revision$
  *
  */
 package pcgen.core.bonus;
@@ -30,8 +28,6 @@ import pcgen.rules.context.LoadContext;
 /**
  * {@code MultiTagBonusObj}
  *
- * @author  Greg Bingleman &lt;byngl@hotmail.com&gt;
- * @author  Jonas Karlsson &lt;jujutsunerd@sf.net&gt;
  */
 public abstract class MultiTagBonusObj extends BonusObj
 {

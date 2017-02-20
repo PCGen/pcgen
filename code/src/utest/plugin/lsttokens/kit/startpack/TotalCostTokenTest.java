@@ -42,7 +42,6 @@ import plugin.pretokens.writer.PreRaceWriter;
  * Test class for TotalCostToken. Check ths parsing of the TOTALCOST token. 
  * 
  * 
- * @author James Dempsey <jdempsey@users.sourceforge.net>
  */
 public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 {
@@ -64,7 +63,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	}
 
 	static TotalCostToken token = new TotalCostToken();
-	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<Kit>();
+	static CDOMTokenLoader<Kit> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Kit> getCDOMClass()

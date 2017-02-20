@@ -31,7 +31,7 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 {
 
 	static TypeToken token = new TypeToken();
-	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<Campaign>();
+	static CDOMTokenLoader<Campaign> loader = new CDOMTokenLoader<>();
 
 	@Override
 	public Class<Campaign> getCDOMClass()
@@ -49,12 +49,6 @@ public class TypeTokenTest extends AbstractCDOMTokenTestCase<Campaign>
 	public CDOMPrimaryToken<Campaign> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Test
