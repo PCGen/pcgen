@@ -27,9 +27,9 @@ package pcgen.core.term;
 public class TermEvaluatorBuilderPCStat implements TermEvaluatorBuilder
 {
 
-	private String   termConstructorPattern;
-	private String[] termConstructorKeys;
-	private boolean  patternMatchesEntireTerm;
+	private final String   termConstructorPattern;
+	private final String[] termConstructorKeys;
+	private final boolean  patternMatchesEntireTerm;
 
 	TermEvaluatorBuilderPCStat(
 			String pattern,

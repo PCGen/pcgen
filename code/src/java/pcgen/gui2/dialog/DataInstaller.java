@@ -406,7 +406,7 @@ public class DataInstaller extends JFrame
 	private JButton closeButton;
 	
 	/** The listener. */
-	private ActionListener listener = new InstallerButtonListener();
+	private final ActionListener listener = new InstallerButtonListener();
 	
 	/** The campaign. */
 	private InstallableCampaign campaign;

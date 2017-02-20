@@ -44,7 +44,7 @@ public class GameModePanel extends ConvertSubPanel
 
 	JComboBoxEx gameModeCombo;
 
-	private SpringLayout layout = new SpringLayout();
+	private final SpringLayout layout = new SpringLayout();
 
 	private final CampaignFileLoader campaignFileLoader;
 

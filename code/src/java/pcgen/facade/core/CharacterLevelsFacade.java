@@ -165,8 +165,8 @@ public interface CharacterLevelsFacade extends ListFacade<CharacterLevelFacade>
 	public static class CharacterLevelEvent extends EventObject
 	{
 
-		private int baseLevel;
-		private boolean stacks;
+		private final int baseLevel;
+		private final boolean stacks;
 
 		public CharacterLevelEvent(Object source, int baseLevel, boolean stacks)
 		{

@@ -51,8 +51,8 @@ public class DIWarningDialog extends JDialog implements
 	ActionListener
 {
 	
-	private String fileText;
-	private String introText;
+	private final String fileText;
+	private final String introText;
 	
 	/** The result selected by the user. */
 	private int result = JOptionPane.CANCEL_OPTION;

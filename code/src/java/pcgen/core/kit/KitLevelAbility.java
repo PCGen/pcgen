@@ -39,7 +39,7 @@ public final class KitLevelAbility extends BaseKit
 {
 	private CDOMSingleRef<PCClass> theClassName;
 	private int theLevel;
-	private List<String> choiceList = new ArrayList<>();
+	private final List<String> choiceList = new ArrayList<>();
 	private PersistentTransitionChoice<?> add;
 
 	/**

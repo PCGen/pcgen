@@ -44,17 +44,17 @@ public class LoadInfo implements Loadable
 	private URI sourceURI;
 	private String loadInfoName;
 
-	private Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
-	private Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
+	private final Map<CDOMSingleRef<SizeAdjustment>, BigDecimal> rawSizeMultiplierMap = new HashMap<>();
+	private final Map<SizeAdjustment, BigDecimal> sizeMultiplierMap = new HashMap<>();
 
-	private SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
+	private final SortedMap<Integer, BigDecimal> strengthLoadMap = new TreeMap<>();
 	private int minStrenghScoreWithLoad = 0;
 	private int maxStrengthScoreWithLoad = 0;
 
 	private BigDecimal loadScoreMultiplier = BigDecimal.ZERO;
 	private int loadMultStep = 10;
 
-	private Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
+	private final Map<String, LoadInfo.LoadMapEntry> loadMultiplierMap = new HashMap<>();
 	private String modifyFormula;
 
     @Override
@@ -266,9 +266,9 @@ public class LoadInfo implements Loadable
 
 	private static class LoadMapEntry
 	{
-		private Float multiplier;
-		private String moveFormula;
-		private Integer checkPenalty;
+		private final Float multiplier;
+		private final String moveFormula;
+		private final Integer checkPenalty;
 
 		/**
 		 * Constructor

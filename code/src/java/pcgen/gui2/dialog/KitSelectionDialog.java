@@ -49,9 +49,9 @@ import pcgen.system.LanguageBundle;
 public class KitSelectionDialog extends JDialog
 		implements ActionListener
 {
-	private KitPanel kitPanel;
-	private JPanel buttonPanel;
-	private JButton closeButton;
+	private final KitPanel kitPanel;
+	private final JPanel buttonPanel;
+	private final JButton closeButton;
 
 	/**
 	 * Create a new instance of KitSelectionDialog

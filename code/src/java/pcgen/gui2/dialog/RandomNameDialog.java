@@ -49,7 +49,7 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class RandomNameDialog extends JDialog
 {
-	private NameGenPanel nameGenPanel;
+	private final NameGenPanel nameGenPanel;
 	private boolean cancelled;
 
 	/**

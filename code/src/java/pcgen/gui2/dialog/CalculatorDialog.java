@@ -75,8 +75,8 @@ public class CalculatorDialog extends JDialog
 	{
 		private final JButton calcButton;
 		private final JButton clearButton;
-		private JTextField formulaText;
-		private JTextArea outputText;
+		private final JTextField formulaText;
+		private final JTextArea outputText;
 		
 		public ButtonPanel(JTextField formulaText, JTextArea outputText)
 		{

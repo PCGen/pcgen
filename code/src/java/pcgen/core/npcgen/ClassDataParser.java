@@ -66,8 +66,8 @@ import pcgen.util.enumeration.Visibility;
  */
 public class ClassDataParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
 	/**
 	 * Creates a new <tt>ClassDataParser</tt> for the specified game mode.
@@ -123,7 +123,7 @@ public class ClassDataParser
  */
 class ClassDataHandler extends DefaultHandler
 {
-	private List<ClassData> theList;
+	private final List<ClassData> theList;
 	
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;

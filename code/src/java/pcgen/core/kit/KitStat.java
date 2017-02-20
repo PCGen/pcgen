@@ -43,7 +43,7 @@ import pcgen.core.pclevelinfo.PCLevelInfo;
  */
 public class KitStat extends BaseKit
 {
-	private Map<CDOMSingleRef<PCStat>, Formula> statMap =
+	private final Map<CDOMSingleRef<PCStat>, Formula> statMap =
             new HashMap<>();
 
 	@Override

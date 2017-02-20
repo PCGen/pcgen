@@ -48,19 +48,19 @@ import pcgen.system.ConfigurationSettings;
  */
 public class Configuration
 {
-	private static List<Configuration> theConfigurations = new ArrayList<>();
-	private static Configuration theDefaultConfiguration = new Configuration();
+	private static final List<Configuration> theConfigurations = new ArrayList<>();
+	private static final Configuration theDefaultConfiguration = new Configuration();
 	
 	private GameMode theMode = null;
 	
-	private List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
-	private Map<String, ClassData> theClassData = new HashMap<>();
+	private final List<GeneratorOption> theGeneratorOptions = new ArrayList<>();
+	private final Map<String, ClassData> theClassData = new HashMap<>();
 	
-	private static File optionsDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File optionsDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "options"); //$NON-NLS-1$
 	
-	private static File classDataDir = new File(ConfigurationSettings.getSystemsDir()
+	private static final File classDataDir = new File(ConfigurationSettings.getSystemsDir()
 		+ File.separator + "npcgen"  //$NON-NLS-1$ 
 		+ File.separator + "classdata"); //$NON-NLS-1$
 	

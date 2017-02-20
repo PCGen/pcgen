@@ -180,9 +180,9 @@ public final class CharacterTabs extends SharedTabPane
 
 		private JLabel titleLabel;
 		private JButton closeButton;
-		private CharacterFacade character;
-		private ReferenceFacade<String> tabNameRef;
-		private ReferenceFacade<String> nameRef;
+		private final CharacterFacade character;
+		private final ReferenceFacade<String> tabNameRef;
+		private final ReferenceFacade<String> nameRef;
 
 		public TabLabel(CharacterFacade character)
 		{

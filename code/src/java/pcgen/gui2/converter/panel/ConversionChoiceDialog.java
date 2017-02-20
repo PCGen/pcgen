@@ -52,14 +52,14 @@ public class ConversionChoiceDialog extends JDialog implements
 	ActionListener
 {
 	
-	private List<String> choices;
-	private String introText;
+	private final List<String> choices;
+	private final String introText;
 	
 	/** The result selected by the user. */
 	private int result = -1;
 
 	private JComboBox choiceCombo;
-	private int defaultChoice;
+	private final int defaultChoice;
 	
 	/**
 	 * Instantiates a new decision dialog for the data converter.

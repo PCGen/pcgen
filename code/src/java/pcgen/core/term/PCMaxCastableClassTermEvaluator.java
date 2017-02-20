@@ -36,7 +36,7 @@ public class PCMaxCastableClassTermEvaluator
 		extends BasePCTermEvaluator implements TermEvaluator
 {
 
-	private ClassSpellList spellList;
+	private final ClassSpellList spellList;
 
 	public PCMaxCastableClassTermEvaluator(String originalText, String classKey)
 	{

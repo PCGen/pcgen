@@ -73,7 +73,7 @@ public final class PostLevelUpDialog extends JDialog implements ActionListener
 	private final CharacterLevelsFacade levels;
 	private final LevelTableModel tableModel;
 	private final int oldLevel;
-	private int numLevels;
+	private final int numLevels;
 
 	private PostLevelUpDialog(Frame frame, CharacterFacade character, int oldLevel)
 	{

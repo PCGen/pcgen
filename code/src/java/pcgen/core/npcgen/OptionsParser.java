@@ -42,8 +42,8 @@ import pcgen.core.SystemCollections;
  */
 public class OptionsParser
 {
-	private SAXParser theParser;
-	private GameMode theMode;
+	private final SAXParser theParser;
+	private final GameMode theMode;
 	
 	/**
 	 * Creates a new OptionsParser for the specified game mode.
@@ -88,7 +88,7 @@ public class OptionsParser
 
 class OptionHandler extends DefaultHandler
 {
-	private List<GeneratorOption> theList;
+	private final List<GeneratorOption> theList;
 	
 	private GameMode theGameMode = null;
 	private boolean theValidFlag = false;

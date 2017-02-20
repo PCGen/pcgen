@@ -34,7 +34,7 @@ public class TokenProcessEvent extends EventObject
 	private final String value;
 	private final String objectName;
 	private final CDOMObject obj;
-	private StringBuilder result = new StringBuilder();
+	private final StringBuilder result = new StringBuilder();
 	private boolean consumed = false;
 	private List<CDOMObject> injected;
 	private final ConversionDecider decider;

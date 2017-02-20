@@ -38,7 +38,7 @@ import pcgen.util.chooser.ChooserFactory;
  */
 public class KitTemplate extends BaseKit
 {
-	private HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
+	private final HashMapToList<CDOMSingleRef<PCTemplate>, CDOMSingleRef<PCTemplate>> templateList =
             new HashMapToList<>();
 
 	/**
