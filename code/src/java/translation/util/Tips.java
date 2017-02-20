@@ -25,7 +25,6 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.text.Format;
 import java.text.MessageFormat;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -42,6 +41,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * The duplicates from the tips files should appear only once in the PO Template files.
  * 
  * This class tries to be independent of code, but still needs Apache Commons Lang.
+ * 
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
 public class Tips
@@ -59,11 +59,7 @@ public class Tips
 	/** true to add a message to tips that are not translated, false to copy them as is so they won't appear */
 	private static final boolean MARK_UNTRANSLATED = true;
 
-	private Tips()
-	{
-	}
-
-	private static void generatePOT(File rootDirectory, String potFilename)
+	public static void generatePOT(File rootDirectory, String potFilename)
 	{
 		generatePOT(rootDirectory, potFilename, DEFAULT_TIPS_FILENAME);
 	}
@@ -73,9 +69,7 @@ public class Tips
 	 * @param rootDirectory root of the directories to parse
 	 * @param filename the name of the filename to parse
 	 */
-	private static void generatePOT(File rootDirectory,
-	                                String potFilename,
-	                                String filename)
+	public static void generatePOT(File rootDirectory, String potFilename, String filename)
 	{
 		Set<String> tips = new HashSet<>();
 		// search for each filename in the sub directory of rootDirectory
@@ -83,36 +77,29 @@ public class Tips
 		{
 			FilenameFilter filter = new SpecificFilenameFilter(filename);
 			File[] subfiles = rootDirectory.listFiles();
-			for (File subfile : subfiles)
+			for (int i = 0; i < subfiles.length; i++)
 			{
-				if (subfile.isDirectory())
+				if (subfiles[i].isDirectory())
 				{
-					File[] tipsFiles = subfile.listFiles(filter);
-					for (File tipsFile : tipsFiles)
+					File[] tipsFiles = subfiles[i].listFiles(filter);
+					for (int j = 0; j < tipsFiles.length; j++)
 					{
-						log("Found {0}", tipsFile);
-						// for each non comment line of the file, put its content in a
-						// Set<String>
+						log("Found {0}", tipsFiles[j]);
+						// for each non comment line of the file, put its content in a Set<String>
 						try
 						{
-							BufferedReader reader =
-									new BufferedReader(new FileReader(tipsFile));
+							BufferedReader reader = new BufferedReader(new FileReader(tipsFiles[j]));
 							addTips(tips, reader);
 							reader.close();
-						} catch (FileNotFoundException e)
+						}
+						catch (FileNotFoundException e)
 						{
-							logError(
-									"Warning: file found then not found {0}, ignoring "
-											+ "this file",
-									tipsFile
-							);
+							logError("Warning: file found then not found {0}, ignoring this file", tipsFiles[j]);
 							e.printStackTrace();
-						} catch (IOException e)
+						}
+						catch (IOException e)
 						{
-							logError(
-									"Warning: IO error reading {0}, ignoring this file",
-									tipsFile
-							);
+							logError("Warning: IO error reading {0}, ignoring this file", tipsFiles[j]);
 							e.printStackTrace();
 						}
 
@@ -182,7 +169,7 @@ public class Tips
 			+ "\"Content-Transfer-Encoding: 8bit\\n\"\n\n");
 
 		// filecontent
-		Format msgid = new MessageFormat("msgid \"{0}\""); //$NON-NLS-1$
+		MessageFormat msgid = new MessageFormat("msgid \"{0}\""); //$NON-NLS-1$
 		String msgstr = "msgstr \"\""; //$NON-NLS-1$
 		for (String tip : tips)
 		{
@@ -193,11 +180,12 @@ public class Tips
 		}
 	}
 
-	private static void addTips(Set<String> tips, BufferedReader reader)
+	protected static void addTips(Set<String> tips, BufferedReader reader)
 	{
+		String line;
 		try
 		{
-			String line = reader.readLine();
+			line = reader.readLine();
 			while (line != null)
 			{
 				if (isTip(line))
@@ -212,12 +200,12 @@ public class Tips
 		}
 	}
 
-	static boolean isTip(String line)
+	protected static boolean isTip(String line)
 	{
 		return line != null && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
 	}
 
-	static void addTip(Set<String> tips, String tip)
+	protected static void addTip(Set<String> tips, String tip)
 	{
 		tips.add(tip);
 	}
@@ -233,7 +221,7 @@ public class Tips
 		/**
 		 * @param filename
 		 */
-		SpecificFilenameFilter(String filename)
+		public SpecificFilenameFilter(String filename)
 		{
 			this.filename = filename;
 		}
@@ -246,9 +234,7 @@ public class Tips
 
 	}
 
-	private static void generateTips(File rootDirectory,
-	                                 File translation,
-	                                 String translationName)
+	public static void generateTips(File rootDirectory, File translation, String translationName)
 	{
 		generateTips(rootDirectory, translation, translationName, DEFAULT_TIPS_FILENAME);
 	}
@@ -260,10 +246,7 @@ public class Tips
 	 * @param translationName name for new translation filename (like tips_fr.txt)
 	 * @param originalName original filename (like tips.txt)
 	 */
-	private static void generateTips(File rootDirectory,
-	                                 File translation,
-	                                 String translationName,
-	                                 String originalName)
+	public static void generateTips(File rootDirectory, File translation, String translationName, String originalName)
 	{
 		int statUntranslated = 0, statTranslated = 0;
 		// load stuff from the PO catalog file
@@ -333,20 +316,20 @@ public class Tips
 		{
 			FilenameFilter filter = new SpecificFilenameFilter(originalName);
 			File[] subfiles = rootDirectory.listFiles();
-			for (File subfile : subfiles)
+			for (int i = 0; i < subfiles.length; i++)
 			{
-				if (subfile.isDirectory())
+				if (subfiles[i].isDirectory())
 				{
-					File[] tipsFiles = subfile.listFiles(filter);
-					for (File tipsFile : tipsFiles)
+					File[] tipsFiles = subfiles[i].listFiles(filter);
+					for (int j = 0; j < tipsFiles.length; j++)
 					{
-						File newFile = new File(subfile, translationName);
-						log("Found {0}, creating {1}", tipsFile, newFile);
+						File newFile = new File(subfiles[i], translationName);
+						log("Found {0}, creating {1}", tipsFiles[j], newFile);
 						BufferedWriter bw = null;
 						BufferedReader reader = null;
 						try
 						{
-							reader = new BufferedReader(new FileReader(tipsFile));
+							reader = new BufferedReader(new FileReader(tipsFiles[j]));
 							bw = new BufferedWriter(new FileWriter(newFile));
 							String readLine = reader.readLine();
 							while (readLine != null)
@@ -356,47 +339,38 @@ public class Tips
 									String translatedLine = tipsTranslated.get(readLine);
 									if (translatedLine == null)
 									{
-										log(
-												"null translated line in {1}, original "
-														+ "{0}",
-												readLine,
-												translation
-										);
+										log("null translated line in {1}, original {0}", readLine, translation);
 										translatedLine = readLine;
 									}
-									else if (translatedLine.isEmpty()
-											&& MARK_UNTRANSLATED)
+									else if (translatedLine.isEmpty() && MARK_UNTRANSLATED)
 									{
-										translatedLine = "<em>Not yet "
-												+ "translated</em><br>"
-												+ readLine;
+										translatedLine = "<em>Not yet translated</em><br>" + readLine;
 									}
 									bw.write(translatedLine);
 								}
-								else
-								{
-									bw.write(readLine);
-								}
+								else bw.write(readLine);
 								bw.write("\n");
 								readLine = reader.readLine();
 							}
-						} catch (FileNotFoundException e)
+						}
+						catch (FileNotFoundException e)
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						} catch (IOException e)
+						}
+						catch (IOException e)
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						} finally
+						}
+						finally
 						{
 							try
 							{
 								if (reader != null)
-								{
 									reader.close();
-								}
-							} catch (IOException e)
+							}
+							catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -404,10 +378,9 @@ public class Tips
 							try
 							{
 								if (bw != null)
-								{
 									bw.close();
-								}
-							} catch (IOException e)
+							}
+							catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -431,7 +404,7 @@ public class Tips
 	 * @return non escaped string
 	 */
 	@SuppressWarnings("nls")
-	static String removeEscaped(String string)
+	protected static String removeEscaped(String string)
 	{
 		return string.replaceAll("\\\\\'", "'").replaceAll("\\\\\"", "\"").replaceAll("\\\\\\\\", "\\\\");
 	}
@@ -441,7 +414,7 @@ public class Tips
 	 * @return
 	 */
 	@SuppressWarnings("nls")
-	static String escape(String string)
+	protected static String escape(String string)
 	{
 		return string.replaceAll("\\\\", "\\\\\\\\").replaceAll("\'", "\\\\\'").replaceAll("\"", "\\\\\"");
 	}
