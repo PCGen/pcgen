@@ -218,7 +218,7 @@ public final class Tips
 		return (line != null) && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
 	}
 
-	protected static void addTip(Set<String> tips, String tip)
+	static void addTip(Set<String> tips, String tip)
 	{
 		tips.add(tip);
 	}
@@ -330,7 +330,8 @@ public final class Tips
 				try
 				{
 					translationReader.close();
-				} catch (IOException e)
+				}
+				catch (IOException e)
 				{
 					// TODO Auto-generated catch block
 					e.printStackTrace();

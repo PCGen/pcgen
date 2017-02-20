@@ -60,6 +60,7 @@
     <exclude name="LooseCoupling" />
   </rule>
   <rule ref="rulesets/java/design.xml">
+    <exclude name="AccessorMethodGeneration" />
     <exclude name="SwitchStmtsShouldHaveDefault" />
     <exclude name="AvoidDeeplyNestedIfStmts" />
     <exclude name="AvoidReassigningParameters" />

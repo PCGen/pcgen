@@ -768,7 +768,6 @@ class TravelMethodImplementation implements TravelMethod
 		public Object getElementAt(int index)
 		{
 			if (selectedMethod == null || !listByWay.containsKey(selectedMethod.getWay()))
-
 			{
 				return null;
 			}
@@ -840,13 +839,11 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
-
 				{
 					;
 				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
-
 				{
 					;
 				}
@@ -960,13 +957,11 @@ class TravelMethodImplementation implements TravelMethod
 				end = Math.min(end, previousSize);
 				// increment start for each identical element at the start of the paces lists
 				for (int i = 0; i < end && previousList.get(i).equals(selectedList.get(i)); i++, start++)
-
 				{
 					;
 				}
 				// decrement end for each identical element at the end of the paces lists
 				for (int i = end - 1; i > start && previousList.get(i).equals(selectedList.get(i)); i--, end--)
-
 				{
 					;
 				}

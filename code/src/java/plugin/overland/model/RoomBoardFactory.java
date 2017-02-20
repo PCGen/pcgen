@@ -72,7 +72,8 @@ public final class RoomBoardFactory
 
 					methodSet = null;
 					dt = null;
-				} catch (Exception e)
+				}
+				catch (Exception e)
 				{
 					Logging.errorPrintLocalised(
 							"XML Error with file {0}",
