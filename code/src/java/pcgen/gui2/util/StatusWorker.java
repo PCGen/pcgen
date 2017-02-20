@@ -45,7 +45,7 @@ public class StatusWorker extends SwingWorker<List<LogRecord>> implements PCGenT
 		private final PCGenTask task;
 		private final PCGenStatusBar statusBar;
 		private boolean dirty = false;
-		private List<LogRecord> errors = new ArrayList<>();
+		private final List<LogRecord> errors = new ArrayList<>();
 
 		/**
 		 * @param statusMsg - text to display in status bar

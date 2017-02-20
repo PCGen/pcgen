@@ -48,7 +48,7 @@ public class CampaignSourceEntry implements SourceEntry
 	private Campaign campaign = null;
 	private List<String> excludeItems = new ArrayList<>();
 	private List<String> includeItems = new ArrayList<>();
-	private List<Prerequisite> prerequisites = new ArrayList<>();
+	private final List<Prerequisite> prerequisites = new ArrayList<>();
 	private URIEntry uri = null;
 
 	/**

@@ -56,14 +56,14 @@ public class LanguageTableModel extends AbstractTableModel
 		implements ListListener<LanguageFacade>
 {
 
-	private ListFacade<LanguageFacade> languages;
-	private ListFacade<LanguageChooserFacade> choosers;
-	private CharacterFacade character;
-	private JTable table;
+	private final ListFacade<LanguageFacade> languages;
+	private final ListFacade<LanguageChooserFacade> choosers;
+	private final CharacterFacade character;
+	private final JTable table;
 	private int dirtyRow = -1;
-	private MouseListener mouseListener = new MouseListener();
-	private Renderer renderer = new Renderer();
-	private Editor editor = new Editor();
+	private final MouseListener mouseListener = new MouseListener();
+	private final Renderer renderer = new Renderer();
+	private final Editor editor = new Editor();
 
 	public LanguageTableModel(CharacterFacade character, JTable table)
 	{
@@ -201,10 +201,10 @@ public class LanguageTableModel extends AbstractTableModel
 
 		private static final String ADD_ID = "Add";
 		private static final String REMOVE_ID = "Remove";
-		private JPanel cellPanel = new JPanel();
-		private CardLayout cardLayout = new CardLayout();
-		private JLabel addLabel = new JLabel();
-		private JLabel cellLabel = new JLabel();
+		private final JPanel cellPanel = new JPanel();
+		private final CardLayout cardLayout = new CardLayout();
+		private final JLabel addLabel = new JLabel();
+		private final JLabel cellLabel = new JLabel();
 
 		public Editor()
 		{
@@ -290,12 +290,12 @@ public class LanguageTableModel extends AbstractTableModel
 
 		private static final String ADD_ID = "Add";
 		private static final String REMOVE_ID = "Remove";
-		private CardLayout cardLayout = new CardLayout();
+		private final CardLayout cardLayout = new CardLayout();
 		//private JPanel cellPanel = new JPanel();
-		private JLabel cellLabel = new JLabel();
-		private JButton addButton = Utilities.createSignButton(Sign.Plus);
-		private JButton removeButton = Utilities.createSignButton(Sign.Minus);
-		private JLabel addLabel = new JLabel();
+		private final JLabel cellLabel = new JLabel();
+		private final JButton addButton = Utilities.createSignButton(Sign.Plus);
+		private final JButton removeButton = Utilities.createSignButton(Sign.Minus);
+		private final JLabel addLabel = new JLabel();
 
 		public Renderer()
 		{

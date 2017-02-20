@@ -37,7 +37,7 @@ public class FacadeComboBoxModel<E> extends AbstractListModel
 		implements ComboBoxModel, ListListener<E>, ReferenceListener<E>
 {
 
-	private DelegatingListFacade<E> delegate;
+	private final DelegatingListFacade<E> delegate;
 	private ReferenceFacade<E> reference;
 	private Object selectedItem = null;
 

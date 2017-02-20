@@ -40,8 +40,8 @@ import pcgen.system.LanguageBundle;
 public class InfoPane extends JScrollPane
 {
 
-	private JTextPane textPane;
-	private TitledBorder titledBorder;
+	private final JTextPane textPane;
+	private final TitledBorder titledBorder;
 
 	public InfoPane()
 	{

@@ -37,8 +37,8 @@ public abstract class AbstractRadioListMenu<E> extends AbstractListMenu<E> imple
 {
 
 	private final ButtonGroup group = new ButtonGroup();
-	private Map<E, RadioMenuItem> menuMap = new HashMap<>();
-	private E selectedItem = null;
+	private final Map<E, RadioMenuItem> menuMap = new HashMap<>();
+	private final E selectedItem = null;
 
 	public AbstractRadioListMenu(Action action)
 	{

@@ -36,7 +36,7 @@ import pcgen.gui2.util.JTreeViewTable;
 class SpellInfoHandler implements ListSelectionListener
 {
 
-	private CharacterFacade character;
+	private final CharacterFacade character;
 	private final JTreeViewTable<?> availableTable;
 	private final JTreeViewTable<?> selectedTable;
 	private final InfoPane spellsPane;

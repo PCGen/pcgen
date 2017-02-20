@@ -39,7 +39,7 @@ import pcgen.util.Logging;
 public abstract class ConcurrentDataView<E> implements DataView<E>
 {
 
-	private static ExecutorService executor = Executors.newFixedThreadPool(3, new ThreadFactory()
+	private static final ExecutorService executor = Executors.newFixedThreadPool(3, new ThreadFactory()
 	{
 
 		@Override

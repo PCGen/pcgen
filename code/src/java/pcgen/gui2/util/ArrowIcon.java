@@ -35,11 +35,11 @@ import javax.swing.UIManager;
 public class ArrowIcon implements Icon
 {
 
-	private Color shadow;
-	private Color darkShadow;
-	private Color highlight;
-	private int direction;
-	private int size;
+	private final Color shadow;
+	private final Color darkShadow;
+	private final Color highlight;
+	private final int direction;
+	private final int size;
 
 	public ArrowIcon(int direction, int size, Color shadow,
 			Color darkShadow, Color highlight)

@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 public final class PrerequisiteWriterFactory implements PluginLoader
 {
 	private static PrerequisiteWriterFactory instance = null;
-	private static Map<String, PrerequisiteWriterInterface> parserLookup =
+	private static final Map<String, PrerequisiteWriterInterface> parserLookup =
             new HashMap<>();
 
 	private PrerequisiteWriterFactory()

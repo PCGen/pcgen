@@ -30,7 +30,7 @@ import java.util.WeakHashMap;
 public abstract class CachedDataView<E> implements DataView<E>
 {
 
-	private Map<E, List<Object>> dataCache = new WeakHashMap<>();
+	private final Map<E, List<Object>> dataCache = new WeakHashMap<>();
 
 	@Override
 	public final Object getData(E element, int column)

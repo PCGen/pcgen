@@ -54,13 +54,13 @@ import pcgen.util.ListMap;
 public class EquipmentTreeTableModel implements TreeTableModel, ListListener<EquipNode>, EquipmentTreeListener
 {
 
-	private EventListenerList listenerList = new EventListenerList();
-	private CharacterFacade character;
-	private EquipmentSetFacade equipSet;
-	private Object root = new Object();
-	private ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
-	private List<EquipNode> bodySlotNodes;
-	private Comparator<EquipNode> pathComparator = new NodeComparator();
+	private final EventListenerList listenerList = new EventListenerList();
+	private final CharacterFacade character;
+	private final EquipmentSetFacade equipSet;
+	private final Object root = new Object();
+	private final ListMap<EquipNode, EquipNode, List<EquipNode>> pathMap;
+	private final List<EquipNode> bodySlotNodes;
+	private final Comparator<EquipNode> pathComparator = new NodeComparator();
 
 	public EquipmentTreeTableModel(CharacterFacade character, EquipmentSetFacade equipSet)
 	{
