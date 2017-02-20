@@ -28,7 +28,6 @@ import pcgen.facade.core.ClassFacade;
  * the CharacterLevelFacade interface for the new user interface. It provides  
  * a container for information about a particular level of the character. 
  *
- * <br>
  * 
  */
 public class CharacterLevelFacadeImpl implements CharacterLevelFacade

@@ -43,7 +43,6 @@ import pcgen.system.LanguageBundle;
  * button. When text is typed into the field the table contents will be 
  * filtered to only those matching the search text.
  *
- * <br>
  * 
  */
 public class SearchFilterPanel extends JPanel

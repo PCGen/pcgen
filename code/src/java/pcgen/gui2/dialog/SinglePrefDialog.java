@@ -34,7 +34,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code SinglePrefDialog} displays a single
  * preference panel to the user.
  *
- * <br>
  * 
  */
 public class SinglePrefDialog extends JDialog

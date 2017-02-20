@@ -36,7 +36,6 @@ import pcgen.util.SortKeyAware;
  * to a domain with the domain. This allows these prereqs to be displayed and 
  * enforced by the UI.
  *
- * <br>
  * 
  */
 public class DomainFacadeImpl extends QualifiedObject<Domain> implements

@@ -26,7 +26,6 @@ import pcgen.facade.core.CharacterFacade;
 /**
  * This interface must be implemented by all tabs that display character
  * information: summary tab, classes tab, abilities tab, inventory tab, etc....
- * <br>
  * The goal of this class is to create a separation of UI models and the UI
  * components that use them. By doing this, knowledge of the CharacterFacade can
  * be isolated from the tab itself and stored solely within the models that use

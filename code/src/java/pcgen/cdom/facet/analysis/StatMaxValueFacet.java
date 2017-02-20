@@ -37,7 +37,6 @@ import pcgen.core.PCStat;
  * StatMaxValueFacet  is a Facet that tracks the Stats that have had a maximum 
  * value set on a Player Character.
  *
- * <br>
  * 
  */
 public class StatMaxValueFacet extends AbstractSourcedListFacet<CharID, StatLock> implements

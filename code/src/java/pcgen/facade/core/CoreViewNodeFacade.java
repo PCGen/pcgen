@@ -28,7 +28,6 @@ import java.util.List;
  * The interface {@code CoreViewNodeFacade} represents a node in the Core View
  * debugging tool. This exposes the objects within the core for inspection.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

@@ -30,7 +30,6 @@ import pcgen.facade.util.ListFacade;
  * The Class {@code DescriptionFacade} tracks descriptive entries about the character,
  * interfacing between the user interface and the core.
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

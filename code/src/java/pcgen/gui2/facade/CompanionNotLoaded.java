@@ -31,7 +31,6 @@ import pcgen.facade.util.ReferenceFacade;
  * The Class {@code CompanionNotLoaded} represents a characters's companion
  * (familiar, animal companion, mount etc) that is not currently loaded.
  *
- * <br>
  * 
  */
 public class CompanionNotLoaded implements CompanionFacade

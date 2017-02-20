@@ -63,7 +63,6 @@ import pcgen.system.LanguageBundle;
  * The Class {@code PostLevelUpDialog} provides a display of the results
  * of levelling up a character. 
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

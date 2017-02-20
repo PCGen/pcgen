@@ -25,7 +25,6 @@ package pcgen.facade.core;
 /**
  * The Class {@code ChronicleEntryFacade} is ...
  *
- * <br>
  * 
  * @author James Dempsey &lt;jdempsey@users.sourceforge.net&gt;
  */

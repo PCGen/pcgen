@@ -43,7 +43,6 @@ import pcgen.system.LanguageBundle;
  * the user to build up custom equipment items by adding equipment modifiers and
  * setting the name, cost etc.  
  *
- * <br>
  * 
  */
 @SuppressWarnings("serial")

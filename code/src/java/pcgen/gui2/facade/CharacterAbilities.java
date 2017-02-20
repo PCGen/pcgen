@@ -71,7 +71,6 @@ import pcgen.util.enumeration.View;
  * reflect the changes. The lists automatically notify any listeners in the 
  * UI of the changes.
  *   
- * <br>
  * 
  * 
  */
