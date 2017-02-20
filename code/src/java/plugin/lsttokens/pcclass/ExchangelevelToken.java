@@ -105,7 +105,7 @@ public class ExchangelevelToken extends AbstractTokenWithSeparator<PCClass>
 		catch (IllegalArgumentException e)
 		{
 			ComplexParseResult pr = new ComplexParseResult();
-			pr.addErrorMessage("Error in " + getTokenName() + " "
+			pr.addErrorMessage("Error in " + getTokenName() + ' '
 					+ e.getMessage());
 			pr.addErrorMessage("  Token contents: " + value);
 			return pr;

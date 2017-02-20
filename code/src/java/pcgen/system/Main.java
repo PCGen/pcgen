@@ -128,7 +128,7 @@ public final class Main
 		//$NON-NLS-1$
 		keys.forEach(key ->
 		{
-			pwriter.println(key + "=" + props.getProperty(key)); //$NON-NLS-1$
+			pwriter.println(key + '=' + props.getProperty(key)); //$NON-NLS-1$
 		});
 		Logging.log(Level.CONFIG, writer.toString());
 	}
@@ -351,7 +351,7 @@ public final class Main
 					Logging.errorPrint("Unable to find canonical path for "
 							+ dir);
 				}
-				missingDirs.append("  ").append(path).append("\n");
+				missingDirs.append("  ").append(path).append('\n');
 			}
 		}
 		if (missingDirs.length() > 0)

@@ -135,7 +135,7 @@ public class BaseMovementToken extends AbstractExportToken
 		if (displayFlag)
 		{
 			return moveType
-				+ " "
+				+ ' '
 				+ Globals.getGameModeUnitSet()
 					.displayDistanceInUnitSet(baseMovement)
 				+ Globals.getGameModeUnitSet().getDistanceUnit();

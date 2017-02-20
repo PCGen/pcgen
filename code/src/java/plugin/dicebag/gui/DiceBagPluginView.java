@@ -92,7 +92,7 @@ public class DiceBagPluginView implements Observer
 
 				if (!bag.isChanged() && !bag.isBagEmpty())
 				{
-					files.append(bag.getFilePath() + "|");
+					files.append(bag.getFilePath() + '|');
 				}
 			}
 		}
@@ -244,7 +244,7 @@ public class DiceBagPluginView implements Observer
 			returnValue =
 					JOptionPane.showConfirmDialog(getMainComponent(),
 						"Do you want to save your changes to dicebag "
-							+ bag.getName() + "?", "Save?", option);
+							+ bag.getName() + '?', "Save?", option);
 
 			if (returnValue == JOptionPane.YES_OPTION)
 			{

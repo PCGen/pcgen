@@ -47,7 +47,7 @@ public class ACVarToken extends AbstractNonEmptyToken<CodeControl> implements
 		String acType = value.substring(0, pipeLoc);
 		String varName = value.substring(pipeLoc + 1);
 		context.getObjectContext().put(cdo,
-			ObjectKey.getKeyFor(String.class, "*" + getTokenName() + acType),
+			ObjectKey.getKeyFor(String.class, '*' + getTokenName() + acType),
 			varName);
 		return ParseResult.SUCCESS;
 	}

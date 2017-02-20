@@ -246,7 +246,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 		catch (NumberFormatException exc)
 		{
 			Logging.errorPrint("Non-numeric value for number of attacks in "
-					+ getTokenName() + ": '" + numAttacks + "'");
+					+ getTokenName() + ": '" + numAttacks + '\'');
 			return null;
 		}
 
@@ -273,7 +273,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 				catch (NumberFormatException exc)
 				{
 					Logging.errorPrint("Non-numeric value for hands required: '"
-							+ hString + "'");
+							+ hString + '\'');
 					return null;
 				}
 			}
@@ -358,7 +358,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			List<BonusObj> bonuses = eq.getListFor(ListKey.BONUS);
 			if (bonuses == null || bonuses.isEmpty())
 			{
-				sb.append("1");
+				sb.append('1');
 			}
 			else
 			{
@@ -449,7 +449,7 @@ public class NaturalattacksLst extends AbstractTokenWithSeparator<CDOMObject>
 			else
 			{
 				Logging.errorPrint("SIZE in " + obj.getClass().getSimpleName()
-						+ " " + obj.getKeyName() + " must not be a variable "
+						+ ' ' + obj.getKeyName() + " must not be a variable "
 						+ "if it contains a NATURALATTACKS token");
 			}
 		}

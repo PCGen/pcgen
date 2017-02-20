@@ -90,14 +90,14 @@ public class HeightToken extends AbstractExportToken
 		if ("ftin".equals(Globals.getGameModeUnitSet().getHeightUnit()))
 		{
 			retString =
-					Integer.toString(display.getHeight() / 12) + "' " + Integer.toString(display.getHeight() % 12) + "\"";
+					Integer.toString(display.getHeight() / 12) + "' " + Integer.toString(display.getHeight() % 12) + '"';
 		}
 		else
 		{
 			retString =
 					Globals.getGameModeUnitSet().displayHeightInUnitSet(
 						display.getHeight())
-						+ " " + Globals.getGameModeUnitSet().getHeightUnit();
+						+ ' ' + Globals.getGameModeUnitSet().getHeightUnit();
 		}
 		
 		return retString;
