@@ -54,7 +54,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 	/**
 	 * The actual list where the data is stored.
 	 */
-	private Collection<WeightedItem<E>> theData;
+	private final Collection<WeightedItem<E>> theData;
 
 	/**
 	 * Default constructor. Creates an empty collection.

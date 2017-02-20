@@ -36,8 +36,8 @@ import pcgen.core.term.TermEvaluator;
 public class VariableProcessorEq extends VariableProcessor
 {
 
-	private Equipment eq;
-	private boolean primaryHead;
+	private final Equipment eq;
+	private final boolean primaryHead;
 
 	/**
 	 * Create a new VariableProcessorEq instance for an equipment item, and
