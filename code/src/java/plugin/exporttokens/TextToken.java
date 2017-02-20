@@ -79,7 +79,7 @@ public class TextToken extends Token
 				// Make sure that any "." in the token itself stay together
 				while (action.charAt(action.length() - 1) != '}')
 				{
-					action += "." + aTok.nextToken();
+					action += '.' + aTok.nextToken();
 				}
 			}
 		}
@@ -89,7 +89,7 @@ public class TextToken extends Token
 		}
 		while (aTok.hasMoreElements())
 		{
-			varName.append(".").append(aTok.nextToken());
+			varName.append('.').append(aTok.nextToken());
 		}
 
 		StringWriter writer = new StringWriter();
@@ -196,7 +196,7 @@ public class TextToken extends Token
 		{
 			if (i > 0)
 			{
-				res.append(".");
+				res.append('.');
 			}
 			if (!sentence[i].trim().isEmpty())
 			{

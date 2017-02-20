@@ -108,7 +108,7 @@ public class VisionToken extends AbstractExportToken
 				result.append(" (");
 				result.append(Globals.getGameModeUnitSet().displayDistanceInUnitSet(dist));
 				result.append(Globals.getGameModeUnitSet().getDistanceUnit());
-				result.append(")");
+				result.append(')');
 			}
 		}
 		

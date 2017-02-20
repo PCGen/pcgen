@@ -94,7 +94,7 @@ public class VarToken extends Token
 		}
 		while (aTok.hasMoreElements())
 		{
-			varName.append(".").append(aTok.nextToken());
+			varName.append('.').append(aTok.nextToken());
 		}
 
 		if (isInt)

@@ -204,7 +204,7 @@ public final class UnitSet implements Loadable
 		}
 		else
 		{
-			return " " + unitString;
+			return ' ' + unitString;
 		}
 	}
 

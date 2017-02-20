@@ -104,7 +104,7 @@ public class ValuesToken extends AbstractNonEmptyToken<KitTable> implements
 				catch (PersistenceLayerException e)
 				{
 					return new ParseResult.Fail("Failure in token: " + key
-							+ " " + e.getMessage(), context);
+							+ ' ' + e.getMessage(), context);
 				}
 			}
 			if (!sep.hasNext())
