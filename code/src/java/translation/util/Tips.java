@@ -25,11 +25,9 @@ import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.FilenameFilter;
 import java.io.IOException;
-import java.io.Writer;
 import java.text.Format;
 import java.text.MessageFormat;
 import java.util.Calendar;
-import java.util.Collection;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,10 +42,9 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * The duplicates from the tips files should appear only once in the PO Template files.
  * 
  * This class tries to be independent of code, but still needs Apache Commons Lang.
- *
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
  */
-public final class Tips
+public class Tips
 {
 	/** Quote char */
 	private static final char QUOTE = '"';
@@ -102,8 +99,7 @@ public final class Tips
 									new BufferedReader(new FileReader(tipsFile));
 							addTips(tips, reader);
 							reader.close();
-						}
-						catch (FileNotFoundException e)
+						} catch (FileNotFoundException e)
 						{
 							logError(
 									"Warning: file found then not found {0}, ignoring "
@@ -111,8 +107,7 @@ public final class Tips
 									tipsFile
 							);
 							e.printStackTrace();
-						}
-						catch (IOException e)
+						} catch (IOException e)
 						{
 							logError(
 									"Warning: IO error reading {0}, ignoring this file",
@@ -132,6 +127,10 @@ public final class Tips
 		log("Done");
 	}
 
+	/**
+	 * @param tips
+	 * @param potFilename
+	 */
 	private static void writePOT(Set<String> tips, String potFilename)
 	{
 		File pot = new File(potFilename);
@@ -165,7 +164,12 @@ public final class Tips
 		}
 	}
 
-	private static void writePOT(Iterable<String> tips, Writer bw) throws IOException
+	/**
+	 * @param tips
+	 * @param bw
+	 * @throws IOException 
+	 */
+	private static void writePOT(Set<String> tips, BufferedWriter bw) throws IOException
 	{
 		// header stuff
 		Calendar now = Calendar.getInstance();
@@ -210,10 +214,10 @@ public final class Tips
 
 	static boolean isTip(String line)
 	{
-		return (line != null) && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
+		return line != null && !line.isEmpty() && !line.startsWith(COMMENT_PREFIX);
 	}
 
-	static void addTip(Collection<String> tips, String tip)
+	static void addTip(Set<String> tips, String tip)
 	{
 		tips.add(tip);
 	}
@@ -229,7 +233,7 @@ public final class Tips
 		/**
 		 * @param filename
 		 */
-		private SpecificFilenameFilter(String filename)
+		SpecificFilenameFilter(String filename)
 		{
 			this.filename = filename;
 		}
@@ -376,13 +380,15 @@ public final class Tips
 								bw.write("\n");
 								readLine = reader.readLine();
 							}
-						}
-						catch (IOException e)
+						} catch (FileNotFoundException e)
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
-						}
-						finally
+						} catch (IOException e)
+						{
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} finally
 						{
 							try
 							{
@@ -390,8 +396,7 @@ public final class Tips
 								{
 									reader.close();
 								}
-							}
-							catch (IOException e)
+							} catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -402,8 +407,7 @@ public final class Tips
 								{
 									bw.close();
 								}
-							}
-							catch (IOException e)
+							} catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -432,6 +436,10 @@ public final class Tips
 		return string.replaceAll("\\\\\'", "'").replaceAll("\\\\\"", "\"").replaceAll("\\\\\\\\", "\\\\");
 	}
 
+	/**
+	 * @param string
+	 * @return
+	 */
 	@SuppressWarnings("nls")
 	static String escape(String string)
 	{
