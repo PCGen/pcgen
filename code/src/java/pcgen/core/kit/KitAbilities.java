@@ -219,7 +219,7 @@ public final class KitAbilities extends BaseKit
 				// Need to pay for it first
 				if (free)
 				{
-					aPC.adjustAbilities(category, new BigDecimal(1));
+					aPC.adjustAbilities(category, BigDecimal.ONE);
 				}
 			}
 			if (ability.getCost() > aPC.getAvailableAbilityPool(category).doubleValue())
@@ -255,7 +255,7 @@ public final class KitAbilities extends BaseKit
 			if (isFree())
 			{
 				AbilityCategory category = catRef.get();
-				aPC.adjustAbilities(category, new BigDecimal(1));
+				aPC.adjustAbilities(category, BigDecimal.ONE);
 			}
 		}
 	}
