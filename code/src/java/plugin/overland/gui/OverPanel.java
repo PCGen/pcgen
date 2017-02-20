@@ -158,7 +158,7 @@ public class OverPanel extends javax.swing.JPanel
 			return;
 		lastEdited = TravelMethodTextField.TIME;
 		Object o = txtTime.getValue();
-		if (o != null && o instanceof Number)
+		if (o instanceof Number)
 		{
 			double time = ((Number) o).doubleValue();
 
@@ -174,7 +174,7 @@ public class OverPanel extends javax.swing.JPanel
 			return;
 		lastEdited = TravelMethodTextField.IMPERIAL_DISTANCE;
 		Object o = txtDist.getValue();
-		if (o != null && o instanceof Number)
+		if (o instanceof Number)
 		{
 			double miles = ((Number) o).doubleValue();
 
@@ -188,7 +188,7 @@ public class OverPanel extends javax.swing.JPanel
 			return;
 		lastEdited = TravelMethodTextField.METRIC_DISTANCE;
 		Object o = txtDistMetric.getValue();
-		if (o != null && o instanceof Number)
+		if (o instanceof Number)
 		{
 			double km = ((Number) o).doubleValue();
 			txtTime.setValue(selectedTM.convertToTimeFromMetric(km));
@@ -1142,7 +1142,7 @@ public class OverPanel extends javax.swing.JPanel
 		Number people = (Number) txtPeop.getValue();
 		Number value = (Number) txtAnim.getValue();
 		//now set them all
-		if (people != null && people instanceof Number)
+		if (people instanceof Number)
 		{
 			int numPeople = people.intValue();
 
@@ -1156,7 +1156,7 @@ public class OverPanel extends javax.swing.JPanel
 			result *= 7;
 			txtWeekInn.setText(gp.format(result)); //but here we use gp
 		}
-		if (value != null && value instanceof Number)
+		if (value instanceof Number)
 		{
 			int numAnimal = value.intValue();
 

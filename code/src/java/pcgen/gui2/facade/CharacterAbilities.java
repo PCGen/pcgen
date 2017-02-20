@@ -362,9 +362,9 @@ public class CharacterAbilities
 	public void addAbility(AbilityCategoryFacade categoryFacade,
 		AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability)
-			|| categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (!(abilityFacade instanceof Ability)
+				|| categoryFacade == null
+				|| !(categoryFacade instanceof AbilityCategory))
 		{
 			return;
 		}
@@ -416,9 +416,9 @@ public class CharacterAbilities
 	public void removeAbility(AbilityCategoryFacade categoryFacade,
 		AbilityFacade abilityFacade)
 	{
-		if (abilityFacade == null || !(abilityFacade instanceof Ability)
-			|| categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (!(abilityFacade instanceof Ability)
+				|| categoryFacade == null
+				|| !(categoryFacade instanceof AbilityCategory))
 		{
 			return;
 		}
@@ -490,8 +490,7 @@ public class CharacterAbilities
 	 */
 	public int getTotalSelections(AbilityCategoryFacade categoryFacade)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (!(categoryFacade instanceof AbilityCategory))
 		{
 			return 0;
 		}
@@ -508,8 +507,7 @@ public class CharacterAbilities
 	 */
 	public int getRemainingSelections(AbilityCategoryFacade categoryFacade)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (!(categoryFacade instanceof AbilityCategory))
 		{
 			return 0;
 		}
@@ -527,8 +525,7 @@ public class CharacterAbilities
 	public void setRemainingSelection(AbilityCategoryFacade categoryFacade,
 		int remaining)
 	{
-		if (categoryFacade == null
-			|| !(categoryFacade instanceof AbilityCategory))
+		if (!(categoryFacade instanceof AbilityCategory))
 		{
 			return;
 		}

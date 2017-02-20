@@ -697,7 +697,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 
 			Object data = availableTreeViewPanel.getSelectedObject();
 			int index = categoryTable.getSelectedRow();
-			if (data != null && data instanceof AbilityFacade && index != -1)
+			if (data instanceof AbilityFacade && index != -1)
 			{
 				AbilityCategoryFacade category = (AbilityCategoryFacade) categoryTable.getValueAt(index, 0);
 				character.addAbility(category, (AbilityFacade) data);
@@ -775,7 +775,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 				return;
 			}
 			Object data = selectedTreeViewPanel.getModel().getValueAt(selectedRow, 0);
-			if (data != null && data instanceof AbilityFacade)
+			if (data instanceof AbilityFacade)
 			{
 				TreePath path = selectedTreeViewPanel.getTree().getPathForRow(selectedRow);
 				DefaultMutableTreeNode node = (DefaultMutableTreeNode) path.getParentPath().getLastPathComponent();
