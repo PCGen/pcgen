@@ -17,12 +17,14 @@
  */
 package translation.util;
 
-import static org.junit.Assert.*;
-
 import java.util.HashSet;
 import java.util.Set;
 
 import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 /**
  * JUnit Tests for {@link translation.util.Tips}.
@@ -32,13 +34,7 @@ import org.junit.Test;
 public class TipsTest
 {
 
-	String comment = "# This is a comment in the tips file";
-	String emptyLine = "";
-	String tip = "For each method, write a test method";
-	String tip2 = "Another tip for you";
-
-	String FILE1 = comment+"\n\n"+tip;
-	String FILE2 = tip+"\n"+tip2+"\n";
+	private final String tip = "For each method, write a test method";
 
 	/**
 	 * Test method for {@link translation.util.Tips#addTip(java.util.Set, java.lang.String)}.
@@ -59,9 +55,12 @@ public class TipsTest
 	@Test
 	public void isTip() throws Exception
 	{
+		String emptyLine = "";
 		assertFalse(Tips.isTip(emptyLine));
+		String comment = "# This is a comment in the tips file";
 		assertFalse(Tips.isTip(comment));
 		assertTrue(Tips.isTip(tip));
+		String tip2 = "Another tip for you";
 		assertTrue(Tips.isTip(tip2));
 	}
 	
