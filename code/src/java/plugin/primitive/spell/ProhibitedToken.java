@@ -80,7 +80,7 @@ public class ProhibitedToken implements PrimitiveToken<Spell>, PrimitiveFilter<S
 	@Override
 	public String getLSTformat(boolean useAny)
 	{
-		return getTokenName() + "=" + (prohibited ? "YES" : "NO");
+		return getTokenName() + '=' + (prohibited ? "YES" : "NO");
 	}
 
 	@Override
