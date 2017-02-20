@@ -151,7 +151,7 @@ public class PreAlignWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		boolean first = true;
 		for (Prerequisite p : prereq.getPrerequisites())

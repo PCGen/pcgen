@@ -83,7 +83,7 @@ public class PreStatWriter extends AbstractPrerequisiteWriter implements
 			{
 				writer.write(operator.toString().toUpperCase());
 			}
-			writer.write(":1," + prereq.getKey() + "="
+			writer.write(":1," + prereq.getKey() + '='
 				+ prereq.getOperand());
 
 		}

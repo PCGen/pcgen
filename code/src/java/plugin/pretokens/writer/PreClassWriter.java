@@ -98,7 +98,7 @@ public class PreClassWriter extends AbstractPrerequisiteWriter implements
 			writer.write('!');
 		}
 
-		writer.write("PRE" + kindHandled().toUpperCase() + ":"
+		writer.write("PRE" + kindHandled().toUpperCase() + ':'
 				+ (prereq.isOverrideQualify() ? "Q:" : ""));
 		writer.write(po == PrerequisiteOperator.GTEQ ? prereq.getOperand()
 				: "1");
