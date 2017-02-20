@@ -35,3 +35,7 @@ Skillchip Skill	KEY:SKILLCHIP_5		TYPE:SkillchipMark5					COST:10000	VISIBLE:QUAL
 ###Block: Timeworn items
 # Modifier Name	Unique Key		Type							Cost				Visible		Type granted	Source Page		Required Type
 Timeworn		KEY:TIMEWORN	TYPE:TimewornCondition.Technological Gear	COST:-(BASECOST/2)	VISIBLE:QUALIFY	ITYPE:Timeworn	SOURCEPAGE:p.55	PRETYPE:1,Technological Gear
+
+
+###
+Laser Sight		KEY:Laser Sight	TYPE:Firearm					COST:8000	BONUS:EQM|WEIGHTADD|1		SOURCEPAGE:p.48	SPROP:Capacity|10	SPROP:Usage|1 charge/hour
