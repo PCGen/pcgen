@@ -136,6 +136,10 @@ Barbarian ~ Standard Ex-Class								CATEGORY:Class
 
 ###Block: Barbarian Standard Level Progression
 # Ability Name							Ability
+CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
+CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Weapon_Proficiencies,0
+CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Armor_Proficiencies,0
+CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Uncanny Dodge Tracker
 CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage|PREVAREQ:Barbarian_CF_Rage,0|PREVARGTEQ:Barbarian_CFP_Level,1
 CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0|PREVARGTEQ:Barbarian_CFP_Level,1
 CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Rage Powers|PREVAREQ:Barbarian_CF_RagePowers,0|PREVARGTEQ:Barbarian_CFP_Level,2
@@ -148,6 +152,9 @@ CATEGORY=Class|Barbarian ~ Standard Class Full.MOD	ABILITY:Barbarian Class Featu
 
 ###Block: Barbarian ~ Standard Ex-Class Level Progression
 # Ability Name							Ability
+CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Weapon and Armor Proficiency|PREVAREQ:Barbarian_CF_Proficiencies,0
+CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Internal|AUTOMATIC|Weapon Prof ~ Martial|Weapon Prof ~ Simple|PREVAREQ:Barbarian_CF_Weapon_Proficiencies,0
+CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Internal|AUTOMATIC|Shield Prof|TYPE=ArmorProfMedium|PREVAREQ:Barbarian_CF_Armor_Proficiencies,0
 CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Fast Movement|PREVAREQ:Barbarian_CF_FastMovement,0|PREVARGTEQ:Barbarian_CFP_Level,1
 CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Trap Sense|PREVAREQ:Barbarian_CF_TrapSense,0|PREVARGTEQ:Barbarian_CFP_Level,3
 CATEGORY=Class|Barbarian ~ Standard Ex-Class.MOD	ABILITY:Barbarian Class Feature|AUTOMATIC|Barbarian ~ Damage Reduction|PREVAREQ:Barbarian_CF_DamageReduction,0|PREVARGTEQ:Barbarian_CFP_Level,7
