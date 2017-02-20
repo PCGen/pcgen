@@ -5215,7 +5215,7 @@ public final class Equipment extends PObject implements Serializable,
 	 */
 	public String getNonHeadedName()
 	{
-		if (wholeItemName == null || wholeItemName.length() == 0)
+		if (wholeItemName == null || wholeItemName.isEmpty())
 		{
 			return getName();
 		}
@@ -5373,7 +5373,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String cm = getWeaponInfo("CRITMULT", true);
 
-			if (cm.length() != 0)
+			if (!cm.isEmpty())
 			{
 				mult = Integer.parseInt(cm);
 			}
@@ -5395,7 +5395,7 @@ public final class Equipment extends PObject implements Serializable,
 		{
 			final String cm = getWeaponInfo("CRITMULT", false);
 
-			if (cm.length() != 0)
+			if (!cm.isEmpty())
 			{
 				mult = Integer.parseInt(cm);
 			}
@@ -5875,7 +5875,7 @@ public final class Equipment extends PObject implements Serializable,
 		final List<Equipment> contents =
                 new ArrayList<>(getContents());
 
-		if (contents.size() > 0)
+		if (!contents.isEmpty())
 		{
 			if (index <= contents.size())
 			{

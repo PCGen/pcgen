@@ -300,7 +300,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 		Graphics g = statusField.getGraphics();
 		FontMetrics fm = g.getFontMetrics();
 		String message =
-				(filename == null || filename.length() == 0) ? ""
+				(filename == null || filename.isEmpty()) ? ""
 					: "Converting " + filename;
 		int width = fm.stringWidth(message);
 		if (width >= statusField.getWidth())
@@ -315,7 +315,7 @@ public class RunConvertPanel extends ConvertSubPanel implements Observer, Conver
 
 	public void addMessage(String message)
 	{
-		if (currFilename.length() > 0 && !currFilename.equals(lastNotifiedFilename))
+		if (!currFilename.isEmpty() && !currFilename.equals(lastNotifiedFilename))
 		{
 			getMessageArea().append("\n" + currFilename + "\n");
 			lastNotifiedFilename = currFilename;
