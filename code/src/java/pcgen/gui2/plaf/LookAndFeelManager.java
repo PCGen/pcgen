@@ -295,7 +295,7 @@ public final class LookAndFeelManager
 	public static class LookAndFeelHandler extends AbstractAction
 	{
 
-		private String className;
+		private final String className;
 
 		LookAndFeelHandler(String name, String className, String tooltip)
 		{

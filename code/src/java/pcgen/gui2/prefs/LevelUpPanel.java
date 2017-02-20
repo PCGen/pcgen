@@ -45,21 +45,21 @@ import pcgen.system.PCGenSettings;
 @SuppressWarnings("serial")
 public class LevelUpPanel extends PCGenPrefsPanel
 {
-	private static String in_levelUp =
+	private static final String in_levelUp =
 		LanguageBundle.getString("in_Prefs_levelUp");
 
 //	private static String in_enforceSpending =
 //		LanguageBundle.getString("in_Prefs_enforceSpending");
 //	private static String in_hpWindow =
 //		LanguageBundle.getString("in_Prefs_hpWindow");
-	private static String in_statWindow =
+	private static final String in_statWindow =
 		LanguageBundle.getString("in_Prefs_statWindow");
-	private static String in_warnFirstLevelUp =
+	private static final String in_warnFirstLevelUp =
 		LanguageBundle.getString("in_Prefs_warnFirstLevelUp");
 
 //	private JCheckBox hpDialogShownAtLevelUp = new JCheckBox();
-	private JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
-	private JCheckBox statDialogShownAtLevelUp = new JCheckBox();
+	private final JCheckBox showWarningAtFirstLevelUp = new JCheckBox();
+	private final JCheckBox statDialogShownAtLevelUp = new JCheckBox();
 //	private JCheckBox enforceSpendingBeforeLevelUp = new JCheckBox();
 	//	private JCheckBox featDialogShownAtLevelUp = new JCheckBox();
 	

@@ -381,7 +381,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private final ListFacade<AbilityCategoryFacade> categories;
 		private String text;
 		private String title;
@@ -677,7 +677,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private class AddAction extends AbstractAction implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private AbilityCategoryFacade abilityCat;
 
 		public AddAction(CharacterFacade character)
@@ -751,7 +751,7 @@ public class AbilityChooserTab extends FlippingSplitPane implements StateEditabl
 	private class RemoveAction extends AbstractAction implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private AbilityCategoryFacade abilityCat;
 
 		public RemoveAction(CharacterFacade character)

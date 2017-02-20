@@ -41,8 +41,8 @@ public class TabTitle
 	public static final String ICON = "icon"; //$NON-NLS-1$
 	public static final String TOOLTIP = "tooltip"; //$NON-NLS-1$
 	public static final String TAB = "tab"; //$NON-NLS-1$
-	private PropertyChangeSupport support;
-	private Hashtable<String, Object> table;
+	private final PropertyChangeSupport support;
+	private final Hashtable<String, Object> table;
 
 	/**
 	 * Create a new TabTitle instance for a specific tab.

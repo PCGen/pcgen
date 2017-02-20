@@ -73,14 +73,14 @@ public class CharacterLevelsFacadeImpl extends
 	private PlayerCharacter theCharacter;
 	private CharacterDisplay charDisplay;
 
-	private UIDelegate delegate;
+	private final UIDelegate delegate;
 
 	private List<ClassFacade> classLevels;
 	private List<CharacterLevelFacade> charLevels;
 	private final TodoManager todoManager;
 	private CharID charID;
 	private final DataSetFacade dataSetFacade;
-	private CharacterFacadeImpl characterFacadeImpl;
+	private final CharacterFacadeImpl characterFacadeImpl;
 	
 	/**
 	 * Create a new CharacterLevelsFacadeImpl instance for a character.

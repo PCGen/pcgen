@@ -227,7 +227,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public InfoHandler(CharacterFacade character)
@@ -289,7 +289,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		 */
 		private static final long serialVersionUID = -6640460398947215666L;
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -333,7 +333,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		 */
 		private static final long serialVersionUID = 2922387838116495051L;
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public RemoveAction(CharacterFacade character)
 		{
@@ -401,7 +401,7 @@ public class TempBonusInfoTab extends FlippingSplitPane implements CharacterInfo
 		private final CharacterFacade character;
 		private final InfoFactory infoFactory;
 		private final boolean isAvailModel;
-		private FilteredListFacade<CharacterFacade, TempBonusFacade> tempBonuses;
+		private final FilteredListFacade<CharacterFacade, TempBonusFacade> tempBonuses;
 
 		public TempBonusTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{

@@ -47,36 +47,36 @@ import pcgen.util.Logging;
 @SuppressWarnings("serial")
 public class TabsPanel extends PCGenPrefsPanel
 {
-	private static String in_tabs = LanguageBundle.getString("in_Prefs_tabs");
+	private static final String in_tabs = LanguageBundle.getString("in_Prefs_tabs");
 
-	private static String in_charTabPlacement =
+	private static final String in_charTabPlacement =
 		LanguageBundle.getString("in_Prefs_charTabPlacement");
-	private static String in_charTabLabel =
+	private static final String in_charTabLabel =
 		LanguageBundle.getString("in_Prefs_charTabLabel");
-	private static String in_mainTabPlacement =
+	private static final String in_mainTabPlacement =
 		LanguageBundle.getString("in_Prefs_mainTabPlacement");
-	private static String in_tabLabelPlain =
+	private static final String in_tabLabelPlain =
 		LanguageBundle.getString("in_Prefs_tabLabelPlain");
-	private static String in_tabLabelEpic =
+	private static final String in_tabLabelEpic =
 			LanguageBundle.getString("in_Prefs_tabLabelEpic");
-	private static String in_tabLabelRace =
+	private static final String in_tabLabelRace =
 			LanguageBundle.getString("in_Prefs_tabLabelRace");
-	private static String in_tabLabelNetHack =
+	private static final String in_tabLabelNetHack =
 			LanguageBundle.getString("in_Prefs_tabLabelNetHack");
-	private static String in_tabLabelFull =
+	private static final String in_tabLabelFull =
 			LanguageBundle.getString("in_Prefs_tabLabelFull");
-	private static String in_tabPosTop =
+	private static final String in_tabPosTop =
 			LanguageBundle.getString("in_Prefs_tabPosTop");
-	private static String in_tabPosBottom =
+	private static final String in_tabPosBottom =
 			LanguageBundle.getString("in_Prefs_tabPosBottom");
-	private static String in_tabPosLeft =
+	private static final String in_tabPosLeft =
 			LanguageBundle.getString("in_Prefs_tabPosLeft");
-	private static String in_tabPosRight =
+	private static final String in_tabPosRight =
 			LanguageBundle.getString("in_Prefs_tabPosRight");
 
-	private JComboBoxEx charTabPlacementCombo;
-	private JComboBoxEx mainTabPlacementCombo;
-	private JComboBoxEx tabLabelsCombo;
+	private final JComboBoxEx charTabPlacementCombo;
+	private final JComboBoxEx mainTabPlacementCombo;
+	private final JComboBoxEx tabLabelsCombo;
 	
 	/**
 	 * Instantiates a new Tabs panel.

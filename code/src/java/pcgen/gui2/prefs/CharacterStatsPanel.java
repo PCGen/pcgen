@@ -60,7 +60,7 @@ import pcgen.system.LanguageBundle;
 public class CharacterStatsPanel extends PCGenPrefsPanel
 {
 	
-	private static String in_abilities =
+	private static final String in_abilities =
 		LanguageBundle.getString("in_Prefs_abilities");
 	private String[] pMode;
 	private String[] pModeMethodName;

@@ -184,8 +184,8 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		/**
 		 * Prefs key for the character sheet for a game mode.
 		 */
-		private CharacterFacade character;
-		private ComboBoxModel model;
+		private final CharacterFacade character;
+		private final ComboBoxModel model;
 
 		public BoxHandler(CharacterFacade character)
 		{
@@ -253,7 +253,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 	private class CSheetHandler implements ListListener<Object>, ReferenceListener<Object>
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String sheetDir;
 
 		public CSheetHandler(CharacterFacade character)
@@ -350,7 +350,7 @@ public class CharacterSheetInfoTab extends FlippingSplitPane implements Characte
 		 */
 		private static final long serialVersionUID = -2157540968522498242L;
 
-		private ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
+		private final ListListener<TempBonusFacade> listener = new ListListener<TempBonusFacade>()
 		{
 
 			@Override

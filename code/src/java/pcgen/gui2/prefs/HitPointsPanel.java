@@ -48,26 +48,26 @@ import pcgen.system.LanguageBundle;
 @SuppressWarnings("serial")
 public class HitPointsPanel extends PCGenPrefsPanel
 {
-	private static String in_hp = LanguageBundle.getString("in_Prefs_hp");
+	private static final String in_hp = LanguageBundle.getString("in_Prefs_hp");
 
-	private JCheckBox maxHpAtFirstLevel = new JCheckBox();
-	private JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstLevel = new JCheckBox();
+	private final JCheckBox maxHpAtFirstClassLevel = new JCheckBox();
 
 	// "HP Roll Methods"
-	private JRadioButton hpAutomax =
+	private final JRadioButton hpAutomax =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAutoMax"));
-	private JRadioButton hpAverage =
+	private final JRadioButton hpAverage =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverage"));
-	private JRadioButton hpPercentage =
+	private final JRadioButton hpPercentage =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpPercentage"));
-	private JRadioButton hpStandard =
+	private final JRadioButton hpStandard =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpStandard"));
-	private JRadioButton hpUserRolled =
+	private final JRadioButton hpUserRolled =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpUserRolled"));
-	private JRadioButton hpAverageRoundedUp =
+	private final JRadioButton hpAverageRoundedUp =
 			new JRadioButton(LanguageBundle.getString("in_Prefs_hpAverageRoundedUp"));
 
-	private WholeNumberField hpPct = new WholeNumberField(0, 6);
+	private final WholeNumberField hpPct = new WholeNumberField(0, 6);
 	
 	/**
 	 * Instantiates a new hit points panel.

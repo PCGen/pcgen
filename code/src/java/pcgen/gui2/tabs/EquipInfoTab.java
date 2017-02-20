@@ -624,7 +624,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class EquipInfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 		private String text;
 
 		public EquipInfoHandler(CharacterFacade character)
@@ -688,7 +688,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class EquipmentRenderer extends DefaultTableCellRenderer
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public EquipmentRenderer(CharacterFacade character)
 		{
@@ -721,12 +721,12 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private static class EquipNodeSelection implements Transferable
 	{
 
-		private static DataFlavor[] FLAVORS = new DataFlavor[]
+		private static final DataFlavor[] FLAVORS = new DataFlavor[]
 		{
 			equipNodeArrayFlavor,
 			equipmentArrayFlavor
 		};
-		private EquipNode[] nodeArray;
+		private final EquipNode[] nodeArray;
 
 		public EquipNodeSelection(EquipNode[] nodeArray)
 		{
@@ -769,7 +769,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class EquipmentTransferHandler extends TransferHandler
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public EquipmentTransferHandler(CharacterFacade character)
 		{
@@ -863,7 +863,7 @@ public class EquipInfoTab extends FlippingSplitPane implements CharacterInfoTab,
 	private class EquipmentSetTransferHandler extends TransferHandler
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public EquipmentSetTransferHandler(CharacterFacade character)
 		{

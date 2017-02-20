@@ -117,7 +117,7 @@ public class AbilityTreeViews
 	private static class PreReqTreeView implements TreeView<AbilityFacade>
 	{
 
-		private DataSetFacade dataset;
+		private final DataSetFacade dataset;
 
 		public PreReqTreeView(DataSetFacade dataset)
 		{

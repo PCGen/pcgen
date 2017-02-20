@@ -77,8 +77,8 @@ public class KitPanel extends FlippingSplitPane
 	private final JButton addButton;
 	private final InfoPane infoPane;
 	private final CharacterFacade character;
-	private QualifiedTreeCellRenderer renderer;
-	private AddAction addAction;
+	private final QualifiedTreeCellRenderer renderer;
+	private final AddAction addAction;
 	private final FilterButton<Object, KitFacade> qFilterButton;
 
 	/**
@@ -187,7 +187,7 @@ public class KitPanel extends FlippingSplitPane
 	private class InfoHandler implements ListSelectionListener
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public InfoHandler(CharacterFacade character)
 		{
@@ -228,7 +228,7 @@ public class KitPanel extends FlippingSplitPane
 	private class AddAction extends AbstractAction
 	{
 
-		private CharacterFacade character;
+		private final CharacterFacade character;
 
 		public AddAction(CharacterFacade character)
 		{
@@ -263,7 +263,7 @@ public class KitPanel extends FlippingSplitPane
 		private final List<DefaultDataViewColumn> columns;
 		private final CharacterFacade character;
 		private final boolean isAvailModel;
-		private FilteredListFacade<CharacterFacade, KitFacade> kits;
+		private final FilteredListFacade<CharacterFacade, KitFacade> kits;
 
 		public KitTreeViewModel(CharacterFacade character, boolean isAvailModel)
 		{

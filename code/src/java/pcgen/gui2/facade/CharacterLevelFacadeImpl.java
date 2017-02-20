@@ -34,8 +34,8 @@ import pcgen.facade.core.ClassFacade;
 public class CharacterLevelFacadeImpl implements CharacterLevelFacade
 {
 
-	private int characterLevel;
-	private ClassFacade classFacade;
+	private final int characterLevel;
+	private final ClassFacade classFacade;
 	
 	public CharacterLevelFacadeImpl(ClassFacade classFacade, int level)
 	{
