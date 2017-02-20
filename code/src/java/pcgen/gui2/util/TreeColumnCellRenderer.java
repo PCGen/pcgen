@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jan 3, 2016, 4:52:04 PM
  */
 package pcgen.gui2.util;
 
@@ -35,7 +34,6 @@ import javax.swing.tree.DefaultTreeCellRenderer;
  * cell. Then in this class we assign this tree cell's background color to the one that was set for
  * the tree.
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TreeColumnCellRenderer extends DefaultTreeCellRenderer
 {

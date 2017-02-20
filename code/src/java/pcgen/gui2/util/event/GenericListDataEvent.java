@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Jul 2, 2008, 5:29:07 PM
  */
 package pcgen.gui2.util.event;
 
@@ -25,7 +24,6 @@ import javax.swing.event.ListDataEvent;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class GenericListDataEvent<E> extends ListDataEvent
 {

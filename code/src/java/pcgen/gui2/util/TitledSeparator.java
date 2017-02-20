@@ -16,7 +16,6 @@
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
  * 
- * Created on Aug 23, 2008, 3:26:37 PM
  */
 package pcgen.gui2.util;
 
@@ -30,7 +29,6 @@ import javax.swing.border.TitledBorder;
 
 /**
  *
- * @author Connor Petty &lt;cpmeister@users.sourceforge.net&gt;
  */
 public class TitledSeparator extends JComponent
 {

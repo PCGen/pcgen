@@ -20,7 +20,6 @@ import pcgen.util.Logging;
 /**
  * An abstract implementation of the TreeTableModel interface, handling the list
  * of listeners.
- * @author Philip Milne
  */
 public abstract class AbstractTreeTableModel extends DefaultTreeModel implements TreeTableModel
 {
