@@ -19,15 +19,17 @@
  */
 package pcgen.core.analysis;
 
+import java.util.Arrays;
 import java.util.List;
 
 import pcgen.cdom.base.CDOMObject;
+import pcgen.cdom.base.Identified;
 import pcgen.cdom.enumeration.IntegerKey;
-import pcgen.core.Ability;
 import pcgen.core.Equipment;
 import pcgen.core.EquipmentModifier;
-import pcgen.core.spell.Spell;
 import pcgen.util.Delta;
+
+import org.apache.commons.lang3.StringUtils;
 
 public class EqModSpellInfo
 {
@@ -69,7 +71,7 @@ public class EqModSpellInfo
 	}
 
 	public static void setRemainingCharges(Equipment parent,
-			EquipmentModifier eqMod, final int remainingCharges)
+	                                       CDOMObject eqMod, final int remainingCharges)
 	{
 		if (parent.hasAssociations(eqMod))
 		{
@@ -97,7 +99,7 @@ public class EqModSpellInfo
 	}
 
 	public static int getRemainingCharges(Equipment parent,
-			EquipmentModifier eqMod)
+	                                      CDOMObject eqMod)
 	{
 		if (parent.hasAssociations(eqMod))
 		{
@@ -110,8 +112,7 @@ public class EqModSpellInfo
 
 	public static int getUsedCharges(Equipment parent, EquipmentModifier eqMod)
 	{
-		return eqMod.get(IntegerKey.MAX_CHARGES)
-				- getRemainingCharges(parent, eqMod);
+		return eqMod.get(IntegerKey.MAX_CHARGES) - getRemainingCharges(parent, eqMod);
 	}
 
 	/**
@@ -143,11 +144,11 @@ public class EqModSpellInfo
 	 * @param charges
 	 *            how many times can it be cast
 	 */
-	public static void setSpellInfo(Equipment parent, EquipmentModifier eqMod,
-			final CDOMObject spellCastingClass, final Spell theSpell,
-			final String spellVariant, final String spellType,
-			final int spellLevel, final int spellCasterLevel,
-			final Object[] spellMetamagicFeats, final int charges)
+	public static void setSpellInfo(Equipment parent, CDOMObject eqMod,
+	                                final Identified spellCastingClass, final Identified theSpell,
+	                                final String spellVariant, final String spellType,
+	                                final int spellLevel, final int spellCasterLevel,
+	                                final Object[] spellMetamagicFeats, final int charges)
 	{
 		final StringBuilder spellInfo = new StringBuilder(100);
 		spellInfo.append("SPELLNAME[").append(theSpell.getKeyName()).append(
@@ -179,17 +180,13 @@ public class EqModSpellInfo
 			 */
 			spellInfo.append("METAFEATS[");
 
-			for (int i = 0; i < spellMetamagicFeats.length; i++)
-			{
-				final Ability aFeat = (Ability) spellMetamagicFeats[i];
-
-				if (i != 0)
-				{
-					spellInfo.append(", ");
-				}
-
-				spellInfo.append(aFeat.getKeyName());
-			}
+			String metamagicFeats = StringUtils.join(
+					Arrays.stream(spellMetamagicFeats)
+					      .map(v -> (Identified) v)
+					      .map(Identified::getKeyName).toArray(),
+					", "
+			);
+			spellInfo.append(metamagicFeats);
 
 			spellInfo.append("] ");
 		}
