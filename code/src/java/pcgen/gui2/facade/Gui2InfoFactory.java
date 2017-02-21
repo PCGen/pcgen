@@ -971,7 +971,7 @@ public class Gui2InfoFactory implements InfoFactory
 		{
 			bString = EqToken.multAsString(equip.getCritMultiplier());
 			if (equip.isDouble()
-				&& !(equip.getCritMultiplier() == equip.getAltCritMultiplier()))
+					&& (equip.getCritMultiplier() != equip.getAltCritMultiplier()))
 			{
 				bString += "/" + EqToken.multAsString(equip.getAltCritMultiplier()); //$NON-NLS-1$
 			}
