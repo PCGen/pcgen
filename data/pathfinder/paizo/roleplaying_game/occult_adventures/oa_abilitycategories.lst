@@ -79,8 +79,8 @@ ABILITYCATEGORY:Psychic Discipline						VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO
 ABILITYCATEGORY:Phantom Manifestation					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability	TYPE:Phantom Manifestation						PLURAL:Phantom Manifestation					DISPLAYLOCATION:Race Abilities
 ABILITYCATEGORY:Phantom Size							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Internal			TYPE:Phantom Size						PLURAL:Phantom Size					DISPLAYLOCATION:Race Abilities
 
-ABILITYCATEGORY:Implement School							VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School						PLURAL:Implement Schools					DISPLAYLOCATION:Class Features
-ABILITYCATEGORY:Implement School Focus Power					VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School Focus Power				PLURAL:Implement School Focus Powers			DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Implement School				POOL:OccultistImplementSchool			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School						PLURAL:Implement Schools					DISPLAYLOCATION:Class Features
+ABILITYCATEGORY:Implement School Focus Power		POOL:OccultistFocusPower			VISIBLE:QUALIFY	EDITABLE:YES	EDITPOOL:NO		CATEGORY:Special Ability			TYPE:Implement School Focus Power				PLURAL:Implement School Focus Powers			DISPLAYLOCATION:Class Features
 
 
 
