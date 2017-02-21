@@ -30,10 +30,12 @@ import java.awt.event.ActionListener;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
 import java.util.Arrays;
+import java.util.Collection;
 import java.util.HashSet;
 import java.util.Set;
 
 import javax.swing.AbstractAction;
+import javax.swing.AbstractButton;
 import javax.swing.Action;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
@@ -176,7 +178,7 @@ public class SpinningTabbedPane extends JTabbedPane
         LanguageBundle.getString("in_spinTips32")
     };
     private final PopupMenuPolicy policy = new DefaultPopupMenuPolicy();
-    private final Set<Component> locked = new HashSet<>();
+    private final Collection<Component> locked = new HashSet<>();
     @Nullable
     private SpinningTabbedPane parent = null;
 
@@ -243,7 +245,7 @@ public class SpinningTabbedPane extends JTabbedPane
         return -1;
     }
 
-    private static void setMenuItem(@NotNull JMenuItem menuItem, int offset)
+    private static void setMenuItem(@NotNull AbstractButton menuItem, int offset)
     {
         String label = labels[offset];
 
@@ -494,7 +496,7 @@ public class SpinningTabbedPane extends JTabbedPane
 
     private void updateTabUIAt(int index)
     {
-        SpinningTabbedPane pane = (SpinningTabbedPane) getComponentAt(index);
+        JTabbedPane pane = (SpinningTabbedPane) getComponentAt(index);
 
         int offset = SpinningTabbedPane.offsetForPlacement(pane.getTabPlacement()) + SpinningTabbedPane.TAB_OFFSET;
 
@@ -1297,13 +1299,13 @@ public class SpinningTabbedPane extends JTabbedPane
             putValue(Action.SHORT_DESCRIPTION, SpinningTabbedPane.tips[index]);
         }
 
-        private IndexedAction(int index, String name, ImageIcon icon)
+        private IndexedAction(int index, String name, Icon icon)
         {
             super(name, icon);
             this.index = index;
         }
 
-        private IndexedAction(int index, String name, ImageIcon icon,
+        private IndexedAction(int index, String name, Icon icon,
                               int mnemonic)
         {
             this(index, name, icon);
