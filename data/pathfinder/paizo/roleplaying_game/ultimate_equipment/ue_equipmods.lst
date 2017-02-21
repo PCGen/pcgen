@@ -306,3 +306,7 @@ Valiant		KEY:VALIANT_AMF		TYPE:AmuletOfMightyFists	PLUS:1	VISIBLE:QUALIFY	SOURCE
 # Impervious ### In my opinion this can not be placed on unarmed strike ###
 # Throwing ### In my opinion this can not be placed on unarmed strike ###
 # Vorpal ### In my opinion this can not be placed on unarmed strike ###
+
+
+Blood Reservoir of Physical Prowess	KEY:Blood Reservoir of Physical Prowess	TYPE:Weapon	COST:2000	
+

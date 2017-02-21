@@ -499,3 +499,9 @@ Add additional Background Personality Trait	CATEGORY:Special Ability	TYPE:Rules	
 Add additional Background Ideal			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background ideal			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|POOL_Background_Ideal|1
 Add additional Background Bond			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background bond			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|POOL_Background_Bond|1
 Add additional Background Flaw			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional background flaw			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|POOL_Background_Flaw|1
+
+Add additional Skill Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Skill Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Skill Proficiency|1
+Add additional Weapon Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Weapon Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Weapon Proficiency|1
+Add additional Tool Proficiency			CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Tool Proficiency			STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Tools Proficiency|1
+Add additional Language					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Language					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:VAR|POOL_Language|1
+Add additional Feat					CATEGORY:Special Ability	TYPE:Rules	DESC:Adds additional Feat					STACK:YES	MULT:YES	CHOOSE:NOCHOICE	BONUS:ABILITYPOOL|Feat|1
