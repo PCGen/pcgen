@@ -42,8 +42,9 @@ import pcgen.core.Globals;
 import pcgen.core.Movement;
 import pcgen.core.Race;
 import pcgen.core.SettingsHandler;
-import pcgen.core.utils.CoreUtility;
 import pcgen.util.enumeration.Load;
+
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * MovementResultFacet stores the resulting movement of a Player Character. Note
@@ -232,10 +233,10 @@ public class MovementResultFacet extends AbstractStorageFacet<CharID> implements
 
 				if (!moveType.equalsIgnoreCase("ALL"))
 				{
-					moveType = CoreUtility.capitalizeFirstLetter(moveType);
-	
+					moveType = StringUtils.capitalize(moveType);
+
 					boolean found = false;
-	
+
 					for (int i = 0; i < movements.length; i++)
 					{
 						if (moveType.equals(movementTypes[i]))

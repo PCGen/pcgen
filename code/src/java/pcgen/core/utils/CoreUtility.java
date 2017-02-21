@@ -1,5 +1,4 @@
 /*
- * CoreUtility.java
  * Copyright 2002 (C) Bryan McRoberts <merton_monk@yahoo.com>
  *
  * This library is free software; you can redistribute it and/or
@@ -15,10 +14,6 @@
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
- * Created on Feb 18, 2002, 5:20:42 PM
- *
- * $Id$
  */
 package pcgen.core.utils;
 
@@ -39,7 +34,7 @@ import pcgen.system.PCGenPropBundle;
 import pcgen.util.Logging;
 
 /**
- * <code>CoreUtility</code>.
+ * {@code CoreUtility}.
  * 
  * Assorted generic-ish functionality moved from Globals and PlayerCharacter
  * (the two biggest classes in the project.) Some of this code seems awfully
@@ -50,9 +45,9 @@ import pcgen.util.Logging;
 public final class CoreUtility
 {
 
-	static final private double epsilon = 0.0001d;
+	private static final double epsilon = 0.0001d;
 
-	public static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
+	private static final Comparator<Equipment> equipmentComparator = new Comparator<Equipment>()
 	{
 		private int compareInts(final int obj1Index, final int obj2Index)
 		{
@@ -146,72 +141,6 @@ public final class CoreUtility
 				|| "ftp".equalsIgnoreCase(url.getProtocol());
 	}
 
-	/**
-	 * Capitalize the first letter of every word in a string
-	 * 
-	 * @param aString
-	 *            the string to convert to Title case
-	 * @return a new string with the first letter of every word capitalised
-	 */
-	public static String capitalizeFirstLetter(final String aString)
-	{
-		boolean toUpper = true;
-		final char[] a = aString.toLowerCase().toCharArray();
-
-		for (int i = 0; i < a.length; ++i)
-		{
-			if (Character.isWhitespace(a[i]))
-			{
-				toUpper = true;
-			}
-			else
-			{
-				if (toUpper && Character.isLowerCase(a[i]))
-				{
-					a[i] = Character.toUpperCase(a[i]);
-				}
-
-				toUpper = false;
-			}
-		}
-
-		return new String(a);
-	}
-
-	// this method is unused at the release of 5.13.3 alpha
-	//
-	// /**
-	// * Stick a comma between every character of a string.
-	// * @param oldString
-	// * @return String
-	// */
-	// public static String commaDelimit(final String oldString)
-	// {
-	// final int oldStringLength = oldString.length();
-	// final StringBuilder newString = new StringBuilder(oldStringLength);
-	//
-	// for (int i = 0; i < oldStringLength; ++i)
-	// {
-	// if (i != 0)
-	// {
-	// newString.append(',');
-	// }
-	//
-	// newString.append(oldString.charAt(i));
-	// }
-	//
-	// return newString.toString();
-	// }
-	//
-	// /**
-	// * Simple passthrough, calls join(stringArray, ',') to do the work.
-	// * @param stringArray
-	// * @return String
-	// */
-	// public static String commaDelimit(final Collection<String> stringArray)
-	// {
-	// return join(stringArray, ", ");
-	// }
 
 	/**
 	 * Compare two doubles within a given epsilon.
@@ -224,8 +153,8 @@ public final class CoreUtility
 	 *            the epsilon (or deadband)
 	 * @return TRUE {@literal if abs(a - b) < eps}, else FALSE
 	 */
-	public static boolean compareDouble(final double a, final double b,
-			final double eps)
+	private static boolean compareDouble(final double a, final double b,
+	                                     final double eps)
 	{
 		// If the difference is less than epsilon, treat as equal.
 		return Math.abs(a - b) < eps;
@@ -278,7 +207,7 @@ public final class CoreUtility
 	 *            The string to be searched for the innermost (
 	 * @return inner most String end
 	 */
-	public static int innerMostStringEnd(final String aString)
+	public static int innerMostStringEnd(final CharSequence aString)
 	{
 		int index = 0;
 		int hi = 0;
@@ -318,7 +247,7 @@ public final class CoreUtility
 	 * 
 	 * @return innermost String start
 	 */
-	public static int innerMostStringStart(final String aString)
+	public static int innerMostStringStart(final CharSequence aString)
 	{
 		int index = 0;
 		int hi = 0;
@@ -344,22 +273,6 @@ public final class CoreUtility
 
 		return index;
 	}
-
-	// /**
-	// * Concatenates the List into a String using the separator
-	// * as the delimitor.
-	// *
-	// * Note the actual delimitor is the separator + " "
-	// *
-	// * @param strings An ArrayList of strings
-	// * @param separator The separating character
-	// * @return A 'separator' separated String
-	// */
-	// public static String join(final Collection<?> strings, final char
-	// separator)
-	// {
-	// return join(strings, separator + " ");
-	// }
 
 	/**
 	 * Return the english suffix for a given ordinal value

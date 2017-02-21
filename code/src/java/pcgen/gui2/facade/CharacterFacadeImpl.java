@@ -35,9 +35,9 @@ import java.util.List;
 import java.util.Map;
 import java.util.Map.Entry;
 import java.util.Set;
+
 import javax.swing.undo.UndoManager;
-import org.apache.commons.lang3.ObjectUtils;
-import org.apache.commons.lang3.StringUtils;
+
 import pcgen.cdom.base.AssociatedPrereqObject;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
@@ -115,7 +115,6 @@ import pcgen.core.kit.BaseKit;
 import pcgen.core.pclevelinfo.PCLevelInfo;
 import pcgen.core.prereq.PrereqHandler;
 import pcgen.core.spell.Spell;
-import pcgen.core.utils.CoreUtility;
 import pcgen.core.utils.MessageType;
 import pcgen.core.utils.ShowMessageDelegate;
 import pcgen.facade.core.AbilityCategoryFacade;
@@ -184,6 +183,10 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.Load;
 import pcgen.util.enumeration.Tab;
 import pcgen.util.enumeration.View;
+
+import freemarker.template.utility.StringUtil;
+import org.apache.commons.lang3.ObjectUtils;
+import org.apache.commons.lang3.StringUtils;
 
 /**
  * The Class {@code CharacterFacadeImpl} is an implementation of
@@ -3877,7 +3880,7 @@ public class CharacterFacadeImpl implements CharacterFacade, EquipmentListListen
 		carriedWeightRef.set(weight);
 
 		Load load = charDisplay.getLoadType();
-		loadRef.set(CoreUtility.capitalizeFirstLetter(load.toString()));
+		loadRef.set(StringUtil.capitalize(load.toString()));
 
 		Float mult = SettingsHandler.getGame().getLoadInfo().getLoadMultiplier(load.toString());
 		double limit = 0.0f;
