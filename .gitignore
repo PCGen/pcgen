@@ -44,5 +44,6 @@ data/customsources/*
 !data/customsources/readme-customsources.txt
 /.nb-gradle/
 /jre/
+/installers/win-installer/includes/constants.nsh
 /installers/win-installer/project.nsh
 /.checkstyle
