@@ -15,7 +15,6 @@
  *  You should have received a copy of the GNU Lesser General Public
  *  License along with this library; if not, write to the Free Software
  *  Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
- *
  */
 package plugin.notes;
 
@@ -58,7 +57,6 @@ import plugin.notes.gui.PreferencesNotesPanel;
  * plugin for the {@code GMGenSystem}, is called by the
  * {@code PluginLoader} and will create a model and a view for this
  * plugin.
- *
  */
 public class NotesPlugin implements InteractivePlugin
 {
