@@ -10,7 +10,7 @@
  * but WITHOUT ANY WARRANTY; without even the implied warranty of
  * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU
  * Lesser General Public License for more details.
- * 
+ *
  * You should have received a copy of the GNU Lesser General Public
  * License along with this library; if not, write to the Free Software
  * Foundation, Inc., 59 Temple Place, Suite 330, Boston, MA 02111-1307 USA
@@ -42,7 +42,7 @@ import org.apache.commons.lang3.time.DateFormatUtils;
  * and also generate translated tips ({@code tips_XX.txt}) from a PO file (whose name is {@code _XX.po}).
  * PO Template and PO files are message catalog used in gettext.
  * The duplicates from the tips files should appear only once in the PO Template files.
- * 
+ *
  * This class tries to be independent of code, but still needs Apache Commons Lang.
  *
  * @see <a href="http://www.gnu.org/software/gettext/manual/gettext.html">GNU gettext manual</a>
@@ -52,9 +52,6 @@ public final class Tips
 	/** Quote char */
 	private static final char QUOTE = '"';
 
-	/**
-	 * 
-	 */
 	private static final String COMMENT_PREFIX = "#"; //$NON-NLS-1$
 
 	private static final String DEFAULT_TIPS_FILENAME = "tips.txt"; //$NON-NLS-1$
@@ -132,7 +129,11 @@ public final class Tips
 		log("Done");
 	}
 
-	private static void writePOT(Set<String> tips, String potFilename)
+	/**
+	 * @param tips
+	 * @param potFilename
+	 */
+	private static void writePOT(Iterable<String> tips, String potFilename)
 	{
 		File pot = new File(potFilename);
 		// create parent if necessary
@@ -221,7 +222,7 @@ public final class Tips
 	/**
 	 * Filter on a specific filename.
 	 */
-	static class SpecificFilenameFilter implements FilenameFilter
+	static final class SpecificFilenameFilter implements FilenameFilter
 	{
 
 		private final String filename;
@@ -376,8 +377,7 @@ public final class Tips
 								bw.write("\n");
 								readLine = reader.readLine();
 							}
-						}
-						catch (IOException e)
+						} catch (IOException e)
 						{
 							// TODO Auto-generated catch block
 							e.printStackTrace();
@@ -390,8 +390,7 @@ public final class Tips
 								{
 									reader.close();
 								}
-							}
-							catch (IOException e)
+							} catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -402,8 +401,7 @@ public final class Tips
 								{
 									bw.close();
 								}
-							}
-							catch (IOException e)
+							} catch (IOException e)
 							{
 								// TODO Auto-generated catch block
 								e.printStackTrace();
@@ -432,6 +430,10 @@ public final class Tips
 		return string.replaceAll("\\\\\'", "'").replaceAll("\\\\\"", "\"").replaceAll("\\\\\\\\", "\\\\");
 	}
 
+	/**
+	 * @param string
+	 * @return
+	 */
 	@SuppressWarnings("nls")
 	static String escape(String string)
 	{
