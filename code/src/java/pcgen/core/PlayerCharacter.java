@@ -3927,7 +3927,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			tBonus = (int) getTotalBonusTo("CASTERLEVEL", classOrRace);
 			if (tBonus > 0)
 			{
-				tType = getSpellBonusType("CASTERLEVEL", classOrRace);
+				tType = getSpellBonusType(classOrRace);
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 
@@ -3941,7 +3941,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 				if (tBonus > 0)
 				{
-					tType = getSpellBonusType("CASTERLEVEL", tStr);
+					tType = getSpellBonusType(tStr);
 					bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 				}
 			}
@@ -3959,7 +3959,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (tBonus > 0)
 			{
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 			tStr += ".RESET";
@@ -3973,7 +3973,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (tBonus > 0)
 			{
 				replaceCasterLevel = true;
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
 			}
 		}
@@ -3983,7 +3983,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 		if (casterlevel > 0)
 		{
-			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			tType = getSpellBonusType(tStr);
 			bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 		}
 		tStr += ".RESET";
@@ -3997,7 +3997,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (casterlevelNew > 0)
 		{
 			replaceCasterLevel = true;
-			tType = getSpellBonusType("CASTERLEVEL", tStr);
+			tType = getSpellBonusType(tStr);
 			bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 		}
 
@@ -4012,7 +4012,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			casterlevelNew = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (casterlevelNew != 0) // Allow negative bonus to casterlevel
 			{
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 			tStr += ".RESET";
@@ -4027,7 +4027,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (casterlevelNew > 0)
 			{
 				replaceCasterLevel = true;
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 		}
@@ -4039,7 +4039,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			casterlevelNew = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (casterlevelNew > 0)
 			{
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 			tStr += ".RESET";
@@ -4054,7 +4054,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (casterlevelNew > 0)
 			{
 				replaceCasterLevel = true;
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 		}
@@ -4067,7 +4067,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			casterlevelNew = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 			if (casterlevelNew > 0)
 			{
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 			tStr += ".RESET";
@@ -4082,7 +4082,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (casterlevelNew > 0)
 			{
 				replaceCasterLevel = true;
-				tType = getSpellBonusType("CASTERLEVEL", tStr);
+				tType = getSpellBonusType(tStr);
 				bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 			}
 		}
@@ -4099,7 +4099,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					casterlevelNew = (int) getTotalBonusTo("CASTERLEVEL", tStr);
 					if (casterlevelNew > 0)
 					{
-						tType = getSpellBonusType("CASTERLEVEL", tStr);
+						tType = getSpellBonusType(tStr);
 						bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 					}
 					tStr += ".RESET";
@@ -4114,7 +4114,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					if (casterlevelNew > 0)
 					{
 						replaceCasterLevel = true;
-						tType = getSpellBonusType("CASTERLEVEL", tStr);
+						tType = getSpellBonusType(tStr);
 						bonuses.add(new CasterLevelSpellBonus(casterlevelNew, tType));
 					}
 				}
@@ -4230,9 +4230,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return result;
 	}
 
-	private String getSpellBonusType(final String bonusType, final String bonusName)
+	private String getSpellBonusType(final String bonusName)
 	{
-		return bonusManager.getSpellBonusType(bonusType, bonusName);
+		return bonusManager.getSpellBonusType("CASTERLEVEL", bonusName);
 	}
 
 	/**
