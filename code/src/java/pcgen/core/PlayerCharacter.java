@@ -2482,7 +2482,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param source The source of the bonus objects.
 	 * @return The aggregate bonus
 	 */
-	public double calcBonusFromList(final List<BonusObj> aList, CDOMObject source)
+	public double calcBonusFromList(final Iterable<BonusObj> aList, CDOMObject source)
 	{
 		double iBonus = 0;
 
@@ -3266,7 +3266,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	public Collection<Kit> getKitInfo()
+	public Iterable<Kit> getKitInfo()
 	{
 		return kitFacet.getSet(id);
 	}
@@ -5466,7 +5466,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int i = Math.max(0, (int) getStatBonusTo("LANG", "BONUS"));
 		if (getRace() != null)
 		{
-			i = (int) (i + getTotalBonusTo("LANGUAGES", "NUMBER"));
+			i += getTotalBonusTo("LANGUAGES", "NUMBER");
 		}
 		return i;
 	}
@@ -8586,7 +8586,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaDC = (int) (metaDC + BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this));
+				metaDC += BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this);
 			}
 		}
 
@@ -8718,8 +8718,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			for (Ability metaFeat : si.getFeatList())
 			{
 				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
-				metaConcentration = (int) (metaConcentration
-						                           + BonusCalc.charBonusTo(metaFeat, "CONCENTRATION", "FEATBONUS", this));
+				metaConcentration += BonusCalc.charBonusTo(
+						metaFeat,
+						"CONCENTRATION",
+						"FEATBONUS",
+						this
+				);
 			}
 		}
 
