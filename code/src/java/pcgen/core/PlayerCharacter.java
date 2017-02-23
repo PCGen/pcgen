@@ -278,10 +278,6 @@ import pcgen.util.Logging;
 import pcgen.util.enumeration.AttackType;
 import pcgen.util.enumeration.Load;
 
-/**
- * {@code PlayerCharacter}.
- *
- */
 public class PlayerCharacter implements Cloneable, VariableContainer
 {
 
