@@ -21,6 +21,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.io.Reader;
 import java.math.BigDecimal;
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -5484,58 +5485,46 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public boolean loadDescriptionFilesInDirectory(final String aDirectory)
 	{
 		new File(aDirectory).list((dir, name) ->
-		                          {
-			                          final File descriptionFile = new File(dir, name);
+		{
+			final File descriptionFile = new File(dir, name);
 
-			                          if (PCGFile.isPCGenListFile(descriptionFile))
-			                          {
-				                          BufferedReader descriptionReader = null;
+			if (PCGFile.isPCGenListFile(descriptionFile))
+			{
 
-				                          try
-				                          {
-					                          if (descriptionFile.exists())
-					                          {
-						                          final char[] inputLine;
+				try (Reader descriptionReader = new BufferedReader(new InputStreamReader(
+						new FileInputStream(
+								descriptionFile),
+						"UTF-8"
+				))
+				)
+				{
+					if (descriptionFile.exists())
+					{
+						final char[] inputLine;
 
-						                          // final BufferedReader descriptionReader = new
-						                          // BufferedReader(new FileReader(descriptionFile));
-						                          descriptionReader = new BufferedReader(new InputStreamReader(new FileInputStream(
-								                          descriptionFile), "UTF-8"));
+						final int length = (int) descriptionFile.length();
+						inputLine = new char[length];
+						descriptionReader.read(inputLine, 0, length);
 
-						                          final int length = (int) descriptionFile.length();
-						                          inputLine = new char[length];
-						                          descriptionReader.read(inputLine, 0, length);
+						this.descriptionLst =
+								getDescriptionLst() + new String(inputLine);
+					}
+				} catch (IOException exception)
+				{
+					Logging.errorPrint(
+							"IOException in PlayerCharacter"
+									+ ".loadDescriptionFilesInDirectory",
+							exception
+					);
+				}
+			}
+			else if (dir.isDirectory())
+			{
+				loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
+			}
 
-						                          this.descriptionLst =
-								                          getDescriptionLst() + new String(inputLine);
-					                          }
-				                          } catch (IOException exception)
-				                          {
-					                          Logging.errorPrint("IOException in PlayerCharacter.loadDescriptionFilesInDirectory", exception);
-				                          } finally
-				                          {
-					                          if (descriptionReader != null)
-					                          {
-						                          try
-						                          {
-							                          descriptionReader.close();
-						                          } catch (IOException e)
-						                          {
-							                          Logging.errorPrint(
-									                          "Couldn't close descriptionReader in PlayerCharacter.loadDescriptionFilesInDirectory",
-									                          e);
-
-							                          // Not much to do...
-						                          }
-					                          }
-				                          }
-			                          } else if (dir.isDirectory())
-			                          {
-				                          loadDescriptionFilesInDirectory(dir.getPath() + File.separator + name);
-			                          }
-
-			                          return false;
-		                          });
+			return false;
+		})
 
 		return false;
 	}
