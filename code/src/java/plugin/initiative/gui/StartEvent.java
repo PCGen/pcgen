@@ -21,16 +21,18 @@
  */
 package plugin.initiative.gui;
 
-import gmgen.plugin.Event;
-import pcgen.core.SettingsHandler;
-import plugin.initiative.InitiativePlugin;
+import java.awt.BorderLayout;
+import java.awt.Dimension;
+import java.awt.event.ActionEvent;
 
 import javax.swing.BorderFactory;
 import javax.swing.JFormattedTextField;
 import javax.swing.JPanel;
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.event.ActionEvent;
+
+import pcgen.core.SettingsHandler;
+
+import gmgen.plugin.Event;
+import plugin.initiative.InitiativePlugin;
 
 /**
  */

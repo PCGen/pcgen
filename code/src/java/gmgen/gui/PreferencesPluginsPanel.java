@@ -38,15 +38,11 @@ import pcgen.cdom.base.Constants;
 import pcgen.core.SettingsHandler;
 import pcgen.system.LanguageBundle;
 
-/**
- *
- * @author  soulcatcher
- */
+
 class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	private static final Map<String, PluginRef> pluginMap = new HashMap<>();
 
 	private JPanel mainPanel;
-	private JScrollPane jScrollPane1;
 
 	/** Creates new form PreferencesDamagePanel */
 	public PreferencesPluginsPanel() {
@@ -72,7 +68,7 @@ class PreferencesPluginsPanel extends gmgen.gui.PreferencesPanel {
 	}
 
 	private void initComponents() {
-		jScrollPane1 = new JScrollPane();
+		JScrollPane jScrollPane1 = new JScrollPane();
 		mainPanel = new JPanel();
 
 		setLayout(new BorderLayout());
