@@ -28,7 +28,6 @@ import java.util.Collection;
 import java.util.Collections;
 import java.util.HashMap;
 import java.util.HashSet;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Map;
 import java.util.Set;
@@ -2254,7 +2253,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					Logging.debugPrint(sb);
 				}
 				lastVariable = null;
-				return new Float(value);
+				return (float) value;
 			}
 		}
 
@@ -2287,7 +2286,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			value += getTotalBonusTo("VAR", variableString);
 		}
 
-		return new Float(value);
+		return (float) value;
 	}
 
 	public void setPointBuyPoints(final int argPointBuyPoints)
@@ -3419,7 +3418,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// Class skill
 			maxRanks = SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes, this);
 		}
-		return new Float(maxRanks.floatValue());
+		return maxRanks.floatValue();
 	}
 
 	/**
@@ -7685,7 +7684,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		if (newQty.floatValue() < 0.0f)
 		{
 			tempQty = diffQty;
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			addAll = true;
 		}
 
@@ -7753,7 +7752,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (addAll && mergeItem && (existingSet != null))
 		{
-			newQty = new Float(tempQty + getEquippedQty(eSet, eqI).floatValue());
+			newQty = tempQty + getEquippedQty(eSet, eqI).floatValue();
 			existingSet.setQty(newQty);
 			eqI.setQty(newQty);
 			eqI.setNumberCarried(newQty);
@@ -7948,7 +7947,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (!aCategory.allowFractionalPool())
 		{
-			basePool = new Float(basePool.intValue());
+			basePool = (float) basePool.intValue();
 		}
 		return basePool;
 	}
