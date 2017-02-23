@@ -162,11 +162,11 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
+	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		ChooseInformation<?> tc =
 				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+					.getObject(obj, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -200,9 +200,9 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc)
 	{
-		restoreChoice(pc, owner, st);
+		restoreChoice(pc, owner, item);
 	}
 
 	private void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc,
@@ -212,29 +212,29 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
-		pc.removeAssoc(owner, getListKey(), choice);
+		pc.removeAssoc(owner, getListKey(), item);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
 			{
-				ca.removeChoice(owner, choice, pc);
+				ca.removeChoice(owner, item, pc);
 			}
 		}
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
-		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssoc(owner, getListKey(), item);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
 			{
-				applyChoice(owner, choice, pc, ca);
+				applyChoice(owner, item, pc, ca);
 			}
 		}
 	}
@@ -247,7 +247,7 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(T item, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt
@@ -257,16 +257,16 @@ public abstract class AbstractSimpleChooseToken<T extends Loadable> extends
 	}
 
 	@Override
-	public T decodeChoice(LoadContext context, String s)
+	public T decodeChoice(LoadContext context, String persistentFormat)
 	{
 		return context.getReferenceContext().silentlyGetConstructedCDOMObject(
-			getChooseClass(), s);
+			getChooseClass(), persistentFormat);
 	}
 
 	@Override
-	public String encodeChoice(T choice)
+	public String encodeChoice(T item)
 	{
-		return choice.getKeyName();
+		return item.getKeyName();
 	}
 
 	protected abstract Class<T> getChooseClass();

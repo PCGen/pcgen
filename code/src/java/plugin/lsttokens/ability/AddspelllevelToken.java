@@ -39,12 +39,12 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability obj,
 		String value)
 	{
 		try
 		{
-			context.getObjectContext().put(ability, IntegerKey.ADD_SPELL_LEVEL,
+			context.getObjectContext().put(obj, IntegerKey.ADD_SPELL_LEVEL,
 					Delta.parseInt(value));
 			return ParseResult.SUCCESS;
 		}
@@ -57,9 +57,10 @@ public class AddspelllevelToken extends AbstractNonEmptyToken<Ability>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, Ability ability)
+	public String[] unparse(LoadContext context, Ability obj)
 	{
-		Integer lvl = context.getObjectContext().getInteger(ability,
+		Integer lvl = context.getObjectContext().getInteger(
+				obj,
 				IntegerKey.ADD_SPELL_LEVEL);
 		if (lvl == null)
 		{

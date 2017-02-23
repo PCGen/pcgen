@@ -117,11 +117,11 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, CDOMObject cdo)
+	public String[] unparse(LoadContext context, CDOMObject obj)
 	{
 		ChooseInformation<?> tc =
 				context.getObjectContext()
-					.getObject(cdo, ObjectKey.CHOOSE_INFO);
+					.getObject(obj, ObjectKey.CHOOSE_INFO);
 		if (tc == null)
 		{
 			return null;
@@ -155,35 +155,35 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 	}
 
 	@Override
-	public void applyChoice(ChooseDriver owner, T st, PlayerCharacter pc)
+	public void applyChoice(ChooseDriver owner, T item, PlayerCharacter pc)
 	{
-		restoreChoice(pc, owner, st);
+		restoreChoice(pc, owner, item);
 	}
 
 	@Override
-	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void removeChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
-		pc.removeAssoc(owner, getListKey(), choice);
+		pc.removeAssoc(owner, getListKey(), item);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
 			{
-				ca.removeChoice(owner, choice, pc);
+				ca.removeChoice(owner, item, pc);
 			}
 		}
 	}
 
 	@Override
-	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T choice)
+	public void restoreChoice(PlayerCharacter pc, ChooseDriver owner, T item)
 	{
-		pc.addAssoc(owner, getListKey(), choice);
+		pc.addAssoc(owner, getListKey(), item);
 		List<ChooseSelectionActor<?>> actors = owner.getActors();
 		if (actors != null)
 		{
 			for (ChooseSelectionActor ca : actors)
 			{
-				ca.applyChoice(owner, choice, pc);
+				ca.applyChoice(owner, item, pc);
 			}
 		}
 	}
@@ -196,7 +196,7 @@ public abstract class AbstractQualifiedChooseToken<T extends CDOMObject>
 
 	@Override
 	@SuppressWarnings("PMD.EmptyMethodInAbstractClassShouldBeAbstract")
-	public boolean allow(T choice, PlayerCharacter pc, boolean allowStack)
+	public boolean allow(T item, PlayerCharacter pc, boolean allowStack)
 	{
 		/*
 		 * This is universally true, as any filter for qualify, etc. was dealt

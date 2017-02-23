@@ -64,13 +64,13 @@ public final class BioSetLoader extends LstLineFileLoader
 	 * @see pcgen.persistence.lst.LstLineFileLoader#loadLstFile(LoadContext, URI)
 	 */
 	@Override
-	public void loadLstFile(LoadContext context, URI fileName)
+	public void loadLstFile(LoadContext context, URI uri)
 			throws PersistenceLayerException
 	{
 		currentAgeSetIndex = 0;
 		final GameMode game = SystemCollections.getGameModeNamed(gameMode);
 		bioSet = game.getBioSet();
-		super.loadLstFile(context, fileName);
+		super.loadLstFile(context, uri);
 		game.setBioSet(bioSet);
 	}
 

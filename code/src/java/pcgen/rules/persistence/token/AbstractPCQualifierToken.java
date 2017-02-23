@@ -57,8 +57,8 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	}
 
 	@Override
-	public boolean initialize(LoadContext context, SelectionCreator<T> sc,
-			String condition, String value, boolean negate)
+	public boolean initialize(LoadContext context, SelectionCreator<T> cl,
+			String condition, String value, boolean negated)
 	{
 		if (condition != null)
 		{
@@ -67,19 +67,19 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 					+ " into a conditional Qualifier, remove =");
 			return false;
 		}
-		if (sc == null)
+		if (cl == null)
 		{
 			throw new IllegalArgumentException();
 		}
-		refClass = sc.getReferenceClass();
-		negated = negate;
+		refClass = cl.getReferenceClass();
+		this.negated = negated;
 		if (value == null)
 		{
-			pcs = sc.getAllReference();
+			pcs = cl.getAllReference();
 		}
 		else
 		{
-			pcs = context.getPrimitiveChoiceFilter(sc, value);
+			pcs = context.getPrimitiveChoiceFilter(cl, value);
 			wasRestricted = true;
 		}
 		return pcs != null;
@@ -169,8 +169,8 @@ public abstract class AbstractPCQualifierToken<T extends CDOMObject> implements
 	}
 
 	@Override
-	public boolean allow(PlayerCharacter pc, T po)
+	public boolean allow(PlayerCharacter pc, T obj)
 	{
-		return getPossessed(pc).contains(po);
+		return getPossessed(pc).contains(obj);
 	}
 }

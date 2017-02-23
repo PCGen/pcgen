@@ -547,19 +547,19 @@ class AdvancedSourceSelectionPanel extends JPanel
 		}
 		
 		@Override
-		public Object getData(CampaignFacade obj, int column)
+		public Object getData(CampaignFacade element, int column)
 		{
 			SourceSelectionFacade sourceFacade
 					= frame.getCurrentSourceSelectionRef().get();
 			boolean isLoaded
 					= sourceFacade != null
-					&& sourceFacade.getCampaigns().containsElement(obj);
+					&& sourceFacade.getCampaigns().containsElement(element);
 			switch (column)
 			{
 				case 0:
-					return obj.getBookTypes();
+					return element.getBookTypes();
 				case 1:
-					return obj.getStatus();
+					return element.getStatus();
 				case 2:
 					return isLoaded ? LanguageBundle.getString("in_yes") : LanguageBundle
 							.getString("in_no");
@@ -705,11 +705,12 @@ class AdvancedSourceSelectionPanel extends JPanel
 
 		@Override
 		public Component getTreeCellRendererComponent(JTree tree, Object value,
-			boolean sel, boolean expanded, boolean leaf, int row, boolean focus)
+			boolean sel, boolean expanded, boolean leaf, int row, boolean hasFocus)
 		{
 
 			super.getTreeCellRendererComponent(tree, value, sel, expanded,
-											   leaf, row, focus);
+											   leaf, row, hasFocus
+			);
 			Object campaignObj = ((DefaultMutableTreeNode) value).getUserObject();
 			if (campaignObj instanceof CampaignFacade)
 			{

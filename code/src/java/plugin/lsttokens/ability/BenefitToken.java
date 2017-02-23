@@ -51,17 +51,18 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 	}
 
 	@Override
-	protected ParseResult parseNonEmptyToken(LoadContext context, Ability ability,
+	protected ParseResult parseNonEmptyToken(LoadContext context, Ability obj,
 		String value)
 	{
 		if (Constants.LST_DOT_CLEAR.equals(value))
 		{
-			context.getObjectContext().removeList(ability, ListKey.BENEFIT);
+			context.getObjectContext().removeList(obj, ListKey.BENEFIT);
 			return ParseResult.SUCCESS;
 		}
 		if (value.startsWith(Constants.LST_DOT_CLEAR_DOT))
 		{
-			context.getObjectContext().removePatternFromList(ability,
+			context.getObjectContext().removePatternFromList(
+					obj,
 					ListKey.BENEFIT, value.substring(7));
 			return ParseResult.SUCCESS;
 		}
@@ -71,15 +72,15 @@ public class BenefitToken extends AbstractNonEmptyToken<Ability> implements
 		{
 			return ParseResult.INTERNAL_ERROR;
 		}
-		context.getObjectContext().addToList(ability, ListKey.BENEFIT, ben);
+		context.getObjectContext().addToList(obj, ListKey.BENEFIT, ben);
 		return ParseResult.SUCCESS;
 	}
 
 	@Override
-	public String[] unparse(LoadContext context, Ability ability)
+	public String[] unparse(LoadContext context, Ability obj)
 	{
 		PatternChanges<Description> changes = context.getObjectContext()
-				.getListPatternChanges(ability, ListKey.BENEFIT);
+				.getListPatternChanges(obj, ListKey.BENEFIT);
 		if (changes == null || changes.isEmpty())
 		{
 			return null;
