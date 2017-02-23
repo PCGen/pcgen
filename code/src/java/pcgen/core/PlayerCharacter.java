@@ -1449,7 +1449,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *            A list of companionMods to get level for
 	 * @return The effective level for this companion type
 	 */
-	public int getEffectiveCompanionLevel(final CompanionList compList)
+	int getEffectiveCompanionLevel(final CompanionList compList)
 	{
 		for (CompanionMod cMod : Globals.getContext().getReferenceContext().getManufacturer(
 			CompanionMod.class, compList).getAllObjects())
@@ -2320,7 +2320,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public LevelInfo getXPTableLevelInfo(int level)
+	LevelInfo getXPTableLevelInfo(int level)
 	{
 		return xpTableFacet.getLevelInfo(id, level);
 	}
@@ -3283,7 +3283,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return levelInfoFacet.get(id, index);
 	}
 
-	public String getLevelInfoClassKeyName(final int idx)
+	String getLevelInfoClassKeyName(final int idx)
 	{
 		if ((idx >= 0) && (idx < getLevelInfoSize()))
 		{
@@ -3293,7 +3293,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return Constants.EMPTY_STRING;
 	}
 
-	public PCLevelInfo getLevelInfoFor(final String classKey, int level)
+	PCLevelInfo getLevelInfoFor(final String classKey, int level)
 	{
 		for (PCLevelInfo pcl : getLevelInfo())
 		{
@@ -3349,7 +3349,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @return the number of Character Domains possible and check the level of
 	 *         the source class if the result is 0.
 	 */
-	public int getMaxCharacterDomains(final PCClass source, final PlayerCharacter aPC)
+	int getMaxCharacterDomains(final PCClass source, final PlayerCharacter aPC)
 	{
 		int i = getMaxCharacterDomains();
 		if (i == 0 && !hasDefaultDomainSource())
@@ -5629,12 +5629,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public int minXPForECL()
+	int minXPForECL()
 	{
 		return levelTableFacet.minXPForLevel(levelFacet.getECL(id), id);
 	}
 
-	public int minXPForNextECL()
+	int minXPForNextECL()
 	{
 		return levelTableFacet.minXPForLevel(levelFacet.getECL(id) + 1, id);
 	}
@@ -5917,7 +5917,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return levelFacet.getMonsterLevelCount(id);
 	}
 
-	public int totalNonMonsterLevels()
+	int totalNonMonsterLevels()
 	{
 		return levelFacet.getNonMonsterLevelCount(id);
 	}
@@ -8067,7 +8067,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param aCategory The ability category to be queried.
 	 * @return The list of abilities of the category regardless of nature.
 	 */
-	public List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
+	List<Ability> getAggregateAbilityListNoDuplicates(final AbilityCategory aCategory)
 	{
 		List<Ability> aggregate = new ArrayList<>();
 		final Map<String, Ability> aHashMap = new HashMap<>();
@@ -8995,7 +8995,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return !classFacet.isEmpty(id);
 	}
 
-	public void removeClass(PCClass pcc)
+	void removeClass(PCClass pcc)
 	{
 		classFacet.removeClass(id, pcc);
 	}
@@ -9014,7 +9014,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * set the level to arg without impacting spells, hp, or anything else - use
 	 * this with great caution only.
 	 */
-	public final void setLevelWithoutConsequence(PCClass pcc, final int level)
+	final void setLevelWithoutConsequence(PCClass pcc, final int level)
 	{
 		classFacet.setLevel(id, pcc, level);
 		cabFacet.update(id);
@@ -9036,7 +9036,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return newSet;
 	}
 
-	public boolean containsKit(Kit kit)
+	boolean containsKit(Kit kit)
 	{
 		return kitFacet.contains(id, kit);
 	}
@@ -9340,7 +9340,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonusManager.hasTempBonusesApplied(mod);
 	}
 
-	public Collection<BonusContainer> getBonusContainerList()
+	Collection<BonusContainer> getBonusContainerList()
 	{
 		List<BonusContainer> list = new ArrayList<>(getCDOMObjectList());
 		list.add(ageSetFacet.get(id));
@@ -9388,7 +9388,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public void checkSkillModChange()
+	void checkSkillModChange()
 	{
 		List<PCClass> newClasses = getClassList();
 		Collection<PCLevelInfo> levelInfo = getLevelInfo();
@@ -9476,7 +9476,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * stored - should PCLevelInfo be adapted to store all of the non-static
 	 * information about a PCClassLevel?
 	 */
-	public void rollHP(PCClass pcClass, int aLevel, boolean first)
+	void rollHP(PCClass pcClass, int aLevel, boolean first)
 	{
 		hitPointFacet.rollHP(id, pcClass, aLevel, first);
 		setDirty(true);
@@ -9492,7 +9492,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return hitPointFacet.get(id, pcl);
 	}
 
-	public void removeHP(PCClassLevel pcl)
+	void removeHP(PCClassLevel pcl)
 	{
 		hitPointFacet.remove(id, pcl);
 	}
@@ -9732,7 +9732,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		domainSpellCountFacet.remove(id, pcc);
 	}
 
-	public Integer getDomainSpellCount(PCClass pcc)
+	Integer getDomainSpellCount(PCClass pcc)
 	{
 		return domainSpellCountFacet.get(id, pcc);
 	}
@@ -9863,7 +9863,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return skillRankFacet.get(id, sk, localClass);
 	}
 
-	public int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
+	int getKnownSpellCountForLevel(CDOMList<Spell> list, int level)
 	{
 		return knownSpellFacet.getSize(id, list, level);
 	}
@@ -9964,7 +9964,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public void removeKnownSpellsForClassLevel(PCClass pcc)
+	void removeKnownSpellsForClassLevel(PCClass pcc)
 	{
 		if (!pcc.containsListFor(ListKey.KNOWN_SPELLS) || importing
 			|| !autoKnownSpells)
@@ -10086,7 +10086,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return bonusLanguageAbility;
 	}
 
-	public void setAllowInteraction(boolean b)
+	void setAllowInteraction(boolean b)
 	{
 		if (!b && !allowInteraction)
 		{
@@ -10186,7 +10186,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public boolean hasAbilityInPool(AbilityCategory aCategory)
+	boolean hasAbilityInPool(AbilityCategory aCategory)
 	{
 		return grantedAbilityFacet.hasAbilityInPool(id, aCategory);
 	}
