@@ -4606,14 +4606,16 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		this.setDirty(true);
 
 		calcActiveBonuses();
-		int postLockMonsterSkillPoints; // this is what this value was before
 		// adding this template
 		boolean first = true;
 		for (PCClass pcClass : getClassSet())
 		{
 			if (pcClass.isMonster())
 			{
-				postLockMonsterSkillPoints = (int) getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
+				int postLockMonsterSkillPoints = (int) getTotalBonusTo(
+						"MONSKILLPTS",
+						"LOCKNUMBER"
+				); // this is what this value was before
 
 				if ((postLockMonsterSkillPoints != lockMonsterSkillPoints) && (
 						postLockMonsterSkillPoints > 0))
@@ -6200,12 +6202,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int getLevelBefore(final String classKey, final int charLevel)
 	{
-		String thisClassKey;
 		int lvl = 0;
 
 		for (int idx = 0; idx < charLevel; ++idx)
 		{
-			thisClassKey = getLevelInfoClassKeyName(idx);
+			String thisClassKey = getLevelInfoClassKeyName(idx);
 
 			if (thisClassKey.isEmpty())
 			{
@@ -9594,7 +9595,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public int recalcSkillPointMod(PCClass pcClass, final int characterLevel)
 	{
 		// int spMod = getSkillPoints();
-		int lockedMonsterSkillPoints;
 		int spMod = pcClass.getSafe(FormulaKey.START_SKILL_POINTS).resolve(this,
 			pcClass.getQualifiedKey()).intValue();
 
@@ -9602,7 +9602,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		if (pcClass.isMonster())
 		{
-			lockedMonsterSkillPoints =
+			int lockedMonsterSkillPoints =
 					(int) getTotalBonusTo("MONSKILLPTS", "LOCKNUMBER");
 			if (lockedMonsterSkillPoints > 0)
 			{
