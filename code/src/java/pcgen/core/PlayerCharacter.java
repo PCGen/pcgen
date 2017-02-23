@@ -38,7 +38,6 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
-import pcgen.base.lang.UnreachableError;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
@@ -5336,9 +5335,19 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int total = 0;
 
 		String aString = SettingsHandler.getGame().getHPFormula();
-		if (!aString.isEmpty())
+		if (aString.isEmpty())
 		{
-			for (;;)
+			final double iConMod = getStatBonusTo("HP", "BONUS");
+
+			for (PCClass pcClass : getClassSet())
+			{
+				total += getClassHitPoints(pcClass, (int) iConMod);
+			}
+
+		}
+		else
+		{
+			for (; ; )
 			{
 				int startIdx = aString.indexOf("$$");
 				if (startIdx < 0)
@@ -5353,18 +5362,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 				String lookupString = aString.substring(startIdx + 2, endIdx);
 				lookupString = ExportHandler.getTokenString(this, lookupString);
-				aString = aString.substring(0, startIdx) + lookupString + aString.substring(endIdx + 2);
+				aString =
+						aString.substring(0, startIdx) + lookupString + aString
+								.substring(
+								endIdx + 2);
 			}
 			total = getVariableValue(aString, "").intValue();
-		} else
-		{
-			final double iConMod = getStatBonusTo("HP", "BONUS");
-
-			for (PCClass pcClass : getClassSet())
-			{
-				total += getClassHitPoints(pcClass, (int) iConMod);
-			}
-
 		}
 		total += (int) getTotalBonusTo("HP", "CURRENTMAX");
 
