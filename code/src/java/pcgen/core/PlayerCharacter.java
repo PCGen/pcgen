@@ -5504,7 +5504,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 						                          final int length = (int) descriptionFile.length();
 						                          inputLine = new char[length];
 						                          descriptionReader.read(inputLine, 0, length);
-						                          setDescriptionLst(getDescriptionLst() + new String(inputLine));
+
+						                          this.descriptionLst =
+								                          getDescriptionLst() + new String(inputLine);
 					                          }
 				                          } catch (IOException exception)
 				                          {
@@ -7038,15 +7040,6 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		sortedList.removeIf(item -> item.getOutputIndex() == -1);
 
 		return sortedList;
-	}
-
-	/**
-	 * @param descriptionLst
-	 *            The descriptionLst to set.
-	 */
-	private void setDescriptionLst(final String descriptionLst)
-	{
-		this.descriptionLst = descriptionLst;
 	}
 
 	/**
