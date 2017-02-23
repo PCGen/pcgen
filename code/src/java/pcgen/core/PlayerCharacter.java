@@ -5335,19 +5335,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int total = 0;
 
 		String aString = SettingsHandler.getGame().getHPFormula();
-		if (aString.isEmpty())
+		if (!aString.isEmpty())
 		{
-			final double iConMod = getStatBonusTo("HP", "BONUS");
-
-			for (PCClass pcClass : getClassSet())
-			{
-				total += getClassHitPoints(pcClass, (int) iConMod);
-			}
-
-		}
-		else
-		{
-			for (; ; )
+			for (;;)
 			{
 				int startIdx = aString.indexOf("$$");
 				if (startIdx < 0)
@@ -5362,12 +5352,18 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 				String lookupString = aString.substring(startIdx + 2, endIdx);
 				lookupString = ExportHandler.getTokenString(this, lookupString);
-				aString =
-						aString.substring(0, startIdx) + lookupString + aString
-								.substring(
-								endIdx + 2);
+				aString = aString.substring(0, startIdx) + lookupString + aString.substring(endIdx + 2);
 			}
 			total = getVariableValue(aString, "").intValue();
+		} else
+		{
+			final double iConMod = getStatBonusTo("HP", "BONUS");
+
+			for (PCClass pcClass : getClassSet())
+			{
+				total += getClassHitPoints(pcClass, (int) iConMod);
+			}
+
 		}
 		total += (int) getTotalBonusTo("HP", "CURRENTMAX");
 
