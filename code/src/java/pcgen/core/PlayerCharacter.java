@@ -38,6 +38,7 @@ import java.util.TreeSet;
 import pcgen.base.formula.Formula;
 import pcgen.base.formula.base.ScopeInstance;
 import pcgen.base.formula.base.VarScoped;
+import pcgen.base.lang.UnreachableError;
 import pcgen.base.solver.DynamicSolverManager;
 import pcgen.base.solver.IndividualSetup;
 import pcgen.base.solver.SolverFactory;
@@ -3473,14 +3474,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public final boolean setRace(final Race newRace)
 	{
 		boolean success;
-		if (newRace == null)
-		{
-			success = raceInputFacet.set(id, Globals.s_EMPTYRACE);
-		}
-		else
-		{
-			success = raceInputFacet.set(id, newRace);
-		}
+		success = newRace == null ?
+				raceInputFacet.set(id, Globals.s_EMPTYRACE) :
+				raceInputFacet.set(id, newRace);
 
 		if (success)
 		{
@@ -5087,56 +5083,36 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.MISCSAVE);
-				if (saveVar == null)
-				{
-					save += (int) getTotalBonusTo("SAVE", saveType);
-				}
-				else
-				{
-					save += ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save += saveVar == null ?
+						(int) getTotalBonusTo("SAVE", saveType) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("EPIC".equals(tokens[i]))
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.EPICSAVE);
-				if (saveVar == null)
-				{
-					save += (int) getBonusDueToType("SAVE", saveType, "EPIC");
-				}
-				else
-				{
-					save += ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save += saveVar == null ?
+						(int) getBonusDueToType("SAVE", saveType, "EPIC") :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("MAGIC".equals(tokens[i]))
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.MAGICSAVE);
-				if (saveVar == null)
-				{
-					save += (int) getEquipmentBonusTo("SAVE", saveType);
-				}
-				else
-				{
-					save += ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save += saveVar == null ?
+						(int) getEquipmentBonusTo("SAVE", saveType) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("RACE".equals(tokens[i]))
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.RACESAVE);
-				if (saveVar == null)
-				{
-					save += calculateSaveBonusRace(check);
-				}
-				else
-				{
-					save += ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save += saveVar == null ?
+						calculateSaveBonusRace(check) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("FEATS".equals(tokens[i]))
@@ -5158,14 +5134,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.STATMODSAVE);
-				if (saveVar == null)
-				{
-					save += (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
-				}
-				else
-				{
-					save += ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save += saveVar == null ?
+						(int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			/*
@@ -5175,42 +5146,27 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.EPICSAVE);
-				if (saveVar == null)
-				{
-					save -= (int) getBonusDueToType("SAVE", saveType, "EPIC");
-				}
-				else
-				{
-					save -= ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save -= saveVar == null ?
+						(int) getBonusDueToType("SAVE", saveType, "EPIC") :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("NOMAGIC".equals(tokens[i]))
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.MAGICSAVE);
-				if (saveVar == null)
-				{
-					save -= (int) getEquipmentBonusTo("SAVE", saveType);
-				}
-				else
-				{
-					save -= ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save -= saveVar == null ?
+						(int) getEquipmentBonusTo("SAVE", saveType) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("NORACE".equals(tokens[i]))
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.RACESAVE);
-				if (saveVar == null)
-				{
-					save -= calculateSaveBonusRace(check);
-				}
-				else
-				{
-					save -= ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save -= saveVar == null ?
+						calculateSaveBonusRace(check) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 
 			if ("NOFEATS".equals(tokens[i]))
@@ -5232,14 +5188,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				String saveVar = ControlUtilities
 						.getControlToken(Globals.getContext(), CControl.STATMODSAVE);
-				if (saveVar == null)
-				{
-					save -= (int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType);
-				}
-				else
-				{
-					save -= ((Number) getLocal(check, saveVar)).intValue();
-				}
+				save -= saveVar == null ?
+						(int) checkBonusFacet.getCheckBonusTo(id, "SAVE", saveType) :
+						((Number) getLocal(check, saveVar)).intValue();
 			}
 		}
 
@@ -5842,13 +5793,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				replacement = String.valueOf(fVal.intValue());
 			}
 
-			if (found)
-			{
-				aString = aString.substring(0, start) + replacement + aString.substring(end + 1);
-			} else
-			{
-				aString = aString.substring(0, start) + '[' + inCalc + ']' + aString.substring(end + 1);
-			}
+			aString = found ?
+					aString.substring(0, start) + replacement + aString.substring(
+							end + 1) :
+					aString.substring(0, start) + '[' + inCalc + ']' + aString.substring(
+							end + 1);
 		}
 
 		return aString;
@@ -6680,13 +6629,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			return 0;
 		}
 
-		if (aTok.hasMoreTokens())
-		{
-			levelNum = Integer.parseInt(aTok.nextToken());
-		} else
-		{
-			levelNum = -1;
-		}
+		levelNum = aTok.hasMoreTokens() ? Integer.parseInt(aTok.nextToken()) : -1;
 
 		String bookName = Globals.getDefaultSpellBook();
 
@@ -7908,13 +7851,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			theUserPoolBonuses = new HashMap<>();
 		}
 		BigDecimal userMods = theUserPoolBonuses.get(aCategory);
-		if (userMods != null)
-		{
-			userMods = userMods.add(arg);
-		} else
-		{
-			userMods = arg;
-		}
+		userMods = userMods != null ? userMods.add(arg) : arg;
 		theUserPoolBonuses.put(aCategory, userMods);
 		setDirty(true);
 	}
@@ -7947,14 +7884,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	{
 		Number basePool = getBasePool(aCategory);
 		double bonus;
-		if (AbilityCategory.FEAT.equals(aCategory))
-		{
-			bonus = getBonusFeatPool();
-		}
-		else
-		{
-			bonus = getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
-		}
+		bonus = AbilityCategory.FEAT.equals(aCategory) ?
+				getBonusFeatPool() :
+				getTotalBonusTo("ABILITYPOOL", aCategory.getKeyName());
 		// double bonus = getBonusValue("ABILITYPOOL", aCategory.getKeyName());
 		if (!aCategory.allowFractionalPool())
 		{
@@ -8029,14 +7961,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				{
 					int select = ability.getSafe(FormulaKey.SELECT).resolve(this, "").intValue();
 					double relativeCost = cost / select;
-					if (aCategory.allowFractionalPool())
-					{
-						spent += relativeCost;
-					}
-					else
-					{
-						spent += (int) Math.ceil(relativeCost);
-					}
+					spent += aCategory.allowFractionalPool() ?
+							relativeCost :
+							(int) Math.ceil(relativeCost);
 				}
 			}
 		}
