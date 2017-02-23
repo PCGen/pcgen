@@ -7329,7 +7329,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			|| (currValue != null && !currValue.equals(s));
 	}
 
-	private Number getEquippedQty(EquipSet eSet, Equipment eqI)
+	private Float getEquippedQty(EquipSet eSet, Equipment eqI)
 	{
 		return equipSetFacet.getEquippedQuantity(id, eSet, eqI);
 	}
@@ -8421,7 +8421,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return getDescription(Collections.singletonList(pobj));
 	}
 
-	public String getDescription(List<? extends Object> objList)
+	public String getDescription(List<?> objList)
 	{
 		if (objList.isEmpty())
 		{
