@@ -625,7 +625,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	public String toString()
 	{
 		return "PlayerCharacter [name=" + getName() + " @ "
-			+ getFileName() + " serial=" + serial + "]";
+			+ getFileName() + " serial=" + serial + ']';
 	}
 
 	public void setPCAttribute(final NumericPCAttribute attr, final int value)
@@ -2082,7 +2082,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			String ability = sortList.get(i);
 			if (numTimes[i] > 1)
 			{
-				ability = ability + " (" + numTimes[i] + ")";
+				ability = ability + " (" + numTimes[i] + ')';
 			}
 			retList.add(ability);
 		}
@@ -2628,7 +2628,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public String getAttackString(AttackType at, final int TOHITBonus, int BABBonus)
 	{
-		final String cacheLookup = "AttackString:" + at.getIdentifier() + "," + TOHITBonus + "," + BABBonus;
+		final String cacheLookup = "AttackString:" + at.getIdentifier() + ',' + TOHITBonus + ','
+				+ BABBonus;
 		final String cached = variableProcessor.getCachedString(cacheLookup);
 
 		if (cached != null)
@@ -3718,7 +3719,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 
 			aRange += (" (" + Globals.getGameModeUnitSet().displayDistanceInUnitSet(rangeInFeet)
-					+ Globals.getGameModeUnitSet().getDistanceUnit() + ")");
+					+ Globals.getGameModeUnitSet().getDistanceUnit() + ')');
 		} else
 		{
 			aRange = parseSpellString(aSpell, aRange);
@@ -4349,7 +4350,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// don't allow adding spells which are not qualified for.
 		if (!aSpell.qualifies(this, aSpell))
 		{
-			return "You do not qualify for " + acs.getSpell().getDisplayName() + ".";
+			return "You do not qualify for " + acs.getSpell().getDisplayName() + '.';
 		}
 
 		// don't allow adding spells which are prohibited to known
@@ -4743,7 +4744,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				Logging
 					.errorPrint("Active bonus loop exceeded reasonable limit of "
-						+ count + ".");
+						+ count + '.');
 				bonusManager.logChangeFromCheckpoint();
 				if (count > 31)
 				{
@@ -5571,8 +5572,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				Integer hp = getHP(frompcl);
 				if (hp == null)
 				{
-					System.err.println("Did not find HP for " + fromClass + " "
-						+ (i + 1) + " " + frompcl);
+					System.err.println("Did not find HP for " + fromClass + ' '
+						+ (i + 1) + ' ' + frompcl);
 				}
 				hpArray[i] = hp;
 			}
@@ -5825,7 +5826,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				aString = aString.substring(0, start) + replacement + aString.substring(end + 1);
 			} else
 			{
-				aString = aString.substring(0, start) + "[" + inCalc + "]" + aString.substring(end + 1);
+				aString = aString.substring(0, start) + '[' + inCalc + ']' + aString.substring(end + 1);
 			}
 		}
 
@@ -6286,15 +6287,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			list.add(eq);
 
-			for (EquipmentModifier eqMod : eq.getEqModifierList(true))
-			{
-				list.add(eqMod);
-			}
+			list.addAll(eq.getEqModifierList(true));
 
-			for (EquipmentModifier eqMod : eq.getEqModifierList(false))
-			{
-				list.add(eqMod);
-			}
+			list.addAll(eq.getEqModifierList(false));
 		}
 
 		// Feats and abilities (virtual feats, auto feats)
@@ -9875,10 +9870,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				for (int lvl : availSpellFacet.getScopes2(id, list))
 				{
-					for (Spell spell : availSpellFacet.getSet(id, list, lvl))
-					{
-						spellList.add(spell);
-					}
+					spellList.addAll(availSpellFacet.getSet(id, list, lvl));
 				}
 			}
 		}
@@ -10203,11 +10195,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public String getControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string));
+		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string));
 	}
 
 	public boolean hasControl(String string)
 	{
-		return controller.get(ObjectKey.getKeyFor(String.class, "*" + string)) != null;
+		return controller.get(ObjectKey.getKeyFor(String.class, '*' + string)) != null;
 	}
 }
