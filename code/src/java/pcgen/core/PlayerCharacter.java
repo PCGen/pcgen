@@ -2934,10 +2934,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			int masterBonus = nPC.getBaseCheck(check);
 
 			final String copyMasterCheck = replaceMasterString(masterFacet.getCopyMasterCheck(id), masterBonus);
-			masterBonus = getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
+			
+			int i =
+					getVariableValue(copyMasterCheck, Constants.EMPTY_STRING).intValue();
 
 			// use masters save if better
-			bonus = Math.max(bonus, masterBonus);
+			bonus = Math.max(bonus, i);
 		}
 
 		variableProcessor.addCachedVariable(cacheLookup, (float) bonus);
@@ -3132,43 +3134,43 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				setProf(equip, eqm);
 				weapList.add(idx + 1, eqm);
 
-				eqm = equip.clone();
+				Equipment clone = equip.clone();
 
-				final String altType = eqm.getType(false);
+				final String altType = clone.getType(false);
 				if (!altType.isEmpty())
 				{
-					eqm.removeListFor(ListKey.TYPE);
+					clone.removeListFor(ListKey.TYPE);
 					for (String s : altType.split("\\."))
 					{
-						eqm.addType(Type.getConstant(s));
+						clone.addType(Type.getConstant(s));
 					}
 				}
 
-				eqm.removeType(Type.DOUBLE);
-				eqm.addType(Type.HEAD2);
-				EquipmentHead head = eqm.getEquipmentHead(1);
-				String altDamage = eqm.getAltDamage(this);
+				clone.removeType(Type.DOUBLE);
+				clone.addType(Type.HEAD2);
+				EquipmentHead head = clone.getEquipmentHead(1);
+				String altDamage = clone.getAltDamage(this);
 				if (!altDamage.isEmpty())
 				{
 					head.put(StringKey.DAMAGE, altDamage);
 				}
-				head.put(IntegerKey.CRIT_MULT, eqm.getAltCritMultiplier());
-				head.put(IntegerKey.CRIT_RANGE, eqm.getRawCritRange(false));
+				head.put(IntegerKey.CRIT_MULT, clone.getAltCritMultiplier());
+				head.put(IntegerKey.CRIT_RANGE, clone.getRawCritRange(false));
 				head.removeListFor(ListKey.EQMOD);
-				head.addAllToListFor(ListKey.EQMOD, eqm.getEqModifierList(false));
+				head.addAllToListFor(ListKey.EQMOD, clone.getEqModifierList(false));
 
 				// Add "Head 2 only" to the name of the weapon
-				eqm.setWholeItemName(eqm.getName());
-				eqm.setName(EquipmentUtilities.appendToName(eqm.getName(), "Head 2 only"));
+				clone.setWholeItemName(clone.getName());
+				clone.setName(EquipmentUtilities.appendToName(clone.getName(), "Head 2 only"));
 
-				if (!eqm.getOutputName()
-						.contains("Head 2 only"))
+				if (!clone.getOutputName()
+				         .contains("Head 2 only"))
 				{
-					eqm.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(eqm.getOutputName(), "Head 2 only"));
+					clone.put(StringKey.OUTPUT_NAME, EquipmentUtilities.appendToName(clone.getOutputName(), "Head 2 only"));
 				}
 
-				setProf(equip, eqm);
-				weapList.add(idx + 2, eqm);
+				setProf(equip, clone);
+				weapList.add(idx + 2, clone);
 			}
 
 			//
@@ -3394,27 +3396,28 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			// Exclusive skills only count levels in classes which give access
 			// to the skill
-			levelForSkillPurposes = 0;
+			int i = 0;
 
 			for (PCClass bClass : getClassSet())
 			{
 				if (this.isClassSkill(bClass, aSkill))
 				{
-					levelForSkillPurposes += getLevel(bClass);
+					i += getLevel(bClass);
 				}
 			}
 
-			if (levelForSkillPurposes == 0)
+			if (i == 0)
 			{
 				// No classes qualify for this exclusive skill, so treat it as a
 				// cross-class skill
 				// This does not seem right to me! JD
-				levelForSkillPurposes = (getTotalLevels());
+				int totalLevels = (getTotalLevels());
 
-				maxRanks = SkillUtilities.maxCrossClassSkillForLevel(levelForSkillPurposes, this);
+				maxRanks = SkillUtilities.maxCrossClassSkillForLevel(
+						totalLevels, this);
 			} else
 			{
-				maxRanks = SkillUtilities.maxClassSkillForLevel(levelForSkillPurposes, this);
+				maxRanks = SkillUtilities.maxClassSkillForLevel(i, this);
 			}
 		} else if (!this.isClassSkill(aSkill) && (this.getSkillCostForClass(aSkill, aClass) == SkillCost.CLASS))
 		{
@@ -3444,8 +3447,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public int getOffHandLightBonus()
 	{
-		final int div = getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
-		return div;
+		return getVariableValue("OFFHANDLIGHTBONUS", Constants.EMPTY_STRING).intValue();
 	}
 
 	public boolean isProficientWith(final Equipment eq)
@@ -3707,23 +3709,24 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			{
 				metaFeats = si.getFeatList();
 			}
-			rangeInFeet = getVariableValue(aSpell, aString, aSpellClass).intValue();
+			int i = getVariableValue(aSpell, aString, aSpellClass).intValue();
 			if ((metaFeats != null) && !metaFeats.isEmpty())
 			{
 				for (Ability feat : metaFeats)
 				{
-					rangeInFeet += (int) BonusCalc.charBonusTo(feat, "SPELL", "RANGE", this);
+					i += (int) BonusCalc.charBonusTo(feat, "SPELL", "RANGE", this);
 
 					final int iMult = (int) BonusCalc.charBonusTo(feat, "SPELL", "RANGEMULT", this);
 
 					if (iMult > 0)
 					{
-						rangeInFeet *= iMult;
+						i *= iMult;
 					}
 				}
 			}
 
-			aRange += (" (" + Globals.getGameModeUnitSet().displayDistanceInUnitSet(rangeInFeet)
+			aRange += (" (" + Globals.getGameModeUnitSet().displayDistanceInUnitSet(
+					i)
 					+ Globals.getGameModeUnitSet().getDistanceUnit() + ')');
 		} else
 		{
@@ -3977,11 +3980,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 		tStr = "SPELL." + aSpell.getKeyName();
 		// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
-		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-		if (tBonus > 0)
+		int casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (casterlevel > 0)
 		{
 			tType = getSpellBonusType("CASTERLEVEL", tStr);
-			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+			bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 		}
 		tStr += ".RESET";
 		// final List<TypedBonus> reset = getBonusesTo("CASTERLEVEL", tStr);
@@ -3990,12 +3993,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// bonuses.addAll(reset);
 		// replaceCasterLevel = true;
 		// }
-		tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-		if (tBonus > 0)
+		int casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+		if (casterlevel > 0)
 		{
 			replaceCasterLevel = true;
 			tType = getSpellBonusType("CASTERLEVEL", tStr);
-			bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+			bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 		}
 
 		/*
@@ -4006,11 +4009,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			tStr = "SCHOOL." + school;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus != 0) // Allow negative bonus to casterlevel
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel != 0) // Allow negative bonus to casterlevel
 			{
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 			tStr += ".RESET";
 			// final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL",
@@ -4020,12 +4023,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// bonuses.addAll(reset1);
 			// replaceCasterLevel = true;
 			// }
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel > 0)
 			{
 				replaceCasterLevel = true;
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 		}
 
@@ -4033,11 +4036,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			tStr = "SUBSCHOOL." + subschool;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel > 0)
 			{
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 			tStr += ".RESET";
 			// final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL",
@@ -4047,12 +4050,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// bonuses.addAll(reset1);
 			// replaceCasterLevel = true;
 			// }
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel > 0)
 			{
 				replaceCasterLevel = true;
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 		}
 
@@ -4061,11 +4064,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			tStr = "DESCRIPTOR." + desc;
 			// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel > 0)
 			{
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 			tStr += ".RESET";
 			// final List<TypedBonus> reset1 = getBonusesTo("CASTERLEVEL",
@@ -4075,12 +4078,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			// bonuses.addAll(reset1);
 			// replaceCasterLevel = true;
 			// }
-			tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-			if (tBonus > 0)
+			casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+			if (casterlevel > 0)
 			{
 				replaceCasterLevel = true;
 				tType = getSpellBonusType("CASTERLEVEL", tStr);
-				bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+				bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 			}
 		}
 
@@ -4093,11 +4096,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				{
 					tStr = "DOMAIN." + spellList.getKeyName();
 					// bonuses.addAll( getBonusesTo("CASTERLEVEL", tStr) );
-					tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-					if (tBonus > 0)
+					casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+					if (casterlevel > 0)
 					{
 						tType = getSpellBonusType("CASTERLEVEL", tStr);
-						bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+						bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 					}
 					tStr += ".RESET";
 					// final List<TypedBonus> reset1 =
@@ -4107,20 +4110,18 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 					// bonuses.addAll(reset1);
 					// replaceCasterLevel = true;
 					// }
-					tBonus = (int) getTotalBonusTo("CASTERLEVEL", tStr);
-					if (tBonus > 0)
+					casterlevel = (int) getTotalBonusTo("CASTERLEVEL", tStr);
+					if (casterlevel > 0)
 					{
 						replaceCasterLevel = true;
 						tType = getSpellBonusType("CASTERLEVEL", tStr);
-						bonuses.add(new CasterLevelSpellBonus(tBonus, tType));
+						bonuses.add(new CasterLevelSpellBonus(casterlevel, tType));
 					}
 				}
 			}
 		}
 
-		int result = tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses);
-
-		return (result);
+		return (tallyCasterlevelBonuses(casterLev, replaceCasterLevel, bonuses));
 	}
 
 	private static int tallyCasterlevelBonuses(final int casterLev, boolean replaceCasterLevel,
@@ -4732,10 +4733,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			int masterBAB = nPC.baseAttackBonus();
 			final String copyMasterBAB = replaceMasterString(masterFacet.getCopyMasterBAB(id), masterBAB);
-			masterBAB = getVariableValue(copyMasterBAB, "").intValue();
+			
+			int i = getVariableValue(copyMasterBAB, "").intValue();
 
-			variableProcessor.addCachedVariable(cacheLookup, (float) masterBAB);
-			return masterBAB;
+			variableProcessor.addCachedVariable(cacheLookup, (float) i);
+			return i;
 		}
 		int bab = (int) getTotalBonusTo("COMBAT", "BASEAB");
 		variableProcessor.addCachedVariable(cacheLookup, (float) bab);
@@ -5387,9 +5389,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int masterHP = nPC.hitPoints();
 
 		final String copyMasterHP = replaceMasterString(masterFacet.getCopyMasterHP(id), masterHP);
-		masterHP = getVariableValue(copyMasterHP, "").intValue();
+		
+		int i = getVariableValue(copyMasterHP, "").intValue();
 
-		return masterHP;
+		return i;
 	}
 
 	private int getClassHitPoints(PCClass pcClass, int iConMod)
@@ -7193,11 +7196,11 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		// new data instances for all the final variables and I won't
 		// be able to reset them. Need to call new PlayerCharacter()
 		// aClone = (PlayerCharacter)super.clone();
-		aClone = new PlayerCharacter(campaignFacet.getSet(id));
+		PlayerCharacter playerCharacter = new PlayerCharacter(campaignFacet.getSet(id));
 		//aClone.variableProcessor = new VariableProcessorPC(aClone);
 		try
 		{
-			aClone.assocSupt = assocSupt.clone();
+			playerCharacter.assocSupt = assocSupt.clone();
 		}
 		catch (CloneNotSupportedException e)
 		{
@@ -7206,84 +7209,84 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		Collection<AbstractStorageFacet> beans = SpringHelper.getStorageBeans();
 		for (AbstractStorageFacet bean : beans)
 		{
-			bean.copyContents(id, aClone.id);
+			bean.copyContents(id, playerCharacter.id);
 		}
-		aClone.bonusManager = bonusManager.buildDeepClone(aClone);
+		playerCharacter.bonusManager = bonusManager.buildDeepClone(playerCharacter);
 
-		for (PCClass cloneClass : aClone.classFacet.getSet(aClone.id))
+		for (PCClass cloneClass : playerCharacter.classFacet.getSet(playerCharacter.id))
 		{
-			cloneClass.addFeatPoolBonus(aClone);
+			cloneClass.addFeatPoolBonus(playerCharacter);
 		}
 		Follower followerMaster = masterFacet.get(id);
 		if (followerMaster != null)
 		{
-			aClone.masterFacet.set(id, followerMaster.clone());
+			playerCharacter.masterFacet.set(id, followerMaster.clone());
 		} else
 		{
-			aClone.masterFacet.remove(id);
+			playerCharacter.masterFacet.remove(id);
 		}
-		aClone.equipSetFacet.removeAll(aClone.id);
+		playerCharacter.equipSetFacet.removeAll(playerCharacter.id);
 		for (EquipSet eqSet : equipSetFacet.getSet(id))
 		{
-			aClone.addEquipSet((EquipSet) eqSet.clone());
+			playerCharacter.addEquipSet((EquipSet) eqSet.clone());
 		}
-		List<Equipment> equipmentMasterList = aClone.getEquipmentMasterList();
-		aClone.userEquipmentFacet.removeAll(aClone.id);
-		aClone.equipmentFacet.removeAll(aClone.id);
-		aClone.equippedFacet.removeAll(aClone.id);
-		FacetLibrary.getFacet(SourcedEquipmentFacet.class).removeAll(aClone.id);
+		List<Equipment> equipmentMasterList = playerCharacter.getEquipmentMasterList();
+		playerCharacter.userEquipmentFacet.removeAll(playerCharacter.id);
+		playerCharacter.equipmentFacet.removeAll(playerCharacter.id);
+		playerCharacter.equippedFacet.removeAll(playerCharacter.id);
+		FacetLibrary.getFacet(SourcedEquipmentFacet.class).removeAll(playerCharacter.id);
 		for (Equipment equip : equipmentMasterList)
 		{
-			aClone.addEquipment(equip.clone());
+			playerCharacter.addEquipment(equip.clone());
 		}
 
-		aClone.levelInfoFacet.removeAll(aClone.id);
+		playerCharacter.levelInfoFacet.removeAll(playerCharacter.id);
 		for (PCLevelInfo info : getLevelInfo())
 		{
 			PCLevelInfo newLvlInfo = info.clone();
-			aClone.levelInfoFacet.add(aClone.id, newLvlInfo);
+			playerCharacter.levelInfoFacet.add(playerCharacter.id, newLvlInfo);
 		}
-		aClone.spellBookFacet.removeAll(aClone.id);
+		playerCharacter.spellBookFacet.removeAll(playerCharacter.id);
 		for (String book : spellBookFacet.getBookNames(id))
 		{
-			aClone.addSpellBook((SpellBook) spellBookFacet.getBookNamed(id,
+			playerCharacter.addSpellBook((SpellBook) spellBookFacet.getBookNamed(id,
 				book).clone());
 		}
-		aClone.calcEquipSetId = calcEquipSetId;
-		aClone.tempBonusItemList.addAll(tempBonusItemList);
-		aClone.descriptionLst = descriptionLst;
-		aClone.autoKnownSpells = autoKnownSpells;
-		aClone.autoLoadCompanion = autoLoadCompanion;
-		aClone.autoSortGear = autoSortGear;
-		aClone.outputSheetHTML = outputSheetHTML;
-		aClone.outputSheetPDF = outputSheetPDF;
-		aClone.ageSetKitSelections = new boolean[10];
-		aClone.defaultDomainSource = defaultDomainSource;
+		playerCharacter.calcEquipSetId = calcEquipSetId;
+		playerCharacter.tempBonusItemList.addAll(tempBonusItemList);
+		playerCharacter.descriptionLst = descriptionLst;
+		playerCharacter.autoKnownSpells = autoKnownSpells;
+		playerCharacter.autoLoadCompanion = autoLoadCompanion;
+		playerCharacter.autoSortGear = autoSortGear;
+		playerCharacter.outputSheetHTML = outputSheetHTML;
+		playerCharacter.outputSheetPDF = outputSheetPDF;
+		playerCharacter.ageSetKitSelections = new boolean[10];
+		playerCharacter.defaultDomainSource = defaultDomainSource;
 
-		System.arraycopy(ageSetKitSelections, 0, aClone.ageSetKitSelections, 0, ageSetKitSelections.length);
+		System.arraycopy(ageSetKitSelections, 0, playerCharacter.ageSetKitSelections, 0, ageSetKitSelections.length);
 
 		// Not sure what this is for
-		aClone.importing = false;
-		aClone.useTempMods = useTempMods;
-		aClone.costPool = costPool;
-		aClone.currentEquipSetNumber = currentEquipSetNumber;
-		aClone.poolAmount = poolAmount;
+		playerCharacter.importing = false;
+		playerCharacter.useTempMods = useTempMods;
+		playerCharacter.costPool = costPool;
+		playerCharacter.currentEquipSetNumber = currentEquipSetNumber;
+		playerCharacter.poolAmount = poolAmount;
 
 		// order in which the skills will be output.
-		aClone.skillsOutputOrder = skillsOutputOrder;
-		aClone.spellLevelTemp = spellLevelTemp;
-		aClone.pointBuyPoints = pointBuyPoints;
+		playerCharacter.skillsOutputOrder = skillsOutputOrder;
+		playerCharacter.spellLevelTemp = spellLevelTemp;
+		playerCharacter.pointBuyPoints = pointBuyPoints;
 
-		aClone.adjustMoveRates();
+		playerCharacter.adjustMoveRates();
 		//This mod set is necessary to trigger certain calculations to ensure correct output
 		//modSkillPointsBuffer = Integer.MIN_VALUE;
-		aClone.calcActiveBonuses();
+		playerCharacter.calcActiveBonuses();
 		//Just to be safe
-		aClone.equippedFacet.reset(aClone.id);
+		playerCharacter.equippedFacet.reset(playerCharacter.id);
 
-		aClone.serial = serial;
+		playerCharacter.serial = serial;
 
-		return aClone;
+		return playerCharacter;
 	}
 
 	/**
@@ -8060,8 +8063,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			if (list instanceof AbilityList)
 			{
-				CDOMReference r = ref;
-				processAbilityList(cdo, r);
+				processAbilityList(cdo, (CDOMReference) ref);
 				break; // Only do once
 			}
 		}
@@ -8527,8 +8529,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int spellLevel = 0;
 		int metaDC = 0;
 
-		spellLevel = si.getActualLevel();
-		ow = cs.getOwner();
+		int actualLevel = si.getActualLevel();
+		CDOMObject owner = cs.getOwner();
 
 		String fixedDC = si.getFixedDC();
 		// TODO Temp fix for 1223858, better fix would be to move fixedDC to
@@ -8543,7 +8545,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 
 		// Check for a non class based fixed DC
-		if ((fixedDC != null) && (ow != null) && !(ow instanceof PCClass))
+		if ((fixedDC != null) && (owner != null) && !(owner instanceof PCClass))
 		{
 			return getVariableValue(fixedDC, "").intValue();
 		}
@@ -8552,12 +8554,12 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		{
 			for (Ability metaFeat : si.getFeatList())
 			{
-				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+				actualLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 				metaDC += BonusCalc.charBonusTo(metaFeat, "DC", "FEATBONUS", this);
 			}
 		}
 
-		return getDC(sp, null, spellLevel, metaDC, ow);
+		return getDC(sp, null, actualLevel, metaDC, owner);
 	}
 
 	public int getDC(final Spell sp, PCClass aClass, int spellLevel, int metaDC, CDOMObject ow)
@@ -8677,14 +8679,14 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		int spellLevel = 0;
 		int metaConcentration = 0;
 
-		spellLevel = si.getActualLevel();
-		ow = cs.getOwner();
+		int actualLevel = si.getActualLevel();
+		CDOMObject owner = cs.getOwner();
 
 		if (si.getFeatList() != null)
 		{
 			for (Ability metaFeat : si.getFeatList())
 			{
-				spellLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
+				actualLevel -= metaFeat.getSafe(IntegerKey.ADD_SPELL_LEVEL);
 				metaConcentration += BonusCalc.charBonusTo(
 						metaFeat,
 						"CONCENTRATION",
@@ -8694,7 +8696,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			}
 		}
 
-		return getConcentration(sp, cs, null, spellLevel, metaConcentration, ow);
+		return getConcentration(sp, cs, null, actualLevel, metaConcentration, owner);
 	}
 
 	public int getConcentration(final Spell sp, final CharacterSpell aSpell, PCClass aClass, int spellLevel,
@@ -9381,13 +9383,13 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			if (newSkillPointsGained != formerGained)
 			{
 				pi.setSkillPointsGained(this, newSkillPointsGained);
-				newSkillPointsGained = pi.getSkillPointsGained(this);
+				int skillPointsGained = pi.getSkillPointsGained(this);
 				pi.setSkillPointsRemaining((
 						pi.getSkillPointsRemaining()
-								+ newSkillPointsGained) - formerGained);
+								+ skillPointsGained) - formerGained);
 				setSkillPool(pcClass, (
 						pcClass.getSkillPool(this)
-								+ newSkillPointsGained) - formerGained);
+								+ skillPointsGained) - formerGained);
 			}
 		}
 	}
@@ -9883,10 +9885,10 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 							if (cs == null)
 							{
 								// Create a new character spell for this level.
-								cs = new CharacterSpell(pcc, spell);
-								cs.addInfo(spellLevel, 1,
+								CharacterSpell characterSpell = new CharacterSpell(pcc, spell);
+								characterSpell.addInfo(spellLevel, 1,
 									Globals.getDefaultSpellBook());
-								addCharacterSpell(pcc, cs);
+								addCharacterSpell(pcc, characterSpell);
 							}
 							else
 							{
@@ -9980,8 +9982,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public Collection<CNAbility> getCNAbilities()
 	{
-		Collection<CNAbility> set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id));
 	}
 
 	public Collection<CNAbility> getCNAbilities(Category<Ability> cat, Nature n)
@@ -9991,9 +9992,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category");
 		}
-		Collection<CNAbility>
-				set = new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getCNAbilities(id, cat, n));
 	}
 
 	public List<?> getDetailedAssociations(ChooseDriver cd)
@@ -10004,8 +10003,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	public List<CNAbility> getMatchingCNAbilities(Ability ability)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, ability));
 	}
 
 	public List<CNAbility> getCNAbilities(Category<Ability> cat)
@@ -10015,21 +10013,17 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 			throw new IllegalArgumentException(
 				"Category for getCNAbilities must be parent category, was: " + cat);
 		}
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getCNAbilities(id, cat));
 	}
 
 	public List<CNAbility> getPoolAbilities(Category<Ability> cat)
 	{
-		List<CNAbility> list = new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
-		return list;
+		return new ArrayList<>(grantedAbilityFacet.getPoolAbilities(id, cat));
 	}
 
 	public Collection<CNAbility> getPoolAbilities(Category<Ability> cat, Nature n)
 	{
-		Collection<CNAbility>
-				set = new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
-		return set;
+		return new HashSet<>(grantedAbilityFacet.getPoolAbilities(id, cat, n));
 	}
 
 	public Collection<CNAbilitySelection> getSaveAbilities()
