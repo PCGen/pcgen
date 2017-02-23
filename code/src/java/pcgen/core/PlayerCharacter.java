@@ -288,7 +288,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// Constants for use in getBonus
 	private static String lastVariable = null;
 	// This marker is static so that the spells allocated to it can also be found in the cloned character.
-	private static ObjectCache grantedSpellCache = new ObjectCache();
+	private static final ObjectCache grantedSpellCache = new ObjectCache();
 
 	private final CharID id;
 	private final SAtoStringProcessor SA_TO_STRING_PROC;
@@ -300,53 +300,53 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * the method. Also any method is not used elsewhere in PlayerCharacter
 	 */
 	//The following facets are write-only isolated (dirty in a set is allowed)
-	private AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
-	private ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
-	private IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
-	private GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
-	private HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
-	private HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
-	private WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
-	private AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
-	private AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
-	private FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
-	private CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
-	private SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
-	private AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
-	private AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
-	private AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
-	private RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
-	private NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
-	private GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
+	private final AllowDebtFacet allowDebtFacet = FacetLibrary.getFacet(AllowDebtFacet.class);
+	private final ChronicleEntryFacet chronicleEntryFacet = FacetLibrary.getFacet(ChronicleEntryFacet.class);
+	private final IgnoreCostFacet ignoreCostFacet = FacetLibrary.getFacet(IgnoreCostFacet.class);
+	private final GenderFacet genderFacet = FacetLibrary.getFacet(GenderFacet.class);
+	private final HandedFacet handedFacet = FacetLibrary.getFacet(HandedFacet.class);
+	private final HeightFacet heightFacet = FacetLibrary.getFacet(HeightFacet.class);
+	private final WeightFacet weightFacet = FacetLibrary.getFacet(WeightFacet.class);
+	private final AddLanguageFacet addLangFacet = FacetLibrary.getFacet(AddLanguageFacet.class);
+	private final AutoLanguageListFacet autoLangListFacet = FacetLibrary.getFacet(AutoLanguageListFacet.class);
+	private final FreeLanguageFacet freeLangFacet = FacetLibrary.getFacet(FreeLanguageFacet.class);
+	private final CharacterTypeFacet characterTypeFacet = FacetLibrary.getFacet(CharacterTypeFacet.class);
+	private final SuppressBioFieldFacet suppressBioFieldFacet = FacetLibrary.getFacet(SuppressBioFieldFacet.class);
+	private final AutoListArmorProfFacet armorProfListFacet = FacetLibrary.getFacet(AutoListArmorProfFacet.class);
+	private final AutoListShieldProfFacet shieldProfListFacet = FacetLibrary.getFacet(AutoListShieldProfFacet.class);
+	private final AutoListWeaponProfFacet alWeaponProfFacet = FacetLibrary.getFacet(AutoListWeaponProfFacet.class);
+	private final RegionFacet regionFacet = FacetLibrary.getFacet(RegionFacet.class);
+	private final NoteItemFacet noteItemFacet = FacetLibrary.getFacet(NoteItemFacet.class);
+	private final GlobalAddedSkillCostFacet globalAddedSkillCostFacet = FacetLibrary
 			.getFacet(GlobalAddedSkillCostFacet.class);
-	private LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
-	private PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
-	private SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
+	private final LocalAddedSkillCostFacet localAddedSkillCostFacet = FacetLibrary.getFacet(LocalAddedSkillCostFacet.class);
+	private final PreviewSheetFacet previewSheetFacet = FacetLibrary.getFacet(PreviewSheetFacet.class);
+	private final SkillFilterFacet skillFilterFacet = FacetLibrary.getFacet(SkillFilterFacet.class);
 
 	//The following facets are pure delegation (no exceptions) - could be considered "complete"
-	private AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
-	private BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
-	private ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
-	private DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
-	private LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
-	private GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
-	private MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
-	private NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
-	private QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
-	private SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
-	private SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
-	private SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
-	private StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
-	private StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
-	private StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
-	private StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
-	private SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
-	private SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
-	private UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
-	private NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
-	private NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
-	private TemplateFeatFacet templateFeatFacet = FacetLibrary.getFacet(TemplateFeatFacet.class);
-	private SavedAbilitiesFacet svAbilityFacet = FacetLibrary.getFacet(SavedAbilitiesFacet.class);
+	private final AddedTemplateFacet addedTemplateFacet = FacetLibrary.getFacet(AddedTemplateFacet.class);
+	private final BonusWeaponProfFacet wpBonusFacet = FacetLibrary.getFacet(BonusWeaponProfFacet.class);
+	private final ClassSpellListFacet classSpellListFacet = FacetLibrary.getFacet(ClassSpellListFacet.class);
+	private final DomainSpellCountFacet domainSpellCountFacet = FacetLibrary.getFacet(DomainSpellCountFacet.class);
+	private final LegalDeityFacet legalDeityFacet = FacetLibrary.getFacet(LegalDeityFacet.class);
+	private final GoldFacet goldFacet = FacetLibrary.getFacet(GoldFacet.class);
+	private final MonsterCSkillFacet monCSkillFacet = FacetLibrary.getFacet(MonsterCSkillFacet.class);
+	private final NonAbilityFacet nonAbilityFacet = FacetLibrary.getFacet(NonAbilityFacet.class);
+	private final QualifyFacet qualifyFacet = FacetLibrary.getFacet(QualifyFacet.class);
+	private final SkillOutputOrderFacet skillOutputOrderFacet = FacetLibrary.getFacet(SkillOutputOrderFacet.class);
+	private final SkillPoolFacet skillPoolFacet = FacetLibrary.getFacet(SkillPoolFacet.class);
+	private final SkillRankFacet skillRankFacet = FacetLibrary.getFacet(SkillRankFacet.class);
+	private final StartingLanguageFacet startingLangFacet = FacetLibrary.getFacet(StartingLanguageFacet.class);
+	private final StatCalcFacet statCalcFacet = FacetLibrary.getFacet(StatCalcFacet.class);
+	private final StatLockFacet statLockFacet = FacetLibrary.getFacet(StatLockFacet.class);
+	private final StatValueFacet statValueFacet = FacetLibrary.getFacet(StatValueFacet.class);
+	private final SubClassFacet subClassFacet = FacetLibrary.getFacet(SubClassFacet.class);
+	private final SubstitutionClassFacet substitutionClassFacet = FacetLibrary.getFacet(SubstitutionClassFacet.class);
+	private final UnlockedStatFacet unlockedStatFacet = FacetLibrary.getFacet(UnlockedStatFacet.class);
+	private final NonStatStatFacet nonStatStatFacet = FacetLibrary.getFacet(NonStatStatFacet.class);
+	private final NonStatToStatFacet nonStatToStatFacet = FacetLibrary.getFacet(NonStatToStatFacet.class);
+	private final TemplateFeatFacet templateFeatFacet = FacetLibrary.getFacet(TemplateFeatFacet.class);
+	private final SavedAbilitiesFacet svAbilityFacet = FacetLibrary.getFacet(SavedAbilitiesFacet.class);
 
 	/*
 	 * Note "minimal" here means getDirty is allowed on a set, it may be used in
@@ -356,116 +356,116 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * between two facets in a get (A && B)
 	 */
 	//The following facets are "minimal" delegation
-	private XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
-	private XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
+	private final XPFacet xpFacet = FacetLibrary.getFacet(XPFacet.class);
+	private final XPTableFacet xpTableFacet = FacetLibrary.getFacet(XPTableFacet.class);
 
 	//The following are model facets that are only set or getCDOMObjectList or getBonusContainer (nearly isolated)
-	private AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
-	private CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
-	private CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
-	private CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
-	private ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
-	private AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
+	private final AlignmentFacet alignmentFacet = FacetLibrary.getFacet(AlignmentFacet.class);
+	private final CheckFacet checkFacet = FacetLibrary.getFacet(CheckFacet.class);
+	private final CompanionModFacet companionModFacet = FacetLibrary.getFacet(CompanionModFacet.class);
+	private final CampaignFacet campaignFacet = FacetLibrary.getFacet(CampaignFacet.class);
+	private final ExpandedCampaignFacet expandedCampaignFacet = FacetLibrary.getFacet(ExpandedCampaignFacet.class);
+	private final AgeSetFacet ageSetFacet = FacetLibrary.getFacet(AgeSetFacet.class);
 
 	//The following are other facets
-	private DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
-	private DomainInputFacet domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
-	private TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
-	private TemplateInputFacet templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
-	private DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
-	private RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
-	private RaceInputFacet raceInputFacet = FacetLibrary.getFacet(RaceInputFacet.class);
-	private StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
-	private StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
-	private CheckBonusFacet checkBonusFacet = FacetLibrary.getFacet(CheckBonusFacet.class);
-	private SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
-	private ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
-	private BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
-	private UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
-	private EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
-	private EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
-	private SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
-	private ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
-	private ConditionallyGrantedKnownSpellFacet cKnSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedKnownSpellFacet.class);
-	private ConditionallyGrantedAvailableSpellFacet cAvSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedAvailableSpellFacet.class);
-	private ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
-	private GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
-	private DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
-	private KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
-	private ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
-	private ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
-	private CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
-	private WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
-	private MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
-	private AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
-	private FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
+	private final DomainFacet domainFacet = FacetLibrary.getFacet(DomainFacet.class);
+	private final DomainInputFacet domainInputFacet = FacetLibrary.getFacet(DomainInputFacet.class);
+	private final TemplateFacet templateFacet = FacetLibrary.getFacet(TemplateFacet.class);
+	private final TemplateInputFacet templateInputFacet = FacetLibrary.getFacet(TemplateInputFacet.class);
+	private final DeityFacet deityFacet = FacetLibrary.getFacet(DeityFacet.class);
+	private final RaceFacet raceFacet = FacetLibrary.getFacet(RaceFacet.class);
+	private final RaceInputFacet raceInputFacet = FacetLibrary.getFacet(RaceInputFacet.class);
+	private final StatFacet statFacet = FacetLibrary.getFacet(StatFacet.class);
+	private final StatBonusFacet statBonusFacet = FacetLibrary.getFacet(StatBonusFacet.class);
+	private final CheckBonusFacet checkBonusFacet = FacetLibrary.getFacet(CheckBonusFacet.class);
+	private final SkillFacet skillFacet = FacetLibrary.getFacet(SkillFacet.class);
+	private final ClassFacet classFacet = FacetLibrary.getFacet(ClassFacet.class);
+	private final BioSetFacet bioSetFacet = FacetLibrary.getFacet(BioSetFacet.class);
+	private final UserEquipmentFacet userEquipmentFacet = FacetLibrary.getFacet(UserEquipmentFacet.class);
+	private final EquipmentFacet equipmentFacet = FacetLibrary.getFacet(EquipmentFacet.class);
+	private final EquippedEquipmentFacet equippedFacet = FacetLibrary.getFacet(EquippedEquipmentFacet.class);
+	private final SourcedEquipmentFacet activeEquipmentFacet = FacetLibrary.getFacet(SourcedEquipmentFacet.class);
+	private final ConditionallyGrantedAbilityFacet cabFacet = FacetLibrary.getFacet(ConditionallyGrantedAbilityFacet.class);
+	private final ConditionallyGrantedKnownSpellFacet cKnSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedKnownSpellFacet.class);
+	private final ConditionallyGrantedAvailableSpellFacet cAvSpellFacet = FacetLibrary.getFacet(ConditionallyGrantedAvailableSpellFacet.class);
+	private final ConditionalAbilityFacet conditionalFacet = FacetLibrary.getFacet(ConditionalAbilityFacet.class);
+	private final GrantedAbilityFacet grantedAbilityFacet = FacetLibrary.getFacet(GrantedAbilityFacet.class);
+	private final DirectAbilityFacet directAbilityFacet = FacetLibrary.getFacet(DirectAbilityFacet.class);
+	private final KitFacet kitFacet = FacetLibrary.getFacet(KitFacet.class);
+	private final ArmorProfProviderFacet armorProfFacet = FacetLibrary.getFacet(ArmorProfProviderFacet.class);
+	private final ShieldProfProviderFacet shieldProfFacet = FacetLibrary.getFacet(ShieldProfProviderFacet.class);
+	private final CharacterSpellResistanceFacet srFacet = FacetLibrary.getFacet(CharacterSpellResistanceFacet.class);
+	private final WeaponProfModelFacet weaponProfFacet = FacetLibrary.getFacet(WeaponProfModelFacet.class);
+	private final MasterFacet masterFacet = FacetLibrary.getFacet(MasterFacet.class);
+	private final AutoEquipmentListFacet autoListEquipmentFacet = FacetLibrary.getFacet(AutoEquipmentListFacet.class);
+	private final FollowerFacet followerFacet = FacetLibrary.getFacet(FollowerFacet.class);
 
-	private LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
-	private UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
-	private SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
-	private PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
-	private SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
+	private final LanguageFacet languageFacet = FacetLibrary.getFacet(LanguageFacet.class);
+	private final UserSpecialAbilityFacet userSpecialAbilityFacet = FacetLibrary.getFacet(UserSpecialAbilityFacet.class);
+	private final SpecialAbilityFacet specialAbilityFacet = FacetLibrary.getFacet(SpecialAbilityFacet.class);
+	private final PrimaryWeaponFacet primaryWeaponFacet = FacetLibrary.getFacet(PrimaryWeaponFacet.class);
+	private final SecondaryWeaponFacet secondaryWeaponFacet = FacetLibrary.getFacet(SecondaryWeaponFacet.class);
 
-	private AutoLanguageGrantedFacet condLangFacet = FacetLibrary.getFacet(AutoLanguageGrantedFacet.class);
+	private final AutoLanguageGrantedFacet condLangFacet = FacetLibrary.getFacet(AutoLanguageGrantedFacet.class);
 
-	private SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
-	private ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
-	private SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
+	private final SkillCostFacet skillCostFacet = FacetLibrary.getFacet(SkillCostFacet.class);
+	private final ProhibitedSchoolFacet prohibitedSchoolFacet = FacetLibrary.getFacet(ProhibitedSchoolFacet.class);
+	private final SpellProhibitorFacet spellProhibitorFacet = FacetLibrary.getFacet(SpellProhibitorFacet.class);
 
-	private GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
+	private final GlobalModifierFacet globalModifierFacet = FacetLibrary.getFacet(GlobalModifierFacet.class);
 
 	private ObjectCache cache = new ObjectCache();
 	private AssociationSupport assocSupt = new AssociationSupport();
 	private BonusManager bonusManager = new BonusManager(this);
-	private BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
-	private EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
+	private final BonusChangeFacet bonusChangeFacet = FacetLibrary.getFacet(BonusChangeFacet.class);
+	private final EquipSetFacet equipSetFacet = FacetLibrary.getFacet(EquipSetFacet.class);
 
-	private HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
-	private KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
+	private final HitPointFacet hitPointFacet = FacetLibrary.getFacet(HitPointFacet.class);
+	private final KnownSpellFacet knownSpellFacet = FacetLibrary.getFacet(KnownSpellFacet.class);
 
-	private LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
-	private LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
-	private SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
-	private FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
-	private FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
-	private VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
-	private FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
-	private AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
-	private MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
-	private AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
-	private SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
-	private LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
-	private AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
-	private AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
-	private SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
-	private SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
-	private AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
-	private ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
-	private SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
-	private ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
-	private TargetTrackingFacet astocnasFacet = FacetLibrary.getFacet(TargetTrackingFacet.class);
+	private final LevelFacet levelFacet = FacetLibrary.getFacet(LevelFacet.class);
+	private final LevelTableFacet levelTableFacet = FacetLibrary.getFacet(LevelTableFacet.class);
+	private final SizeFacet sizeFacet = FacetLibrary.getFacet(SizeFacet.class);
+	private final FactFacet factFacet = FacetLibrary.getFacet(FactFacet.class);
+	private final FavoredClassFacet favClassFacet = FacetLibrary.getFacet(FavoredClassFacet.class);
+	private final VariableFacet variableFacet = FacetLibrary.getFacet(VariableFacet.class);
+	private final FollowerLimitFacet followerLimitFacet = FacetLibrary.getFacet(FollowerLimitFacet.class);
+	private final AvailableSpellFacet availSpellFacet = FacetLibrary.getFacet(AvailableSpellFacet.class);
+	private final MovementResultFacet moveResultFacet = FacetLibrary.getFacet(MovementResultFacet.class);
+	private final AutoEquipmentFacet autoEquipFacet = FacetLibrary.getFacet(AutoEquipmentFacet.class);
+	private final SpellBookFacet spellBookFacet = FacetLibrary.getFacet(SpellBookFacet.class);
+	private final LoadFacet loadFacet = FacetLibrary.getFacet(LoadFacet.class);
+	private final AppliedBonusFacet appliedBonusFacet = FacetLibrary.getFacet(AppliedBonusFacet.class);
+	private final AddedBonusFacet addedBonusFacet = FacetLibrary.getFacet(AddedBonusFacet.class);
+	private final SaveableBonusFacet saveableBonusFacet = FacetLibrary.getFacet(SaveableBonusFacet.class);
+	private final SpellSupportFacet spellSupportFacet = FacetLibrary.getFacet(SpellSupportFacet.class);
+	private final AgeFacet ageFacet = FacetLibrary.getFacet(AgeFacet.class);
+	private final ActiveSpellsFacet activeSpellsFacet = FacetLibrary.getFacet(ActiveSpellsFacet.class);
+	private final SpellListFacet spellListFacet = FacetLibrary.getFacet(SpellListFacet.class);
+	private final ChangeProfFacet changeProfFacet = FacetLibrary.getFacet(ChangeProfFacet.class);
+	private final TargetTrackingFacet astocnasFacet = FacetLibrary.getFacet(TargetTrackingFacet.class);
 
-	private PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
-	private PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
+	private final PlayerCharacterTrackingFacet trackingFacet = FacetLibrary.getFacet(PlayerCharacterTrackingFacet.class);
+	private final PortraitThumbnailRectFacet portraitThumbnailRectFacet = FacetLibrary
 			.getFacet(PortraitThumbnailRectFacet.class);
-	private BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
+	private final BonusSkillRankChangeFacet bonusSkillRankChangeFacet = FacetLibrary.getFacet(BonusSkillRankChangeFacet.class);
 
-	private LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
-	private SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
-	private SolverFactoryFacet solverFactoryFacet = FacetLibrary.getFacet(SolverFactoryFacet.class);
-	private FormulaSetupFacet formulaSetupFacet = FacetLibrary.getFacet(FormulaSetupFacet.class);
+	private final LevelInfoFacet levelInfoFacet = FacetLibrary.getFacet(LevelInfoFacet.class);
+	private final SolverManagerFacet solverManagerFacet = FacetLibrary.getFacet(SolverManagerFacet.class);
+	private final SolverFactoryFacet solverFactoryFacet = FacetLibrary.getFacet(SolverFactoryFacet.class);
+	private final FormulaSetupFacet formulaSetupFacet = FacetLibrary.getFacet(FormulaSetupFacet.class);
 
-	private ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
+	private final ResultFacet resultFacet = FacetLibrary.getFacet(ResultFacet.class);
 
-	private ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
-	private VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
+	private final ScopeFacet scopeFacet = FacetLibrary.getFacet(ScopeFacet.class);
+	private final VariableStoreFacet variableStoreFacet = FacetLibrary.getFacet(VariableStoreFacet.class);
 
 	private ClassSource defaultDomainSource;
 
-	private Map<String, Integer> autoEquipOutputOrderCache = new HashMap<>();
+	private final Map<String, Integer> autoEquipOutputOrderCache = new HashMap<>();
 
 	// Temporary Bonuses
-	private List<Equipment> tempBonusItemList = new ArrayList<>();
+	private final List<Equipment> tempBonusItemList = new ArrayList<>();
 
 	private String calcEquipSetId = EquipSet.DEFAULT_SET_PATH; //$NON-NLS-1$
 	private String descriptionLst = "EMPTY"; //$NON-NLS-1$
@@ -508,7 +508,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	private SkillsOutputOrder skillsOutputOrder = SkillsOutputOrder.NAME_ASC;
 
 	private int spellLevelTemp = 0;
-	private VariableProcessor variableProcessor;
+	private final VariableProcessor variableProcessor;
 
 	// used by point buy. Total number of points for method, not points
 	// remaining
@@ -526,9 +526,9 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	// /////////////////////////////////////
 	// operations
 
-	private CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
+	private final CNAbility bonusLanguageAbility = CNAbilityFactory.getCNAbility(AbilityCategory.LANGBONUS, Nature.VIRTUAL, Globals.getContext().getReferenceContext().silentlyGetConstructedCDOMObject(
 	Ability.class, AbilityCategory.LANGBONUS, "*LANGBONUS"));
-	private CodeControl controller;
+	private final CodeControl controller;
 
 	/**
 	 * Constructor.
@@ -7057,7 +7057,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 
 	private static final class CasterLevelSpellBonus {
 		private int bonus;
-		private String type;
+		private final String type;
 
 		/**
 		 * Constructor
@@ -7632,14 +7632,19 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return newID;
 	}
 
-	public EquipSet addEquipToTarget(final EquipSet eSet, final Equipment eqTarget, String locName,
-			final Equipment eqI, Float newQty)
+	public EquipSet addEquipToTarget(final EquipSet eSet,
+	                                 final Equipment eqTarget,
+	                                 String locName,
+	                                 final Equipment eqI,
+	                                 Float requestedNewQty)
 	{
+		Float newQty = requestedNewQty;
 		float tempQty = 1.0f;
 		if (newQty != null)
 		{
 			tempQty = newQty;
-		} else
+		}
+		else
 		{
 			newQty = tempQty;
 		}
@@ -7685,7 +7690,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 				locName = eqTarget.getName();
 				addAll = true;
 				mergeItem = true;
-			} else
+			}
+			else
 			{
 				return null;
 			}
