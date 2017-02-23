@@ -7037,15 +7037,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		final List<Equipment> sortedList = CoreUtility.mergeEquipmentList(unsortedEquip, merge);
 
 		// Remove the hidden items from the list
-		for (Iterator<Equipment> i = sortedList.iterator(); i.hasNext();)
-		{
-			final Equipment item = i.next();
-
-			if (item.getOutputIndex() == -1)
-			{
-				i.remove();
-			}
-		}
+		sortedList.removeIf(item -> item.getOutputIndex() == -1);
 
 		return sortedList;
 	}
