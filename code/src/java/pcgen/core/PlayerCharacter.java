@@ -1349,7 +1349,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param amt
 	 *            A gold amount.
 	 */
-	public void setGold(final BigDecimal amt)
+	public final void setGold(final BigDecimal amt)
 	{
 		if (amt == null)
 		{
@@ -1806,7 +1806,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param aString
 	 *            A name to set.
 	 */
-	public void setName(final String aString)
+	public final void setName(final String aString)
 	{
 		setStringFor(PCStringKey.NAME, aString);
 	}
@@ -2313,7 +2313,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return xpFacet.getXP(id);
 	}
 
-	public void setXPTable(final String xpTableName)
+	public final void setXPTable(final String xpTableName)
 	{
 		if (xpTableFacet.set(id, SettingsHandler.getGame().getLevelInfo(xpTableName)))
 		{
@@ -2326,7 +2326,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return xpTableFacet.getLevelInfo(id, level);
 	}
 
-	public void setCharacterType(final String characterType)
+	public final void setCharacterType(final String characterType)
 	{
 		if (characterTypeFacet.set(id, characterType))
 		{
@@ -2334,7 +2334,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		}
 	}
 
-	public void setPreviewSheet(final String previewSheet)
+	public final void setPreviewSheet(final String previewSheet)
 	{
 		if (previewSheetFacet.set(id, previewSheet))
 		{
@@ -3269,7 +3269,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return kitFacet.getSet(id);
 	}
 
-	public Collection<PCLevelInfo> getLevelInfo()
+	public final Collection<PCLevelInfo> getLevelInfo()
 	{
 		return levelInfoFacet.getSet(id);
 	}
@@ -3460,7 +3460,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 *
 	 * @param newRace
 	 */
-	public boolean setRace(final Race newRace)
+	public final boolean setRace(final Race newRace)
 	{
 		boolean success;
 		if (newRace == null)
@@ -4549,7 +4549,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		return false;
 	}
 
-	public boolean addSpellBook(final SpellBook book)
+	public final boolean addSpellBook(final SpellBook book)
 	{
 		if (!spellBookFacet.containsBookNamed(id, book.getName()))
 		{
@@ -6935,7 +6935,7 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 	 * @param method
 	 *            the method to be used for rolling.
 	 */
-	public void rollStats(final int method)
+	public final void rollStats(final int method)
 	{
 		int aMethod = method;
 		if (SettingsHandler.getGame().isPurchaseStatMode())
@@ -7904,7 +7904,8 @@ public class PlayerCharacter implements Cloneable, VariableContainer
 		setDirty(true);
 	}
 
-	public void setUserPoolBonus(final AbilityCategory aCategory, final BigDecimal anAmount)
+	public final void setUserPoolBonus(final AbilityCategory aCategory,
+	                                   final BigDecimal anAmount)
 	{
 		if (theUserPoolBonuses == null)
 		{
