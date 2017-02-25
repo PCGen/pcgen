@@ -174,7 +174,7 @@ public class MessageHandlerManagerTest
 		
 		int messageCount = 0;
 		int lastMessageOrder = 0;
-		PCGenMessage lastMsg = null;
+		private PCGenMessage lastMsg = null;
 		
 		@Override
 		public void handleMessage(PCGenMessage msg)
