@@ -20,7 +20,6 @@ package plugin.pretokens;
 import java.io.StringWriter;
 import java.util.Collection;
 
-import junit.framework.TestCase;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.ObjectCache;
 import pcgen.core.prereq.Prerequisite;
@@ -31,7 +30,11 @@ import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.context.EditorLoadContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
+import org.apache.commons.collections4.CollectionUtils;
 import plugin.lsttokens.testsupport.TokenRegistration;
+
 
 public abstract class AbstractPreRoundRobin extends TestCase
 {
@@ -93,7 +96,7 @@ public abstract class AbstractPreRoundRobin extends TestCase
 			}
 			Logging.clearParseMessages();
 			Collection<String> output = context.unparse(obj);
-			if (output == null || output.isEmpty())
+			if (CollectionUtils.emptyIfNull(output).isEmpty())
 			{
 				// Uh Oh
 				fail("Unable to unparse: " + key + ":" + value);
