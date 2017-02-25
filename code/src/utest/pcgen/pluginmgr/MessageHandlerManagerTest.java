@@ -182,9 +182,6 @@ public class MessageHandlerManagerTest
 		int lastMessageOrder = 0;
 		PCGenMessage lastMsg = null;
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{
@@ -201,9 +198,6 @@ public class MessageHandlerManagerTest
 	private static class MessageConsumer extends MessageRecorder
 	{
 		
-		/**
-		 * @{inheritdoc}
-		 */
 		@Override
 		public void handleMessage(PCGenMessage msg)
 		{
