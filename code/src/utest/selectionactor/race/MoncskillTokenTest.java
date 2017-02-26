@@ -17,10 +17,9 @@
  */
 package selectionactor.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.core.Skill;
+
 import plugin.lsttokens.race.MoncskillToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 

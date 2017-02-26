@@ -26,7 +26,6 @@ import pcgen.core.PCClass;
 import pcgen.core.PlayerCharacter;
 import pcgen.core.Skill;
 
-import org.junit.Test;
 import plugin.lsttokens.domain.CskillToken;
 import selectionactor.testsupport.AbstractSelectionActorTest;
 
