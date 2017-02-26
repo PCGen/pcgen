@@ -19,8 +19,6 @@ package plugin.lsttokens.testsupport;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.fact.FactDefinition;
@@ -42,6 +40,9 @@ import pcgen.rules.context.AbstractReferenceContext;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.AutoLst;
 import plugin.lsttokens.TypeLst;
 import plugin.lsttokens.ability.MultToken;
@@ -93,8 +94,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 	public abstract Class<TC> getTargetClass();
 
 	protected abstract boolean allowsNotQualifier();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -1881,7 +1881,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		g.addToListFor(ListKey.TYPE, Type.getConstant("Light"));
 		runRoundRobin(getSubTokenName() + '|' + qualifier + "[TYPE=Buckler|TYPE=Heavy|TYPE=Light]");
 	}
-	
+
 	@Test
 	public void testTargetCheck() throws PersistenceLayerException
 	{
@@ -2027,6 +2027,7 @@ public abstract class AbstractQualifierTokenTestCase<T extends CDOMObject, TC ex
 		ref.constructNowIfNecessary(Language.class, "DummyLanguage");
 	}
 
+	@Test
 	public void testEmptyIdentity() throws InstantiationException,
 			IllegalAccessException
 	{

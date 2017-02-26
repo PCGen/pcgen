@@ -19,9 +19,6 @@ package plugin.lsttokens.pcclass;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMSingleRef;
@@ -30,6 +27,9 @@ import pcgen.core.PCStat;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -42,8 +42,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	static CDOMTokenLoader<PCClass> loader = new CDOMTokenLoader<>();
 	private PCStat ps;
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -198,6 +197,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFailStat() throws PersistenceLayerException
 	{
@@ -215,6 +215,7 @@ public class BonusSpellStatTokenTest extends AbstractCDOMTokenTestCase<PCClass>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFailHas() throws PersistenceLayerException
 	{

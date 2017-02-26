@@ -22,6 +22,8 @@ import pcgen.core.WeaponProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
 import plugin.lsttokens.choose.WeaponProficiencyToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -34,8 +36,7 @@ public class PCQualifierTokenTest extends
 	static WeaponProficiencyToken subtoken = new WeaponProficiencyToken();
 
 	private static final plugin.qualifier.weaponprof.PCToken PC_TOKEN = new plugin.qualifier.weaponprof.PCToken();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

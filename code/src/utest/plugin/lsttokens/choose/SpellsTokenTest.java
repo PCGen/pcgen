@@ -20,8 +20,6 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.identifier.SpellSchool;
@@ -34,6 +32,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -62,8 +63,7 @@ public class SpellsTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static SpellsToken subtoken = new SpellsToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -137,6 +137,7 @@ public class SpellsTokenTest extends
 	 * Check that a School qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidSchool() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new SchoolToken());
@@ -158,6 +159,7 @@ public class SpellsTokenTest extends
 	 * Check that a SubSchool qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidSubSchool() throws PersistenceLayerException
 	{
 		CDOMObject a =
@@ -172,6 +174,7 @@ public class SpellsTokenTest extends
 	 * Check that a Descriptor qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidDescriptor() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new DescriptorToken());
@@ -182,6 +185,7 @@ public class SpellsTokenTest extends
 	 * Check that a Prohibited qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidProhibited() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new ProhibitedToken());
@@ -192,6 +196,7 @@ public class SpellsTokenTest extends
 	 * Check that a SpellBook qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidSpellBook() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new SpellBookToken());
@@ -202,6 +207,7 @@ public class SpellsTokenTest extends
 	 * Check that a ClassList qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidClassList() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new ClassListToken());
@@ -216,6 +222,7 @@ public class SpellsTokenTest extends
 	 * Check that a DomainList qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidDomainList() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new DomainListToken());
@@ -231,6 +238,7 @@ public class SpellsTokenTest extends
 	 * Check that a SpellType qualifier is parsed correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidSpellType() throws PersistenceLayerException
 	{
 		TokenRegistration.register(new SpellTypeToken());
@@ -242,6 +250,7 @@ public class SpellsTokenTest extends
 	 * correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAllKnown() throws PersistenceLayerException
 	{
 		CDOMObject a =
@@ -257,6 +266,7 @@ public class SpellsTokenTest extends
 	 * correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAllLevelMin() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLS|ALL[LEVELMIN=MAXCASTABLE]");
@@ -267,6 +277,7 @@ public class SpellsTokenTest extends
 	 * correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAllLevelMax() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLS|ALL[LEVELMAX=7]");
@@ -277,6 +288,7 @@ public class SpellsTokenTest extends
 	 * correctly.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAllMultiple() throws PersistenceLayerException
 	{
 		runRoundRobin("SPELLS|ALL[LEVELMIN=3,LEVELMAX=MAXCASTABLE,KNOWN]");
@@ -287,6 +299,7 @@ public class SpellsTokenTest extends
 	 * correctly and migrated to ALL.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testMigrationAny() throws PersistenceLayerException
 	{
 		runMigrationRoundRobin(
@@ -299,6 +312,7 @@ public class SpellsTokenTest extends
 	 * correctly and migrated to ALL.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAnyKnown() throws PersistenceLayerException
 	{
 		CDOMObject a =
@@ -315,6 +329,7 @@ public class SpellsTokenTest extends
 	 * correctly and migrated to ALL.
 	 * @throws PersistenceLayerException If an error occurs.
 	 */
+	@Test
 	public void testValidAllKnownRev() throws PersistenceLayerException
 	{
 		CDOMObject a =

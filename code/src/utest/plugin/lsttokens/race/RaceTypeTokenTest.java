@@ -17,13 +17,12 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.RaceType;
 import pcgen.core.Race;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractTypeSafeTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 

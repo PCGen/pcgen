@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipmentmodifier;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.EqModNameOpt;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.enumeration.StringKey;
@@ -26,6 +24,8 @@ import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -142,7 +142,6 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		return ConsolidationRule.OVERWRITE;
 	}
 
-
 	@Test
 	public void testOverwriteToText() throws PersistenceLayerException
 	{
@@ -162,6 +161,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 		validateUnparsed(primaryContext, primaryProf, getConsolidationRule()
 				.getAnswer("TEXT=This is the text", "NOTHING"));
 	}
+
 	@Test
 	public void testUnparseNull() throws PersistenceLayerException
 	{
@@ -192,6 +192,7 @@ public class NameoptTokenTest extends AbstractCDOMTokenTestCase<EquipmentModifie
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

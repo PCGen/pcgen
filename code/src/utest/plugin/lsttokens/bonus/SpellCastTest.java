@@ -19,19 +19,22 @@ package plugin.lsttokens.bonus;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.bonustokens.SpellCast;
 import plugin.lsttokens.BonusLst;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class SpellCastTest extends AbstractGlobalTokenTestCase
 {
@@ -39,8 +42,7 @@ public class SpellCastTest extends AbstractGlobalTokenTestCase
 	static CDOMTokenLoader<PCTemplate> loader =
 			new CDOMTokenLoader<>();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

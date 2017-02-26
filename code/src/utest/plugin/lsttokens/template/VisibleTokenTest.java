@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.template;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -175,6 +175,7 @@ public class VisibleTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

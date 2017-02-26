@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreVariableParser;
 import plugin.pretokens.writer.PreVariableWriter;
@@ -28,19 +27,23 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 {
 
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreVariableParser());
 		TokenRegistration.register(new PreVariableWriter());
 	}
 
+	@Test
 	public void testSimpleFormula()
 	{
 		runRoundRobin("INT,5");
 	}
 
+	@Test
 	public void testSimpleCompare()
 	{
 		runRoundRobin("abs(STR),4");
@@ -52,11 +55,13 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 		return "VAR";
 	}
 
+	@Test
 	public void testMultipleCompare()
 	{
 		runRoundRobin("abs(STR),4,abs(INT),3");
 	}
 
+	@Test
 	public void testDiffCompare()
 	{
 		runSimpleRoundRobin(
@@ -64,6 +69,7 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARLT:abs(INT),3]");
 	}
 
+	@Test
 	public void testCloseCompare()
 	{
 		runSimpleRoundRobin(
@@ -71,6 +77,7 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 				"PREMULT:2,[PREVARGT:abs(STR),4],[PREVARGTEQ:abs(INT),3]");
 	}
 
+	@Test
 	public void testCountOne()
 	{
 		runSimpleRoundRobin(
@@ -78,6 +85,7 @@ public class PreVarRoundRobin extends AbstractComparatorRoundRobin
 				"PREMULT:1,[PREVARGT:abs(STR),4],[PREVARGT:abs(INT),3]");
 	}
 
+	@Test
 	public void testFunConsolidation()
 	{
 		runSimpleRoundRobin(

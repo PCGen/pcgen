@@ -17,14 +17,13 @@
  */
 package plugin.lsttokens.pcclass;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMList;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.core.Language;
 import pcgen.core.PCClass;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
 import plugin.lsttokens.testsupport.AbstractListContextTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 

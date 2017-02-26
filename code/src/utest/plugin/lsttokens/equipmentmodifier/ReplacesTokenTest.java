@@ -23,6 +23,8 @@ import pcgen.core.EquipmentModifier;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -90,11 +92,13 @@ public class ReplacesTokenTest extends
 
 	//TODO 514 behavior, to be changed after 5.16?
 	@Override
+	@Test
 	public void testReplacementInputs() throws PersistenceLayerException
 	{
 	}
 
 	@Override
+	@Test
 	public void testReplacementInputsTwo() throws PersistenceLayerException
 	{
 	}
