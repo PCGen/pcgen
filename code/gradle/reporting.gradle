@@ -14,6 +14,7 @@ checkstyle {
 	configFile = new File('code/standards/checkstyle.xml')
 	ignoreFailures = true
 	showViolations = false
+	toolVersion = '7.6'
 	sourceSets = []
 }
 
