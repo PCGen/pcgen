@@ -36,7 +36,7 @@ EQUIPMENT:totp_equip_arms_armor.lst
 #LANGUAGE:my_languages.lst
 #RACE:my_races.lst
 #SKILL:my_skills.lst
-#SPELL:my_spells.lst
+SPELL:totp_spells.lst
 #TEMPLATE:my_templates.lst
 
 #ARMORPROF:my_profs_armor.lst
