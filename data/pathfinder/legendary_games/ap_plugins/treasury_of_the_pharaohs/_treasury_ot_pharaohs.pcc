@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 TYPE:Legendary Games.Adventure Path Add-ons.Egyptian
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ultimate Combat,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment,INCLUDES=Ultimate Magic
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ultimate Combat,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment,INCLUDES=Ultimate Magic,INCLUDES=Melee Tactics Toolbox
 PUBNAMELONG:Legendary Games
 PUBNAMESHORT:Legendary
 PUBNAMEWEB:http://www.makeyourgamelegendary.com/
@@ -28,8 +28,8 @@ ABILITY:totp_abilities.lst
 #DEITY:my_deities.lst
 #DOMAIN:my_domains.lst
 EQUIPMENT:totp_equip_arms_armor.lst
-#EQUIPMENT:my_equip_general.lst
-#EQUIPMENT:my_equip_magic_items.lst
+EQUIPMENT:totp_equip_general.lst
+EQUIPMENT:totp_equip_magic_items.lst
 #EQUIPMOD:my_equipmods.lst
 #ABILITY:my_feats.lst
 #KIT:my_kits.lst
