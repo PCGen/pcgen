@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreClassWriter;
 
 public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreClassLevelMaxRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassLevelMaxRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

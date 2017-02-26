@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PrePCLevelWriter;
 public class PrePCLevelRoundRobin extends AbstractMinMaxRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PrePCLevelRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PrePCLevelRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

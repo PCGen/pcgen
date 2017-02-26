@@ -19,32 +19,18 @@ package plugin.pretokens;
 
 import java.io.StringWriter;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.writer.PreAbilityWriter;
 
 public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAbilityRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAbilityRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

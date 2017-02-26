@@ -33,18 +33,7 @@ import plugin.pretokens.writer.PreKitWriter;
  */
 public class PreKitRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreKitRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreKitRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

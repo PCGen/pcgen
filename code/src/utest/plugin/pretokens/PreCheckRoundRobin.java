@@ -27,18 +27,7 @@ import plugin.pretokens.writer.PreCheckWriter;
 public class PreCheckRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreCheckRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCheckRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception

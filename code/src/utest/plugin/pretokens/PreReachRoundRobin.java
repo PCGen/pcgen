@@ -26,18 +26,7 @@ import plugin.pretokens.writer.PreReachWriter;
 
 public class PreReachRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreReachRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreReachRoundRobin.class);
-	}
 
 	@Override
 	protected void setUp() throws Exception
