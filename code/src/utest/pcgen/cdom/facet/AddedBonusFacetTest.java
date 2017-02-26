@@ -26,6 +26,8 @@ import pcgen.rules.context.ConsolidatedListCommitStrategy;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
+
+import org.junit.Before;
 import plugin.bonustokens.Combat;
 
 public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
@@ -40,8 +42,7 @@ public class AddedBonusFacetTest extends AbstractSourcedListFacetTest<BonusObj>
 	}
 
 	private LoadContext context;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

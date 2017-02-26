@@ -28,6 +28,8 @@ import pcgen.core.Language;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class StartingLanguageFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Language>
 {
@@ -35,8 +37,7 @@ public class StartingLanguageFacetTest extends
 	private StartingLanguageFacet facet = new StartingLanguageFacet();
 	private Language[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

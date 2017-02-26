@@ -27,15 +27,14 @@ import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractAssociationFacet;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
-
 public abstract class AbstractAssociationFacetTest<CT, ST> extends
 		TestCase
 {
 	private CharID id;
 	private CharID altid;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

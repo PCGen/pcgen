@@ -17,17 +17,18 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Handed;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class HandedFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class HandedFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -38,12 +39,10 @@ public class HandedFacetTest extends TestCase
 	private CharID id;
 	private HandedFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new HandedFacet();
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 	}

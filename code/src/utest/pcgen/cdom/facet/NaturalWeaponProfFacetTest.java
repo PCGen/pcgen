@@ -28,6 +28,8 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.WeaponProf;
 
+import org.junit.Before;
+
 public class NaturalWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, WeaponProf>
 {
@@ -35,8 +37,7 @@ public class NaturalWeaponProfFacetTest extends
 	private NaturalWeaponProfFacet facet = new NaturalWeaponProfFacet();
 	private WeaponProf[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

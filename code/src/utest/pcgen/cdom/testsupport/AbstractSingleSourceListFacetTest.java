@@ -30,8 +30,8 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
 import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
-
 public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		TestCase
 {
@@ -60,8 +60,7 @@ public abstract class AbstractSingleSourceListFacetTest<CT, ST> extends
 		}
 
 	}
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -26,6 +26,8 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.Deity;
 import pcgen.core.WeaponProf;
 
+import org.junit.Before;
+
 public class DeityWeaponProfFacetTest extends
 		AbstractExtractingFacetTest<Deity, WeaponProf>
 {
@@ -33,8 +35,7 @@ public class DeityWeaponProfFacetTest extends
 	private DeityWeaponProfFacet facet = new DeityWeaponProfFacet();
 	private WeaponProf[] target;
 	private Deity[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -28,6 +28,8 @@ import pcgen.core.PCStat;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class MovementFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Movement>
 {
@@ -35,8 +37,7 @@ public class MovementFacetTest extends
 	private MovementFacet facet = new MovementFacet();
 	private Movement[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.Gender;
@@ -28,7 +24,14 @@ import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class GenderFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class GenderFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -40,12 +43,10 @@ public class GenderFacetTest extends TestCase
 	private CharID altid;
 	private GenderFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new GenderFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
@@ -85,7 +86,7 @@ public class GenderFacetTest extends TestCase
 		assertTrue(facet.canSetGender(id));
 		assertEquals(Gender.getDefaultValue(), facet.getGender(id));
 	}
-	
+
 	@Test
 	public void testGenderLocked()
 	{

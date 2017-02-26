@@ -17,13 +17,17 @@
  */
 package pcgen.cdom.facet;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 import pcgen.core.LevelInfo;
 import pcgen.core.XPTable;
+
+import org.junit.Test;
+
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
 
 public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 {
@@ -45,7 +49,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		xpt.setName("XPTable" + n++);
 		return xpt;
 	}
-	
+
 	@Test
 	public void testGetLevelInfoNegLevel()
 	{
@@ -70,7 +74,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		CharID id = getCharID();
 		assertNull(facet.getLevelInfo(id, 1));
 	}
-	
+
 	@Test
 	public void testGetLevelInfoEmptyTable()
 	{
@@ -104,7 +108,7 @@ public class XPTableFacetTest extends AbstractItemFacetTest<XPTable>
 		LevelInfo xpt = facet.getLevelInfo(id, 1);
 		assertNull(xpt);
 	}
-	
+
 	@Test
 	public void testGetLevelInfoLevel()
 	{

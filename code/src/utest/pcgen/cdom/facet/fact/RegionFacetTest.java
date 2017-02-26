@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.fact;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
@@ -30,7 +26,14 @@ import pcgen.cdom.enumeration.SubRegion;
 import pcgen.cdom.facet.model.TemplateFacet;
 import pcgen.core.PCTemplate;
 
-public class RegionFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
+public class RegionFacetTest
 {
 	private static final String TEST_REGION_NAME = "TestRegion";
 	private static final String TEST_SUB_REGION_NAME = "TestSubRegion";
@@ -47,12 +50,10 @@ public class RegionFacetTest extends TestCase
 	private CharID altid;
 	private RegionFacet facet;
 	private TemplateFacet tfacet = new TemplateFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new RegionFacet();
-		super.setUp();
 		facet.setTemplateFacet(tfacet);
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);

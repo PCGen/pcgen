@@ -17,19 +17,21 @@
  */
 package pcgen.cdom.facet.fact;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.testsupport.AbstractItemFacetTest;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
 public class HeightFacetTest extends AbstractItemFacetTest<Integer>
 {
 	private CharID id;
 	private HeightFacet facet = new HeightFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

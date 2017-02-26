@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.IntegerKey;
@@ -37,7 +33,18 @@ import pcgen.cdom.facet.model.ClassFacet.ClassLevelObjectChangeEvent;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.PCClass;
 
-public class ClassFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class ClassFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -83,11 +90,9 @@ public class ClassFacetTest extends TestCase
 		}
 
 	}
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -973,8 +978,8 @@ public class ClassFacetTest extends TestCase
 		assertEquals(Integer.valueOf(4), pcl.get(IntegerKey.HIT_DIE));
 		assertEquals(3, facet.getLevel(altid, cl));
 	}
-	@Test
 
+	@Test
 	public void testEmptyCopyContents()
 	{
 		facet.copyContents(id, altid);

@@ -28,6 +28,8 @@ import pcgen.core.PCClass;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+
 public class FavoredClassFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, PCClass>
 {
@@ -35,8 +37,7 @@ public class FavoredClassFacetTest extends
 	private FavoredClassFacet facet = new FavoredClassFacet();
 	private PCClass[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

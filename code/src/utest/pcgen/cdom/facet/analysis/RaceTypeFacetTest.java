@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -32,7 +28,13 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.core.character.CompanionMod;
 
-public class RaceTypeFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertSame;
+
+public class RaceTypeFacetTest
 {
 	private static final RaceType LAST_RACE_TYPE = RaceType
 			.getConstant("TestLastRaceType");
@@ -53,12 +55,10 @@ public class RaceTypeFacetTest extends TestCase
 	private RaceFacet rfacet = new RaceFacet();
 	private TemplateFacet tfacet = new TemplateFacet();
 	private CompanionModFacet cfacet = new CompanionModFacet();
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		facet = new RaceTypeFacet();
-		super.setUp();
 		facet.setRaceFacet(rfacet);
 		facet.setTemplateFacet(tfacet);
 		facet.setCompanionModFacet(cfacet);

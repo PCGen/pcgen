@@ -21,17 +21,18 @@ import java.lang.reflect.Field;
 import java.util.HashMap;
 import java.util.Map;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.BonusCheckingFacet;
 import pcgen.cdom.facet.FormulaResolvingFacet;
 
-public class InitiativeFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+
+public class InitiativeFacetTest
 {
 	/*
 	 * NOTE: This is not literal unit testing - it is leveraging the existing
@@ -45,10 +46,9 @@ public class InitiativeFacetTest extends TestCase
 	private InitiativeFacet facet;
 	private Map<CharID, Double> bonusInfo;
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
