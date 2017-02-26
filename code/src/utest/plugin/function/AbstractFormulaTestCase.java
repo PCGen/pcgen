@@ -19,7 +19,6 @@ package plugin.function;
 
 import java.util.List;
 
-import junit.framework.TestCase;
 import pcgen.base.formatmanager.FormatUtilities;
 import pcgen.base.formula.base.DependencyManager;
 import pcgen.base.formula.base.EvaluationManager;
@@ -48,7 +47,10 @@ import pcgen.cdom.formula.MonitorableVariableStore;
 import pcgen.cdom.formula.scope.LegalScopeUtilities;
 import pcgen.rules.context.LoadContext;
 
-public abstract class AbstractFormulaTestCase extends TestCase
+import junit.framework.TestCase;
+import org.junit.Before;
+
+public abstract class AbstractFormulaTestCase
 {
 
 	protected FormatManager<Number> numberManager =
@@ -58,11 +60,9 @@ public abstract class AbstractFormulaTestCase extends TestCase
 
 	private SplitFormulaSetup setup;
 	private IndividualSetup localSetup;
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		setup = new SplitFormulaSetup();
 		LegalScopeUtilities.loadLegalScopeLibrary(setup.getLegalScopeLibrary());
 		localSetup = new IndividualSetup(setup, "Global", new MonitorableVariableStore());

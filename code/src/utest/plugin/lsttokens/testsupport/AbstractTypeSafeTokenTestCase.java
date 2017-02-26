@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> extends
 		AbstractCDOMTokenTestCase<T>
@@ -169,6 +169,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@Override
+	@Test
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		if (requiresPreconstruction())
@@ -207,6 +208,7 @@ public abstract class AbstractTypeSafeTokenTestCase<T extends CDOMObject, CT> ex
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

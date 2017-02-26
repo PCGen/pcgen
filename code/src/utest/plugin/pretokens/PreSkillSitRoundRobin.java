@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSkillSitParser;
 import plugin.pretokens.writer.PreSkillSitWriter;
@@ -40,8 +39,10 @@ public class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
 		return new TestSuite(PreSkillSitRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSkillSitParser());
@@ -74,24 +75,28 @@ public class PreSkillSitRoundRobin extends AbstractRankedRoundRobin
 
 	//Due to the nature of SKILL= combination is not possible
 	@Override
+	@Test
 	public void testCombineSub()
 	{
 	}
 
 	//Due to the nature of SKILL= combination is not possible
 	@Override
+	@Test
 	public void testCombineSubNegative()
 	{
 	}
 
 	//Due to the nature of SKILL= combination is not possible
 	@Override
+	@Test
 	public void testCombineSubSub()
 	{
 	}
 
 	//Due to the nature of SKILL= combination is not possible
 	@Override
+	@Test
 	public void testCombineSubNegativeSub()
 	{
 	}

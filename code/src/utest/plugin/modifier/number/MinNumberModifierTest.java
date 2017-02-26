@@ -26,15 +26,17 @@ import pcgen.base.solver.Modifier;
 import pcgen.base.util.FormatManager;
 import pcgen.rules.persistence.token.ModifierFactory;
 
-import junit.framework.TestCase;
 import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
 
-public class MinNumberModifierTest extends TestCase
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
+
+public class MinNumberModifierTest
 {
 	private LegalScope varScope = new SimpleLegalScope(null, "Global");
 	FormatManager<Number> numManager = new NumberManager();
-
 
 	@Test
 	public void testInvalidConstruction()

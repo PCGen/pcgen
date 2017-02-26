@@ -19,9 +19,6 @@ package plugin.lsttokens.kit.startpack;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -30,6 +27,9 @@ import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractFormulaTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -51,8 +51,7 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -141,13 +140,13 @@ public class TotalCostTokenTest extends AbstractFormulaTokenTestCase<Kit>
 	{
 		runRoundRobin("TestWP1|PRECLASS:1,Fighter=1");
 	}
-	
+
 	@Test
 	public void testRoundRobinFormulaComplex() throws PersistenceLayerException
 	{
 		runRoundRobin("if(var(\"SIZE==3||SIZE==4\"),5,10)|PRECLASS:1,Fighter=1");
 	}
-	
+
 	@Test
 	public void testRoundRobinTwoPre() throws PersistenceLayerException
 	{

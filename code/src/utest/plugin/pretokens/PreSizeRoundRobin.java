@@ -17,11 +17,11 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.cdom.enumeration.ObjectKey;
 import pcgen.core.SizeAdjustment;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSizeParser;
@@ -44,8 +44,10 @@ public class PreSizeRoundRobin extends AbstractComparatorRoundRobin
 		return new TestSuite(PreSizeRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSizeParser());
@@ -54,6 +56,7 @@ public class PreSizeRoundRobin extends AbstractComparatorRoundRobin
 		medium.put(ObjectKey.IS_DEFAULT_SIZE, true);
 	}
 
+	@Test
 	public void testSimpleInteger()
 	{
 		runRoundRobin("M");

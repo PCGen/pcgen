@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.equipment;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
@@ -27,6 +25,8 @@ import pcgen.core.Equipment;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractTypeSafeListTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 
@@ -149,8 +149,8 @@ public class AltTypeTokenTest extends AbstractTypeSafeListTestCase<Equipment, Ty
 		assertNoSideEffects();
 	}
 
-	@Test
     @Override
+	@Test
 	public void testInputInvalidClearDot() throws PersistenceLayerException
 	{
 		assertFalse(parse(".CLEAR."));

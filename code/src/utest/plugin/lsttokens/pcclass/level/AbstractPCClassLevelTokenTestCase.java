@@ -20,12 +20,6 @@ package plugin.lsttokens.pcclass.level;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.core.Campaign;
@@ -40,11 +34,21 @@ import pcgen.rules.context.RuntimeReferenceContext;
 import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.Logging;
+
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
-public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+
+public abstract class AbstractPCClassLevelTokenTestCase
 {
 	protected LoadContext primaryContext;
 	protected LoadContext secondaryContext;
@@ -69,8 +73,7 @@ public abstract class AbstractPCClassLevelTokenTestCase extends TestCase
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)

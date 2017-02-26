@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDeityDomainParser;
 import plugin.pretokens.writer.PreDeityDomainWriter;
@@ -39,8 +38,10 @@ public class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreDeityDomainRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreDeityDomainParser());
@@ -59,26 +60,31 @@ public class PreDeityDomainRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testY()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Y");
 	}
 
+	@Test
 	public void testN()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,N");
 	}
 
+	@Test
 	public void testPantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Foo");
 	}
 
+	@Test
 	public void testMultiplePantheon()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,PANTHEON.Bar,PANTHEON.Foo");
 	}
 
+	@Test
 	public void testPantheonComplex()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3,Foo,PANTHEON.Bar");

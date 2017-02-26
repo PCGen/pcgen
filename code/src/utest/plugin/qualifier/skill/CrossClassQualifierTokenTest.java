@@ -32,6 +32,7 @@ import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
 
+import org.junit.Before;
 import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.choose.SkillToken;
@@ -56,8 +57,7 @@ public class CrossClassQualifierTokenTest extends
 	{
 		super("CROSSCLASS", null);
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -100,7 +100,7 @@ public class CrossClassQualifierTokenTest extends
 		return true;
 	}
 
-		@Test
+	@Test
 	public void testGetSet() throws PersistenceLayerException
 	{
 		setUpPC();
@@ -137,8 +137,8 @@ public class CrossClassQualifierTokenTest extends
 		assertTrue(set.contains(primaryProf));
 	}
 
-		@Test
-		public void testGetSetFiltered() throws PersistenceLayerException
+	@Test
+	public void testGetSetFiltered() throws PersistenceLayerException
 		{
 			setUpPC();
 			initializeObjects();
@@ -166,8 +166,8 @@ public class CrossClassQualifierTokenTest extends
 			assertTrue(set.contains(s4));
 		}
 
-		@Test
-		public void testGetSetNegated() throws PersistenceLayerException
+	@Test
+	public void testGetSetNegated() throws PersistenceLayerException
 		{
 			setUpPC();
 			initializeObjects();

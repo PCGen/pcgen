@@ -19,9 +19,6 @@ package plugin.lsttokens.pcclass.level;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.inst.PCClassLevel;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
@@ -34,6 +31,9 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractListTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -49,8 +49,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -226,6 +225,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
@@ -241,7 +241,7 @@ public class DomainTokenTest extends AbstractListTokenTestCase<PCClassLevel, Dom
 			// Yep!
 		}
 	}
-	
+
 	@Test
 	public void testUnparseSinglePre() throws PersistenceLayerException
 	{

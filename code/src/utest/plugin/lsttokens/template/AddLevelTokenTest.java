@@ -20,8 +20,6 @@ package plugin.lsttokens.template;
 import java.util.Arrays;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.content.LevelCommandFactory;
 import pcgen.cdom.enumeration.ListKey;
@@ -31,6 +29,8 @@ import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -132,7 +132,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 		secondaryContext.getReferenceContext().constructCDOMObject(PCClass.class, "Fighter");
 		runRoundRobin("Fighter|if(var(\"SIZE==3||SIZE==4\"),5,0)");
 	}
-	
+
 	@Test
 	public void testRoundRobinMultiple() throws PersistenceLayerException
 	{
@@ -233,6 +233,7 @@ public class AddLevelTokenTest extends AbstractCDOMTokenTestCase<PCTemplate>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
