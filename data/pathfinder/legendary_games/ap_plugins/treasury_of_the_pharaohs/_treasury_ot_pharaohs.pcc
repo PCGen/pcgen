@@ -6,7 +6,7 @@ GENRE:Fantasy
 BOOKTYPE:Supplement
 SETTING:Pathfinder
 TYPE:Legendary Games.Adventure Path Add-ons.Egyptian
-PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ultimate Combat,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment,INCLUDES=Ultimate Magic
+PRECAMPAIGN:2,INCLUDESBOOKTYPE=Core Rules,INCLUDES=Ultimate Combat,INCLUDES=Advanced Player's Guide,INCLUDES=Ultimate Equipment,INCLUDES=Ultimate Magic,INCLUDES=Melee Tactics Toolbox
 PUBNAMELONG:Legendary Games
 PUBNAMESHORT:Legendary
 PUBNAMEWEB:http://www.makeyourgamelegendary.com/
@@ -18,40 +18,9 @@ ISOGL:YES
 COPYRIGHT:Treasury of the Pharaohs, Copyright 2015 by Legendary Games
 LOGO:@/publisher_logos/Legendary_Games.png
 
-#INFOTEXT:To display an Information in the Source Info section on the Source Materials tab, replace the text after 'INFOTEXT:' with your text and remove the '#'
+INFOTEXT:Intended for use with the 14th Pathfinder Adventure Path (Issues 79 to 84)
 
-#ABILITY:my_abilities.lst
-#ABILITYCATEGORY:my_abilitycategories.lst
-#BIOSET:my_biosettings.lst
-#CLASS:my_classes.lst
-#COMPANIONMOD:my_companionmods.lst
-#DEITY:my_deities.lst
-#DOMAIN:my_domains.lst
+ABILITY:totp_abilities.lst
 EQUIPMENT:totp_equip_arms_armor.lst
-#EQUIPMENT:my_equip_general.lst
-#EQUIPMENT:my_equip_magic_items.lst
-#EQUIPMOD:my_equipmods.lst
-#ABILITY:my_feats.lst
-#KIT:my_kits.lst
-#LANGUAGE:my_languages.lst
-#RACE:my_races.lst
-#SKILL:my_skills.lst
-SPELL:totp_spells.lst
-#TEMPLATE:my_templates.lst
-
-#ARMORPROF:my_profs_armor.lst
-#SHIELDPROF:my_profs_shield.lst
-#WEAPONPROF:my_profs_weapon.lst
-
-### You can hide TYPEs in the GUI - TYPEs are handy for organization, but some are only used for internal functions.
-#HIDETYPE:EQUIP|SpecialSuppressor
-#HIDETYPE:SKILL|Science
-#HIDETYPE:FEAT|Leadership
-
-#Remove the '#' in front of those lines referring to files that you actually want to load
-#Remember to set the GAMEMODE to the one you really want.
-#Options in the Open Source data are 3e, 35e, Modern, Deadlands, Sidewinder, Spycraft, or Xcrawl.
-
-#If you use this framework to set up a dataset of your own, then you may want to rename the folder and files to something
-#different. Otherwise if you ever should install a newer version of PCGen into your existing directory or needed to re-install
-#your existing installation of PCGen, your changes would get overwritten and thus be lost.
+EQUIPMENT:totp_equip_general.lst
+EQUIPMENT:totp_equip_magic_items.lst
