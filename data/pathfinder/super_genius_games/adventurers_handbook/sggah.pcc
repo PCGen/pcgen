@@ -1,12 +1,13 @@
 # CVS $Revision$ $Author$ -- Sat Nov 23 14:46:39 2013 -- reformated by prettylst.pl v1.50 (build 22134)
-CAMPAIGN:Super Genius Games - Adventurer's Handbook
+CAMPAIGN:Adventurer's Handbook: Genius Guide Volume 1
 GAMEMODE:Pathfinder
-TYPE:Super Genius Games.Adventurer's Handbook
+TYPE:Super Genius Games
 STATUS:BETA
 RANK:3
 GENRE:Fantasy
 BOOKTYPE:Supplement
 PRECAMPAIGN:1,INCLUDESBOOKTYPE=Core Rules
+PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
 PUBNAMELONG:Super Genius Games
 PUBNAMESHORT:Super Genius Games
 PUBNAMEWEB:http://www.supergeniusgames.com
@@ -44,14 +45,11 @@ COPYRIGHT:PCGen dataset conversion for the "Adventurer's Handbook: Genius Guide 
 #EXTRAFILE:OGL.txt
 
 ABILITY:sggah_abilities_class.lst
-ABILITY:sggah_abilities_class_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-ABILITY:sggah_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
-ABILITY:sggah_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITY:sggah_abilities_class_apg.lst
 ABILITY:sggah_abilities_feats.lst
 ABILITY:sggah_abilities_racial.lst
 ABILITYCATEGORY:sggah_abilitycategories.lst
-ABILITYCATEGORY:sggah_abilitycategories_apg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Player's Guide
-ABILITYCATEGORY:sggah_abilitycategories_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+ABILITYCATEGORY:sggah_abilitycategories_apg.lst
 CLASS:sggah_classes_base.lst
 CLASS:sggah_classes_mod.lst
 COMPANIONMOD:sggah_companion_mods.lst
@@ -60,8 +58,7 @@ EQUIPMENT:sggah_equip.lst
 EQUIPMOD:sggah_equipmods.lst
 ABILITY:sggah_feats.lst
 ABILITY:sggah_feats_pfcr.lst
-ABILITY:sggah_feats_apg.lst|PRECAMPAIGN:1,Advanced Player's Guide
-ABILITY:sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
+ABILITY:sggah_feats_apg.lst
 KIT:sggah_kits_companions.lst
 LANGUAGE:sggah_languages.lst
 SKILL:sggah_skills_conditional.lst
@@ -69,6 +66,13 @@ SPELL:sggah_spells.lst
 SPELL:sggah_spells_mods.lst
 TEMPLATE:sggah_templates.lst
 WEAPONPROF:sggah_weaponprofs.lst
+
+ABILITY:support/sggah_abilities_class_um.lst|PRECAMPAIGN:1,INCLUDES=Ultimate Magic
+ABILITY:support/sggah_abilities_class_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+
+ABILITYCATEGORY:support/sggah_abilitycategories_arg.lst|PRECAMPAIGN:1,INCLUDES=Advanced Race Guide
+
+ABILITY:support/sggah_feats_um.lst|PRECAMPAIGN:1,Ultimate Magic
 
 #
 # End
