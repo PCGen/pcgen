@@ -18,7 +18,7 @@ ISOGL:YES
 COPYRIGHT:Treasury of the Pharaohs, Copyright 2015 by Legendary Games
 LOGO:@/publisher_logos/Legendary_Games.png
 
-INFOTEXT:Intended for use with the 14th Pathfinder Adventure Path (Issues 79 to 84)
+INFOTEXT:Intended for use with the 14th Pathfinder Adventure Path (Issues 79 to 84).
 
 ABILITY:totp_abilities.lst
 EQUIPMENT:totp_equip_arms_armor.lst
