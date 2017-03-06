@@ -73,6 +73,7 @@ Transfer Arcana		KEY:Black Blade ~ Transfer Arcana	CATEGORY:Special Ability	TYPE
 Spell Defense		KEY:Black Blade ~ Spell Defense	CATEGORY:Special Ability	TYPE:SpecialQuality.SpellLike						DESC:A magus can expend an arcane point from his weapon's arcane pool as a free action; he then gains SR %1 until the start of his next turn.|BBEgo																																																																									SOURCEPAGE:p.48	ASPECT:ChildAbility|Blackblade
 # NEEDS DATA WORK: Variablize the minimum HD.
 Life Drinker		KEY:Black Blade ~ Life Drinker	CATEGORY:Special Ability	TYPE:SpecialAttack.Supernatural					DESC:Each time the magus kills a living creature with the black blade, he can pick one of the following effects: the black blade restores 2 points to its arcane pool; the black blade restores 1 point to its arcane pool and the magus restores 1 point to his arcane pool; the magus gains %1 temporary hit points (these temporary hit points last until spent or 1 minute, whichever is shorter). The creature killed must have a number of Hit Dice equal to half the magus's character level for this to occur.|BBEgo													SOURCEPAGE:p.48	ASPECT:ChildAbility|Blackblade
+Alertness			KEY:Black Blade ~ Alertness		CATEGORY:Special Ability	TYPE:ClassFeatures.SpecialQuality.Extraordinary	DESC:While a magus is wielding his black blade, he gains the Alertness feat.																																																																																			SOURCEPAGE:p.48	ASPECT:ChildAbility|Blackblade
 
 
 ###Block: Eidolon Modded abilities from APG
