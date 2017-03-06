@@ -76,7 +76,7 @@ public abstract class AbstractReferenceContext implements ObjectDatabase
 	private static final Class<ClassSpellList> CLASSSPELLLIST_CLASS = ClassSpellList.class;
 	private static final Class<SubClass> SUBCLASS_CLASS = SubClass.class;
 
-	private DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
+	private final DoubleKeyMap<Class<?>, Object, WeakReference<List<?>>> sortedMap =
             new DoubleKeyMap<>();
 
 	private final Map<CDOMObject, CDOMSingleRef<?>> directRefCache = new HashMap<>();

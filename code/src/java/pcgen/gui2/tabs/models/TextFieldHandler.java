@@ -33,8 +33,8 @@ import pcgen.facade.util.event.ReferenceListener;
 public abstract class TextFieldHandler implements DocumentListener, ReferenceListener<String>
 {
 
-	private JTextField textField;
-	private ReferenceFacade<String> ref;
+	private final JTextField textField;
+	private final ReferenceFacade<String> ref;
 
 	public TextFieldHandler(JTextField textField, ReferenceFacade<String> ref)
 	{

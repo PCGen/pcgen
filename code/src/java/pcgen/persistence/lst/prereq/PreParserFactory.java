@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 public final class PreParserFactory implements PluginLoader
 {
 	private static PreParserFactory instance = null;
-	private static Map<String, PrerequisiteParserInterface> parserLookup =
+	private static final Map<String, PrerequisiteParserInterface> parserLookup =
             new HashMap<>();
 
 	private PreParserFactory() throws PersistenceLayerException

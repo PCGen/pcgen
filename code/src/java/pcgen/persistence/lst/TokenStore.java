@@ -34,7 +34,7 @@ import pcgen.util.Logging;
 public final class TokenStore implements PluginLoader
 {
 	private static TokenStore inst;
-	private HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
+	private final HashMap<Class<? extends LstToken>, Map<String, LstToken>> tokenTypeMap;
 	private final List<Class<? extends LstToken>> tokenTypeList;
 
 	private TokenStore()

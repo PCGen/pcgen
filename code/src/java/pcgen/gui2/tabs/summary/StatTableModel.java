@@ -240,7 +240,7 @@ public class StatTableModel extends AbstractTableModel implements ReferenceListe
 	private static class ModRenderer extends JLabel implements TableCellRenderer
 	{
 
-		private DecimalFormat formatter = PrettyIntegerFormat.getFormat();
+		private final DecimalFormat formatter = PrettyIntegerFormat.getFormat();
 
 		public ModRenderer()
 		{

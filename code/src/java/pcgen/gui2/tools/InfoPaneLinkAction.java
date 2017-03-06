@@ -40,7 +40,7 @@ public class InfoPaneLinkAction
 		implements HyperlinkListener
 {
 
-	private InfoPane infoPane;
+	private final InfoPane infoPane;
 
 	/**
 	 * Create a new instance.

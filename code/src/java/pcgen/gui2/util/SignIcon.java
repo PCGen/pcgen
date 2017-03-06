@@ -37,7 +37,7 @@ public class SignIcon implements Icon
 
 		Plus, Minus;
 	}
-	private Sign sign;
+	private final Sign sign;
 
 	public SignIcon(Sign sign)
 	{

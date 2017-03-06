@@ -556,7 +556,7 @@ public class EquipmentModels
 	private static class SpinnerEditor extends AbstractCellEditor implements TableCellEditor, ChangeListener
 	{
 
-		private JSpinner spinner = new JSpinner();
+		private final JSpinner spinner = new JSpinner();
 		private final EquipmentListFacade equipmentList;
 
 		public SpinnerEditor(EquipmentListFacade equipmentList)
@@ -612,7 +612,7 @@ public class EquipmentModels
 	{
 
 		private JComboBox comboBox = null;
-		private MapToList<EquipmentFacade, EquipNode> equipMap;
+		private final MapToList<EquipmentFacade, EquipNode> equipMap;
 
 		public ComboEditor(MapToList<EquipmentFacade, EquipNode> equipMap)
 		{

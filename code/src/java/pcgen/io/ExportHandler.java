@@ -110,7 +110,7 @@ public final class ExportHandler
 	private static final Float JEP_TRUE = new Float(1.0);
 
 	/** A map of output tokens to export */
-	private static Map<String, Token> tokenMap = new HashMap<>();
+	private static final Map<String, Token> tokenMap = new HashMap<>();
 
 	/** 
 	 * A variable to hold the state of whether or not the output token map to

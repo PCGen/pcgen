@@ -52,7 +52,7 @@ public class SkillPointTableModel extends AbstractTableModel
 		implements ListListener<CharacterLevelFacade>, ClassListener, SkillPointListener
 {
 
-	private CharacterLevelsFacade levels;
+	private final CharacterLevelsFacade levels;
 
 	public SkillPointTableModel(CharacterFacade character)
 	{

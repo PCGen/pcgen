@@ -71,12 +71,12 @@ public class HtmlSheetSupport
 		}
 
 	};
-	private ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
+	private final ExecutorService executor = Executors.newSingleThreadExecutor(threadFactory);
 
 	private WeakReference<CharacterFacade> characterRef;
 	private final File templateFile;
 	private final JEditorPane htmlPane;
-	private ImageCache cache = new ImageCache();
+	private final ImageCache cache = new ImageCache();
 	private FutureTask<HTMLDocument> refresher = null;
 	private boolean installed = false;
 	private String missingSheetMsg;
@@ -268,7 +268,7 @@ public class HtmlSheetSupport
 	private static class ImageCache extends Dictionary<URL, Image>
 	{
 
-		private HashMap<URL, Image> cache = new HashMap<>();
+		private final HashMap<URL, Image> cache = new HashMap<>();
 
 		@Override
 		public int size()

@@ -34,8 +34,8 @@ import pcgen.facade.util.event.ReferenceListener;
 public abstract class FormattedFieldHandler implements PropertyChangeListener, ReferenceListener<Integer>
 {
 
-	private JFormattedTextField field;
-	private ReferenceFacade<Integer> ref;
+	private final JFormattedTextField field;
+	private final ReferenceFacade<Integer> ref;
 
 	public FormattedFieldHandler(JFormattedTextField field, ReferenceFacade<Integer> ref)
 	{

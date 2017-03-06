@@ -45,7 +45,7 @@ public class TitledSeparator extends JComponent
     static public final int MIDDLE = TitledBorder.TOP;
     /** Position the title below the border's top line. */
     static public final int BELOW = TitledBorder.BELOW_TOP;
-    private TitledBorder titledBorder;
+    private final TitledBorder titledBorder;
 
     public TitledSeparator()
     {

@@ -70,7 +70,7 @@ public final class TableCellUtilities
 			TableCellEditor
 	{
 
-		private JRadioButton button;
+		private final JRadioButton button;
 
 		public RadioButtonEditor()
 		{
@@ -174,8 +174,8 @@ public final class TableCellUtilities
 	public static class ToggleButtonRenderer extends JComponent implements TableCellRenderer
 	{
 
-		private JToggleButton button;
-		private DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
+		private final JToggleButton button;
+		private final DefaultTableCellRenderer renderer = new DefaultTableCellRenderer();
 
 		public ToggleButtonRenderer(JToggleButton button)
 		{

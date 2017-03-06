@@ -62,13 +62,13 @@ public class ClassLevelTableModel extends AbstractTableModel
 		implements ListListener<CharacterLevelFacade>, ItemListener, PropertyChangeListener, HitPointListener, ClassListener
 {
 
-	private CharacterLevelsFacade levels;
-	private Map<String, Integer> finalLevelMap;
-	private CharacterFacade character;
-	private Editor editor = new Editor();
-	private Editor renderer = new Editor();
-	private JComboBox classComboBox;
-	private JTable classTable;
+	private final CharacterLevelsFacade levels;
+	private final Map<String, Integer> finalLevelMap;
+	private final CharacterFacade character;
+	private final Editor editor = new Editor();
+	private final Editor renderer = new Editor();
+	private final JComboBox classComboBox;
+	private final JTable classTable;
 
 	public ClassLevelTableModel(CharacterFacade character, JTable table, JComboBox comboBox)
 	{
@@ -261,10 +261,10 @@ public class ClassLevelTableModel extends AbstractTableModel
 			implements TableCellEditor, TableCellRenderer, ActionListener
 	{
 
-		private JPanel cellPanel = new JPanel();
-		private JLabel cellLabel = new JLabel();
-		private JButton addLevelButton = Utilities.createSignButton(Sign.Plus);
-		private JButton removeLevelButton = Utilities.createSignButton(Sign.Minus);
+		private final JPanel cellPanel = new JPanel();
+		private final JLabel cellLabel = new JLabel();
+		private final JButton addLevelButton = Utilities.createSignButton(Sign.Plus);
+		private final JButton removeLevelButton = Utilities.createSignButton(Sign.Minus);
 
 		public Editor()
 		{

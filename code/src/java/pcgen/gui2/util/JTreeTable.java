@@ -71,8 +71,8 @@ public class JTreeTable extends JTableEx
 
 	private static final long serialVersionUID = -3571248405124682593L;
 	/** A subclass of JTree. */
-	private TreeTableCellRenderer tree;
-	private TreeTableModelAdapter adapter;
+	private final TreeTableCellRenderer tree;
+	private final TreeTableModelAdapter adapter;
 
 	static
 	{
@@ -298,7 +298,7 @@ public class JTreeTable extends JTableEx
 			TreeExpansionListener
 	{
 
-		private JTree tree;
+		private final JTree tree;
 		private TreeTableModel treeTableModel;
 
 		/**
@@ -518,7 +518,7 @@ public class JTreeTable extends JTableEx
 		// Last table/tree row asked to render
 
 		private int visibleRow;
-		private DefaultTableCellRenderer tableCellRenderer;
+		private final DefaultTableCellRenderer tableCellRenderer;
 
 		public TreeTableCellRenderer()
 		{
@@ -938,8 +938,8 @@ public class JTreeTable extends JTableEx
 	private final class PopupListener extends MouseAdapter
 	{
 
-		private JPopupMenu theMenu;
-		private JTree theTree;
+		private final JPopupMenu theMenu;
+		private final JTree theTree;
 
 		private PopupListener(final JTreeTable treeTable,
 							  final JPopupMenu aMenu)
