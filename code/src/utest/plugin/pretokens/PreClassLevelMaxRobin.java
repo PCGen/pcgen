@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassLevelMaxParser;
 import plugin.pretokens.parser.PreClassParser;
@@ -27,21 +26,12 @@ import plugin.pretokens.writer.PreClassWriter;
 
 public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreClassLevelMaxRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassLevelMaxRobin.class);
-	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreClassLevelMaxParser());
@@ -49,24 +39,28 @@ public class PreClassLevelMaxRobin extends AbstractPreRoundRobin
 		TokenRegistration.register(new PreClassWriter());
 	}
 
+	@Test
 	public void testBasic()
 	{
 		runSimpleRoundRobin("PRECLASSLEVELMAX:1,Barbarian=1",
 				"!PRECLASS:1,Barbarian=2");
 	}
 
+	@Test
 	public void testNegated()
 	{
 		runSimpleRoundRobin("!PRECLASSLEVELMAX:1,Barbarian=1",
 				"PRECLASS:1,Barbarian=2");
 	}
 
+	@Test
 	public void testSimple()
 	{
 		runSimpleRoundRobin("PRECLASSLEVELMAX:1,Fighter=1,SPELLCASTER=2",
 				"PREMULT:1,[!PRECLASS:1,Fighter=2],[!PRECLASS:1,SPELLCASTER=3]");
 	}
 
+	@Test
 	public void testTwo()
 	{
 		runSimpleRoundRobin("PRECLASSLEVELMAX:2,Fighter=1,SPELLCASTER=2",

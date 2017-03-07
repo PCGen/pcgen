@@ -17,9 +17,7 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellTypeParser;
 import plugin.pretokens.writer.PreSpellTypeWriter;
@@ -27,21 +25,12 @@ import plugin.pretokens.writer.PreSpellTypeWriter;
 public class PreSpellTypeRoundRobin extends AbstractRankedRoundRobin
 {
 
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSpellTypeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSpellTypeRoundRobin.class);
-	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSpellTypeParser());

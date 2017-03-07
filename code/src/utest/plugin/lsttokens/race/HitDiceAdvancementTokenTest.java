@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.race;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Race;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCDOMTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -215,7 +215,6 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 		expectSingle(unparsed, "1,2");
 	}
 
-
 	@Test
 	public void testUnparseMultipleStar() throws PersistenceLayerException
 	{
@@ -227,6 +226,7 @@ public class HitDiceAdvancementTokenTest extends AbstractCDOMTokenTestCase<Race>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

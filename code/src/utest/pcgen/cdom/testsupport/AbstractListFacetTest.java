@@ -21,10 +21,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractListFacet;
@@ -32,6 +28,10 @@ import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.Test;
 
 public abstract class AbstractListFacetTest<T>
 		extends TestCase
@@ -60,8 +60,7 @@ public abstract class AbstractListFacetTest<T>
 		}
 
 	}
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

@@ -21,8 +21,6 @@ import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.cdom.base.ChoiceSet;
@@ -39,6 +37,9 @@ import pcgen.core.PCClass;
 import pcgen.core.Skill;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
@@ -52,8 +53,7 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	{
 		return PCClass.class;
 	}
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -83,12 +83,6 @@ public class ClassSkillsTokenTest extends AbstractAddTokenTestCase<Skill>
 	public boolean isTypeLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

@@ -19,35 +19,26 @@ package plugin.pretokens;
 
 import java.io.StringWriter;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterFactory;
 import pcgen.persistence.lst.output.prereq.PrerequisiteWriterInterface;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreAbilityParser;
 import plugin.pretokens.writer.PreAbilityWriter;
 
+import org.junit.Test;
+
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
 public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreAbilityRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreAbilityRoundRobin.class);
-	}
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreAbilityParser());
@@ -82,18 +73,21 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		return "CATEGORY=ANY,";
 	}
 
+	@Test
 	public void testBasicCheckMult()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + "CHECKMULT,"
 				+ getPrefix() + "Foo");
 	}
 
+	@Test
 	public void testMultipleCheckMult()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + "CHECKMULT,"
 				+ getPrefix() + "Spot,Listen");
 	}
 
+	@Test
 	public void testNoCombineSubCheckMult()
 	{
 		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1," + "CHECKMULT,"
@@ -101,6 +95,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ "CHECKMULT," + getPrefix() + "Spot,Listen]");
 	}
 
+	@Test
 	public void testNoCombineSubNegativeCheckMult()
 	{
 		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,"
@@ -108,6 +103,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ ":1," + "CHECKMULT," + getPrefix() + "Spot]");
 	}
 
+	@Test
 	public void testCombineSubCheckMult()
 	{
 		// runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -141,6 +137,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testCombineSubNegativeCheckMult()
 	{
 		// runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -174,6 +171,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineMultCheckMult()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1," + "CHECKMULT,"
@@ -181,12 +179,14 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ "CHECKMULT," + getPrefix() + "Spot,Listen]");
 	}
 
+	@Test
 	public void testMultipleCountCheckMult()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2," + "CHECKMULT,"
 				+ getPrefix() + "Foo,Bar");
 	}
 
+	@Test
 	public void testTypeCheckMult()
 	{
 		if (isTypeAllowed())
@@ -196,6 +196,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeMultipleCountCheckMult()
 	{
 		if (isTypeAllowed())
@@ -205,6 +206,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testMultipleTypeCheckMult()
 	{
 		if (isTypeAllowed())
@@ -214,6 +216,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeAndCheckMult()
 	{
 		if (isTypeAllowed())
@@ -223,6 +226,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testComplexCheckMult()
 	{
 		if (isTypeAllowed())
@@ -232,6 +236,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineSubNegativeAltCategory()
 	{
 		runRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1," + getPrefix()
@@ -239,6 +244,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ "Spot]");
 	}
 
+	@Test
 	public void testNoCombineCheckMultSubNegative()
 	{
 		runRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1," + getPrefix()
@@ -246,17 +252,20 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ getPrefix() + "Spot]");
 	}
 
+	@Test
 	public void testBasicAnyCategory()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + getAnyPrefix() + "Foo");
 	}
 
+	@Test
 	public void testMultipleAnyCategory()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1," + getAnyPrefix()
 				+ "Spot,Listen");
 	}
 
+	@Test
 	public void testNoCombineSubAnyCategory()
 	{
 		runRoundRobin("PREMULT:1,[PRE" + getBaseString() + ":1,"
@@ -264,6 +273,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ getAnyPrefix() + "Spot,Listen]");
 	}
 
+	@Test
 	public void testNoCombineSubNegativeAnyCategory()
 	{
 		runRoundRobin("PREMULT:1,[!PRE" + getBaseString() + ":1,"
@@ -271,6 +281,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ getAnyPrefix() + "Spot]");
 	}
 
+	@Test
 	public void testCombineSubAnyCategory()
 	{
 		// runSimpleRoundRobin("PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -303,6 +314,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testCombineSubNegativeAnyCategory()
 	{
 		// runSimpleRoundRobin("!PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -335,6 +347,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testNoCombineMultAnyCategory()
 	{
 		runRoundRobin("PREMULT:2,[PRE" + getBaseString() + ":1,"
@@ -342,12 +355,14 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 				+ getAnyPrefix() + "Spot,Listen]");
 	}
 
+	@Test
 	public void testMultipleCountAnyCategory()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":2," + getAnyPrefix()
 				+ "Foo,Bar");
 	}
 
+	@Test
 	public void testTypeAnyCategory()
 	{
 		if (isTypeAllowed())
@@ -357,6 +372,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeMultipleCountAnyCategory()
 	{
 		if (isTypeAllowed())
@@ -366,6 +382,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testMultipleTypeAnyCategory()
 	{
 		if (isTypeAllowed())
@@ -375,6 +392,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testTypeAndAnyCategory()
 	{
 		if (isTypeAllowed())
@@ -384,6 +402,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 		}
 	}
 
+	@Test
 	public void testComplexAnyCategory()
 	{
 		if (isTypeAllowed())
@@ -394,6 +413,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Override
+	@Test
 	public void testCombineSub()
 	{
 		String original = "PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -423,6 +443,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Override
+	@Test
 	public void testCombineSubNegative()
 	{
 		String original = "!PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -452,6 +473,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Override
+	@Test
 	public void testCombineSubSub()
 	{
 		String original = "PREMULT:2,[!PRE" + getBaseString() + ":1,"
@@ -481,6 +503,7 @@ public class PreAbilityRoundRobin extends AbstractBasicRoundRobin
 	}
 
 	@Override
+	@Test
 	public void testCombineSubNegativeSub()
 	{
 		String original = "!PREMULT:2,[!PRE" + getBaseString() + ":1,"

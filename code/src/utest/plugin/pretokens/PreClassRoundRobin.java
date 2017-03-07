@@ -17,34 +17,22 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.core.prereq.Prerequisite;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.prereq.PreParserFactory;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.writer.PreClassWriter;
 
+import static org.junit.Assert.fail;
+
 public class PreClassRoundRobin extends AbstractRankedRoundRobin
 {
-
-	public static void main(String args[])
-	{
-		TestRunner.run(PreClassRoundRobin.class);
-	}
-
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreClassRoundRobin.class);
-	}
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreClassParser());
@@ -69,16 +57,19 @@ public class PreClassRoundRobin extends AbstractRankedRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testSpellcaster()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER=2");
 	}
 
+	@Test
 	public void testSpellcasterTyped()
 	{
 		runRoundRobin("PRECLASS:1,SPELLCASTER.Arcane=2");
 	}
 
+	@Test
 	public void testNestedInvalid()
 	{
 		try

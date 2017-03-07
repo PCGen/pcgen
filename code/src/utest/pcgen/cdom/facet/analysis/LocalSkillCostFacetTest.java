@@ -17,10 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.CharID;
@@ -34,7 +30,14 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-public class LocalSkillCostFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public class LocalSkillCostFacetTest
 {
 	protected CharID id;
 	protected CharID altid;
@@ -43,10 +46,9 @@ public class LocalSkillCostFacetTest extends TestCase
 	private PCClass class1;
 	private PCClass class2;
 
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -70,6 +72,7 @@ public class LocalSkillCostFacetTest extends TestCase
 		}
 	}
 
+	@Test
 	public void testAddNullClass()
 	{
 		try

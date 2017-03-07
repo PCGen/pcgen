@@ -10,6 +10,7 @@ import pcgen.core.AbilityCategory;
 
 import org.junit.Before;
 import org.junit.Test;
+
 import static junit.framework.TestCase.assertFalse;
 import static junit.framework.TestCase.assertTrue;
 
@@ -23,7 +24,6 @@ public class CNAbilitySelectionUtilitiesTest
 	Ability multyes;
 	Ability stackyes;
 	Ability othernomult;
-
 	@Before
 	public void setUp() throws Exception
 	{

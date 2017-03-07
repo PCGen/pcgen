@@ -31,7 +31,11 @@ import pcgen.cdom.helper.Aspect;
 
 import org.junit.Before;
 import org.junit.Test;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * The Class {@code MapKeyMapTest} test that the MapKeyMap
@@ -86,6 +90,7 @@ public class MapKeyMapTest
 	/**
 	 * Test retrieval of items from the map
 	 */
+
 	@Test
 	public void testGet()
 	{
@@ -100,6 +105,7 @@ public class MapKeyMapTest
 	/**
 	 * Test loading the map with another map.
 	 */
+
 	@Test
 	public void testPutAll()
 	{
@@ -118,6 +124,7 @@ public class MapKeyMapTest
 	/**
 	 * Test adding an entry to the map overwriting an existing entry.
 	 */
+
 	@Test
 	public void testAddToMapFor()
 	{
@@ -134,6 +141,7 @@ public class MapKeyMapTest
 	/**
 	 * Test removing items from the list.
 	 */
+
 	@Test
 	public void testRemoveFromListFor()
 	{
@@ -151,6 +159,7 @@ public class MapKeyMapTest
 	 * Test retrieval of the primary key set and that the retrieved set is 
 	 * not a pointer to the master set in the MapKeyMap.
 	 */
+
 	@Test
 	public void testGetKeySet()
 	{
@@ -176,6 +185,7 @@ public class MapKeyMapTest
 	 * Test the containsMapFor method and the effect of adding and 
 	 * removing items on it. 
 	 */
+
 	@Test
 	public void testContainsMapFor()
 	{
@@ -201,6 +211,7 @@ public class MapKeyMapTest
 	/**
 	 * Test the removal of a map by key.
 	 */
+
 	@Test
 	public void testRemoveMapFor()
 	{

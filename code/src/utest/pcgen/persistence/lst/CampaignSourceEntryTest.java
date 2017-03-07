@@ -20,14 +20,15 @@
  */
 package pcgen.persistence.lst;
 
-import static org.junit.Assert.*;
-
 import java.net.URI;
 import java.util.List;
 
 import org.junit.Before;
 import org.junit.Test;
 
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 /**
  * CampaignSourceEntryTest checks processing functions of the 
  * CampaignSourceEntry class. 
@@ -38,9 +39,8 @@ public class CampaignSourceEntryTest
 {
 
 	private URI sourceUri;
-	
 	@Before
-	public void setup() throws Exception
+	public void setUp() throws Exception
 	{
 		sourceUri = new URI("file://CampaignSourceEntryTest");
 	}
@@ -48,6 +48,7 @@ public class CampaignSourceEntryTest
 	/**
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseSuffix()
 	{
@@ -111,6 +112,7 @@ public class CampaignSourceEntryTest
 	/**
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseSuffixInvalid()
 	{
@@ -141,6 +143,7 @@ public class CampaignSourceEntryTest
 	/**
 	 * Test method for {@link pcgen.persistence.lst.CampaignSourceEntry#parseSuffix(java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseSuffixInlineBracket()
 	{

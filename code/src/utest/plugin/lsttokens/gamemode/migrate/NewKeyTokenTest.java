@@ -20,13 +20,16 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.*;
+import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.core.system.MigrationRule;
-import pcgen.core.system.MigrationRule.ObjectType;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * NewKeyTokenTest verifies that NewKeyToken is operating correctly.
@@ -55,6 +58,7 @@ public class NewKeyTokenTest
 	/**
 	 * Test method for {@link plugin.lsttokens.gamemode.migrate.NewKeyToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseValidKey()
 	{
@@ -68,6 +72,7 @@ public class NewKeyTokenTest
 	/**
 	 * Test that invalid characters get rejected and the new key field is not set. 
 	 */
+
 	@Test
 	public void testParseInvalidKeyEquip()
 	{
@@ -102,6 +107,7 @@ public class NewKeyTokenTest
 	/**
 	 * Test that invalid characters get rejected and the new key field is not set. 
 	 */
+
 	@Test
 	public void testParseInvalidKeySource()
 	{
@@ -132,8 +138,7 @@ public class NewKeyTokenTest
 		}
 		
 	}
-	
-	
+
 	@Test
 	public void testParseValidKeySource()
 	{

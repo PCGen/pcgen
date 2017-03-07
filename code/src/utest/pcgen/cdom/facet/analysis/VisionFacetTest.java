@@ -31,6 +31,8 @@ import pcgen.core.Race;
 import pcgen.core.Vision;
 import pcgen.util.enumeration.VisionType;
 
+import org.junit.Before;
+
 public class VisionFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, QualifiedObject<Vision>>
 {
@@ -38,8 +40,7 @@ public class VisionFacetTest extends
 	private VisionFacet facet = new VisionFacet();
 	private QualifiedObject<Vision>[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();

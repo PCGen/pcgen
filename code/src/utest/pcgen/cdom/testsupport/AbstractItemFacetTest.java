@@ -17,17 +17,22 @@
  */
 package pcgen.cdom.testsupport;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractItemFacet;
 import pcgen.cdom.facet.event.DataFacetChangeEvent;
 import pcgen.cdom.facet.event.DataFacetChangeListener;
 
-public abstract class AbstractItemFacetTest<T> extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public abstract class AbstractItemFacetTest<T>
 {
 	private CharID id;
 	private CharID altid;
@@ -54,10 +59,9 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 
 	}
 
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -77,6 +81,7 @@ public abstract class AbstractItemFacetTest<T> extends TestCase
 		assertTrue(getFacet().matches(id, null));
 	}
 
+	@Test
 	public void testListeners()
 	{
 		Listener newL = new Listener();

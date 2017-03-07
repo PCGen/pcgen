@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.BuildUtilities;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreBaseSizeParser;
@@ -27,21 +26,12 @@ import plugin.pretokens.writer.PreBaseSizeWriter;
 
 public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreBaseSizeRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreBaseSizeRoundRobin.class);
-	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreBaseSizeParser());
@@ -49,6 +39,7 @@ public class PreBaseSizeRoundRobin extends AbstractComparatorRoundRobin
 		BuildUtilities.createSize("Fine", 0);
 	}
 
+	@Test
 	public void testSimpleString()
 	{
 		runRoundRobin("F");

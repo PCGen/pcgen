@@ -17,36 +17,27 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellResistanceParser;
 import plugin.pretokens.writer.PreSpellResistanceWriter;
 
 public class PreSRRoundRobin extends AbstractComparatorRoundRobin
 {
-	public static void main(String args[])
-	{
-		TestRunner.run(PreSRRoundRobin.class);
-	}
 
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreSRRoundRobin.class);
-	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSpellResistanceParser());
 		TokenRegistration.register(new PreSpellResistanceWriter());
 	}
 
+	@Test
 	public void testSimpleInteger()
 	{
 		runRoundRobin("1");

@@ -17,17 +17,20 @@
  */
 package plugin.pretokens;
 
+import org.junit.Test;
+
 public abstract class AbstractIntegerRoundRobin extends
 		AbstractPreRoundRobin
 {
 
 	public abstract String getBaseString();
-
+	@Test
 	public void testBasic()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1");
 	}
 
+	@Test
 	public void testHigher()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":3");

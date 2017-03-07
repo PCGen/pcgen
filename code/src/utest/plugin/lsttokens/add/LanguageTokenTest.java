@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Language;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class LanguageTokenTest extends AbstractAddTokenTestCase<Language>
@@ -51,12 +51,6 @@ public class LanguageTokenTest extends AbstractAddTokenTestCase<Language>
 	public boolean isTypeLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

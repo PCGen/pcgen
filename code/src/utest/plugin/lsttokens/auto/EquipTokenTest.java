@@ -16,8 +16,6 @@
  */
 package plugin.lsttokens.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -26,6 +24,8 @@ import pcgen.core.Equipment;
 import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -58,12 +58,6 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 		return false;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<Equipment> getActor()
 	{
@@ -84,6 +78,7 @@ public class EquipTokenTest extends AbstractAutoTokenTestCase<Equipment>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

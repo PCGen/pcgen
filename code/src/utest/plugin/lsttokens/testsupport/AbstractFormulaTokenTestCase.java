@@ -17,13 +17,13 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.base.formula.Formula;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.FormulaFactory;
 import pcgen.cdom.enumeration.FormulaKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractFormulaTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>

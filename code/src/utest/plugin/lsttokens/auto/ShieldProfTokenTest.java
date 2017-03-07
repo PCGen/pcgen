@@ -20,8 +20,6 @@ package plugin.lsttokens.auto;
 import java.util.ArrayList;
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.base.ChooseSelectionActor;
@@ -35,6 +33,8 @@ import pcgen.core.ShieldProf;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 
 public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
@@ -74,12 +74,6 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 		return true;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<ShieldProf> getActor()
 	{
@@ -108,6 +102,7 @@ public class ShieldProfTokenTest extends AbstractAutoTokenTestCase<ShieldProf>
 	}
 
 	@SuppressWarnings("unchecked")
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{

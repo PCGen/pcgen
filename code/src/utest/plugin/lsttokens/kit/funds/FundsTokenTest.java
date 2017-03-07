@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.kit.funds;
 
-import org.junit.Test;
-
 import pcgen.core.kit.KitFunds;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMSubLineLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractKitTokenTestCase;
 
 public class FundsTokenTest extends AbstractKitTokenTestCase<KitFunds>

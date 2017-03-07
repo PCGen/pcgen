@@ -39,6 +39,12 @@ import pcgen.cdom.testsupport.AbstractExtractingFacetTest;
 import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
+
 /**
  * This class tests the handling of DRs in PCGen
  */
@@ -49,8 +55,7 @@ public class DamageReductionFacetTest extends
 	private DamageReductionFacet facet = new DamageReductionFacet();
 	private DamageReduction[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -71,6 +76,7 @@ public class DamageReductionFacetTest extends
 	/**
 	 * Test the retrieval of the DR String
 	 */
+	@Test
 	public void testGetDRString()
 	{
 		DamageReductionFacet drFacet = new DamageReductionFacet();

@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.auto;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChooseSelectionActor;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMGroupRef;
@@ -27,6 +25,8 @@ import pcgen.core.Language;
 import pcgen.core.QualifiedObject;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAutoTokenTestCase;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 
@@ -52,12 +52,6 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 		return true;
 	}
 
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
-	}
-
 	@Override
 	protected ChooseSelectionActor<Language> getActor()
 	{
@@ -78,6 +72,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	}
 
 	@SuppressWarnings({"unchecked", "rawtypes"})
+
 	@Test
 	public void testUnparseGenericsFail() throws PersistenceLayerException
 	{
@@ -122,6 +117,7 @@ public class LangTokenTest extends AbstractAutoTokenTestCase<Language> {
 	 *  
 	 * @throws PersistenceLayerException Not expected.
 	 */
+	@Test
 	public void testRounfRobinMultWithPrereq() throws PersistenceLayerException
 	{
 		construct(primaryContext, "Infernal");

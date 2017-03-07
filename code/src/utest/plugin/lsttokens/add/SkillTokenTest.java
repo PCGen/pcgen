@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.add;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.ChoiceActor;
 import pcgen.core.Skill;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractAddTokenTestCase;
 
 public class SkillTokenTest extends
@@ -52,12 +52,6 @@ public class SkillTokenTest extends
 	public boolean isTypeLegal()
 	{
 		return true;
-	}
-
-	@Test
-	public void testEmpty()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

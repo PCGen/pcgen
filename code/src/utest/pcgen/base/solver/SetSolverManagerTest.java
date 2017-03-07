@@ -97,7 +97,6 @@ public class SetSolverManagerTest
 	private final FormatManager<Equipment> equipmentManager = new SimpleReferenceManufacturer<>(new CDOMFactory<>(Equipment.class));
 	private ArrayFormatManager<String> arrayManager;
 	private ScopeInstanceFactory siFactory;
-
 	@Before
 	public void setUp() throws Exception
 	{

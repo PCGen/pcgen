@@ -20,13 +20,12 @@
  */
 package pcgen.pluginmgr;
 
+import org.junit.Test;
+
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertNull;
 import static org.junit.Assert.assertTrue;
-
-import org.junit.Test;
-
 /**
  * The Class <code>MessageHandlerManagerTest</code> checks that MessageHandlerManager is
  * working correctly.
@@ -41,6 +40,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#addMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
+
 	@Test
 	public void testAddMember()
 	{
@@ -63,6 +63,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Test method for {@link pcgen.pluginmgr.MessageHandlerManager#removeMember(pcgen.pluginmgr.PCGenMessageHandler)}.
 	 */
+
 	@Test
 	public void testRemoveMember()
 	{
@@ -86,6 +87,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
+
 	@Test
 	public void testPostboxMessageDistributionOrder()
 	{
@@ -132,6 +134,7 @@ public class MessageHandlerManagerTest
 	/**
 	 * Check that the postbox used by MessageHandlerManager send out messages in the right order.
 	 */
+
 	@Test
 	public void testPostboxMessageDistributionConsumption()
 	{

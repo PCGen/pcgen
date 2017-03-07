@@ -20,13 +20,16 @@
  */
 package plugin.lsttokens.gamemode.migrate;
 
-import static org.junit.Assert.*;
+import pcgen.core.system.MigrationRule;
+import pcgen.core.system.MigrationRule.ObjectType;
 
 import org.junit.Before;
 import org.junit.Test;
 
-import pcgen.core.system.MigrationRule;
-import pcgen.core.system.MigrationRule.ObjectType;
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
 
 /**
  * NewCategoryTokenTest verifies that NewCategoryToken is operating correctly.
@@ -54,6 +57,7 @@ public class NewCategoryTokenTest
 	/**
 	 * Test method for {@link plugin.lsttokens.gamemode.migrate.NewCategoryToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseValidCat()
 	{
@@ -67,6 +71,7 @@ public class NewCategoryTokenTest
 	/**
 	 * Test that invalid characters get rejected and the new category field is not set. 
 	 */
+
 	@Test
 	public void testParseInvalidCat()
 	{

@@ -28,7 +28,10 @@ import pcgen.rules.persistence.token.ModifierFactory;
 
 import org.junit.Test;
 import plugin.modifier.testsupport.EvalManagerUtilities;
-import static org.junit.Assert.*;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertSame;
+import static org.junit.Assert.fail;
 
 public class MultiplyNumberModifierTest
 {

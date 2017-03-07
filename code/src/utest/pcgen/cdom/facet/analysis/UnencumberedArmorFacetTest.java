@@ -17,8 +17,6 @@
  */
 package pcgen.cdom.facet.analysis;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.ObjectKey;
@@ -30,6 +28,13 @@ import pcgen.core.PCTemplate;
 import pcgen.core.Race;
 import pcgen.util.enumeration.Load;
 
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class UnencumberedArmorFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, Load>
 {
@@ -37,8 +42,7 @@ public class UnencumberedArmorFacetTest extends
 	private UnencumberedArmorFacet facet = new UnencumberedArmorFacet();
 	private Load[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();
@@ -95,7 +99,6 @@ public class UnencumberedArmorFacetTest extends
 	{
 		return target[i];
 	}
-
 
 	@Test
 	public void testMultipleLoad()

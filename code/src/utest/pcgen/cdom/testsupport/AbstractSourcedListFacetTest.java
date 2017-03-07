@@ -23,10 +23,6 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.CharID;
 import pcgen.cdom.enumeration.DataSetID;
 import pcgen.cdom.facet.base.AbstractSourcedListFacet;
@@ -35,7 +31,16 @@ import pcgen.cdom.facet.event.DataFacetChangeListener;
 import pcgen.core.bonus.BonusObj;
 import pcgen.rules.persistence.TokenLibrary;
 
-public abstract class AbstractSourcedListFacetTest<T> extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public abstract class AbstractSourcedListFacetTest<T>
 {
 	protected CharID id;
 	protected CharID altid;
@@ -62,11 +67,9 @@ public abstract class AbstractSourcedListFacetTest<T> extends TestCase
 		}
 
 	}
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);

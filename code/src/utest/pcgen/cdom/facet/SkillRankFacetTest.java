@@ -24,10 +24,13 @@ import pcgen.cdom.facet.SkillRankFacet.SkillRankChangeListener;
 import pcgen.core.PCClass;
 import pcgen.core.Skill;
 
-import junit.framework.TestCase;
+import org.junit.Before;
 import org.junit.Test;
 
-public class SkillRankFacetTest extends TestCase
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.fail;
+public class SkillRankFacetTest
 {
 	private CharID id;
 	private CharID altid;
@@ -52,11 +55,9 @@ public class SkillRankFacetTest extends TestCase
 		}
 
 	}
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
-		super.setUp();
 		DataSetID cid = DataSetID.getID();
 		id = CharID.getID(cid);
 		altid = CharID.getID(cid);
@@ -81,7 +82,7 @@ public class SkillRankFacetTest extends TestCase
 	@Test
 	public void testRankUnsetZero()
 	{
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -132,8 +133,8 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, null, 4.0);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.get(id, s1, null).floatValue());
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, null).floatValue(), 0.01);
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -144,8 +145,8 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, cl1, 4.0);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue());
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue(), 0.01);
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -157,9 +158,9 @@ public class SkillRankFacetTest extends TestCase
 		facet.set(id, s1, cl1, 4.0);
 		facet.set(id, s1, cl2, 2.0);
 		assertEventCount(2);
-		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue());
-		assertEquals(2.0f, facet.get(id, s1, cl2).floatValue());
-		assertEquals(6.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.get(id, s1, cl1).floatValue(), 0.01);
+		assertEquals(2.0f, facet.get(id, s1, cl2).floatValue(), 0.01);
+		assertEquals(6.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -172,14 +173,14 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//More Ranks
 		facet.set(id, s1, cl2, 2.0);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(6.0f, event.getNewRank());
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(6.0f, event.getNewRank(), 0.01);
 	}
 
 	@Test
@@ -192,15 +193,15 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//Remove
 		facet.remove(id, s1, cl1);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(0.0f, event.getNewRank());
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(0.0f, event.getNewRank(), 0.01);
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -223,10 +224,10 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s1, cl1, 4);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 		facet.remove(id, s1, cl2);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	@Test
@@ -237,10 +238,10 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(0);
 		facet.set(id, s2, cl1, 4);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s2));
+		assertEquals(4.0f, facet.getRank(id, s2), 0.01);
 		facet.remove(id, s1, cl2);
 		assertEventCount(1);
-		assertEquals(4.0f, facet.getRank(id, s2));
+		assertEquals(4.0f, facet.getRank(id, s2), 0.01);
 	}
 
 	@Test
@@ -287,15 +288,15 @@ public class SkillRankFacetTest extends TestCase
 		assertEventCount(1);
 		SkillRankChangeEvent event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(0.0f, event.getOldRank());
-		assertEquals(4.0f, event.getNewRank());
+		assertEquals(0.0f, event.getOldRank(), 0.01);
+		assertEquals(4.0f, event.getNewRank(), 0.01);
 		//Remove
 		facet.remove(id, s1, null);
 		event = listener.lastRankEvent;
 		assertEquals(s1, event.getSkill());
-		assertEquals(4.0f, event.getOldRank());
-		assertEquals(0.0f, event.getNewRank());
-		assertEquals(0.0f, facet.getRank(id, s1));
+		assertEquals(4.0f, event.getOldRank(), 0.01);
+		assertEquals(0.0f, event.getNewRank(), 0.01);
+		assertEquals(0.0f, facet.getRank(id, s1), 0.01);
 	}
 
 	/*
@@ -313,17 +314,17 @@ public class SkillRankFacetTest extends TestCase
 	{
 		facet.set(id, s1, cl1, 4);
 		facet.set(id, s2, cl2, 2);
-		assertEquals(0.0f, facet.getRank(altid, s1));
-		assertEquals(0.0f, facet.getRank(altid, s2));
+		assertEquals(0.0f, facet.getRank(altid, s1), 0.01);
+		assertEquals(0.0f, facet.getRank(altid, s2), 0.01);
 		facet.copyContents(id, altid);
-		assertEquals(4.0f, facet.getRank(altid, s1));
-		assertEquals(2.0f, facet.getRank(altid, s2));
+		assertEquals(4.0f, facet.getRank(altid, s1), 0.01);
+		assertEquals(2.0f, facet.getRank(altid, s2), 0.01);
 	}
 
 	@Test
 	public void testEmptyCopyContents()
 	{
 		facet.copyContents(id, altid);
-		assertEquals(0.0f, facet.getRank(altid, s1));
+		assertEquals(0.0f, facet.getRank(altid, s1), 0.01);
 	}
 }

@@ -17,15 +17,18 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.enumeration.Type;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.context.LoadContext;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 		extends AbstractGlobalTokenTestCase
@@ -141,7 +144,6 @@ public abstract class AbstractGlobalListTokenTestCase<TC extends CDOMObject>
 			assertNoSideEffects();
 		}
 	}
-
 
 	@Test
 	public void testInvalidInputAny() throws PersistenceLayerException

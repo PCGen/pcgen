@@ -19,12 +19,18 @@ package plugin.lsttokens.testsupport;
 
 import java.util.List;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.Constants;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.ConsolidationRule.AppendingConsolidation;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
 
 public abstract class AbstractGlobalTypeSafeListTestCase<T> extends
 		AbstractGlobalTokenTestCase

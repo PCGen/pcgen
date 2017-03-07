@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
 public class BioSetTokenTest extends AbstractCampaignTokenTestCase
@@ -33,12 +33,6 @@ public class BioSetTokenTest extends AbstractCampaignTokenTestCase
 	public CDOMPrimaryToken<Campaign> getToken()
 	{
 		return token;
-	}
-
-	@Test
-	public void dummyTest()
-	{
-		// Just to get Eclipse to recognize this as a JUnit 4.0 Test Case
 	}
 
 	@Override

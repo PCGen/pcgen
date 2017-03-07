@@ -21,12 +21,6 @@ package plugin.lsttokens.testsupport;
 import java.net.URI;
 import java.net.URISyntaxException;
 
-import junit.framework.TestCase;
-
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Test;
-
 import pcgen.cdom.base.Loadable;
 import pcgen.core.AbilityCategory;
 import pcgen.core.Campaign;
@@ -43,6 +37,11 @@ import pcgen.rules.persistence.TokenLibrary;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.ParseResult;
 import pcgen.util.Logging;
+
+import junit.framework.TestCase;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
 
 @SuppressWarnings("nls")
 public abstract class AbstractTokenTestCase<T extends Loadable> extends
@@ -65,8 +64,7 @@ public abstract class AbstractTokenTestCase<T extends Loadable> extends
 		classSetUpFired = true;
 	}
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		if (!classSetUpFired)

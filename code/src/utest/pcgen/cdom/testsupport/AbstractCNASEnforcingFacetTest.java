@@ -4,10 +4,6 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
-import junit.framework.TestCase;
-
-import org.junit.Test;
-
 import pcgen.cdom.content.CNAbility;
 import pcgen.cdom.content.CNAbilityFactory;
 import pcgen.cdom.enumeration.CharID;
@@ -23,7 +19,16 @@ import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.core.Ability;
 import pcgen.core.AbilityCategory;
 
-public abstract class AbstractCNASEnforcingFacetTest extends TestCase
+import org.junit.Before;
+import org.junit.Test;
+
+import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertNotNull;
+import static org.junit.Assert.assertTrue;
+import static org.junit.Assert.fail;
+
+public abstract class AbstractCNASEnforcingFacetTest
 {
 
 	CharID id;
@@ -67,11 +72,9 @@ public abstract class AbstractCNASEnforcingFacetTest extends TestCase
 		assertEquals(a, listener.addEventCount);
 		assertEquals(r, listener.removeEventCount);
 	}
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
-		super.setUp();
 		getFacet().addDataFacetChangeListener(listener);
 		CNAbilityFactory.reset();
 		DataSetID cid = DataSetID.getID();

@@ -32,6 +32,8 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.context.RuntimeLoadContext;
 import pcgen.rules.context.RuntimeReferenceContext;
 
+import org.junit.Before;
+
 public class ChangeProfFacetTest extends
 		AbstractExtractingFacetTest<CDOMObject, ChangeProf>
 {
@@ -41,8 +43,7 @@ public class ChangeProfFacetTest extends
 	private ChangeProfFacet facet = new ChangeProfFacet();
 	private ChangeProf[] target;
 	private CDOMObject[] source;
-
-	@Override
+	@Before
 	public void setUp() throws Exception
 	{
 		super.setUp();
