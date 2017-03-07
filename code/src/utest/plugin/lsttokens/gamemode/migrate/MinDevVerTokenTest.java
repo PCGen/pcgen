@@ -56,13 +56,14 @@ public class MinDevVerTokenTest
 	/**
 	 * Test method for {@link plugin.lsttokens.gamemode.migrate.MinDevVerToken#parse(pcgen.core.system.MigrationRule, java.lang.String, java.lang.String)}.
 	 */
+
 	@Test
 	public void testParseValidVer()
 	{
 		assertTrue("Parse should have been successful", token.parse(migrationRule, "6.01.03", gameModeName));
 		assertEquals("MinDevVer", "6.01.03", migrationRule.getMinDevVer());
 	}
-	
+
 	@Test
 	public void testParseValidVerNumbers()
 	{

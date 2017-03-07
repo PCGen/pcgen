@@ -19,14 +19,14 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -35,6 +35,9 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class DescLstTest extends AbstractGlobalTokenTestCase
 {
@@ -64,8 +67,7 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -121,7 +123,7 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	public void testGoodParentheses() throws PersistenceLayerException {
 		assertTrue(parse("(first)"));
 	}
-	
+
 	@Test
 	public void testBadParentheses() throws PersistenceLayerException {
 		assertFalse("Missing end paren should have been flagged.", parse("(first"));
@@ -166,13 +168,13 @@ public class DescLstTest extends AbstractGlobalTokenTestCase
 	{
 		runRoundRobin("SA Number %1 before %2|Var|TwoVar|PRECLASS:1,Fighter=1|PRERACE:1,Human");
 	}
-	
+
 	@Test
 	public void testRoundRobinNewLine() throws PersistenceLayerException
 	{
 		runRoundRobin("First Line&nl;Second Line.");
 	}
-	
+
 	@Test
 	public void testRoundRobinEncoded() throws PersistenceLayerException
 	{

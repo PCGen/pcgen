@@ -17,15 +17,16 @@
  */
 package plugin.pretokens;
 
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreDomainParser;
 import plugin.pretokens.writer.PreDomainWriter;
 
 public class PreDomainRoundRobin extends AbstractBasicRoundRobin
 {
-
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreDomainParser());
@@ -44,6 +45,7 @@ public class PreDomainRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testAny()
 	{
 		runRoundRobin("PRE" + getBaseString() + ":1,Any");

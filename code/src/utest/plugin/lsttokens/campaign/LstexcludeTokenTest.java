@@ -17,12 +17,12 @@
  */
 package plugin.lsttokens.campaign;
 
-import org.junit.Test;
-
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.core.Campaign;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractCampaignTokenTestCase;
 
 public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
@@ -55,6 +55,7 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 	}
 
 	@Override
+	@Test
 	public void testInvalidInputExcludeNoParen()
 			throws PersistenceLayerException
 	{
@@ -62,6 +63,7 @@ public class LstexcludeTokenTest extends AbstractCampaignTokenTestCase
 	}
 
 	@Override
+	@Test
 	public void testInvalidInputIncludeNoParen()
 			throws PersistenceLayerException
 	{

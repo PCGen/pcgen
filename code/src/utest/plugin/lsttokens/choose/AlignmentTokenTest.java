@@ -17,8 +17,6 @@
  */
 package plugin.lsttokens.choose;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.core.PCAlignment;
 import pcgen.core.Race;
@@ -27,6 +25,8 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -112,6 +112,7 @@ public class AlignmentTokenTest extends
 	}
 
 	@Override
+	@Test
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		construct(primaryContext, "TestWP1");

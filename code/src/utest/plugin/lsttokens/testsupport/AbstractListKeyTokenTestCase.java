@@ -17,14 +17,14 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.CDOMReference;
 import pcgen.cdom.enumeration.ListKey;
 import pcgen.cdom.reference.CDOMDirectSingleRef;
 import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractListKeyTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractListInputTokenTestCase<T, TC>

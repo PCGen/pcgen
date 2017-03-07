@@ -19,9 +19,6 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.Type;
 import pcgen.cdom.list.ClassSpellList;
@@ -31,6 +28,9 @@ import pcgen.core.spell.Spell;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
@@ -39,6 +39,8 @@ import plugin.pretokens.parser.PreClassParser;
 import plugin.pretokens.parser.PreRaceParser;
 import plugin.pretokens.writer.PreClassWriter;
 import plugin.pretokens.writer.PreRaceWriter;
+
+import static org.junit.Assert.assertFalse;
 
 public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 {
@@ -68,8 +70,7 @@ public class SpellLevelLstTest extends AbstractGlobalTokenTestCase
 	PreRaceParser prerace = new PreRaceParser();
 	PreRaceWriter preracewriter = new PreRaceWriter();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

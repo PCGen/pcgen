@@ -19,12 +19,12 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
 import pcgen.base.format.StringManager;
 import pcgen.cdom.enumeration.FactKey;
 import pcgen.cdom.facet.FacetInitialization;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreFactParser;
 import plugin.pretokens.writer.PreFactWriter;
@@ -40,22 +40,13 @@ public class PreFactRoundRobin extends AbstractPreRoundRobin
 	private static final StringManager STR_MGR = new StringManager();
 	
 	
-	public static void main(String args[])
-	{
-		TestRunner.run(PreFactRoundRobin.class);
-	}
+
 
 	
-	/**
-	 * @return Test
-	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreFactRoundRobin.class);
-	}
 
-	@Override
-	protected void setUp() throws Exception
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreFactParser());
@@ -72,16 +63,19 @@ public class PreFactRoundRobin extends AbstractPreRoundRobin
 		}
 	}
 
+	@Test
 	public void testBoolean()
 	{
 		runPositiveRoundRobin("PREFACT:1,RACE,Foo=true");
 	}
 
+	@Test
 	public void testString()
 	{
 		runPositiveRoundRobin("PREFACT:1,RACE,Foo=Bar");
 	}
-	
+
+	@Test
 	public void testMultipleBoolean()
 	{
 		runPositiveRoundRobin("PREFACT:1,RACE,"

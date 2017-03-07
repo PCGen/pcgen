@@ -23,6 +23,8 @@ import pcgen.persistence.PersistenceLayerException;
 import pcgen.persistence.lst.LstToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
 import plugin.lsttokens.choose.TemplateToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -36,8 +38,7 @@ public class PCQualifierTokenTest extends
 
 	private static final LstToken PC_TOKEN =
 			new PCToken();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

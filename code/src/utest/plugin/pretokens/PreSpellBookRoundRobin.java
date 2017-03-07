@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreSpellBookParser;
 import plugin.pretokens.writer.PreSpellBookWriter;
@@ -39,19 +38,23 @@ public class PreSpellBookRoundRobin extends AbstractPreRoundRobin
 		return new TestSuite(PreSpellBookRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreSpellBookParser());
 		TokenRegistration.register(new PreSpellBookWriter());
 	}
 
+	@Test
 	public void testYes()
 	{
 		runRoundRobin("PRESPELLBOOK:YES");
 	}
 
+	@Test
 	public void testNo()
 	{
 		runRoundRobin("PRESPELLBOOK:NO");

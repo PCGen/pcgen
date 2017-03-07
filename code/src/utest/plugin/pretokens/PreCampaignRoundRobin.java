@@ -20,8 +20,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreCampaignParser;
 import plugin.pretokens.writer.PreCampaignWriter;
@@ -40,16 +40,13 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 	 * 
 	 * @return Test
 	 */
-	public static Test suite()
-	{
-		return new TestSuite(PreCampaignRoundRobin.class);
-	}
+
 
 	/* (non-Javadoc)
 	 * @see junit.framework.TestCase#setUp()
 	 */
-	@Override
-	protected void setUp() throws Exception
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreCampaignParser());
@@ -74,6 +71,7 @@ public class PreCampaignRoundRobin extends AbstractBasicRoundRobin
 		return false;
 	}
 
+	@Test
 	public void testNegateItem()
 	{
 		AbstractPreRoundRobin.runSimpleRoundRobin("PRE" + getBaseString() + ":1,Foo,[TYPE=Bar]",

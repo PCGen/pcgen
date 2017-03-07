@@ -29,7 +29,6 @@ import pcgen.cdom.reference.CDOMGroupRef;
 import pcgen.persistence.PersistenceLayerException;
 
 import org.junit.Test;
-
 public abstract class AbstractListContextTokenTestCase<T extends CDOMObject, TC extends CDOMObject>
 		extends AbstractListInputTokenTestCase<T, TC>
 {

@@ -19,18 +19,21 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Before;
-import org.junit.Test;
-
 import pcgen.cdom.base.ConcretePrereqObject;
 import pcgen.cdom.base.Constants;
 import pcgen.core.PCTemplate;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
+
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
 
 public class PreTokenTest extends AbstractGlobalTokenTestCase
 {
@@ -38,8 +41,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	static CDOMPrimaryToken<ConcretePrereqObject> token = new PreLst();
 	static CDOMTokenLoader<PCTemplate> loader = new CDOMTokenLoader<>();
 
-	@Override
-	@Before
+		@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -105,6 +107,7 @@ public class PreTokenTest extends AbstractGlobalTokenTestCase
 	}
 
 	@Override
+	@Test
 	public void testOverwrite() throws PersistenceLayerException
 	{
 		//Can't be done, nothing ever unparses

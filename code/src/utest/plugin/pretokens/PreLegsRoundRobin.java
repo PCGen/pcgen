@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLegsParser;
 import plugin.pretokens.writer.PreLegsWriter;
@@ -39,14 +38,17 @@ public class PreLegsRoundRobin extends AbstractComparatorRoundRobin
 		return new TestSuite(PreLegsRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreLegsParser());
 		TokenRegistration.register(new PreLegsWriter());
 	}
 
+	@Test
 	public void testSimpleInteger()
 	{
 		runRoundRobin("1");

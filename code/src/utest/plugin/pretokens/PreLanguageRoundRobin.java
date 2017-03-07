@@ -17,9 +17,8 @@
  */
 package plugin.pretokens;
 
-import junit.framework.Test;
-import junit.framework.TestSuite;
-import junit.textui.TestRunner;
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.TokenRegistration;
 import plugin.pretokens.parser.PreLanguageParser;
 import plugin.pretokens.writer.PreLanguageWriter;
@@ -39,8 +38,10 @@ public class PreLanguageRoundRobin extends AbstractBasicRoundRobin
 		return new TestSuite(PreLanguageRoundRobin.class);
 	}
 
-	@Override
-	protected void setUp() throws Exception
+
+
+	@Before
+	public void setUp() throws Exception
 	{
 		super.setUp();
 		TokenRegistration.register(new PreLanguageParser());
@@ -59,6 +60,7 @@ public class PreLanguageRoundRobin extends AbstractBasicRoundRobin
 		return true;
 	}
 
+	@Test
 	public void testAny()
 	{
 		this.runRoundRobin("PRE" + getBaseString() + ":1,ANY");

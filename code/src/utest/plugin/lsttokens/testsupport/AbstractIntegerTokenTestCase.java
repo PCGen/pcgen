@@ -17,11 +17,11 @@
  */
 package plugin.lsttokens.testsupport;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.enumeration.IntegerKey;
 import pcgen.persistence.PersistenceLayerException;
+
+import org.junit.Test;
 
 public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		extends AbstractCDOMTokenTestCase<T>
@@ -61,6 +61,7 @@ public abstract class AbstractIntegerTokenTestCase<T extends CDOMObject>
 		assertNoSideEffects();
 	}
 
+	@Test
 	public void testInvalidInputs(Integer val) throws PersistenceLayerException
 	{
 		// Always ensure get is unchanged

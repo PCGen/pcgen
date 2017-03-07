@@ -22,6 +22,8 @@ import pcgen.core.Deity;
 import pcgen.persistence.PersistenceLayerException;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
 import plugin.lsttokens.choose.DeityToken;
 import plugin.lsttokens.testsupport.AbstractPCQualifierTokenTestCase;
 import plugin.lsttokens.testsupport.TokenRegistration;
@@ -35,8 +37,7 @@ public class PCQualifierTokenTest extends
 
 	private static final plugin.qualifier.deity.PCToken PC_TOKEN =
 			new plugin.qualifier.deity.PCToken();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();

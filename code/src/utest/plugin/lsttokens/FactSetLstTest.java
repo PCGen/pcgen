@@ -19,8 +19,6 @@ package plugin.lsttokens;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.base.format.StringManager;
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.content.factset.FactSetDefinition;
@@ -32,17 +30,22 @@ import pcgen.rules.context.LoadContext;
 import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.util.enumeration.Visibility;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.testsupport.AbstractGlobalTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
 import plugin.lsttokens.testsupport.ConsolidationRule;
 import plugin.lsttokens.testsupport.TokenRegistration;
 
+import static org.junit.Assert.assertFalse;
+import static org.junit.Assert.assertTrue;
+
 public class FactSetLstTest extends AbstractGlobalTokenTestCase
 {
 	private static FactSetLst token = new FactSetLst();
 	private static CDOMTokenLoader<Domain> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		TokenRegistration.clearTokens();

@@ -19,8 +19,6 @@ package plugin.lsttokens.choose;
 
 import java.net.URISyntaxException;
 
-import org.junit.Test;
-
 import pcgen.cdom.base.CDOMObject;
 import pcgen.cdom.base.Category;
 import pcgen.cdom.base.Loadable;
@@ -33,6 +31,9 @@ import pcgen.rules.persistence.CDOMLoader;
 import pcgen.rules.persistence.token.CDOMPrimaryToken;
 import pcgen.rules.persistence.token.CDOMSecondaryToken;
 import pcgen.rules.persistence.token.QualifierToken;
+
+import org.junit.Before;
+import org.junit.Test;
 import plugin.lsttokens.ChooseLst;
 import plugin.lsttokens.testsupport.AbstractChooseTokenTestCase;
 import plugin.lsttokens.testsupport.CDOMTokenLoader;
@@ -45,8 +46,7 @@ public class AbilityTokenTest extends
 	static ChooseLst token = new ChooseLst();
 	static AbilityToken subtoken = new AbilityToken();
 	static CDOMTokenLoader<CDOMObject> loader = new CDOMTokenLoader<>();
-
-	@Override
+	@Before
 	public void setUp() throws PersistenceLayerException, URISyntaxException
 	{
 		super.setUp();
@@ -143,6 +143,7 @@ public class AbilityTokenTest extends
 	}
 
 	@Override
+	@Test
 	public void testUnparseLegal() throws PersistenceLayerException
 	{
 		//Hard to get correct - doesn't assume Category :(
