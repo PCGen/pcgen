@@ -653,7 +653,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 
 		// Create equip set for the item
 		String id;
-		if ((beforeNode != null) && (beforeNode instanceof EquipNodeImpl))
+		if ((beforeNode instanceof EquipNodeImpl))
 		{
 			id =
 					shiftEquipSetsDown(parentEs, (EquipNodeImpl) beforeNode,
@@ -1540,7 +1540,7 @@ class EquipmentSetFacadeImpl implements EquipmentSetFacade,
 	 */
 	protected EquipNode getNaturalWeaponLoc(EquipmentFacade equipment)
 	{
-		if (!(equipment instanceof Equipment) || (equipment == null))
+		if (!(equipment instanceof Equipment))
 		{
 			return null;
 		}

@@ -45,7 +45,7 @@ public abstract class VersionAwareToken
 		{
 			Logging
 				.log(Logging.LST_ERROR, "Invalid version in " + getTokenName()
-					+ ":" + version + " must have 3 number parts e.g. "
+					+ ':' + version + " must have 3 number parts e.g. "
 					+ getTokenName() + ":6.0.2");
 			return false;
 		}
@@ -65,7 +65,7 @@ public abstract class VersionAwareToken
 				else
 				{
 					Logging.log(Logging.LST_ERROR, "Invalid version in "
-						+ getTokenName() + ":" + version
+						+ getTokenName() + ':' + version
 						+ " must have 3 number parts e.g. " + getTokenName()
 						+ ":6.0.2");
 					return false;

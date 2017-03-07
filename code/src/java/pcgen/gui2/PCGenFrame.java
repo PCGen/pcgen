@@ -1582,7 +1582,7 @@ public final class PCGenFrame extends JFrame implements UIDelegate
 
 		do
 		{
-			sepPos = message.indexOf("\n", start); //$NON-NLS-1$
+			sepPos = message.indexOf('\n', start); //$NON-NLS-1$
 
 			if (sepPos >= 0)
 			{

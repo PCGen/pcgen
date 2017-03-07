@@ -195,7 +195,7 @@ public final class PreParserFactory implements PluginLoader
 	public static boolean isPreReqString(String token)
 	{
 		return (token.startsWith("PRE") || token.startsWith("!PRE"))
-			&& (token.indexOf(":") > 0);
+			&& (token.indexOf(':') > 0);
 	}
 	
 	public static void clear()

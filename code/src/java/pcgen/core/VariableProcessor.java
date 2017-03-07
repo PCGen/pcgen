@@ -208,7 +208,7 @@ public abstract class VariableProcessor
 	private String makeCacheString(CharacterSpell aSpell, String varString,
 		String src, int spellLevelTemp)
 	{
-		StringBuilder cS = new StringBuilder(varString).append("#").append(src);
+		StringBuilder cS = new StringBuilder(varString).append('#').append(src);
 		
 		if (aSpell != null)
 		{
@@ -382,8 +382,9 @@ public abstract class VariableProcessor
 						break;
 
 					default:
-						Logging.errorPrint("ERROR - badly formed statement:" + aString + ":" + val1.toString() + ":"
-							+ val2.toString() + ":" + comp);
+						Logging.errorPrint("ERROR - badly formed statement:" + aString + ':'
+								+ val1.toString() + ':'
+							+ val2.toString() + ':' + comp);
 
 						return new Float(0.0);
 				}

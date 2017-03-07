@@ -60,7 +60,7 @@ public class TokenConverter
 		if (old != null)
 		{
 			Logging.errorPrint("More than one Conversion token for "
-					+ tpp.getProcessedClass().getSimpleName() + " "
+					+ tpp.getProcessedClass().getSimpleName() + ' '
 					+ tpp.getProcessedToken() + " found");
 		}
 	}
@@ -116,7 +116,7 @@ public class TokenConverter
 		}
 		catch (Exception ex)
 		{
-			Logging.errorPrint("Parse of " + tpe.getKey() + ":"
+			Logging.errorPrint("Parse of " + tpe.getKey() + ':'
 					+ tpe.getValue() + " failed");
 			ex.printStackTrace();
 		}

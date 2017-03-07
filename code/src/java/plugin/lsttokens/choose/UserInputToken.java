@@ -85,7 +85,7 @@ public class UserInputToken implements CDOMSecondaryToken<CDOMObject>
 			if (!titleString.startsWith("TITLE="))
 			{
 				return new ParseResult.Fail("CHOOSE:" + getTokenName() + " in "
-					+ obj.getClass() + " " + obj.getKeyName()
+					+ obj.getClass() + ' ' + obj.getKeyName()
 					+ " had invalid arguments: " + value, context);
 			}
 			String title = titleString.substring(6);

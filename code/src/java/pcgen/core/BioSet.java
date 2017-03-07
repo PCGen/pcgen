@@ -437,8 +437,8 @@ public final class BioSet extends PObject implements NonInteractive
 				// Barbarian,Rogue,Sorcerer[BASEAGEADD:3d6]
 				String aString = aTok.nextToken();
 
-				final int start = aString.indexOf("[");
-				final int end = aString.indexOf("]");
+				final int start = aString.indexOf('[');
+				final int end = aString.indexOf(']');
 
 				// should be BASEAGEADD:xdy
 				String dieString = aString.substring(start + 1, end);

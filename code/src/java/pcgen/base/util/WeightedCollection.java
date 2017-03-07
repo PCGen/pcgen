@@ -569,7 +569,7 @@ public class WeightedCollection<E> extends AbstractCollection<E>
 		@Override
 		public String toString()
 		{
-			return theElement + " (" + theWeight + ")";
+			return theElement + " (" + theWeight + ')';
 		}
 	}
 

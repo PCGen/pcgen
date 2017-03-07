@@ -382,17 +382,17 @@ public class AttackModel extends PObjectModel
 			{
 				//If we've got a double weapon, pcgen is using AdB+C/+D, so
 				String damageDice = damage.get(0);
-				if (damageDice.lastIndexOf("+") > 0)
+				if (damageDice.lastIndexOf('+') > 0)
 				{
 					damageDice =
 							damageDice
-								.substring(0, damageDice.lastIndexOf("+"));
+								.substring(0, damageDice.lastIndexOf('+'));
 				}
-				else if (damageDice.lastIndexOf("-") > 0)
+				else if (damageDice.lastIndexOf('-') > 0)
 				{
 					damageDice =
 							damageDice
-								.substring(0, damageDice.lastIndexOf("-"));
+								.substring(0, damageDice.lastIndexOf('-'));
 				}
 				for (int i = 1; i < damage.size(); i++)
 				{

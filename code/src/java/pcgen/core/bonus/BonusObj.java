@@ -441,8 +441,8 @@ public abstract class BonusObj extends ConcretePrereqObject implements Serializa
 						.append(aString.substring(y + 1)).toString();
 		}
 
-		if (aString.indexOf("(") >= 0 || aString.indexOf(")") >= 0 ||
-				aString.indexOf("%") >= 0)
+		if (aString.indexOf('(') >= 0 || aString.indexOf(')') >= 0 ||
+				aString.indexOf('%') >= 0)
 		{
 			return;
 		}

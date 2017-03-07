@@ -90,20 +90,20 @@ public class TokenSupport
 				if (Logging.isLoggable(Logging.LST_INFO))
 				{
 					Logging.addParseMessage(Logging.LST_INFO,
-						"Failed in parsing typeStr: " + typeStr + " " + argument);
+						"Failed in parsing typeStr: " + typeStr + ' ' + argument);
 				}
 			}
 		}
 		if (typeStr.startsWith(" "))
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal whitespace at start of token '" + typeStr
-				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ "' '" + argument + "' for " + cl.getName() + ' '
 				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		else
 		{
 			Logging.addParseMessage(Logging.LST_ERROR, "Illegal Token '" + typeStr
-				+ "' '" + argument + "' for " + cl.getName() + " "
+				+ "' '" + argument + "' for " + cl.getName() + ' '
 				+ derivative.getDisplayName() + " in " + context.getSourceURI());
 		}
 		return false;
@@ -302,7 +302,7 @@ public class TokenSupport
 		{
 			return null;
 		}
-		return result.toArray(new String[]{});
+		return result.toArray(new String[result.size()]);
 	}
 
 	public Collection<DeferredToken<? extends Loadable>> getDeferredTokens()
