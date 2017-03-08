@@ -206,7 +206,7 @@ public class SkillPointTableModel extends AbstractTableModel
 			setHorizontalAlignment(SwingConstants.CENTER);
 		}
 
-		/* (non-Javadoc)
+		/**
 		 * @see javax.swing.table.TableCellRenderer#getTableCellRendererComponent(javax.swing.JTable, java.lang.Object, boolean, boolean, int, int)
 		 */
 		@Override

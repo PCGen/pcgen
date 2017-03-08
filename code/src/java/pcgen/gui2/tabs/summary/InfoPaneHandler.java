@@ -127,7 +127,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		installed = false;
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ReferenceListener#referenceChanged(pcgen.core.facade.event.ReferenceEvent)
 	 */
 	@Override
@@ -136,7 +136,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementAdded(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -145,7 +145,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementRemoved(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -154,7 +154,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementModified(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override
@@ -163,7 +163,7 @@ public class InfoPaneHandler implements ReferenceListener<Object>,
 		scheduleRefresh();
 	}
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.core.facade.event.ListListener#elementsChanged(pcgen.core.facade.event.ListEvent)
 	 */
 	@Override

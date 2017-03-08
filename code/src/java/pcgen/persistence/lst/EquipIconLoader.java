@@ -38,7 +38,7 @@ import pcgen.util.Logging;
 public class EquipIconLoader extends LstLineFileLoader
 {
 
-	/* (non-Javadoc)
+	/**
 	 * @see pcgen.persistence.lst.LstLineFileLoader#parseLine(pcgen.rules.context.LoadContext, java.lang.String, java.net.URI)
 	 */
 	@Override
